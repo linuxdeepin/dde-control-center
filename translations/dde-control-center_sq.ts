@@ -1346,10 +1346,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation>3. Importoni Dëshmi</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>Që të instaloni dhe xhironi aplikacione të panënshkruar, ju lutemi, kaloni te &lt;a href=&quot;Security Center&quot;&gt;Qendër Sigurie&lt;/a&gt;, që të ndryshoni rregullime.</translation>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>Mundësi zhvillimi dhe diagnostikimi</translation>
     </message>
@@ -1372,6 +1368,18 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>Ndryshimi i mundësisë mund të dojë deri në një minutë që të kryhet, pas marrjes së pohimit për rregullim të suksesshëm, ju lutemi, rinisni pajisjen, që të hyjë në fuqi.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> to change the settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

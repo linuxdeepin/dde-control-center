@@ -1348,10 +1348,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>3.Importera certifikat</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>För att installera och köra icke-signerade program, gå till &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; för att ändra inställningarna.</translation>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>Utvecklings- och felhanteringstester</translation>
     </message>
@@ -1374,6 +1370,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>Ändring av inställningen kan ta upp till en minut att bearbeta. Efter att ha mottagit ett lyckat inställningsmeddelande, starta om enheten för att åtgärden ska börja gälla.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> to change the settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

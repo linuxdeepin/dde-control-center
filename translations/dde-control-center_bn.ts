@@ -1337,10 +1337,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>3. কার্টিফিকেট ইমপোর্ট করুন</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>অনার্থক প্রোগ্রাম স্থাপন এবং চালানোর জন্য, অর্থনির্দেশনা কেন্দ্র এবং সেটিংস পরিবর্তন করার জন্য এই লিংকে যান &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt;.</translation>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>নিয়ন্ত্রণ এবং ডিভাইজ ট্র্যাস্ট অপশনস</translation>
     </message>
@@ -1363,6 +1359,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>অপশন পরিবর্তন করার প্রসেস সম্পূর্ণ হতে প্রায় এক মিনিট লাগতে পারে, একটি সফল সেটিং প্রোমপ্ট পেয়ে পরে ডিভাইসটি রিবুট করে অপশনটি প্রভাবিত করতে হবে</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> to change the settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1335,10 +1335,6 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <translation>3.Uvoziti certifikat</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>Za namesto in izvajanje neprijavljenih programov, poskuste &lt;a href=&quot;Security Center&quot;&gt;center za varnost&lt;/a&gt;, da sprememate nastavitve.</translation>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>Možnosti razvoja in odprtega shraničevanja</translation>
     </message>
@@ -1361,6 +1357,18 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>Sprememba možnosti lahko traja do enega minuta, po uspešnem zahtevu za nastavitev, prosimo, ponovno zagnite uređaj, da bi začela vplivati.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> to change the settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

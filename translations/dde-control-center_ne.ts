@@ -1336,10 +1336,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>3.Import Certificate</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>unsigned apps नियमित रूपमा इनस्टॉल र चलाउन लाई, &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; गर्दा सेटिङलाई परिवर्तन गर्नुहोस्।</translation>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>프로그래밍 र डिबगिंग विकल्पहरू</translation>
     </message>
@@ -1362,6 +1358,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>विकल्प बदल्ने एक मिनिट तयार गर्न मुख्य र योग्य व्यवस्थापन लुकाउन बाद अनुकूल रूपमा काम गर्न लाग्दै र यसले प्रभाव पाउँद्छ। उपकरणलाई पुनरारंभ गर्नुपर्छ।</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> to change the settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

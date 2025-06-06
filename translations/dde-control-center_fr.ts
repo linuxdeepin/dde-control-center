@@ -1361,10 +1361,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <translation>3.Importer un certificat</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>Pour installer et exécuter des applications non signées, veuillez vous rendre sur &lt;a href=&quot;Security Center&quot;&gt;Centre de sécurité&lt;/a&gt; pour modifier les paramètres.</translation>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>Options de développement et de débogage</translation>
     </message>
@@ -1387,6 +1383,18 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>La modification de l&apos;option peut prendre jusqu&apos;à une minute pour être traitée. Après avoir reçu un message de réussite de la configuration, redémarrez l&apos;appareil pour que les modifications prennent effet.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> to change the settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

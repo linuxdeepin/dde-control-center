@@ -1346,10 +1346,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>3.导入证书</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>如需安装非应用商店来源的应用，前往 &lt;a href=&quot;Security Center&quot;&gt;安全中心&lt;/a&gt; 进行设置。</translation>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>开发调试选项</translation>
     </message>
@@ -1372,6 +1368,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>更改选项处理可能需要一分钟，收到设置成功提示后，请重启设备方可生效。</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to </source>
+        <translation>如需安装非应用商店来源的应用，前往</translation>
+    </message>
+    <message>
+        <source>Security Center</source>
+        <translation>安全中心</translation>
+    </message>
+    <message>
+        <source> to change the settings.</source>
+        <translation>进行设置。</translation>
     </message>
 </context>
 <context>

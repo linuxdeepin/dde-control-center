@@ -1346,10 +1346,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>3. Importeu el certificat</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>Per instal·lar i executar aplicacions sense signar, aneu al &lt;a href=&quot;Security Center&quot;&gt;Centre de seguretat&lt;/a&gt; per canviar-ne la configuració.</translation>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>Opcions de desenvolupament i depuració</translation>
     </message>
@@ -1372,6 +1368,18 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>El canvi d&apos;opció pot trigar fins a un minut a processar-se; després de rebre una sol·licitud de configuració correcta, reinicieu el dispositiu perquè tingui efecte.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> to change the settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

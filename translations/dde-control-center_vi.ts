@@ -1358,10 +1358,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>3.Nhập chứng chỉ</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>Để cài đặt và chạy ứng dụng không ký hiệu, xin vui lòng truy cập &lt;a href=&quot;Security Center&quot;&gt;Trung tâm Bảo mật&lt;/a&gt; để thay đổi cài đặt.</translation>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>Công cụ phát triển và gỡ lỗi</translation>
     </message>
@@ -1384,6 +1380,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>Thay đổi tùy chọn có thể mất tới một phút để xử lý, sau khi nhận được thông báo thiết lập thành công, vui lòng khởi động lại thiết bị để có hiệu lực.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> to change the settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

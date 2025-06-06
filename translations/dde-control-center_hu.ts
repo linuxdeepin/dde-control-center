@@ -1333,10 +1333,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>3.Importálás</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>A nem hiteles alkalmazásainak telepítéséhez és futtatásához kérjük, látogasson el a &lt;a href=&quot;Security Center&quot;&gt;Biztonsági központ&lt;/a&gt; oldalra, és módosítsa beállításait.</translation>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>Fejlesztési és hibaelhárítási beállítások</translation>
     </message>
@@ -1359,6 +1355,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>A beállítás módosítása felhasználói felület 60 másodpercig folyamatosan folytatódhat. A beállítások érvénybe történéséhez kérjük, ismételd be a számítógépet.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> to change the settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

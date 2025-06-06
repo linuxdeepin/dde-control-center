@@ -1347,10 +1347,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>3.Importar certificado</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>Para instalar y ejecutar aplicaciones sin firmar, vaya al &lt;a href=&quot;Security Center&quot;&gt;Centro de seguridad&lt;/a&gt; para cambiar la configuración.</translation>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>Opciones de depuración para desarrolladores</translation>
     </message>
@@ -1373,6 +1369,18 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>El cambio de opción puede tardar hasta un minuto en procesarse. Después de recibir un mensaje de configuración exitosa, reinicie el dispositivo para que surta efecto.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> to change the settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1345,10 +1345,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>3. Импортировать сертификат</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>Для установки и запуска неподписанных приложений перейдите в &lt;a href=&quot;Security Center&quot;&gt;Центр безопасности&lt;/a&gt; для изменения настроек.</translation>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>Опции разработки и отладки</translation>
     </message>
@@ -1371,6 +1367,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>Изменение опции может занять до минуты. После получения уведомления о успешной настройке перезагрузите устройство для применения изменений.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> to change the settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

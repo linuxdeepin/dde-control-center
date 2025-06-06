@@ -1336,10 +1336,6 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation>3.Importar certificado</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>Para instalar e executar apps sen firmar, vade a &lt;a href=&quot;Centro de Segurança&quot;&gt;Centro de Segurança&lt;/a&gt; para cambiar os rexistros.</translation>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>Opcionals de desenvolvemento e depuración</translation>
     </message>
@@ -1362,6 +1358,18 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>Cambiar esta opción pode levar un minuto para procesarse. Despois de recibir unha solicitude de configuración exitosa, reinicie o dispositivo para que teña efecto.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to </source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Security Center</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source> to change the settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
