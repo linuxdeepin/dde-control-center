@@ -50,10 +50,6 @@
         <translation>add grup</translation>
     </message>
     <message>
-        <source>Auto login, login without password</source>
-        <translation>login automatik, login imen tissifra</translation>
-    </message>
-    <message>
         <source>Auto login</source>
         <translation>login automatik</translation>
     </message>
@@ -79,6 +75,30 @@
     </message>
     <message>
         <source>The full name is too long</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Group names should be no more than 32 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Group names cannot only have numbers</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The group name has been used</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>quick login, Auto login, login without password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Quickly load DDE with your login information</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2942,10 +2962,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Xeuwa</translation>
     </message>
     <message>
-        <source>Medium</source>
-        <translation>Xeuwa Midda</translation>
-    </message>
-    <message>
         <source>Large</source>
         <translation>Xeuwa Guday</translation>
     </message>
@@ -3008,6 +3024,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Extremely small</source>
         <translation>Dëgg bëdd</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3739,6 +3765,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
         <translation type="unfinished"/>
     </message>
 </context>
