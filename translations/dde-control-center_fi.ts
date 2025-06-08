@@ -1975,7 +1975,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Valitse paneelissa näkyvät kuvakkeet</translation>
+        <translation>Valitse telakan kuvakkeet</translation>
     </message>
 </context>
 <context>
@@ -3689,7 +3689,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>main</name>
     <message>
         <source>Dock</source>
-        <translation>Paneeli</translation>
+        <translation>Telakka</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -3705,7 +3705,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Dock size</source>
-        <translation>Paneelin koko</translation>
+        <translation>Telakan koko</translation>
     </message>
     <message>
         <source>Small</source>
@@ -3773,7 +3773,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Valitse paneelissa näkyvät kuvakkeet</translation>
+        <translation>Valitse telakan kuvakkeet</translation>
     </message>
     <message>
         <source>Lock the Dock</source>
