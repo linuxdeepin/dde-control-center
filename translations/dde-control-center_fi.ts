@@ -3036,12 +3036,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
+        <translation>Keskitaso</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
+        <translation>Keskitaso</translation>
     </message>
 </context>
 <context>
@@ -3777,7 +3777,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Lukitse telakka</translation>
     </message>
 </context>
 <context>
@@ -4090,7 +4090,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Ilmoitus avoimen lähdekoodin ohjelmistosta</translation>
     </message>
 </context>
 <context>
