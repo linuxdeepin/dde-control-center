@@ -6,6 +6,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Window
 import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
+import org.deepin.dtk.style 1.0 as DS
         
 D.DialogWindow {
     id: ddialog
@@ -17,6 +18,62 @@ D.DialogWindow {
     icon: "preferences-system"
     modality: Qt.WindowModal
     property date currentDate: new Date()
+
+    component SpinboxTextInput: TextInput {
+        property var spinbox: parent
+
+        text: spinbox.displayText
+        font: spinbox.font
+        color: spinbox.palette.text
+        selectionColor: spinbox.palette.highlight
+        selectedTextColor: spinbox.palette.highlightedText
+        horizontalAlignment: Qt.AlignLeft
+        verticalAlignment: Qt.AlignVCenter
+        leftPadding: DS.Style.spinBox.spacing
+        readOnly: !spinbox.editable
+        validator: spinbox.validator
+        inputMethodHints: spinbox.inputMethodHints
+        selectByMouse: spinbox.editable
+
+        onTextEdited: {
+            if (text === "") return;
+
+            let value = parseInt(text);
+            if (spinbox.from > 0 && text.length === 1 && text === "0") {
+                text = "";
+                return;
+            }
+            if (value > spinbox.to) {
+                text = text.substring(0, text.length - 1);
+                return;
+            }
+
+            let minDigits = Math.floor(Math.log10(spinbox.from)) + 1;
+            let maxDigits = Math.floor(Math.log10(spinbox.to)) + 1;
+            let currentLength = text.length;
+
+            let minPossible;
+            if (currentLength >= minDigits) {
+                minPossible = value;
+            } else {
+                minPossible = parseInt(text + "0".repeat(minDigits - currentLength));
+            }
+
+            let maxPossible;
+            if (currentLength >= maxDigits) {
+                maxPossible = value;
+            } else {
+                maxPossible = parseInt(text + "9".repeat(maxDigits - currentLength));
+            }
+
+            let isValid = (minPossible <= spinbox.to && maxPossible >= spinbox.from);
+            if (!isValid) {
+                text = text.substring(0, text.length - 1);
+            } else if (value >= spinbox.from && value <= spinbox.to) {
+                spinbox.value = value;
+            }
+        }
+    }
 
     function getDaysInMonth(year, month) {
         return new Date(year, month, 0).getDate()
@@ -49,11 +106,19 @@ D.DialogWindow {
                 to: 2090
                 wrap: true
                 value: currentDate.getFullYear()
-                onValueChanged: ddialog.updateDateMax()
+                onValueChanged: {
+                    ddialog.updateDateMax()
+                    yearTextInput.text  = value
+                }
                 Component.onCompleted: {
                     let year = currentDate.getFullYear()
                     spYear.from = year - 30
                     spYear.to = year + 30
+                }
+
+                contentItem: SpinboxTextInput {
+                    id: yearTextInput
+                    spinbox: spYear
                 }
             }
             SpinboxEx {
@@ -63,7 +128,15 @@ D.DialogWindow {
                 to: 12
                 wrap: true
                 value: currentDate.getMonth() + 1 //  // January gives 0
-                onValueChanged: ddialog.updateDateMax()
+                onValueChanged: {
+                    ddialog.updateDateMax()
+                    monthTextInput.text = value
+                }
+
+                contentItem: SpinboxTextInput {
+                    id: monthTextInput
+                    spinbox: spMonth
+                }
             }
             SpinboxEx {
                 id: spDay
@@ -72,6 +145,14 @@ D.DialogWindow {
                 to: 31
                 wrap: true
                 value: currentDate.getDate()
+                onValueChanged: {
+                    dayTextInput.text = value
+                }
+
+                contentItem: SpinboxTextInput {
+                    id: dayTextInput
+                    spinbox: spDay
+                }
             }
         }
         RowLayout {
@@ -87,6 +168,14 @@ D.DialogWindow {
                 to: 23
                 wrap: true
                 value: currentDate.getHours()
+                onValueChanged: {
+                    hourTextInput.text = value
+                }
+
+                contentItem: SpinboxTextInput {
+                    id: hourTextInput
+                    spinbox: spHour
+                }
             }
             SpinboxEx {
                 id: spMin
@@ -94,6 +183,14 @@ D.DialogWindow {
                 to: 59
                 wrap: true
                 value: currentDate.getMinutes()
+                onValueChanged: {
+                    minTextInput.text = value
+                }
+
+                contentItem: SpinboxTextInput {
+                    id: minTextInput
+                    spinbox: spMin
+                }
             }
         }
         RowLayout {
