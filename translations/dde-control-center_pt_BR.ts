@@ -3644,7 +3644,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>Organização da área de trabalho, modo da barra de tarefas, configurações da área de plugins</translation>
     </message>
 </context>
 <context>
@@ -3765,7 +3765,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear a Dock</translation>
     </message>
 </context>
 <context>
@@ -4078,7 +4078,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Aviso de Software de Código Aberto</translation>
     </message>
 </context>
 <context>
