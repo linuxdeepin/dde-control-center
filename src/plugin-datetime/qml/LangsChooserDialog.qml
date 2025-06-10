@@ -47,114 +47,146 @@ Loader {
                 }
             }
 
-            ListView {
-                id: itemsView
-                property string checkedLang
+            RowLayout {
                 Layout.fillWidth: true
                 height: 360
-                clip: true
-                snapMode: ListView.SnapOneItem
                 Layout.leftMargin: 10
-                Layout.rightMargin: 10
-                model: langDialogLoader.viewModel
-                ButtonGroup {
-                    id: langGroup
+                Layout.rightMargin: 0
+                spacing: 0
+
+                Item {
+                    Layout.fillWidth: true
+                    height: parent.height
+
+                    ListView {
+                        id: itemsView
+                        property string checkedLang
+                        anchors.fill: parent
+                        clip: true
+                        snapMode: ListView.SnapOneItem
+                        model: langDialogLoader.viewModel
+
+                        ButtonGroup {
+                            id: langGroup
+                        }
+
+                        delegate: CheckDelegate {
+                            id: checkDelegate
+                            implicitWidth: itemsView.width
+                            text: model.display
+                            hoverEnabled: true
+                            ButtonGroup.group: langGroup
+
+                            indicator: Loader {
+                                x: checkDelegate.mirrored ? checkDelegate.leftPadding : checkDelegate.width - width - checkDelegate.rightPadding
+                                y: checkDelegate.topPadding + (checkDelegate.availableHeight - height) / 2
+                                active: indicatorVisible
+
+                                sourceComponent: DciIcon {
+                                    palette: checkDelegate.DTK.makeIconPalette(checkDelegate.palette)
+                                    mode: checkDelegate.ColorSelector.controlState
+                                    theme: checkDelegate.ColorSelector.controlTheme
+                                    name: indicatorIcon
+                                    sourceSize: Qt.size(16, 16)
+                                    fallbackToQIcon: false
+                                    onNameChanged: {
+                                        play(DTK.NormalState);
+                                    }
+                                    Component.onCompleted: {
+                                        if (indicatorVisible)
+                                            play(DTK.NormalState);
+                                    }
+                                }
+                            }
+
+                            contentItem: RowLayout {
+                                Loader {
+                                    id: labelLoader
+                                    property string text: checkDelegate.text
+                                    property bool shouldSplit: text.split("-").length === 2
+                                    Layout.fillWidth: !checkDelegate.content
+                                    sourceComponent: shouldSplit ? splitComponent : singleComponent
+
+                                    Component {
+                                        id: singleComponent
+                                        IconLabel {
+                                            spacing: checkDelegate.spacing
+                                            mirrored: checkDelegate.mirrored
+                                            display: checkDelegate.display
+                                            alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                            text: labelLoader.text
+                                            font: checkDelegate.font
+                                            color: checkDelegate.palette.windowText
+                                            icon: DTK.makeIcon(checkDelegate.icon, checkDelegate.DciIcon)
+                                            Layout.fillWidth: !checkDelegate.content
+                                        }
+                                    }
+
+                                    Component {
+                                        id: splitComponent
+                                        RowLayout {
+                                            spacing: 0
+                                            IconLabel {
+                                                mirrored: checkDelegate.mirrored
+                                                display: checkDelegate.display
+                                                alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                                text: labelLoader.text.split("-")[0] || ""
+                                                font: checkDelegate.font
+                                                color: checkDelegate.palette.windowText
+                                            }
+                                            IconLabel {
+                                                mirrored: checkDelegate.mirrored
+                                                display: checkDelegate.display
+                                                alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                                text: "-"
+                                                font: checkDelegate.font
+                                                color: checkDelegate.palette.windowText
+                                            }
+                                            IconLabel {
+                                                mirrored: checkDelegate.mirrored
+                                                display: checkDelegate.display
+                                                alignment: Qt.AlignLeft | Qt.AlignVCenter
+                                                text: labelLoader.text.split("-")[1] || ""
+                                                font: checkDelegate.font
+                                                color: checkDelegate.palette.windowText
+                                                icon: DTK.makeIcon(checkDelegate.icon, checkDelegate.DciIcon)
+                                                Layout.fillWidth: !checkDelegate.content
+                                            }
+                                        }
+                                    }
+                                }
+                                Loader {
+                                    active: checkDelegate.content
+                                    sourceComponent: checkDelegate.content
+                                    Layout.fillWidth: true
+                                }
+                            }
+                            onCheckedChanged: {
+                                if (checked)
+                                    itemsView.checkedLang = model.key
+                            }
+                        }
+                    }
                 }
 
-                delegate: CheckDelegate {
-                    id: checkDelegate
-                    implicitWidth: itemsView.width
-                    text: model.display
-                    hoverEnabled: true
-                    ButtonGroup.group: langGroup
+                Item {
+                    width: 10
+                    Layout.preferredWidth: 10
+                    Layout.fillHeight: true
 
-                    indicator: Loader {
-                        x: checkDelegate.mirrored ? checkDelegate.leftPadding : checkDelegate.width - width - checkDelegate.rightPadding
-                        y: checkDelegate.topPadding + (checkDelegate.availableHeight - height) / 2
-                        active: indicatorVisible
+                    ScrollBar {
+                        anchors.fill: parent
+                        orientation: Qt.Vertical
 
-                        sourceComponent: DciIcon {
-                            palette: checkDelegate.DTK.makeIconPalette(checkDelegate.palette)
-                            mode: checkDelegate.ColorSelector.controlState
-                            theme: checkDelegate.ColorSelector.controlTheme
-                            name: indicatorIcon
-                            sourceSize: Qt.size(16, 16)
-                            fallbackToQIcon: false
-                            onNameChanged: {
-                                play(DTK.NormalState);
-                            }
-                            Component.onCompleted: {
-                                if (indicatorVisible)
-                                    play(DTK.NormalState);
+                        position: itemsView.visibleArea.yPosition
+                        size: itemsView.visibleArea.heightRatio
+                        active: itemsView.moving || itemsView.flicking
+
+                        onPositionChanged: {
+                            if (pressed) {
+                                itemsView.contentY = position * (itemsView.contentHeight - itemsView.height)
                             }
                         }
-                    }
-
-                    contentItem: RowLayout {
-                        Loader {
-                            id: labelLoader
-                            property string text: checkDelegate.text
-                            property bool shouldSplit: text.split("-").length === 2
-                            Layout.fillWidth: !checkDelegate.content
-                            sourceComponent: shouldSplit ? splitComponent : singleComponent
-
-                            Component {
-                                id: singleComponent
-                                IconLabel {
-                                    spacing: checkDelegate.spacing
-                                    mirrored: checkDelegate.mirrored
-                                    display: checkDelegate.display
-                                    alignment: Qt.AlignLeft | Qt.AlignVCenter
-                                    text: labelLoader.text
-                                    font: checkDelegate.font
-                                    color: checkDelegate.palette.windowText
-                                    icon: DTK.makeIcon(checkDelegate.icon, checkDelegate.DciIcon)
-                                    Layout.fillWidth: !checkDelegate.content
-                                }
-                            }
-
-                            Component {
-                                id: splitComponent
-                                RowLayout {
-                                    spacing: 0
-                                    IconLabel {
-                                        mirrored: checkDelegate.mirrored
-                                        display: checkDelegate.display
-                                        alignment: Qt.AlignLeft | Qt.AlignVCenter
-                                        text: labelLoader.text.split("-")[0] || ""
-                                        font: checkDelegate.font
-                                        color: checkDelegate.palette.windowText
-                                    }
-                                    IconLabel {
-                                        mirrored: checkDelegate.mirrored
-                                        display: checkDelegate.display
-                                        alignment: Qt.AlignLeft | Qt.AlignVCenter
-                                        text: "-"
-                                        font: checkDelegate.font
-                                        color: checkDelegate.palette.windowText
-                                    }
-                                    IconLabel {
-                                        mirrored: checkDelegate.mirrored
-                                        display: checkDelegate.display
-                                        alignment: Qt.AlignLeft | Qt.AlignVCenter
-                                        text: labelLoader.text.split("-")[1] || ""
-                                        font: checkDelegate.font
-                                        color: checkDelegate.palette.windowText
-                                        icon: DTK.makeIcon(checkDelegate.icon, checkDelegate.DciIcon)
-                                        Layout.fillWidth: !checkDelegate.content
-                                    }
-                                }
-                            }
-                        }
-                        Loader {
-                            active: checkDelegate.content
-                            sourceComponent: checkDelegate.content
-                            Layout.fillWidth: true
-                        }
-                    }
-                    onCheckedChanged: {
-                        if (checked)
-                            itemsView.checkedLang = model.key
                     }
                 }
             }
