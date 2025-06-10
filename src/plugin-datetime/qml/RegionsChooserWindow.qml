@@ -4,6 +4,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.0
 import QtQuick.Window
 import org.deepin.dtk 1.0
+import QtQuick.Layouts 1.0
 
 Loader {
     id: loader
@@ -54,43 +55,58 @@ Loader {
                 }
             }
 
-            ListView {
-                id: itemsView
-                property string checkedLang
-                property string checkedLocale
+            Item {
                 anchors.top: searchEdit.bottom
                 anchors.topMargin: 10
                 anchors.horizontalCenter: parent.horizontalCenter
                 height: 500
-                width: 180
-                clip: true
-                model: viewModel
-                currentIndex: loader.currentIndex
+                width: 200
 
-                ButtonGroup {
-                    id: regionGroup
-                }
+                ListView {
+                    id: itemsView
+                    property string checkedLang
+                    property string checkedLocale
+                    anchors.fill: parent
+                    clip: true
+                    leftMargin: 10
+                    rightMargin: 10
+                    model: viewModel
+                    currentIndex: loader.currentIndex
 
-                delegate: CheckDelegate {
-                    id: checkDelegate
-                    implicitWidth: itemsView.width
-                    palette: DTK.palette
-                    text: model.display
-                    checked: text === loader.currentText
-                    hoverEnabled: true
-                    ButtonGroup.group: regionGroup
-                    onCheckedChanged: {
-                        if (checked && loader.currentText !== model.display) {
-                            selectedRegion(model.display)
-                            closeWindow()
+                    ScrollBar.vertical: ScrollBar {
+                        parent: itemsView.parent
+                        anchors.top: itemsView.top
+                        anchors.right: itemsView.right
+                        anchors.bottom: itemsView.bottom
+                        width: 10
+                        implicitWidth: 10
+                    }
+
+                    ButtonGroup {
+                        id: regionGroup
+                    }
+
+                    delegate: CheckDelegate {
+                        id: checkDelegate
+                        implicitWidth: itemsView.width - itemsView.leftMargin - itemsView.rightMargin
+                        palette: DTK.palette
+                        text: model.display
+                        checked: text === loader.currentText
+                        hoverEnabled: true
+                        ButtonGroup.group: regionGroup
+                        onCheckedChanged: {
+                            if (checked && loader.currentText !== model.display) {
+                                selectedRegion(model.display)
+                                closeWindow()
+                            }
                         }
                     }
-                }
-                Component.onCompleted: {
-                    if (currentIndex >= 0) {
-                        let delegateHeight =  40
-                        contentY = currentIndex * delegateHeight;
-                        console.log("currentIndex", currentIndex, contentY)
+                    Component.onCompleted: {
+                        if (currentIndex >= 0) {
+                            let delegateHeight =  40
+                            contentY = currentIndex * delegateHeight;
+                            console.log("currentIndex", currentIndex, contentY)
+                        }
                     }
                 }
             }
