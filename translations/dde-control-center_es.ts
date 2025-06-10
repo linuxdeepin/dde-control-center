@@ -95,11 +95,11 @@
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Inicio de sesión automático, inicio de sesión sin contraseña</translation>
     </message>
     <message>
         <source>Quickly load DDE with your login information</source>
-        <translation type="unfinished"/>
+        <translation>Cargar rápidamente DDE con sus datos inicio se sesión</translation>
     </message>
 </context>
 <context>
@@ -776,7 +776,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Activar teclado</translation>
     </message>
 </context>
 <context>
@@ -1857,7 +1857,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>De 1 a 63 caracteres, por favor</translation>
     </message>
 </context>
 <context>
@@ -3040,12 +3040,12 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
+        <translation>Mediano</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
+        <translation>Mediano</translation>
     </message>
 </context>
 <context>
@@ -3781,7 +3781,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear el muelle</translation>
     </message>
 </context>
 <context>
@@ -4094,7 +4094,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Declaración de software de código abierto</translation>
     </message>
 </context>
 <context>
