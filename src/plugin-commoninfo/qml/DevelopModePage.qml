@@ -20,10 +20,12 @@ DccObject {
         pageType: DccObject.Item
         page: Label {
             leftPadding: 15
-            bottomPadding: 5
+            bottomPadding: -2
             text: qsTr("Root Access")
-            font.bold: true
-            font.pixelSize: 14
+            font.pixelSize: D.DTK.fontManager.t5.pixelSize
+            font.weight: 500
+            color: D.DTK.themeType === D.ApplicationHelper.LightType ?
+                    Qt.rgba(0, 0, 0, 1) : Qt.rgba(1, 1, 1, 1)
         }
     }
 
@@ -34,7 +36,7 @@ DccObject {
         pageType: DccObject.Item
         page: DccGroupView {
 
-            Layout.topMargin: 10
+            Layout.topMargin: 0
         }
 
         DccObject {
@@ -53,15 +55,15 @@ DccObject {
                     Layout.bottomMargin: 5
                     Label {
                         text: qsTr("Request Root Access")
-                        font.pixelSize: 16
+                        font: D.DTK.fontManager.t6
                     }
 
                     Label {
                         horizontalAlignment: Text.AlignLeft
                         wrapMode: Text.WordWrap
                         text: qsTr("After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.")
-                        font.pixelSize: 12
-                        opacity: 0.7
+                        font: D.DTK.fontManager.t10
+                        opacity: 0.5
 
                         Layout.fillWidth: true
                     }
@@ -72,7 +74,7 @@ DccObject {
                     Layout.rightMargin: 10
                     visible: dccData.mode().developerModeState || dccData.mode().isDeveloperMode
                     text: qsTr("Allowed")
-                    font.pixelSize: 12
+                    font: D.DTK.fontManager.t8
                 }
 
                 Button {
@@ -369,13 +371,12 @@ DccObject {
             page: Label {
                 height: 30
                 leftPadding: 15
-                topPadding: 10
+                topPadding: 5
                 bottomPadding: 5
-                text: qsTr("To install and run unsigned apps, please go to <a href=\"Security Center\">Security Center</a> to change the settings.")
-                font.pixelSize: 12
-                opacity: 0.7
-               // color: "transparent"
-               // color:"#5A000000"
+                color: D.DTK.themeType === D.ApplicationHelper.LightType ? "#64000000" : "#64FFFFFF"
+                textFormat: Text.RichText
+                text: qsTr("To install and run unsigned apps, please go to <a style='text-decoration: none;' href='Security Center'> Security Center </a> to change the settings.")
+                font: D.DTK.fontManager.t10
                 // 超链接点击事件
                 onLinkActivated: function(url) {
                     console.log("点击的链接是: " + url)
@@ -391,12 +392,14 @@ DccObject {
         weight: 50
         pageType: DccObject.Item
         page: Label {
+            topPadding: 5
             leftPadding: 15
-            bottomPadding: 5
+            bottomPadding: -2
             text: qsTr("Development and debugging options")
-            font.bold: true
-            color: "black"
-            font.pixelSize: 16
+            font.pixelSize: D.DTK.fontManager.t5.pixelSize
+            font.weight: 500
+            color: D.DTK.themeType === D.ApplicationHelper.LightType ?
+                    Qt.rgba(0, 0, 0, 1) : Qt.rgba(1, 1, 1, 1)
         }
     }
 
@@ -408,7 +411,7 @@ DccObject {
 
         page: DccGroupView {
 
-            Layout.topMargin: 10
+            Layout.topMargin: 0
         }
 
         DccObject {
@@ -425,6 +428,7 @@ DccObject {
                     width: 180
                     model: [ qsTr("Off"), qsTr("Debug") ]
                     flat: true
+                    font: D.DTK.fontManager.t8
                     currentIndex: dccData.mode().debugLogCurrentIndex
                     onCurrentIndexChanged: {
                         console.log("Selected index:", currentIndex)
@@ -447,8 +451,8 @@ DccObject {
                 topPadding: 5
                 rightPadding: 10
                 text: qsTr("Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.")
-                font.pixelSize: 12
-                opacity: 0.7
+                font: D.DTK.fontManager.t10
+                opacity: 0.5
                 wrapMode: Text.WordWrap
             }
         }
