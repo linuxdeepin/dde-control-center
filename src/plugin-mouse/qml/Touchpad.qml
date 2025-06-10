@@ -199,6 +199,7 @@ DccObject {
         parentName: "MouseAndTouchpad/Touchpad"
         displayName: qsTr("Gesture")
         weight: 50
+        visible: touchpad.enabled
         pageType: DccObject.Item
 
         page: ColumnLayout {
@@ -216,6 +217,7 @@ DccObject {
         name: "GestureGroup"
         parentName: "MouseAndTouchpad/Touchpad"
         weight: 60
+        visible: touchpad.enabled
         pageType: DccObject.Item
 
         DccObject {
@@ -264,6 +266,7 @@ DccObject {
         parentName: "MouseAndTouchpad/Touchpad"
         displayName: qsTr("Three-finger gestures")
         weight: 70
+        visible: touchpad.enabled
         backgroundType: DccObject.AutoBg
         pageType: DccObject.Item
 
@@ -282,6 +285,7 @@ DccObject {
         name: "ThreeFingerGestureGroup"
         parentName: "MouseAndTouchpad/Touchpad"
         weight: 80
+        visible: touchpad.enabled
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: GestureGroup {
@@ -305,6 +309,7 @@ DccObject {
         parentName: "MouseAndTouchpad/Touchpad"
         displayName: qsTr("Four-finger gestures")
         weight: 90
+        visible: touchpad.enabled
         backgroundType: DccObject.AutoBg
         pageType: DccObject.Item
         page: ColumnLayout {
@@ -322,6 +327,7 @@ DccObject {
         name: "FourFingerGestureGroup"
         parentName: "MouseAndTouchpad/Touchpad"
         weight: 100
+        visible: touchpad.enabled
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: GestureGroup {
