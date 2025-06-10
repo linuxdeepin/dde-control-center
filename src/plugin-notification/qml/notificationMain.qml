@@ -1,5 +1,4 @@
 // SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
-//
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.0
 import QtQuick.Controls 2.0
@@ -50,8 +49,7 @@ DccObject {
             weight: 20
             pageType: DccObject.Item
             visible: dccData.sysItemModel.disturbMode
-            page: TimeRange {
-            }
+            page: TimeRange {}
         }
         DccObject {
             name: "enableDoNotDisturbLock"
@@ -116,7 +114,7 @@ DccObject {
 
     DccObject {
         id: applicationList
-        name: "applicationList"
+        name: "list"
         parentName: "notification"
         weight: 50
         pageType: DccObject.Item
@@ -124,8 +122,8 @@ DccObject {
         DccRepeater {
             model: dccData.appListModel()
             delegate: DccObject {
-                name: "notificationItem" + index
-                parentName: "applicationList"
+                name: model.AppId
+                parentName: "notification/list"
                 pageType: DccObject.MenuEditor
                 weight: 10 + index
                 icon: model.AppIcon
@@ -139,13 +137,13 @@ DccObject {
                         }
                     }
                 }
-                DccObject{
-                    name: "notificationItemDetails" + index
-                    parentName: "applicationList/" + "notificationItem" + index
-                    DccObject{
+                DccObject {
+                    name: "notificationItemDetails"
+                    parentName: "notification/list/" + model.AppId
+                    DccObject {
                         backgroundType: DccObject.Normal
-                        name: "allowNotifications" + index
-                        parentName: "applicationList/notificationItem" + index + "/" + "notificationItemDetails" + index
+                        name: "allowNotifications"
+                        parentName: "notification/list/" + model.AppId + "/notificationItemDetails"
                         displayName: qsTr("Allow Notifications")
                         description: qsTr("Display notification on desktop or show unread messages in the notification center")
                         icon: model.AppIcon
@@ -163,8 +161,8 @@ DccObject {
                         }
                     }
                     DccObject {
-                        name: "notificationItemDetailsType" + index
-                        parentName: "applicationList/notificationItem" + index + "/" + "notificationItemDetails" + index
+                        name: "notificationItemDetailsType"
+                        parentName: "notification/list/" + model.AppId + "/notificationItemDetails"
                         backgroundType: DccObject.Normal
                         visible: model.EnableNotification
                         weight: 20
@@ -214,16 +212,16 @@ DccObject {
                         }
                     }
                     DccObject {
-                        name: "notificationSettingsGroup" + index
-                        parentName: "applicationList/notificationItem" + index + "/" + "notificationItemDetails" + index
+                        name: "notificationSettingsGroup"
+                        parentName: "notification/list/" + model.AppId + "/notificationItemDetails"
                         pageType: DccObject.Item
                         backgroundType: DccObject.Normal
                         visible: model.EnableNotification
                         weight: 30
                         page: DccGroupView {}
                         DccObject {
-                            name: "notificationPreview" + index
-                            parentName: "applicationList/notificationItem" + index + "/" + "notificationItemDetails" + index +"/"+"notificationSettingsGroup" + index
+                            name: "notificationPreview"
+                            parentName: "notification/list/" + model.AppId + "/notificationItemDetails/notificationSettingsGroup"
                             displayName: qsTr("Show message preview")
                             pageType: DccObject.Item
                             weight: 10
@@ -240,8 +238,8 @@ DccObject {
                             }
                         }
                         DccObject {
-                            name: "notificationSound" + index
-                            parentName: "applicationList/notificationItem" + index + "/" + "notificationItemDetails" + index +"/"+"notificationSettingsGroup" + index
+                            name: "notificationSound"
+                            parentName: "notification/list/" + model.AppId + "/notificationItemDetails/notificationSettingsGroup"
                             displayName: qsTr("Play a sound")
                             pageType: DccObject.Item
                             weight: 20
