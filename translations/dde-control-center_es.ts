@@ -75,23 +75,23 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>El nombre completo es muy largo</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Los nombres de los grupos no deben tener más de 32 caracteres</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Los nombres de grupo no pueden tener solo números</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>Use letras, números, guiones bajos y guiones solamente, y debe comenzar con una letra</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation>El nombre del grupo ya esta en uso</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
