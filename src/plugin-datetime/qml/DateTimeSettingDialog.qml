@@ -35,6 +35,12 @@ D.DialogWindow {
         inputMethodHints: spinbox.inputMethodHints
         selectByMouse: spinbox.editable
 
+        onActiveFocusChanged: {
+            if (!activeFocus && text === "") {
+                text = spinbox.value
+            }
+        }
+
         onTextEdited: {
             if (text === "") return;
 
