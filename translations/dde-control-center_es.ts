@@ -1370,7 +1370,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Para instalar y ejecutar aplicaciones sin firmar, vaya al &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Centro de seguridad &lt;/a&gt; para cambiar la configuración.</translation>
     </message>
 </context>
 <context>
