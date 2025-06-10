@@ -1369,7 +1369,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Per instal·lar i executar aplicacions sense signar, aneu al &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt;Centre de seguretat&lt;/a&gt; per canviar la configuració.</translation>
     </message>
 </context>
 <context>
