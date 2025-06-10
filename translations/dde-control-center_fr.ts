@@ -75,7 +75,7 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Le nom complet est trop long</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
