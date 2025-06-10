@@ -17,6 +17,7 @@ AppsSourceModel::AppsSourceModel(QObject *parent)
 QHash<int, QByteArray> AppsSourceModel::roleNames() const
 {
     QHash<int, QByteArray> names= QAbstractItemModel::roleNames();
+    names[AppIdRole] = "AppId";
     names[AppNameRole] = "AppName";
     names[AppIconRole] = "AppIcon";
     names[EnableNotificationRole] = "EnableNotification";
@@ -60,6 +61,8 @@ QVariant AppsSourceModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
         return QVariant::fromValue(m_appItemModels.at(index.row()));
+    case AppIdRole:
+        return m_appItemModels.at(index.row())->getActName();
     case AppNameRole:
         return m_appItemModels.at(index.row())->softName();
     case AppIconRole:

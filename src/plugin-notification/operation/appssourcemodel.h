@@ -11,7 +11,8 @@ class AppItemModel;
 
 enum AppsSourceModelRole
 {
-    AppNameRole = Qt::UserRole + 1,
+    AppIdRole = Qt::UserRole + 1,
+    AppNameRole,
     AppIconRole,
     EnableNotificationRole,
     EnablePreviewRole,
