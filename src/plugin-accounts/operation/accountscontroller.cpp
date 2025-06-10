@@ -42,6 +42,8 @@ static bool isUserGroupName(int gid, const QString &name)
 AccountsController::AccountsController(QObject *parent)
     : QObject{ parent }
 {
+    qmlRegisterType<CreationResult>("AccountsController", 1, 0, "CreationResult");
+    
     m_model = new UserModel(this);
     m_worker = new AccountsWorker(m_model, this);
 
@@ -84,6 +86,8 @@ AccountsController::AccountsController(QObject *parent)
     
     connect(m_worker, &AccountsWorker::accountCreationFinished, this, [this](CreationResult *result) {
         m_isCreatingUser = false;
+        Q_EMIT accountCreationFinished(result->type(), result->message());
+        
         if (result->type() == CreationResult::NoError) {
             QTimer::singleShot(100, this, [this]() {
                 if (!m_model->userList().isEmpty()) {
