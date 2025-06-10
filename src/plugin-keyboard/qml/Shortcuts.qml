@@ -201,7 +201,6 @@ DccObject {
                                 active: false
                                 sourceComponent: ShortcutSettingDialog {
                                     onClosing: {
-                                        shortcutSettingsBody.isEditing = false
                                         dialogloader.active = false
 
                                         conflictText.visible = false
