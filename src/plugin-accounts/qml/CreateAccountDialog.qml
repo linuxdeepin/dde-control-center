@@ -9,6 +9,7 @@ import QtQml.Models
 import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 import org.deepin.dcc 1.0
+import AccountsController 1.0
 
 D.DialogWindow {
     id: dialog
@@ -25,6 +26,40 @@ D.DialogWindow {
 
     ColumnLayout {
         width: dialog.width - 20
+        
+        Connections {
+            target: dccData
+            function onAccountCreationFinished(resultType, message) {
+                createButton.enabled = true
+                
+                switch (resultType) {
+                case CreationResult.NoError:
+                    dialog.accepted()
+                    close()
+                    break
+                case CreationResult.UserNameError:
+                case CreationResult.UnknownError:
+                    let nameEdit = namesContainter.eidtItems[0]
+                    if (nameEdit) {
+                        nameEdit.showAlert = true
+                        nameEdit.alertText = message
+                    }
+                    break
+                case CreationResult.PasswordError:
+                case CreationResult.PasswordMatchError:
+                    if (pwdLayout.pwdContainter && pwdLayout.pwdContainter.eidtItems && pwdLayout.pwdContainter.eidtItems[0]) {
+                        pwdLayout.pwdContainter.eidtItems[0].showAlertText(message)
+                    }
+                    break
+                case CreationResult.Canceled:
+                    break
+                default:
+                    console.warn("Unknown creation result type:", resultType, message)
+                    break
+                }
+            }
+        }
+        
         Label {
             text: dialog.title
             font.bold: true
@@ -194,6 +229,7 @@ D.DialogWindow {
                 }
             }
             D.RecommandButton {
+                id: createButton
                 Layout.fillWidth: true
                 text: qsTr("Create account")
                 font: D.DTK.fontManager.t7
@@ -209,9 +245,8 @@ D.DialogWindow {
                     info["name"] = namesContainter.eidtItems[0].text
                     info["fullname"] = namesContainter.eidtItems[1].text
 
-                    dccData.addUser(info);
-                    dialog.accepted()
-                    close()
+                    dccData.addUser(info)
+                    createButton.enabled = false
                 }
             }
         }

@@ -20,6 +20,7 @@ public:
         Canceled,           // 用户取消认证或关闭认证窗口
         NoError
     };
+    Q_ENUM(ResultType)
 
     explicit CreationResult(QObject *parent = 0);
     explicit CreationResult(ResultType type, const QString &message, QObject *parent = 0);

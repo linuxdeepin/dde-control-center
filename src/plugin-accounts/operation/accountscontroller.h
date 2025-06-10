@@ -7,10 +7,12 @@
 
 #include "usermodel.h"
 #include "accountsworker.h"
+#include "creationresult.h"
 
 #include <QObject>
 #include <QSortFilterProxyModel>
 #include <QHash>
+#include <QtQml/qqml.h>
 
 namespace dccV25 {
 
@@ -111,6 +113,7 @@ signals:
     void requestCreateGroup(const QString &userId);
     void requestClearEmptyGroup(const QString &userId);
     void showSafetyPage(const QString &errorTips);
+    void accountCreationFinished(CreationResult::ResultType resultType, const QString &message);
 protected:
     bool isSystemAdmin(const User *user) const;
     int adminCount() const;
