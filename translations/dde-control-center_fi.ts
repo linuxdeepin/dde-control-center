@@ -75,31 +75,31 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Nimesi on liian pitkä</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Ryhmien nimissä saa olla enintään 32 merkkiä</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Ryhmien nimissä ei voi olla pelkkiä numeroita</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>Käytä vain kirjaimia, numeroita, alaviivoja ja väliviivoja ja alussa tulee olla kirjain</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation>Ryhmän nimeä on käytetty</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>kirjautuminen nopea, automaattinen, ilman salasanaa</translation>
     </message>
     <message>
         <source>Quickly load DDE with your login information</source>
-        <translation type="unfinished"/>
+        <translation>Lataa nopeasti kirjautumistiedoillasi</translation>
     </message>
 </context>
 <context>
@@ -773,7 +773,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Näppäimistö käyttöön</translation>
     </message>
 </context>
 <context>
@@ -1853,7 +1853,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>1~63 merkkiä</translation>
     </message>
 </context>
 <context>
@@ -1975,7 +1975,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Valitse paneelissa näkyvät kuvakkeet</translation>
+        <translation>Valitse telakan kuvakkeet</translation>
     </message>
 </context>
 <context>
@@ -3036,12 +3036,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
+        <translation>Keskitaso</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
+        <translation>Keskitaso</translation>
     </message>
 </context>
 <context>
@@ -3689,7 +3689,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>main</name>
     <message>
         <source>Dock</source>
-        <translation>Paneeli</translation>
+        <translation>Telakka</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -3705,7 +3705,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Dock size</source>
-        <translation>Paneelin koko</translation>
+        <translation>Telakan koko</translation>
     </message>
     <message>
         <source>Small</source>
@@ -3773,11 +3773,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Valitse paneelissa näkyvät kuvakkeet</translation>
+        <translation>Valitse telakan kuvakkeet</translation>
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Lukitse telakka</translation>
     </message>
 </context>
 <context>
@@ -4090,7 +4090,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Ilmoitus avoimen lähdekoodin ohjelmistosta</translation>
     </message>
 </context>
 <context>

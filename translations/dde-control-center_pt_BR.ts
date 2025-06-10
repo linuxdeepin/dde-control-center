@@ -75,31 +75,31 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>O nome completo é muito longo</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Os nomes dos grupos não devem ter mais de 32 caracteres</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Os nomes dos grupos não podem ter apenas números</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>Use apenas letras, números, sublinhados e travessões e deve começar com uma letra</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation>O nome do grupo já está em uso</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>login rápido, login automático, login sem senha</translation>
     </message>
     <message>
         <source>Quickly load DDE with your login information</source>
-        <translation type="unfinished"/>
+        <translation>Carregue rapidamente o DDE com suas informações de login</translation>
     </message>
 </context>
 <context>
@@ -761,7 +761,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Habilitar teclado</translation>
     </message>
 </context>
 <context>
@@ -1551,15 +1551,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Desabilite todos os efeitos de interface e janela para um desempenho eficiente do sistema.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Limite alguns efeitos de janela para obter visuais excelentes, mantendo o bom desempenho do sistema.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Habilite todos os efeitos de interface e janela para obter uma melhor experiência visual.</translation>
     </message>
 </context>
 <context>
@@ -1841,7 +1841,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>1 a 63 caracteres, por favor</translation>
     </message>
 </context>
 <context>
@@ -2276,15 +2276,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"/>
+        <translation>Personalize o tempo de repetição</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Salvar</translation>
     </message>
 </context>
 <context>
@@ -3024,12 +3024,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
+        <translation>Médio</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
+        <translation>Médio</translation>
     </message>
 </context>
 <context>
@@ -3644,7 +3644,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>Organização da área de trabalho, modo da barra de tarefas, configurações da área de plugins</translation>
     </message>
 </context>
 <context>
@@ -3765,7 +3765,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear a Dock</translation>
     </message>
 </context>
 <context>
@@ -4078,7 +4078,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Aviso de Software de Código Aberto</translation>
     </message>
 </context>
 <context>
