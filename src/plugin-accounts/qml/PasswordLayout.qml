@@ -163,7 +163,7 @@ ColumnLayout {
     ListModel {
         id: passwordModel
         ListElement {
-            name: qsTr("Password")
+            name: ""
             placeholder: qsTr("Required")
             echoButtonVisible: true
         }
@@ -261,7 +261,7 @@ ColumnLayout {
                     rightPadding: 10
 
                     contentItem: PasswordItem {
-                        label.text: model.name
+                        label.text: model.name === "" ? (pwdLayout.currentPwdVisible ? qsTr("Password") : qsTr("New password")) : model.name
                         edit {
                             placeholderText: model.placeholder
                             echoButtonVisible: model.echoButtonVisible

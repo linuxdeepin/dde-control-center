@@ -1702,6 +1702,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <source>Always</source>
         <translation>Jätkuvalt</translation>
     </message>
+    <message>
+        <source>Reset password</source>
+        <translation type="unfinished">Palunusteele avada parool</translation>
+    </message>
 </context>
 <context>
     <name>LogoModule</name>
@@ -1918,6 +1922,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Aidatakenutus on kõigile kasutajatele nähtav. Parooli siia ei sisesta.</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1700,6 +1700,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Always</source>
         <translation>সবসময়</translation>
     </message>
+    <message>
+        <source>Reset password</source>
+        <translation type="unfinished">পাসওয়ার্ড পুনরায় সেট করুন</translation>
+    </message>
 </context>
 <context>
     <name>LogoModule</name>
@@ -1916,6 +1920,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>হিন্ট সব উপযোক্তার দৃশ্যমান। এখানে পাসওয়ার্ড লিখবেন না।</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

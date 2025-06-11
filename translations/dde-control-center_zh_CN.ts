@@ -393,7 +393,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation>允许其他蓝牙设备找到该设备</translation>
+        <translation>允许蓝牙设备可被发现</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
@@ -451,7 +451,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Change Password</source>
-        <translation>修改密码</translation>
+        <translation>重设密码</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
@@ -1709,6 +1709,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Always</source>
         <translation>长期有效</translation>
     </message>
+    <message>
+        <source>Reset password</source>
+        <translation>重置密码</translation>
+    </message>
 </context>
 <context>
     <name>LogoModule</name>
@@ -1925,6 +1929,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>密码提示对所有人可见，切勿包含具体密码信息</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation>新密码</translation>
     </message>
 </context>
 <context>

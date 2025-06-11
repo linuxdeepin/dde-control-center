@@ -1694,6 +1694,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Always</source>
         <translation type="unfinished">Immer</translation>
     </message>
+    <message>
+        <source>Reset password</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>LogoModule</name>
@@ -1910,6 +1914,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation type="unfinished">Der Hinweis ist für alle Benutzer sichtbar. Geben Sie hier nicht das Passwort ein.</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

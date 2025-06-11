@@ -73,7 +73,7 @@ DccTitleObject {
             DccObject {
                 name: loginMethodTitle.parentName + "PasswordModify"
                 parentName: passwordGroupView.name
-                displayName: qsTr("Modify password")
+                displayName: dccData.currentUserId() === loginMethodTitle.userId ? qsTr("Modify password") : qsTr("Reset password")
                 backgroundType: DccObject.ClickStyle
                 weight: 12
                 enabled: dccData.currentUserId() === loginMethodTitle.userId || (dccData.curUserIsSysAdmin() && !dccData.isOnline(loginMethodTitle.userId))
