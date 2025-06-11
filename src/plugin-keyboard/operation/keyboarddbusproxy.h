@@ -72,9 +72,9 @@ public:
     explicit KeyboardDBusProxy(QObject *parent = nullptr);
 
     //Keyboard
-    Q_PROPERTY(int CapslockToggle READ capslockToggle WRITE setCapslockToggle NOTIFY CapslockToggleChanged)
-    int capslockToggle();
-    void setCapslockToggle(int value);
+    Q_PROPERTY(bool CapslockToggle READ capslockToggle WRITE setCapslockToggle NOTIFY CapslockToggleChanged)
+    bool capslockToggle();
+    void setCapslockToggle(bool value);
 
     Q_PROPERTY(QString CurrentLayout READ currentLayout WRITE setCurrentLayout NOTIFY CurrentLayoutChanged)
     QString currentLayout();

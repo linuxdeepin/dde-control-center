@@ -135,6 +135,9 @@ bool KeyboardController::capsLock() const
 
 void KeyboardController::setCapsLock(bool newCapsLock)
 {
+    if (capsLock() == newCapsLock)
+        return;
+
     m_worker->setCapsLock(newCapsLock);
 }
 
