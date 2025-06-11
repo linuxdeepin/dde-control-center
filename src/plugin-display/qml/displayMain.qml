@@ -475,6 +475,8 @@ DccObject {
         Label {
             Layout.alignment: Qt.AlignVCenter
             text: Math.round(brightnessSlider.value * 100) + "%"
+            font: D.DTK.fontManager.t10
+            opacity: 0.5
         }
         D.DciIcon {
             Layout.alignment: Qt.AlignVCenter
