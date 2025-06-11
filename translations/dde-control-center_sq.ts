@@ -1709,6 +1709,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>Always</source>
         <translation>Përherë</translation>
     </message>
+    <message>
+        <source>Reset password</source>
+        <translation type="unfinished">Ricaktoni fjalëkalimin</translation>
+    </message>
 </context>
 <context>
     <name>LogoModule</name>
@@ -1925,6 +1929,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Ndihmëza është e dukshme për krejt përdoruesit. Këtu mos përfshini fjalëkalimin.</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

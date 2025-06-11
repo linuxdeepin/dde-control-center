@@ -1698,6 +1698,10 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <source>Always</source>
         <translation>Zavedno</translation>
     </message>
+    <message>
+        <source>Reset password</source>
+        <translation type="unfinished">Ponastavi geslo</translation>
+    </message>
 </context>
 <context>
     <name>LogoModule</name>
@@ -1914,6 +1918,10 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Opomba je vidna za vse uporabnike. Tu ne vključujte gesla.</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
