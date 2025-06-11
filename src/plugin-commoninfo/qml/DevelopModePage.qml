@@ -16,12 +16,13 @@ DccObject {
     DccObject {
         name: "developTitle"
         parentName: "developerMode"
+        displayName: qsTr("Root Access")
         weight: 10
         pageType: DccObject.Item
         page: Label {
             leftPadding: 15
             bottomPadding: -2
-            text: qsTr("Root Access")
+            text: dccObj.displayName
             font.pixelSize: D.DTK.fontManager.t5.pixelSize
             font.weight: 500
             color: D.DTK.themeType === D.ApplicationHelper.LightType ?
@@ -42,6 +43,7 @@ DccObject {
         DccObject {
             name: "developerModeStatus"
             parentName: "developerModeSetting"
+            displayName: qsTr("Request Root Access")
             pageType: DccObject.Item
             backgroundType: DccObject.Normal
             weight: 20
@@ -54,7 +56,7 @@ DccObject {
                     Layout.topMargin: 5
                     Layout.bottomMargin: 5
                     Label {
-                        text: qsTr("Request Root Access")
+                        text: dccObj.displayName
                         font: D.DTK.fontManager.t6
                     }
 
@@ -389,13 +391,14 @@ DccObject {
     DccObject {
         name: "developDebugTitle"
         parentName: "developerMode"
+        displayName: qsTr("Development and debugging options")
         weight: 50
         pageType: DccObject.Item
         page: Label {
             topPadding: 5
             leftPadding: 15
             bottomPadding: -2
-            text: qsTr("Development and debugging options")
+            text: dccObj.displayName
             font.pixelSize: D.DTK.fontManager.t5.pixelSize
             font.weight: 500
             color: D.DTK.themeType === D.ApplicationHelper.LightType ?
