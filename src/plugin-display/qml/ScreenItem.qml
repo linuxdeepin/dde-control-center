@@ -29,6 +29,27 @@ Rectangle {
         visible: false
         fillMode: Image.PreserveAspectCrop
         asynchronous: true
+        cache: true
+        smooth: true
+        sourceSize {
+            width: parent.width * Screen.devicePixelRatio
+            height: parent.height * Screen.devicePixelRatio
+        }
+        onStatusChanged: {
+            if (status === Image.Loading) {
+                loadingPlaceholder.visible = true
+            } else {
+                loadingPlaceholder.visible = false
+            }
+        }
+    }
+
+    Rectangle {
+        id: loadingPlaceholder
+        anchors.fill: parent
+        color: "#3f3f3f"
+        visible: false
+        radius: root.radius
     }
     OpacityMask {
         anchors.fill: parent

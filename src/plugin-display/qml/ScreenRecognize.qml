@@ -8,6 +8,7 @@ import org.deepin.dcc 1.0
 Window {
     id: root
     property string name: "screen"
+    signal escPressed
 
     flags: Qt.CoverWindow | Qt.WindowStaysOnTopHint | Qt.SplashScreen | Qt.FramelessWindowHint | Qt.X11BypassWindowManagerHint
     D.DWindow.enabled: true
@@ -17,16 +18,16 @@ Window {
     height: control.implicitHeight + 24
     minimumWidth: 200
     onClosing: destroy(10)
-    Timer {
-        interval: 5000
-        running: root.visible
-        onTriggered: root.close()
-    }
     Text {
         id: control
         anchors.centerIn: parent
         text: root.name
         font: D.DTK.fontManager.t4
         color: control.palette.brightText
+    }
+    Shortcut {
+        sequence: "Esc"
+        onActivated: escPressed()
+        onActivatedAmbiguously: escPressed()
     }
 }
