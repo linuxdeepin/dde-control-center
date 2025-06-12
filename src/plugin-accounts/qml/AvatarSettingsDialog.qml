@@ -37,10 +37,12 @@ D.DialogWindow {
             title: "Please choose an image"
             folder: StandardPaths.writableLocation(StandardPaths.PicturesLocation)
             onAccepted: {
-                dialog.currentAvatar = fileDialog.selectedFile
-                // 23 dcc 选中自定义就会出发设置图标
-                dialog.accepted();
-
+                let selectedFile = fileDialog.selectedFile || fileDialog.file || fileDialog.fileUrl
+                if (selectedFile) {
+                    dialog.currentAvatar = selectedFile.toString()
+                    // 23 dcc 选中自定义就会出发设置图标
+                    dialog.accepted();
+                }
                 fileDlgLoader.active = false
             }
             onRejected: {
