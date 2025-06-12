@@ -230,7 +230,7 @@ DccObject {
                         }
                     }
                     icon {
-                        name: addr.readOnly ? "edit" : "ok"
+                        name: addr.readOnly ? "dcc-edit" : "ok"
                         width: 16
                         height: 16
                     }
