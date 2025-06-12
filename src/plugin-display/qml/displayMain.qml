@@ -320,7 +320,7 @@ DccObject {
             visible: dccData.virtualScreens.length > 1 || (dccData.virtualScreens.length === 1 && dccData.virtualScreens[0].screenItems.length > 1)
             pageType: DccObject.Item
             page: Item {
-                implicitHeight: identifyBut.implicitHeight + 10
+                implicitHeight: identifyBut.implicitHeight + 4
                 DccLabel {
                     anchors.fill: parent
                     horizontalAlignment: Text.AlignHCenter
@@ -331,23 +331,44 @@ DccObject {
                     text: qsTr("Screen rearrangement will take effect in %1s after changes").arg(2)
                     clip: true
                 }
-                Button {
+                D.Button {
                     id: identifyBut
+                    property var recognizes: []
+                    implicitHeight: 24
+                    implicitWidth: 72
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
-                    anchors.rightMargin: 5
+                    anchors.rightMargin: 7
                     text: dccObj.displayName
+                    function closeWindow() {
+                        recognizeTimer.stop()
+                        for (var obj of identifyBut.recognizes) {
+                            obj.close()
+                        }
+                        identifyBut.recognizes = []
+                    }
+                    Timer {
+                        id: recognizeTimer
+                        repeat: false
+                        interval: 5000
+                        onTriggered: identifyBut.closeWindow()
+                    }
                     onClicked: {
                         // if (!dccData.isX11) {
                         //     return
                         // }
+                        identifyBut.closeWindow()
                         for (var i = 0; i < dccData.virtualScreens.length; i++) {
                             var item = dccData.virtualScreens[i]
-                            recognize.createObject(this, {
-                                                       "screen": getQtScreen(item),
-                                                       "name": item.name
-                                                   }).show()
+                            var obj = recognize.createObject(this, {
+                                                                 "screen": getQtScreen(item),
+                                                                 "name": item.name
+                                                             })
+                            obj.show()
+                            obj.escPressed.connect(identifyBut.closeWindow)
+                            recognizes.push(obj)
                         }
+                        recognizeTimer.restart()
                     }
                 }
             }
