@@ -48,6 +48,9 @@ D.DialogWindow {
     // only accept close event , the app can quit normally
     onClosing: function(close) {
         close.accepted = true
+        // 当用户点击关闭按钮或按ESC键关闭对话框时，触发取消事件
+        selectDayDialog.selectedDays = dccData.model.customShutdownWeekDays.length === 0 ? [1, 2, 3, 4, 5] : dccData.model.customShutdownWeekDays.slice()
+        selectDayDialog.cancel()
     }
 
     ColumnLayout {
