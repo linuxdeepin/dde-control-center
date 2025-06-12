@@ -476,6 +476,11 @@ void SystemInfoWork::setUeProgramEnabled(bool enabled)
 
 void SystemInfoWork::onLicenseAuthorizationProperty()
 {
+    if (DSysInfo::isDeepin()) {
+        ActiveState newLicenseState = static_cast<ActiveState>(m_systemInfDBusProxy->authorizationState());
+        m_model->setLicenseState(newLicenseState);
+    }
+
     // 从授权服务器获取授权类型
     QString authorizationProperty = getLicenseAuthorizationPropertyString();
     QString version = "";
