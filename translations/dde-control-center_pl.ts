@@ -1369,7 +1369,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Aby zainstalować i uruchomić niepodpisane aplikacje, przejdź do &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt;Centrum bezpieczeństwa&lt;/a&gt; i dostosuj ustawienia. </translation>
     </message>
 </context>
 <context>
