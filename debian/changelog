@@ -1,3 +1,30 @@
+dde-control-center (6.1.29) unstable; urgency=medium
+
+  * fix: Fixed the failure of uploading an avatar
+  * fix: Fix activation status not syncing
+  * fix: Modify the processing method of the identify window
+  * fix: ScheduledShutdownDialog cancel behavior on close
+  * fix: standardize icon naming in TimeAndDate component
+  * fix: resolve caps lock toggle functionality in keyboard plugin
+  * fix: Modify brightness text style
+  * fix: hide Touchpad gesture options when disabled
+  * fix: Fix search no results
+  * fix: The fixed issue is prompt for creating a user with the same name
+  * fix: Add notification jump processing
+  * fix: resolve editing state issue in Shortcuts component
+  * fix: Fixed the display of developer mode
+  * i18n: Updates for project Deepin Desktop Environment (#2370)
+  * fix: improve RegionsChooserWindow layout and scrolling experience
+  * fix: handle empty text input in DateTimeSettingDialog
+  * fix: Fixed the issue of user group clicking
+  * fix: Modify the height spacing
+  * fix: customize spinbox input validation in DateTimeSettingDialog
+  * chore: update debian control
+  * i18n: Translate dde-control-center_en.ts in zh_TW (#2368)
+  * i18n: Updates for project Deepin Desktop Environment (#2363)
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Thu, 12 Jun 2025 16:40:40 +0800
+
 dde-control-center (6.1.28) unstable; urgency=medium
 
   * refactor: migrate RSA encryption to EVP API
