@@ -3144,7 +3144,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Geliştirici root izin yönetimi</translation>
     </message>
     <message>
         <source>Developer Options</source>
@@ -3155,11 +3155,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Saat ve tarih</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Saat ve tarih, saat dilimi ayarları</translation>
     </message>
     <message>
         <source>Language and region</source>
@@ -3167,7 +3167,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System language, region format</source>
-        <translation type="unfinished"/>
+        <translation>Sistem dili, bölge biçimi</translation>
     </message>
 </context>
 <context>
@@ -3244,73 +3244,73 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"/>
+        <translation>Boyutsal</translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"/>
+        <translation>Düz</translation>
     </message>
 </context>
 <context>
     <name>dccV25::BiometricAuthController</name>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Cihazın kilidini açmak ve ayarları daha sonra yapmak için yüzünüzü kullanın</translation>
     </message>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Yüz izi</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Parmağınızı yerleştirin</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Kaldırmanız istenene kadar parmağınızı sensöre sıkıca yerleştirin</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Parmağınızı kaldırın</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Parmağınızı kaldırın ve yeniden algılayıcıya koyun</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Parmak izinizin kenarlarını tarayın</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Parmak izinizin kenarlarını taramak için konumu ayarlayın</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Parmağınızı kaldırın ve tekrar yapın</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Parmak izi eklendi</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Tarama Askıya Alındı</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Parmak izinizin kenarlarını sensöre yerleştirin</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>İris</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Bu kısayol [%1] ile çakışıyor</translation>
     </message>
 </context>
 <context>
@@ -3380,7 +3380,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation type="unfinished"/>
+        <translation>YardımcıAraçlar</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -3403,7 +3403,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>Bulut hizmetleri</translation>
     </message>
 </context>
 <context>
@@ -3414,7 +3414,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>Çeşitli dosya türlerini açmak için varsayılan uygulamayı ayarlayın</translation>
     </message>
 </context>
 <context>
@@ -3463,7 +3463,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation type="unfinished"/>
+        <translation>Parlaklık, çözünürlük, ölçekleme</translation>
     </message>
 </context>
 <context>
@@ -3494,7 +3494,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>250%</source>
-        <translation type="unfinished"/>
+        <translation>250%</translation>
     </message>
     <message>
         <source>275%</source>
@@ -3530,11 +3530,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Sadece %1&apos;de</translation>
     </message>
     <message>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation> (Önerilen)</translation>
     </message>
     <message>
         <source>Hz</source>
@@ -3542,7 +3542,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"/>
+        <translation>Çoklu Ekran Ayarları</translation>
     </message>
     <message>
         <source>Identify</source>
@@ -3550,7 +3550,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>Ekran yeniden düzenlemesi, değişikliklerden sonra %1s içinde geçerli olacak</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -3562,7 +3562,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"/>
+        <translation>Görüntüleme ve Düzen</translation>
     </message>
     <message>
         <source>Brightness</source>
@@ -3668,7 +3668,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Genel Ayarlar, klavye düzeni, giriş yöntemi, kısayollar</translation>
     </message>
 </context>
 <context>
@@ -3683,7 +3683,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Set system default keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Sistem varsayılan klavye düzenini ayarla</translation>
     </message>
 </context>
 <context>
@@ -3778,7 +3778,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Rıhtım&apos;ı Kilitle</translation>
     </message>
 </context>
 <context>
