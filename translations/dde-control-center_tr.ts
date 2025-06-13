@@ -2861,7 +2861,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik duvar kağıdı değişimi</translation>
     </message>
     <message>
         <source>never</source>
@@ -3644,7 +3644,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>Masaüstü organizasyonu, görev çubuğu modu, eklenti alanı ayarları</translation>
     </message>
 </context>
 <context>
