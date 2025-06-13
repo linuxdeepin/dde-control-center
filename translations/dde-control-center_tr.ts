@@ -2556,7 +2556,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>Ses seviyesi %100&apos;den fazlaysa, ses bozulabilir ve çıkış aygıtlarına zarar verebilir.</translation>
     </message>
     <message>
         <source>Left</source>
@@ -2691,11 +2691,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>Görüntü ayarları kaydedilsin mi?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>Ayarlar %1s içinde geri döndürülecek.</translation>
     </message>
     <message>
         <source>Revert</source>
