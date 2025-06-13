@@ -134,7 +134,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Tamamla</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -257,15 +257,15 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Cartoon style</source>
-        <translation type="unfinished"/>
+        <translation>Karikatür tarzı</translation>
     </message>
     <message>
         <source>Dimensional style</source>
-        <translation type="unfinished"/>
+        <translation>Boyutsal stil</translation>
     </message>
     <message>
         <source>Flat style</source>
-        <translation type="unfinished"/>
+        <translation>Düz stil</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -280,11 +280,11 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Ekran ve Askıya Alma</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Monitörü kapattıktan sonra</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -292,7 +292,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Bilgisayar askıya alındıktan sonra</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -300,7 +300,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Güç düğmesine basıldığında</translation>
     </message>
     <message>
         <source>Low Battery</source>
@@ -308,7 +308,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"/>
+        <translation>Düşük pil bildirimi</translation>
     </message>
     <message>
         <source>Auto suspend</source>
@@ -347,11 +347,11 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth kapalı ve ad &quot;%1&quot; olarak görüntüleniyor</translation>
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth açık ve ad &quot;%1&quot; olarak görüntüleniyor</translation>
     </message>
 </context>
 <context>
@@ -374,7 +374,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Remove Device</source>
-        <translation type="unfinished"/>
+        <translation>Cihazı Kaldır</translation>
     </message>
     <message>
         <source>Select file</source>
@@ -393,7 +393,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth işlevini kullanmak için lütfen kapatın</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
@@ -401,7 +401,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth adı 64 karakteri aşamaz</translation>
     </message>
 </context>
 <context>
@@ -419,15 +419,15 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Başlangıç ​​Ayarları</translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"/>
+        <translation>Varsayılan başlangıç ​​öğelerini değiştirmek için menüye tıklayabilir veya arka plan resmini değiştirmek için resmi pencereye sürükleyebilirsiniz.</translation>
     </message>
     <message>
         <source>grub start delay</source>
-        <translation type="unfinished"/>
+        <translation>grub başlatma gecikmesi</translation>
     </message>
     <message>
         <source>theme</source>
@@ -435,15 +435,15 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"/>
+        <translation>Temayı açtıktan sonra bilgisayarı açtığınızda tema arka planını görebilirsiniz</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation type="unfinished"/>
+        <translation>Önyükleme menüsü doğrulaması</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation type="unfinished"/>
+        <translation>Açıldıktan sonra menü düzenleme kısmına girmek için şifre gerekmektedir.</translation>
     </message>
     <message>
         <source>Change Password</source>
@@ -451,11 +451,11 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation type="unfinished"/>
+        <translation>Önyükleme menüsü doğrulama parolasını değiştir</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"/>
+        <translation>Önyükleme menüsü kimlik doğrulama parolasını ayarlayın</translation>
     </message>
     <message>
         <source>User Name :</source>
@@ -491,15 +491,15 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Sure</source>
-        <translation type="unfinished"/>
+        <translation>Elbette</translation>
     </message>
     <message>
         <source>Start animation</source>
-        <translation type="unfinished"/>
+        <translation>Başlangıç animasyonu</translation>
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"/>
+        <translation>Sistem başlatma arayüzündeki logo animasyonunun boyutunu ayarlayın</translation>
     </message>
 </context>
 <context>
