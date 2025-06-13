@@ -4063,7 +4063,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Açık kaynaklı yazılım bildirimini görüntüle</translation>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -4071,7 +4071,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Ürünü iyileştirmeye yardımcı olmak için kullanıcı deneyimi programına katılın</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
@@ -4079,7 +4079,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Son kullanıcı lisans sözleşmesini görüntüleyin</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
@@ -4087,7 +4087,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Gizlilik politikası hakkında bilgi görüntüle</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
@@ -4102,7 +4102,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Dokunmatik Ekranı Yapılandır</translation>
     </message>
 </context>
 <context>
@@ -4120,7 +4120,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom&apos;u yapılandır</translation>
     </message>
 </context>
 <context>
