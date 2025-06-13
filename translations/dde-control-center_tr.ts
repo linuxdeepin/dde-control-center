@@ -3789,7 +3789,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Ortak, Fare, Dokunmatik Yüzey</translation>
     </message>
 </context>
 <context>
@@ -3846,11 +3846,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Bildirimlere İzin Ver</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Masaüstünde bildirimi görüntüle veya okunmamış mesajları bildirim merkezinde göster</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -3896,7 +3896,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Duvar kağıdınızı ve ekran koruyucunuzu kişiselleştirin</translation>
     </message>
     <message>
         <source>Screensaver</source>
@@ -3908,15 +3908,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Vurgu rengini ve tema simgelerini ayarlayın</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Yazı tipi ve yazı tipi boyutu</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Sistem yazı tipini ve boyutunu değiştir</translation>
     </message>
     <message>
         <source>Wallpaper</source>
@@ -3924,18 +3924,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Açık, koyu veya otomatik tema görünümünü seçin</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Arayüz ve efektler, yuvarlatılmış köşeler</translation>
     </message>
 </context>
 <context>
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Güç tasarrufu ayarları, ekran ve askıya alma</translation>
     </message>
     <message>
         <source>Power</source>
@@ -3950,7 +3950,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Güç planları, güç tasarrufu ayarları, uyandırma ayarları, kapatma ayarları</translation>
     </message>
     <message>
         <source>Plugged In</source>
@@ -3958,7 +3958,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Ekran ve askıya al</translation>
     </message>
     <message>
         <source>On Battery</source>
@@ -3966,7 +3966,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"/>
+        <translation>ekran ve askıya alma, düşük pil, pil yönetimi</translation>
     </message>
 </context>
 <context>
@@ -3977,7 +3977,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"/>
+        <translation>Kamera, klasör izinleri</translation>
     </message>
 </context>
 <context>
@@ -3988,7 +3988,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Uygulamanın kameraya erişimi olup olmadığını seçin</translation>
     </message>
     <message>
         <source>Files and Folders</source>
@@ -3996,7 +3996,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"/>
+        <translation>Uygulamanın dosyalara ve klasörlere erişimi olup olmadığını seçin</translation>
     </message>
 </context>
 <context>
@@ -4007,7 +4007,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Çıkış, giriş, ses efektleri, cihazlar</translation>
     </message>
 </context>
 <context>
@@ -4022,11 +4022,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Ses efektlerini etkinleştir/devre dışı bırak</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Ses aygıtlarını etkinleştir/devre dışı bırak</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -4048,7 +4048,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Yardımcı Bilgiler</translation>
     </message>
 </context>
 <context>
