@@ -1572,7 +1572,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>En iyi görsel deneyim için tüm arayüz ve pencere efektlerini etkinleştirin.</translation>
     </message>
 </context>
 <context>
@@ -1583,7 +1583,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>tamamla</translation>
     </message>
     <message>
         <source>edit</source>
@@ -1591,11 +1591,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"/>
+        <translation>Klavye düzeni eklendiğinde veya değiştirildiğinde çalışmasını sağlamak için &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Giriş Yöntemi Yönetimine&lt;/a&gt; karşılık gelen giriş yöntemini ekleyin.</translation>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>Yeni klavye düzeni ekle...</translation>
     </message>
 </context>
 <context>
@@ -1606,7 +1606,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>tamamla</translation>
     </message>
     <message>
         <source>edit</source>
@@ -1626,11 +1626,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"/>
+        <translation>Alan</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"/>
+        <translation>İşletim sistemi ve uygulamalar, ülkenize ve bölgenize göre size yerel içerik sağlayabilir</translation>
     </message>
     <message>
         <source>Region and format</source>
@@ -1638,7 +1638,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"/>
+        <translation>İşletim sistemi ve uygulamalar, bölgesel biçimlere göre tarih ve saat biçimlerini ayarlayabilir</translation>
     </message>
 </context>
 <context>
@@ -1683,23 +1683,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation type="unfinished"/>
+        <translation>Giriş yöntemi</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"/>
+        <translation>Şifre, wechat, biyometrik kimlik doğrulama, güvenlik anahtarı</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Parola</translation>
     </message>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>Parolayı değiştir</translation>
     </message>
     <message>
         <source>Validity days</source>
-        <translation type="unfinished"/>
+        <translation>Geçerlilik günü</translation>
     </message>
     <message>
         <source>Always</source>
@@ -1733,11 +1733,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Giriş</translation>
     </message>
     <message>
         <source>No input device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Ses için giriş aygıtı bulunamadı</translation>
     </message>
     <message>
         <source>Input Devices</source>
@@ -1830,7 +1830,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>İzin</translation>
     </message>
     <message>
         <source>System installation time</source>
@@ -1842,7 +1842,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Grafik platformu</translation>
     </message>
     <message>
         <source>Processor</source>
@@ -1854,7 +1854,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>1~63 karakterler lütfen</translation>
     </message>
 </context>
 <context>
@@ -1927,7 +1927,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PasswordModifyDialog</name>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>Parolayı değiştir</translation>
     </message>
     <message>
         <source>Reset password</source>
@@ -1935,7 +1935,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation>Şifre uzunluğu en az 8 karakter olmalı ve şifre en az aşağıdaki 3&apos;ün bir kombinasyonunu içermelidir: büyük harfler, küçük harfler, sayılar ve semboller. Bu tür şifreler daha güvenlidir.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
@@ -2010,11 +2010,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Ekran ve Askıya Alma</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Monitörü kapattıktan sonra</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -2022,7 +2022,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Bilgisayar askıya alındıktan sonra</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -2030,7 +2030,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Güç düğmesine basıldığında</translation>
     </message>
 </context>
 <context>
@@ -2045,7 +2045,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>CPU yük durumuna göre CPU çalışma frekansını agresif bir şekilde ayarlayın</translation>
     </message>
     <message>
         <source>Balanced</source>
@@ -2057,7 +2057,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"/>
+        <translation>Güç tüketimini ve ısı üretimini önemli ölçüde artıracak olan performansa öncelik verin</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
