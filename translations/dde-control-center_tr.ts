@@ -11,7 +11,7 @@
     </message>
     <message>
         <source>Set fullname</source>
-        <translation type="unfinished"/>
+        <translation>Tam adı ayarla</translation>
     </message>
     <message>
         <source>Login settings</source>
@@ -27,7 +27,7 @@
     </message>
     <message>
         <source>Delete current account</source>
-        <translation type="unfinished"/>
+        <translation>Geçerli hesabı sil</translation>
     </message>
     <message>
         <source>Group setting</source>
@@ -39,7 +39,7 @@
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>tamamla</translation>
     </message>
     <message>
         <source>Group name</source>
@@ -55,11 +55,11 @@
     </message>
     <message>
         <source>Account Information</source>
-        <translation type="unfinished"/>
+        <translation>Hesap Bilgileri</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"/>
+        <translation>Hesap adı, hesabın tam adı, hesap türü</translation>
     </message>
     <message>
         <source>Account name</source>
@@ -67,7 +67,7 @@
     </message>
     <message>
         <source>Account fullname</source>
-        <translation type="unfinished"/>
+        <translation>Hesap tam adı</translation>
     </message>
     <message>
         <source>Account type</source>
@@ -75,31 +75,31 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Tam ad çok uzun</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Grup adı 32 karakterden fazla olmamalıdır</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Grup adları sadece numara olamaz</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>Yalnızca harf, sayı, alt çizgi ve tire kullanın ve bir harfle başlamalısınız</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation>Bu grup adı kullanıldı</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>hızlı giriş, otomatik giriş, şifresiz giriş</translation>
     </message>
     <message>
         <source>Quickly load DDE with your login information</source>
-        <translation type="unfinished"/>
+        <translation>Giriş bilgilerinizle DDE&apos;yi hızla yükleyin</translation>
     </message>
 </context>
 <context>
@@ -142,7 +142,7 @@
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Tekrar Kaydolmayı Dene</translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -156,7 +156,17 @@ In order to better use of face recognition, please pay attention to the followin
 1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
-        <translation type="unfinished"/>
+        <translation>Yüz tanımayı kullanmadan önce lütfen şunları unutmayın: 
+1. Cihazınızın kilidi, size benzeyen veya size benzeyen kişiler veya nesneler tarafından açılabilir.
+2. Yüz tanıma, dijital parolalardan ve karma parolalardan daha az güvenlidir.
+3. Yüz tanıma ile cihazınızın kilidini açma başarı oranı, düşük ışık, yüksek ışık, arka ışık, geniş açı senaryosu ve diğer senaryolarda azalacaktır.
+4. Yüz tanımanın kötü niyetli kullanımından kaçınmak için lütfen cihazınızı rastgele başkalarına vermeyin.
+5. Yukarıdaki senaryolara ek olarak, yüz tanımanın normal kullanımını etkileyebilecek diğer durumlara da dikkat etmelisiniz.
+
+Yüz tanımayı daha iyi kullanmak için yüz verilerini girerken lütfen aşağıdaki hususlara dikkat edin:
+1. Lütfen iyi aydınlatılmış bir ortamda kalın, doğrudan güneş ışığından ve kaydedilen ekranda görünen diğer insanlardan kaçının.
+2. Veri girerken lütfen yüz durumuna dikkat edin ve şapka, saç, güneş gözlüğü, maske, ağır makyaj ve diğer faktörlerin yüz hatlarınızı kapatmasına izin vermeyin.
+3. Lütfen başınızı eğmekten, alçaltmaktan, gözlerinizi kapatmaktan, yüzünüzün yalnızca bir tarafını göstermekten kaçının ve istem kutusunda ön yüzünüzün net ve eksiksiz göründüğünden emin olun.</translation>
     </message>
 </context>
 <context>
@@ -171,11 +181,11 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation type="unfinished"/>
+        <translation>Parmak izi Kaydı</translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation>Parmak izi sensörüne girilecek parmağı yerleştirin ve aşağıdan yukarıya doğru hareket ettirin. İşlemi tamamladıktan sonra lütfen parmağınızı kaldırın.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -191,7 +201,7 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Tekrar Kaydolmayı Dene</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -199,14 +209,16 @@ In order to better use of face recognition, please pay attention to the followin
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>&quot;Biyometrik kimlik doğrulama&quot;, UnionTech Software Technology Co., Ltd. tarafından sağlanan kullanıcı kimliği kimlik doğrulaması için bir işlevdir. &quot;Biyometrik kimlik doğrulama&quot; yoluyla, toplanan biyometrik veriler cihazda depolanan verilerle karşılaştırılacak ve kullanıcı kimliği, karşılaştırma sonucu. 
+UnionTech Software Technology Co., Ltd &apos;in yerel cihazınızda saklanacak olan biyometrik bilgilerinizi toplamayacağını veya bunlara erişmeyeceğini lütfen unutmayın. Lütfen yalnızca kişisel cihazınızda biyometrik doğrulamayı etkinleştirin ve ilgili işlemler için kendi biyometrik bilgilerinizi kullanın ve diğer kişilerin o cihazdaki biyometrik bilgilerini derhal devre dışı bırakın veya silin, aksi takdirde bundan kaynaklanan risk size aittir.  
+UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenliğini, doğruluğunu ve kararlılığını araştırmaya ve geliştirmeye kendini adamıştır. Ancak çevresel, ekipman, teknik ve diğer faktörler ve risk kontrolü nedeniyle biyometrik doğrulamayı geçici olarak geçeceğinizin garantisi yoktur. Bu nedenle, lütfen UnionTech UOS&apos;de oturum açmanın tek yolu olarak biyometrik doğrulamayı kabul etmeyin. Biyometrik kimlik doğrulamayı kullanırken herhangi bir sorunuz veya öneriniz varsa, UnionTech UOS&apos;deki &quot;Servis ve Destek&quot; aracılığıyla geri bildirimde bulunabilirsiniz.</translation>
     </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation>&quot;Otomatik Giriş&quot; yalnızca tek hesap için etkinleştirilebilir, lütfen önce &quot;%1&quot; hesabı için devre dışı bırakın</translation>
     </message>
     <message>
         <source>Ok</source>
@@ -229,11 +241,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"/>
+        <translation>Manzara</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>İllüstrasyon</translation>
     </message>
     <message>
         <source>Emoji</source>
