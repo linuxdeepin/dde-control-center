@@ -2793,15 +2793,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Gesture</source>
-        <translation type="unfinished"/>
+        <translation>Hareket</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Üç Parmak hareketi</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Dört Parmak hareketi</translation>
     </message>
 </context>
 <context>
@@ -2812,7 +2812,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Bağlantı Adresini Kopyala</translation>
     </message>
 </context>
 <context>
@@ -2850,7 +2850,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Pencere yuvarlatılmış köşeler</translation>
     </message>
     <message>
         <source>My pictures</source>
@@ -2862,15 +2862,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Düz renk duvar kağıdı</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Özelleştirilebilir duvar kağıtları</translation>
     </message>
     <message>
         <source>fill style</source>
-        <translation type="unfinished"/>
+        <translation>dolgu stili</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
@@ -2918,7 +2918,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Canlı Duvar Kağıdı</translation>
     </message>
     <message>
         <source>1 hour</source>
@@ -2929,7 +2929,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"/>
+        <translation>açılmak</translation>
     </message>
     <message>
         <source>show all</source>
@@ -2960,7 +2960,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Pencere yuvarlatılmış köşeler</translation>
     </message>
     <message>
         <source>None</source>
@@ -3016,7 +3016,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>Kompakt Ekran</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
@@ -3060,7 +3060,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"/>
+        <translation>Diğer hesaplar</translation>
     </message>
 </context>
 <context>
@@ -3082,7 +3082,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
+        <translation>5 adede kadar yüz verisi girilebilir</translation>
     </message>
     <message>
         <source>Fingerprint</source>
@@ -3090,15 +3090,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Parmak izlerinin taranmasıyla kullanıcı kimliğinin belirlenmesi</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>İris</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"/>
+        <translation>İris taramasıyla kimlik tanıma</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
@@ -3118,7 +3118,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Bu isim zaten mevcut</translation>
     </message>
 </context>
 <context>
@@ -3140,7 +3140,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Önyükleme menünüzü yönetin</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
