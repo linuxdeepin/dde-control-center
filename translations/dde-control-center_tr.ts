@@ -2061,11 +2061,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"/>
+        <translation>Performans ve pil ömrünü dengeleyerek kullanıma göre otomatik olarak ayarlanır</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Sistemin güç tüketimini azaltmak için bazı performanslardan ödün vereceği pil ömrüne öncelik verin</translation>
     </message>
 </context>
 <context>
@@ -2091,7 +2091,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Bağlantı Adresini Kopyala</translation>
     </message>
 </context>
 <context>
@@ -2181,7 +2181,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation type="unfinished"/>
+        <translation>dde-control-center</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
@@ -2200,7 +2200,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>RegionFormatDialog</name>
     <message>
         <source>Regions and formats</source>
-        <translation type="unfinished"/>
+        <translation>Bölgeler ve formatlar</translation>
     </message>
     <message>
         <source>Search</source>
@@ -2208,7 +2208,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"/>
+        <translation>Varsayılan formatlar</translation>
     </message>
     <message>
         <source>First day of week</source>
@@ -2236,7 +2236,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"/>
+        <translation>Rakam</translation>
     </message>
     <message>
         <source>Paper size</source>
@@ -2289,7 +2289,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"/>
+        <translation>Yeniden Görüşme Sıklığını Özelleştir</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2308,11 +2308,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>preview</source>
-        <translation type="unfinished"/>
+        <translation>önizleme</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Kişiselleştirilmiş ekran koruyucu</translation>
     </message>
     <message>
         <source>setting</source>
@@ -2320,7 +2320,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>idle time</source>
-        <translation type="unfinished"/>
+        <translation>boştaki zaman</translation>
     </message>
     <message>
         <source>1 minute</source>
@@ -2352,11 +2352,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation type="unfinished"/>
+        <translation>Kurtarma için şifre gerekli</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Resim slayt gösterisi ekran koruyucu</translation>
     </message>
     <message>
         <source>System screensaver</source>
@@ -2371,14 +2371,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>Hiçbir arama sonucu bulunamadı</translation>
     </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Özel kısayol ekle</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -2414,7 +2414,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation type="unfinished"/>
+        <translation>Değiştirmek için Ekle&apos;ye tıkla</translation>
     </message>
 </context>
 <context>
