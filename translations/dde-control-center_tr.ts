@@ -506,7 +506,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Aşağıdaki uygulamaların kameranıza erişmesine izin verin:</translation>
     </message>
 </context>
 <context>
@@ -653,7 +653,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>Kamera meşgul!</translation>
     </message>
 </context>
 <context>
@@ -672,7 +672,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation type="unfinished"/>
+        <translation>Tema simgenizi özelleştirin</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
@@ -680,7 +680,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation type="unfinished"/>
+        <translation>Tema imlecinizi özelleştirin</translation>
     </message>
 </context>
 <context>
@@ -753,7 +753,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"/>
+        <translation>Caps lock istemi</translation>
     </message>
     <message>
         <source>Scroll Speed</source>
@@ -773,7 +773,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Klavyeyi Etkinleştir</translation>
     </message>
 </context>
 <context>
@@ -824,15 +824,15 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"/>
+        <translation>Yeni önyükleme animasyonunu ayarlamaya başlayın, lütfen bir dakika bekleyin</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"/>
+        <translation>Yeni önyükleme animasyonu ayarlama işlemi tamamlandı</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"/>
+        <translation>Sistemi yeniden başlattıktan sonra ayarlar uygulanacak</translation>
     </message>
 </context>
 <context>
@@ -907,19 +907,19 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Kişisel bilgilerinizin sizin için ne kadar önemli olduğunun son derece farkındayız. Dolayısıyla, bilgilerinizi nasıl topladığımızı, kullandığımızı, paylaştığımızı, aktardığımızı, kamuya açıkladığımızı ve sakladığımızı kapsayan Gizlilik Politikasına sahibiz.&lt;/p&gt;&lt;p&gt;En son gizlilik politikamızı görüntülemek için &lt;a href=&quot;%1&quot;&gt;buraya tıklayabilirsiniz&lt;/a&gt; &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Lütfen müşteri gizliliğiyle ilgili uygulamalarımızı dikkatlice okuyun ve tam olarak anlayın.Herhangi bir sorunuz varsa, bize şu adresten ulaşabilirsiniz: support@uniontech.com&lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Kullanıcı Deneyimi Programına katılarak cihazınız, sisteminiz, uygulamalarınız hakkında bilgi toplamamız ve işlemimize izin ve yetki veriyorsunuz. Eğer bilgilerinizin toplanıp, işlenmesini istemiyorsanız Kullanıcı deneyimi Programına katılmayın. Daha fazla bilgi için, lütfen Deepin Gizlilik Sözleşmesine bakın. (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Kullanıcı Deneyimi Programına katılarak cihazınız, sisteminiz, uygulamalarınız hakkında bilgi toplamamız ve işlemimize izin ve yetki veriyorsunuz. Eğer bilgilerinizin toplanıp, işlenmesini istemiyorsanız lütfen katılmayın. Kullanıcı Deneyimi Programı hakkında fazla bilgi için, lütfen &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt; sayfasını ziyaret edin.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
@@ -930,7 +930,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation type="unfinished"/>
+        <translation>Tarih ve saat ayarı</translation>
     </message>
     <message>
         <source>Date</source>
@@ -1025,15 +1025,15 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Decimal symbol</source>
-        <translation type="unfinished"/>
+        <translation>Ondalık sembol</translation>
     </message>
     <message>
         <source>Digit grouping symbol</source>
-        <translation type="unfinished"/>
+        <translation>Basamak gruplandırma sembolü</translation>
     </message>
     <message>
         <source>Digit grouping</source>
-        <translation type="unfinished"/>
+        <translation>Rakam gruplama</translation>
     </message>
     <message>
         <source>Page size</source>
@@ -1073,7 +1073,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation type="unfinished"/>
+        <translation>WeChat&apos;e bağlanarak %1 ID&apos;nize ve yerel hesaplarınıza güvenli ve hızlı bir şekilde giriş yapabilirsiniz.</translation>
     </message>
     <message>
         <source>Unlinked</source>
@@ -1081,7 +1081,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"/>
+        <translation>Bağlantı kaldırma</translation>
     </message>
     <message>
         <source>Link</source>
@@ -1089,15 +1089,15 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"/>
+        <translation>WeChat&apos;i kaldırmak istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"/>
+        <translation>WeChat&apos;i bağlantıdan çıkardıktan sonra, WeChat&apos;i kullanarak QR kodunu tarayarak %1 ID veya yerel hesabınıza giriş yapamayacaksınız.</translation>
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"/>
+        <translation>Bir düşüneyim</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
@@ -1109,23 +1109,23 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"/>
+        <translation>WeChat Tarama Kodu Giriş Sistemi</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"/>
+        <translation>Yerel hesabınıza giriş yapmak için %1 kimliğinize bağlı olan WeChat&apos;i kullanarak kodu tarayın.</translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>%1 ID ile şifreyi sıfırla</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Unutmanız durumunda yerel şifrenizi %1 ID üzerinden sıfırlayın.</translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation>Yukarıdaki özellikleri kullanmak için lütfen Kontrol Merkezi - Hesaplar bölümüne gidin ve ilgili seçenekleri açın.</translation>
     </message>
 </context>
 <context>
