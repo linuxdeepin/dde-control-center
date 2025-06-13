@@ -1363,18 +1363,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"/>
+        <translation>Seçeneği değiştirme işlemi bir dakika kadar sürebilir; başarılı ayar bildirimini aldıktan sonra etkili olması için lütfen cihazı yeniden başlatın.</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>İmzalanmamış uygulamaları yüklemek ve çalıştırmak için lütfen &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt;Güvenlik Merkezine&lt;/a&gt; giderek ayarları değiştirin.</translation>
     </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Feragat</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1382,14 +1382,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation>Kabul et</translation>
     </message>
 </context>
 <context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"/>
+        <translation>Aşağıdaki uygulamaların bu dosyalara ve klasörlere erişmesine izin verin:</translation>
     </message>
     <message>
         <source>Documents</source>
@@ -1534,7 +1534,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>tap</source>
-        <translation type="unfinished"/>
+        <translation>sekme</translation>
     </message>
 </context>
 <context>
@@ -1564,11 +1564,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Verimli sistem performansı için tüm arayüz ve pencere efektlerini devre dışı bırakın.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Sorunsuz sistem performansını korurken mükemmel görseller için bazı pencere efektlerini sınırlayın.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
@@ -2605,7 +2605,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Mevcut ses aygıtı çıkarıldığında sesin otomatik olarak duraklatılıp duraklatılmayacağı</translation>
     </message>
     <message>
         <source>Output Devices</source>
@@ -2823,7 +2823,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"/>
+        <translation>İşlem hassastır, lütfen önce oturum açma şifresini girin</translation>
     </message>
     <message>
         <source>8-64 characters</source>
@@ -3020,7 +3020,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"/>
+        <translation>Etkinse, pencerede daha fazla içerik görüntülenir.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
@@ -3028,7 +3028,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation type="unfinished"/>
+        <translation>Sadece pencere yöneticisi tarafından çizilen uygulama penceresi başlık çubukları için uygundur.</translation>
     </message>
     <message>
         <source>Extremely small</source>
@@ -3037,12 +3037,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
+        <translation>Orta</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
+        <translation>Orta</translation>
     </message>
 </context>
 <context>
@@ -3546,7 +3546,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Tanımlama</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
@@ -3558,7 +3558,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Ana Ekran</translation>
     </message>
     <message>
         <source>Display And Layout</source>
@@ -3618,7 +3618,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>Ekran görüntüsünü daha sıcak renklere ayarlayın, ekrandaki mavi ışığı azaltın</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3630,7 +3630,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"/>
+        <translation>Gün batımından gün doğumuna</translation>
     </message>
     <message>
         <source>Custom Time</source>
@@ -3826,7 +3826,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Uygulama bildirimleri masaüstünde gösterilmeyecek ve sesler susturulacak, ancak bildirim merkezindeki tüm mesajları görüntüleyebilirsiniz.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
@@ -3838,7 +3838,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Masaüstünde gösterilen bildirim sayısı</translation>
     </message>
     <message>
         <source>App Notifications</source>
@@ -3904,7 +3904,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Renkler ve simgeler</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
@@ -4030,7 +4030,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"/>
+        <translation>Aygıtlar</translation>
     </message>
 </context>
 <context>
@@ -4091,14 +4091,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Açık Kaynak Yazılım Bildirimi</translation>
     </message>
 </context>
 <context>
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Dokunmatik ekran</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
@@ -4143,7 +4143,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Basınç Duyarlığı</translation>
     </message>
     <message>
         <source>Light</source>
