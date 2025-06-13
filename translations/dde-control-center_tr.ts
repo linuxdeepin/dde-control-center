@@ -2425,11 +2425,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Sistem kısayolu, özel kısayol</translation>
     </message>
     <message>
         <source>Search shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Arama kısayolları</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -2437,7 +2437,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>tamamla</translation>
     </message>
     <message>
         <source>edit</source>
@@ -2449,7 +2449,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"/>
+        <translation>Tıkla</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2465,11 +2465,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Restore default</source>
-        <translation type="unfinished"/>
+        <translation>Varsayılana geri yükle</translation>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Özel kısayol ekle</translation>
     </message>
 </context>
 <context>
@@ -2480,7 +2480,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation type="unfinished"/>
+        <translation>Cihazların etkinleştirilip etkinleştirilmeyeceğini seçin</translation>
     </message>
     <message>
         <source>Input Devices</source>
@@ -2585,23 +2585,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Ses için çıkış aygıtı bulunamadı</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>Sol Sağ Dengesi</translation>
     </message>
     <message>
         <source>Mono audio</source>
-        <translation type="unfinished"/>
+        <translation>Mono ses</translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"/>
+        <translation>Sol ve sağ kanalları tek bir kanalda birleştirin</translation>
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik duraklatma</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
@@ -2646,7 +2646,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik senkronizasyon zamanı</translation>
     </message>
     <message>
         <source>Ntp server</source>
@@ -2654,7 +2654,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System date and time</source>
-        <translation type="unfinished"/>
+        <translation>Sistem tarihi ve saati</translation>
     </message>
     <message>
         <source>Customize</source>
@@ -2666,7 +2666,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Server address</source>
-        <translation type="unfinished"/>
+        <translation>Sunucu adresi</translation>
     </message>
     <message>
         <source>Required</source>
@@ -2674,19 +2674,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>ntp sunucu adresi boş olamaz</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
+        <translation>24 saatlik formatı kullan</translation>
     </message>
     <message>
         <source>system time zone</source>
-        <translation type="unfinished"/>
+        <translation>sistem saat dilimi</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"/>
+        <translation>Saat dilimi listesi</translation>
     </message>
 </context>
 <context>
@@ -2727,7 +2727,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation>Mevcut konuma göre saat dilimini belirleyin</translation>
     </message>
     <message>
         <source>Time zone:</source>
@@ -2735,7 +2735,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation>En Yakın Şehir:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2781,7 +2781,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"/>
+        <translation>Giriş sırasında dokunmatik yüzeyi devre dışı bırak</translation>
     </message>
     <message>
         <source>Tap to Click</source>
