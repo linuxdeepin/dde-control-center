@@ -1148,11 +1148,12 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"/>
+        <translation>%1 ID&apos;nizi yönetin ve kişisel verilerinizi cihazlar arasında senkronize edin.
+%1 ID&apos;de oturum açarak Tarayıcı, Uygulama Mağazası ve daha fazlasının kişiselleştirilmiş özelliklerini ve hizmetlerini edinin.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>%1 ID&apos;ye Giriş Yap</translation>
     </message>
 </context>
 <context>
@@ -1171,7 +1172,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"/>
+        <translation>Son senkronizasyon zamanı: %1</translation>
     </message>
     <message>
         <source>Clear cloud data</source>
@@ -1210,14 +1211,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"/>
+        <translation>Web ayarlarına git</translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"/>
+        <translation>Şifreleme şifresi başarısız oldu</translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
@@ -1255,7 +1256,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Lütfen &apos;%1&apos;i açmak için varsayılan programı seçin</translation>
     </message>
     <message>
         <source>add</source>
@@ -1302,7 +1303,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Giriş UOS ID</translation>
     </message>
     <message>
         <source>Offline</source>
@@ -1318,11 +1319,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"/>
+        <translation>UOS kimliğiniz oturum açtı, geliştirici moduna girmek için tıklayın</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>Lütfen önce UOS Kimliğinizle oturum açın ve devam edin</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
@@ -1334,7 +1335,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. Çevrimdışı sertifikayı indirmek için lütfen &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; adresine gidin.</translation>
     </message>
     <message>
         <source>3.Import Certificate</source>
@@ -1346,11 +1347,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"/>
+        <translation>Sistem günlük kaydı düzeyi</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"/>
+        <translation>Seçenekleri değiştirmek, sistem performansını düşürebilecek ve/veya daha fazla depolama alanı kaplayabilecek daha ayrıntılı günlük kaydıyla sonuçlanır.</translation>
     </message>
     <message>
         <source>Off</source>
@@ -1377,7 +1378,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>İptal et</translation>
     </message>
     <message>
         <source>Agree</source>
@@ -1797,7 +1798,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>NativeInfoPage</name>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
     <message>
         <source>Computer name</source>
@@ -2292,11 +2293,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>İptal et</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Kaydet</translation>
     </message>
 </context>
 <context>
