@@ -48,21 +48,22 @@ SoundModel::SoundModel(QObject *parent)
 #ifndef DCC_DISABLE_FEEDBACK
     , m_microphoneFeedback(50)
 #endif
-    , m_soundEffectMapBattery{}
+    , m_audioCards("")
+    , m_currentBluetoothMode("")
     , m_inputVisibled(false)
     , m_outputVisibled(false)
+    , m_outPutPortComboIndex(0)
+    , m_outPutPortComboEnable(true)
+    , m_inPutPortComboIndex(0)
+    , m_inPutPortComboEnable(true)
     , m_soundEffectsModel(new SoundEffectsModel(this))
-    , m_soundOutputDeviceModel(new SoundDeviceModel(this))
     , m_soundInputDeviceModel(new SoundDeviceModel(this))
+    , m_soundOutputDeviceModel(new SoundDeviceModel(this))
     , m_audioServerModel(new AudioServerModel(this))
-    , m_showBluetoothMode(false)
     , m_inPutPortCount(0)
     , m_outPutCount(0)
-    , m_outPutPortComboEnable(true)
-    , m_inPutPortComboEnable(true)
-    , m_currentBluetoothMode("")
     , m_audioMono(false)
-    , m_bluetoothModeOpts("")
+    , m_showBluetoothMode(false)
 {
     m_soundEffectMapBattery = {
         { tr("Boot up"), DDesktopServices::SSE_BootUp },
