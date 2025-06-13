@@ -5,7 +5,7 @@
 
 BluetoothDeviceModel::BluetoothDeviceModel(QObject *parent)
     : QAbstractListModel(parent)
-    , m_displaySwitch(true)
+    , m_displaySwitch(false)
 {
 }
 
