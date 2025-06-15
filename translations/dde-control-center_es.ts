@@ -3023,7 +3023,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation>Si está habilitado, se mostrará más contenido en la ventana.</translation>
+        <translation>Si está activado, se mostrará más contenido en la ventana.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
