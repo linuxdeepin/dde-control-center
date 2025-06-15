@@ -1903,7 +1903,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Password hint</source>
-        <translation>Sugerencia de contraseña</translation>
+        <translation>Pista de contraseña</translation>
     </message>
     <message>
         <source>Optional</source>
