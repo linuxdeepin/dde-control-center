@@ -1329,10 +1329,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>3.Importar certificado</translation>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation>Para instalar e executar aplicativos não assinados, acesse &lt;a href=&quot;Security Center&quot;&gt;Central de Segurança&lt;/a&gt; para alterar as configurações.</translation>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>Opções do desenvolvedor e depuração</translation>
     </message>
@@ -1355,6 +1351,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>A alteração da opção pode levar até um minuto para ser processada. Após receber um prompt de configuração bem-sucedida, reinicie o dispositivo para que a configuração tenha efeito.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

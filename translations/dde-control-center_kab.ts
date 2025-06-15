@@ -1333,10 +1333,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>To install and run unsigned apps, please go to &lt;a href=&quot;Security Center&quot;&gt;Security Center&lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Development and debugging options</source>
         <translation>Ajtisamal n dafayet n tajribat n tiskriyt</translation>
     </message>
@@ -1359,6 +1355,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
         <translation>Amsalihen tawjihen tafissal tisla tassubt n aqsas n tafissal 10 sifra, t7afdan b tawjihen tafissal tisla tassubt n aqsas, 3awen ntaghriben n tafissal tisla tassubt n aqsas, t3awen t3alib t7a7rif tafissal tisla tassubt n aqsas.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

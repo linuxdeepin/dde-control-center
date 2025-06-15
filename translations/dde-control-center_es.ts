@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="es">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="es">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -77,31 +75,31 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished">El nombre completo es muy largo</translation>
+        <translation>El nombre completo es muy largo</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Los nombres de los grupos no deben tener más de 32 caracteres</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Los nombres de grupo no pueden tener solo números</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"></translation>
+        <translation>Use letras, números, guiones bajos y guiones solamente, y debe comenzar con una letra</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"></translation>
+        <translation>El nombre del grupo ya esta en uso</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"></translation>
+        <translation>Inicio de sesión automático, inicio de sesión sin contraseña</translation>
     </message>
     <message>
         <source>Quickly load DDE with your login information</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargar rápidamente DDE con sus datos inicio se sesión</translation>
     </message>
 </context>
 <context>
@@ -209,7 +207,7 @@ Para un mejor uso del reconocimiento facial, tenga en cuenta lo siguiente al reg
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>La autenticación biométrica es una función de autenticación de identidad de usuario proporcionada por UnionTech Software Technology Co., Ltd. Mediante la autenticación biométrica, los datos biométricos recopilados se compararán con los almacenados en el dispositivo y la identidad del usuario se verificará con base en el resultado de la comparación.
@@ -778,7 +776,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Activar teclado</translation>
     </message>
 </context>
 <context>
@@ -1372,7 +1370,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Para instalar y ejecutar aplicaciones sin firmar, vaya al &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Centro de seguridad &lt;/a&gt; para cambiar la configuración.</translation>
     </message>
 </context>
 <context>
@@ -1859,7 +1857,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>De 1 a 63 caracteres, por favor</translation>
     </message>
 </context>
 <context>
@@ -1905,7 +1903,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Password hint</source>
-        <translation>Sugerencia de contraseña</translation>
+        <translation>Pista de contraseña</translation>
     </message>
     <message>
         <source>Optional</source>
@@ -1925,7 +1923,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation>La pista es visible para todos los usuarios. No incluya aquí la contraseña.</translation>
+        <translation>La pista es visible para todos. No incluya la contraseña.</translation>
     </message>
 </context>
 <context>
@@ -3025,7 +3023,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation>Si está habilitado, se mostrará más contenido en la ventana.</translation>
+        <translation>Si está activado, se mostrará más contenido en la ventana.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
@@ -3042,12 +3040,12 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished">Medio</translation>
+        <translation>Mediano</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished">Medio</translation>
+        <translation>Mediano</translation>
     </message>
 </context>
 <context>
@@ -3783,7 +3781,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloquear el muelle</translation>
     </message>
 </context>
 <context>
@@ -4096,7 +4094,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"></translation>
+        <translation>Declaración de software de código abierto</translation>
     </message>
 </context>
 <context>
