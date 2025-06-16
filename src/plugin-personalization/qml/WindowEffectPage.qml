@@ -178,9 +178,9 @@ DccObject {
                 Layout.fillWidth: true
                 tickDirection: D.TipsSlider.TickDirection.Back
                 slider.handleType: Slider.HandleType.ArrowBottom
-                slider.from: 20
+                slider.from: 25
                 slider.to: 100
-                slider.value: 20
+                slider.value: 25
                 slider.live: true
                 slider.stepSize: 1
                 slider.snapMode: Slider.SnapAlways
