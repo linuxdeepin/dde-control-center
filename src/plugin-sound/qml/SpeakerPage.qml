@@ -63,15 +63,35 @@ DccObject {
                     font: DTK.fontManager.t7
                     text: root.toPercent(voiceTipsSlider.value)
                 }
-                IconButton {
+                ActionButton {
                     Layout.alignment: Qt.AlignVCenter
                     icon {
                         name: dccData.model().speakerOn ? "sound_off" : "small_volume"
                         width: 16
                         height: 16
                     }
-                    implicitWidth: 24
+                    property Palette textColor: parent.textColor
+                    palette.windowText: ColorSelector.textColor
                     flat: !hovered
+                    implicitWidth: 24
+                    implicitHeight: 24
+                    hoverEnabled: enabled
+                    background: Rectangle {
+                        property Palette pressedColor: Palette {
+                            normal: Qt.rgba(0, 0, 0, 0.2)
+                            normalDark: Qt.rgba(1, 1, 1, 0.25)
+                        }
+                        property Palette hoveredColor: Palette {
+                            normal: Qt.rgba(0, 0, 0, 0.1)
+                            normalDark: Qt.rgba(1, 1, 1, 0.1)
+                        }
+                        radius: DS.Style.control.radius
+                        color: parent.pressed ? ColorSelector.pressedColor : (parent.hovered ? ColorSelector.hoveredColor : "transparent")
+                        border {
+                            color: parent.palette.highlight
+                            width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                        }
+                    }
 
                     onClicked: {
                         dccData.worker().setSinkMute()
