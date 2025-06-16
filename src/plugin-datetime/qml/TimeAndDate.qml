@@ -187,11 +187,11 @@ DccObject {
                     alertDuration: 3000
                     horizontalAlignment: TextInput.AlignRight
                     anchors{
-                        rightMargin: 0
+                        rightMargin: 5
                         right: editBtn.left
                         verticalCenter: parent.verticalCenter
                     }
-                    rightPadding: (!addr.readOnly && addr.text.length > 0 ? addr.clearButton.width : 10)
+                    rightPadding: (!addr.readOnly && addr.text.length > 0 ? addr.clearButton.width : 5)
                     onReadOnlyChanged: {
                         addr.background.visible = !addr.readOnly
                         addr.clearButton.visible = !addr.readOnly && text.length > 0
@@ -230,7 +230,7 @@ DccObject {
                         }
                     }
                     icon {
-                        name: addr.readOnly ? "dcc-edit" : "ok"
+                        name: addr.readOnly ? "dcc-edit" : "inactive"
                         width: 16
                         height: 16
                     }
