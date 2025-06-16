@@ -1369,7 +1369,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>如需安装非应用商店来源的应用，前往&lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; 安全中心 &lt;/a&gt;进行设置。</translation>
     </message>
 </context>
 <context>
