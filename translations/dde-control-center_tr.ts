@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="tr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="tr">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -13,7 +11,7 @@
     </message>
     <message>
         <source>Set fullname</source>
-        <translation type="unfinished"></translation>
+        <translation>Tam adı ayarla</translation>
     </message>
     <message>
         <source>Login settings</source>
@@ -29,7 +27,7 @@
     </message>
     <message>
         <source>Delete current account</source>
-        <translation type="unfinished"></translation>
+        <translation>Geçerli hesabı sil</translation>
     </message>
     <message>
         <source>Group setting</source>
@@ -41,7 +39,7 @@
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"></translation>
+        <translation>tamamla</translation>
     </message>
     <message>
         <source>Group name</source>
@@ -57,11 +55,11 @@
     </message>
     <message>
         <source>Account Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Hesap Bilgileri</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"></translation>
+        <translation>Hesap adı, hesabın tam adı, hesap türü</translation>
     </message>
     <message>
         <source>Account name</source>
@@ -69,7 +67,7 @@
     </message>
     <message>
         <source>Account fullname</source>
-        <translation type="unfinished"></translation>
+        <translation>Hesap tam adı</translation>
     </message>
     <message>
         <source>Account type</source>
@@ -77,31 +75,31 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished">Tam isim çok uzun</translation>
+        <translation>Tam ad çok uzun</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Grup adı 32 karakterden fazla olmamalıdır</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"></translation>
+        <translation>Grup adları sadece numara olamaz</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"></translation>
+        <translation>Yalnızca harf, sayı, alt çizgi ve tire kullanın ve bir harfle başlamalısınız</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu grup adı kullanıldı</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"></translation>
+        <translation>hızlı giriş, otomatik giriş, şifresiz giriş</translation>
     </message>
     <message>
         <source>Quickly load DDE with your login information</source>
-        <translation type="unfinished"></translation>
+        <translation>Giriş bilgilerinizle DDE&apos;yi hızla yükleyin</translation>
     </message>
 </context>
 <context>
@@ -136,7 +134,7 @@
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished">Tamamlandı</translation>
+        <translation>Tamamla</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -144,7 +142,7 @@
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekrar Kaydolmayı Dene</translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -158,7 +156,17 @@ In order to better use of face recognition, please pay attention to the followin
 1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
-        <translation type="unfinished"></translation>
+        <translation>Yüz tanımayı kullanmadan önce lütfen şunları unutmayın: 
+1. Cihazınızın kilidi, size benzeyen veya size benzeyen kişiler veya nesneler tarafından açılabilir.
+2. Yüz tanıma, dijital parolalardan ve karma parolalardan daha az güvenlidir.
+3. Yüz tanıma ile cihazınızın kilidini açma başarı oranı, düşük ışık, yüksek ışık, arka ışık, geniş açı senaryosu ve diğer senaryolarda azalacaktır.
+4. Yüz tanımanın kötü niyetli kullanımından kaçınmak için lütfen cihazınızı rastgele başkalarına vermeyin.
+5. Yukarıdaki senaryolara ek olarak, yüz tanımanın normal kullanımını etkileyebilecek diğer durumlara da dikkat etmelisiniz.
+
+Yüz tanımayı daha iyi kullanmak için yüz verilerini girerken lütfen aşağıdaki hususlara dikkat edin:
+1. Lütfen iyi aydınlatılmış bir ortamda kalın, doğrudan güneş ışığından ve kaydedilen ekranda görünen diğer insanlardan kaçının.
+2. Veri girerken lütfen yüz durumuna dikkat edin ve şapka, saç, güneş gözlüğü, maske, ağır makyaj ve diğer faktörlerin yüz hatlarınızı kapatmasına izin vermeyin.
+3. Lütfen başınızı eğmekten, alçaltmaktan, gözlerinizi kapatmaktan, yüzünüzün yalnızca bir tarafını göstermekten kaçının ve istem kutusunda ön yüzünüzün net ve eksiksiz göründüğünden emin olun.</translation>
     </message>
 </context>
 <context>
@@ -173,11 +181,11 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation type="unfinished"></translation>
+        <translation>Parmak izi Kaydı</translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"></translation>
+        <translation>Parmak izi sensörüne girilecek parmağı yerleştirin ve aşağıdan yukarıya doğru hareket ettirin. İşlemi tamamladıktan sonra lütfen parmağınızı kaldırın.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -193,22 +201,24 @@ In order to better use of face recognition, please pay attention to the followin
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"></translation>
+        <translation>Tekrar Kaydolmayı Dene</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;Biyometrik kimlik doğrulama&quot;, UnionTech Software Technology Co., Ltd. tarafından sağlanan kullanıcı kimliği kimlik doğrulaması için bir işlevdir. &quot;Biyometrik kimlik doğrulama&quot; yoluyla, toplanan biyometrik veriler cihazda depolanan verilerle karşılaştırılacak ve kullanıcı kimliği, karşılaştırma sonucu. 
+UnionTech Software Technology Co., Ltd &apos;in yerel cihazınızda saklanacak olan biyometrik bilgilerinizi toplamayacağını veya bunlara erişmeyeceğini lütfen unutmayın. Lütfen yalnızca kişisel cihazınızda biyometrik doğrulamayı etkinleştirin ve ilgili işlemler için kendi biyometrik bilgilerinizi kullanın ve diğer kişilerin o cihazdaki biyometrik bilgilerini derhal devre dışı bırakın veya silin, aksi takdirde bundan kaynaklanan risk size aittir.  
+UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenliğini, doğruluğunu ve kararlılığını araştırmaya ve geliştirmeye kendini adamıştır. Ancak çevresel, ekipman, teknik ve diğer faktörler ve risk kontrolü nedeniyle biyometrik doğrulamayı geçici olarak geçeceğinizin garantisi yoktur. Bu nedenle, lütfen UnionTech UOS&apos;de oturum açmanın tek yolu olarak biyometrik doğrulamayı kabul etmeyin. Biyometrik kimlik doğrulamayı kullanırken herhangi bir sorunuz veya öneriniz varsa, UnionTech UOS&apos;deki &quot;Servis ve Destek&quot; aracılığıyla geri bildirimde bulunabilirsiniz.</translation>
     </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"></translation>
+        <translation>&quot;Otomatik Giriş&quot; yalnızca tek hesap için etkinleştirilebilir, lütfen önce &quot;%1&quot; hesabı için devre dışı bırakın</translation>
     </message>
     <message>
         <source>Ok</source>
@@ -231,11 +241,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"></translation>
+        <translation>Manzara</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"></translation>
+        <translation>İllüstrasyon</translation>
     </message>
     <message>
         <source>Emoji</source>
@@ -247,15 +257,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cartoon style</source>
-        <translation type="unfinished"></translation>
+        <translation>Karikatür tarzı</translation>
     </message>
     <message>
         <source>Dimensional style</source>
-        <translation type="unfinished"></translation>
+        <translation>Boyutsal stil</translation>
     </message>
     <message>
         <source>Flat style</source>
-        <translation type="unfinished"></translation>
+        <translation>Düz stil</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -270,11 +280,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran ve Askıya Alma</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"></translation>
+        <translation>Monitörü kapattıktan sonra</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -282,7 +292,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilgisayar askıya alındıktan sonra</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -290,7 +300,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"></translation>
+        <translation>Güç düğmesine basıldığında</translation>
     </message>
     <message>
         <source>Low Battery</source>
@@ -298,7 +308,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"></translation>
+        <translation>Düşük pil bildirimi</translation>
     </message>
     <message>
         <source>Auto suspend</source>
@@ -337,11 +347,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Bluetooth kapalı ve ad &quot;%1&quot; olarak görüntüleniyor</translation>
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"></translation>
+        <translation>Bluetooth açık ve ad &quot;%1&quot; olarak görüntüleniyor</translation>
     </message>
 </context>
 <context>
@@ -364,7 +374,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Remove Device</source>
-        <translation type="unfinished"></translation>
+        <translation>Cihazı Kaldır</translation>
     </message>
     <message>
         <source>Select file</source>
@@ -383,7 +393,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"></translation>
+        <translation>Bluetooth işlevini kullanmak için lütfen kapatın</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
@@ -391,7 +401,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>Bluetooth adı 64 karakteri aşamaz</translation>
     </message>
 </context>
 <context>
@@ -409,15 +419,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Başlangıç ​​Ayarları</translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"></translation>
+        <translation>Varsayılan başlangıç ​​öğelerini değiştirmek için menüye tıklayabilir veya arka plan resmini değiştirmek için resmi pencereye sürükleyebilirsiniz.</translation>
     </message>
     <message>
         <source>grub start delay</source>
-        <translation type="unfinished"></translation>
+        <translation>grub başlatma gecikmesi</translation>
     </message>
     <message>
         <source>theme</source>
@@ -425,15 +435,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"></translation>
+        <translation>Temayı açtıktan sonra bilgisayarı açtığınızda tema arka planını görebilirsiniz</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation type="unfinished"></translation>
+        <translation>Önyükleme menüsü doğrulaması</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation type="unfinished"></translation>
+        <translation>Açıldıktan sonra menü düzenleme kısmına girmek için şifre gerekmektedir.</translation>
     </message>
     <message>
         <source>Change Password</source>
@@ -441,11 +451,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation type="unfinished"></translation>
+        <translation>Önyükleme menüsü doğrulama parolasını değiştir</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"></translation>
+        <translation>Önyükleme menüsü kimlik doğrulama parolasını ayarlayın</translation>
     </message>
     <message>
         <source>User Name :</source>
@@ -481,22 +491,22 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Sure</source>
-        <translation type="unfinished"></translation>
+        <translation>Elbette</translation>
     </message>
     <message>
         <source>Start animation</source>
-        <translation type="unfinished"></translation>
+        <translation>Başlangıç animasyonu</translation>
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistem başlatma arayüzündeki logo animasyonunun boyutunu ayarlayın</translation>
     </message>
 </context>
 <context>
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aşağıdaki uygulamaların kameranıza erişmesine izin verin:</translation>
     </message>
 </context>
 <context>
@@ -643,7 +653,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"></translation>
+        <translation>Kamera meşgul!</translation>
     </message>
 </context>
 <context>
@@ -662,7 +672,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation type="unfinished"></translation>
+        <translation>Tema simgenizi özelleştirin</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
@@ -670,7 +680,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation type="unfinished"></translation>
+        <translation>Tema imlecinizi özelleştirin</translation>
     </message>
 </context>
 <context>
@@ -743,7 +753,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"></translation>
+        <translation>Caps lock istemi</translation>
     </message>
     <message>
         <source>Scroll Speed</source>
@@ -763,7 +773,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation>Klavyeyi Etkinleştir</translation>
     </message>
 </context>
 <context>
@@ -814,15 +824,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni önyükleme animasyonunu ayarlamaya başlayın, lütfen bir dakika bekleyin</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni önyükleme animasyonu ayarlama işlemi tamamlandı</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistemi yeniden başlattıktan sonra ayarlar uygulanacak</translation>
     </message>
 </context>
 <context>
@@ -897,19 +907,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Kişisel bilgilerinizin sizin için ne kadar önemli olduğunun son derece farkındayız. Dolayısıyla, bilgilerinizi nasıl topladığımızı, kullandığımızı, paylaştığımızı, aktardığımızı, kamuya açıkladığımızı ve sakladığımızı kapsayan Gizlilik Politikasına sahibiz.&lt;/p&gt;&lt;p&gt;En son gizlilik politikamızı görüntülemek için &lt;a href=&quot;%1&quot;&gt;buraya tıklayabilirsiniz&lt;/a&gt; &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Lütfen müşteri gizliliğiyle ilgili uygulamalarımızı dikkatlice okuyun ve tam olarak anlayın.Herhangi bir sorunuz varsa, bize şu adresten ulaşabilirsiniz: support@uniontech.com&lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Kullanıcı Deneyimi Programına katılarak cihazınız, sisteminiz, uygulamalarınız hakkında bilgi toplamamız ve işlemimize izin ve yetki veriyorsunuz. Eğer bilgilerinizin toplanıp, işlenmesini istemiyorsanız Kullanıcı deneyimi Programına katılmayın. Daha fazla bilgi için, lütfen Deepin Gizlilik Sözleşmesine bakın. (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation>&lt;p&gt;Kullanıcı Deneyimi Programına katılarak cihazınız, sisteminiz, uygulamalarınız hakkında bilgi toplamamız ve işlemimize izin ve yetki veriyorsunuz. Eğer bilgilerinizin toplanıp, işlenmesini istemiyorsanız lütfen katılmayın. Kullanıcı Deneyimi Programı hakkında fazla bilgi için, lütfen &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt; sayfasını ziyaret edin.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
@@ -920,7 +930,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation type="unfinished"></translation>
+        <translation>Tarih ve saat ayarı</translation>
     </message>
     <message>
         <source>Date</source>
@@ -1015,15 +1025,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Decimal symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Ondalık sembol</translation>
     </message>
     <message>
         <source>Digit grouping symbol</source>
-        <translation type="unfinished"></translation>
+        <translation>Basamak gruplandırma sembolü</translation>
     </message>
     <message>
         <source>Digit grouping</source>
-        <translation type="unfinished"></translation>
+        <translation>Rakam gruplama</translation>
     </message>
     <message>
         <source>Page size</source>
@@ -1063,7 +1073,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation type="unfinished"></translation>
+        <translation>WeChat&apos;e bağlanarak %1 ID&apos;nize ve yerel hesaplarınıza güvenli ve hızlı bir şekilde giriş yapabilirsiniz.</translation>
     </message>
     <message>
         <source>Unlinked</source>
@@ -1071,7 +1081,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"></translation>
+        <translation>Bağlantı kaldırma</translation>
     </message>
     <message>
         <source>Link</source>
@@ -1079,15 +1089,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"></translation>
+        <translation>WeChat&apos;i kaldırmak istediğinizden emin misiniz?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"></translation>
+        <translation>WeChat&apos;i bağlantıdan çıkardıktan sonra, WeChat&apos;i kullanarak QR kodunu tarayarak %1 ID veya yerel hesabınıza giriş yapamayacaksınız.</translation>
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"></translation>
+        <translation>Bir düşüneyim</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
@@ -1099,23 +1109,23 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"></translation>
+        <translation>WeChat Tarama Kodu Giriş Sistemi</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"></translation>
+        <translation>Yerel hesabınıza giriş yapmak için %1 kimliğinize bağlı olan WeChat&apos;i kullanarak kodu tarayın.</translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ID ile şifreyi sıfırla</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"></translation>
+        <translation>Unutmanız durumunda yerel şifrenizi %1 ID üzerinden sıfırlayın.</translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"></translation>
+        <translation>Yukarıdaki özellikleri kullanmak için lütfen Kontrol Merkezi - Hesaplar bölümüne gidin ve ilgili seçenekleri açın.</translation>
     </message>
 </context>
 <context>
@@ -1138,11 +1148,12 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ID&apos;nizi yönetin ve kişisel verilerinizi cihazlar arasında senkronize edin.
+%1 ID&apos;de oturum açarak Tarayıcı, Uygulama Mağazası ve daha fazlasının kişiselleştirilmiş özelliklerini ve hizmetlerini edinin.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 ID&apos;ye Giriş Yap</translation>
     </message>
 </context>
 <context>
@@ -1161,7 +1172,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Son senkronizasyon zamanı: %1</translation>
     </message>
     <message>
         <source>Clear cloud data</source>
@@ -1200,14 +1211,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Web ayarlarına git</translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"></translation>
+        <translation>Şifreleme şifresi başarısız oldu</translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
@@ -1245,7 +1256,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"></translation>
+        <translation>Lütfen &apos;%1&apos;i açmak için varsayılan programı seçin</translation>
     </message>
     <message>
         <source>add</source>
@@ -1292,7 +1303,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"></translation>
+        <translation>Giriş UOS ID</translation>
     </message>
     <message>
         <source>Offline</source>
@@ -1308,11 +1319,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"></translation>
+        <translation>UOS kimliğiniz oturum açtı, geliştirici moduna girmek için tıklayın</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"></translation>
+        <translation>Lütfen önce UOS Kimliğinizle oturum açın ve devam edin</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
@@ -1324,7 +1335,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation type="unfinished"></translation>
+        <translation>2. Çevrimdışı sertifikayı indirmek için lütfen &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; adresine gidin.</translation>
     </message>
     <message>
         <source>3.Import Certificate</source>
@@ -1336,11 +1347,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistem günlük kaydı düzeyi</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"></translation>
+        <translation>Seçenekleri değiştirmek, sistem performansını düşürebilecek ve/veya daha fazla depolama alanı kaplayabilecek daha ayrıntılı günlük kaydıyla sonuçlanır.</translation>
     </message>
     <message>
         <source>Off</source>
@@ -1352,33 +1363,33 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"></translation>
+        <translation>Seçeneği değiştirme işlemi bir dakika kadar sürebilir; başarılı ayar bildirimini aldıktan sonra etkili olması için lütfen cihazı yeniden başlatın.</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>İmzalanmamış uygulamaları yüklemek ve çalıştırmak için lütfen &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt;Güvenlik Merkezine&lt;/a&gt; giderek ayarları değiştirin.</translation>
     </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished">Feragat</translation>
+        <translation>Feragat</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">İptal</translation>
+        <translation>İptal et</translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"></translation>
+        <translation>Kabul et</translation>
     </message>
 </context>
 <context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"></translation>
+        <translation>Aşağıdaki uygulamaların bu dosyalara ve klasörlere erişmesine izin verin:</translation>
     </message>
     <message>
         <source>Documents</source>
@@ -1523,7 +1534,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>tap</source>
-        <translation type="unfinished"></translation>
+        <translation>sekme</translation>
     </message>
 </context>
 <context>
@@ -1553,15 +1564,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Verimli sistem performansı için tüm arayüz ve pencere efektlerini devre dışı bırakın.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sorunsuz sistem performansını korurken mükemmel görseller için bazı pencere efektlerini sınırlayın.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"></translation>
+        <translation>En iyi görsel deneyim için tüm arayüz ve pencere efektlerini etkinleştirin.</translation>
     </message>
 </context>
 <context>
@@ -1572,7 +1583,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"></translation>
+        <translation>tamamla</translation>
     </message>
     <message>
         <source>edit</source>
@@ -1580,11 +1591,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"></translation>
+        <translation>Klavye düzeni eklendiğinde veya değiştirildiğinde çalışmasını sağlamak için &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Giriş Yöntemi Yönetimine&lt;/a&gt; karşılık gelen giriş yöntemini ekleyin.</translation>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeni klavye düzeni ekle...</translation>
     </message>
 </context>
 <context>
@@ -1595,7 +1606,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"></translation>
+        <translation>tamamla</translation>
     </message>
     <message>
         <source>edit</source>
@@ -1615,11 +1626,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"></translation>
+        <translation>Alan</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"></translation>
+        <translation>İşletim sistemi ve uygulamalar, ülkenize ve bölgenize göre size yerel içerik sağlayabilir</translation>
     </message>
     <message>
         <source>Region and format</source>
@@ -1627,7 +1638,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"></translation>
+        <translation>İşletim sistemi ve uygulamalar, bölgesel biçimlere göre tarih ve saat biçimlerini ayarlayabilir</translation>
     </message>
 </context>
 <context>
@@ -1672,23 +1683,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation type="unfinished"></translation>
+        <translation>Giriş yöntemi</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"></translation>
+        <translation>Şifre, wechat, biyometrik kimlik doğrulama, güvenlik anahtarı</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">Parola</translation>
+        <translation>Parola</translation>
     </message>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"></translation>
+        <translation>Parolayı değiştir</translation>
     </message>
     <message>
         <source>Validity days</source>
-        <translation type="unfinished"></translation>
+        <translation>Geçerlilik günü</translation>
     </message>
     <message>
         <source>Always</source>
@@ -1722,11 +1733,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"></translation>
+        <translation>Giriş</translation>
     </message>
     <message>
         <source>No input device for sound found</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses için giriş aygıtı bulunamadı</translation>
     </message>
     <message>
         <source>Input Devices</source>
@@ -1787,7 +1798,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>NativeInfoPage</name>
     <message>
         <source>UOS</source>
-        <translation type="unfinished">UOS</translation>
+        <translation>UOS</translation>
     </message>
     <message>
         <source>Computer name</source>
@@ -1819,7 +1830,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"></translation>
+        <translation>İzin</translation>
     </message>
     <message>
         <source>System installation time</source>
@@ -1831,7 +1842,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"></translation>
+        <translation>Grafik platformu</translation>
     </message>
     <message>
         <source>Processor</source>
@@ -1843,7 +1854,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"></translation>
+        <translation>1~63 karakterler lütfen</translation>
     </message>
 </context>
 <context>
@@ -1916,7 +1927,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PasswordModifyDialog</name>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"></translation>
+        <translation>Parolayı değiştir</translation>
     </message>
     <message>
         <source>Reset password</source>
@@ -1924,7 +1935,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"></translation>
+        <translation>Şifre uzunluğu en az 8 karakter olmalı ve şifre en az aşağıdaki 3&apos;ün bir kombinasyonunu içermelidir: büyük harfler, küçük harfler, sayılar ve semboller. Bu tür şifreler daha güvenlidir.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
@@ -1999,11 +2010,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran ve Askıya Alma</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"></translation>
+        <translation>Monitörü kapattıktan sonra</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -2011,7 +2022,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"></translation>
+        <translation>Bilgisayar askıya alındıktan sonra</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -2019,7 +2030,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"></translation>
+        <translation>Güç düğmesine basıldığında</translation>
     </message>
 </context>
 <context>
@@ -2034,7 +2045,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"></translation>
+        <translation>CPU yük durumuna göre CPU çalışma frekansını agresif bir şekilde ayarlayın</translation>
     </message>
     <message>
         <source>Balanced</source>
@@ -2046,15 +2057,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"></translation>
+        <translation>Güç tüketimini ve ısı üretimini önemli ölçüde artıracak olan performansa öncelik verin</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"></translation>
+        <translation>Performans ve pil ömrünü dengeleyerek kullanıma göre otomatik olarak ayarlanır</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistemin güç tüketimini azaltmak için bazı performanslardan ödün vereceği pil ömrüne öncelik verin</translation>
     </message>
 </context>
 <context>
@@ -2080,7 +2091,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Bağlantı Adresini Kopyala</translation>
     </message>
 </context>
 <context>
@@ -2170,7 +2181,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation type="unfinished"></translation>
+        <translation>dde-control-center</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
@@ -2189,7 +2200,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>RegionFormatDialog</name>
     <message>
         <source>Regions and formats</source>
-        <translation type="unfinished"></translation>
+        <translation>Bölgeler ve formatlar</translation>
     </message>
     <message>
         <source>Search</source>
@@ -2197,7 +2208,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"></translation>
+        <translation>Varsayılan formatlar</translation>
     </message>
     <message>
         <source>First day of week</source>
@@ -2225,7 +2236,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"></translation>
+        <translation>Rakam</translation>
     </message>
     <message>
         <source>Paper size</source>
@@ -2278,15 +2289,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"></translation>
+        <translation>Yeniden Görüşme Sıklığını Özelleştir</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">İptal</translation>
+        <translation>İptal et</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Kaydet</translation>
+        <translation>Kaydet</translation>
     </message>
 </context>
 <context>
@@ -2297,11 +2308,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>preview</source>
-        <translation type="unfinished"></translation>
+        <translation>önizleme</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation>Kişiselleştirilmiş ekran koruyucu</translation>
     </message>
     <message>
         <source>setting</source>
@@ -2309,7 +2320,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>idle time</source>
-        <translation type="unfinished"></translation>
+        <translation>boştaki zaman</translation>
     </message>
     <message>
         <source>1 minute</source>
@@ -2341,11 +2352,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation type="unfinished"></translation>
+        <translation>Kurtarma için şifre gerekli</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation>Resim slayt gösterisi ekran koruyucu</translation>
     </message>
     <message>
         <source>System screensaver</source>
@@ -2360,14 +2371,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"></translation>
+        <translation>Hiçbir arama sonucu bulunamadı</translation>
     </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Özel kısayol ekle</translation>
     </message>
     <message>
         <source>Name:</source>
@@ -2403,7 +2414,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation type="unfinished"></translation>
+        <translation>Değiştirmek için Ekle&apos;ye tıkla</translation>
     </message>
 </context>
 <context>
@@ -2414,11 +2425,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistem kısayolu, özel kısayol</translation>
     </message>
     <message>
         <source>Search shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Arama kısayolları</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -2426,7 +2437,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"></translation>
+        <translation>tamamla</translation>
     </message>
     <message>
         <source>edit</source>
@@ -2438,7 +2449,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"></translation>
+        <translation>Tıkla</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2454,11 +2465,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Restore default</source>
-        <translation type="unfinished"></translation>
+        <translation>Varsayılana geri yükle</translation>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation>Özel kısayol ekle</translation>
     </message>
 </context>
 <context>
@@ -2469,7 +2480,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Cihazların etkinleştirilip etkinleştirilmeyeceğini seçin</translation>
     </message>
     <message>
         <source>Input Devices</source>
@@ -2558,7 +2569,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses seviyesi %100&apos;den fazlaysa, ses bozulabilir ve çıkış aygıtlarına zarar verebilir.</translation>
     </message>
     <message>
         <source>Left</source>
@@ -2574,27 +2585,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses için çıkış aygıtı bulunamadı</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation type="unfinished"></translation>
+        <translation>Sol Sağ Dengesi</translation>
     </message>
     <message>
         <source>Mono audio</source>
-        <translation type="unfinished"></translation>
+        <translation>Mono ses</translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"></translation>
+        <translation>Sol ve sağ kanalları tek bir kanalda birleştirin</translation>
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"></translation>
+        <translation>Otomatik duraklatma</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"></translation>
+        <translation>Mevcut ses aygıtı çıkarıldığında sesin otomatik olarak duraklatılıp duraklatılmayacağı</translation>
     </message>
     <message>
         <source>Output Devices</source>
@@ -2635,7 +2646,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"></translation>
+        <translation>Otomatik senkronizasyon zamanı</translation>
     </message>
     <message>
         <source>Ntp server</source>
@@ -2643,7 +2654,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System date and time</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistem tarihi ve saati</translation>
     </message>
     <message>
         <source>Customize</source>
@@ -2655,7 +2666,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Server address</source>
-        <translation type="unfinished"></translation>
+        <translation>Sunucu adresi</translation>
     </message>
     <message>
         <source>Required</source>
@@ -2663,19 +2674,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation>ntp sunucu adresi boş olamaz</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"></translation>
+        <translation>24 saatlik formatı kullan</translation>
     </message>
     <message>
         <source>system time zone</source>
-        <translation type="unfinished"></translation>
+        <translation>sistem saat dilimi</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"></translation>
+        <translation>Saat dilimi listesi</translation>
     </message>
 </context>
 <context>
@@ -2693,11 +2704,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntü ayarları kaydedilsin mi?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"></translation>
+        <translation>Ayarlar %1s içinde geri döndürülecek.</translation>
     </message>
     <message>
         <source>Revert</source>
@@ -2716,7 +2727,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"></translation>
+        <translation>Mevcut konuma göre saat dilimini belirleyin</translation>
     </message>
     <message>
         <source>Time zone:</source>
@@ -2724,7 +2735,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"></translation>
+        <translation>En Yakın Şehir:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2770,7 +2781,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"></translation>
+        <translation>Giriş sırasında dokunmatik yüzeyi devre dışı bırak</translation>
     </message>
     <message>
         <source>Tap to Click</source>
@@ -2782,15 +2793,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Gesture</source>
-        <translation type="unfinished"></translation>
+        <translation>Hareket</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"></translation>
+        <translation>Üç Parmak hareketi</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"></translation>
+        <translation>Dört Parmak hareketi</translation>
     </message>
 </context>
 <context>
@@ -2801,7 +2812,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"></translation>
+        <translation>Bağlantı Adresini Kopyala</translation>
     </message>
 </context>
 <context>
@@ -2812,7 +2823,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"></translation>
+        <translation>İşlem hassastır, lütfen önce oturum açma şifresini girin</translation>
     </message>
     <message>
         <source>8-64 characters</source>
@@ -2839,7 +2850,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"></translation>
+        <translation>Pencere yuvarlatılmış köşeler</translation>
     </message>
     <message>
         <source>My pictures</source>
@@ -2851,19 +2862,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>Düz renk duvar kağıdı</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation type="unfinished"></translation>
+        <translation>Özelleştirilebilir duvar kağıtları</translation>
     </message>
     <message>
         <source>fill style</source>
-        <translation type="unfinished"></translation>
+        <translation>dolgu stili</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation type="unfinished"></translation>
+        <translation>Otomatik duvar kağıdı değişimi</translation>
     </message>
     <message>
         <source>never</source>
@@ -2907,7 +2918,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>Canlı Duvar Kağıdı</translation>
     </message>
     <message>
         <source>1 hour</source>
@@ -2918,7 +2929,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"></translation>
+        <translation>açılmak</translation>
     </message>
     <message>
         <source>show all</source>
@@ -2949,7 +2960,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"></translation>
+        <translation>Pencere yuvarlatılmış köşeler</translation>
     </message>
     <message>
         <source>None</source>
@@ -3005,11 +3016,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"></translation>
+        <translation>Kompakt Ekran</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"></translation>
+        <translation>Etkinse, pencerede daha fazla içerik görüntülenir.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
@@ -3017,7 +3028,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation type="unfinished"></translation>
+        <translation>Sadece pencere yöneticisi tarafından çizilen uygulama penceresi başlık çubukları için uygundur.</translation>
     </message>
     <message>
         <source>Extremely small</source>
@@ -3026,12 +3037,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished">Orta</translation>
+        <translation>Orta</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished">Orta</translation>
+        <translation>Orta</translation>
     </message>
 </context>
 <context>
@@ -3049,7 +3060,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"></translation>
+        <translation>Diğer hesaplar</translation>
     </message>
 </context>
 <context>
@@ -3071,7 +3082,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"></translation>
+        <translation>5 adede kadar yüz verisi girilebilir</translation>
     </message>
     <message>
         <source>Fingerprint</source>
@@ -3079,15 +3090,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"></translation>
+        <translation>Parmak izlerinin taranmasıyla kullanıcı kimliğinin belirlenmesi</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"></translation>
+        <translation>İris</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"></translation>
+        <translation>İris taramasıyla kimlik tanıma</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
@@ -3107,7 +3118,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu isim zaten mevcut</translation>
     </message>
 </context>
 <context>
@@ -3129,11 +3140,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"></translation>
+        <translation>Önyükleme menünüzü yönetin</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"></translation>
+        <translation>Geliştirici root izin yönetimi</translation>
     </message>
     <message>
         <source>Developer Options</source>
@@ -3144,11 +3155,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"></translation>
+        <translation>Saat ve tarih</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Saat ve tarih, saat dilimi ayarları</translation>
     </message>
     <message>
         <source>Language and region</source>
@@ -3156,7 +3167,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System language, region format</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistem dili, bölge biçimi</translation>
     </message>
 </context>
 <context>
@@ -3233,73 +3244,73 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"></translation>
+        <translation>Boyutsal</translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"></translation>
+        <translation>Düz</translation>
     </message>
 </context>
 <context>
     <name>dccV25::BiometricAuthController</name>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"></translation>
+        <translation>Cihazın kilidini açmak ve ayarları daha sonra yapmak için yüzünüzü kullanın</translation>
     </message>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"></translation>
+        <translation>Yüz izi</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"></translation>
+        <translation>Parmağınızı yerleştirin</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"></translation>
+        <translation>Kaldırmanız istenene kadar parmağınızı sensöre sıkıca yerleştirin</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"></translation>
+        <translation>Parmağınızı kaldırın</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished">Parmağınızı kaldırın ve yeniden algılayıcıya koyun</translation>
+        <translation>Parmağınızı kaldırın ve yeniden algılayıcıya koyun</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>Parmak izinizin kenarlarını tarayın</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation>Parmak izinizin kenarlarını taramak için konumu ayarlayın</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"></translation>
+        <translation>Parmağınızı kaldırın ve tekrar yapın</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"></translation>
+        <translation>Parmak izi eklendi</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"></translation>
+        <translation>Tarama Askıya Alındı</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"></translation>
+        <translation>Parmak izinizin kenarlarını sensöre yerleştirin</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"></translation>
+        <translation>İris</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
-        <translation type="unfinished"></translation>
+        <translation>Bu kısayol [%1] ile çakışıyor</translation>
     </message>
 </context>
 <context>
@@ -3369,7 +3380,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation type="unfinished"></translation>
+        <translation>YardımcıAraçlar</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -3392,7 +3403,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"></translation>
+        <translation>Bulut hizmetleri</translation>
     </message>
 </context>
 <context>
@@ -3403,7 +3414,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"></translation>
+        <translation>Çeşitli dosya türlerini açmak için varsayılan uygulamayı ayarlayın</translation>
     </message>
 </context>
 <context>
@@ -3452,7 +3463,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation type="unfinished"></translation>
+        <translation>Parlaklık, çözünürlük, ölçekleme</translation>
     </message>
 </context>
 <context>
@@ -3483,7 +3494,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>250%</source>
-        <translation type="unfinished"></translation>
+        <translation>250%</translation>
     </message>
     <message>
         <source>275%</source>
@@ -3519,11 +3530,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Sadece %1&apos;de</translation>
     </message>
     <message>
         <source> (Recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation> (Önerilen)</translation>
     </message>
     <message>
         <source>Hz</source>
@@ -3531,15 +3542,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Çoklu Ekran Ayarları</translation>
     </message>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"></translation>
+        <translation>Tanımlama</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran yeniden düzenlemesi, değişikliklerden sonra %1s içinde geçerli olacak</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -3547,11 +3558,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Ana Ekran</translation>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Görüntüleme ve Düzen</translation>
     </message>
     <message>
         <source>Brightness</source>
@@ -3607,7 +3618,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran görüntüsünü daha sıcak renklere ayarlayın, ekrandaki mavi ışığı azaltın</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3619,7 +3630,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"></translation>
+        <translation>Gün batımından gün doğumuna</translation>
     </message>
     <message>
         <source>Custom Time</source>
@@ -3646,7 +3657,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Masaüstü organizasyonu, görev çubuğu modu, eklenti alanı ayarları</translation>
     </message>
 </context>
 <context>
@@ -3657,7 +3668,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation>Genel Ayarlar, klavye düzeni, giriş yöntemi, kısayollar</translation>
     </message>
 </context>
 <context>
@@ -3672,7 +3683,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Set system default keyboard layout</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistem varsayılan klavye düzenini ayarla</translation>
     </message>
 </context>
 <context>
@@ -3767,7 +3778,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"></translation>
+        <translation>Rıhtım&apos;ı Kilitle</translation>
     </message>
 </context>
 <context>
@@ -3778,7 +3789,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"></translation>
+        <translation>Ortak, Fare, Dokunmatik Yüzey</translation>
     </message>
 </context>
 <context>
@@ -3815,7 +3826,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"></translation>
+        <translation>Uygulama bildirimleri masaüstünde gösterilmeyecek ve sesler susturulacak, ancak bildirim merkezindeki tüm mesajları görüntüleyebilirsiniz.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
@@ -3827,7 +3838,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Masaüstünde gösterilen bildirim sayısı</translation>
     </message>
     <message>
         <source>App Notifications</source>
@@ -3835,11 +3846,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Bildirimlere İzin Ver</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"></translation>
+        <translation>Masaüstünde bildirimi görüntüle veya okunmamış mesajları bildirim merkezinde göster</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -3885,7 +3896,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"></translation>
+        <translation>Duvar kağıdınızı ve ekran koruyucunuzu kişiselleştirin</translation>
     </message>
     <message>
         <source>Screensaver</source>
@@ -3893,19 +3904,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Renkler ve simgeler</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Vurgu rengini ve tema simgelerini ayarlayın</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"></translation>
+        <translation>Yazı tipi ve yazı tipi boyutu</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"></translation>
+        <translation>Sistem yazı tipini ve boyutunu değiştir</translation>
     </message>
     <message>
         <source>Wallpaper</source>
@@ -3913,18 +3924,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Açık, koyu veya otomatik tema görünümünü seçin</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"></translation>
+        <translation>Arayüz ve efektler, yuvarlatılmış köşeler</translation>
     </message>
 </context>
 <context>
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Güç tasarrufu ayarları, ekran ve askıya alma</translation>
     </message>
     <message>
         <source>Power</source>
@@ -3939,7 +3950,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Güç planları, güç tasarrufu ayarları, uyandırma ayarları, kapatma ayarları</translation>
     </message>
     <message>
         <source>Plugged In</source>
@@ -3947,7 +3958,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Ekran ve askıya al</translation>
     </message>
     <message>
         <source>On Battery</source>
@@ -3955,7 +3966,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"></translation>
+        <translation>ekran ve askıya alma, düşük pil, pil yönetimi</translation>
     </message>
 </context>
 <context>
@@ -3966,7 +3977,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Kamera, klasör izinleri</translation>
     </message>
 </context>
 <context>
@@ -3977,7 +3988,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Uygulamanın kameraya erişimi olup olmadığını seçin</translation>
     </message>
     <message>
         <source>Files and Folders</source>
@@ -3985,7 +3996,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Uygulamanın dosyalara ve klasörlere erişimi olup olmadığını seçin</translation>
     </message>
 </context>
 <context>
@@ -3996,7 +4007,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Çıkış, giriş, ses efektleri, cihazlar</translation>
     </message>
 </context>
 <context>
@@ -4011,15 +4022,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses efektlerini etkinleştir/devre dışı bırak</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Ses aygıtlarını etkinleştir/devre dışı bırak</translation>
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Aygıtlar</translation>
     </message>
 </context>
 <context>
@@ -4037,7 +4048,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Yardımcı Bilgiler</translation>
     </message>
 </context>
 <context>
@@ -4052,7 +4063,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"></translation>
+        <translation>Açık kaynaklı yazılım bildirimini görüntüle</translation>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -4060,7 +4071,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"></translation>
+        <translation>Ürünü iyileştirmeye yardımcı olmak için kullanıcı deneyimi programına katılın</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
@@ -4068,7 +4079,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"></translation>
+        <translation>Son kullanıcı lisans sözleşmesini görüntüleyin</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
@@ -4076,22 +4087,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"></translation>
+        <translation>Gizlilik politikası hakkında bilgi görüntüle</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"></translation>
+        <translation>Açık Kaynak Yazılım Bildirimi</translation>
     </message>
 </context>
 <context>
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokunmatik ekran</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Dokunmatik Ekranı Yapılandır</translation>
     </message>
 </context>
 <context>
@@ -4109,7 +4120,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"></translation>
+        <translation>Wacom&apos;u yapılandır</translation>
     </message>
 </context>
 <context>
@@ -4132,7 +4143,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"></translation>
+        <translation>Basınç Duyarlığı</translation>
     </message>
     <message>
         <source>Light</source>
