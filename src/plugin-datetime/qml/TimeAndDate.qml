@@ -185,7 +185,7 @@ DccObject {
                     placeholderText: qsTr("Required")
                     alertText: qsTr("The ntp server address cannot be empty")
                     alertDuration: 3000
-                    horizontalAlignment: TextInput.AlignRight
+                    horizontalAlignment: background.visible ? TextInput.AlignLeft : TextInput.AlignRight
                     anchors{
                         rightMargin: 5
                         right: editBtn.left
