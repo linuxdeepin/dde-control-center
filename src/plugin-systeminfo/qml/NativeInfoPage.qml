@@ -9,6 +9,7 @@ import QtQuick.Window 2.15
 
 import org.deepin.dtk 1.0
 import org.deepin.dcc 1.0
+import org.deepin.dtk.style 1.0 as DS
 DccObject {
     id: root11
     DccObject {
@@ -81,7 +82,7 @@ DccObject {
 
                 Label {
                     id: hostNameLabel
-                    Layout.alignment: Qt.AlignRight | Qt.AlignTop
+                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                     text: dccData.systemInfoMode().hostName
                     ToolTip {
                         text: hostNameLabel.text
@@ -96,14 +97,37 @@ DccObject {
                     }
                 }
 
-                IconButton {
+                ActionButton {
                     id: editBtn
                     icon.name: "dcc_systemInfo_edit"
                     icon.width: 16
                     icon.height: 16
-                    implicitWidth: 20
-                    implicitHeight: 20
+                    implicitWidth: 30
+                    implicitHeight: 30
                     flat: !hovered
+                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+
+                    palette.windowText: ColorSelector.textColor
+                    property Palette textColor: parent.textColor
+
+                    background: Rectangle {
+                        property Palette pressedColor: Palette {
+                            normal: Qt.rgba(0, 0, 0, 0.2)
+                            normalDark: Qt.rgba(0, 0, 0, 0.15)
+                        }
+                        property Palette hoveredColor: Palette {
+                            normal: Qt.rgba(0, 0, 0, 0.1)
+                            normalDark: Qt.rgba(1, 1, 1, 0.1)
+                        }
+                        radius: DS.Style.control.radius
+                        color: parent.pressed ? ColorSelector.pressedColor : (parent.hovered ? ColorSelector.hoveredColor : "transparent")
+
+                        border {
+                            color: parent.palette.highlight
+                            width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                        }
+                    }
+                    
                     onClicked: {
                         editBtn.visible = false
                         hostNameLabel.visible = false
@@ -246,7 +270,7 @@ DccObject {
             displayName: qsTr("Type") + ":"
             page: Label {
                 horizontalAlignment: Text.AlignLeft
-                text: dccData.systemInfoMode().type+ "-" + qsTr("bit")
+                text: dccData.systemInfoMode().type + qsTr("bit")
             }
         }
 
