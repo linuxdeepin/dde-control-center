@@ -75,31 +75,31 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Ім&apos;я повністю є надто довгим</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Кількість символів у назві групи не повинна перевищувати 32</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Назва групи не може складатися лише з цифр</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>Можна використовувати лише літери, цифри, підкреслювання та дефіси, має починатися з літери</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation>Назву групи вже використано</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>швидкий вхід, автоматичний вхід, вхід без пароля</translation>
     </message>
     <message>
         <source>Quickly load DDE with your login information</source>
-        <translation type="unfinished"/>
+        <translation>Швидко завантажити DDE з вашими даними щодо входу</translation>
     </message>
 </context>
 <context>
@@ -774,7 +774,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути клавіатуру</translation>
     </message>
 </context>
 <context>
@@ -1368,7 +1368,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Для встановлення і запуску непідписаних програм, будь ласка, відкрийте &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt;Центр безпеки&lt;/a&gt; для внесення змін до параметрів.</translation>
     </message>
 </context>
 <context>
@@ -1855,7 +1855,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>Будь ласка, від 1 до 63 символів</translation>
     </message>
 </context>
 <context>
@@ -3038,12 +3038,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
+        <translation>Середній</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
+        <translation>Середня</translation>
     </message>
 </context>
 <context>
@@ -3779,7 +3779,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Заблокувати панель</translation>
     </message>
 </context>
 <context>
@@ -4092,7 +4092,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Зауваження щодо програмного забезпечення з відкритим кодом</translation>
     </message>
 </context>
 <context>
