@@ -678,11 +678,14 @@ DccObject {
 
             model: settings.userId.length > 0 ? dccData.groupsModel(settings.userId) : 0
             delegate: ItemDelegate {
+                id: itemDelegate
                 implicitHeight: 50
                 checkable: false
                 enabled: model.groupEnabled
                 clip: false
                 z: editLabel.showAlert ? 100 : 1
+
+                property var editTextWidth: itemDelegate.width - editButton.width - rightPadding - 65
                 background: DccItemBackground {
                     backgroundType: DccObject.Normal
                     separatorVisible: true
@@ -694,11 +697,11 @@ DccObject {
                     rightMargin: groupview.lrMargin
                 }
 
-                MouseArea {
-                    anchors.fill: parent
-                    enabled: !groupSettings.isEditing && !editLabel.focus
-                    onClicked: {
-                        dccData.setGroup(settings.userId, model.display, !editButton.checked)
+                onWidthChanged: {
+                    if (editLabel.readOnly) {
+                        var elidedText = editLabel.metrics.elidedText(editLabel.completeText, Text.ElideRight, editTextWidth)
+                        editLabel.text = elidedText
+                        return
                     }
                 }
 
@@ -707,7 +710,7 @@ DccObject {
                         id: editContainer
                         Layout.fillWidth: !editLabel.readOnly
                         implicitHeight: 40
-                        implicitWidth: Math.min(editLabel.metrics.advanceWidth(editLabel.completeText) + editButton.width + 20,
+                        implicitWidth: Math.min(editLabel.metrics.advanceWidth(editLabel.text) + editButton.width + 20,
                                         groupview.width - editButton.width - 30)
                         
                         EditActionLabel {
@@ -724,9 +727,22 @@ DccObject {
                             editBtn.visible: readOnly && editAble
                                              && !groupSettings.isEditing
                             readOnly: model.display.length > 0
+                            ToolTip {
+                                visible: parent.hovered && parent.readOnly && parent.completeText != "" && (parent.metrics.advanceWidth(parent.completeText) > (parent.width - parent.rightPadding - 10))
+                                text: parent.completeText
+                            }
+
+                            // Monitor model.display changes to update elided text
+                            onCompleteTextChanged: {
+                                if (readOnly && completeText.length > 0) {
+                                    var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
+                                    text = elidedText
+                                }
+                            }
                         
                         onReadOnlyChanged: {
                             if (!readOnly) {
+                                text = completeText
                                 lastValidText = model.display
                             }
                         }
@@ -797,6 +813,10 @@ DccObject {
                                 dccData.createGroup(text)
                             else
                                 dccData.modifyGroup(model.display, text)
+                            
+                            completeText = text
+                            var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
+                            text = elidedText
                         }
                         onFocusChanged: {
                             if (focus || text.length > 0 || editLabel.readOnly)
@@ -810,16 +830,33 @@ DccObject {
                             text = model.display
                         }
                         Component.onCompleted: {
+                            completeText = model.display
                             lastValidText = model.display
                             
-                            if (editLabel.readOnly)
+                            if (editLabel.readOnly) {
+                                var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
+                                text = elidedText
                                 return
+                            }
 
                             Qt.callLater(function () {
                                 editLabel.focus = true
                             })
                         }
                     }
+                    }
+
+                    Item {
+                        Layout.fillWidth: true
+                        implicitHeight: 40
+                        
+                        MouseArea {
+                            anchors.fill: parent
+                            visible: !groupSettings.isEditing
+                            onClicked: {
+                                dccData.setGroup(settings.userId, model.display, !editButton.checked)
+                            }
+                        }
                     }
 
                     ActionButton {
