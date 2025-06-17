@@ -55,7 +55,12 @@ DccObject {
         pageType: DccObject.Item
         page: DccGroupView {}
 
-        onParentItemChanged: item => { if (item) item.topPadding = 10 }
+        onParentItemChanged: item => {
+            if (item) {
+                item.topPadding = 10
+                item.bottomPadding = 5
+            }
+        }
 
         DccObject {
             id: ntpSettings
@@ -293,7 +298,7 @@ DccObject {
             }
         }
 
-        onParentItemChanged: item => { if (item) item.topPadding = 10 }
+        onParentItemChanged: item => { if (item) item.topPadding = 5 }
     }
 
     DccObject {
