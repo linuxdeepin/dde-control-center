@@ -65,7 +65,12 @@ DccObject {
                 }
             }
 
-            onParentItemChanged: item => { if (item) item.topPadding = 10 }
+            onParentItemChanged: item => {
+                if (item) {
+                    item.topPadding = 10
+                    item.bottomPadding = 3
+                }
+            }
 
             DccRepeater {
                 id: langRepeater
@@ -165,7 +170,7 @@ DccObject {
         pageType: DccObject.Item
         page: DccGroupView {}
 
-        onParentItemChanged: item => { if (item) item.topPadding = 10 }
+        onParentItemChanged: item => { if (item) item.topPadding = 3 }
 
         DccObject {
             name: "langItem0"
@@ -264,7 +269,7 @@ DccObject {
             }
         }
 
-        onParentItemChanged: item => { if (item) item.topPadding = 10 }
+        onParentItemChanged: item => { if (item) item.bottomInset = 3 }
     }
 
     // 区域格式
@@ -317,7 +322,7 @@ DccObject {
             }
         }
 
-        onParentItemChanged: item => { if (item) item.topPadding = 10 }
+        onParentItemChanged: item => { if (item) item.topInset = 3 }
     }
 
     // 时间日期格式
@@ -329,7 +334,12 @@ DccObject {
         pageType: DccObject.Item
         page: DccGroupView {}
 
-        onParentItemChanged: item => { if (item) item.topPadding = 10 }
+        onParentItemChanged: item => {
+            if (item) {
+                item.topPadding = 5
+                item.bottomPadding = 3
+            }
+        }
 
         DccRepeater {
             id: timeFormatsRepeater
@@ -362,7 +372,12 @@ DccObject {
         pageType: DccObject.Item
         page: DccGroupView {}
 
-        onParentItemChanged: item => { if (item) item.topPadding = 10 }
+        onParentItemChanged: item => {
+            if (item) {
+                item.topPadding = 3
+                item.bottomPadding = 3
+            }
+        }
 
         DccRepeater {
             id: currencyRepeater
@@ -395,7 +410,7 @@ DccObject {
         pageType: DccObject.Item
         page: DccGroupView {}
 
-        onParentItemChanged: item => { if (item) item.topPadding = 10 }
+        onParentItemChanged: item => { if (item) item.topPadding = 3 }
 
         DccRepeater {
             id: numRepeater
