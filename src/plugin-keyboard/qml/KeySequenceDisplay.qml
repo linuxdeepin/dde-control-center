@@ -76,32 +76,69 @@ Control {
                     }
                 }
 
-                D.IconButton {
-                    id: editButton
-                    focusPolicy: Qt.NoFocus
-                    visible: control.showEditButtons
-                    icon.name: "edit"
-                    icon.width: 16
-                    icon.height: 16
-                    implicitWidth: 16
-                    implicitHeight: 16
-                    background: null
-                    onClicked: {
-                        control.requestEditKeys()
+                RowLayout {
+                    spacing: 0
+                    Layout.alignment: Qt.AlignRight
+                    D.IconButton {
+                        id: editButton
+                        visible: control.showEditButtons
+                        hoverEnabled: true
+                        icon.name: "edit"
+                        icon.width: 16
+                        icon.height: 16
+                        implicitWidth: 36
+                        implicitHeight: 36
+                        Layout.alignment: Qt.AlignVCenter
+                        background: Rectangle {
+                           anchors.fill: parent
+                           property D.Palette pressedColor: D.Palette {
+                               normal: Qt.rgba(0, 0, 0, 0.2)
+                               normalDark: Qt.rgba(1, 1, 1, 0.25)
+                           }
+                           property D.Palette hoveredColor: D.Palette {
+                               normal: Qt.rgba(0, 0, 0, 0.1)
+                               normalDark: Qt.rgba(1, 1, 1, 0.1)
+                           }
+                           radius: DS.Style.control.radius
+                           color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                           border {
+                               color: parent.palette.highlight
+                               width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                           }
+                        }
+                        onClicked: {
+                            control.requestEditKeys()
+                        }
                     }
-                }
-                D.IconButton {
-                    id: removeButton
-                    focusPolicy: Qt.NoFocus
-                    visible: control.showEditButtons
-                    icon.name: "user-trash-symbolic"
-                    icon.width: 24
-                    icon.height: 24
-                    implicitWidth: 36
-                    implicitHeight: 36
-                    background: null
-                    onClicked: {
-                        control.requestDeleteKeys()
+                    D.IconButton {
+                        id: removeButton
+                        visible: control.showEditButtons
+                        hoverEnabled: true
+                        icon.name: "user-trash-symbolic"
+                        icon.width: 24
+                        icon.height: 24
+                        implicitWidth: 36
+                        implicitHeight: 36
+                        background: Rectangle {
+                           anchors.fill: parent
+                           property D.Palette pressedColor: D.Palette {
+                               normal: Qt.rgba(0, 0, 0, 0.2)
+                               normalDark: Qt.rgba(1, 1, 1, 0.25)
+                           }
+                           property D.Palette hoveredColor: D.Palette {
+                               normal: Qt.rgba(0, 0, 0, 0.1)
+                               normalDark: Qt.rgba(1, 1, 1, 0.1)
+                           }
+                           radius: DS.Style.control.radius
+                           color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                           border {
+                               color: parent.palette.highlight
+                               width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                           }
+                        }
+                        onClicked: {
+                            control.requestDeleteKeys()
+                        }
                     }
                 }
             }
