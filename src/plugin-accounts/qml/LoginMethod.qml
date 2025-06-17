@@ -79,10 +79,12 @@ DccTitleObject {
                 enabled: dccData.currentUserId() === loginMethodTitle.userId || (dccData.curUserIsSysAdmin() && !dccData.isOnline(loginMethodTitle.userId))
                 pageType: DccObject.Editor
                 page: D.IconLabel {
-                    icon.name: "arrow_ordinary_right"
-                    icon.palette: DTK.makeIconPalette(control.palette)
-                    icon.mode: control.ColorSelector.controlState
-                    icon.theme: control.ColorSelector.controlTheme
+                    icon {
+                        name: "arrow_ordinary_right"
+                        palette: D.DTK.makeIconPalette(parent.palette)
+                        mode: parent.D.ColorSelector.controlState
+                        theme: parent.D.ColorSelector.controlTheme
+                    }
                     opacity: enabled ? 1 : 0.4
                 }
                 onActive: {
