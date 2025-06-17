@@ -140,7 +140,7 @@ DccObject {
 
                 LineEdit {
                     id: hostNameEdit
-                    horizontalAlignment: Text.AlignHCenter
+                    horizontalAlignment: TextInput.AlignLeft
                     text: dccData.systemInfoMode().hostName
                     visible: false
                     showAlert: false
