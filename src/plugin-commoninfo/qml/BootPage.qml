@@ -247,6 +247,9 @@ DccObject {
                 spacing: 0
                 Layout.topMargin: 4
                 Layout.bottomMargin: 4
+                Layout.fillWidth: true
+                Layout.maximumWidth: parent.width - 100
+                
                 Label {
                     height: 20
                     text: dccObj.displayName
@@ -258,7 +261,11 @@ DccObject {
 
                 Row {
                     spacing: 0
+                    width: Math.min(parent.width, descriptionTextMetrics.width + changePasswordLabel.implicitWidth + 15)
+                    clip: true
+                    
                     Label {
+                        id: descriptionLabel
                         height: 20
                         text: dccObj.description
                         font: DTK.fontManager.t10
@@ -266,9 +273,29 @@ DccObject {
                         verticalAlignment: Qt.AlignVCenter
                         leftPadding: 15
                         opacity: 0.5
+                        elide: Text.ElideRight
+                        width: Math.max(0, Math.min(descriptionTextMetrics.width + 15, parent.parent.width - changePasswordLabel.implicitWidth - 30))
+                        
+                        TextMetrics {
+                            id: descriptionTextMetrics
+                            font: descriptionLabel.font
+                            text: descriptionLabel.text
+                        }
+                        
+                        ToolTip {
+                            text: dccObj.description
+                            visible: descriptionMouseArea.containsMouse && descriptionTextMetrics.width > (descriptionLabel.width - 15)
+                        }
+                        
+                        MouseArea {
+                            id: descriptionMouseArea
+                            anchors.fill: parent
+                            hoverEnabled: true
+                        }
                     }
 
                     Label {
+                        id: changePasswordLabel
                         height: 20
                         text: "<a href=\"Change Password\">" + qsTr("Change Password") +"</a>"
                         visible: dccData.mode().grubEditAuthEnabled
@@ -341,10 +368,14 @@ DccObject {
                             id: passwdTitle
                             Layout.topMargin: 10
                             Layout.bottomMargin: 10
-                            height: 20
                             Layout.alignment: Qt.AlignHCenter
+                            Layout.preferredWidth: parent.width - 20
+                            Layout.leftMargin: 10
+                            Layout.rightMargin: 10
                             font: DTK.fontManager.t5
                             text: dccData.mode().grubEditAuthEnabled ? qsTr("Change boot menu verification password") : qsTr("Set the boot menu authentication password")
+                            wrapMode: Text.Wrap
+                            horizontalAlignment: Text.AlignHCenter
                         }
 
                         Label {
