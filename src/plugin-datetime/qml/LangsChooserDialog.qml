@@ -5,6 +5,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Window
 import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0
+import org.deepin.dtk.style 1.0 as DS
 
 Loader {
     id: langDialogLoader
@@ -32,9 +33,10 @@ Loader {
 
             SearchEdit {
                 id: searchEdit
+                implicitHeight: 30
                 Layout.fillWidth: true
-                Layout.leftMargin: 10
-                Layout.rightMargin: 10
+                Layout.leftMargin: 6 - DS.Style.dialogWindow.contentHMargin
+                Layout.rightMargin: 6 - DS.Style.dialogWindow.contentHMargin
                 placeholder: qsTr("Search")
                 onVisibleChanged: {
                     clear()
@@ -50,8 +52,8 @@ Loader {
             RowLayout {
                 Layout.fillWidth: true
                 height: 360
-                Layout.leftMargin: 10
-                Layout.rightMargin: 0
+                Layout.leftMargin: 6 - DS.Style.dialogWindow.contentHMargin
+                Layout.rightMargin: -DS.Style.dialogWindow.contentHMargin
                 spacing: 0
 
                 Item {
@@ -73,9 +75,12 @@ Loader {
                         delegate: CheckDelegate {
                             id: checkDelegate
                             implicitWidth: itemsView.width
+                            implicitHeight: 30
                             text: model.display
                             hoverEnabled: true
                             ButtonGroup.group: langGroup
+                            topPadding: 0
+                            bottomPadding: 0
 
                             indicator: Loader {
                                 x: checkDelegate.mirrored ? checkDelegate.leftPadding : checkDelegate.width - width - checkDelegate.rightPadding
@@ -119,6 +124,7 @@ Loader {
                                             color: checkDelegate.palette.windowText
                                             icon: DTK.makeIcon(checkDelegate.icon, checkDelegate.DciIcon)
                                             Layout.fillWidth: !checkDelegate.content
+                                            Layout.alignment: Qt.AlignVCenter
                                         }
                                     }
 
@@ -126,6 +132,7 @@ Loader {
                                         id: splitComponent
                                         RowLayout {
                                             spacing: 0
+                                            Layout.alignment: Qt.AlignVCenter
                                             IconLabel {
                                                 mirrored: checkDelegate.mirrored
                                                 display: checkDelegate.display
@@ -133,6 +140,7 @@ Loader {
                                                 text: labelLoader.text.split("-")[0] || ""
                                                 font: checkDelegate.font
                                                 color: checkDelegate.palette.windowText
+                                                Layout.alignment: Qt.AlignVCenter
                                             }
                                             IconLabel {
                                                 mirrored: checkDelegate.mirrored
@@ -141,6 +149,7 @@ Loader {
                                                 text: "-"
                                                 font: checkDelegate.font
                                                 color: checkDelegate.palette.windowText
+                                                Layout.alignment: Qt.AlignVCenter
                                             }
                                             IconLabel {
                                                 mirrored: checkDelegate.mirrored
@@ -151,6 +160,7 @@ Loader {
                                                 color: checkDelegate.palette.windowText
                                                 icon: DTK.makeIcon(checkDelegate.icon, checkDelegate.DciIcon)
                                                 Layout.fillWidth: !checkDelegate.content
+                                                Layout.alignment: Qt.AlignVCenter
                                             }
                                         }
                                     }
@@ -170,8 +180,8 @@ Loader {
                 }
 
                 Item {
-                    width: 10
-                    Layout.preferredWidth: 10
+                    width: 8
+                    Layout.preferredWidth: 8
                     Layout.fillHeight: true
 
                     ScrollBar {
@@ -192,17 +202,23 @@ Loader {
             }
 
             RowLayout {
-                Layout.alignment: Qt.AlignHCenter
+                Layout.fillWidth: true
+                Layout.leftMargin: 6 - DS.Style.dialogWindow.contentHMargin
+                Layout.rightMargin: 6 - DS.Style.dialogWindow.contentHMargin
                 spacing: 10
                 Button {
+                    Layout.fillWidth: true
                     Layout.bottomMargin: 10
+                    implicitHeight: 30
                     text: qsTr("Cancel")
                     onClicked: {
                         ddialog.close()
                     }
                 }
                 Button {
+                    Layout.fillWidth: true
                     Layout.bottomMargin: 10
+                    implicitHeight: 30
                     text: qsTr("Add")
                     enabled: itemsView.checkedLang.length > 0
                     onClicked: {
