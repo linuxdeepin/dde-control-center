@@ -67,13 +67,35 @@ DccObject {
                     text: root.toPercent(voiceTipsSlider1.value)
                 }
 
-                D.IconButton {
-                    icon.name: dccData.model().microphoneOn ? "sound_off" : "small_volume"
-                    icon.width: 16
-                    icon.height: 16
-                    implicitWidth: 24
-
+                D.ActionButton {
+                    Layout.alignment: Qt.AlignVCenter
+                    icon {
+                        name: dccData.model().microphoneOn ? "sound_off" : "small_volume"
+                        width: 16
+                        height: 16
+                    }
+                    property D.Palette textColor: parent.textColor
+                    palette.windowText: D.ColorSelector.textColor
                     flat: !hovered
+                    implicitWidth: 24
+                    implicitHeight: 24
+                    hoverEnabled: enabled
+                    background: Rectangle {
+                        property D.Palette pressedColor: D.Palette {
+                            normal: Qt.rgba(0, 0, 0, 0.2)
+                            normalDark: Qt.rgba(1, 1, 1, 0.25)
+                        }
+                        property D.Palette hoveredColor: D.Palette {
+                            normal: Qt.rgba(0, 0, 0, 0.1)
+                            normalDark: Qt.rgba(1, 1, 1, 0.1)
+                        }
+                        radius: DS.Style.control.radius
+                        color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                        border {
+                            color: parent.palette.highlight
+                            width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                        }
+                    }
 
                     onClicked: {
                         dccData.worker().setSourceMute()
