@@ -26,20 +26,20 @@ DccObject {
             }
         }
     }
-    DccObject {
-        name: "enableKeyboard"
-        parentName: "KeyboardCommon"
-        displayName: qsTr("Enable Keyboard")
-        weight: 20
-        backgroundType: DccObject.Normal
-        pageType: DccObject.Editor
-        page: D.Switch {
-            checked: dccData.keyboardEnabled
-            onCheckedChanged: {
-                dccData.keyboardEnabled = checked
-            }
-        }
-    }
+    // DccObject {
+    //     name: "enableKeyboard"
+    //     parentName: "KeyboardCommon"
+    //     displayName: qsTr("Enable Keyboard")
+    //     weight: 20
+    //     backgroundType: DccObject.Normal
+    //     pageType: DccObject.Editor
+    //     page: D.Switch {
+    //         checked: dccData.keyboardEnabled
+    //         onCheckedChanged: {
+    //             dccData.keyboardEnabled = checked
+    //         }
+    //     }
+    // }
     DccObject {
         name: "RepeatDelay"
         parentName: "KeyboardCommon"
