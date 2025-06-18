@@ -226,12 +226,13 @@ DccObject {
             pageType: DccObject.Editor
             page: RowLayout {
                 DccTimeRange {
+                    id: timeRange
                     Layout.preferredWidth: 100
                     hour: dccData.model.shutdownTime.split(':')[0]
                     minute: dccData.model.shutdownTime.split(':')[1]
-                    property string timeStr: `${String(hour).padStart(2, '0')}:${String(minute).padStart(2, '0')}`
-                    onTimeStrChanged: {
-                        dccData.worker.setShutdownTime(timeStr)
+
+                    onTimeChanged: {
+                        dccData.worker.setShutdownTime(timeRange.timeString)
                     }
                 }
             }

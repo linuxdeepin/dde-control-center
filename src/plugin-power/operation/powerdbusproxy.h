@@ -146,6 +146,7 @@ signals:
     void LowPowerNotifyEnableChanged(bool value) const;
     void LowPowerNotifyThresholdChanged(int value) const;
     void LowPowerAutoSleepThresholdChanged(int value) const;
+    void ShutdownTimeChanged(const QString &time);
     // SystemPower
     void PowerSavingModeAutoChanged(bool value) const;
     void PowerSavingModeEnabledChanged(bool value) const;
@@ -158,7 +159,6 @@ signals:
     void BatteryCapacityChanged(double value) const;
     void noPasswdLoginChanged(bool value);
     void ScheduledShutdownStateChanged(bool value);
-    void ShutdownTimeChanged(const QString &time);
     void ShutdownRepetitionChanged(int repetition);
     void CustomShutdownWeekDaysChanged(const QByteArray &value);
     void LowPowerActionChanged(int action);
