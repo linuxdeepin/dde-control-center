@@ -32,7 +32,9 @@ Rectangle {
                 Layout.fillWidth: true
                 leftPadding: 10
                 rightPadding: 10
-                implicitHeight: 45
+                topPadding: 0
+                bottomPadding: 0
+                implicitHeight: 36
                 cascadeSelected: true
                 backgroundVisible: root.backgroundVisible
                 text: model.descriptionRole
@@ -53,6 +55,7 @@ Rectangle {
                     }
                 }
                 background: DccItemBackground {
+                    backgroundType: DccObject.Normal
                     separatorVisible: true
                 }
 
