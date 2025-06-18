@@ -145,7 +145,7 @@ void KeyboardWorker::active()
     windowSwitch();
     refreshShortcut();
     if (m_inputDevCfg->isValid()) {
-        QMetaObject::invokeMethod(m_model, "setKeyboardEnabled", Qt::DirectConnection, Q_ARG(bool, m_inputDevCfg->value("keyboardEnabled").toBool()));
+        QMetaObject::invokeMethod(m_model, "setKeyboardEnabled", Qt::DirectConnection, Q_ARG(bool, m_inputDevCfg->value("keyboardEnabled", true).toBool()));
         connect(m_inputDevCfg, &DConfig::valueChanged, this, [=](QString key) {
             if (key == "keyboardEnabled") {
                 QMetaObject::invokeMethod(m_model, "setKeyboardEnabled", Qt::DirectConnection, Q_ARG(bool, m_inputDevCfg->value(key).toBool()));
