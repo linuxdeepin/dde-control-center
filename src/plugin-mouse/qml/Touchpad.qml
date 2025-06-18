@@ -21,8 +21,16 @@ DccObject {
         page: ColumnLayout {
             Label {
                 Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
+                font.pixelSize: D.DTK.fontManager.t5.pixelSize
+                font.weight: 500
+                color: D.DTK.themeType === D.ApplicationHelper.LightType ?
+                    Qt.rgba(0, 0, 0, 1) : Qt.rgba(1, 1, 1, 1)
                 text: dccObj.displayName
+            }
+        }
+        onParentItemChanged: item => {
+            if (item) {
+                item.bottomPadding = 4
             }
         }
     }
@@ -42,6 +50,12 @@ DccObject {
                 if (checked !== dccData.tapEnabled) {
                     dccData.tapEnabled = checked;
                 }
+            }
+        }
+        onParentItemChanged: item => {
+            if (item) {
+                item.topInset = 4
+                item.bottomInset = 3
             }
         }
     }
@@ -118,7 +132,12 @@ DccObject {
             }
 
         }
-
+        onParentItemChanged: item => {
+            if (item) {
+                item.topPadding = 0
+                item.bottomPadding = 3
+            }
+        }
     }
 
     DccObject {
@@ -192,6 +211,12 @@ DccObject {
         page: DccGroupView {
         }
 
+        onParentItemChanged: item => {
+            if (item) {
+                item.topPadding = 3
+                item.bottomPadding = 8
+            }
+        }
     }
 
     DccObject {
@@ -205,12 +230,20 @@ DccObject {
         page: ColumnLayout {
             Label {
                 Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
+                font.pixelSize: D.DTK.fontManager.t5.pixelSize
+                font.weight: 500
+                color: D.DTK.themeType === D.ApplicationHelper.LightType ?
+                    Qt.rgba(0, 0, 0, 1) : Qt.rgba(1, 1, 1, 1)
                 text: dccObj.displayName
             }
-
         }
 
+        onParentItemChanged: item => {
+            if (item) {
+                item.topPadding = 8
+                item.bottomPadding = 4
+            }
+        }
     }
 
     DccObject {
@@ -259,6 +292,12 @@ DccObject {
         page: DccGroupView {
         }
 
+        onParentItemChanged: item => {
+            if (item) {
+                item.topPadding = 4
+                item.bottomPadding = 6
+            }
+        }
     }
 
     DccObject {
@@ -273,12 +312,18 @@ DccObject {
         page: ColumnLayout {
             Label {
                 Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
+                font: D.DTK.fontManager.t6
                 text: dccObj.displayName
             }
 
         }
 
+        onParentItemChanged: item => {
+            if (item) {
+                item.topPadding = 6
+                item.bottomPadding = 3
+            }
+        }
     }
 
     DccObject {
@@ -289,7 +334,6 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: GestureGroup {
-
             model: dccData.threeFingerGestureModel()
 
             onComboIndexChanged: function (index, actionDec){
@@ -301,7 +345,12 @@ DccObject {
             }
 
         }
-
+        onParentItemChanged: item => {
+            if (item) {
+                item.topPadding = 3
+                item.bottomPadding = 6
+            }
+        }
     }
 
     DccObject {
@@ -315,12 +364,17 @@ DccObject {
         page: ColumnLayout {
             Label {
                 Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
+                font: D.DTK.fontManager.t6
                 text: dccObj.displayName
             }
 
         }
-
+        onParentItemChanged: item => {
+            if (item) {
+                item.topPadding = 6
+                item.bottomPadding = 3
+            }
+        }
     }
 
     DccObject {
@@ -341,6 +395,11 @@ DccObject {
             }
         }
 
+        onParentItemChanged: item => {
+            if (item) {
+                item.topPadding = 3
+            }
+        }
     }
 
 }

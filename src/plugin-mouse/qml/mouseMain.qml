@@ -40,7 +40,7 @@ DccObject {
         visible: dccData.tpadExist
         weight: 200
         page: DccRightView {
-            spacing: 5
+            spacing: 0
         }
         Touchpad {}
     }
