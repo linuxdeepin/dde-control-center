@@ -50,6 +50,7 @@ DccObject {
         backgroundType: DccObject.Normal
         weight: 30
         pageType: DccObject.Item
+        visible: !dccData.CursorMode
         page: ColumnLayout {
             Layout.fillHeight: true
             Label {
