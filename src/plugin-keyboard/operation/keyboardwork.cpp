@@ -191,6 +191,8 @@ bool KeyboardWorker::keyOccupy(const QStringList &list)
 #ifndef DCC_DISABLE_KBLAYOUT
 void KeyboardWorker::onRefreshKBLayout()
 {
+    QDBusPendingCallWatcher *allLayoutResult = new QDBusPendingCallWatcher(m_keyboardDBusProxy->AllLayoutList(), this);
+    connect(allLayoutResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onAllLayoutListsFinished);
     QDBusPendingCallWatcher *layoutResult = new QDBusPendingCallWatcher(m_keyboardDBusProxy->LayoutList(), this);
     connect(layoutResult, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onLayoutListsFinished);
 
@@ -340,7 +342,7 @@ void KeyboardWorker::delUserLayout(const QString &value)
 bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2)
 {
     QCollator qc;
-    int i = qc.compare(s1.text(), s2.text());
+    int i = qc.compare(s1.pinyin(), s2.pinyin());
     if (i < 0)
         return true;
     else
@@ -434,6 +436,16 @@ void KeyboardWorker::onLayoutListsFinished(QDBusPendingCallWatcher *watch)
     watch->deleteLater();
 }
 
+void KeyboardWorker::onAllLayoutListsFinished(QDBusPendingCallWatcher *watch)
+{
+    QDBusPendingReply<KeyboardLayoutList> reply = *watch;
+
+    KeyboardLayoutList tmp_map = reply.value();
+    m_model->setAllLayoutLists(tmp_map);
+
+    watch->deleteLater();
+}
+
 void KeyboardWorker::onLocalListsFinished(QDBusPendingCallWatcher *watch)
 {
     QDBusPendingReply<LocaleList> reply = *watch;
@@ -523,8 +535,9 @@ void KeyboardWorker::onPinyin()
     QDBusInterface dbus_pinyin("org.deepin.dde.Pinyin1", "/org/deepin/dde/Pinyin1",
                                "org.deepin.dde.Pinyin1");
 
-    const auto &layouts = m_model->kbLayout();
-    Q_FOREACH(const QString &key, layouts.keys()) {
+    const auto &currentLayouts = m_model->kbLayout();
+    const auto &layouts = m_model->allLayout().isEmpty() ? currentLayouts : m_model->allLayout();
+    Q_FOREACH (const QString &key, layouts.keys()) {
         MetaData md;
         QString title = layouts[key];
         md.setText(title);
@@ -533,11 +546,19 @@ void KeyboardWorker::onPinyin()
         QStringList letterFirstList;
         if (letterFirst.isLower() || letterFirst.isUpper()) {
             letterFirstList << QString(letterFirst);
-            md.setPinyin(title);
+            if (currentLayouts.contains(key)) {
+                md.setPinyin(" " + title);
+            } else {
+                md.setPinyin(title);
+            }
         } else {
             QDBusMessage message = dbus_pinyin.call("Query", title);
             letterFirstList = message.arguments()[0].toStringList();
-            md.setPinyin(letterFirstList.at(0));
+            if (currentLayouts.contains(key)) {
+                md.setPinyin(" " + letterFirstList.at(0));
+            } else {
+                md.setPinyin(letterFirstList.at(0));
+            }
         }
         append(md);
     }

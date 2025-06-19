@@ -27,7 +27,7 @@ Loader {
             Label {
                 Layout.alignment: Qt.AlignHCenter
                 font.bold: true
-                text: qsTr("Add language")
+                text: qsTr("Add new keyboard layout")
             }
 
             SearchEdit {
@@ -37,10 +37,10 @@ Loader {
                 Layout.rightMargin: 10
                 placeholder: qsTr("Search")
                 onTextChanged: {
-                    viewModel.setFilterWildcard(text);
+                    viewModel.setFilterWildcard(text)
                 }
                 onEditingFinished: {
-                    viewModel.setFilterWildcard(text);
+                    viewModel.setFilterWildcard(text)
                 }
             }
 
@@ -64,7 +64,7 @@ Loader {
                     required property string section
 
                     Text {
-                        text: parent.section
+                        text: parent.section === " " ? qsTr("Current language keyboard layouts") : parent.section
                     }
                 }
 
@@ -105,7 +105,7 @@ Loader {
         }
         onClosing: {
             loader.active = false
-            viewModel.setFilterWildcard("");
+            viewModel.setFilterWildcard("")
         }
     }
     onLoaded: {

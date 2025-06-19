@@ -41,7 +41,7 @@ QVariant LayoutsModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
         return data.text();
     case SearchedTextRole:
-        return data.pinyin() + data.key() + data.text();
+        return (data.pinyin().at(0) == ' ' ? data.pinyin().mid(1) : data.pinyin()) + data.key() + data.text();
     case IdRole:
         return data.key();
     case SectionRole:

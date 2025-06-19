@@ -177,6 +177,7 @@ public slots:
 
     //KeyBoard
     QDBusPendingReply<KeyboardLayoutList> LayoutList();
+    QDBusPendingReply<KeyboardLayoutList> AllLayoutList();
     void AddUserLayout(const QString &in0);
     void DeleteUserLayout(const QString &in0);
     QDBusPendingReply<QString> GetLayoutDesc(const QString &in0);

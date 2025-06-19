@@ -25,6 +25,7 @@ public:
     };
 #ifndef DCC_DISABLE_KBLAYOUT
     void setLayoutLists(QMap<QString, QString> lists);
+    void setAllLayoutLists(QMap<QString, QString> lists);
 #endif
     QString langByKey(const QString &key) const;
     QString langFromText(const QString &text) const;
@@ -33,6 +34,7 @@ public:
     QString curLang() const;
     QMap<QString, QString> userLayout() const;
     QMap<QString, QString> kbLayout() const;
+    QMap<QString, QString> allLayout() const { return m_allLayouts; }
     QStringList localLang() const;
     QList<MetaData> langLists() const;
     bool capsLock() const;
@@ -96,6 +98,7 @@ private:
     QStringList m_userLaylist;
     QMap<QString, QString> m_userLayout;
     QMap<QString, QString> m_layouts;
+    QMap<QString, QString> m_allLayouts;
     QList<MetaData> m_langList;
     QMap<QStringList, int> m_shortcutMap;
     int m_status{0};
