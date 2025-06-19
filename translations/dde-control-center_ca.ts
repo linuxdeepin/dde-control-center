@@ -1678,11 +1678,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Add new keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix una disposició de teclat nova</translation>
     </message>
     <message>
         <source>Current language keyboard layouts</source>
-        <translation type="unfinished"/>
+        <translation>Disposicions de teclat actuals</translation>
     </message>
 </context>
 <context>
