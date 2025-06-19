@@ -8,12 +8,13 @@ import QtQuick.Window
 import QtQml.Models
 import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
+import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dcc 1.0
 import AccountsController 1.0
 
 D.DialogWindow {
     id: dialog
-    width: 450
+    width: 460
     minimumWidth: width
     minimumHeight: height
     maximumWidth: minimumWidth
@@ -25,7 +26,41 @@ D.DialogWindow {
     signal accepted()
 
     ColumnLayout {
+        id: mainLayout
         width: dialog.width - 20
+        
+        property int unifiedLabelWidth: -1
+        spacing: 0
+        
+        FontMetrics {
+            id: dialogFm
+            font: D.DTK.fontManager.t7
+        }
+        
+        function calculateUnifiedLabelWidth() {
+            var dialogTexts = [qsTr("Account type"), qsTr("UserName"), qsTr("FullName")]
+            var maxDialogWidth = 0
+            
+            for (var i = 0; i < dialogTexts.length; i++) {
+                var width = dialogFm.advanceWidth(dialogTexts[i])
+                if (width > maxDialogWidth) {
+                    maxDialogWidth = width
+                }
+            }
+            
+            var maxWidth = Math.max(maxDialogWidth, pwdLayout.maxLabelWidth)
+            var finalWidth = maxWidth > 110 ? 110 : maxWidth
+            unifiedLabelWidth = finalWidth
+            
+            pwdLayout.maxLabelWidth = finalWidth
+        }
+        
+        Connections {
+            target: pwdLayout
+            function onLabelWidthCalculated() {
+                mainLayout.calculateUnifiedLabelWidth()
+            }
+        }
         
         Connections {
             target: dccData
@@ -64,29 +99,32 @@ D.DialogWindow {
             text: dialog.title
             font.bold: true
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-            Layout.bottomMargin: 10
+            Layout.bottomMargin: 20
             font.pixelSize: accountTypeLabel.font.pixelSize
         }
 
         RowLayout {
-            implicitHeight: 40
+            implicitHeight: 30
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
             Layout.fillWidth: true
             Layout.bottomMargin: 20
+            Layout.leftMargin: 12 - DS.Style.dialogWindow.contentHMargin
+            Layout.rightMargin: 6 - DS.Style.dialogWindow.contentHMargin
+            spacing: 10
 
             Label {
                 id: accountTypeLabel
+                height: 30
                 text: qsTr("Account type")
-                Layout.preferredWidth: 120
+                Layout.preferredWidth: mainLayout.unifiedLabelWidth
                 Layout.alignment: Qt.AlignVCenter
-                Layout.leftMargin: 10
                 font: D.DTK.fontManager.t7
             }
 
             ComboBox {
                 id: userType
+                implicitHeight: 30
                 Layout.alignment: Qt.AlignVCenter
-                Layout.rightMargin: 10
                 Layout.fillWidth: true
                 model: dccData.userTypes(true)
                 font: D.DTK.fontManager.t7
@@ -111,7 +149,11 @@ D.DialogWindow {
             radius: 8
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-            implicitHeight: 100
+            Layout.leftMargin: 12 - DS.Style.dialogWindow.contentHMargin
+            Layout.rightMargin: 6 - DS.Style.dialogWindow.contentHMargin
+            Layout.topMargin: 0
+            Layout.bottomMargin: 0
+            implicitHeight: 68
             color: "transparent"
 
             function checkNames() {
@@ -140,7 +182,9 @@ D.DialogWindow {
             }
 
             ColumnLayout {
-                spacing: 0
+                spacing: 8
+                Layout.topMargin: 0
+                Layout.bottomMargin: 0
                 anchors.fill: parent
                 Repeater {
                     model: namesModel
@@ -148,20 +192,23 @@ D.DialogWindow {
                         Layout.fillWidth: true
                         backgroundVisible: false
                         checkable: false
-                        implicitHeight: 50
-                        leftPadding: 10
-                        rightPadding: 10
+                        implicitHeight: 30
+                        leftPadding: 0
+                        rightPadding: 0
 
                         contentItem: RowLayout {
+                            height: parent.height
+                            spacing: 10
                             Label {
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                                 text: model.name
-                                Layout.preferredWidth: 120
+                                Layout.preferredWidth: mainLayout.unifiedLabelWidth
                             }
                             D.LineEdit {
                                 id: edit
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                                implicitHeight: 30
                                 placeholderText: model.placeholder
                                 alertDuration: 3000
                                 // can not past
@@ -203,7 +250,9 @@ D.DialogWindow {
         PasswordLayout {
             id: pwdLayout
             currentPwdVisible: false
-            Layout.fillWidth: true
+            Layout.leftMargin: 2 - DS.Style.dialogWindow.contentHMargin
+            Layout.rightMargin: 6 - DS.Style.dialogWindow.contentHMargin
+            Layout.topMargin: 0
             name:  {
                 let nameEdit = namesContainter.eidtItems[0]
                 if (nameEdit === undefined)
@@ -216,9 +265,9 @@ D.DialogWindow {
         RowLayout {
             spacing: 10
             Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
-            Layout.bottomMargin: 10
-            Layout.leftMargin: 10
-            Layout.rightMargin: 10
+            Layout.bottomMargin: 6
+            Layout.leftMargin: 6 - DS.Style.dialogWindow.contentHMargin
+            Layout.rightMargin: 6 - DS.Style.dialogWindow.contentHMargin
 
             Button {
                 Layout.fillWidth: true
