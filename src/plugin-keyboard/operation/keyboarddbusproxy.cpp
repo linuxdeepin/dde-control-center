@@ -301,6 +301,12 @@ QDBusPendingReply<KeyboardLayoutList> KeyboardDBusProxy::LayoutList()
     return m_dBusKeyboardInter->asyncCallWithArgumentList(QStringLiteral("LayoutList"), argumentList);
 }
 
+QDBusPendingReply<KeyboardLayoutList> KeyboardDBusProxy::AllLayoutList()
+{
+    QList<QVariant> argumentList;
+    return m_dBusKeyboardInter->asyncCallWithArgumentList(QStringLiteral("AllLayoutList"), argumentList);
+}
+
 void KeyboardDBusProxy::AddUserLayout(const QString &in0)
 {
     QList<QVariant> argumentList;

@@ -1652,10 +1652,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>LayoutsChooser</name>
     <message>
-        <source>Add language</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation type="unfinished">Suche</translation>
     </message>
@@ -1666,6 +1662,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add</source>
         <translation type="unfinished">Hinzufügen</translation>
+    </message>
+    <message>
+        <source>Add new keyboard layout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Current language keyboard layouts</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

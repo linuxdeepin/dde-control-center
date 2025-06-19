@@ -30,6 +30,11 @@ void KeyboardModel::setLayoutLists(QMap<QString, QString> lists)
     m_layouts = lists;
 }
 
+void KeyboardModel::setAllLayoutLists(QMap<QString, QString> lists)
+{
+    m_allLayouts = lists;
+}
+
 QString KeyboardModel::langByKey(const QString &key) const
 {
     auto res = std::find_if(m_langList.cbegin(), m_langList.end(), [key] (const MetaData &data)->bool{

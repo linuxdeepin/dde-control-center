@@ -86,6 +86,7 @@ public Q_SLOTS:
     void onLocalListsFinished(QDBusPendingCallWatcher *watch);
     void onGetWindowWM(bool value);
     void onLayoutListsFinished(QDBusPendingCallWatcher *watch);
+    void onAllLayoutListsFinished(QDBusPendingCallWatcher *watch);
     void onUserLayout(const QStringList &list);
     void onUserLayoutFinished(QDBusPendingCallWatcher *watch);
     void onCurrentLayout(const QString &value);
