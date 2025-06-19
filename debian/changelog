@@ -1,3 +1,31 @@
+dde-control-center (6.1.30) unstable; urgency=medium
+
+  * fix: hide pressure sensitivity settings in mouse mode
+  * refactor: reorganize shutdown time signal and handling
+  * fix: resolve spacing and font issues in touchpad components
+  * fix: adjust spacing and margins in LangsChooserDialog
+  * fix: Fix the issue of incomplete text display
+  * fix: Block keyboard lock function
+  * fix: Fixed text position anomalies
+  * fix: resolve button hover effects in MicrophonePage
+  * fix: add missing hover effects for shortcut editing buttons
+  * fix: Fixed icon exceptions
+  * i18n: Translate dde-control-center_en.ts in uk (#2399)
+  * fix: Fixed the issue of font display in user groups
+  * fix: reduce excessive spacing between list items in LangAndFormat
+  * fix: reduce excessive spacing between setting sections in
+    TimeAndDate
+  * fix: align placeholder text to left in custom NTP server input field
+  * i18n: Updates for project Deepin Desktop Environment (#2378)
+  * fix: modify opacity slide Min value as 25%.
+  * fix: adapt custom server confirm button for screen scaling
+  * fix: resolve volume icon hover effect issues in SpeakerPage
+  * fix: Fix default display for unnamed Bluetooth
+  * fix: resolve play button icon display in sound effects
+  * style: reorder member variable initialization
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 19 Jun 2025 10:09:03 +0800
+
 dde-control-center (6.1.29) unstable; urgency=medium
 
   * fix: Fixed the failure of uploading an avatar
