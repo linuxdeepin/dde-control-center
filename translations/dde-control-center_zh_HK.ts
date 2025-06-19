@@ -1367,7 +1367,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>如需安裝非應用商店來源的應用，前往&lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; 安全中心 &lt;/a&gt;進行設置。</translation>
     </message>
 </context>
 <context>
@@ -1676,11 +1676,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add new keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>添加鍵盤佈局</translation>
     </message>
     <message>
         <source>Current language keyboard layouts</source>
-        <translation type="unfinished"/>
+        <translation>當前語言鍵盤佈局</translation>
     </message>
 </context>
 <context>
