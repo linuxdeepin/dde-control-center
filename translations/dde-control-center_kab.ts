@@ -1654,10 +1654,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>LayoutsChooser</name>
     <message>
-        <source>Add language</source>
-        <translation>Adja l-linga</translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation>Teb</translation>
     </message>
@@ -1668,6 +1664,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add</source>
         <translation>Adja</translation>
+    </message>
+    <message>
+        <source>Add new keyboard layout</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Current language keyboard layouts</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
