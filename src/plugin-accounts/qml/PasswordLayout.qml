@@ -5,6 +5,7 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
+import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dcc 1.0
 
 ColumnLayout {
@@ -13,11 +14,33 @@ ColumnLayout {
     property string name: dccData.userName(pwdLayout.userId)
     property bool currentPwdVisible: true
     Layout.fillWidth: true
+    spacing: 0
+    
+    property int maxLabelWidth: 100
 
-    signal requestClose();
+    signal requestClose()
+    signal labelWidthCalculated()
 
     FontMetrics {
         id: fm
+        font: D.DTK.fontManager.t7
+    }
+
+    function maxWidth(font, text, width) {
+        var texts = [qsTr("Current password"), qsTr("Password"), qsTr("Repeat Password"), qsTr("Password hint")]
+        var maxWidth = 0
+        for (var i = 0; i < texts.length; i++) {
+            var width = fm.advanceWidth(texts[i])
+            if (width > maxWidth) {
+                maxWidth = width
+            }
+        }
+        pwdLayout.maxLabelWidth = maxWidth
+    }
+    
+    Component.onCompleted: {
+        maxWidth()
+        labelWidthCalculated()
     }
 
     function minWidth(font, text, width) {
@@ -50,9 +73,10 @@ ColumnLayout {
         visible: pwdLayout.currentPwdVisible
         label.text: qsTr("Current password")
         edit.placeholderText: qsTr("Required")
+        implicitHeight: 30
         Layout.leftMargin: 0
-        Layout.rightMargin: 16
-        Layout.bottomMargin: 10
+        Layout.rightMargin: -DS.Style.dialogWindow.contentHMargin
+        Layout.bottomMargin: 0
 
         Loader {
             id: safepageLoader
@@ -110,7 +134,9 @@ ColumnLayout {
         id: pwdIndicator
         spacing: 4
         Layout.alignment: Qt.AlignRight | Qt.AlignBottom
-        Layout.rightMargin: pwdLayout.currentPwdVisible ? 30 : 20
+        Layout.rightMargin: 0
+        Layout.bottomMargin: 0
+        Layout.topMargin: 20
         Label {
             id: pwdStrengthHintText
             text: ""
@@ -122,6 +148,7 @@ ColumnLayout {
             readonly property var defaultModel: [ palette.button, palette.button, palette.button ]
             model: defaultModel
             delegate: Rectangle {
+                implicitHeight: 4
                 height: 4
                 width: 10
                 color: modelData
@@ -185,7 +212,8 @@ ColumnLayout {
         radius: 8
         Layout.fillWidth: true
         Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-        Layout.rightMargin: pwdLayout.currentPwdVisible ? 10 : 0
+        Layout.rightMargin: 0
+        Layout.topMargin: 4 - DS.Style.dialogWindow.contentHMargin
         Layout.bottomMargin: 30
         implicitHeight: 150
         color: "transparent"
@@ -247,18 +275,19 @@ ColumnLayout {
         }
 
         ColumnLayout {
+            id: pwdColumnLayout
             spacing: 0
             anchors.fill: parent
             Repeater {
                 Layout.bottomMargin: 20
                 model: passwordModel
                 delegate: D.ItemDelegate {
-                    Layout.fillWidth: true
+                    implicitWidth: pwdColumnLayout.width
                     backgroundVisible: false
                     checkable: false
-                    implicitHeight: 50
+                    implicitHeight: 30
                     leftPadding: pwdLayout.currentPwdVisible ? 0 : 10
-                    rightPadding: 10
+                    rightPadding: 0
 
                     contentItem: PasswordItem {
                         label.text: model.name
@@ -290,10 +319,10 @@ ColumnLayout {
             Label {
                 text: qsTr("The hint is visible to all users. Do not include the password here.")
                 wrapMode: Text.WordWrap
-                Layout.preferredWidth: pwdLayout.minWidth(font, text, dialog.width - 20)
-                Layout.alignment: Qt.AlignRight
-                Layout.rightMargin: 10
-                Layout.leftMargin: 0
+                Layout.alignment: Qt.AlignLeft
+                Layout.rightMargin: 0
+                Layout.leftMargin: maxLabelWidth + 27
+                Layout.preferredWidth: pwdLayout.minWidth(font, text, pwdColumnLayout.width - Layout.leftMargin)
                 font: D.DTK.fontManager.t7
             }
         }
@@ -304,19 +333,28 @@ ColumnLayout {
         property alias label: leftItem
         property alias edit: rightItem
         signal textChanged(string text)
+        spacing: 10
+        Layout.alignment: Qt.AlignVCenter
 
         Label {
             id: leftItem
+            Layout.preferredHeight: 30
             font: D.DTK.fontManager.t7
-            Layout.preferredWidth: 120
+            elide: Text.ElideRight
+            Layout.preferredWidth: pwdLayout.maxLabelWidth
             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+            verticalAlignment: Text.AlignVCenter
         }
 
         D.PasswordEdit {
             id: rightItem
+            Layout.preferredHeight: 30
+            topPadding: 0
+            bottomPadding: 0
             font: D.DTK.fontManager.t7
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+            verticalAlignment: TextInput.AlignVCenter
             echoMode: echoButtonVisible ? TextInput.Password :  TextInput.Normal
             alertDuration: 3000
             onTextChanged: {
