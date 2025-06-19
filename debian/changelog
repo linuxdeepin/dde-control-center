@@ -1,3 +1,9 @@
+dde-control-center (6.1.31) unstable; urgency=medium
+
+  * fix: Open all keyboard layouts
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Thu, 19 Jun 2025 16:43:03 +0800
+
 dde-control-center (6.1.30) unstable; urgency=medium
 
   * fix: hide pressure sensitivity settings in mouse mode
