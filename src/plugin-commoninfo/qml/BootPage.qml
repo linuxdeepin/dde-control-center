@@ -641,8 +641,8 @@ DccObject {
                                 width: 228
                                 height: 148
                                 border.width: model.checkStatus ? 2 : 0
-                                border.color: "#6A005BFF"
-                                radius: 8
+                                border.color: parent.palette.highlight
+                                radius: 10
 
                                 color: "transparent"
 
