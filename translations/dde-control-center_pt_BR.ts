@@ -1354,7 +1354,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Para instalar e executar aplicativos não assinados, acesse a &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Central de Segurança &lt;/a&gt; para alterar as configurações.</translation>
     </message>
 </context>
 <context>
