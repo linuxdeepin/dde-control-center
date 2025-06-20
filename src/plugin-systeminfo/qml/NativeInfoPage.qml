@@ -293,9 +293,51 @@ DccObject {
                     ColorSelector.family: Palette.CommonColor
                     flat: false
                     visible: dccData.systemInfoMode().showDetail
-                    opacity: 0.7
+                    implicitWidth: 51
+                    implicitHeight: 30
                     onClicked: {
                         dccData.systemInfoWork().showActivatorDialog()
+                    }
+                    
+                    background: Item {
+                        implicitWidth: 51
+                        implicitHeight: 30
+                        
+                        Rectangle {
+                            anchors.fill: parent
+                            anchors.topMargin: 2
+                            radius: 6
+                            color: Qt.rgba(0, 0, 0, 0.05)
+                        }
+                        
+                        Rectangle {
+                            anchors.fill: parent
+                            anchors.topMargin: 1
+                            radius: 6
+                            color: Qt.rgba(0, 0, 0, 0.1)
+                        }
+                        
+                        Rectangle {
+                            anchors.fill: parent
+                            radius: 6
+                            border.width: 1
+                            border.color: Qt.rgba(0, 0, 0, 0.1)
+                            
+                            gradient: Gradient {
+                                GradientStop { 
+                                    position: 0.0; 
+                                    color: DTK.themeType === ApplicationHelper.LightType ? 
+                                           Qt.rgba(245/255, 245/255, 245/255, 1) : 
+                                           Qt.rgba(80/255, 80/255, 80/255, 1)
+                                }
+                                GradientStop { 
+                                    position: 1.0; 
+                                    color: DTK.themeType === ApplicationHelper.LightType ? 
+                                           Qt.rgba(239/255, 239/255, 239/255, 1) : 
+                                           Qt.rgba(60/255, 60/255, 60/255, 1)
+                                }
+                            }
+                        }
                     }
                 }
             }
