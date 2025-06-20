@@ -25,9 +25,9 @@ static const QString SurPlusError = QStringLiteral("7520");
 
 static void notifyInfo(const QString &reason)
 {
-    QDBusPendingReply<unsigned int> reply = DUtil::DNotifySender("deepin ID")
+    QDBusPendingReply<unsigned int> reply = DUtil::DNotifySender(utils::getEditionName() + " ID")
                                                 .appName("org.deepin.dde.control-center")
-                                                .appIcon("deepin-id")
+                                                .appIcon(utils::getIconName())
                                                 .appBody(reason)
                                                 .replaceId(0)
                                                 .timeOut(3000)
