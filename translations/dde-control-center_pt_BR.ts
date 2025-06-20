@@ -1663,11 +1663,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add new keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar novo layout de teclado</translation>
     </message>
     <message>
         <source>Current language keyboard layouts</source>
-        <translation type="unfinished"/>
+        <translation>Layouts de teclado do idioma atual</translation>
     </message>
 </context>
 <context>
