@@ -162,7 +162,9 @@ void KeyboardWorker::modifyShortcutEdit(ShortcutInfo *info) {
 
 void KeyboardWorker::addCustomShortcut(const QString &name, const QString &command, const QString &accels)
 {
-
+    Q_UNUSED(name)
+    Q_UNUSED(command)
+    Q_UNUSED(accels)
 }
 
 void KeyboardWorker::modifyCustomShortcut(ShortcutInfo *info)
@@ -178,19 +180,23 @@ void KeyboardWorker::grabScreen()
 
 bool KeyboardWorker::checkAvaliable(const QString &key)
 {
-   return false;
+    Q_UNUSED(key)
+    return false;
 }
 
 void KeyboardWorker::delShortcut(ShortcutInfo* info)
 {
+    Q_UNUSED(info)
 }
 
 void KeyboardWorker::setRepeatDelay(uint value)
 {
+    Q_UNUSED(value)
 }
 
 void KeyboardWorker::setRepeatInterval(uint value)
 {
+    Q_UNUSED(value)
 }
 
 void KeyboardWorker::setModelRepeatDelay(uint value)
@@ -205,18 +211,22 @@ void KeyboardWorker::setModelRepeatInterval(uint value)
 
 void KeyboardWorker::setNumLock(bool value)
 {
+    Q_UNUSED(value)
 }
 
 void KeyboardWorker::setCapsLock(bool value)
 {
+    Q_UNUSED(value)
 }
 
 void KeyboardWorker::addUserLayout(const QString &value)
 {
+    Q_UNUSED(value)
 }
 
 void KeyboardWorker::delUserLayout(const QString &value)
 {
+    Q_UNUSED(value)
 }
 
 bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2)
@@ -284,10 +294,13 @@ void KeyboardWorker::onRequestShortcut(QDBusPendingCallWatcher *watch)
 
 void KeyboardWorker::onAdded(const QString &in0, int in1)
 {
+    Q_UNUSED(in0)
+    Q_UNUSED(in1)
 }
 
 void KeyboardWorker::onDisableShortcut(ShortcutInfo *info)
 {
+    Q_UNUSED(info)
 }
 
 void KeyboardWorker::onAddedFinished(QDBusPendingCallWatcher *watch)
@@ -354,10 +367,12 @@ void KeyboardWorker::onUserLayoutFinished(QDBusPendingCallWatcher *watch)
 
 void KeyboardWorker::onCurrentLayout(const QString &value)
 {
+    Q_UNUSED(value)
 }
 
 void KeyboardWorker::onSearchShortcuts(const QString &searchKey)
 {
+    Q_UNUSED(searchKey)
 }
 
 void KeyboardWorker::onCurrentLayoutFinished(QDBusPendingCallWatcher *watch)
@@ -458,6 +473,8 @@ void KeyboardWorker::onLangSelectorServiceFinished()
 
 void KeyboardWorker::onShortcutChanged(const QString &id, int type)
 {
+    Q_UNUSED(id)
+    Q_UNUSED(type)
 }
 
 void KeyboardWorker::onGetShortcutFinished(QDBusPendingCallWatcher *watch)
@@ -472,14 +489,22 @@ void KeyboardWorker::onGetShortcutFinished(QDBusPendingCallWatcher *watch)
 
 void KeyboardWorker::updateKey(ShortcutInfo *info)
 {
+    Q_UNUSED(info)
 }
 
 void KeyboardWorker::cleanShortcutSlef(const QString &id, const int type, const QString &shortcut)
 {
+    Q_UNUSED(id)
+    Q_UNUSED(type)
+    Q_UNUSED(shortcut)
 }
 
 void KeyboardWorker::setNewCustomShortcut(const QString &id, const QString &name, const QString &command, const QString &accles)
 {
+    Q_UNUSED(id)
+    Q_UNUSED(name)
+    Q_UNUSED(command)
+    Q_UNUSED(accles)
 }
 
 void KeyboardWorker::onConflictShortcutCleanFinished(QDBusPendingCallWatcher *watch)
@@ -489,6 +514,7 @@ void KeyboardWorker::onConflictShortcutCleanFinished(QDBusPendingCallWatcher *wa
 
 void KeyboardWorker::onShortcutCleanFinished(QDBusPendingCallWatcher *watch)
 {
+    Q_UNUSED(watch)
 }
 
 void KeyboardWorker::onCustomConflictCleanFinished(QDBusPendingCallWatcher *w)
@@ -587,6 +613,7 @@ uint KeyboardWorker::converToModelInterval(uint value)
 
 void KeyboardWorker::setLayout(const QString &value)
 {
+    Q_UNUSED(value)
 }
 
 void KeyboardWorker::setLang(const QString &value)
