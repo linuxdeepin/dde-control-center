@@ -75,6 +75,10 @@ QString getDeviceCode();
 
 QStringList getDeviceInfo();
 
+QString getEditionName();
+
+QString getIconName();
+
 } // namespace utils
 
 

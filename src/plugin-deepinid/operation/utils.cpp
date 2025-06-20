@@ -194,4 +194,14 @@ QStringList getDeviceInfo()
     return deviceInfo;
 }
 
+QString getEditionName()
+{
+    return IsCommunitySystem ? "deepin" : "UOS";
+}
+
+QString getIconName()
+{
+    return IsCommunitySystem ? "deepin-id" : "uos-id";
+}
+
 }; // namespace utils
