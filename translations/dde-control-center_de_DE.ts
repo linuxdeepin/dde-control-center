@@ -4055,7 +4055,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Den Hinweis zu Open Source-Software anzeigen</translation>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -4063,7 +4063,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Treten Sie dem Nutzererfahrungs-Programm bei, um das Produkt verbessern zu helfen</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
@@ -4079,7 +4079,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Zeigen Sie die Datenschutzerklärung</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
@@ -4094,7 +4094,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Touchscreen einrichten</translation>
     </message>
 </context>
 <context>
@@ -4108,7 +4108,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
@@ -4119,11 +4119,11 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>wacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Wacom Mode</source>
-        <translation type="unfinished"/>
+        <translation>WACOM-Modus</translation>
     </message>
     <message>
         <source>Pen Mode</source>
