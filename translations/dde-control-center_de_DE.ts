@@ -3900,19 +3900,19 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Akzentfarben und Designthema-Symbole einstellen</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Schriftart und -größe</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Ändere Systemschriftart und -größe</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Hintergrundbild</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
@@ -3927,18 +3927,18 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Energiepläne, Anzeige und Abschalten</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Energie</translation>
     </message>
 </context>
 <context>
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
@@ -3946,15 +3946,15 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Im Netzbetrieb</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirm und Abschalten</translation>
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Im Batteriebetrieb</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
@@ -3965,18 +3965,18 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Datenschutz und Sicherheit</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"/>
+        <translation>Kamera, Ordner-Berechtigungen</translation>
     </message>
 </context>
 <context>
     <name>privacyMain</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>Kamera</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
@@ -3984,7 +3984,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"/>
+        <translation>Dateien und Ordner</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
@@ -3995,7 +3995,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>sound</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Ton</translation>
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
@@ -4006,11 +4006,11 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>soundMain</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Klangeffekte</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
@@ -4022,7 +4022,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Devices</source>
-        <translation type="unfinished"/>
+        <translation>Geräte</translation>
     </message>
 </context>
 <context>
@@ -4033,7 +4033,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>System</translation>
     </message>
 </context>
 <context>
@@ -4047,7 +4047,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Über diesen PC</translation>
     </message>
     <message>
         <source>System version, device information</source>
@@ -4059,7 +4059,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>User Experience-Programm</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
@@ -4067,15 +4067,15 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Endnutzer-Lizenzvereinbarung</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Endnutzer-Lizenzvereinbarung ansehen</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Datenschutzerklärung</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
@@ -4083,14 +4083,14 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Open Source Software-Hinweis</translation>
     </message>
 </context>
 <context>
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>TouchScreen</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
@@ -4101,7 +4101,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Gemeinsam</translation>
     </message>
 </context>
 <context>
@@ -4112,7 +4112,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"/>
+        <translation>Konfigiere WACOM</translation>
     </message>
 </context>
 <context>
