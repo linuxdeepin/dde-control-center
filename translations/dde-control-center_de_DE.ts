@@ -1552,7 +1552,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation>Abschalten aller Interface- und Fenstereffekte für ein effizientes System</translation>
+        <translation>Abschalten aller Nutzeroberflächen- und Fenstereffekte für ein effizientes System</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
@@ -1560,7 +1560,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation>Alle Interface- und Fenstereffekte werden benutzt für den besten Eindruck</translation>
+        <translation>Alle Nutzeroberflächen- und Fenstereffekte werden benutzt für den besten Eindruck</translation>
     </message>
 </context>
 <context>
@@ -1991,7 +1991,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation>Ausschalt-Abfrage anzeigen</translation>
+        <translation>Ausschalt-Nutzeroberfläche anzeigen</translation>
     </message>
     <message>
         <source>Do nothing</source>
@@ -2944,7 +2944,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation>Interface und Effekte</translation>
+        <translation>Nutzeroberfläche und Effekte</translation>
     </message>
     <message>
         <source>Window Settings</source>
@@ -3842,7 +3842,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Benachrichtigaungen am Schreibtisch anzeigen, oder ungelesene Nachrichten in der Nachrichtenzentrale zeigen</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -3916,11 +3916,11 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Helles, dunkles oder automatisches Design-Thema-Darstellung auswählen</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Nutzeroberfläche und Effekte, abgerundete Ecken</translation>
     </message>
 </context>
 <context>
