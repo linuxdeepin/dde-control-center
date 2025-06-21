@@ -439,11 +439,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation type="unfinished"/>
+        <translation>Ändern des Bootmenü-Verifikations-Passwortes</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"/>
+        <translation>Erstelle das Menüauthentifikations-Passwort </translation>
     </message>
     <message>
         <source>User Name :</source>
@@ -1109,11 +1109,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Lokales Passwort via %1 zurücksetzen, für den Fall, dass Sie es vergessen sollten.</translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation>Um obige Möglichkeiten zu benutzen, gehen Sie bitte in das Kontrollzentrum - Konten, und schalten die jeweiligen Optionen dazu.</translation>
     </message>
 </context>
 <context>
