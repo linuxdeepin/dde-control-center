@@ -3346,11 +3346,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>同じ文字を%1文字以上繰り返さないでください</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>パスワードには、英字(大文字、小文字)、数字と記号(~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)を含める必要があります</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
@@ -3358,7 +3358,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"/>
+        <translation>パスワードに一般的な単語や組み合わせを含めないでください</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
@@ -3783,7 +3783,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>ドックを固定</translation>
     </message>
 </context>
 <context>
@@ -4096,7 +4096,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>オープンソースソフトウェアに関する通知</translation>
     </message>
 </context>
 <context>
