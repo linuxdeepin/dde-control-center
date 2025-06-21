@@ -3649,14 +3649,14 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch, Aufgabenleiste, PlugIn-Tableau -Einstellungen</translation>
     </message>
 </context>
 <context>
     <name>keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Tastatur</translation>
     </message>
     <message>
         <source>General Settings, keyboard layout, input method, shortcuts</source>
@@ -3667,7 +3667,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Gemeinsam</translation>
     </message>
     <message>
         <source>Keyboard layout</source>
@@ -3690,11 +3690,11 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation type="unfinished"/>
+        <translation>Klassischer Modus</translation>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation type="unfinished"/>
+        <translation>Zentrierter Modus</translation>
     </message>
     <message>
         <source>Dock size</source>
@@ -3777,7 +3777,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Maus und Touchpad</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
