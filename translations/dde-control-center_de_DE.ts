@@ -1618,7 +1618,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"/>
+        <translation>Betriebssystem und Anwendungen können lokalen Inhalt basierend auf ihr Land und Region zeigen</translation>
     </message>
     <message>
         <source>Region and format</source>
@@ -1626,7 +1626,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Betriebssystem und Anwendungen setzen Datums- und Zeitformat nach Regionsformat</translation>
     </message>
 </context>
 <context>
@@ -1927,7 +1927,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation>Das Passwortes sollte mindestens 8 Zeichen lang sein, und es sollte mindestens 3 dieser Zeichentypen enthalten: Groß-, Kleinbuchstaben, Ziffern und Symbole. Solcherlei Passwort ist sicherer.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
@@ -3542,7 +3542,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>Bildschirmneuausrichtung wird in %1s nach den Änderungen vorgenommen</translation>
+        <translation>Bildschirmneuausrichtung wird  %1s nach den Änderungen wirksam</translation>
     </message>
     <message>
         <source>Mode</source>
