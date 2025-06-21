@@ -3942,7 +3942,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Energieschemen, Energiespar-, Aufwach-, Herunterfahr-Einstellungen</translation>
     </message>
     <message>
         <source>Plugged In</source>
@@ -3958,7 +3958,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"/>
+        <translation>Anzeige und Abschaltung, geringer Akku, Akkuverwaltung</translation>
     </message>
 </context>
 <context>
@@ -3980,7 +3980,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Wähle, ob die Anwendung Zugang zur Kamera haben soll.</translation>
     </message>
     <message>
         <source>Files and Folders</source>
@@ -3988,7 +3988,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"/>
+        <translation>Wähle, ob die Anwendung Zugang zu Dateien und Ordnern haben soll</translation>
     </message>
 </context>
 <context>
@@ -3999,7 +3999,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Ausgang, Eingang, Klangeffekte, Geräte</translation>
     </message>
 </context>
 <context>
@@ -4014,11 +4014,11 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Klangeffekte hinzu-/abschalten</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Audio-Geräte zu-/abschalten</translation>
     </message>
     <message>
         <source>Devices</source>
@@ -4029,7 +4029,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>system</name>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Gemeinsame Einstellungen</translation>
     </message>
     <message>
         <source>System</source>
@@ -4040,7 +4040,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Zusätzliche Informationen</translation>
     </message>
 </context>
 <context>
@@ -4051,7 +4051,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>System-Version, Geräte-Information</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
