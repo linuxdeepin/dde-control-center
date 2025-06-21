@@ -3406,45 +3406,45 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>Standardanwendung zum Öffnen verschiedener Dateitypen einstellen</translation>
     </message>
 </context>
 <context>
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Webseite</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation type="unfinished"/>
+        <translation>E-Mail</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Text</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Musik</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation type="unfinished"/>
+        <translation>Bild</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished"/>
+        <translation>Terminal</translation>
     </message>
 </context>
 <context>
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation type="unfinished"/>
+        <translation>Gerät</translation>
     </message>
 </context>
 <context>
@@ -3455,7 +3455,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation type="unfinished"/>
+        <translation>Helligkeit, Auflösung, Skalierung</translation>
     </message>
 </context>
 <context>
@@ -3498,59 +3498,59 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Duplizieren</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>Erweitern</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Voreingestellt</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>Einpassen</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Dehnen</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Zentrieren</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Nur auf %1</translation>
     </message>
     <message>
         <source> (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>(Empfohlen)</translation>
     </message>
     <message>
         <source>Hz</source>
-        <translation type="unfinished"/>
+        <translation>Hz</translation>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"/>
+        <translation>Optionen für mehrere Bildschirme</translation>
     </message>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Identifizieren</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirmneuausrichtung wird in %1s nach den Änderungen vorgenommen</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modus</translation>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Hauptbildschirm</translation>
     </message>
     <message>
         <source>Display And Layout</source>
@@ -3558,87 +3558,87 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Helligkeit</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Auflösung</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtischgröße einstellen</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>Wiederholrate</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Drehung</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
     <message>
         <source>Display Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Anzeige-Vergrößerung</translation>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Der Monitor unterstützt nur 100% Anzeigeskalierung</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation type="unfinished"/>
+        <translation>Augenschonend</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation type="unfinished"/>
+        <translation>Augenschonen anschalten</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirmanzeige an wärmere Farben angleichen und Blautöne reduzieren</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Zeit</translation>
     </message>
     <message>
         <source>All day</source>
-        <translation type="unfinished"/>
+        <translation>Ganzer Tag</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"/>
+        <translation>Sonnenuntergang bis -Aufgang</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"/>
+        <translation>Benutzerdefinierte Zeit</translation>
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>von</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>bis</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Farbtemperatur</translation>
     </message>
 </context>
 <context>
