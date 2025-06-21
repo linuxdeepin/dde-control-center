@@ -4139,7 +4139,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Light</source>
-        <translation>Licht</translation>
+        <translation>leicht</translation>
     </message>
 </context>
 </TS>
