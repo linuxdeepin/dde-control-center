@@ -2049,15 +2049,15 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"/>
+        <translation>Leistung zu priorisieren, wird deutlich Energie verbrauchen und Hitze entwickeln</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"/>
+        <translation>Leistung und Akkuverbrauch miteinander ausgleichen, wird automatisch von der Benutzung abhängig gemacht.</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Den Akkuverbrauch zu bevorzugen wird etwas Leistung kostenum Energie zu sparen.</translation>
     </message>
 </context>
 <context>
@@ -2433,7 +2433,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>ändern</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
