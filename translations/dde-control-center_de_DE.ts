@@ -4127,19 +4127,19 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation type="unfinished"/>
+        <translation>Stifti-Modus</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation type="unfinished"/>
+        <translation>Maus-Modus</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Druckempfindlichkeit</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Licht</translation>
     </message>
 </context>
 </TS>
