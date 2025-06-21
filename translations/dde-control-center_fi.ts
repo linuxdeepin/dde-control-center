@@ -1675,11 +1675,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add new keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Lisää uusi näppäimistön asettelu</translation>
     </message>
     <message>
         <source>Current language keyboard layouts</source>
-        <translation type="unfinished"/>
+        <translation>Nykyinen näppäimistön asettelu</translation>
     </message>
 </context>
 <context>
