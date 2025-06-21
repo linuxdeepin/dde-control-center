@@ -411,7 +411,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"/>
+        <translation>Sie können das Menü anklicken, um die voreingestellten Start-Applikationen zu ändern, oder das Bild zum Fenster schieben, um das Hintergrundbild zu ändern.</translation>
     </message>
     <message>
         <source>grub start delay</source>
@@ -423,7 +423,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"/>
+        <translation>Nach dem Anschalten des Design-Themas sehen sie dessen Hintergrundbild beim Hochstarten des Computers</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
@@ -431,7 +431,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation type="unfinished"/>
+        <translation>Nach dem Öffnen benötigt das Menüändern ein Passwort.</translation>
     </message>
     <message>
         <source>Change Password</source>
@@ -641,7 +641,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>Kamera ist belegt!</translation>
     </message>
 </context>
 <context>
@@ -761,7 +761,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Tastatur ernöglichen</translation>
     </message>
 </context>
 <context>
