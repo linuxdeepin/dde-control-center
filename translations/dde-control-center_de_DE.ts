@@ -1093,7 +1093,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"/>
+        <translation>Nach dem Verknüpfen mit ihrem Konto können Sie folgende Funktionen benutzen:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
@@ -1275,7 +1275,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation type="unfinished"/>
+        <translation>Nach dem Beitreten zum Entwicklermodus können Sie Root-Rechte erlangen, aber das kann die Systemintegrität beschädigen, also seien Sie bitte vorsichtig.</translation>
     </message>
     <message>
         <source>Allowed</source>
@@ -1335,7 +1335,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"/>
+        <translation>System-Protokollier-Ebene</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
@@ -1679,7 +1679,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"/>
+        <translation>Passwort, WeChat, Biometrische Authentifizierung, Sicherheitsschlüssel</translation>
     </message>
     <message>
         <source>Password</source>
@@ -1942,15 +1942,15 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Hell</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Auto</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>Dunkel</translation>
     </message>
 </context>
 <context>
@@ -1975,7 +1975,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished"/>
+        <translation>Herunterfahren</translation>
     </message>
     <message>
         <source>Suspend</source>
