@@ -62,7 +62,7 @@ DccObject {
             }
             D.TipsSlider {
                 id: scrollSlider
-                readonly property var tips: [qsTr("Light"), (""), (""), (""), (""), (""), ("Heavy")]
+                readonly property var tips: [qsTr("Light"), (""), (""), (""), (""), (""), qsTr("Heavy")]
                 Layout.preferredHeight: 90
                 Layout.alignment: Qt.AlignCenter
                 Layout.margins: 10
