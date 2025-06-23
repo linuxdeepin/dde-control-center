@@ -59,11 +59,27 @@ Loader {
                         id: itemsView
                         property string checkedLang
                         property string checkedLocale
+                        property string selectedLangKey: ""
+                        property string selectedLocaleKey: ""
                         Layout.fillWidth: true
                         height: 500
                         clip: true
                         model: regionFormatLoader.viewModel
                         currentIndex: regionFormatLoader.currentIndex
+
+                        Component.onCompleted: {
+                            if (currentIndex >= 0 && currentIndex < count) {
+                                let delegateHeight = 40;
+                                contentY = currentIndex * delegateHeight;
+
+                                Qt.callLater(function() {
+                                    if (currentItem && currentItem.model) {
+                                        selectedLangKey = currentItem.model.langKey;
+                                        selectedLocaleKey = currentItem.model.localeKey;
+                                    }
+                                });
+                            }
+                        }
 
                         ButtonGroup {
                             id: langGroup
@@ -73,11 +89,16 @@ Loader {
                             id: checkDelegate
                             implicitWidth: itemsView.width
                             text: model.display
-                            checked: index === itemsView.currentIndex
+                            checked: (itemsView.selectedLangKey === model.langKey &&
+                                     itemsView.selectedLocaleKey === model.localeKey) ||
+                                    (itemsView.selectedLangKey === "" && index === itemsView.currentIndex)
                             hoverEnabled: true
                             ButtonGroup.group: langGroup
                             onCheckedChanged: {
                                 if (checked) {
+                                    itemsView.selectedLangKey = model.langKey;
+                                    itemsView.selectedLocaleKey = model.localeKey;
+
                                     itemsView.checkedLang = model.langKey
                                     itemsView.checkedLocale = model.localeKey
                                     let idx = 0
@@ -94,12 +115,6 @@ Loader {
                                     repeater.model = 0
                                     repeater.model = repeater.values
                                 }
-                            }
-                        }
-                        Component.onCompleted: {
-                            if (currentIndex >= 0) {
-                                let delegateHeight =  40 // DS.Style.control.implicitHeight(itemDelegate)
-                                contentY = currentIndex * delegateHeight;
                             }
                         }
                     }
