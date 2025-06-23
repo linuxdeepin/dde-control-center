@@ -73,10 +73,23 @@ DccObject {
         backgroundType: DccObject.ClickStyle
         pageType: DccObject.Editor
         visible: dccData.model.syncSwitch
-        page: D.IconLabel {
-            Layout.alignment: Qt.AlignRight | Qt.AlignHCenter
-            icon.name: dccData.model.syncItemShow ? "arrow_ordinary_up" : "arrow_ordinary_down"
+
+        page: Control {
+            id: control
+            rotation: dccData.model.syncItemShow ? 180 : 0
+            Behavior on rotation {
+                NumberAnimation {
+                    duration: 200
+                }
+            }
+            contentItem: D.DciIcon {
+                name: "arrow_ordinary_down"
+                sourceSize: Qt.size(12, 12)
+                theme: D.DTK.themeType
+                palette: D.DTK.makeIconPalette(control.palette)
+            }
         }
+
         onActive: {
             dccData.model.syncItemShow = !dccData.model.syncItemShow
         }
@@ -136,33 +149,49 @@ DccObject {
         displayName: qsTr("Last sync time: %1").arg(dccData.model.lastSyncTime)
         weight: 100
         visible: dccData.model.syncSwitch
-        pageType: DccObject.Editor
-        page: D.ToolButton {
-            text: qsTr("Clear cloud data")
-            textColor: D.Palette {
-                normal {
-                    common: D.DTK.makeColor(D.Color.Highlight)
-                }
-                normalDark: normal
-                hovered {
-                    common: D.DTK.makeColor(D.Color.Highlight).lightness(+30)
-                }
-                hoveredDark: hovered
-            }
-            background: Item {}
-            onClicked: {
-                clearData.show()
+        pageType: DccObject.Item
+        page: RowLayout {
+            DccLabel {
+                Layout.leftMargin: 10
+                horizontalAlignment: Text.AlignLeft
+                text: dccObj.displayName
+                font: D.DTK.fontManager.t10
+                opacity: 0.7
             }
 
-            ConfirmManager {
-                id: clearData
-                title: qsTr("Are you sure you want to clear your system settings and personal data saved in the cloud?")
-                message: qsTr("Once the data is cleared, it cannot be recovered!")
-                leftBtnText: qsTr("Cancel")
-                rightBtnText: qsTr("Clear")
+            Item {
+                Layout.fillWidth: true
+            }
 
-                onAccepted: {
-                    dccData.worker.clearData()
+            D.ToolButton {
+                Layout.preferredHeight: 40
+                text: qsTr("Clear cloud data")
+
+                textColor: D.Palette {
+                    normal {
+                        common: D.DTK.makeColor(D.Color.Highlight)
+                    }
+                    normalDark: normal
+                    hovered {
+                        common: D.DTK.makeColor(D.Color.Highlight).lightness(+30)
+                    }
+                    hoveredDark: hovered
+                }
+                background: Item {}
+                onClicked: {
+                    clearData.show()
+                }
+
+                ConfirmManager {
+                    id: clearData
+                    title: qsTr("Are you sure you want to clear your system settings and personal data saved in the cloud?")
+                    message: qsTr("Once the data is cleared, it cannot be recovered!")
+                    leftBtnText: qsTr("Cancel")
+                    rightBtnText: qsTr("Clear")
+
+                    onAccepted: {
+                        dccData.worker.clearData()
+                    }
                 }
             }
         }

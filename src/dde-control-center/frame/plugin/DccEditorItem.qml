@@ -39,14 +39,12 @@ D.ItemDelegate {
     contentItem: RowLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
-        D.IconLabel {
-            spacing: root.spacing
-            mirrored: root.mirrored
-            display: root.display
-            alignment: root.display === D.IconLabel.IconOnly || root.display === D.IconLabel.TextUnderIcon ? Qt.AlignCenter : Qt.AlignLeft | Qt.AlignVCenter
-            font: root.font
-            color: root.palette.windowText
-            icon: D.DTK.makeIcon(root.icon, root.D.DciIcon)
+
+        D.DciIcon {
+            name: root.icon.name
+            sourceSize: Qt.size(root.icon.width, root.icon.height)
+            theme: D.DTK.themeType
+            palette: D.DTK.makeIconPalette(root.palette)
         }
         ColumnLayout {
             Layout.leftMargin: model.item.icon.length === 0 ? 0 : 8
