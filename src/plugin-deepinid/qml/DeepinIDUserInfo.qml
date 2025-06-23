@@ -2,9 +2,10 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import QtQuick 2.15
-import QtQuick.Controls 2.3
-import QtQuick.Layouts 1.15
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Effects
 
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
@@ -37,23 +38,26 @@ DccObject {
                     color: "transparent"
 
                     Image {
-                        id: userIcon
+                        id: image
                         anchors.fill: parent
                         source: dccData.model.avatar
                         sourceSize: Qt.size(80, 80)
-                        fillMode: Image.PreserveAspectFit
-                        clip: true
-                    }
 
-                    // fake round image
-                    D.BoxShadow {
-                        id: boxShadow
-                        hollow: true
-                        anchors.fill: userIcon
-                        shadowBlur: 10
-                        spread: 20
-                        shadowColor: iconBackground.palette.window
-                        cornerRadius: boxShadow.width / 2
+                        layer.enabled: true
+                        layer.effect: MultiEffect {
+                            maskEnabled: true
+                            maskSource: maskRect
+                            maskThresholdMin: 0.5
+                            maskSpreadAtMin: 1.0
+                        }
+
+                        Rectangle {
+                            id: maskRect
+                            anchors.fill: parent
+                            radius: iconBackground.width / 2
+                            layer.enabled: true
+                            visible: false
+                        }
                     }
                 }
 
@@ -87,7 +91,7 @@ DccObject {
                         anchors.leftMargin: 10
                         anchors.verticalCenter: nameLabel.verticalCenter
                         focusPolicy: Qt.NoFocus
-                        icon.name: "edit"
+                        icon.name: "dcc-edit"
                         icon.width: DS.Style.edit.actionIconSize
                         icon.height: DS.Style.edit.actionIconSize
                         visible: !nameControl.editing
