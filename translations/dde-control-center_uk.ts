@@ -1677,11 +1677,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add new keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Додати нову розкладку клавіатури</translation>
     </message>
     <message>
         <source>Current language keyboard layouts</source>
-        <translation type="unfinished"/>
+        <translation>Розкладки клавіатури поточної мови</translation>
     </message>
 </context>
 <context>
@@ -4152,7 +4152,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
-        <translation>Світла</translation>
+        <translation>Легкий</translation>
     </message>
 </context>
 </TS>

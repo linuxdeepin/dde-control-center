@@ -75,15 +75,15 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>フルネームが長すぎます</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>グループ名は32文字以下にしてください</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>グループ名を数字のみにすることはできません</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation>このグループ名はすでに使用されています</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
@@ -282,15 +282,15 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation>画面とサスペンド</translation>
+        <translation>ディスプレイとサスペンド</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation>画面の電源を切るまでの時間</translation>
+        <translation>ディスプレイの電源を切るまでの時間</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>画面をロックするまでの時間</translation>
+        <translation>ロックするまでの時間</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
@@ -1504,7 +1504,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
-        <translation>省電力モード使用時に画面の明るさを減らす</translation>
+        <translation>省電力モード使用時にディスプレイの明るさを減らす</translation>
     </message>
 </context>
 <context>
@@ -2015,15 +2015,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation>画面とサスペンド</translation>
+        <translation>ディスプレイとサスペンド</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation>画面の電源を切るまでの時間</translation>
+        <translation>ディスプレイの電源を切るまでの時間</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation>画面をロックするまでの時間</translation>
+        <translation>ロックするまでの時間</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
@@ -3350,7 +3350,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>パスワードには、英字(大文字、小文字)、数字と記号(~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)を含める必要があります</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
@@ -3358,7 +3358,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"/>
+        <translation>パスワードに一般的な単語や組み合わせを含めないでください</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
@@ -3555,7 +3555,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>ディスプレイの配置は変更から%1秒後に適用されます</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -3563,7 +3563,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Main Screen</source>
-        <translation>メイン画面</translation>
+        <translation>メインディスプレイ</translation>
     </message>
     <message>
         <source>Display And Layout</source>
@@ -3623,7 +3623,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation>暖かい色に調節して、画面のブルーライトを軽減します</translation>
+        <translation>暖かい色に調節して、ディスプレイのブルーライトを軽減します</translation>
     </message>
     <message>
         <source>Time</source>
@@ -3771,7 +3771,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation>カーソルのある画面</translation>
+        <translation>カーソルのあるディスプレイ</translation>
     </message>
     <message>
         <source>Plugin Area</source>
@@ -3783,7 +3783,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>ドックを固定</translation>
     </message>
 </context>
 <context>
@@ -3820,7 +3820,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Notification</source>
-        <translation>システム</translation>
+        <translation>通知</translation>
     </message>
 </context>
 <context>
@@ -3839,7 +3839,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation>画面がロックされているとき</translation>
+        <translation>ロックされているとき</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
@@ -3940,7 +3940,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation>電力節約の設定、画面とサスペンド</translation>
+        <translation>電力節約の設定、ディスプレイとサスペンド</translation>
     </message>
     <message>
         <source>Power</source>
@@ -3963,7 +3963,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation>画面とサスペンド</translation>
+        <translation>ディスプレイとサスペンド</translation>
     </message>
     <message>
         <source>On Battery</source>
@@ -3971,7 +3971,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation>画面とサスペンド、バッテリー残量低下時の設定、バッテリー管理</translation>
+        <translation>ディスプレイとサスペンド、バッテリー残量低下時の設定、バッテリー管理</translation>
     </message>
 </context>
 <context>
@@ -4096,7 +4096,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>オープンソースソフトウェアに関する通知</translation>
     </message>
 </context>
 <context>
