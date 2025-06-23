@@ -1,3 +1,13 @@
+dde-control-center (6.1.32) unstable; urgency=medium
+
+  * i18n: Updates for project Deepin Desktop Environment (#2419)
+  * chore: remove reginal variants for es language
+  * fix: update deepin ID notification for UOS compatibility
+  * refactor: add Q_UNUSED macros to unused parameters
+  * i18n: Updates for project Deepin Desktop Environment (#2415)
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Mon, 23 Jun 2025 16:58:03 +0800
+
 dde-control-center (6.1.31) unstable; urgency=medium
 
   * fix: Open all keyboard layouts
