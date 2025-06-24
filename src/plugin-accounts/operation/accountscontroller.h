@@ -22,6 +22,7 @@ class AccountsController : public QObject
     Q_PROPERTY(QString currentUserName READ currentUserName NOTIFY currentUserNameChanged FINAL)
     Q_PROPERTY(QStringList userIdList READ userIdList NOTIFY userIdListChanged FINAL)
     Q_PROPERTY(QStringList onlineUserList READ onlineUserList NOTIFY onlineUserListChanged FINAL)
+    Q_PROPERTY(bool isQuickLoginVisible READ isQuickLoginVisible NOTIFY quickLoginVisibleChanged FINAL)
 public:
     explicit AccountsController(QObject *parent = nullptr);
     virtual ~AccountsController();
@@ -114,6 +115,7 @@ signals:
     void requestClearEmptyGroup(const QString &userId);
     void showSafetyPage(const QString &errorTips);
     void accountCreationFinished(CreationResult::ResultType resultType, const QString &message);
+    void quickLoginVisibleChanged();
 protected:
     bool isSystemAdmin(const User *user) const;
     int adminCount() const;
