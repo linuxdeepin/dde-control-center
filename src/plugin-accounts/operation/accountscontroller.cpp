@@ -97,6 +97,8 @@ AccountsController::AccountsController(QObject *parent)
         }
     });
 
+    connect(m_model, &UserModel::quickLoginVisibleChanged, this, &AccountsController::quickLoginVisibleChanged);
+
     QMetaObject::invokeMethod(m_worker, "active", Qt::QueuedConnection);
 }
 

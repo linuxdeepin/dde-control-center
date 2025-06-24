@@ -20,6 +20,8 @@ void AccountsDBusProxy::init()
     const QString accountsService = "org.deepin.dde.Accounts1";
     const QString accountsPath = "/org/deepin/dde/Accounts1";
     const QString accountsInterface = "org.deepin.dde.Accounts1";
+    const QString propertiesInterface = "org.freedesktop.DBus.Properties";
+    const QString propertiesChanged = "PropertiesChanged";
 
     const QString displayManagerService = "org.freedesktop.DisplayManager";
     const QString displayManagerPath = "/org/freedesktop/DisplayManager";
@@ -27,6 +29,20 @@ void AccountsDBusProxy::init()
 
     m_dBusAccountsInter = new DDBusInterface(accountsService, accountsPath, accountsInterface, QDBusConnection::systemBus(), this);
     m_dBusDisplayManagerInter = new DDBusInterface(displayManagerService, displayManagerPath, displayManagerInterface, QDBusConnection::systemBus(), this);
+
+    QDBusConnection dbusConnection = m_dBusAccountsInter->connection();
+    dbusConnection.connect(accountsService, accountsPath, propertiesInterface, propertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
+}
+
+void AccountsDBusProxy::onPropertiesChanged(const QDBusMessage &message)
+{
+    if (message.arguments().size() < 2)
+        return;
+    QVariantMap changedProps = qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
+    if (changedProps.contains("QuickLoginEnabled")) {
+        bool value = changedProps.value("QuickLoginEnabled").toBool();
+        Q_EMIT QuickLoginEnabledChanged(value);
+    }
 }
 
 // Accounts
@@ -132,4 +148,10 @@ QDBusPendingReply<> AccountsDBusProxy::modifyGroup(const QString &in0, const QSt
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2);
     return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("ModifyGroup"), argumentList);
+}
+
+bool AccountsDBusProxy::quickLoginEnabled()
+{
+    QVariant value = m_dBusAccountsInter->property("QuickLoginEnabled");
+    return value.isValid() ? value.toBool() : true; // 默认为true
 }

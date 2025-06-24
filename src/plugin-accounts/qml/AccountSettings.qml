@@ -423,7 +423,7 @@ DccObject {
         weight: 30
         pageType: DccObject.Item
         page: DccGroupView {}
-        visible: (autoLongin.visible || noPassword.visible) && !DccApp.isTreeland()
+        visible: (autoLongin.visible || noPassword.visible || quickLogin.visible) && !DccApp.isTreeland()
 
         DccObject {
             id: quickLogin
@@ -432,7 +432,7 @@ DccObject {
             displayName: qsTr("Quickly load DDE with your login information")
             weight: 20
             pageType: DccObject.Editor
-            visible: dccData.isQuickLoginVisible()
+            visible: dccData.isQuickLoginVisible
             enabled: dccData.currentUserId() === settings.userId
             page: Switch {
                 checked: settings.noQuickLoginChecked
@@ -493,7 +493,7 @@ DccObject {
             name: settings.papaName + "noPassword"
             parentName: settings.papaName + "acountSettings"
             displayName: qsTr("Login without password")
-            weight: 20
+            weight: 30
             pageType: DccObject.Editor
             visible: dccData.isNoPassWordLoginVisable()
             enabled: dccData.currentUserId() === settings.userId
