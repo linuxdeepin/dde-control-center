@@ -58,8 +58,7 @@ public:
     bool IsEnabled();
 
     // notification
-    void Notify(const QString &in0, const uint in1, const QString &in2, const QString &in3, const QString &in4,
-                const QStringList &in5, const QVariantMap &in6, const int in7);
+    void Notify(const QString &inAppName, const uint replacesId, const QString &appIcon, const QString &summary, const QString &body, const QStringList &actions, const QVariantMap &hints, const int expireTimeout);
     // groubScale
     QDBusPendingCall SetScalePlymouth(int scale);
 
@@ -100,7 +99,6 @@ private:
     DDBusInterface *m_deepinIdInter;
     DDBusInterface *m_licenseInter;
     DDBusInterface *m_userexperienceInter;
-    DDBusInterface *m_notificationInter;
     DDBusInterface *m_grubScaleInter;
     DDBusInterface *m_syncHelperInter;
 };

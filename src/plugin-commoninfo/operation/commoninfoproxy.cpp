@@ -4,6 +4,8 @@
 
 #include "commoninfoproxy.h"
 
+#include <DNotifySender>
+
 #include <QDBusConnection>
 #include <QDBusInterface>
 #include <QDBusArgument>
@@ -31,10 +33,6 @@ const QString &UserexperienceService = QStringLiteral("com.deepin.userexperience
 const QString &UserexperiencePath = QStringLiteral("/com/deepin/userexperience/Daemon");
 const QString &UserexperienceInterface = QStringLiteral("com.deepin.userexperience.Daemon");
 
-const QString &NotificationService = QStringLiteral("org.deepin.dde.Notification1");
-const QString &NotificationPath = QStringLiteral("/org/deepin/dde/Notification1");
-const QString &NotificationInterface = QStringLiteral("org.deepin.dde.Notification");
-
 const QString &PlyMouthScaleService = QStringLiteral("org.deepin.dde.Daemon1");
 const QString &PlyMouthScalePath = QStringLiteral("/org/deepin/dde/Daemon1");
 const QString &PlyMouthScaleInterface = QStringLiteral("org.deepin.dde.Daemon1");
@@ -51,7 +49,6 @@ CommonInfoProxy::CommonInfoProxy(QObject *parent)
     , m_deepinIdInter(new DDBusInterface(DeepinIdService, DeepinIdPath, DeepinIdInterface, QDBusConnection::sessionBus(), this))
     , m_licenseInter(new DDBusInterface(LicenseService, LicensePath, LicenseInterface, QDBusConnection::systemBus(), this))
     , m_userexperienceInter(new DDBusInterface(UserexperienceService, UserexperiencePath, UserexperienceInterface, QDBusConnection::sessionBus(), this))
-    , m_notificationInter(new DDBusInterface(NotificationService, NotificationPath, NotificationInterface, QDBusConnection::sessionBus(), this))
     , m_grubScaleInter(new DDBusInterface(PlyMouthScaleService, PlyMouthScalePath, PlyMouthScaleInterface, QDBusConnection::systemBus(), this))
     , m_syncHelperInter(new DDBusInterface(SyncHelperService, SyncHelperPath, SyncHelperInterface, QDBusConnection::systemBus(), this))
 {
@@ -66,6 +63,7 @@ CommonInfoProxy::CommonInfoProxy(QObject *parent)
         this,
         SIGNAL(BackgroundChanged())
     );
+    QDBusConnection::sessionBus().connect(DeepinIdService, DeepinIdPath, DeepinIdInterface, "Error", this, SIGNAL(DeepinIdError(const int, const QString &)));
 }
 
 bool CommonInfoProxy::IsLogin()
@@ -215,7 +213,7 @@ bool CommonInfoProxy::IsEnabled()
     return false;
 }
 
-void CommonInfoProxy::Notify(const QString &in0, const uint in1, const QString &in2, const QString &in3, const QString &in4, const QStringList &in5, const QVariantMap &in6, const int in7)
+void CommonInfoProxy::Notify(const QString &inAppName, const uint replacesId, const QString &appIcon, const QString &summary, const QString &body, const QStringList &actions, const QVariantMap &hints, const int expireTimeout)
 {
-    m_notificationInter->asyncCall("Notify", in0, in1, in2, in3, in4, in5, in6, in7);
+    Dtk::Core::DUtil::DNotifySender(summary).appName(inAppName).replaceId(replacesId).appIcon(appIcon).appBody(body).actions(actions).hints(hints).timeOut(expireTimeout).call();
 }
