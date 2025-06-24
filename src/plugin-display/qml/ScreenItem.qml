@@ -2,7 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
-import Qt5Compat.GraphicalEffects
+import QtQuick.Effects
 import org.deepin.dtk 1.0 as D
 
 Rectangle {
@@ -26,49 +26,40 @@ Rectangle {
         anchors.fill: parent
         source: screen.wallpaper
         mipmap: true
-        visible: false
         fillMode: Image.PreserveAspectCrop
         asynchronous: true
-        cache: true
-        smooth: true
-        sourceSize {
-            width: parent.width * Screen.devicePixelRatio
-            height: parent.height * Screen.devicePixelRatio
+        layer.enabled: true
+        layer.effect: MultiEffect {
+            maskEnabled: true
+            maskSource: imageMask
+            antialiasing: true
+            maskThresholdMin: 0.5
+            maskSpreadAtMin: 1.0
         }
-        onStatusChanged: {
-            if (status === Image.Loading) {
-                loadingPlaceholder.visible = true
-            } else {
-                loadingPlaceholder.visible = false
+        Item {
+            id: imageMask
+            anchors.fill: parent
+            layer.enabled: true
+            visible: false
+            Rectangle {
+                anchors.fill: parent
+                anchors.margins: 0.5
+                radius: root.radius
             }
         }
     }
-
-    Rectangle {
-        id: loadingPlaceholder
-        anchors.fill: parent
-        color: "#3f3f3f"
-        visible: false
-        radius: root.radius
-    }
-    OpacityMask {
-        anchors.fill: parent
-        source: image
-        maskSource: Rectangle {
-            implicitWidth: image.width
-            implicitHeight: image.height
-            radius: root.radius
-        }
-    }
-    Label {
-        anchors.fill: parent
-        anchors.topMargin: parent.radius + 5
-        anchors.leftMargin: parent.radius + 5
-        wrapMode: Text.Wrap
-        // horizontalAlignment: Text.AlignHCenter
-        // verticalAlignment: Text.AlignVCenter
+    Text {
+        x: parent.radius + 5
+        y: parent.radius + 5
         text: screen.name
         color: "white"
+        layer.enabled: true
+        layer.effect: MultiEffect {
+            shadowEnabled: true
+            shadowBlur: 0.01
+            shadowColor: Qt.rgba(0.0, 0.0, 0.0, 0.7)
+            shadowVerticalOffset: 1
+        }
     }
     D.DciIcon {
         visible: screen && dccData.primaryScreen && (screen.name === dccData.primaryScreen.name)
@@ -85,6 +76,7 @@ Rectangle {
         color: "transparent"
         border.color: root.selected ? "#2ca7f8" : "#802e2e2e"
         border.width: 2
+        smooth: true
     }
     MouseArea {
         anchors.fill: parent
