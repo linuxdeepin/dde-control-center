@@ -659,9 +659,8 @@ DccObject {
 
                                     Rectangle {
                                         anchors.fill: parent
-                                        anchors.margins: 1  // 内描边的宽度
                                         color: "transparent"
-                                        border.color: "#1A000000"
+                                        border.color: DTK.themeType === ApplicationHelper.LightType ? "#0D000000" : "#1AFFFFFF"
                                         radius: 6
                                         border.width: 1
 
@@ -671,46 +670,9 @@ DccObject {
                                             source: model.imagePath
                                             width: 130 * model.scale
                                             height: 130 * model.scale
-                                            visible: !(model.startAnimation
-                                                       && model.checkStatus)
+                                            visible: !(model.startAnimation && model.checkStatus) || blurContainer.grabbing
                                             fillMode: Image.PreserveAspectCrop
                                             opacity: model.startAnimation ? 0.4 : 1
-                                        }
-
-                                        //模糊效果容器
-                                        Rectangle {
-                                            width: 220
-                                            height: 140
-                                            anchors.centerIn: parent
-                                            radius: 6 // 设置圆角半径
-                                            visible: model.startAnimation
-                                                     && model.checkStatus
-                                            color: "transparent"
-
-                                            // GaussianBlur 模糊效果
-                                            ShaderEffectSource {
-                                                id: blurSource
-                                                sourceItem: backgroundImage
-                                                sourceRect: Qt.rect(0, 0, width,
-                                                                    height) // 将背景图作为模糊源
-                                            }
-
-                                            GaussianBlur {
-                                                anchors.fill: parent
-                                                source: blurSource
-                                                radius: 20 // 模糊半径，值越大，模糊越强
-                                                samples: 16
-                                            }
-
-                                            BusyIndicator {
-                                                anchors.centerIn: parent
-                                                running: model.startAnimation
-                                                         && model.checkStatus
-                                                visible: model.startAnimation
-                                                         && model.checkStatus
-                                                implicitWidth: 32
-                                                implicitHeight: 32
-                                            }
                                         }
                                     }
 
@@ -720,6 +682,52 @@ DccObject {
                                         onClicked: {
                                             dccData.work().setPlymouthFactor(
                                                         model.plymouthScale)
+                                        }
+                                    }
+                                }
+
+                                //模糊效果容器
+                                Rectangle {
+                                    id: blurContainer
+                                    anchors.centerIn: parent
+                                    width: 220
+                                    height: 140
+                                    radius: 6
+                                    visible: model.startAnimation && model.checkStatus
+                                    color: "transparent"
+
+                                    property alias grabbedImage: grabbedImageItem
+                                    property bool grabbing: false
+
+                                    Image {
+                                        id: grabbedImageItem
+                                        anchors.fill: parent
+                                        fillMode: Image.PreserveAspectCrop
+                                        visible: false
+                                    }
+
+                                    GaussianBlur {
+                                        anchors.fill: parent
+                                        source: grabbedImageItem
+                                        radius: 25 // 模糊半径，值越大，模糊越强
+                                        samples: 16
+                                    }
+
+                                    BusyIndicator {
+                                        anchors.centerIn: parent
+                                        running: model.startAnimation && model.checkStatus
+                                        visible: model.startAnimation && model.checkStatus
+                                        implicitWidth: 32
+                                        implicitHeight: 32
+                                    }
+
+                                    onVisibleChanged: {
+                                        if (visible && model.startAnimation && model.checkStatus) {
+                                            grabbing = true
+                                            imgRect.grabToImage(function(result) {
+                                                grabbedImageItem.source = result.url
+                                                grabbing = false
+                                            })
                                         }
                                     }
                                 }
