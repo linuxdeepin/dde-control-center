@@ -344,5 +344,5 @@ QDBusReply<bool> DisplayDBusProxy::CanSetBrightnessSync(const QString &name)
 
 QDBusReply<bool> DisplayDBusProxy::SupportSetColorTemperatureSync()
 {
-    return m_dBusDisplayInter->call("SupportSetColorTemperatureSync");
+    return m_dBusDisplayInter->call("SupportSetColorTemperature");
 }
