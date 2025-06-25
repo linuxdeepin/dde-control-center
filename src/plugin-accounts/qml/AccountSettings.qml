@@ -284,11 +284,35 @@ DccObject {
 
                 EditActionLabel {
                     id: fullNameEdit
+                    property bool rightClickPressed: false
+                    property bool contextMenuVisible: false
+                    property int savedSelectionStart: -1
+                    property int savedSelectionEnd: -1
+                    property string savedSelectedText: ""
                     implicitWidth: 200
                     text: dccData.fullName(settings.userId)
                     placeholderText: qsTr("Set fullname")
                     horizontalAlignment: TextInput.AlignRight
                     editBtn.visible: readOnly
+                    
+                    onEditingFinished: {
+                        if (readOnly)
+                            return
+                        
+                        if (contextMenuVisible) {
+                            return
+                        }
+                        if (rightClickPressed) {
+                            rightClickPressed = false
+                            return
+                        }
+                        
+                        if (showAlert)
+                            showAlert = false
+
+                        readOnly = true
+                        finished()
+                    }
                     ToolTip {
                         visible: parent.hovered && parent.readOnly && parent.completeText != "" && (parent.metrics.advanceWidth(parent.completeText) > (parent.width - parent.rightPadding - 10))
                         text: parent.completeText
@@ -300,23 +324,133 @@ DccObject {
                         text = elidedText
                     }
 
+                    Menu {
+                        id: contextMenu
+                        
+                        onAboutToShow: {
+                            fullNameEdit.contextMenuVisible = true
+                            if (fullNameEdit.savedSelectionStart >= 0 && fullNameEdit.savedSelectionEnd >= 0) {
+                                Qt.callLater(function() {
+                                    fullNameEdit.select(fullNameEdit.savedSelectionStart, fullNameEdit.savedSelectionEnd)
+                                })
+                            }
+                        }
+                        
+                        onAboutToHide: {
+                            fullNameEdit.contextMenuVisible = false
+                            Qt.callLater(function() {
+                                fullNameEdit.rightClickPressed = false
+                                fullNameEdit.forceActiveFocus()
+                                fullNameEdit.savedSelectionStart = -1
+                                fullNameEdit.savedSelectionEnd = -1
+                                fullNameEdit.savedSelectedText = ""
+                            })
+                        }
+                        
+                        Action {
+                            text: qsTr("Undo")
+                            enabled: fullNameEdit.canUndo && !fullNameEdit.readOnly
+                            onTriggered: {
+                                fullNameEdit.undo()
+                                Qt.callLater(function() {
+                                    fullNameEdit.forceActiveFocus()
+                                })
+                            }
+                        }
+                        
+                        Action {
+                            text: qsTr("Redo")
+                            enabled: fullNameEdit.canRedo && !fullNameEdit.readOnly
+                            onTriggered: {
+                                fullNameEdit.redo()
+                                Qt.callLater(function() {
+                                    fullNameEdit.forceActiveFocus()
+                                })
+                            }
+                        }
+                        
+                        MenuSeparator {}
+                        
+                        Action {
+                            text: qsTr("Cut")
+                            enabled: fullNameEdit.savedSelectedText.length > 0 && !fullNameEdit.readOnly
+                            onTriggered: {
+                                fullNameEdit.cut()
+                                Qt.callLater(function() {
+                                    fullNameEdit.forceActiveFocus()
+                                })
+                            }
+                        }
+                        
+                        Action {
+                            text: qsTr("Copy")
+                            enabled: fullNameEdit.savedSelectedText.length > 0
+                            onTriggered: {
+                                fullNameEdit.copy()
+                                Qt.callLater(function() {
+                                    fullNameEdit.forceActiveFocus()
+                                })
+                            }
+                        }
+                        
+                        Action {
+                            text: qsTr("Paste")
+                            enabled: !fullNameEdit.readOnly
+                            onTriggered: {
+                                fullNameEdit.paste()
+                                Qt.callLater(function() {
+                                    fullNameEdit.forceActiveFocus()
+                                })
+                            }
+                        }
+                        
+                        MenuSeparator {}
+                        
+                        Action {
+                            text: qsTr("Select All")
+                            enabled: fullNameEdit.text.length > 0
+                            onTriggered: {
+                                fullNameEdit.selectAll()
+                                Qt.callLater(function() {
+                                    fullNameEdit.forceActiveFocus()
+                                })
+                            }
+                        }
+                    }
+
+                    // 右键菜单处理
                     MouseArea {
                         anchors.fill: parent
                         acceptedButtons: Qt.RightButton
-                        enabled: parent.completeText === ""
+                        onPressed: function(mouse) {
+                            if (mouse.button === Qt.RightButton && parent.text.length > 0) {
+                                parent.savedSelectionStart = parent.selectionStart
+                                parent.savedSelectionEnd = parent.selectionEnd  
+                                parent.savedSelectedText = parent.selectedText
+                                parent.rightClickPressed = true
+                            }
+                        }
                         onClicked: function(mouse) {
-                            mouse.accepted = true
+                            if (mouse.button === Qt.RightButton && parent.text.length > 0) {
+                                contextMenu.popup()
+                                mouse.accepted = true
+                            }
                         }
                     }
 
                     onReadOnlyChanged: {
+                        if (rightClickPressed) {
+                            return
+                        }
                         // Store the original text when editing starts
                         if (!readOnly) {
                             text = completeText
                             originalFullName = completeText
+                            rightClickPressed = false
                         }
                     }
                     onTextEdited: {
+                        rightClickPressed = false
                         if (showAlert)
                             showAlert = false
                         // validtor can not paste invalid text..
@@ -338,6 +472,10 @@ DccObject {
                     }
 
                     onFinished: function () {
+                        if (rightClickPressed) {
+                            fullNameEdit.readOnly = false
+                            return
+                        }
                         // If text hasn't changed, do nothing
                         if (text === originalFullName) {
                             var elidedText = fullNameEdit.metrics.elidedText(fullNameEdit.completeText, Text.ElideRight, 
