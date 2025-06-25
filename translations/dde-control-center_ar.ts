@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ar">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ar">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -100,6 +102,30 @@
     <message>
         <source>Quickly load DDE with your login information</source>
         <translation>تحميل DDE بسرعة مع معلومات تسجيل الدخول</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -213,7 +239,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;التحقق البيومטרי&quot; هو وظيفة لتأكيد هوية المستخدم تقدمها شركة تكنولوجيا البرمجيات المتحدة. من خلال &quot;التحقق البيومטרי&quot;، سيتم مقارنة البيانات البيومترية المجمعة مع البيانات المخزنة في الجهاز، وسيتم التحقق من هوية المستخدم بناءً على نتيجة المقارنة.
@@ -914,6 +940,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
         <translation>لم تقم بتحميل رمز الشخص بالفعل. نقر أو اسحب وتنقش الصورة.</translation>
     </message>
+    <message>
+        <source>The uploaded file type is incorrect, please upload it again</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
@@ -1399,6 +1429,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
         <translation>لتنصيب وتشغيل التطبيقات غير الموقعة، يرجى الانتقال إلى &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; مركز الأمان &lt;/a&gt; لتغيير الإعدادات.</translation>
     </message>
+    <message>
+        <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
@@ -1741,7 +1775,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">استعادة كلمة المرور</translation>
     </message>
 </context>
 <context>
@@ -1929,10 +1963,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>つ嘉唬 spoil translation, but keeping within context: قوي</translation>
     </message>
     <message>
-        <source>Password</source>
-        <translation>كلمة المرور</translation>
-    </message>
-    <message>
         <source>Repeat Password</source>
         <translation>تأكيد كلمة المرور</translation>
     </message>
@@ -1962,7 +1992,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3194,7 +3224,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4197,7 +4227,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fi">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fi">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -100,6 +102,30 @@
     <message>
         <source>Quickly load DDE with your login information</source>
         <translation>Lataa nopeasti kirjautumistiedoillasi</translation>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -206,7 +232,7 @@ Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asia
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
@@ -903,6 +929,10 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
         <translation>Et ole vielä valinnut avataria. Voit ladata kuvan vetämällä ja pudottamalla.</translation>
     </message>
+    <message>
+        <source>The uploaded file type is incorrect, please upload it again</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
@@ -1383,6 +1413,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
         <translation>Jos haluat asentaa ja käyttää allekirjoittamattomia sovelluksia, siirry &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt;Turvakeskukseen &lt;/a&gt; ja muuta asetuksia.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1912,10 +1946,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Strong</source>
         <translation>Vahva</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Salasana</translation>
     </message>
     <message>
         <source>Repeat Password</source>

@@ -204,7 +204,7 @@ ColumnLayout {
     ListModel {
         id: passwordModel
         ListElement {
-            name: ""
+            name: qsTr("New password")
             placeholder: qsTr("Required")
             echoButtonVisible: true
         }
@@ -306,7 +306,7 @@ ColumnLayout {
                     rightPadding: 0
 
                     contentItem: PasswordItem {
-                        label.text: model.name === "" ? (pwdLayout.currentPwdVisible ? qsTr("Password") : qsTr("New password")) : model.name
+                        label.text: model.name
                         label.font: D.DTK.fontManager.t6
                         edit {
                             placeholderText: model.placeholder
