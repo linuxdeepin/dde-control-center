@@ -1963,7 +1963,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PluginArea</name>
     <message>
         <source>Plugin Area</source>
-        <translation>Área do plugin</translation>
+        <translation>Área de complementos</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
