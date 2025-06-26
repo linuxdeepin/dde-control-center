@@ -68,6 +68,7 @@ public Q_SLOTS:
     void modifyCustomShortcut(const QString &id, const QString &name, const QString &cmd, const QString &accels);
     void modifyShortcut(const QString &id, const QString &accels, const int &type);
     void deleteCustomShortcut(const QString &id);
+    void clearShortcut(const QString &id, const int &type);
 
     void resetAllShortcuts();
 

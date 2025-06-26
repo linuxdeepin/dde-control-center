@@ -187,6 +187,18 @@ DccObject {
                                     dccData.modifyShortcut(model.id, accels, model.type)
                             }
 
+                            function clearShortcut() {
+                                dccData.clearShortcut(model.id, model.type)
+
+                                focus = false
+                                keys = dccData.formatKeys("")
+                                conflictText.visible = false
+
+                                shortcutSettingsBody.conflictAccels = ""
+                                shortcutView.editItem = null
+                                shortcutView.conflictText = null
+                            }
+
                             function restore() {
                                 edit.keys = model.keySequence
                                 conflictText.visible = false
@@ -296,7 +308,7 @@ DccObject {
                         shortcutView.restoreShortcutView()
                     }
                     function onRequestClear() {
-                        onRequestRestore()
+                        shortcutView.editItem.clearShortcut()
                     }
                     function onKeyConflicted(oldAccels, newAccels) {
                         if (shortcutView.conflictText)

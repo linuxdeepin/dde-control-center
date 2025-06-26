@@ -290,6 +290,17 @@ void KeyboardController::modifyShortcut(const QString &id, const QString &accels
     m_worker->modifyShortcutEdit(shortcut);
 }
 
+void KeyboardController::clearShortcut(const QString &id, const int &type)
+{
+    ShortcutInfo *shortcut = m_shortcutModel->findInfoIf([id, type](ShortcutInfo *info){ return id == info->id && type == info->type; });
+    if (!shortcut) {
+        qWarning() << "shortcut not found..." << id << type;
+        return;
+    }
+
+    m_worker->onDisableShortcut(shortcut);
+}
+
 void KeyboardController::resetAllShortcuts()
 {
     m_worker->resetAll();
