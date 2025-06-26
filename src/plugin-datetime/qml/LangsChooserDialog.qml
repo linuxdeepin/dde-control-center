@@ -180,8 +180,8 @@ Loader {
                 }
 
                 Item {
-                    width: 8
-                    Layout.preferredWidth: 8
+                    width: 7
+                    Layout.preferredWidth: 7
                     Layout.fillHeight: true
 
                     ScrollBar {
@@ -205,10 +205,10 @@ Loader {
                 Layout.fillWidth: true
                 Layout.leftMargin: 6 - DS.Style.dialogWindow.contentHMargin
                 Layout.rightMargin: 6 - DS.Style.dialogWindow.contentHMargin
-                spacing: 10
+                spacing: 6
                 Button {
                     Layout.fillWidth: true
-                    Layout.bottomMargin: 10
+                    Layout.bottomMargin: 6
                     implicitHeight: 30
                     text: qsTr("Cancel")
                     onClicked: {
@@ -217,7 +217,7 @@ Loader {
                 }
                 Button {
                     Layout.fillWidth: true
-                    Layout.bottomMargin: 10
+                    Layout.bottomMargin: 6
                     implicitHeight: 30
                     text: qsTr("Add")
                     enabled: itemsView.checkedLang.length > 0

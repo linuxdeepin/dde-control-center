@@ -24,9 +24,12 @@ DccObject {
         page: RowLayout {
             Label {
                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                Layout.leftMargin: 20
-                font: DTK.fontManager.t3
+                Layout.leftMargin: 12
                 text: dccObj.displayName
+                font.pixelSize: DTK.fontManager.t5.pixelSize
+                font.weight: 500
+                color: DTK.themeType === ApplicationHelper.LightType ?
+                    Qt.rgba(0, 0, 0, 1) : Qt.rgba(1, 1, 1, 1)
             }
 
             Button {
@@ -51,6 +54,7 @@ DccObject {
                 }
             }
         }
+        onParentItemChanged: item => { if (item) item.bottomPadding = 5 }
 
         // 语言列表项
         DccObject {
@@ -67,7 +71,7 @@ DccObject {
 
             onParentItemChanged: item => {
                 if (item) {
-                    item.topPadding = 10
+                    item.topPadding = 5
                     item.bottomPadding = 3
                 }
             }
@@ -99,7 +103,7 @@ DccObject {
                             font: DTK.fontManager.t6
                             anchors {
                                 left: itemDelegate.left
-                                leftMargin: 20
+                                leftMargin: 12
                                 top: itemDelegate.top
                                 topMargin: (itemDelegate.height - langName.height) / 2
                             }
@@ -196,7 +200,12 @@ DccObject {
                     languageListTiltle.isEditing = false
                 }
             }
-            onParentItemChanged: item => { if (item) item.implicitHeight = 40 }
+            onParentItemChanged: item => {
+                if (item) {
+                    item.implicitHeight = 40
+                    item.leftPadding = 7
+                }
+            }
         }
     }
 
@@ -210,9 +219,12 @@ DccObject {
         page: RowLayout {
             Label {
                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                Layout.leftMargin: 20
+                Layout.leftMargin: 12
                 text: dccObj.displayName
-                font: DTK.fontManager.t4
+                font.pixelSize: DTK.fontManager.t5.pixelSize
+                font.weight: 500
+                color: DTK.themeType === ApplicationHelper.LightType ?
+                    Qt.rgba(0, 0, 0, 1) : Qt.rgba(1, 1, 1, 1)
             }
         }
 
@@ -269,7 +281,12 @@ DccObject {
             }
         }
 
-        onParentItemChanged: item => { if (item) item.bottomInset = 3 }
+        onParentItemChanged: item => {
+            if (item) {
+                item.bottomInset = 3
+                item.leftPadding = 7
+            }
+        }
     }
 
     // 区域格式
@@ -322,7 +339,12 @@ DccObject {
             }
         }
 
-        onParentItemChanged: item => { if (item) item.topInset = 3 }
+        onParentItemChanged: item => {
+            if (item) {
+                item.topInset = 3
+                item.leftPadding = 7
+            }
+        }
     }
 
     // 时间日期格式
@@ -358,7 +380,12 @@ DccObject {
                         dccData.setCurrentFormat(model.indexBegin + index, idx)
                     }
                 }
-                onParentItemChanged: item => { if (item) item.implicitHeight = 40 }
+                onParentItemChanged: item => {
+                    if (item) {
+                        item.implicitHeight = 40
+                        item.leftPadding = 7
+                    }
+                }
             }
         }
     }
@@ -396,7 +423,12 @@ DccObject {
                         dccData.setCurrentFormat(model.indexBegin + index, idx)
                     }
                 }
-                onParentItemChanged: item => { if (item) item.implicitHeight = 40 }
+                onParentItemChanged: item => {
+                    if (item) {
+                        item.implicitHeight = 40
+                        item.leftPadding = 7
+                    }
+                }
             }
         }
     }
@@ -429,7 +461,12 @@ DccObject {
                         dccData.setCurrentFormat(model.indexBegin + index, idx)
                     }
                 }
-                onParentItemChanged: item => { if (item) item.implicitHeight = 40 }
+                onParentItemChanged: item => {
+                    if (item) {
+                        item.implicitHeight = 40
+                        item.leftPadding = 7
+                    }
+                }
             }
         }
     }
