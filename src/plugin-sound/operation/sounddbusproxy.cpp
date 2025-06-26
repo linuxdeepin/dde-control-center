@@ -228,7 +228,9 @@ void SoundDBusProxy::SetVolumeSink(double in0, bool in1)
 {
     if (m_defaultSink) {
         QList<QVariant> argumentList;
-        argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
+        // Round in0 to 2 decimal places to avoid floating point precision issues
+        double roundedIn0 = qRound(in0 * 100.0) / 100.0;
+        argumentList << QVariant::fromValue(roundedIn0) << QVariant::fromValue(in1);
         m_defaultSink->asyncCallWithArgumentList(QStringLiteral("SetVolume"), argumentList);
     }
 }
