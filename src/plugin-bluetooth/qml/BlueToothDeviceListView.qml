@@ -206,6 +206,8 @@ Rectangle {
 
                                 flat: !hovered
 
+                                property bool menuShown: false
+
                                 D.Menu {
                                     id: contextMenu
                                     implicitWidth: 150
@@ -288,13 +290,25 @@ Rectangle {
                                     }
                                 }
 
-                                onClicked: {
-                                    console.log(" contextMenu 单击事件 ");
-                                    // 在点击位置下方显示菜单
-                                    // 获取按钮的全局位置，确保菜单在按钮的正下方显示
-                                    var buttonGlobalX = moreBtn.x + moreBtn.width / 2 - contextMenu.width
-                                    var buttonGlobalY = moreBtn.y + moreBtn.height + 5
-                                    contextMenu.popup(buttonGlobalX, buttonGlobalY)
+                                MouseArea {
+                                    anchors.fill: parent
+                                    hoverEnabled: true
+                                    onEntered: {
+                                        moreBtn.menuShown = contextMenu.visible
+                                    }
+                                    onClicked: {
+                                        console.log(" contextMenu 单击事件 ");
+                                        if (moreBtn.menuShown) {
+                                            moreBtn.menuShown = false
+                                            return
+                                        }
+                                        // 在点击位置下方显示菜单
+                                        // 获取按钮的全局位置，确保菜单在按钮的正下方显示
+                                        var buttonGlobalX = moreBtn.x + moreBtn.width / 2 - contextMenu.width
+                                        var buttonGlobalY = moreBtn.y + moreBtn.height + 5
+                                        contextMenu.popup(buttonGlobalX, buttonGlobalY)
+                                        moreBtn.menuShown = true
+                                    }
                                 }
                             }
                         }
