@@ -23,11 +23,17 @@ ColumnLayout {
 
     FontMetrics {
         id: fm
-        font: D.DTK.fontManager.t7
+        font: D.DTK.fontManager.t6
     }
 
     function maxWidth(font, text, width) {
-        var texts = [qsTr("Current password"), qsTr("Password"), qsTr("Repeat Password"), qsTr("Password hint")]
+        var texts = []
+        if (currentPwd.visible) {
+            texts.push(currentPwd.label.text)
+        }
+        for (var i = 0; i < passwordModel.count; i++) {
+            texts.push(passwordModel.get(i).name)
+        }
         var maxWidth = 0
         for (var i = 0; i < texts.length; i++) {
             var width = fm.advanceWidth(texts[i])
@@ -35,7 +41,7 @@ ColumnLayout {
                 maxWidth = width
             }
         }
-        pwdLayout.maxLabelWidth = maxWidth
+        pwdLayout.maxLabelWidth = Math.ceil(maxWidth)
     }
     
     Component.onCompleted: {
@@ -72,6 +78,7 @@ ColumnLayout {
         id: currentPwd
         visible: pwdLayout.currentPwdVisible
         label.text: qsTr("Current password")
+        label.font: D.DTK.fontManager.t6
         edit.placeholderText: qsTr("Required")
         implicitHeight: 30
         Layout.leftMargin: 0
@@ -291,6 +298,7 @@ ColumnLayout {
 
                     contentItem: PasswordItem {
                         label.text: model.name
+                        label.font: D.DTK.fontManager.t6
                         edit {
                             placeholderText: model.placeholder
                             echoButtonVisible: model.echoButtonVisible
@@ -323,7 +331,7 @@ ColumnLayout {
                 Layout.rightMargin: 0
                 Layout.leftMargin: maxLabelWidth + 27
                 Layout.preferredWidth: pwdLayout.minWidth(font, text, pwdColumnLayout.width - Layout.leftMargin)
-                font: D.DTK.fontManager.t7
+                font: D.DTK.fontManager.t8
             }
         }
     }
@@ -339,7 +347,7 @@ ColumnLayout {
         Label {
             id: leftItem
             Layout.preferredHeight: 30
-            font: D.DTK.fontManager.t7
+            font: D.DTK.fontManager.t6
             elide: Text.ElideRight
             Layout.preferredWidth: pwdLayout.maxLabelWidth
             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter

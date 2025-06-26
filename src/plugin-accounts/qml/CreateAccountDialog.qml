@@ -34,11 +34,14 @@ D.DialogWindow {
         
         FontMetrics {
             id: dialogFm
-            font: D.DTK.fontManager.t7
+            font: D.DTK.fontManager.t6
         }
         
         function calculateUnifiedLabelWidth() {
-            var dialogTexts = [qsTr("Account type"), qsTr("UserName"), qsTr("FullName")]
+            var dialogTexts = [accountTypeLabel.text]
+            for (var i = 0; i < namesModel.count; i++) {
+                dialogTexts.push(namesModel.get(i).name)
+            }
             var maxDialogWidth = 0
             
             for (var i = 0; i < dialogTexts.length; i++) {
@@ -50,9 +53,9 @@ D.DialogWindow {
             
             var maxWidth = Math.max(maxDialogWidth, pwdLayout.maxLabelWidth)
             var finalWidth = maxWidth > 110 ? 110 : maxWidth
-            unifiedLabelWidth = finalWidth
+            unifiedLabelWidth = Math.ceil(finalWidth)
             
-            pwdLayout.maxLabelWidth = finalWidth
+            pwdLayout.maxLabelWidth = Math.ceil(finalWidth)
         }
         
         Connections {
@@ -118,7 +121,7 @@ D.DialogWindow {
                 text: qsTr("Account type")
                 Layout.preferredWidth: mainLayout.unifiedLabelWidth
                 Layout.alignment: Qt.AlignVCenter
-                font: D.DTK.fontManager.t7
+                font: D.DTK.fontManager.t6
             }
 
             ComboBox {
@@ -203,6 +206,7 @@ D.DialogWindow {
                                 Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                                 text: model.name
                                 Layout.preferredWidth: mainLayout.unifiedLabelWidth
+                                font: D.DTK.fontManager.t6
                             }
                             D.LineEdit {
                                 id: edit
@@ -253,6 +257,7 @@ D.DialogWindow {
             Layout.leftMargin: 2 - DS.Style.dialogWindow.contentHMargin
             Layout.rightMargin: 6 - DS.Style.dialogWindow.contentHMargin
             Layout.topMargin: 0
+            Layout.bottomMargin: 7
             name:  {
                 let nameEdit = namesContainter.eidtItems[0]
                 if (nameEdit === undefined)
