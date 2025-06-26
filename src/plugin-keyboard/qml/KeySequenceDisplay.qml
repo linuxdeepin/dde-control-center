@@ -82,6 +82,7 @@ Control {
                     D.IconButton {
                         id: editButton
                         visible: control.showEditButtons
+                        focusPolicy: Qt.NoFocus
                         hoverEnabled: true
                         icon.name: "edit"
                         icon.width: 16
@@ -113,6 +114,7 @@ Control {
                     D.IconButton {
                         id: removeButton
                         visible: control.showEditButtons
+                        focusPolicy: Qt.NoFocus
                         hoverEnabled: true
                         icon.name: "user-trash-symbolic"
                         icon.width: 24
