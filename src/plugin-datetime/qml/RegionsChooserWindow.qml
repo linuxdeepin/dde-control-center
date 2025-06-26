@@ -12,6 +12,7 @@ Loader {
     required property var viewModel
     property int currentIndex: -1
     property string currentText
+    property point mousePosition: Qt.point(0, 0)
     signal selectedRegion(string region)
 
     function show() {
@@ -132,6 +133,10 @@ Loader {
 
     onLoaded: {
         item.show()
+        if (loader.mousePosition.x !== 0 || loader.mousePosition.y !== 0) {
+            item.x = loader.mousePosition.x
+            item.y = loader.mousePosition.y
+        }
         Qt.callLater(item.requestActivate);
     }
 }
