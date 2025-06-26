@@ -273,6 +273,7 @@ DccObject {
 
                 onClicked: function (mouse) {
                     if (!regionWndow.isVisible()) {
+                        regionWndow.mousePosition = mouseArea.mapToGlobal(mouse.x, mouse.y + rowlayout.implicitHeight)
                         regionWndow.show()
                     }
 
