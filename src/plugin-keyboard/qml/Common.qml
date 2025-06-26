@@ -199,7 +199,6 @@ DccObject {
     DccObject {
         name: "EditTesting"
         parentName: "RepeatRateGroup"
-        displayName: qsTr("Numeric Keypad")
         weight: 60
         visible: dccData.keyboardEnabled
         backgroundType: DccObject.Normal
@@ -220,7 +219,6 @@ DccObject {
     DccObject {
         name: "KeypadSettings"
         parentName: "KeyboardCommon"
-        displayName: qsTr("Numeric Keypad")
         weight: 70
         visible: dccData.keyboardEnabled
         pageType: DccObject.Item
