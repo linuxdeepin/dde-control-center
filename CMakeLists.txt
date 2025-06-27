@@ -105,12 +105,6 @@ add_definitions(-DLOCALE_I18N_PATH="${LOCALE_I18N_PATH}")
 set(POSITION_INDEPENDENT_CODE True)
 set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
-string(REGEX REPLACE "-D_FORTIFY_SOURCE=[0-9]*" "" CMAKE_C_FLAGS "${CMAKE_C_FLAGS}" )
-string(REGEX REPLACE "-D_FORTIFY_SOURCE=[0-9]*" "" CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS}" )
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -fstack-protector-all -D_FORTIFY_SOURCE=3  -Wall -Wl,--as-need -Wl,-E")
-set(CMAKE_C_FLAGS "${CMAKE_C_FLAGS} -fstack-protector-all -D_FORTIFY_SOURCE=3  -Wall -Wl,--as-need -Wl,-E")
-set(CMAKE_EXE_LINKER_FLAGS  "${CMAKE_EXE_LINKER_FLAGS} -z relro -z now -z noexecstack")
-ADD_DEFINITIONS(${SAFE_COMPILER})
 
 # Install settings
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
