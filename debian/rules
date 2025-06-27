@@ -3,8 +3,13 @@ include /usr/share/dpkg/default.mk
 export QT_SELECT = qt6
 VERSION = $(DEB_VERSION_UPSTREAM)
 PACK_VER = $(shell echo $(VERSION) | awk -F'[+_~-]' '{print $$1}')
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_CFLAGS_MAINT_APPEND = -Wall -Wl,-E
+export DEB_CXXFLAGS_MAINT_APPEND = -Wall -Wl,-E
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack
+
 %:
 	dh $@ --parallel
 override_dh_auto_configure:
 	dh_auto_configure -- -DCVERSION=$(DEB_VERSION_UPSTREAM) -DDVERSION=$(PACK_VER) -DUSE_DEEPIN_ZONE=ON
-
