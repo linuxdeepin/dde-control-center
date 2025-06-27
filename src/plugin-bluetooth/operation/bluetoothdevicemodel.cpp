@@ -49,8 +49,13 @@ void BluetoothDeviceModel::updateData(BluetoothDevice *device)
     for (int index = 0; index < m_deviceData.count(); index++) {
         const BluetoothDevice *item = m_deviceData.at(index);
         if (item->id() == device->id()) {
-            QModelIndex modelIndex = createIndex(index, 0);
-            emit dataChanged(modelIndex, modelIndex, {});
+            bool isConnected = (device->state() == BluetoothDevice::StateConnected && device->connectState());
+            if (isConnected && index > 0) {
+                moveToTop(device->id());
+            } else {
+                QModelIndex modelIndex = createIndex(index, 0);
+                emit dataChanged(modelIndex, modelIndex, {});
+            }
             return;
         }
     }
@@ -64,6 +69,19 @@ void BluetoothDeviceModel::updateAllData()
         QModelIndex modelIndex = createIndex(index, 0);
         emit dataChanged(modelIndex, modelIndex, {});
     }
+}
+
+void BluetoothDeviceModel::moveToTop(const QString &deviceId)
+{
+    int currentIndex = deviceIndex(deviceId);
+    if (currentIndex <= 0) {
+        return;
+    }
+    
+    beginMoveRows(QModelIndex(), currentIndex, currentIndex, QModelIndex(), 0);
+    BluetoothDevice* device = m_deviceData.takeAt(currentIndex);
+    m_deviceData.prepend(device);
+    endMoveRows();
 }
 
 int BluetoothDeviceModel::rowCount(const QModelIndex &parent) const

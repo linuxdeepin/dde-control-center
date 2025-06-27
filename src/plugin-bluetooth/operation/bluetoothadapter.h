@@ -73,6 +73,7 @@ private Q_SLOTS:
     void onClearUnpairedDevice();
     void onSetAdapterPowered();
     void onSetAdapterPoweredError();
+    void onDeviceStateChanged();
 
 private:
     QString m_id;
