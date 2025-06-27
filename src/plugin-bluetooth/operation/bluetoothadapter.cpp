@@ -39,6 +39,9 @@ void BluetoothAdapter::addDevice(const BluetoothDevice *device)
     if (!deviceById(device->id())) {
         m_devicesId << device->id();
         m_devices[device->id()] = device;
+        
+        connect(device, &BluetoothDevice::stateChanged, this, &BluetoothAdapter::onDeviceStateChanged, Qt::UniqueConnection);
+        
         //打印配对设备信息,方便查看设备显示顺序
         if (device->paired()) {
             qCDebug(DdcBluetoothAdapter) << "BluetoothAdapter add device " << device->name();
@@ -110,6 +113,14 @@ void BluetoothAdapter::onSetAdapterPowered()
 void BluetoothAdapter::onSetAdapterPoweredError()
 {
     Q_EMIT poweredChanged(powered(), discovering());
+}
+
+void BluetoothAdapter::onDeviceStateChanged()
+{
+    BluetoothDevice *device = qobject_cast<BluetoothDevice*>(sender());
+    if (device) {
+        updateDeviceData(device);
+    }
 }
 
 bool BluetoothAdapter::otherDeviceVisible() const
