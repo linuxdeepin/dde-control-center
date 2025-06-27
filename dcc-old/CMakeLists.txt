@@ -78,9 +78,6 @@ endif ()
 
 add_definitions(-DLOCALE_I18N_PATH="${LOCALE_I18N_PATH}")
 
-# 增加安全编译参数
-ADD_DEFINITIONS(${SAFE_COMPILER})
-
 # Install settings
 if (CMAKE_INSTALL_PREFIX_INITIALIZED_TO_DEFAULT)
     set(CMAKE_INSTALL_PREFIX /usr)
