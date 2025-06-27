@@ -26,14 +26,21 @@ ColumnLayout {
         font: D.DTK.fontManager.t6
     }
 
-    function maxWidth(font, text, width) {
+    function maxWidth(font) {
+        fm.font = font
         var texts = []
         if (currentPwd.visible) {
             texts.push(currentPwd.label.text)
         }
-        for (var i = 0; i < passwordModel.count; i++) {
-            texts.push(passwordModel.get(i).name)
+        
+        // 获取每个delegate中label的text
+        for (var i = 0; i < pwdContainter.repeater.count; i++) {
+            var delegateItem = pwdContainter.repeater.itemAt(i)
+            if (delegateItem && delegateItem.contentItem) {
+                texts.push(delegateItem.contentItem.label.text)
+            }
         }
+        
         var maxWidth = 0
         for (var i = 0; i < texts.length; i++) {
             var width = fm.advanceWidth(texts[i])
@@ -45,7 +52,7 @@ ColumnLayout {
     }
     
     Component.onCompleted: {
-        maxWidth()
+        maxWidth(currentPwd.label.font)
         labelWidthCalculated()
     }
 
@@ -197,7 +204,7 @@ ColumnLayout {
     ListModel {
         id: passwordModel
         ListElement {
-            name: qsTr("Password")
+            name: ""
             placeholder: qsTr("Required")
             echoButtonVisible: true
         }
@@ -216,6 +223,7 @@ ColumnLayout {
     Rectangle {
         id: pwdContainter
         property var eidtItems: []
+        property alias repeater: repeater
         radius: 8
         Layout.fillWidth: true
         Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
@@ -286,6 +294,7 @@ ColumnLayout {
             spacing: 0
             anchors.fill: parent
             Repeater {
+                id: repeater
                 Layout.bottomMargin: 20
                 model: passwordModel
                 delegate: D.ItemDelegate {
@@ -297,7 +306,7 @@ ColumnLayout {
                     rightPadding: 0
 
                     contentItem: PasswordItem {
-                        label.text: model.name
+                        label.text: model.name === "" ? (pwdLayout.currentPwdVisible ? qsTr("Password") : qsTr("New password")) : model.name
                         label.font: D.DTK.fontManager.t6
                         edit {
                             placeholderText: model.placeholder
