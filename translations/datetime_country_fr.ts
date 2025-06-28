@@ -1151,11 +1151,11 @@
     </message>
     <message>
         <source>United States Virgin Islands</source>
-        <translation type="unfinished"/>
+        <translation>Îles Vierges américaines</translation>
     </message>
     <message>
         <source>Isle Of Man</source>
-        <translation type="unfinished"/>
+        <translation>Île de Man</translation>
     </message>
     <message>
         <source>Europe</source>
@@ -1163,27 +1163,27 @@
     </message>
     <message>
         <source>Congo Kinshasa</source>
-        <translation type="unfinished"/>
+        <translation>Congo-Kinshasa</translation>
     </message>
     <message>
         <source>Congo Brazzaville</source>
-        <translation type="unfinished"/>
+        <translation>Congo-Brazzaville</translation>
     </message>
     <message>
         <source>Reunion</source>
-        <translation type="unfinished"/>
+        <translation>Réunion</translation>
     </message>
     <message>
         <source>Saint Pierre And Miquelon</source>
-        <translation type="unfinished"/>
+        <translation>Saint-Pierre-et-Miquelon</translation>
     </message>
     <message>
         <source>Wallis And Futuna Islands</source>
-        <translation type="unfinished"/>
+        <translation>Îles Wallis-et-Futuna</translation>
     </message>
     <message>
         <source>Saint Barthelemy</source>
-        <translation type="unfinished"/>
+        <translation>Saint-Barthélemy</translation>
     </message>
     <message>
         <source>Saint Martin</source>
@@ -1191,35 +1191,35 @@
     </message>
     <message>
         <source>Vatican City State</source>
-        <translation type="unfinished"/>
+        <translation>État de la Cité du Vatican</translation>
     </message>
     <message>
         <source>Svalbard And Jan Mayen Islands</source>
-        <translation type="unfinished"/>
+        <translation>Îles Svalbard et Jan Mayen</translation>
     </message>
     <message>
         <source>East Timor</source>
-        <translation type="unfinished"/>
+        <translation>Timor oriental</translation>
     </message>
     <message>
         <source>Guinea Bissau</source>
-        <translation type="unfinished"/>
+        <translation>Guinée-Bissau</translation>
     </message>
     <message>
         <source>Sao Tome And Principe</source>
-        <translation type="unfinished"/>
+        <translation>Sao Tomé-et-Principe</translation>
     </message>
     <message>
         <source>Latin America</source>
-        <translation type="unfinished"/>
+        <translation>Amérique latine</translation>
     </message>
     <message>
         <source>Ceuta And Melilla</source>
-        <translation type="unfinished"/>
+        <translation>Ceuta et Melilla</translation>
     </message>
     <message>
         <source>Aland Islands</source>
-        <translation type="unfinished"/>
+        <translation>Îles Åland</translation>
     </message>
 </context>
 </TS>
