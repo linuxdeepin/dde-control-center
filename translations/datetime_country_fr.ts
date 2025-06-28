@@ -719,63 +719,63 @@
     </message>
     <message>
         <source>Vatican City</source>
-        <translation type="unfinished"/>
+        <translation>Cité du Vatican</translation>
     </message>
     <message>
         <source>Kosovo</source>
-        <translation type="unfinished"/>
+        <translation>Kosovo</translation>
     </message>
     <message>
         <source>United Arab Emirates</source>
-        <translation type="unfinished"/>
+        <translation>Émirats arabes unis</translation>
     </message>
     <message>
         <source>Armenia</source>
-        <translation type="unfinished"/>
+        <translation>Arménie</translation>
     </message>
     <message>
         <source>Azerbaijan</source>
-        <translation type="unfinished"/>
+        <translation>Azerbaïdjan</translation>
     </message>
     <message>
         <source>Bahrain</source>
-        <translation type="unfinished"/>
+        <translation>Bahreïn</translation>
     </message>
     <message>
         <source>Cyprus</source>
-        <translation type="unfinished"/>
+        <translation>Chypre</translation>
     </message>
     <message>
         <source>Georgia</source>
-        <translation type="unfinished"/>
+        <translation>Géorgie</translation>
     </message>
     <message>
         <source>Israel</source>
-        <translation type="unfinished"/>
+        <translation>Israël</translation>
     </message>
     <message>
         <source>Iraq</source>
-        <translation type="unfinished"/>
+        <translation>Irak</translation>
     </message>
     <message>
         <source>Jordan</source>
-        <translation type="unfinished"/>
+        <translation>Jordanie</translation>
     </message>
     <message>
         <source>Kuwait</source>
-        <translation type="unfinished"/>
+        <translation>Koweït</translation>
     </message>
     <message>
         <source>Lebanon</source>
-        <translation type="unfinished"/>
+        <translation>Liban</translation>
     </message>
     <message>
         <source>Oman</source>
-        <translation type="unfinished"/>
+        <translation>Oman</translation>
     </message>
     <message>
         <source>Palestinian Territories</source>
-        <translation type="unfinished"/>
+        <translation>Territoires palestiniens</translation>
     </message>
     <message>
         <source>Palestine</source>
@@ -787,47 +787,47 @@
     </message>
     <message>
         <source>Saudi Arabia</source>
-        <translation type="unfinished"/>
+        <translation>Arabie saoudite</translation>
     </message>
     <message>
         <source>Syria</source>
-        <translation type="unfinished"/>
+        <translation>Syrie</translation>
     </message>
     <message>
         <source>Turkey</source>
-        <translation type="unfinished"/>
+        <translation>Turquie</translation>
     </message>
     <message>
         <source>Yemen</source>
-        <translation type="unfinished"/>
+        <translation>Yémen</translation>
     </message>
     <message>
         <source>Turkmenistan</source>
-        <translation type="unfinished"/>
+        <translation>Turkménistan</translation>
     </message>
     <message>
         <source>Tajikistan</source>
-        <translation type="unfinished"/>
+        <translation>Tadjikistan</translation>
     </message>
     <message>
         <source>Kyrgyzstan</source>
-        <translation type="unfinished"/>
+        <translation>Kirghizistan</translation>
     </message>
     <message>
         <source>Kazakhstan</source>
-        <translation type="unfinished"/>
+        <translation>Kazakhstan</translation>
     </message>
     <message>
         <source>Uzbekistan</source>
-        <translation type="unfinished"/>
+        <translation>Ouzbékistan</translation>
     </message>
     <message>
         <source>China</source>
-        <translation type="unfinished"/>
+        <translation>Chine</translation>
     </message>
     <message>
         <source>Hong Kong SAR China</source>
-        <translation type="unfinished"/>
+        <translation>RAS de Hong Kong, Chine</translation>
     </message>
     <message>
         <source>Hong Kong</source>
@@ -835,27 +835,27 @@
     </message>
     <message>
         <source>Japan</source>
-        <translation type="unfinished"/>
+        <translation>Japon</translation>
     </message>
     <message>
         <source>North Korea</source>
-        <translation type="unfinished"/>
+        <translation>Corée du Nord</translation>
     </message>
     <message>
         <source>South Korea</source>
-        <translation type="unfinished"/>
+        <translation>Corée du Sud</translation>
     </message>
     <message>
         <source>Mongolia</source>
-        <translation type="unfinished"/>
+        <translation>Mongolie</translation>
     </message>
     <message>
         <source>Macao SAR China</source>
-        <translation type="unfinished"/>
+        <translation>RAS de Macao, Chine</translation>
     </message>
     <message>
         <source>Macao</source>
-        <translation type="unfinished"/>
+        <translation>Macao</translation>
     </message>
     <message>
         <source>Taiwan</source>
@@ -871,11 +871,11 @@
     </message>
     <message>
         <source>Bhutan</source>
-        <translation type="unfinished"/>
+        <translation>Bhoutan</translation>
     </message>
     <message>
         <source>India</source>
-        <translation type="unfinished"/>
+        <translation>Inde</translation>
     </message>
     <message>
         <source>Iran</source>
@@ -883,15 +883,15 @@
     </message>
     <message>
         <source>Sri Lanka</source>
-        <translation type="unfinished"/>
+        <translation>Sri Lanka</translation>
     </message>
     <message>
         <source>Maldives</source>
-        <translation type="unfinished"/>
+        <translation>Maldives</translation>
     </message>
     <message>
         <source>Nepal</source>
-        <translation type="unfinished"/>
+        <translation>Népal</translation>
     </message>
     <message>
         <source>Pakistan</source>
@@ -899,15 +899,15 @@
     </message>
     <message>
         <source>Brunei</source>
-        <translation type="unfinished"/>
+        <translation>Brunei</translation>
     </message>
     <message>
         <source>Indonesia</source>
-        <translation type="unfinished"/>
+        <translation>Indonésie</translation>
     </message>
     <message>
         <source>Cambodia</source>
-        <translation type="unfinished"/>
+        <translation>Cambodge</translation>
     </message>
     <message>
         <source>Laos</source>
@@ -915,11 +915,11 @@
     </message>
     <message>
         <source>Myanmar (Burma)</source>
-        <translation type="unfinished"/>
+        <translation>Myanmar (Birmanie)</translation>
     </message>
     <message>
         <source>Malaysia</source>
-        <translation type="unfinished"/>
+        <translation>Malaisie</translation>
     </message>
     <message>
         <source>Philippines</source>
@@ -927,7 +927,7 @@
     </message>
     <message>
         <source>Singapore</source>
-        <translation type="unfinished"/>
+        <translation>Singapour</translation>
     </message>
     <message>
         <source>Thailand</source>
@@ -935,7 +935,7 @@
     </message>
     <message>
         <source>Timor-Leste</source>
-        <translation type="unfinished"/>
+        <translation>Timor oriental</translation>
     </message>
     <message>
         <source>Vietnam</source>
@@ -943,11 +943,11 @@
     </message>
     <message>
         <source>Australia</source>
-        <translation type="unfinished"/>
+        <translation>Australie</translation>
     </message>
     <message>
         <source>Cocos (Keeling) Islands</source>
-        <translation type="unfinished"/>
+        <translation>Îles Cocos (Keeling)</translation>
     </message>
     <message>
         <source>Christmas Island</source>
