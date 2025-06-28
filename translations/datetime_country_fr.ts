@@ -951,103 +951,103 @@
     </message>
     <message>
         <source>Christmas Island</source>
-        <translation type="unfinished"/>
+        <translation>Île Christmas</translation>
     </message>
     <message>
         <source>Heard </source>
-        <translation type="unfinished"/>
+        <translation>Île Heard</translation>
     </message>
     <message>
         <source>Norfolk Island</source>
-        <translation type="unfinished"/>
+        <translation>Île Norfolk</translation>
     </message>
     <message>
         <source>New Zealand</source>
-        <translation type="unfinished"/>
+        <translation>Nouvelle-Zélande</translation>
     </message>
     <message>
         <source>Fiji</source>
-        <translation type="unfinished"/>
+        <translation>Fidji</translation>
     </message>
     <message>
         <source>New Caledonia</source>
-        <translation type="unfinished"/>
+        <translation>Nouvelle-Calédonie</translation>
     </message>
     <message>
         <source>Papua New Guinea</source>
-        <translation type="unfinished"/>
+        <translation>Papouasie-Nouvelle-Guinée</translation>
     </message>
     <message>
         <source>Solomon Islands</source>
-        <translation type="unfinished"/>
+        <translation>Îles Salomon</translation>
     </message>
     <message>
         <source>Vanuatu</source>
-        <translation type="unfinished"/>
+        <translation>Vanuatu</translation>
     </message>
     <message>
         <source>Micronesia</source>
-        <translation type="unfinished"/>
+        <translation>Micronésie</translation>
     </message>
     <message>
         <source>Guam</source>
-        <translation type="unfinished"/>
+        <translation>Guam</translation>
     </message>
     <message>
         <source>Kiribati</source>
-        <translation type="unfinished"/>
+        <translation>Kiribati</translation>
     </message>
     <message>
         <source>Marshall Islands</source>
-        <translation type="unfinished"/>
+        <translation>Îles Marshall</translation>
     </message>
     <message>
         <source>Northern Mariana Islands</source>
-        <translation type="unfinished"/>
+        <translation>Îles Mariannes du Nord</translation>
     </message>
     <message>
         <source>Nauru</source>
-        <translation type="unfinished"/>
+        <translation>Nauru</translation>
     </message>
     <message>
         <source>Palau</source>
-        <translation type="unfinished"/>
+        <translation>Palaos</translation>
     </message>
     <message>
         <source>U.S. Outlying Islands</source>
-        <translation type="unfinished"/>
+        <translation>Îles mineures éloignées des États-Unis</translation>
     </message>
     <message>
         <source>American Samoa</source>
-        <translation type="unfinished"/>
+        <translation>Samoa américaines</translation>
     </message>
     <message>
         <source>Cook Islands</source>
-        <translation type="unfinished"/>
+        <translation>Îles Cook</translation>
     </message>
     <message>
         <source>Niue</source>
-        <translation type="unfinished"/>
+        <translation>Niue</translation>
     </message>
     <message>
         <source>French Polynesia</source>
-        <translation type="unfinished"/>
+        <translation>Polynésie française</translation>
     </message>
     <message>
         <source>Pitcairn Islands</source>
-        <translation type="unfinished"/>
+        <translation>Îles Pitcairn</translation>
     </message>
     <message>
         <source>Tokelau</source>
-        <translation type="unfinished"/>
+        <translation>Tokelau</translation>
     </message>
     <message>
         <source>Tonga</source>
-        <translation type="unfinished"/>
+        <translation>Tonga</translation>
     </message>
     <message>
         <source>Tuvalu</source>
-        <translation type="unfinished"/>
+        <translation>Tuvalu</translation>
     </message>
     <message>
         <source>Wallis</source>
@@ -1055,99 +1055,99 @@
     </message>
     <message>
         <source>Samoa</source>
-        <translation type="unfinished"/>
+        <translation>Samoa</translation>
     </message>
     <message>
         <source>Antarctica</source>
-        <translation type="unfinished"/>
+        <translation>Antarctique</translation>
     </message>
     <message>
         <source>Ascension Island</source>
-        <translation type="unfinished"/>
+        <translation>Île de l&apos;Ascension</translation>
     </message>
     <message>
         <source>Clipperton Island</source>
-        <translation type="unfinished"/>
+        <translation>Île Clipperton</translation>
     </message>
     <message>
         <source>Diego Garcia</source>
-        <translation type="unfinished"/>
+        <translation>Diego Garcia</translation>
     </message>
     <message>
         <source>Tristan da Cunha</source>
-        <translation type="unfinished"/>
+        <translation>Tristan da Cunha</translation>
     </message>
     <message>
         <source>Macedonia</source>
-        <translation type="unfinished"/>
+        <translation>Macédoine</translation>
     </message>
     <message>
         <source>World</source>
-        <translation type="unfinished"/>
+        <translation>Monde</translation>
     </message>
     <message>
         <source>Myanmar</source>
-        <translation type="unfinished"/>
+        <translation>Birmanie</translation>
     </message>
     <message>
         <source>Macau</source>
-        <translation type="unfinished"/>
+        <translation>Macao</translation>
     </message>
     <message>
         <source>Bosnia And Herzegowina</source>
-        <translation type="unfinished"/>
+        <translation>Bosnie-Herzégovine</translation>
     </message>
     <message>
         <source>Cura Sao</source>
-        <translation type="unfinished"/>
+        <translation>Cura Sao</translation>
     </message>
     <message>
         <source>Bonaire</source>
-        <translation type="unfinished"/>
+        <translation>Bonaire</translation>
     </message>
     <message>
         <source>Antigua And Barbuda</source>
-        <translation type="unfinished"/>
+        <translation>Antigua-et-Barbuda</translation>
     </message>
     <message>
         <source>Cocos Islands</source>
-        <translation type="unfinished"/>
+        <translation>Îles Cocos</translation>
     </message>
     <message>
         <source>Pitcairn</source>
-        <translation type="unfinished"/>
+        <translation>Pitcairn</translation>
     </message>
     <message>
         <source>Saint Kitts And Nevis</source>
-        <translation type="unfinished"/>
+        <translation>Saint-Kitts-et-Nevis</translation>
     </message>
     <message>
         <source>Saint Lucia</source>
-        <translation type="unfinished"/>
+        <translation>Sainte-Lucie</translation>
     </message>
     <message>
         <source>Saint Vincent And The Grenadines</source>
-        <translation type="unfinished"/>
+        <translation>Saint-Vincent-et-les-Grenadines</translation>
     </message>
     <message>
         <source>Saint Helena</source>
-        <translation type="unfinished"/>
+        <translation>Sainte-Hélène</translation>
     </message>
     <message>
         <source>Swaziland</source>
-        <translation type="unfinished"/>
+        <translation>Swaziland</translation>
     </message>
     <message>
         <source>Trinidad And Tobago</source>
-        <translation type="unfinished"/>
+        <translation>Trinité-et-Tobago</translation>
     </message>
     <message>
         <source>Turks And Caicos Islands</source>
-        <translation type="unfinished"/>
+        <translation>Îles Turques-et-Caïques</translation>
     </message>
     <message>
         <source>United States Minor Outlying Islands</source>
-        <translation type="unfinished"/>
+        <translation>Îles mineures éloignées des États-Unis</translation>
     </message>
     <message>
         <source>United States Virgin Islands</source>
