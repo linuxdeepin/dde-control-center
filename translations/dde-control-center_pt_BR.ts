@@ -2393,7 +2393,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation>Por favor, insira um novo atalho</translation>
+        <translation>Insira um novo atalho</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2436,7 +2436,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation>Por favor, insira um novo atalho</translation>
+        <translation>Insira um novo atalho</translation>
     </message>
     <message>
         <source>Click</source>
