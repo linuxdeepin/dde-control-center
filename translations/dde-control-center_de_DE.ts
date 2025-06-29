@@ -1339,7 +1339,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"/>
+        <translation>Das Ändern der Optionen bewirkt, dass mehr Einzelheiten protokolliert werden, was das System etwas verlangsamen kann und/oder dass mehr Speicherplatz benötigt wird.</translation>
     </message>
     <message>
         <source>Off</source>
@@ -1579,7 +1579,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"/>
+        <translation>Geben Sie die dazu passende Eingebamethode in der &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Eingabemethoden-Verwaltung&lt;/a&gt; an, damit die Tastaturbelegung funktioniert, wenn sie umgeschaltet oder hinzugefügt wird.</translation>
     </message>
     <message>
         <source>Add new keyboard layout...</source>

@@ -79,27 +79,27 @@
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>أسماء المجموعات يجب ألا تتجاوز 32 حرفًا</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>أسماء المجموعات لا يمكن أن تحتوي فقط على الأرقام</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>استخدم الحروف، والأرقام، والunderscores، والشرطيات فقط، وتأكد من أن الاسم يبدأ بحرف</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation>اسم المجموعة مستخدم بالفعل</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>تسجيل الدخول السريع، تسجيل الدخول التلقائي، تسجيل الدخول بدون كلمة مرور</translation>
     </message>
     <message>
         <source>Quickly load DDE with your login information</source>
-        <translation type="unfinished"/>
+        <translation>تحميل DDE بسرعة مع معلومات تسجيل الدخول الخاصة بك</translation>
     </message>
 </context>
 <context>
@@ -413,7 +413,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>اسم البلوتوث لا يمكن أن يتجاوز 64 حرفًا</translation>
     </message>
 </context>
 <context>
@@ -665,7 +665,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>الكاميرا محتلة!</translation>
     </message>
 </context>
 <context>
@@ -1384,7 +1384,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>للحصول على تثبيت وتشغيل تطبيقات غير موقعة، يرجى الانتقال إلى &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; لتغيير الإعدادات.</translation>
     </message>
 </context>
 <context>
@@ -1581,15 +1581,15 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>تعطيل جميع تأثيرات واجهة النظام والنوافذ لتحسين أداء النظام.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>الحد من بعض تأثيرات النوافذ لتحقيق مظهر متميز مع الحفاظ على أداء النظام السلس.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>تمكين جميع تأثيرات واجهة النظام والنوافذ للمظهر البصري الأفضل.</translation>
     </message>
 </context>
 <context>
@@ -1693,11 +1693,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Add new keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>إضافة تصميم لوحة مفاتيح جديد</translation>
     </message>
     <message>
         <source>Current language keyboard layouts</source>
-        <translation type="unfinished"/>
+        <translation>القوالب المفاتيحية للغة الحالية</translation>
     </message>
 </context>
 <context>
@@ -1875,7 +1875,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>يرجى إدخال 1 إلى 63 حرفًا</translation>
     </message>
 </context>
 <context>
@@ -2310,7 +2310,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"/>
+        <translation>تعديل وقت التكرار</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2392,7 +2392,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>لا توجد نتائج بحث</translation>
     </message>
 </context>
 <context>
@@ -3140,7 +3140,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>هذا الاسم موجود بالفعل</translation>
     </message>
 </context>
 <context>
@@ -3679,7 +3679,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>تنظيم سطح المكتب، وضع شريط المهام، إعدادات منطقة الإضافات</translation>
     </message>
 </context>
 <context>
@@ -3800,7 +3800,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>قفل شريط المكتب</translation>
     </message>
 </context>
 <context>
@@ -4113,7 +4113,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>إشعار عن البرمجيات المفتوحة المصدر</translation>
     </message>
 </context>
 <context>
