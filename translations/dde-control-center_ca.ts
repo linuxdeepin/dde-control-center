@@ -1713,7 +1713,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Restableix la contrasenya</translation>
     </message>
 </context>
 <context>
@@ -1934,7 +1934,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Contrasenya nova</translation>
     </message>
 </context>
 <context>
