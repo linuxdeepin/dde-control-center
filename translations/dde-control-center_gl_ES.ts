@@ -1701,6 +1701,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <source>Always</source>
         <translation>Sempre</translation>
     </message>
+    <message>
+        <source>Reset password</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LogoModule</name>
@@ -1917,6 +1921,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>A pista é visible para todos os usuarios. Non inclúis o contrasinal aquí.</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
