@@ -19,6 +19,7 @@ LanguageListModel::~LanguageListModel()
 
 int LanguageListModel::rowCount(const QModelIndex &parent) const
 {
+    Q_UNUSED(parent)
     return m_datas.count();
 }
 
