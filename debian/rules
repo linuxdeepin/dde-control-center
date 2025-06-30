@@ -1,6 +1,12 @@
 #!/usr/bin/make -f
 include /usr/share/dpkg/default.mk
 export QT_SELECT = qt6
+
+# 安全编译参数
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all,-fortify
+export DEB_CPPFLAGS_MAINT_APPEND = -D_FORTIFY_SOURCE=2
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack
+
 VERSION = $(DEB_VERSION_UPSTREAM)
 PACK_VER = $(shell echo $(VERSION) | awk -F'[+_~-]' '{print $$1}')
 %:
