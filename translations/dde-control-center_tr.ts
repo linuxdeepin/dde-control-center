@@ -1709,6 +1709,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Always</source>
         <translation>Her zaman</translation>
     </message>
+    <message>
+        <source>Reset password</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LogoModule</name>
@@ -1925,6 +1929,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>İpucu tüm kullanıcılar tarafından görülebilir. Parolayı buraya dahil etmeyin.</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
