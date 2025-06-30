@@ -148,8 +148,9 @@ DccObject {
             name: "volumeBalance"
             parentName: "sound/outPut/outputGroup"
             displayName: qsTr("Left Right Balance")
-            weight: 30
+            weight: 40
             pageType: DccObject.Editor
+            visible: !dccData.model().audioMono
             page: RowLayout {
                 Label {
                     Layout.alignment: Qt.AlignVCenter
@@ -187,7 +188,7 @@ DccObject {
             parentName: "sound/outPut/outputGroup"
             displayName: qsTr("Mono audio")
             description: qsTr("Merge left and right channels into a single channel")
-            weight: 40
+            weight: 30
             pageType: DccObject.Editor
             page: Switch {
                 checked: dccData.model().audioMono

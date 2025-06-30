@@ -343,16 +343,18 @@ bool SoundDBusProxy::audioMono()
 
 void SoundDBusProxy::setAudioMono(bool audioMono)
 {
+    double oldBalance = balanceSink();
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(audioMono);
     QDBusPendingCall call = m_audioInter->asyncCallWithArgumentList(QStringLiteral("SetMono"), argumentList);
 
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, call, watcher] {
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, call, watcher, oldBalance] {
         if (call.isError()) {
             qWarning() << " set Audio Mono error: " << call.error().message();
         }
         Q_EMIT AudioMonoChanged(this->audioMono());
         watcher->deleteLater();
+        SetBalanceSink(oldBalance,true);
     });
 }
