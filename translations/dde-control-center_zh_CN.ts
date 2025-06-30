@@ -1711,6 +1711,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Always</source>
         <translation>长期有效</translation>
     </message>
+    <message>
+        <source>Reset password</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LogoModule</name>
@@ -1927,6 +1931,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>密码提示对所有人可见，切勿包含具体密码信息</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
