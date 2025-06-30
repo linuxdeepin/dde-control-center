@@ -220,7 +220,7 @@ void RegionProxy::active()
     for (const auto &locale : locales) {
         QString script = locale.scriptToString(locale.script());
         QString language = locale.languageToString(locale.language());
-        QString country = locale.countryToString(locale.country());
+        QString country = locale.territoryToString(locale.territory());
         // NOTE: sorry for guangdong friends
         if (locale.language() == QLocale::Cantonese && locale.language() == QLocale::Chinese) {
             continue;
@@ -229,10 +229,10 @@ void RegionProxy::active()
         if (locale.territory() == QLocale::Territory::World) {
             continue;
         }
-        if ((locale.country() == QLocale::HongKong || locale.country() == QLocale::Taiwan)
+        if ((locale.territory() == QLocale::HongKong || locale.territory() == QLocale::Taiwan)
             && locale.language() == QLocale::Chinese)
             language = "Traditional Chinese";
-        if (locale.country() == QLocale::China && locale.language() == QLocale::Chinese)
+        if (locale.territory() == QLocale::China && locale.language() == QLocale::Chinese)
             language = "Simplified Chinese";
         QString langCountry = QString("%1:%2").arg(language).arg(country);
         if (!countries.contains(country)) {
@@ -263,7 +263,7 @@ QStringList RegionProxy::countries() const
 
 QString RegionProxy::systemCountry() const
 {
-    QString country = QLocale::system().countryToString(QLocale::system().country());
+    QString country = QLocale::system().territoryToString(QLocale::system().territory());
     return country;
 }
 
@@ -271,11 +271,11 @@ QString RegionProxy::langCountry() const
 {
     QLocale locale = QLocale::system();
     QString language = locale.languageToString(locale.language());
-    QString country = locale.countryToString(locale.country());
-    if ((locale.country() == QLocale::HongKong || locale.country() == QLocale::Taiwan)
+    QString country = locale.territoryToString(locale.territory());
+    if ((locale.territory() == QLocale::HongKong || locale.territory() == QLocale::Taiwan)
         && locale.language() == QLocale::Chinese)
         language = "Traditional Chinese";
-    if (locale.country() == QLocale::China && locale.language() == QLocale::Chinese)
+    if (locale.territory() == QLocale::China && locale.language() == QLocale::Chinese)
         language = "Simplified Chinese";
     QString langCountry = QString("%1:%2").arg(language).arg(country);
     return langCountry;
@@ -330,14 +330,14 @@ RegionAvailableData RegionProxy::allFormat()
 RegionAvailableData RegionProxy::customTextData(const QLocale &locale)
 {
     Format *format = nullptr;
-    if (locale.country() == QLocale::China && locale.script() == QLocale::SimplifiedHanScript) {
+    if (locale.territory() == QLocale::China && locale.script() == QLocale::SimplifiedHanScript) {
         format = new ChineseSimpliedFormat();
-    } else if (locale.country() == QLocale::UnitedKingdom
+    } else if (locale.territory() == QLocale::UnitedKingdom
                && locale.language() == QLocale::English) {
         format = new UKFormat();
-    } else if (locale.country() == QLocale::UnitedStates && locale.language() == QLocale::English) {
+    } else if (locale.territory() == QLocale::UnitedStates && locale.language() == QLocale::English) {
         format = new USAFormat();
-    } else if (locale.country() == QLocale::World && locale.language() == QLocale::English) {
+    } else if (locale.territory() == QLocale::World && locale.language() == QLocale::English) {
         format = new WorldFormat();
     } else {
         return RegionAvailableData();

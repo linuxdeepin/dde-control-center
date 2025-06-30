@@ -210,9 +210,9 @@ static QString translate(const QString &localeName, const QString &langRegion)
     }
 
     if (langRegions[0] == "Traditional Chinese" || langRegions[0] == "Simplified Chinese"
-        || langRegions[1] == QLocale::countryToString(QLocale::HongKong)
-        || langRegions[1] == QLocale::countryToString(QLocale::Macau)
-        || langRegions[1] == QLocale::countryToString(QLocale::Taiwan)) {
+        || langRegions[1] == QLocale::territoryToString(QLocale::HongKong)
+        || langRegions[1] == QLocale::territoryToString(QLocale::Macau)
+        || langRegions[1] == QLocale::territoryToString(QLocale::Taiwan)) {
 
         auto res = translateLangAndCountry(localeName);
         QString lang = res.value(0);
@@ -265,7 +265,7 @@ DatetimeModel::DatetimeModel(QObject *parent)
         m_work->setDigitGrouping(digitGrouping.replace(fmt1, fmt2));
     });
 
-    connect(this, &DatetimeModel::symbolChanged, this, [this](int format, const QString &symbol) {
+    connect(this, &DatetimeModel::symbolChanged, this, [this](int format) {
         if (format != CurrencySymbol && format != DigitGroupingSymbol)
             return;
 
@@ -598,7 +598,7 @@ void DatetimeModel::setRegion(const QString &region)
     }
     if (locale.language() != QLocale::C) {
         qDebug() << "set locale:" << locale.name();
-        QString country = locale.countryToString(locale.country());
+        QString country = locale.territoryToString(locale.territory());
         QString language = QLocale::languageToString(locale.language());
         QString langCountry = QString("%1:%2").arg(language).arg(country);
         m_work->setConfigValue(country_key, country);
