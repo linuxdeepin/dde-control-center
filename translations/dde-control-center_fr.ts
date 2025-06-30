@@ -1726,6 +1726,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <source>Always</source>
         <translation>Toujours</translation>
     </message>
+    <message>
+        <source>Reset password</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LogoModule</name>
@@ -1942,6 +1946,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>L&apos;indice est visible pour tous les utilisateurs. Ne pas inclure le mot de passe ici.</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
