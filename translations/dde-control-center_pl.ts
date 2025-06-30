@@ -1713,7 +1713,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Zresetuj hasło</translation>
     </message>
 </context>
 <context>
@@ -1934,7 +1934,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Nowe hasło</translation>
     </message>
 </context>
 <context>
