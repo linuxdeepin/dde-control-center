@@ -110,6 +110,7 @@ Loader {
                                     property string text: checkDelegate.text
                                     property bool shouldSplit: text.split("-").length === 2
                                     Layout.fillWidth: !checkDelegate.content
+                                    Layout.leftMargin: 6
                                     sourceComponent: shouldSplit ? splitComponent : singleComponent
 
                                     Component {
