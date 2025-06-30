@@ -1712,6 +1712,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>Always</source>
         <translation>Siempre</translation>
     </message>
+    <message>
+        <source>Reset password</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LogoModule</name>
@@ -1928,6 +1932,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>La pista es visible para todos. No incluya la contraseña.</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
