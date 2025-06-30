@@ -1696,6 +1696,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Always</source>
         <translation>Sempre</translation>
     </message>
+    <message>
+        <source>Reset password</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LogoModule</name>
@@ -1912,6 +1916,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>A dica é visível para todos os usuários. Não inclua a senha aqui</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
