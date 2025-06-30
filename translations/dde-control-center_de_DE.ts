@@ -1697,6 +1697,10 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
         <source>Always</source>
         <translation>Immer</translation>
     </message>
+    <message>
+        <source>Reset password</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>LogoModule</name>
@@ -1913,6 +1917,10 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Der Hinweis ist für alle Benutzer einsehbar. Das Passwort hier nicht einfügen.</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
