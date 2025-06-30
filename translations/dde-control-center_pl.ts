@@ -882,6 +882,22 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
         <source>Create account</source>
         <translation>Utwórz konto</translation>
     </message>
+    <message>
+        <source>Username cannot exceed 32 characters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username can only contain letters, numbers, - and _</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Full name cannot exceed 32 characters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Full name cannot contain colons</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>

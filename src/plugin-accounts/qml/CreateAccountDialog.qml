@@ -223,18 +223,48 @@ D.DialogWindow {
                                     if (showAlert)
                                         showAlert = false
 
-                                    var regex = index ? /^[^:]{0,32}$/ : /^[A-Za-z0-9-_]{0,32}$/
-                                    if (!regex.test(text)) {
-                                        var filteredText = text
-                                        if (index === 0) {
+                                    if (index === 0) {
+                                        var charRegex = /^[A-Za-z0-9-_]*$/
+                                        var lengthRegex = /^.{0,32}$/
+                                        
+                                        var hasInvalidChars = !charRegex.test(text)
+                                        var isTooLong = !lengthRegex.test(text)
+                                        
+                                        if (hasInvalidChars || isTooLong) {
+                                            var filteredText = text
                                             filteredText = filteredText.replace(/[^A-Za-z0-9-_]/g, "")
-                                        } else {
-                                            filteredText = filteredText.replace(":", "")
+                                            filteredText = filteredText.slice(0, 32)
+                                            text = filteredText
+                                            
+                                            if (isTooLong) {
+                                                alertText = qsTr("Username cannot exceed 32 characters")
+                                                showAlert = true
+                                            } else if (hasInvalidChars) {
+                                                alertText = qsTr("Username can only contain letters, numbers, - and _")
+                                                showAlert = true
+                                            }
                                         }
-
-                                        // 长度 32
-                                        filteredText = filteredText.slice(0, 32)
-                                        text = filteredText
+                                    } else {
+                                        var colonRegex = /:/
+                                        var lengthRegex = /^.{0,32}$/
+                                        
+                                        var hasColon = colonRegex.test(text)
+                                        var isTooLong = !lengthRegex.test(text)
+                                        
+                                        if (hasColon || isTooLong) {
+                                            var filteredText = text
+                                            filteredText = filteredText.replace(":", "")
+                                            filteredText = filteredText.slice(0, 32)
+                                            text = filteredText
+                                            
+                                            if (isTooLong) {
+                                                alertText = qsTr("Full name cannot exceed 32 characters")
+                                                showAlert = true
+                                            } else if (hasColon) {
+                                                alertText = qsTr("Full name cannot contain colons")
+                                                showAlert = true
+                                            }
+                                        }
                                     }
                                 }
                                 Component.onCompleted: {
