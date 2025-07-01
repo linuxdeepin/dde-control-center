@@ -80,7 +80,6 @@ FocusScope {
                     hoverEnabled: enabled
                     onImplicitWidthChanged: root.updateLayout()
                     contentItem: RowLayout {
-                        clip: true
                         spacing: 6
                         DccLabel {
                             Layout.fillWidth: true
@@ -147,7 +146,6 @@ FocusScope {
                     onImplicitWidthChanged: root.updateLayout()
                     contentItem: DccLabel {
                         text: model.display
-                        clip: true
                         elide: Text.ElideLeft
                         color: parent.palette.highlight
                     }
