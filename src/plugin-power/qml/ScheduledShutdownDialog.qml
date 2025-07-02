@@ -17,7 +17,7 @@ D.DialogWindow {
     signal accept()
 
     // Copy is used here to prevent contamination of data in the original model when selecting items
-    property var selectedDays: dccData.model.customShutdownWeekDays.length === 0 ? [1, 2, 3, 4, 5] : dccData.model.customShutdownWeekDays.slice()
+    property var selectedDays: []
     property var dateStr: {
         var locale = Qt.locale();
         var days = [];
@@ -27,6 +27,19 @@ D.DialogWindow {
         }
         return days;
     }
+
+    // 当对话框显示时，重新同步最新的自定义重复时间数据
+    function syncSelectedDays() {
+        selectedDays = dccData.model.customShutdownWeekDays.length === 0 ? [1, 2, 3, 4, 5] : dccData.model.customShutdownWeekDays.slice()
+    }
+
+    // 当对话框可见性改变时，同步数据
+    onVisibleChanged: {
+        if (visible) {
+            syncSelectedDays()
+        }
+    }
+
     property var dayModel: generateDayModel()
 
     function generateDayModel() {
@@ -49,7 +62,7 @@ D.DialogWindow {
     onClosing: function(close) {
         close.accepted = true
         // 当用户点击关闭按钮或按ESC键关闭对话框时，触发取消事件
-        selectDayDialog.selectedDays = dccData.model.customShutdownWeekDays.length === 0 ? [1, 2, 3, 4, 5] : dccData.model.customShutdownWeekDays.slice()
+        syncSelectedDays() // 重新同步数据
         selectDayDialog.cancel()
     }
 
@@ -105,7 +118,7 @@ D.DialogWindow {
                 text: qsTr("Cancel")
                 onClicked: {
                     selectDayDialog.close()
-                    selectDayDialog.selectedDays = dccData.model.customShutdownWeekDays.length === 0 ? [1, 2, 3, 4, 5] : dccData.model.customShutdownWeekDays.slice()
+                    syncSelectedDays() // 重新同步数据
                     selectDayDialog.cancel()
                 }
             }
