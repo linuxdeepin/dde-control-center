@@ -175,6 +175,10 @@ D.DialogWindow {
                             scrollView.sections = sections.length > 0 ? sections : [""]
                             scrollView.filter = model.filter
                             scrollView.ScrollBar.vertical.position = 0
+                            
+                            if (dialog.currentAvatar && dialog.currentAvatar.indexOf("/icons/local/") === -1) {
+                                dialog.currentAvatar = ""
+                            }
                         }
                     }
                 }
@@ -226,7 +230,6 @@ D.DialogWindow {
                         iconSource: dialog.currentAvatar
                         onCroppedImage: function(file) {
                             dialog.currentAvatar = file
-                            dialog.accepted();
                         }
                     }
 
