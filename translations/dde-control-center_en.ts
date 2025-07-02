@@ -3151,6 +3151,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Developer Options</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Developer debugging options</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>datetime</name>
@@ -4148,6 +4152,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Heavy</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

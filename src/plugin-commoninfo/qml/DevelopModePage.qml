@@ -18,6 +18,7 @@ DccObject {
         parentName: "developerMode"
         displayName: qsTr("Root Access")
         weight: 10
+        visible: !dccData.mode().isCommunitySystem()
         pageType: DccObject.Item
         page: Label {
             leftPadding: 15
@@ -34,6 +35,7 @@ DccObject {
         name: "developerModeSetting"
         parentName: "developerMode"
         weight: 20
+        visible: !dccData.mode().isCommunitySystem()
         pageType: DccObject.Item
         page: DccGroupView {
 
