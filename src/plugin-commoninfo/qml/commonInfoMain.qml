@@ -15,16 +15,15 @@ DccObject {
         description: qsTr("Manage your boot menu")
         icon: "meau"
         weight: 80
-        BootPage{}
+        BootPage {}
     }
     DccObject {
         name: "developerMode"
         parentName: "system"
         displayName: qsTr("Developer Options")
-        description: qsTr("Developer root permission management")
-        visible: !dccData.mode().isCommunitySystem()
+        description: !dccData.mode().isCommunitySystem() ? qsTr("Developer root permission management") : qsTr("Developer debugging options")
         icon: "developer"
         weight: 90
-        DevelopModePage{}
+        DevelopModePage {}
     }
 }
