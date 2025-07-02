@@ -19,6 +19,7 @@
 #include <QCoreApplication>
 #include <QStringListModel>
 #include <QTimer>
+#include <QtQml/qqml.h>
 
 static installer::ZoneInfoList g_totalZones;
 
@@ -297,6 +298,8 @@ DatetimeModel::DatetimeModel(QObject *parent)
         Q_EMIT currentDateChanged();
     });
     timer->start();
+
+    qmlRegisterType<dccV25::ZoneInfoModel>("ZoneInfoModel", 1, 0, "ZoneInfoModel");
 }
 
 void DatetimeModel::setNTP(bool ntp)

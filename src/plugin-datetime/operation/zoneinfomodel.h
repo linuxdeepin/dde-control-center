@@ -28,6 +28,7 @@ public:
 
 class ZoneInfoModel : public QAbstractListModel
 {
+    Q_OBJECT
 public:
     explicit ZoneInfoModel(QObject *parent = nullptr);
     virtual ~ZoneInfoModel();
@@ -36,6 +37,7 @@ public:
         ZoneIdRole,
         CityNameRole
     };
+    Q_ENUM(ZoneInfoRole)
 
     // QAbstractItemModel interface
     int rowCount(const QModelIndex &parent) const override;

@@ -9,6 +9,8 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.private 1.0 as P
 import org.deepin.dtk.style 1.0 as DS
 
+import ZoneInfoModel 1.0
+
 // 时间和日期
 DccObject {
     DccObject {
@@ -309,57 +311,89 @@ DccObject {
         weight: 12
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
-        page: ComboBox {
-            id: combo
-            flat: true
-            implicitWidth: 406
-            model: dccData.zoneSearchModel()
-            textRole: "display"
-            displayText: dccData.timeZoneDispalyName
-            hoverEnabled: true
-            currentIndex: dccData.currentTimeZoneIndex
+        page: Item {
+            id: systemTimezoneItem
+            implicitWidth: rowlayout.implicitWidth
+            implicitHeight: rowlayout.implicitHeight
+            property var model: dccData.zoneSearchModel()
+            property var currentIndex: dccData.currentTimeZoneIndex
             property string saveZoneId: ""
-
-            Component.onCompleted: {
-                if (model && currentIndex >= 0) {
-                    saveZoneId = model.data(model.index(currentIndex, 0), model.ZoneIdRole)
+            RowLayout {
+                id: rowlayout
+                Label {
+                    id: timezoneLabel
+                    text: dccData.timeZoneDispalyName
+                }
+                D.IconLabel {
+                    Layout.alignment: Qt.AlignRight | Qt.AlignHCenter
+                    icon.name: "arrow_ordinary_down"
+                    icon.palette: D.DTK.makeIconPalette(timezoneLabel.palette)
                 }
             }
 
-            Connections {
-                target: dccData
-                function onCurrentTimeZoneIndexChanged() {
-                    if (model && dccData.currentTimeZoneIndex >= 0) {
-                        combo.currentIndex = dccData.currentTimeZoneIndex
-                        saveZoneId = model.data(model.index(dccData.currentTimeZoneIndex, 0), model.ZoneIdRole)
+            MouseArea {
+                id: mouseArea
+                anchors.fill: parent
+
+                Component.onCompleted: {
+                    if (dccData.currentTimeZoneIndex >= 0) {
+                        let model = dccData.zoneSearchModel()
+                        systemTimezoneItem.saveZoneId = model.data(model.index(systemTimezoneItem.currentIndex, 0), ZoneInfoModel.ZoneIdRole)
                     }
                 }
-            }
 
-            popup: SearchableListViewPopup {
-                id: searchView
-                palette: combo.palette
-                implicitWidth: combo.width
-                delegateModel: combo.delegateModel
-                maxVisibleItems: 13
-                highlightedIndex: combo.highlightedIndex
-                onSearchTextChanged: {
-                    let delegateModel = dccData.zoneSearchModel()
-                    delegateModel.setFilterWildcard(searchView.searchText);
-                    for (let i = 0; i < delegateModel.rowCount(); i++) {
-                        if (delegateModel.data(delegateModel.index(i, 0), model.ZoneIdRole) === combo.saveZoneId) {
-                            combo.currentIndex = i
-                            return
+                Connections {
+                    target: dccData
+                    function onCurrentTimeZoneIndexChanged() {
+                        if (dccData.currentTimeZoneIndex >= 0) {
+                            let model = dccData.zoneSearchModel()
+                            systemTimezoneItem.saveZoneId = model.data(model.index(systemTimezoneItem.currentIndex, 0), ZoneInfoModel.ZoneIdRole)
                         }
                     }
-                    combo.currentIndex = -1
                 }
-            }
 
-            onActivated: function (index) {
-                let zoneId = currentValue["zoneId"]
-                combo.currentIndex = dccData.currentTimeZoneIndex
-                dccData.setSystemTimeZone(zoneId)
+                SearchableListViewPopup {
+                    id: timezoneWindow
+                    highlightedIndex: systemTimezoneItem.currentIndex
+                    maxVisibleItems: 13
+
+                    delegateModel: DelegateModel {
+                        model: systemTimezoneItem.model
+                        delegate: MenuItem {
+                            useIndicatorPadding: true
+                            width: timezoneWindow.viewWidth
+                            text: model.display
+                            highlighted: hovered
+                            hoverEnabled: true
+                            checkable: true
+                            autoExclusive: true
+                            checked: model.zoneId === systemTimezoneItem.saveZoneId
+                            onHoveredChanged: {
+                                if (hovered)
+                                    timezoneWindow.highlightedIndex = index
+                            }
+                            onCheckedChanged: {
+                                if (checked && model.zoneId != systemTimezoneItem.saveZoneId) {
+                                    let zoneId = model.zoneId
+                                    dccData.setSystemTimeZone(zoneId)
+                                    timezoneWindow.close()
+                                }
+                            }
+                        }
+                    }
+
+                    onSearchTextChanged: {
+                        let delegateModel = dccData.zoneSearchModel()
+                        delegateModel.setFilterWildcard(timezoneWindow.searchText)
+                    }
+                }
+
+                onClicked: function (mouse) {
+                    if (!timezoneWindow.isVisible()) {
+                        timezoneWindow.show()
+                        timezoneWindow.setPositionByItem(parent)
+                    }
+                }
             }
         }
     }
@@ -375,54 +409,47 @@ DccObject {
             spacing: 10
             Button {
                 id: addButton
-                property bool needShowDialog: false
                 icon.name: "add"
                 implicitHeight: 32
                 implicitWidth: 32
-                Loader {
-                    id: customLoader
-                    active: false
-                    sourceComponent: SearchableListViewPopup {
-                        id: popup
-                        implicitWidth: 406
-                        maxVisibleItems: 13
-                        delegateModel: DelegateModel {
-                            model: dccData.zoneSearchModel()
-                            delegate: MenuItem {
-                                useIndicatorPadding: true
-                                width: popup.width
-                                text: model.display
-                                highlighted: hovered
-                                hoverEnabled: true
-                                checkable: true
-                                autoExclusive: true
-                                onHoveredChanged: {
-                                    if (hovered)
-                                        popup.highlightedIndex = index
-                                }
-                                onCheckedChanged: {
+
+                SearchableListViewPopup {
+                    id: timezoneListWindow
+                    delegateModel: DelegateModel {
+                        model: dccData.zoneSearchModel()
+                        delegate: MenuItem {
+                            useIndicatorPadding: true
+                            width: timezoneListWindow.viewWidth
+                            text: model.display
+                            highlighted: hovered
+                            hoverEnabled: true
+                            checkable: true
+                            autoExclusive: true
+                            onHoveredChanged: {
+                                if (hovered)
+                                    timezoneListWindow.highlightedIndex = index
+                            }
+                            onCheckedChanged: {
+                                if (checked) {
                                     let zoneId = model.zoneId
                                     dccData.addUserTimeZoneById(zoneId)
-                                    popup.close()
+                                    timezoneListWindow.close()
                                 }
                             }
                         }
-                        onSearchTextChanged: {
-                            let delegateModel = dccData.zoneSearchModel()
-                            delegateModel.setFilterWildcard(popup.searchText);
-                        }
-                        onClosed: {
-                            customLoader.active = false
-                        }
                     }
-                    onLoaded: {
-                        item.open()
-                        item.x = addButton.implicitWidth - item.implicitWidth + 10
+                    maxVisibleItems: 13
+                    onSearchTextChanged: {
+                        let delegateModel = dccData.zoneSearchModel()
+                        delegateModel.setFilterWildcard(searchText);
                     }
                 }
 
                 onClicked: {
-                    customLoader.active = true
+                    if (!timezoneListWindow.isVisible()) {
+                        timezoneListWindow.setPositionByItem(parent)
+                        timezoneListWindow.show()
+                    }
                 }
             }
         }
