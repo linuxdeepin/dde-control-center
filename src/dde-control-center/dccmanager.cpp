@@ -4,6 +4,7 @@
 #include "dccmanager.h"
 
 #include "dccapp.h"
+#include "dccimageprovider.h"
 #include "dccobject_p.h"
 #include "navigationmodel.h"
 #include "pluginmanager.h"
@@ -52,6 +53,7 @@ DccManager::DccManager(QObject *parent)
     , m_engine(nullptr)
     , m_navModel(new NavigationModel(this))
     , m_searchModel(new SearchModel(this))
+    , m_imageProvider(nullptr)
     , m_showTimer(nullptr)
 {
     m_hideObjects->setName("_hide");
@@ -102,6 +104,8 @@ void DccManager::init()
     auto paths = m_engine->importPathList();
     paths.prepend(DefaultModuleDirectory);
     m_engine->setImportPathList(paths);
+    m_imageProvider = new DccImageProvider();
+    m_engine->addImageProvider("DccImage", m_imageProvider);
     QStringList dciPaths = Dtk::Gui::DIconTheme::dciThemeSearchPaths();
     dciPaths << QStringLiteral(DefaultModuleDirectory);
     Dtk::Gui::DIconTheme::setDciThemeSearchPaths(dciPaths);
@@ -376,6 +380,13 @@ QAbstractItemModel *DccManager::navModel() const
 QSortFilterProxyModel *DccManager::searchModel() const
 {
     return m_searchModel;
+}
+
+void DccManager::cacheImage(const QString &id, const QSize &thumbnailSize)
+{
+    if (m_imageProvider) {
+        m_imageProvider->cacheImage(id, thumbnailSize);
+    }
 }
 
 void DccManager::show()
@@ -898,6 +909,7 @@ void DccManager::clearData()
     if (m_plugins->isDeleting()) {
         return;
     }
+    m_imageProvider = nullptr;
     m_plugins->beginDelete();
     clearShowParam();
 

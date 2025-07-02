@@ -74,6 +74,7 @@ Q_SIGNALS:
     void colorTemperatureModeChanged();
     void colorTemperatureChanged();
     void customColorTempTimePeriodChanged();
+    void wallpaperChanged();
 
 private:
     QScopedPointer<DisplayModulePrivate> d_ptrDisplayModule;

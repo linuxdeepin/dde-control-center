@@ -23,6 +23,7 @@ namespace dccV25 {
 class NavigationModel;
 class SearchModel;
 class PluginManager;
+class DccImageProvider;
 
 class DccManager : public DccApp, protected QDBusContext
 {
@@ -65,6 +66,7 @@ public Q_SLOTS:
     QWindow *mainWindow() const override;
     QAbstractItemModel *navModel() const override;
     QSortFilterProxyModel *searchModel() const override;
+    void cacheImage(const QString &id, const QSize &thumbnailSize = QSize());
 
     void show();
     void showHelp();
@@ -123,6 +125,7 @@ private:
     QQmlApplicationEngine *m_engine;
     NavigationModel *m_navModel;
     SearchModel *m_searchModel;
+    DccImageProvider *m_imageProvider;
     // DBus调用时，对应项还没加载完成，此处保存跳转参数
     QTimer *m_showTimer;
     QString m_showUrl;

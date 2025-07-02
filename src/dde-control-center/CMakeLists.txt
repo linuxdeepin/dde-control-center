@@ -5,6 +5,7 @@ set(DCCFrame_Name ${DCC_FRAME_Library})
 file(GLOB DCCFrame_SRCS
     "${DCC_PROJECT_ROOT_DIR}/include/*.h"
     "frame/*.cpp"
+    "frame/*.h"
 )
 
 add_library(${DCCFrame_Name} SHARED
