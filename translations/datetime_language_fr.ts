@@ -1451,231 +1451,231 @@
     </message>
     <message>
         <source>Nigerian Pidgin</source>
-        <translation type="unfinished"/>
+        <translation>Pidgin nigérian</translation>
     </message>
     <message>
         <source>Niuean</source>
-        <translation type="unfinished"/>
+        <translation>Niouéen</translation>
     </message>
     <message>
         <source>No linguistic content</source>
-        <translation type="unfinished"/>
+        <translation>Aucun contenu linguistique</translation>
     </message>
     <message>
         <source>Nogai</source>
-        <translation type="unfinished"/>
+        <translation>Nogai</translation>
     </message>
     <message>
         <source>North Ndebele</source>
-        <translation type="unfinished"/>
+        <translation>Ndebele du Nord</translation>
     </message>
     <message>
         <source>Northern East Cree</source>
-        <translation type="unfinished"/>
+        <translation>Cree du nord-est</translation>
     </message>
     <message>
         <source>Northern Frisian</source>
-        <translation type="unfinished"/>
+        <translation>frison septentrional</translation>
     </message>
     <message>
         <source>Northern Luri</source>
-        <translation type="unfinished"/>
+        <translation>Luri septentrional</translation>
     </message>
     <message>
         <source>Northern Sami</source>
-        <translation type="unfinished"/>
+        <translation>Sami septentrional</translation>
     </message>
     <message>
         <source>Northern Sotho</source>
-        <translation type="unfinished"/>
+        <translation>Sotho septentrional</translation>
     </message>
     <message>
         <source>Northern Tutchone</source>
-        <translation type="unfinished"/>
+        <translation>Tutchone septentrional</translation>
     </message>
     <message>
         <source>Northwestern Ojibwa</source>
-        <translation type="unfinished"/>
+        <translation>Ojibwé du Nord-Ouest</translation>
     </message>
     <message>
         <source>Norwegian</source>
-        <translation type="unfinished"/>
+        <translation>Norvégien</translation>
     </message>
     <message>
         <source>Norwegian Bokmål</source>
-        <translation type="unfinished"/>
+        <translation>Norvégien standard</translation>
     </message>
     <message>
         <source>Norwegian Nynorsk</source>
-        <translation type="unfinished"/>
+        <translation>Norvégien Nynorsk</translation>
     </message>
     <message>
         <source>Nuer</source>
-        <translation type="unfinished"/>
+        <translation>Nuer</translation>
     </message>
     <message>
         <source>Nyamwezi</source>
-        <translation type="unfinished"/>
+        <translation>Nyamwezi</translation>
     </message>
     <message>
         <source>Nyanja</source>
-        <translation type="unfinished"/>
+        <translation>Nyanja</translation>
     </message>
     <message>
         <source>Nyankole</source>
-        <translation type="unfinished"/>
+        <translation>Nyankole</translation>
     </message>
     <message>
         <source>Nyasa Tonga</source>
-        <translation type="unfinished"/>
+        <translation>Nyasa Tonga</translation>
     </message>
     <message>
         <source>Nyoro</source>
-        <translation type="unfinished"/>
+        <translation>Nyoro</translation>
     </message>
     <message>
         <source>Nzima</source>
-        <translation type="unfinished"/>
+        <translation>Nzima</translation>
     </message>
     <message>
         <source>Obolo</source>
-        <translation type="unfinished"/>
+        <translation>Obolo</translation>
     </message>
     <message>
         <source>Occitan</source>
-        <translation type="unfinished"/>
+        <translation>Occitan</translation>
     </message>
     <message>
         <source>Odia</source>
-        <translation type="unfinished"/>
+        <translation>Odia</translation>
     </message>
     <message>
         <source>Oji-Cree</source>
-        <translation type="unfinished"/>
+        <translation>Oji-Cree</translation>
     </message>
     <message>
         <source>Ojibwa</source>
-        <translation type="unfinished"/>
+        <translation>Ojibwa</translation>
     </message>
     <message>
         <source>Okanagan</source>
-        <translation type="unfinished"/>
+        <translation>Okanagan</translation>
     </message>
     <message>
         <source>Old English</source>
-        <translation type="unfinished"/>
+        <translation>Vieux anglais</translation>
     </message>
     <message>
         <source>Old French</source>
-        <translation type="unfinished"/>
+        <translation>Vieux français</translation>
     </message>
     <message>
         <source>Old High German</source>
-        <translation type="unfinished"/>
+        <translation>Vieux haut-allemand</translation>
     </message>
     <message>
         <source>Old Irish</source>
-        <translation type="unfinished"/>
+        <translation>Vieux irlandais</translation>
     </message>
     <message>
         <source>Old Norse</source>
-        <translation type="unfinished"/>
+        <translation>Vieux norrois</translation>
     </message>
     <message>
         <source>Old Persian</source>
-        <translation type="unfinished"/>
+        <translation>Persan ancien</translation>
     </message>
     <message>
         <source>Old Provençal</source>
-        <translation type="unfinished"/>
+        <translation>Vieux provençal</translation>
     </message>
     <message>
         <source>Oromo</source>
-        <translation type="unfinished"/>
+        <translation>Oromo</translation>
     </message>
     <message>
         <source>Osage</source>
-        <translation type="unfinished"/>
+        <translation>Osage</translation>
     </message>
     <message>
         <source>Ossetic</source>
-        <translation type="unfinished"/>
+        <translation>Ossète</translation>
     </message>
     <message>
         <source>Ottoman Turkish</source>
-        <translation type="unfinished"/>
+        <translation>Turc ottoman</translation>
     </message>
     <message>
         <source>Pahlavi</source>
-        <translation type="unfinished"/>
+        <translation>Pahlavi</translation>
     </message>
     <message>
         <source>Palauan</source>
-        <translation type="unfinished"/>
+        <translation>Palauan</translation>
     </message>
     <message>
         <source>Pali</source>
-        <translation type="unfinished"/>
+        <translation>Pali</translation>
     </message>
     <message>
         <source>Pampanga</source>
-        <translation type="unfinished"/>
+        <translation>Pampanga</translation>
     </message>
     <message>
         <source>Pangasinan</source>
-        <translation type="unfinished"/>
+        <translation>Pangasinan</translation>
     </message>
     <message>
         <source>Papiamento</source>
-        <translation type="unfinished"/>
+        <translation>Papiamento</translation>
     </message>
     <message>
         <source>Pashto</source>
-        <translation type="unfinished"/>
+        <translation>Pashto</translation>
     </message>
     <message>
         <source>Persian</source>
-        <translation type="unfinished"/>
+        <translation>Persan</translation>
     </message>
     <message>
         <source>Dari</source>
-        <translation type="unfinished"/>
+        <translation>Dari</translation>
     </message>
     <message>
         <source>Phoenician</source>
-        <translation type="unfinished"/>
+        <translation>Phénicien</translation>
     </message>
     <message>
         <source>Pijin</source>
-        <translation type="unfinished"/>
+        <translation>Pijin</translation>
     </message>
     <message>
         <source>Plains Cree</source>
-        <translation type="unfinished"/>
+        <translation>Cree des Plaines</translation>
     </message>
     <message>
         <source>Pohnpeian</source>
-        <translation type="unfinished"/>
+        <translation>Pohnpeien</translation>
     </message>
     <message>
         <source>Polish</source>
-        <translation type="unfinished"/>
+        <translation>Polonais</translation>
     </message>
     <message>
         <source>Portuguese</source>
-        <translation type="unfinished"/>
+        <translation>Portugais</translation>
     </message>
     <message>
         <source>Brazilian Portuguese</source>
-        <translation type="unfinished"/>
+        <translation>Portugais brésilien</translation>
     </message>
     <message>
         <source>European Portuguese</source>
-        <translation type="unfinished"/>
+        <translation>Portugais européen</translation>
     </message>
     <message>
         <source>Prussian</source>
-        <translation type="unfinished"/>
+        <translation>Prussien</translation>
     </message>
     <message>
         <source>Punjabi</source>
