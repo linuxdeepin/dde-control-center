@@ -195,6 +195,7 @@ public:
 
     inline int shutdownRepetition() const { return m_shutdownRepetition; }
     void setShutdownRepetition(int repetition);
+    Q_INVOKABLE void refreshShutdownRepetition() { Q_EMIT shutdownRepetitionChanged(m_shutdownRepetition); }
 
     inline int weekBegins() const { return m_weekBegins; }
     void setWeekBegins(int value);

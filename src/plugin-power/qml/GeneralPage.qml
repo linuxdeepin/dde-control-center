@@ -265,14 +265,15 @@ DccObject {
                     id: selectDayDialogforCombobox
 
                     onCancel: {
-                        shutdownRepetitionCombobox.currentIndex = dccData.model.shutdownRepetition
+                        // 通过Q_INVOKABLE方法触发信号更新，直接赋值currentIndex会导致属性绑定失效
+                        dccData.model.refreshShutdownRepetition()
                     }
 
                     onAccept: {
-                        if (shutdownRepetitionCombobox.currentIndex === dccData.model.shutdownRepetition) {
+                        if (dccData.model.shutdownRepetition === 3) {
                             return
                         }
-                        dccData.worker.setShutdownRepetition(shutdownRepetitionCombobox.currentIndex)
+                        dccData.worker.setShutdownRepetition(3)
                     }
                 }
             }
