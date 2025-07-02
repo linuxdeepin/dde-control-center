@@ -71,7 +71,7 @@ D.ApplicationWindow {
         autoHideOnFullscreen: true
         focus: true
         leftContent: D.ActionButton {
-            property D.Palette textColor: parent.textColor
+            textColor: parent.textColor
             palette.windowText: D.ColorSelector.textColor
             anchors {
                 verticalCenter: parent.verticalCenter
@@ -128,7 +128,7 @@ D.ApplicationWindow {
             }
             D.ActionButton {
                 id: breakBut
-                property D.Palette textColor: parent.textColor
+                textColor: parent.textColor
                 palette.windowText: D.ColorSelector.textColor
                 implicitHeight: 30
                 implicitWidth: 30

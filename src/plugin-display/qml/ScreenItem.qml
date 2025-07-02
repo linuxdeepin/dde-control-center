@@ -24,7 +24,7 @@ Rectangle {
     Image {
         id: image
         anchors.fill: parent
-        source: screen.wallpaper
+        source: "image://DccImage/" + screen.wallpaper
         mipmap: true
         fillMode: Image.PreserveAspectCrop
         asynchronous: true

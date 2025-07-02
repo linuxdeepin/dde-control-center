@@ -137,10 +137,27 @@ DccObject {
             isGroup: false
         }
         DccObject {
+            id: groundObj
+            function cacheImage() {
+                for (var i = 0; i < dccData.virtualScreens.length; i++) {
+                    var screen = dccData.virtualScreens[i]
+                    DccApp.cacheImage(screen.wallpaper)
+                }
+            }
+            Connections {
+                target: dccData
+                function onVirtualScreensChanged() {
+                    groundObj.cacheImage()
+                }
+                function onWallpaperChanged() {
+                    groundObj.cacheImage()
+                }
+            }
             name: "monitorsGround"
             parentName: "monitorControl"
             weight: 10
             enabled: dccData.virtualScreens.length > 1
+            Component.onCompleted: cacheImage()
             pageType: DccObject.Item
             page: Item {
                 id: monitorsGround
