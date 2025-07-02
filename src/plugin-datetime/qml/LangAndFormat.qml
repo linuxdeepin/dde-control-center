@@ -36,7 +36,7 @@ DccObject {
                 id: button
                 checkable: true
                 visible: langRepeater.count > 1
-                font.pointSize: 12
+                font.pixelSize: DTK.fontManager.t8.pixelSize
                 checked: languageListTiltle.isEditing
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 Layout.rightMargin: 10
