@@ -4,90 +4,180 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
+import QtQuick.Window
 import org.deepin.dtk 1.0
 import org.deepin.dtk.style 1.0 as DS
-Popup {
-    id: control
-    implicitWidth: 200
-    implicitHeight: 496
+
+Loader {
+    id: loader
+    active: false
     property int maxVisibleItems: 10
     property int highlightedIndex: 0
-    property string searchText: searchEdit.text
-    property alias view: arrowListView
+    property string searchText: ""
+    property var view: null
+    property var viewWidth: 300
+    property var anchorItem: null
+    property int windowWidth: 300
+    property int windowHeight: 500
     required property DelegateModel delegateModel
 
-    Component.onCompleted: adjustPosition()
+    TextMetrics {
+        id: textMetrics
+        font.family: DTK.fontManager.baseFont.family
+        font.pixelSize: DTK.fontManager.baseFont.pixelSize
+    }
 
-    contentItem: ColumnLayout {
-        spacing: control.delegateModel.count > 0 ? 10 : 0
-        Layout.fillWidth: true
-        SearchEdit {
-            id: searchEdit
-            implicitHeight: 30
-            Layout.fillWidth: true
-            Layout.alignment: Qt.AlignTop
-            Layout.leftMargin: 0
-            Layout.rightMargin: 0
-            placeholder: qsTr("Search")
-            onVisibleChanged: {
-                clear() // clear seach text
+    function calculateMaxWidth() {
+        if (!delegateModel || delegateModel.count === 0) return windowWidth
+
+        var maxWidth = 0
+        for (var i = 0; i < delegateModel.count; i++) {
+            var item = delegateModel.items.get(i)
+            if (item && item.model && item.model.display) {
+                textMetrics.text = item.model.display
+                maxWidth = Math.max(maxWidth, textMetrics.width)
             }
         }
+        return Math.max(maxWidth + 50, 300)
+    }
 
-        ArrowListView {
-            id: arrowListView
-            clip: true
-            Layout.fillWidth: true
-            visible: control.delegateModel.count  > 0
-            maxVisibleItems: control.maxVisibleItems
-            view.model: control.delegateModel
-            view.currentIndex: control.highlightedIndex
-            view.highlightMoveDuration: -1
-            view.highlightMoveVelocity: -1
-            view.onContentHeightChanged: Qt.callLater(adjustPosition)
-        }
+    signal opened()
+    signal closed()
 
-        Item {
-            Layout.fillHeight: true
-            visible: control.delegateModel.count  > 0
-        }
+    function show() {
+        active = true
+    }
 
-        Text {
-            id: noResultsText
-            text: qsTr("No search results")
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            Layout.fillWidth: true
-            Layout.fillHeight: true
-            visible: control.delegateModel.count === 0
-            color: this.palette.windowText
-            opacity: 0.4
+    function isVisible() {
+        return active
+    }
+
+    function close() {
+        if (item) {
+            item.closeWindow()
         }
     }
 
-    function adjustPosition() {
-        if (!parent) return
+    function setPositionByItem(item) {
+        anchorItem = item
+        if (active && this.item) {
+            this.item.positionWindow()
+        }
+    }
 
-        // Get button position relative to current window
-        var pos = parent.mapToItem(parent.Window.contentItem, 0, 0)
-        // Calculate available space above and below
-        var bottomSpace = parent.Window.height - (pos.y + parent.height)
-        var topSpace = pos.y
+    sourceComponent: Window {
+        id: searchWindow
+        width: windowWidth
+        height: loader.windowHeight
+        minimumWidth: 300
+        minimumHeight: loader.windowHeight
+        maximumWidth: 500
+        maximumHeight: loader.windowHeight
+        DWindow.enabled: true
+        DWindow.enableSystemResize: false
+        DWindow.enableBlurWindow: true
+        // ensure show in center of mainwindow
+        flags: Qt.Dialog
+        // default color is white
+        color: active ? DTK.palette.window : DTK.inactivePalette.window
 
-        // Try to show below first
-        if (bottomSpace >= height + 10) {
-            // Enough space below, show below
-            y = Math.min(parent.height + 5, bottomSpace - height - 10)
-        } else if (topSpace >= height + 10) {
-            // Not enough space below but enough space above, show above
-            y = Math.max(-height, -topSpace + 10)
-        } else {
-            // Not enough space in either direction, show in direction with more space
-            if (topSpace > bottomSpace) {
-                y = Math.max(-height, -topSpace + 10)
-            } else {
-                y = Math.min(parent.height + 5, bottomSpace - height - 10)
+        Component.onCompleted: {
+            positionWindow()
+            width = loader.calculateMaxWidth()
+            loader.opened()
+        }
+
+        function positionWindow() {
+            if (!loader.anchorItem) return
+
+            var globalPos = loader.anchorItem.mapToGlobal(0, 0)
+            searchWindow.x = globalPos.x
+            searchWindow.y = globalPos.y + loader.anchorItem.height
+        }
+
+        ColumnLayout {
+            id: contentLayout
+            anchors.fill: parent
+            anchors.margins: 6
+            spacing: loader.delegateModel.count > 0 ? 10 : 0
+
+            SearchEdit {
+                id: searchEdit
+                implicitHeight: 30
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignTop
+                placeholder: qsTr("Search")
+                onTextChanged: {
+                    loader.searchText = text
+                }
+                onVisibleChanged: {
+                    clear() // clear search text
+                }
+            }
+
+            ArrowListView {
+                id: arrowListView
+                clip: true
+                Layout.fillWidth: true
+                visible: loader.delegateModel.count > 0
+                maxVisibleItems: loader.maxVisibleItems
+                view.model: loader.delegateModel
+                view.currentIndex: loader.highlightedIndex
+                view.highlightMoveDuration: -1
+                view.highlightMoveVelocity: -1
+
+                Component.onCompleted: {
+                    loader.view = arrowListView
+                    loader.viewWidth = arrowListView.width
+                }
+
+                onWidthChanged: {
+                    loader.viewWidth = arrowListView.width
+                }
+            }
+
+            Item {
+                Layout.fillHeight: true
+                visible: loader.delegateModel.count > 0
+            }
+
+            Text {
+                id: noResultsText
+                text: qsTr("No search results")
+                horizontalAlignment: Text.AlignHCenter
+                verticalAlignment: Text.AlignVCenter
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                visible: loader.delegateModel.count === 0
+                color: this.palette.windowText
+                opacity: 0.4
             }
         }
+
+        function closeWindow() {
+            searchEdit.clear()
+            searchWindow.close()
+            loader.active = false
+            loader.closed()
+        }
+
+        onActiveFocusItemChanged: {
+            if (!activeFocusItem) {
+                searchWindow.closeWindow()
+            }
+        }
+
+        onActiveChanged: {
+            if (!active) {
+                searchWindow.closeWindow()
+            }
+        }
+    }
+
+    onLoaded: {
+        item.show()
+        Qt.callLater(function() {
+            item.requestActivate();
+        });
     }
 }
