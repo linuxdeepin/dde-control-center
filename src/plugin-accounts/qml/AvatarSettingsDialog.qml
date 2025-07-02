@@ -39,9 +39,14 @@ D.DialogWindow {
             onAccepted: {
                 let selectedFile = fileDialog.selectedFile || fileDialog.file || fileDialog.fileUrl
                 if (selectedFile) {
-                    dialog.currentAvatar = selectedFile.toString()
-                    // 23 dcc 选中自定义就会出发设置图标
-                    dialog.accepted();
+                    let filePath = selectedFile.toString()
+                    if (scrollView.isCustom) {
+                        let icons = repeater.itemAt(0).model
+                        icons.push(filePath)
+                        repeater.itemAt(0).model = icons
+                        repeater.itemAt(0).currentAvatar = filePath
+                    }
+                    dialog.currentAvatar = filePath
                 }
                 fileDlgLoader.active = false
             }
@@ -185,8 +190,6 @@ D.DialogWindow {
                 visible: needShow()
                 onIconDropped: function (url){
                     dialog.currentAvatar = url
-                    // 23 dcc 选中自定义就会出发设置图标
-                    dialog.accepted();
                 }
                 onRequireFileDialog: {
                     fileDlgLoader.active = true
