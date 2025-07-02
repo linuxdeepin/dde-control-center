@@ -99,7 +99,7 @@ Loader {
             id: contentLayout
             anchors.fill: parent
             anchors.margins: 6
-            spacing: loader.delegateModel.count > 0 ? 10 : 0
+            spacing: loader.delegateModel.count > 0 ? 14 : 0
 
             SearchEdit {
                 id: searchEdit
