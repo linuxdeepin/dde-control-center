@@ -1,3 +1,51 @@
+dde-control-center (6.1.33) unstable; urgency=medium
+
+  * fix: Fix symbolic link error
+  * i18n: Updates for project Deepin Desktop Environment (#2463)
+  * fix: Add image caching processing
+  * fix: Fix the issue of abnormal display of user types
+  * fix: Modify the button style
+  * fix: optimize search bar layout metrics in ListViewPopup
+  * fix(power): The first modification of custom shutdown does not take
+    effect
+  * fix: Add schematic text shadow
+  * fix: Fixed the issue that custom avatars were displayed incorrectly
+  * chore: avoid hard-code compiler options in CMakeLists.txt
+  * fix: enhance timezone selector layout and display
+  * fix: Modify the issue of incomplete text display in Crumb
+  * fix: Fixed the issue that the upload avatar was set immediately
+  * fix: Scheduled shutdown dialog date synchronization issue Initialize
+    `selectedDays` as empty and sync with latest model data on dialog
+    visibility. Centralizes reset logic in `syncSelectedDays()` function
+    called during: - Dialog visibility changes - Closing/cancellation
+    actions - Cancel button click
+  * fix: resolve oversized edit button font in language settings
+  * fix: Add error handling for opening developer mode
+  * fix: adjust language selector layout alignment
+  * Make the string translatable
+  * fix: preserve balance when toggling mono audio and adjust UI weights
+  * fix: Fix compilation warning
+  * fix: prevent focus on keyboard shortcut edit buttons
+  * fix: Fixed some copywriting errors
+  * fix: Fixed the Bluetooth sorting issue of links
+  * chore: add option to disable privacy'n'security plugin
+  * fix: Modify the Create User dialog box
+  * fix: round volume values to avoid floating point precision issues
+  * fix: add shortcut clearing functionality in keyboard module
+  * fix: Fixed the issue that the settings menu was opened
+  * fix: position regions chooser window at mouse click position
+  * fix: adjust UI spacing and fonts in Region and Language interface
+  * fix: Fixed the issue that the blur effect was abnormal
+  * fix: Fixed the wrong selection of the active color
+  * fix: remove duplicate Numeric Keypad display names in keyboard
+    settings
+  * fix: Fix creating user interface display
+  * fix: maintain selected region when filtering in RegionFormatDialog
+  * fix: improve icon handling and UI components
+  * fix(accounts): The 'Quick Login' option is not hidden correctly
+
+ -- WuJiangYu <wujiangyu@uniontech.com>  Thu, 03 Jul 2025 19:59:25 +0800
+
 dde-control-center (6.1.32) unstable; urgency=medium
 
   * i18n: Updates for project Deepin Desktop Environment (#2419)
