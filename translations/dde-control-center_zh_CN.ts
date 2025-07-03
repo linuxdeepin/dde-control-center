@@ -449,7 +449,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Change Password</source>
-        <translation>重设密码</translation>
+        <translation>修改密码</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
