@@ -392,6 +392,15 @@ DccObject {
                 onActivated: function (index) {
                     dccData.setUserType(settings.userId, index)
                 }
+
+                Connections {
+                    target: dccData
+                    function onUserTypeChanged(userId, type) {
+                        if (userId === settings.userId) {
+                            currentIndex = type
+                        }
+                    }
+                }
             }
         }
     }
