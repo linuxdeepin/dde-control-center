@@ -391,7 +391,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation>允许其他蓝牙设备找到该设备</translation>
+        <translation>允许蓝牙设备可被发现</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
@@ -449,7 +449,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Change Password</source>
-        <translation>修改密码</translation>
+        <translation>重设密码</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
@@ -1713,7 +1713,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>重置密码</translation>
     </message>
 </context>
 <context>
@@ -1934,7 +1934,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>新密码</translation>
     </message>
 </context>
 <context>
