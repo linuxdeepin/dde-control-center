@@ -145,7 +145,7 @@ D.DialogWindow {
                         anchors.centerIn: parent
                         name: dccData.fingertipImagePath
                         retainWhileLoading: true
-                        sourceSize: Qt.size(100, 100)
+                        sourceSize: Qt.size(150, 150)
                     }
                 }
 
