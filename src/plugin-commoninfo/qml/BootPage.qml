@@ -21,7 +21,10 @@ DccObject {
         page: Label {
             leftPadding: 5
             bottomPadding: 5
-            font: DTK.fontManager.t4
+            font.pixelSize: DTK.fontManager.t5.pixelSize
+            font.weight: 500
+            color: DTK.themeType === ApplicationHelper.LightType ?
+                    Qt.rgba(0, 0, 0, 1) : Qt.rgba(1, 1, 1, 1)
             text: dccObj.displayName
         }
     }
@@ -569,6 +572,7 @@ DccObject {
                 }
             }
         }
+        onParentItemChanged: item => { if (item) item.bottomPadding = 0 }
     }
 
     DccObject {
@@ -579,19 +583,30 @@ DccObject {
         weight: 60
         pageType: DccObject.Item
         page: ColumnLayout {
+            Layout.topMargin: 0
+            Layout.bottomMargin: 0
             spacing: 0
             Label {
                 leftPadding: 5
-                topPadding: 20
-                font: DTK.fontManager.t4
+                topPadding: 10
+                font.pixelSize: DTK.fontManager.t5.pixelSize
+                font.weight: 500
+                color: DTK.themeType === ApplicationHelper.LightType ?
+                        Qt.rgba(0, 0, 0, 1) : Qt.rgba(1, 1, 1, 1)
                 text: dccObj.displayName
             }
             Label {
                 leftPadding: 5
                 bottomPadding: 5
-                font: DTK.fontManager.t6
+                font: DTK.fontManager.t8
                 text: dccObj.description
                 opacity: 0.7
+            }
+        }
+        onParentItemChanged: item => { 
+            if (item) {
+                item.topPadding = 0
+                item.bottomPadding = 0
             }
         }
     }
