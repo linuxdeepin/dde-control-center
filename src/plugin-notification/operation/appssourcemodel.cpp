@@ -30,7 +30,7 @@ QHash<int, QByteArray> AppsSourceModel::roleNames() const
     return names;
 }
 
-QModelIndex AppsSourceModel::index(int row, int column, const QModelIndex &parent) const
+QModelIndex AppsSourceModel::index(int row, int column, const QModelIndex &) const
 {
     if (row < 0 || row >= m_appItemModels.size()) {
         return QModelIndex();
@@ -38,17 +38,17 @@ QModelIndex AppsSourceModel::index(int row, int column, const QModelIndex &paren
     return createIndex(row, column);
 }
 
-QModelIndex AppsSourceModel::parent(const QModelIndex &index) const
+QModelIndex AppsSourceModel::parent(const QModelIndex &) const
 {
     return QModelIndex();
 }
 
-int AppsSourceModel::rowCount(const QModelIndex &parent) const
+int AppsSourceModel::rowCount(const QModelIndex &) const
 {
     return m_appItemModels.size();
 }
 
-int AppsSourceModel::columnCount(const QModelIndex &parent) const
+int AppsSourceModel::columnCount(const QModelIndex &) const
 {
     return 1;
 }

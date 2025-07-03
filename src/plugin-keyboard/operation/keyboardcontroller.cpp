@@ -171,7 +171,7 @@ QSortFilterProxyModel *KeyboardController::layoutSearchModel()
     m_worker->onPinyin();
 
     connect(m_model, &KeyboardModel::userLayoutChanged, m_layoutSearchModel,
-            [this](const QString &id, const QString &value){
+            [this](const QString &, const QString &){
         m_layoutSearchModel->invalidate();
     });
 
@@ -195,9 +195,7 @@ QSortFilterProxyModel *KeyboardController::shortcutSearchModel()
     auto sourceModel = new ShortcutListModel(this);
     sourceModel->setSouceModel(m_shortcutModel);
 
-    connect(m_shortcutModel, &ShortcutModel::delCustomInfo, sourceModel, [=](ShortcutInfo *info){
-        sourceModel->reset();
-    });
+    connect(m_shortcutModel, &ShortcutModel::delCustomInfo, sourceModel, &ShortcutListModel::reset);
     connect(m_shortcutModel, &ShortcutModel::addCustomInfo, sourceModel, &ShortcutListModel::reset);
     connect(m_shortcutModel, &ShortcutModel::shortcutChanged, sourceModel, &ShortcutListModel::reset);
     connect(m_shortcutModel, &ShortcutModel::windowSwitchChanged, sourceModel, &ShortcutListModel::reset);

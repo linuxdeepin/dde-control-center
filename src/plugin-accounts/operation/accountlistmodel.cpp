@@ -160,7 +160,7 @@ void GroupListModel::updateGroups(const QStringList &groups) {
     }
 }
 
-int GroupListModel::rowCount(const QModelIndex &parent) const
+int GroupListModel::rowCount(const QModelIndex &) const
 {
     if (m_userId.isEmpty())
         return 0;

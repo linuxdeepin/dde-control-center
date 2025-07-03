@@ -367,7 +367,6 @@ void AccountsController::updateAllGroups()
     QList<User *> userList = m_model->userList();
     
     QStringList allGroupsList = allGroups();
-    int totalGroups = allGroupsList.size();
     
     for (const auto user : userList) {
         QString id = user->id();

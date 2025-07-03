@@ -71,7 +71,7 @@ void KeyboardWorker::resetAll() {
     });
 }
 
-void KeyboardWorker::onGetWindowWM(bool value)
+void KeyboardWorker::onGetWindowWM(bool)
 {
     windowSwitch();
 }

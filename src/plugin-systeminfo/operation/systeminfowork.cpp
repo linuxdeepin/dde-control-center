@@ -314,7 +314,8 @@ QString SystemInfoWork::getSystemInstallDate(int shortDateFormat, QString timezo
     qDebug() << "Utc offset:" << offset;
     QDateTime dateTime = QDateTime::fromString(inputTime, "yyyy-MM-dd hh:mm:ss 'UTC'tt");
 
-    dateTime.setOffsetFromUtc(offset * 3600);
+    QTimeZone offsetTimeZone(offset * 3600);
+    dateTime.setTimeZone(offsetTimeZone);
     if (dateTime.isValid() && shortDateFormat >= 0 && shortDateFormat <= 10) {
         // 将时间转换到目标时区
         QTimeZone targetTimeZone(timezone.toLocal8Bit());
@@ -434,12 +435,12 @@ void SystemInfoWork::onSetHostnameFinish()
     m_model->setHostName(m_systemInfDBusProxy->staticHostname());
 }
 
-void SystemInfoWork::onTimezoneChanged(const QString Timezone)
+void SystemInfoWork::onTimezoneChanged(const QString)
 {
     m_model->setSystemInstallationDate(getSystemInstallDate(m_systemInfDBusProxy->shortDateFormat(), m_systemInfDBusProxy->timezone()));
 }
 
-void SystemInfoWork::onShortDateFormatChanged(const int shortDateFormate)
+void SystemInfoWork::onShortDateFormatChanged(const int)
 {
     m_model->setSystemInstallationDate(getSystemInstallDate(m_systemInfDBusProxy->shortDateFormat(), m_systemInfDBusProxy->timezone()));
 }

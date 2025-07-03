@@ -7,7 +7,7 @@
 #include <QUrl>
 
 enum DefAppDataRole {
-    DefAppIsUserRole = Qt::UserRole << 2 + 1,
+    DefAppIsUserRole = Qt::UserRole << (2 + 1),
     DefAppIdRole,
     DefAppCanDeleteRole,
     DefAppNameRole,

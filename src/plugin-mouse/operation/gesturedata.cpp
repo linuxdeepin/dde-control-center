@@ -102,6 +102,7 @@ QString GestureData::getActionFromActionDec(QString actionDec)
 }
 
 GestureData::GestureData(QObject *parent)
+    : QObject(parent)
 {
 
 }

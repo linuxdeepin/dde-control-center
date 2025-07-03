@@ -10,12 +10,12 @@ User::User(QObject *parent)
     : QObject(parent)
     , m_isCurrentUser(false)
     , m_autoLogin(false)
+    , m_quickLogin(false)
     , m_online(false)
     , m_nopasswdLogin(false)
     , m_userType(UserType::StandardUser)
     , m_createdTime(0)
     , m_securityLever(SecurityLever::Standard)
-    , m_quickLogin(false)
 {
 }
 
