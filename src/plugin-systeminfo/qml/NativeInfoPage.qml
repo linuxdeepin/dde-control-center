@@ -282,18 +282,21 @@ DccObject {
             displayName: qsTr("Authorization") + ":"
             visible: dccData.systemInfoMode().showAuthorization()
             page: RowLayout {
+                spacing: 8
                 Label {
+                    id: jihuo
                     color: dccData.systemInfoMode().licenseStatusColor
                     horizontalAlignment: Text.AlignLeft
                     text: dccData.systemInfoMode().licenseStatusText
                 }
 
-                ToolButton {
+                Button {
                     text: dccData.systemInfoMode().licenseActionText
                     ColorSelector.family: Palette.CommonColor
+                    implicitHeight: 30
+                    implicitWidth: 50
                     flat: false
                     visible: dccData.systemInfoMode().showDetail
-                    opacity: 0.7
                     onClicked: {
                         dccData.systemInfoWork().showActivatorDialog()
                     }
