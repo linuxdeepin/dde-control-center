@@ -2,7 +2,6 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "avatarlistmodel.h"
-#include "accountscontroller.h"
 #include "user.h"
 
 using namespace dccV25;
@@ -16,12 +15,12 @@ static QStringList g_avatarTypes {
     "icons/local"
 };
 
-AvatarTypesModel::AvatarTypesModel(QObject *parent)
+AvatarTypesModel::AvatarTypesModel(QObject *)
 {
 
 }
 
-int AvatarTypesModel::rowCount(const QModelIndex &parent) const
+int AvatarTypesModel::rowCount(const QModelIndex &) const
 {
     return g_avatarTypes.count();
 }
@@ -67,7 +66,7 @@ AvatarListModel::AvatarListModel(User *user, QObject *parent)
 {
 }
 
-int AvatarListModel::rowCount(const QModelIndex &parent) const
+int AvatarListModel::rowCount(const QModelIndex &) const
 {
     if (!m_user)
         return 0;

@@ -19,10 +19,10 @@ BluetoothAdapter::BluetoothAdapter(BluetoothDBusProxy *proxy, QObject *parent)
     , m_powered(false)
     , m_discovering(false)
     , m_discoverable(false)
-    , m_bluetoothDBusProxy(proxy)
     , m_myDevices(new BluetoothDeviceModel(this))
     , m_otherDevices(new BluetoothDeviceModel(this))
     , m_myDeviceVisible(false)
+    , m_bluetoothDBusProxy(proxy)
 {
 }
 

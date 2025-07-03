@@ -30,8 +30,8 @@ public:
     void setPort(Port *newPort);
 
 private:
-    QString m_name;
     bool m_ischecked;
+    QString m_name;
 
     QString portId;
     uint cardId;

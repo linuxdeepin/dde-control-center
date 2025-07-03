@@ -23,7 +23,7 @@ QHash<int, QByteArray> TouchScreenMatchModel::roleNames() const
     return names;
 }
 
-QModelIndex TouchScreenMatchModel::index(int row, int column, const QModelIndex &parentIndex) const
+QModelIndex TouchScreenMatchModel::index(int row, int column, const QModelIndex &) const
 {
     if (row < 0 || row >= m_touchScreenList.size()) {
         return QModelIndex();
@@ -31,17 +31,17 @@ QModelIndex TouchScreenMatchModel::index(int row, int column, const QModelIndex 
     return createIndex(row, column);
 }
 
-QModelIndex TouchScreenMatchModel::parent(const QModelIndex &index) const
+QModelIndex TouchScreenMatchModel::parent(const QModelIndex &) const
 {
     return QModelIndex();
 }
 
-int TouchScreenMatchModel::rowCount(const QModelIndex &parent) const
+int TouchScreenMatchModel::rowCount(const QModelIndex &) const
 {
     return m_touchScreenList.size();
 }
 
-int TouchScreenMatchModel::columnCount(const QModelIndex &parent) const
+int TouchScreenMatchModel::columnCount(const QModelIndex &) const
 {
     return 1;
 }

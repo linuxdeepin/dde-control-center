@@ -36,8 +36,8 @@ signals:
 
 
 private:
-    QString m_dispalyText;
     QString m_name;
+    QString m_dispalyText;
     QString m_path;
     DDesktopServices::SystemSoundEffect m_systemSoundEffect;
     bool m_checked;

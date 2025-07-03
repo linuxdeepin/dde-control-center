@@ -351,6 +351,7 @@ void AppMgr::initObjectManager()
             });
     connect(m_objectManager, &AppManager1ApplicationObjectManager::InterfacesRemoved, this,
             [this](const QDBusObjectPath &objPath, const QStringList &interfaces) {
+                Q_UNUSED(interfaces)
                 const QString key(objPath.path());
                 qDebug() << "InterfacesRemoved by AM, path:" << key;
                 watchingAppItemRemoved(key);
