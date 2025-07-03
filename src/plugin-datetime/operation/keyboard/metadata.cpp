@@ -76,9 +76,3 @@ bool MetaData::operator >(const MetaData &md) const
     int x = QString::compare(m_pinyin, md.m_pinyin, Qt::CaseInsensitive);
     return x > 0;
 }
-
-QDebug &operator<<(QDebug dbg, const MetaData &md)
-{
-    dbg.nospace() << QString("key: %1, text: %2").arg(md.key(), md.text());
-    return dbg.maybeSpace();
-}

@@ -36,10 +36,7 @@ private:
     QString m_pinyin;
     bool m_section;
     bool m_selected;
-    friend QDebug &operator<<(QDebug dbg, const MetaData &md);
 };
-
-QDebug &operator<<(QDebug dbg, const MetaData &md);
 
 }
 Q_DECLARE_METATYPE(dccV25::MetaData)

@@ -714,3 +714,9 @@ void SoundModel::setOutPutPortCombo(const QStringList& outPutPort)
     Q_EMIT outPutPortComboChanged(m_outPutPortCombo);
 }
 
+QString SoundModel::getListName(int index) const
+{
+    Q_UNUSED(index)
+    return QString();
+}
+

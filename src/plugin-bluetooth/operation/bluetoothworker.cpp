@@ -316,3 +316,9 @@ void BluetoothWorker::showBluetoothTransDialog(const QString &address, const QSt
 
     m_bluetoothDBusProxy->showBluetoothTransDialog(address, fileList);
 }
+
+void BluetoothWorker::ignoreDevice(const BluetoothAdapter *adapter, const BluetoothDevice *device)
+{
+    Q_UNUSED(adapter)
+    Q_UNUSED(device)
+}
