@@ -3153,6 +3153,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Developer Options</source>
         <translation>Options l&apos;insass</translation>
     </message>
+    <message>
+        <source>Developer debugging options</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>datetime</name>
@@ -4151,6 +4155,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Light</source>
         <translation>Lig</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
