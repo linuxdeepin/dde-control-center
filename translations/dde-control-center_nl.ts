@@ -883,6 +883,22 @@ UnionTech Software doet onderzoek naar de verbetering en beveiliging van de func
         <source>Create account</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Username cannot exceed 32 characters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Username can only contain letters, numbers, - and _</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Full name cannot exceed 32 characters</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Full name cannot contain colons</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>
