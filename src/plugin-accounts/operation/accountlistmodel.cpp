@@ -94,6 +94,7 @@ GroupListModel::GroupListModel(const QString &id, QObject *parent)
             if (m_groups.count() > 1 && m_groups.last().isEmpty())
                 return;
 
+            m_isCreatingGroup = true;
             int index = m_groups.count();
             beginInsertRows(QModelIndex(), index, index);
             m_groups << "";
@@ -135,29 +136,11 @@ void GroupListModel::updateGroups(const QStringList &groups) {
     if (m_groups == groups)
         return;
 
-    int oldSize = m_groups.size();
-    int newSize = groups.size();
-    int minSize = qMin(oldSize, newSize);
-    
-    for (int i = 0; i < minSize; ++i) {
-        if (m_groups[i] != groups[i]) {
-            m_groups[i] = groups[i];
-            emit dataChanged(index(i), index(i));
-        }
-    }
-    
-    if (newSize > oldSize) {
-        beginInsertRows(QModelIndex(), oldSize, newSize - 1);
-        for (int i = oldSize; i < newSize; ++i) {
-            m_groups.append(groups[i]);
-        }
-        endInsertRows();
-    }
-    else if (oldSize > newSize) {
-        beginRemoveRows(QModelIndex(), newSize, oldSize - 1);
-        m_groups = groups;
-        endRemoveRows();
-    }
+    beginResetModel();
+    m_groups = groups;
+    endResetModel();
+
+    Q_EMIT groupsUpdated();
 }
 
 int GroupListModel::rowCount(const QModelIndex &) const

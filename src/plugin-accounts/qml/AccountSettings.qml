@@ -631,11 +631,36 @@ DccObject {
         page: ListView {
             id: groupview
             property int lrMargin: DccUtils.getMargin(width)
+            property int conY: 0
             spacing: 0
             currentIndex: -1
             activeFocusOnTab: false
             keyNavigationEnabled: false
             clip: false
+
+            function qmlListModelUpdata() {
+                if (model && model.isCreatingGroup) {
+                    model.setCreatingGroup(false)
+                    Qt.callLater(function () {
+                        groupview.positionViewAtEnd()
+                    })
+                } else {
+                    groupview.contentY = conY
+                }
+            }
+
+            Connections {
+                target: model
+                function onGroupsUpdated() {
+                    qmlListModelUpdata()
+                }
+            }
+
+            onContentYChanged: {
+                if(contentY != -50) {
+                    conY = contentY
+                }
+            }
             anchors {
                 left: parent ? parent.left : undefined
                 right: parent ? parent.right : undefined
@@ -806,7 +831,8 @@ DccObject {
                                 if (model.display.length < 1) {
                                     dccData.requestClearEmptyGroup(settings.userId)
                                 } else {
-                                    text = model.display
+                                    var elidedText = metrics.elidedText(model.display, Text.ElideRight, editTextWidth)
+                                    text = elidedText
                                 }
                                 return
                             }
