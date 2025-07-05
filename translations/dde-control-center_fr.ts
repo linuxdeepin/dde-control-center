@@ -1728,7 +1728,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Réinitialiser le mot de passe</translation>
     </message>
 </context>
 <context>
@@ -1949,7 +1949,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Nouveau mot de passe</translation>
     </message>
 </context>
 <context>
@@ -3182,7 +3182,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Options de débogage de développeur</translation>
     </message>
 </context>
 <context>
@@ -4185,7 +4185,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Fort</translation>
     </message>
 </context>
 </TS>
