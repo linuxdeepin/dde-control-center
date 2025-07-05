@@ -551,11 +551,11 @@
     </message>
     <message>
         <source>繁體中文(中國香港)</source>
-        <translation type="unfinished"/>
+        <translation>繁體中文(中國香港)</translation>
     </message>
     <message>
         <source>繁體中文</source>
-        <translation type="unfinished"/>
+        <translation>繁體中文</translation>
     </message>
     <message>
         <source>isiZulu</source>
