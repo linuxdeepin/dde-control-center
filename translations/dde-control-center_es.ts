@@ -1714,7 +1714,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Restablecer contraseña</translation>
     </message>
 </context>
 <context>
@@ -1935,7 +1935,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Nueva contraseña</translation>
     </message>
 </context>
 <context>
@@ -3167,7 +3167,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Opciones de depuración para desarrolladores</translation>
     </message>
 </context>
 <context>
@@ -4170,7 +4170,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Intensa</translation>
     </message>
 </context>
 </TS>
