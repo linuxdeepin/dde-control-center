@@ -46,7 +46,7 @@ KeyboardController::KeyboardController(QObject *parent)
             // have conflict
             if (conflict) {
                 // self conflict
-                if (conflict == current && conflict->accels == current->accels) {
+                if (current == nullptr || (conflict == current && conflict->accels == current->accels)) {
                     Q_EMIT requestRestore();
                     return;
                 }
