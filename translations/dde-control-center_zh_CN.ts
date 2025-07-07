@@ -1790,7 +1790,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>插入鼠标时禁用触摸板</translation>
+        <translation>插入鼠标时禁用触控板</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -2795,7 +2795,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation>输入时禁用触摸板</translation>
+        <translation>输入时禁用触控板</translation>
     </message>
     <message>
         <source>Tap to Click</source>
@@ -3166,7 +3166,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>开发者调试选项</translation>
     </message>
 </context>
 <context>
@@ -4169,7 +4169,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>重</translation>
     </message>
 </context>
 </TS>
