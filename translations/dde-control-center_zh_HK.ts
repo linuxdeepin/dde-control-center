@@ -3164,7 +3164,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>開發者調試選項</translation>
     </message>
 </context>
 <context>
@@ -4167,7 +4167,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>重</translation>
     </message>
 </context>
 </TS>
