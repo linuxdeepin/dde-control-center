@@ -23,7 +23,8 @@ Loader {
 
     sourceComponent: DialogWindow {
         id: ddialog
-        width: 640
+        width: 738
+        height: 636
         minimumWidth: width
         minimumHeight: height
         maximumWidth: minimumWidth
@@ -41,6 +42,8 @@ Loader {
 
             RowLayout {
                 ColumnLayout {
+                    Layout.preferredWidth: 348
+                    Layout.maximumWidth: 348
                     SearchEdit {
                         id: searchEdit
                         Layout.fillWidth: true
@@ -128,7 +131,8 @@ Loader {
 
                 ColumnLayout {
                     Layout.fillHeight: true
-                    width: 300
+                    Layout.preferredWidth: 348
+                    Layout.maximumWidth: 348
                     spacing: 0
                     Label {
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop | Qt.H
