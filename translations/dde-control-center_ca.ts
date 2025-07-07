@@ -3166,7 +3166,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Opcions de depuració per a desenvolupadors</translation>
     </message>
 </context>
 <context>
@@ -4169,7 +4169,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Intensa</translation>
     </message>
 </context>
 </TS>
