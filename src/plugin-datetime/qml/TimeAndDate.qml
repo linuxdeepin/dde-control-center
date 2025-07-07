@@ -91,6 +91,13 @@ DccObject {
             pageType: DccObject.Editor
             property bool showCustom: false
             property string customAddr
+
+            onParentItemChanged: item => {
+                if (item) {
+                    item.rightPadding = DS.Style.comboBox.spacing
+                }
+            }
+
             page: Item {
                 implicitHeight: 36
                 implicitWidth: dccData.ntpEnabled ? 280 : 80
@@ -99,6 +106,7 @@ DccObject {
                     id: comboBox
                     property var serverList: dccData.ntpServerList
                     flat: true
+                    padding: 0
                     visible: dccData.ntpEnabled
                     anchors.fill: parent
                     hoverEnabled: true
@@ -311,6 +319,13 @@ DccObject {
         weight: 12
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
+
+        onParentItemChanged: item => {
+            if (item) {
+                item.rightPadding = DS.Style.comboBox.spacing
+            }
+        }
+
         page: Item {
             id: systemTimezoneItem
             implicitWidth: rowlayout.implicitWidth
