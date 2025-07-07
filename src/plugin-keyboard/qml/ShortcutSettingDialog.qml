@@ -164,7 +164,7 @@ D.DialogWindow {
         Connections {
             target: dccData
             function onRequestRestore() {
-                edit.keys = [qsTr("None")]
+                edit.keys = ddialog.keySequence
                 conflictText.text = ""
             }
             function onRequestClear() {
