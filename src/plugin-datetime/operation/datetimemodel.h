@@ -16,7 +16,6 @@ class DatetimeWorker;
 namespace dccV25 {
 class KeyboardModel;
 }
-
 class DatetimeModel : public QObject
 {
     Q_OBJECT

@@ -311,3 +311,8 @@ void DatetimeDBusProxy::setPositiveCurrencyFormat(const QString &newPositiveCurr
 {
     m_formatInter->setProperty("PositiveCurrencyFormat", QVariant::fromValue(newPositiveCurrencyFormat));
 }
+
+void DatetimeDBusProxy::GenLocale(const QString &locale)
+{
+    m_localeInter->asyncCall(QStringLiteral("GenLocale"), locale);
+}
