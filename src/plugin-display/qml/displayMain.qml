@@ -183,39 +183,11 @@ DccObject {
                     }
                 }
                 Repeater {
-                    // 复制模式时示意图后面的框，放该位置是为了层级在所有示意图后面
-                    model: dccData.virtualScreens
-                    delegate: Loader {
-                        active: screen.screenItems.length > 1
-                        anchors.fill: monitorRepeater.itemAt(index)
-                        z: -1
-                        sourceComponent: Item {
-                            property var screen: model.modelData
-                            property D.Palette backgroundColor: D.Palette {
-                                normal: Qt.rgba(1, 1, 1, 1)
-                                normalDark: Qt.rgba(1, 1, 1, 0.05)
-                            }
-                            Repeater {
-                                model: screen.screenItems.length - 1
-                                delegate: Rectangle {
-                                    z: -1 - index * 0.01
-                                    radius: parent.width * 0.05
-                                    anchors.centerIn: parent
-                                    color: parent.D.ColorSelector.backgroundColor
-                                    border.color: "#515151"
-                                    border.width: 1
-                                    width: parent.width + (radius * 2 * (index + 1))
-                                    height: parent.height - (radius * 2 * (index + 1))
-                                }
-                            }
-                        }
-                    }
-                }
-                Repeater {
                     id: monitorRepeater
                     property bool hasMove: false
                     model: dccData.virtualScreens
                     delegate: ScreenItem {
+                        z: selected ? 2 : 1
                         screen: model.modelData
                         translationX: monitorsGround.translationX
                         translationY: monitorsGround.translationY
