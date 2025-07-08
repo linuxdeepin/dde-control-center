@@ -65,7 +65,7 @@ Loader {
                         property string selectedLangKey: ""
                         property string selectedLocaleKey: ""
                         Layout.fillWidth: true
-                        height: 500
+                        Layout.fillHeight: true
                         clip: true
                         model: regionFormatLoader.viewModel
                         currentIndex: regionFormatLoader.currentIndex
