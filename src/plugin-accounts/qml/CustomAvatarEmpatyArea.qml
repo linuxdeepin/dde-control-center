@@ -66,7 +66,16 @@ Control {
             enabled: true
             onDropped: function (drop) {
                 if (drop.hasUrls) {
-                    iconDropped(drop.urls[0])
+                    var filePath = drop.urls[0].toString()
+                    var ext = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase()
+                    if (['png', 'bmp', 'jpg', 'jpeg'].indexOf(ext) === -1) {
+                        errorLabel.visible = true
+                        normalLabel.visible = false
+                        return
+                    }
+                    errorLabel.visible = false
+                    normalLabel.visible = true
+                    iconDropped(filePath)
                 }
             }
         }
@@ -79,6 +88,7 @@ Control {
     }
 
     D.Label {
+        id: normalLabel
         width: 360
         wrapMode: Text.WordWrap
         anchors.top: addIcon.bottom
@@ -86,5 +96,17 @@ Control {
         horizontalAlignment: Text.AlignHCenter
         anchors.horizontalCenter: parent.horizontalCenter
         text: qsTr("You haven't uploaded an avatar yet. Click or drag and drop to upload an image.")
+    }
+
+    D.Label {
+        id: errorLabel
+        width: 360
+        wrapMode: Text.WordWrap
+        anchors.top: addIcon.bottom
+        anchors.topMargin: 20
+        horizontalAlignment: Text.AlignHCenter
+        anchors.horizontalCenter: parent.horizontalCenter
+        visible: false
+        text: qsTr("The uploaded file type is incorrect, please upload it again")
     }
 }
