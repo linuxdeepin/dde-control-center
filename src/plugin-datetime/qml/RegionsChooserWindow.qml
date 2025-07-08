@@ -39,13 +39,15 @@ Loader {
         // default color is white
         color: active ? DTK.palette.window : DTK.inactivePalette.window
 
-        Item {
+        ColumnLayout {
+            id: contentLayout
             anchors.fill: parent
+            anchors.margins: 6
             SearchEdit {
                 id: searchEdit
-                anchors.top: parent.top
-                anchors.topMargin: 10
-                anchors.horizontalCenter: parent.horizontalCenter
+                implicitHeight: 30
+                Layout.fillWidth: true
+                Layout.alignment: Qt.AlignTop
                 placeholder: qsTr("Search")
                 palette: DTK.palette
                 onTextChanged: {
@@ -56,58 +58,49 @@ Loader {
                 }
             }
 
-            Item {
-                anchors.top: searchEdit.bottom
-                anchors.topMargin: 10
-                anchors.horizontalCenter: parent.horizontalCenter
-                height: 500
-                width: 200
+            ListView {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                id: itemsView
+                property string checkedLang
+                property string checkedLocale
+                clip: true
+                model: viewModel
+                currentIndex: loader.currentIndex
 
-                ListView {
-                    id: itemsView
-                    property string checkedLang
-                    property string checkedLocale
-                    anchors.fill: parent
-                    clip: true
-                    leftMargin: 10
-                    rightMargin: 10
-                    model: viewModel
-                    currentIndex: loader.currentIndex
+                ScrollBar.vertical: ScrollBar {
+                    parent: itemsView
+                    anchors.top: itemsView.top
+                    anchors.right: itemsView.right
+                    anchors.bottom: itemsView.bottom
+                    width: 10
+                    implicitWidth: 10
+                }
 
-                    ScrollBar.vertical: ScrollBar {
-                        parent: itemsView.parent
-                        anchors.top: itemsView.top
-                        anchors.right: itemsView.right
-                        anchors.bottom: itemsView.bottom
-                        width: 10
-                        implicitWidth: 10
-                    }
+                ButtonGroup {
+                    id: regionGroup
+                }
 
-                    ButtonGroup {
-                        id: regionGroup
-                    }
-
-                    delegate: CheckDelegate {
-                        id: checkDelegate
-                        implicitWidth: itemsView.width - itemsView.leftMargin - itemsView.rightMargin
-                        palette: DTK.palette
-                        text: model.display
-                        checked: text === loader.currentText
-                        hoverEnabled: true
-                        ButtonGroup.group: regionGroup
-                        onCheckedChanged: {
-                            if (checked && loader.currentText !== model.display) {
-                                selectedRegion(model.display)
-                                closeWindow()
-                            }
+                delegate: CheckDelegate {
+                    id: checkDelegate
+                    implicitWidth: itemsView.width - itemsView.leftMargin - itemsView.rightMargin
+                    palette: DTK.palette
+                    text: model.display
+                    checked: text === loader.currentText
+                    hoverEnabled: true
+                    ButtonGroup.group: regionGroup
+                    onCheckedChanged: {
+                        if (checked && loader.currentText !== model.display) {
+                            selectedRegion(model.display)
+                            closeWindow()
                         }
                     }
-                    Component.onCompleted: {
-                        if (currentIndex >= 0) {
-                            let delegateHeight =  40
-                            contentY = currentIndex * delegateHeight;
-                            console.log("currentIndex", currentIndex, contentY)
-                        }
+                }
+                Component.onCompleted: {
+                    if (currentIndex >= 0) {
+                        let delegateHeight =  40
+                        contentY = currentIndex * delegateHeight;
+                        console.log("currentIndex", currentIndex, contentY)
                     }
                 }
             }
