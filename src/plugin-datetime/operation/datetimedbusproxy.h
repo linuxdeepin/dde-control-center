@@ -125,6 +125,8 @@ public:
     QString positiveCurrencyFormat() const;
     void setPositiveCurrencyFormat(const QString &newPositiveCurrencyFormat);
 
+    void GenLocale(const QString &locale);
+
 Q_SIGNALS: // SIGNALS
     // Timedate
     // begin property changed signals

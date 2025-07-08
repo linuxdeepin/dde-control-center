@@ -9,6 +9,15 @@ import QtQml.Models
 
 // 语言和区域
 DccObject {
+    id: langAndFormat
+
+    property int localeStateChanged: 0
+    property int localeStateChanging: 1
+    // 正在设置语言
+    property int localeStateSetLang: 1 << 1
+    // 正在locale-gen
+    property int localeStateGenLocale: 1 << 2
+
     FontMetrics {
         id: fm
     }
@@ -135,7 +144,8 @@ DccObject {
                         }
 
                         Loader {
-                            active: itemDelegate.isCurrentLang && !dccObj.enabled
+                            active: itemDelegate.isCurrentLang && !dccObj.enabled 
+                                && dccData.langState & langAndFormat.localeStateSetLang
                             sourceComponent: BusyIndicator {
                                 running: true
                                 implicitWidth: 36
@@ -292,6 +302,7 @@ DccObject {
 
     // 区域格式
     DccObject {
+        id: regionAndFormat
         name: "regionAndFormat"
         parentName: "langAndFormat"
         weight: 50
@@ -299,11 +310,17 @@ DccObject {
         description: qsTr("Operating system and applications may set date and time formats based on regional formats")
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
+
+        property bool localeRunning: dccData.langState & langAndFormat.localeStateChanging
+        property bool localeGenRunning: dccData.langState & langAndFormat.localeStateGenLocale
+        enabled: !localeRunning || localeGenRunning
         page: Item {
-            implicitWidth: layout.implicitWidth
-            implicitHeight: layout.implicitHeight
+            id: regionAndFormatItem
+            implicitWidth: regionAndFormat.localeGenRunning ? 36 : layout.implicitWidth
+            implicitHeight: regionAndFormat.localeGenRunning ? 36 : layout.implicitHeight
             RowLayout {
                 id: layout
+                visible: !regionAndFormat.localeGenRunning
                 Label {
                     id: currentLabel
                     text: dccData.currentLanguageAndRegion
@@ -315,8 +332,20 @@ DccObject {
                 }
             }
 
+            RowLayout {
+                anchors.fill: parent
+                visible: regionAndFormat.localeGenRunning
+                Layout.rightMargin: 10
+                BusyIndicator {
+                    running: true
+                    implicitWidth: 36
+                    implicitHeight: 36
+                }
+            }
+
             MouseArea {
                 anchors.fill: parent
+                enabled: !regionAndFormat.localeGenRunning
                 RegionFormatDialog {
                     id: regionDialog
                     currentIndex: dccData.currentLanguageAndRegionIndex()

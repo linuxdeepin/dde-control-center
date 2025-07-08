@@ -516,5 +516,8 @@ bool DatetimeWorker::genLocale(const QString &localeName)
     settings.setValue("LC_ADDRESS", localeSet);
     settings.setValue("LC_TELEPHONE", localeSet);
     settings.setValue("LC_MEASUREMENT", localeSet);
+
+    m_timedateInter->GenLocale(localeSet);
+
     return true;
 }
