@@ -63,7 +63,8 @@ DccObject {
 
                 Label {
                     Layout.alignment: Qt.AlignVCenter
-                    font: D.DTK.fontManager.t7
+                    font: D.DTK.fontManager.t10
+                    color: Qt.rgba(palette.text.r, palette.text.g, palette.text.b, 0.5)
                     text: root.toPercent(voiceTipsSlider1.value)
                 }
 
