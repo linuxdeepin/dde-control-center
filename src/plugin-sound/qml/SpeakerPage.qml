@@ -60,7 +60,8 @@ DccObject {
             pageType: DccObject.Editor
             page: RowLayout {
                 Label {
-                    font: DTK.fontManager.t7
+                    font: DTK.fontManager.t10
+                    color: Qt.rgba(palette.text.r, palette.text.g, palette.text.b, 0.5)
                     text: root.toPercent(voiceTipsSlider.value)
                 }
                 ActionButton {
