@@ -194,6 +194,7 @@ D.DialogWindow {
                 visible: needShow()
                 onIconDropped: function (url){
                     dialog.currentAvatar = url
+                    needShow()
                 }
                 onRequireFileDialog: {
                     fileDlgLoader.active = true
@@ -203,8 +204,8 @@ D.DialogWindow {
                     if (!scrollView.isCustom)
                         return false
 
-                    let icons = dccData.avatars(dialog.userId, scrollView.filter, "")
-                    return icons.length < 1
+                    let icons = dccData.avatars(dialog.suserId, scrollView.filter, "")
+                    return icons.length < 1 && dialog.currentAvatar.length < 1
                 }
             }
 
