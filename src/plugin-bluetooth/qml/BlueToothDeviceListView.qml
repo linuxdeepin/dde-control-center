@@ -125,9 +125,6 @@ Rectangle {
                                         font.pointSize: 8
                                     }
                                 }
-                                onLoaded: {
-                                    item.show()
-                                }
                             }
                         }
 

@@ -52,6 +52,8 @@ void BluetoothDeviceModel::updateData(BluetoothDevice *device)
             bool isConnected = (device->state() == BluetoothDevice::StateConnected && device->connectState());
             if (isConnected && index > 0) {
                 moveToTop(device->id());
+            } else if (!isConnected) {
+                reorderDevices();
             } else {
                 QModelIndex modelIndex = createIndex(index, 0);
                 emit dataChanged(modelIndex, modelIndex, {});
@@ -61,6 +63,7 @@ void BluetoothDeviceModel::updateData(BluetoothDevice *device)
     }
     qDebug() << " updateAdapter new device : " << device->id();
     addDevice(device);
+    reorderDevices();
 }
 
 void BluetoothDeviceModel::updateAllData()
@@ -82,6 +85,33 @@ void BluetoothDeviceModel::moveToTop(const QString &deviceId)
     BluetoothDevice* device = m_deviceData.takeAt(currentIndex);
     m_deviceData.prepend(device);
     endMoveRows();
+}
+
+void BluetoothDeviceModel::reorderDevices()
+{
+    QList<BluetoothDevice*> connectedDevices;
+    QList<BluetoothDevice*> disconnectedDevices;
+    
+    for (int i = 0; i < m_deviceData.count(); i++) {
+        BluetoothDevice* device = m_deviceData.at(i);
+        if (device->state() == BluetoothDevice::StateConnected && device->connectState()) {
+            connectedDevices.append(device);
+        } else {
+            disconnectedDevices.append(device);
+        }
+    }
+    
+    if (connectedDevices.isEmpty() || disconnectedDevices.isEmpty()) {
+        return;
+    }
+    
+    beginResetModel();
+    
+    m_deviceData.clear();
+    m_deviceData.append(connectedDevices);
+    m_deviceData.append(disconnectedDevices);
+    
+    endResetModel();
 }
 
 int BluetoothDeviceModel::rowCount(const QModelIndex &parent) const
