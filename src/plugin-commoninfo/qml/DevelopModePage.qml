@@ -379,12 +379,16 @@ DccObject {
                 bottomPadding: 5
                 color: D.DTK.themeType === D.ApplicationHelper.LightType ? "#64000000" : "#64FFFFFF"
                 textFormat: Text.RichText
-                text: qsTr("To install and run unsigned apps, please go to <a style='text-decoration: none;' href='Security Center'> Security Center </a> to change the settings.")
+                text: dccData.work().isSecurityCenterInstalled() ?
+                    qsTr("To install and run unsigned apps, please go to <a style='text-decoration: none;' href='Security Center'> Security Center </a> to change the settings.") :
+                    qsTr("To install and run unsigned apps, please go to Security Center to change the settings.")
                 font: D.DTK.fontManager.t10
                 // 超链接点击事件
                 onLinkActivated: function(url) {
-                    console.log("点击的链接是: " + url)
-                    dccData.work().jumpToSecurityCenter();
+                    if (dccData.work().isSecurityCenterInstalled()) {
+                        console.log("点击的链接是: " + url)
+                        dccData.work().jumpToSecurityCenter();
+                    }
                 }
             }
         }

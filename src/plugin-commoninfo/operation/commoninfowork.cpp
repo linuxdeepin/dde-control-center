@@ -708,3 +708,8 @@ void CommonInfoWork::setPlymouthFactor(int factor)
     Q_EMIT settingScaling(true);
 }
 
+bool CommonInfoWork::isSecurityCenterInstalled()
+{
+    return QFileInfo::exists("/usr/bin/deepin-defender-scanner");
+}
+
