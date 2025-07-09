@@ -7,6 +7,7 @@
 
 #include "syncinfolistmodel.h"
 #include "appinfolistmodel.h"
+#include "downloadurl.h"
 
 #include <QObject>
 #include <QVariantMap>
@@ -66,6 +67,9 @@ public:
 
     Q_INVOKABLE QString warnTipsMessage(); // 获取警告提示信息
 
+protected Q_SLOTS:
+    void updateAvatarPath();
+
 signals:
     void loginStateChanged(bool loginState);
     void avatarChanged(const QString &avatar);
@@ -97,6 +101,7 @@ private:
     QString m_lastSyncTime;    // 上次同步时间
     SyncInfoListModel *m_syncInfoListModel;
     AppInfoListModel *m_appInfoListModel;
+    DownloadUrl *m_downloader;
 };
 
 #endif // DEEPINIDMODEL_H
