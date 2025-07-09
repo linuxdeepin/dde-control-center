@@ -45,6 +45,7 @@ public:
     Q_INVOKABLE void importCertificate(QString filePath);
     Q_INVOKABLE void exportMessage(QString filePath);
     Q_INVOKABLE void setBackground(const QString &path);
+    Q_INVOKABLE bool isSecurityCenterInstalled();
 
 public Q_SLOTS:
     void setBootDelay(bool value);
