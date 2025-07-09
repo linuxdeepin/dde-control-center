@@ -151,7 +151,9 @@ DccObject {
             displayName: qsTr("Left Right Balance")
             weight: 40
             pageType: DccObject.Editor
-            visible: !dccData.model().audioMono
+            visible: !dccData.model().audioMono &&
+                (!dccData.model().showBluetoothMode ||
+                !dccData.model().outPutPortCombo[dccData.model().outPutPortComboIndex].toLowerCase().startsWith("handsfree"))
             page: RowLayout {
                 Label {
                     Layout.alignment: Qt.AlignVCenter
