@@ -3,7 +3,12 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "deepinidmodel.h"
+
 #include <QDateTime>
+#include <QDir>
+#include <QLoggingCategory>
+
+Q_LOGGING_CATEGORY(DeepinIDModel, "dcc-deepinid-model");
 
 DeepinidModel::DeepinidModel(QObject *parent)
     : QObject{ parent }
@@ -14,6 +19,7 @@ DeepinidModel::DeepinidModel(QObject *parent)
     , m_syncItemShow(false)
     , m_syncInfoListModel(new SyncInfoListModel(this))
     , m_appInfoListModel(new AppInfoListModel(this))
+    , m_downloader(nullptr)
 {
 
 }
@@ -32,10 +38,10 @@ void DeepinidModel::setUserinfo(const QVariantMap &userinfo)
     }
     m_wechatName = m_userinfo["WechatNickname"].toString().trimmed();
 
-    // TODO: 直接使用网络图片，暂时没做本地缓存，后面再考虑
-    m_avatar = m_userinfo["ProfileImage"].toString();
+    updateAvatarPath();
 
     Q_EMIT loginStateChanged(m_loginState);
+    Q_EMIT avatarChanged(m_avatar);
     Q_EMIT regionChanged(m_region);
     Q_EMIT userNameChanged(m_userName);
     Q_EMIT wechatNameChanged(m_wechatName);
@@ -112,4 +118,35 @@ QString DeepinidModel::warnTipsMessage()
     }
 
     return QString();
+}
+
+void DeepinidModel::updateAvatarPath()
+{
+    QString profile_image = m_userinfo["ProfileImage"].toString();
+    if (profile_image.isEmpty()) {
+        return;
+    }
+
+    QString avatarPath(QString("%1/.cache/deepin/dde-control-center/sync%2").arg(getenv("HOME")).arg(getUserName()));
+    QDir dir;
+    dir.mkpath(avatarPath);
+    qCDebug(DeepinIDModel) << "profile image:" << profile_image << ", avatar path:" << avatarPath;
+
+    QString localAvatar = avatarPath + profile_image.right(profile_image.size() - profile_image.lastIndexOf("/"));
+    QString localDefault = avatarPath + "/default.svg";
+    if (QFile::exists(localAvatar)) {
+        qCDebug(DeepinIDModel) << "local Avatar:" << localAvatar;
+        m_avatar = localAvatar;
+        return;
+    } else if (QFile::exists(localDefault)) {
+        qCDebug(DeepinIDModel) << "local default:" << localDefault;
+        m_avatar = localDefault;
+        return;
+    }
+
+    if (m_downloader == nullptr) {
+        m_downloader = new DownloadUrl(this);
+        connect(m_downloader, &DownloadUrl::fileDownloaded, this, &DeepinidModel::updateAvatarPath, Qt::UniqueConnection);
+    }
+    m_downloader->downloadFileFromURL(profile_image, avatarPath);
 }
