@@ -43,6 +43,8 @@ public:
     void updateAllData();
 
     void moveToTop(const QString &deviceId);
+    
+    void reorderDevices();
 
     // Basic functionality:
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
