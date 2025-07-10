@@ -135,7 +135,7 @@ QStringList AccountsController::avatars(const QString &id, const QString &filter
         return path1 < path2;
     });
 
-    if (filter.contains("icons/local") && !res.isEmpty()) {
+    if (filter.contains("icons/local")) {
         res.prepend("add"); // add button...
     }
 
