@@ -101,6 +101,30 @@
         <source>Quickly load DDE with your login information</source>
         <translation>Cargar rápidamente DDE con sus datos inicio se sesión</translation>
     </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
@@ -906,6 +930,10 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
         <translation>Aún no ha subido un avatar, puede hacer clic o arrastrar para cargar una imagen.</translation>
     </message>
+    <message>
+        <source>The uploaded file type is incorrect, please upload it again</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
@@ -1387,6 +1415,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
         <translation>Para instalar y ejecutar aplicaciones sin firmar, vaya al &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Centro de seguridad &lt;/a&gt; para cambiar la configuración.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1916,10 +1948,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Strong</source>
         <translation>Fuerte</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Contraseña</translation>
     </message>
     <message>
         <source>Repeat Password</source>
