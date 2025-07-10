@@ -1086,6 +1086,10 @@ UnionTech Software doet onderzoek naar de verbetering en beveiliging van de func
         <source>Page size</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Example</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DatetimeWorker</name>

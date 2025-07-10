@@ -471,4 +471,25 @@ DccObject {
             }
         }
     }
+
+    // Number example
+    DccObject {
+        name: "langlistTiltle"
+        parentName: "langAndFormat"
+        weight: 90
+        pageType: DccObject.Item
+        visible: dccData.numberExampleFormat !== ""
+        page: RowLayout {
+            Label {
+                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                Layout.leftMargin: 12
+                text: dccData.numberExampleFormat
+                font.pixelSize: DTK.fontManager.t10.pixelSize
+                color: DTK.themeType === ApplicationHelper.LightType ?
+                    Qt.rgba(0, 0, 0, 0.5) : Qt.rgba(1, 1, 1, 0.5)
+            }
+        }
+
+        onParentItemChanged: item => { if (item) item.topPadding = 0 }
+    }
 }
