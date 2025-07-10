@@ -1247,6 +1247,10 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
         <source>Go to web settings</source>
         <translation>Gehe zu Web-Einstellungen</translation>
     </message>
+    <message>
+        <source>The nickname must be 1~32 characters long</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeepinWorker</name>
@@ -1265,6 +1269,10 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <message>
         <source>Operation Successful</source>
         <translation>Aktion erfolgreich</translation>
+    </message>
+    <message>
+        <source>The nickname can be modified only once a day</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

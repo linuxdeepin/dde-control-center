@@ -22,6 +22,7 @@ Q_LOGGING_CATEGORY(DeepinIDWorker, "dcc-deepinid-worker");
 DCORE_USE_NAMESPACE
 
 static const QString SurPlusError = QStringLiteral("7520");
+static const QString NicknameOnce = QStringLiteral("7518");
 
 static void notifyInfo(const QString &reason)
 {
@@ -92,7 +93,15 @@ void DeepinWorker::openWeb()
 
 void DeepinWorker::setFullName(const QString &name)
 {
-    m_utcloudProxy->SetNickname(name.trimmed());
+    QString error;
+    bool ret = m_utcloudProxy->SetNickname(name.trimmed(), error);
+    if (!ret) {
+        QString errorMsg;
+        if (error.contains(NicknameOnce)) {
+            errorMsg = tr("The nickname can be modified only once a day");
+            notifyInfo(errorMsg);
+        }
+    }
 }
 
 void DeepinWorker::setAutoSync(bool autoSync)

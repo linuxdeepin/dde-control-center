@@ -20,7 +20,7 @@ public:
     void SwitcherSet(const QString &arg_0, bool state);
     bool SwitcherGet(const QString &arg_0);
     QDBusPendingCall SwitcherDump();
-    bool SetNickname(const QString &name);
+    bool SetNickname(const QString &name, QString &errorMsg);
 
 signals:
     void SwitcherChange(const QVariantList &);

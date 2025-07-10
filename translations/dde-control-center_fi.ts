@@ -1258,6 +1258,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Go to web settings</source>
         <translation>Siirry Internet asetuksiin</translation>
     </message>
+    <message>
+        <source>The nickname must be 1~32 characters long</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeepinWorker</name>
@@ -1276,6 +1280,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Operation Successful</source>
         <translation>Tehtävä onnistui</translation>
+    </message>
+    <message>
+        <source>The nickname can be modified only once a day</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

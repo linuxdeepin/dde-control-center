@@ -1262,6 +1262,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>Go to web settings</source>
         <translation>Ir a la configuración web</translation>
     </message>
+    <message>
+        <source>The nickname must be 1~32 characters long</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeepinWorker</name>
@@ -1280,6 +1284,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Operation Successful</source>
         <translation>Operación exitosa</translation>
+    </message>
+    <message>
+        <source>The nickname can be modified only once a day</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
