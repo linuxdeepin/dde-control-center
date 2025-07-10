@@ -51,6 +51,7 @@ class DatetimeModel : public QObject
 
     Q_PROPERTY(QString digitGroupingSymbol READ digitGroupingSymbol WRITE setDigitGroupingSymbol NOTIFY digitGroupingSymbolChanged FINAL)
     Q_PROPERTY(int langState READ langState NOTIFY langStateChanged FINAL)
+    Q_PROPERTY(QString numberExampleFormat READ numberExampleFormat NOTIFY numberExampleFormatChanged FINAL)
 
 public:
     using Regions = QMap<QString, QLocale>;
@@ -162,6 +163,8 @@ public:
     void setWeekdayFormat(int newWeekdayFormat);
     int langState() const;
 
+    QString numberExampleFormat() const;
+
 Q_SIGNALS:
     void ntpChanged(bool value);
     void hourTypeChanged(bool value);
@@ -200,6 +203,7 @@ Q_SIGNALS:
     void currentTimeChanged();
     void currentFormatChanged(int format);
     void langStateChanged(int state);
+    void numberExampleFormatChanged(const QString &numberExampleFormat);
 
 public Q_SLOTS:
     void set24HourFormat(bool state);
@@ -234,8 +238,8 @@ public Q_SLOTS:
     void setCurrentLocaleAndLangRegion(const QString &localeName, const QString& langAndRegion);
 
     // format ==> DatetimeModel::Format
-    QStringList availableFormats(int format);
-    int currentFormatIndex(int format);
+    QStringList availableFormats(int format) const;
+    int currentFormatIndex(int format) const;
     void setCurrentFormat(int format, int index);
     QString currentDate();
     QString currentTime() const;

@@ -267,7 +267,8 @@ DatetimeModel::DatetimeModel(QObject *parent)
     });
 
     connect(this, &DatetimeModel::symbolChanged, this, [this](int format) {
-        if (format != CurrencySymbol && format != DigitGroupingSymbol)
+        Q_EMIT numberExampleFormatChanged(numberExampleFormat());
+        if (format != CurrencySymbol && format != DigitGroupingSymbol && format != DecimalSymbol)
             return;
 
         Q_EMIT currentFormatChanged(format);
@@ -665,7 +666,7 @@ void DatetimeModel::setCurrentLocaleAndLangRegion(const QString &localeName, con
     m_work->genLocale(locale.name());
 }
 
-QStringList DatetimeModel::availableFormats(int format)
+QStringList DatetimeModel::availableFormats(int format) const
 {
     QLocale locale(m_localeName);
     RegionAvailableData regionFormatsAvailable = RegionProxy::allTextData(locale);
@@ -735,7 +736,7 @@ QStringList DatetimeModel::availableFormats(int format)
     return QStringList();
 }
 
-int DatetimeModel::currentFormatIndex(int format)
+int DatetimeModel::currentFormatIndex(int format) const
 {
 #define INDEX_OF(format, MEMBER, isDate) { \
         const QDate CurrentDate(2024, 1, 1); \
@@ -1265,6 +1266,88 @@ int DatetimeModel::langState() const
         return 0;
 
     return m_langModel->getLangChangedState();
+}
+
+QString DatetimeModel::numberExampleFormat() const
+{
+    QString numberExampleFormat = tr("Example") + ":";
+
+    QStringList digitGroupingValues = availableFormats(DigitGrouping);
+    int digitGroupingIndex = currentFormatIndex(DigitGrouping);
+    if (!digitGroupingValues.isEmpty() && (digitGroupingIndex < 0 || digitGroupingIndex >= digitGroupingValues.size())) {
+        digitGroupingIndex = 0;
+    }
+    QStringList decimalValues = availableFormats(DecimalSymbol);
+    int decimalIndex = currentFormatIndex(DecimalSymbol);
+    if (!decimalValues.isEmpty() && (decimalIndex < 0 || decimalIndex >= decimalValues.size())) {
+        decimalIndex = 0;
+    }
+    QStringList currencyValues = availableFormats(CurrencySymbol);
+    int currencyIndex = currentFormatIndex(CurrencySymbol);
+    if (!currencyValues.isEmpty() && (currencyIndex < 0 || currencyIndex >= currencyValues.size())) {
+        currencyIndex = 0;
+    }
+
+    QString numberData;
+    if (digitGroupingIndex >= 0 && digitGroupingIndex < digitGroupingValues.size() &&
+        decimalIndex >= 0 && decimalIndex < decimalValues.size() &&
+        currencyIndex >= 0 && currencyIndex < currencyValues.size()) {
+
+        numberData += digitGroupingValues.at(digitGroupingIndex);
+        numberData += normalizeSpace(decimalValues.at(decimalIndex));
+        numberData += "00";
+
+        QString currencyFormat = currencyValues.at(currencyIndex);
+        int positiveCurrencyIndex = currentFormatIndex(PositiveCurrency);
+        QString positiveCurrencyFormat;
+        switch (positiveCurrencyIndex) {
+        case 0://¥1.1
+            positiveCurrencyFormat = QString("%1%2").arg(currencyFormat).arg(numberData);
+            break;
+        case 1://1.1¥
+            positiveCurrencyFormat = QString("%1%2").arg(numberData).arg(currencyFormat);
+            break;
+        case 2://¥ 1.1
+            positiveCurrencyFormat = QString("%1 %2").arg(currencyFormat).arg(numberData);
+            break;
+        case 3://1.1 ¥
+            positiveCurrencyFormat = QString("%1 %2").arg(numberData).arg(currencyFormat);
+            break;
+        default:
+            break;
+        }
+
+        int negativeCurrencyIndex = currentFormatIndex(NegativeCurrency);
+        QString negativeCurrency;
+        switch (negativeCurrencyIndex) {
+        case 0://-¥1.1
+            negativeCurrency = QString("%1%2%3").arg("-").arg(currencyFormat).arg(numberData);
+            break;
+        case 1://¥-1.1
+            negativeCurrency = QString("%1%2%3").arg(currencyFormat).arg("-").arg(numberData);
+            break;
+        case 2://¥1.1-
+            negativeCurrency = QString("%1%2%3").arg(currencyFormat).arg(numberData).arg("-");
+            break;
+        case 3://-1.1¥
+            negativeCurrency = QString("%1%2%3").arg("-").arg(numberData).arg(currencyFormat);
+            break;
+        case 4://1.1-¥
+            negativeCurrency = QString("%1%2%3").arg(numberData).arg("-").arg(currencyFormat);
+            break;
+        case 5://1.1¥-
+            negativeCurrency = QString("%1%2%3").arg(numberData).arg(currencyFormat).arg("-");
+            break;
+        default:
+            break;
+        }
+
+        numberExampleFormat = numberExampleFormat + "  " + positiveCurrencyFormat + "  " + negativeCurrency;
+    } else {
+        numberExampleFormat.clear();
+    }
+
+    return numberExampleFormat;
 }
 
 DCC_FACTORY_CLASS(DatetimeModel)
