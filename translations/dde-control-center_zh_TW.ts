@@ -1085,7 +1085,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>範例</translation>
     </message>
 </context>
 <context>
