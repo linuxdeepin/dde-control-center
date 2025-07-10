@@ -101,6 +101,30 @@
         <source>Quickly load DDE with your login information</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
@@ -868,11 +892,31 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Create account</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Username cannot exceed 32 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username can only contain letters, numbers, - and _</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Full name cannot exceed 32 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Full name cannot contain colons</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The uploaded file type is incorrect, please upload it again</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1204,6 +1248,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Go to web settings</source>
         <translation>3l-3ddi fessaa 3ddi w3b</translation>
     </message>
+    <message>
+        <source>The nickname must be 1~32 characters long</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DeepinWorker</name>
@@ -1222,6 +1270,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Operation Successful</source>
         <translation>3ddi 3ddi t3msal</translation>
+    </message>
+    <message>
+        <source>The nickname can be modified only once a day</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1358,6 +1410,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1887,10 +1943,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Strong</source>
-        <translation>Tefus</translation>
-    </message>
-    <message>
-        <source>Password</source>
         <translation>Tefus</translation>
     </message>
     <message>
