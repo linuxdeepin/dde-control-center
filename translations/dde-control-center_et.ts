@@ -101,6 +101,30 @@
         <source>Quickly load DDE with your login information</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
@@ -892,6 +916,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
         <translation>Avatakuu ei ole veel üles laetud. Klõpsake või trüki ja lasege saada laetud pilt.</translation>
     </message>
+    <message>
+        <source>The uploaded file type is incorrect, please upload it again</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
@@ -1378,6 +1406,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1908,10 +1940,6 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>Strong</source>
         <translation>Vabasõnu</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Parool</translation>
     </message>
     <message>
         <source>Repeat Password</source>
