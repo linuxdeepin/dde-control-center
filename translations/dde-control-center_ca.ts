@@ -101,6 +101,30 @@
         <source>Quickly load DDE with your login information</source>
         <translation>Carregueu ràpidament l&apos;escriptori amb la vostra informació d&apos;inici de sessió</translation>
     </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
@@ -905,6 +929,10 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
         <translation>Encara no heu penjat cap avatar. Cliqueu aquí o arrossegueu-hi una imatge i deixeu-la-hi anar.</translation>
     </message>
+    <message>
+        <source>The uploaded file type is incorrect, please upload it again</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
@@ -1386,6 +1414,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
         <translation>Per instal·lar i executar aplicacions sense signar, aneu al &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt;Centre de seguretat&lt;/a&gt; per canviar la configuració.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1915,10 +1947,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Strong</source>
         <translation>Forta</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Contrasenya</translation>
     </message>
     <message>
         <source>Repeat Password</source>
