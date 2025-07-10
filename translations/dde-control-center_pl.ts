@@ -101,6 +101,30 @@
         <source>Quickly load DDE with your login information</source>
         <translation>Załaduj szybko DDE z uzupełnionymi danymi logowania</translation>
     </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
@@ -905,6 +929,10 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
         <translation>Awatar nie został jeszcze ustawiony. Kliknij lub przeciągnij, aby załadować zdjęcie.</translation>
     </message>
+    <message>
+        <source>The uploaded file type is incorrect, please upload it again</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
@@ -1386,6 +1414,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
         <translation>Aby zainstalować i uruchomić niepodpisane aplikacje, przejdź do &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt;Centrum bezpieczeństwa&lt;/a&gt; i dostosuj ustawienia. </translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1915,10 +1947,6 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Strong</source>
         <translation>Silne</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Hasło</translation>
     </message>
     <message>
         <source>Repeat Password</source>
