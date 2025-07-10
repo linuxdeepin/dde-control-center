@@ -1071,6 +1071,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Page size</source>
         <translation>taille de la page</translation>
     </message>
+    <message>
+        <source>Example</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
