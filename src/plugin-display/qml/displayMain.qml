@@ -94,7 +94,7 @@ DccObject {
     }
     function getQtScreen(screen) {
         for (var s of Qt.application.screens) {
-            if (s.virtualX === screen.x && s.virtualY === screen.y && s.width === screen.currentResolution.width && s.height === screen.currentResolution.height) {
+            if (s.virtualX === screen.x && s.virtualY === screen.y && (Math.abs(s.width * s.devicePixelRatio - screen.currentResolution.width) < 1) && (Math.abs(s.height * s.devicePixelRatio - screen.currentResolution.height) < 1)) {
                 return s
             }
         }
