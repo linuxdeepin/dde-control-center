@@ -195,6 +195,9 @@ D.DialogWindow {
                 onIconDropped: function (url){
                     dialog.currentAvatar = url
                     needShow()
+                    let icons = repeater.itemAt(0).model
+                    icons.push(url)
+                    repeater.itemAt(0).model = icons
                 }
                 onRequireFileDialog: {
                     fileDlgLoader.active = true
@@ -204,8 +207,8 @@ D.DialogWindow {
                     if (!scrollView.isCustom)
                         return false
 
-                    let icons = dccData.avatars(dialog.suserId, scrollView.filter, "")
-                    return icons.length < 1 && dialog.currentAvatar.length < 1
+                    let icons = dccData.avatars(dialog.userId, scrollView.filter, "")
+                    return icons.length <= 1 && dialog.currentAvatar.length < 1
                 }
             }
 
