@@ -1100,6 +1100,10 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
         <source>Page size</source>
         <translation>Taille de la page</translation>
     </message>
+    <message>
+        <source>Example</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
@@ -1276,6 +1280,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <source>Go to web settings</source>
         <translation>Aller aux paramètres web</translation>
     </message>
+    <message>
+        <source>The nickname must be 1~32 characters long</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeepinWorker</name>
@@ -1294,6 +1302,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>Operation Successful</source>
         <translation>Opération réussie</translation>
+    </message>
+    <message>
+        <source>The nickname can be modified only once a day</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

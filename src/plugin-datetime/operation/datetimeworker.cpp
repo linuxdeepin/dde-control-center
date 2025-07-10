@@ -63,6 +63,9 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     connect(m_timedateInter, &DatetimeDBusProxy::DecimalSymbolChanged, m_model, [this](const QString &symbol){
         Q_EMIT m_model->symbolChanged(DatetimeModel::DecimalSymbol, symbol);
     });
+    connect(m_timedateInter, &DatetimeDBusProxy::DigitGroupingChanged, m_model, [this](const QString &symbol){
+        Q_EMIT m_model->symbolChanged(DatetimeModel::DigitGrouping, symbol);
+    });
     connect(m_timedateInter, &DatetimeDBusProxy::DigitGroupingSymbolChanged, m_model, [this](const QString &symbol){
         m_model->setDigitGroupingSymbol(symbol);
         Q_EMIT m_model->symbolChanged(DatetimeModel::DigitGroupingSymbol, symbol);

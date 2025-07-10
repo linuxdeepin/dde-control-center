@@ -1075,6 +1075,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Page size</source>
         <translation>পাতা পরিমাণ</translation>
     </message>
+    <message>
+        <source>Example</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
@@ -1252,6 +1256,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Go to web settings</source>
         <translation>ওয়েব সেটিংসে যাও</translation>
     </message>
+    <message>
+        <source>The nickname must be 1~32 characters long</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeepinWorker</name>
@@ -1270,6 +1278,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Operation Successful</source>
         <translation>পরিকল্পনা সফল</translation>
+    </message>
+    <message>
+        <source>The nickname can be modified only once a day</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

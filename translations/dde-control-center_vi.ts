@@ -1097,6 +1097,10 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
         <source>Page size</source>
         <translation>Kích thước trang</translation>
     </message>
+    <message>
+        <source>Example</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
@@ -1273,6 +1277,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Go to web settings</source>
         <translation>Truy cập cài đặt web</translation>
     </message>
+    <message>
+        <source>The nickname must be 1~32 characters long</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeepinWorker</name>
@@ -1291,6 +1299,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Operation Successful</source>
         <translation>Thao tác thành công</translation>
+    </message>
+    <message>
+        <source>The nickname can be modified only once a day</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

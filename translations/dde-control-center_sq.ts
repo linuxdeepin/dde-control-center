@@ -1087,6 +1087,10 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
         <source>Page size</source>
         <translation>Madhësi faqeje</translation>
     </message>
+    <message>
+        <source>Example</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
@@ -1261,6 +1265,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>Go to web settings</source>
         <translation>Kaloni te rregullime web</translation>
     </message>
+    <message>
+        <source>The nickname must be 1~32 characters long</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeepinWorker</name>
@@ -1279,6 +1287,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Operation Successful</source>
         <translation>Veprim i Suksesshëm</translation>
+    </message>
+    <message>
+        <source>The nickname can be modified only once a day</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

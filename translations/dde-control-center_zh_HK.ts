@@ -105,27 +105,27 @@
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>撤銷</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>重做</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>剪切</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>複製</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>粘貼</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation>全選</translation>
     </message>
 </context>
 <context>
@@ -908,19 +908,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>用户名不能超過 32 個字符</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"></translation>
+        <translation>用户名只能包含字母、數字 - 和 _</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>全名不能超過 32 個字符</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"></translation>
+        <translation>全名不能包含冒號</translation>
     </message>
 </context>
 <context>
@@ -931,7 +931,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"></translation>
+        <translation>上傳的文件類型不正確，請重新上傳</translation>
     </message>
 </context>
 <context>
@@ -1084,6 +1084,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Page size</source>
         <translation>紙張</translation>
+    </message>
+    <message>
+        <source>Example</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1259,6 +1263,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Go to web settings</source>
         <translation>前往網頁設置</translation>
     </message>
+    <message>
+        <source>The nickname must be 1~32 characters long</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeepinWorker</name>
@@ -1277,6 +1285,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Operation Successful</source>
         <translation>操作成功</translation>
+    </message>
+    <message>
+        <source>The nickname can be modified only once a day</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1417,7 +1429,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>如需安裝非應用商店來源的應用，前往安全中心進行設置。</translation>
     </message>
 </context>
 <context>
@@ -3172,7 +3184,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add a new </source>
-        <translation type="unfinished"></translation>
+        <translation>添加新的</translation>
     </message>
     <message>
         <source>This name already exists</source>

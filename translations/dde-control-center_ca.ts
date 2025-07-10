@@ -105,27 +105,27 @@
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation>Desfés</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation>Refés</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation>Retalla</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation>Copia</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation>Enganxa</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation>Selecciona-ho tot</translation>
     </message>
 </context>
 <context>
@@ -910,19 +910,19 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>El nom d&apos;usuari no pot superar els 32 caràcters.</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"></translation>
+        <translation>El nom d&apos;usuari només pot contenir lletres, números, - i _</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation>El nom complet no pot superar els 32 caràcters.</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"></translation>
+        <translation>El nom complet no pot contenir dos punts.</translation>
     </message>
 </context>
 <context>
@@ -933,7 +933,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"></translation>
+        <translation>El tipus de fitxer carregat és incorrecte, torneu-lo a carregar.</translation>
     </message>
 </context>
 <context>
@@ -1086,6 +1086,10 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <message>
         <source>Page size</source>
         <translation>Mida de pàgina</translation>
+    </message>
+    <message>
+        <source>Example</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1261,6 +1265,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <source>Go to web settings</source>
         <translation>Ves a la configuració web</translation>
     </message>
+    <message>
+        <source>The nickname must be 1~32 characters long</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DeepinWorker</name>
@@ -1279,6 +1287,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Operation Successful</source>
         <translation>Operació reeixida</translation>
+    </message>
+    <message>
+        <source>The nickname can be modified only once a day</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1419,7 +1431,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"></translation>
+        <translation>Per instal·lar i executar aplicacions sense signar, aneu al Centre de seguretat per canviar-ne la configuració.</translation>
     </message>
 </context>
 <context>
