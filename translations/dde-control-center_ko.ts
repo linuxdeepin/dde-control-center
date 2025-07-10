@@ -101,6 +101,30 @@
         <source>Quickly load DDE with your login information</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
@@ -915,6 +939,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
         <translation>아직 프로필 사진을 업로드하지 않았습니다. 이미지를 업로드하려면 클릭하거나 드래그 앤 드롭하세요.</translation>
     </message>
+    <message>
+        <source>The uploaded file type is incorrect, please upload it again</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
@@ -1397,6 +1425,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1927,10 +1959,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Strong</source>
         <translation>강함</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>비밀번호</translation>
     </message>
     <message>
         <source>Repeat Password</source>
