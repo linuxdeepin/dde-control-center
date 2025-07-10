@@ -1,3 +1,98 @@
+dde-control-center (6.1.35) unstable; urgency=medium
+
+  * i18n: Translate dde-control-center_en.ts in zh_TW
+  * i18n: Translate dde-control-center_en.ts in zh_HK
+  * i18n: Translate dde-control-center_en.ts in zh_CN
+  * i18n: Translate dde-control-center_en.ts in hu
+  * i18n: Translate dde-control-center_en.ts in fi
+  * i18n: Translate dde-control-center_en.ts in pl
+  * i18n: Translate dde-control-center_en.ts in sv
+  * i18n: Translate dde-control-center_en.ts in az
+  * i18n: Translate dde-control-center_en.ts in vi
+  * i18n: Translate dde-control-center_en.ts in kab
+  * i18n: Translate dde-control-center_en.ts in pt_BR
+  * i18n: Translate dde-control-center_en.ts in zh_HK
+  * i18n: Translate dde-control-center_en.ts in fr
+  * i18n: Translate dde-control-center_en.ts in ko
+  * i18n: Translate dde-control-center_en.ts in ru
+  * i18n: Translate dde-control-center_en.ts in sl
+  * i18n: Translate dde-control-center_en.ts in zh_CN
+  * i18n: Translate dde-control-center_en.ts in gl_ES
+  * i18n: Translate dde-control-center_en.ts in zh_TW
+  * i18n: Translate dde-control-center_en.ts in th
+  * i18n: Translate dde-control-center_en.ts in ja
+  * i18n: Translate dde-control-center_en.ts in es
+  * i18n: Translate dde-control-center_en.ts in sq
+  * i18n: Translate dde-control-center_en.ts in ne
+  * i18n: Translate dde-control-center_en.ts in uk
+  * i18n: Translate dde-control-center_en.ts in kk
+  * i18n: Translate dde-control-center_en.ts in de_DE
+  * i18n: Translate dde-control-center_en.ts in bn
+  * i18n: Translate dde-control-center_en.ts in ca
+  * i18n: Translate dde-control-center_en.ts in tr
+  * i18n: Translate dde-control-center_en.ts in he
+  * i18n: Translate dde-control-center_en.ts in et
+  * i18n: Translate dde-control-center_en.ts in ar
+  * feat: add locale generation support and UI indicators
+  * fix: resolve missing number format in region settings
+  * i18n: Translate dde-control-center_en.ts in zh_CN
+  * i18n: Translate dde-control-center_en.ts in zh_TW
+  * i18n: Translate dde-control-center_en.ts in zh_HK
+  * i18n: Translate dde-control-center_en.ts in ru
+  * i18n: Translate dde-control-center_en.ts in kk
+  * i18n: Translate dde-control-center_en.ts in kab
+  * i18n: Translate dde-control-center_en.ts in sq
+  * i18n: Translate dde-control-center_en.ts in fr
+  * i18n: Translate dde-control-center_en.ts in de_DE
+  * i18n: Translate dde-control-center_en.ts in zh_CN
+  * i18n: Translate dde-control-center_en.ts in he
+  * i18n: Translate dde-control-center_en.ts in th
+  * i18n: Translate dde-control-center_en.ts in vi
+  * i18n: Translate dde-control-center_en.ts in ne
+  * i18n: Translate dde-control-center_en.ts in pt_BR
+  * i18n: Translate dde-control-center_en.ts in bn
+  * i18n: Translate dde-control-center_en.ts in hu
+  * i18n: Translate dde-control-center_en.ts in ca
+  * i18n: Translate dde-control-center_en.ts in fi
+  * i18n: Translate dde-control-center_en.ts in uk
+  * i18n: Translate dde-control-center_en.ts in pl
+  * i18n: Translate dde-control-center_en.ts in gl_ES
+  * i18n: Translate dde-control-center_en.ts in sl
+  * i18n: Translate dde-control-center_en.ts in tr
+  * i18n: Translate dde-control-center_en.ts in az
+  * i18n: Translate dde-control-center_en.ts in zh_HK
+  * i18n: Translate dde-control-center_en.ts in et
+  * i18n: Translate dde-control-center_en.ts in es
+  * i18n: Translate dde-control-center_en.ts in zh_TW
+  * i18n: Translate dde-control-center_en.ts in sv
+  * i18n: Translate dde-control-center_en.ts in ko
+  * i18n: Translate dde-control-center_en.ts in ja
+  * i18n: Translate dde-control-center_en.ts in ar
+  * fix: improve nickname modification handling and validation
+  * i18n: Updates for project Deepin Desktop Environment (#2491)
+  * fix: Unprocessed screen scaling
+  * fix: Fixed the issue of right-clicking to exit editing
+  * fix: Modify the schematic diagram style
+  * fix: The issue of creating a new user prompt is fixed
+  * fix: Fixed the sorting issue of Bluetooth devices
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2470)
+  * feat: implement avatar caching system
+  * fix: Fixed the dynamic display in Security Center
+  * fix: hide balance control for handsfree devices
+  * fix: prevent bottom button occlusion in RegionFormatDialog
+  * fix: prevent scrollbar overflow in region selection dropdown
+  * fix: Volume adjustment display issue Update font size and add
+    transparency to volume percentage labels
+  * fix: Fix file prompts that are not supported
+  * fix: fix region and format panel layout in TimeAndDate dialog
+  * fix: Fixed the user group focus issue
+  * fix: improve shortcut conflict handling and data persistence
+  * fix: prevent duplicate shortcut conflict errors
+  * fix: prevent bottom clipping at maximum font size
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 10 Jul 2025 21:52:38 +0800
+
 dde-control-center (6.1.34) unstable; urgency=medium
 
   * refactor: clean up code and optimize variable declarations
