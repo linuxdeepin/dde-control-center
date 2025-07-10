@@ -101,6 +101,30 @@
         <source>Quickly load DDE with your login information</source>
         <translation>Giriş bilgilerinizle DDE&apos;yi hızlıca yükleyin</translation>
     </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
@@ -916,6 +940,10 @@ UnionTech Yazılım Teknoloji A.Ş., biyometrik kimlik doğrulamanın güvenliğ
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
         <translation>لم تقم بعد بتحميل صورة الشعار. انقر أو سحب واسقط لتحميل الصورة.</translation>
     </message>
+    <message>
+        <source>The uploaded file type is incorrect, please upload it again</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
@@ -1399,6 +1427,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1929,10 +1961,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Strong</source>
         <translation>قوي</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>كلمة المرور</translation>
     </message>
     <message>
         <source>Repeat Password</source>
