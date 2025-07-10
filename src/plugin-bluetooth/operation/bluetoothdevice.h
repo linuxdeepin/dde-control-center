@@ -22,6 +22,7 @@ static const QMap<QString,QString> deviceType2Icon {
         {"input-gaming","bluetooth_other"},
         {"input-tablet","bluetooth_touchpad"},
         {"audio-card","bluetooth_pheadset"},
+        {"audio-headset","bluetooth_clang"},
         {"network-wireless","bluetooth_lan"},
         {"camera-video","bluetooth_vidicon"},
         {"printer","bluetooth_print"},
