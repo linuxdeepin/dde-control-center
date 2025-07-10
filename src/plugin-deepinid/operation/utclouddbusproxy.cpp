@@ -39,12 +39,15 @@ QDBusPendingCall UtcloudDBusProxy::SwitcherDump()
     return m_utcloudInter->asyncCall("SwitcherDump");
 }
 
-bool UtcloudDBusProxy::SetNickname(const QString &name)
+bool UtcloudDBusProxy::SetNickname(const QString &name, QString &errorMsg)
 {
     QDBusPendingReply<bool> reply = m_utcloudInter->asyncCallWithArgumentList("SetNickname", { name });
     reply.waitForFinished();
     if (!reply.isValid()) {
+        qWarning() << "set nickname failed, error: " << reply.error().message();
+        errorMsg = reply.error().message();
         return false;
     }
+
     return reply.value();
 }

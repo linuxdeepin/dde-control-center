@@ -91,9 +91,29 @@ DccObject {
                         anchors.leftMargin: 10
                         anchors.verticalCenter: nameLabel.verticalCenter
                         focusPolicy: Qt.NoFocus
+                        width: 30
+                        height: 30                        
                         icon.name: "dcc-edit"
                         icon.width: DS.Style.edit.actionIconSize
                         icon.height: DS.Style.edit.actionIconSize
+                        hoverEnabled: true
+                        background: Rectangle {
+                            anchors.fill: parent
+                            property D.Palette pressedColor: D.Palette {
+                                normal: Qt.rgba(0, 0, 0, 0.2)
+                                normalDark: Qt.rgba(1, 1, 1, 0.25)
+                            }
+                            property D.Palette hoveredColor: D.Palette {
+                                normal: Qt.rgba(0, 0, 0, 0.1)
+                                normalDark: Qt.rgba(1, 1, 1, 0.1)
+                            }
+                            radius: DS.Style.control.radius
+                            color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                            border {
+                                color: parent.palette.highlight
+                                width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                            }
+                        }
                         visible: !nameControl.editing
                         onClicked: {
                             nameControl.editing = true
@@ -109,24 +129,34 @@ DccObject {
                         anchors.top: parent.top
                         horizontalAlignment: Text.AlignHCenter
                         visible: nameControl.editing
-                        text: dccData.model.userName
-
-                        onTextEdited: {
-                            // validtor can not paste invalid text..
-                            var regex = /^[^:]{0,32}$/
-                            if (!regex.test(text)) {
-                                var filteredText = text
-                                filteredText = filteredText.replace(":", "")
-
-                                // 长度 32
-                                filteredText = filteredText.slice(0, 32)
-                                text = filteredText
+                        maximumLength: 32 // 限制昵称长度为32个字符
+                        validator: RegularExpressionValidator { regularExpression: /^[^<>&'"\s]{0,32}$/ }  //昵称不能包含<、>、&、'、"和空格
+                        alertDuration: 3000
+                        text: visible ? dccData.model.userName : ""
+                        activeFocusOnPress: false
+                        onTextChanged: {
+                            // 如果输入为空，需要弹出提示
+                            if (nameEdit.text.length === 0) {
+                                nameEdit.alertText = qsTr("The nickname must be 1~32 characters long")
+                                nameEdit.showAlert = true
+                            } else if (nameEdit.showAlert) {
+                                nameEdit.showAlert = false
                             }
                         }
 
                         onEditingFinished: {
+                            nameEdit.showAlert = false
                             nameControl.editing = false
-                            dccData.worker.setFullName(text)
+                            if (nameEdit.text.length !== 0 && nameEdit.text !== dccData.model.userName) {
+                                dccData.worker.setFullName(text)
+                            }
+                        }
+
+                        Keys.onPressed: {
+                            // TODO: 按下回车键时，把焦点转移到昵称标签上，避免鼠标点击空白时又触发一次editingFinished信号
+                            if (event.key === Qt.Key_Return) {
+                                nameLabel.forceActiveFocus(true);
+                            }
                         }
                     }
                 }
