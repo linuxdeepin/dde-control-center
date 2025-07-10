@@ -101,6 +101,30 @@
         <source>Quickly load DDE with your login information</source>
         <translation>Giriş bilgilerinizle DDE&apos;yi hızla yükleyin</translation>
     </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
@@ -903,6 +927,10 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
         <translation>Henüz bir avatar yüklemediniz.Bir resim yüklemek için tıklayın veya sürükleyin ve bırakın.</translation>
     </message>
+    <message>
+        <source>The uploaded file type is incorrect, please upload it again</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
@@ -1384,6 +1412,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
         <translation>İmzalanmamış uygulamaları yüklemek ve çalıştırmak için lütfen &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt;Güvenlik Merkezine&lt;/a&gt; giderek ayarları değiştirin.</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1913,10 +1945,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Strong</source>
         <translation>Güçlü</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Parola</translation>
     </message>
     <message>
         <source>Repeat Password</source>
