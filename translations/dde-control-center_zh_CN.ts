@@ -101,6 +101,30 @@
         <source>Quickly load DDE with your login information</source>
         <translation>使用登录信息快速载入桌面</translation>
     </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select All</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
@@ -905,6 +929,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
         <translation>您还没有上传过头像，可点击或拖拽上传图片</translation>
     </message>
+    <message>
+        <source>The uploaded file type is incorrect, please upload it again</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
@@ -1386,6 +1414,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
         <translation>如需安装非应用商店来源的应用，前往&lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; 安全中心 &lt;/a&gt;进行设置。</translation>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1915,10 +1947,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Strong</source>
         <translation>强度高</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>密码</translation>
     </message>
     <message>
         <source>Repeat Password</source>
