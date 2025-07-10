@@ -1261,7 +1261,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>昵称长度必须为1~32个字符</translation>
     </message>
 </context>
 <context>
@@ -1284,7 +1284,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>昵称每天仅可修改一次</translation>
     </message>
 </context>
 <context>
