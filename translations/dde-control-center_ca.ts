@@ -1087,7 +1087,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Exemple</translation>
     </message>
 </context>
 <context>
@@ -1265,7 +1265,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>El sobrenom ha de tenir entre 1 i 32 caràcters.</translation>
     </message>
 </context>
 <context>
@@ -1288,7 +1288,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>El sobrenom només es pot modificar una vegada al dia.</translation>
     </message>
 </context>
 <context>
