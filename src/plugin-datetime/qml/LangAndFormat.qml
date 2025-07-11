@@ -38,7 +38,7 @@ DccObject {
                 font.pixelSize: DTK.fontManager.t5.pixelSize
                 font.weight: 500
                 color: DTK.themeType === ApplicationHelper.LightType ?
-                    Qt.rgba(0, 0, 0, 1) : Qt.rgba(1, 1, 1, 1)
+                    Qt.rgba(0, 0, 0, 0.7) : Qt.rgba(1, 1, 1, 0.7)
             }
 
             Button {
@@ -234,7 +234,7 @@ DccObject {
                 font.pixelSize: DTK.fontManager.t5.pixelSize
                 font.weight: 500
                 color: DTK.themeType === ApplicationHelper.LightType ?
-                    Qt.rgba(0, 0, 0, 1) : Qt.rgba(1, 1, 1, 1)
+                    Qt.rgba(0, 0, 0, 0.7) : Qt.rgba(1, 1, 1, 0.7)
             }
         }
 
