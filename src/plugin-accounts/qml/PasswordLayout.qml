@@ -13,6 +13,7 @@ ColumnLayout {
     property string userId
     property string name: dccData.userName(pwdLayout.userId)
     property bool currentPwdVisible: true
+    property string currentName
     Layout.fillWidth: true
     spacing: 0
     
@@ -269,12 +270,12 @@ ColumnLayout {
 
             let alertText = ""
             // pwcheck verifyPassword
-            alertText = dccData.checkPassword(pwdLayout.name, edit0.text)
+            alertText = dccData.checkPassword(pwdLayout.currentName, edit0.text)
             if (alertText.length > 0) {
                 edit0.showAlertText(alertText)
                 return false
             }
-            alertText = dccData.checkPassword(pwdLayout.name, edit1.text)
+            alertText = dccData.checkPassword(pwdLayout.currentName, edit1.text)
             if (alertText.length > 0) {
                 edit1.showAlertText(alertText)
                 return false
@@ -385,6 +386,14 @@ ColumnLayout {
                 }
                 
                 pwdItem.textChanged(text)
+            }
+
+            onEditingFinished: {
+                if (echoButtonVisible && pwdContainter.eidtItems[2] != rightItem) {
+                    if (text === pwdLayout.currentName && text.length > 0) {
+                        showAlertText(qsTr("Different from the username"))
+                    }
+                }
             }
 
             function showAlertText(text) {

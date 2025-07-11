@@ -325,7 +325,7 @@ void AccountsWorker::checkPwdLimitLevel(int level)
         return;
     }
     QDBusReply<int> pwdLimitLevel = interface.call("GetPwdLimitLevel");
-    if (pwdLimitLevel.error().type() == QDBusError::NoError && pwdLimitLevel > level) {
+    if (pwdLimitLevel.error().type() == QDBusError::NoError && pwdLimitLevel >= level) {
         QDBusReply<QString> errorTips = interface.call("GetPwdError");
         Q_EMIT showSafetyPage(errorTips);
     }
