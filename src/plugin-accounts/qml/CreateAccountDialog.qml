@@ -244,6 +244,7 @@ D.DialogWindow {
                                                 showAlert = true
                                             }
                                         }
+                                        pwdLayout.currentName = text
                                     } else {
                                         var colonRegex = /:/
                                         var lengthRegex = /^.{0,32}$/
