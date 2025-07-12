@@ -1119,11 +1119,11 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation type="unfinished"/>
+        <translation>WeChatと連携</translation>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation type="unfinished"/>
+        <translation>WeChatと連携することで、%1 IDとローカルアカウントに素早く、安全にログインすることができるようになります。</translation>
     </message>
     <message>
         <source>Unlinked</source>
@@ -1131,7 +1131,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"/>
+        <translation>連携を解除しています</translation>
     </message>
     <message>
         <source>Link</source>
@@ -1139,11 +1139,11 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"/>
+        <translation>WeChatとの連携を解除してもよろしいですか？</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"/>
+        <translation>WeChatを連携解除すると、WeChat QRコードを使用して%1 IDまたはローカルアカウントにログインすることができなくなります。</translation>
     </message>
     <message>
         <source>Let me think it over</source>
@@ -1151,7 +1151,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>ローカルアカウント連携</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
@@ -1198,61 +1198,62 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"/>
+        <translation>%1 ID を管理し、デバイス間で個人データを同期します。
+%1 ID にサインインして、ブラウザ、アプリストア、サポートなどのパーソナライズされた機能とサービスを取得します。</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>%1 IDにサインイン</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>自動同期</translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"/>
+        <translation>クラウドでシステム設定データと情報を安全に保管して、デバイス間で同期できます。</translation>
     </message>
     <message>
         <source>System Settings</source>
-        <translation type="unfinished"/>
+        <translation>システム設定</translation>
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"/>
+        <translation>最終同期: %1</translation>
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation type="unfinished"/>
+        <translation>クラウド内のデータをクリア</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"/>
+        <translation>クラウド内に保存されているシステム設定や個人情報などのデータを削除してもよろしいですか？</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"/>
+        <translation>データを削除すると、復元することはできません！</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>クリア</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation type="unfinished"/>
+        <translation>同期サービス</translation>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation type="unfinished"/>
+        <translation>アカウントとセキュリティ</translation>
     </message>
     <message>
         <source>Sign out</source>
