@@ -1289,7 +1289,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>El apodo se puede modificar solo una vez al día.</translation>
     </message>
 </context>
 <context>
@@ -1430,7 +1430,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Para instalar y ejecutar aplicaciones sin firmar, vaya al Centro de seguridad para cambiar la configuración.</translation>
     </message>
 </context>
 <context>
