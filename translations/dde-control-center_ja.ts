@@ -99,31 +99,31 @@
     </message>
     <message>
         <source>Quickly load DDE with your login information</source>
-        <translation type="unfinished"/>
+        <translation>認証情報を使用してDDE(デスクトップ環境)を素早く読み込む</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>元に戻す</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>やり直す</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"/>
+        <translation>切り取り</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>コピー</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"/>
+        <translation>貼り付け</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>すべて選択</translation>
     </message>
 </context>
 <context>
@@ -427,7 +427,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth名は64文字以下にしてください</translation>
     </message>
 </context>
 <context>
@@ -619,7 +619,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>Already scanned</source>
-        <translation type="unfinished"/>
+        <translation>スキャンされました</translation>
     </message>
     <message>
         <source>Adjust the finger position to scan your fingerprint fully</source>
@@ -679,7 +679,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>カメラが占有されています！</translation>
     </message>
 </context>
 <context>
@@ -799,7 +799,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>キーボードを有効化</translation>
     </message>
 </context>
 <context>
