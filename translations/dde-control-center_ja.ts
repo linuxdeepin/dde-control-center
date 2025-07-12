@@ -1265,7 +1265,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>ニックネームは1~32文字である必要があります</translation>
     </message>
 </context>
 <context>
@@ -1276,7 +1276,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation type="unfinished"/>
+        <translation>パスワードが違います。あと %1 回試行できます</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
@@ -1284,18 +1284,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation type="unfinished"/>
+        <translation>操作は正常に完了しました</translation>
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>ニックネームは一日に一度だけ変更することができます</translation>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation type="unfinished"/>
+        <translation>中国本土</translation>
     </message>
     <message>
         <source>Other regions</source>
@@ -1303,7 +1303,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>この機能は現在利用できません。まずシステムをアクティベートしてください</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
@@ -1314,38 +1314,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>%1用のデフォルトアプリケーション</translation>
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"/>
+        <translation>追加</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>デスクトップファイルを開く</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation type="unfinished"/>
+        <translation>アプリケーション (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>すべてのファイル (*)</translation>
     </message>
 </context>
 <context>
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation type="unfinished"/>
+        <translation>ルートアクセス</translation>
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>ルートアクセスを要求</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation type="unfinished"/>
+        <translation>開発者モードを有効にすると、root権限を取得することができますが、システムの完全性を損なうことがあります。注意してください。</translation>
     </message>
     <message>
         <source>Allowed</source>
@@ -1357,7 +1357,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"/>
+        <translation>オンライン</translation>
     </message>
     <message>
         <source>Login UOS ID</source>
@@ -1365,15 +1365,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>オフライン</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>証明書をインポート</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"/>
+        <translation>ファイルを選択</translation>
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
@@ -1440,11 +1440,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>キャンセル</translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation>同意</translation>
     </message>
 </context>
 <context>
