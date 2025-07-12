@@ -123,7 +123,7 @@
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Seleccionar todo</translation>
     </message>
 </context>
 <context>
@@ -909,19 +909,19 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>El nombre de usuario no puede exceder los 32 caracteres</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>El nombre de usuario solo puede contener letras, números, - y _</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>El nombre completo no puede exceder los 32 caracteres</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation>El nombre completo no puede contener dos puntos</translation>
     </message>
 </context>
 <context>
@@ -932,7 +932,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation>El tipo de archivo subido es incorrecto, súbalo de nuevo</translation>
     </message>
 </context>
 <context>
@@ -1088,7 +1088,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Ejemplo</translation>
     </message>
 </context>
 <context>
@@ -1266,7 +1266,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>El apodo debe tener entre 1~32 caracteres</translation>
     </message>
 </context>
 <context>
