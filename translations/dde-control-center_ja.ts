@@ -623,15 +623,15 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation type="unfinished"/>
+        <translation>指紋が十分にスキャンできるように、指の位置を調節してください</translation>
     </message>
     <message>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation type="unfinished"/>
+        <translation>指を動かすのが速すぎます。表示が出るまで離さないでください</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>指をセンサーから離して、もう一度置いてください</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
@@ -908,19 +908,19 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>ユーザー名は32文字以下にしてください</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>ユーザー名には文字、数字、　-と_が使用できます</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>フルネームは32文字以下にしてください</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation>フルネームにコロンを含めることはできません</translation>
     </message>
 </context>
 <context>
@@ -931,7 +931,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation>アップロードされたファイルの形式が正しくありません。もう一度お試しください。</translation>
     </message>
 </context>
 <context>
@@ -957,7 +957,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
@@ -1087,7 +1087,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>例</translation>
     </message>
 </context>
 <context>
