@@ -1436,7 +1436,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>免責事項</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1738,11 +1738,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add new keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>新しいキーボードレイアウトを追加</translation>
     </message>
     <message>
         <source>Current language keyboard layouts</source>
-        <translation type="unfinished"/>
+        <translation>現在の言語のキーボードレイアウト</translation>
     </message>
 </context>
 <context>
@@ -1773,7 +1773,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>パスワードのリセット</translation>
     </message>
 </context>
 <context>
@@ -1896,15 +1896,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>bit</source>
-        <translation type="unfinished"/>
+        <translation>bit</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>認証</translation>
     </message>
     <message>
         <source>System installation time</source>
-        <translation type="unfinished"/>
+        <translation>システムのインストール日時</translation>
     </message>
     <message>
         <source>Kernel</source>
@@ -1924,14 +1924,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>1~63文字にしてください</translation>
     </message>
 </context>
 <context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>その他のデバイス</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
@@ -2115,7 +2115,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>CPUのロード状況に応じて、CPUの動作周波数をアクティブに可変します。</translation>
     </message>
     <message>
         <source>Balanced</source>
@@ -2763,11 +2763,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>開始時刻</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>終了時刻</translation>
     </message>
 </context>
 <context>
@@ -3107,12 +3107,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
+        <translation>中</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
+        <translation>中</translation>
     </message>
 </context>
 <context>
@@ -3188,7 +3188,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>この名前はすでに存在します</translation>
     </message>
 </context>
 <context>
@@ -3222,7 +3222,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>開発者向けデバッグオプション</translation>
     </message>
 </context>
 <context>
@@ -3256,7 +3256,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>ユーザー名を数字のみにすることはできません</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
