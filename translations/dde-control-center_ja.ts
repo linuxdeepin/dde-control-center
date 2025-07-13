@@ -1389,7 +1389,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"/>
+        <translation>エクスポート</translation>
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
@@ -1653,7 +1653,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"/>
+        <translation>&lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;入力メソッド管理&lt;/a&gt;で対応する入力メソッドを追加し、キーボードレイアウトを追加または切り替えたときに機能するようにします。</translation>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
