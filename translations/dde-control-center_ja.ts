@@ -1876,7 +1876,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"/>
+        <translation>ダッシュで始まったり終わったりすることはできません</translation>
     </message>
     <message>
         <source>OS Name</source>
@@ -2196,7 +2196,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>パスワードには、英字(大文字、小文字)、数字と記号(~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)を含める必要があります</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
@@ -2208,11 +2208,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"/>
+        <translation>もっと強いパスワードを作成してください</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>パスワードのルールに適合していません</translation>
     </message>
 </context>
 <context>
@@ -2306,7 +2306,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"/>
+        <translation>桁</translation>
     </message>
     <message>
         <source>Paper size</source>
@@ -2426,7 +2426,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"/>
+        <translation>画像スライドショースクリーンセーバー</translation>
     </message>
     <message>
         <source>System screensaver</source>
