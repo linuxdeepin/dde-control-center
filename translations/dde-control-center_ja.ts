@@ -2200,7 +2200,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"/>
+        <translation>パスワードに回文になっている文字列を4文字以上含めないでください。</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
