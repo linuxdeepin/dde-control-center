@@ -2430,7 +2430,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System screensaver</source>
-        <translation type="unfinished"/>
+        <translation>システムスクリーンセーバー</translation>
     </message>
 </context>
 <context>
@@ -2484,7 +2484,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation type="unfinished"/>
+        <translation>追加をクリックして置き換え</translation>
     </message>
 </context>
 <context>
@@ -2550,7 +2550,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation type="unfinished"/>
+        <translation>有効にするデバイス</translation>
     </message>
     <message>
         <source>Input Devices</source>
@@ -3011,18 +3011,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Set lock screen</source>
-        <translation type="unfinished"/>
+        <translation>ロック画面に設定</translation>
     </message>
     <message>
         <source>Set desktop</source>
-        <translation type="unfinished"/>
+        <translation>デスクトップに設定</translation>
     </message>
 </context>
 <context>
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation>インターフェースの効果</translation>
+        <translation>インターフェースと効果</translation>
     </message>
     <message>
         <source>Window Settings</source>
@@ -3172,15 +3172,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>文字、数字、アンダーバーのみを使用し、15文字以下にしてください</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation type="unfinished"/>
+        <translation>文字、数字、アンダーバーのみを使用してください</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>15文字以下にしてください</translation>
     </message>
     <message>
         <source>Add a new </source>
