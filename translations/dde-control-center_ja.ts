@@ -842,7 +842,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation>開発者モードの免責事項</translation>
+        <translation>デベロッパーモードの免責事項</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
@@ -1345,7 +1345,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation>開発者モードを有効にすると、root権限を取得することができますが、システムの完全性を損なうことがあります。注意してください。</translation>
+        <translation>デベロッパーモードを有効にすると、root権限を取得することができますが、システムの完全性を損なうことがあります。注意してください。</translation>
     </message>
     <message>
         <source>Allowed</source>
@@ -2797,7 +2797,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation>現在地をタもとにイムゾーンを設定する</translation>
     </message>
     <message>
         <source>Time zone:</source>
@@ -2824,7 +2824,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"/>
+        <translation>タッチスクリーンをここで構成できます</translation>
     </message>
 </context>
 <context>
@@ -3214,15 +3214,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation>開発者向けroot権限管理</translation>
+        <translation>デベロッパーroot権限管理</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>開発者向けオプション</translation>
+        <translation>デベロッパーオプション</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>開発者向けデバッグオプション</translation>
+        <translation>デベロッパーデバッギングオプション</translation>
     </message>
 </context>
 <context>
