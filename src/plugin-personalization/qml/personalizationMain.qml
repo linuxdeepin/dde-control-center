@@ -58,7 +58,7 @@ DccObject {
                         onClicked: {
                             themeSelectView.decrementCurrentIndex()
                         }
-                        background:{}
+                        background: null
                     }
                     D.IconButton {
                         flat: true
@@ -71,7 +71,7 @@ DccObject {
                         onClicked: {
                             themeSelectView.incrementCurrentIndex()
                         }
-                        background:{}
+                        background: null
                     }
                 }
                 ThemeSelectView {

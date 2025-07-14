@@ -17,7 +17,8 @@ DccObject {
 
     page: Control {
         id: control
-        anchors.fill: parent
+        width: parent ? parent.width : 10
+        height: parent ? parent.height : 10
         contentItem: dccObj.children.length > 0 ? dccObj.children[0].getSectionItem(control) : null
     }
 

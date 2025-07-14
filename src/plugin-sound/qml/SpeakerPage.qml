@@ -71,7 +71,6 @@ DccObject {
                         width: 16
                         height: 16
                     }
-                    property Palette textColor: parent.textColor
                     palette.windowText: ColorSelector.textColor
                     flat: !hovered
                     implicitWidth: 24

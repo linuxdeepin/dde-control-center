@@ -103,7 +103,6 @@ Item {
                     DccLabel {
                         Layout.fillWidth: true
                         text: model.display
-                        font: root.font
                     }
                     Rectangle {
                         Layout.alignment: Qt.AlignRight
