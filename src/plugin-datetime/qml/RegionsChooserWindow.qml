@@ -58,37 +58,45 @@ Loader {
                 }
             }
 
-            ListView {
+            ArrowListView {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
                 id: itemsView
-                property string checkedLang
-                property string checkedLocale
+                property string checkedRegion
                 clip: true
-                model: viewModel
-                currentIndex: loader.currentIndex
+                maxVisibleItems: 12
+                view.model: viewModel
+                view.currentIndex: loader.currentIndex
 
-                ScrollBar.vertical: ScrollBar {
-                    parent: itemsView
-                    anchors.top: itemsView.top
-                    anchors.right: itemsView.right
-                    anchors.bottom: itemsView.bottom
-                    width: 10
-                    implicitWidth: 10
+                Component {
+                    id: scrollBarComponent
+                    ScrollBar {
+                        parent: itemsView.view
+                        anchors.top: itemsView.view.top
+                        anchors.right: itemsView.view.right
+                        anchors.bottom: itemsView.view.bottom
+                        width: 10
+                        implicitWidth: 10
+                    }
                 }
 
                 ButtonGroup {
                     id: regionGroup
                 }
 
-                delegate: CheckDelegate {
-                    id: checkDelegate
-                    implicitWidth: itemsView.width - itemsView.leftMargin - itemsView.rightMargin
-                    palette: DTK.palette
+                view.delegate: MenuItem {
+                    id: menuItem
+                    implicitWidth: itemsView.width
+                    implicitHeight: 30
                     text: model.display
+                    checkable: true
                     checked: text === loader.currentText
                     hoverEnabled: true
+                    highlighted: hovered
+                    autoExclusive: true
                     ButtonGroup.group: regionGroup
+                    useIndicatorPadding: true
+
                     onCheckedChanged: {
                         if (checked && loader.currentText !== model.display) {
                             selectedRegion(model.display)
@@ -96,11 +104,16 @@ Loader {
                         }
                     }
                 }
+
                 Component.onCompleted: {
+                    // Add ScrollBar to the internal view
+                    if (view) {
+                        view.ScrollBar.vertical = scrollBarComponent.createObject(view)
+                    }
+                    // Set initial scroll position
                     if (currentIndex >= 0) {
-                        let delegateHeight =  40
-                        contentY = currentIndex * delegateHeight;
-                        console.log("currentIndex", currentIndex, contentY)
+                        let delegateHeight = 30
+                        view.contentY = currentIndex * delegateHeight;
                     }
                 }
             }
