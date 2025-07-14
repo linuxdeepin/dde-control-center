@@ -23,7 +23,7 @@ D.DialogWindow {
 
     onVisibleChanged: function() {
         if (listview.currentIndex != 0 && !visible) {
-            dccData.stopFaceEnroll()
+            dccData.faceController.stopEnroll()
         }
     }
 
@@ -215,7 +215,7 @@ To ensure successful entry:\n\
                     text: qsTr("Next")
                     enabled: agreeCheckbox.checked || agreeCheckboxWrapped.checked
                     onClicked: {
-                        dccData.startFaceEnroll();
+                        dccData.faceController.startEnroll();
                         dialog.hide()
                     }
                 }
@@ -245,15 +245,15 @@ To ensure successful entry:\n\
 
                     D.DciIcon {
                         id: faceImg
-                        visible: dccData.addStage === CharaMangerModel.Processing 
+                        visible: dccData.faceController.addStage === CharaMangerModel.Processing 
                         anchors.centerIn: parent
-                        name: ""
+                        name: dccData.faceController.faceImgContent
                         sourceSize: Qt.size(210, 210)
                     }
 
                     Control {
                         id: loaderControl
-                        visible: dccData.addStage === CharaMangerModel.Processing 
+                        visible: dccData.faceController.addStage === CharaMangerModel.Processing 
                         contentItem: D.DciIcon {
                             id: shortProgressCircle
                             anchors.fill: parent
@@ -274,12 +274,12 @@ To ensure successful entry:\n\
                 }
 
                 Item {
-                    visible: dccData.addStage === CharaMangerModel.Processing 
+                    visible: dccData.faceController.addStage === CharaMangerModel.Processing 
                     Layout.preferredHeight: 50
                 }
 
                 Label {
-                    text: dccData.enrollFaceTips
+                    text: dccData.faceController.enrollFaceTips
                     Layout.fillWidth: true
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
@@ -310,7 +310,7 @@ To ensure successful entry:\n\
                 }
 
                 D.DciIcon {
-                    name: dccData.enrollFaceSuccess ? "user_biometric_face_success" : "user_biometric_face_lose";
+                    name: dccData.faceController.enrollFaceSuccess ? "user_biometric_face_success" : "user_biometric_face_lose";
                     Layout.alignment: Qt.AlignCenter
                     sourceSize: Qt.size(150, 150)
                 }
@@ -320,17 +320,17 @@ To ensure successful entry:\n\
                 }
 
                 Label {
-                    visible: dccData.addStage === CharaMangerModel.Success || dccData.addStage === CharaMangerModel.Fail
+                    visible: dccData.faceController.addStage === CharaMangerModel.Success || dccData.faceController.addStage === CharaMangerModel.Fail
                     Layout.fillWidth: true
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     wrapMode: Text.WordWrap
                     color: D.DTK.themeType == D.ApplicationHelper.LightType ? Qt.rgba(0, 0, 0, 1) : Qt.rgba(1, 1, 1, 1)
-                    text: dccData.addStage === CharaMangerModel.Success ? qsTr("Face enrolled") : qsTr("Failed to enroll your face")
+                    text: dccData.faceController.addStage === CharaMangerModel.Success ? qsTr("Face enrolled") : qsTr("Failed to enroll your face")
                 }
 
                 Label {
-                    text: dccData.enrollFaceTips
+                    text: dccData.faceController.enrollFaceTips
                     Layout.fillWidth: true
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
@@ -345,7 +345,7 @@ To ensure successful entry:\n\
 
                 RowLayout {
                     id: successBtnLayout
-                    visible: dccData.addStage === CharaMangerModel.Success
+                    visible: dccData.faceController.addStage === CharaMangerModel.Success
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
                     Layout.bottomMargin: 0
@@ -356,7 +356,7 @@ To ensure successful entry:\n\
                         Layout.fillWidth: true
                         text: qsTr("Done")
                         onClicked: {
-                            dccData.stopFaceEnroll()
+                            dccData.faceController.stopEnroll()
                             dialog.close()
                         }
                     }
@@ -364,7 +364,7 @@ To ensure successful entry:\n\
 
                 RowLayout {
                     id: failedBtnLayout
-                    visible: dccData.addStage === CharaMangerModel.Fail
+                    visible: dccData.faceController.addStage === CharaMangerModel.Fail
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
                     Layout.bottomMargin: 0
@@ -416,15 +416,12 @@ In order to better use of face recognition, please pay attention to the followin
             }
         }
         Connections {
-            target: dccData
-            function onFaceImgContentChanged() {
-                faceImg.name = dccData.faceImgContent;
-            }
+            target: dccData.faceController
 
             function onAddStageChanged() {
-                if (dccData.addStage === CharaMangerModel.Success) {
+                if (dccData.faceController.addStage === CharaMangerModel.Success) {
                     listview.currentIndex = 2
-                } else if (dccData.addStage === CharaMangerModel.Fail) {
+                } else if (dccData.faceController.addStage === CharaMangerModel.Fail) {
                     listview.currentIndex = 2
                 }
             }
