@@ -37,8 +37,6 @@ D.LineEdit {
         if (showAlert)
             showAlert = false
 
-        edit.readOnly = true
-
         finished()
     }
 
