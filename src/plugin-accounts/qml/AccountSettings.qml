@@ -928,6 +928,12 @@ DccObject {
                             if (showAlert)
                                 showAlert = false
                             
+                            if (text.length < 1 && lastValidText.length > 0 && !readOnly) {
+                                Qt.callLater(function() {
+                                    editLabel.forceActiveFocus()
+                                })
+                            }
+                            
                             var isNewGroup = (model.display.length === 0)
                             
                             if (text.length > 32) {
@@ -971,6 +977,7 @@ DccObject {
                                 } else {
                                     var elidedText = metrics.elidedText(model.display, Text.ElideRight, editTextWidth)
                                     text = elidedText
+                                    readOnly = true
                                 }
                                 return
                             }
@@ -978,7 +985,14 @@ DccObject {
                             if (dccData.groupExists(text) && text !== model.display) {
                                 showAlert = true
                                 alertText = qsTr("The group name has been used")
-                                readOnly = false
+                                return
+                            }
+                            
+                            if (text === model.display) {
+                                completeText = text
+                                var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
+                                text = elidedText
+                                readOnly = true
                                 return
                             }
                             
@@ -990,6 +1004,7 @@ DccObject {
                             completeText = text
                             var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
                             text = elidedText
+                            readOnly = true
                         }
                         onFocusChanged: {
                             if (focus || text.length > 0 || editLabel.readOnly)
