@@ -329,5 +329,11 @@
         <file>icons/scan_loader.dci</file>
         <file>icons/dcc_edit.dci</file>
         <file>icons/dcc_delete.dci</file>
+
+        <file>icons/iris_add.dci</file>
+        <file>icons/iris_lose.dci</file>
+        <file>icons/iris_scan.dci</file>
+        <file>icons/iris_scanning.dci</file>
+        <file>icons/iris_success.dci</file>
     </qresource>
 </RCC>

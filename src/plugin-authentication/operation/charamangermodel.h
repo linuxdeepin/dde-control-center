@@ -20,6 +20,7 @@ class CharaMangerModel : public QObject
     Q_PROPERTY(bool charaVaild READ charaVaild WRITE setCharaVaild NOTIFY charaVaildChanged)
 
     Q_PROPERTY(QStringList thumbsList READ thumbsList WRITE setThumbsList NOTIFY thumbsListChanged)
+    Q_PROPERTY(QStringList irisList READ irisList WRITE setIrisList NOTIFY irisListChanged)
 
 public:
     /**
