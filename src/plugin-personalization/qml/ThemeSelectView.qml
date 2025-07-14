@@ -34,7 +34,7 @@ ListView {
 
     Connections {
         target: dccData.globalThemeModel
-        onModelReset: {
+        function onModelReset() {
             listview.selectTheme = ""
         }
     }
