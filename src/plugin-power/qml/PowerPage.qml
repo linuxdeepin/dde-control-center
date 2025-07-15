@@ -123,7 +123,7 @@ DccObject {
         parentName: "power/onPower"
         weight: 300
         pageType: DccObject.Item
-        visible: dccData.platformName() !== "wayland" && !dccData.model.isVirtualEnvironment
+        visible: dccData.platformName() !== "wayland" && !dccData.model.isVirtualEnvironment && dccData.model.canSuspend
         page: DccGroupView {}
 
         DccObject {
