@@ -890,6 +890,7 @@ DccObject {
                             property bool editAble: model.groupEditAble
                             property string lastValidText: ""
                             property bool isRestoring: false
+                            property string originalGroupName: ""
                             anchors.fill: parent
                             text: model.display
                             completeText: model.display
@@ -916,6 +917,18 @@ DccObject {
                             if (!readOnly) {
                                 text = completeText
                                 lastValidText = model.display
+                                originalGroupName = model.display
+                            }
+                        }
+                        
+                        Connections {
+                            target: dccData
+                            function onGroupsUpdateFailed(groupName) {
+                                if (groupName === editLabel.originalGroupName) {
+                                    editLabel.completeText = editLabel.originalGroupName
+                                    var elidedText = editLabel.metrics.elidedText(editLabel.originalGroupName, Text.ElideRight, editTextWidth)
+                                    editLabel.text = elidedText
+                                }
                             }
                         }
                         
@@ -944,27 +957,25 @@ DccObject {
                                 text = lastValidText
                                 return
                             }
-                            
-                            if (isNewGroup) {
-                                var numbersOnlyRegex = /^[0-9]+$/
-                                if (text.length > 0 && numbersOnlyRegex.test(text)) {
-                                    showAlert = true
-                                    alertText = qsTr("Group names cannot only have numbers")
-                                    dccData.playSystemSound(14)
-                                    isRestoring = true
-                                    text = lastValidText
-                                    return
-                                }
+                        
+                            var numbersOnlyRegex = /^[0-9]+$/
+                            if (text.length > 0 && numbersOnlyRegex.test(text)) {
+                                showAlert = true
+                                alertText = qsTr("Group names cannot only have numbers")
+                                dccData.playSystemSound(14)
+                                isRestoring = true
+                                text = lastValidText
+                                return
+                            }
                                 
-                                var validFormatRegex = /^[a-zA-Z][a-zA-Z0-9-_]*$/
-                                if (text.length > 0 && !validFormatRegex.test(text)) {
-                                    showAlert = true
-                                    alertText = qsTr("Use letters,numbers,underscores and dashes only, and must start with a letter")
-                                    dccData.playSystemSound(14)
-                                    isRestoring = true
-                                    text = lastValidText
-                                    return
-                                }
+                            var validFormatRegex = /^[a-zA-Z][a-zA-Z0-9-_]*$/
+                            if (text.length > 0 && !validFormatRegex.test(text) && model.display != "_ssh") {
+                                showAlert = true
+                                alertText = qsTr("Use letters,numbers,underscores and dashes only, and must start with a letter")
+                                dccData.playSystemSound(14)
+                                isRestoring = true
+                                text = lastValidText
+                                return
                             }
                             
                             lastValidText = text
@@ -1020,6 +1031,7 @@ DccObject {
                         Component.onCompleted: {
                             completeText = model.display
                             lastValidText = model.display
+                            originalGroupName = model.display  // Initialize original name
                             
                             if (editLabel.readOnly) {
                                 var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
