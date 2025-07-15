@@ -331,7 +331,25 @@ void KeyboardWorker::setKeyboardEnabled(bool value)
 
 void KeyboardWorker::addUserLayout(const QString &value)
 {
-    m_keyboardDBusProxy->AddUserLayout(m_model->kbLayout().key(value));
+    // Use allLayout as the data source
+    const auto &layouts = m_model->allLayout();
+    // Find the layout key in the layout source
+    QString layoutKey = layouts.key(value);
+
+    // If not found, the value might already be a key, try to use it directly
+    if (layoutKey.isEmpty() && layouts.contains(value)) {
+        layoutKey = value;
+    }
+
+    // If we still don't have a valid key, log error and return
+    if (layoutKey.isEmpty()) {
+        qWarning() << "KeyboardWorker::addUserLayout: Could not find layout key for value:" << value;
+        qWarning() << "Available layout keys:" << layouts.keys();
+        return;
+    }
+
+    qDebug() << "KeyboardWorker::addUserLayout: Using layout key:" << layoutKey << "for value:" << value;
+    m_keyboardDBusProxy->AddUserLayout(layoutKey);
 }
 
 void KeyboardWorker::delUserLayout(const QString &value)
