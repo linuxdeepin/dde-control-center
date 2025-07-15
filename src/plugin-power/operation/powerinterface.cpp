@@ -23,15 +23,31 @@ PowerInterface::PowerInterface(QObject *parent)
     setPowerActionsVisible({m_powerLidClosedOperatorModel, m_batteryLidClosedOperatorModel}, 
         {POT_ShutDown, POT_ShowShutDownInter}, false);
 
+    setPowerActionsVisible(
+            {m_powerLidClosedOperatorModel, m_powerPressedOperatorModel, m_batteryLidClosedOperatorModel, m_batteryPressedOperatorModel},
+            {POT_Suspend}, m_model->canSuspend() && m_model->getSuspend() &&!isVirtualEnvironment());
+    setPowerActionsVisible(
+            {m_powerLidClosedOperatorModel, m_powerPressedOperatorModel, m_batteryLidClosedOperatorModel, m_batteryPressedOperatorModel},
+            {POT_Hibernate}, m_model->canHibernate() && m_model->getHibernate() &&!isVirtualEnvironment());
+    connect(m_model, &PowerModel::canHibernateChanged, this, [this](bool value){
+        setPowerActionsVisible(
+            {m_powerLidClosedOperatorModel, m_powerPressedOperatorModel, m_batteryLidClosedOperatorModel, m_batteryPressedOperatorModel},
+            {POT_Hibernate}, value && m_model->getHibernate() &&!isVirtualEnvironment());
+    });
+    connect(m_model, &PowerModel::canSuspendChanged, this, [this](bool value){
+        setPowerActionsVisible(
+            {m_powerLidClosedOperatorModel, m_powerPressedOperatorModel, m_batteryLidClosedOperatorModel, m_batteryPressedOperatorModel},
+            {POT_Suspend}, value && m_model->getSuspend() &&!isVirtualEnvironment());
+    });
     connect(m_model, &PowerModel::hibernateChanged, this, [this](bool value){
         setPowerActionsVisible(
             {m_powerLidClosedOperatorModel, m_powerPressedOperatorModel, m_batteryLidClosedOperatorModel, m_batteryPressedOperatorModel},
-            {POT_Hibernate}, value &&!isVirtualEnvironment());
+            {POT_Hibernate}, value && m_model->canHibernate() &&!isVirtualEnvironment());
     });
     connect(m_model, &PowerModel::suspendChanged, this, [this](bool value){
         setPowerActionsVisible(
             {m_powerLidClosedOperatorModel, m_powerPressedOperatorModel, m_batteryLidClosedOperatorModel, m_batteryPressedOperatorModel},
-            {POT_Suspend}, value &&!isVirtualEnvironment());
+            {POT_Suspend}, value && m_model->canSuspend() &&!isVirtualEnvironment());
     });
     connect(m_model, &PowerModel::shutdownChanged, this, [this](bool value){
         setPowerActionsVisible(

@@ -291,7 +291,7 @@ void PowerModel::setCanSuspend(bool canSuspend)
     if (canSuspend != m_canSuspend) {
         m_canSuspend = canSuspend;
 
-        Q_EMIT suspendChanged(canSuspend);
+        Q_EMIT canSuspendChanged(canSuspend);
     }
 }
 

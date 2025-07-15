@@ -221,31 +221,17 @@ void PowerWorker::active()
     const bool envVal = QVariant(env.value(POWER_CAN_SLEEP)).toBool();
     const bool envVal_hibernate = QVariant(env.value(POWER_CAN_HIBERNATE)).toBool();
 
-    QFutureWatcher<bool> *canSleepWatcher = new QFutureWatcher<bool>();
-    connect(canSleepWatcher, &QFutureWatcher<bool>::finished, this, [=] {
-        bool canSuspend = canSleepWatcher->result();
-        bool can_suspend = env.contains(POWER_CAN_SLEEP) ? envVal : confVal && canSuspend;
-        m_powerModel->setCanSuspend(can_suspend);
-        canSleepWatcher->deleteLater();
-    });
+    bool canSuspend = m_powerDBusProxy->login1ManagerCanSuspend();
+    bool can_suspend = env.contains(POWER_CAN_SLEEP)
+            ? envVal
+            : confVal && canSuspend;
+    m_powerModel->setCanSuspend(can_suspend);
 
-    QFutureWatcher<bool> *canHibernateWatcher = new QFutureWatcher<bool>();
-    connect(canHibernateWatcher, &QFutureWatcher<bool>::finished, this, [=] {
-        bool canHibernate = canHibernateWatcher->result();
-        bool can_hibernate = env.contains(POWER_CAN_HIBERNATE)
-                                     ? envVal_hibernate
-                                     : canHibernate;
-        m_powerModel->setCanHibernate(can_hibernate);
-        canHibernateWatcher->deleteLater();
-    });
-
-    canSleepWatcher->setFuture(QtConcurrent::run([=] {
-        return m_powerDBusProxy->login1ManagerCanSuspend();
-    }));
-
-    canHibernateWatcher->setFuture(QtConcurrent::run([=] {
-        return m_powerDBusProxy->login1ManagerCanHibernate();
-    }));
+    bool canHibernate = m_powerDBusProxy->login1ManagerCanHibernate();
+    bool can_hibernate = env.contains(POWER_CAN_HIBERNATE)
+            ? envVal_hibernate
+            : canHibernate;
+    m_powerModel->setCanHibernate(can_hibernate);
 
     readConfig(BATTERY_LOCKDELAY_NAME, std::bind(&PowerModel::setBatteryLockDelayModel, m_powerModel, std::placeholders::_1));
     readConfig(BATTERY_SLEEPDELAY_NAME, std::bind(&PowerModel::setBatterySleepDelayModel, m_powerModel, std::placeholders::_1));

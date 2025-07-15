@@ -229,7 +229,7 @@ public:
 
 Q_SIGNALS:
     void sleepLockChanged(const bool sleepLock);
-    void canSleepChanged(const bool canSleep);
+    void canSuspendChanged(const bool canSuspend);
     void screenBlackLockChanged(const bool screenBlackLock);
     void lidPresentChanged(const bool lidPresent);
     void sleepOnLidOnPowerCloseChanged(const bool sleepOnLidClose);
