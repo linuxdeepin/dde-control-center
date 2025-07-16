@@ -1,3 +1,21 @@
+dde-control-center (6.1.36) unstable; urgency=medium
+
+  * fix: Worng state in power anagement
+  * fix: resolve keyboard layout addition failure
+  * fix: Fix password error prompt issue
+  * i18n: Updates for project Deepin Desktop Environment (#2500)
+  * fix: resolve audio feedback issue when adjusting volume from 0% to
+    100%
+  * refactor: clean up QML properties and connections
+  * fix: improve region selection menu styling and interaction
+  * style: remove redundant textColor properties in DccWindow
+  * fix: The issue of renaming user groups is fixed
+  * fix: adjust text opacity in LangAndFormat for better visibility
+  * fix: Fixed the Bluetooth speaker icon error
+  * fix: Fixed the issue of customizing the avatar
+
+ -- WuJiangYu <wujiangyu@uniontech.com>  Wed, 16 Jul 2025 10:47:37 +0800
+
 dde-control-center (6.1.35) unstable; urgency=medium
 
   * i18n: Translate dde-control-center_en.ts in zh_TW
