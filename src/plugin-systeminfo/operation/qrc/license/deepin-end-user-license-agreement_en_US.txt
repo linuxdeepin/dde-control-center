@@ -46,4 +46,4 @@ The software is designed and supplied as a general purpose product and not for t
 
 12.This EULA is published in Simplified Chinese and English. No matter which language version you read, the Simplified Chinese version shall prevail.
 
-13.Contact Us. If you have any questions regarding this EULA, or need any information, please contact Deepin Community at: support@deepin.com.
+13.Contact Us. If you have any questions regarding this EULA, or need any information, please contact Deepin Community at: support@deepin.org.
