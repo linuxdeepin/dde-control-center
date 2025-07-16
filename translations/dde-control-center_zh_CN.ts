@@ -1094,7 +1094,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DatetimeWorker</name>
     <message>
         <source>Authentication is required to change NTP server</source>
-        <translation>修改 NTP 地址需要认证</translation>
+        <translation>修改时间服务器需要认证</translation>
     </message>
 </context>
 <context>
@@ -2744,7 +2744,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation>NTP 服务地址不能为空</translation>
+        <translation>时间服务器地址不能为空</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
