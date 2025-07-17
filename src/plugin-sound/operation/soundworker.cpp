@@ -394,8 +394,11 @@ void SoundWorker::cardsChanged(const QString &cards)
 
                 port->setIsActive(isActiveInputPort || isActiveOuputPort);
 
-                if (port->isActive()) {
+                if (isActiveOuputPort) {
                     m_model->setShowBluetoothMode(port->isBluetoothPort());
+                }
+                if (isActiveInputPort) {
+                    m_model->setShowInputBluetoothMode(port->isBluetoothPort());
                 }
                 if (!include) { m_model->addPort(port); }
 
@@ -515,6 +518,9 @@ void SoundWorker::updatePortActivity()
 
         if (isActiveOuputPort) {
             m_model->setShowBluetoothMode(port->isBluetoothPort());
+        }
+        if (isActiveInputPort) {
+            m_model->setShowInputBluetoothMode(port->isBluetoothPort());
         }
     }
     m_model->updateActiveComboIndex();

@@ -64,6 +64,7 @@ SoundModel::SoundModel(QObject *parent)
     , m_outPutCount(0)
     , m_audioMono(false)
     , m_showBluetoothMode(false)
+    , m_showInputBluetoothMode(false)
 {
     m_soundEffectMapBattery = {
         { tr("Boot up"), DDesktopServices::SSE_BootUp },
@@ -718,5 +719,18 @@ QString SoundModel::getListName(int index) const
 {
     Q_UNUSED(index)
     return QString();
+}
+
+bool SoundModel::showInputBluetoothMode() const
+{
+    return m_showInputBluetoothMode;
+}
+
+void SoundModel::setShowInputBluetoothMode(bool newShowInputBluetoothMode)
+{
+    if (m_showInputBluetoothMode == newShowInputBluetoothMode)
+        return;
+    m_showInputBluetoothMode = newShowInputBluetoothMode;
+    emit showInputBluetoothModeChanged();
 }
 

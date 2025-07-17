@@ -51,6 +51,7 @@ class SoundModel : public QObject
     Q_PROPERTY(QStringList bluetoothModeOpts READ bluetoothAudioModeOpts NOTIFY bluetoothModeOptsChanged FINAL)
     Q_PROPERTY(QString currentBluetoothAudioMode READ currentBluetoothAudioMode NOTIFY bluetoothModeChanged FINAL)
     Q_PROPERTY(bool showBluetoothMode READ showBluetoothMode NOTIFY showBluetoothModeChanged FINAL)
+    Q_PROPERTY(bool showInputBluetoothMode READ showInputBluetoothMode NOTIFY showInputBluetoothModeChanged FINAL)
 
     Q_PROPERTY(bool outPutPortComboEnable READ outPutPortComboEnable NOTIFY outPutPortComboEnableChanged FINAL)
     Q_PROPERTY(bool inPutPortComboEnable READ inPutPortComboEnable NOTIFY inPutPortComboEnableChanged FINAL)
@@ -212,6 +213,9 @@ public:
     bool inPutPortComboEnable() const;
     void setInPutPortComboEnable(bool newInPutPortComboEnable);
 
+    bool showInputBluetoothMode() const;
+    void setShowInputBluetoothMode(bool newShowInputBluetoothMode);
+
 private:
 
 
@@ -275,6 +279,8 @@ Q_SIGNALS:
 
     void inPutPortComboEnableChanged();
 
+    void showInputBluetoothModeChanged();
+
 private:
     QString m_audioServer;     // 当前使用音频框架
     bool m_audioServerStatus{true};  // 设置音频时的状态
@@ -332,6 +338,7 @@ private:
 
     bool m_audioMono;
     bool m_showBluetoothMode;
+    bool m_showInputBluetoothMode;
 };
 
 #endif // DCC_SOUND_SOUNDMODEL_H
