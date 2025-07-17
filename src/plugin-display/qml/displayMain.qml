@@ -659,9 +659,12 @@ DccObject {
                 contentItem: D.IconLabel {
                     rightPadding: DS.Style.comboBox.spacing
                     alignment: control.horizontalAlignment
-                    icon.name: (control.currentIndex >= 0 && control.iconNameRole && model.get(control.currentIndex)[control.iconNameRole] !== undefined) ? model.get(control.currentIndex)[control.iconNameRole] : null
-                    icon.height: DS.Style.comboBox.iconSize
-                    icon.width: DS.Style.comboBox.iconSize
+                    icon {
+                        name: (control.currentIndex >= 0 && control.iconNameRole && model.get(control.currentIndex)[control.iconNameRole] !== undefined) ? model.get(control.currentIndex)[control.iconNameRole] : null
+                        height: DS.Style.comboBox.iconSize
+                        width: DS.Style.comboBox.iconSize
+                        palette: D.DTK.makeIconPalette(control.palette)
+                    }
                     text: control.editable ? control.editText : control.displayText
                     font: control.font
                     color: control.palette.windowText
