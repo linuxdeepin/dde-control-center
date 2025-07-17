@@ -4,6 +4,7 @@ import QtQuick 2.11
 import QtQuick.Controls 2.4
 import QtQuick.Layouts 1.15
 import QtQuick.Window 2.15
+import QtQuick.Effects
 import org.deepin.dtk 1.0
 
 import Qt5Compat.GraphicalEffects
@@ -19,8 +20,7 @@ DccObject {
         weight: 10
         pageType: DccObject.Item
         page: Label {
-            leftPadding: 5
-            bottomPadding: 5
+            leftPadding: 14
             font.pixelSize: DTK.fontManager.t5.pixelSize
             font.weight: 500
             color: DTK.themeType === ApplicationHelper.LightType ?
@@ -45,6 +45,7 @@ DccObject {
             implicitHeight: menuViewList.height + 20
             color: "transparent"
             Layout.fillWidth: true
+            Layout.topMargin: 0
 
             DropArea {
                 anchors.fill: parent
@@ -66,16 +67,6 @@ DccObject {
                 }
             }
 
-            ItemViewport {
-                id: viewport
-                anchors.fill: image
-                sourceItem: image
-                radius: 10
-                fixed: true
-                hideSource: true
-                antialiasing: true
-            }
-
             Image {
                 id: image
                 source: "file://" + dccData.mode().grubThemePath + "?timestamp=" + Date.now()
@@ -84,7 +75,48 @@ DccObject {
                 width: parent.width
                 height: menuViewList.height
                 fillMode: Image.PreserveAspectCrop
-                clip: true
+                mipmap: true
+                
+                layer.enabled: true
+                layer.effect: MultiEffect {
+                    maskEnabled: true
+                    maskSource: imageMask
+                    antialiasing: true
+                    maskThresholdMin: 0.5
+                    maskSpreadAtMin: 1.0
+                }
+            }
+
+            Rectangle {
+                id: overlayLayer
+                anchors.fill: image
+                color: "#33000000"
+                radius: 10
+                antialiasing: true
+                smooth: true
+                
+                layer.enabled: true
+                layer.effect: MultiEffect {
+                    maskEnabled: true
+                    maskSource: imageMask
+                    antialiasing: true
+                    maskThresholdMin: 0.5
+                    maskSpreadAtMin: 1.0
+                }
+            }
+
+            Item {
+                id: imageMask
+                anchors.fill: image
+                layer.enabled: true
+                visible: false
+                
+                Rectangle {
+                    anchors.fill: parent
+                    anchors.margins: 0.5
+                    radius: 10
+                    color: "white"
+                }
             }
 
             Rectangle {
@@ -92,22 +124,26 @@ DccObject {
                 anchors.fill: image
                 color: "black"
                 radius: 10
+                antialiasing: true
+                smooth: true
             }
 
             Column {
                 spacing: 5
-                leftPadding: 20
+                leftPadding: 10
+                rightPadding: 10
                 id: menuViewList
                 Layout.fillWidth: true
-                clip: true
+                width: parent.width
+                height: childrenRect.height
+                clip: false
 
                 Label {
                     id: grubSettingText
-                    width: grublist.implicitWidth
+                    width: grublist.implicitWidth - 30
                     topPadding: 10
-                    bottomPadding: 10
-                    leftPadding: 5
-                    rightPadding: 25
+                    bottomPadding: 5
+                    leftPadding: 10
                     elide: Text.ElideRight
                     text: qsTr("You can click the menu to change the default startup items, or drag the image to the window to change the background image.")
                     font: DTK.fontManager.t8
@@ -138,16 +174,26 @@ DccObject {
                     model: dccData.mode().grubMenuListModel()
 
                     delegate: Rectangle {
-                        width: grublist.width - 30
+                        width: grublist.width - 20
                         height: 30
                         color: "transparent"
+                        
                         Rectangle {
                             id: backgru
-                            width: grublist.width - 30
+                            property bool isHovered: false
+
+                            width: grublist.width - 20
                             height: 30
                             radius: 8
-                            color: "#2A000000"
-                            visible: true
+                            color: {
+                                if (model.checkStatus) {
+                                    return "#1AFFFFFF"
+                                } else if (isHovered) {
+                                    return "#0DFFFFFF"
+                                } else {
+                                    return "transparent"
+                                }
+                            }
 
                             RowLayout {
                                 Layout.alignment: Qt.AlignVCenter
@@ -157,6 +203,7 @@ DccObject {
                                 Label {
                                     height: 20
                                     Layout.alignment: Qt.AlignLeft
+                                    Layout.leftMargin: 10
                                     horizontalAlignment: Text.AlignLeft
                                     verticalAlignment: Text.AlignVCenter
                                     text: model.text
@@ -175,12 +222,18 @@ DccObject {
 
                             MouseArea {
                                 anchors.fill: parent
+                                hoverEnabled: true
                                 onClicked: {
                                     dccData.work().setDefaultEntry(model.text)
                                 }
+                                onEntered: {
+                                    parent.isHovered = true
+                                }
+                                onExited: {
+                                    parent.isHovered = false
+                                }
                             }
                         }
-
                         GaussianBlur {
                             visible: true
                             anchors.fill: parent
@@ -249,7 +302,7 @@ DccObject {
             Column {
                 spacing: 0
                 Layout.topMargin: 4
-                Layout.bottomMargin: 4
+                Layout.bottomMargin: 9
                 Layout.fillWidth: true
                 Layout.maximumWidth: parent.width - 100
                 
@@ -277,7 +330,9 @@ DccObject {
                         leftPadding: 15
                         opacity: 0.5
                         elide: Text.ElideRight
-                        width: Math.max(0, Math.min(descriptionTextMetrics.width + 15, parent.parent.width - changePasswordLabel.implicitWidth - 30))
+                        width: changePasswordLabel.visible ? 
+                               Math.max(0, Math.min(descriptionTextMetrics.width + 15, parent.parent.width - changePasswordLabel.implicitWidth - 30)) :
+                               Math.max(0, Math.min(descriptionTextMetrics.width + 15, parent.parent.width))
                         
                         TextMetrics {
                             id: descriptionTextMetrics
@@ -585,9 +640,10 @@ DccObject {
         page: ColumnLayout {
             Layout.topMargin: 0
             Layout.bottomMargin: 0
+            width: parent.width - 28
             spacing: 0
             Label {
-                leftPadding: 5
+                leftPadding: 14
                 topPadding: 10
                 font.pixelSize: DTK.fontManager.t5.pixelSize
                 font.weight: 500
@@ -596,11 +652,43 @@ DccObject {
                 text: dccObj.displayName
             }
             Label {
-                leftPadding: 5
+                id: startAnimationDescriptionLabel
+                leftPadding: 14
                 bottomPadding: 5
                 font: DTK.fontManager.t8
                 text: dccObj.description
                 opacity: 0.7
+                elide: Text.ElideRight
+                Layout.fillWidth: true
+                
+                property bool showToolTip: false
+                
+                TextMetrics {
+                    id: startAnimationDescriptionTextMetrics
+                    font: DTK.fontManager.t8
+                    text: dccObj.description
+                }
+                
+                ToolTip {
+                    text: dccObj.description
+                    visible: startAnimationDescriptionLabel.showToolTip && startAnimationDescriptionTextMetrics.width > parent.width
+                }
+                
+                MouseArea {
+                    id: startAnimationDescriptionMouseArea
+                    anchors.fill: parent
+                    hoverEnabled: true
+                    
+                    onEntered: {
+                        if (startAnimationDescriptionTextMetrics.width > parent.width) {
+                            startAnimationDescriptionLabel.showToolTip = true
+                        }
+                    }
+                    
+                    onExited: {
+                        startAnimationDescriptionLabel.showToolTip = false
+                    }
+                }
             }
         }
         onParentItemChanged: item => { 
