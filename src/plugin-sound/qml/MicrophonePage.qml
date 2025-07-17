@@ -183,6 +183,7 @@ DccObject {
             displayName: qsTr("Automatic Noise Suppression")
             weight: 30
             pageType: DccObject.Editor
+            visible: !dccData.model().showInputBluetoothMode
             page: Switch {
                 Layout.alignment: Qt.AlignRight | Qt.AlignTop
 
