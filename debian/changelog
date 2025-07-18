@@ -1,3 +1,9 @@
+dde-control-center (6.1.38) unstable; urgency=medium
+
+  * i18n: Updates for project Deepin Desktop Environment (#2519)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 18 Jul 2025 15:08:00 +0800
+
 dde-control-center (6.1.37) unstable; urgency=medium
 
   * fix: Update text errors
