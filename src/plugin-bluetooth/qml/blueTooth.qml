@@ -9,7 +9,7 @@ DccObject {
     id: root
     name: "bluetooth"
     parentName: "device"
-    displayName: qsTr("bluetooth")
+    displayName: qsTr("Bluetooth")
     description: qsTr("Bluetooth settings, devices")
     visible: false
     icon: "bluetoothNomal"

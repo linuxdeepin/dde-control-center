@@ -1979,6 +1979,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>New password</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Different from the username</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PasswordModifyDialog</name>
@@ -3185,7 +3189,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>bluetooth</source>
+        <source>Bluetooth</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
