@@ -1981,6 +1981,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>New password</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Different from the username</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PasswordModifyDialog</name>
@@ -3183,12 +3187,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>blueTooth</name>
     <message>
-        <source>bluetooth</source>
-        <translation>bluetooth</translation>
-    </message>
-    <message>
         <source>Bluetooth settings, devices</source>
         <translation>margzat bluetooth, dispositifs</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
