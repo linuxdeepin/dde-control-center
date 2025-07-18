@@ -1,3 +1,14 @@
+dde-control-center (6.1.37) unstable; urgency=medium
+
+  * fix: Update text errors
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2512)
+  * fix: Fixed Bluetooth device status not refreshing
+  * fix: hide noise suppression setting when input device is bluetooth
+  * fix: Modifying icons does not change with the theme
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 18 Jul 2025 13:58:02 +0800
+
 dde-control-center (6.1.36) unstable; urgency=medium
 
   * fix: Worng state in power anagement
