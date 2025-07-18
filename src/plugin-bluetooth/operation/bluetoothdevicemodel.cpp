@@ -102,6 +102,7 @@ void BluetoothDeviceModel::reorderDevices()
     }
     
     if (connectedDevices.isEmpty() || disconnectedDevices.isEmpty()) {
+        updateAllData();
         return;
     }
     
