@@ -103,27 +103,27 @@
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Annuler</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Rétablir</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"/>
+        <translation>Couper</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>Copier</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"/>
+        <translation>Coller</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Tout sélectionner</translation>
     </message>
 </context>
 <context>
@@ -918,19 +918,19 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Le nom d&apos;utilisateur ne peut pas dépasser 32 caractères.</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>Le nom d&apos;utilisateur ne peut contenir que des lettres, des chiffres, - et _.</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Le nom complet ne peut pas dépasser 32 caractères.</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation>Le nom complet ne peut pas contenir de doubles points.</translation>
     </message>
 </context>
 <context>
@@ -941,7 +941,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation>Le type de fichier téléchargé n&apos;est pas correct, veuillez le télécharger à nouveau.</translation>
     </message>
 </context>
 <context>
@@ -1100,7 +1100,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Exemple</translation>
     </message>
 </context>
 <context>
@@ -1280,7 +1280,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>Le pseudonyme doit comporter entre 1 et 32 caractères.</translation>
     </message>
 </context>
 <context>
@@ -1303,7 +1303,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>Le pseudonyme ne peut être modifié qu&apos;une seule fois par jour.</translation>
     </message>
 </context>
 <context>
@@ -1444,7 +1444,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Pour installer et exécuter des applications non signées, veuillez vous rendre dans le centre de sécurité afin de modifier les paramètres.</translation>
     </message>
 </context>
 <context>
