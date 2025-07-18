@@ -76,8 +76,8 @@ DccObject {
                     }
                     D.ActionButton {
                         Layout.alignment: Qt.AlignCenter
-                        implicitHeight: 30
-                        implicitWidth: 30
+                        implicitHeight: 22
+                        implicitWidth: 22
                         visible: !model.isDefault && model.canDelete && control.hovered
                         icon {
                             name: "dcc-delete"
