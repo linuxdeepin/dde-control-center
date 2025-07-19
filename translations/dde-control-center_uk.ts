@@ -103,27 +103,27 @@
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Повторити</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"/>
+        <translation>Вирізати</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>Скопіювати</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"/>
+        <translation>Вставити</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Позначити усе</translation>
     </message>
 </context>
 <context>
@@ -426,7 +426,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation>Довжин назви Bluetooth не може перевищувати 64 символів</translation>
+        <translation>Довжина назви Bluetooth не може перевищувати 64 символів</translation>
     </message>
 </context>
 <context>
@@ -907,19 +907,19 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Довжина назви запису користувача не може перевищувати 32 символи</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>Ім&apos;я користувача може містити лише літери, цифри та символи - і _</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Довжина імені повністю не може перевищувати 32 символи</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation>Ім&apos;я повністю не може містити символів двокрапки</translation>
     </message>
 </context>
 <context>
@@ -930,7 +930,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation>Тип вивантаженого файла є неправильним. Будь ласка, повторіть спробу вивантаження</translation>
     </message>
 </context>
 <context>
@@ -1086,7 +1086,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Приклад</translation>
     </message>
 </context>
 <context>
@@ -1264,7 +1264,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>У псевдонімі має бути від 1 до 32 символів</translation>
     </message>
 </context>
 <context>
@@ -1287,7 +1287,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>Псевдонім можна міняти не частіше, ніж раз на день</translation>
     </message>
 </context>
 <context>
@@ -1428,7 +1428,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Для встановлення і запуску непідписаних програм, будь ласка, відкрийте «Центр безпеки» для внесення змін до параметрів.</translation>
     </message>
 </context>
 <context>
@@ -1993,7 +1993,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Different from the username</source>
-        <translation type="unfinished"/>
+        <translation>Не збігається з іменем користувача</translation>
     </message>
 </context>
 <context>
@@ -3202,7 +3202,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -3225,7 +3225,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Діагностичні параметри для розробників</translation>
     </message>
 </context>
 <context>
@@ -4228,7 +4228,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Важкий</translation>
     </message>
 </context>
 </TS>
