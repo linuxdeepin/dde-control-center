@@ -894,19 +894,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>O nome do usuário não pode ultrapassar 32 caracteres</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>O nome do usuário só pode conter letras, números, &quot;-&quot; e &quot;_&quot;</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>O nome completo não pode ultrapassar 32 caracteres</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation>O nome completo não pode conter &quot;:&quot;</translation>
     </message>
 </context>
 <context>
