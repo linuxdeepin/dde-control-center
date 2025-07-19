@@ -1994,7 +1994,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Different from the username</source>
-        <translation type="unfinished"/>
+        <translation>Diferent del nom d&apos;usuari</translation>
     </message>
 </context>
 <context>
@@ -3203,7 +3203,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
