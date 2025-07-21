@@ -1499,39 +1499,39 @@
     </message>
     <message>
         <source>Norwegian</source>
-        <translation type="unfinished"/>
+        <translation>ノルウェー語</translation>
     </message>
     <message>
         <source>Norwegian Bokmål</source>
-        <translation type="unfinished"/>
+        <translation>ノルウェー語ブークモール</translation>
     </message>
     <message>
         <source>Norwegian Nynorsk</source>
-        <translation type="unfinished"/>
+        <translation>ノルウェー語ニーノシュク</translation>
     </message>
     <message>
         <source>Nuer</source>
-        <translation type="unfinished"/>
+        <translation>ヌエル語</translation>
     </message>
     <message>
         <source>Nyamwezi</source>
-        <translation type="unfinished"/>
+        <translation>ニャムウェジ語</translation>
     </message>
     <message>
         <source>Nyanja</source>
-        <translation type="unfinished"/>
+        <translation>ニャンジャ語</translation>
     </message>
     <message>
         <source>Nyankole</source>
-        <translation type="unfinished"/>
+        <translation>ニャンコレ語</translation>
     </message>
     <message>
         <source>Nyasa Tonga</source>
-        <translation type="unfinished"/>
+        <translation>ニャサ・トンガ語</translation>
     </message>
     <message>
         <source>Nyoro</source>
-        <translation type="unfinished"/>
+        <translation>ニョロ語</translation>
     </message>
     <message>
         <source>Nzima</source>
