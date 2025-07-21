@@ -1451,51 +1451,51 @@
     </message>
     <message>
         <source>Nigerian Pidgin</source>
-        <translation type="unfinished"/>
+        <translation>ナイジェリア・ピジン語</translation>
     </message>
     <message>
         <source>Niuean</source>
-        <translation type="unfinished"/>
+        <translation>ニウエ語</translation>
     </message>
     <message>
         <source>No linguistic content</source>
-        <translation type="unfinished"/>
+        <translation>言語的内容なし</translation>
     </message>
     <message>
         <source>Nogai</source>
-        <translation type="unfinished"/>
+        <translation>ノガイ語</translation>
     </message>
     <message>
         <source>North Ndebele</source>
-        <translation type="unfinished"/>
+        <translation>北ンデベレ語</translation>
     </message>
     <message>
         <source>Northern East Cree</source>
-        <translation type="unfinished"/>
+        <translation>北東クリー語 </translation>
     </message>
     <message>
         <source>Northern Frisian</source>
-        <translation type="unfinished"/>
+        <translation>北フリジア語</translation>
     </message>
     <message>
         <source>Northern Luri</source>
-        <translation type="unfinished"/>
+        <translation>北ルリ語</translation>
     </message>
     <message>
         <source>Northern Sami</source>
-        <translation type="unfinished"/>
+        <translation>北サーミ語</translation>
     </message>
     <message>
         <source>Northern Sotho</source>
-        <translation type="unfinished"/>
+        <translation>北ソト語</translation>
     </message>
     <message>
         <source>Northern Tutchone</source>
-        <translation type="unfinished"/>
+        <translation>北タチョネ語</translation>
     </message>
     <message>
         <source>Northwestern Ojibwa</source>
-        <translation type="unfinished"/>
+        <translation>北西オジブウェー語</translation>
     </message>
     <message>
         <source>Norwegian</source>
