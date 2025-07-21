@@ -1703,63 +1703,63 @@
     </message>
     <message>
         <source>Romanian</source>
-        <translation type="unfinished"/>
+        <translation>ルーマニア語</translation>
     </message>
     <message>
         <source>Moldavian</source>
-        <translation type="unfinished"/>
+        <translation>モルドバ語</translation>
     </message>
     <message>
         <source>Romansh</source>
-        <translation type="unfinished"/>
+        <translation>ロマンシュ語</translation>
     </message>
     <message>
         <source>Romany</source>
-        <translation type="unfinished"/>
+        <translation>ロマ語</translation>
     </message>
     <message>
         <source>Rombo</source>
-        <translation type="unfinished"/>
+        <translation>ロンボ語</translation>
     </message>
     <message>
         <source>Rundi</source>
-        <translation type="unfinished"/>
+        <translation>ルンディ語</translation>
     </message>
     <message>
         <source>Russian</source>
-        <translation type="unfinished"/>
+        <translation>ロシア語</translation>
     </message>
     <message>
         <source>Rwa</source>
-        <translation type="unfinished"/>
+        <translation>ルワ語</translation>
     </message>
     <message>
         <source>Saamia</source>
-        <translation type="unfinished"/>
+        <translation>サミア語</translation>
     </message>
     <message>
         <source>Saho</source>
-        <translation type="unfinished"/>
+        <translation>サホ語</translation>
     </message>
     <message>
         <source>Samaritan Aramaic</source>
-        <translation type="unfinished"/>
+        <translation>サマリア・アラム語</translation>
     </message>
     <message>
         <source>Samburu</source>
-        <translation type="unfinished"/>
+        <translation>サマリア・アラム語</translation>
     </message>
     <message>
         <source>Samoan</source>
-        <translation type="unfinished"/>
+        <translation>サモア語</translation>
     </message>
     <message>
         <source>Sandawe</source>
-        <translation type="unfinished"/>
+        <translation>サンダウェ語</translation>
     </message>
     <message>
         <source>Sango</source>
-        <translation type="unfinished"/>
+        <translation>サンゴ語</translation>
     </message>
     <message>
         <source>Sangu</source>
