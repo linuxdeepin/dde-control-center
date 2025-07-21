@@ -1623,51 +1623,51 @@
     </message>
     <message>
         <source>Pangasinan</source>
-        <translation type="unfinished"/>
+        <translation>パンガシナン語</translation>
     </message>
     <message>
         <source>Papiamento</source>
-        <translation type="unfinished"/>
+        <translation>パピアメント語</translation>
     </message>
     <message>
         <source>Pashto</source>
-        <translation type="unfinished"/>
+        <translation>パシュトゥー語</translation>
     </message>
     <message>
         <source>Persian</source>
-        <translation type="unfinished"/>
+        <translation>ペルシア語</translation>
     </message>
     <message>
         <source>Dari</source>
-        <translation type="unfinished"/>
+        <translation>ダリー語</translation>
     </message>
     <message>
         <source>Phoenician</source>
-        <translation type="unfinished"/>
+        <translation>フェニキア語</translation>
     </message>
     <message>
         <source>Pijin</source>
-        <translation type="unfinished"/>
+        <translation>ピジン語</translation>
     </message>
     <message>
         <source>Plains Cree</source>
-        <translation type="unfinished"/>
+        <translation>平原クリー語</translation>
     </message>
     <message>
         <source>Pohnpeian</source>
-        <translation type="unfinished"/>
+        <translation>ポンペイ語</translation>
     </message>
     <message>
         <source>Polish</source>
-        <translation type="unfinished"/>
+        <translation>ポーランド語</translation>
     </message>
     <message>
         <source>Portuguese</source>
-        <translation type="unfinished"/>
+        <translation>ポルトガル語</translation>
     </message>
     <message>
         <source>Brazilian Portuguese</source>
-        <translation type="unfinished"/>
+        <translation>ブラジル・ポルトガル語</translation>
     </message>
     <message>
         <source>European Portuguese</source>
