@@ -1763,31 +1763,31 @@
     </message>
     <message>
         <source>Sangu</source>
-        <translation type="unfinished"/>
+        <translation>サング語</translation>
     </message>
     <message>
         <source>Sanskrit</source>
-        <translation type="unfinished"/>
+        <translation>サンスクリット語</translation>
     </message>
     <message>
         <source>Santali</source>
-        <translation type="unfinished"/>
+        <translation>サンタル語</translation>
     </message>
     <message>
         <source>Sardinian</source>
-        <translation type="unfinished"/>
+        <translation>サルデーニャ語</translation>
     </message>
     <message>
         <source>Sasak</source>
-        <translation type="unfinished"/>
+        <translation>ササク語</translation>
     </message>
     <message>
         <source>Scots</source>
-        <translation type="unfinished"/>
+        <translation>スコットランド語</translation>
     </message>
     <message>
         <source>Scottish Gaelic</source>
-        <translation type="unfinished"/>
+        <translation>スコットランド・ゲール語</translation>
     </message>
     <message>
         <source>Selkup</source>
