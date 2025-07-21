@@ -12,7 +12,7 @@ Item {
     property real translationX: 100
     property real translationY: 100
     property real scale: 0.1
-    property real radius: width * 0.05
+    property real radius: 8
     property bool selected: false
     property real offset: (imgRepeater.count - 1) * 6
     signal pressed
@@ -61,7 +61,7 @@ Item {
                 color: "transparent"
                 opacity: (index === 0 && root.selected) ? 0.7 : 0.2
                 border.color: (index === 0 && root.selected) ? this.palette.window : "#000000"
-                border.width: 1
+                border.width: 2
                 smooth: true
             }
         }
@@ -90,8 +90,8 @@ Item {
         name: "home_screen"
         anchors.bottom: parent.bottom
         anchors.right: parent.right
-        anchors.bottomMargin: parent.radius + 5
-        anchors.rightMargin: parent.radius + 5
+        anchors.bottomMargin: root.radius + 5
+        anchors.rightMargin: root.radius + 5
         sourceSize: Qt.size(24, 24)
     }
     Loader {
@@ -106,7 +106,7 @@ Item {
             radius: root.radius + 1
             color: "transparent"
             border.color: this.palette.highlight
-            border.width: 1
+            border.width: 2
             smooth: true
         }
     }
