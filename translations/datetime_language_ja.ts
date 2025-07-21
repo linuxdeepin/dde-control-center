@@ -1791,35 +1791,35 @@
     </message>
     <message>
         <source>Selkup</source>
-        <translation type="unfinished"/>
+        <translation>セルクプ語</translation>
     </message>
     <message>
         <source>Sena</source>
-        <translation type="unfinished"/>
+        <translation>セナ語</translation>
     </message>
     <message>
         <source>Seneca</source>
-        <translation type="unfinished"/>
+        <translation>セネカ語</translation>
     </message>
     <message>
         <source>Serbian</source>
-        <translation type="unfinished"/>
+        <translation>セルビア語</translation>
     </message>
     <message>
         <source>Serbo-Croatian</source>
-        <translation type="unfinished"/>
+        <translation>セルビア・クロアチア語</translation>
     </message>
     <message>
         <source>Serer</source>
-        <translation type="unfinished"/>
+        <translation>セレール語</translation>
     </message>
     <message>
         <source>Seselwa Creole French</source>
-        <translation type="unfinished"/>
+        <translation>セーシェル・クレオール語</translation>
     </message>
     <message>
         <source>Shambala</source>
-        <translation type="unfinished"/>
+        <translation>サンバー語</translation>
     </message>
     <message>
         <source>Shan</source>
