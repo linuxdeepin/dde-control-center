@@ -1535,39 +1535,39 @@
     </message>
     <message>
         <source>Nzima</source>
-        <translation type="unfinished"/>
+        <translation>ンズィマ語</translation>
     </message>
     <message>
         <source>Obolo</source>
-        <translation type="unfinished"/>
+        <translation>オボロ語</translation>
     </message>
     <message>
         <source>Occitan</source>
-        <translation type="unfinished"/>
+        <translation>オック語</translation>
     </message>
     <message>
         <source>Odia</source>
-        <translation type="unfinished"/>
+        <translation>オリヤー語</translation>
     </message>
     <message>
         <source>Oji-Cree</source>
-        <translation type="unfinished"/>
+        <translation>オジブウェー・クリー語</translation>
     </message>
     <message>
         <source>Ojibwa</source>
-        <translation type="unfinished"/>
+        <translation>オジブウェー語</translation>
     </message>
     <message>
         <source>Okanagan</source>
-        <translation type="unfinished"/>
+        <translation>オカナガン語 </translation>
     </message>
     <message>
         <source>Old English</source>
-        <translation type="unfinished"/>
+        <translation>古英語</translation>
     </message>
     <message>
         <source>Old French</source>
-        <translation type="unfinished"/>
+        <translation>古フランス語</translation>
     </message>
     <message>
         <source>Old High German</source>
