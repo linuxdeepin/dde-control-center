@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
-import QtQuick 2.15
+import QtQuick
 import QtQuick.Controls 2.0
 import QtQuick.Window
 import org.deepin.dtk 1.0
@@ -38,6 +38,7 @@ Loader {
         flags: Qt.Dialog
         // default color is white
         color: active ? DTK.palette.window : DTK.inactivePalette.window
+        palette: DTK.palette
 
         ColumnLayout {
             id: contentLayout
