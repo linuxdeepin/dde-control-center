@@ -129,6 +129,10 @@ Loader {
                 Component.onCompleted: {
                     loader.view = arrowListView
                     loader.viewWidth = arrowListView.width
+                    // Scroll to the highlighted item when the view is ready
+                    if (loader.highlightedIndex >= 0 && view) {
+                        view.positionViewAtIndex(loader.highlightedIndex, ListView.Beginning)
+                    }
                 }
 
                 onWidthChanged: {

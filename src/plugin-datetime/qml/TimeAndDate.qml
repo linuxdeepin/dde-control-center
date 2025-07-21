@@ -405,6 +405,8 @@ DccObject {
 
                 onClicked: function (mouse) {
                     if (!timezoneWindow.isVisible()) {
+                        // Reset highlightedIndex to the actual current index before showing
+                        timezoneWindow.highlightedIndex = systemTimezoneItem.currentIndex
                         timezoneWindow.show()
                         timezoneWindow.setPositionByItem(parent)
                     }
@@ -463,6 +465,7 @@ DccObject {
                 onClicked: {
                     if (!timezoneListWindow.isVisible()) {
                         timezoneListWindow.setPositionByItem(parent)
+                        timezoneListWindow.highlightedIndex = 0
                         timezoneListWindow.show()
                     }
                 }
