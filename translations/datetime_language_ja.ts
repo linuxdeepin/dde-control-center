@@ -1867,7 +1867,7 @@
     </message>
     <message>
         <source>Slovenian</source>
-        <translation type="unfinished"/>
+        <translation>スロベニア語</translation>
     </message>
     <message>
         <source>Soga</source>
