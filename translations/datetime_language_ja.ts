@@ -1,541 +1,541 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS language="en_US" version="2.1">
+<?xml version="1.0" ?><!DOCTYPE TS><TS language="ja" version="2.1">
 <context>
     <name>dcc::datetime::Language</name>
     <message>
         <source>Abkhazian</source>
-        <translation type="unfinished"/>
+        <translation>アブハズ語</translation>
     </message>
     <message>
         <source>Achinese</source>
-        <translation type="unfinished"/>
+        <translation>アチェ語</translation>
     </message>
     <message>
         <source>Acoli</source>
-        <translation type="unfinished"/>
+        <translation>アチョリ語</translation>
     </message>
     <message>
         <source>Adangme</source>
-        <translation type="unfinished"/>
+        <translation>アダグメ語</translation>
     </message>
     <message>
         <source>Adyghe</source>
-        <translation type="unfinished"/>
+        <translation>アディゲ語</translation>
     </message>
     <message>
         <source>Afar</source>
-        <translation type="unfinished"/>
+        <translation>アファル語</translation>
     </message>
     <message>
         <source>Afrihili</source>
-        <translation type="unfinished"/>
+        <translation>アフリヒリ</translation>
     </message>
     <message>
         <source>Afrikaans</source>
-        <translation type="unfinished"/>
+        <translation>アフリカーンス語</translation>
     </message>
     <message>
         <source>Aghem</source>
-        <translation type="unfinished"/>
+        <translation>アゲム語</translation>
     </message>
     <message>
         <source>Ainu</source>
-        <translation type="unfinished"/>
+        <translation>アイヌ語</translation>
     </message>
     <message>
         <source>Akan</source>
-        <translation type="unfinished"/>
+        <translation>アカン語</translation>
     </message>
     <message>
         <source>Akkadian</source>
-        <translation type="unfinished"/>
+        <translation>アッカド語</translation>
     </message>
     <message>
         <source>Akoose</source>
-        <translation type="unfinished"/>
+        <translation>アコース語</translation>
     </message>
     <message>
         <source>Albanian</source>
-        <translation type="unfinished"/>
+        <translation>アルバニア語</translation>
     </message>
     <message>
         <source>Aleut</source>
-        <translation type="unfinished"/>
+        <translation>アウレト語</translation>
     </message>
     <message>
         <source>Amharic</source>
-        <translation type="unfinished"/>
+        <translation>アムハラ語</translation>
     </message>
     <message>
         <source>Ancient Egyptian</source>
-        <translation type="unfinished"/>
+        <translation>古代エジプト語</translation>
     </message>
     <message>
         <source>Ancient Greek</source>
-        <translation type="unfinished"/>
+        <translation>古代ギリシア語</translation>
     </message>
     <message>
         <source>Angika</source>
-        <translation type="unfinished"/>
+        <translation>アンギカ語</translation>
     </message>
     <message>
         <source>Arabic</source>
-        <translation type="unfinished"/>
+        <translation>アラビア語</translation>
     </message>
     <message>
         <source>Modern Standard Arabic</source>
-        <translation type="unfinished"/>
+        <translation>標準アラビア語</translation>
     </message>
     <message>
         <source>Aragonese</source>
-        <translation type="unfinished"/>
+        <translation>アラゴン語</translation>
     </message>
     <message>
         <source>Aramaic</source>
-        <translation type="unfinished"/>
+        <translation>アラム語</translation>
     </message>
     <message>
         <source>Arapaho</source>
-        <translation type="unfinished"/>
+        <translation>アラパホー語</translation>
     </message>
     <message>
         <source>Arawak</source>
-        <translation type="unfinished"/>
+        <translation>アラワク語</translation>
     </message>
     <message>
         <source>Armenian</source>
-        <translation type="unfinished"/>
+        <translation>アルメニア語</translation>
     </message>
     <message>
         <source>Aromanian</source>
-        <translation type="unfinished"/>
+        <translation>アルーマニア語</translation>
     </message>
     <message>
         <source>Assamese</source>
-        <translation type="unfinished"/>
+        <translation>アッサム語</translation>
     </message>
     <message>
         <source>Asturian</source>
-        <translation type="unfinished"/>
+        <translation>アストゥリアス語</translation>
     </message>
     <message>
         <source>Asu</source>
-        <translation type="unfinished"/>
+        <translation>アス語</translation>
     </message>
     <message>
         <source>Atikamekw</source>
-        <translation type="unfinished"/>
+        <translation>アティカメク語</translation>
     </message>
     <message>
         <source>Atsam</source>
-        <translation type="unfinished"/>
+        <translation>チャワイ語</translation>
     </message>
     <message>
         <source>Avaric</source>
-        <translation type="unfinished"/>
+        <translation>アバール語</translation>
     </message>
     <message>
         <source>Avestan</source>
-        <translation type="unfinished"/>
+        <translation>アベスタ語</translation>
     </message>
     <message>
         <source>Awadhi</source>
-        <translation type="unfinished"/>
+        <translation>アワディー語</translation>
     </message>
     <message>
         <source>Aymara</source>
-        <translation type="unfinished"/>
+        <translation>アイマラ語</translation>
     </message>
     <message>
         <source>Azerbaijani</source>
-        <translation type="unfinished"/>
+        <translation>アゼルバイジャン語</translation>
     </message>
     <message>
         <source>Azerbaijani (Arabic)</source>
-        <translation type="unfinished"/>
+        <translation>アゼルバイジャン語 (アラビア文字)</translation>
     </message>
     <message>
         <source>Azeri</source>
-        <translation type="unfinished"/>
+        <translation>アゼリー語</translation>
     </message>
     <message>
         <source>Bafia</source>
-        <translation type="unfinished"/>
+        <translation>バフィア語</translation>
     </message>
     <message>
         <source>Bafut</source>
-        <translation type="unfinished"/>
+        <translation>バフット語</translation>
     </message>
     <message>
         <source>Balinese</source>
-        <translation type="unfinished"/>
+        <translation>バリ語</translation>
     </message>
     <message>
         <source>Baluchi</source>
-        <translation type="unfinished"/>
+        <translation>バルーチー語</translation>
     </message>
     <message>
         <source>Bambara</source>
-        <translation type="unfinished"/>
+        <translation>バンバラ語</translation>
     </message>
     <message>
         <source>Bamun</source>
-        <translation type="unfinished"/>
+        <translation>バムン語</translation>
     </message>
     <message>
         <source>Bangla</source>
-        <translation type="unfinished"/>
+        <translation>ベンガル語</translation>
     </message>
     <message>
         <source>Basaa</source>
-        <translation type="unfinished"/>
+        <translation>バサ語</translation>
     </message>
     <message>
         <source>Bashkir</source>
-        <translation type="unfinished"/>
+        <translation>バシュキール語</translation>
     </message>
     <message>
         <source>Basque</source>
-        <translation type="unfinished"/>
+        <translation>バスク語</translation>
     </message>
     <message>
         <source>Beja</source>
-        <translation type="unfinished"/>
+        <translation>ベジャ語</translation>
     </message>
     <message>
         <source>Belarusian</source>
-        <translation type="unfinished"/>
+        <translation>ベラルーシ語</translation>
     </message>
     <message>
         <source>Bemba</source>
-        <translation type="unfinished"/>
+        <translation>ベンバ語</translation>
     </message>
     <message>
         <source>Bena</source>
-        <translation type="unfinished"/>
+        <translation>ベナ語</translation>
     </message>
     <message>
         <source>Bhojpuri</source>
-        <translation type="unfinished"/>
+        <translation>ボージュプリー語</translation>
     </message>
     <message>
         <source>Bikol</source>
-        <translation type="unfinished"/>
+        <translation>ビコル語</translation>
     </message>
     <message>
         <source>Bini</source>
-        <translation type="unfinished"/>
+        <translation>ビニ語</translation>
     </message>
     <message>
         <source>Bislama</source>
-        <translation type="unfinished"/>
+        <translation>ビスラマ語</translation>
     </message>
     <message>
         <source>Blin</source>
-        <translation type="unfinished"/>
+        <translation>ビリン語</translation>
     </message>
     <message>
         <source>Blissymbols</source>
-        <translation type="unfinished"/>
+        <translation>ブリスシンボル</translation>
     </message>
     <message>
         <source>Bodo</source>
-        <translation type="unfinished"/>
+        <translation>ボド語</translation>
     </message>
     <message>
         <source>Bosnian</source>
-        <translation type="unfinished"/>
+        <translation>ボスニア語</translation>
     </message>
     <message>
         <source>Braj</source>
-        <translation type="unfinished"/>
+        <translation>ブラジ語</translation>
     </message>
     <message>
         <source>Breton</source>
-        <translation type="unfinished"/>
+        <translation>ブルトン語</translation>
     </message>
     <message>
         <source>Buginese</source>
-        <translation type="unfinished"/>
+        <translation>ブギス語</translation>
     </message>
     <message>
         <source>Bulgarian</source>
-        <translation type="unfinished"/>
+        <translation>ブルガリア語</translation>
     </message>
     <message>
         <source>Bulu</source>
-        <translation type="unfinished"/>
+        <translation>ブル語</translation>
     </message>
     <message>
         <source>Buriat</source>
-        <translation type="unfinished"/>
+        <translation>ブリヤート語</translation>
     </message>
     <message>
         <source>Burmese</source>
-        <translation type="unfinished"/>
+        <translation>ビルマ語</translation>
     </message>
     <message>
         <source>Caddo</source>
-        <translation type="unfinished"/>
+        <translation>カド語</translation>
     </message>
     <message>
         <source>Cajun French</source>
-        <translation type="unfinished"/>
+        <translation>ケイジャン・フランス語</translation>
     </message>
     <message>
         <source>Cantonese</source>
-        <translation type="unfinished"/>
+        <translation>広東語</translation>
     </message>
     <message>
         <source>Chinese, Cantonese</source>
-        <translation type="unfinished"/>
+        <translation>中国,広東語</translation>
     </message>
     <message>
         <source>Carib</source>
-        <translation type="unfinished"/>
+        <translation>カリブ語</translation>
     </message>
     <message>
         <source>Carolina Algonquian</source>
-        <translation type="unfinished"/>
+        <translation>北米インド語</translation>
     </message>
     <message>
         <source>Catalan</source>
-        <translation type="unfinished"/>
+        <translation>カタロニア語</translation>
     </message>
     <message>
         <source>Cayuga</source>
-        <translation type="unfinished"/>
+        <translation>カユーガ語</translation>
     </message>
     <message>
         <source>Cebuano</source>
-        <translation type="unfinished"/>
+        <translation>セブアノ語</translation>
     </message>
     <message>
         <source>Central Atlas Tamazight</source>
-        <translation type="unfinished"/>
+        <translation>中央アトラス・タマジクト語</translation>
     </message>
     <message>
         <source>Central Kurdish</source>
-        <translation type="unfinished"/>
+        <translation>中央クルド語</translation>
     </message>
     <message>
         <source>Kurdish, Sorani</source>
-        <translation type="unfinished"/>
+        <translation>ソラニー</translation>
     </message>
     <message>
         <source>Central Ojibwa</source>
-        <translation type="unfinished"/>
+        <translation>オジブワ語</translation>
     </message>
     <message>
         <source>Chadian Arabic</source>
-        <translation type="unfinished"/>
+        <translation>アラビア語チャド方言</translation>
     </message>
     <message>
         <source>Chagatai</source>
-        <translation type="unfinished"/>
+        <translation>チャガタイ語</translation>
     </message>
     <message>
         <source>Chakma</source>
-        <translation type="unfinished"/>
+        <translation>チャクマ語</translation>
     </message>
     <message>
         <source>Chamorro</source>
-        <translation type="unfinished"/>
+        <translation>チャモロ語</translation>
     </message>
     <message>
         <source>Chechen</source>
-        <translation type="unfinished"/>
+        <translation>チェチェン語</translation>
     </message>
     <message>
         <source>Cherokee</source>
-        <translation type="unfinished"/>
+        <translation>チェロキー語</translation>
     </message>
     <message>
         <source>Cheyenne</source>
-        <translation type="unfinished"/>
+        <translation>シャイアン語</translation>
     </message>
     <message>
         <source>Chibcha</source>
-        <translation type="unfinished"/>
+        <translation>チブチャ語</translation>
     </message>
     <message>
         <source>Chiga</source>
-        <translation type="unfinished"/>
+        <translation>キガ語</translation>
     </message>
     <message>
         <source>Chilcotin</source>
-        <translation type="unfinished"/>
+        <translation>チルコティン語</translation>
     </message>
     <message>
         <source>Chinese</source>
-        <translation type="unfinished"/>
+        <translation>中国語</translation>
     </message>
     <message>
         <source>Simplified Chinese</source>
-        <translation type="unfinished"/>
+        <translation>簡体中国語</translation>
     </message>
     <message>
         <source>Simplified Mandarin Chinese</source>
-        <translation type="unfinished"/>
+        <translation>簡体標準中国語</translation>
     </message>
     <message>
         <source>Traditional Chinese</source>
-        <translation type="unfinished"/>
+        <translation>繫体中国語</translation>
     </message>
     <message>
         <source>Traditional Mandarin Chinese</source>
-        <translation type="unfinished"/>
+        <translation>繁体標準中国語</translation>
     </message>
     <message>
         <source>Chinese, Mandarin</source>
-        <translation type="unfinished"/>
+        <translation>中国語(本土)</translation>
     </message>
     <message>
         <source>Chinook Jargon</source>
-        <translation type="unfinished"/>
+        <translation>チヌーク・ジャーゴン</translation>
     </message>
     <message>
         <source>Chipewyan</source>
-        <translation type="unfinished"/>
+        <translation>チペワイアン語</translation>
     </message>
     <message>
         <source>Choctaw</source>
-        <translation type="unfinished"/>
+        <translation>チョクトー語</translation>
     </message>
     <message>
         <source>Church Slavic</source>
-        <translation type="unfinished"/>
+        <translation>教会スラブ語</translation>
     </message>
     <message>
         <source>Chuukese</source>
-        <translation type="unfinished"/>
+        <translation>トラック語</translation>
     </message>
     <message>
         <source>Chuvash</source>
-        <translation type="unfinished"/>
+        <translation>チュワシュ語</translation>
     </message>
     <message>
         <source>Classical Newari</source>
-        <translation type="unfinished"/>
+        <translation>古典ネワール語</translation>
     </message>
     <message>
         <source>Classical Syriac</source>
-        <translation type="unfinished"/>
+        <translation>古典シリア語</translation>
     </message>
     <message>
         <source>Colognian</source>
-        <translation type="unfinished"/>
+        <translation>ケルン語</translation>
     </message>
     <message>
         <source>Comorian</source>
-        <translation type="unfinished"/>
+        <translation>コモロ語</translation>
     </message>
     <message>
         <source>Coptic</source>
-        <translation type="unfinished"/>
+        <translation>コプト語</translation>
     </message>
     <message>
         <source>Cornish</source>
-        <translation type="unfinished"/>
+        <translation>コーンウォール語</translation>
     </message>
     <message>
         <source>Corsican</source>
-        <translation type="unfinished"/>
+        <translation>コルシカ語</translation>
     </message>
     <message>
         <source>Cree</source>
-        <translation type="unfinished"/>
+        <translation>クリー語</translation>
     </message>
     <message>
         <source>Crimean Tatar</source>
-        <translation type="unfinished"/>
+        <translation>クリム・タタール語</translation>
     </message>
     <message>
         <source>Croatian</source>
-        <translation type="unfinished"/>
+        <translation>クロアチア語</translation>
     </message>
     <message>
         <source>Czech</source>
-        <translation type="unfinished"/>
+        <translation>チェコ語</translation>
     </message>
     <message>
         <source>Dakota</source>
-        <translation type="unfinished"/>
+        <translation>ダコタ語</translation>
     </message>
     <message>
         <source>Danish</source>
-        <translation type="unfinished"/>
+        <translation>デンマーク語</translation>
     </message>
     <message>
         <source>Dargwa</source>
-        <translation type="unfinished"/>
+        <translation>ダルグワ語</translation>
     </message>
     <message>
         <source>Dazaga</source>
-        <translation type="unfinished"/>
+        <translation>ダザガ語</translation>
     </message>
     <message>
         <source>Delaware</source>
-        <translation type="unfinished"/>
+        <translation>デラウエア語</translation>
     </message>
     <message>
         <source>Dinka</source>
-        <translation type="unfinished"/>
+        <translation>ディンカ語</translation>
     </message>
     <message>
         <source>Divehi</source>
-        <translation type="unfinished"/>
+        <translation>ディベヒ語</translation>
     </message>
     <message>
         <source>Dogri</source>
-        <translation type="unfinished"/>
+        <translation>ドーグリー語</translation>
     </message>
     <message>
         <source>Dogrib</source>
-        <translation type="unfinished"/>
+        <translation>ドグリブ語</translation>
     </message>
     <message>
         <source>Duala</source>
-        <translation type="unfinished"/>
+        <translation>ドゥアラ語</translation>
     </message>
     <message>
         <source>Dutch</source>
-        <translation type="unfinished"/>
+        <translation>オランダ語</translation>
     </message>
     <message>
         <source>Flemish</source>
-        <translation type="unfinished"/>
+        <translation>フラマン語</translation>
     </message>
     <message>
         <source>Dyula</source>
-        <translation type="unfinished"/>
+        <translation>ジュラ語</translation>
     </message>
     <message>
         <source>Dzongkha</source>
-        <translation type="unfinished"/>
+        <translation>ゾンカ語</translation>
     </message>
     <message>
         <source>Eastern Frisian</source>
-        <translation type="unfinished"/>
+        <translation>東フリジア語</translation>
     </message>
     <message>
         <source>Efik</source>
-        <translation type="unfinished"/>
+        <translation>エフィック語</translation>
     </message>
     <message>
         <source>Ekajuk</source>
-        <translation type="unfinished"/>
+        <translation>エカジュク語</translation>
     </message>
     <message>
         <source>Elamite</source>
-        <translation type="unfinished"/>
+        <translation>エラム語</translation>
     </message>
     <message>
         <source>Embu</source>
-        <translation type="unfinished"/>
+        <translation>エンブ語</translation>
     </message>
     <message>
         <source>English</source>
-        <translation type="unfinished"/>
+        <translation>英語</translation>
     </message>
     <message>
         <source>Australian English</source>
@@ -563,711 +563,711 @@
     </message>
     <message>
         <source>Erzya</source>
-        <translation type="unfinished"/>
+        <translation>エルジャ語</translation>
     </message>
     <message>
         <source>Esperanto</source>
-        <translation type="unfinished"/>
+        <translation>エスペラント語</translation>
     </message>
     <message>
         <source>Estonian</source>
-        <translation type="unfinished"/>
+        <translation>エストニア語</translation>
     </message>
     <message>
         <source>Ewe</source>
-        <translation type="unfinished"/>
+        <translation>エウェ語</translation>
     </message>
     <message>
         <source>Ewondo</source>
-        <translation type="unfinished"/>
+        <translation>エウォンド語</translation>
     </message>
     <message>
         <source>Fang</source>
-        <translation type="unfinished"/>
+        <translation>ファン語</translation>
     </message>
     <message>
         <source>Fanti</source>
-        <translation type="unfinished"/>
+        <translation>ファンテ語</translation>
     </message>
     <message>
         <source>Faroese</source>
-        <translation type="unfinished"/>
+        <translation>フェーロー語</translation>
     </message>
     <message>
         <source>Fijian</source>
-        <translation type="unfinished"/>
+        <translation>フィジー語</translation>
     </message>
     <message>
         <source>Filipino</source>
-        <translation type="unfinished"/>
+        <translation>フィリピノ語</translation>
     </message>
     <message>
         <source>Finnish</source>
-        <translation type="unfinished"/>
+        <translation>フィンランド語</translation>
     </message>
     <message>
         <source>Fon</source>
-        <translation type="unfinished"/>
+        <translation>フォン語</translation>
     </message>
     <message>
         <source>French</source>
-        <translation type="unfinished"/>
+        <translation>フランス語</translation>
     </message>
     <message>
         <source>Canadian French</source>
-        <translation type="unfinished"/>
+        <translation>カナダ・フランス語</translation>
     </message>
     <message>
         <source>Swiss French</source>
-        <translation type="unfinished"/>
+        <translation>スイス・フランス語</translation>
     </message>
     <message>
         <source>Friulian</source>
-        <translation type="unfinished"/>
+        <translation>フリウリ語</translation>
     </message>
     <message>
         <source>Fula</source>
-        <translation type="unfinished"/>
+        <translation>フラニ語</translation>
     </message>
     <message>
         <source>Ga</source>
-        <translation type="unfinished"/>
+        <translation>ガー語</translation>
     </message>
     <message>
         <source>Gagauz</source>
-        <translation type="unfinished"/>
+        <translation>ガガウズ語</translation>
     </message>
     <message>
         <source>Galician</source>
-        <translation type="unfinished"/>
+        <translation>ガリシア語</translation>
     </message>
     <message>
         <source>Gan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>贛語</translation>
     </message>
     <message>
         <source>Ganda</source>
-        <translation type="unfinished"/>
+        <translation>ガンダ語</translation>
     </message>
     <message>
         <source>Gayo</source>
-        <translation type="unfinished"/>
+        <translation>ガヨ語</translation>
     </message>
     <message>
         <source>Gbaya</source>
-        <translation type="unfinished"/>
+        <translation>バヤ語</translation>
     </message>
     <message>
         <source>Geez</source>
-        <translation type="unfinished"/>
+        <translation>ゲエズ語</translation>
     </message>
     <message>
         <source>Georgian</source>
-        <translation type="unfinished"/>
+        <translation>グルジア語</translation>
     </message>
     <message>
         <source>German</source>
-        <translation type="unfinished"/>
+        <translation>ドイツ語</translation>
     </message>
     <message>
         <source>Austrian German</source>
-        <translation type="unfinished"/>
+        <translation>オーストリアドイツ語</translation>
     </message>
     <message>
         <source>Swiss High German</source>
-        <translation type="unfinished"/>
+        <translation>スイスドイツ語</translation>
     </message>
     <message>
         <source>Ghomala</source>
-        <translation type="unfinished"/>
+        <translation>ゴーマラ語</translation>
     </message>
     <message>
         <source>Gilbertese</source>
-        <translation type="unfinished"/>
+        <translation>キリバス語</translation>
     </message>
     <message>
         <source>Gondi</source>
-        <translation type="unfinished"/>
+        <translation>ゴーンディー語</translation>
     </message>
     <message>
         <source>Gorontalo</source>
-        <translation type="unfinished"/>
+        <translation>ゴロンタロ語</translation>
     </message>
     <message>
         <source>Gothic</source>
-        <translation type="unfinished"/>
+        <translation>ゴート語</translation>
     </message>
     <message>
         <source>Grebo</source>
-        <translation type="unfinished"/>
+        <translation>グレボ語</translation>
     </message>
     <message>
         <source>Greek</source>
-        <translation type="unfinished"/>
+        <translation>ギリシャ語</translation>
     </message>
     <message>
         <source>Guarani</source>
-        <translation type="unfinished"/>
+        <translation>グァラニ語</translation>
     </message>
     <message>
         <source>Gujarati</source>
-        <translation type="unfinished"/>
+        <translation>グジャラート語</translation>
     </message>
     <message>
         <source>Gusii</source>
-        <translation type="unfinished"/>
+        <translation>グシイ語</translation>
     </message>
     <message>
         <source>Gwichʼin</source>
-        <translation type="unfinished"/>
+        <translation>グウィッチン語</translation>
     </message>
     <message>
         <source>Haida</source>
-        <translation type="unfinished"/>
+        <translation>ハイダ語</translation>
     </message>
     <message>
         <source>Haitian Creole</source>
-        <translation type="unfinished"/>
+        <translation>ハイチ・クレオール語</translation>
     </message>
     <message>
         <source>Hakka Chinese</source>
-        <translation type="unfinished"/>
+        <translation>客家語</translation>
     </message>
     <message>
         <source>Halkomelem</source>
-        <translation type="unfinished"/>
+        <translation>ハルコメレム語</translation>
     </message>
     <message>
         <source>Haryanvi</source>
-        <translation type="unfinished"/>
+        <translation>ハリヤーンウィー語</translation>
     </message>
     <message>
         <source>Hausa</source>
-        <translation type="unfinished"/>
+        <translation>ハウサ語</translation>
     </message>
     <message>
         <source>Hawaiian</source>
-        <translation type="unfinished"/>
+        <translation>ハワイ語</translation>
     </message>
     <message>
         <source>Hebrew</source>
-        <translation type="unfinished"/>
+        <translation>ヘブライ語</translation>
     </message>
     <message>
         <source>Herero</source>
-        <translation type="unfinished"/>
+        <translation>ヘレロ語</translation>
     </message>
     <message>
         <source>Hiligaynon</source>
-        <translation type="unfinished"/>
+        <translation>ヒリガイノン語</translation>
     </message>
     <message>
         <source>Hindi</source>
-        <translation type="unfinished"/>
+        <translation>ヒンディー語</translation>
     </message>
     <message>
         <source>Hinglish</source>
-        <translation type="unfinished"/>
+        <translation>インド英語</translation>
     </message>
     <message>
         <source>Hiri Motu</source>
-        <translation type="unfinished"/>
+        <translation>ヒリモツ語</translation>
     </message>
     <message>
         <source>Hittite</source>
-        <translation type="unfinished"/>
+        <translation>ヒッタイト語</translation>
     </message>
     <message>
         <source>Hmong</source>
-        <translation type="unfinished"/>
+        <translation>ミャオ語</translation>
     </message>
     <message>
         <source>Hungarian</source>
-        <translation type="unfinished"/>
+        <translation>ハンガリー語</translation>
     </message>
     <message>
         <source>Hupa</source>
-        <translation type="unfinished"/>
+        <translation>フーパ語</translation>
     </message>
     <message>
         <source>Iban</source>
-        <translation type="unfinished"/>
+        <translation>イバン語</translation>
     </message>
     <message>
         <source>Ibibio</source>
-        <translation type="unfinished"/>
+        <translation>イビビオ語</translation>
     </message>
     <message>
         <source>Icelandic</source>
-        <translation type="unfinished"/>
+        <translation>アイスランド語</translation>
     </message>
     <message>
         <source>Ido</source>
-        <translation type="unfinished"/>
+        <translation>イド語</translation>
     </message>
     <message>
         <source>Igbo</source>
-        <translation type="unfinished"/>
+        <translation>イボ語</translation>
     </message>
     <message>
         <source>Iloko</source>
-        <translation type="unfinished"/>
+        <translation>イロカノ語</translation>
     </message>
     <message>
         <source>Inari Sami</source>
-        <translation type="unfinished"/>
+        <translation>イナリ・サーミ語</translation>
     </message>
     <message>
         <source>Indonesian</source>
-        <translation type="unfinished"/>
+        <translation>インドネシア語</translation>
     </message>
     <message>
         <source>Ingush</source>
-        <translation type="unfinished"/>
+        <translation>イングーシ語</translation>
     </message>
     <message>
         <source>Innu-aimun</source>
-        <translation type="unfinished"/>
+        <translation>イヌ・アイムン語</translation>
     </message>
     <message>
         <source>Interlingua</source>
-        <translation type="unfinished"/>
+        <translation>インターリングア</translation>
     </message>
     <message>
         <source>Interlingue</source>
-        <translation type="unfinished"/>
+        <translation>インターリングア</translation>
     </message>
     <message>
         <source>Inuktitut</source>
-        <translation type="unfinished"/>
+        <translation>イヌクティトゥット語</translation>
     </message>
     <message>
         <source>Inupiaq</source>
-        <translation type="unfinished"/>
+        <translation>イヌピアック語</translation>
     </message>
     <message>
         <source>Irish</source>
-        <translation type="unfinished"/>
+        <translation>アイルランド語</translation>
     </message>
     <message>
         <source>Italian</source>
-        <translation type="unfinished"/>
+        <translation>イタリア語</translation>
     </message>
     <message>
         <source>Japanese</source>
-        <translation type="unfinished"/>
+        <translation>日本語</translation>
     </message>
     <message>
         <source>Javanese</source>
-        <translation type="unfinished"/>
+        <translation>ジャワ語</translation>
     </message>
     <message>
         <source>Jju</source>
-        <translation type="unfinished"/>
+        <translation>カジェ語</translation>
     </message>
     <message>
         <source>Jola-Fonyi</source>
-        <translation type="unfinished"/>
+        <translation>ジョラ＝フォニィ語</translation>
     </message>
     <message>
         <source>Judeo-Arabic</source>
-        <translation type="unfinished"/>
+        <translation>ユダヤ・アラビア語</translation>
     </message>
     <message>
         <source>Judeo-Persian</source>
-        <translation type="unfinished"/>
+        <translation>ユダヤ・ペルシア語</translation>
     </message>
     <message>
         <source>Kabardian</source>
-        <translation type="unfinished"/>
+        <translation>カバルド語</translation>
     </message>
     <message>
         <source>Kabuverdianu</source>
-        <translation type="unfinished"/>
+        <translation>カボヴェルデ・クレオール語</translation>
     </message>
     <message>
         <source>Kabyle</source>
-        <translation type="unfinished"/>
+        <translation>カビル語</translation>
     </message>
     <message>
         <source>Kachin</source>
-        <translation type="unfinished"/>
+        <translation>ジンポー語</translation>
     </message>
     <message>
         <source>Kaingang</source>
-        <translation type="unfinished"/>
+        <translation>カインガング語</translation>
     </message>
     <message>
         <source>Kako</source>
-        <translation type="unfinished"/>
+        <translation>カコ語</translation>
     </message>
     <message>
         <source>Kalaallisut</source>
-        <translation type="unfinished"/>
+        <translation>グリーンランド語</translation>
     </message>
     <message>
         <source>Kalenjin</source>
-        <translation type="unfinished"/>
+        <translation>カレンジン語</translation>
     </message>
     <message>
         <source>Kalmyk</source>
-        <translation type="unfinished"/>
+        <translation>カルムイク語</translation>
     </message>
     <message>
         <source>Kamba</source>
-        <translation type="unfinished"/>
+        <translation>カンバ語</translation>
     </message>
     <message>
         <source>Kanembu</source>
-        <translation type="unfinished"/>
+        <translation>カネンブ語</translation>
     </message>
     <message>
         <source>Kannada</source>
-        <translation type="unfinished"/>
+        <translation>カンナダ語</translation>
     </message>
     <message>
         <source>Kanuri</source>
-        <translation type="unfinished"/>
+        <translation>カヌリ語</translation>
     </message>
     <message>
         <source>Kara-Kalpak</source>
-        <translation type="unfinished"/>
+        <translation>カラカルパク語</translation>
     </message>
     <message>
         <source>Karachay-Balkar</source>
-        <translation type="unfinished"/>
+        <translation>カラチャイ・バルカル語</translation>
     </message>
     <message>
         <source>Karelian</source>
-        <translation type="unfinished"/>
+        <translation>カレリア語</translation>
     </message>
     <message>
         <source>Kashmiri</source>
-        <translation type="unfinished"/>
+        <translation>カシミール語</translation>
     </message>
     <message>
         <source>Kashubian</source>
-        <translation type="unfinished"/>
+        <translation>カシューブ語</translation>
     </message>
     <message>
         <source>Kawi</source>
-        <translation type="unfinished"/>
+        <translation>カウィ語</translation>
     </message>
     <message>
         <source>Kazakh</source>
-        <translation type="unfinished"/>
+        <translation>カザフ語</translation>
     </message>
     <message>
         <source>Khasi</source>
-        <translation type="unfinished"/>
+        <translation>カシ語</translation>
     </message>
     <message>
         <source>Khmer</source>
-        <translation type="unfinished"/>
+        <translation>クメール語</translation>
     </message>
     <message>
         <source>Khotanese</source>
-        <translation type="unfinished"/>
+        <translation>コータン語</translation>
     </message>
     <message>
         <source>Kikuyu</source>
-        <translation type="unfinished"/>
+        <translation>キクユ語</translation>
     </message>
     <message>
         <source>Kimbundu</source>
-        <translation type="unfinished"/>
+        <translation>キンブンド語</translation>
     </message>
     <message>
         <source>Kinyarwanda</source>
-        <translation type="unfinished"/>
+        <translation>キニアルワンダ語</translation>
     </message>
     <message>
         <source>Klingon</source>
-        <translation type="unfinished"/>
+        <translation>クリンゴン語</translation>
     </message>
     <message>
         <source>Kom</source>
-        <translation type="unfinished"/>
+        <translation>コム語</translation>
     </message>
     <message>
         <source>Komi</source>
-        <translation type="unfinished"/>
+        <translation>コミ語</translation>
     </message>
     <message>
         <source>Komi-Permyak</source>
-        <translation type="unfinished"/>
+        <translation>コミ・ペルミャク語</translation>
     </message>
     <message>
         <source>Kongo</source>
-        <translation type="unfinished"/>
+        <translation>コンゴ語</translation>
     </message>
     <message>
         <source>Konkani</source>
-        <translation type="unfinished"/>
+        <translation>コンカニ語</translation>
     </message>
     <message>
         <source>Korean</source>
-        <translation type="unfinished"/>
+        <translation>韓国語</translation>
     </message>
     <message>
         <source>Koro</source>
-        <translation type="unfinished"/>
+        <translation>コロ語</translation>
     </message>
     <message>
         <source>Kosraean</source>
-        <translation type="unfinished"/>
+        <translation>コスラエ語</translation>
     </message>
     <message>
         <source>Koyra Chiini</source>
-        <translation type="unfinished"/>
+        <translation>コイラ・チーニ語</translation>
     </message>
     <message>
         <source>Koyraboro Senni</source>
-        <translation type="unfinished"/>
+        <translation>コイラボロ・センニ語</translation>
     </message>
     <message>
         <source>Kpelle</source>
-        <translation type="unfinished"/>
+        <translation>クペレ語</translation>
     </message>
     <message>
         <source>Kuanyama</source>
-        <translation type="unfinished"/>
+        <translation>クワニャマ語</translation>
     </message>
     <message>
         <source>Kumyk</source>
-        <translation type="unfinished"/>
+        <translation>クムク語</translation>
     </message>
     <message>
         <source>Kurdish</source>
-        <translation type="unfinished"/>
+        <translation>クルド語</translation>
     </message>
     <message>
         <source>Kurukh</source>
-        <translation type="unfinished"/>
+        <translation>クルク語</translation>
     </message>
     <message>
         <source>Kutenai</source>
-        <translation type="unfinished"/>
+        <translation>クテナイ語</translation>
     </message>
     <message>
         <source>Kwakʼwala</source>
-        <translation type="unfinished"/>
+        <translation>クワキウトル語</translation>
     </message>
     <message>
         <source>Kwasio</source>
-        <translation type="unfinished"/>
+        <translation>クワシオ語</translation>
     </message>
     <message>
         <source>Kyrgyz</source>
-        <translation type="unfinished"/>
+        <translation>キルギス語</translation>
     </message>
     <message>
         <source>Kʼicheʼ</source>
-        <translation type="unfinished"/>
+        <translation>キチェ語</translation>
     </message>
     <message>
         <source>Ladino</source>
-        <translation type="unfinished"/>
+        <translation>ラディーノ語</translation>
     </message>
     <message>
         <source>Lakota</source>
-        <translation type="unfinished"/>
+        <translation>ラコタ語</translation>
     </message>
     <message>
         <source>Lamba</source>
-        <translation type="unfinished"/>
+        <translation>ランバ語</translation>
     </message>
     <message>
         <source>Langi</source>
-        <translation type="unfinished"/>
+        <translation>ランギ語</translation>
     </message>
     <message>
         <source>Lao</source>
-        <translation type="unfinished"/>
+        <translation>ラーオ語</translation>
     </message>
     <message>
         <source>Latin</source>
-        <translation type="unfinished"/>
+        <translation>ラテン語</translation>
     </message>
     <message>
         <source>Latvian</source>
-        <translation type="unfinished"/>
+        <translation>ラトビア語</translation>
     </message>
     <message>
         <source>Lezghian</source>
-        <translation type="unfinished"/>
+        <translation>レズギ語</translation>
     </message>
     <message>
         <source>Ligurian</source>
-        <translation type="unfinished"/>
+        <translation>リグリア語</translation>
     </message>
     <message>
         <source>Lillooet</source>
-        <translation type="unfinished"/>
+        <translation>リルーエット語</translation>
     </message>
     <message>
         <source>Limburgish</source>
-        <translation type="unfinished"/>
+        <translation>リンブルフ語</translation>
     </message>
     <message>
         <source>Lingala</source>
-        <translation type="unfinished"/>
+        <translation>リンガラ語</translation>
     </message>
     <message>
         <source>Lithuanian</source>
-        <translation type="unfinished"/>
+        <translation>リトアニア語</translation>
     </message>
     <message>
         <source>Lojban</source>
-        <translation type="unfinished"/>
+        <translation>ロジバン</translation>
     </message>
     <message>
         <source>Louisiana Creole</source>
-        <translation type="unfinished"/>
+        <translation>ルイジアナ・クレオール語</translation>
     </message>
     <message>
         <source>Low German</source>
-        <translation type="unfinished"/>
+        <translation>低地ドイツ語</translation>
     </message>
     <message>
         <source>Low Saxon</source>
-        <translation type="unfinished"/>
+        <translation>低地ザクセン語</translation>
     </message>
     <message>
         <source>Lower Sorbian</source>
-        <translation type="unfinished"/>
+        <translation>低地ソルブ語</translation>
     </message>
     <message>
         <source>Lozi</source>
-        <translation type="unfinished"/>
+        <translation>ロジ語</translation>
     </message>
     <message>
         <source>Luba-Katanga</source>
-        <translation type="unfinished"/>
+        <translation>ルバ・カタンガ語</translation>
     </message>
     <message>
         <source>Luba-Lulua</source>
-        <translation type="unfinished"/>
+        <translation>ルバ・ルルア語</translation>
     </message>
     <message>
         <source>Luiseno</source>
-        <translation type="unfinished"/>
+        <translation>ルイスエーニョ語</translation>
     </message>
     <message>
         <source>Lule Sami</source>
-        <translation type="unfinished"/>
+        <translation>ルレ・サーミ語</translation>
     </message>
     <message>
         <source>Lunda</source>
-        <translation type="unfinished"/>
+        <translation>ルンダ語</translation>
     </message>
     <message>
         <source>Luo</source>
-        <translation type="unfinished"/>
+        <translation>ルオ語</translation>
     </message>
     <message>
         <source>Luxembourgish</source>
-        <translation type="unfinished"/>
+        <translation>ルクセンブルク語</translation>
     </message>
     <message>
         <source>Luyia</source>
-        <translation type="unfinished"/>
+        <translation>ルヒヤ語</translation>
     </message>
     <message>
         <source>Maba</source>
-        <translation type="unfinished"/>
+        <translation>マバ語</translation>
     </message>
     <message>
         <source>Macedonian</source>
-        <translation type="unfinished"/>
+        <translation>マケドニア語</translation>
     </message>
     <message>
         <source>Machame</source>
-        <translation type="unfinished"/>
+        <translation>マチャメ語</translation>
     </message>
     <message>
         <source>Madurese</source>
-        <translation type="unfinished"/>
+        <translation>マドゥラ語</translation>
     </message>
     <message>
         <source>Mafa</source>
-        <translation type="unfinished"/>
+        <translation>マファ語</translation>
     </message>
     <message>
         <source>Magahi</source>
-        <translation type="unfinished"/>
+        <translation>マガヒー語</translation>
     </message>
     <message>
         <source>Maithili</source>
-        <translation type="unfinished"/>
+        <translation>マガヒー語</translation>
     </message>
     <message>
         <source>Makasar</source>
-        <translation type="unfinished"/>
+        <translation>マカッサル語</translation>
     </message>
     <message>
         <source>Makhuwa Meetto</source>
-        <translation type="unfinished"/>
+        <translation>マクア・ミート語</translation>
     </message>
     <message>
         <source>Makonde</source>
-        <translation type="unfinished"/>
+        <translation>マコンデ語</translation>
     </message>
     <message>
         <source>Malagasy</source>
-        <translation type="unfinished"/>
+        <translation>マダガスカル語</translation>
     </message>
     <message>
         <source>Malay</source>
-        <translation type="unfinished"/>
+        <translation>マレー語</translation>
     </message>
     <message>
         <source>Malayalam</source>
-        <translation type="unfinished"/>
+        <translation>マラヤーラム語</translation>
     </message>
     <message>
         <source>Maliseet-Passamaquoddy</source>
-        <translation type="unfinished"/>
+        <translation>マリシート＝パサマコディ語</translation>
     </message>
     <message>
         <source>Maltese</source>
-        <translation type="unfinished"/>
+        <translation>マルタ語</translation>
     </message>
     <message>
         <source>Manchu</source>
-        <translation type="unfinished"/>
+        <translation>満洲語</translation>
     </message>
     <message>
         <source>Mandar</source>
-        <translation type="unfinished"/>
+        <translation>マンダル語</translation>
     </message>
     <message>
         <source>Mandingo</source>
-        <translation type="unfinished"/>
+        <translation>マンディンゴ語</translation>
     </message>
     <message>
         <source>Manipuri</source>
-        <translation type="unfinished"/>
+        <translation>マニプリ語</translation>
     </message>
     <message>
         <source>Manx</source>
-        <translation type="unfinished"/>
+        <translation>マン島語</translation>
     </message>
     <message>
         <source>Māori</source>
-        <translation type="unfinished"/>
+        <translation>マオリ語</translation>
     </message>
     <message>
         <source>Mapuche</source>
-        <translation type="unfinished"/>
+        <translation>マプチェ語</translation>
     </message>
     <message>
         <source>Marathi</source>
-        <translation type="unfinished"/>
+        <translation>マラーティー語</translation>
     </message>
     <message>
         <source>Mari</source>
-        <translation type="unfinished"/>
+        <translation>マリ語</translation>
     </message>
     <message>
         <source>Marshallese</source>
@@ -1302,7 +1302,7 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Mi'kmaq</source>
+        <source>Mi&apos;kmaq</source>
         <translation type="unfinished"/>
     </message>
     <message>
