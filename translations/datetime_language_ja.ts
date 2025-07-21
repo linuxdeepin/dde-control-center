@@ -1399,55 +1399,55 @@
     </message>
     <message>
         <source>Arabic, Najdi</source>
-        <translation type="unfinished"/>
+        <translation>アラビア語(ナジュド)</translation>
     </message>
     <message>
         <source>Nama</source>
-        <translation type="unfinished"/>
+        <translation>ナマ語</translation>
     </message>
     <message>
         <source>Nauru</source>
-        <translation type="unfinished"/>
+        <translation>ナウル語</translation>
     </message>
     <message>
         <source>Navajo</source>
-        <translation type="unfinished"/>
+        <translation>ナバホ語</translation>
     </message>
     <message>
         <source>Ndonga</source>
-        <translation type="unfinished"/>
+        <translation>ンドンガ語</translation>
     </message>
     <message>
         <source>Neapolitan</source>
-        <translation type="unfinished"/>
+        <translation>ナポリ語</translation>
     </message>
     <message>
         <source>Nepali</source>
-        <translation type="unfinished"/>
+        <translation>ネパール語</translation>
     </message>
     <message>
         <source>Newari</source>
-        <translation type="unfinished"/>
+        <translation>ネワール語 </translation>
     </message>
     <message>
         <source>Ngambay</source>
-        <translation type="unfinished"/>
+        <translation>ガンバイ語</translation>
     </message>
     <message>
         <source>Ngiemboon</source>
-        <translation type="unfinished"/>
+        <translation>ンギエンブーン語</translation>
     </message>
     <message>
         <source>Ngomba</source>
-        <translation type="unfinished"/>
+        <translation>ゴンバ語</translation>
     </message>
     <message>
         <source>Nheengatu</source>
-        <translation type="unfinished"/>
+        <translation>ニェエンガトゥ語</translation>
     </message>
     <message>
         <source>Nias</source>
-        <translation type="unfinished"/>
+        <translation>ニアス語</translation>
     </message>
     <message>
         <source>Nigerian Pidgin</source>
