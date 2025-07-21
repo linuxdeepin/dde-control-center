@@ -1671,35 +1671,35 @@
     </message>
     <message>
         <source>European Portuguese</source>
-        <translation type="unfinished"/>
+        <translation>ヨーロッパ・ポルトガル語</translation>
     </message>
     <message>
         <source>Prussian</source>
-        <translation type="unfinished"/>
+        <translation>プロシア語</translation>
     </message>
     <message>
         <source>Punjabi</source>
-        <translation type="unfinished"/>
+        <translation>パンジャブ語</translation>
     </message>
     <message>
         <source>Quechua</source>
-        <translation type="unfinished"/>
+        <translation>ケチュア語</translation>
     </message>
     <message>
         <source>Rajasthani</source>
-        <translation type="unfinished"/>
+        <translation>ラージャスターニー語</translation>
     </message>
     <message>
         <source>Rapanui</source>
-        <translation type="unfinished"/>
+        <translation>ラパ・ヌイ語</translation>
     </message>
     <message>
         <source>Rarotongan</source>
-        <translation type="unfinished"/>
+        <translation>ラロトンガ語</translation>
     </message>
     <message>
         <source>Rohingya</source>
-        <translation type="unfinished"/>
+        <translation>ロヒンギャ語</translation>
     </message>
     <message>
         <source>Romanian</source>
