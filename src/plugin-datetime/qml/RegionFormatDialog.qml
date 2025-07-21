@@ -52,9 +52,11 @@ Loader {
                         placeholder: qsTr("Search")
                         onTextChanged: {
                             viewModel.setFilterWildcard(text);
+                            itemsView.positionViewAtBeginning();
                         }
                         onEditingFinished: {
                             viewModel.setFilterWildcard(text);
+                            itemsView.positionViewAtBeginning();
                         }
                     }
 
