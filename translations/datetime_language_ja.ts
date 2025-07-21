@@ -1347,31 +1347,31 @@
     </message>
     <message>
         <source>Mohawk</source>
-        <translation type="unfinished"/>
+        <translation>モホーク語</translation>
     </message>
     <message>
         <source>Moksha</source>
-        <translation type="unfinished"/>
+        <translation>モクシャ語</translation>
     </message>
     <message>
         <source>Mongo</source>
-        <translation type="unfinished"/>
+        <translation>モンゴ語</translation>
     </message>
     <message>
         <source>Mongolian</source>
-        <translation type="unfinished"/>
+        <translation>モンゴル語</translation>
     </message>
     <message>
         <source>Moose Cree</source>
-        <translation type="unfinished"/>
+        <translation>ムースクリー語</translation>
     </message>
     <message>
         <source>Morisyen</source>
-        <translation type="unfinished"/>
+        <translation>モーリシャス・クレオール語</translation>
     </message>
     <message>
         <source>Mossi</source>
-        <translation type="unfinished"/>
+        <translation>モシ語</translation>
     </message>
     <message>
         <source>Multiple languages</source>
