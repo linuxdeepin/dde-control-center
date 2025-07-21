@@ -23,8 +23,10 @@ D.DialogWindow {
     property alias cmdName: commandEdit.text
     property alias keySequence: edit.keys
     property alias accels: edit.accels
-    property string saveAccels: ""
     property alias conflitedText : conflictText.text
+    property string saveKeyName: ""
+    property string saveCmdName: ""
+    property string saveAccels: ""
 
     ColumnLayout {
         spacing: 10
@@ -137,7 +139,7 @@ D.DialogWindow {
                 text: qsTr("Cancel")
                 onClicked: {
                     if (ddialog.keyId.length > 0) {
-                        dccData.modifyCustomShortcut(ddialog.keyId, nameEdit.text, commandEdit.text, ddialog.saveAccels)
+                        dccData.modifyCustomShortcut(ddialog.keyId, ddialog.saveKeyName, ddialog.saveCmdName, ddialog.saveAccels)
                     }
                     ddialog.close()
                 }
