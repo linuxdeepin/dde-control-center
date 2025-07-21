@@ -1295,55 +1295,55 @@
     </message>
     <message>
         <source>Meru</source>
-        <translation type="unfinished"/>
+        <translation>メル語</translation>
     </message>
     <message>
         <source>Metaʼ</source>
-        <translation type="unfinished"/>
+        <translation>メタ語</translation>
     </message>
     <message>
         <source>Mi&apos;kmaq</source>
-        <translation type="unfinished"/>
+        <translation>ミクマク語</translation>
     </message>
     <message>
         <source>Michif</source>
-        <translation type="unfinished"/>
+        <translation>ミチフ語</translation>
     </message>
     <message>
         <source>Middle Dutch</source>
-        <translation type="unfinished"/>
+        <translation>中期オランダ語</translation>
     </message>
     <message>
         <source>Middle English</source>
-        <translation type="unfinished"/>
+        <translation>中期英語</translation>
     </message>
     <message>
         <source>Middle French</source>
-        <translation type="unfinished"/>
+        <translation>中期フランス語</translation>
     </message>
     <message>
         <source>Middle High German</source>
-        <translation type="unfinished"/>
+        <translation>中期高地ドイツ語</translation>
     </message>
     <message>
         <source>Middle Irish</source>
-        <translation type="unfinished"/>
+        <translation>中期アイルランド語</translation>
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>閩南語</translation>
     </message>
     <message>
         <source>Minangkabau</source>
-        <translation type="unfinished"/>
+        <translation>ミナンカバウ語</translation>
     </message>
     <message>
         <source>Mirandese</source>
-        <translation type="unfinished"/>
+        <translation>ミランダ語</translation>
     </message>
     <message>
         <source>Mizo</source>
-        <translation type="unfinished"/>
+        <translation>ミゾ語</translation>
     </message>
     <message>
         <source>Mohawk</source>
