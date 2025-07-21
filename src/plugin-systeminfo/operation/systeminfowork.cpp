@@ -384,10 +384,14 @@ void SystemInfoWork::setUeProgram(bool enabled)
         };
         if (!sl.contains(QLocale::system().name()))
             pathType = "-e";
+            
+        auto themeType = Dtk::Gui::DGuiApplicationHelper::instance()->themeType();
+        QString theme = themeType == Dtk::Gui::DGuiApplicationHelper::DarkType ? "dark" : "light";
+        
         m_process->start("dde-license-dialog",
-                         QStringList() << "-t" << m_title << pathType << m_content << "-a" << allowContent);
+                         QStringList() << "-t" << m_title << pathType << m_content << "-a" << allowContent << "-p" << theme);
         qDebug()<<" Deliver content QStringList() = "<<"dde-license-dialog"
-                                                     << "-t" << m_title << pathType << m_content << "-a" << allowContent;
+                                                     << "-t" << m_title << pathType << m_content << "-a" << allowContent << "-p" << theme;
         connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, [=](int result) {
             if (96 == result) {
                 if (!m_model->joinUeProgram()) {
