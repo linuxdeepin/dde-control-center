@@ -1571,55 +1571,55 @@
     </message>
     <message>
         <source>Old High German</source>
-        <translation type="unfinished"/>
+        <translation>古高ドイツ語</translation>
     </message>
     <message>
         <source>Old Irish</source>
-        <translation type="unfinished"/>
+        <translation>古アイルランド語</translation>
     </message>
     <message>
         <source>Old Norse</source>
-        <translation type="unfinished"/>
+        <translation>古ノルド語</translation>
     </message>
     <message>
         <source>Old Persian</source>
-        <translation type="unfinished"/>
+        <translation>古代ペルシア語</translation>
     </message>
     <message>
         <source>Old Provençal</source>
-        <translation type="unfinished"/>
+        <translation>古プロヴァンス語</translation>
     </message>
     <message>
         <source>Oromo</source>
-        <translation type="unfinished"/>
+        <translation>オロモ語</translation>
     </message>
     <message>
         <source>Osage</source>
-        <translation type="unfinished"/>
+        <translation>オセージ語</translation>
     </message>
     <message>
         <source>Ossetic</source>
-        <translation type="unfinished"/>
+        <translation>オセット語</translation>
     </message>
     <message>
         <source>Ottoman Turkish</source>
-        <translation type="unfinished"/>
+        <translation>オスマン・トルコ語</translation>
     </message>
     <message>
         <source>Pahlavi</source>
-        <translation type="unfinished"/>
+        <translation>パフラヴィー語</translation>
     </message>
     <message>
         <source>Palauan</source>
-        <translation type="unfinished"/>
+        <translation>パラオ語</translation>
     </message>
     <message>
         <source>Pali</source>
-        <translation type="unfinished"/>
+        <translation>パーリ語</translation>
     </message>
     <message>
         <source>Pampanga</source>
-        <translation type="unfinished"/>
+        <translation>パンパンガ語</translation>
     </message>
     <message>
         <source>Pangasinan</source>
