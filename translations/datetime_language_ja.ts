@@ -1823,47 +1823,47 @@
     </message>
     <message>
         <source>Shan</source>
-        <translation type="unfinished"/>
+        <translation>シャン語</translation>
     </message>
     <message>
         <source>Shona</source>
-        <translation type="unfinished"/>
+        <translation>ショナ語</translation>
     </message>
     <message>
         <source>Sichuan Yi</source>
-        <translation type="unfinished"/>
+        <translation>四川彝語</translation>
     </message>
     <message>
         <source>Sicilian</source>
-        <translation type="unfinished"/>
+        <translation>シチリア語</translation>
     </message>
     <message>
         <source>Sidamo</source>
-        <translation type="unfinished"/>
+        <translation>シダモ語</translation>
     </message>
     <message>
         <source>Siksiká</source>
-        <translation type="unfinished"/>
+        <translation>ブラックフット語</translation>
     </message>
     <message>
         <source>Sindhi</source>
-        <translation type="unfinished"/>
+        <translation>シンド語</translation>
     </message>
     <message>
         <source>Sinhala</source>
-        <translation type="unfinished"/>
+        <translation>シンハラ語</translation>
     </message>
     <message>
         <source>Skolt Sami</source>
-        <translation type="unfinished"/>
+        <translation>スコルト・サーミ語</translation>
     </message>
     <message>
         <source>Slave</source>
-        <translation type="unfinished"/>
+        <translation>スレイビー語</translation>
     </message>
     <message>
         <source>Slovak</source>
-        <translation type="unfinished"/>
+        <translation>スロバキア語</translation>
     </message>
     <message>
         <source>Slovenian</source>
