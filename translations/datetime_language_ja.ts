@@ -1375,27 +1375,27 @@
     </message>
     <message>
         <source>Multiple languages</source>
-        <translation type="unfinished"/>
+        <translation>複数言語</translation>
     </message>
     <message>
         <source>Mundang</source>
-        <translation type="unfinished"/>
+        <translation>ムンダン語</translation>
     </message>
     <message>
         <source>Muscogee</source>
-        <translation type="unfinished"/>
+        <translation>ムスコギー語</translation>
     </message>
     <message>
         <source>Myene</source>
-        <translation type="unfinished"/>
+        <translation>ミエネ語</translation>
     </message>
     <message>
         <source>N’Ko</source>
-        <translation type="unfinished"/>
+        <translation>ンコ語</translation>
     </message>
     <message>
         <source>Najdi Arabic</source>
-        <translation type="unfinished"/>
+        <translation>アラビア語ナジュド方言</translation>
     </message>
     <message>
         <source>Arabic, Najdi</source>
