@@ -1271,27 +1271,27 @@
     </message>
     <message>
         <source>Marshallese</source>
-        <translation type="unfinished"/>
+        <translation>マーシャル語</translation>
     </message>
     <message>
         <source>Marwari</source>
-        <translation type="unfinished"/>
+        <translation>マールワーリー語</translation>
     </message>
     <message>
         <source>Masai</source>
-        <translation type="unfinished"/>
+        <translation>マサイ語</translation>
     </message>
     <message>
         <source>Mazanderani</source>
-        <translation type="unfinished"/>
+        <translation>マザンダラン語</translation>
     </message>
     <message>
         <source>Medumba</source>
-        <translation type="unfinished"/>
+        <translation>メドゥンバ語</translation>
     </message>
     <message>
         <source>Mende</source>
-        <translation type="unfinished"/>
+        <translation>メンデ語</translation>
     </message>
     <message>
         <source>Meru</source>
