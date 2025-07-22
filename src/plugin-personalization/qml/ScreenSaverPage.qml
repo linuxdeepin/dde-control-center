@@ -113,7 +113,7 @@ DccObject {
             page: DccGroupView { }
 
             DccObject {
-                name: "whenTheLidIsClosed"
+                name: "personalizedScreensaver"
                 parentName: "personalization/screenSaver/screenSaverStatusGroup/screenSaverSetGroup/screenSaverSetItemGroup"
                 displayName: qsTr("Personalized screensaver")
                 weight: 10
@@ -128,7 +128,7 @@ DccObject {
                 }
             }
             DccObject {
-                name: "whenTheLidIsClosed1"
+                name: "idleTime"
                 parentName: "personalization/screenSaver/screenSaverStatusGroup/screenSaverSetGroup/screenSaverSetItemGroup"
                 displayName: qsTr("idle time")
                 weight: 100
@@ -159,7 +159,7 @@ DccObject {
                 }
             }
             DccObject {
-                name: "whenTheLidIsClosed2"
+                name: "passwordRequired"
                 parentName: "personalization/screenSaver/screenSaverStatusGroup/screenSaverSetGroup/screenSaverSetItemGroup"
                 displayName: qsTr("Password required for recovery")
                 weight: 200

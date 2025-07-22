@@ -195,6 +195,7 @@ DccObject {
                 name: "otherAccountSettings"
                 parentName: "otherSettingsHolder"
                 papaName: name
+                canSearch: false
             }
         }
     }

@@ -596,7 +596,7 @@ void AccountsController::setPasswordHint(const QString &id, const QString &pwdHi
 int AccountsController::passwordAge(const QString &id) const
 {
     User *user = m_model->getUser(id);
-    qDebug() << "passwordAge" << user->passwordAge();
+    qDebug() << "passwordAge" << (user ? user->passwordAge() : -1);
     return user ? user->passwordAge() : -1;
 }
 
