@@ -45,12 +45,12 @@ DccObject {
         for (let resolution of resolutionList) {
             if (resolution.width === bestResolution.width && resolution.height === bestResolution.height) {
                 resolutionModel.unshift({
-                                            "text": resolution.width + "×" + resolution.height + qsTr(" (Recommended)"),
+                                            "text": qsTr("%1x%2 (Recommended)").arg(resolution.width).arg(resolution.height),
                                             "value": resolution
                                         })
             } else {
                 resolutionModel.push({
-                                         "text": resolution.width + "×" + resolution.height,
+                                         "text": qsTr("%1x%2").arg(resolution.width).arg(resolution.height),
                                          "value": resolution
                                      })
             }
@@ -62,12 +62,12 @@ DccObject {
         for (let rate of rateList) {
             if (rate === bestRate) {
                 rateModel.push({
-                                   "text": (Math.round(rate * 100) / 100) + qsTr("Hz") + qsTr(" (Recommended)"),
+                                   "text": qsTr("%1Hz (Recommended)").arg((Math.round(rate * 100) / 100)),
                                    "value": rate
                                })
             } else {
                 rateModel.push({
-                                   "text": (Math.round(rate * 100) / 100) + qsTr("Hz"),
+                                   "text": qsTr("%1Hz").arg((Math.round(rate * 100) / 100)),
                                    "value": rate
                                })
             }
@@ -764,7 +764,7 @@ DccObject {
         DccObject {
             name: "displayScaling"
             parentName: "display/screenGroup"
-            displayName: qsTr("Display Scaling") //"缩放"
+            displayName: qsTr("Scaling") //"缩放"
             description: screen.maxScale >= 1.25 ? "" : qsTr("The monitor only supports 100% display scaling")
             weight: 60
             visible: !dccData.isX11 || dccData.virtualScreens.length === 1
@@ -792,7 +792,7 @@ DccObject {
     DccObject {
         name: "displayScaling"
         parentName: "display"
-        displayName: qsTr("Display Scaling") //"缩放"
+        displayName: qsTr("Scaling") //"缩放"
         description: dccData.maxGlobalScale >= 1.25 ? "" : qsTr("The monitor only supports 100% display scaling")
         weight: 80
         visible: dccData.isX11 && dccData.virtualScreens.length > 1

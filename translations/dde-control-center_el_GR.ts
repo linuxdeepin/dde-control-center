@@ -2750,6 +2750,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Timezone list</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Προσθήκη</translation>
+    </message>
 </context>
 <context>
     <name>TimeRange</name>
@@ -3171,11 +3175,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Add a new </source>
+        <source>This name already exists</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This name already exists</source>
+        <source>Add a new %1 ...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3613,14 +3617,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source> (Recommended)</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hz</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Multiple Displays Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3681,10 +3677,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Display Scaling</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>The monitor only supports 100% display scaling</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3726,6 +3718,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Color Temperature</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scaling</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

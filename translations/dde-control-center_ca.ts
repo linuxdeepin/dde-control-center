@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ca">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ca">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -226,7 +228,7 @@ Per tal d&apos;usar millor el reconeixement facial, presteu atenció als aspecte
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat d&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà en funció del resultat de la comparació.
@@ -2763,6 +2765,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <source>Timezone list</source>
         <translation>Llista de zones horàries</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Afegeix</translation>
+    </message>
 </context>
 <context>
     <name>TimeRange</name>
@@ -3184,12 +3190,12 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>No ha de tenir més de 15 caràcters.</translation>
     </message>
     <message>
-        <source>Add a new </source>
-        <translation>Afegeix-n&apos;hi més</translation>
-    </message>
-    <message>
         <source>This name already exists</source>
         <translation>Aquest nom ja existeix.</translation>
+    </message>
+    <message>
+        <source>Add a new %1 ...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3626,14 +3632,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Només a %1</translation>
     </message>
     <message>
-        <source> (Recommended)</source>
-        <translation>(Recomanada)</translation>
-    </message>
-    <message>
-        <source>Hz</source>
-        <translation>Hz</translation>
-    </message>
-    <message>
         <source>Multiple Displays Settings</source>
         <translation>Configuració de pantalles múltiples</translation>
     </message>
@@ -3694,10 +3692,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>270°</translation>
     </message>
     <message>
-        <source>Display Scaling</source>
-        <translation>Escalatge de la pantalla</translation>
-    </message>
-    <message>
         <source>The monitor only supports 100% display scaling</source>
         <translation>El monitor només admet un escalatge del 100 %.</translation>
     </message>
@@ -3740,6 +3734,26 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Color Temperature</source>
         <translation>Temperatura del color</translation>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scaling</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
