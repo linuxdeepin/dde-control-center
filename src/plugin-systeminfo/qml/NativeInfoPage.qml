@@ -108,7 +108,6 @@ DccObject {
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
 
                     palette.windowText: ColorSelector.textColor
-                    property Palette textColor: parent.textColor
 
                     background: Rectangle {
                         property Palette pressedColor: Palette {
