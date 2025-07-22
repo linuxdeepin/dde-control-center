@@ -116,13 +116,12 @@ DccObject {
         DccObject {
             name: "wallpaperSetItemGroup"
             parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup"
-            displayName: qsTr("Window rounded corners")
             weight: 10
             pageType: DccObject.Item
             page: DccGroupView { }
 
             DccObject {
-                name: "whenTheLidIsClosed"
+                name: "wallpaperType"
                 parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup/wallpaperSetItemGroup"
                 displayName: {
                     let cutUrl = dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
@@ -136,11 +135,12 @@ DccObject {
                         return qsTr("Customizable wallpapers")
                     }
                 }
+                canSearch: false
                 pageType: DccObject.Editor
                 weight: 10
             }
             DccObject {
-                name: "whenTheLidIsClosed"
+                name: "fillStyle"
                 parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup/wallpaperSetItemGroup"
                 displayName: qsTr("fill style")
                 visible: false
@@ -153,7 +153,7 @@ DccObject {
                 }
             }
             DccObject {
-                name: "whenTheLidIsClosed"
+                name: "automaticWallpaper"
                 parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup/wallpaperSetItemGroup"
                 displayName: qsTr("Automatic wallpaper change")
                 weight: 200
@@ -186,7 +186,7 @@ DccObject {
     }
 
     DccObject {
-        name: "screenAndSuspendTitle"
+        name: "myPictures"
         parentName: "personalization/wallpaper"
         displayName: qsTr("My pictures")
         weight: 400
@@ -220,7 +220,7 @@ DccObject {
     }
 
     DccObject {
-        name: "screenAndSuspendTitle"
+        name: "systemWallapers"
         parentName: "personalization/wallpaper"
         displayName: qsTr("System Wallapers")
         weight: 500
@@ -236,7 +236,7 @@ DccObject {
     }
 
     DccObject {
-        name: "screenAndSuspendTitle"
+        name: "liveWallpaper"
         parentName: "personalization/wallpaper"
         visible: false
         displayName: qsTr("Live Wallpaper")
@@ -249,7 +249,7 @@ DccObject {
     }
 
     DccObject {
-        name: "screenAndSuspendTitle"
+        name: "solidColor"
         parentName: "personalization/wallpaper"
         displayName: qsTr("Solid color wallpaper")
         weight: 600

@@ -22,6 +22,7 @@ DccTitleObject {
         name: loginMethodTitle.parentName + "loginMethod"
         parentName: loginMethodTitle.parentName
         description: qsTr("Password, wechat, biometric authentication, security key")
+        canSearch: loginMethodTitle.canSearch
         weight: 40
         pageType: DccObject.Item
         page: DccGroupView {}
@@ -40,6 +41,7 @@ DccTitleObject {
             name: loginMethodTitle.parentName + "loginMethodItem" + "password"
             parentName: loginMethodTitle.parentName + "loginMethod"
             displayName: qsTr("Password")
+            canSearch: loginMethodTitle.canSearch
             weight: 10 + 10
         }
 
@@ -47,6 +49,7 @@ DccTitleObject {
             name: loginMethodTitle.parentName + "PasswordLoginTitle"
             parentName: loginMethodTitle.parentName + "loginMethodItem" + "password"
             displayName: qsTr("Password")
+            canSearch: loginMethodTitle.canSearch
             weight: 12
             pageType: DccObject.Item
             page: RowLayout {
@@ -66,6 +69,7 @@ DccTitleObject {
             name: loginMethodTitle.parentName + "PasswordGroupView"
             parentName: loginMethodTitle.parentName + "loginMethodItem" + "password"
             description: qsTr("Password, wechat, biometric authentication, security key")
+            canSearch: loginMethodTitle.canSearch
             weight: 20
             pageType: DccObject.Item
             page: DccGroupView {}
@@ -74,6 +78,7 @@ DccTitleObject {
                 name: loginMethodTitle.parentName + "PasswordModify"
                 parentName: passwordGroupView.name
                 displayName: dccData.currentUserId() === loginMethodTitle.userId ? qsTr("Modify password") : qsTr("Reset password")
+                canSearch: loginMethodTitle.canSearch
                 backgroundType: DccObject.ClickStyle
                 weight: 12
                 enabled: dccData.currentUserId() === loginMethodTitle.userId || (dccData.curUserIsSysAdmin() && !dccData.isOnline(loginMethodTitle.userId))
@@ -109,6 +114,7 @@ DccTitleObject {
                 name: loginMethodTitle.parentName + "PasswordValidityDays" + "biometric"
                 parentName: passwordGroupView.name
                 displayName: qsTr("Validity days")
+                canSearch: loginMethodTitle.canSearch
                 weight: 12
                 pageType: DccObject.Editor
                 page: D.SpinBox {

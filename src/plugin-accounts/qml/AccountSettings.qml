@@ -39,6 +39,7 @@ DccObject {
         name: "userAvatars"
         parentName: settings.papaName
         weight: 10
+        canSearch: settings.canSearch
         pageType: DccObject.Item
         page: Rectangle {
             id: item
@@ -242,6 +243,7 @@ DccObject {
         name: "acountInfosTitle"
         parentName: settings.papaName
         displayName: qsTr("Account Information")
+        canSearch: settings.canSearch
         weight: 18
         pageType: DccObject.Item
         page: Label {
@@ -257,8 +259,8 @@ DccObject {
     DccObject {
         name: settings.papaName + "acountInfos"
         parentName: settings.papaName
-        displayName: qsTr("Account Information")
         description: qsTr("Account name, account fullname, account type")
+        canSearch: settings.canSearch
         weight: 20
         pageType: DccObject.Item
         page: DccGroupView {}
@@ -267,6 +269,7 @@ DccObject {
             name: settings.papaName + "acountName"
             parentName: settings.papaName + "acountInfos"
             displayName: qsTr("Account name")
+            canSearch: settings.canSearch
             weight: 10
             pageType: DccObject.Editor
             page: Label {
@@ -277,6 +280,7 @@ DccObject {
             name: settings.papaName + "acountFullname"
             parentName: settings.papaName + "acountInfos"
             displayName: qsTr("Account fullname")
+            canSearch: settings.canSearch
             weight: 20
             pageType: DccObject.Editor
             page: RowLayout {
@@ -520,6 +524,7 @@ DccObject {
             name: settings.papaName + "acountType"
             parentName: settings.papaName + "acountInfos"
             displayName: qsTr("Account type")
+            canSearch: settings.canSearch
             weight: 30
             pageType: DccObject.Editor
             enabled: dccData.isDeleteAble(settings.userId)
@@ -548,6 +553,7 @@ DccObject {
         name: settings.papaName + "acountSettingsTitle"
         parentName: settings.papaName
         displayName: qsTr("Login settings")
+        canSearch: settings.canSearch
         weight: 28
         pageType: DccObject.Item
         visible: acountSettings.visible
@@ -565,8 +571,8 @@ DccObject {
         id: acountSettings
         name: settings.papaName + "acountSettings"
         parentName: settings.papaName
-        displayName: qsTr("Login Settings")
         description: qsTr("quick login, Auto login, login without password")
+        canSearch: settings.canSearch
         weight: 30
         pageType: DccObject.Item
         page: DccGroupView {}
@@ -577,6 +583,7 @@ DccObject {
             name: settings.papaName + "quickLogin"
             parentName: settings.papaName + "acountSettings"
             displayName: qsTr("Quickly load DDE with your login information")
+            canSearch: settings.canSearch
             weight: 20
             pageType: DccObject.Editor
             visible: dccData.isQuickLoginVisible
@@ -597,6 +604,7 @@ DccObject {
             name: settings.papaName + "autoLongin"
             parentName: settings.papaName + "acountSettings"
             displayName: qsTr("Auto login")
+            canSearch: settings.canSearch
             weight: 10
             pageType: DccObject.Editor
             visible: dccData.isAutoLoginVisable()
@@ -640,6 +648,7 @@ DccObject {
             name: settings.papaName + "noPassword"
             parentName: settings.papaName + "acountSettings"
             displayName: qsTr("Login without password")
+            canSearch: settings.canSearch
             weight: 30
             pageType: DccObject.Editor
             visible: dccData.isNoPassWordLoginVisable()
@@ -661,6 +670,7 @@ DccObject {
         name: settings.papaName + "loginMethodTitle"
         parentName: settings.papaName
         userId: settings.userId
+        canSearch: settings.canSearch
     }
 
     // 动态锁
@@ -702,6 +712,7 @@ DccObject {
         id: bottomButtons
         name: settings.papaName + "/bottomButtons"
         parentName: settings.papaName
+        canSearch: settings.canSearch
         weight: 0xFFFF
         pageType: DccObject.Item
         page: RowLayout {
@@ -764,6 +775,7 @@ DccObject {
         name: settings.papaName + "/groupSettings"
         parentName: bottomButtons.name
         displayName: qsTr("Account groups")
+        canSearch: settings.canSearch
         weight: 10
         pageType: DccObject.Menu
         page: ListView {
