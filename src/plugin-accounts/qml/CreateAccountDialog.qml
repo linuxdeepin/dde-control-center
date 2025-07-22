@@ -122,11 +122,13 @@ D.DialogWindow {
                 Layout.preferredWidth: mainLayout.unifiedLabelWidth
                 Layout.alignment: Qt.AlignVCenter
                 font: D.DTK.fontManager.t6
+                elide: Text.ElideRight
             }
 
             ComboBox {
                 id: userType
                 implicitHeight: 30
+                padding: 0
                 Layout.alignment: Qt.AlignVCenter
                 Layout.fillWidth: true
                 model: dccData.userTypes(true)
@@ -207,6 +209,7 @@ D.DialogWindow {
                                 text: model.name
                                 Layout.preferredWidth: mainLayout.unifiedLabelWidth
                                 font: D.DTK.fontManager.t6
+                                elide: Text.ElideRight
                             }
                             D.LineEdit {
                                 id: edit
