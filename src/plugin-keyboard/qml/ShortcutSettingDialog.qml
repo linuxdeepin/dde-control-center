@@ -27,6 +27,7 @@ D.DialogWindow {
     property string saveKeyName: ""
     property string saveCmdName: ""
     property string saveAccels: ""
+    property var saveKeys: [qsTr("None")]
 
     ColumnLayout {
         spacing: 10
@@ -170,7 +171,7 @@ D.DialogWindow {
         Connections {
             target: dccData
             function onRequestRestore() {
-                edit.keys = ddialog.keySequence
+                edit.keys = ddialog.saveKeys
                 conflictText.text = ""
             }
             function onRequestClear() {
