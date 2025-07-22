@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_CN">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -227,12 +229,12 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
-        请您注意，统信软件不会收集或访问您的生物识别信息，此类信息将会存储在您的本地设备中。请您仅在您的个人设备中开启生物认证功能，并使用您本人的生物识别信息进行相关操作，并及时在该设备上禁用或清除他人的生物识别信息，否则由此给您带来的风险将由您承担。
-        统信软件致力于研究与提高生物认证功能的安全性、精确性、与稳定性，但是，受限于环境、设备、技术等因素和风险控制等原因，我们暂时无法保证您一定能通过生物认证，请您不要将生物认证作为登录统信操作系统的唯一途径。若您在使用生物认证时有任何问题或建议的，可以通过系统内的“服务与支持”进行反馈。
+请您注意，统信软件不会收集或访问您的生物识别信息，此类信息将会存储在您的本地设备中。请您仅在您的个人设备中开启生物认证功能，并使用您本人的生物识别信息进行相关操作，并及时在该设备上禁用或清除他人的生物识别信息，否则由此给您带来的风险将由您承担。
+统信软件致力于研究与提高生物认证功能的安全性、精确性、与稳定性，但是，受限于环境、设备、技术等因素和风险控制等原因，我们暂时无法保证您一定能通过生物认证，请您不要将生物认证作为登录统信操作系统的唯一途径。若您在使用生物认证时有任何问题或建议的，可以通过系统内的“服务与支持”进行反馈。
         </translation>
     </message>
 </context>
@@ -2268,7 +2270,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2763,6 +2765,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Timezone list</source>
         <translation>时区列表</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation>添加</translation>
+    </message>
 </context>
 <context>
     <name>TimeRange</name>
@@ -2798,19 +2804,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3184,12 +3190,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>不得超过15个字符</translation>
     </message>
     <message>
-        <source>Add a new </source>
-        <translation>添加新的</translation>
-    </message>
-    <message>
         <source>This name already exists</source>
         <translation>该名称已存在</translation>
+    </message>
+    <message>
+        <source>Add a new %1 ...</source>
+        <translation>添加新的%1...</translation>
     </message>
 </context>
 <context>
@@ -3626,14 +3632,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>仅%1屏</translation>
     </message>
     <message>
-        <source> (Recommended)</source>
-        <translation> （推荐）</translation>
-    </message>
-    <message>
-        <source>Hz</source>
-        <translation>赫兹</translation>
-    </message>
-    <message>
         <source>Multiple Displays Settings</source>
         <translation>多屏设置</translation>
     </message>
@@ -3694,10 +3692,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>270度</translation>
     </message>
     <message>
-        <source>Display Scaling</source>
-        <translation>缩放</translation>
-    </message>
-    <message>
         <source>The monitor only supports 100% display scaling</source>
         <translation>当前屏幕仅支持1倍缩放</translation>
     </message>
@@ -3740,6 +3734,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Color Temperature</source>
         <translation>色温</translation>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation>%1x%2 （推荐）</translation>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation>%1x%2</translation>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation>%1赫兹 （推荐）</translation>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation>%1赫兹</translation>
+    </message>
+    <message>
+        <source>Scaling</source>
+        <translation>缩放</translation>
     </message>
 </context>
 <context>

@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fi">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fi">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -226,7 +228,7 @@ Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asia
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
@@ -2760,6 +2762,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Timezone list</source>
         <translation>Aikavyöhykkeet</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Lisää</translation>
+    </message>
 </context>
 <context>
     <name>TimeRange</name>
@@ -3181,12 +3187,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Enintään 15 merkkiä</translation>
     </message>
     <message>
-        <source>Add a new </source>
-        <translation>Lisää uusi</translation>
-    </message>
-    <message>
         <source>This name already exists</source>
         <translation>Nimi on jo olemassa</translation>
+    </message>
+    <message>
+        <source>Add a new %1 ...</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3623,14 +3629,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Vain %1</translation>
     </message>
     <message>
-        <source> (Recommended)</source>
-        <translation>(suositus)</translation>
-    </message>
-    <message>
-        <source>Hz</source>
-        <translation>Hz</translation>
-    </message>
-    <message>
         <source>Multiple Displays Settings</source>
         <translation>Usean näytön asetuksia</translation>
     </message>
@@ -3691,10 +3689,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>270°</translation>
     </message>
     <message>
-        <source>Display Scaling</source>
-        <translation>Näytön skaalaus</translation>
-    </message>
-    <message>
         <source>The monitor only supports 100% display scaling</source>
         <translation>Näyttö tukee vain 100% skaalausta</translation>
     </message>
@@ -3737,6 +3731,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Color Temperature</source>
         <translation>Värilämpötila</translation>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scaling</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

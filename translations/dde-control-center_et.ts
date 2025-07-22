@@ -2758,6 +2758,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <source>Timezone list</source>
         <translation>aega-zonide loend</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">Lisada</translation>
+    </message>
 </context>
 <context>
     <name>TimeRange</name>
@@ -3179,11 +3183,11 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation>Mitte enam kui 15 tähemärki</translation>
     </message>
     <message>
-        <source>Add a new </source>
-        <translation>Lisa uus</translation>
+        <source>This name already exists</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>This name already exists</source>
+        <source>Add a new %1 ...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3621,14 +3625,6 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation>Vaid %1</translation>
     </message>
     <message>
-        <source> (Recommended)</source>
-        <translation>(Soovitav)</translation>
-    </message>
-    <message>
-        <source>Hz</source>
-        <translation>Hz</translation>
-    </message>
-    <message>
         <source>Multiple Displays Settings</source>
         <translation>Mittevõtte seaded</translation>
     </message>
@@ -3689,10 +3685,6 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation>270°</translation>
     </message>
     <message>
-        <source>Display Scaling</source>
-        <translation>Näitriteisendamise suurendamine</translation>
-    </message>
-    <message>
         <source>The monitor only supports 100% display scaling</source>
         <translation>Käyrakasti toetab ainult 100% näitirežiimi suurendamist</translation>
     </message>
@@ -3735,6 +3727,26 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>Color Temperature</source>
         <translation>Välimäärat</translation>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scaling</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

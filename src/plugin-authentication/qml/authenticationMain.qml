@@ -273,7 +273,7 @@ DccObject {
                             }
                             hoveredDark: hovered
                         }
-                        text: qsTr("Add a new ") + modelData.authTitle + "..."
+                        text: qsTr("Add a new %1 ...").arg(modelData.authTitle)
                         font: D.DTK.fontManager.t6
                         background: Item {}
                         onClicked: {
