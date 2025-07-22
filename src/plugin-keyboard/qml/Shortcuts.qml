@@ -228,6 +228,9 @@ DccObject {
                                     item.keyName = model.display
                                     item.cmdName = model.command
                                     item.keySequence = model.keySequence
+                                    if (model.keySequence.length > 0) {
+                                        item.saveKeys = model.keySequence
+                                    }
                                     item.accels = model.accels
                                     item.saveAccels = item.accels
                                     item.saveKeyName = item.keyName
