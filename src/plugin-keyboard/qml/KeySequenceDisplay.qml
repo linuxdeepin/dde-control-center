@@ -70,7 +70,6 @@ Control {
                 Repeater {
                     model: control.keys
                     P.KeySequenceLabel {
-                        visible: !control.showEditButtons
                         Layout.alignment: Qt.AlignRight
                         text: modelData
                     }
