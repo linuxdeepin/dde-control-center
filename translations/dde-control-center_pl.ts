@@ -3003,7 +3003,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation>zwiń</translation>
+        <translation>rozwiń</translation>
     </message>
     <message>
         <source>show all</source>
