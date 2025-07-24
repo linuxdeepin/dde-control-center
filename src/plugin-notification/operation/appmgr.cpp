@@ -28,7 +28,15 @@ static QString parseName(const QStringMap &source)
 
 static QString parseIcon(const QStringMap &source)
 {
-    return source.value(u8"Desktop Entry");
+
+    QString icon = source.value(u8"Desktop Entry");
+
+    // fallback to default icon
+    if (icon.isEmpty()) {
+        icon = "application-x-executable";
+    }
+
+    return icon;
 }
 
 template<class T>
