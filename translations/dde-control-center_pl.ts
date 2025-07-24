@@ -1994,7 +1994,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Different from the username</source>
-        <translation type="unfinished"/>
+        <translation>Inne od nazwy użytkownika</translation>
     </message>
 </context>
 <context>
@@ -3003,7 +3003,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation>zwiń</translation>
+        <translation>rozwiń</translation>
     </message>
     <message>
         <source>show all</source>
@@ -3203,7 +3203,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
