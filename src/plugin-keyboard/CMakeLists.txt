@@ -30,6 +30,7 @@ if (BUILD_PLUGIN)
     )
     target_link_libraries(${Plugin_Name} PRIVATE
         ${keyboard_Libraries}
+        dcc-shared-utils
     )
     dcc_install_plugin(NAME ${Plugin_Name} TARGET ${Plugin_Name})
     # dcc_handle_plugin_translation(NAME ${Plugin_Name}  QML_FILES ${keyboard_qml_SRCS} SOURCE_FILES ${keyboard_SRCS})

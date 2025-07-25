@@ -417,12 +417,19 @@ void KeyboardWorker::onLocalListsFinished(QDBusPendingCallWatcher *watch)
 
     LocaleList list = reply.value();
 
-    for (int i = 0; i!=list.size(); ++i) {
+    QStringList languageCodes;
+    QList<MetaData> metaDatas;
+    for (int i = 0; i != list.size(); ++i) {
         MetaData md;
         md.setKey(list.at(i).id);
-        md.setText(QString("%1 - %2").arg(list.at(i).name).arg(QCoreApplication::translate("dcc::keyboard::Language",list.at(i).name.toUtf8().data())));
-        m_datas.append(md);
+        languageCodes << list.at(i).id;
+        metaDatas << md;
     }
+    QStringList dialectNames = DCCLocale::dialectNames(languageCodes);
+    for (int i = 0; i != metaDatas.size(); ++i) {
+        metaDatas[i].setText(QString("%1 - %2").arg(list.at(i).name).arg(dialectNames.at(i)));
+    }
+    m_datas.append(metaDatas);
 
     std::sort(m_datas.begin(), m_datas.end(), caseInsensitiveLessThan);
 
