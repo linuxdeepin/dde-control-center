@@ -10,11 +10,6 @@ filters:
     source_language: en_US
     translation_files_expression: translations/desktop/desktop_<lang>.ts
   - filter_type: file
-    source_file: translations/keyboard_language_en.ts
-    file_format: QT
-    source_language: en_US
-    translation_files_expression: translations/keyboard_language_<lang>.ts
-  - filter_type: file
     source_file: translations/datetime_language_en.ts
     file_format: QT
     source_language: en_US

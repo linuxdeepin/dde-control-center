@@ -13,12 +13,6 @@ source_file = translations/desktop/desktop.ts
 source_lang = en_US
 type = QT
 
-[o:linuxdeepin:p:deepin-desktop-environment:r:09fb6462e5f74e720875a8bc02c8e3ab]
-file_filter = translations/keyboard_language_<lang>.ts
-source_file = translations/keyboard_language_en.ts
-source_lang = en_US
-type = QT
-
 [o:linuxdeepin:p:deepin-desktop-environment:r:f36a590ee78fdf786aa8e4324a9fe090]
 file_filter = translations/datetime_language_<lang>.ts
 source_file = translations/datetime_language_en.ts

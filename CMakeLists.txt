@@ -199,6 +199,8 @@ set(Test_Libraries
 set(DCC_FRAME_Library dde-control-center_frame)
 
 add_subdirectory(src/dde-control-center)
+#-----------------------shared-utils------------------------
+add_subdirectory(src/shared-utils)
 #--------------------------plugins--------------------------
 add_subdirectory(src/plugin-accounts)
 if (NOT DISABLE_AUTHENTICATION)

@@ -25,6 +25,7 @@ set(dateTime_Libraries
 
 target_link_libraries(${pluginName} PRIVATE
     ${dateTime_Libraries}
+    dcc-shared-utils
 )
 
 dcc_install_plugin(NAME ${pluginName} TARGET ${pluginName})
