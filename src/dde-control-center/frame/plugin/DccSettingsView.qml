@@ -144,7 +144,7 @@ Flickable {
     }
     Connections {
         target: dccObj
-        onChildrenChanged: {
+        function onChildrenChanged() {
             updateItem()
         }
     }
