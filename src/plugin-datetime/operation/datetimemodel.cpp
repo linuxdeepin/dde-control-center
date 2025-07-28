@@ -9,6 +9,7 @@
 #include "keyboard/keyboardmodel.h"
 #include "languagelistmodel.h"
 #include "langregionmodel.h"
+#include "dcclocale.h"
 
 #include <unicode/locid.h>
 #include <unicode/unistr.h>
@@ -22,33 +23,6 @@
 #include <QtQml/qqml.h>
 
 static installer::ZoneInfoList g_totalZones;
-
-static QString GetChinaTaiWanName()
-{
-    switch (QLocale::system().territory()) {
-    case QLocale::Territory::China:
-        return QStringLiteral("中国台湾");
-    case QLocale::Territory::HongKong:
-        return QStringLiteral("中國台灣");
-    case QLocale::Territory::Taiwan:
-        return QStringLiteral("中國臺灣");
-    case QLocale::Territory::Macau:
-        return QStringLiteral("中國台灣");
-    default:
-        return "Taiwan China";
-    }
-}
-
-static const QMap<QString, QMap<QLocale::Language, QString>> localeOverrides = {
-    {"zh_TW", {
-        {QLocale::Chinese, GetChinaTaiWanName()},
-        {QLocale::English, "Taiwan China"},
-    }},
-    {"trv_TW", {
-        {QLocale::Chinese, GetChinaTaiWanName()},
-        {QLocale::English, "Taiwan China"}
-    }},
-};
 
 static QString getDescription(const ZoneInfo &zoneInfo)
 {
@@ -181,28 +155,6 @@ static inline QStringList separatorSymbol(const QLocale &locale, bool grouping)
     return symbols;
 }
 
-static QStringList translateLangAndCountry(const QString &localeName)
-{
-    auto localeSystem = QLocale::system();
-    auto systemLocale = icu::Locale(localeSystem.name().toStdString().data());
-    auto IcuLocale = icu::Locale(localeName.toStdString().data());
-    auto localeHex = icu::UnicodeString(localeName.toStdString().data());
-    std::string displayLanguageIcu;
-    IcuLocale.getDisplayLanguage(systemLocale, localeHex).toUTF8String(displayLanguageIcu);
-    std::string displayCountryIcu;
-    IcuLocale.getDisplayCountry(systemLocale, localeHex).toUTF8String(displayCountryIcu);
-
-    // override icu， e.g. 台湾 -> 中国台湾
-    if (localeOverrides.contains(localeName)) {
-        if (localeOverrides[localeName].contains(QLocale::system().language())) {
-            displayCountryIcu = localeOverrides[localeName][QLocale::system().language()].toStdString();
-        }
-    }
-
-    return QStringList{ QString::fromStdString(displayLanguageIcu),
-                        QString::fromStdString(displayCountryIcu) };
-}
-
 static QString translate(const QString &localeName, const QString &langRegion)
 {
     QStringList langRegions = langRegion.split(":");
@@ -210,28 +162,8 @@ static QString translate(const QString &localeName, const QString &langRegion)
         return langRegion;
     }
 
-    if (langRegions[0] == "Traditional Chinese" || langRegions[0] == "Simplified Chinese"
-        || langRegions[1] == QLocale::territoryToString(QLocale::HongKong)
-        || langRegions[1] == QLocale::territoryToString(QLocale::Macau)
-        || langRegions[1] == QLocale::territoryToString(QLocale::Taiwan)) {
-
-        auto res = translateLangAndCountry(localeName);
-        QString lang = res.value(0);
-
-        // override icu， e.g. 台湾 -> 中国台湾
-        QString country = langRegions.at(1).toUtf8().data();
-        if (country == "Taiwan") {
-            country = GetChinaTaiWanName();
-        } else {
-            country = QCoreApplication::translate("dcc::datetime::Country", langRegions.at(1).toUtf8().data());
-        }
-
-        QString langCountry = QString("%1(%2)").arg(lang).arg(country);
-        return langCountry;
-    }
-
-    auto res = translateLangAndCountry(localeName);
-    QString langCountry = QString("%1(%2)").arg(res.value(0)).arg(res.value(1));
+    auto res = DCCLocale::languageAndRegionName(localeName);
+    QString langCountry = QObject::tr("%1 (%2)", "Language and region name, e.g. Chinese (China)").arg(res.first).arg(res.second);
 
     return langCountry;
 }
@@ -456,9 +388,9 @@ QSortFilterProxyModel *DatetimeModel::regionSearchModel()
         return m_countrySearchModel;
 
     for (const auto &locale : m_regions) {
-        auto langCountry = translateLangAndCountry(locale.name());
+        auto langCountry = DCCLocale::languageAndRegionName(locale.name());
         // { 中国: CN }
-        m_langRegionsCache[langCountry.value(1)] = locale.territoryToCode(locale.territory());
+        m_langRegionsCache[langCountry.second] = locale.territoryToCode(locale.territory());
     }
 
     m_countrySearchModel = new QSortFilterProxyModel(this);
@@ -568,8 +500,8 @@ QString DatetimeModel::region()
                 break;
             }
         }
-        auto langCountry = translateLangAndCountry(localeName);
-        m_regionName = langCountry.value(1);
+        auto langCountry = DCCLocale::languageAndRegionName(localeName);
+        m_regionName = langCountry.second;
     }
 
     return m_regionName;

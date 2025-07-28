@@ -177,36 +177,13 @@ void RegionFormatDialog::onSaved()
 void RegionFormatDialog::initItemModel(DatetimeModel *dateTimeModel)
 {
     m_regions = dateTimeModel->regions();
-    auto localeSystem = QLocale::system();
-    auto systemLocale = Locale(localeSystem.name().toStdString().data());
     for (auto locale : m_regions) {
-        auto IcuLocale = Locale(locale.name().toStdString().data());
-        auto localeHex = UnicodeString(locale.name().toStdString().data());
-        std::string displayLanguageIcu;
-        IcuLocale.getDisplayLanguage(systemLocale, localeHex).toUTF8String(displayLanguageIcu);
-        std::string displayCountryIcu;
-        IcuLocale.getDisplayCountry(systemLocale, localeHex).toUTF8String(displayCountryIcu);
-        QString displaylanguage = QString::fromStdString(displayLanguageIcu);
-        QString displayCountry = QString::fromStdString(displayCountryIcu);
-        QString langRegion = m_regions.key(locale);
+        // This is legacy code that no longer used, the following code doesn't garantee to be compilable.
+        // The code here is just for demo purpose.
+        auto langAndRegion = DCCLocale::languageAndRegionName(locale.name());
+        QString langRegionText = QString("%1 (%2)").arg(langAndRegion.first).arg(langAndRegion.second);
         DStandardItem *item = new DStandardItem;
-        QString langCountry = QString("%1(%2)").arg(displaylanguage).arg(displayCountry);
-        QStringList langRegions = langRegion.split(":");
-        if (langRegions.size() >= 2
-            && (langRegions[0] == "Traditional Chinese"
-                || langRegions[0] == "Simplified Chinese"
-                || langRegions[1] == QLocale::countryToString(QLocale::HongKong)
-                || langRegions[1] == QLocale::countryToString(QLocale::Macau)
-                || langRegions[1] == QLocale::countryToString(QLocale::Taiwan))) {
-            langCountry =
-                    QString("%1(%2)")
-                            .arg(QCoreApplication::translate("dcc::datetime::Language",
-                                                             langRegions.at(0).toUtf8().data()))
-                            .arg(QCoreApplication::translate("dcc::datetime::Country",
-                                                             langRegions.at(1).toUtf8().data()));
-        }
-        QString langRegionText = langCountry;
-        item->setData(langRegion, RegionFormatRole::TextRole);
+        item->setData(langAndRegion.first, RegionFormatRole::TextRole);
         item->setData(locale, RegionFormatRole::LocaleRole);
         item->setText(langRegionText);
         item->setSizeHint(QSize(304, 36));

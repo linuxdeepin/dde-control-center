@@ -2252,6 +2252,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>The settings of touch screen changed</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>%1 (%2)</source>
+        <comment>Language and region name, e.g. Chinese (China)</comment>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
@@ -3235,6 +3240,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dcc::Locale::regionNames</name>
+    <message>
+        <source>Taiwan China</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
