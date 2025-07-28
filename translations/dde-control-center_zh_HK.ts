@@ -3242,11 +3242,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dcc::Locale::dialectNames</name>
     <message>
         <source>Traditional Chinese (Chinese Hong Kong)</source>
-        <translation type="unfinished"/>
+        <translation>繁體中文（中國香港）</translation>
     </message>
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
-        <translation type="unfinished"/>
+        <translation>繁體中文（中國台灣）</translation>
     </message>
 </context>
 <context>
