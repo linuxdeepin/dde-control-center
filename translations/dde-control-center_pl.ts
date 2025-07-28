@@ -3260,7 +3260,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>dcc::Locale::regionNames</name>
     <message>
         <source>Taiwan China</source>
-        <translation type="unfinished"/>
+        <translation>Tajwan Chiny</translation>
     </message>
 </context>
 <context>
