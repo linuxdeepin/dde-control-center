@@ -335,22 +335,12 @@ void RegionModule::onLangRegionClicked()
 
 QString RegionModule::getTranslation(const QString &localeName, const QString &langRegion)
 {
+    // This is legacy code that no longer used, if the code is ever needed, this should be
+    // replaced with DCCLocale::languageAndRegionName()
+
     QStringList langRegions = langRegion.split(":");
     if (langRegions.size() < 2) {
         return langRegion;
-    }
-    if (langRegions[0] == "Traditional Chinese" || langRegions[0] == "Simplified Chinese"
-        || langRegions[1] == QLocale::countryToString(QLocale::HongKong)
-        || langRegions[1] == QLocale::countryToString(QLocale::Macau)
-        || langRegions[1] == QLocale::countryToString(QLocale::Taiwan)) {
-
-        QString langCountry =
-                QString("%1(%2)")
-                        .arg(QCoreApplication::translate("dcc::datetime::Language",
-                                                         langRegions.at(0).toUtf8().data()))
-                        .arg(QCoreApplication::translate("dcc::datetime::Country",
-                                                         langRegions.at(1).toUtf8().data()));
-        return langCountry;
     }
 
     auto localeSystem = QLocale::system();

@@ -6,34 +6,47 @@
 
 #include <QCoreApplication>
 #include <QLocale>
+#include <memory>
 
 #include <unicode/locdspnm.h>
 
 using namespace icu;
+using namespace Qt::Literals::StringLiterals;
 
-icu::UnicodeString fromQString(const QString& qstr) {
-    return icu::UnicodeString(qstr.utf16(), qstr.length());
-}
+namespace {
+    // Cache LocaleDisplayNames instance
+    icu::LocaleDisplayNames* getDisplayNames() {
+        static std::unique_ptr<icu::LocaleDisplayNames> displayNames(
+            icu::LocaleDisplayNames::createInstance(icu::Locale::getDefault(), ULDN_DIALECT_NAMES)
+        );
+        return displayNames.get();
+    }
 
-QString toQString(const icu::UnicodeString& icuString) {
-    // Get a pointer to the internal UTF-16 buffer of the icu::UnicodeString.
-    // The buffer is not necessarily null-terminated, so we also need the length.
-    const UChar* ucharData = icuString.getBuffer();
-    int32_t length = icuString.length();
-
-    // QString has a constructor that takes a const QChar* and a length.
-    // UChar is typically a 16-bit unsigned integer, which is compatible with QChar.
-    // Static_cast is used here for explicit type conversion, though often
-    // UChar and QChar are typedefs to the same underlying type (e.g., unsigned short).
-    return QString(reinterpret_cast<const QChar*>(ucharData), length);
+    icu::UnicodeString fromQString(const QString& qstr) {
+        return icu::UnicodeString(qstr.utf16(), qstr.length());
+    }
+    
+    QString toQString(const icu::UnicodeString& icuString) {
+        // Get a pointer to the internal UTF-16 buffer of the icu::UnicodeString.
+        // The buffer is not necessarily null-terminated, so we also need the length.
+        const UChar* ucharData = icuString.getBuffer();
+        int32_t length = icuString.length();
+    
+        // QString has a constructor that takes a const QChar* and a length.
+        // UChar is typically a 16-bit unsigned integer, which is compatible with QChar.
+        // Static_cast is used here for explicit type conversion, though often
+        // UChar and QChar are typedefs to the same underlying type (e.g., unsigned short).
+        return QString(reinterpret_cast<const QChar*>(ucharData), length);
+    }
 }
 
 QStringList DCCLocale::dialectNames(const QStringList &localeCodes)
 {
     QStringList results;
+    results.reserve(localeCodes.size()); // 预分配空间
 
-    icu::Locale currentLocale(icu::Locale::getDefault());
-    icu::LocaleDisplayNames * displayNames = icu::LocaleDisplayNames::createInstance(currentLocale, ULDN_DIALECT_NAMES);
+    icu::LocaleDisplayNames* displayNames = getDisplayNames();
+    
     for (const QString &localeCode : std::as_const(localeCodes)) {
         // locale code might contain something like @latin, we need to remove such suffix
         QString localeCodeWithoutSuffix = localeCode.split("@").first();
@@ -46,8 +59,24 @@ QStringList DCCLocale::dialectNames(const QStringList &localeCodes)
         }
 
         icu::UnicodeString dialectName;
-        displayNames->localeDisplayName(localeCodeWithoutSuffix.toStdString().c_str(), dialectName);
+        displayNames->localeDisplayName(localeCodeWithoutSuffix.toLatin1().constData(), dialectName);
         results.append(toQString(dialectName));
     }
     return results;
+}
+
+QPair<QString, QString> DCCLocale::languageAndRegionName(const QString &localeCode)
+{
+    const icu::Locale& systemLocale = icu::Locale::getDefault();
+    icu::UnicodeString localeUString = fromQString(localeCode);
+    icu::Locale icuLocale(localeCode.toLatin1().constData());
+    auto regionCode = QString(icuLocale.getCountry());
+    QString displayLanguage = toQString(icuLocale.getDisplayLanguage(systemLocale, localeUString));
+    QString displayCountry = toQString(icuLocale.getDisplayCountry(systemLocale, localeUString));
+
+    if (regionCode == u"TW"_s) {
+        displayCountry = QCoreApplication::translate("dcc::Locale::regionNames", "Taiwan China");
+    }
+
+    return { displayLanguage, displayCountry };
 }

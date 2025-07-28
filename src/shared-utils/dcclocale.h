@@ -13,4 +13,5 @@ class DCCLocale
 public:
     //! Get the dialect names of the given \a languageCodes in current system locale.
     static QStringList dialectNames(const QStringList &localeCodes);
+    static QPair<QString, QString> languageAndRegionName(const QString &localeName);
 };
