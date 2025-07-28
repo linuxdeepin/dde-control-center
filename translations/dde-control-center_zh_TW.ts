@@ -3258,7 +3258,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dcc::Locale::regionNames</name>
     <message>
         <source>Taiwan China</source>
-        <translation type="unfinished"/>
+        <translation>中國臺灣</translation>
     </message>
 </context>
 <context>
