@@ -18,10 +18,6 @@
         <translation>ttaghadam login</translation>
     </message>
     <message>
-        <source>Login Settings</source>
-        <translation>ttaghadam login</translation>
-    </message>
-    <message>
         <source>Login without password</source>
         <translation>login imen tissifra</translation>
     </message>
@@ -2912,10 +2908,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>wallpaper</translation>
     </message>
     <message>
-        <source>Window rounded corners</source>
-        <translation>Corners rounded window</translation>
-    </message>
-    <message>
         <source>My pictures</source>
         <translation>My pictures</translation>
     </message>
@@ -3235,6 +3227,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>System language, region format</source>
         <translation>Linga l&apos;system i akz format région</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::Locale::dialectNames</name>
+    <message>
+        <source>Traditional Chinese (Chinese Hong Kong)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Traditional Chinese (Chinese Taiwan)</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
