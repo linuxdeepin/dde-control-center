@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_HK">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_HK">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -15,10 +17,6 @@
     </message>
     <message>
         <source>Login settings</source>
-        <translation>登錄設置</translation>
-    </message>
-    <message>
-        <source>Login Settings</source>
         <translation>登錄設置</translation>
     </message>
     <message>
@@ -230,7 +228,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>「生物認證」是統信軟件技術有限公司提供的一種對用户進行身份認證的功能。通過「生物認證」，將採集的生物識別數據與存儲在設備本地的生物識別數據進行比對，並根據比對結果來驗證用户身份。
@@ -2795,19 +2793,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2919,10 +2917,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>wallpaper</source>
         <translation>壁紙</translation>
-    </message>
-    <message>
-        <source>Window rounded corners</source>
-        <translation>窗口圓角</translation>
     </message>
     <message>
         <source>My pictures</source>
@@ -3244,6 +3238,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>System language, region format</source>
         <translation>系統語言、區域格式</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::Locale::dialectNames</name>
+    <message>
+        <source>Traditional Chinese (Chinese Hong Kong)</source>
+        <translation>繁體中文（中國香港）</translation>
+    </message>
+    <message>
+        <source>Traditional Chinese (Chinese Taiwan)</source>
+        <translation>繁體中文（中國台灣）</translation>
     </message>
 </context>
 <context>

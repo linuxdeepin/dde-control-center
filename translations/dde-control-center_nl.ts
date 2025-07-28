@@ -20,10 +20,6 @@
         <translation>Aanmeldinstellingen</translation>
     </message>
     <message>
-        <source>Login Settings</source>
-        <translation>Aanmeldinstellingen</translation>
-    </message>
-    <message>
         <source>Login without password</source>
         <translation>Aanmelden zonder wachtwoord</translation>
     </message>
@@ -2923,10 +2919,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Window rounded corners</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>My pictures</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3245,6 +3237,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System language, region format</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dcc::Locale::dialectNames</name>
+    <message>
+        <source>Traditional Chinese (Chinese Hong Kong)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Traditional Chinese (Chinese Taiwan)</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
