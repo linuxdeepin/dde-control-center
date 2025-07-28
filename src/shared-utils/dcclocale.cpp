@@ -68,7 +68,7 @@ QStringList DCCLocale::dialectNames(const QStringList &localeCodes)
 QPair<QString, QString> DCCLocale::languageAndRegionName(const QString &localeCode)
 {
     const icu::Locale& systemLocale = icu::Locale::getDefault();
-    icu::UnicodeString localeUString = fromQString(localeCode);
+    icu::UnicodeString localeUString;
     icu::Locale icuLocale(localeCode.toLatin1().constData());
     auto regionCode = QString(icuLocale.getCountry());
     QString displayLanguage = toQString(icuLocale.getDisplayLanguage(systemLocale, localeUString));
