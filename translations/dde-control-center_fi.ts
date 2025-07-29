@@ -910,11 +910,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Koko nimi enintään 32 merkkiä</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation>Koko nimi ei saa sisältää kaksoispisteitä</translation>
     </message>
 </context>
 <context>
@@ -925,7 +925,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation>Ladattu tiedostotyyppi on virheellinen, lataa se uudelleen.</translation>
     </message>
 </context>
 <context>
@@ -1081,7 +1081,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Esimerkki</translation>
     </message>
 </context>
 <context>
@@ -1258,7 +1258,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>Lempinimen on oltava 1~32 merkkiä pitkä</translation>
     </message>
 </context>
 <context>
@@ -1281,7 +1281,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>Lempinimeä voi muuttaa vain kerran päivässä</translation>
     </message>
 </context>
 <context>
@@ -1422,7 +1422,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Jos haluat asentaa ja käyttää allekirjoittamattomia sovelluksia, siirry Turvakeskukseen ja muuta asetuksia.</translation>
     </message>
 </context>
 <context>
@@ -1987,7 +1987,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Different from the username</source>
-        <translation type="unfinished"/>
+        <translation>Eri kuin käyttäjänimi</translation>
     </message>
 </context>
 <context>
@@ -2265,7 +2265,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
+        <translation>%1 (%2)</translation>
     </message>
 </context>
 <context>
@@ -3197,7 +3197,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -3246,11 +3246,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dcc::Locale::dialectNames</name>
     <message>
         <source>Traditional Chinese (Chinese Hong Kong)</source>
-        <translation type="unfinished"/>
+        <translation>Perinteinen kiina (Kiina Hong Kong)</translation>
     </message>
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
-        <translation type="unfinished"/>
+        <translation>Perinteinen kiina (Kiina Taiwan)</translation>
     </message>
 </context>
 <context>
