@@ -166,7 +166,7 @@ DccObject{
                 }
 
                 function updateAlias() {
-                    if (nameEdit.text.trim() === "") {
+                    if (nameEdit.text === "") {
                         nameEdit.text = myDeviceName.text
                     } else {
                         dccData.work().setAdapterAlias(model.id, nameEdit.text)
