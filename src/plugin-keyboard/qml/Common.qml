@@ -204,14 +204,21 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: TextField {
+            id: textField
             placeholderText: qsTr("test here")
             background: null
-            horizontalAlignment: Text.AlignHCenter
+            horizontalAlignment: textMetrics.boundingRect.width > width ? Text.AlignRight : Text.AlignHCenter
             font: D.DTK.fontManager.t5
             onActiveFocusChanged: {
                 if (!activeFocus) {
                     text = ""
                 }
+            }
+            // 创建文本测量器
+            TextMetrics {
+                id: textMetrics
+                font: textField.font  // 使用与 TextField 相同的字体
+                text: textField.text  // 绑定到当前文本
             }
         }
     }
