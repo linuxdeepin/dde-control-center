@@ -129,7 +129,6 @@ DccObject {
                             implicitHeight: 36
                             anchors {
                                 right: itemDelegate.right
-                                rightMargin: 10
                                 top: itemDelegate.top
                                 topMargin: (itemDelegate.height - removeButton.height) / 2
                             }
