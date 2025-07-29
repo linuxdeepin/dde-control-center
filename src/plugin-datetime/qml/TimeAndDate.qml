@@ -426,9 +426,9 @@ DccObject {
             spacing: 10
             Button {
                 id: addButton
-                icon.name: "add"
-                implicitHeight: 32
-                implicitWidth: 32
+                text: qsTr("Add")
+                implicitHeight: 30
+                implicitWidth: 60
 
                 SearchableListViewPopup {
                     id: timezoneListWindow

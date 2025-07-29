@@ -79,7 +79,7 @@ Loader {
         // ensure show in center of mainwindow
         flags: Qt.Dialog
         // default color is white
-        color: active ? DTK.palette.window : DTK.inactivePalette.window
+        color: DTK.palette.window
         palette: DTK.palette
 
         Component.onCompleted: {
