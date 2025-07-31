@@ -231,8 +231,8 @@ Please be noted that UnionTech Software Technology Co., Ltd. will not collect or
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
-        请您注意，统信软件不会收集或访问您的生物识别信息，此类信息将会存储在您的本地设备中。请您仅在您的个人设备中开启生物认证功能，并使用您本人的生物识别信息进行相关操作，并及时在该设备上禁用或清除他人的生物识别信息，否则由此给您带来的风险将由您承担。
-        统信软件致力于研究与提高生物认证功能的安全性、精确性、与稳定性，但是，受限于环境、设备、技术等因素和风险控制等原因，我们暂时无法保证您一定能通过生物认证，请您不要将生物认证作为登录统信操作系统的唯一途径。若您在使用生物认证时有任何问题或建议的，可以通过系统内的“服务与支持”进行反馈。
+请您注意，统信软件不会收集或访问您的生物识别信息，此类信息将会存储在您的本地设备中。请您仅在您的个人设备中开启生物认证功能，并使用您本人的生物识别信息进行相关操作，并及时在该设备上禁用或清除他人的生物识别信息，否则由此给您带来的风险将由您承担。
+统信软件致力于研究与提高生物认证功能的安全性、精确性、与稳定性，但是，受限于环境、设备、技术等因素和风险控制等原因，我们暂时无法保证您一定能通过生物认证，请您不要将生物认证作为登录统信操作系统的唯一途径。若您在使用生物认证时有任何问题或建议的，可以通过系统内的“服务与支持”进行反馈。
         </translation>
     </message>
 </context>
@@ -2765,7 +2765,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>添加</translation>
     </message>
 </context>
 <context>
@@ -3193,7 +3193,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation>添加新的%1...</translation>
     </message>
 </context>
 <context>
@@ -3735,23 +3735,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2 （推荐）</translation>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2</translation>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1赫兹 （推荐）</translation>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation type="unfinished"/>
+        <translation>%1赫兹</translation>
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"/>
+        <translation>缩放</translation>
     </message>
 </context>
 <context>
