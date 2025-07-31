@@ -16,7 +16,7 @@ D.DialogWindow {
     id: dialog
     property string userId: dccData.currentUserId()
     property string currentAvatar: dccData.avatar()
-    width: 630
+    width: 640
     minimumWidth: width
     minimumHeight: height
     maximumWidth: minimumWidth
@@ -64,7 +64,6 @@ D.DialogWindow {
         // enableInWindowBlendBlur: true
         icon.name: dialog.icon
     }
-
     RowLayout {
         width: dialog.width
         Rectangle {
@@ -188,10 +187,12 @@ D.DialogWindow {
         ColumnLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
-
+            
             CustomAvatarEmpatyArea {
                 id: customEmptyAvatar
                 visible: needShow()
+                Layout.alignment: Qt.AlignHCenter
+                Layout.rightMargin: 10
                 onIconDropped: function (url){
                     dialog.currentAvatar = url
                     needShow()
@@ -220,7 +221,7 @@ D.DialogWindow {
                 implicitHeight: 360
                 visible: !customEmptyAvatar.visible
                 Layout.fillWidth: true
-                Layout.alignment: Qt.AlignTop
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
                 contentHeight: layout.childrenRect.height
 
                 ColumnLayout {
@@ -299,7 +300,7 @@ D.DialogWindow {
                 Layout.bottomMargin: 10
                 Layout.topMargin: 20
                 Layout.leftMargin: 30
-                Layout.rightMargin: 60
+                Layout.rightMargin: 40
 
                 Button {
                     Layout.fillWidth: true
