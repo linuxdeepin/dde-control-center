@@ -129,7 +129,7 @@ DccObject {
                     }
                     D.TipsSlider {
                         id: doubleClickSlider
-                        readonly property var tips: [qsTr("Slow"), (""), (""), (""), (""), (""), qsTr("Fast")]
+                        readonly property var tips: [qsTr("Short"), (""), (""), (""), (""), (""), qsTr("Long")]
                         Layout.alignment: Qt.AlignCenter
                         Layout.margins: 10
                         Layout.fillWidth: true
