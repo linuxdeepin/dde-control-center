@@ -2777,6 +2777,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Timezone list</source>
         <translation>قائمة المناطق الزمنية</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>TimeRange</name>
@@ -3202,12 +3206,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>لا يتجاوز 15 حرفًا</translation>
     </message>
     <message>
-        <source>Add a new </source>
-        <translation>إضافة جديد</translation>
-    </message>
-    <message>
         <source>This name already exists</source>
         <translation>Bu ad artıq mövcuddur</translation>
+    </message>
+    <message>
+        <source>Add a new %1 ...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3644,14 +3648,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>فقط على %1</translation>
     </message>
     <message>
-        <source> (Recommended)</source>
-        <translation> (مُشْتَرَك)</translation>
-    </message>
-    <message>
-        <source>Hz</source>
-        <translation>هرتز</translation>
-    </message>
-    <message>
         <source>Multiple Displays Settings</source>
         <translation>إعدادات الشاشات المتعددة</translation>
     </message>
@@ -3712,10 +3708,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>270°</translation>
     </message>
     <message>
-        <source>Display Scaling</source>
-        <translation>التكبير على الشاشة</translation>
-    </message>
-    <message>
         <source>The monitor only supports 100% display scaling</source>
         <translation>监视器仅支持100%的显示缩放</translation>
     </message>
@@ -3758,6 +3750,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Color Temperature</source>
         <translation>色温</translation>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scaling</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
