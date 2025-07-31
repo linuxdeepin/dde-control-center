@@ -1,3 +1,44 @@
+dde-control-center (6.1.39) unstable; urgency=medium
+
+  * chore: remove upper-level datetime_*.ts resources
+  * fix: Modify the translation of Scaling
+  * i18n: Updates for project Deepin Desktop Environment (#2549)
+  * fix: update double click speed slider labels
+  * style: adjust datetime plugin UI elements
+  * fix: remove unnecessary trim in Bluetooth device name validation
+  * fix: Cursor display jumps add text measurement and auto-alignment
+    for text field
+  * i18n: Updates for project Deepin Desktop Environment (#2545)
+  * fix: remove unused QString to UnicodeString convert
+  * fix: remove the need of `datetime_language.ts` and
+    `datetime_country.ts`
+  * i18n: Updates for project Deepin Desktop Environment (#2543)
+  * chore: update ts files
+  * i18n: Translate dde-control-center_en.ts in es (#2541)
+  * fix: remove the need of `keyboard_language.ts` resources
+  * i18n: Updates for project Deepin Desktop Environment (#2521)
+  * fix: add fallback for empty app icons in notification plugin
+  * fix: show shortcut keys in edit mode
+  * refactor: remove redundant textColor property in NativeInfoPage
+  * fix: allow saving shortcuts with modifier-only keys
+  * feat: adjust notification combo box width
+  * fix: Fixed the issue of incomplete display of large fonts
+  * fix: Modify search error issues
+  * fix: Modify the schematic diagram style
+  * fix: resolve active color inconsistency in timezone menu popup
+  * fix: Change the size of the hover background
+  * fix: Fixed the issue of pop-up theme mismatch
+  * fix: resolve theme adaptation issues in RegionsChooserWindow dark
+    mode
+  * fix: resolve cancel operation in shortcut setting dialog
+  * fix: Fix mailbox errors
+  * fix: Fix the startup screen
+  * fix: reset view position when searching in RegionFormatDialog
+  * fix: resolve empty region list after clearing search input
+  * fix: The error message is fixed
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 31 Jul 2025 19:42:46 +0800
+
 dde-control-center (6.1.38) unstable; urgency=medium
 
   * i18n: Updates for project Deepin Desktop Environment (#2519)
