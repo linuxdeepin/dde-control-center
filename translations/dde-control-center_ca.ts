@@ -2763,6 +2763,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <source>Timezone list</source>
         <translation>Llista de zones horàries</translation>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>TimeRange</name>
@@ -3184,12 +3188,12 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>No ha de tenir més de 15 caràcters.</translation>
     </message>
     <message>
-        <source>Add a new </source>
-        <translation>Afegeix-n&apos;hi més</translation>
-    </message>
-    <message>
         <source>This name already exists</source>
         <translation>Aquest nom ja existeix.</translation>
+    </message>
+    <message>
+        <source>Add a new %1 ...</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3626,14 +3630,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Només a %1</translation>
     </message>
     <message>
-        <source> (Recommended)</source>
-        <translation>(Recomanada)</translation>
-    </message>
-    <message>
-        <source>Hz</source>
-        <translation>Hz</translation>
-    </message>
-    <message>
         <source>Multiple Displays Settings</source>
         <translation>Configuració de pantalles múltiples</translation>
     </message>
@@ -3694,10 +3690,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>270°</translation>
     </message>
     <message>
-        <source>Display Scaling</source>
-        <translation>Escalatge de la pantalla</translation>
-    </message>
-    <message>
         <source>The monitor only supports 100% display scaling</source>
         <translation>El monitor només admet un escalatge del 100 %.</translation>
     </message>
@@ -3740,6 +3732,26 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Color Temperature</source>
         <translation>Temperatura del color</translation>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scaling</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
