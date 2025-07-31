@@ -7,7 +7,7 @@
     </message>
     <message>
         <source>Add new user</source>
-        <translation>Afegeix-hi un usuari nou</translation>
+        <translation>Afegiu-hi un usuari nou</translation>
     </message>
     <message>
         <source>Set fullname</source>
@@ -3193,7 +3193,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation>Afegiu-hi un %1 nou...</translation>
+        <translation>Afegiu-hi un/a %1 nou/nova...</translation>
     </message>
 </context>
 <context>
