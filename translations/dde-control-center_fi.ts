@@ -1452,7 +1452,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Pöytä</translation>
+        <translation>Työpöytä</translation>
     </message>
     <message>
         <source>Pictures</source>
@@ -2762,7 +2762,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Lisää</translation>
     </message>
 </context>
 <context>
@@ -3190,7 +3190,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation>Lisää uusi %1 ...</translation>
     </message>
 </context>
 <context>
@@ -3660,7 +3660,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation>Muuta pöydän kokoa</translation>
+        <translation>Muuta työpöydän kokoa</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
@@ -3732,30 +3732,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2 (suositus)</translation>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2</translation>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1Hz (suositus)</translation>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation type="unfinished"/>
+        <translation>%1Hz</translation>
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Skaalaus</translation>
     </message>
 </context>
 <context>
     <name>dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation>Pöytä ja tehtäväpalkki</translation>
+        <translation>Työpöytä ja tehtäväpalkki</translation>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
