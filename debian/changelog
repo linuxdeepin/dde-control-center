@@ -1,3 +1,9 @@
+dde-control-center (6.1.40) unstable; urgency=medium
+
+  * fix: unsupported relocation error on arm64
+
+ -- Wang Zichong <wangzichong@deepin.org>  Fri, 01 Aug 2025 11:08:00 +0800
+
 dde-control-center (6.1.39) unstable; urgency=medium
 
   * chore: remove upper-level datetime_*.ts resources
