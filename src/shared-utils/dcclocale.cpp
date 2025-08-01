@@ -5,6 +5,7 @@
 #include "dcclocale.h"
 
 #include <QCoreApplication>
+#include <QGlobalStatic>
 #include <QLocale>
 #include <memory>
 
@@ -15,11 +16,18 @@ using namespace Qt::Literals::StringLiterals;
 
 namespace {
     // Cache LocaleDisplayNames instance
+    struct DisplayNamesHolder {
+        DisplayNamesHolder() 
+            : displayNames(icu::LocaleDisplayNames::createInstance(
+                icu::Locale::getDefault(), ULDN_DIALECT_NAMES)) {}
+        
+        std::unique_ptr<icu::LocaleDisplayNames> displayNames;
+    };
+    
+    Q_GLOBAL_STATIC(DisplayNamesHolder, globalDisplayNames);
+    
     icu::LocaleDisplayNames* getDisplayNames() {
-        static std::unique_ptr<icu::LocaleDisplayNames> displayNames(
-            icu::LocaleDisplayNames::createInstance(icu::Locale::getDefault(), ULDN_DIALECT_NAMES)
-        );
-        return displayNames.get();
+        return globalDisplayNames()->displayNames.get();
     }
 
     icu::UnicodeString fromQString(const QString& qstr) {
