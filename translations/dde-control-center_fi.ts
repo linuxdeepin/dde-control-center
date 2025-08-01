@@ -3940,7 +3940,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation>Pöydällä näkyvien ilmoitusten määrä</translation>
+        <translation>Työpöydällä näkyvien ilmoitusten määrä</translation>
     </message>
     <message>
         <source>App Notifications</source>
@@ -3952,11 +3952,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>Näytä ilmoitus pöydällä tai näytä lukemattomat viestit ilmoitusalueella</translation>
+        <translation>Näytä ilmoituksia työpöydällä tai näytä lukemattomat ilmoitusalueella</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Pöytä</translation>
+        <translation>Työpöytä</translation>
     </message>
     <message>
         <source>Lock Screen</source>
