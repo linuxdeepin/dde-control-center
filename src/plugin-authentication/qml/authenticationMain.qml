@@ -50,7 +50,7 @@ DccObject {
                 max: 10
             }
         ]
-        property var listDatas: [dccData.model.facesList, dccData.model.thumbsList, dccData.faceModel]
+        property var listDatas: [dccData.model.facesList, dccData.model.thumbsList, dccData.model.irisList]
         delegate: DccObject {
             id: authenticationGroupView
             name: "authenticationGroupView"
@@ -116,13 +116,13 @@ DccObject {
                         function requestRename(id, newName) {
                             switch (itemRep.authType) {
                             case CharaMangerModel.Type_Face:
-                                dccData.renameFace(id, newName);
+                                dccData.faceController.rename(id, newName);
                                 break;
                             case CharaMangerModel.Type_Finger:
-                                dccData.requestRenameFinger(id, newName);
+                                dccData.fingerprintController.rename(id, newName);
                                 break;
                             case CharaMangerModel.Type_Iris:
-                                // dccData.startEnrollIris()
+                                dccData.irisController.rename(id, newName);
                                 break;
                             }
                         }
@@ -130,13 +130,13 @@ DccObject {
                         function requestDelete(id) {
                             switch (itemRep.authType) {
                             case CharaMangerModel.Type_Face:
-                                dccData.removeFace(id);
+                                dccData.faceController.remove(id);
                                 break;
                             case CharaMangerModel.Type_Finger:
-                                dccData.requestRemoveFinger(id);
+                                dccData.fingerprintController.remove(id);
                                 break;
                             case CharaMangerModel.Type_Iris:
-                                // dccData.startEnrollIris()
+                                dccData.irisController.remove(id);
                                 break;
                             }
                         }
@@ -291,7 +291,8 @@ DccObject {
                                 addFingerDialogLoader.item.show();
                                 break;
                             case CharaMangerModel.Type_Iris:
-                                dccData.startEnrollIris();
+                                addIrisDialogLoader.active = true;
+                                addIrisDialogLoader.item.show();
                                 break;
                             }
                         }
@@ -319,7 +320,7 @@ DccObject {
                         Loader {
                             id: addIrisDialogLoader
                             active: false
-                            sourceComponent: AddFaceinfoDialog {
+                            sourceComponent: AddIrisDialog {
                                 onClosing: function (close) {
                                     addIrisDialogLoader.active = false;
                                 }
