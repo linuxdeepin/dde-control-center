@@ -378,14 +378,15 @@ DccObject {
                             useIndicatorPadding: true
                             width: timezoneWindow.viewWidth
                             text: model.display
-                            highlighted: hovered
+                            highlighted: ListView.isCurrentItem
                             hoverEnabled: true
                             checkable: true
                             autoExclusive: true
                             checked: model.zoneId === systemTimezoneItem.saveZoneId
                             onHoveredChanged: {
-                                if (hovered)
-                                    timezoneWindow.highlightedIndex = index
+                                if (hovered && !ListView.view.keyboardScrolling) {
+                                    timezoneWindow.setViewIndex(index)
+                                }
                             }
                             onCheckedChanged: {
                                 if (checked && model.zoneId != systemTimezoneItem.saveZoneId) {
@@ -405,7 +406,7 @@ DccObject {
 
                 onClicked: function (mouse) {
                     if (!timezoneWindow.isVisible()) {
-                        // Reset highlightedIndex to the actual current index before showing
+                        // 保持当前选中项可见，但居中显示
                         timezoneWindow.highlightedIndex = systemTimezoneItem.currentIndex
                         timezoneWindow.show()
                         timezoneWindow.setPositionByItem(parent)
@@ -438,13 +439,14 @@ DccObject {
                             useIndicatorPadding: true
                             width: timezoneListWindow.viewWidth
                             text: model.display
-                            highlighted: hovered
+                            highlighted: ListView.isCurrentItem
                             hoverEnabled: true
                             checkable: true
                             autoExclusive: true
                             onHoveredChanged: {
-                                if (hovered)
-                                    timezoneListWindow.highlightedIndex = index
+                                if (hovered && !ListView.view.keyboardScrolling) {
+                                    timezoneListWindow.setViewIndex(index)
+                                }
                             }
                             onCheckedChanged: {
                                 if (checked) {
