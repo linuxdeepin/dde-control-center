@@ -78,6 +78,12 @@ ColumnLayout {
         return pwdContainter.checkPassword()
     }
 
+    function showUserNameMatchPasswordAlert() {
+        if (pwdContainter && pwdContainter.eidtItems && pwdContainter.eidtItems[0]) {
+            pwdContainter.eidtItems[0].showAlertText(qsTr("Different from the username"))
+        }
+    }
+
     function playErrorSound() {
         dccData.playSystemSound(14)
     }
