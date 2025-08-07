@@ -834,19 +834,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>ຂໍ້ປະກາດໂມດຜູ້ພັດທະນາ</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>ຕົກລົງແລະຂໍສິທທິຜູ້ດູແລຄົນ</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"/>
+        <translation>ເລີ່ມຕົ້ງຄ່າແອນນີເມຊັນເປີດເຄື່ອງໃຫມ່, ກະລຸນາໃສ່ຈາຍສັກຄືດ</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"/>
+        <translation>ການຕົ້ງຄ່າແອນນີເມຊັນເປີດເຄື່ອງໃຫມ່ເສັດແລ້ວ</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
@@ -1408,7 +1408,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished"/>
+        <translation>ການແກ້ໄຂຂໍ້ຜິດພາດ</translation>
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
@@ -1416,11 +1416,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>ເພື່ອຕິດຕັ້ງແລະເປີດໃຊ້ແອັບທີ່ໄມ່ໄດ້ລົງນາມ, ກະລຸນາໄປທີ່ &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; ສູນຄວາມປອດທັຍ &lt;/a&gt; ເພື່ອປ່ຽນການຕັ້ງຄ່າ</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>ເພື່ອຕິດຕັ້ງແລະເປີດໃຊ້ແອັບທີ່ໄມ່ໄດ້ລົງນາມ, ກະລຸນາໄປທີ່ສູນຄວາມປອດທັຍເພື່ອປ່ຽນການຕັ້ງຄ່າ</translation>
     </message>
 </context>
 <context>
@@ -1524,11 +1524,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າການປິດເຄື່ອງ</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation type="unfinished"/>
+        <translation>ການປິດເຄື່ອງຕາມຕາຕະລາງ</translation>
     </message>
     <message>
         <source>Time</source>
@@ -1875,11 +1875,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>ເວີລແຈນ</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>ບານເວີລແຈນ</translation>
     </message>
     <message>
         <source>Type</source>
@@ -2698,7 +2698,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>ອັບເດດ</translation>
     </message>
     <message>
         <source>Screensaver</source>
@@ -3650,31 +3650,31 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>ຄວາມສະຫວ່າງ</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>ຄວາມລະເອີຍດ</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>ປັບຂະໜາດໜ້າຕັ່ງ</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>ອັດຕາການຣີເຟເສີ</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>ການຫມຸນ</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>ມາຕຕະຖານ</translation>
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
@@ -4159,7 +4159,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>ເວີຊັນລະບົບ, ຂໍ້ມູນອຸປະກອນ</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
