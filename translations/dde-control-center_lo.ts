@@ -3119,25 +3119,25 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>accounts</name>
     <message>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>ບັນຊີ</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation type="unfinished"/>
+        <translation>ຕົວຈັດການບັນຊີ</translation>
     </message>
 </context>
 <context>
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"/>
+        <translation>ບັນຊີອື່ນໆ</translation>
     </message>
 </context>
 <context>
     <name>authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>ການພິສູດຕົວຕົນທາງຊີວະມິຕິ</translation>
     </message>
 </context>
 <context>
@@ -3229,19 +3229,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>ເວລາແລະວັນທີ</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>ເວລາແລະວັນທີ, ການຕັ້ງຄ່າເຂດເວລາ</translation>
     </message>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>ພາສາແລະພາກພື້ນ</translation>
     </message>
     <message>
         <source>System language, region format</source>
-        <translation type="unfinished"/>
+        <translation>ພາສາລະບົບ, ຮູບແບບພາກພື້ນ</translation>
     </message>
 </context>
 <context>
@@ -3977,54 +3977,54 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>personalization</name>
     <message>
         <source>Personalization</source>
-        <translation type="unfinished"/>
+        <translation>ການປັບແຕ່ງສ່ວນບຸກຄົນ</translation>
     </message>
 </context>
 <context>
     <name>personalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>ຫົວຂໍ້</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບລັກສະນະ</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"/>
+        <translation>ເອຟເຟັກຫນ້າຕ່າງ</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>ປັບແຕ່ງພາບພື້ນຫລັງແລະໂປຣແກຣມປົກປ້ອງໜ້າຈໍຂອງທ່ານ</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>ໂປຣແກຣມປົກປ້ອງໜ້າຈໍ</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>ສີແລະໄອຄອນ</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>ປັບສີເດັ່ນແລະໄອຄອນຫົວຂໍ້</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>ຕົວອັກສອນແລະຂະໜາດຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>ປ່ຽນຕົວອັກສອນແລະຂະໜາດຂອງລະບົບ</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>ພາບພື້ນຫລັງ</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>ເລືອກຮູບລັກສະນະຫົວຂໍ້ແບບສະຫວ່າງ, ມືດ ຫຼື ອັດຕະໂນມັດ</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
@@ -4035,38 +4035,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າປະຢັດໄຟ, ໜ້າຈໍແລະພັກຜ່ອນ</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>ໄຟຟ້າ</translation>
     </message>
 </context>
 <context>
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>ທົ່ວໄປ</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>ແຜນໄຟຟ້າ, ການຕັ້ງຄ່າປະຢັດໄຟ, ການຕັ້ງຄ່າເປີດເຄື່ອງ, ການຕັ້ງຄ່າປິດເຄື່ອງ</translation>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>ສຽບໄຟ</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>ໜ້າຈໍແລະພັກຜ່ອນ</translation>
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>ໃນໄຟແບັດເຕີຣີ່</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"/>
+        <translation>ໜ້າຈໍແລະພັກຜ່ອນ, ແບັດເຕີຣີ່ຕ່ຳ, ການຈັດການແບັດເຕີຣີ່</translation>
     </message>
 </context>
 <context>
@@ -4163,35 +4163,35 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>ດູການແຈ້ງເຕືອນໂປຣແກຣມໂອເພີນສອດ</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>ໂປຣແກຣມປະສົບການຜູ້ໃຊ້</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>ເຂົ້າຣ່ວມໂປຣແກຣມປະສົບການຜູ້ໃຊ້ເພື່ອຊ່ວຍປັບປຸງຜານຜະລິຕ</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>ຂໍ້ຕົກລົງແຂ່ງຂາດຄົນແທ້ຜູ້ໃຊ້ປັງສຸດທ້າຍ</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>ດູຂໍ້ຕົກລົງແຂ່ງຂາດຄົນແທ້ຜູ້ໃຊ້ປັງສຸດທ້າຍ</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>ນໂຍບາຍຄວາມເປັນສ່ວນຕົວ</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>ດູຂໍ້ມູນເກີ່ຍວກັບນໂຍບາຍຄວາມເປັນສ່ວນຕົວ</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>ການແຈ້ງເຕືອນໂປຣແກຣມໂອເພີນສອດ</translation>
     </message>
 </context>
 <context>
