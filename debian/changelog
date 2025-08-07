@@ -1,3 +1,12 @@
+dde-control-center (6.1.41) unstable; urgency=medium
+
+  * fix: improve gesture action data handling
+  * i18n: Updates for project Deepin Desktop Environment (#2552)
+  * fix: Created successfully with the same username and password
+  * fix: add focus support for SearchableListViewPopup
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 07 Aug 2025 20:52:06 +0800
+
 dde-control-center (6.1.40) unstable; urgency=medium
 
   * fix: unsupported relocation error on arm64
