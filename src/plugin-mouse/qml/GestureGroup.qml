@@ -43,16 +43,20 @@ Rectangle {
 
                 property var comboMoel: model.actionListRole
                 property int comboIndex: model.actionsIndexRole
+                property var comboItem: null
                 content: D.ComboBox {
                     id: combo
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                     model: comboMoel
+                    textRole: "actionText"
+                    valueRole: "actionValue"
                     currentIndex: comboIndex
                     editable: false
                     flat: true
-                    onCurrentTextChanged: {
-                        root.comboIndexChanged(index, combo.currentText)
+                    onCurrentValueChanged: {
+                        root.comboIndexChanged(index, combo.currentValue)
                     }
+                    Component.onCompleted: comboItem = this
                 }
                 background: DccItemBackground {
                     backgroundType: DccObject.Normal
@@ -61,7 +65,7 @@ Rectangle {
 
                 onHoveredChanged: {
                     if (hovered) {
-                       root.hoveredChanged(index, itemCtl.content.currentText)
+                        root.hoveredChanged(index, comboItem.currentValue)
                     }
                 }
 

@@ -65,7 +65,7 @@ QVariant GestureModel::data(const QModelIndex &index, int role) const
         case ActionsIndexRole:
             return getGestureActionIndex(data);
         case ActionListRole:
-            return getGestureActiocNames(data);
+            return getGestureActionNames(data);
         default:
             break;
     }
@@ -109,11 +109,14 @@ QString GestureModel::getGesturesIconPath(GestureData *data) const
     return  QString("trackpad_gesture_%1_%2").arg(data->fingersNum()).arg(direction);
 }
 
-QStringList GestureModel::getGestureActiocNames(GestureData *data) const
+QVariantList GestureModel::getGestureActionNames(GestureData *data) const
 {
-    QStringList gestureActionNames;
+    QVariantList gestureActionNames;
     for (auto data : data->actionMaps()) {
-        gestureActionNames.append(data.second);
+        QVariantMap map;
+        map["actionText"] = data.second;
+        map["actionValue"] = data.first;
+        gestureActionNames.append(map);
     }
 
     return gestureActionNames;
