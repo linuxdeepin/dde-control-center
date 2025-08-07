@@ -33,7 +33,7 @@ public:
 
     QString getGesturesDec(GestureData *data) const;
     QString getGesturesIconPath(GestureData *data) const;
-    QStringList getGestureActiocNames(GestureData *data) const;
+    QVariantList getGestureActionNames(GestureData *data) const;
     int getGestureActionIndex(GestureData *data) const;
 
     // Add data:

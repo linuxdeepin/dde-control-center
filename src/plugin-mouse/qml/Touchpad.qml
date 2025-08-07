@@ -338,6 +338,7 @@ DccObject {
 
             onComboIndexChanged: function (index, actionDec){
                 dccData.setGestures(3, index, actionDec)
+                dccData.updateFigerGestureAni(3,index, actionDec)
             }
 
             onHoveredChanged: function (index, actionDec) {
