@@ -71,19 +71,19 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation>ຊື່ເຕັມບັນຊີຢ່າງເກີນໄປ</translation>
+        <translation>ຊື່ເຕັມຍາວເກີນໄປ</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation>ຊື່ກຸ່ມຄວຣບໍ່ເກີນກວ່າ 32 ຕົວອັກສອນ</translation>
+        <translation>ຊື່ກຸ່ມຄວນບໍ່ເກີນກວ່າ 32 ຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation>ຊື່ກຸ່ມຄວນບໍ່ມີຕົວອັກສອນເທົ່ານັ້ນ</translation>
+        <translation>ຊື່ກຸ່ມບໍ່ສາມາດມີແຕ່ຕົວເລກເທົ່ານັ້ນ</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation>ໃຊ້ເຉພາະຕັວອັກສອນ, ຕັວເລກ, ເສັ້ນຕັດ ແລະ ເສັ້ນໂຄ້ງເທົ່ານັ້ນ, ແລະຕ້ອງເລີ່ມຕ້ນດ້ວຍຕັວອັກສອນ</translation>
+        <translation>ໃຊ້ເຉພາະຕົວອັກສອນ, ຕົວເລກ, ເສັ້ນກ້ອງ ແລະ ເສັ້ນຂີດເທົ່ານັ້ນ, ແລະຕ້ອງເລີ່ມດ້ວຍຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>The group name has been used</source>
@@ -91,19 +91,19 @@
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation>ເຂົ້າສູ່ລະບົບອັດຕະໂນມັດ, ເຂົ້າສູ່ລະບົບອັດຕະໂນມັດ, ເຂົ້າສູ່ລະບົບໂດຍບົ່ໃສ່ລະຫັດຜ່ານ</translation>
+        <translation>ເຂົ້າສູ່ລະບົບໄວ, ເຂົ້າສູ່ລະບົບອັດຕະໂນມັດ, ເຂົ້າສູ່ລະບົບໂດຍບໍ່ມີລະຫັດຜ່ານ</translation>
     </message>
     <message>
         <source>Quickly load DDE with your login information</source>
-        <translation>ໂຫລດ DDE ອອນໄລນ໌ດ້ວຍຂ້ອມູນການເຂົ້າສູ່ລະບົບຂອງທ່ານ</translation>
+        <translation>ໂຫລດ DDE ດ້ວຍຂໍ້ມູນການເຂົ້າສູ່ລະບົບຂອງທ່ານ</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation>ຍົກເລີກ</translation>
+        <translation>ເລີກທຳ</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation>ເຮັດຄືນ</translation>
+        <translation>ເຮັດຊ້ຳ</translation>
     </message>
     <message>
         <source>Cut</source>
@@ -229,7 +229,11 @@ In order to better use of face recognition, please pay attention to the followin
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>&quot;ການກວດສອບຊີວະມິຕິ&quot; ແມ່ນຫນ້າທີ່ການກວດສອບຕົວຕົນຜູ້ໃຊ້ທີ່ສະໜອງໃຫ້ໂດຍບໍລິສັດ UnionTech Software Technology Co., Ltd. ຜ່ານ &quot;ການກວດສອບຊີວະມິຕິ&quot;, ຂໍ້ມູນຊີວະມິຕິທີ່ເກັບກຳຈະຖືກປຽບທຽບກັບຂໍ້ມູນທີ່ເກັບໄວ້ໃນອຸປະກອນ, ແລະຕົວຕົນຜູ້ໃຊ້ຈະຖືກກວດສອບຕາມຜົນການປຽບທຽບ.
+
+ກະລຸນາຮັບຊາບວ່າບໍລິສັດ UnionTech Software Technology Co., Ltd. ຈະບໍ່ເກັບກຳຫຼືເຂົ້າເຖິງຂໍ້ມູນຊີວະມິຕິຂອງທ່ານ, ຂໍ້ມູນເຫຼົ່ານີ້ຈະຖືກເກັບໄວ້ໃນອຸປະກອນໃນທ້ອງຖິ່ນຂອງທ່ານ. ກະລຸນາເປີດໃຊ້ການກວດສອບຊີວະມິຕິໃນອຸປະກອນສ່ວນຕົວຂອງທ່ານເທົ່ານັ້ນ ແລະໃຊ້ຂໍ້ມູນຊີວະມິຕິຂອງທ່ານເອງສຳລັບການດຳເນີນງານທີ່ກ່ຽວຂ້ອງ, ແລະໃຫ້ປິດການໃຊ້ງານຫຼືລົບຂໍ້ມູນຊີວະມິຕິຂອງຄົນອື່ນຢ່າງທັນທີ, ຖ້າບໍ່ດັ່ງນັ້ນທ່ານຈະຮັບຄວາມສ່ຽງທີ່ເກີດຂຶ້ນຈາກການນັ້ນ.
+
+ບໍລິສັດ UnionTech Software Technology Co., Ltd. ມຸ່ງໝັ້ນທີ່ຈະຄົ້ນຄວ້າແລະປັບປຸງຄວາມປອດໄພ, ຄວາມຖືກຕ້ອງ ແລະຄວາມໝັ້ນຄົງຂອງການກວດສອບຊີວະມິຕິ. ຢ່າງໃດກໍ່ຕາມ, ເນື່ອງຈາກສິ່ງແວດລ້ອມ, ອຸປະກອນ, ເຕັກນິກ ແລະປັດໄຈອື່ນໆ ລວມທັງການຄວບຄຸມຄວາມສ່ຽງ, ບໍ່ມີການຮັບປະກັນວ່າທ່ານຈະຜ່ານການກວດສອບຊີວະມິຕິໃນແຕ່ລະຄັ້ງ. ດັ່ງນັ້ນ, ກະລຸນາຢ່າໃຊ້ການກວດສອບຊີວະມິຕິເປັນວິທີດຽວໃນການເຂົ້າສູ່ລະບົບ UOS. ຖ້າທ່ານມີຄຳຖາມຫຼືຄຳແນະນຳໃດໆໃນການໃຊ້ການກວດສອບຊີວະມິຕິ, ທ່ານສາມາດໃຫ້ຄຳຄິດເຫັນຜ່ານ &quot;ການບໍລິການແລະການສະໜັບສະໜູນ&quot; ໃນ UOS.</translation>
     </message>
 </context>
 <context>
@@ -445,7 +449,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>grub start delay</source>
-        <translation>ຄວາມເສົ່າຈາກການເລີ່ມຕ້ນ grub</translation>
+        <translation>ຄວາມເສົ່າການເລີ່ມຕົ້ນ GRUB</translation>
     </message>
     <message>
         <source>theme</source>
@@ -481,7 +485,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>root</source>
-        <translation>root</translation>
+        <translation>ຜູ້ດູແລລະບົບ</translation>
     </message>
     <message>
         <source>New Password :</source>
@@ -501,7 +505,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation type="unfinished"/>
+        <translation>ເຮັດຊ້ໍາລະຫັດຜ່ານ:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -579,55 +583,55 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Please scan other fingers</source>
-        <translation type="unfinished"/>
+        <translation>ກະລຸນາສແກນນິ້ວມືອອື່ນສ</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>ຂໍ້ຜິດພລາດທີ່ໄມ່ທາບ</translation>
     </message>
     <message>
         <source>Scan suspended</source>
-        <translation type="unfinished"/>
+        <translation>ການສແກນຖືກພັກ</translation>
     </message>
     <message>
         <source>Cannot recognize</source>
-        <translation type="unfinished"/>
+        <translation>ໄມ່ສາມາດຈຳແນກໄດ້</translation>
     </message>
     <message>
         <source>Moved too fast</source>
-        <translation type="unfinished"/>
+        <translation>ເລື່ອນໄວເກີນໄປ</translation>
     </message>
     <message>
         <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation type="unfinished"/>
+        <translation>ນິ້ວມືອເລື່ອນໄວເກີນໄປ, ກະລຸນາໄມ່ຍົກອອກຈນກວ່າຈະໄດ້ຣັບແນະນຳ</translation>
     </message>
     <message>
         <source>Unclear fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>ລາຍນິ້ວມືອໄມ່ຊັດເຈນ</translation>
     </message>
     <message>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation type="unfinished"/>
+        <translation>ທຳຄວາມສະອາດນິ້ວມືອຫລືປັບຕຳແໜ່ງນິ້ວມືອ, ແລະລອງອີກຄັ້ງ</translation>
     </message>
     <message>
         <source>Already scanned</source>
-        <translation type="unfinished"/>
+        <translation>ສແກນແລ້ວ</translation>
     </message>
     <message>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation type="unfinished"/>
+        <translation>ປັບຕໍາແຫນ່ງນິ້ວມືເພື່ອສະແກນລາຍນິ້ວມືຂອງທ່ານຢ່າງເຕັມທີ່</translation>
     </message>
     <message>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation type="unfinished"/>
+        <translation>ນິ້ວມືຍ້າຍໄວເກີນໄປ. ກະລຸນາຢ່າຍົກຈົນກ່ວາທີ່ຖືກກະຕຸ້ນ</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>ຍົກນິ້ວມືຂອງທ່ານແລະວາງມັນໃສ່ເຊັນເຊີອີກຄັ້ງ</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>ວາງໜ້າຂອງທ່ານໃສ່ໃນກອບ</translation>
     </message>
     <message>
         <source>Face enrolled</source>
@@ -635,35 +639,35 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Position a human face please</source>
-        <translation type="unfinished"/>
+        <translation>ວາງຫນ້າຕາຂອງມະນຸດ</translation>
     </message>
     <message>
         <source>Keep away from the camera</source>
-        <translation type="unfinished"/>
+        <translation>ກະລຸນາອະຍາຫ່າງຈາກກ້ອງ</translation>
     </message>
     <message>
         <source>Get closer to the camera</source>
-        <translation type="unfinished"/>
+        <translation>ເຂົ້າໃກປ້ກ້ອງມາກຂຶ້ນ</translation>
     </message>
     <message>
         <source>Do not position multiple faces inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>ໄມ່ວາງໜ້າຫລາຍຄົນໄວ້ໃນກອບ</translation>
     </message>
     <message>
         <source>Make sure the camera lens is clean</source>
-        <translation type="unfinished"/>
+        <translation>ໃຫ້ແນ່ໃຈວ່າເລນສກ້ອງສະອາດ</translation>
     </message>
     <message>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation type="unfinished"/>
+        <translation>ໄມ່ລົງທະບຽນໃນສິ່ງແວດລໍ້ມທີ່ມືດ, ສະຫວ່າງ ຫລື ແສງສໍ່ອງຈາກຂ້າງຫຼັງ</translation>
     </message>
     <message>
         <source>Keep your face uncovered</source>
-        <translation type="unfinished"/>
+        <translation>ໃຫ້ໜ້າຂອງທ່ານໄມ່ແອງຖືກປິດ</translation>
     </message>
     <message>
         <source>Scan timed out</source>
-        <translation type="unfinished"/>
+        <translation>ການສະແກນໝົດເວລາ</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -671,45 +675,45 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>ກ້ອງຖ່າຍຮູບທີ່ຄອບຄອງ!</translation>
     </message>
 </context>
 <context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation type="unfinished"/>
+        <translation>ສີເດັ່ນ</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າໄອຄອນ</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>ຫົວຂໍ້ໄອຄອນ</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation type="unfinished"/>
+        <translation>ປັບແຕ່ງໄອຄອນຫົວຂໍ້ຂອງທ່ານ</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>ຫົວຂໍ້ຕົວຊີ້</translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation type="unfinished"/>
+        <translation>ປັບແຕ່ງຕົວກະພິບຫົວຂໍ້ຂອງທ່ານ</translation>
     </message>
 </context>
 <context>
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"/>
+        <translation>ທ່ານແນ່ໃຈບໍ່ວ່າທ່ານຕ້ອງການລຶບບັນຊີນີ້?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>ລຶບໂຟເດີບັນຊີ</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -717,14 +721,14 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>ລົບ</translation>
     </message>
 </context>
 <context>
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation type="unfinished"/>
+        <translation>ໄປທີ່ການຕັ້ງຄ່າ</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -735,140 +739,140 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>ທົ່ວໄປ</translation>
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation type="unfinished"/>
+        <translation>ຊັກຊ້າຄືນ</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>ສັ້ນ</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>ຍາວ</translation>
     </message>
     <message>
         <source>Repeat rate</source>
-        <translation type="unfinished"/>
+        <translation>ອັດຕາ</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>ຊ້າ</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>ໄວ</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>ປຸ່ມກົດ</translation>
     </message>
     <message>
         <source>test here</source>
-        <translation type="unfinished"/>
+        <translation>ການທົດສອບທີ່ນີ້</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"/>
+        <translation>ການແຈ້ງເຕືອນ Caps Lock</translation>
     </message>
     <message>
         <source>Scroll Speed</source>
-        <translation type="unfinished"/>
+        <translation>ຄວາມໄວການເລື່ອນ</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
-        <translation type="unfinished"/>
+        <translation>ຄວາມໄວຄິກຄູ່</translation>
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation type="unfinished"/>
+        <translation>ການທົດສອບກົດສອງຄັ້ງ</translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation type="unfinished"/>
+        <translation>ໂໝດມືຊ້າຍ</translation>
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>ເປີດແປ້ນພິມ</translation>
     </message>
 </context>
 <context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation type="unfinished"/>
+        <translation>ຂະໜາດໃຫຍ່</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation type="unfinished"/>
+        <translation>ຂະໜາດນ້ອຍ</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"/>
+        <translation>ລົ້ມເຫລວໃນການເຂົ້າເຖິງຮາກ</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>ກະລຸນາເຂົ້າສູ່ລະບົບ ID ຂອງສະຫະພັນຂອງທ່ານກ່ອນ</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ສາມາດອ່ານຂໍ້ມູນຄອມພິວເຕີຂອງທ່ານໄດ້</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ມີການເຊື່ອມຕໍ່ເຄືອຂ່າຍ</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>ໃບຢັ້ງຢືນການໂຫຼດລົ້ມເຫລວ, ບໍ່ສາມາດຮັບເອົາການເຂົ້າເຖິງຮາກ</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>ການຢັ້ງຢືນລາຍເຊັນລົ້ມເຫລວ, ບໍ່ສາມາດໄດ້ຮັບການເຂົ້າເຖິງຮາກ</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>ຕົກລົງແລະເຂົ້າຮ່ວມໂຄງການປະສົບການຂອງຜູ້ໃຊ້</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>ຂໍ້ປະກາດໂມດຜູ້ພັດທະນາ</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>ຕົກລົງແລະຂໍສິທທິຜູ້ດູແລຄົນ</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"/>
+        <translation>ເລີ່ມຕົ້ງຄ່າແອນນີເມຊັນເປີດເຄື່ອງໃຫມ່, ກະລຸນາໃສ່ຈາຍສັກຄືດ</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"/>
+        <translation>ການຕົ້ງຄ່າແອນນີເມຊັນເປີດເຄື່ອງໃຫມ່ເສັດແລ້ວ</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າຈະຖືກນໍາໃຊ້ຫຼັງຈາກເປີດໃຫມ່ລະບົບ</translation>
     </message>
 </context>
 <context>
     <name>ConfirmManager</name>
     <message>
         <source>Password must contain numbers and letters</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານຕ້ອງມີຕົວເລກແລະຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>Password must be between 8 and 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານຕ້ອງຢູ່ລະຫວ່າງ 8 ຫາ 64 ຕົວອັກສອນ</translation>
     </message>
 </context>
 <context>
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation type="unfinished"/>
+        <translation>ສ້າງບັນຊີໃຫມ່</translation>
     </message>
     <message>
         <source>Account type</source>
@@ -876,7 +880,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>UserName</source>
-        <translation type="unfinished"/>
+        <translation>ສັນຍາລັກ</translation>
     </message>
     <message>
         <source>Required</source>
@@ -884,11 +888,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>FullName</source>
-        <translation type="unfinished"/>
+        <translation>ເຕັມຫນ້າ</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>ທີ່ເລືອກໄດ້</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -896,41 +900,41 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Create account</source>
-        <translation type="unfinished"/>
+        <translation>ສ້າງບັນຊີ</translation>
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>ຊື່ຜູ້ໃຊ້ບໍ່ສາມາດເກີນ 32 ຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>ຊື່ຜູ້ໃຊ້ສາມາດມີພຽງແຕ່ຕົວອັກສອນ, ຕົວເລກ, - ແລະ _</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>ຊື່ເຕັມບໍ່ເກີນ 32 ຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation>ຊື່ເຕັມບໍ່ສາມາດມີກ</translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation type="unfinished"/>
+        <translation>ທ່ານຍັງບໍ່ໄດ້ອັບໂຫລດຮູບໂປຣໄຟລ໌ເທື່ອ. ກົດຫຼືລາກແລະວາງເພື່ອອັບໂຫລດຮູບພາບ.</translation>
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation>ປະເພດເອກະສານທີ່ຖືກອັບໂຫລດແມ່ນບໍ່ຖືກຕ້ອງ, ກະລຸນາອັບໂຫລດມັນອີກຄັ້ງ</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation type="unfinished"/>
+        <translation>ມີໄວ້</translation>
     </message>
 </context>
 <context>
@@ -961,34 +965,34 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>ຕົກລົງແລະເຂົ້າຮ່ວມໂຄງການປະສົບການຂອງຜູ້ໃຊ້</translation>
     </message>
 </context>
 <context>
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation type="unfinished"/>
+        <translation>ວັນທີແລະເວລາ</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>ວັນທີ</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>ປີ</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>ເດືອນ</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>ວັນ</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>ເວລາ</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -996,97 +1000,97 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>ຢືນຢັນ</translation>
     </message>
 </context>
 <context>
     <name>DatetimeModel</name>
     <message>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>ມື້ອື່ນ</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>ມື້ວານນີ້</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>ມື້ນີ້</translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 ຊົ່ວໂມງກ່ອນຫນ້ານີ້ກ່ວາທ້ອງຖິ່ນ</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 ຊົ່ວໂມງຕໍ່ມາພາຍໃນທ້ອງຖິ່ນ</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished"/>
+        <translation>ອະວະກາດ</translation>
     </message>
     <message>
         <source>Week</source>
-        <translation type="unfinished"/>
+        <translation>ອາທິດ</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>ມື້ທໍາອິດຂອງອາທິດ</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>ວັນທີສັ້ນ</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>ວັນທີຍາວ</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>ທີ່ໃຊ້ເວລາສັ້ນ</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>ເວລາດົນ</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>ສັນຍາລັກເງິນຕາ</translation>
     </message>
     <message>
         <source>Positive currency</source>
-        <translation type="unfinished"/>
+        <translation>ສິນຄ້າສະກຸນເງິນ</translation>
     </message>
     <message>
         <source>Negative currency</source>
-        <translation type="unfinished"/>
+        <translation>ສະກຸນເງິນລົບ</translation>
     </message>
     <message>
         <source>Decimal symbol</source>
-        <translation type="unfinished"/>
+        <translation>ສັນຍາລັກທົດສະນິຍົມ</translation>
     </message>
     <message>
         <source>Digit grouping symbol</source>
-        <translation type="unfinished"/>
+        <translation>ສັນຍາລັກຂອງການຈັດກຸ່ມຕົວເລກ</translation>
     </message>
     <message>
         <source>Digit grouping</source>
-        <translation type="unfinished"/>
+        <translation>ການຈັດກຸ່ມຕົວເລກ</translation>
     </message>
     <message>
         <source>Page size</source>
-        <translation type="unfinished"/>
+        <translation>ຂະຫນາດຫນ້າ</translation>
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>ກະສັດ</translation>
     </message>
 </context>
 <context>
     <name>DatetimeWorker</name>
     <message>
         <source>Authentication is required to change NTP server</source>
-        <translation type="unfinished"/>
+        <translation>ການກວດສອບຄວາມຖືກຕ້ອງແມ່ນຈໍາເປັນຕ້ອງມີການປ່ຽນເຄື່ອງແມ່ຂ່າຍ NTP</translation>
     </message>
 </context>
 <context>
@@ -1104,128 +1108,128 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"/>
+        <translation>ສູນຄວບຄຸມສະຫນອງທາງເລືອກສໍາລັບການຕັ້ງຄ່າລະບົບ.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation type="unfinished"/>
+        <translation>ຜູກມັດ WeChat</translation>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation type="unfinished"/>
+        <translation>ໂດຍການຜູກມັດ WeChat, ທ່ານສາມາດເຂົ້າສູ່ລະບົບ %1 ID ແລະບັນຊີທ້ອງຖິ່ນຂອງທ່ານໄດ້ຢ່າງປອດໄພແລະໄວ.</translation>
     </message>
     <message>
         <source>Unlinked</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ມີເຫລັກ</translation>
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"/>
+        <translation>ປົດອອກ</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"/>
+        <translation>ການເຊື່ອມໂຍງ</translation>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"/>
+        <translation>ທ່ານແນ່ໃຈບໍ່ວ່າທ່ານຕ້ອງການທີ່ຈະຍົກເລີກ WeChat?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"/>
+        <translation>ຫຼັງຈາກຍົກເລີກການຜູກມັດ WeChat, ທ່ານຈະບໍ່ສາມາດໃຊ້ WeChat ເພື່ອສະແກນລະຫັດ QR ເພື່ອເຂົ້າສູ່ບັນຊີ %1 ຫຼືບັນຊີທ້ອງຖິ່ນ.</translation>
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"/>
+        <translation>ຂ້າພະເຈົ້າຂໍຄິດວ່າມັນເກີນ</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>ການຜູກມັດບັນຊີທ້ອງຖິ່ນ</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"/>
+        <translation>ຫຼັງຈາກຜູກມັດບັນຊີທ້ອງຖິ່ນຂອງທ່ານ, ທ່ານສາມາດໃຊ້ຫນ້າທີ່ດັ່ງຕໍ່ໄປນີ້:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"/>
+        <translation>ລະບົບເຂົ້າລະບົບລະຫັດລະຫັດສະແກນ WeChat Scan</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"/>
+        <translation>ໃຊ້ WeChat, ເຊິ່ງຖືກຜູກມັດກັບບັດປະຈໍາຕົວ %1 ຂອງທ່ານ, ເພື່ອສະແກນລະຫັດເພື່ອເຂົ້າສູ່ບັນຊີທ້ອງຖິ່ນຂອງທ່ານ.</translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>ຕັ້ງລະຫັດຜ່ານຄືນໃຫມ່ຜ່ານ %1 ບັດປະຈໍາຕົວ</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>ຕັ້ງລະຫັດຜ່ານຂອງທ້ອງຖິ່ນຂອງທ່ານຄືນຜ່ານ %1 ບັດປະຈໍາຕົວໃນກໍລະນີທີ່ທ່ານລືມມັນ.</translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation>ເພື່ອໃຊ້ຄຸນລັກສະນະຂ້າງເທິງ, ກະລຸນາໄປທີ່ສູນຄວບຄຸມ - ບັນຊີແລະເປີດຕົວເລືອກທີ່ສອດຄ້ອງກັນ.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation type="unfinished"/>
+        <translation>deepin</translation>
     </message>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>ຟັງຊິ້ງຂໍ້ມູນ</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"/>
+        <translation>ຈັດການ %1 ID ຂອງທ່ານແລະຊິງຂໍ້ມູນສ່ວນຕົວຂອງທ່ານໃນທົ່ວອຸປະກອນ. ເຂົ້າສູ່ລະບົບ %1 ບັດປະຈໍາຕົວເພື່ອໃຫ້ມີຄຸນລັກສະນະແລະການບໍລິການທີ່ເປັນສ່ວນຕົວຂອງໂປແກຼມທ່ອງເວັບ, ຮ້ານແອັບ, ແລະອື່ນໆ.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>ເຂົ້າສູ່ລະບົບ %1 ບັດປະຈໍາຕົວ</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>ການຊິ້ງຂໍ້ມູນອັດຕະໂນມັດ</translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າລະບົບແລະຂໍ້ມູນສ່ວນຕົວຢ່າງປອດໄພໃນເມຄ, ແລະເກັບຮັກສາໄວ້ໃນອຸປະກອນຕ່າງໆ</translation>
     </message>
     <message>
         <source>System Settings</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າລະບົບ</translation>
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"/>
+        <translation>ເວລາ Sync ຫຼ້າສຸດ: %1</translation>
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation type="unfinished"/>
+        <translation>ຂໍ້ມູນທີ່ຈະແຈ້ງ</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"/>
+        <translation>ທ່ານແນ່ໃຈວ່າທ່ານຕ້ອງການກໍາຈັດການຕັ້ງຄ່າລະບົບແລະຂໍ້ມູນສ່ວນຕົວຂອງທ່ານທີ່ບັນທຶກໄວ້ໃນເມຄບໍ?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"/>
+        <translation>ເມື່ອຂໍ້ມູນຖືກລຶບລ້າງແລ້ວ, ມັນບໍ່ສາມາດກູ້ຄືນໄດ້!</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1233,134 +1237,134 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>ແຈ່ມແຈ້ງ</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation type="unfinished"/>
+        <translation>ບໍລິການ Synchronization</translation>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation type="unfinished"/>
+        <translation>ບັນຊີແລະຄວາມປອດໄພ</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>ອອກຈາກລະບົບ</translation>
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"/>
+        <translation>ໄປທີ່ການຕັ້ງຄ່າເວບໄຊທ໌</translation>
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>ຊື່ຫຼິ້ນຕ້ອງມີຄວາມຍາວ 1 ~ 32 ຕົວອັກສອນ</translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານທີ່ເຂົ້າລະຫັດລົ້ມເຫລວ</translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານທີ່ບໍ່ຖືກຕ້ອງ, %1 ໂອກາດທີ່ເຫລືອ</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation type="unfinished"/>
+        <translation>ຂໍ້ຜິດພາດໃນການເຂົ້າສູ່ລະບົບໄດ້ບັນລຸຂີດຈໍາກັດໃນມື້ນີ້. ທ່ານສາມາດຕັ້ງລະຫັດລັບໃຫມ່ແລະລອງໃຫມ່ອີກຄັ້ງ.</translation>
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation type="unfinished"/>
+        <translation>ການປະຕິບັດງານປະສົບຜົນສໍາເລັດ</translation>
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>ຊື່ຫຼິ້ນສາມາດໄດ້ຮັບການດັດແກ້ພຽງແຕ່ມື້ລະຄັ້ງ</translation>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation type="unfinished"/>
+        <translation>ຈີນແຜ່ນດິນໃຫຍ່</translation>
     </message>
     <message>
         <source>Other regions</source>
-        <translation type="unfinished"/>
+        <translation>ພາກພື້ນອື່ນໆ</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>ຄຸນນະສົມບັດບໍ່ມີຢູ່ໃນປະຈຸບັນ, ກະລຸນາກະຕຸ້ນລະບົບຂອງທ່ານກ່ອນ</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation type="unfinished"/>
+        <translation>ຂຶ້ນກັບກົດຫມາຍແລະລະບຽບການທ້ອງຖິ່ນຂອງທ່ານ, ມັນບໍ່ມີຢູ່ໃນຂົງເຂດຂອງທ່ານ.</translation>
     </message>
 </context>
 <context>
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>ກະລຸນາເລືອກໂປແກຼມເລີ່ມຕົ້ນເພື່ອເປີດ &apos;%1&apos;</translation>
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"/>
+        <translation>ເພີ່ມ</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>ເປີດເອກະສານ desktop</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation type="unfinished"/>
+        <translation>ແອັບພລິເຄຊັນ (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>ເອກະສານທັງຫມົດ (*)</translation>
     </message>
 </context>
 <context>
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation type="unfinished"/>
+        <translation>ການເຂົ້າເຖິງຮາກ</translation>
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>ຮ້ອງຂໍການເຂົ້າເຖິງຮາກ</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation type="unfinished"/>
+        <translation>ຫຼັງຈາກທີ່ເຂົ້າໄປໃນຮູບແບບຂອງນັກພັດທະນາ, ທ່ານສາມາດໄດ້ຮັບສິດຮາກ, ແຕ່ມັນກໍ່ອາດຈະເຮັດໃຫ້ລະບົບຄວາມສັດຊື່, ສະນັ້ນກະລຸນາໃຊ້ມັນຢ່າງລະມັດລະວັງ.</translation>
     </message>
     <message>
         <source>Allowed</source>
-        <translation type="unfinished"/>
+        <translation>ໄດ້ຮັບອະນຸຍາດ</translation>
     </message>
     <message>
         <source>Enter</source>
-        <translation type="unfinished"/>
+        <translation>ໃສ່ເຂົ້າ</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"/>
+        <translation>ອອນລາຍ</translation>
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>ເຂົ້າສູ່ລະບົບ UOS ID</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>ອອບໄລ</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>ໃບຝົດເຂົ້າ</translation>
     </message>
     <message>
         <source>Select file</source>
@@ -1368,19 +1372,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"/>
+        <translation>ID UOS ຂອງທ່ານໄດ້ເຂົ້າສູ່ລະບົບແລ້ວ, ກົດເຂົ້າໄປທີ່ໂໝດນັກພັດທະນາ</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation>ກະລຸນາເຂົ້າສູ່ລະບົບ UOS ID ຂອງທ່ານກ່ອນແລະດໍາເນີນການຕໍ່ໄປ</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation type="unfinished"/>
+        <translation>1. ຂໍ້ມູນ PC</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"/>
+        <translation>ສົ່ງອອກ</translation>
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
@@ -1388,15 +1392,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>3. ນຳເຂົ້າໃບຢັ້ງຢືນ</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation type="unfinished"/>
+        <translation>ທາງເລືອກໃນການພັດທະນາແລະການແກ້ໄຂບັນຫາ</translation>
     </message>
     <message>
         <source>System logging level</source>
-        <translation type="unfinished"/>
+        <translation>ລະດັບການບັນທຶກລະບົບ</translation>
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
@@ -1404,23 +1408,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"/>
+        <translation>ປິດ</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished"/>
+        <translation>ການແກ້ໄຂຂໍ້ຜິດພາດ</translation>
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"/>
+        <translation>ການປ່ຽນແປງທາງເລືອກອາດຈະໃຊ້ເວລາເຖິງນາທີເພື່ອປະມວນຜົນ, ຫຼັງຈາກໄດ້ຮັບການກະຕຸ້ນທີ່ປະສົບຜົນສໍາເລັດ, ກະລຸນາເປີດເຄື່ອງໃໝ່ເພື່ອໃຫ້ມີຜົນ.</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>ເພື່ອຕິດຕັ້ງແລະເປີດໃຊ້ແອັບທີ່ໄມ່ໄດ້ລົງນາມ, ກະລຸນາໄປທີ່ &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; ສູນຄວາມປອດທັຍ &lt;/a&gt; ເພື່ອປ່ຽນການຕັ້ງຄ່າ</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>ເພື່ອຕິດຕັ້ງແລະເປີດໃຊ້ແອັບທີ່ໄມ່ໄດ້ລົງນາມ, ກະລຸນາໄປທີ່ສູນຄວາມປອດທັຍເພື່ອປ່ຽນການຕັ້ງຄ່າ</translation>
     </message>
 </context>
 <context>
@@ -1435,159 +1439,159 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation>ຕົກລົງ</translation>
     </message>
 </context>
 <context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"/>
+        <translation>ອະນຸຍາດໃຫ້ຢູ່ດ້ານລຸ່ມຂອງແອັບ apps ທີ່ຈະເຂົ້າເຖິງເອກະສານແລະໂຟນເດີເຫຼົ່ານີ້:</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"/>
+        <translation>ເອກະສານ</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>ຂໍ້ທີ</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບພາບ</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation type="unfinished"/>
+        <translation>ວິດີກ້າ</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>ດົນຕີ</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>ດາວໂຫລດ</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation type="unfinished"/>
+        <translation>ມານພັນ</translation>
     </message>
 </context>
 <context>
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>ຂະຫນາດ</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>ຕົວຫນັງສືມາດຕະຖານ</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>monospaced font</translation>
     </message>
 </context>
 <context>
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation type="unfinished"/>
+        <translation>ແຜນໄຟຟ້າ</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າພະລັງງານ</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"/>
+        <translation>ການປະຫຍັດພະລັງງານອັດຕະໂນມັດໃນແບັດເຕີຣີຕ່ໍາ</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>ຂອບເຂດຕໍາຫຼວດຕ່ໍາ</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>ປະຢັດພະລັງງານອັດຕະໂນມັດໃນແບດເຕີລີ່</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າ WakeUp</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານແມ່ນຈໍາເປັນເພື່ອປຸກຄອມພິວເຕີ້</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານແມ່ນຈໍາເປັນຕ້ອງໄດ້ຕື່ນຕົວຕິດຕາມກວດກາ</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າການປິດເຄື່ອງ</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation type="unfinished"/>
+        <translation>ການປິດເຄື່ອງຕາມຕາຕະລາງ</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>ເວລາ</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"/>
+        <translation>ຊ້ໍາ</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation type="unfinished"/>
+        <translation>ແລ້ວເທື່ອ</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation type="unfinished"/>
+        <translation>ທຸກໆວັນ</translation>
     </message>
     <message>
         <source>Working days</source>
-        <translation type="unfinished"/>
+        <translation>ມື້ເຮັດວຽກ</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"/>
+        <translation>ເວລາຕາມຄູ່</translation>
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
-        <translation type="unfinished"/>
+        <translation>ຫຼຸດລົງຄວາມສະຫວ່າງຂອງຫນ້າຈໍໃນເຄື່ອງປະຢັດພະລັງງານ</translation>
     </message>
 </context>
 <context>
     <name>GestureModel</name>
     <message>
         <source>Three-finger</source>
-        <translation type="unfinished"/>
+        <translation>ສາມນິ້ວ</translation>
     </message>
     <message>
         <source>Four-finger</source>
-        <translation type="unfinished"/>
+        <translation>ສີ່ນິ້ວມື</translation>
     </message>
     <message>
         <source>Up</source>
-        <translation type="unfinished"/>
+        <translation>ຂຶ້ນ</translation>
     </message>
     <message>
         <source>Down</source>
-        <translation type="unfinished"/>
+        <translation>ລົງ</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>ຊ້າຍ</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>ຂວາ</translation>
     </message>
     <message>
         <source>tap</source>
-        <translation type="unfinished"/>
+        <translation>ແຕະ</translation>
     </message>
 </context>
 <context>
@@ -1605,34 +1609,34 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation type="unfinished"/>
+        <translation>ການປະຕິບັດທີ່ດີທີ່ສຸດ</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation type="unfinished"/>
+        <translation>ຕົບ</translation>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation type="unfinished"/>
+        <translation>ສາຍຕາທີ່ດີທີ່ສຸດ</translation>
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>ປິດການໃຊ້ງານການໂຕ້ຕອບແລະຜົນກະທົບທັງຫມົດສໍາລັບການປະຕິບັດລະບົບທີ່ມີປະສິດຕິພາບ.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>ຈໍາກັດຜົນກະທົບຂອງປ່ອງຢ້ຽມບາງຢ່າງສໍາລັບການເບິ່ງເຫັນທີ່ດີເລີດໃນຂະນະທີ່ຮັກສາການປະຕິບັດລະບົບໃຫ້ລຽບ.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>ເປີດໃຊ້ງານການໂຕ້ຕອບທັງຫມົດແລະປ່ອງຢ້ຽມຜົນກະທົບສໍາລັບປະສົບການດ້ານສາຍຕາທີ່ດີທີ່ສຸດ.</translation>
     </message>
 </context>
 <context>
     <name>KeyboardLayout</name>
     <message>
         <source>Keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບແບບ keyboard</translation>
     </message>
     <message>
         <source>done</source>
@@ -1648,14 +1652,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation type="unfinished"/>
+        <translation>ເພີ່ມການຈັດວາງແປ້ນພິມໃຫມ່...</translation>
     </message>
 </context>
 <context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>ພາສາ</translation>
     </message>
     <message>
         <source>done</source>
@@ -1667,42 +1671,42 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Other languages</source>
-        <translation type="unfinished"/>
+        <translation>ພາສາອື່ນໆ</translation>
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"/>
+        <translation>ເພີ່ມ</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation type="unfinished"/>
+        <translation>ພາກພື້ນ</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"/>
+        <translation>ພື້ນທີ່</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"/>
+        <translation>ລະບົບປະຕິບັດການແລະການນໍາໃຊ້ອາດຈະໃຫ້ທ່ານມີເນື້ອໃນທ້ອງຖິ່ນໂດຍອີງໃສ່ປະເທດແລະພາກພື້ນຂອງທ່ານ</translation>
     </message>
     <message>
         <source>Region and format</source>
-        <translation type="unfinished"/>
+        <translation>ພາກພື້ນແລະຮູບແບບ</translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"/>
+        <translation>ລະບົບປະຕິບັດການແລະການສະຫມັກສາມາດກໍານົດວັນທີແລະເວລາໂດຍອີງໃສ່ຮູບແບບພາກພື້ນ</translation>
     </message>
 </context>
 <context>
     <name>LangsChooserDialog</name>
     <message>
         <source>Add language</source>
-        <translation type="unfinished"/>
+        <translation>ເພີ່ມພາສາ</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>ຄົ້ນຫາ</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1710,14 +1714,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>ເພີ່ມ</translation>
     </message>
 </context>
 <context>
     <name>LayoutsChooser</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>ຄົ້ນຫາ</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1725,134 +1729,134 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>ເພີ່ມ</translation>
     </message>
     <message>
         <source>Add new keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>ເພີ່ມແປ້ນພິມແບບໃຫມ່</translation>
     </message>
     <message>
         <source>Current language keyboard layouts</source>
-        <translation type="unfinished"/>
+        <translation>ການຈັດວາງແປ້ນພິມພາສາປະຈຸບັນ</translation>
     </message>
 </context>
 <context>
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation type="unfinished"/>
+        <translation>ວິທີການເຂົ້າສູ່ລະບົບ</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານ, Wechat, ການກວດສອບຊີວະປະຫວັດ, ລະຫັດຄວາມປອດໄພ</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານ</translation>
     </message>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>ແກ້ໄຂລະຫັດຜ່ານ</translation>
     </message>
     <message>
         <source>Validity days</source>
-        <translation type="unfinished"/>
+        <translation>ວັນທີ່ຖືກຕ້ອງ</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation type="unfinished"/>
+        <translation>ສະເຫມີ</translation>
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>ຕັ້ງລະຫັດຜ່ານຄືນໃຫມ່</translation>
     </message>
 </context>
 <context>
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation type="unfinished"/>
+        <translation>ລິຂະສິດ© 2011-%1 ຊຸມຊົນ Deepin</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation type="unfinished"/>
+        <translation>ລິຂະສິດ© 2019-%1 ບໍລິສັດ UnionTech Software Technology Co., ຈໍາກັດ</translation>
     </message>
 </context>
 <context>
     <name>MicrophonePage</name>
     <message>
         <source>Automatic Noise Suppression</source>
-        <translation type="unfinished"/>
+        <translation>ການສະກັດກັ້ນສຽງໂດຍອັດຕະໂນມັດ</translation>
     </message>
     <message>
         <source>Input Volume</source>
-        <translation type="unfinished"/>
+        <translation>ປະລິມານການປ້ອນຂໍ້ມູນ</translation>
     </message>
     <message>
         <source>Input Level</source>
-        <translation type="unfinished"/>
+        <translation>ລະດັບການປ້ອນຂໍ້ມູນ</translation>
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>ການປ້ອນຂໍ້ມູນ</translation>
     </message>
     <message>
         <source>No input device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ມີອຸປະກອນປ້ອນຂໍ້ມູນສໍາລັບສຽງທີ່ພົບ</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"/>
+        <translation>ອຸປະກອນປ້ອນຂໍ້ມູນ</translation>
     </message>
 </context>
 <context>
     <name>Mouse</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>ຫນູ</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>ຄວາມໄວຂອງຕົວຊີ້</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>ຊ້າ</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>ໄວ</translation>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation type="unfinished"/>
+        <translation>ຂະຫນາດຂອງຕົວຊີ້</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>ສັ້ນ</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>ຍາວ</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>ການເລັ່ງຫນູ</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>ປິດການໃຊ້ງານ touchpad ໃນເວລາທີ່ຫນູເຊື່ອມຕໍ່</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>ເລື່ອນທໍາມະຊາດ</translation>
     </message>
 </context>
 <context>
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>ອຸປະກອນຂອງຂ້ອຍ</translation>
     </message>
 </context>
 <context>
@@ -1863,77 +1867,77 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="unfinished"/>
+        <translation>ຊື່ຄອມພິວເຕີ</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"/>
+        <translation>ມັນບໍ່ສາມາດເລີ່ມຕົ້ນຫຼືສິ້ນສຸດລົງດ້ວຍ dashes</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>os ຊື່</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>ເວີລແຈນ</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>ບານເວີລແຈນ</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>ປະເພດ</translation>
     </message>
     <message>
         <source>bit</source>
-        <translation type="unfinished"/>
+        <translation>ສະກັດກັ້ນ</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>ການໄດ້ຮັບອໍານາດ</translation>
     </message>
     <message>
         <source>System installation time</source>
-        <translation type="unfinished"/>
+        <translation>ເວລາຕິດຕັ້ງລະບົບ</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>ແກ່ນຫລົ່ງ</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>ເວທີຮູບພາບ</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>ໂປເຊດເຊີ</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>ຄວາມຈໍາ</translation>
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>1 ~ 63 ຕົວອັກສອນກະລຸນາ</translation>
     </message>
 </context>
 <context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>ອຸປະກອນອື່ນໆ</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation type="unfinished"/>
+        <translation>ສະແດງອຸປະກອນ Bluetooth ໂດຍບໍ່ມີຊື່</translation>
     </message>
 </context>
 <context>
     <name>PasswordLayout</name>
     <message>
         <source>Current password</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານໃນປະຈຸບັນ</translation>
     </message>
     <message>
         <source>Required</source>
@@ -1941,27 +1945,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>ອ່ອນແອ</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>ກາງ</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>ແຂງແຮງ</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation type="unfinished"/>
+        <translation>ເຮັດຊ້ໍາອີກຄັ້ງ</translation>
     </message>
     <message>
         <source>Password hint</source>
-        <translation type="unfinished"/>
+        <translation>ຄໍາແນະນໍາລະຫັດຜ່ານ</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>ທີ່ເລືອກໄດ້</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
@@ -1973,38 +1977,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດລັບໃຫມ່ຄວນແຕກຕ່າງຈາກປະຈຸບັນ</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>ຄໍາແນະນໍາແມ່ນສາມາດເບິ່ງເຫັນໄດ້ກັບຜູ້ໃຊ້ທັງຫມົດ. ຢ່າລວມເອົາລະຫັດຜ່ານຢູ່ທີ່ນີ້.</translation>
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດລັບໃຫມ່</translation>
     </message>
     <message>
         <source>Different from the username</source>
-        <translation type="unfinished"/>
+        <translation>ແຕກຕ່າງຈາກຊື່ຜູ້ໃຊ້</translation>
     </message>
 </context>
 <context>
     <name>PasswordModifyDialog</name>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>ແກ້ໄຂລະຫັດຜ່ານ</translation>
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>ຕັ້ງລະຫັດຜ່ານຄືນໃຫມ່</translation>
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation>ຄວາມຍາວຂອງລະຫັດຜ່ານຄວນມີຢ່າງຫນ້ອຍ 8 ຕົວອັກສອນ, ແລະລະຫັດຜ່ານຄວນປະກອບດ້ວຍການປະສົມປະສານຢ່າງຫນ້ອຍ 3 ອັນຕໍ່ໄປນີ້: ຕົວອັກສອນໃຫຍ່, ຕົວອັກສອນນ້ອຍ, ຕົວເລກ, ແລະສັນຍາລັກ. ລະຫັດຜ່ານປະເພດນີ້ມີຄວາມປອດໄພກວ່າ.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງລະຫັດຜ່ານຄືນໃຫມ່ຈະເກັບກູ້ຂໍ້ມູນທີ່ເກັບໄວ້ໃນ keyring.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2015,60 +2019,60 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>ແສງສະຫວ່າງ</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>ອັດຕະໂນມັດ</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>ມືດ</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>ກຳນົດເອງ</translation>
     </message>
 </context>
 <context>
     <name>PluginArea</name>
     <message>
         <source>Plugin Area</source>
-        <translation type="unfinished"/>
+        <translation>ບໍລິເວນປັ plugin</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"/>
+        <translation>ເລືອກຮູບສັນຍາລັກໃດທີ່ຢູ່ໃນທ່າເຮືອ</translation>
     </message>
 </context>
 <context>
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished"/>
+        <translation>ປິດລົງ</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation type="unfinished"/>
+        <translation>ແຂວນໄວ້</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>ຮູດ</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>ປິດຈໍ Monitor</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>ສະແດງການປິດການປິດ</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>ຢ່າເຮັດຫຍັງເລີຍ</translation>
     </message>
 </context>
 <context>
@@ -2102,61 +2106,61 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation type="unfinished"/>
+        <translation>ປະສິດທິພາບສູງ</translation>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"/>
+        <translation>ການປະຕິບັດການດຸ່ນດ່ຽງ</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>ປັບຄວາມຖີ່ຂອງການດໍາເນີນງານ CPU ຢ່າງຮຸນແຮງໂດຍອີງໃສ່ສະພາບການໂຫຼດຂອງ CPU</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="unfinished"/>
+        <translation>ດຸ່ນດ່ຽງ</translation>
     </message>
     <message>
         <source>Power Saver</source>
-        <translation type="unfinished"/>
+        <translation>ປະຫຍັດພະລັງງານ</translation>
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"/>
+        <translation>ຈັດລໍາດັບຄວາມສໍາຄັນ, ເຊິ່ງຈະເພີ່ມທະວີການບໍລິໂພກພະລັງງານແລະການຜະລິດຄວາມຮ້ອນຢ່າງຫຼວງຫຼາຍ</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"/>
+        <translation>ການດຸ່ນດ່ຽງການປະຕິບັດແລະຊີວິດຫມໍ້ໄຟ, ປັບໂດຍອັດຕະໂນມັດຕາມການນໍາໃຊ້</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>ຊີວິດແບດເຕີຣີ, ເຊິ່ງລະບົບຈະເສຍສະລະການສະແດງບາງຢ່າງເພື່ອຫຼຸດຜ່ອນການໃຊ້ພະລັງງານ</translation>
     </message>
 </context>
 <context>
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation type="unfinished"/>
+        <translation>ນາທີ</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation type="unfinished"/>
+        <translation>ຊົ່ວໂມງ</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ເຄີຍ</translation>
     </message>
 </context>
 <context>
     <name>PrivacyPolicyPage</name>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>ນະໂຍບາຍຄວາມເປັນສ່ວນຕົວ</translation>
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>ສໍາເນົາທີ່ຢູ່ທີ່ຢູ່</translation>
     </message>
 </context>
 <context>
@@ -2167,98 +2171,98 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານຕ້ອງມີຢ່າງຫນ້ອຍ %1 ຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານຕ້ອງບໍ່ເກີນ %1 ຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານສາມາດມີພຽງແຕ່ຕົວອັກສອນພາສາອັງກິດ (ຕົວພິມໃຫຍ່-ຕົວພິມນ້ອຍແຕກຕ່າງກັນ), ຕົວເລກ ຫຼື ສັນຍາລັກພິເສດ (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ເກີນ%% 1 ຕົວອັກສອນ palindrome 1 ກະລຸນາ</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ເກີນ %1 ຕົວອັກສອນ monotonic</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>ກະລຸນາບໍ່ເກີນ %1 ຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານຕ້ອງມີຕົວພິມໃຫຍ່, ຕົວພິມນ້ອຍ, ຕົວເລກ ແລະ ສັນຍາລັກ (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານຕ້ອງບໍ່ມີຕົວອັກສອນຫຼາຍກ່ວາ 4 palindrome</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"/>
+        <translation>ຢ່າໃຊ້ຄໍາສັບທີ່ຄ້າຍຄືກັນແລະການປະສົມປະສານກັນເປັນລະຫັດຜ່ານ</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"/>
+        <translation>ສ້າງລະຫັດລັບທີ່ເຂັ້ມແຂງກະລຸນາ</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>ມັນບໍ່ໄດ້ຕາມລະຫັດລະຫັດຜ່ານ</translation>
     </message>
 </context>
 <context>
     <name>QObject</name>
     <message>
         <source>Control Center</source>
-        <translation type="unfinished"/>
+        <translation>ສູນຄວບຄຸມ</translation>
     </message>
     <message>
         <source>Activated</source>
-        <translation type="unfinished"/>
+        <translation>ໄດ້ເປີດໃຊ້ງານ</translation>
     </message>
     <message>
         <source>View</source>
-        <translation type="unfinished"/>
+        <translation>ທັດສະນະ</translation>
     </message>
     <message>
         <source>To be activated</source>
-        <translation type="unfinished"/>
+        <translation>ໄດ້ຮັບການກະຕຸ້ນ</translation>
     </message>
     <message>
         <source>Activate</source>
-        <translation type="unfinished"/>
+        <translation>ກະຕຸ້ນ</translation>
     </message>
     <message>
         <source>Expired</source>
-        <translation type="unfinished"/>
+        <translation>ຫມົດອາຍຸແລ້ວ</translation>
     </message>
     <message>
         <source>In trial period</source>
-        <translation type="unfinished"/>
+        <translation>ໃນໄລຍະເວລາທົດລອງ</translation>
     </message>
     <message>
         <source>Trial expired</source>
-        <translation type="unfinished"/>
+        <translation>ການທົດລອງຫມົດອາຍຸ</translation>
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation type="unfinished"/>
+        <translation>ສູນຄວບຄຸມ DDE</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າຫນ້າຈໍສໍາພັດ</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າຂອງຫນ້າຈໍສໍາຜັດປ່ຽນແປງ</translation>
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບວໍເປເປີລະບົບນີ້ຖືກລັອກ. ກະລຸນາຕິດຕໍ່ admin ຂອງທ່ານ.</translation>
     </message>
     <message>
         <source>%1 (%2)</source>
@@ -2270,47 +2274,47 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>RegionFormatDialog</name>
     <message>
         <source>Regions and formats</source>
-        <translation type="unfinished"/>
+        <translation>ພາກພື້ນແລະຮູບແບບຕ່າງໆ</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>ຄົ້ນຫາ</translation>
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບແບບໃນຕອນຕົ້ນ</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>ມື້ທໍາອິດຂອງອາທິດ</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>ວັນທີສັ້ນ</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>ວັນທີຍາວ</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>ທີ່ໃຊ້ເວລາສັ້ນ</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>ເວລາດົນ</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>ສັນຍາລັກເງິນຕາ</translation>
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"/>
+        <translation>ຕົວເລກ</translation>
     </message>
     <message>
         <source>Paper size</source>
-        <translation type="unfinished"/>
+        <translation>ຂະຫນາດເຈ້ຍ</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2325,22 +2329,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>RegionsChooserWindow</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>ຄົ້ນຫາ</translation>
     </message>
 </context>
 <context>
     <name>RegisterDialog</name>
     <message>
         <source>Set a Password</source>
-        <translation type="unfinished"/>
+        <translation>ຕັ້ງຄ່າລະຫັດຜ່ານ</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64 ຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation type="unfinished"/>
+        <translation>ຢືນຢັນລະຫັດຜ່ານ</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2348,18 +2352,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>ຢືນຢັນ</translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານບໍ່ກົງກັນ</translation>
     </message>
 </context>
 <context>
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"/>
+        <translation>ລູກຄ້າກໍານົດເວລາຄ້າງຫ້ອງ</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2374,85 +2378,85 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ScreenSaverPage</name>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>ແພແຫ່</translation>
     </message>
     <message>
         <source>preview</source>
-        <translation type="unfinished"/>
+        <translation>ການສະແດງຕົວຢ່າງ</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"/>
+        <translation>ຫນ້າຈໍສ່ວນບຸກຄົນ</translation>
     </message>
     <message>
         <source>setting</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າ</translation>
     </message>
     <message>
         <source>idle time</source>
-        <translation type="unfinished"/>
+        <translation>ທີ່ໃຊ້ເວລາບໍ່ເຮັດວຽກ</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1 ນາທີ</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation>ຫ້ານາທີ</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"/>
+        <translation>ປະມານ 10 ນາທີ</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"/>
+        <translation>15 ນາທີ</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"/>
+        <translation>30 ນາທີ</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 ຊົ່ວໂມງ</translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ເຄີຍ</translation>
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານທີ່ຕ້ອງການສໍາລັບການຟື້ນຕົວ</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"/>
+        <translation>ພາບຫນ້າຈໍສະແດງຮູບເງົາ</translation>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation type="unfinished"/>
+        <translation>ຫນ້າຈໍລະບົບ</translation>
     </message>
 </context>
 <context>
     <name>SearchableListViewPopup</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>ຄົ້ນຫາ</translation>
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ມີຜົນການຄົ້ນຫາ</translation>
     </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>ເພີ່ມທາງລັດແບບກຳນົດເອງ</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>ຊື່:</translation>
     </message>
     <message>
         <source>Required</source>
@@ -2460,19 +2464,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Command:</source>
-        <translation type="unfinished"/>
+        <translation>ຄໍາສັ່ງ:</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>ລັດ</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ມີ</translation>
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>ກະລຸນາໃສ່ທາງລັດໃຫມ່</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2480,30 +2484,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>ເພີ່ມ</translation>
     </message>
     <message>
         <source>Click Add to replace</source>
-        <translation type="unfinished"/>
+        <translation>ກົດຕື່ມເພື່ອທົດແທນ</translation>
     </message>
 </context>
 <context>
     <name>Shortcuts</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>ກາງເຂັນ</translation>
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>ທາງລັດລະບົບ, ທາງລັດທີ່ກໍາຫນົດເອງ</translation>
     </message>
     <message>
         <source>Search shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>ທາງລັດຄົ້ນຫາ</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>ກຳນົດເອງ</translation>
     </message>
     <message>
         <source>done</source>
@@ -2515,11 +2519,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
+        <translation>ກະລຸນາໃສ່ທາງລັດໃຫມ່</translation>
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"/>
+        <translation>ກົດ</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2527,48 +2531,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>ຫຼື</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>ປ່ຽນແທນ</translation>
     </message>
     <message>
         <source>Restore default</source>
-        <translation type="unfinished"/>
+        <translation>ຟື້ນຟູຄ່າເລີ່ມຕົ້ນ</translation>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>ເພີ່ມທາງລັດແບບກຳນົດເອງ</translation>
     </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"/>
+        <translation>ອຸປະກອນຜົນໄດ້ຮັບ</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation type="unfinished"/>
+        <translation>ເລືອກວ່າຈະເປີດໃຊ້ອຸປະກອນໃດຫນຶ່ງ</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"/>
+        <translation>ອຸປະກອນປ້ອນຂໍ້ມູນ</translation>
     </message>
 </context>
 <context>
     <name>SoundEffectsPage</name>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>ຜົນກະທົບສຽງ</translation>
     </message>
 </context>
 <context>
     <name>SoundModel</name>
     <message>
         <source>Boot up</source>
-        <translation type="unfinished"/>
+        <translation>ເປີດເຄື່ອງ</translation>
     </message>
     <message>
         <source>Shut down</source>
@@ -2580,163 +2584,163 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wake up</source>
-        <translation type="unfinished"/>
+        <translation>ຕື່ນ</translation>
     </message>
     <message>
         <source>Volume +/-</source>
-        <translation type="unfinished"/>
+        <translation>ປະລິມານ +/-</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>ການແຈ້ງການ</translation>
     </message>
     <message>
         <source>Low battery</source>
-        <translation type="unfinished"/>
+        <translation>ແບດເຕີລີ່ຕ່ໍາ</translation>
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation type="unfinished"/>
+        <translation>ສົ່ງຮູບສັນຍາລັກໃນ Launcher ໄປທີ່ desktop</translation>
     </message>
     <message>
         <source>Empty Trash</source>
-        <translation type="unfinished"/>
+        <translation>ຂີ້ເຫຍື້ອເປົ່າ</translation>
     </message>
     <message>
         <source>Plug in</source>
-        <translation type="unfinished"/>
+        <translation>ສຽບໃສ່</translation>
     </message>
     <message>
         <source>Plug out</source>
-        <translation type="unfinished"/>
+        <translation>ສຽບອອກ</translation>
     </message>
     <message>
         <source>Removable device connected</source>
-        <translation type="unfinished"/>
+        <translation>ອຸປະກອນທີ່ຖອດອອກໄດ້</translation>
     </message>
     <message>
         <source>Removable device removed</source>
-        <translation type="unfinished"/>
+        <translation>ອຸປະກອນທີ່ຖອດອອກໄດ້</translation>
     </message>
     <message>
         <source>Error</source>
-        <translation type="unfinished"/>
+        <translation>ຜິດ</translation>
     </message>
 </context>
 <context>
     <name>SpeakerPage</name>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບແບບ</translation>
     </message>
     <message>
         <source>Output Volume</source>
-        <translation type="unfinished"/>
+        <translation>ປະລິມານຜົນຜະລິດ</translation>
     </message>
     <message>
         <source>Volume Boost</source>
-        <translation type="unfinished"/>
+        <translation>ປະລິມານ boost</translation>
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>ຖ້າປະລິມານດັງກວ່າ 100%, ມັນອາດຈະບິດເບືອນສຽງແລະເປັນອັນຕະລາຍຕໍ່ອຸປະກອນການຜະລິດ</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>ຊ້າຍ</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>ຂວາ</translation>
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>ຜົນໄດ້ຮັບ</translation>
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ມີອຸປະກອນຜົນຜະລິດສໍາລັບສຽງທີ່ພົບ</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>ຍອດເຫຼືອເບື້ອງຊ້າຍ</translation>
     </message>
     <message>
         <source>Mono audio</source>
-        <translation type="unfinished"/>
+        <translation>ສຽງໂມໂນ</translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"/>
+        <translation>ລວມຊ່ອງທາງຊ້າຍແລະຂວາເຂົ້າໄປໃນຊ່ອງທາງດຽວ</translation>
     </message>
     <message>
         <source>Auto pause</source>
-        <translation type="unfinished"/>
+        <translation>ຢຸດຊົ່ວຄາວໂດຍອັດຕະໂນມັດ</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ວ່າສຽງຈະຖືກຢຸດໂດຍອັດຕະໂນມັດເມື່ອອຸປະກອນສຽງໃນປະຈຸບັນຖືກຖອດອອກ</translation>
     </message>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"/>
+        <translation>ອຸປະກອນຜົນໄດ້ຮັບ</translation>
     </message>
 </context>
 <context>
     <name>SyncInfoListModel</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>ສຽງ</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>ພະເດດ</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>ຫນູ</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>ອັບເດດ</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>ແພແຫ່</translation>
     </message>
 </context>
 <context>
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>ວໍເປເປີເພີ່ມເຕີມ</translation>
     </message>
 </context>
 <context>
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"/>
+        <translation>ເວລາ sync ອັດຕະໂນມັດ</translation>
     </message>
     <message>
         <source>Ntp server</source>
-        <translation type="unfinished"/>
+        <translation>Server NTP</translation>
     </message>
     <message>
         <source>System date and time</source>
-        <translation type="unfinished"/>
+        <translation>ວັນທີແລະເວລາຂອງລະບົບ</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>ປັບແຕ່ງ</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>ການກໍານົດ</translation>
     </message>
     <message>
         <source>Server address</source>
-        <translation type="unfinished"/>
+        <translation>ທີ່ຢູ່ຂອງເຄື່ອງແມ່ຂ່າຍ</translation>
     </message>
     <message>
         <source>Required</source>
@@ -2744,49 +2748,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>ທີ່ຢູ່ຂອງເຄື່ອງແມ່ຂ່າຍ NTP ບໍ່ສາມາດຫວ່າງໄດ້</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
+        <translation>ໃຊ້ຮູບແບບ 24 ຊົ່ວໂມງ</translation>
     </message>
     <message>
         <source>system time zone</source>
-        <translation type="unfinished"/>
+        <translation>ເຂດເວລາຂອງລະບົບ</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"/>
+        <translation>ລາຍຊື່ TimeZone</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>ເພີ່ມ</translation>
     </message>
 </context>
 <context>
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>ແຕ່</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>ເພື່ອ</translation>
     </message>
 </context>
 <context>
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation type="unfinished"/>
+        <translation>ບັນທຶກການຕັ້ງຄ່າຈໍສະແດງຜົນບໍ?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າຈະຖືກສົ່ງຄືນໃນ %1s.</translation>
     </message>
     <message>
         <source>Revert</source>
-        <translation type="unfinished"/>
+        <translation>ສົ່ງລາງວັນໄດ້</translation>
     </message>
     <message>
         <source>Save</source>
@@ -2797,19 +2801,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation>ຕື່ມເຂດເວລາ</translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation>ກໍານົດເຂດເວລາທີ່ອີງໃສ່ສະຖານທີ່ປະຈຸບັນ</translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>ເຂດເວລາ:</translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation>ເມືອງທີ່ໃກ້ທີ່ສຸດ:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2824,88 +2828,88 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation type="unfinished"/>
+        <translation>ຫນ້າຈໍສໍາພັດ</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"/>
+        <translation>ຕັ້ງຄ່າທີ່ນີ້ໃນເວລາທີ່ເຊື່ອມຕໍ່ຫນ້າຈໍສໍາພັດ</translation>
     </message>
 </context>
 <context>
     <name>Touchpad</name>
     <message>
         <source>Basic Settings</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າຂັ້ນພື້ນຖານ</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>ຈັບຄູ່</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>ຄວາມໄວຂອງຕົວຊີ້</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>ຊ້າ</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>ໄວ</translation>
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"/>
+        <translation>ປິດ touchpad ໃນລະຫວ່າງການປ້ອນຂໍ້ມູນ</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>ແຕະເພື່ອກົດ</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>ເລື່ອນທໍາມະຊາດ</translation>
     </message>
     <message>
         <source>Gesture</source>
-        <translation type="unfinished"/>
+        <translation>ການສູດ</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>ທ່າທາງສາມນິ້ວ</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>ທ່າທາງສອງນິ້ວມື</translation>
     </message>
 </context>
 <context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>ເຂົ້າຮ່ວມໂຄງການປະສົບການຂອງຜູ້ໃຊ້</translation>
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>ສໍາເນົາທີ່ຢູ່ທີ່ຢູ່</translation>
     </message>
 </context>
 <context>
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation type="unfinished"/>
+        <translation>ການຢັ້ງຢືນຄວາມປອດໄພ</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"/>
+        <translation>ການກະທໍາແມ່ນມີຄວາມອ່ອນໄຫວ, ກະລຸນາໃສ່ລະຫັດເຂົ້າລະບົບກ່ອນ</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64 ຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>Forgot Password?</source>
-        <translation type="unfinished"/>
+        <translation>ລືມລະຫັດຜ່ານ?</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2913,206 +2917,206 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>ຢືນຢັນ</translation>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບວໍເປເປີ</translation>
     </message>
     <message>
         <source>My pictures</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບພາບຂອງຂ້ອຍ</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບວໍເປເປີລະບົບ</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບວໍເປເປີສີແຂງ</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບວໍເປເປີທີ່ສາມາດປັບແຕ່ງໄດ້</translation>
     </message>
     <message>
         <source>fill style</source>
-        <translation type="unfinished"/>
+        <translation>ສະບັບເຕັມ</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation type="unfinished"/>
+        <translation>ການປ່ຽນແປງພາບອັດຕະໂນມັດ</translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ເຄີຍ</translation>
     </message>
     <message>
         <source>30 second</source>
-        <translation type="unfinished"/>
+        <translation>30 ວິນາທີ</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1 ນາທີ</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation>ຫ້ານາທີ</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"/>
+        <translation>ປະມານ 10 ນາທີ</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"/>
+        <translation>15 ນາທີ</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"/>
+        <translation>30 ນາທີ</translation>
     </message>
     <message>
         <source>login</source>
-        <translation type="unfinished"/>
+        <translation>ເຂົ້າສູ່ລະບົບ</translation>
     </message>
     <message>
         <source>wake up</source>
-        <translation type="unfinished"/>
+        <translation>ຕື່ນ</translation>
     </message>
     <message>
         <source>System Wallapers</source>
-        <translation type="unfinished"/>
+        <translation>ລະບົບ Wallapers</translation>
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>ພາບວໍເປເປີທີ່ມີຊີວິດ</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 ຊົ່ວໂມງ</translation>
     </message>
 </context>
 <context>
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"/>
+        <translation>ເປີດ</translation>
     </message>
     <message>
         <source>show all</source>
-        <translation type="unfinished"/>
+        <translation>ສະແດງທັງຫມົດ</translation>
     </message>
     <message>
         <source>items</source>
-        <translation type="unfinished"/>
+        <translation>ລາຍການ</translation>
     </message>
     <message>
         <source>Set lock screen</source>
-        <translation type="unfinished"/>
+        <translation>ຕັ້ງຫນ້າຈໍລັອກ</translation>
     </message>
     <message>
         <source>Set desktop</source>
-        <translation type="unfinished"/>
+        <translation>ຕັ້ງຄ່າເດັສທອບ</translation>
     </message>
 </context>
 <context>
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation type="unfinished"/>
+        <translation>ສ່ວນຕິດຕໍ່ແລະເອຟເຟັກ</translation>
     </message>
     <message>
         <source>Window Settings</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າຫນ້າຕ່າງ</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>ມູມມົນຂອງຫນ້າຕ່າງ</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ມີ</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>ຂະຫນາດນ້ອຍ</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>ໃຫຍ່</translation>
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
-        <translation type="unfinished"/>
+        <translation>ເປີດໃຊ້ຜົນກະທົບໂປ່ງໃສເມື່ອຍ້າຍປ່ອງຢ້ຽມ</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
-        <translation type="unfinished"/>
+        <translation>ເອຟເຟັກການຫຍໍ້ຫນ້າຕ່າງ</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"/>
+        <translation>ປັບຂະໜາດ</translation>
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation type="unfinished"/>
+        <translation>ໂຄມໄຟວິເສດ</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>ຄວາມໂປ່ງໃສ</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"/>
+        <translation>ຕ່ໍາ</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"/>
+        <translation>ສູງ</translation>
     </message>
     <message>
         <source>Scroll Bars</source>
-        <translation type="unfinished"/>
+        <translation>ແຖບເລື່ອນ</translation>
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation type="unfinished"/>
+        <translation>ສະແດງເມື່ອເລື່ອນ</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>ສະແດງຕະຫຼອດ</translation>
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>ການສະແດງແບບກະທັດຮັດ</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"/>
+        <translation>ຖ້າເປີດໃຊ້ງານ, ເນື້ອຫາຫຼາຍຂື້ນຈະຖືກສະແດງຢູ່ໃນປ່ອງຢ້ຽມ.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation type="unfinished"/>
+        <translation>ລວງສູງຂອງແຖບ</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation type="unfinished"/>
+        <translation>ພຽງແຕ່ເຫມາະສໍາລັບແຖບຫົວຂໍ້ທີ່ໃຊ້ໃນການນໍາໃຊ້ໂດຍຜູ້ຈັດການວິນໂດ.</translation>
     </message>
     <message>
         <source>Extremely small</source>
-        <translation type="unfinished"/>
+        <translation>ຂະຫນາດນ້ອຍ</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
+        <translation>ກາງ</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
+        <translation>ກາງ</translation>
     </message>
 </context>
 <context>
@@ -3144,85 +3148,85 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>authenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>ການກວດສອບຊີວະປະຫວັດ</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>ປະເຊີນຫນ້າ</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
+        <translation>ເຖິງ 5 ຂໍ້ມູນທາງຫນ້າສາມາດເຂົ້າໄດ້</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>ຮອຍມື</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>ການກໍານົດຕົວຕົນຂອງຜູ້ໃຊ້ຜ່ານລາຍນິ້ວມືສະແກນ</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>ກົມຕາ</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"/>
+        <translation>ການຮັບຮູ້ຕົວຕົນຜ່ານການສະແກນກົມຕາ</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>ໃຊ້ຕົວອັກສອນ, ຕົວເລກແລະເສັ້ນກ້ອງເທົ່ານັ້ນ, ແລະບໍ່ເກີນ 15 ຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation type="unfinished"/>
+        <translation>ໃຊ້ຕົວອັກສອນ, ຕົວເລກແລະເສັ້ນກ້ອງເທົ່ານັ້ນ</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ເກີນ 15 ຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>ຊື່ນີ້ມີຢູ່ແລ້ວ</translation>
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation>ເພີ່ມ %1 ໃໝ່...</translation>
     </message>
 </context>
 <context>
     <name>blueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າ Bluetooth, ອຸປະກອນຕ່າງໆ</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>ພັນລະ</translation>
     </message>
 </context>
 <context>
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>ບູດເມນູ</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>ຈັດການເມນູບູດ</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>ຜູ້ບໍລິຫານອະນຸຍາດຮາກ</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>ຕົວເລືອກນັກພັດທະນາ</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>ຕົວເລືອກ debuggers debuggers</translation>
     </message>
 </context>
 <context>
@@ -3248,161 +3252,161 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dcc::Locale::dialectNames</name>
     <message>
         <source>Traditional Chinese (Chinese Hong Kong)</source>
-        <translation type="unfinished"/>
+        <translation>ຈີນພື້ນເມືອງ (ພາສາຈີນຮົງກົງ)</translation>
     </message>
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
-        <translation type="unfinished"/>
+        <translation>ພາສາຈີນແບບດັ້ງເດີມ (ໄຕ້ຫວັນຈີນ)</translation>
     </message>
 </context>
 <context>
     <name>dcc::Locale::regionNames</name>
     <message>
         <source>Taiwan China</source>
-        <translation type="unfinished"/>
+        <translation>ໄຕ້ຫວັນຈີນ</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>ຊື່ຜູ້ໃຊ້ຕ້ອງຢູ່ລະຫວ່າງ 3 ຫາ 32 ຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>ລັກສະນະທໍາອິດຕ້ອງເປັນຕົວອັກສອນຫລືເລກ</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>ຊື່ຜູ້ໃຊ້ຂອງທ່ານບໍ່ພຽງແຕ່ມີພຽງແຕ່ຕົວເລກເທົ່ານັ້ນ</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>ຊື່ຜູ້ໃຊ້ໄດ້ຖືກນໍາໃຊ້ໂດຍບັນຊີຜູ້ໃຊ້ອື່ນໆ</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>ຊື່ເຕັມແມ່ນຍາວເກີນໄປ</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>ຊື່ເຕັມໄດ້ຖືກນໍາໃຊ້ໂດຍບັນຊີຜູ້ໃຊ້ອື່ນໆ</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານຜິດ</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>ຜູ້ໃຊ້ມາດຕະຖານ</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>ຜູ້ຢິງບໍລິຫານ</translation>
     </message>
     <message>
         <source>Customized</source>
-        <translation type="unfinished"/>
+        <translation>ປັບແຕ່ງ</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>ເຈົ້າພາບຂອງທ່ານໄດ້ຖືກຍ້າຍອອກຈາກ Domain Server ປະສົບຜົນສໍາເລັດ</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>ເຈົ້າພາບຂອງທ່ານເຂົ້າຮ່ວມບໍລິສັດໂດເມນສໍາເລັດແລ້ວ</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation>ເຈົ້າພາບຂອງເຈົ້າລົ້ມເຫລວທີ່ຈະອອກຈາກເຊີບເວີໂດເມນ</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>ເຈົ້າພາບຂອງເຈົ້າລົ້ມເຫລວທີ່ຈະເຂົ້າຮ່ວມກັບໂດເມນຂອງໂດເມນ</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າໂດເມນຂອງໂຄສະນາ</translation>
     </message>
     <message>
         <source>Password not match</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານບໍ່ກົງກັນ</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"/>
+        <translation>ມິຣະ</translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"/>
+        <translation>ແປ</translation>
     </message>
 </context>
 <context>
     <name>dccV25::BiometricAuthController</name>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>ໃຊ້ໃບຫນ້າຂອງທ່ານເພື່ອປົດລັອກອຸປະກອນແລະເຮັດການຕັ້ງຄ່າຕໍ່ມາ</translation>
     </message>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>ໃບຫນ້າ</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>ວາງນິ້ວມືຂອງທ່ານ</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>ວາງນິ້ວມືຂອງທ່ານໃຫ້ແຫນ້ນໃສ່ເຊັນເຊີຈົນກວ່າທ່ານຈະຖືກຂໍໃຫ້ຍົກມັນ</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>ຍົກນິ້ວມືຂອງທ່ານ</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>ຍົກນິ້ວມືຂອງທ່ານແລະວາງມັນໃສ່ເຊັນເຊີອີກຄັ້ງ</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>ສະແກນແຄມຂອງນີ້ວມືຂອງທ່ານ</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>ປັບຕໍາແຫນ່ງເພື່ອສະແກນຂອບຂອງນີ້ວມືຂອງທ່ານ</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>ຍົກນິ້ວມືຂອງທ່ານແລະເຮັດແບບນັ້ນອີກ</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>ລາຍນິ້ວມືເພີ່ມ</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>ສະແກນໂຈະ</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>ວາງຂອບຂອງນິ້ວມືຂອງທ່ານໃສ່ເຊັນເຊີ</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>ກົມຕາ</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
-        <translation type="unfinished"/>
+        <translation>ຂໍ້ຂັດແຍ່ງທາງລັດນີ້ກັບ [%1]</translation>
     </message>
 </context>
 <context>
@@ -3413,15 +3417,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານຕ້ອງມີຢ່າງຫນ້ອຍ %1 ຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານຕ້ອງບໍ່ເກີນ 1 ໂຕອັກສອນ 1 ໂຕອັກສອນ</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານສາມາດມີພຽງແຕ່ຕົວອັກສອນພາສາອັງກິດ (ຕົວພິມໃຫຍ່-ຕົວພິມນ້ອຍແຕກຕ່າງກັນ), ຕົວເລກ ຫຼື ສັນຍາລັກພິເສດ (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
@@ -3429,15 +3433,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ເກີນ %1 ຕົວອັກສອນ monotonic</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>ກະລຸນາບໍ່ເກີນ %1 ຕົວອັກສອນ</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>ລະຫັດຜ່ານຕ້ອງມີຕົວພິມໃຫຍ່, ຕົວພິມນ້ອຍ, ຕົວເລກ ແລະ ສັນຍາລັກ (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
@@ -3445,106 +3449,106 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"/>
+        <translation>ຢ່າໃຊ້ຄໍາສັບທີ່ຄ້າຍຄືກັນແລະການປະສົມປະສານກັນເປັນລະຫັດຜ່ານ</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"/>
+        <translation>ສ້າງລະຫັດລັບທີ່ເຂັ້ມແຂງກະລຸນາ</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>ມັນບໍ່ໄດ້ຕາມລະຫັດລະຫັດຜ່ານ</translation>
     </message>
 </context>
 <context>
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>ລະບົບ</translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished"/>
+        <translation>ປ່ອງຢ້ຽມ</translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished"/>
+        <translation>ບ່ອນເຮັດວຽກ</translation>
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation type="unfinished"/>
+        <translation>ເຄື່ອງມືຊ່ວຍເຫຼືອ</translation>
     </message>
     <message>
         <source>Custom</source>
-        <translation type="unfinished"/>
+        <translation>ກຳນົດເອງ</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>ບໍ່ມີ</translation>
     </message>
 </context>
 <context>
     <name>deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation type="unfinished"/>
+        <translation>ID Deepin</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>UOs ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>ບໍລິການຄຼາວ</translation>
     </message>
 </context>
 <context>
     <name>defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation type="unfinished"/>
+        <translation>ແອັບເລີ່ມຕົ້ນ</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>ກໍານົດໃບສະຫມັກເລີ່ມຕົ້ນສໍາລັບເປີດເອກະສານຕ່າງໆ</translation>
     </message>
 </context>
 <context>
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>ຫນ້າເວບໄຊທ໌</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation type="unfinished"/>
+        <translation>ຈົດໝາຍ</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>ຂໍ້ຄວາມ</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>ດົນຕີ</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>ວິດີໂອ</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບ</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished"/>
+        <translation>ເທີມິນໍ</translation>
     </message>
 </context>
 <context>
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation type="unfinished"/>
+        <translation>ອຸປະກອນ</translation>
     </message>
 </context>
 <context>
@@ -3590,174 +3594,174 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>275%</source>
-        <translation type="unfinished"/>
+        <translation>275%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation type="unfinished"/>
+        <translation>300%</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>ຊ້ໍາ</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>ຂະຍັບ</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>ໃນຕອນຕົ້ນ</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>ເຮັດໃຫ້ເຫມາະສົມ</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>ຍືດ</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>ສູນກາງ</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>ພຽງແຕ່ໃນ %1</translation>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າການສະແດງທີ່ຫຼາກຫຼາຍ</translation>
     </message>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>ກໍານົດ</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>ການຈັດແຈງຫນ້າຈໍຈະມີຜົນໃນ %1s ຫຼັງຈາກການປ່ຽນແປງ</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບແບບ</translation>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>ຫນ້າຈໍຫຼັກ</translation>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"/>
+        <translation>ສະແດງແລະຮູບແບບ</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>ຄວາມສະຫວ່າງ</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>ຄວາມລະເອີຍດ</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>ປັບຂະໜາດໜ້າຕັ່ງ</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>ອັດຕາການຣີເຟເສີ</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>ການຫມຸນ</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>ມາຕຕະຖານ</translation>
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>ຈໍພາບນີ້ສະໜັບສະໜູນການປັບຂະໜາດການສະແດງຜົນ 100% ເທົ່ານັ້ນ</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation type="unfinished"/>
+        <translation>ສະດວກສະບາຍ</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation type="unfinished"/>
+        <translation>ເຮັດໃຫ້ຄວາມສະບາຍໃຈ</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>ປັບສະແດງຫນ້າຈໍໃຫ້ໃສ່ສີທີ່ອົບອຸ່ນ, ຫຼຸດຜ່ອນຄວາມສະຫວ່າງສີຟ້າ</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>ເວລາ</translation>
     </message>
     <message>
         <source>All day</source>
-        <translation type="unfinished"/>
+        <translation>ຕະຫລອດວັນ</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"/>
+        <translation>Sunset ກັບ sunrise</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"/>
+        <translation>ເວລາຕາມຄູ່</translation>
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>ແຕ່</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>ເພື່ອ</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>ອຸນຫະພູມສີ</translation>
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2 (ແນະນໍາ)</translation>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2</translation>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1hz (ແນະນໍາ)</translation>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation type="unfinished"/>
+        <translation>%1hz</translation>
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"/>
+        <translation>ການຂະຫຢາຢ</translation>
     </message>
 </context>
 <context>
     <name>dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation type="unfinished"/>
+        <translation>desktop ແລະແຖບວຽກ</translation>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>ອົງການຈັດຕັ້ງຂອງ Desktop, ໂຫມດແຖບຫນ້າວຽກ, ການຕັ້ງຄ່າເຂດ Plugin</translation>
     </message>
 </context>
 <context>
@@ -3790,7 +3794,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>main</name>
     <message>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>ທ່າເຮືອ</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -3798,31 +3802,31 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation>ຮູບແບບຄລາສິກ</translation>
+        <translation>ແບບຄລາສສິກ</translation>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation>ຮູບແບບກາງ</translation>
+        <translation>ໂຫມດຫຼັກ</translation>
     </message>
     <message>
         <source>Dock size</source>
-        <translation type="unfinished"/>
+        <translation>ຂະຫນາດ Dock</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>ຂະຫນາດນ້ອຍ</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>ໃຫຍ່</translation>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation type="unfinished"/>
+        <translation>ຕໍາແຫນ່ງໃນຫນ້າຈໍ</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation>ດ້ານເທິງ</translation>
+        <translation>ທາງເທີງ</translation>
     </message>
     <message>
         <source>Bottom</source>
@@ -3838,47 +3842,47 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Status</source>
-        <translation>ສະຖານະ</translation>
+        <translation>ສະຖານະພາບ</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>ສະແດງຕະຫຼອດ</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation type="unfinished"/>
+        <translation>ຮັກສາໄວ້</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation type="unfinished"/>
+        <translation>smart hide</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>ຈໍສະແດງຜົນຫຼາຍສະແດງ</translation>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation type="unfinished"/>
+        <translation>ກໍານົດຕໍາແຫນ່ງຂອງແຖບວຽກໃນຫນ້າຈໍ</translation>
     </message>
     <message>
         <source>Only on main</source>
-        <translation type="unfinished"/>
+        <translation>ພຽງແຕ່ຢູ່ໃນຫລັກ</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation type="unfinished"/>
+        <translation>ໃນຫນ້າຈໍບ່ອນທີ່ຕົວກະພິບແມ່ນ</translation>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation type="unfinished"/>
+        <translation>ບໍລິເວນປັ plugin</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"/>
+        <translation>ເລືອກຮູບສັນຍາລັກໃດທີ່ຢູ່ໃນທ່າເຮືອ</translation>
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation>ລັອກແຖບເຄື່ອງມື</translation>
+        <translation>ລັອກ dock ໄດ້</translation>
     </message>
 </context>
 <context>
@@ -4028,7 +4032,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>ການໂຕ້ຕອບແລະຜົນກະທົບ, ມູມມົນ</translation>
     </message>
 </context>
 <context>
@@ -4073,11 +4077,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation>ຄວາມເປັນສ່ວນຕົວແລະຄວາມປອດທັຍ</translation>
+        <translation>ຄວາມເປັນສ່ວນຕົວແລະຄວາມປອດໄພ</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation>ກ້ອງ, ການອະນຸຍາດໂຟນເດີ</translation>
+        <translation>ກ້ອງ, ສິດເຂົ້າເຖິງໂຟນເດີ</translation>
     </message>
 </context>
 <context>
@@ -4159,7 +4163,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>ເວີຊັນລະບົບ, ຂໍ້ມູນອຸປະກອນ</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
@@ -4175,7 +4179,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>ຂໍ້ຕົກລົງແຂ່ງຂາດຄົນແທ້ຜູ້ໃຊ້ປັງສຸດທ້າຍ</translation>
+        <translation>ຂໍ້ຕົກລົງໃບອະນຸຍາດສໍາລັບຜູ້ໃຊ້ປາຍທາງ</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
@@ -4198,60 +4202,60 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>ຫນ້າຈໍສໍາພັດ</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າຫນ້າຈໍສໍາພັດ</translation>
     </message>
 </context>
 <context>
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>ທົ່ວໄປ</translation>
     </message>
 </context>
 <context>
     <name>wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"/>
+        <translation>ການຕັ້ງຄ່າ wacom</translation>
     </message>
 </context>
 <context>
     <name>wacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Wacom Mode</source>
-        <translation type="unfinished"/>
+        <translation>ໂຫມດ Wacom</translation>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບແບບປາກກາ</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation type="unfinished"/>
+        <translation>ຮູບແບບຫນູ</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>ຄວາມອ່ອນໄຫວຂອງຄວາມກົດດັນ</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>ແສງສະຫວ່າງ</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>ຫນັກ</translation>
     </message>
 </context>
 </TS>
