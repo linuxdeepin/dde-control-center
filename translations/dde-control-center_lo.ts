@@ -2663,7 +2663,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation>ຍອດເຫຼືອເບື້ອງຊ້າຍ</translation>
+        <translation>ຄວາມສົມດຸນຊ້າຍຂວາ</translation>
     </message>
     <message>
         <source>Mono audio</source>
