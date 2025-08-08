@@ -16,10 +16,10 @@ function copyFont(srcFont, propertys) {
 
 function getMargin(w) {
     if (w > 1300) {
-        return (w - 1200) / 2
+        return Math.round((w - 1200) / 2)
     }
     if (w >= 600) {
         return 50
     }
-    return (w - 500) / 2
+    return Math.round((w - 500) / 2)
 }
