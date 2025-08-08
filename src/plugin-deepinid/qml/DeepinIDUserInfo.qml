@@ -66,6 +66,7 @@ DccObject {
                     Layout.fillWidth: true
                     Layout.topMargin: 20
                     horizontalAlignment: Text.AlignHCenter
+                    font: D.DTK.fontManager.t8
                     text: dccData.model.region
                 }
 
@@ -80,8 +81,8 @@ DccObject {
                         anchors.horizontalCenterOffset: -10
                         anchors.top: parent.top
                         horizontalAlignment: Text.AlignHCenter
-                        font.pixelSize: 16
                         visible: !nameControl.editing
+                        font: D.DTK.fontManager.t6
                         text: dccData.model.userName
                     }
 
@@ -127,11 +128,12 @@ DccObject {
                         id: nameEdit
                         anchors.horizontalCenter: parent.horizontalCenter
                         anchors.top: parent.top
-                        horizontalAlignment: Text.AlignHCenter
+                        width: 240
                         visible: nameControl.editing
                         maximumLength: 32 // 限制昵称长度为32个字符
                         validator: RegularExpressionValidator { regularExpression: /^[^<>&'"\s]{0,32}$/ }  //昵称不能包含<、>、&、'、"和空格
                         alertDuration: 3000
+                        font: D.DTK.fontManager.t6
                         text: visible ? dccData.model.userName : ""
                         activeFocusOnPress: false
                         onTextChanged: {
