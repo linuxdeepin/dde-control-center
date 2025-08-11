@@ -330,23 +330,24 @@ DccObject {
             pageType: DccObject.Editor
             visible: dccData.model().showBluetoothMode
             page: ComboBox {
-                id: bluetoothModeCombo
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
                 flat: true
                 model: dccData.model().bluetoothModeOpts
-                currentIndex: indexOfValue(dccData.model().currentBluetoothAudioMode)
+                currentIndex: count > 0 ? Math.max(0, indexOfValue(dccData.model().currentBluetoothAudioMode)) : 0
                 property bool isInitialized: false
                 implicitWidth: 300
-                // 等待组件加载完成后，设置 isInitialized 为 true
-                Component.onCompleted: {
-                    console.log("bluetoothModeCombo onCompleted:", isInitialized)
-                    incrementCurrentIndex()
-                    isInitialized = true
+                
+                Connections {
+                    target: dccData.model()
+                    function onBluetoothModeOptsChanged() { currentIndex = Math.max(0, indexOfValue(dccData.model().currentBluetoothAudioMode)) }
+                    function onBluetoothModeChanged() { currentIndex = Math.max(0, indexOfValue(dccData.model().currentBluetoothAudioMode)) }
                 }
+                
+                Component.onCompleted: { isInitialized = true }
+                
                 onCurrentIndexChanged: {
-                    console.log("bluetoothModeCombo Selected index:", currentIndex, isInitialized)
-                    if (isInitialized) {
+                    if (isInitialized && currentIndex >= 0 && currentIndex < count) {
                         dccData.worker().setBluetoothMode(valueAt(currentIndex))
                     }
                 }
