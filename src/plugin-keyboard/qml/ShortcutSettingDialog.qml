@@ -28,10 +28,18 @@ D.DialogWindow {
     property string saveCmdName: ""
     property string saveAccels: ""
     property var saveKeys: [qsTr("None")]
+    property bool nameExists: false
 
     ColumnLayout {
         spacing: 10
         width: parent.width
+        
+        Component.onCompleted: {
+            // 初始化时检查名称是否存在
+            if (nameEdit.text.trim().length > 0) {
+                ddialog.nameExists = dccData.isCustomShortcutNameExists(nameEdit.text.trim(), ddialog.keyId)
+            }
+        }
         Label {
             Layout.alignment: Qt.AlignHCenter
             font {
@@ -55,6 +63,16 @@ D.DialogWindow {
             Layout.preferredWidth: parent.width
             font: D.DTK.fontManager.t6
             placeholderText: qsTr("Required")
+            showAlert: ddialog.nameExists
+            alertText: qsTr("The shortcut name is already in use. Choose a different name.")
+            onTextChanged: {
+                // 检查名称是否已存在
+                if (text.trim().length > 0) {
+                    ddialog.nameExists = dccData.isCustomShortcutNameExists(text.trim(), ddialog.keyId)
+                } else {
+                    ddialog.nameExists = false
+                }
+            }
         }
 
         Label {
@@ -151,7 +169,7 @@ D.DialogWindow {
                 Layout.rightMargin: 24
                 font: D.DTK.fontManager.t6
                 text: qsTr("Add")
-                enabled: commandEdit.text.length > 0 && nameEdit.text.length >0
+                enabled: commandEdit.text.length > 0 && nameEdit.text.length > 0 && !ddialog.nameExists
                 onClicked: {
                     if (edit.keys[0] === qsTr("None")) {
                         edit.showAlertColor = true
@@ -173,6 +191,12 @@ D.DialogWindow {
             function onRequestRestore() {
                 edit.keys = ddialog.saveKeys
                 conflictText.text = ""
+                // 重置名称验证状态
+                if (nameEdit.text.trim().length > 0) {
+                    ddialog.nameExists = dccData.isCustomShortcutNameExists(nameEdit.text.trim(), ddialog.keyId)
+                } else {
+                    ddialog.nameExists = false
+                }
             }
             function onRequestClear() {
                 onRequestRestore()

@@ -346,6 +346,24 @@ void KeyboardController::setConflictText(const QString &newConflictText)
     emit conflictTextChanged();
 }
 
+bool KeyboardController::isCustomShortcutNameExists(const QString &name, const QString &excludeId)
+{
+    if (name.trimmed().isEmpty())
+        return false;
+        
+    const auto customInfos = m_shortcutModel->customInfo();
+    for (const auto *info : customInfos) {
+        // 排除当前编辑的快捷键（如果是修改模式）
+        if (!excludeId.isEmpty() && info->id == excludeId)
+            continue;
+            
+        if (info->name.trimmed() == name.trimmed()) {
+            return true;
+        }
+    }
+    return false;
+}
+
 }
 
 #include "keyboardcontroller.moc"
