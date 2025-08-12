@@ -2476,10 +2476,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
             <translation>無</translation>
         </message>
         <message>
-            <source>Please enter a new shortcut</source>
-            <translation>請輸入新的快捷鍵</translation>
-        </message>
-        <message>
             <source>Cancel</source>
             <translation>取消</translation>
         </message>
@@ -2488,12 +2484,28 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
             <translation>添加</translation>
         </message>
         <message>
-            <source>Click Add to replace</source>
-            <translation>點擊添加替換</translation>
-        </message>
-        <message>
             <source>The shortcut name is already in use. Choose a different name.</source>
             <translation>快捷鍵名稱已被佔用，請修改名稱。</translation>
+        </message>
+        <message>
+            <source>Change custom shortcut</source>
+            <translation>修改自定義快捷鍵</translation>
+        </message>
+        <message>
+            <source>please enter a shortcut key</source>
+            <translation>請輸入快捷鍵</translation>
+        </message>
+        <message>
+            <source>Save</source>
+            <translation>保存</translation>
+        </message>
+        <message>
+            <source>click Save to make this shortcut key effective</source>
+            <translation>點擊保存使這個快捷鍵生效</translation>
+        </message>
+        <message>
+            <source>click Add to make this shortcut key effective</source>
+            <translation>點擊添加使這個快捷鍵生效</translation>
         </message>
     </context>
     <context>
@@ -2523,10 +2535,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
             <translation>編輯</translation>
         </message>
         <message>
-            <source>Please enter a new shortcut</source>
-            <translation>請輸入新的快捷鍵</translation>
-        </message>
-        <message>
             <source>Click</source>
             <translation>點擊</translation>
         </message>
@@ -2549,6 +2557,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <message>
             <source>Add custom shortcut</source>
             <translation>添加快捷鍵</translation>
+        </message>
+        <message>
+            <source>please enter a shortcut key</source>
+            <translation>請輸入快捷鍵</translation>
         </message>
     </context>
     <context>

@@ -2471,10 +2471,6 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation> pole</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Sisestage uus sobitamisliides</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Lõpetada</translation>
     </message>
@@ -2483,11 +2479,27 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation>Lisada</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>Klikige Add, et vahetada</translation>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Salvesta</translation>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2518,10 +2530,6 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation>muuta</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Sisestage uus sobitamisliides</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>Klikige</translation>
     </message>
@@ -2544,6 +2552,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>Add custom shortcut</source>
         <translation>Lisage mõnda kaustaväli</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

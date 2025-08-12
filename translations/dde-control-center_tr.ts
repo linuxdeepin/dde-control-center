@@ -2476,10 +2476,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Hiçbiri</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Lütfen yeni bir kısayol gir</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>İptal</translation>
     </message>
@@ -2488,11 +2484,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Ekle</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>Değiştirmek için Ekle&apos;ye tıkla</translation>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Kaydet</translation>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2523,10 +2535,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>düzenle</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Lütfen yeni bir kısayol gir</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>Tıkla</translation>
     </message>
@@ -2549,6 +2557,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add custom shortcut</source>
         <translation>Özel kısayol ekle</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

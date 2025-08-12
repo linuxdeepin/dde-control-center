@@ -47,7 +47,7 @@ D.DialogWindow {
                 pixelSize: D.DTK.fontManager.t5.pixelSize
                 weight: Font.Bold
             }
-            text: qsTr("Add custom shortcut")
+            text: ddialog.keyId.length > 0 ? qsTr("Change custom shortcut") : qsTr("Add custom shortcut")
         }
 
         Label {
@@ -121,7 +121,7 @@ D.DialogWindow {
             Layout.topMargin: 10
             Layout.rightMargin: 20
             Layout.preferredWidth: parent.width
-            placeholderText: qsTr("Please enter a new shortcut")
+            placeholderText: qsTr("please enter a shortcut key")
             background.visible: edit.keys.length === 0 || conflictText.visible || showAlertColor
             backgroundColor: {
                 if (edit.showAlertColor || conflictText.text.length > 0)
@@ -168,7 +168,7 @@ D.DialogWindow {
                 Layout.fillWidth: true
                 Layout.rightMargin: 24
                 font: D.DTK.fontManager.t6
-                text: qsTr("Add")
+                text: ddialog.keyId.length > 0 ? qsTr("Save") : qsTr("Add")
                 enabled: commandEdit.text.length > 0 && nameEdit.text.length > 0 && !ddialog.nameExists
                 onClicked: {
                     if (edit.keys[0] === qsTr("None")) {
@@ -203,7 +203,8 @@ D.DialogWindow {
             }
             function onKeyConflicted(oldAccels, newAccels) {
                 edit.accels = newAccels // 冲突也可以覆盖
-                conflictText.text = dccData.conflictText + ", " + qsTr("Click Add to replace")
+                var actionText = ddialog.keyId.length > 0 ? qsTr("click Save to make this shortcut key effective") : qsTr("click Add to make this shortcut key effective")
+                conflictText.text = dccData.conflictText + ", " + actionText
             }
             function onKeyDone(accels) {
                 edit.keys = dccData.formatKeys(accels)

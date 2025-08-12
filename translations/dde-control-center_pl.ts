@@ -2478,10 +2478,6 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Brak</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Wprowadź skrót</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Anuluj</translation>
     </message>
@@ -2490,11 +2486,27 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Dodaj</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>Kliknij Dodaj, aby zamienić</translation>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Zapisz</translation>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2525,10 +2537,6 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Edytuj</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Wprowadź nowy skrót</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>Kliknij</translation>
     </message>
@@ -2551,6 +2559,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Add custom shortcut</source>
         <translation>Dodaj własny skrót</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
