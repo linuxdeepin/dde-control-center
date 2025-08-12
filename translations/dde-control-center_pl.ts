@@ -2491,6 +2491,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <source>Click Add to replace</source>
         <translation>Kliknij Dodaj, aby zamienić</translation>
     </message>
+    <message>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Shortcuts</name>
