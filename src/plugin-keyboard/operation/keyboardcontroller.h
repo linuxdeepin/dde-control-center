@@ -71,6 +71,9 @@ public Q_SLOTS:
     void clearShortcut(const QString &id, const int &type);
 
     void resetAllShortcuts();
+    
+    // 检查自定义快捷键名称是否已存在（排除指定ID）
+    bool isCustomShortcutNameExists(const QString &name, const QString &excludeId = QString());
 
 signals:
     void repeatIntervalChanged();
