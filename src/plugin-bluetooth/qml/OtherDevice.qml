@@ -9,16 +9,39 @@ import org.deepin.dtk 1.0
 
 DccObject{
     property bool refreshEnable: true
+    property bool lastPoweredState: false  // 记录上次蓝牙开关状态
 
     Connections {
         target: DccApp
         function onActiveObjectChanged(object) {
            if (object.name === "bluetooth") {
                 refreshEnable = true
+                // 初始化状态记录
+                lastPoweredState = model.powered
                 if (model.powered && !model.discovering) {
                     dccData.work().setAdapterDiscoverable(model.id)
                 }
            }
+        }
+    }
+
+    // 监听蓝牙开关状态变化，确保重新开启时能立即启动扫描
+    Connections {
+        target: model
+        function onPoweredChanged(poweredState, discoveringState) {
+            if (model.powered && !dccData.model().airplaneEnable) {
+                // 蓝牙开启时，重置刷新状态
+                refreshEnable = true
+                
+                // 只有当蓝牙从关闭变为开启时才立即启动扫描
+                if (!lastPoweredState && !model.discovering) {
+                    dccData.work().setAdapterDiscovering(model.id, true);
+                    dccData.work().setAdapterDiscoverable(model.id);
+                }
+            }
+            
+            // 更新状态记录
+            lastPoweredState = model.powered
         }
     }
 
@@ -101,6 +124,9 @@ DccObject{
         function onDiscoveringChanged() {
             if (!model.discovering && model.powered && refreshEnable) {
                 autoRefreshTimer.restart()
+            } else if (model.discovering) {
+                // 正在扫描时停止定时器
+                autoRefreshTimer.stop()
             }
         }
     }
