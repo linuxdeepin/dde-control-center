@@ -2476,10 +2476,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>无</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>请输入新的快捷键</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>取消</translation>
     </message>
@@ -2488,12 +2484,28 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>添加</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>点击添加替换</translation>
-    </message>
-    <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
         <translation>快捷键名称已被占用，请修改名称。</translation>
+    </message>
+    <message>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2523,10 +2535,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>编辑</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>请输入新的快捷键</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>点击</translation>
     </message>
@@ -2549,6 +2557,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add custom shortcut</source>
         <translation>添加快捷键</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
