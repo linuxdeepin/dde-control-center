@@ -2477,10 +2477,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>Ninguno</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Introduzca un nuevo atajo</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -2489,11 +2485,27 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>Añadir</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>Haga clic en añadir para reemplazar</translation>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2524,10 +2536,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>Editar</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Introduzca un nuevo atajo</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>Clic</translation>
     </message>
@@ -2550,6 +2558,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Add custom shortcut</source>
         <translation>Añadir atajo personalizado</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
