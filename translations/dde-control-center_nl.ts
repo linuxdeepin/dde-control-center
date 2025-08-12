@@ -2489,6 +2489,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Click Add to replace</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Shortcuts</name>
