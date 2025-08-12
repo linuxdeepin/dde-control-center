@@ -2476,10 +2476,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Cap</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Introduïu una drecera nova</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Cancel·la</translation>
     </message>
@@ -2488,11 +2484,27 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Afegeix</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>Cliqueu a Afegeix per reemplaçar-la</translation>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2523,10 +2535,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>edita</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Introduïu una drecera nova</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>Cliqueu</translation>
     </message>
@@ -2549,6 +2557,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Add custom shortcut</source>
         <translation>Afegiu una drecera personalitzada</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
