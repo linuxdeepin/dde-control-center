@@ -2491,10 +2491,6 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation>Non</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Introduza un novo atalho</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Cancelar</translation>
     </message>
@@ -2503,11 +2499,27 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation>Engadir</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>Clique en Engadir para substituír</translation>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2538,10 +2550,6 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation>editar</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Introduza un novo atalho</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>Clique</translation>
     </message>
@@ -2564,6 +2572,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <message>
         <source>Add custom shortcut</source>
         <translation>Engadir atalho personalizado</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
