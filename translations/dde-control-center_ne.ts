@@ -2466,10 +2466,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>कोई भनेर नहीं</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>कृपया एउटा नयाँ स्क्रॅच्चर भन्नुहोस्</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>रद्द गर्नुहोस्</translation>
     </message>
@@ -2478,11 +2474,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>लगाउनुहोस्</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>लगाउने गर्न लगाउँदै बदल्नुहोस्</translation>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2513,10 +2525,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>सम्पादन</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>कृपया एउटा नयाँ स्क्रॅच्चर भन्नुहोस्</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>लगाउँदै</translation>
     </message>
@@ -2539,6 +2547,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add custom shortcut</source>
         <translation>समग्र छान्ति वाहन लगाउनुहोस्</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
