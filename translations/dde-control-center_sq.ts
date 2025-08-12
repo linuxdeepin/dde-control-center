@@ -2476,10 +2476,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation>Asnjë</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Ju lutemi, jepni një shkurtore të re</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Anuloje</translation>
     </message>
@@ -2488,11 +2484,27 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation>Shto</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>Që të zëvendësohet, klikoni mbi Shtoje</translation>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2523,10 +2535,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation>përpunojeni</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Ju lutemi, jepni një shkurtore të re</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>Klikim</translation>
     </message>
@@ -2549,6 +2557,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Add custom shortcut</source>
         <translation>Shtoni shkurtore vetjake</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
