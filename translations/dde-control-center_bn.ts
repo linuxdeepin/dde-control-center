@@ -2491,10 +2491,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>কোনো একটি নেই</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>একটি নতুন ট্রিভিয়াল যোগাযোগ দাও</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>বন্ধ করুন</translation>
     </message>
@@ -2503,11 +2499,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>যোগ করুন</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>প্রতিস্থাপন করতে Add ক্লিক করুন</translation>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2538,10 +2550,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>সম্পাদনা</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>একটি নতুন ট্রিভিয়াল যোগাযোগ দাও</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>ক্লিক করুন</translation>
     </message>
@@ -2564,6 +2572,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add custom shortcut</source>
         <translation>কাস্টম চার্জট যোগ করুন</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
