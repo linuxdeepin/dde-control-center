@@ -2465,10 +2465,6 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <translation>Nič</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Vnesite novo gumbniško kombinacijo</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Prekliči</translation>
     </message>
@@ -2477,11 +2473,27 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <translation>Dodaj</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>Kliknite na Dodaj za zamenjavo</translation>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2512,10 +2524,6 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <translation>Uredi</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Vnesite novo gumbniško kombinacijo</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>Kliknite</translation>
     </message>
@@ -2538,6 +2546,10 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     <message>
         <source>Add custom shortcut</source>
         <translation>Dodaj prilagojeni preklic</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
