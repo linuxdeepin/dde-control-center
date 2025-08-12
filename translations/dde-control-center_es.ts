@@ -2492,6 +2492,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>Click Add to replace</source>
         <translation>Haga clic en añadir para reemplazar</translation>
     </message>
+    <message>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Shortcuts</name>
