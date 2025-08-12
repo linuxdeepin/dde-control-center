@@ -2506,6 +2506,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <source>Click Add to replace</source>
         <translation>Clique en Engadir para substituír</translation>
     </message>
+    <message>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Shortcuts</name>
