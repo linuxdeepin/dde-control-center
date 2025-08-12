@@ -2464,10 +2464,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Жоқ</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Негізгі шортката жаңы шорткат керек</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Тарту</translation>
     </message>
@@ -2476,11 +2472,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Қосу</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>Көрсөткүчке қосу үшін Add түз</translation>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2511,10 +2523,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Түз</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Негізгі шортката жаңы шорткат керек</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>Көрсөткүчке түз</translation>
     </message>
@@ -2537,6 +2545,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add custom shortcut</source>
         <translation>Кастом шорткат қосу</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

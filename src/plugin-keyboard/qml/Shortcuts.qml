@@ -152,7 +152,7 @@ DccObject {
                             id: edit
                             text: model.display
                             keys: model.keySequence
-                            placeholderText: qsTr("Please enter a new shortcut")
+                            placeholderText: qsTr("please enter a shortcut key")
                             background.visible: conflictText.visible
                             backgroundColor: conflictText.visible ? DS.Style.edit.alertBackground : DS.Style.keySequenceEdit.background
                             Layout.alignment: Qt.AlignRight

@@ -2493,10 +2493,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <translation>Aucun</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Veuillez entrer un nouveau raccourci</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Annuler</translation>
     </message>
@@ -2505,11 +2501,27 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <translation>Ajouter</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>Cliquez sur Ajouter pour remplacer</translation>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Enregistrer</translation>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2540,10 +2552,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <translation>Modifier</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Veuillez entrer un nouveau raccourci</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>Cliquez</translation>
     </message>
@@ -2566,6 +2574,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>Add custom shortcut</source>
         <translation>Ajouter un raccourci personnalisé</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
