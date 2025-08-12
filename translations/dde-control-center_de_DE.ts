@@ -2462,10 +2462,6 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
         <translation>Keine</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Bitte neues Tastenkürzel eingeben</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Abbrechen</translation>
     </message>
@@ -2474,11 +2470,27 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
         <translation>Hinzufügen</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>Zum Ersetzen Hinzufügen anklicken </translation>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2509,10 +2521,6 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
         <translation>ändern</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Bitte neues Tastenkürzel eingeben</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>Anklicken</translation>
     </message>
@@ -2535,6 +2543,10 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <message>
         <source>Add custom shortcut</source>
         <translation>Eigenes Tastenkürzel hinzufügen</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
