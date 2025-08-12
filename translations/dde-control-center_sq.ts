@@ -2491,6 +2491,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>Click Add to replace</source>
         <translation>Që të zëvendësohet, klikoni mbi Shtoje</translation>
     </message>
+    <message>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Shortcuts</name>
