@@ -2491,6 +2491,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Click Add to replace</source>
         <translation>点击添加替换</translation>
     </message>
+    <message>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation>快捷键名称已被占用，请修改名称。</translation>
+    </message>
 </context>
 <context>
     <name>Shortcuts</name>
