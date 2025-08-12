@@ -2506,6 +2506,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Click Add to replace</source>
         <translation>প্রতিস্থাপন করতে Add ক্লিক করুন</translation>
     </message>
+    <message>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Shortcuts</name>
