@@ -2477,6 +2477,10 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
         <source>Click Add to replace</source>
         <translation>Zum Ersetzen Hinzufügen anklicken </translation>
     </message>
+    <message>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Shortcuts</name>
