@@ -10,6 +10,7 @@ import org.deepin.dtk 1.0
 DccObject{
     property bool refreshEnable: true
     property bool lastPoweredState: false  // 记录上次蓝牙开关状态
+    property bool hideWhenUserClosing: false  // 接收来自父组件的隐藏状态
 
     Connections {
         target: DccApp
@@ -78,7 +79,7 @@ DccObject{
         parentName: "otherDevice" + model.name
         pageType: DccObject.Item
         weight: 20
-        visible: model.powered
+        visible: model.powered && !hideWhenUserClosing
 
         page: RowLayout {
             CheckBox {
