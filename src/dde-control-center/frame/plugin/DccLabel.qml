@@ -12,6 +12,8 @@ Label {
     ToolTip {
         visible: root.width < root.implicitWidth && root.hovered
         text: root.text
+        delay: 500
+        timeout: 3000
     }
     // 使用Attached方式退出时会崩溃
     // ToolTip.visible: width < implicitWidth && hovered
