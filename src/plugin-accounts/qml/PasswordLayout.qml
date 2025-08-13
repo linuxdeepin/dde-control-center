@@ -156,7 +156,7 @@ ColumnLayout {
         spacing: 4
         Layout.alignment: Qt.AlignRight | Qt.AlignBottom
         Layout.rightMargin: 0
-        Layout.bottomMargin: 0
+        Layout.bottomMargin: 6
         Layout.topMargin: 20
         Label {
             id: pwdStrengthHintText
@@ -298,7 +298,7 @@ ColumnLayout {
 
         ColumnLayout {
             id: pwdColumnLayout
-            spacing: 0
+            spacing: 10
             anchors.fill: parent
             Repeater {
                 id: repeater
@@ -368,6 +368,13 @@ ColumnLayout {
             Layout.preferredWidth: pwdLayout.maxLabelWidth
             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
             verticalAlignment: Text.AlignVCenter
+
+            ToolTip.visible: leftItemHoverHandler.hovered && truncated
+            ToolTip.text: text
+
+            HoverHandler {
+                id: leftItemHoverHandler
+            }
         }
 
         D.PasswordEdit {
