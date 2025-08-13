@@ -10,6 +10,10 @@ import org.deepin.dtk 1.0
 import org.deepin.dtk.style 1.0 as DS
 
 DccObject{
+    signal userClickedClose()
+    signal userClickedOpen()
+    property bool hideWhenUserClosing: false  // 接收来自父组件的隐藏状态
+    
     DccObject {
         name: "blueToothSwitch"
         parentName: "blueToothCtl" + model.name
@@ -229,6 +233,16 @@ DccObject{
                 onClicked: {
                     if (enabled) {
                         isSwitching = true;
+                        
+                        // 立即发送信号通知父组件
+                        if (!checked) {
+                            // 用户点击关闭蓝牙
+                            userClickedClose();
+                        } else {
+                            // 用户点击开启蓝牙
+                            userClickedOpen();
+                        }
+                        
                         dccData.work().setAdapterPowered(model.id, checked);
                     }
                 }
@@ -243,7 +257,7 @@ DccObject{
         icon: "audio"
         pageType: DccObject.Item
         weight: 20
-        visible: !dccData.model().airplaneEnable && model.powered
+        visible: !dccData.model().airplaneEnable && model.powered && !hideWhenUserClosing
 
         page: RowLayout {
             CheckBox {
