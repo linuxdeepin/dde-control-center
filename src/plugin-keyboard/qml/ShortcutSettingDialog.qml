@@ -8,6 +8,7 @@ import QtQuick.Dialogs
 import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
+import org.deepin.dcc 1.0
 
 D.DialogWindow {
     id: ddialog
@@ -135,15 +136,14 @@ D.DialogWindow {
             }
         }
 
-        Item {
-            width: parent.width
-            Text {
-                id: conflictText
-                elide: Text.ElideRight
-                clip: true
-                font: D.DTK.fontManager.t6
-                visible: text.length > 0
-            }
+        DccLabel {
+            Layout.rightMargin: 20
+            Layout.fillWidth: true
+            id: conflictText
+            elide: Text.ElideRight
+            clip: true
+            font: D.DTK.fontManager.t6
+            visible: text.length > 0
         }
 
         RowLayout {
