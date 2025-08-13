@@ -133,6 +133,13 @@ D.DialogWindow {
                 Layout.alignment: Qt.AlignVCenter
                 font: D.DTK.fontManager.t6
                 elide: Text.ElideRight
+                
+                ToolTip.visible: accountTypeHoverHandler.hovered && truncated
+                ToolTip.text: text
+
+                HoverHandler {
+                    id: accountTypeHoverHandler
+                }
             }
 
             ComboBox {
@@ -220,6 +227,13 @@ D.DialogWindow {
                                 Layout.preferredWidth: mainLayout.unifiedLabelWidth
                                 font: D.DTK.fontManager.t6
                                 elide: Text.ElideRight
+
+                                ToolTip.visible: nameHoverHandler.hovered && truncated
+                                ToolTip.text: text
+
+                                HoverHandler {
+                                    id: nameHoverHandler
+                                }
                             }
                             D.LineEdit {
                                 id: edit
