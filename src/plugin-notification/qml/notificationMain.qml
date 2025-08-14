@@ -33,6 +33,10 @@ DccObject {
             weight: 10
             pageType: DccObject.Editor
             page: D.Switch {
+                anchors {
+                    left: parent.left
+                    leftMargin: 10
+                }
                 checked: dccData.sysItemModel.disturbMode
                 onCheckedChanged: {
                     if (dccData.sysItemModel.disturbMode !== checked) {
@@ -49,7 +53,12 @@ DccObject {
             weight: 20
             pageType: DccObject.Item
             visible: dccData.sysItemModel.disturbMode
-            page: TimeRange {}
+            page: TimeRange {
+                anchors {
+                    left: parent.left
+                    leftMargin: 10
+                }
+            }
         }
         DccObject {
             name: "enableDoNotDisturbLock"
@@ -60,6 +69,10 @@ DccObject {
             pageType: DccObject.Item
             visible: dccData.sysItemModel.disturbMode
             page: RowLayout {
+                anchors {
+                    left: parent.left
+                    leftMargin: 10
+                }
                 D.CheckBox {
                     id: lockScreenCheckBox
                     implicitHeight: implicitContentHeight + 30
