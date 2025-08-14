@@ -73,7 +73,7 @@ DccObject {
                             width: 112
                             height: 104
                             Item {
-                                Layout.preferredHeight: 77
+                                Layout.preferredHeight: 78
                                 Layout.fillWidth: true
                                 Rectangle {
                                     anchors.fill: parent
@@ -85,7 +85,7 @@ DccObject {
                                 }
                                 Rectangle {
                                     anchors.fill: parent
-                                    anchors.margins: 4
+                                    anchors.margins: 3
                                     color: Qt.rgba(0, 0, 0, 0.05)
                                     radius: 7
                                     Control {
