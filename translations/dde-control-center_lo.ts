@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="lo">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="lo">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -228,7 +226,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;ການກວດສອບຊີວະມິຕິ&quot; ແມ່ນຫນ້າທີ່ການກວດສອບຕົວຕົນຜູ້ໃຊ້ທີ່ສະໜອງໃຫ້ໂດຍບໍລິສັດ UnionTech Software Technology Co., Ltd. ຜ່ານ &quot;ການກວດສອບຊີວະມິຕິ&quot;, ຂໍ້ມູນຊີວະມິຕິທີ່ເກັບກຳຈະຖືກປຽບທຽບກັບຂໍ້ມູນທີ່ເກັບໄວ້ໃນອຸປະກອນ, ແລະຕົວຕົນຜູ້ໃຊ້ຈະຖືກກວດສອບຕາມຜົນການປຽບທຽບ.
@@ -943,27 +941,27 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DCC_NAMESPACE::SystemInfoWork</name>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation type="unfinished"></translation>
+        <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
@@ -1390,7 +1388,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>3.Import Certificate</source>
@@ -1406,7 +1404,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Off</source>
@@ -1600,11 +1598,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1650,7 +1648,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add new keyboard layout...</source>
@@ -1865,7 +1863,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>NativeInfoPage</name>
     <message>
         <source>UOS</source>
-        <translation type="unfinished">UOS</translation>
+        <translation>UOS</translation>
     </message>
     <message>
         <source>Computer name</source>
@@ -2269,7 +2267,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"></translation>
+        <translation>%1 (%2)</translation>
     </message>
 </context>
 <context>
@@ -2486,27 +2484,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">ບັນທຶກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2561,7 +2559,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2681,7 +2679,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation>ຍອດເຫຼືອເບື້ອງຊ້າຍ</translation>
+        <translation>ຄວາມສົມດຸນຊ້າຍຂວາ</translation>
     </message>
     <message>
         <source>Mono audio</source>
@@ -3447,7 +3445,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished">ບໍ່ເກີນ%% 1 ຕົວອັກສອນ palindrome 1 ກະລຸນາ</translation>
+        <translation>ບໍ່ເກີນ%% 1 ຕົວອັກສອນ palindrome 1 ກະລຸນາ</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
@@ -3463,7 +3461,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished">ລະຫັດຜ່ານຕ້ອງບໍ່ມີຕົວອັກສອນຫຼາຍກ່ວາ 4 palindrome</translation>
+        <translation>ລະຫັດຜ່ານຕ້ອງບໍ່ມີຕົວອັກສອນຫຼາຍກ່ວາ 4 palindrome</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
