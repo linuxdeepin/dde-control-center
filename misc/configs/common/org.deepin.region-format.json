@@ -5,7 +5,7 @@
         "country": {
             "value": "",
             "serial": 0,
-            "flags": [],
+            "flags": ["user-public"],
             "name": "country",
             "name[zh_CN]": "国家/地区",
             "description": "config country",
