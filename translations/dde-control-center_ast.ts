@@ -18,10 +18,6 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Login Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Login without password</source>
         <translation type="unfinished"/>
     </message>
@@ -99,6 +95,30 @@
     </message>
     <message>
         <source>Quickly load DDE with your login information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Undo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Redo</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Copy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Paste</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select All</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -868,11 +888,31 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Create account</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Username cannot exceed 32 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Username can only contain letters, numbers, - and _</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Full name cannot exceed 32 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Full name cannot contain colons</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The uploaded file type is incorrect, please upload it again</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1025,6 +1065,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Page size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Example</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1200,6 +1244,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Go to web settings</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>The nickname must be 1~32 characters long</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DeepinWorker</name>
@@ -1217,6 +1265,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Operation Successful</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The nickname can be modified only once a day</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1354,6 +1406,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1886,10 +1942,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Repeat Password</source>
         <translation type="unfinished"/>
     </message>
@@ -1919,6 +1971,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>New password</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Different from the username</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2194,6 +2250,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>This system wallpaper is locked. Please contact your admin.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>%1 (%2)</source>
+        <comment>Language and region name, e.g. Chinese (China)</comment>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
@@ -2400,10 +2461,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation type="unfinished"/>
     </message>
@@ -2412,7 +2469,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Click Add to replace</source>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2443,10 +2520,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Click</source>
         <translation type="unfinished"/>
     </message>
@@ -2468,6 +2541,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add custom shortcut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2687,6 +2764,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Timezone list</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>TimeRange</name>
@@ -2845,10 +2926,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Window rounded corners</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3112,22 +3189,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Add a new </source>
+        <source>This name already exists</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>This name already exists</source>
+        <source>Add a new %1 ...</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>blueTooth</name>
     <message>
-        <source>bluetooth</source>
+        <source>Bluetooth settings, devices</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Bluetooth settings, devices</source>
+        <source>Bluetooth</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3149,6 +3226,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Developer Options</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Developer debugging options</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>datetime</name>
@@ -3166,6 +3247,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System language, region format</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::Locale::dialectNames</name>
+    <message>
+        <source>Traditional Chinese (Chinese Hong Kong)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Traditional Chinese (Chinese Taiwan)</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dcc::Locale::regionNames</name>
+    <message>
+        <source>Taiwan China</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3532,14 +3631,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source> (Recommended)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Hz</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Multiple Displays Settings</source>
         <translation type="unfinished"/>
     </message>
@@ -3600,10 +3691,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Display Scaling</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>The monitor only supports 100% display scaling</source>
         <translation type="unfinished"/>
     </message>
@@ -3645,6 +3732,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Color Temperature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scaling</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4146,6 +4253,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heavy</source>
         <translation type="unfinished"/>
     </message>
 </context>
