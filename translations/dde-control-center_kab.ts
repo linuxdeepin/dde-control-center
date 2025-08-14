@@ -2465,10 +2465,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>An siih</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Tefit talgu wertefit zefen</translation>
-    </message>
-    <message>
         <source>Cancel</source>
         <translation>Tefit itefen</translation>
     </message>
@@ -2477,8 +2473,28 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Tefit</translation>
     </message>
     <message>
-        <source>Click Add to replace</source>
-        <translation>Tefit Add tefit itefen</translation>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2508,10 +2524,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>tefit zefen</translation>
     </message>
     <message>
-        <source>Please enter a new shortcut</source>
-        <translation>Tefit talgu wertefit zefen</translation>
-    </message>
-    <message>
         <source>Click</source>
         <translation>Tefit</translation>
     </message>
@@ -2534,6 +2546,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add custom shortcut</source>
         <translation>Ajout d&apos;un raccourci personnalisé</translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
