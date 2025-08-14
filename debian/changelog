@@ -1,3 +1,18 @@
+dde-control-center (6.1.43) unstable; urgency=medium
+
+  * fix: update region format config flags
+  * chore: update desktop translation
+  * i18n: Updates for project Deepin Desktop Environment (#2573)
+  * fix: adjust notification UI alignment
+  * fix: improve input field UI consistency
+  * fix: adjust password layout spacing and margins
+  * fix: improve shortcut conflict text display
+  * fix: improve Bluetooth UI state handling during power toggle
+  * fix: improve shortcut dialog text consistency
+  * fix: bluetooth device list auto-refresh after power toggle (#2567)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 14 Aug 2025 20:46:50 +0800
+
 dde-control-center (6.1.42) unstable; urgency=medium
 
   * fix: improve bluetooth mode selection stability (#2564)
