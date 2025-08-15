@@ -35,18 +35,69 @@ DccObject {
                 id: privacyFolderItem
                 name: "plugin" + model.name
                 property real iconSize: 16
-                property bool isExpaned: false
+                property bool isExpanded: false
                 property var dataModel: model
                 parentName: "privacy/filefolder/filefolderViewGroup"
                 weight: 10 + index * 10
                 pageType: DccObject.Item
                 visible: !model.noDisplay
                 canSearch: false
+                backgroundType: DccObject.Hover
 
                 Connections {
                     target: parentItem
                     function onClicked() {
-                        privacyFolderItem.isExpaned = !privacyFolderItem.isExpaned
+                        privacyFolderItem.isExpanded = !privacyFolderItem.isExpanded
+                    }
+                }
+
+                DccRepeater {
+                    id: rep
+                    property var itemIndex: index
+                    model: [
+                        { name: qsTr("Documents"), checked: privacyFolderItem.dataModel.documentPermission, premission: ApplicationItem.DocumentFoldersPermission},
+                        { name: qsTr("Desktop"), checked: privacyFolderItem.dataModel.desktopPermission, premission: ApplicationItem.DesktopFoldersPermission},
+                        { name: qsTr("Pictures"), checked: privacyFolderItem.dataModel.picturePermission, premission: ApplicationItem.PictureFoldersPermission},
+                        { name: qsTr("Videos"), checked: privacyFolderItem.dataModel.videoPermission, premission: ApplicationItem.VideoFoldersPermission},
+                        { name: qsTr("Music"), checked: privacyFolderItem.dataModel.musicPermission, premission: ApplicationItem.MusicFoldersPermission},
+                        { name: qsTr("Downloads"), checked: privacyFolderItem.dataModel.downloadPermission, premission: ApplicationItem.DownloadFoldersPermission}
+                    ]
+                    delegate: DccObject {
+                        parentName: "privacy/filefolder/filefolderViewGroup"
+                        weight: privacyFolderItem.weight + 1
+                        canSearch: false
+                        visible: privacyFolderItem.isExpanded
+                        displayName: modelData.name
+                        pageType: DccObject.Item
+                        backgroundType: DccObject.Hover
+                        page: RowLayout {
+                            spacing: 2
+
+                            Item {
+                                Layout.preferredHeight: DS.Style.itemDelegate.height
+                                Layout.preferredWidth: 34
+                            }
+
+                            DccLabel {
+                                text: String('"%1" ').arg(modelData.name)
+                                color: D.DTK.platformTheme.activeColor
+                            }
+                            DccLabel {
+                                Layout.fillWidth: true
+                                text: qsTr("folder")
+                            }
+                            D.Switch {
+                                Layout.alignment: Qt.AlignRight
+                                Layout.rightMargin: 10
+                                checked: modelData.checked
+
+                                onCheckedChanged: {
+                                    if (checked != modelData.checked) {
+                                        dccData.worker.setPremissionEnabled(rep.itemIndex, modelData.premission, checked)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
 
@@ -67,7 +118,7 @@ DccObject {
                         }
                         Control {
                             id: control
-                            rotation: privacyFolderItem.isExpaned ? 180 : 0
+                            rotation: privacyFolderItem.isExpanded ? 180 : 0
                             Behavior on rotation {
                                 NumberAnimation {
                                     duration: 200
@@ -81,68 +132,6 @@ DccObject {
                             }
                         }
                         
-                    }
-
-                    Item {
-                        Layout.fillWidth: true
-                        implicitHeight: coLayout.implicitHeight
-                        Behavior on implicitHeight {
-                            NumberAnimation {
-                                duration: 300
-                                easing.type: Easing.OutQuart
-                            }
-                        }
-
-                        ColumnLayout {
-                            id: coLayout
-                            anchors.fill: parent
-                            Repeater {
-                                id: rep
-                                property var itemIndex: index
-
-                                model: privacyFolderItem.isExpaned ? [
-                                    { name: qsTr("Documents"), checked: privacyFolderItem.dataModel.documentPermission, premission: ApplicationItem.DocumentFoldersPermission},
-                                    { name: qsTr("Desktop"), checked: privacyFolderItem.dataModel.desktopPermission, premission: ApplicationItem.DesktopFoldersPermission},
-                                    { name: qsTr("Pictures"), checked: privacyFolderItem.dataModel.picturePermission, premission: ApplicationItem.PictureFoldersPermission},
-                                    { name: qsTr("Videos"), checked: privacyFolderItem.dataModel.videoPermission, premission: ApplicationItem.VideoFoldersPermission},
-                                    { name: qsTr("Music"), checked: privacyFolderItem.dataModel.musicPermission, premission: ApplicationItem.MusicFoldersPermission},
-                                    { name: qsTr("Downloads"), checked: privacyFolderItem.dataModel.downloadPermission, premission: ApplicationItem.DownloadFoldersPermission}
-                                    ] : []
-                                
-
-                                delegate: D.ItemDelegate {
-                                    Layout.fillWidth: true
-                                    cascadeSelected: true
-                                    checkable: false
-                                    contentFlow: true
-                                    corners: getCornersForBackground(index, rep.model.count)
-                                    content: RowLayout {
-                                        spacing: 2
-                                        DccLabel {
-                                            text: String('"%1" ').arg(modelData.name)
-                                            color: D.DTK.platformTheme.activeColor
-                                        }
-                                        DccLabel {
-                                            Layout.fillWidth: true
-                                            text: qsTr("folder")
-                                        }
-                                        D.Switch {
-                                            Layout.alignment: Qt.AlignRight
-                                            checked: modelData.checked
-
-                                            onCheckedChanged: {
-                                                if (checked != modelData.checked) {
-                                                    dccData.worker.setPremissionEnabled(rep.itemIndex, modelData.premission, checked)
-                                                }
-                                            }
-                                        }
-                                    }
-                                    background: DccItemBackground {
-                                        separatorVisible: true
-                                    }
-                                }
-                            }
-                        }
                     }
                 }
             }
