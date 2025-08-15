@@ -2494,7 +2494,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Tallenna</translation>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
@@ -2513,7 +2513,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation>Järjestelmän kuvake, mukautettu pikakuvake</translation>
+        <translation>Pikanäppäin ja mukautettu näppäin</translation>
     </message>
     <message>
         <source>Search shortcuts</source>
@@ -2553,11 +2553,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation>Lisää mukautettu pikakuvake</translation>
+        <translation>Lisää pikanäppäin</translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>anna pikanäppäin</translation>
     </message>
 </context>
 <context>
