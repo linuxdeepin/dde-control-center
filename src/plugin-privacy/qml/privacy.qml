@@ -11,6 +11,6 @@ DccObject {
     displayName: qsTr("Privacy and Security")
     description: qsTr("Camera, folder permissions")
     icon: "privacy"
-    weight: 70
+    weight: 80
     visible: typeof D.SysInfo !== 'undefined' && DccApp.productType() === D.SysInfo.Uos
 }

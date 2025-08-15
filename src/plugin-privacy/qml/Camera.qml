@@ -39,6 +39,7 @@ DccObject {
                 displayName: model.name
                 pageType: DccObject.Editor
                 canSearch: false
+                backgroundType: DccObject.Hover
                 page: D.Switch {
                     checked: model.cameraPermission
                     onCheckedChanged: {
