@@ -73,24 +73,19 @@ DccObject {
                             width: 112
                             height: 104
                             Item {
-                                Layout.preferredHeight: 77
+                                Layout.preferredHeight: 78
                                 Layout.fillWidth: true
+
                                 Rectangle {
                                     anchors.fill: parent
-                                    radius: 7
                                     color: "transparent"
-                                    visible: layout.checked
                                     border.width: 2
-                                    border.color: D.DTK.platformTheme.activeColor
-                                }
-                                Rectangle {
-                                    anchors.fill: parent
-                                    anchors.margins: 4
-                                    color: Qt.rgba(0, 0, 0, 0.05)
+                                    border.color: layout.checked ? D.DTK.platformTheme.activeColor : "transparent"
                                     radius: 7
                                     Control {
                                         id: iconControl
                                         anchors.fill: parent
+                                        anchors.margins: 4
                                         
                                         contentItem: D.DciIcon {
                                             palette: D.DTK.makeIconPalette(iconControl.palette)

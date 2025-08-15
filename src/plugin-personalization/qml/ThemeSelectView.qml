@@ -71,31 +71,21 @@ ListView {
                     height: listview.itemHeight
                     anchors.centerIn: parent
     
-                    Item {
+                    Rectangle {
                         Layout.preferredHeight: listview.imageRectH
                         Layout.preferredWidth: listview.imageRectW
+                        border.width: 2
+                        border.color: delegateRoot.isCurrent ? D.DTK.platformTheme.activeColor : "transparent"
+                        color: "transparent"
+                        radius: 8
 
-                        Rectangle {
+                        Image {
                             anchors.fill: parent
-                            visible: delegateRoot.isCurrent
-                            color: "transparent"
-                            border.width: 2
-                            border.color: D.DTK.platformTheme.activeColor
-                            radius: 8
-                        }
-
-                        Rectangle {
-                            anchors.fill: parent
-                            anchors.margins: listview.itemBorderWidth + 1
-                            color: "transparent"
-                            radius: 8
-
-                            Image {
-                                anchors.fill: parent
-                                mipmap: true
-                                source: model.pic
-                                asynchronous: true
-                            }
+                            anchors.margins: 4
+                            mipmap: true
+                            source: model.pic
+                            sourceSize: Qt.size(width, height)
+                            asynchronous: true
                         }
                     }
 
