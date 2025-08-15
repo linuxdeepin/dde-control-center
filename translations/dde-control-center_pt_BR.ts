@@ -3194,7 +3194,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar um novo %1...</translation>
     </message>
 </context>
 <context>
