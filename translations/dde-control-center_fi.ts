@@ -2482,15 +2482,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
+        <translation>Nimi on jo käytössä. Valitse toinen nimi.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Vaihda pikanäppäintä</translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>anna pikanäppäin</translation>
     </message>
     <message>
         <source>Save</source>
@@ -2498,11 +2498,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>paina Tallenna ja pikanäppäin tulee voimaan</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>paina Lisää ja pikanäppäin tulee voimaan</translation>
     </message>
 </context>
 <context>
