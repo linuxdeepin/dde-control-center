@@ -4050,7 +4050,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation>Ajute los effetos de ventana y esquinas redondeadas</translation>
+        <translation>Ajuste efectos y esquinas de ventana</translation>
     </message>
 </context>
 <context>
