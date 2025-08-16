@@ -812,11 +812,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Falha no carregamento do certificado, não é possível obter acesso root</translation>
+        <translation>O carregamento do certificado falhou, impossível obter acesso root</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Falha na verificação da assinatura, não é possível obter acesso root</translation>
+        <translation>A verificação da assinatura falhou, impossível obter acesso root</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
