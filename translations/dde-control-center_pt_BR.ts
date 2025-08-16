@@ -2470,7 +2470,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
+        <translation>O nome do atalho já está em uso. Escolha um nome diferente.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
