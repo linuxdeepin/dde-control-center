@@ -808,7 +808,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>No network connection</source>
-        <translation>Sem conexão de rede</translation>
+        <translation>Nenhuma conexão de rede</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
@@ -2474,7 +2474,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Alterar atalho personalizado</translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
