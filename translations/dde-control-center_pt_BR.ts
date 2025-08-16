@@ -2478,7 +2478,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Insira uma tecla de atalho</translation>
     </message>
     <message>
         <source>Save</source>
@@ -2486,11 +2486,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>Clique em Salvar para ativar esta tecla de atalho</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>Clique em Adicionar para ativar esta tecla de atalho</translation>
     </message>
 </context>
 <context>
@@ -2545,7 +2545,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Insira uma tecla de atalho</translation>
     </message>
 </context>
 <context>
