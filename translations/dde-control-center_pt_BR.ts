@@ -804,7 +804,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation>Não é possível ler as informações do seu PC</translation>
+        <translation>Impossível ler as informações do PC</translation>
     </message>
     <message>
         <source>No network connection</source>
@@ -1362,7 +1362,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation>Por favor, primeiro faça login no seu Union ID para continuar</translation>
+        <translation>Entre com seu UOS ID para continuar</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
