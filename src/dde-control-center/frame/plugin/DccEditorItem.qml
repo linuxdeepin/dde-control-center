@@ -16,9 +16,7 @@ D.ItemDelegate {
     property real iconSize: model.item.iconSize ? model.item.iconSize : 0
     property real leftPaddingSize: model.item.leftPaddingSize ? model.item.leftPaddingSize : 10
 
-    Layout.fillWidth: true
-    Layout.minimumHeight: model.item.description.length !== 0 ? 48 : 0
-    implicitHeight: (implicitContentHeight < 48 ? 48 : implicitContentHeight) + topInset + bottomInset
+    implicitHeight: Math.max(model.item.description.length !== 0 ? 48 : 40, implicitContentHeight) + topInset + bottomInset
     backgroundVisible: false
     checkable: false
     topPadding: topInset

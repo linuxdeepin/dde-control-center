@@ -12,7 +12,6 @@ D.ItemDelegate {
     property alias backgroundType: background.backgroundType
     property var item: model.item
 
-    Layout.fillWidth: true
     backgroundVisible: backgroundType & 0x01
     enabled: model.item.enabledToApp
     hoverEnabled: true
