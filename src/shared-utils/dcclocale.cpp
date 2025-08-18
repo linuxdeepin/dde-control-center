@@ -30,7 +30,7 @@ namespace {
         return globalDisplayNames()->displayNames.get();
     }
 
-    icu::UnicodeString fromQString(const QString& qstr) {
+    [[maybe_unused]] icu::UnicodeString fromQString(const QString& qstr) {
         return icu::UnicodeString(qstr.utf16(), qstr.length());
     }
     
