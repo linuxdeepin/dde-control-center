@@ -9,6 +9,7 @@ Label {
     property alias hovered: mouseArea.containsMouse
 
     elide: Text.ElideRight
+    font: DTK.fontManager.t6
     ToolTip {
         visible: root.width < root.implicitWidth && root.hovered
         text: root.text
