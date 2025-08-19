@@ -194,7 +194,7 @@ Loader {
                                 id: background
                                 backgroundType: DccObject.Normal
                                 separatorVisible: true
-                                radius: 8
+                                radius: 8 + bgMargins
                             }
                         }
                     }
