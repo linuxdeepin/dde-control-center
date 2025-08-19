@@ -137,11 +137,42 @@ DccTitleObject {
                     }
                     onValueChanged: function() {
                         timer.restart()
+                        if (!ti.activeFocus)
+                            ti.text = sbAge.textFromValue(sbAge.value, sbAge.locale)
                     }
 
                     onFocusChanged: {
-                        if (!focus)
+                        if (!focus) {
+                            sbAge.value = sbAge.valueFromText(ti.text, sbAge.locale)
                             dccData.setPasswordAge(loginMethodTitle.userId, value)
+                        }
+                    }
+
+                    contentItem: TextInput {
+                        id: ti
+                        text: sbAge.textFromValue(sbAge.value, sbAge.locale)
+                        readOnly: !sbAge.editable
+                        validator: sbAge.validator
+                        inputMethodHints: sbAge.inputMethodHints
+                        verticalAlignment: Text.AlignVCenter
+                        leftPadding: 10
+                        maximumLength: 6
+                        selectByMouse: true
+                        renderType: Text.NativeRendering
+                        onEditingFinished: sbAge.value = sbAge.valueFromText(text, sbAge.locale)
+                        onTextChanged: {
+                            if (text.length > 0 && text.charAt(0) === "0") {
+                                var trimmed = text.replace(/^0+/, "")
+                                text = trimmed
+                            }
+                        }
+                        onActiveFocusChanged: {
+                            if (activeFocus) {
+                                text = String(sbAge.value)
+                            } else {
+                                text = sbAge.textFromValue(sbAge.value, sbAge.locale)
+                            }
+                        }
                     }
 
                     Timer {
