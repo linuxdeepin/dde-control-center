@@ -6,6 +6,7 @@ import QtQuick.Layouts 1.15
 
 import org.deepin.dtk 1.0 as D
 import org.deepin.dcc 1.0
+import org.deepin.dtk.style 1.0 as DS
 import QtQuick.Window 2.15
 import Qt.labs.platform
 
@@ -190,20 +191,38 @@ Rectangle {
                                 }
                             }
 
-                            D.IconButton {
+                            D.ActionButton {
                                 id: moreBtn
+                                palette.windowText: D.ColorSelector.textColor
                                 visible: showMoreBtn
                                 Layout.alignment: Qt.AlignRight
                                 icon.name: "bluetooth_option"
-                                icon.width: 20
-                                icon.height: 20
+                                icon.width: 16
+                                icon.height: 16
 
-                                implicitHeight: 24
-                                implicitWidth: 24
+                                implicitHeight: 30
+                                implicitWidth: 30
 
                                 flat: !hovered
 
                                 property bool menuShown: false
+
+                                background: Rectangle {
+                                    property D.Palette pressedColor: D.Palette {
+                                        normal: Qt.rgba(0, 0, 0, 0.2)
+                                        normalDark: Qt.rgba(1, 1, 1, 0.25)
+                                    }
+                                    property D.Palette hoveredColor: D.Palette {
+                                        normal: Qt.rgba(0, 0, 0, 0.1)
+                                        normalDark: Qt.rgba(1, 1, 1, 0.1)
+                                    }
+                                    radius: DS.Style.control.radius
+                                    color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                                    border {
+                                        color: parent.palette.highlight
+                                        width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                                    }
+                                }
 
                                 D.Menu {
                                     id: contextMenu
