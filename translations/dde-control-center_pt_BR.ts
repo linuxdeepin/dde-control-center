@@ -804,19 +804,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation>Não é possível ler as informações do seu PC</translation>
+        <translation>Impossível ler as informações do PC</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation>Sem conexão de rede</translation>
+        <translation>Nenhuma conexão de rede</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Falha no carregamento do certificado, não é possível obter acesso root</translation>
+        <translation>O carregamento do certificado falhou, impossível obter acesso root</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Falha na verificação da assinatura, não é possível obter acesso root</translation>
+        <translation>A verificação da assinatura falhou, impossível obter acesso root</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
@@ -1362,7 +1362,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation>Por favor, primeiro faça login no seu Union ID para continuar</translation>
+        <translation>Entre com seu UOS ID para continuar</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
@@ -2253,7 +2253,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
+        <translation>%1 (%2)</translation>
     </message>
 </context>
 <context>
@@ -2470,27 +2470,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
+        <translation>O nome do atalho já está em uso. Escolha um nome diferente.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Alterar atalho personalizado</translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Insira uma tecla de atalho</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Salvar</translation>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>Clique em Salvar para ativar esta tecla de atalho</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>Clique em Adicionar para ativar esta tecla de atalho</translation>
     </message>
 </context>
 <context>
@@ -2545,7 +2545,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Insira uma tecla de atalho</translation>
     </message>
 </context>
 <context>
@@ -2766,7 +2766,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar</translation>
     </message>
 </context>
 <context>
@@ -3194,7 +3194,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar um novo %1...</translation>
     </message>
 </context>
 <context>
@@ -3254,18 +3254,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dcc::Locale::dialectNames</name>
     <message>
         <source>Traditional Chinese (Chinese Hong Kong)</source>
-        <translation type="unfinished"/>
+        <translation>Chinês Tradicional (Hong Kong)</translation>
     </message>
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
-        <translation type="unfinished"/>
+        <translation>Chinês Tradicional (Taiwan)</translation>
     </message>
 </context>
 <context>
     <name>dcc::Locale::regionNames</name>
     <message>
         <source>Taiwan China</source>
-        <translation type="unfinished"/>
+        <translation>Taiwan</translation>
     </message>
 </context>
 <context>
@@ -3736,23 +3736,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1 x %2 (Recomendado)</translation>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"/>
+        <translation>%1 x %2</translation>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1 Hz (Recomendado)</translation>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation type="unfinished"/>
+        <translation>%1 Hz</translation>
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Dimensionamento</translation>
     </message>
 </context>
 <context>
