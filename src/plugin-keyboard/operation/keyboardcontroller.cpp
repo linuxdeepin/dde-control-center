@@ -364,6 +364,30 @@ bool KeyboardController::isCustomShortcutNameExists(const QString &name, const Q
     return false;
 }
 
+bool KeyboardController::isSystemShortcutNameExists(const QString &name)
+{
+    if (!m_shortcutModel) {
+        return false;
+    }
+    
+    return m_shortcutModel->containsSystemShortcutName(name);
+}
+
+bool KeyboardController::isShortcutNameExists(const QString &name, const QString &excludeId)
+{
+    if (name.trimmed().isEmpty()) {
+        return false;
+    }
+    
+    // 优先检查系统快捷键冲突
+    if (isSystemShortcutNameExists(name)) {
+        return true;
+    }
+    
+    // 然后检查自定义快捷键冲突
+    return isCustomShortcutNameExists(name, excludeId);
+}
+
 }
 
 #include "keyboardcontroller.moc"
