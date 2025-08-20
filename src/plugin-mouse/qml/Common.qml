@@ -129,15 +129,15 @@ DccObject {
                     }
                     D.TipsSlider {
                         id: doubleClickSlider
-                        readonly property var tips: [qsTr("Short"), (""), (""), (""), (""), (""), qsTr("Long")]
+                        readonly property var tips: [qsTr("Slow"), (""), (""), (""), (""), (""), qsTr("Fast")]
                         Layout.alignment: Qt.AlignCenter
                         Layout.margins: 10
                         Layout.fillWidth: true
                         tickDirection: D.TipsSlider.TickDirection.Back
                         slider.handleType: Slider.HandleType.ArrowBottom
                         slider.value: dccData.doubleSpeed
-                        slider.from: 6
-                        slider.to: 0
+                        slider.from: 0
+                        slider.to: 6
                         slider.live: true
                         slider.stepSize: 1
                         slider.snapMode: Slider.SnapAlways
