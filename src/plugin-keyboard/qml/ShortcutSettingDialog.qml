@@ -24,7 +24,7 @@ D.DialogWindow {
     property alias cmdName: commandEdit.text
     property alias keySequence: edit.keys
     property alias accels: edit.accels
-    property alias conflitedText : conflictText.text
+    property alias conflitedText: conflictText.text
     property string saveKeyName: ""
     property string saveCmdName: ""
     property string saveAccels: ""
@@ -34,11 +34,11 @@ D.DialogWindow {
     ColumnLayout {
         spacing: 10
         width: parent.width
-        
+
         Component.onCompleted: {
             // 初始化时检查名称是否存在
             if (nameEdit.text.trim().length > 0) {
-                ddialog.nameExists = dccData.isCustomShortcutNameExists(nameEdit.text.trim(), ddialog.keyId)
+                ddialog.nameExists = dccData.isShortcutNameExists(nameEdit.text.trim(), ddialog.keyId);
             }
         }
         Label {
@@ -67,11 +67,11 @@ D.DialogWindow {
             showAlert: ddialog.nameExists
             alertText: qsTr("The shortcut name is already in use. Choose a different name.")
             onTextChanged: {
-                // 检查名称是否已存在
+                // 检查名称是否已存在（包括系统和自定义快捷键）
                 if (text.trim().length > 0) {
-                    ddialog.nameExists = dccData.isCustomShortcutNameExists(text.trim(), ddialog.keyId)
+                    ddialog.nameExists = dccData.isShortcutNameExists(text.trim(), ddialog.keyId);
                 } else {
-                    ddialog.nameExists = false
+                    ddialog.nameExists = false;
                 }
             }
         }
@@ -98,7 +98,7 @@ D.DialogWindow {
                 }
                 icon.name: "dde-file-manager"
                 onClicked: {
-                    keyFileDialog.open()
+                    keyFileDialog.open();
                 }
             }
             FileDialog {
@@ -107,8 +107,8 @@ D.DialogWindow {
                 onAccepted: {
                     var path = keyFileDialog.selectedFile.toString();
                     // remove prefixed "file:///"
-                    path = path.replace(/^(file:\/{3})/,"/");
-                    commandEdit.text = path
+                    path = path.replace(/^(file:\/{3})/, "/");
+                    commandEdit.text = path;
                 }
             }
         }
@@ -126,20 +126,20 @@ D.DialogWindow {
             background.visible: edit.keys.length === 0 || conflictText.visible || showAlertColor
             backgroundColor: {
                 if (edit.showAlertColor || conflictText.text.length > 0)
-                    return DS.Style.edit.alertBackground
+                    return DS.Style.edit.alertBackground;
                 else
-                    return DS.Style.keySequenceEdit.background
+                    return DS.Style.keySequenceEdit.background;
             }
             onRequestKeys: {
-                keys = []
-                dccData.updateKey(ddialog.keyId, 1)
+                keys = [];
+                dccData.updateKey(ddialog.keyId, 1);
             }
         }
 
         DccLabel {
+            id: conflictText
             Layout.rightMargin: 20
             Layout.fillWidth: true
-            id: conflictText
             elide: Text.ElideRight
             clip: true
             font: D.DTK.fontManager.t6
@@ -158,9 +158,9 @@ D.DialogWindow {
                 text: qsTr("Cancel")
                 onClicked: {
                     if (ddialog.keyId.length > 0) {
-                        dccData.modifyCustomShortcut(ddialog.keyId, ddialog.saveKeyName, ddialog.saveCmdName, ddialog.saveAccels)
+                        dccData.modifyCustomShortcut(ddialog.keyId, ddialog.saveKeyName, ddialog.saveCmdName, ddialog.saveAccels);
                     }
-                    ddialog.close()
+                    ddialog.close();
                 }
             }
             Button {
@@ -172,16 +172,16 @@ D.DialogWindow {
                 enabled: commandEdit.text.length > 0 && nameEdit.text.length > 0 && !ddialog.nameExists
                 onClicked: {
                     if (edit.keys[0] === qsTr("None")) {
-                        edit.showAlertColor = true
+                        edit.showAlertColor = true;
                         return;
                     }
 
                     if (ddialog.keyId.length > 0)
-                        dccData.modifyCustomShortcut(ddialog.keyId, nameEdit.text, commandEdit.text, edit.accels)
+                        dccData.modifyCustomShortcut(ddialog.keyId, nameEdit.text, commandEdit.text, edit.accels);
                     else
-                        dccData.addCustomShortcut(nameEdit.text, commandEdit.text, edit.accels)
+                        dccData.addCustomShortcut(nameEdit.text, commandEdit.text, edit.accels);
 
-                    ddialog.close()
+                    ddialog.close();
                 }
             }
         }
@@ -189,33 +189,32 @@ D.DialogWindow {
         Connections {
             target: dccData
             function onRequestRestore() {
-                edit.keys = ddialog.saveKeys
-                conflictText.text = ""
+                edit.keys = ddialog.saveKeys;
+                conflictText.text = "";
                 // 重置名称验证状态
                 if (nameEdit.text.trim().length > 0) {
-                    ddialog.nameExists = dccData.isCustomShortcutNameExists(nameEdit.text.trim(), ddialog.keyId)
+                    ddialog.nameExists = dccData.isShortcutNameExists(nameEdit.text.trim(), ddialog.keyId);
                 } else {
-                    ddialog.nameExists = false
+                    ddialog.nameExists = false;
                 }
             }
             function onRequestClear() {
-                onRequestRestore()
+                onRequestRestore();
             }
             function onKeyConflicted(oldAccels, newAccels) {
-                edit.accels = newAccels // 冲突也可以覆盖
-                var actionText = ddialog.keyId.length > 0 ? qsTr("click Save to make this shortcut key effective") : qsTr("click Add to make this shortcut key effective")
-                conflictText.text = dccData.conflictText + ", " + actionText
+                edit.accels = newAccels; // 冲突也可以覆盖
+                var actionText = ddialog.keyId.length > 0 ? qsTr("click Save to make this shortcut key effective") : qsTr("click Add to make this shortcut key effective");
+                conflictText.text = dccData.conflictText + ", " + actionText;
             }
             function onKeyDone(accels) {
-                edit.keys = dccData.formatKeys(accels)
-                edit.accels = accels
-                conflictText.text = ""
+                edit.keys = dccData.formatKeys(accels);
+                edit.accels = accels;
+                conflictText.text = "";
             }
             function onKeyEvent(accels) {
-                edit.showAlertColor = false
-                edit.keys = dccData.formatKeys(accels)
+                edit.showAlertColor = false;
+                edit.keys = dccData.formatKeys(accels);
             }
         }
     }
 }
-    

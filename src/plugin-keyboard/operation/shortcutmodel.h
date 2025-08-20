@@ -1,6 +1,6 @@
-//SPDX-FileCopyrightText: 2018 - 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2024 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #ifndef SHORTCUTMODEL_H
 #define SHORTCUTMODEL_H
@@ -9,11 +9,13 @@
 
 #include <QAbstractListModel>
 #include <QObject>
+#include <QSet>
 #include <QSortFilterProxyModel>
 
 namespace dccV25 {
 
 class ShortcutItem;
+
 struct ShortcutInfo
 {
     QString accels;
@@ -33,15 +35,10 @@ struct ShortcutInfo
         , item(nullptr)
     {
     }
-    bool operator==(const ShortcutInfo &info) const
-    {
-        return id == info.id && type == info.type;
-    }
 
-    QString toString()
-    {
-        return name + accels + command + "_" + id + "_" +QString::number(type);
-    }
+    bool operator==(const ShortcutInfo &info) const { return id == info.id && type == info.type; }
+
+    QString toString() { return name + accels + command + "_" + id + "_" + QString::number(type); }
 };
 
 typedef QList<ShortcutInfo> ShortcutInfoList;
@@ -52,6 +49,7 @@ class ShortcutModel : public QObject
 public:
     explicit ShortcutModel(QObject *parent = nullptr);
     ~ShortcutModel();
+
     enum InfoType {
         System,
         Custom,
@@ -67,14 +65,14 @@ public:
     QList<ShortcutInfo *> assistiveToolsInfo() const;
     QList<ShortcutInfo *> customInfo() const;
     QList<ShortcutInfo *> infos() const;
-    inline int count() {
-        int c = m_systemInfos.count() +
-                m_windowInfos.count() +
-                m_workspaceInfos.count() +
-                m_assistiveToolsInfos.count() +
-                m_customInfos.count();
+
+    inline int count()
+    {
+        int c = m_systemInfos.count() + m_windowInfos.count() + m_workspaceInfos.count()
+                + m_assistiveToolsInfos.count() + m_customInfos.count();
         return c;
     }
+
     ShortcutInfo *shortcutAt(int index, int *corners = nullptr);
 
     void delInfo(ShortcutInfo *info);
@@ -82,12 +80,18 @@ public:
     ShortcutInfo *currentInfo() const;
     void setCurrentInfo(ShortcutInfo *currentInfo);
 
-    ShortcutInfo *findInfoIf(std::function<bool (ShortcutInfo *)> cb);
+    ShortcutInfo *findInfoIf(std::function<bool(ShortcutInfo *)> cb);
     ShortcutInfo *getInfo(const QString &shortcut);
 
     void setSearchResult(const QString &searchResult);
     bool searchResultContains(const QString &id);
     bool getWindowSwitch();
+
+    // 新增：获取所有系统快捷键名称列表
+    QStringList getSystemShortcutNames() const;
+
+    // 新增：检查指定名称是否在系统快捷键中存在
+    bool containsSystemShortcutName(const QString &name) const;
 
     static QStringList formatKeys(const QString &shortcut);
 Q_SIGNALS:
@@ -106,6 +110,8 @@ public Q_SLOTS:
     void onWindowSwitchChanged(bool value);
 
 private:
+    // 清理系统快捷键名称缓存
+    void invalidateSystemShortcutNamesCache() const;
     QString m_info;
     QList<ShortcutInfo *> m_infos;
     QList<ShortcutInfo *> m_systemInfos;
@@ -117,10 +123,14 @@ private:
     QList<ShortcutInfo *> m_windowSwitchStateInfos;
     ShortcutInfo *m_currentInfo = nullptr;
     bool m_windowSwitchState;
-    //dcc::display::DisplayModel m_dis;
+
+    // 系统快捷键名称缓存
+    mutable QSet<QString> m_systemNamesCache;
+    // dcc::display::DisplayModel m_dis;
 };
 
-class ShortcutListModel : public QAbstractListModel {
+class ShortcutListModel : public QAbstractListModel
+{
 public:
     explicit ShortcutListModel(QObject *parent = nullptr);
 
@@ -150,6 +160,6 @@ private:
     ShortcutModel *m_model = nullptr;
 };
 
-}
+} // namespace dccV25
 
 #endif // SHORTCUTMODEL_H

@@ -74,6 +74,12 @@ public Q_SLOTS:
     
     // 检查自定义快捷键名称是否已存在（排除指定ID）
     bool isCustomShortcutNameExists(const QString &name, const QString &excludeId = QString());
+    
+    // 检查系统快捷键名称是否已存在
+    bool isSystemShortcutNameExists(const QString &name);
+    
+    // 统一检查快捷键名称是否已存在（包含系统和自定义快捷键）
+    bool isShortcutNameExists(const QString &name, const QString &excludeId = QString());
 
 signals:
     void repeatIntervalChanged();

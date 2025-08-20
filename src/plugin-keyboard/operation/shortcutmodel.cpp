@@ -220,6 +220,9 @@ void ShortcutModel::onParseInfo(const QString &info)
     m_workspaceInfos.clear();
     m_assistiveToolsInfos.clear();
     m_customInfos.clear();
+    
+    // 清理系统快捷键名称缓存，因为数据即将更新
+    invalidateSystemShortcutNamesCache();
 
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
 
@@ -372,6 +375,10 @@ void ShortcutModel::onWindowSwitchChanged(bool value)
                 m_systemInfos.removeOne(m_windowSwitchStateInfos.at(i));
             }
         }
+        
+        // 系统快捷键列表发生变化，清理缓存
+        invalidateSystemShortcutNamesCache();
+        
         Q_EMIT windowSwitchChanged(m_windowSwitchState);
     }
 }
@@ -517,6 +524,52 @@ bool ShortcutModel::searchResultContains(const QString &id)
     });
 
     return res != m_infos.end();
+}
+
+QStringList ShortcutModel::getSystemShortcutNames() const
+{
+    QStringList names;
+    
+    // 合并所有系统相关的快捷键列表
+    QList<QList<ShortcutInfo *>> systemLists = {
+        m_systemInfos,
+        m_windowInfos, 
+        m_workspaceInfos,
+        m_assistiveToolsInfos
+    };
+    
+    for (const auto &list : systemLists) {
+        for (const auto *info : list) {
+            if (info && !info->name.trimmed().isEmpty()) {
+                names.append(info->name.trimmed());
+            }
+        }
+    }
+    
+    return names;
+}
+
+bool ShortcutModel::containsSystemShortcutName(const QString &name) const
+{
+    // 处理边界情况
+    if (name.trimmed().isEmpty()) {
+        return false;
+    }
+    
+    // 使用成员变量缓存提高查找效率
+    if (m_systemNamesCache.isEmpty()) {
+        // 构建缓存
+        const QStringList systemNames = getSystemShortcutNames();
+        m_systemNamesCache = QSet<QString>(systemNames.begin(), systemNames.end());
+    }
+    
+    return m_systemNamesCache.contains(name.trimmed());
+}
+
+void ShortcutModel::invalidateSystemShortcutNamesCache() const
+{
+    // 清空缓存，强制下次访问时重新构建
+    m_systemNamesCache.clear();
 }
 
 ShortcutListModel::ShortcutListModel(QObject *parent)
