@@ -31,11 +31,8 @@ D.ApplicationWindow {
             if (valid) {
                 return DS.Style.control.selectColor(control ? control.palette.window : undefined, Qt.rgba(1, 1, 1, 0.8), Qt.rgba(0.06, 0.06, 0.06, 0.8))
             }
-                return DS.Style.control.selectColor(undefined,
-                                                    DS.Style.behindWindowBlur.lightNoBlurColor,
-                                                    DS.Style.behindWindowBlur.darkNoBlurColor)
+            return DS.Style.control.selectColor(undefined, DS.Style.behindWindowBlur.lightNoBlurColor, DS.Style.behindWindowBlur.darkNoBlurColor)
         }
-
     }
     Shortcut {
         context: Qt.ApplicationShortcut
@@ -270,8 +267,8 @@ D.ApplicationWindow {
     Component.onCompleted: {
         root.width = DccApp.width
         root.height = DccApp.height
-        root.x = (Screen.width - root.width) / 2
-        root.y = (Screen.height - root.height) / 2
+        root.x = Screen.virtualX + (Screen.width - root.width) / 2
+        root.y = Screen.virtualY + (Screen.height - root.height) / 2
         DccApp.root.page = rootLayout
         centralView.contentItem = DccApp.root.getSectionItem(centralView)
     }
