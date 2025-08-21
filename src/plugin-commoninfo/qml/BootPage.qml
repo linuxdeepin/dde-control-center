@@ -187,9 +187,9 @@ DccObject {
                             radius: 8
                             color: {
                                 if (model.checkStatus) {
-                                    return "#1AFFFFFF"
+                                    return "#34FFFFFF"
                                 } else if (isHovered) {
-                                    return "#0DFFFFFF"
+                                    return "#1AFFFFFF"
                                 } else {
                                     return "transparent"
                                 }
@@ -233,13 +233,6 @@ DccObject {
                                     parent.isHovered = false
                                 }
                             }
-                        }
-                        GaussianBlur {
-                            visible: true
-                            anchors.fill: parent
-                            source: backgru
-                            radius: 50
-                            samples: 30
                         }
                     }
                 }
