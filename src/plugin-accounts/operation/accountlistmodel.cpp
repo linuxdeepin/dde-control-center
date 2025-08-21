@@ -99,6 +99,7 @@ GroupListModel::GroupListModel(const QString &id, QObject *parent)
             beginInsertRows(QModelIndex(), index, index);
             m_groups << "";
             endInsertRows();
+            Q_EMIT groupsUpdated();
         });
         connect(controller, &AccountsController::requestClearEmptyGroup, this, [this, controller](const QString &userId) {
             if (userId != m_userId)

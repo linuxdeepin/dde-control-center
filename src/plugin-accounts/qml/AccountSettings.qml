@@ -782,17 +782,56 @@ DccObject {
             id: groupview
             property int lrMargin: DccUtils.getMargin(width)
             property int conY: 0
+            property bool blockInitialFocus: true
+            property bool suppressAutoFocusFirstOnFocus: false
+            property bool focusNewlyCreatedItem: false
             spacing: 0
             currentIndex: -1
-            activeFocusOnTab: false
-            keyNavigationEnabled: false
+            activeFocusOnTab: true
+            keyNavigationEnabled: true
             clip: false
+
+            onActiveFocusChanged: {
+                if (activeFocus && count > 0) {
+                    if (focusNewlyCreatedItem) {
+                        return
+                    }
+                    if (blockInitialFocus) {
+                        if (model && model.isCreatingGroup) {
+                            blockInitialFocus = false
+                            return
+                        }
+                        blockInitialFocus = false
+                        focus = false
+                        return
+                    }
+                    if (suppressAutoFocusFirstOnFocus) {
+                        suppressAutoFocusFirstOnFocus = false
+                        return
+                    }
+                    currentIndex = 0
+                    positionViewAtIndex(0, ListView.Beginning)
+                }
+            }
+
+            onCurrentIndexChanged: {
+                if (activeFocus && currentItem) {
+                    currentItem.forceActiveFocus()
+                }
+            }
 
             function qmlListModelUpdata() {
                 if (model && model.isCreatingGroup) {
                     model.setCreatingGroup(false)
                     Qt.callLater(function () {
                         groupview.positionViewAtEnd()
+                        if (groupview.focusNewlyCreatedItem && groupview.count > 0) {
+                            groupview.currentIndex = groupview.count - 1
+                            if (groupview.currentItem && groupview.currentItem.forceActiveFocus) {
+                                groupview.currentItem.forceActiveFocus()
+                            }
+                            groupview.focusNewlyCreatedItem = false
+                        }
                     })
                 } else {
                     groupview.contentY = conY
@@ -847,11 +886,15 @@ DccObject {
                         text: groupSettings.isEditing ? qsTr("done") : qsTr("edit")
                         font.pointSize: 12
                         background: null
+                        focusPolicy: Qt.NoFocus
                         textColor: Palette {
                             normal {
                                 common: DTK.makeColor(Color.Highlight)
                                 crystal: DTK.makeColor(Color.Highlight)
                             }
+                        }
+                        onPressed: {
+                            groupview.suppressAutoFocusFirstOnFocus = true
                         }
                         onCheckedChanged: {
                             groupSettings.isEditing = button.checked
@@ -868,6 +911,34 @@ DccObject {
                 enabled: model.groupEnabled
                 clip: false
                 z: editLabel.showAlert ? 100 : 1
+
+                focusPolicy: Qt.StrongFocus
+                activeFocusOnTab: false
+
+                Keys.onPressed: function(event) {
+                    if (editLabel.readOnly && (event.key === Qt.Key_Tab || event.key === Qt.Key_Backtab)) {
+                        groupview.focus = false
+                        groupview.currentIndex = -1
+                        event.accepted = true
+                        return
+                    }
+                    if (!editLabel.readOnly) {
+                        return
+                    }
+                    if (event.key === Qt.Key_Up) {
+                        if (groupview.currentIndex > 0) {
+                            groupview.currentIndex = groupview.currentIndex - 1
+                            groupview.positionViewAtIndex(groupview.currentIndex, ListView.Contain)
+                        }
+                        event.accepted = true
+                    } else if (event.key === Qt.Key_Down) {
+                        if (groupview.currentIndex < groupview.count - 1) {
+                            groupview.currentIndex = groupview.currentIndex + 1
+                            groupview.positionViewAtIndex(groupview.currentIndex, ListView.Contain)
+                        }
+                        event.accepted = true
+                    }
+                }
 
                 property var editTextWidth: itemDelegate.width - editButton.width - rightPadding - 65
                 background: DccItemBackground {
@@ -927,6 +998,7 @@ DccObject {
                         
                         onReadOnlyChanged: {
                             if (!readOnly) {
+                                groupview.suppressAutoFocusFirstOnFocus = true
                                 text = completeText
                                 lastValidText = model.display
                                 originalGroupName = model.display
@@ -994,6 +1066,7 @@ DccObject {
                         }
                         
                         onFinished: function () {
+                            var wasNewGroup = (model.display.length < 1)
                             if (text.length < 1) {
                                 if (model.display.length < 1) {
                                     dccData.requestClearEmptyGroup(settings.userId)
@@ -1028,6 +1101,12 @@ DccObject {
                             var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
                             text = elidedText
                             readOnly = true
+
+                            // 当通过回车结束新建分组的编辑时，清空 ListView 的焦点与选中
+                            if (wasNewGroup) {
+                                groupview.currentIndex = -1
+                                groupview.focus = false
+                            }
                         }
                         onFocusChanged: {
                             if (focus || text.length > 0 || editLabel.readOnly)
@@ -1123,7 +1202,10 @@ DccObject {
                         text: qsTr("Add group")
                         implicitWidth: implicitContentWidth + 20
                         implicitHeight: 30
+                        focusPolicy: Qt.NoFocus
                         onClicked: {
+                            groupview.suppressAutoFocusFirstOnFocus = true
+                            groupview.focusNewlyCreatedItem = true
                             dccData.requestCreateGroup(settings.userId)
                             groupview.positionViewAtEnd()
                         }
