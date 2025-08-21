@@ -1127,7 +1127,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Unbinding</source>
-        <translation>解绑</translation>
+        <translation>解 绑</translation>
     </message>
     <message>
         <source>Link</source>
@@ -1234,11 +1234,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation>取消</translation>
+        <translation>取 消</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation>清除</translation>
+        <translation>清 除</translation>
     </message>
 </context>
 <context>
