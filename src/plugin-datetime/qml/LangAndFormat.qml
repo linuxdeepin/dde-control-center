@@ -174,16 +174,16 @@ DccObject {
                             active: itemDelegate.isCurrentLang && !dccObj.enabled 
                                 && dccData.langState & langAndFormat.localeStateSetLang
                             sourceComponent: BusyIndicator {
-                                running: true
-                                implicitWidth: 36
-                                implicitHeight: 36
+                                running: visible
+                                implicitWidth: 20
+                                implicitHeight: 20
                             }
                             onLoaded: {
                                 item.parent = itemDelegate
                                 item.anchors.right = itemDelegate.right
                                 item.anchors.rightMargin = 10
                                 item.anchors.top = itemDelegate.top
-                                item.anchors.topMargin = (itemDelegate.height - removeButton.height) / 2
+                                item.anchors.topMargin = (itemDelegate.height - implicitHeight) / 2
                             }
                         }
 
@@ -364,9 +364,10 @@ DccObject {
                 visible: regionAndFormat.localeGenRunning
                 Layout.rightMargin: 10
                 BusyIndicator {
-                    running: true
-                    implicitWidth: 36
-                    implicitHeight: 36
+                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                    running: visible
+                    implicitWidth: 20
+                    implicitHeight: 20
                 }
             }
 
