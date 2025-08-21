@@ -123,8 +123,10 @@ Rectangle {
                 background: DccItemBackground {
                     separatorVisible: model.isEnd !== undefined ? model.isEnd : false
                     bgMargins: 0
+                    backgroundType: DccObject.Hover
                 }
             }
+            ScrollBar.vertical: ScrollBar {}
         }
         enter: Transition {
             NumberAnimation {
