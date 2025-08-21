@@ -105,16 +105,44 @@ DccObject {
                         icon.name: dccObj.icon
                         checkable: false
 
-                        Label {
-                            id: langName
-                            text: dccObj.displayName
-                            elide: Text.ElideRight
-                            font: DTK.fontManager.t6
+                        Loader {
+                            id: langNameLoader
+                            property string text: dccObj.displayName
+                            property bool shouldSplit: text.split("-").length === 2
                             anchors {
                                 left: itemDelegate.left
                                 leftMargin: 12
                                 top: itemDelegate.top
-                                topMargin: (itemDelegate.height - langName.height) / 2
+                                topMargin: (itemDelegate.height - height) / 2
+                            }
+                            sourceComponent: shouldSplit ? splitComponent : singleComponent
+
+                            Component {
+                                id: singleComponent
+                                Label {
+                                    text: langNameLoader.text
+                                    elide: Text.ElideRight
+                                    font: DTK.fontManager.t6
+                                }
+                            }
+
+                            Component {
+                                id: splitComponent
+                                RowLayout {
+                                    spacing: 0
+                                    Label {
+                                        text: langNameLoader.text.split("-")[0] || ""
+                                        font: DTK.fontManager.t6
+                                    }
+                                    Label {
+                                        text: "-"
+                                        font: DTK.fontManager.t6
+                                    }
+                                    Label {
+                                        text: langNameLoader.text.split("-")[1] || ""
+                                        font: DTK.fontManager.t6
+                                    }
+                                }
                             }
                         }
 
