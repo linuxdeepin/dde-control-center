@@ -3,6 +3,7 @@
 
 import QtQuick
 import QtQuick.Controls 2.0
+import QtQuick.Layouts 1.15
 
 Item {
     id: item
@@ -13,30 +14,33 @@ Item {
     implicitWidth: item.comboModel.length > 1 ? 280 : 80
     signal comboBoxActivated(int index)
 
-    ComboBox {
-        id: comboBox
-        visible: item.comboModel.length > 1
-        flat: true
-        implicitWidth: 280
-        model: item.comboModel
-        currentIndex: comboCurrentIndex
-        hoverEnabled: true
-        onActivated: function (index) {
-            item.comboBoxActivated(index)
+    RowLayout {
+        anchors.fill: parent
+        
+        Item {
+            Layout.fillWidth: true
         }
-        anchors {
-            verticalCenter: parent.verticalCenter
+        
+        ComboBox {
+            id: comboBox
+            visible: item.comboModel.length > 1
+            flat: true
+            implicitWidth: 280
+            model: item.comboModel
+            currentIndex: comboCurrentIndex
+            hoverEnabled: true
+            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+            onActivated: function (index) {
+                item.comboBoxActivated(index)
+            }
         }
-    }
 
-    Label {
-        id: label
-        visible: item.comboModel.length === 1
-        text: item.comboModel[0]
-        anchors {
-            verticalCenter: parent.verticalCenter
-            right: parent.right
-            rightMargin: 10
+        Label {
+            id: label
+            visible: item.comboModel.length === 1
+            text: item.comboModel[0]
+            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+            Layout.rightMargin: 10
         }
     }
 }
