@@ -140,7 +140,7 @@ D.DialogWindow {
             id: conflictText
             Layout.rightMargin: 20
             Layout.fillWidth: true
-            elide: Text.ElideRight
+            wrapMode: Text.WordWrap
             clip: true
             font: D.DTK.fontManager.t6
             visible: text.length > 0
@@ -148,7 +148,7 @@ D.DialogWindow {
 
         RowLayout {
             Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
-            Layout.topMargin: 20
+            Layout.topMargin: 0
             spacing: 10
             Button {
                 Layout.bottomMargin: 14
