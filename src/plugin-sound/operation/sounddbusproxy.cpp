@@ -355,6 +355,6 @@ void SoundDBusProxy::setAudioMono(bool audioMono)
         }
         Q_EMIT AudioMonoChanged(this->audioMono());
         watcher->deleteLater();
-        SetBalanceSink(oldBalance,true);
+        SetBalanceSink(oldBalance,false);
     });
 }
