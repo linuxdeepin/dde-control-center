@@ -11,7 +11,6 @@ import QtQuick.Window 2.15
 import Qt.labs.platform 1.1
 import org.deepin.dtk.style 1.0 as DS
 
-
 DccObject {
     DccObject {
         name: "developTitle"
@@ -125,12 +124,16 @@ DccObject {
 
                     property real currentStackIndex: 0
 
+                    property bool showSuccess: false
+
                     onClosing: function(close) {
                         close.accepted = true
                     }
 
                     ColumnLayout {
+                        visible: !developDlg.showSuccess
                         Label {
+                            visible: !developDlg.showSuccess
                             font: D.DTK.fontManager.t5
                             Layout.alignment: Qt.AlignHCenter
                             text: qsTr("Root Access")
@@ -138,6 +141,7 @@ DccObject {
 
                         // 单选按钮用于切换页面
                         RowLayout {
+                            visible: !developDlg.showSuccess
                             spacing: 20
                             Layout.alignment: Qt.AlignHCenter
                             RadioButton {
@@ -171,6 +175,7 @@ DccObject {
 
                         // StackView 用于显示不同页面
                         StackView {
+                            visible: !developDlg.showSuccess
                             id: stackView
                             width: 340
                             height: 180
@@ -178,6 +183,7 @@ DccObject {
                         }
 
                         D.RecommandButton {
+                            visible: !developDlg.showSuccess
                             id: confirmBtn
                             text: developDlg.currentStackIndex === 1 ? qsTr("Import Certificate") : (dccData.mode().isLogin ? qsTr("Request Root Access") : qsTr("Login UOS ID"))
                             font: D.DTK.fontManager.t7
@@ -197,7 +203,6 @@ DccObject {
                                 } else {
                                     dccData.work().login()
                                 }
-
                             }
                         }
                         FileDialog {
@@ -278,81 +283,105 @@ DccObject {
                         Component {
                             id: page2Component
                             ColumnLayout {
-                                spacing: 2
-                                Rectangle {
-                                    width: parent.width
-                                    height: 40
-                                    color: D.DTK.themeType === D.ApplicationHelper.LightType ?
-                                        Qt.rgba(0, 0, 0, 0.05) : Qt.rgba(1, 1, 1, 0.05)
-                                    radius: 6
-
+                                id: offlinePanel
+                                spacing: 1
+                                property int radius: 6
+                                
+                                Control {
                                     Layout.fillWidth: true
-
-                                    RowLayout {
-                                        height: parent.height
-                                        width: parent.width
-
-                                        Label {
-                                            leftPadding: 10
-                                            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                                            text: qsTr("1.Export PC Info")
-                                            Layout.fillWidth: true
+                                    height: 42
+                                    padding: 0
+                                    property bool checked: false
+                                    property bool cascadeSelected: false
+                                    property int corners: D.RoundRectangle.TopCorner
+                                    background: DccItemBackground {
+                                        backgroundType: DccObject.Normal
+                                        radius: offlinePanel.radius
+                                        shadowVisible: false
+                                        backgroundColor: D.Palette {
+                                            normal: Qt.rgba(0, 0, 0, 0.05)
+                                            normalDark: Qt.rgba(247, 247, 247, 0.05)
                                         }
-
+                                    }
+                                    contentItem: RowLayout {
+                                        Layout.leftMargin: 10
+                                        Layout.rightMargin: 10
+                                        Label {
+                                            Layout.fillWidth: true
+                                            Layout.leftMargin: 6
+                                            text: qsTr("1.Export PC Info")
+                                            font: D.DTK.fontManager.t6
+                                            elide: Text.ElideMiddle
+                                            verticalAlignment: Text.AlignVCenter
+                                        }
                                         Button {
                                             id: exportBtn
                                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                                            implicitWidth: 40
+                                            Layout.rightMargin: 6
+                                            implicitWidth: 60
                                             implicitHeight: 30
-                                            Layout.rightMargin: 10
                                             text: qsTr("Export")
-
-                                            onClicked: {
-                                                exportFileDlg.open()
-                                            }
+                                            onClicked: exportFileDlg.open()
                                         }
                                     }
                                 }
 
-                                Label {
-                                    leftPadding: 10
-                                    text: qsTr("2.please go to <a href=\"http://www.chinauos.com/developMode\">http：//www.chinauos.com/developMode</a> to Download offline certificate.")
-                                    wrapMode: Text.WordWrap
-                                    topPadding: 5
-                                    bottomPadding: 5
-                                    // 超链接点击事件
-                                    onLinkActivated: function (url) {
-                                        console.log("点击的链接是: " + url)
-                                        Qt.openUrlExternally(url) // 使用默认浏览器打开链接
-                                    }
-
+                                Control {
                                     Layout.fillWidth: true
-
-                                    background: Rectangle {
-                                        color: D.DTK.themeType === D.ApplicationHelper.LightType ?
-                                            Qt.rgba(0, 0, 0, 0.05) : Qt.rgba(1, 1, 1, 0.05)
-                                        radius: 6
+                                    padding: 0
+                                    implicitHeight: 55
+                                    property bool checked: false
+                                    property bool cascadeSelected: false
+                                    property int corners: 0
+                                    background: DccItemBackground {
+                                        backgroundType: DccObject.Normal
+                                        radius: offlinePanel.radius
+                                        shadowVisible: false
+                                        backgroundColor: D.Palette {
+                                            normal: Qt.rgba(0, 0, 0, 0.05)
+                                            normalDark: Qt.rgba(247, 247, 247, 0.05)
+                                        }
+                                    }
+                                    contentItem: ColumnLayout {
+                                        Label {
+                                            Layout.fillWidth: true
+                                            Layout.leftMargin: 6
+                                            Layout.rightMargin: 10
+                                            text: qsTr("2.please go to <a href=\"http://www.chinauos.com/developMode\">http：//www.chinauos.com/developMode</a> to Download offline certificate.")
+                                            textFormat: Text.RichText
+                                            wrapMode: Text.WordWrap
+                                            font: D.DTK.fontManager.t6
+                                            onLinkActivated: Qt.openUrlExternally(url)
+                                        }
                                     }
                                 }
 
-                                Label {
-                                    verticalAlignment: Text.AlignVCenter
-                                    leftPadding: 10
-                                    topPadding: 5
-                                    bottomPadding: 5
-                                    text: qsTr("3.Import Certificate")
-                                    font: D.DTK.fontManager.t6
-                                    // 超链接点击事件
-                                    onLinkActivated: function (url) {
-                                        Qt.openUrlExternally(url) // 使用默认浏览器打开链接
-                                    }
-
+                                Control {
                                     Layout.fillWidth: true
-
-                                    background: Rectangle {
-                                        color: D.DTK.themeType === D.ApplicationHelper.LightType ?
-                                            Qt.rgba(0, 0, 0, 0.05) : Qt.rgba(1, 1, 1, 0.05)
-                                        radius: 6 // 可选：设置圆角
+                                    height: 40
+                                    padding: 0
+                                    property bool checked: false
+                                    property bool cascadeSelected: false
+                                    property int corners: D.RoundRectangle.BottomCorner
+                                    background: DccItemBackground {
+                                        backgroundType: DccObject.Normal
+                                        radius: offlinePanel.radius
+                                        shadowVisible: false
+                                        backgroundColor: D.Palette {
+                                            normal: Qt.rgba(0, 0, 0, 0.05)
+                                            normalDark: Qt.rgba(247, 247, 247, 0.05)
+                                        }
+                                    }
+                                    contentItem: RowLayout {
+                                        Layout.leftMargin: 10
+                                        Layout.rightMargin: 10
+                                        Label {
+                                            Layout.fillWidth: true
+                                            Layout.leftMargin: 6
+                                            text: qsTr("3.Import Certificate")
+                                            font: D.DTK.fontManager.t6
+                                            verticalAlignment: Text.AlignVCenter
+                                        }
                                     }
                                 }
 
@@ -360,6 +389,55 @@ DccObject {
                                     Layout.fillHeight: true
                                 }
                             }
+                        }
+                    }
+
+                        ColumnLayout {
+                            id: successView
+                            visible: developDlg.showSuccess
+                            anchors.fill: parent
+                            spacing: 10
+                            Label {
+                                font: D.DTK.fontManager.t5
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.bottomMargin: 24
+                                text: qsTr("Root Access")
+                            }
+                            Rectangle {
+                                color: "transparent"
+                                width: 128
+                                height: 128
+                                Layout.alignment: Qt.AlignHCenter
+                                Image { source: "common_tick"; width: 128; height: 128; z: 2; anchors.centerIn: parent }
+                                Image { source: "common_ok"; z: 1; anchors.centerIn: parent; width: 128; height: 128 }
+                                Image { source: "common_inner_shadow"; z: 0; anchors.centerIn: parent; width: 128; height: 128 }
+                            }
+                            Label {
+                                Layout.alignment: Qt.AlignHCenter
+                                horizontalAlignment: Qt.AlignHCenter
+                                text: qsTr("You have entered developer mode")
+                                font: D.DTK.fontManager.t8
+                            }
+                            D.RecommandButton {
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignHCenter
+                                Layout.bottomMargin: 6
+                                text: qsTr("OK")
+                                font: D.DTK.fontManager.t7
+                                onClicked: developDlg.close()
+                            }
+                        }
+                }
+                Connections {
+                    target: dccData.mode()
+                    onDeveloperModeStateChanged: function(enable) {
+                        if (enable && developDlg.currentStackIndex === 1) {
+                            developDlg.showSuccess = true
+                        }
+                    }
+                    onIsDeveloperModeChanged: {
+                        if (dccData.mode().isDeveloperMode && developDlg.currentStackIndex === 1) {
+                            developDlg.showSuccess = true
                         }
                     }
                 }
