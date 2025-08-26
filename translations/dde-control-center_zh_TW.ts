@@ -793,11 +793,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>通用</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>滾動速度</translation>
     </message>
 </context>
 <context>
@@ -1435,11 +1435,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation>您已進入開發者模式</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>確定</translation>
     </message>
 </context>
 <context>
@@ -1582,11 +1582,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>三指向上</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>三指向下</translation>
     </message>
     <message>
         <source>Three-finger left</source>
@@ -1594,31 +1594,31 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"/>
+        <translation>三指向右</translation>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>三指點選</translation>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"/>
+        <translation>四指向上</translation>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"/>
+        <translation>四指向下</translation>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"/>
+        <translation>四指向左</translation>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"/>
+        <translation>四指向右</translation>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>四指點選</translation>
     </message>
 </context>
 <context>
@@ -1722,7 +1722,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>區域格式</translation>
     </message>
 </context>
 <context>
@@ -2349,7 +2349,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>區域格式</translation>
     </message>
 </context>
 <context>
@@ -2722,11 +2722,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"/>
+        <translation>單聲道音訊</translation>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"/>
+        <translation>插拔管理</translation>
     </message>
 </context>
 <context>
@@ -2922,7 +2922,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"/>
+        <translation>手勢</translation>
     </message>
 </context>
 <context>
@@ -3288,7 +3288,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>系統語言、區域格式</translation>
     </message>
 </context>
 <context>
@@ -4177,7 +4177,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation>裝置管理</translation>
     </message>
 </context>
 <context>
@@ -4298,7 +4298,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"/>
+        <translation>模式</translation>
     </message>
 </context>
 </TS>
