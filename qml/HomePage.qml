@@ -179,14 +179,12 @@ Control {
                         }
                     }
                 }
-                Rectangle {
+                D.DciIcon {
                     Layout.alignment: Qt.AlignRight
                     Layout.rightMargin: -2
                     visible: model.item.badge !== 0
-                    height: 16
-                    width: 16
-                    radius: 8
-                    color: "red"
+                    name: "reddot"
+                    sourceSize:  Qt.size(16, 16)
                 }
             }
             onClicked: {

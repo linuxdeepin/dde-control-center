@@ -104,14 +104,10 @@ Item {
                         Layout.fillWidth: true
                         text: model.display
                     }
-                    Rectangle {
-                        Layout.alignment: Qt.AlignRight
-                        Layout.rightMargin: 10
+                    D.DciIcon {
                         visible: model.item.badge !== 0
-                        height: 16
-                        width: 16
-                        radius: 8
-                        color: "red"
+                        name: "reddot"
+                        sourceSize:  Qt.size(16, 16)
                     }
                 }
                 hoverEnabled: true
