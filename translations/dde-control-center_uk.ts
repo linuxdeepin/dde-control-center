@@ -794,11 +794,11 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Загальне</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Швидкість гортання</translation>
     </message>
 </context>
 <context>
@@ -1436,11 +1436,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Ви увійшли до режиму розробника</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>Гаразд</translation>
     </message>
 </context>
 <context>
@@ -1583,43 +1583,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Трьома пальцями вгору</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Трьома пальцями вниз</translation>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Трьома пальцями ліворуч</translation>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Трьома пальцями праворуч</translation>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Торкання трьома пальцями</translation>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Чотирма пальцями вгору</translation>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Чотирма пальцями вниз</translation>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Чотирма пальцями ліворуч</translation>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Чотирма пальцями праворуч</translation>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Торкання чотирма пальцями</translation>
     </message>
 </context>
 <context>
@@ -1723,7 +1723,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Регіональний формат</translation>
     </message>
 </context>
 <context>
@@ -2350,7 +2350,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Регіональний формат</translation>
     </message>
 </context>
 <context>
@@ -2723,11 +2723,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"/>
+        <translation>Монозвук</translation>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"/>
+        <translation>Автопауза</translation>
     </message>
 </context>
 <context>
@@ -2923,7 +2923,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Жести</translation>
     </message>
 </context>
 <context>
@@ -3289,7 +3289,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Мова системи, формат регіону</translation>
     </message>
 </context>
 <context>
@@ -4178,7 +4178,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation>Керування пристроями</translation>
     </message>
 </context>
 <context>
@@ -4299,7 +4299,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"/>
+        <translation>Модель</translation>
     </message>
 </context>
 </TS>
