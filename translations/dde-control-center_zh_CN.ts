@@ -4288,7 +4288,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation>压感</translation>
+        <translation>压杆力度</translation>
     </message>
     <message>
         <source>Light</source>
