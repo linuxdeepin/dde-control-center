@@ -11,7 +11,7 @@ Item {
     property int comboCurrentIndex: -1
     // property string textRole
     implicitHeight: 30
-    implicitWidth: item.comboModel.length > 1 ? 280 : 80
+    implicitWidth: 280
     signal comboBoxActivated(int index)
 
     RowLayout {

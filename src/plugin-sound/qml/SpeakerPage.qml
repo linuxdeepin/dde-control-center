@@ -232,7 +232,6 @@ DccObject {
                 currentIndex: dccData.model().outPutPortComboIndex
                 model: dccData.model().soundOutputDeviceModel()
                 enabled: dccData.model().outPutPortComboEnable
-                implicitWidth: 300
 
                 contentItem: RowLayout {
                     spacing: DS.Style.comboBox.spacing
@@ -336,7 +335,6 @@ DccObject {
                 model: dccData.model().bluetoothModeOpts
                 currentIndex: count > 0 ? Math.max(0, indexOfValue(dccData.model().currentBluetoothAudioMode)) : 0
                 property bool isInitialized: false
-                implicitWidth: 300
                 
                 Connections {
                     target: dccData.model()

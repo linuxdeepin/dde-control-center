@@ -95,7 +95,6 @@ DccObject {
                 flat: true
                 textRole: "text"
                 model: dccData.appearanceSwitchModel
-                implicitWidth: 180
                 currentIndex: {
                     for (var i = 0; i < model.length; ++i) {
                         if (model[i].value === dccData.currentAppearance) {

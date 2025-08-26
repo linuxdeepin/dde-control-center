@@ -186,7 +186,6 @@ DccObject {
                 textRole: "text"
                 enableRole: "enable"
                 visibleRole: "visible"
-                width: 100
                 model: dccData.batteryLidModel
                 currentIndex: model.indexOfKey(dccData.model.batteryLidClosedAction)
 
@@ -205,7 +204,6 @@ DccObject {
                 textRole: "text"
                 enableRole: "enable"
                 visibleRole: "visible"
-                width: 100
                 model: dccData.batteryPressModel
                 currentIndex: model.indexOfKey(dccData.model.batteryPressPowerBtnAction)
 
@@ -237,7 +235,6 @@ DccObject {
             weight: 1
             pageType: DccObject.Editor
             page: D.ComboBox {
-                width: 100
                 textRole: "text"
                 flat: true
                 currentIndex: dccData.indexByValueOnModel(model, dccData.model.lowPowerNotifyThreshold)

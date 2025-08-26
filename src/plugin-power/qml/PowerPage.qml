@@ -186,7 +186,6 @@ DccObject {
                 textRole: "text"
                 enableRole: "enable"
                 visibleRole: "visible"
-                width: 100
                 model: dccData.powerLidModel
                 currentIndex: model.indexOfKey(dccData.model.linePowerLidClosedAction)
 
@@ -206,7 +205,6 @@ DccObject {
                 textRole: "text"
                 enableRole: "enable"
                 visibleRole: "visible"
-                width: 100
                 model: dccData.powerPressModel
                 currentIndex: model.indexOfKey(dccData.model.linePowerPressPowerBtnAction)
 

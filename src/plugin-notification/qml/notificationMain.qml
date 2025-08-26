@@ -107,7 +107,6 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.ComboBox {
-            implicitWidth: 120
             model: ["1", "2", "3"]
             flat: true
             currentIndex: dccData.sysItemModel.bubbleCount - 1
