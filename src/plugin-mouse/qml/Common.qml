@@ -14,7 +14,7 @@ DccObject {
     DccObject {
         name: "Common"
         parentName: "MouseAndTouchpadCommon"
-        displayName: qsTr("Common")
+        displayName: qsTr("General")
         weight: 10
         pageType: DccObject.Item
         page: ColumnLayout {
@@ -29,7 +29,7 @@ DccObject {
     DccObject {
         name: "ScrollSpeed"
         parentName: "MouseAndTouchpadCommon"
-        displayName: qsTr("Scroll Speed")
+        displayName: qsTr("Scrolling Speed")
         backgroundType: DccObject.Normal
         weight: 20
         pageType: DccObject.Item

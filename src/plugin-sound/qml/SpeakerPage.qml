@@ -188,7 +188,7 @@ DccObject {
         DccObject {
             name: "monoAudio"
             parentName: "sound/outPut/outputGroup"
-            displayName: qsTr("Mono audio")
+            displayName: qsTr("Mono Audio")
             description: qsTr("Merge left and right channels into a single channel")
             weight: 30
             pageType: DccObject.Editor
@@ -204,7 +204,7 @@ DccObject {
         DccObject {
             name: "plugAndUnplugManagement"
             parentName: "sound/outPut/outputGroup"
-            displayName: qsTr("Auto pause")
+            displayName: qsTr("Auto Pause")
             description: qsTr("Whether the audio will be automatically paused when the current audio device is unplugged")
             weight: 50
             pageType: DccObject.Editor

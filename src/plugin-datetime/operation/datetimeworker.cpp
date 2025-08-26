@@ -152,7 +152,7 @@ void DatetimeWorker::set24HourType(bool state)
 #ifndef DCC_DISABLE_TIMEZONE
 void DatetimeWorker::setTimezone(const QString &timezone)
 {
-    m_timedateInter->SetTimezone(timezone);
+    m_timedateInter->SetTimezone(timezone, tr("Authentication is required to set the system timezone"));
 }
 
 void DatetimeWorker::removeUserTimeZone(const QString &zone)

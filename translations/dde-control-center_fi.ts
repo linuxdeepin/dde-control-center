@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fi">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fi">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -226,7 +228,7 @@ Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asia
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
@@ -776,10 +778,6 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
         <translation>Numerolukon kehote</translation>
     </message>
     <message>
-        <source>Scroll Speed</source>
-        <translation>Vieritysnopeus</translation>
-    </message>
-    <message>
         <source>Double Click Speed</source>
         <translation>Napautuksen nopeus</translation>
     </message>
@@ -794,6 +792,14 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <message>
         <source>Enable Keyboard</source>
         <translation>Näppäimistö käyttöön</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished">Yleinen</translation>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1089,6 +1095,10 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>NTP-palvelimen muuttamiseen tarvitaan tunnistautuminen</translation>
+    </message>
+    <message>
+        <source>Authentication is required to set the system timezone</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1424,6 +1434,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
         <translation>Jos haluat asentaa ja käyttää allekirjoittamattomia sovelluksia, siirry Turvakeskukseen ja muuta asetuksia.</translation>
     </message>
+    <message>
+        <source>You have entered developer mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
@@ -1564,32 +1582,44 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>GestureModel</name>
     <message>
-        <source>Three-finger</source>
-        <translation>Kolmen sormen</translation>
+        <source>Three-finger up</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Four-finger</source>
-        <translation>Neljän sormen</translation>
+        <source>Three-finger down</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Up</source>
-        <translation>Ylös</translation>
+        <source>Three-finger left</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Down</source>
-        <translation>Alas</translation>
+        <source>Three-finger right</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Left</source>
-        <translation>Vasen</translation>
+        <source>Three-finger tap</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Right</source>
-        <translation>Oikea</translation>
+        <source>Four-finger up</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>tap</source>
-        <translation>napauta</translation>
+        <source>Four-finger down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger tap</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1688,12 +1718,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Käyttöjärjestelmä ja sovellukset voivat tarjota sinulle paikallista sisältöä maasi ja alueesi perusteella</translation>
     </message>
     <message>
-        <source>Region and format</source>
-        <translation>Maa ja aikamuoto</translation>
-    </message>
-    <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
         <translation>Käyttöjärjestelmä ja sovellukset voivat asettaa päivämäärän alueellisten muotojen perusteella</translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2271,10 +2301,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>RegionFormatDialog</name>
     <message>
-        <source>Regions and formats</source>
-        <translation>Maat ja aikamuodot</translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation>Haku</translation>
     </message>
@@ -2321,6 +2347,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Save</source>
         <translation>Tallenna</translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2680,16 +2710,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Tasapaino vasen ja oikea</translation>
     </message>
     <message>
-        <source>Mono audio</source>
-        <translation>Mono ääni</translation>
-    </message>
-    <message>
         <source>Merge left and right channels into a single channel</source>
         <translation>Yhdistä vasen ja oikea kanava yhdeksi kanavaksi</translation>
-    </message>
-    <message>
-        <source>Auto pause</source>
-        <translation>Autom. tauko</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
@@ -2698,6 +2720,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Output Devices</source>
         <translation>Ulostulon laitteet</translation>
+    </message>
+    <message>
+        <source>Mono Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Pause</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2884,16 +2914,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Tasainen vieritys</translation>
     </message>
     <message>
-        <source>Gesture</source>
-        <translation>Ele</translation>
-    </message>
-    <message>
         <source>Three-finger gestures</source>
         <translation>Kolmen sormen ele</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
         <translation>Neljän sormen ele</translation>
+    </message>
+    <message>
+        <source>Gestures</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3258,8 +3288,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Kieli ja maa</translation>
     </message>
     <message>
-        <source>System language, region format</source>
-        <translation>Tietokoneen kieli, aikamuoto</translation>
+        <source>System language, regional formats</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4147,8 +4177,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Käytä/poista äänilaite käytöstä</translation>
     </message>
     <message>
-        <source>Devices</source>
-        <translation>Laitteet</translation>
+        <source>Devices Management</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4248,10 +4278,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>wacom</translation>
     </message>
     <message>
-        <source>Wacom Mode</source>
-        <translation>Wacom</translation>
-    </message>
-    <message>
         <source>Pen Mode</source>
         <translation>Kynä</translation>
     </message>
@@ -4270,6 +4296,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Heavy</source>
         <translation>Vahva</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

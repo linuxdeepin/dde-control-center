@@ -62,7 +62,7 @@ DccObject {
     DccObject {
         name: "deviceManager"
         parentName: "sound"
-        displayName: qsTr("Devices")
+        displayName: qsTr("Devices Management")
         description: qsTr("Enable/disable audio devices")
         icon: "equipment_management"
         visible: dccData.model().inPutPortCount !== 0 || dccData.model().outPutCount !== 0

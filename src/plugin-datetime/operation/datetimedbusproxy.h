@@ -165,7 +165,7 @@ public Q_SLOTS:
     ZoneInfo GetZoneInfo(const QString &zone);
     bool GetZoneInfo(const QString &zone, QObject *receiver, const char *member);
     // System Timedate
-    void SetTimezone(const QString &timezone);
+    void SetTimezone(const QString &timezone, const QString &message);
     void SetNTPServer(const QString &server, const QString &message);
     void SetNTPServer(const QString &server,
                       const QString &message,
