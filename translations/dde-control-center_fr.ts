@@ -805,11 +805,11 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Général</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Vitesse de défilement</translation>
     </message>
 </context>
 <context>
@@ -1452,11 +1452,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Vous êtes passé en mode développeur.</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -1599,43 +1599,43 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Trois doigts en haut</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Trois doigts en bas</translation>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Trois doigts à gauche</translation>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Trois doigts à droite</translation>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Appui à trois doigts</translation>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Quatre doigts en haut</translation>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Quatre doigts en bas</translation>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Quatre doigts à gauche</translation>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Quatre doigts à droite</translation>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Appui à quatre doigts</translation>
     </message>
 </context>
 <context>
@@ -1739,7 +1739,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Format régional</translation>
     </message>
 </context>
 <context>
@@ -2366,7 +2366,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Format régional</translation>
     </message>
 </context>
 <context>
@@ -2528,27 +2528,27 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
+        <translation>Le nom du raccourci est déjà utilisé. Choisissez un autre nom.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Modifier un raccourci personnalisé</translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Veuillez saisir un raccourci clavier.</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Sauvegarder</translation>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>Cliquez sur Sauvegarder pour activer ce raccourci clavier.</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>Cliquez sur Ajouter pour activer ce raccourci clavier.</translation>
     </message>
 </context>
 <context>
@@ -2603,7 +2603,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Veuillez entrer une touche de raccourci.</translation>
     </message>
 </context>
 <context>
@@ -2739,11 +2739,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"/>
+        <translation>Audio mono</translation>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"/>
+        <translation>Pause automatique</translation>
     </message>
 </context>
 <context>
@@ -2824,7 +2824,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Ajouter</translation>
     </message>
 </context>
 <context>
