@@ -30,7 +30,7 @@ DccObject {
     DccObject {
         name: "mode"
         parentName: "wacom"
-        displayName: qsTr("Wacom Mode")
+        displayName: qsTr("Model")
         weight: 20
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor

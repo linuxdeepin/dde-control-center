@@ -222,7 +222,7 @@ DccObject {
     DccObject {
         name: "Gesture"
         parentName: "MouseAndTouchpad/Touchpad"
-        displayName: qsTr("Gesture")
+        displayName: qsTr("Gestures")
         weight: 50
         visible: touchpad.enabled
         pageType: DccObject.Item

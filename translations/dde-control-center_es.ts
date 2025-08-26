@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="es">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="es">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -227,7 +229,7 @@ Para un mejor uso del reconocimiento facial, tenga en cuenta lo siguiente al reg
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>La autenticación biométrica es una función de autenticación de identidad de usuario proporcionada por UnionTech Software Technology Co., Ltd. Mediante la autenticación biométrica, los datos biométricos recopilados se compararán con los almacenados en el dispositivo y la identidad del usuario se verificará con base en el resultado de la comparación.
@@ -779,10 +781,6 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
         <translation>Indicador de bloqueo de mayúsculas</translation>
     </message>
     <message>
-        <source>Scroll Speed</source>
-        <translation>Velocidad de desplazamiento</translation>
-    </message>
-    <message>
         <source>Double Click Speed</source>
         <translation>Velocidad de doble clic</translation>
     </message>
@@ -797,6 +795,14 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <message>
         <source>Enable Keyboard</source>
         <translation>Activar teclado</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished">General</translation>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1092,6 +1098,10 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>Se requiere autenticación para cambiar el servidor NTP</translation>
+    </message>
+    <message>
+        <source>Authentication is required to set the system timezone</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1428,6 +1438,14 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
         <translation>Para instalar y ejecutar aplicaciones sin firmar, vaya al Centro de seguridad para cambiar la configuración.</translation>
     </message>
+    <message>
+        <source>You have entered developer mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
@@ -1568,32 +1586,44 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
 <context>
     <name>GestureModel</name>
     <message>
-        <source>Three-finger</source>
-        <translation>Tres dedos</translation>
+        <source>Three-finger up</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Four-finger</source>
-        <translation>Cuatro dedos</translation>
+        <source>Three-finger down</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Up</source>
-        <translation>Arriba</translation>
+        <source>Three-finger left</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Down</source>
-        <translation>Abajo</translation>
+        <source>Three-finger right</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Left</source>
-        <translation>Izquierda</translation>
+        <source>Three-finger tap</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Right</source>
-        <translation>Derecha</translation>
+        <source>Four-finger up</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>tap</source>
-        <translation>tap</translation>
+        <source>Four-finger down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger tap</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1692,12 +1722,12 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>El sistema operativo y las aplicaciones pueden brindarle contenido local según su país y región.</translation>
     </message>
     <message>
-        <source>Region and format</source>
-        <translation>Región y formato</translation>
-    </message>
-    <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
         <translation>El sistema operativo y las aplicaciones pueden establecer formatos de fecha y hora según formatos regionales.</translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2269,15 +2299,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
-    <message>
-        <source>Regions and formats</source>
-        <translation>Región y formato</translation>
-    </message>
     <message>
         <source>Search</source>
         <translation>Buscar</translation>
@@ -2325,6 +2351,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Save</source>
         <translation>Guardar</translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2486,27 +2516,27 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Guardar</translation>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2561,7 +2591,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2684,16 +2714,8 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>Balance izquierda/derecha</translation>
     </message>
     <message>
-        <source>Mono audio</source>
-        <translation>Audio mono</translation>
-    </message>
-    <message>
         <source>Merge left and right channels into a single channel</source>
         <translation>Fusionar los canales izquierdo y derecho en un solo canal</translation>
-    </message>
-    <message>
-        <source>Auto pause</source>
-        <translation>Pausa automática</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
@@ -2702,6 +2724,14 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Output Devices</source>
         <translation>Dispositivos de salida</translation>
+    </message>
+    <message>
+        <source>Mono Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Pause</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2782,7 +2812,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Añadir</translation>
     </message>
 </context>
 <context>
@@ -2888,16 +2918,16 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>Desplazamiento natural</translation>
     </message>
     <message>
-        <source>Gesture</source>
-        <translation>Gesto</translation>
-    </message>
-    <message>
         <source>Three-finger gestures</source>
         <translation>Gestos de tres dedos</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
         <translation>Gestos de cuatro dedos</translation>
+    </message>
+    <message>
+        <source>Gestures</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3210,7 +3240,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3262,26 +3292,26 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>Idioma y región</translation>
     </message>
     <message>
-        <source>System language, region format</source>
-        <translation>Idioma del sistema, formato regional</translation>
+        <source>System language, regional formats</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>dcc::Locale::dialectNames</name>
     <message>
         <source>Traditional Chinese (Chinese Hong Kong)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>dcc::Locale::regionNames</name>
     <message>
         <source>Taiwan China</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3752,23 +3782,23 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4151,8 +4181,8 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>Activar y desactivar dispositivos de audio</translation>
     </message>
     <message>
-        <source>Devices</source>
-        <translation>Dispositivos</translation>
+        <source>Devices Management</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4252,10 +4282,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>Wacom</translation>
     </message>
     <message>
-        <source>Wacom Mode</source>
-        <translation>Modo Wacom</translation>
-    </message>
-    <message>
         <source>Pen Mode</source>
         <translation>Modo lápiz</translation>
     </message>
@@ -4274,6 +4300,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Heavy</source>
         <translation>Intensa</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -78,23 +78,33 @@ QString GestureModel::getGesturesDec(GestureData *data) const
 {
     QString description;
     if (data->fingersNum() == 3) {
-        description += tr("Three-finger");
-    } else if (data->fingersNum() == 4) {
-        description += tr("Four-finger");
-    }
-
-    if (data->actionType() == "swipe") {
-        if (data->direction() == "up") {
-            description += tr("Up");
-        } else if (data->direction() == "down") {
-            description += tr("Down");
-        } else if (data->direction() == "left") {
-            description += tr("Left");
-        } else if (data->direction() == "right") {
-            description += tr("Right");
+        if (data->actionType() == "swipe") {
+            if (data->direction() == "up") {
+                description += tr("Three-finger up");
+            } else if (data->direction() == "down") {
+                description += tr("Three-finger down");
+            } else if (data->direction() == "left") {
+                description += tr("Three-finger left");
+            } else if (data->direction() == "right") {
+                description += tr("Three-finger right");
+            }
+        } else if (data->actionType() == "tap") {
+            description += tr("Three-finger tap");
         }
-    } else if (data->actionType() == "tap") {
-        description += tr("tap");
+    } else if (data->fingersNum() == 4) {
+        if (data->actionType() == "swipe") {
+            if (data->direction() == "up") {
+                description += tr("Four-finger up");
+            } else if (data->direction() == "down") {
+                description += tr("Four-finger down");
+            } else if (data->direction() == "left") {
+                description += tr("Four-finger left");
+            } else if (data->direction() == "right") {
+                description += tr("Four-finger right");
+            }
+        } else if (data->actionType() == "tap") {
+            description += tr("Four-finger tap");
+        }
     }
 
     return description;

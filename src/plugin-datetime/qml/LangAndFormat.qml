@@ -333,7 +333,7 @@ DccObject {
         name: "regionAndFormat"
         parentName: "langAndFormat"
         weight: 50
-        displayName: qsTr("Region and format")
+        displayName: qsTr("Regional format")
         description: qsTr("Operating system and applications may set date and time formats based on regional formats")
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor

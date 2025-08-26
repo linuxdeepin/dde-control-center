@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pl">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pl">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -226,7 +228,7 @@ Aby umiejętnie korzystać z rozpoznawania twarzy, podczas wprowadzania danych t
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>„Uwierzytelnienie biometryczne” to funkcja uwierzytelnienia tożsamości użytkownika stworzona przez UnionTech Software Technology Co., Ltd. Dzięki „uwierzytelnieniu biometrycznemu” zebrane dane biometryczne będą porównywane z danymi przechowywanymi na urządzeniu, a tożsamość użytkownika zostanie zweryfikowana na podstawie wyniku porównania.
@@ -778,10 +780,6 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
         <translation>Komunikat Caps Lock</translation>
     </message>
     <message>
-        <source>Scroll Speed</source>
-        <translation>Szybkość przewijania</translation>
-    </message>
-    <message>
         <source>Double Click Speed</source>
         <translation>Szybkość dwukrotnego kliknięcia</translation>
     </message>
@@ -796,6 +794,14 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <message>
         <source>Enable Keyboard</source>
         <translation>Włącz klawiaturę</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished">Ogólne</translation>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1091,6 +1097,10 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>Wymagane jest uwierzytelnienie do zmiany serwera NTP</translation>
+    </message>
+    <message>
+        <source>Authentication is required to set the system timezone</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1427,6 +1437,14 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
         <translation>Aby instalować niepodpisane aplikacje, przejdź do Centrum bezpieczeństwa, aby zmienić ustawienia.</translation>
     </message>
+    <message>
+        <source>You have entered developer mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
@@ -1567,32 +1585,44 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
 <context>
     <name>GestureModel</name>
     <message>
-        <source>Three-finger</source>
-        <translation>Trzy palce</translation>
+        <source>Three-finger up</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Four-finger</source>
-        <translation>Cztery palce</translation>
+        <source>Three-finger down</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Up</source>
-        <translation>W górę</translation>
+        <source>Three-finger left</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Down</source>
-        <translation>W dół</translation>
+        <source>Three-finger right</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Left</source>
-        <translation>W lewo</translation>
+        <source>Three-finger tap</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Right</source>
-        <translation>W prawo</translation>
+        <source>Four-finger up</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>tap</source>
-        <translation>stuknięcie</translation>
+        <source>Four-finger down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger tap</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1691,12 +1721,12 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>System operacyjny i aplikacje mogą dostosowywać zawartość do kraju i regionu, w którym się znajdujesz</translation>
     </message>
     <message>
-        <source>Region and format</source>
-        <translation>Region i format</translation>
-    </message>
-    <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
         <translation>System operacyjny i aplikacje mogą dostosować format daty i godziny do kraju i regionu, w którym się znajdujesz</translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2274,10 +2304,6 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
 <context>
     <name>RegionFormatDialog</name>
     <message>
-        <source>Regions and formats</source>
-        <translation>Region i format</translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation>Szukaj</translation>
     </message>
@@ -2324,6 +2350,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Save</source>
         <translation>Zapisz</translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2683,16 +2713,8 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Balans lewo-prawo</translation>
     </message>
     <message>
-        <source>Mono audio</source>
-        <translation>Dźwięk mono</translation>
-    </message>
-    <message>
         <source>Merge left and right channels into a single channel</source>
         <translation>Połącz lewy i prawy kanał w jeden</translation>
-    </message>
-    <message>
-        <source>Auto pause</source>
-        <translation>Automatyczna pauza</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
@@ -2701,6 +2723,14 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Output Devices</source>
         <translation>Urządzenia wyjściowe</translation>
+    </message>
+    <message>
+        <source>Mono Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Pause</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2887,16 +2917,16 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Naturalne przewijanie</translation>
     </message>
     <message>
-        <source>Gesture</source>
-        <translation>Gesty</translation>
-    </message>
-    <message>
         <source>Three-finger gestures</source>
         <translation>Gesty trzech palców</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
         <translation>Gesty czterech palców</translation>
+    </message>
+    <message>
+        <source>Gestures</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3261,8 +3291,8 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Język i region</translation>
     </message>
     <message>
-        <source>System language, region format</source>
-        <translation>Język systemu, format regionu</translation>
+        <source>System language, regional formats</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4150,8 +4180,8 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Włącz/wyłącz urządzenia audio</translation>
     </message>
     <message>
-        <source>Devices</source>
-        <translation>Urządzenia</translation>
+        <source>Devices Management</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4251,10 +4281,6 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <translation>Wacom</translation>
     </message>
     <message>
-        <source>Wacom Mode</source>
-        <translation>Tryb Wacom</translation>
-    </message>
-    <message>
         <source>Pen Mode</source>
         <translation>Tryb pióra</translation>
     </message>
@@ -4273,6 +4299,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Heavy</source>
         <translation>Ciężka</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

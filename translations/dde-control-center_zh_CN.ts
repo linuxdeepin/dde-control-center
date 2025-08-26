@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_CN">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -227,7 +229,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
@@ -778,10 +780,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>大写锁定提示</translation>
     </message>
     <message>
-        <source>Scroll Speed</source>
-        <translation>滚动速度</translation>
-    </message>
-    <message>
         <source>Double Click Speed</source>
         <translation>双击速度</translation>
     </message>
@@ -796,6 +794,14 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Enable Keyboard</source>
         <translation>键盘</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished">通用</translation>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1091,6 +1097,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>修改时间服务器需要认证</translation>
+    </message>
+    <message>
+        <source>Authentication is required to set the system timezone</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1427,6 +1437,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
         <translation>如需安装非应用商店来源的应用，前往安全中心进行设置。</translation>
     </message>
+    <message>
+        <source>You have entered developer mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
@@ -1567,32 +1585,44 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>GestureModel</name>
     <message>
-        <source>Three-finger</source>
-        <translation>三指</translation>
+        <source>Three-finger up</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Four-finger</source>
-        <translation>四指</translation>
+        <source>Three-finger down</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Up</source>
-        <translation>向上</translation>
+        <source>Three-finger left</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Down</source>
-        <translation>向下</translation>
+        <source>Three-finger right</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Left</source>
-        <translation>向左</translation>
+        <source>Three-finger tap</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Right</source>
-        <translation>向右</translation>
+        <source>Four-finger up</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>tap</source>
-        <translation>点击</translation>
+        <source>Four-finger down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger tap</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1691,12 +1721,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>操作系统和应用可能会根据你所在的国家和地区向你提供本地内容</translation>
     </message>
     <message>
-        <source>Region and format</source>
-        <translation>区域格式</translation>
-    </message>
-    <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
         <translation>操作系统和某些应用会根据区域格式设置日期和时间格式</translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2268,15 +2298,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
-    <message>
-        <source>Regions and formats</source>
-        <translation>区域和格式</translation>
-    </message>
     <message>
         <source>Search</source>
         <translation>搜索</translation>
@@ -2324,6 +2350,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Save</source>
         <translation>保存</translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2683,16 +2713,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>左右平衡</translation>
     </message>
     <message>
-        <source>Mono audio</source>
-        <translation>单声道音频</translation>
-    </message>
-    <message>
         <source>Merge left and right channels into a single channel</source>
         <translation>将左声道和右声道合并成一个声道</translation>
-    </message>
-    <message>
-        <source>Auto pause</source>
-        <translation>插拔管理</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
@@ -2701,6 +2723,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Output Devices</source>
         <translation>输出设备</translation>
+    </message>
+    <message>
+        <source>Mono Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Pause</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2818,19 +2848,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2887,16 +2917,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>自然滚动</translation>
     </message>
     <message>
-        <source>Gesture</source>
-        <translation>手势</translation>
-    </message>
-    <message>
         <source>Three-finger gestures</source>
         <translation>三指手势</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
         <translation>四指手势</translation>
+    </message>
+    <message>
+        <source>Gestures</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3261,8 +3291,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>语言和区域</translation>
     </message>
     <message>
-        <source>System language, region format</source>
-        <translation>系统语言、区域格式</translation>
+        <source>System language, regional formats</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4150,8 +4180,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>启用/禁用音频设备</translation>
     </message>
     <message>
-        <source>Devices</source>
-        <translation>设备管理</translation>
+        <source>Devices Management</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4251,10 +4281,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>数位板</translation>
     </message>
     <message>
-        <source>Wacom Mode</source>
-        <translation>模式</translation>
-    </message>
-    <message>
         <source>Pen Mode</source>
         <translation>笔模式</translation>
     </message>
@@ -4273,6 +4299,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Heavy</source>
         <translation>重</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

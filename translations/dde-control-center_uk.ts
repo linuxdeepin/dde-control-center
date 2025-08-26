@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="uk">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="uk">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -227,7 +229,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
@@ -777,10 +779,6 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
         <translation>Підказка Caps Lock</translation>
     </message>
     <message>
-        <source>Scroll Speed</source>
-        <translation>Швидкість прокрутки</translation>
-    </message>
-    <message>
         <source>Double Click Speed</source>
         <translation>Швидкість подвійного клацання</translation>
     </message>
@@ -795,6 +793,14 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <message>
         <source>Enable Keyboard</source>
         <translation>Увімкнути клавіатуру</translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished">Загальне</translation>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1090,6 +1096,10 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <message>
         <source>Authentication is required to change NTP server</source>
         <translation>Для зміни NTP-сервера потрібна автентифікація</translation>
+    </message>
+    <message>
+        <source>Authentication is required to set the system timezone</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1426,6 +1436,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
         <translation>Для встановлення і запуску непідписаних програм, будь ласка, відкрийте «Центр безпеки» для внесення змін до параметрів.</translation>
     </message>
+    <message>
+        <source>You have entered developer mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
@@ -1566,32 +1584,44 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>GestureModel</name>
     <message>
-        <source>Three-finger</source>
-        <translation>Трьома пальцями</translation>
+        <source>Three-finger up</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Four-finger</source>
-        <translation>Чотирма пальцями</translation>
+        <source>Three-finger down</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Up</source>
-        <translation>Вгору</translation>
+        <source>Three-finger left</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Down</source>
-        <translation>Вниз</translation>
+        <source>Three-finger right</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Left</source>
-        <translation>Ліворуч</translation>
+        <source>Three-finger tap</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Right</source>
-        <translation>Праворуч</translation>
+        <source>Four-finger up</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>tap</source>
-        <translation>удар</translation>
+        <source>Four-finger down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger tap</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1690,12 +1720,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Операційна система та програми можуть надавати вам локалізовані дані на основі вказаних країни і регіону</translation>
     </message>
     <message>
-        <source>Region and format</source>
-        <translation>Регіон і формат</translation>
-    </message>
-    <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
         <translation>Операційна система та програми можуть встановлювати формати дати і часу на основі регіональних форматів</translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2273,10 +2303,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>RegionFormatDialog</name>
     <message>
-        <source>Regions and formats</source>
-        <translation>Регіони і формати</translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation>Пошук</translation>
     </message>
@@ -2323,6 +2349,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Save</source>
         <translation>Зберегти</translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2484,27 +2514,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Зберегти</translation>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2559,7 +2589,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2682,16 +2712,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Баланс ліво/право</translation>
     </message>
     <message>
-        <source>Mono audio</source>
-        <translation>Монозвук</translation>
-    </message>
-    <message>
         <source>Merge left and right channels into a single channel</source>
         <translation>Об&apos;єднати лівий і правий канали в єдиний канал</translation>
-    </message>
-    <message>
-        <source>Auto pause</source>
-        <translation>Автопауза</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
@@ -2700,6 +2722,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Output Devices</source>
         <translation>Пристрої відтворення</translation>
+    </message>
+    <message>
+        <source>Mono Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Pause</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2886,16 +2916,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Природне гортання</translation>
     </message>
     <message>
-        <source>Gesture</source>
-        <translation>Жест</translation>
-    </message>
-    <message>
         <source>Three-finger gestures</source>
         <translation>Жести трьома пальцями</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
         <translation>Жести чотирма пальцями</translation>
+    </message>
+    <message>
+        <source>Gestures</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3260,8 +3290,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Мова і регіон</translation>
     </message>
     <message>
-        <source>System language, region format</source>
-        <translation>Мова системи, формат регіону</translation>
+        <source>System language, regional formats</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4149,8 +4179,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Увімкнути/Вимкнути звукові пристрої</translation>
     </message>
     <message>
-        <source>Devices</source>
-        <translation>Пристрої</translation>
+        <source>Devices Management</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4250,10 +4280,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Wacom</translation>
     </message>
     <message>
-        <source>Wacom Mode</source>
-        <translation>Режим Wacom</translation>
-    </message>
-    <message>
         <source>Pen Mode</source>
         <translation>Режим пера</translation>
     </message>
@@ -4272,6 +4298,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Heavy</source>
         <translation>Важкий</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

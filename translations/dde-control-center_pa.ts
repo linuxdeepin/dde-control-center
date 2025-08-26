@@ -766,10 +766,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Scroll Speed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Double Click Speed</source>
         <translation type="unfinished"></translation>
     </message>
@@ -783,6 +779,14 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Enable Keyboard</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1078,6 +1082,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DatetimeWorker</name>
     <message>
         <source>Authentication is required to change NTP server</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Authentication is required to set the system timezone</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1414,6 +1422,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>You have entered developer mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
@@ -1554,31 +1570,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>GestureModel</name>
     <message>
-        <source>Three-finger</source>
+        <source>Three-finger up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Four-finger</source>
+        <source>Three-finger down</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Up</source>
+        <source>Three-finger left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Down</source>
+        <source>Three-finger right</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Left</source>
+        <source>Three-finger tap</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Right</source>
+        <source>Four-finger up</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>tap</source>
+        <source>Four-finger down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger tap</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1678,11 +1706,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Region and format</source>
+        <source>Operating system and applications may set date and time formats based on regional formats</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Operating system and applications may set date and time formats based on regional formats</source>
+        <source>Regional format</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2261,10 +2289,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>RegionFormatDialog</name>
     <message>
-        <source>Regions and formats</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Search</source>
         <translation type="unfinished">ਲੱਭੋ</translation>
     </message>
@@ -2311,6 +2335,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Save</source>
         <translation type="unfinished">ਸੰਭਾਲੋ</translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2666,15 +2694,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Mono audio</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto pause</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2687,6 +2707,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mode</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mono Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Pause</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2874,15 +2902,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Gesture</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Three-finger gestures</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Gestures</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3248,7 +3276,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>System language, region format</source>
+        <source>System language, regional formats</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4137,7 +4165,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Devices</source>
+        <source>Devices Management</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4238,10 +4266,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Wacom Mode</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Pen Mode</source>
         <translation type="unfinished"></translation>
     </message>
@@ -4259,6 +4283,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Heavy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Model</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

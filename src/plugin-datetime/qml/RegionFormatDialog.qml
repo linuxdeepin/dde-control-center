@@ -37,7 +37,7 @@ Loader {
             Label {
                 Layout.alignment: Qt.AlignHCenter
                 font.bold: true
-                text: qsTr("Regions and formats")
+                text: qsTr("Regional format")
             }
 
             RowLayout {
