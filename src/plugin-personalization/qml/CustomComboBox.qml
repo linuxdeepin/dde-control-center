@@ -13,7 +13,6 @@ D.ComboBox {
     delegate: D.MenuItem {
         id: menuItem
         useIndicatorPadding: true
-        width: parent.width
         text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : model[control.textRole]) : modelData
         icon.name: (control.iconNameRole && model[control.iconNameRole] !== undefined) ? model[control.iconNameRole] : null
         highlighted: control.highlightedIndex === index

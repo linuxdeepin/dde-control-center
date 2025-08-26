@@ -512,7 +512,6 @@ DccObject {
             page:  Row{
                 ComboBox {
                     id: debugLogCombo
-                    width: 180
                     model: [ qsTr("Off"), qsTr("Debug") ]
                     flat: true
                     font: D.DTK.fontManager.t8

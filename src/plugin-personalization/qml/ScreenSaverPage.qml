@@ -134,7 +134,6 @@ DccObject {
                 weight: 100
                 pageType: DccObject.Editor
                 page: CustomComboBox {
-                    implicitWidth: 200
                     flat: true
                     textRole: "text"
                     currentIndex: {

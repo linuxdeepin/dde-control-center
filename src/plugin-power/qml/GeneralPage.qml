@@ -66,7 +66,6 @@ DccObject {
             visible: dccData.model.haveBettary && dccData.model.powerSavingModeAutoWhenQuantifyLow
             pageType: DccObject.Editor
             page: D.ComboBox {
-                width: 100
                 model: [ "10%", "20%", "30%", "40%", "50%" ]
                 flat: true
                 currentIndex: dccData.model.powerSavingModeAutoBatteryPercentage / 10 - 1
@@ -247,7 +246,6 @@ DccObject {
             pageType: DccObject.Editor
             page: D.ComboBox {
                 id: shutdownRepetitionCombobox
-                width: 100
                 model: [ qsTr("Once"), qsTr("Every day"), qsTr("Working days"), qsTr("Custom Time") ]
                 flat: true
                 currentIndex: dccData.model.shutdownRepetition

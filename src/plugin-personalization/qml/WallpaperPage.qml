@@ -147,7 +147,6 @@ DccObject {
                 weight: 100
                 pageType: DccObject.Editor
                 page: D.ComboBox {
-                    width: 100
                     flat: true
                     model: ["adapt"]
                 }
@@ -159,7 +158,6 @@ DccObject {
                 weight: 200
                 pageType: DccObject.Editor
                 page: CustomComboBox {
-                    implicitWidth: 170
                     flat: true
                     textRole: "text"
                     currentIndex: indexByValue(dccData.model.wallpaperSlideShowMap[dccData.model.currentSelectScreen])
