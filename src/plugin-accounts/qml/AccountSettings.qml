@@ -791,6 +791,10 @@ DccObject {
             keyNavigationEnabled: true
             clip: false
 
+            cacheBuffer: height * 6
+            displayMarginBeginning: height * 2
+            displayMarginEnd: height * 2
+
             onActiveFocusChanged: {
                 if (activeFocus && count > 0) {
                     if (focusNewlyCreatedItem) {
