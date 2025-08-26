@@ -20,12 +20,14 @@ DccObject {
         description: qsTr("Select which icons appear in the Dock")
         page: ColumnLayout {
             Label {
-                font.family: D.DTK.fontManager.t4.family
+                font.family: D.DTK.fontManager.t5.family
                 font.bold: true
-                font.pixelSize: D.DTK.fontManager.t4.pixelSize
+                font.pixelSize: D.DTK.fontManager.t5.pixelSize
+                Layout.leftMargin: 14
                 text: dccObj.displayName
             }
             Label {
+                Layout.leftMargin: 14
                 text: dccObj.description
             }
         }
