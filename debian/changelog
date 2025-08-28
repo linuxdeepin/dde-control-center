@@ -1,3 +1,25 @@
+dde-control-center (6.1.45) unstable; urgency=medium
+
+  * refactor: standardize shortcut key identifiers naming convention
+  * fix: resolve text truncation in language dialog with large system
+    fonts
+  * Fix: Adapt debugging settings function
+  * fix: standardize font sizes for Wacom plugin menu item titles
+  * fix: correct DBus interface usage in SetTimezone method
+  * i18n: Updates for project Deepin Desktop Environment (#2605)
+  * style: remove explicit width from combo boxes
+  * fix: correct bluetooth mouse icon style issue
+  * fix: Fixed the user group list stuttering
+  * fix: enhance timezone authentication and standardize UI text
+    formatting
+  * fix: Modify the interface layout
+  * fix: Fixed a bug in the developer mode interface
+  * fix: prevent audio effect output when toggling mono audio setting
+  * fix: resolve text truncation issue in ShortcutSettingDialog
+  * fix: align combo label to right (#2599)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 28 Aug 2025 14:33:41 +0200
+
 dde-control-center (6.1.44) unstable; urgency=medium
 
   * style: adjust busy indicator size and positioning
