@@ -27,17 +27,20 @@ Loader {
             width: parent.width
             Label {
                 Layout.alignment: Qt.AlignHCenter
+                font.family: DTK.fontManager.t5.family
                 font.bold: true
+                font.pixelSize: DTK.fontManager.t5.pixelSize
                 text: qsTr("Add language")
             }
 
             SearchEdit {
                 id: searchEdit
-                implicitHeight: 30
+                implicitHeight: Math.max(30, searchEditFontMetrics.height + (DS.Style.control.padding - DS.Style.control.borderWidth) * 2) // Minimum 30px, adaptive based on font
                 Layout.fillWidth: true
                 Layout.leftMargin: 6 - DS.Style.dialogWindow.contentHMargin
                 Layout.rightMargin: 6 - DS.Style.dialogWindow.contentHMargin
                 placeholder: qsTr("Search")
+                font: DTK.fontManager.t6
                 onVisibleChanged: {
                     clear()
                 }
@@ -46,6 +49,11 @@ Loader {
                 }
                 onEditingFinished: {
                     viewModel.setFilterWildcard(text);
+                }
+
+                FontMetrics {
+                    id: searchEditFontMetrics
+                    font: searchEdit.font
                 }
             }
 
@@ -75,12 +83,18 @@ Loader {
                         delegate: CheckDelegate {
                             id: checkDelegate
                             implicitWidth: itemsView.width
-                            implicitHeight: 30
+                            implicitHeight: Math.max(30, checkDelegateFontMetrics.height + (DS.Style.control.padding - DS.Style.control.borderWidth) * 2) // Minimum 30px, adaptive based on font
                             text: model.display
                             hoverEnabled: true
                             ButtonGroup.group: langGroup
                             topPadding: 0
                             bottomPadding: 0
+                            font: DTK.fontManager.t6
+
+                            FontMetrics {
+                                id: checkDelegateFontMetrics
+                                font: checkDelegate.font
+                            }
 
                             indicator: Loader {
                                 x: checkDelegate.mirrored ? checkDelegate.leftPadding : checkDelegate.width - width - checkDelegate.rightPadding
@@ -208,23 +222,35 @@ Loader {
                 Layout.rightMargin: 6 - DS.Style.dialogWindow.contentHMargin
                 spacing: 6
                 Button {
+                    id: cancelButton
                     Layout.fillWidth: true
                     Layout.bottomMargin: 6
-                    implicitHeight: 30
+                    implicitHeight: Math.max(30, cancelButtonFontMetrics.height + (DS.Style.control.padding - DS.Style.control.borderWidth) * 2) // Minimum 30px, adaptive based on font
                     text: qsTr("Cancel")
                     onClicked: {
                         ddialog.close()
                     }
+
+                    FontMetrics {
+                        id: cancelButtonFontMetrics
+                        font: cancelButton.font
+                    }
                 }
                 Button {
+                    id: addButton
                     Layout.fillWidth: true
                     Layout.bottomMargin: 6
-                    implicitHeight: 30
+                    implicitHeight: Math.max(30, addButtonFontMetrics.height + (DS.Style.control.padding - DS.Style.control.borderWidth) * 2) // Minimum 30px, adaptive based on font
                     text: qsTr("Add")
                     enabled: itemsView.checkedLang.length > 0
                     onClicked: {
                         selectedLang(itemsView.checkedLang)
                         ddialog.close()
+                    }
+
+                    FontMetrics {
+                        id: addButtonFontMetrics
+                        font: addButton.font
                     }
                 }
             }
