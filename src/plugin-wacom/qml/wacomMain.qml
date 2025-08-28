@@ -21,7 +21,9 @@ DccObject {
             Label {
                 height: contentHeight
                 Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
+                font.family: D.DTK.fontManager.t5.family
+                font.bold: true
+                font.pixelSize: D.DTK.fontManager.t5.pixelSize
                 text: dccObj.displayName
             }
         }
@@ -56,7 +58,7 @@ DccObject {
             Label {
                 id: speedText
                 Layout.topMargin: 10
-                font: D.DTK.fontManager.t7
+                font: D.DTK.fontManager.t6
                 text: dccObj.displayName
                 Layout.leftMargin: 10
             }
