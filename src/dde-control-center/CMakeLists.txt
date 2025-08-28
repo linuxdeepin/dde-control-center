@@ -166,3 +166,8 @@ install(FILES ${DCC_PROJECT_ROOT_DIR}/misc/org.deepin.dde.controlcenter.metainfo
 install(FILES ${DCC_PROJECT_ROOT_DIR}/misc/org.deepin.dde-grand-search.dde-control-center-setting.conf
     DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-grand-search-daemon/plugins/searcher)
 
+# debug config file
+install(FILES ${DCC_PROJECT_ROOT_DIR}/misc/deepin-debug-config/org.deepin.dde.control-center.json
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/deepin-debug-config/deepin-debug-config.d)
+install(FILES ${DCC_PROJECT_ROOT_DIR}/misc/deepin-log-config/org.deepin.dde.control-center.json
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/deepin-log-viewer/deepin-log.conf.d)
