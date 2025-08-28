@@ -16,53 +16,53 @@
 #include <DPinyin>
 
 QStringList systemFilter = {"terminal",
-                            "terminal-quake",
-                            "global-search",
+                            "terminalQuake",
+                            "globalSearch",
                             "screenshot",
-                            "screenshot-delayed",
-                            "screenshot-fullscreen",
-                            "screenshot-window",
-                            "screenshot-scroll",
-                            "screenshot-ocr",
-                            "deepin-screen-recorder",
-                            "switch-group",
-                            "switch-group-backward",
-                            "preview-workspace",
+                            "screenshotDelayed",
+                            "screenshotFullscreen",
+                            "screenshotWindow",
+                            "screenshotScroll",
+                            "screenshotOcr",
+                            "deepinScreenRecorder",
+                            "switchGroup",
+                            "switchGroupBackward",
+                            "previewWorkspace",
                             "launcher",
-                            "switch-applications",
-                            "switch-applications-backward",
-                            "show-desktop",
-                            "file-manager",
-                            "lock-screen",
+                            "switchApplications",
+                            "switchApplicationsBackward",
+                            "showDesktop",
+                            "fileManager",
+                            "lockScreen",
                             "logout",
-                            "wm-switcher",
-                            "system-monitor",
-                            "color-picker",
+                            "wmSwitcher",
+                            "systemMonitor",
+                            "colorPicker",
                             "clipboard",
-                            "switch-monitors"
+                            "switchMonitors"
 };
 
 const QStringList &windowFilter = {"maximize",
                                    "unmaximize",
                                    "minimize",
-                                   "begin-move",
-                                   "begin-resize",
+                                   "beginMove",
+                                   "beginResize",
                                    "close",
-                                   "toggle-to-left",
-                                   "toggle-to-right"
+                                   "toggleToLeft",
+                                   "toggleToRight"
 };
 
-const QStringList &workspaceFilter = {"switch-to-workspace-left",
-                                      "switch-to-workspace-right",
-                                      "move-to-workspace-left",
-                                      "move-to-workspace-right"};
+const QStringList &workspaceFilter = {"switchToWorkspaceLeft",
+                                      "switchToWorkspaceRight",
+                                      "moveToWorkspaceLeft",
+                                      "moveToWorkspaceRight"};
 
-const QStringList &assistiveToolsFilter = {"text-to-speech",
-                                           "speech-to-text",
+const QStringList &assistiveToolsFilter = {"textToSpeech",
+                                           "speechToText",
                                            "translation",
-                                            "view-zoom-in",
-                                            "view-zoom-out",
-                                            "view-actual-size"};
+                                            "viewZoomIn",
+                                            "viewZoomOut",
+                                            "viewActualSize"};
 
 // from dquickrectangle_p.h
 #define NoneCorner 0x0

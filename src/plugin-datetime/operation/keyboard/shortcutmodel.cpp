@@ -15,49 +15,53 @@
 #include <QGuiApplication>
 
 QStringList systemFilter = {"terminal",
-                            "terminal-quake",
-                            "global-search",
+                            "terminalQuake",
+                            "globalSearch",
                             "screenshot",
-                            "screenshot-delayed",
-                            "screenshot-fullscreen",
-                            "screenshot-window",
-                            "screenshot-scroll",
-                            "screenshot-ocr",
-                            "deepin-screen-recorder",
-                            "switch-group",
-                            "switch-group-backward",
-                            "preview-workspace",
+                            "screenshotDelayed",
+                            "screenshotFullscreen",
+                            "screenshotWindow",
+                            "screenshotScroll",
+                            "screenshotOcr",
+                            "deepinScreenRecorder",
+                            "switchGroup",
+                            "switchGroupBackward",
+                            "previewWorkspace",
                             "launcher",
-                            "switch-applications",
-                            "switch-applications-backward",
-                            "show-desktop",
-                            "file-manager",
-                            "lock-screen",
+                            "switchApplications",
+                            "switchApplicationsBackward",
+                            "showDesktop",
+                            "fileManager",
+                            "lockScreen",
                             "logout",
-                            "wm-switcher",
-                            "system-monitor",
-                            "color-picker",
-                            "clipboard"};
-
-const QStringList &windowFilter = {"maximize",
-                                   "unmaximize",
-                                   "minimize",
-                                   "begin-move",
-                                   "begin-resize",
-                                   "close",
-                                   "toggle-to-left",
-                                   "toggle-to-right"
+                            "wmSwitcher",
+                            "systemMonitor",
+                            "colorPicker",
+                            "clipboard",
+                            "switchMonitors"
 };
 
-const QStringList &workspaceFilter = {"switch-to-workspace-left",
-                                      "switch-to-workspace-right",
-                                      "move-to-workspace-left",
-                                      "move-to-workspace-right"};
+const QStringList &windowFilter = {"maximize",
+                                    "unmaximize",
+                                    "minimize",
+                                    "beginMove",
+                                    "beginResize",
+                                    "close",
+                                    "toggleToLeft",
+                                    "toggleToRight"
+};
 
-const QStringList &assistiveToolsFilter = {"ai-assistant",
-                                           "text-to-speech",
-                                           "speech-to-text",
-                                           "translation"};
+const QStringList &workspaceFilter = {"switchToWorkspaceLeft",
+                                        "switchToWorkspaceRight",
+                                        "moveToWorkspaceLeft",
+                                        "moveToWorkspaceRight"};
+
+const QStringList &assistiveToolsFilter = {"textToSpeech",
+                                        "speechToText",
+                                        "translation",
+                                            "viewZoomIn",
+                                            "viewZoomOut",
+                                            "viewActualSize"};
 
 using namespace dccV25;
 DCORE_USE_NAMESPACE
