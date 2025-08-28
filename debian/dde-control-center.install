@@ -1,10 +1,6 @@
 usr/bin/
 usr/lib/*/*.so*
 usr/lib/*/dde-control-center/
-usr/share/dde-control-center/
-usr/share/dsg/
-usr/share/metainfo
-usr/share/applications/
-usr/share/dbus-1/
+usr/share
 usr/lib/*/dde-grand-search-daemon/plugins/searcher/*
 usr/lib/systemd/user/
