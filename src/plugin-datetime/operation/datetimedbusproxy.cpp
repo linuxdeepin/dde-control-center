@@ -200,7 +200,7 @@ bool DatetimeDBusProxy::GetZoneInfo(const QString &zone, QObject *receiver, cons
 // System Timedate
 void DatetimeDBusProxy::SetTimezone(const QString &timezone, const QString &message)
 {
-    m_systemtimedatedInter->asyncCall(QStringLiteral("SetTimezone"), timezone, message);
+    m_timedateInter->asyncCall(QStringLiteral("SetTimezone"), timezone);
 }
 
 void DatetimeDBusProxy::SetNTPServer(const QString &server, const QString &message)
