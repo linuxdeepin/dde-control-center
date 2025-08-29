@@ -72,10 +72,9 @@ DccObject {
         page: ColumnLayout {
             Label {
                 id: speedText
-
                 Layout.topMargin: 10
-                Layout.leftMargin: 10
-                font: D.DTK.fontManager.t7
+                Layout.leftMargin: 14
+                font: D.DTK.fontManager.t6
                 text: dccObj.displayName
             }
 

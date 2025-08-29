@@ -35,7 +35,7 @@ DccObject {
                 Layout.fillHeight: true
 
                 RowLayout {
-                    Layout.leftMargin: 10
+                    Layout.leftMargin: 14
                     Layout.rightMargin: 10
                     Layout.topMargin: 10
                     Label {
@@ -86,7 +86,7 @@ DccObject {
                 Layout.fillHeight: true
                 
                 RowLayout {
-                    Layout.leftMargin: 10
+                    Layout.leftMargin: 14
                     Layout.rightMargin: 10
                     Layout.topMargin: 10
                     Label {
@@ -136,7 +136,7 @@ DccObject {
                 Layout.fillHeight: true
                 
                 RowLayout {
-                    Layout.leftMargin: 10
+                    Layout.leftMargin: 14
                     Layout.rightMargin: 10
                     Layout.topMargin: 10
                     Label {

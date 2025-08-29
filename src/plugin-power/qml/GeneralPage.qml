@@ -105,7 +105,7 @@ DccObject {
             Layout.fillHeight: true
             Label {
                 Layout.topMargin: 10
-                Layout.leftMargin: 15
+                Layout.leftMargin: 14
                 font: D.DTK.fontManager.t6
                 text: dccObj.displayName
             }
