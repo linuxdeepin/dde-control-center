@@ -21,9 +21,9 @@ DccObject {
             Layout.fillHeight: true
             Label {
                 Layout.topMargin: 10
-                font: D.DTK.fontManager.t7
+                font: D.DTK.fontManager.t6
                 text: dccObj.displayName
-                Layout.leftMargin: 10
+                Layout.leftMargin: 14
             }
             D.TipsSlider {
                 id: fontSizeSlider
