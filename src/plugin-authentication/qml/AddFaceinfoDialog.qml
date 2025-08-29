@@ -45,18 +45,19 @@ D.DialogWindow {
             id: itemModel
             // 添加前
             ColumnLayout {
-                height: ListView.view.implicitHeight
-                width: ListView.view.implicitWidth
+                height: listview.implicitHeight
+                width: listview.implicitWidth
 
                 Label {
                     Layout.fillWidth: true
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     text: dialog.title
+                    font: D.DTK.fontManager.t5
                 }
 
                 Item {
-                    Layout.preferredHeight: 50
+                    Layout.preferredHeight: 20
                 }
 
                 D.DciIcon {
@@ -84,32 +85,102 @@ D.DialogWindow {
                     Layout.fillHeight: true
                 }
 
-                Row {
+                Column {
                     Layout.alignment: Qt.AlignCenter
+                    Layout.fillWidth: true
                     spacing: 0
 
-                    CheckBox {
-                        id: agreeCheckbox
-                        text: qsTr("I have read and agree to the")
+                    // 计算是否需要换行显示
+                    property bool needWrap: {
+                        // 估算文本宽度，如果总宽度超过可用空间则换行
+                        var checkboxWidth = agreeCheckbox.implicitWidth
+                        var buttonWidth = disclaimerButton.implicitWidth
+                        var availableWidth = listview.implicitWidth - 40 // 减去边距
+                        return (checkboxWidth + buttonWidth) > availableWidth
                     }
 
-                    D.ToolButton {
-                        text: qsTr("Disclaimer")
-                        padding: 0
-                        background: null
-                        font: agreeCheckbox.font
-                        textColor: D.Palette {
-                            normal {
-                                common: D.DTK.makeColor(D.Color.Highlight)
-                            }
-                            normalDark: normal
-                            hovered {
-                                common: D.DTK.makeColor(D.Color.Highlight).lightness(+30)
-                            }
-                            hoveredDark: hovered
+                    Row {
+                        visible: !parent.needWrap
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        spacing: 0
+
+                        CheckBox {
+                            id: agreeCheckbox
+                            text: qsTr("I have read and agree to the")
+                            anchors.verticalCenter: parent.verticalCenter
                         }
-                        onClicked: {
-                            listview.currentIndex = 3
+
+                        D.ToolButton {
+                            id: disclaimerButton
+                            text: qsTr("Disclaimer")
+                            padding: 0
+                            background: null
+                            font: agreeCheckbox.font
+                            anchors.verticalCenter: parent.verticalCenter
+                            anchors.baseline: agreeCheckbox.baseline
+                            textColor: D.Palette {
+                                normal {
+                                    common: D.DTK.makeColor(D.Color.Highlight)
+                                }
+                                normalDark: normal
+                                hovered {
+                                    common: D.DTK.makeColor(D.Color.Highlight).lightness(+30)
+                                }
+                                hoveredDark: hovered
+                            }
+                            onClicked: {
+                                listview.currentIndex = 3
+                            }
+                        }
+                    }
+
+                    // 换行显示时的布局
+                    Column {
+                        visible: parent.needWrap
+                        anchors.horizontalCenter: parent.horizontalCenter
+                        spacing: 0
+
+                        CheckBox {
+                            id: agreeCheckboxWrapped
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: qsTr("I have read and agree to the")
+                            checked: agreeCheckbox.checked
+                            onCheckedChanged: agreeCheckbox.checked = checked
+                            // 移除组件默认的边距
+                            topPadding: 0
+                            bottomPadding: 0
+                        }
+
+                        D.ToolButton {
+                            id: disclaimerButtonWrapped
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            text: qsTr("Disclaimer")
+                            padding: 0
+                            topPadding: 0
+                            bottomPadding: 0
+                            background: null
+                            font: agreeCheckbox.font
+                            textColor: D.Palette {
+                                normal {
+                                    common: D.DTK.makeColor(D.Color.Highlight)
+                                }
+                                normalDark: normal
+                                hovered {
+                                    common: D.DTK.makeColor(D.Color.Highlight).lightness(+30)
+                                }
+                                hoveredDark: hovered
+                            }
+                            onClicked: {
+                                listview.currentIndex = 3
+                            }
+                        }
+                    }
+
+                    // 统一的checked状态管理
+                    Connections {
+                        target: agreeCheckboxWrapped
+                        function onCheckedChanged() {
+                            agreeCheckbox.checked = agreeCheckboxWrapped.checked
                         }
                     }
                 }
@@ -122,7 +193,7 @@ D.DialogWindow {
                     Layout.rightMargin: 0
                     Layout.fillWidth: true
                     text: qsTr("Next")
-                    enabled: agreeCheckbox.checked
+                    enabled: agreeCheckbox.checked || agreeCheckboxWrapped.checked
                     onClicked: {
                         dccData.startFaceEnroll();
                         dialog.hide()
@@ -132,13 +203,14 @@ D.DialogWindow {
 
             // 添加中
             ColumnLayout {
-                height: ListView.view.implicitHeight
-                width: ListView.view.implicitWidth
+                height: listview.implicitHeight
+                width: listview.implicitWidth
                 spacing: 0
 
                 Label {
                     text: dialog.title
                     Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
+                    font: D.DTK.fontManager.t5
                 }
 
                 Item {
@@ -202,14 +274,15 @@ D.DialogWindow {
 
             // 完成页面
             ColumnLayout {
-                height: ListView.view.implicitHeight
-                width: ListView.view.implicitWidth
+                height: listview.implicitHeight
+                width: listview.implicitWidth
 
                 Label {
                     Layout.fillWidth: true
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     text: dialog.title
+                    font: D.DTK.fontManager.t5
                 }
 
                 Item {
@@ -297,8 +370,8 @@ D.DialogWindow {
             // 免责声明
             DisclaimerControl {
                 id: disclaimerControl
-                height: ListView.view.implicitHeight
-                width: ListView.view.implicitWidth
+                height: listview.implicitHeight
+                width: listview.implicitWidth
                 content: qsTr(`Before using face recognition, please note that: 
 1. Your device may be unlocked by people or objects that look or appear similar to you.
 2. Face recognition is less secure than digital passwords and mixed passwords.
@@ -313,10 +386,12 @@ In order to better use of face recognition, please pay attention to the followin
                 onCancelClicked: {
                     listview.currentIndex = 0
                     agreeCheckbox.checked = false
+                    agreeCheckboxWrapped.checked = false
                 }
                 onAgreeClicked: {
                     listview.currentIndex = 0
                     agreeCheckbox.checked = true
+                    agreeCheckboxWrapped.checked = true
                 }
             }
         }

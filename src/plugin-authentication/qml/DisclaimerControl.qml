@@ -20,6 +20,7 @@ ColumnLayout {
         horizontalAlignment: Text.AlignHCenter
         verticalAlignment: Text.AlignVCenter
         text: qsTr("Disclaimer")
+        font: D.DTK.fontManager.t5
     }
 
     ScrollView {
@@ -33,6 +34,7 @@ ColumnLayout {
             id: label
             width: scrollView.availableWidth
             wrapMode: Text.WordWrap
+            font: D.DTK.fontManager.t8
         }
     }
 
