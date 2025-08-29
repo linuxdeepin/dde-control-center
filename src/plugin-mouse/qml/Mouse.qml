@@ -36,9 +36,9 @@ DccObject {
             Label {
                 id: speedText
                 Layout.topMargin: 10
-                font: D.DTK.fontManager.t7
+                font: D.DTK.fontManager.t6
                 text: dccObj.displayName
-                Layout.leftMargin: 10
+                Layout.leftMargin: 14
             }
             D.TipsSlider {
                 id: scrollSlider
@@ -105,9 +105,9 @@ DccObject {
                     enabled: false
                     id: doubleClickText
                     Layout.topMargin: 10
-                    font: D.DTK.fontManager.t7
+                    font: D.DTK.fontManager.t6
                     text: dccObj.displayName
-                    Layout.leftMargin: 10
+                    Layout.leftMargin: 14
                 }
                 D.TipsSlider {
                     id: doubleClickSlider
