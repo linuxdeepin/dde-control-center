@@ -60,7 +60,7 @@ DccObject {
                 Layout.topMargin: 10
                 font: D.DTK.fontManager.t6
                 text: dccObj.displayName
-                Layout.leftMargin: 10
+                Layout.leftMargin: 14
             }
             D.TipsSlider {
                 id: scrollSlider
