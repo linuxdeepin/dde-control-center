@@ -20,7 +20,7 @@ DccObject{
                 // 初始化状态记录
                 lastPoweredState = model.powered
                 if (model.powered && !model.discovering) {
-                    dccData.work().setAdapterDiscoverable(model.id)
+                    deferDiscoverTimer.restart()
                 }
            }
         }
@@ -52,6 +52,17 @@ DccObject{
         repeat: false
         onTriggered: {
             if (model.powered && refreshEnable && !model.discovering) {
+                dccData.work().setAdapterDiscoverable(model.id)
+            }
+        }
+    }
+
+    Timer {
+        id: deferDiscoverTimer
+        interval: 300
+        repeat: false
+        onTriggered: {
+            if (model.powered && !model.discovering) {
                 dccData.work().setAdapterDiscoverable(model.id)
             }
         }
@@ -115,8 +126,11 @@ DccObject{
         }
 
         Component.onCompleted: {
-            console.log(" blueToothSwitch  checked changed")
-            dccData.work().setAdapterDiscoverable(model.id)
+            if (typeof DccApp !== 'undefined' && DccApp.activeObject && DccApp.activeObject.name === "bluetooth") {
+                if (model.powered && !model.discovering) {
+                    deferDiscoverTimer.restart()
+                }
+            }
         }
     }
 
