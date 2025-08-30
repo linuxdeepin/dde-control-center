@@ -795,11 +795,11 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Ogólne</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Szybkość przewijania</translation>
     </message>
 </context>
 <context>
@@ -1437,11 +1437,11 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Dołączono do trybu programisty</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -1584,43 +1584,43 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Trzy palce w górę</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Trzy palce w dół</translation>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Trzy palce w lewo</translation>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Trzy palce w prawo</translation>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Stuknięcie trzema palcami</translation>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Cztery palce w górę</translation>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Cztery palce w dół</translation>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Cztery palce w lewo</translation>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Cztery palce w prawo</translation>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Stuknięcie czterema palcami</translation>
     </message>
 </context>
 <context>
@@ -1724,7 +1724,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Format regionu</translation>
     </message>
 </context>
 <context>
@@ -2351,7 +2351,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Format regionu</translation>
     </message>
 </context>
 <context>
@@ -2724,11 +2724,11 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"/>
+        <translation>Dźwięk mono</translation>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"/>
+        <translation>Automatyczna pauza</translation>
     </message>
 </context>
 <context>
@@ -2924,7 +2924,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gesty</translation>
     </message>
 </context>
 <context>
@@ -3290,7 +3290,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Język systemu, format regionu</translation>
     </message>
 </context>
 <context>
@@ -4179,7 +4179,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation>Zarządzanie urządzeniami</translation>
     </message>
 </context>
 <context>
@@ -4300,7 +4300,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"/>
+        <translation>Model</translation>
     </message>
 </context>
 </TS>
