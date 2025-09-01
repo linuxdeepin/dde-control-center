@@ -149,7 +149,8 @@ DccObject {
                         IconButton {
                             id: removeButton
                             visible: (itemDelegate.isCurrentLang && dccObj.enabled) ||
-                                     languageListTiltle.isEditing
+                                     languageListTiltle.isEditing ||
+                                     (itemDelegate.isCurrentLang && regionAndFormat.localeGenRunning)
                             icon.name: itemDelegate.isCurrentLang ? "item_checked" : "list_delete"
                             icon.width: 16
                             icon.height: 16
