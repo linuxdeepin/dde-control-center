@@ -124,7 +124,7 @@ static inline QString escapSpace(const QString &space)
 static inline QString normalizeSpace(const QString &value)
 {
     QString ret = " ";
-    QStringList numberKeepList{ QString("."), QString(","), QString("'"), QString("٬")};
+    QStringList numberKeepList{ QString("."), QString(","), QString("'"), QString("٬"), QString("’"), QString("ወ"), QString("،")};
     if (numberKeepList.contains(value)) {
         ret = value;
     } else {
