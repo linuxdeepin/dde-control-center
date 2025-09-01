@@ -59,62 +59,69 @@ Loader {
                 }
             }
 
-            ArrowListView {
+            Item {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                id: itemsView
-                property string checkedRegion
-                clip: true
-                maxVisibleItems: 12
-                view.model: viewModel
-                view.currentIndex: loader.currentIndex
 
-                Component {
-                    id: scrollBarComponent
-                    ScrollBar {
-                        parent: itemsView.view
-                        anchors.top: itemsView.view.top
-                        anchors.right: itemsView.view.right
-                        anchors.bottom: itemsView.view.bottom
-                        width: 10
-                        implicitWidth: 10
+                ArrowListView {
+                    anchors.fill: parent
+                    id: itemsView
+                    property string checkedRegion
+                    clip: true
+                    maxVisibleItems: 12
+                    view.model: viewModel
+                    view.currentIndex: loader.currentIndex
+
+                    ButtonGroup {
+                        id: regionGroup
                     }
-                }
 
-                ButtonGroup {
-                    id: regionGroup
-                }
+                    view.delegate: MenuItem {
+                        id: menuItem
+                        implicitWidth: itemsView.width
+                        implicitHeight: 30
+                        text: model.display
+                        checkable: true
+                        checked: text === loader.currentText
+                        hoverEnabled: true
+                        highlighted: hovered
+                        autoExclusive: true
+                        ButtonGroup.group: regionGroup
+                        useIndicatorPadding: true
 
-                view.delegate: MenuItem {
-                    id: menuItem
-                    implicitWidth: itemsView.width
-                    implicitHeight: 30
-                    text: model.display
-                    checkable: true
-                    checked: text === loader.currentText
-                    hoverEnabled: true
-                    highlighted: hovered
-                    autoExclusive: true
-                    ButtonGroup.group: regionGroup
-                    useIndicatorPadding: true
+                        onCheckedChanged: {
+                            if (checked && loader.currentText !== model.display) {
+                                selectedRegion(model.display)
+                                closeWindow()
+                            }
+                        }
+                    }
 
-                    onCheckedChanged: {
-                        if (checked && loader.currentText !== model.display) {
-                            selectedRegion(model.display)
-                            closeWindow()
+                    Component.onCompleted: {
+                        // Set initial scroll position
+                        if (currentIndex >= 0) {
+                            let delegateHeight = 30
+                            view.contentY = currentIndex * delegateHeight;
                         }
                     }
                 }
 
-                Component.onCompleted: {
-                    // Add ScrollBar to the internal view
-                    if (view) {
-                        view.ScrollBar.vertical = scrollBarComponent.createObject(view)
-                    }
-                    // Set initial scroll position
-                    if (currentIndex >= 0) {
-                        let delegateHeight = 30
-                        view.contentY = currentIndex * delegateHeight;
+                ScrollBar {
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    anchors.right: parent.right
+                    anchors.rightMargin: -6
+                    width: 10
+                    orientation: Qt.Vertical
+
+                    position: itemsView.view.visibleArea.yPosition
+                    size: itemsView.view.visibleArea.heightRatio
+                    active: hovered || pressed || itemsView.view.moving || itemsView.view.flicking
+
+                    onPositionChanged: {
+                        if (pressed) {
+                            itemsView.view.contentY = position * (itemsView.view.contentHeight - itemsView.view.height)
+                        }
                     }
                 }
             }
