@@ -1,6 +1,6 @@
 <RCC>
     <qresource prefix="/icons/deepin/builtin">
-        <file>icons/dark/Four_finger_click_ani.webp</file>
+        <file>icons/dark/Four_finger_tap_ani.webp</file>
         <file>icons/dark/Four_finger_down_ani.webp</file>
         <file>icons/dark/Four_finger_left_ani.webp</file>
         <file>icons/dark/Four_finger_right_ani.webp</file>
