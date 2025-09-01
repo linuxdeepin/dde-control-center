@@ -91,6 +91,7 @@ Control {
         id: normalLabel
         width: 360
         wrapMode: Text.WordWrap
+        font: D.DTK.fontManager.t8
         anchors.top: addIcon.bottom
         anchors.topMargin: 20
         horizontalAlignment: Text.AlignHCenter

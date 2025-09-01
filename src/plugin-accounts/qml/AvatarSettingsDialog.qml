@@ -65,11 +65,12 @@ D.DialogWindow {
         icon.name: dialog.icon
     }
     RowLayout {
+        spacing: 0
         width: dialog.width
         Rectangle {
             id: leftBar
             color: "transparent"
-            Layout.preferredWidth: 150
+            Layout.preferredWidth: 180 - DS.Style.dialogWindow.contentHMargin
             Layout.preferredHeight: dialog.height - 100
             Layout.alignment: Qt.AlignTop
 
@@ -89,6 +90,19 @@ D.DialogWindow {
                 width: scrollView.width + DS.Style.dialogWindow.contentHMargin * 2
                 height: dialog.height
                 color: palette.window
+            }
+
+            Rectangle {
+                id: leftRightSplitter
+                property D.Palette bgColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.05)
+                    normalDark: Qt.rgba(0, 0, 0, 0.5)
+                }
+                x: leftView.width - 1
+                y: -DS.Style.dialogWindow.titleBarHeight
+                width: 1
+                height: dialog.height
+                color: D.ColorSelector.bgColor
             }
 
             ListModel {
@@ -142,6 +156,7 @@ D.DialogWindow {
                 delegate: D.ItemDelegate {
                     id: itemDelegate
                     text: model.name
+                    font: D.DTK.fontManager.t6
                     hoverEnabled: true
                     icon {
                         name: model.icon
@@ -187,6 +202,9 @@ D.DialogWindow {
         ColumnLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
+            Layout.preferredWidth: 460
+            Layout.minimumWidth: 460
+            Layout.maximumWidth: 460
             
             CustomAvatarEmpatyArea {
                 id: customEmptyAvatar
@@ -222,12 +240,30 @@ D.DialogWindow {
                 visible: !customEmptyAvatar.visible
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+                padding: 0
+                topPadding: 0
+                bottomPadding: 0
+                leftPadding: 0
+                rightPadding: 0
+                clip: true
                 contentHeight: layout.childrenRect.height
+                contentWidth: width
+                ScrollBar.vertical: ScrollBar {
+                    id: verticalBar
+                    parent: scrollView
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    x: parent.width - width - 5
+                    width: 10
+                    policy: ScrollBar.AsNeeded
+                    visible: true
+                }
 
                 ColumnLayout {
                     id: layout
                     Layout.fillWidth: true
-                    Layout.fillHeight: true
+                    width: scrollView.width
+                    implicitWidth: scrollView.width
 
                     CustomAvatarCropper {
                         id: cropper
@@ -295,12 +331,12 @@ D.DialogWindow {
             }
 
             RowLayout {
-                spacing: 10
+                spacing: 6
                 Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
-                Layout.bottomMargin: 10
-                Layout.topMargin: 20
-                Layout.leftMargin: 30
-                Layout.rightMargin: 40
+                Layout.bottomMargin: 6
+                Layout.topMargin: 2
+                Layout.leftMargin: 51
+                Layout.rightMargin: 59
 
                 Button {
                     Layout.fillWidth: true
