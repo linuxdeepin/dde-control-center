@@ -3,6 +3,7 @@
 
 import QtQuick 2.15
 import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 import QtQuick.Effects
 
@@ -10,15 +11,22 @@ GridView {
     id: gridView
     property string headerText
     property string currentAvatar
+    property int headerHeight: 40
     property int columsCount: 5
     property bool isCustom: false
-    cellHeight: 90
-    cellWidth: 90
-    implicitHeight: Math.ceil(count / 5) * cellHeight + (headerText.length > 0 ? 40 : 0)
+    property int itemSize: 60
+    property int spacing: 12
+    cellHeight: itemSize + spacing
+    cellWidth: itemSize + spacing
+    implicitHeight: Math.ceil(count / columsCount) * cellHeight + (headerText.length > 0 ? headerHeight : 0)
     implicitWidth: cellWidth * columsCount
     clip: true
     keyNavigationEnabled: true
     interactive: false
+    Layout.alignment: Qt.AlignHCenter | Qt.AlignTop
+    Layout.leftMargin: 50
+    Layout.rightMargin: 60
+    Layout.bottomMargin: 10
 
     signal removeCustomAvatar(string filePath)
     signal requireFileDialog()
@@ -27,15 +35,19 @@ GridView {
         active: headerText.length > 0
         sourceComponent: Rectangle {
             anchors.leftMargin: 10
-            width: 120
-            height: 40
+            width: gridView.width
+            height: headerLabel.implicitHeight + 2
             color: "transparent"
+            Component.onCompleted: gridView.headerHeight = headerLabel.implicitHeight + 10
 
             Text {
+                id: headerLabel
                 text: gridView.headerText
-                font.pointSize: 16
+                font: D.DTK.fontManager.t8
                 anchors.left: parent.left
-                anchors.leftMargin: 10
+                anchors.top: parent.top
+                anchors.topMargin: 0
+                anchors.leftMargin: 4
                 color: palette.text
             }
         }
@@ -44,31 +56,31 @@ GridView {
     delegate: D.ItemDelegate {
         id: delegate
         property bool isAddButton: modelData == "add"
-        implicitHeight: 90
-        implicitWidth: 90
-        checkable: !isAddButton
-        checked: !isAddButton && (gridView.currentAvatar === modelData)
-        onCheckedChanged: {
-            if (checked)
+        property bool isSelected: !isAddButton && (gridView.currentAvatar === modelData)
+        implicitHeight: gridView.cellHeight
+        implicitWidth: gridView.cellWidth
+        checkable: false
+        onClicked: {
+            if (!delegate.isAddButton)
                 gridView.currentAvatar = modelData
         }
 
         Loader {
             active: delegate.isAddButton
             sourceComponent: Item {
-                implicitHeight: 90
-                implicitWidth: 90
+                implicitHeight: gridView.cellHeight
+                implicitWidth: gridView.cellWidth
                 Button {
                     id: control
                     icon {
                         name: modelData
                         // TODO: icon size not Work!! dtk bug https://github.com/linuxdeepin/dtk/issues/207
-                        height: 64
-                        width: 64
+                        height: gridView.itemSize
+                        width: gridView.itemSize
                     }
                     anchors {
-                        fill: parent
-                        margins: 5
+                        left: parent.left
+                        verticalCenter: parent.verticalCenter
                     }
                     onClicked: {
                         requireFileDialog()
@@ -85,8 +97,10 @@ GridView {
             theme: delegate.D.ColorSelector.controlTheme
             fallbackToQIcon: false
             name: modelData
-            sourceSize: Qt.size(80, 80)
-            anchors.centerIn: parent
+            sourceSize: Qt.size(gridView.itemSize, gridView.itemSize)
+            anchors.left: parent.left
+            anchors.leftMargin: 2
+            anchors.verticalCenter: parent.verticalCenter
             visible: !delegate.isAddButton // false for MultiEffect need
             antialiasing: true
         }
@@ -138,26 +152,33 @@ GridView {
         // }
 
         background: Rectangle {
+            id: background
             radius: 8
-            anchors.centerIn: parent
-            implicitHeight: 86
-            implicitWidth: 86
+            anchors.fill: img
+            anchors.margins: -2
             color: "transparent"
             border.color: delegate.palette.highlight
             border.width: 1
-            visible: delegate.checked
+            visible: delegate.isSelected
             z: 10
         }
 
         D.IconLabel {
             id: checkIcon
             z: 99
-            icon.name: "item_checked"
-            icon.width: 20
-            icon.height: 20
-            anchors.right: parent.right
-            anchors.top: parent.top
-            visible: delegate.checked
+            icon {
+                name: "item_checked"
+                width: 20
+                height: 20
+                palette: D.DTK.makeIconPalette(delegate.palette)
+                mode: delegate.D.ColorSelector.controlState
+                theme: delegate.D.ColorSelector.controlTheme
+            }
+            width: 20
+            height: 20
+            x: background.x + background.width - width / 2 - 3
+            y: background.y - height / 2 + 3
+            visible: delegate.isSelected
         }
 
         D.ActionButton {
