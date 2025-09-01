@@ -338,9 +338,19 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
 
-        property bool localeRunning: dccData.langState & langAndFormat.localeStateChanging
-        property bool localeGenRunning: dccData.langState & langAndFormat.localeStateGenLocale
+        property bool localeRunning: false
+        property bool localeGenRunning: false
         enabled: !localeRunning || localeGenRunning
+        Component.onCompleted: {
+            localeRunning = Qt.binding(function() {
+                var result = (dccData.langState & langAndFormat.localeStateChanging) !== 0
+                return result
+            })
+            localeGenRunning = Qt.binding(function() {
+                var result = (dccData.langState & langAndFormat.localeStateGenLocale) !== 0
+                return result
+            })
+        }
         page: Item {
             id: regionAndFormatItem
             implicitWidth: regionAndFormat.localeGenRunning ? 36 : layout.implicitWidth
