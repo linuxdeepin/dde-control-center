@@ -519,28 +519,18 @@ void DatetimeModel::setRegion(const QString &region)
 
     m_regionName = region;
     auto reg = m_langRegionsCache.value(region, region);
-    QLocale locale(QLocale::C);
     for (const auto &tmplocale : m_regions) {
         if (tmplocale.territoryToCode(tmplocale.territory()) == reg) {
-            if (m_work->genLocale(tmplocale.name())) {
-                locale = tmplocale;
-                qDebug() << "set locale success:" << locale.name();
-                break;
-            }
-            if (locale.language() == QLocale::C) {
-                locale = tmplocale;
-            }
-        }
-    }
-    if (locale.language() != QLocale::C) {
-        qDebug() << "set locale:" << locale.name();
-        QString country = locale.territoryToString(locale.territory());
-        QString language = QLocale::languageToString(locale.language());
-        QString langCountry = QString("%1:%2").arg(language).arg(country);
-        m_work->setConfigValue(country_key, country);
+            qDebug() << "set locale:" << tmplocale.name();
+            QString country = tmplocale.territoryToString(tmplocale.territory());
+            QString language = QLocale::languageToString(tmplocale.language());
+            QString langCountry = QString("%1:%2").arg(language).arg(country);
+            m_work->setConfigValue(country_key, country);
 
-        Q_EMIT regionChanged(region);
-        Q_EMIT currentRegionIndexChanged(currentRegionIndex());
+            Q_EMIT regionChanged(region);
+            Q_EMIT currentRegionIndexChanged(currentRegionIndex());
+            break;
+        }
     }
 }
 
