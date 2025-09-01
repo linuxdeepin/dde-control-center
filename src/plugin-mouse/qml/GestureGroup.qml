@@ -59,7 +59,7 @@ Rectangle {
                     Component.onCompleted: comboItem = this
                 }
                 background: DccItemBackground {
-                    backgroundType: DccObject.Normal
+                    backgroundType: DccObject.Hover
                     separatorVisible: true
                 }
 
