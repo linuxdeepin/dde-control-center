@@ -25,7 +25,7 @@ Item {
             id: comboBox
             visible: item.comboModel.length > 1
             flat: true
-            implicitWidth: 280
+            implicitWidth: 220
             model: item.comboModel
             currentIndex: comboCurrentIndex
             hoverEnabled: true
