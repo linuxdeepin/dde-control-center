@@ -42,7 +42,7 @@ DccObject {
                 pageType: DccObject.Item
                 visible: !model.noDisplay
                 canSearch: false
-                backgroundType: DccObject.Hover
+                backgroundType: DccObject.ClickStyle
 
                 Connections {
                     target: parentItem
