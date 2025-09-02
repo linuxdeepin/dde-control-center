@@ -13,7 +13,7 @@ import org.deepin.dcc 1.0
 D.DialogWindow {
     id: dialog
     property string userId
-    width: 520
+    width: 460
     minimumWidth: width
     minimumHeight: height
     maximumWidth: minimumWidth
@@ -27,10 +27,12 @@ D.DialogWindow {
     }
 
     ColumnLayout {
-        width: dialog.width - 20
+        width: dialog.width - 10
         Label {
             text: dialog.title
             font.bold: true
+            Layout.leftMargin: 0
+            Layout.rightMargin: 20
             font.pixelSize: cancelButton.font.pixelSize
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
         }
@@ -44,9 +46,11 @@ D.DialogWindow {
             font: D.DTK.fontManager.t8
             wrapMode: Text.WordWrap
             rightPadding: 10
-            leftPadding: 10
-            // horizontalAlignment: Text.AlignHCenter
-            Layout.preferredWidth: pwdLayout.minWidth(font, text, dialog.width - 20)
+            leftPadding: 0
+            horizontalAlignment: Text.AlignHCenter
+            Layout.preferredWidth: pwdLayout.minWidth(font, text, dialog.width - 12)
+            Layout.leftMargin: 0
+            Layout.rightMargin: 10
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
             Layout.bottomMargin: 10
         }
@@ -55,7 +59,10 @@ D.DialogWindow {
             id: pwdLayout
             userId: dialog.userId
             currentPwdVisible: dialog.isCurrent()
-            Layout.leftMargin: 10
+            Layout.leftMargin: 0
+            Layout.rightMargin: 15
+            Layout.fillWidth: true
+            Layout.maximumWidth: dialog.width - 12
             onRequestClose: {
                 // no error, close dialog
                 close()
@@ -63,11 +70,11 @@ D.DialogWindow {
         }
 
         RowLayout {
-            spacing: 10
+            spacing: 6
             Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
-            Layout.bottomMargin: 10
-            Layout.leftMargin: 10
-            Layout.rightMargin: 20
+            Layout.bottomMargin: 6
+            Layout.leftMargin: 0
+            Layout.rightMargin: 10
 
             Button {
                 id: cancelButton
