@@ -199,7 +199,7 @@ DccObject {
         DccObject {
             name: "inputDevice"
             parentName: "sound/inPut/inputGroup"
-            displayName: qsTr("Input Devices")
+            displayName: qsTr("Input Device")
             weight: 40
             pageType: DccObject.Editor
             page: ComboBox {
