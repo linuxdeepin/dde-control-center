@@ -13,7 +13,7 @@ ColumnLayout {
     property string userId
     property string name: dccData.userName(pwdLayout.userId)
     property bool currentPwdVisible: true
-    property string currentName
+    property string currentName: name
     Layout.fillWidth: true
     spacing: 0
     

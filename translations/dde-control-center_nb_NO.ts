@@ -1817,11 +1817,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Input Devices</source>
+        <source>No input device for sound found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>No input device for sound found</source>
+        <source>Input Device</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1992,10 +1992,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New password should differ from the current one</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2005,6 +2001,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Different from the username</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2698,10 +2698,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Output Devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Merge left and right channels into a single channel</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2715,6 +2711,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Auto Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Output Device</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

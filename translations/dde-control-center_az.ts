@@ -1850,8 +1850,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>لم يتم العثور على جهاز مدخل للصوت</translation>
     </message>
     <message>
-        <source>Input Devices</source>
-        <translation>أجهزة المدخلات</translation>
+        <source>Input Device</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2021,10 +2021,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>كلمات المرور غير متطابقة</translation>
     </message>
     <message>
-        <source>New password should differ from the current one</source>
-        <translation>يجب أن تختلف كلمة المرور الجديدة عن الكلمة المرور الحالية</translation>
-    </message>
-    <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>تظهر الملاحظة لجميع المستخدمين. لا تضمن كلمة المرور هنا.</translation>
     </message>
@@ -2034,6 +2030,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Different from the username</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2735,15 +2735,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>هل سيتم تثبيت توقف الصوت التلقائي عند سحب جهاز الصوت الحالي؟</translation>
     </message>
     <message>
-        <source>Output Devices</source>
-        <translation>أجهزة الإخراج</translation>
-    </message>
-    <message>
         <source>Mono Audio</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Output Device</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
