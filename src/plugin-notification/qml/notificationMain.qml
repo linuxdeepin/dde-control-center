@@ -238,14 +238,16 @@ DccObject {
                             displayName: qsTr("Show message preview")
                             pageType: DccObject.Item
                             weight: 10
-                            page: D.CheckBox {
-                                Layout.rightMargin: 10
-                                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                                text: dccObj.displayName
-                                checked: model.EnablePreview
-                                onCheckedChanged: {
-                                    if (model.EnablePreview !== checked) {
-                                        model.EnablePreview = checked
+                            page: RowLayout {
+                                D.CheckBox {
+                                    implicitHeight: 40
+                                    Layout.leftMargin: 14
+                                    text: dccObj.displayName
+                                    checked: model.EnablePreview
+                                    onCheckedChanged: {
+                                        if (model.EnablePreview !== checked) {
+                                            model.EnablePreview = checked
+                                        }
                                     }
                                 }
                             }
@@ -256,14 +258,16 @@ DccObject {
                             displayName: qsTr("Play a sound")
                             pageType: DccObject.Item
                             weight: 20
-                            page: D.CheckBox {
-                                Layout.rightMargin: 10
-                                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                                text: dccObj.displayName
-                                checked: model.EnableSound
-                                onCheckedChanged: {
-                                    if (model.EnableSound !== checked) {
-                                        model.EnableSound = checked
+                            page: RowLayout {
+                                D.CheckBox {
+                                    implicitHeight: 40
+                                    Layout.leftMargin: 14
+                                    text: dccObj.displayName
+                                    checked: model.EnableSound
+                                    onCheckedChanged: {
+                                        if (model.EnableSound !== checked) {
+                                            model.EnableSound = checked
+                                        }
                                     }
                                 }
                             }
