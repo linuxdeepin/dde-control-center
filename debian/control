@@ -48,7 +48,7 @@ Depends:
  qml6-module-qt-labs-qmlmodels,
  qml6-module-qtquick-dialogs,
  qml6-module-qtquick-effects,
- libdtk6declarative,
+ libdtk6declarative(>= 6.0.41.5),
  netselect,
 Recommends: uos-license-content,
 Conflicts: dde-control-center-dock

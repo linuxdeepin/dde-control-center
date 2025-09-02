@@ -384,6 +384,8 @@ ColumnLayout {
             topPadding: 0
             bottomPadding: 0
             font: D.DTK.fontManager.t7
+            canCopy: false
+            canCut: false
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             verticalAlignment: TextInput.AlignVCenter
