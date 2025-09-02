@@ -466,6 +466,8 @@ DccObject {
                             Layout.preferredWidth: parent.width
                             height: 30
                             showAlert: false
+                            canCopy: false
+                            canCut: false
 
                             Timer {
                                 id: newPasswordAlertTimer
@@ -534,6 +536,8 @@ DccObject {
                             Layout.preferredWidth: parent.width
                             placeholderText: qsTr("Required")
                             height: 30
+                            canCopy: false
+                            canCut: false
 
                             Timer {
                                 id: repeatPasswordAlertTimer
