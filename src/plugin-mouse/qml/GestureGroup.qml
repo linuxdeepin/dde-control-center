@@ -40,6 +40,9 @@ Rectangle {
                 text: model.descriptionRole
                 icon.name: model.iconRole
                 hoverEnabled: true
+                
+                // 使用框架标准函数动态设置corners
+                corners: getCornersForBackground(index, repeater.count)
 
                 property var comboMoel: model.actionListRole
                 property int comboIndex: model.actionsIndexRole
@@ -58,9 +61,10 @@ Rectangle {
                     }
                     Component.onCompleted: comboItem = this
                 }
+                
                 background: DccItemBackground {
                     backgroundType: DccObject.Hover
-                    separatorVisible: true
+                    separatorVisible: index < (repeater.count - 1)  // 动态条件：最后一行不显示分割线
                 }
 
                 onHoveredChanged: {
