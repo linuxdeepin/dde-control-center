@@ -57,24 +57,19 @@ Loader {
                 }
             }
 
-            RowLayout {
+            Item {
                 Layout.fillWidth: true
                 height: 360
                 Layout.leftMargin: 6 - DS.Style.dialogWindow.contentHMargin
-                Layout.rightMargin: -DS.Style.dialogWindow.contentHMargin
-                spacing: 0
+                Layout.rightMargin: 6 - DS.Style.dialogWindow.contentHMargin  // Match searchEdit margin
 
-                Item {
-                    Layout.fillWidth: true
-                    height: parent.height
-
-                    ListView {
-                        id: itemsView
-                        property string checkedLang
-                        anchors.fill: parent
-                        clip: true
-                        snapMode: ListView.SnapOneItem
-                        model: langDialogLoader.viewModel
+                ListView {
+                    id: itemsView
+                    property string checkedLang
+                    anchors.fill: parent
+                    clip: true
+                    model: langDialogLoader.viewModel
+                    boundsBehavior: Flickable.StopAtBounds
 
                         ButtonGroup {
                             id: langGroup
@@ -192,25 +187,33 @@ Loader {
                             }
                         }
                     }
-                }
 
-                Item {
-                    width: 7
-                    Layout.preferredWidth: 7
-                    Layout.fillHeight: true
+                ScrollBar {
+                    id: scrollBar
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    anchors.right: parent.right
+                    anchors.rightMargin: -6  // Position outside the ListView area
+                    width: 10
+                    orientation: Qt.Vertical
 
-                    ScrollBar {
-                        anchors.fill: parent
-                        orientation: Qt.Vertical
+                    // Break the binding cycle by using conditional binding
+                    position: pressed ? position : itemsView.visibleArea.yPosition
+                    size: itemsView.visibleArea.heightRatio
+                    active: hovered || pressed || itemsView.moving || itemsView.flicking
 
-                        position: itemsView.visibleArea.yPosition
-                        size: itemsView.visibleArea.heightRatio
-                        active: itemsView.moving || itemsView.flicking
+                    property bool userDragging: false
 
-                        onPositionChanged: {
-                            if (pressed) {
-                                itemsView.contentY = position * (itemsView.contentHeight - itemsView.height)
-                            }
+                    onPressedChanged: {
+                        userDragging = pressed
+                    }
+
+                    onPositionChanged: {
+                        if (userDragging && itemsView.contentHeight > itemsView.height) {
+                            // Temporarily disconnect the binding to prevent feedback loop
+                            let maxContentY = itemsView.contentHeight - itemsView.height
+                            let newContentY = position * maxContentY
+                            itemsView.contentY = Math.max(0, Math.min(newContentY, maxContentY))
                         }
                     }
                 }
