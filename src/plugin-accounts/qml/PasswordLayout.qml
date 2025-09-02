@@ -49,7 +49,8 @@ ColumnLayout {
                 maxWidth = width
             }
         }
-        pwdLayout.maxLabelWidth = Math.ceil(maxWidth)
+        var finalWidth = maxWidth > 110 ? 110 : maxWidth
+        pwdLayout.maxLabelWidth = Math.ceil(finalWidth)
     }
     
     Component.onCompleted: {
