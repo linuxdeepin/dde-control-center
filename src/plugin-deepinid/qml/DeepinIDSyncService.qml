@@ -12,14 +12,14 @@ import org.deepin.dcc 1.0
 
 DccObject {
     name: "syncService"
-    parentName: "deepinid/userinfo/body"
+    parentName: "deepinid/userinfo"
     weight: 30
     pageType: DccObject.Item
     page: DccGroupView {}
 
     DccObject {
         name: "syncServiceSwitch"
-        parentName: "deepinid/userinfo/body/syncService"
+        parentName: "deepinid/userinfo/syncService"
         displayName: qsTr("Auto Sync")
         description: qsTr("Securely store system settings and personal data in the cloud, and keep them in sync across devices")
         weight: 10
@@ -66,9 +66,9 @@ DccObject {
 
     DccObject {
         name: "systemSettings"
-        parentName: "deepinid/userinfo/body/syncService"
+        parentName: "deepinid/userinfo/syncService"
         displayName: qsTr("System Settings")
-        icon: "dcc_cfg_set"
+        icon: "dcc-systemcset"
         weight: 20
         backgroundType: DccObject.ClickStyle
         pageType: DccObject.Editor
@@ -99,7 +99,7 @@ DccObject {
         model: dccData.model.syncInfoListModel()
         delegate: DccObject {
             name: model.type
-            parentName: "deepinid/userinfo/body/syncService"
+            parentName: "deepinid/userinfo/syncService"
             weight: 30 + index
             icon: model.displayIcon
             displayName: model.displayName
@@ -124,7 +124,7 @@ DccObject {
         model: dccData.model.appInfoListModel()
         delegate: DccObject {
             name: model.key
-            parentName: "deepinid/userinfo/body/syncService"
+            parentName: "deepinid/userinfo/syncService"
             weight: 50 + index
             icon: model.icon
             displayName: model.name
@@ -145,7 +145,7 @@ DccObject {
 
     DccObject {
         name: "syncTimeUpdate"
-        parentName: "deepinid/userinfo/body/syncService"
+        parentName: "deepinid/userinfo/syncService"
         displayName: qsTr("Last sync time: %1").arg(dccData.model.lastSyncTime)
         weight: 100
         visible: dccData.model.syncSwitch
