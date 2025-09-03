@@ -2016,7 +2016,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation>新密碼和舊密碼不能相同</translation>
+        <translation>密碼不能與用户名一致</translation>
     </message>
 </context>
 <context>
