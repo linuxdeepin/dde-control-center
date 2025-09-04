@@ -202,7 +202,7 @@ DccObject {
             displayName: qsTr("Input Device")
             weight: 40
             pageType: DccObject.Editor
-            page: ComboBox {
+            page: D.ComboBox {
                 id: control
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
@@ -254,7 +254,7 @@ DccObject {
                         }
 
                         Layout.fillWidth: true
-                        Layout.fillHeight: true
+                        implicitHeight: fm.height
                         Layout.rightMargin: DS.Style.comboBox.spacing
                         text: getDisplayText()
 

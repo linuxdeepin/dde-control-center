@@ -232,6 +232,7 @@ DccObject {
                 currentIndex: dccData.model().outPutPortComboIndex
                 model: dccData.model().soundOutputDeviceModel()
                 enabled: dccData.model().outPutPortComboEnable
+                implicitWidth: 300
 
                 contentItem: RowLayout {
                     spacing: DS.Style.comboBox.spacing
@@ -274,7 +275,7 @@ DccObject {
                         }
 
                         Layout.fillWidth: true
-                        Layout.fillHeight: true
+                        implicitHeight: fm.height
                         Layout.rightMargin: DS.Style.comboBox.spacing
                         text: getDisplayText()
 
