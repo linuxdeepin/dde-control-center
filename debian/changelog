@@ -1,3 +1,32 @@
+dde-control-center (6.1.46) unstable; urgency=medium
+
+  * chore: update color extractor icon binary
+  * fix: fix combobox layout issues in sound settings
+  * fix: Fix the plaintext password to be copied
+  * fix: update DeepinID UI layout and icons
+  * fix: Changing the reset password does not prompt an error
+  * fix: fix gesture group item corner and separator styling
+  * feat: replace rectangle with DciIcon for badge display
+  * i18n: Translate dde-control-center_en.ts in pl (#2618)
+  * fix: adjust notification settings checkbox layout
+  * fix: Adjust the layout of the password change interface
+  * fix: adjust ScrollBar position and width in LangsChooserDialog
+  * fix: Modify the Edit Avatar interface
+  * fix: use ClickStyle instead of magic number
+  * fix: correct ScrollBar position in RegionsChooserWindow
+  * fix: update gesture group combo box background style
+  * fix: rename four finger click animation file
+  * fix: adjust ComboBox width in datetime plugin for better layout
+  * fix: add missing number separators for international locales
+  * fix: show remove button when locale generation is running
+  * fix: resolve loading state inconsistency in LangAndFormat component
+  * style: adjust font size and left margin in multiple QML files
+  * fix: Supplement referral dependencies
+  * fix: prevent region dropdown graying out on language switch
+  * fix: improve face enrollment dialog layout and responsiveness
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 04 Sep 2025 21:47:37 +0800
+
 dde-control-center (6.1.45) unstable; urgency=medium
 
   * refactor: standardize shortcut key identifiers naming convention
