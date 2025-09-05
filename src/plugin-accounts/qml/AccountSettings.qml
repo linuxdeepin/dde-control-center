@@ -582,7 +582,7 @@ DccObject {
             id: quickLogin
             name: settings.papaName + "quickLogin"
             parentName: settings.papaName + "acountSettings"
-            displayName: qsTr("Quickly load DDE with your login information")
+            displayName: qsTr("Quick login")
             canSearch: settings.canSearch
             weight: 20
             pageType: DccObject.Editor
