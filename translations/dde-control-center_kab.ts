@@ -1823,8 +1823,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Amskun deviṣ t-ḍir t-tanādd</translation>
     </message>
     <message>
-        <source>Input Devices</source>
-        <translation>Deviṣ t-ḍir</translation>
+        <source>Input Device</source>
+        <translation>Ibenk n unekcum</translation>
     </message>
 </context>
 <context>
@@ -1994,10 +1994,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Tefus ddiwuss aw tefus ddiwuss ddiwuss ddiwuss</translation>
     </message>
     <message>
-        <source>New password should differ from the current one</source>
-        <translation>Tefus ddiwuss ddiwuss ddiwuss tefus ddiwuss</translation>
-    </message>
-    <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation>Ddawdus tefus ddiwuss ddiwuss ddiwuss tefus ddiwuss</translation>
     </message>
@@ -2008,6 +2004,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Different from the username</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
+        <translation>Tefus ddiwuss ddiwuss ddiwuss tefus ddiwuss</translation>
     </message>
 </context>
 <context>
@@ -2708,16 +2708,16 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Idem amuzi yassasghar wassasghar amuzi wazzug yebb drass</translation>
     </message>
     <message>
-        <source>Output Devices</source>
-        <translation>Dëgawen dëgawen</translation>
-    </message>
-    <message>
         <source>Mono Audio</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto Pause</source>
         <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Output Device</source>
+        <translation>Ibenk n tuffɣa</translation>
     </message>
 </context>
 <context>
