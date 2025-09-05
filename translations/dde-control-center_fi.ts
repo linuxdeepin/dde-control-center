@@ -793,11 +793,11 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Yleinen</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Vieritysnopeus</translation>
     </message>
 </context>
 <context>
@@ -1434,11 +1434,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Olet siirtynyt kehittäjätilaan</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -1581,31 +1581,31 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Kolmella sormella ylös</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Kolmella sormella alas</translation>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Kolmella sormella vasemmalle</translation>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Kolmella sormella oikealle</translation>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Kolmen sormen painallus</translation>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Neljällä sormella ylös</translation>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Neljällä sormella alas</translation>
     </message>
     <message>
         <source>Four-finger left</source>
