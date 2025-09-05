@@ -22,6 +22,7 @@
 #include <appletbridge.h>
 
 #include <polkit-qt6-1/PolkitQt1/Authority>
+#include <qcoreapplication.h>
 
 Q_DECLARE_LOGGING_CATEGORY(DCC_PRIVACY)
 static const QString DESKTOP_ENTRY_ICON_KEY = "Desktop Entry";
@@ -51,7 +52,11 @@ void PrivacySecurityWorker::init()
     if (!m_pathList.isEmpty())
         return;
     m_dataProxy->init();
-    initApp();
+    // TODO：由于控制中心通过子线程加载插件后，会移动插件的加载线程->主线程，
+    // 并删除原有线程->未指定父的对象所处的线程会被删除，所以使用qApp->主线程调用initApp
+    QMetaObject::invokeMethod(qApp, [this]() {
+        initApp();
+    }, Qt::BlockingQueuedConnection);
 
     connect(m_model, &PrivacySecurityModel::requestUpdateCacheBlacklist, this, &PrivacySecurityWorker::updateCacheBlacklist);
 
@@ -85,6 +90,7 @@ void PrivacySecurityWorker::initApp()
     auto applet = rootApplet->createApplet(DS_NAMESPACE::DAppletData{"org.deepin.ds.dde-apps"});
     applet->load();
     applet->init();
+    applet->setParent(this);
 
     DS_NAMESPACE::DAppletBridge bridge("org.deepin.ds.dde-apps");
     DS_NAMESPACE::DAppletProxy * amAppsProxy = bridge.applet();
@@ -98,6 +104,16 @@ void PrivacySecurityWorker::initApp()
             Q_UNUSED(parent)
             for (int i = first; i <= last; i++) {
                 addAppItem(i);
+            }
+        });
+        connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, this, [this](const QModelIndex &parent, int first, int last)
+        {
+            Q_UNUSED(parent)
+            for (int i = last; i >= first; i--) {
+                QString appId = m_ddeAmModel->data(m_ddeAmModel->index(i, 0), DS_NAMESPACE::AppItemModel::IdRole).toString();
+                if (!appId.isEmpty()) {
+                    m_model->removeApplictionItem(appId);
+                }
             }
         });
     }
@@ -345,9 +361,9 @@ ApplicationItem *PrivacySecurityWorker::addAppItem(int dataIndex)
     ApplicationItem *appItem = new ApplicationItem();
     appItem->onIdChanged(id);
     appItem->onNameChanged(name);
+    appItem->onIconChanged(iconName);
     appItem->onExecsChanged(execs);
     if (m_model->addApplictionItem(appItem)) {
-        appItem->onIconChanged(iconName);
         m_model->updatePermission(appItem);
 
         updateAppPath(appItem);
