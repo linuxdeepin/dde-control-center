@@ -172,6 +172,7 @@ DatetimeModel::DatetimeModel(QObject *parent)
     : QObject(parent)
     , m_ntp(true)
     , m_bUse24HourType(true)
+    , m_previousServerAddress("")
     , m_work(new DatetimeWorker(this, this))
 {
     connect(this, &DatetimeModel::ntpChanged, m_work, &DatetimeWorker::setNTP);
@@ -233,6 +234,16 @@ DatetimeModel::DatetimeModel(QObject *parent)
     timer->start();
 
     qmlRegisterType<dccV25::ZoneInfoModel>("ZoneInfoModel", 1, 0, "ZoneInfoModel");
+}
+
+DatetimeModel::~DatetimeModel()
+{
+    bool isCustomizeMode = !m_NtpServerList.contains(m_strNtpServerAddress);
+    if (isCustomizeMode && m_strNtpServerAddress.isEmpty() && !m_previousServerAddress.isEmpty()) {
+        if (m_work) {
+            m_work->setNtpServer(m_previousServerAddress);
+        }
+    }
 }
 
 void DatetimeModel::setNTP(bool ntp)
@@ -948,6 +959,14 @@ void DatetimeModel::setNtpServerAddress(const QString &ntpServer)
     if (m_strNtpServerAddress != ntpServer) {
         m_strNtpServerAddress = ntpServer;
         Q_EMIT NTPServerChanged(ntpServer);
+    }
+}
+
+void DatetimeModel::setPreviousServerAddress(const QString &address)
+{
+    if (m_previousServerAddress != address) {
+        m_previousServerAddress = address;
+        Q_EMIT previousServerAddressChanged(address);
     }
 }
 
