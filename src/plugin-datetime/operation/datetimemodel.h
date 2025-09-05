@@ -23,6 +23,7 @@ class DatetimeModel : public QObject
     Q_PROPERTY(bool ntpEnabled READ nTP WRITE setNTP NOTIFY ntpChanged FINAL)
     Q_PROPERTY(bool use24HourFormat READ use24HourFormat WRITE set24HourFormat NOTIFY hourTypeChanged FINAL)
     Q_PROPERTY(QString ntpServerAddress READ ntpServerAddress WRITE setNtpServerAddress NOTIFY NTPServerChanged FINAL)
+    Q_PROPERTY(QString previousServerAddress READ previousServerAddress WRITE setPreviousServerAddress NOTIFY previousServerAddressChanged FINAL)
     Q_PROPERTY(QStringList ntpServerList READ ntpServerList WRITE setNTPServerList NOTIFY NTPServerListChanged FINAL)
     Q_PROPERTY(QString timeZoneDispalyName READ timeZoneDispalyName NOTIFY currentSystemTimeZoneChanged)
     Q_PROPERTY(int currentTimeZoneIndex READ currentTimeZoneIndex NOTIFY currentSystemTimeZoneChanged)
@@ -77,6 +78,7 @@ public:
     };
 
     explicit DatetimeModel(QObject *parent = nullptr);
+    ~DatetimeModel();
 
     inline bool nTP() const { return m_ntp; }
     void setNTP(bool ntp);
@@ -100,6 +102,9 @@ public:
 
     inline QString ntpServerAddress() const { return m_strNtpServerAddress; }
     void setNtpServerAddress(const QString &ntpServer);
+
+    inline QString previousServerAddress() const { return m_previousServerAddress; }
+    void setPreviousServerAddress(const QString &address);
 
     inline QStringList ntpServerList() const { return m_NtpServerList; }
     void setNTPServerList(const QStringList &list);
@@ -176,6 +181,7 @@ Q_SIGNALS:
     void NTPServerChanged(QString server);
     void NTPServerListChanged(QStringList list);
     void NTPServerNotChanged(QString server);
+    void previousServerAddressChanged(const QString &address);
     void timeZoneChanged(QString value);
     void localeNameChanged(const QString &localeName);
     void countryChanged(const QString &country);
@@ -255,6 +261,7 @@ private:
     ZoneInfo m_currentTimeZone;
     ZoneInfo m_currentSystemTimeZone;
     QString m_strNtpServerAddress;
+    QString m_previousServerAddress;
     QStringList m_NtpServerList;
     QString m_timeZones;
     QString m_country;

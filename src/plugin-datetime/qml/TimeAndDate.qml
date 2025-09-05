@@ -118,9 +118,14 @@ DccObject {
                         dateAndTimeSettings.showCustom = (index < 0)
                         if (index < 0)
                             dateAndTimeSettings.customAddr = dccData.ntpServerAddress
+                        if (dccData.ntpServerAddress.length > 0)
+                            dccData.previousServerAddress = dccData.ntpServerAddress
                         return index < 0 ? serverList.length - 1 : index
                     }
                     onActivated: function (index) {
+                        if (dccData.ntpServerAddress.length > 0)
+                            dccData.previousServerAddress = dccData.ntpServerAddress
+
                         dateAndTimeSettings.showCustom = (serverList[index] === qsTr("Customize"))
                         if (dateAndTimeSettings.showCustom) {
                             dccData.ntpServerAddress = dateAndTimeSettings.customAddr
@@ -177,6 +182,9 @@ DccObject {
                 if (dateAndTimeSettings.showCustom &&
                         dateAndTimeSettings.customAddr.length === 0) {
                     dateAndTimeSettings.showCustom = false
+                    if (dccData.previousServerAddress.length > 0) {
+                        dccData.ntpServerAddress = dccData.previousServerAddress
+                    }
                 }
             }
         }
