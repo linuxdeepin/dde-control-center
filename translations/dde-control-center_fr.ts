@@ -199,7 +199,10 @@ Pour pouvoir utiliser l&apos;identification faciale de manière optimale, veuill
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation>La reconnaissance faciale ne prend pas en charge la détection du caractère vivant, et la méthode de vérification peut comporter des risques.
+Pour garantir une entrée réussie :
+1. Veillez à ce que vos traits faciaux soient clairement visibles et ne les couvrez pas (chapeaux, lunettes de soleil, masques, etc.).
+2. Assurez-vous que l&apos;éclairage est suffisant et évitez la lumière directe du soleil.</translation>
     </message>
 </context>
 <context>
@@ -620,7 +623,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>Unclear fingerprint</source>
-        <translation>Emprunt de doigt flou</translation>
+        <translation>Empreinte digitale illisible</translation>
     </message>
     <message>
         <source>Clean your finger or adjust the finger position, and try again</source>
@@ -966,8 +969,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Nous sommes pleinement conscients de l&apos;importance de vos informations personnelles pour vous. Nous avons donc une Politique de confidentialité qui couvre la manière dont nous collectons, utilisons, partageons, transférons, divulguons publiquement et stockons vos informations.&lt;/p&gt;&lt;p&gt;Vous pouvez &lt;a href=&quot;%1&quot;&gt;cliquer ici&lt;/a&gt; pour consulter notre dernière politique de confidentialité et/ou la consulter en ligne en visitant &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Veuillez lire soigneusement et comprendre pleinement nos pratiques en matière de confidentialité des clients. Si vous avez des questions, veuillez nous contacter à l&apos;adresse : support@uniontech.com.&lt;/p&gt;
-</translation>
+        <translation>&lt;p&gt;Nous sommes pleinement conscients de l&apos;importance de vos informations personnelles pour vous. Nous avons donc une Politique de confidentialité qui couvre la manière dont nous collectons, utilisons, partageons, transférons, divulguons publiquement et stockons vos informations.&lt;/p&gt;&lt;p&gt;Vous pouvez &lt;a href=&quot;%1&quot;&gt;cliquer ici&lt;/a&gt; pour consulter notre dernière politique de confidentialité et/ou la consulter en ligne en visitant &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Veuillez lire soigneusement et comprendre pleinement nos pratiques en matière de confidentialité des clients. Si vous avez des questions, veuillez nous contacter à l&apos;adresse : support@uniontech.com.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
@@ -975,13 +977,11 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Le fait de rejoindre le programme d’expérience utilisateur signifie que vous nous accordez et autorisez à collecter et utiliser les informations de votre appareil, de votre système et de vos applications. Si vous refusez notre collecte et utilisation des informations ci-dessus, ne rejoignez pas le programme d’expérience utilisateur. Pour plus de détails, veuillez vous référer à la Politique de confidentialité de Deepin (&lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;).&lt;/p&gt;
-</translation>
+        <translation>&lt;p&gt;Le fait de rejoindre le programme d’expérience utilisateur signifie que vous nous accordez et autorisez à collecter et utiliser les informations de votre appareil, de votre système et de vos applications. Si vous refusez notre collecte et utilisation des informations ci-dessus, ne rejoignez pas le programme d’expérience utilisateur. Pour plus de détails, veuillez vous référer à la Politique de confidentialité de Deepin (&lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;En rejoignant le programme d&apos;expérience utilisateur, vous nous autorisez à collecter et utiliser les informations de votre appareil, de votre système et de vos applications. Si vous refusez la collecte et l&apos;utilisation de ces informations, veuillez ne pas y participer. Pour plus de détails sur le programme d&apos;expérience utilisateur, veuillez visiter &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;
-</translation>
+        <translation>&lt;p&gt;En rejoignant le programme d&apos;expérience utilisateur, vous nous autorisez à collecter et utiliser les informations de votre appareil, de votre système et de vos applications. Si vous refusez la collecte et l&apos;utilisation de ces informations, veuillez ne pas y participer. Pour plus de détails sur le programme d&apos;expérience utilisateur, veuillez visiter &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
