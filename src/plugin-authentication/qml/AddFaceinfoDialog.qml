@@ -69,16 +69,36 @@ D.DialogWindow {
                     Layout.fillHeight: true
                 }
 
-                Label {
+                ScrollView {
+                    id: infoScrollView
+                    Layout.fillHeight: true
                     Layout.fillWidth: true
-                    Layout.alignment: Qt.AlignHCenter
                     Layout.leftMargin: 5
                     Layout.rightMargin: 5
-                    font: D.DTK.fontManager.t8
-                    wrapMode: Text.WordWrap
-                    text: qsTr("Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.")
-                    horizontalAlignment: Text.AlignHCenter
-                    color: D.DTK.themeType == D.ApplicationHelper.LightType ? Qt.rgba(0, 0, 0, 0.7) : Qt.rgba(1, 1, 1, 0.7)
+                    Layout.preferredHeight: Math.min(infoLabel.implicitHeight, 120)
+                    ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
+                    ScrollBar.vertical.policy: ScrollBar.AsNeeded
+                    
+                    Component.onCompleted: {
+                        if (contentItem) {
+                            contentItem.interactive = true
+                            contentItem.flickableDirection = Flickable.VerticalFlick
+                            contentItem.boundsBehavior = Flickable.DragAndOvershootBounds
+                        }
+                    }
+                    
+                    Label {
+                        id: infoLabel
+                        width: infoScrollView.availableWidth
+                        font: D.DTK.fontManager.t8
+                        wrapMode: Text.WordWrap
+                        text: qsTr("Face recognition does not support liveness detection, and the verification method may carry risks.\n\
+To ensure successful entry:\n\
+1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).\n\
+2. Ensure sufficient lighting and avoid direct sunlight.")
+                        horizontalAlignment: Text.AlignLeft
+                        color: D.DTK.themeType == D.ApplicationHelper.LightType ? Qt.rgba(0, 0, 0, 0.7) : Qt.rgba(1, 1, 1, 0.7)
+                    }
                 }
 
                 Item {

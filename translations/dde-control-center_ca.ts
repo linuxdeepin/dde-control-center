@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ca">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ca">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -94,10 +96,6 @@
         <translation>inici de sessió ràpid, entrada automàtica, entrada sense contrasenya</translation>
     </message>
     <message>
-        <source>Quickly load DDE with your login information</source>
-        <translation>Carregueu ràpidament l&apos;escriptori amb la vostra informació d&apos;inici de sessió</translation>
-    </message>
-    <message>
         <source>Undo</source>
         <translation>Desfés</translation>
     </message>
@@ -121,16 +119,16 @@
         <source>Select All</source>
         <translation>Selecciona-ho tot</translation>
     </message>
+    <message>
+        <source>Quick login</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
         <translation>Apunteu-vos al Face</translation>
-    </message>
-    <message>
-        <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Assegureu-vos que totes les parts de la cara no estiguin cobertes per objectes i siguin clarament visibles. La cara també ha d&apos;estar ben il·luminada.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -188,6 +186,13 @@ Per tal d&apos;usar millor el reconeixement facial, presteu atenció als aspecte
 2. Si us plau, presteu atenció a l&apos;estat de la cara quan introduïu dades i no deixeu que els barrets, cabells, ulleres de sol, màscares, maquillatge pesat i altres factors cobreixin els trets facials.
 3. Si us plau, eviteu inclinar o abaixar el cap, tancar els ulls o mostrar només un costat de la cara, i assegureu-vos que la cara frontal aparegui clarament i completament al quadre.</translation>
     </message>
+    <message>
+        <source>Face recognition does not support liveness detection, and the verification method may carry risks.
+To ensure successful entry:
+1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
+2. Ensure sufficient lighting and avoid direct sunlight.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -226,7 +231,7 @@ Per tal d&apos;usar millor el reconeixement facial, presteu atenció als aspecte
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat d&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà en funció del resultat de la comparació.

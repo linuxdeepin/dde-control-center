@@ -96,10 +96,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Quickly load DDE with your login information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Undo</source>
         <translation type="unfinished"></translation>
     </message>
@@ -123,15 +119,15 @@
         <source>Select All</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Quick login</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -178,6 +174,13 @@ In order to better use of face recognition, please pay attention to the followin
 1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face recognition does not support liveness detection, and the verification method may carry risks.
+To ensure successful entry:
+1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
+2. Ensure sufficient lighting and avoid direct sunlight.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

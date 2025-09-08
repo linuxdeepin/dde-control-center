@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pl">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pl">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -94,10 +96,6 @@
         <translation>Szybkie logowanie, automatyczne logowanie, logowanie bez hasła</translation>
     </message>
     <message>
-        <source>Quickly load DDE with your login information</source>
-        <translation>Załaduj szybko DDE z uzupełnionymi danymi logowania</translation>
-    </message>
-    <message>
         <source>Undo</source>
         <translation>Cofnij</translation>
     </message>
@@ -121,16 +119,16 @@
         <source>Select All</source>
         <translation>Zaznacz wszystko</translation>
     </message>
+    <message>
+        <source>Quick login</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
         <translation>Zapisz twarz</translation>
-    </message>
-    <message>
-        <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Upewnij się, że wszystkie części twarzy są odkryte i dobrze widoczne. Twoja twarz powinna być również dobrze oświetlona.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -188,6 +186,13 @@ Aby umiejętnie korzystać z rozpoznawania twarzy, podczas wprowadzania danych t
 2. Podczas wprowadzania danych zwróć uwagę na stan twarzy i nie pozwól, aby nakrycia głowy, włosy, okulary przeciwsłoneczne, maski, mocny makijaż i inne czynniki zakrywały rysy twarzy.
 3. Unikaj przechylania lub opuszczania głowy, zamykania oczu lub pokazywania tylko jednej strony twarzy. Upewnij się, że przedni profil twarzy jest wyraźnie i całkowicie widoczny na ekranie.</translation>
     </message>
+    <message>
+        <source>Face recognition does not support liveness detection, and the verification method may carry risks.
+To ensure successful entry:
+1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
+2. Ensure sufficient lighting and avoid direct sunlight.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -226,7 +231,7 @@ Aby umiejętnie korzystać z rozpoznawania twarzy, podczas wprowadzania danych t
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>„Uwierzytelnienie biometryczne” to funkcja uwierzytelnienia tożsamości użytkownika stworzona przez UnionTech Software Technology Co., Ltd. Dzięki „uwierzytelnieniu biometrycznemu” zebrane dane biometryczne będą porównywane z danymi przechowywanymi na urządzeniu, a tożsamość użytkownika zostanie zweryfikowana na podstawie wyniku porównania.

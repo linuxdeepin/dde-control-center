@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fr">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fr">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -94,10 +96,6 @@
         <translation>تسجيل الدخول السريع، تسجيل الدخول التلقائي، تسجيل الدخول بدون كلمة مرور</translation>
     </message>
     <message>
-        <source>Quickly load DDE with your login information</source>
-        <translation>تحميل DDE بسرعة مع معلومات تسجيل الدخول الخاصة بك</translation>
-    </message>
-    <message>
         <source>Undo</source>
         <translation>Annuler</translation>
     </message>
@@ -121,16 +119,16 @@
         <source>Select All</source>
         <translation>Tout sélectionner</translation>
     </message>
+    <message>
+        <source>Quick login</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
         <translation>Inscrire un visage</translation>
-    </message>
-    <message>
-        <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Assurez-vous que toutes les parties de votre visage ne soient pas couvertes par des objets et soient clairement visibles. Votre visage doit être bien éclairé également.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -198,6 +196,13 @@ Pour pouvoir utiliser l&apos;identification faciale de manière optimale, veuill
 
 3. Évitez de pencher ou de baisser la tête, de fermer les yeux ou de montrer seulement un côté de votre visage, et assurez-vous que votre visage frontal apparaît clairement et complètement dans la boîte de prompt.</translation>
     </message>
+    <message>
+        <source>Face recognition does not support liveness detection, and the verification method may carry risks.
+To ensure successful entry:
+1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
+2. Ensure sufficient lighting and avoid direct sunlight.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -236,7 +241,7 @@ Pour pouvoir utiliser l&apos;identification faciale de manière optimale, veuill
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;authentification biométrique est une fonction d&apos;authentification d&apos;identité utilisateur fournie par UnionTech Software Technology Co., Ltd. À travers l&apos;authentification biométrique, les données biométriques collectées seront comparées à celles stockées sur l&apos;appareil, et l&apos;identité de l&apos;utilisateur sera vérifiée en fonction du résultat de la comparaison.
@@ -1478,7 +1483,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation>Autoriser les applications suivantes à accéder à ces fichiers et dossiers :</translation>
+        <translation>Autoriser les applications suivantes à accéder à ces fichiers et dossiers&#xa0;:</translation>
     </message>
     <message>
         <source>Documents</source>

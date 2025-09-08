@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pt_BR">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pt_BR">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -94,10 +96,6 @@
         <translation>login rápido, login automático, login sem senha</translation>
     </message>
     <message>
-        <source>Quickly load DDE with your login information</source>
-        <translation>Carregue rapidamente o DDE com suas informações de login</translation>
-    </message>
-    <message>
         <source>Undo</source>
         <translation>Desfazer</translation>
     </message>
@@ -121,16 +119,16 @@
         <source>Select All</source>
         <translation>Selecionar tudo</translation>
     </message>
+    <message>
+        <source>Quick login</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
         <translation>Cadastrar rosto</translation>
-    </message>
-    <message>
-        <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
-        <translation>Certifique-se de que todas as partes do seu rosto não estejam cobertas por objetos e estejam claramente visíveis. Seu rosto também deve estar bem iluminado.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -178,6 +176,13 @@ In order to better use of face recognition, please pay attention to the followin
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
         <translation>Antes de usar o reconhecimento facial, observe que: 1. Seu dispositivo pode ser desbloqueado por pessoas ou objetos que se parecem ou parecem semelhantes a você.2. O reconhecimento facial é menos seguro do que senhas digitais e senhas mistas.3. A taxa de sucesso do desbloqueio do seu dispositivo por meio do reconhecimento facial será reduzida em cenários de pouca luz, muita luz, luz de fundo, ângulo grande e outros cenários.4. Não dê seu dispositivo a outras pessoas aleatoriamente, para evitar o uso malicioso do reconhecimento facial.5. Além dos cenários acima, você deve prestar atenção a outras situações que podem afetar o uso normal do reconhecimento facial.Para melhor uso do reconhecimento facial, preste atenção aos seguintes assuntos ao inserir os dados faciais:1. Fique em um ambiente bem iluminado, evite luz solar direta e outras pessoas aparecendo na tela gravada.2. Preste atenção ao estado facial ao inserir dados e não deixe seus chapéus, cabelos, óculos de sol,  máscaras, maquiagem pesada e outros fatores para cobrir suas características faciais.3. Evite inclinar ou abaixar a cabeça, fechar os olhos ou mostrar apenas um lado do rosto e certifique-se de que sua face frontal apareça clara e completamente na caixa de prompt.</translation>
     </message>
+    <message>
+        <source>Face recognition does not support liveness detection, and the verification method may carry risks.
+To ensure successful entry:
+1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
+2. Ensure sufficient lighting and avoid direct sunlight.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -216,7 +221,7 @@ In order to better use of face recognition, please pay attention to the followin
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;A autenticação biométrica&quot; ​​é uma função para autenticação de identidade do usuário fornecida pela UnionTech Software Technology Co., Ltd. Por meio da &quot;autenticação biométrica&quot;, os dados biométricos coletados serão comparados com os armazenados no dispositivo, e a identidade do usuário será verificada com base no resultado da comparação.Observe que a UnionTech Software Technology Co., Ltd. não coletará ou acessará suas informações biométricas, que serão armazenadas em seu dispositivo local. Habilite apenas a autenticação biométrica em seu dispositivo pessoal e use suas próprias informações biométricas para operações relacionadas, e desabilite ou exclua imediatamente as informações biométricas de outras pessoas naquele dispositivo, caso contrário, você arcará com o risco decorrente disso.A UnionTech Software Technology Co., Ltd. está comprometida em pesquisar e melhorar a segurança, precisão e estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros e controle de risco, não há garantia de que você passará pela autenticação biométrica temporariamente. Portanto, não tome a autenticação biométrica como a única maneira de fazer login no UOS.  Caso tenha alguma dúvida ou sugestão ao usar a autenticação biométrica, você pode nos dar um feedback através de &quot;Serviço e Suporte&quot; no UOS.</translation>
@@ -781,11 +786,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Geral</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1422,11 +1427,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1569,43 +1574,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1709,7 +1714,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2336,7 +2341,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2705,11 +2710,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Output Device</source>
@@ -2909,7 +2914,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3275,7 +3280,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4164,7 +4169,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4285,7 +4290,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
