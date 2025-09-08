@@ -941,6 +941,13 @@ DccObject {
                             groupview.positionViewAtIndex(groupview.currentIndex, ListView.Contain)
                         }
                         event.accepted = true
+                    } else if (event.key === Qt.Key_Space || event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
+                        if (!groupSettings.isEditing && model.groupEnabled) {
+                            dccData.setGroup(settings.userId, model.display, !editButton.checked)
+                            groupview.currentIndex = -1
+                            groupview.focus = false
+                        }
+                        event.accepted = true
                     }
                 }
 
