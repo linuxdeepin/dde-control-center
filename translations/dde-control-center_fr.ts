@@ -3166,7 +3166,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation>Solo se adapta a las barras de título de las ventanas de aplicaciones dibujadas por el administrador de ventanas.</translation>
+        <translation>Convient uniquement aux barres de titre des fenêtres dessinées par le gestionnaire de fenêtres.</translation>
     </message>
     <message>
         <source>Extremely small</source>
@@ -3187,36 +3187,36 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>accounts</name>
     <message>
         <source>Account</source>
-        <translation>Cuenta</translation>
+        <translation>Compte</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation>Administrador de cuentas</translation>
+        <translation>Gestionnaire de compte</translation>
     </message>
 </context>
 <context>
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation>Otras cuentas</translation>
+        <translation>Autres comptes</translation>
     </message>
 </context>
 <context>
     <name>authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Autenticación biométrica</translation>
+        <translation>Authentification biométrique</translation>
     </message>
 </context>
 <context>
     <name>authenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Autenticación biométrica</translation>
+        <translation>Authentification biométrique</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation>Cara</translation>
+        <translation>Visage</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
@@ -3240,7 +3240,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Utilice solo letras, números y guiones bajos, y no más de 15 caracteres</translation>
+        <translation>Utilisez uniquement des lettres, des chiffres et des traits de soulignement, et ne dépassez pas 15 caractères.</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
@@ -3248,7 +3248,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation>No más de 15 caracteres</translation>
+        <translation>Pas plus de 15 caractères</translation>
     </message>
     <message>
         <source>This name already exists</source>
@@ -3282,7 +3282,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation>Administración de permisos de raíz del desarrollador</translation>
+        <translation>Gestion des autorisations root des développeurs</translation>
     </message>
     <message>
         <source>Developer Options</source>
@@ -3334,7 +3334,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation>El nombre de usuario debe estar entre 3 y 32 caracteres</translation>
+        <translation>Le nom d&apos;utilisateur doit comporter entre 3 et 32 caractères</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
@@ -3346,7 +3346,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation>El nombre de usuario ya está en uso por otras cuentas de usuario</translation>
+        <translation>Le nom d&apos;utilisateur a déjà été utilisé par d&apos;autres comptes utilisateurs.</translation>
     </message>
     <message>
         <source>The full name is too long</source>
@@ -3354,7 +3354,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>El nombre completo ya está en uso por otras cuentas de usuario</translation>
+        <translation>Le nom complet a déjà été utilisé par d&apos;autres comptes utilisateurs.</translation>
     </message>
     <message>
         <source>Wrong password</source>
@@ -3366,7 +3366,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Administrator</source>
-        <translation>Administrador</translation>
+        <translation>Administrateur</translation>
     </message>
     <message>
         <source>Customized</source>
@@ -3415,7 +3415,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>dccV25::BiometricAuthController</name>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation>Use su cara para desbloquear el dispositivo e iniciar la configuración más tarde</translation>
+        <translation>Utilisez votre visage pour déverrouiller l&apos;appareil et configurez les paramètres ultérieurement</translation>
     </message>
     <message>
         <source>Faceprint</source>
