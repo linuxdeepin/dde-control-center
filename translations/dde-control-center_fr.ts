@@ -2734,7 +2734,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation>L’audio sera-t-il automatiquement mis en pause lorsque le périphérique sonore actuel est débranché ?</translation>
+        <translation>L&apos;audio est automatiquement mis en pause lorsque le périphérique audio actuel est débranché.</translation>
     </message>
     <message>
         <source>Mono Audio</source>
@@ -3297,15 +3297,15 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation>Hora y fecha</translation>
+        <translation>Date et heure</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation>Hora y fecha, configuración del huso horario</translation>
+        <translation>Date et heure, paramètres du fuseau horaire</translation>
     </message>
     <message>
         <source>Language and region</source>
-        <translation>Idioma y región</translation>
+        <translation>Langue et région</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
@@ -3806,7 +3806,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation>1 Hz (recommandé)</translation>
+        <translation>1 Hz (Recommandé)</translation>
     </message>
     <message>
         <source>%1Hz</source>
@@ -4307,7 +4307,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation>Sensibilidad de presión</translation>
+        <translation>Sensibilité à la pression</translation>
     </message>
     <message>
         <source>Light</source>
