@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fr">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -77,23 +75,23 @@
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation>أسماء المجموعات يجب ألا تتجاوز 32 حرفًا</translation>
+        <translation>Les noms de groupe ne doivent pas dépasser 32 caractères</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation>أسماء المجموعات لا يمكن أن تحتوي فقط على الأرقام</translation>
+        <translation>Les noms de groupe ne peuvent pas contenir uniquement des chiffres</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation>استخدم الحروف، والأرقام، والunderscores، والشرطيات فقط، وتأكد من أن الاسم يبدأ بحرف</translation>
+        <translation>Utilisez uniquement des lettres, des chiffres, des traits de soulignement et des tirets, et assurez-vous que le nom commence par une lettre</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation>اسم المجموعة مستخدم بالفعل</translation>
+        <translation>Le nom de groupe est déjà utilisé</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation>تسجيل الدخول السريع، تسجيل الدخول التلقائي، تسجيل الدخول بدون كلمة مرور</translation>
+        <translation>Connexion rapide, connexion automatique, connexion sans mot de passe</translation>
     </message>
     <message>
         <source>Undo</source>
@@ -121,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -201,7 +199,7 @@ Pour pouvoir utiliser l&apos;identification faciale de manière optimale, veuill
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -220,7 +218,7 @@ To ensure successful entry:
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation>Placez le doigt à enrober sur le capteur d&apos;empreintes digitales et déplacez-le de bas en haut. Une fois l&apos;action terminée, lèvez votre doigt.</translation>
+        <translation>Placez le doigt à enregistrer sur le capteur d&apos;empreintes digitales et déplacez-le de bas en haut. Une fois l&apos;action terminée, lèvez votre doigt.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -241,7 +239,7 @@ To ensure successful entry:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;authentification biométrique est une fonction d&apos;authentification d&apos;identité utilisateur fournie par UnionTech Software Technology Co., Ltd. À travers l&apos;authentification biométrique, les données biométriques collectées seront comparées à celles stockées sur l&apos;appareil, et l&apos;identité de l&apos;utilisateur sera vérifiée en fonction du résultat de la comparaison.
@@ -438,7 +436,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation>اسم البلوتوث لا يمكن أن يتجاوز 64 حرفًا</translation>
+        <translation>Le nom Bluetooth ne peut pas dépasser 64 caractères</translation>
     </message>
 </context>
 <context>
@@ -690,7 +688,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation>الكاميرا محتلة!</translation>
+        <translation>Caméra occupée !</translation>
     </message>
 </context>
 <context>
@@ -821,11 +819,11 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation>Taille grande</translation>
+        <translation>Grande taille</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation>Taille petite</translation>
+        <translation>Petite taille</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
@@ -1449,7 +1447,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation>للحصول على تثبيت وتشغيل تطبيقات غير موقعة، يرجى الانتقال إلى &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; لتغيير الإعدادات.</translation>
+        <translation>Pour installer et exécuter des applications non signées, veuillez aller dans &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Centre de sécurité &lt;/a&gt; pour modifier les paramètres.</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
@@ -1483,7 +1481,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation>Autoriser les applications suivantes à accéder à ces fichiers et dossiers&#xa0;:</translation>
+        <translation>Autoriser les applications suivantes à accéder à ces fichiers et dossiers :</translation>
     </message>
     <message>
         <source>Documents</source>
@@ -1549,7 +1547,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation>Économie d&apos;énergie automatique en cas de batterie</translation>
+        <translation>Économie d&apos;énergie automatique sur batterie</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
@@ -1670,15 +1668,15 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation>تعطيل جميع تأثيرات واجهة النظام والنوافذ لتحسين أداء النظام.</translation>
+        <translation>Désactiver tous les effets d&apos;interface et de fenêtre pour des performances système efficaces.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>الحد من بعض تأثيرات النوافذ لتحقيق مظهر متميز مع الحفاظ على أداء النظام السلس.</translation>
+        <translation>Limiter certains effets de fenêtre pour des visuels excellents tout en maintenant des performances système fluides.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation>تمكين جميع تأثيرات واجهة النظام والنوافذ للمظهر البصري الأفضل.</translation>
+        <translation>Activer tous les effets d&apos;interface et de fenêtre pour la meilleure expérience visuelle.</translation>
     </message>
 </context>
 <context>
@@ -1782,11 +1780,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Add new keyboard layout</source>
-        <translation>إضافة تصميم لوحة مفاتيح جديد</translation>
+        <translation>Ajouter une nouvelle disposition de clavier</translation>
     </message>
     <message>
         <source>Current language keyboard layouts</source>
-        <translation>القوالب المفاتيحية للغة الحالية</translation>
+        <translation>Dispositions de clavier de la langue actuelle</translation>
     </message>
 </context>
 <context>
@@ -1968,7 +1966,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation>يرجى إدخال 1 إلى 63 حرفًا</translation>
+        <translation>Veuillez saisir 1 à 63 caractères</translation>
     </message>
 </context>
 <context>
@@ -2232,15 +2230,15 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>Pas plus de %1 caractères palindromes, s&apos;il vous plaît</translation>
+        <translation>Veuillez ne pas utiliser plus de %1 caractères palindromes</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>Pas plus de %1 caractères monotones, s&apos;il vous plaît</translation>
+        <translation>Veuillez ne pas utiliser plus de %1 caractères monotones</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation>Pas plus de %1 caractères répétés, s&apos;il vous plaît</translation>
+        <translation>Veuillez ne pas utiliser plus de %1 caractères répétés</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
@@ -2252,7 +2250,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>Ne utilisez pas des mots ou des combinaisons courants comme mot de passe</translation>
+        <translation>N&apos;utilisez pas des mots ou des combinaisons courants comme mot de passe</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
@@ -2412,7 +2410,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Customize repetition time</source>
-        <translation>تعديل وقت التكرار</translation>
+        <translation>Personnaliser l&apos;heure de répétition</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2494,7 +2492,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>No search results</source>
-        <translation>لا توجد نتائج بحث</translation>
+        <translation>Aucun résultat de recherche</translation>
     </message>
 </context>
 <context>
@@ -2541,7 +2539,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation>Veuillez saisir un raccourci clavier.</translation>
+        <translation>Veuillez saisir une touche de raccourci</translation>
     </message>
     <message>
         <source>Save</source>
@@ -2608,7 +2606,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation>Veuillez entrer une touche de raccourci.</translation>
+        <translation>Veuillez saisir une touche de raccourci</translation>
     </message>
 </context>
 <context>
@@ -3172,7 +3170,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Extremely small</source>
-        <translation>Muy pequeño</translation>
+        <translation>Extrêmement petit</translation>
     </message>
     <message>
         <source>Medium</source>
@@ -3254,7 +3252,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>This name already exists</source>
-        <translation>هذا الاسم موجود بالفعل</translation>
+        <translation>Ce nom existe déjà</translation>
     </message>
     <message>
         <source>Add a new %1 ...</source>
@@ -3360,7 +3358,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Wrong password</source>
-        <translation>Contraseña incorrecta</translation>
+        <translation>Mot de passe incorrect</translation>
     </message>
     <message>
         <source>Standard User</source>
@@ -3399,7 +3397,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Password not match</source>
-        <translation>Contraseñas no coinciden</translation>
+        <translation>Les mots de passe ne correspondent pas</translation>
     </message>
 </context>
 <context>
@@ -3495,15 +3493,15 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation>Pas plus de %1 caractères palindromes, s&apos;il vous plaît</translation>
+        <translation>Veuillez ne pas utiliser plus de %1 caractères palindromes</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation>Pas plus de %1 caractères monotones, s&apos;il vous plaît</translation>
+        <translation>Veuillez ne pas utiliser plus de %1 caractères monotones</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation>Pas plus de %1 caractères répétés, s&apos;il vous plaît</translation>
+        <translation>Veuillez ne pas utiliser plus de %1 caractères répétés</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
@@ -3515,11 +3513,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation>Ne utilisez pas de mots courants ou de combinaisons en tant que mot de passe</translation>
+        <translation>N&apos;utilisez pas de mots courants ou de combinaisons en tant que mot de passe</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation>Créez un mot de passe fort, s&apos;il vous plaît</translation>
+        <translation>Veuillez créer un mot de passe fort</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
@@ -3546,7 +3544,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Custom</source>
-        <translation>Personnaliser</translation>
+        <translation>Personnalisé</translation>
     </message>
     <message>
         <source>None</source>
@@ -3827,7 +3825,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation>تنظيم سطح المكتب، وضع شريط المهام، إعدادات منطقة الإضافات</translation>
+        <translation>Organisation du bureau, mode barre des tâches, paramètres de la zone des plugins</translation>
     </message>
 </context>
 <context>
@@ -3948,7 +3946,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation>قفل شريط المكتب</translation>
+        <translation>Verrouiller le Dock</translation>
     </message>
 </context>
 <context>
@@ -4261,7 +4259,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>إشعار عن البرمجيات المفتوحة المصدر</translation>
+        <translation>Avis sur les logiciels open source</translation>
     </message>
 </context>
 <context>
