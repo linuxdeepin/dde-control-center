@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation>Entrada ràpida</translation>
     </message>
 </context>
 <context>
@@ -189,7 +189,10 @@ Per tal d&apos;usar millor el reconeixement facial, presteu atenció als aspecte
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation>El reconeixement facial no admet la detecció de la presència viva, i el mètode de verificació pot comportar riscos.
+Per garantir una entrada correcta:
+1. Mantingueu els trets facials clarament visibles i no els cobriu (barrets, ulleres de sol, màscares, etc.).
+2. Assegureu-vos que hi hagi prou il·luminació i eviteu la llum solar directa.</translation>
     </message>
 </context>
 <context>
