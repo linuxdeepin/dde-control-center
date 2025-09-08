@@ -370,6 +370,7 @@ DccObject {
                     id: verificationSwitch
 
                     rightPadding: 7
+                    bottomPadding: 5
                     checked: dccData.mode().grubEditAuthEnabled
                     onCheckedChanged: {
                         if (checked && !dccData.mode().grubEditAuthEnabled) {
