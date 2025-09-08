@@ -214,7 +214,7 @@ To ensure successful entry:
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation>Enrôler le doigt</translation>
+        <translation>Enregistrer un doigt</translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
