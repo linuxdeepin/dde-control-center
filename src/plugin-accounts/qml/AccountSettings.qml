@@ -789,6 +789,7 @@ DccObject {
             currentIndex: -1
             activeFocusOnTab: true
             keyNavigationEnabled: true
+            focus: true
             clip: false
 
             cacheBuffer: height * 6
@@ -806,7 +807,6 @@ DccObject {
                             return
                         }
                         blockInitialFocus = false
-                        focus = false
                         return
                     }
                     if (suppressAutoFocusFirstOnFocus) {
@@ -917,15 +917,9 @@ DccObject {
                 z: editLabel.showAlert ? 100 : 1
 
                 focusPolicy: Qt.StrongFocus
-                activeFocusOnTab: false
+                activeFocusOnTab: true
 
                 Keys.onPressed: function(event) {
-                    if (editLabel.readOnly && (event.key === Qt.Key_Tab || event.key === Qt.Key_Backtab)) {
-                        groupview.focus = false
-                        groupview.currentIndex = -1
-                        event.accepted = true
-                        return
-                    }
                     if (!editLabel.readOnly) {
                         return
                     }
@@ -1163,7 +1157,7 @@ DccObject {
 
                     ActionButton {
                         id: editButton
-                        focusPolicy: Qt.NoFocus
+                        focusPolicy: Qt.StrongFocus
                         icon.width: 18
                         icon.height: 18
                         visible: groupSettings.isEditing ? editLabel.editAble : editLabel.readOnly
