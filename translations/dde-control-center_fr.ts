@@ -2433,7 +2433,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation>Bureau de veille personnalisé</translation>
+        <translation>Écran de veille personnalisé</translation>
     </message>
     <message>
         <source>setting</source>
@@ -2477,11 +2477,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation>Bureau de veille diaporama d’images</translation>
+        <translation>Écran de veille avec diaporama d&apos;images</translation>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation>Bureau de veille système</translation>
+        <translation>Écran de veille du système</translation>
     </message>
 </context>
 <context>
@@ -2663,7 +2663,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Envoyer l&apos;icône du Lanceur sur le Bureau</translation>
+        <translation>Envoyer l&apos;icône du lanceur sur le bureau</translation>
     </message>
     <message>
         <source>Empty Trash</source>
@@ -2706,7 +2706,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation>Si le volume est supérieur à 100 %, cela peut distordre l&apos;audio et être nuisible aux appareils de sortie</translation>
+        <translation>Si le volume est supérieur à 100 %, cela peut entraîner une distorsion du son et endommager les périphériques de sortie.</translation>
     </message>
     <message>
         <source>Left</source>
@@ -2845,8 +2845,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation>Enregistrer les paramètres d&apos;affichage ?
-</translation>
+        <translation>Enregistrer les paramètres d&apos;affichage ?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
@@ -2896,7 +2895,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation>Configurer ici lors de la connexion du panneau tactile</translation>
+        <translation>Configurez ici lors de la connexion de l&apos;écran tactile</translation>
     </message>
 </context>
 <context>
@@ -2923,11 +2922,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation>Désactiver le panneau tactile pendant l’entrée</translation>
+        <translation>Désactiver le pavé tactile pendant la saisie</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation>Faire un clic en appuyant</translation>
+        <translation>Appuyez pour cliquer</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -3056,7 +3055,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation>Wallpaper en direct</translation>
+        <translation>Fond d&apos;écran animé</translation>
     </message>
     <message>
         <source>1 hour</source>
@@ -3118,7 +3117,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Window Minimize Effect</source>
-        <translation>Effet de minimisation de la fenêtre</translation>
+        <translation>Effet de réduction de la fenêtre</translation>
     </message>
     <message>
         <source>Scale</source>
@@ -3158,11 +3157,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation>Si activado, se muestra más contenido en la ventana.</translation>
+        <translation>Si cette option est activée, davantage de contenu s&apos;affiche dans la fenêtre.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation>Altura de la barra de título</translation>
+        <translation>Hauteur de la barre de titre</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
