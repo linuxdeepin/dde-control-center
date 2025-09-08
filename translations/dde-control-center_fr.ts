@@ -3274,11 +3274,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Menú de arranque</translation>
+        <translation>Menu de démarrage</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Administre su menú de arranque</translation>
+        <translation>Gérer votre menu de démarrage</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
@@ -3286,7 +3286,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Opciones del desarrollador</translation>
+        <translation>Options pour les développeurs</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
