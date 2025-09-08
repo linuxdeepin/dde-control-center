@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation>Connexion rapide</translation>
     </message>
 </context>
 <context>
@@ -134,7 +134,7 @@
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>Déclaration de non-responsabilité</translation>
+        <translation>Clause de non-responsabilité</translation>
     </message>
     <message>
         <source>Next</source>
@@ -146,7 +146,7 @@
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation>Échec de l&apos;enrôlement de votre visage</translation>
+        <translation>Échec de l&apos;enregistrement de votre visage</translation>
     </message>
     <message>
         <source>Done</source>
@@ -158,7 +158,7 @@
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation>Réessayer l&apos;enrôlement</translation>
+        <translation>Réessayer l&apos;enregistrement</translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -3220,7 +3220,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation>Se pueden introducir hasta 5 datos faciales</translation>
+        <translation>Il est possible d&apos;enregistrer jusqu&apos;à 5 données faciales.</translation>
     </message>
     <message>
         <source>Fingerprint</source>
