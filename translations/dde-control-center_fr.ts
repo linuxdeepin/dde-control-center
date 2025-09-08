@@ -1849,7 +1849,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>No input device for sound found</source>
-        <translation>Aucun appareil d&apos;entrée sonore trouvé</translation>
+        <translation>Aucun périphérique d&apos;entrée audio détecté</translation>
     </message>
     <message>
         <source>Input Device</source>
@@ -1892,7 +1892,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Désactiver le pavé tactile lorsque l&apos;on utilise une souris</translation>
+        <translation>Désactiver le pavé tactile lorsqu&apos;une souris est connectée</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -2055,7 +2055,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation>La réinitialisation du mot de passe effacera les données stockées dans le coffre-fort.</translation>
+        <translation>La réinitialisation du mot de passe effacera les données stockées dans le trousseau.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2088,7 +2088,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>PluginArea</name>
     <message>
         <source>Plugin Area</source>
-        <translation>Aire de plugins</translation>
+        <translation>Plugins</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
@@ -2161,7 +2161,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation>Adaptez agressivement la fréquence d&apos;exploitation du processeur en fonction de la charge CPU</translation>
+        <translation>Ajuster de manière agressive la fréquence de fonctionnement du processeur en fonction de la charge du processeur.</translation>
     </message>
     <message>
         <source>Balanced</source>
@@ -2173,15 +2173,15 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation>Priorisez la performance, ce qui augmentera considérablement la consommation d&apos;énergie et la production de chaleur</translation>
+        <translation>Donnez la priorité aux performances, ce qui augmentera considérablement la consommation d&apos;énergie et la production de chaleur.</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation>Équilibre performance et durée de vie de la batterie, ajusté automatiquement en fonction de l&apos;utilisation</translation>
+        <translation>Équilibre entre performances et autonomie, ajusté automatiquement en fonction de l&apos;utilisation</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation>Priorisez la durée de vie de la batterie, le système sacrifiant certaines performances pour réduire la consommation d&apos;énergie</translation>
+        <translation>Donnez la priorité à l&apos;autonomie de la batterie, ce qui entraînera une légère baisse des performances du système afin de réduire la consommation d&apos;énergie.</translation>
     </message>
 </context>
 <context>
