@@ -3223,11 +3223,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation>Huella dactilar</translation>
+        <translation>Empreinte digitale</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation>Identificación del usuario mediante escaneo de huellas dactilares</translation>
+        <translation>Identification de l&apos;identité de l&apos;utilisateur par le biais de la lecture des empreintes digitales</translation>
     </message>
     <message>
         <source>Iris</source>
@@ -3235,7 +3235,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation>Identificación del usuario mediante escaneo de iris</translation>
+        <translation>Reconnaissance d&apos;identité par scan de l&apos;iris</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
@@ -3243,7 +3243,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation>Utilice solo letras, números y guiones bajos</translation>
+        <translation>Utilisez uniquement des lettres, des chiffres et des traits de soulignement.</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
@@ -3262,7 +3262,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>blueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation>Configuración de Bluetooth, dispositivos</translation>
+        <translation>Paramètres Bluetooth, appareils</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -3337,11 +3337,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation>El primer carácter debe ser una letra o un número</translation>
+        <translation>Le premier caractère doit être une lettre ou un chiffre.</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation>El nombre de usuario no debe estar compuesto solo por números</translation>
+        <translation>Votre nom d&apos;utilisateur ne doit pas contenir uniquement des chiffres.</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
@@ -3349,7 +3349,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation>El nombre completo es demasiado largo</translation>
+        <translation>Le nom complet est trop long</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
@@ -3361,7 +3361,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Standard User</source>
-        <translation>Usuario estándar</translation>
+        <translation>Utilisateur standard</translation>
     </message>
     <message>
         <source>Administrator</source>
@@ -3369,22 +3369,22 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Customized</source>
-        <translation>Personalizado</translation>
+        <translation>Personnalisé</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>Su equipo se ha eliminado del servidor de dominio con éxito</translation>
+        <translation>Votre hôte a été supprimé du serveur de domaine avec succès.</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation>Su equipo se ha unido al servidor de dominio con éxito</translation>
+        <translation>Votre hôte rejoint le serveur de domaine avec succès.</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation>Su equipo no pudo salir del servidor de dominio</translation>
+        <translation>Votre hôte n&apos;a pas réussi à quitter le serveur de domaine.</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
