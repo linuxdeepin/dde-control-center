@@ -1348,7 +1348,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation>Apps (*.desktop)</translation>
+        <translation>Applications (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -1407,7 +1407,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation>1.Exporter les informations du PC</translation>
+        <translation>1. Exporter les informations du PC</translation>
     </message>
     <message>
         <source>Export</source>
@@ -1415,11 +1415,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation>veuillez vous rendre sur &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http://www.chinauos.com/developMode&lt;/a&gt; pour télécharger le certificat hors ligne.</translation>
+        <translation>2. veuillez vous rendre sur &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http://www.chinauos.com/developMode&lt;/a&gt; pour télécharger le certificat hors ligne.</translation>
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation>3.Importer un certificat</translation>
+        <translation>3. Importer un certificat</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
@@ -1481,7 +1481,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation>Autoriser les applications suivantes à accéder à ces fichiers et dossiers :</translation>
+        <translation>Autoriser les applications suivantes à accéder à ces fichiers et dossiers :</translation>
     </message>
     <message>
         <source>Documents</source>
@@ -1645,7 +1645,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation>,&apos;</translation>
+        <translation>,</translation>
     </message>
     <message>
         <source>...</source>
@@ -1664,7 +1664,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation>Meilleures visuels</translation>
+        <translation>Meilleure qualité visuelle</translation>
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
@@ -1699,7 +1699,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation>Ajouter un nouveau planclavier...</translation>
+        <translation>Ajouter une nouvelle disposition de clavier...</translation>
     </message>
 </context>
 <context>
