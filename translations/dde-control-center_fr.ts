@@ -4209,53 +4209,53 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>System</source>
-        <translation>Sistema</translation>
+        <translation>Systeme</translation>
     </message>
 </context>
 <context>
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation>Información auxiliar</translation>
+        <translation>Informations complémentaires</translation>
     </message>
 </context>
 <context>
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Acerca de este PC</translation>
+        <translation>À propos de ce PC</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Versión del sistema, información del dispositivo</translation>
+        <translation>Version du système, informations sur l&apos;appareil</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>Ver la notificación de software de código abierto</translation>
+        <translation>Consulter l&apos;avis relatif aux logiciels libres</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>Programa de experiencia del usuario</translation>
+        <translation>Programme d&apos;expérience utilisateur</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation>Únete al programa de experiencia del usuario para ayudar a mejorar el producto</translation>
+        <translation>Rejoignez le programme d&apos;expérience utilisateur pour aider à améliorer le produit.</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Acuerdo de licencia para el usuario final</translation>
+        <translation>Contrat de licence utilisateur final</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>Ver el acuerdo de licencia para el usuario final</translation>
+        <translation>Consulter le contrat de licence utilisateur final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>Política de privacidad</translation>
+        <translation>Politique de confidentialité</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>Ver información sobre la política de privacidad</translation>
+        <translation>Consulter les informations relatives à la politique de confidentialité</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
@@ -4266,11 +4266,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation>Pantalla táctil</translation>
+        <translation>Écran tactile</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation>Configuración de pantalla táctil</translation>
+        <translation>Configuration de l&apos;écran tactile</translation>
     </message>
 </context>
 <context>
@@ -4288,7 +4288,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation>Configuración de wacom</translation>
+        <translation>Configuration de Wacom</translation>
     </message>
 </context>
 <context>
@@ -4299,11 +4299,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation>Modo pluma</translation>
+        <translation>Mode stylo</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation>Modo ratón</translation>
+        <translation>Mode souris</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
