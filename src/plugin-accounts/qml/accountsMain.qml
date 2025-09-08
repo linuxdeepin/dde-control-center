@@ -54,7 +54,21 @@ DccObject {
                clip: true
                boundsBehavior: Flickable.StopAtBounds
                snapMode: ListView.SnapOneItem
+               activeFocusOnTab: true
+               keyNavigationEnabled: true
                model: dccData.accountsModel()
+               
+               onActiveFocusChanged: {
+                   if (activeFocus && count > 0) {
+                       currentIndex = 0
+                   }
+               }
+               
+               onCurrentIndexChanged: {
+                   if (activeFocus && currentItem) {
+                       currentItem.forceActiveFocus()
+                   }
+               }
                delegate: D.ItemDelegate {
                    id: menuItemDelegate
                    implicitHeight: 50
@@ -66,6 +80,8 @@ DccObject {
                    corners: getCornersForBackground(index, accountView.count)
                    backgroundVisible: false
                    checkable: false
+                   focusPolicy: Qt.StrongFocus
+                   activeFocusOnTab: true
                    topPadding: topInset
                    bottomPadding: bottomInset
                    leftPadding: 10
