@@ -4276,7 +4276,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation>Común</translation>
+        <translation>Commun</translation>
     </message>
 </context>
 <context>
@@ -4310,7 +4310,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Light</source>
-        <translation>Luz</translation>
+        <translation>Léger</translation>
     </message>
     <message>
         <source>Heavy</source>
