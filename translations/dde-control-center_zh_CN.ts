@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation>快速登录</translation>
     </message>
 </context>
 <context>
@@ -190,7 +190,10 @@ In order to better use of face recognition, please pay attention to the followin
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation>人脸识别不支持活体检测，验证方式可能存在风险
+为确保录入成功：
+1. 保持五官清晰可见，勿遮挡（帽子/墨镜/口罩等）
+2. 光线充足，避免阳光直射</translation>
     </message>
 </context>
 <context>
