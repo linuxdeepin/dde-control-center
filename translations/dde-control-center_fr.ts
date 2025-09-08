@@ -3388,11 +3388,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation>Su equipo no pudo unirse al servidor de dominio</translation>
+        <translation>Votre hôte n&apos;a pas réussi à se connecter au serveur de domaine.</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation>Configuración del dominio AD</translation>
+        <translation>Paramètres du domaine AD</translation>
     </message>
     <message>
         <source>Password not match</source>
@@ -3403,11 +3403,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation>Dimensional</translation>
+        <translation>Dimensionnel</translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation>Flat</translation>
+        <translation>Plat</translation>
     </message>
 </context>
 <context>
@@ -3418,11 +3418,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Faceprint</source>
-        <translation>Huella facial</translation>
+        <translation>Empreinte faciale</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation>Ponga su dedo</translation>
+        <translation>Placez votre doigt</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
@@ -3971,7 +3971,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Tactile</translation>
+        <translation>Pavé tactile</translation>
     </message>
 </context>
 <context>
@@ -4063,7 +4063,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation>Personnaliser votre fond d&apos;écran et votre écran d&apos;économie d&apos;énergie</translation>
+        <translation>Personnalisez votre fond d&apos;écran et votre économiseur d&apos;écran</translation>
     </message>
     <message>
         <source>Screensaver</source>
@@ -4102,7 +4102,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation>Paramètres d&apos;économie d&apos;énergie, écran et suspension</translation>
+        <translation>Paramètres d&apos;économie d&apos;énergie, écran et mise en veille</translation>
     </message>
     <message>
         <source>Power</source>
@@ -4144,14 +4144,14 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation>Caméra, permissions de dossier</translation>
+        <translation>Webcam, permissions de dossier</translation>
     </message>
 </context>
 <context>
     <name>privacyMain</name>
     <message>
         <source>Camera</source>
-        <translation>Caméra</translation>
+        <translation>Webcam</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
