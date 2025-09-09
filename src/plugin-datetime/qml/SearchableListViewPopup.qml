@@ -125,6 +125,7 @@ Loader {
                 id: searchEdit
                 implicitHeight: 30
                 Layout.fillWidth: true
+                font: DTK.fontManager.t6
                 Layout.alignment: Qt.AlignTop
                 placeholder: qsTr("Search")
                 onTextChanged: {
@@ -304,6 +305,7 @@ Loader {
                 visible: loader.delegateModel.count === 0
                 color: this.palette.windowText
                 opacity: 0.4
+                font: DTK.fontManager.t6
             }
         }
 

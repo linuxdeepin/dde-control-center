@@ -23,7 +23,7 @@ D.DialogWindow {
         property var spinbox: parent
 
         text: spinbox.displayText
-        font: spinbox.font
+        font: D.DTK.fontManager.t6
         color: spinbox.palette.text
         selectionColor: spinbox.palette.highlight
         selectedTextColor: spinbox.palette.highlightedText
@@ -94,14 +94,16 @@ D.DialogWindow {
         width: parent.width
         Label {
             Layout.alignment: Qt.AlignHCenter
+            font.family: D.DTK.fontManager.t5.family
             font.bold: true
+            font.pixelSize: D.DTK.fontManager.t5.pixelSize
             text: qsTr("Date and time setting")
         }
         RowLayout {
             Layout.alignment: Qt.AlignLeft
             Layout.leftMargin: 20
             Label {
-                font: D.DTK.fontManager.t5
+                font: D.DTK.fontManager.t6
                 text: qsTr("Date")
             }
             SpinboxEx {
@@ -165,7 +167,7 @@ D.DialogWindow {
             Layout.alignment: Qt.AlignLeft
             Layout.leftMargin: 20
             Label {
-                font: D.DTK.fontManager.t5
+                font: D.DTK.fontManager.t6
                 text: qsTr("Time")
             }
             SpinboxEx {
@@ -205,6 +207,7 @@ D.DialogWindow {
             Button {
                 Layout.bottomMargin: 10
                 text: qsTr("Cancel")
+                font: D.DTK.fontManager.t6
                 onClicked: {
                     ddialog.close()
                 }
@@ -212,6 +215,7 @@ D.DialogWindow {
             Button {
                 Layout.bottomMargin: 10
                 text: qsTr("Confirm")
+                font: D.DTK.fontManager.t6
                 onClicked: {
                     let dateTime = currentDate
                     dateTime.setFullYear(spYear.value)

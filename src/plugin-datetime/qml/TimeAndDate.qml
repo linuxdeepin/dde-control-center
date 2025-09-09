@@ -382,15 +382,35 @@ DccObject {
 
                     delegateModel: DelegateModel {
                         model: systemTimezoneItem.model
-                        delegate: MenuItem {
+                        delegate: D.MenuItem {
                             useIndicatorPadding: true
                             width: timezoneWindow.viewWidth
                             text: model.display
+                            font: D.DTK.fontManager.t6
                             highlighted: ListView.isCurrentItem
                             hoverEnabled: true
                             checkable: true
                             autoExclusive: true
                             checked: model.zoneId === systemTimezoneItem.saveZoneId
+
+                            contentItem: RowLayout {
+                                spacing: 8
+                                Item {
+                                    Layout.preferredWidth: parent.parent.useIndicatorPadding ? 20 : 0
+                                    Layout.preferredHeight: parent.height
+                                    visible: parent.parent.useIndicatorPadding
+                                }
+                                Text {
+                                    Layout.fillWidth: true
+                                    Layout.alignment: Qt.AlignVCenter
+                                    text: parent.parent.text
+                                    font: D.DTK.fontManager.t6
+                                    color: parent.parent.palette.windowText
+                                    elide: Text.ElideRight
+                                    horizontalAlignment: Text.AlignLeft
+                                    verticalAlignment: Text.AlignVCenter
+                                }
+                            }
                             onHoveredChanged: {
                                 if (hovered && !ListView.view.keyboardScrolling) {
                                     timezoneWindow.setViewIndex(index)
@@ -443,14 +463,34 @@ DccObject {
                     id: timezoneListWindow
                     delegateModel: DelegateModel {
                         model: dccData.zoneSearchModel()
-                        delegate: MenuItem {
+                        delegate: D.MenuItem {
                             useIndicatorPadding: true
                             width: timezoneListWindow.viewWidth
                             text: model.display
+                            font: D.DTK.fontManager.t6
                             highlighted: ListView.isCurrentItem
                             hoverEnabled: true
                             checkable: true
                             autoExclusive: true
+
+                            contentItem: RowLayout {
+                                spacing: 8
+                                Item {
+                                    Layout.preferredWidth: parent.parent.useIndicatorPadding ? 20 : 0
+                                    Layout.preferredHeight: parent.height
+                                    visible: parent.parent.useIndicatorPadding
+                                }
+                                Text {
+                                    Layout.fillWidth: true
+                                    Layout.alignment: Qt.AlignVCenter
+                                    text: parent.parent.text
+                                    font: D.DTK.fontManager.t6
+                                    color: parent.parent.palette.windowText
+                                    elide: Text.ElideRight
+                                    horizontalAlignment: Text.AlignLeft
+                                    verticalAlignment: Text.AlignVCenter
+                                }
+                            }
                             onHoveredChanged: {
                                 if (hovered && !ListView.view.keyboardScrolling) {
                                     timezoneListWindow.setViewIndex(index)
@@ -489,28 +529,32 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: ItemDelegate {
-            id: itemDelegate
+            id: itemZoneCompItemDelegate
             visible: dccObj
             hoverEnabled: true
-            implicitHeight: 50
+            implicitHeight: Math.max(50, textColumn.implicitHeight + 2)
             icon.name: dccObj.icon
             checkable: false
-            RowLayout {
-                Layout.fillWidth: true
-                Layout.fillHeight: true
-                ColumnLayout {
-                    Layout.topMargin: 8
-                    Layout.leftMargin: 60
+
+            contentItem: Item {
+                id: contentLayout
+                Column {
+                    id: textColumn
+                    anchors {
+                        left: parent.left
+                        leftMargin: 50
+                        verticalCenter: parent.verticalCenter
+                    }
+                    spacing: 2
 
                     Label {
                         id: display
-                        Layout.fillWidth: true
                         text: dccObj.displayName
+                        font: D.DTK.fontManager.t6
                         elide: Text.ElideRight
                     }
                     Label {
                         id: description
-                        Layout.fillWidth: true
                         visible: text !== ""
                         font: D.DTK.fontManager.t10
                         text: dccObj.description
@@ -526,25 +570,25 @@ DccObject {
                 height: 36
                 shift: dccObj.shift
                 anchors {
-                    left: itemDelegate.left
+                    left: itemZoneCompItemDelegate.left
                     leftMargin: 10
-                    top: itemDelegate.top
-                    topMargin: (itemDelegate.height - clock.height) / 2
+                    top: itemZoneCompItemDelegate.top
+                    topMargin: (itemZoneCompItemDelegate.height - clock.height) / 2
                 }
             }
 
             D.IconButton {
                 id: removeButton
-                visible: itemDelegate.hovered
+                visible: itemZoneCompItemDelegate.hovered
                 icon.name: "dcc-delete"
                 icon.width: 16
                 icon.height: 16
                 implicitWidth: 32
                 implicitHeight: 32
                 anchors {
-                    right: itemDelegate.right
+                    right: itemZoneCompItemDelegate.right
                     rightMargin: 10
-                    verticalCenter: itemDelegate.verticalCenter
+                    verticalCenter: itemZoneCompItemDelegate.verticalCenter
                 }
                 background: Rectangle {
                     property D.Palette pressedColor: D.Palette {
