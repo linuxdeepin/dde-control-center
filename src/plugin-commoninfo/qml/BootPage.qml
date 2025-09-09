@@ -300,22 +300,21 @@ DccObject {
                 Layout.maximumWidth: parent.width - 100
                 
                 Label {
-                    height: 20
                     text: dccObj.displayName
                     font: DTK.fontManager.t6
                     horizontalAlignment: Qt.AlignLeft
                     verticalAlignment: Qt.AlignVCenter
                     leftPadding: 15
+                    bottomPadding: 4
                 }
 
                 Row {
                     spacing: 0
-                    width: Math.min(parent.width, descriptionTextMetrics.width + changePasswordLabel.implicitWidth + 15)
+                    width: parent.width
                     clip: true
                     
                     Label {
                         id: descriptionLabel
-                        height: 20
                         text: dccObj.description
                         font: DTK.fontManager.t10
                         horizontalAlignment: Qt.AlignLeft
@@ -323,9 +322,9 @@ DccObject {
                         leftPadding: 15
                         opacity: 0.5
                         elide: Text.ElideRight
-                        width: changePasswordLabel.visible ? 
-                               Math.max(0, Math.min(descriptionTextMetrics.width + 15, parent.parent.width - changePasswordLabel.implicitWidth - 30)) :
-                               Math.max(0, Math.min(descriptionTextMetrics.width + 15, parent.parent.width))
+                        width: Math.min(implicitWidth, changePasswordLabel.visible ? 
+                               (parent.width - changePasswordLabel.implicitWidth - 15) : 
+                               (parent.width - 15))
                         
                         TextMetrics {
                             id: descriptionTextMetrics
@@ -335,7 +334,7 @@ DccObject {
                         
                         ToolTip {
                             text: dccObj.description
-                            visible: descriptionMouseArea.containsMouse && descriptionTextMetrics.width > (descriptionLabel.width - 15)
+                            visible: descriptionMouseArea.containsMouse && descriptionLabel.implicitWidth > descriptionLabel.width
                         }
                         
                         MouseArea {
@@ -347,7 +346,6 @@ DccObject {
 
                     Label {
                         id: changePasswordLabel
-                        height: 20
                         text: "<a href=\"Change Password\">" + qsTr("Change Password") +"</a>"
                         visible: dccData.mode().grubEditAuthEnabled
                         horizontalAlignment: Qt.AlignLeft
@@ -360,6 +358,12 @@ DccObject {
                             dlgStatus = passwordDlgStatus.Init
                             passwordDlg.show()
                         }
+                    }
+
+                    Item {
+                        id: item
+                        width: Math.max(0, parent.width - descriptionLabel.width - 
+                        (changePasswordLabel.visible ? changePasswordLabel.implicitWidth : 0))
                     }
                 }
             }
