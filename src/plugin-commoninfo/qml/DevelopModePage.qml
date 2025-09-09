@@ -344,14 +344,31 @@ DccObject {
                                     }
                                     contentItem: ColumnLayout {
                                         Label {
+                                            id: offlineLinkLabel
                                             Layout.fillWidth: true
                                             Layout.leftMargin: 6
                                             Layout.rightMargin: 10
-                                            text: qsTr("2.please go to <a href=\"http://www.chinauos.com/developMode\">http：//www.chinauos.com/developMode</a> to Download offline certificate.")
+                                            text: qsTr("2.please go to %1 to Download offline certificate.")
+                                            .arg("<a style='text-decoration: none;' href=\"http://www.chinauos.com/developMode\">http：//www.chinauos.com/developMode</a>")
                                             textFormat: Text.RichText
                                             wrapMode: Text.WordWrap
                                             font: D.DTK.fontManager.t6
-                                            onLinkActivated: Qt.openUrlExternally(url)
+                                            onLinkActivated: function(link) {
+                                                Qt.openUrlExternally(link)
+                                            }
+                                            
+                                            MouseArea {
+                                                anchors.fill: parent
+                                                acceptedButtons: Qt.LeftButton
+                                                hoverEnabled: true
+                                                cursorShape: offlineLinkLabel.linkAt(mouseX, mouseY) ? Qt.PointingHandCursor : Qt.ArrowCursor
+                                                onClicked: function(mouse) {
+                                                    var link = offlineLinkLabel.linkAt(mouse.x, mouse.y)
+                                                    if (link) {
+                                                        Qt.openUrlExternally(link)
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
@@ -451,6 +468,7 @@ DccObject {
             weight: 40
             pageType: DccObject.Item
             page: Label {
+                id: securityCenterLinkLabel
                 height: 30
                 leftPadding: 15
                 topPadding: 5
@@ -466,6 +484,19 @@ DccObject {
                     if (dccData.work().isSecurityCenterInstalled()) {
                         console.log("点击的链接是: " + url)
                         dccData.work().jumpToSecurityCenter();
+                    }
+                }
+                
+                MouseArea {
+                    anchors.fill: parent
+                    acceptedButtons: Qt.LeftButton
+                    hoverEnabled: true
+                    cursorShape: securityCenterLinkLabel.linkAt(mouseX, mouseY) ? Qt.PointingHandCursor : Qt.ArrowCursor
+                    onClicked: function(mouse) {
+                        var link = securityCenterLinkLabel.linkAt(mouse.x, mouse.y)
+                        if (link && dccData.work().isSecurityCenterInstalled()) {
+                            dccData.work().jumpToSecurityCenter();
+                        }
                     }
                 }
             }
