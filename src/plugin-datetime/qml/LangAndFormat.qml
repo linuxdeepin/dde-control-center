@@ -48,7 +48,6 @@ DccObject {
                 font.pixelSize: DTK.fontManager.t8.pixelSize
                 checked: languageListTiltle.isEditing
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                Layout.rightMargin: 10
                 text: languageListTiltle.isEditing ? qsTr("done") : qsTr("edit")
                 background: null
                 enabled: dccData.langState === 0
@@ -63,7 +62,12 @@ DccObject {
                 }
             }
         }
-        onParentItemChanged: item => { if (item) item.bottomPadding = 5 }
+        onParentItemChanged: item => {
+            if (item) {
+                item.bottomPadding = 5
+                item.rightPadding = 2
+            }
+        }
 
         // 语言列表项
         DccObject {
@@ -82,6 +86,7 @@ DccObject {
                 if (item) {
                     item.topPadding = 5
                     item.bottomPadding = 3
+                    item.rightPadding = 0
                 }
             }
 
@@ -242,6 +247,7 @@ DccObject {
                 if (item) {
                     item.implicitHeight = 40
                     item.leftPadding = 7
+                    item.rightPadding = 11
                 }
             }
         }
@@ -453,6 +459,7 @@ DccObject {
                     if (item) {
                         item.implicitHeight = 40
                         item.leftPadding = 7
+                        item.rightPadding = 0
                     }
                 }
             }
@@ -496,6 +503,7 @@ DccObject {
                     if (item) {
                         item.implicitHeight = 40
                         item.leftPadding = 7
+                        item.rightPadding = 0
                     }
                 }
             }
@@ -534,6 +542,7 @@ DccObject {
                     if (item) {
                         item.implicitHeight = 40
                         item.leftPadding = 7
+                        item.rightPadding = 0
                     }
                 }
             }
