@@ -1386,10 +1386,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>3.Import Certificate</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1431,6 +1427,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>OK</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>2.please go to %1 to Download offline certificate.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
