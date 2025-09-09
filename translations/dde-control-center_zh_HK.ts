@@ -1445,7 +1445,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2.前往%1下載離線證書.</translation>
     </message>
 </context>
 <context>
