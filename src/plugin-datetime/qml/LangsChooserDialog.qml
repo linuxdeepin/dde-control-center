@@ -228,6 +228,7 @@ Loader {
                     id: cancelButton
                     Layout.fillWidth: true
                     Layout.bottomMargin: 6
+                    font: DTK.fontManager.t6
                     implicitHeight: Math.max(30, cancelButtonFontMetrics.height + (DS.Style.control.padding - DS.Style.control.borderWidth) * 2) // Minimum 30px, adaptive based on font
                     text: qsTr("Cancel")
                     onClicked: {
@@ -243,6 +244,7 @@ Loader {
                     id: addButton
                     Layout.fillWidth: true
                     Layout.bottomMargin: 6
+                    font: DTK.fontManager.t6
                     implicitHeight: Math.max(30, addButtonFontMetrics.height + (DS.Style.control.padding - DS.Style.control.borderWidth) * 2) // Minimum 30px, adaptive based on font
                     text: qsTr("Add")
                     enabled: itemsView.checkedLang.length > 0

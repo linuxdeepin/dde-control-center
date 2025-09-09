@@ -25,7 +25,8 @@ Loader {
 
     sourceComponent: Window {
         id: searchWindow
-        width: 200
+        property int calculatedWidth: 200
+        width: calculatedWidth
         height: 500
         minimumWidth: width
         minimumHeight: height
@@ -40,6 +41,52 @@ Loader {
         color: active ? DTK.palette.window : DTK.inactivePalette.window
         palette: DTK.palette
 
+        TextMetrics {
+            id: textMetrics
+            font: DTK.fontManager.t6
+            text: "" // Dynamically set text to measure actual width
+        }
+
+        function calculateOptimalWidth() {
+            if (!viewModel || viewModel.rowCount() === 0) {
+                calculatedWidth = 200
+                return
+            }
+
+            var maxWidth = 0
+            // Iterate through all items to find the longest text
+            for (var i = 0; i < viewModel.rowCount(); i++) {
+                var itemText = viewModel.data(viewModel.index(i, 0), Qt.DisplayRole) || ""
+                if (itemText.length > 0) {
+                    // Directly measure the actual width of the complete text
+                    textMetrics.text = itemText
+                    maxWidth = Math.max(maxWidth, textMetrics.advanceWidth)
+                }
+            }
+
+            // Calculate final width: text width + margins + scrollbar + indicators etc.
+            // Window margins 12px + MenuItem padding 20px + scrollbar 4px + buffer 4px = 40px
+            var finalWidth = Math.max(200, maxWidth + 40)
+            calculatedWidth = Math.min(finalWidth, 400) // Limit maximum width to 400px
+        }
+
+        Component.onCompleted: {
+            calculateOptimalWidth()
+        }
+
+        Connections {
+            target: viewModel
+            function onModelReset() {
+                calculateOptimalWidth()
+            }
+            function onRowsInserted() {
+                calculateOptimalWidth()
+            }
+            function onRowsRemoved() {
+                calculateOptimalWidth()
+            }
+        }
+
         ColumnLayout {
             id: contentLayout
             anchors.fill: parent
@@ -51,6 +98,7 @@ Loader {
                 Layout.alignment: Qt.AlignTop
                 placeholder: qsTr("Search")
                 palette: DTK.palette
+                font: DTK.fontManager.t6
                 onTextChanged: {
                     viewModel.setFilterWildcard(text);
                 }
@@ -76,18 +124,19 @@ Loader {
                         id: regionGroup
                     }
 
-                    view.delegate: MenuItem {
-                        id: menuItem
-                        implicitWidth: itemsView.width
-                        implicitHeight: 30
-                        text: model.display
-                        checkable: true
-                        checked: text === loader.currentText
-                        hoverEnabled: true
-                        highlighted: hovered
-                        autoExclusive: true
-                        ButtonGroup.group: regionGroup
-                        useIndicatorPadding: true
+                view.delegate: MenuItem {
+                    id: menuItem
+                    implicitWidth: itemsView.width
+                    implicitHeight: 30
+                    text: model.display
+                    checkable: true
+                    checked: text === loader.currentText
+                    hoverEnabled: true
+                    highlighted: hovered
+                    autoExclusive: true
+                    ButtonGroup.group: regionGroup
+                    useIndicatorPadding: true
+                    font: DTK.fontManager.t6
 
                         onCheckedChanged: {
                             if (checked && loader.currentText !== model.display) {

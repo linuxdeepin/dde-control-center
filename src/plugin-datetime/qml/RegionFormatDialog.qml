@@ -24,11 +24,9 @@ Loader {
     sourceComponent: DialogWindow {
         id: ddialog
         width: 738
-        height: 636
         minimumWidth: width
-        minimumHeight: height
+        minimumHeight: 636
         maximumWidth: minimumWidth
-        maximumHeight: minimumHeight
         icon: "preferences-system"
         modality: Qt.WindowModal
         ColumnLayout {
@@ -36,7 +34,9 @@ Loader {
             width: parent.width
             Label {
                 Layout.alignment: Qt.AlignHCenter
+                font.family: DTK.fontManager.t5.family
                 font.bold: true
+                font.pixelSize: DTK.fontManager.t5.pixelSize
                 text: qsTr("Regional format")
             }
 
@@ -50,6 +50,7 @@ Loader {
                         Layout.leftMargin: 10
                         Layout.rightMargin: 10
                         placeholder: qsTr("Search")
+                        font: DTK.fontManager.t6
                         onTextChanged: {
                             viewModel.setFilterWildcard(text);
                             itemsView.positionViewAtBeginning();
@@ -94,6 +95,7 @@ Loader {
                             id: checkDelegate
                             implicitWidth: itemsView.width
                             text: model.display
+                            font: DTK.fontManager.t6
                             checked: (itemsView.selectedLangKey === model.langKey &&
                                      itemsView.selectedLocaleKey === model.localeKey) ||
                                     (itemsView.selectedLangKey === "" && index === itemsView.currentIndex)
@@ -140,6 +142,7 @@ Loader {
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop | Qt.H
                         Layout.bottomMargin: 20
                         text: qsTr("Default formats")
+                        font: DTK.fontManager.t6
                     }
 
                     Repeater {
@@ -170,6 +173,7 @@ Loader {
                             topPadding: topInset
                             bottomPadding: bottomInset
                             contentFlow: true
+                            font: DTK.fontManager.t6
                             corners: getCornersForBackground(index, repeater.count)
                             content: RowLayout {
                                 ColumnLayout {
@@ -206,17 +210,18 @@ Loader {
 
             RowLayout {
                 Layout.alignment: Qt.AlignHCenter
+                Layout.bottomMargin: 6
                 spacing: 10
                 Button {
-                    Layout.bottomMargin: 10
+                    font: DTK.fontManager.t6
                     text: qsTr("Cancel")
                     onClicked: {
                         ddialog.close()
                     }
                 }
                 Button {
-                    Layout.bottomMargin: 10
                     text: qsTr("Save")
+                    font: DTK.fontManager.t6
                     enabled: itemsView.checkedLang.length > 0
                     onClicked: {
                         regionFormatLoader.selectedRegion(itemsView.checkedLocale, itemsView.checkedLang)
