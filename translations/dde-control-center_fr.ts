@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fr">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -121,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"></translation>
+        <translation>Connexion rapide</translation>
     </message>
 </context>
 <context>
@@ -136,7 +134,7 @@
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>Déclaration de non-responsabilité</translation>
+        <translation>Clause de non-responsabilité</translation>
     </message>
     <message>
         <source>Next</source>
@@ -148,7 +146,7 @@
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation>Échec de l&apos;enrôlement de votre visage</translation>
+        <translation>Échec de l&apos;enregistrement de votre visage</translation>
     </message>
     <message>
         <source>Done</source>
@@ -160,7 +158,7 @@
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation>Réessayer l&apos;enrôlement</translation>
+        <translation>Réessayer l&apos;enregistrement</translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -201,7 +199,10 @@ Pour pouvoir utiliser l&apos;identification faciale de manière optimale, veuill
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"></translation>
+        <translation>La reconnaissance faciale ne prend pas en charge la détection du caractère vivant, et la méthode de vérification peut comporter des risques.
+Pour garantir une entrée réussie :
+1. Veillez à ce que vos traits faciaux soient clairement visibles et ne les couvrez pas (chapeaux, lunettes de soleil, masques, etc.).
+2. Assurez-vous que l&apos;éclairage est suffisant et évitez la lumière directe du soleil.</translation>
     </message>
 </context>
 <context>
@@ -216,7 +217,7 @@ To ensure successful entry:
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation>Enrôler le doigt</translation>
+        <translation>Enregistrer un doigt</translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
@@ -241,7 +242,7 @@ To ensure successful entry:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;authentification biométrique est une fonction d&apos;authentification d&apos;identité utilisateur fournie par UnionTech Software Technology Co., Ltd. À travers l&apos;authentification biométrique, les données biométriques collectées seront comparées à celles stockées sur l&apos;appareil, et l&apos;identité de l&apos;utilisateur sera vérifiée en fonction du résultat de la comparaison.
@@ -622,7 +623,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>Unclear fingerprint</source>
-        <translation>Emprunt de doigt flou</translation>
+        <translation>Empreinte digitale illisible</translation>
     </message>
     <message>
         <source>Clean your finger or adjust the finger position, and try again</source>
@@ -968,8 +969,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Nous sommes pleinement conscients de l&apos;importance de vos informations personnelles pour vous. Nous avons donc une Politique de confidentialité qui couvre la manière dont nous collectons, utilisons, partageons, transférons, divulguons publiquement et stockons vos informations.&lt;/p&gt;&lt;p&gt;Vous pouvez &lt;a href=&quot;%1&quot;&gt;cliquer ici&lt;/a&gt; pour consulter notre dernière politique de confidentialité et/ou la consulter en ligne en visitant &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Veuillez lire soigneusement et comprendre pleinement nos pratiques en matière de confidentialité des clients. Si vous avez des questions, veuillez nous contacter à l&apos;adresse : support@uniontech.com.&lt;/p&gt;
-</translation>
+        <translation>&lt;p&gt;Nous sommes pleinement conscients de l&apos;importance de vos informations personnelles pour vous. Nous avons donc une Politique de confidentialité qui couvre la manière dont nous collectons, utilisons, partageons, transférons, divulguons publiquement et stockons vos informations.&lt;/p&gt;&lt;p&gt;Vous pouvez &lt;a href=&quot;%1&quot;&gt;cliquer ici&lt;/a&gt; pour consulter notre dernière politique de confidentialité et/ou la consulter en ligne en visitant &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Veuillez lire soigneusement et comprendre pleinement nos pratiques en matière de confidentialité des clients. Si vous avez des questions, veuillez nous contacter à l&apos;adresse : support@uniontech.com.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
@@ -977,13 +977,11 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Le fait de rejoindre le programme d’expérience utilisateur signifie que vous nous accordez et autorisez à collecter et utiliser les informations de votre appareil, de votre système et de vos applications. Si vous refusez notre collecte et utilisation des informations ci-dessus, ne rejoignez pas le programme d’expérience utilisateur. Pour plus de détails, veuillez vous référer à la Politique de confidentialité de Deepin (&lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;).&lt;/p&gt;
-</translation>
+        <translation>&lt;p&gt;Le fait de rejoindre le programme d’expérience utilisateur signifie que vous nous accordez et autorisez à collecter et utiliser les informations de votre appareil, de votre système et de vos applications. Si vous refusez notre collecte et utilisation des informations ci-dessus, ne rejoignez pas le programme d’expérience utilisateur. Pour plus de détails, veuillez vous référer à la Politique de confidentialité de Deepin (&lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;En rejoignant le programme d&apos;expérience utilisateur, vous nous autorisez à collecter et utiliser les informations de votre appareil, de votre système et de vos applications. Si vous refusez la collecte et l&apos;utilisation de ces informations, veuillez ne pas y participer. Pour plus de détails sur le programme d&apos;expérience utilisateur, veuillez visiter &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;
-</translation>
+        <translation>&lt;p&gt;En rejoignant le programme d&apos;expérience utilisateur, vous nous autorisez à collecter et utiliser les informations de votre appareil, de votre système et de vos applications. Si vous refusez la collecte et l&apos;utilisation de ces informations, veuillez ne pas y participer. Pour plus de détails sur le programme d&apos;expérience utilisateur, veuillez visiter &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
@@ -1350,7 +1348,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation>Apps (*.desktop)</translation>
+        <translation>Applications (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
@@ -1409,7 +1407,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation>1.Exporter les informations du PC</translation>
+        <translation>1. Exporter les informations du PC</translation>
     </message>
     <message>
         <source>Export</source>
@@ -1417,7 +1415,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation>3.Importer un certificat</translation>
+        <translation>3. Importer un certificat</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
@@ -1461,7 +1459,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1483,7 +1481,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation>Autoriser les applications suivantes à accéder à ces fichiers et dossiers&#xa0;:</translation>
+        <translation>Autoriser les applications suivantes à accéder à ces fichiers et dossiers :</translation>
     </message>
     <message>
         <source>Documents</source>
@@ -1647,7 +1645,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation>,&apos;</translation>
+        <translation>,</translation>
     </message>
     <message>
         <source>...</source>
@@ -1666,7 +1664,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation>Meilleures visuels</translation>
+        <translation>Meilleure qualité visuelle</translation>
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
@@ -1701,7 +1699,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Add new keyboard layout...</source>
-        <translation>Ajouter un nouveau planclavier...</translation>
+        <translation>Ajouter une nouvelle disposition de clavier...</translation>
     </message>
 </context>
 <context>
@@ -1851,7 +1849,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>No input device for sound found</source>
-        <translation>Aucun appareil d&apos;entrée sonore trouvé</translation>
+        <translation>Aucun périphérique d&apos;entrée audio détecté</translation>
     </message>
     <message>
         <source>Input Device</source>
@@ -1894,7 +1892,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Désactiver le pavé tactile lorsque l&apos;on utilise une souris</translation>
+        <translation>Désactiver le pavé tactile lorsqu&apos;une souris est connectée</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -2057,7 +2055,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation>La réinitialisation du mot de passe effacera les données stockées dans le coffre-fort.</translation>
+        <translation>La réinitialisation du mot de passe effacera les données stockées dans le trousseau.</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2090,7 +2088,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>PluginArea</name>
     <message>
         <source>Plugin Area</source>
-        <translation>Aire de plugins</translation>
+        <translation>Plugins</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
@@ -2163,7 +2161,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation>Adaptez agressivement la fréquence d&apos;exploitation du processeur en fonction de la charge CPU</translation>
+        <translation>Ajuster de manière agressive la fréquence de fonctionnement du processeur en fonction de la charge du processeur.</translation>
     </message>
     <message>
         <source>Balanced</source>
@@ -2175,15 +2173,15 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation>Priorisez la performance, ce qui augmentera considérablement la consommation d&apos;énergie et la production de chaleur</translation>
+        <translation>Donnez la priorité aux performances, ce qui augmentera considérablement la consommation d&apos;énergie et la production de chaleur.</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation>Équilibre performance et durée de vie de la batterie, ajusté automatiquement en fonction de l&apos;utilisation</translation>
+        <translation>Équilibre entre performances et autonomie, ajusté automatiquement en fonction de l&apos;utilisation</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation>Priorisez la durée de vie de la batterie, le système sacrifiant certaines performances pour réduire la consommation d&apos;énergie</translation>
+        <translation>Donnez la priorité à l&apos;autonomie de la batterie, ce qui entraînera une légère baisse des performances du système afin de réduire la consommation d&apos;énergie.</translation>
     </message>
 </context>
 <context>
@@ -2435,7 +2433,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation>Bureau de veille personnalisé</translation>
+        <translation>Écran de veille personnalisé</translation>
     </message>
     <message>
         <source>setting</source>
@@ -2479,11 +2477,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation>Bureau de veille diaporama d’images</translation>
+        <translation>Écran de veille avec diaporama d&apos;images</translation>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation>Bureau de veille système</translation>
+        <translation>Écran de veille du système</translation>
     </message>
 </context>
 <context>
@@ -2665,7 +2663,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Envoyer l&apos;icône du Lanceur sur le Bureau</translation>
+        <translation>Envoyer l&apos;icône du lanceur sur le bureau</translation>
     </message>
     <message>
         <source>Empty Trash</source>
@@ -2708,7 +2706,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation>Si le volume est supérieur à 100 %, cela peut distordre l&apos;audio et être nuisible aux appareils de sortie</translation>
+        <translation>Si le volume est supérieur à 100 %, cela peut entraîner une distorsion du son et endommager les périphériques de sortie.</translation>
     </message>
     <message>
         <source>Left</source>
@@ -2736,7 +2734,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation>L’audio sera-t-il automatiquement mis en pause lorsque le périphérique sonore actuel est débranché ?</translation>
+        <translation>L&apos;audio est automatiquement mis en pause lorsque le périphérique audio actuel est débranché.</translation>
     </message>
     <message>
         <source>Mono Audio</source>
@@ -2847,8 +2845,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation>Enregistrer les paramètres d&apos;affichage ?
-</translation>
+        <translation>Enregistrer les paramètres d&apos;affichage ?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
@@ -2898,7 +2895,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation>Configurer ici lors de la connexion du panneau tactile</translation>
+        <translation>Configurez ici lors de la connexion de l&apos;écran tactile</translation>
     </message>
 </context>
 <context>
@@ -2925,11 +2922,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation>Désactiver le panneau tactile pendant l’entrée</translation>
+        <translation>Désactiver le pavé tactile pendant la saisie</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation>Faire un clic en appuyant</translation>
+        <translation>Appuyez pour cliquer</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -3058,7 +3055,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation>Wallpaper en direct</translation>
+        <translation>Fond d&apos;écran animé</translation>
     </message>
     <message>
         <source>1 hour</source>
@@ -3120,7 +3117,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Window Minimize Effect</source>
-        <translation>Effet de minimisation de la fenêtre</translation>
+        <translation>Effet de réduction de la fenêtre</translation>
     </message>
     <message>
         <source>Scale</source>
@@ -3160,15 +3157,15 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation>Si activado, se muestra más contenido en la ventana.</translation>
+        <translation>Si cette option est activée, davantage de contenu s&apos;affiche dans la fenêtre.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation>Altura de la barra de título</translation>
+        <translation>Hauteur de la barre de titre</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation>Solo se adapta a las barras de título de las ventanas de aplicaciones dibujadas por el administrador de ventanas.</translation>
+        <translation>Convient uniquement aux barres de titre des fenêtres dessinées par le gestionnaire de fenêtres.</translation>
     </message>
     <message>
         <source>Extremely small</source>
@@ -3189,48 +3186,48 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>accounts</name>
     <message>
         <source>Account</source>
-        <translation>Cuenta</translation>
+        <translation>Compte</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation>Administrador de cuentas</translation>
+        <translation>Gestionnaire de compte</translation>
     </message>
 </context>
 <context>
     <name>accountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation>Otras cuentas</translation>
+        <translation>Autres comptes</translation>
     </message>
 </context>
 <context>
     <name>authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Autenticación biométrica</translation>
+        <translation>Authentification biométrique</translation>
     </message>
 </context>
 <context>
     <name>authenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Autenticación biométrica</translation>
+        <translation>Authentification biométrique</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation>Cara</translation>
+        <translation>Visage</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation>Se pueden introducir hasta 5 datos faciales</translation>
+        <translation>Il est possible d&apos;enregistrer jusqu&apos;à 5 données faciales.</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation>Huella dactilar</translation>
+        <translation>Empreinte digitale</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation>Identificación del usuario mediante escaneo de huellas dactilares</translation>
+        <translation>Identification de l&apos;identité de l&apos;utilisateur par le biais de la lecture des empreintes digitales</translation>
     </message>
     <message>
         <source>Iris</source>
@@ -3238,19 +3235,19 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation>Identificación del usuario mediante escaneo de iris</translation>
+        <translation>Reconnaissance d&apos;identité par scan de l&apos;iris</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Utilice solo letras, números y guiones bajos, y no más de 15 caracteres</translation>
+        <translation>Utilisez uniquement des lettres, des chiffres et des traits de soulignement, et ne dépassez pas 15 caractères.</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation>Utilice solo letras, números y guiones bajos</translation>
+        <translation>Utilisez uniquement des lettres, des chiffres et des traits de soulignement.</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation>No más de 15 caracteres</translation>
+        <translation>Pas plus de 15 caractères</translation>
     </message>
     <message>
         <source>This name already exists</source>
@@ -3265,7 +3262,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>blueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation>Configuración de Bluetooth, dispositivos</translation>
+        <translation>Paramètres Bluetooth, appareils</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -3276,19 +3273,19 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>commonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Menú de arranque</translation>
+        <translation>Menu de démarrage</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Administre su menú de arranque</translation>
+        <translation>Gérer votre menu de démarrage</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation>Administración de permisos de raíz del desarrollador</translation>
+        <translation>Gestion des autorisations root des développeurs</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Opciones del desarrollador</translation>
+        <translation>Options pour les développeurs</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
@@ -3299,15 +3296,15 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>datetime</name>
     <message>
         <source>Time and date</source>
-        <translation>Hora y fecha</translation>
+        <translation>Date et heure</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation>Hora y fecha, configuración del huso horario</translation>
+        <translation>Date et heure, paramètres du fuseau horaire</translation>
     </message>
     <message>
         <source>Language and region</source>
-        <translation>Idioma y región</translation>
+        <translation>Langue et région</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
@@ -3336,27 +3333,27 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation>El nombre de usuario debe estar entre 3 y 32 caracteres</translation>
+        <translation>Le nom d&apos;utilisateur doit comporter entre 3 et 32 caractères</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation>El primer carácter debe ser una letra o un número</translation>
+        <translation>Le premier caractère doit être une lettre ou un chiffre.</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation>El nombre de usuario no debe estar compuesto solo por números</translation>
+        <translation>Votre nom d&apos;utilisateur ne doit pas contenir uniquement des chiffres.</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation>El nombre de usuario ya está en uso por otras cuentas de usuario</translation>
+        <translation>Le nom d&apos;utilisateur a déjà été utilisé par d&apos;autres comptes utilisateurs.</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation>El nombre completo es demasiado largo</translation>
+        <translation>Le nom complet est trop long</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>El nombre completo ya está en uso por otras cuentas de usuario</translation>
+        <translation>Le nom complet a déjà été utilisé par d&apos;autres comptes utilisateurs.</translation>
     </message>
     <message>
         <source>Wrong password</source>
@@ -3364,38 +3361,38 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Standard User</source>
-        <translation>Usuario estándar</translation>
+        <translation>Utilisateur standard</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation>Administrador</translation>
+        <translation>Administrateur</translation>
     </message>
     <message>
         <source>Customized</source>
-        <translation>Personalizado</translation>
+        <translation>Personnalisé</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>Su equipo se ha eliminado del servidor de dominio con éxito</translation>
+        <translation>Votre hôte a été supprimé du serveur de domaine avec succès.</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation>Su equipo se ha unido al servidor de dominio con éxito</translation>
+        <translation>Votre hôte rejoint le serveur de domaine avec succès.</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation>Su equipo no pudo salir del servidor de dominio</translation>
+        <translation>Votre hôte n&apos;a pas réussi à quitter le serveur de domaine.</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation>Su equipo no pudo unirse al servidor de dominio</translation>
+        <translation>Votre hôte n&apos;a pas réussi à se connecter au serveur de domaine.</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation>Configuración del dominio AD</translation>
+        <translation>Paramètres du domaine AD</translation>
     </message>
     <message>
         <source>Password not match</source>
@@ -3406,26 +3403,26 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation>Dimensional</translation>
+        <translation>Dimensionnel</translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation>Flat</translation>
+        <translation>Plat</translation>
     </message>
 </context>
 <context>
     <name>dccV25::BiometricAuthController</name>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation>Use su cara para desbloquear el dispositivo e iniciar la configuración más tarde</translation>
+        <translation>Utilisez votre visage pour déverrouiller l&apos;appareil et configurez les paramètres ultérieurement</translation>
     </message>
     <message>
         <source>Faceprint</source>
-        <translation>Huella facial</translation>
+        <translation>Empreinte faciale</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation>Ponga su dedo</translation>
+        <translation>Placez votre doigt</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
@@ -3808,7 +3805,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation>1 Hz (recommandé)</translation>
+        <translation>1 Hz (Recommandé)</translation>
     </message>
     <message>
         <source>%1Hz</source>
@@ -3974,7 +3971,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Tactile</translation>
+        <translation>Pavé tactile</translation>
     </message>
 </context>
 <context>
@@ -4066,7 +4063,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation>Personnaliser votre fond d&apos;écran et votre écran d&apos;économie d&apos;énergie</translation>
+        <translation>Personnalisez votre fond d&apos;écran et votre économiseur d&apos;écran</translation>
     </message>
     <message>
         <source>Screensaver</source>
@@ -4105,7 +4102,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation>Paramètres d&apos;économie d&apos;énergie, écran et suspension</translation>
+        <translation>Paramètres d&apos;économie d&apos;énergie, écran et mise en veille</translation>
     </message>
     <message>
         <source>Power</source>
@@ -4147,14 +4144,14 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation>Caméra, permissions de dossier</translation>
+        <translation>Webcam, permissions de dossier</translation>
     </message>
 </context>
 <context>
     <name>privacyMain</name>
     <message>
         <source>Camera</source>
-        <translation>Caméra</translation>
+        <translation>Webcam</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
@@ -4211,53 +4208,53 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>System</source>
-        <translation>Sistema</translation>
+        <translation>Systeme</translation>
     </message>
 </context>
 <context>
     <name>systemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation>Información auxiliar</translation>
+        <translation>Informations complémentaires</translation>
     </message>
 </context>
 <context>
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Acerca de este PC</translation>
+        <translation>À propos de ce PC</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Versión del sistema, información del dispositivo</translation>
+        <translation>Version du système, informations sur l&apos;appareil</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>Ver la notificación de software de código abierto</translation>
+        <translation>Consulter l&apos;avis relatif aux logiciels libres</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>Programa de experiencia del usuario</translation>
+        <translation>Programme d&apos;expérience utilisateur</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation>Únete al programa de experiencia del usuario para ayudar a mejorar el producto</translation>
+        <translation>Rejoignez le programme d&apos;expérience utilisateur pour aider à améliorer le produit.</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Acuerdo de licencia para el usuario final</translation>
+        <translation>Contrat de licence utilisateur final</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>Ver el acuerdo de licencia para el usuario final</translation>
+        <translation>Consulter le contrat de licence utilisateur final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>Política de privacidad</translation>
+        <translation>Politique de confidentialité</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>Ver información sobre la política de privacidad</translation>
+        <translation>Consulter les informations relatives à la politique de confidentialité</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
@@ -4268,18 +4265,18 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation>Pantalla táctil</translation>
+        <translation>Écran tactile</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation>Configuración de pantalla táctil</translation>
+        <translation>Configuration de l&apos;écran tactile</translation>
     </message>
 </context>
 <context>
     <name>touchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation>Común</translation>
+        <translation>Commun</translation>
     </message>
 </context>
 <context>
@@ -4290,7 +4287,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation>Configuración de wacom</translation>
+        <translation>Configuration de Wacom</translation>
     </message>
 </context>
 <context>
@@ -4301,19 +4298,19 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation>Modo pluma</translation>
+        <translation>Mode stylo</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation>Modo ratón</translation>
+        <translation>Mode souris</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation>Sensibilidad de presión</translation>
+        <translation>Sensibilité à la pression</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation>Luz</translation>
+        <translation>Léger</translation>
     </message>
     <message>
         <source>Heavy</source>
