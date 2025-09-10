@@ -68,7 +68,7 @@ DccObject{
             Label {
                 Layout.leftMargin: 10
                 font.bold: true
-                font.pixelSize: 16
+                font.pixelSize: DTK.fontManager.t5.pixelSize
                 text: dccObj.displayName
             }
         }

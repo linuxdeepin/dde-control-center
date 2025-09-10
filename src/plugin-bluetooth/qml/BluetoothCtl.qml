@@ -87,7 +87,7 @@ DccObject{
                     color: "transparent"
                     id: nameDetaillay
                     Layout.fillWidth: true
-                    Layout.fillHeight: true
+                    implicitHeight: Math.max(nameDetail.height, editBtn.height) + 5
 
                     Label {
                         id: nameDetail
@@ -97,15 +97,19 @@ DccObject{
                         text: model.nameDetail
                         horizontalAlignment: Qt.AlignLeft
                         verticalAlignment: Text.AlignTop
-                        font.pointSize: 8
+                        font: DTK.fontManager.t10
                         elide: Text.ElideRight
+                        wrapMode: Text.WordWrap
+                        maximumLineCount: 2
+                        height: Math.min(implicitHeight, 40)
                     }
 
                     ToolButton {
                         id: editBtn
                         anchors.left: nameDetail.right
                         anchors.top: nameDetail.top
-                        font.pointSize: 8
+                        anchors.topMargin: 2
+                        font: DTK.fontManager.t10
                         text: qsTr("Edit")
                         background: null
 
@@ -134,8 +138,6 @@ DccObject{
                         }
                     }
                 }
-
-
             }
 
             LineEdit {
@@ -233,7 +235,7 @@ DccObject{
                 onClicked: {
                     if (enabled) {
                         isSwitching = true;
-                        
+
                         // 立即发送信号通知父组件
                         if (!checked) {
                             // 用户点击关闭蓝牙
@@ -242,7 +244,7 @@ DccObject{
                             // 用户点击开启蓝牙
                             userClickedOpen();
                         }
-                        
+
                         dccData.work().setAdapterPowered(model.id, checked);
                     }
                 }
