@@ -56,7 +56,7 @@ Rectangle {
 
                 content: Rectangle {
                     width: parent.width
-                    height: 50
+                    implicitHeight: Math.max(50, status.implicitHeight + 10)
                     color: "transparent"
                     MouseArea {
                         anchors.fill: parent
@@ -80,6 +80,7 @@ Rectangle {
                             Layout.fillHeight: true
                             spacing: 0
                             Layout.leftMargin: 10
+                            implicitHeight: Math.max(myDeviceName.implicitHeight, loader.implicitHeight) + 10
                             Label {
                                 id: myDeviceName
                                 text: model.name
@@ -105,8 +106,11 @@ Rectangle {
                                         text: model.connectStatusText
                                         horizontalAlignment: Qt.AlignLeft
                                         verticalAlignment: Qt.AlignTop
-                                        font.pointSize: 8
+                                        font: DTK.fontManager.t10.pixelSize
                                         Layout.fillHeight: true
+                                        wrapMode: Text.WordWrap
+                                        maximumLineCount: 2
+                                        height: Math.min(implicitHeight, 30)
                                     }
 
                                     D.DciIcon {
