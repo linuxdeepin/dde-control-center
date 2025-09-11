@@ -166,6 +166,8 @@ D.DialogWindow {
                     implicitHeight: 30
                     implicitWidth: leftView.width - 10
                     checked: model.checked
+                    topPadding: 0
+                    bottomPadding: 2
                     background: Rectangle {
                         color: {
                             if (itemDelegate.checked) {
@@ -189,7 +191,7 @@ D.DialogWindow {
                             scrollView.sections = sections.length > 0 ? sections : [""]
                             scrollView.filter = model.filter
                             scrollView.ScrollBar.vertical.position = 0
-                            
+
                             if (dialog.currentAvatar && dialog.currentAvatar.indexOf("/icons/local/") === -1) {
                                 dialog.currentAvatar = ""
                             }
@@ -205,7 +207,7 @@ D.DialogWindow {
             Layout.preferredWidth: 460
             Layout.minimumWidth: 460
             Layout.maximumWidth: 460
-            
+
             CustomAvatarEmpatyArea {
                 id: customEmptyAvatar
                 visible: needShow()
