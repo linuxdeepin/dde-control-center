@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation>Швидкий вхід</translation>
     </message>
 </context>
 <context>
@@ -190,7 +190,10 @@ In order to better use of face recognition, please pay attention to the followin
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation>У системі розпізнавання за обличчям не передбачено виявлення того, чи людина жива, а спосіб перевірки є ризикованим.
+Для забезпечення успішності:
+1. Зробіть так, щоб особливості вашого обличчя були чітко помітні і не прикривайте їх (капелюхи, окуляри, маски тощо).
+2. Забезпечте належну освітленість і уникайте прямого сонячного світла.</translation>
     </message>
 </context>
 <context>
@@ -1443,7 +1446,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. Будь ласка, перейдіть до %1, щоб отримати автономний сертифікат.</translation>
     </message>
 </context>
 <context>
