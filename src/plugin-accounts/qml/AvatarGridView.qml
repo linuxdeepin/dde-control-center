@@ -177,7 +177,7 @@ GridView {
             width: 20
             height: 20
             x: background.x + background.width - width / 2 - 3
-            y: background.y - height / 2 + 3
+            y: background.y - height / 2 + 5
             visible: delegate.isSelected
         }
 
