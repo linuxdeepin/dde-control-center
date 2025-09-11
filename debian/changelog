@@ -1,3 +1,31 @@
+dde-control-center (6.1.47) unstable; urgency=medium
+
+  * chore(iris): update translation
+  * refactor: restructure biometric authentication controllers
+  * i18n: Translate dde-control-center_en.ts in uk (#2663)
+  * fix: Fix the Bluetooth interface opening slowly
+  * fix: Fix the font issue in the Bluetooth interface.
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2659)
+  * fix: adapt datetime interface to 20pt system font size
+  * fix: Fix developer mode links not clicking
+  * fix: Fix the startup menu text not displaying fully
+  * fix: align edit button to right in language module
+  * fix: adapt datetime plugin dialogs for 20pt font size display
+  * fix: Fix account interface focus anomaly
+  * i18n: Updates for project Deepin Desktop Environment (#2649)
+  * fix: Fix the issue of unresponsive spaces
+  * fix: center-align verification switch in boot menu settings
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2644)
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2644)
+  * fix: resolve incorrect corner display on hover in default app list
+  * fix: add previousServerAddress recovery mechanism in datetime plugin
+  * i18n: Updates for project Deepin Desktop Environment (#2635)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 11 Sep 2025 20:58:45 +0800
+
 dde-control-center (6.1.46) unstable; urgency=medium
 
   * chore: update color extractor icon binary
