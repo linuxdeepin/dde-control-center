@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fi">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fi">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -121,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -191,7 +189,7 @@ Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asia
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -231,7 +229,7 @@ To ensure successful entry:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
@@ -243,53 +241,51 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished">Olen lukenut ja hyväksyn</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished">Vastuuvapauslauseke</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished">Seuraava</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished">Valmis</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Peruuta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished">Tunnista uudelleen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished">&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
-Huomaa, että UnionTech Co.Ltd. ei kerää tai käytä biometrisiä tietojasi, jotka tallennetaan paikallisesti tietokoneellesi. Otamalla biometrinen todennus käyttöön vain henkilökohtaisella tietokoneella ja käytät omia biometrisiä tietojasi siihen liittyvissä toiminnoissa. Jos tietokoneessa on  muiden ihmisten biometrisiä tietoja, poista ne laitteeltasi, muuten otat niistä aiheutuvan kirjautumisriskin.
-UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen todennuksen turvallisuutta, tarkkuutta ja vakautta. Teknisten laitteiden ja muista tekijöistä ei kuitenkaan ole takeita, että läpäisit aina biometrisen todennuksen. Älä siksi pidä biometristä todennusta ainoana tapana kirjautua UOS:ään. Jos sinulla on kysyttävää tai ehdotuksia biometriseen todennukseen, voit antaa palautetta UOS:n &quot;Palvelut ja tuki&quot; -kohdassa.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1496,7 +1492,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3451,65 +3447,65 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished">Kasvojälki</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished">Kasvot</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished">Käytä kasvoja lukituksen avaamiseen ja tee asetukset myöhemmin</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished">Sormenjälki</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished">Aseta sormi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished">Aseta sormesi anturille, kunnes sinua pyydetään nostamaan</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished">Nosta sormesi</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished">Nosta sormesi ja aseta se lukijaan uudelleen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished">Nosta sormeasi ja tee se uudelleen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished">Skannaus keskeytetty</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished">Skannaa sormenjäljen reunat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished">Aseta sormen reunat anturiin</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished">Iiris</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
