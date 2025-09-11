@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_HK">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_HK">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -232,12 +234,65 @@ To ensure successful entry:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>「生物認證」是統信軟件技術有限公司提供的一種對用户進行身份認證的功能。通過「生物認證」，將採集的生物識別數據與存儲在設備本地的生物識別數據進行比對，並根據比對結果來驗證用户身份。
 請您注意，統信軟件不會收集或訪問您的生物識別信息，此類信息將會存儲在您的本地設備中。請您僅在您的個人設備中開啓生物認證功能，並使用您本人的生物識別信息進行相關操作，並及時在該設備上禁用或清除他人的生物識別信息，否則由此給您帶來的風險將由您承擔。
 統信軟件致力於研究與提高生物認證功能的安全性、精確性、與穩定性，但是，受限於環境、設備、技術等因素和風險控制等原因，我們暫時無法保證您一定能通過生物認證，請您不要將生物認證作為登錄統信作業系統的唯一途徑。若您在使用生物認證時有任何問題或建議的，可以通過系統內的「服務與支持」進行反饋。</translation>
+    </message>
+</context>
+<context>
+    <name>AddIrisDialog</name>
+    <message>
+        <source>Enroll Iris</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I have read and agree to the</source>
+        <translation type="unfinished">我已閲讀並同意</translation>
+    </message>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished">《用户免責聲明》</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished">下一步</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished">完成</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Retry Enroll</source>
+        <translation type="unfinished">重新錄入</translation>
+    </message>
+    <message>
+        <source>Iris enrolled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to enroll your iris</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+
+UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
+        <translation type="unfinished">「生物認證」是統信軟件技術有限公司提供的一種對用户進行身份認證的功能。通過「生物認證」，將採集的生物識別數據與存儲在設備本地的生物識別數據進行比對，並根據比對結果來驗證用户身份。
+請您注意，統信軟件不會收集或訪問您的生物識別信息，此類信息將會存儲在您的本地設備中。請您僅在您的個人設備中開啓生物認證功能，並使用您本人的生物識別信息進行相關操作，並及時在該設備上禁用或清除他人的生物識別信息，否則由此給您帶來的風險將由您承擔。
+統信軟件致力於研究與提高生物認證功能的安全性、精確性、與穩定性，但是，受限於環境、設備、技術等因素和風險控制等原因，我們暫時無法保證您一定能通過生物認證，請您不要將生物認證作為登錄統信作業系統的唯一途徑。若您在使用生物認證時有任何問題或建議的，可以通過系統內的「服務與支持」進行反饋。</translation>
+    </message>
+    <message>
+        <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2300,7 +2355,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2850,19 +2905,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3397,58 +3452,68 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>dccV25::BiometricAuthController</name>
-    <message>
-        <source>Use your face to unlock the device and make settings later</source>
-        <translation>使用人臉數據解鎖您的設備，之後還可進行更多設置</translation>
-    </message>
+    <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation>面紋</translation>
+        <translation type="unfinished">面紋</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation type="unfinished">人臉</translation>
+    </message>
+    <message>
+        <source>Use your face to unlock the device and make settings later</source>
+        <translation type="unfinished">使用人臉數據解鎖您的設備，之後還可進行更多設置</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::FingerprintAuthController</name>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="unfinished">指紋</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation>放置手指</translation>
+        <translation type="unfinished">放置手指</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation>請以手指壓指紋收集器，然後根據提示擡起</translation>
+        <translation type="unfinished">請以手指壓指紋收集器，然後根據提示擡起</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation>擡起手指</translation>
+        <translation type="unfinished">擡起手指</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation>請擡起手指，再次按壓</translation>
-    </message>
-    <message>
-        <source>Scan the edges of your fingerprint</source>
-        <translation>錄入邊緣指紋</translation>
-    </message>
-    <message>
-        <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation>請調整按壓區域，繼續錄入邊緣指紋</translation>
+        <translation type="unfinished">請擡起手指，再次按壓</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation>請擡起手指，再次按壓</translation>
-    </message>
-    <message>
-        <source>Fingerprint added</source>
-        <translation>成功添加指紋</translation>
+        <translation type="unfinished">請擡起手指，再次按壓</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation>錄入中斷</translation>
+        <translation type="unfinished">錄入中斷</translation>
+    </message>
+    <message>
+        <source>Scan the edges of your fingerprint</source>
+        <translation type="unfinished">錄入邊緣指紋</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>請以手指邊緣壓指紋收集器，然後根據提示擡起</translation>
+        <translation type="unfinished">請以手指邊緣壓指紋收集器，然後根據提示擡起</translation>
     </message>
+</context>
+<context>
+    <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation>虹膜</translation>
+        <translation type="unfinished">虹膜</translation>
+    </message>
+    <message>
+        <source>Use your iris to unlock the device and make settings later</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

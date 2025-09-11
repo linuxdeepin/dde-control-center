@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ca">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ca">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -232,7 +234,7 @@ Per garantir una entrada correcta:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat d&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà en funció del resultat de la comparació.
@@ -240,6 +242,61 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
 Tingueu en compte que UnionTech Software Technology Co., Ltd. no recopilarà ni accedirà a la vostra informació biomètrica, que s&apos;emmagatzemarà al vostre dispositiu local. Si us plau, habiliteu l&apos;autenticació biomètrica només al dispositiu personal i useu la pròpia informació biomètrica per a les operacions relacionades, i desactiveu o suprimiu immediatament la informació biomètrica d&apos;altres persones en aquest dispositiu, en cas contrari assumiu el risc que se&apos;n derivi.
 
 UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la seguretat, la precisió i l&apos;estabilitat de l&apos;autenticació biomètrica. No obstant això, a causa de factors ambientals, d&apos;equipament, tècnics i d&apos;altres, i control de riscos, no hi ha cap garantia que es passi l&apos;autenticació biomètrica temporalment. Per tant, no useu l&apos;autenticació biomètrica com a única manera d&apos;iniciar sessió a UOS. Si teniu cap pregunta o suggeriment quan useu l&apos;autenticació biomètrica, podeu fer comentaris mitjançant Servei i assistència a UOS.</translation>
+    </message>
+</context>
+<context>
+    <name>AddIrisDialog</name>
+    <message>
+        <source>Enroll Iris</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I have read and agree to the</source>
+        <translation type="unfinished">Ho he llegit i ho accepto:</translation>
+    </message>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished">Exempció de responsabilitat</translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished">Següent</translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished">Fet</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancel·la</translation>
+    </message>
+    <message>
+        <source>Retry Enroll</source>
+        <translation type="unfinished">Torna a provar la inscripció</translation>
+    </message>
+    <message>
+        <source>Iris enrolled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to enroll your iris</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+
+UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
+        <translation type="unfinished">L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat d&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà en funció del resultat de la comparació.
+
+Tingueu en compte que UnionTech Software Technology Co., Ltd. no recopilarà ni accedirà a la vostra informació biomètrica, que s&apos;emmagatzemarà al vostre dispositiu local. Si us plau, habiliteu l&apos;autenticació biomètrica només al dispositiu personal i useu la pròpia informació biomètrica per a les operacions relacionades, i desactiveu o suprimiu immediatament la informació biomètrica d&apos;altres persones en aquest dispositiu, en cas contrari assumiu el risc que se&apos;n derivi.
+
+UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la seguretat, la precisió i l&apos;estabilitat de l&apos;autenticació biomètrica. No obstant això, a causa de factors ambientals, d&apos;equipament, tècnics i d&apos;altres, i control de riscos, no hi ha cap garantia que es passi l&apos;autenticació biomètrica temporalment. Per tant, no useu l&apos;autenticació biomètrica com a única manera d&apos;iniciar sessió a UOS. Si teniu cap pregunta o suggeriment quan useu l&apos;autenticació biomètrica, podeu fer comentaris mitjançant Servei i assistència a UOS.</translation>
+    </message>
+    <message>
+        <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3399,58 +3456,68 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
 </context>
 <context>
-    <name>dccV25::BiometricAuthController</name>
-    <message>
-        <source>Use your face to unlock the device and make settings later</source>
-        <translation>Useu la cara per desblocar el dispositiu i fer-ne la configuració més tard.</translation>
-    </message>
+    <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation>Empremta facial</translation>
+        <translation type="unfinished">Empremta facial</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation type="unfinished">Cara</translation>
+    </message>
+    <message>
+        <source>Use your face to unlock the device and make settings later</source>
+        <translation type="unfinished">Useu la cara per desblocar el dispositiu i fer-ne la configuració més tard.</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::FingerprintAuthController</name>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="unfinished">Empremta</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation>Poseu-hi el dit.</translation>
+        <translation type="unfinished">Poseu-hi el dit.</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation>Poseu el dit amb fermesa sobre el sensor fins que se us digui d&apos;alçar-lo.</translation>
+        <translation type="unfinished">Poseu el dit amb fermesa sobre el sensor fins que se us digui d&apos;alçar-lo.</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation>Alceu el dit.</translation>
+        <translation type="unfinished">Alceu el dit.</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation>Alceu el dit i torneu-lo a posar sobre el sensor.</translation>
-    </message>
-    <message>
-        <source>Scan the edges of your fingerprint</source>
-        <translation>Escaneja els marges de l&apos;empremta.</translation>
-    </message>
-    <message>
-        <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation>Ajusteu-ne la posició per escanejar els marges de l&apos;empremta.</translation>
+        <translation type="unfinished">Alceu el dit i torneu-lo a posar sobre el sensor.</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation>Alceu el dit i torneu-ho a fer.</translation>
-    </message>
-    <message>
-        <source>Fingerprint added</source>
-        <translation>Empremta afegida</translation>
+        <translation type="unfinished">Alceu el dit i torneu-ho a fer.</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation>Escaneig suspès</translation>
+        <translation type="unfinished">Escaneig suspès</translation>
+    </message>
+    <message>
+        <source>Scan the edges of your fingerprint</source>
+        <translation type="unfinished">Escaneja els marges de l&apos;empremta.</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>Poseu els marges de l&apos;empremta sobre el sensor.</translation>
+        <translation type="unfinished">Poseu els marges de l&apos;empremta sobre el sensor.</translation>
     </message>
+</context>
+<context>
+    <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation>Iris</translation>
+        <translation type="unfinished">Iris</translation>
+    </message>
+    <message>
+        <source>Use your iris to unlock the device and make settings later</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

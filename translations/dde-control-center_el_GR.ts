@@ -228,6 +228,57 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>AddIrisDialog</name>
+    <message>
+        <source>Enroll Iris</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>I have read and agree to the</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Ακύρωση</translation>
+    </message>
+    <message>
+        <source>Retry Enroll</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Iris enrolled</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to enroll your iris</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+
+UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
@@ -3383,13 +3434,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>dccV25::BiometricAuthController</name>
+    <name>dccV25::FaceAuthController</name>
+    <message>
+        <source>Faceprint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
         <translation type="unfinished"></translation>
     </message>
+</context>
+<context>
+    <name>dccV25::FingerprintAuthController</name>
     <message>
-        <source>Faceprint</source>
+        <source>Fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3409,19 +3471,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Fingerprint added</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3429,11 +3479,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Place the edges of your fingerprint on the sensor</source>
+        <source>Scan the edges of your fingerprint</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::IrisAuthController</name>
+    <message>
         <source>Iris</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use your iris to unlock the device and make settings later</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

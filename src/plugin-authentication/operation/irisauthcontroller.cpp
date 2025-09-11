@@ -49,7 +49,6 @@ void IrisAuthController::startEnroll()
     QString newName;
     for (int i = 0; i < IRISID_NUM; ++i) {
         newName = tr("Iris") + QString("%1").arg(i + 1);
-        qWarning() << "===irislist===" << irislist << newName;
         if (!irislist.contains(newName)) {
             break;
         }
@@ -130,6 +129,7 @@ void IrisAuthController::onEnrollIrisInfoState(CharaMangerModel::AddInfoState st
 void IrisAuthController::onTryStartInputIris(CharaMangerModel::AddInfoState state)
 {
     Q_UNUSED(state)
+    onEnrollIrisStatusTips("");
 }
 
 } // namespace dccV25 
