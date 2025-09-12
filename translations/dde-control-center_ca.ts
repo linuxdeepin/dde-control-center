@@ -126,7 +126,7 @@
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation>Apunteu-vos al Face</translation>
+        <translation>Apunteu la cara</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -142,7 +142,7 @@
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>Apuntat al Face</translation>
+        <translation>Cara apuntada</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
@@ -207,7 +207,7 @@ Per garantir una entrada correcta:
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation>Apunteu-vos al Face</translation>
+        <translation>Apunteu la cara</translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
@@ -246,7 +246,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation>Apunteu-vos a l&apos;Iris</translation>
+        <translation>Apunteu l&apos;iris</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -274,11 +274,11 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation>Us heu apuntat a l&apos;Iris.</translation>
+        <translation>Iris apuntat</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>No s&apos;ha pogut registrar l&apos;iris.</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -696,7 +696,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>Apuntat al Face</translation>
+        <translation>Cara apuntada</translation>
     </message>
     <message>
         <source>Position a human face please</source>
