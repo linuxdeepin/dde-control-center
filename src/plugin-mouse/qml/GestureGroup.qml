@@ -15,7 +15,7 @@ Rectangle {
     property bool showPlayBtn: true
     signal clicked(int index, bool checked)
     signal comboIndexChanged(int index, var actionDec)
-    signal hoveredChanged(int index, var actionDec)
+    signal hoveredChanged(int index, var actionDec, bool hovered)
 
     color: "transparent"
     implicitHeight: layoutView.height
@@ -68,9 +68,7 @@ Rectangle {
                 }
 
                 onHoveredChanged: {
-                    if (hovered) {
-                        root.hoveredChanged(index, comboItem.currentValue)
-                    }
+                    root.hoveredChanged(index, comboItem.currentValue, hovered)
                 }
 
                 onClicked: {

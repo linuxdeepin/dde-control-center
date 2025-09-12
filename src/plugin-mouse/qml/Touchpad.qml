@@ -11,6 +11,9 @@ import org.deepin.dcc 1.0
 DccObject {
     id: touchpad
     property bool enabled : dccData.tapEnabled
+    property bool isHovering: false
+    property bool animatedImagePlaying: false
+    property var preActionDec: undefined
     DccObject {
         name: "BasicSettings"
         parentName: "MouseAndTouchpad/Touchpad"
@@ -269,17 +272,35 @@ DccObject {
                     anchors.centerIn: parent
 
                     AnimatedImage {
+                        id: gestureFingerAnimatedImage
                         source: dccData.gestureFingerAniPath
                         Layout.alignment: Qt.AlignCenter
                         sourceSize.width: 204
                         sourceSize.height: 134
+                        playing: touchpad.animatedImagePlaying
+
+                        onFrameChanged: {
+                            if (currentFrame  >= (frameCount - 1) && !touchpad.isHovering) {
+                                currentFrame = 0
+                                touchpad.animatedImagePlaying = false;
+                            }
+                        }
                     }
 
                     AnimatedImage {
+                        id: gestureActionAnimatedImage
                         source: dccData.gestureActionAniPath
                         Layout.alignment: Qt.AlignCenter
                         sourceSize.width: 204
                         sourceSize.height: 134
+                        playing:  touchpad.animatedImagePlaying
+
+                        onFrameChanged: {
+                            if (currentFrame  >= (frameCount - 1) && !touchpad.isHovering) {
+                                currentFrame = 0
+                                touchpad.animatedImagePlaying = false;
+                            }
+                        }
                     }
 
                 }
@@ -340,8 +361,16 @@ DccObject {
                 dccData.updateFigerGestureAni(3,index, actionDec)
             }
 
-            onHoveredChanged: function (index, actionDec) {
-                dccData.updateFigerGestureAni(3,index, actionDec)
+            onHoveredChanged: function (index, actionDec, hovered) {
+                if (hovered) {
+                    dccData.updateFigerGestureAni(3,index, actionDec)
+                    preActionDec = actionDec
+                    touchpad.isHovering = true
+                    touchpad.animatedImagePlaying = true
+                } else if (preActionDec === actionDec) {
+                    touchpad.isHovering = false
+                    preActionDec = undefined
+                }
             }
 
         }
@@ -390,8 +419,16 @@ DccObject {
                 dccData.setGestures(4, index, actionDec)
             }
 
-            onHoveredChanged: function (index, actionDec) {
-                dccData.updateFigerGestureAni(4,index, actionDec)
+            onHoveredChanged: function (index, actionDec, hovered) {
+                if (hovered) {
+                    dccData.updateFigerGestureAni(4,index, actionDec)
+                    preActionDec = actionDec
+                    touchpad.isHovering = true
+                    touchpad.animatedImagePlaying = true
+                } else if (preActionDec === actionDec) {
+                    touchpad.isHovering = false
+                    preActionDec = undefined
+                }
             }
         }
 
