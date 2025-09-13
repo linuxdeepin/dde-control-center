@@ -291,7 +291,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation>Skup wzrok na urządzeniu i upewnij się, że oczy znajdują się w obszarze skanowania.</translation>
     </message>
 </context>
 <context>
@@ -1499,7 +1499,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. Przejdź do %1 i pobierz certyfikat offline.</translation>
     </message>
 </context>
 <context>
@@ -3454,65 +3454,65 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Odbitka twarzy</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Twarz</translation>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Odblokuj urządzenie za pomocą swojej twarzy i skonfiguruj urządzenie później</translation>
     </message>
 </context>
 <context>
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Odcisk palca</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Umieść palec</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Pewnie przyłóż palec do czujnika, aż zostaniesz poproszony o jego podniesienie</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Podnieś palec</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Podnieś palec i ponownie umieść go na czujniku</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Podnieś palec i zrób to jeszcze raz</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Skanowanie zatrzymane</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Zeskanuj krawędzie odcisku palca</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Umieść krawędzie odcisku palca na czujniku</translation>
     </message>
 </context>
 <context>
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Tęczówka</translation>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Odblokuj urządzenie za pomocą swojej tęczówki i skonfiguruj urządzenie później</translation>
     </message>
 </context>
 <context>
