@@ -189,7 +189,10 @@ Aby umiejętnie korzystać z rozpoznawania twarzy, podczas wprowadzania danych t
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation>Rozpoznawanie twarzy nie posiada funkcji wykrywania kontaktu z żywą osobą, przez co niesie ze sobą pewne zagrożenia.
+Aby pomyślnie odblokować urządzenie:
+1. Twarz powinna być wyraźnie widoczna i nie należy jej zakrywać (czapkami, okularami, maskami itp.).
+2. Należy zapewnić odpowiednie oświetlenie i unikać bezpośredniego światła słonecznego.</translation>
     </message>
 </context>
 <context>
