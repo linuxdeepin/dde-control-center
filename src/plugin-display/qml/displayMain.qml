@@ -757,6 +757,11 @@ DccObject {
                 onActivated: {
                     if (screen.rotate !== currentValue) {
                         screen.rotate = currentValue
+                        if (dccData.isX11) {
+                            timeoutDialog.createObject(this, {
+                                                           "screen": getQtScreen(root.screen)
+                                                       }).show()
+                        }
                     }
                 }
             }
