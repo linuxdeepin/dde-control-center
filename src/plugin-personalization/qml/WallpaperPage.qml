@@ -220,7 +220,7 @@ DccObject {
     DccObject {
         name: "systemWallapers"
         parentName: "personalization/wallpaper"
-        displayName: qsTr("System Wallapers")
+        displayName: qsTr("System Wallpapers")
         weight: 500
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
