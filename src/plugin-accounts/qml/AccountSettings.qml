@@ -789,7 +789,6 @@ DccObject {
             currentIndex: -1
             activeFocusOnTab: true
             keyNavigationEnabled: true
-            focus: true
             clip: false
 
             cacheBuffer: height * 6
@@ -807,6 +806,7 @@ DccObject {
                             return
                         }
                         blockInitialFocus = false
+                        focus = false
                         return
                     }
                     if (suppressAutoFocusFirstOnFocus) {
@@ -876,8 +876,9 @@ DccObject {
                     Label {
                         Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                         Layout.leftMargin: 10
-                        font.bold: true
-                        font.pointSize: 14
+                        font.pixelSize: DTK.fontManager.t5.pixelSize
+                        font.weight: 500
+                        color: "black"
                         text: dccObj.displayName
                     }
 
@@ -888,7 +889,7 @@ DccObject {
                         Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                         Layout.rightMargin: 10
                         text: groupSettings.isEditing ? qsTr("done") : qsTr("edit")
-                        font.pointSize: 12
+                        font: DTK.fontManager.t8
                         background: null
                         focusPolicy: Qt.NoFocus
                         textColor: Palette {
@@ -910,16 +911,23 @@ DccObject {
             model: settings.userId.length > 0 ? dccData.groupsModel(settings.userId) : 0
             delegate: ItemDelegate {
                 id: itemDelegate
-                implicitHeight: 50
+                implicitHeight: 36
+                padding: 0
                 checkable: false
                 enabled: model.groupEnabled
                 clip: false
                 z: editLabel.showAlert ? 100 : 1
 
                 focusPolicy: Qt.StrongFocus
-                activeFocusOnTab: true
+                activeFocusOnTab: false
 
                 Keys.onPressed: function(event) {
+                    if (editLabel.readOnly && (event.key === Qt.Key_Tab || event.key === Qt.Key_Backtab)) {
+                        groupview.focus = false
+                        groupview.currentIndex = -1
+                        event.accepted = true
+                        return
+                    }
                     if (!editLabel.readOnly) {
                         return
                     }
@@ -945,7 +953,7 @@ DccObject {
                     }
                 }
 
-                property var editTextWidth: itemDelegate.width - editButton.width - rightPadding - 65
+                property var editTextWidth: itemDelegate.width - editButton.width - rightPadding - 80
                 background: DccItemBackground {
                     backgroundType: DccObject.Normal
                     separatorVisible: true
@@ -966,12 +974,15 @@ DccObject {
                 }
 
                 contentItem: RowLayout {
+                    spacing: 0
                     Item {
                         id: editContainer
                         Layout.fillWidth: !editLabel.readOnly
-                        implicitHeight: 40
+                        Layout.alignment: Qt.AlignVCenter
+                        Layout.leftMargin: 14
+                        implicitHeight: 36
                         implicitWidth: Math.min(editLabel.metrics.advanceWidth(editLabel.text) + editButton.width + 20,
-                                        groupview.width - editButton.width - 30)
+                                         groupview.width - editButton.width - 30)
                         
                         EditActionLabel {
                             id: editLabel
@@ -984,7 +995,8 @@ DccObject {
                             completeText: model.display
                             rightPadding: editButton.width + 10
                             placeholderText: qsTr("Group name")
-                            horizontalAlignment: TextInput.AlignLeft | Qt.AlignVCenter
+                            horizontalAlignment: TextInput.AlignLeft
+                            verticalAlignment: TextInput.AlignVCenter
                             editBtn.visible: readOnly && editAble
                                              && !groupSettings.isEditing
                             readOnly: model.display.length > 0
@@ -1022,6 +1034,9 @@ DccObject {
                         }
                         
                         onTextChanged: {
+                            if (readOnly) {
+                                return
+                            }
                             if (isRestoring) {
                                 isRestoring = false
                                 return
@@ -1144,7 +1159,8 @@ DccObject {
 
                     Item {
                         Layout.fillWidth: true
-                        implicitHeight: 40
+                        Layout.alignment: Qt.AlignVCenter
+                        implicitHeight: 36
                         
                         MouseArea {
                             anchors.fill: parent
@@ -1157,9 +1173,9 @@ DccObject {
 
                     ActionButton {
                         id: editButton
-                        focusPolicy: Qt.StrongFocus
-                        icon.width: 18
-                        icon.height: 18
+                        focusPolicy: Qt.NoFocus
+                        icon.width: 16
+                        icon.height: 16
                         visible: groupSettings.isEditing ? editLabel.editAble : editLabel.readOnly
                         icon.name: {
                             if (groupSettings.isEditing) {

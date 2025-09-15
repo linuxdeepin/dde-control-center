@@ -17,15 +17,24 @@ D.LineEdit {
 
     readOnly: true
     horizontalAlignment: TextInput.AlignLeft
+    verticalAlignment: TextInput.AlignVCenter
+    topPadding: 4
+    bottomPadding: 4
     clearButton.visible: !readOnly
     rightPadding: clearButton.width + clearButton.anchors.rightMargin
+    implicitHeight: 36
     background: D.EditPanel {
         id: panel
         control: edit
         showBorder: !readOnly
         alertDuration: 3000
         implicitWidth: DS.Style.edit.width
-        implicitHeight: DS.Style.edit.textFieldHeight
+        implicitHeight: 32
+        anchors {
+            fill: parent
+            topMargin: 3
+            bottomMargin: 3
+        }
         backgroundColor: D.Palette {
             normal: Qt.rgba(1, 1, 1, 0)
             normalDark: Qt.rgba(1, 1, 1, 0)
