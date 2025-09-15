@@ -63,7 +63,7 @@ ColumnLayout {
                 }
                 hoveredDark: hovered
             }
-            text: root.isExpand ? qsTr("unfold") : qsTr("show all") + `-${root.model.count}` + qsTr("items")
+            text: root.isExpand ? qsTr("unfold") : qsTr("show all - %1 items").arg(root.model.count)
             onClicked: {
                 root.isExpand = !root.isExpand
             }
