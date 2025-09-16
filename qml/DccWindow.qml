@@ -71,7 +71,7 @@ D.ApplicationWindow {
             palette.windowText: D.ColorSelector.textColor
             anchors {
                 verticalCenter: parent.verticalCenter
-                leftMargin: 30
+                leftMargin: 20
                 left: parent.left
             }
             implicitHeight: 30
