@@ -170,7 +170,7 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
 
 
     //监听开发者在线认证失败的错误接口信息
-    connect(m_commonInfoProxy, &CommonInfoProxy::DeepinIdError, this, &CommonInfoWork::deepinIdErrorSlot);
+    connect(m_commonInfoProxy, &CommonInfoProxy::developModeError, this, &CommonInfoWork::onDevelopModeError);
     connect(m_commonInfoProxy, &CommonInfoProxy::IsLoginChanged, m_commomModel, &CommonInfoModel::setIsLogin);
     connect(m_commonInfoProxy, &CommonInfoProxy::DeviceUnlockedChanged, m_commomModel, &CommonInfoModel::setDeveloperModeState);
     connect(m_commonInfoProxy, &CommonInfoProxy::DefaultEntryChanged, m_commomModel, &CommonInfoModel::setDefaultEntry);
@@ -649,10 +649,8 @@ std::pair<int, QString> CommonInfoWork::getPlyMouthInformation()
     return {0, QString()};
 }
 
-void CommonInfoWork::deepinIdErrorSlot(int code, const QString &msg)
+void CommonInfoWork::onDevelopModeError(const QString &msgCode)
 {
-    Q_UNUSED(code);
-
     //初始化Notify 七个参数
     QString in0(QObject::tr("dde-control-center"));
     uint in1 = 101;
@@ -664,21 +662,19 @@ void CommonInfoWork::deepinIdErrorSlot(int code, const QString &msg)
     int in7 = 5000;
 
     //截取error接口 1001:未导入证书 1002:未登录 1003:无法获取硬件信息 1004:网络异常 1005:证书加载失败 1006:签名验证失败 1007:文件保存失败
-    QString msgcode = msg;
-    msgcode = msgcode.split(":").at(0);
-    if (msgcode == "1001") {
+    if (msgCode == "1001") {
         in3 = tr("Failed to get root access");
-    } else if (msgcode == "1002") {
+    } else if (msgCode == "1002") {
         in3 = tr("Please sign in to your Union ID first");
-    } else if (msgcode == "1003") {
+    } else if (msgCode == "1003") {
         in3 = tr("Cannot read your PC information");
-    } else if (msgcode == "1004") {
+    } else if (msgCode == "1004") {
         in3 = tr("No network connection");
-    } else if (msgcode == "1005") {
+    } else if (msgCode == "1005") {
         in3 = tr("Certificate loading failed, unable to get root access");
-    } else if (msgcode == "1006") {
+    } else if (msgCode == "1006") {
         in3 = tr("Signature verification failed, unable to get root access");
-    } else if (msgcode == "1007") {
+    } else if (msgCode == "1007") {
         in3 = tr("Failed to get root access");
     }
     //系统通知 认证失败 无法进入开发模式
@@ -721,3 +717,7 @@ bool CommonInfoWork::isSecurityCenterInstalled()
     return QFileInfo::exists("/usr/bin/deepin-defender-scanner");
 }
 
+bool CommonInfoWork::isACLController() const
+{
+    return m_commonInfoProxy->isACLController();
+}

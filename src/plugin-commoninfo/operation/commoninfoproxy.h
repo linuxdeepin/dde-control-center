@@ -65,6 +65,7 @@ public:
     Q_PROPERTY(bool DeveloperMode READ DeveloperMode NOTIFY DeveloperModeChanged)
     bool DeveloperMode();
 
+    bool isACLController() const;
 
 Q_SIGNALS: // SIGNALS
     // deepin id
@@ -86,11 +87,15 @@ Q_SIGNALS: // SIGNALS
     void AuthorizationStateChanged(const int code);
     void LicenseStateChanged(const int code);
 
-    void DeepinIdError(const int code, const QString &msg);
+    void developModeError(const QString &msgCode);
 
     // reset signals
     void resetEnableTheme();
     void resetGrubEditAuthEnabled();
+
+private Q_SLOTS:
+    void onDeepinIdError(const int code, const QString &msg);
+    void onACLError(quint32 exitCode);
 
 private:
     DDBusInterface *m_grubInter;
@@ -101,4 +106,6 @@ private:
     DDBusInterface *m_userexperienceInter;
     DDBusInterface *m_grubScaleInter;
     DDBusInterface *m_syncHelperInter;
+    DDBusInterface *m_aclInter = nullptr;
+    bool m_isACLController = false;
 };
