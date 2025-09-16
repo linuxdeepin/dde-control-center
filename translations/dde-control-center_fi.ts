@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation>Nopea kirjautuminen</translation>
     </message>
 </context>
 <context>
@@ -189,7 +189,10 @@ Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asia
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation>Kasvojentunnistus ei tue liikkeen havainnointia ja siihen voi liittyä riskejä.
+Varmista onnistunut sisäänpääsy:
+1. Pidä kasvot selvästi näkyvissä (ei hattua, aurinkolaseja, maskia jne.).
+2. Varmista riittävä valaistus ja vältä suoraa auringonvaloa.</translation>
     </message>
 </context>
 <context>
@@ -241,39 +244,39 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iiriksen tunnistus</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Olen lukenut ja hyväksyn</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Vastuuvapauslauseke</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Seuraava</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Valmis</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Peruuta</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Tunnista uudelleen</translation>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Iiris tunnistettu</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>Iiriksen tunnistus epäonnistui</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -281,11 +284,13 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
+Huomaa, että UnionTech Co.Ltd. ei kerää tai käytä biometrisiä tietojasi, jotka tallennetaan paikallisesti tietokoneellesi. Otamalla biometrinen todennus käyttöön vain henkilökohtaisella tietokoneella ja käytät omia biometrisiä tietojasi siihen liittyvissä toiminnoissa. Jos tietokoneessa on  muiden ihmisten biometrisiä tietoja, poista ne laitteeltasi, muuten otat niistä aiheutuvan kirjautumisriskin.
+UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen todennuksen turvallisuutta, tarkkuutta ja vakautta. Teknisten laitteiden ja muista tekijöistä ei kuitenkaan ole takeita, että läpäisit aina biometrisen todennuksen. Älä siksi pidä biometristä todennusta ainoana tapana kirjautua UOS:ään. Jos sinulla on kysyttävää tai ehdotuksia biometriseen todennukseen, voit antaa palautetta UOS:n &quot;Palvelut ja tuki&quot; -kohdassa.</translation>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation>Varmista, että molemmat silmät ovat laitteen lukualueella</translation>
     </message>
 </context>
 <context>
