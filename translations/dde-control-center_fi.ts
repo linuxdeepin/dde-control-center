@@ -3510,7 +3510,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Käytä iiristä lukituksen avaamiseen ja tee asetukset myöhemmin</translation>
     </message>
 </context>
 <context>
