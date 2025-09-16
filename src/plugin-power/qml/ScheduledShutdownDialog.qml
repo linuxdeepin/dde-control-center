@@ -19,7 +19,7 @@ D.DialogWindow {
     // Copy is used here to prevent contamination of data in the original model when selecting items
     property var selectedDays: []
     property var dateStr: {
-        var locale = Qt.locale();
+        var locale = Qt.locale(Qt.locale().name);
         var days = [];
         for (var i = 1; i <= 7; i++) {
             var dayEnum = Qt.Monday + (i - 1) % 7;
