@@ -48,6 +48,7 @@ DccObject {
             pageType: DccObject.Item
             backgroundType: DccObject.Normal
             weight: 20
+            enabled: dccData.work().isACLController() ? dccData.mode().isActivate : true
             page: RowLayout {
                 id: root
                 Layout.topMargin: 5
@@ -64,7 +65,9 @@ DccObject {
                     Label {
                         horizontalAlignment: Text.AlignLeft
                         wrapMode: Text.WordWrap
-                        text: qsTr("After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.")
+                        text: (dccData.work().isACLController() ? dccData.mode().isActivate : true)
+                                                        ? qsTr("After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.")
+                                                        : qsTr("The feature is not available at present, please activate your system first.")
                         font: D.DTK.fontManager.t10
                         opacity: 0.5
 
@@ -89,7 +92,11 @@ DccObject {
                     text: qsTr("Enter")
 
                     onClicked: {
-                        developDlg.show()
+                        if (dccData.work().isACLController()) {
+                            dccData.work().setEnableDeveloperMode(true)
+                        } else {
+                            developDlg.show()
+                        }
                     }
                 }
 
@@ -467,6 +474,7 @@ DccObject {
             parentName: "developerModeSetting"
             weight: 40
             pageType: DccObject.Item
+            visible: dccData.work().isACLController() ? dccData.mode().isActivate : true
             page: Label {
                 id: securityCenterLinkLabel
                 height: 30

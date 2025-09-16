@@ -46,6 +46,7 @@ public:
     Q_INVOKABLE void exportMessage(QString filePath);
     Q_INVOKABLE void setBackground(const QString &path);
     Q_INVOKABLE bool isSecurityCenterInstalled();
+    Q_INVOKABLE bool isACLController() const;
 
 public Q_SLOTS:
     void setBootDelay(bool value);
@@ -57,7 +58,7 @@ public Q_SLOTS:
     void closeUeProgram();
     void setEnableDeveloperMode(bool enabled);
     void login();
-    void deepinIdErrorSlot(int code, const QString &msg);
+    void onDevelopModeError(const QString &msgCode);
     void setPlymouthFactor(int factor);
     void resetEditAuthEnabled();
 
