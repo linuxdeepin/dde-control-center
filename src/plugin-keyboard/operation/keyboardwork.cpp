@@ -563,19 +563,11 @@ void KeyboardWorker::onPinyin()
         QStringList letterFirstList;
         if (letterFirst.isLower() || letterFirst.isUpper()) {
             letterFirstList << QString(letterFirst);
-            if (currentLayouts.contains(key)) {
-                md.setPinyin(" " + title);
-            } else {
-                md.setPinyin(title);
-            }
+            md.setPinyin(title);
         } else {
             QDBusMessage message = dbus_pinyin.call("Query", title);
             letterFirstList = message.arguments()[0].toStringList();
-            if (currentLayouts.contains(key)) {
-                md.setPinyin(" " + letterFirstList.at(0));
-            } else {
-                md.setPinyin(letterFirstList.at(0));
-            }
+            md.setPinyin(letterFirstList.at(0));
         }
         append(md);
     }
