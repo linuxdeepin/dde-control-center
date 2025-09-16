@@ -1,0 +1,17 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "showDeviceManager": {
+            "value": true,
+            "serial": 0,
+            "flags": [],
+            "name": "Whether to display device management",
+            "name[zh_CN]": "是否显示设备管理",
+            "description": "Whether to display device management, mainly to enable automatic port switching for use",
+            "description[zh_CN]": "是否显示设备管理，主要是开启端口自动切换使用",
+            "permissions": "readwrite",
+            "visibility": "public"
+        }
+    }
+}
