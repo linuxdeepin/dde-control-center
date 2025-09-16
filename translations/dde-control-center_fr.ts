@@ -4269,7 +4269,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>System</source>
-        <translation>Systeme</translation>
+        <translation>Système</translation>
     </message>
 </context>
 <context>
