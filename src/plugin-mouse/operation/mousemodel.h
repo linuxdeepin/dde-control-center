@@ -102,7 +102,7 @@ public:
 
     Q_INVOKABLE GestureModel *fourFigerGestureModel() const;
 
-    Q_INVOKABLE void setGestures(int fingerNum, int index, QString acitonDec);
+    Q_INVOKABLE void setGestures(int fingerNum, int index, QString actionName);
     Q_INVOKABLE void updateFigerGestureAni(int fingerNum, int index, QString acitonDec);
 
     QString getGestureFingerAniPath() const;
