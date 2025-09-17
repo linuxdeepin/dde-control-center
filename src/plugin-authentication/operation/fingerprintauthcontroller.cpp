@@ -108,26 +108,46 @@ void FingerprintAuthController::onFingerEnrollRetry(const QString &title, const 
 
 void FingerprintAuthController::onFingerEnrollStagePass(int pro)
 {
+    int startValue = m_fingerPro * 1.5;
+    int endValue = pro * 1.5;
+
+    if (m_fingerAni->state() == QVariantAnimation::Running) {
+        m_fingerAni->stop();
+    }
+    m_fingerAni->setStartValue(startValue);
+    m_fingerAni->setEndValue(endValue);
+    QMetaObject::invokeMethod(m_fingerAni, "start", Qt::QueuedConnection);
+
     m_fingerPro = pro;
-    m_fingerAni->setStartValue(0);
-    m_fingerAni->setEndValue(pro);
-    m_fingerAni->start();
-    
-    if (pro == 0) {
+    if (m_fingerPro == 0) {
         m_isStageOne = true;
+        m_fingertipImagePath = QString(":/icons/deepin/builtin/icons/%1/icons/finger/fingerprint_animation_%1_%2.png").arg(m_themeType).arg(0, 5, 10, QChar('0'));
         m_fingerTipTitle = tr("Place your finger");
         m_fingerTipMessage = tr("Place your finger firmly on the sensor until you're asked to lift it");
-    } else if (pro > 0 && pro < 35) {
-        m_fingerTipTitle = tr("Lift your finger");
-        m_fingerTipMessage = tr("Lift your finger and place it on the sensor again");
-        m_fingerLiftTimer->start();
-    } else if (pro >= 35 && pro < 100) {
-        m_fingerTipTitle = tr("Lift your finger");
-        m_fingerTipMessage = tr("Lift your finger and do that again");
-        m_fingerLiftTimer->start();
+    } else {
+        int idx = m_fingerPro / 2;
+        idx = idx > 50 ? 50 : idx;
+        if (m_fingerPro > 0 && m_fingerPro < 35) {
+            m_fingerTipTitle = tr("Lift your finger");
+            m_fingerTipMessage = tr("Lift your finger and place it on the sensor again");
+            m_fingerLiftTimer->start();
+        } else if (m_fingerPro >= 35 && m_fingerPro < 100) {
+            if (m_isStageOne == true) {
+                m_isStageOne = false;
+                m_fingerTipTitle = tr("Scan the edges of your fingerprint");
+                m_fingerTipMessage = tr("Adjust the position to scan the edges of your fingerprint");
+            } else {
+                m_fingerTipTitle = tr("Scan the edges of your fingerprint");
+                m_fingerTipMessage = tr("Lift your finger and do that again");
+                m_fingerLiftTimer->start();
+            }
+        } else {
+            m_fingerTipTitle = tr("Fingerprint added");
+            m_fingerTipMessage = tr("");
+        }
     }
-    
-    emit fingerTipsChanged();
+
+    Q_EMIT fingerTipsChanged();
 }
 
 void FingerprintAuthController::onFingerEnrollFailed(const QString &title, const QString &msg)

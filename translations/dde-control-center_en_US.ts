@@ -3482,6 +3482,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Place the edges of your fingerprint on the sensor</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>dccV25::IrisAuthController</name>
