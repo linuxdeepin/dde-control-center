@@ -3075,15 +3075,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>System Wallapers</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Live Wallpaper</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>1 hour</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System Wallpapers</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3094,19 +3094,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>show all</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>items</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Set lock screen</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Set desktop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>show all - %1 items</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3486,6 +3482,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
         <translation type="unfinished"/>
     </message>
 </context>
