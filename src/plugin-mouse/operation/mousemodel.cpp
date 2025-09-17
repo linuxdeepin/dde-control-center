@@ -287,7 +287,7 @@ GestureModel *MouseModel::fourFigerGestureModel() const
     return m_fourFigerGestureModel;
 }
 
-void MouseModel::setGestures(int fingerNum, int index, QString acitonDec)
+void MouseModel::setGestures(int fingerNum, int index, QString actionName)
 {
     GestureModel *gestureModel = NULL;
     if (fingerNum == 4) {
@@ -300,7 +300,6 @@ void MouseModel::setGestures(int fingerNum, int index, QString acitonDec)
 
     GestureData *data = gestureModel->getGestureData(index);
     if (data) {
-        QString actionName = data->getActionFromActionDec(acitonDec);
         qDebug() << " setGestures action name : " << actionName << data->actionName();
         if (actionName == data->actionName())
             return;

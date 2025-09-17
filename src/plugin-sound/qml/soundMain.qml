@@ -65,8 +65,14 @@ DccObject {
         displayName: qsTr("Devices Management")
         description: qsTr("Enable/disable audio devices")
         icon: "equipment_management"
-        visible: dccData.model().inPutPortCount !== 0 || dccData.model().outPutCount !== 0
+        visible: (dccData.model().inPutPortCount !== 0 || dccData.model().outPutCount !== 0) && config.showDeviceManager
         weight: 50
         SoundDevicemanagesPage {}
+
+        D.Config {
+            id: config
+            name: "org.deepin.dde.control-center.sound"
+            property bool showDeviceManager: true
+        }
     }
 }

@@ -239,22 +239,12 @@ DccObject {
     }
 
     // 账户信息
-    DccObject {
+    DccTitleObject {
         name: "acountInfosTitle"
         parentName: settings.papaName
         displayName: qsTr("Account Information")
         canSearch: settings.canSearch
         weight: 18
-        pageType: DccObject.Item
-        page: Label {
-            leftPadding: 5
-            text: dccObj.displayName
-            font {
-                pointSize: 13
-                bold: true
-            }
-        }
-        onParentItemChanged: item => { if (item) item.topPadding = 10 }
     }
     DccObject {
         name: settings.papaName + "acountInfos"
@@ -549,23 +539,13 @@ DccObject {
     }
 
     // 登陆设置
-    DccObject {
+    DccTitleObject {
         name: settings.papaName + "acountSettingsTitle"
         parentName: settings.papaName
         displayName: qsTr("Login settings")
         canSearch: settings.canSearch
         weight: 28
-        pageType: DccObject.Item
         visible: acountSettings.visible
-        page: Label {
-            leftPadding: 5
-            text: dccObj.displayName
-            font {
-                pointSize: 13
-                bold: true
-            }
-        }
-        onParentItemChanged: item => { if (item) item.topPadding = 10 }
     }
     DccObject {
         id: acountSettings
@@ -789,7 +769,6 @@ DccObject {
             currentIndex: -1
             activeFocusOnTab: true
             keyNavigationEnabled: true
-            focus: true
             clip: false
 
             cacheBuffer: height * 6
@@ -807,6 +786,7 @@ DccObject {
                             return
                         }
                         blockInitialFocus = false
+                        focus = false
                         return
                     }
                     if (suppressAutoFocusFirstOnFocus) {
@@ -873,11 +853,11 @@ DccObject {
                 }
                 RowLayout {
                     anchors.fill: parent
-                    Label {
+                    DccLabel {
                         Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
                         Layout.leftMargin: 10
-                        font.bold: true
-                        font.pointSize: 14
+                        font.pixelSize: DTK.fontManager.t5.pixelSize
+                        font.weight: 700
                         text: dccObj.displayName
                     }
 
@@ -888,7 +868,7 @@ DccObject {
                         Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                         Layout.rightMargin: 10
                         text: groupSettings.isEditing ? qsTr("done") : qsTr("edit")
-                        font.pointSize: 12
+                        font: DTK.fontManager.t8
                         background: null
                         focusPolicy: Qt.NoFocus
                         textColor: Palette {
@@ -910,16 +890,41 @@ DccObject {
             model: settings.userId.length > 0 ? dccData.groupsModel(settings.userId) : 0
             delegate: ItemDelegate {
                 id: itemDelegate
-                implicitHeight: 50
+                implicitHeight: 36
+                padding: 0
                 checkable: false
-                enabled: model.groupEnabled
                 clip: false
                 z: editLabel.showAlert ? 100 : 1
 
                 focusPolicy: Qt.StrongFocus
-                activeFocusOnTab: true
+                activeFocusOnTab: false
 
                 Keys.onPressed: function(event) {
+                    if (!model.groupEnabled) {
+                        if (event.key === Qt.Key_Up) {
+                            if (groupview.currentIndex > 0) {
+                                groupview.currentIndex = groupview.currentIndex - 1
+                                groupview.positionViewAtIndex(groupview.currentIndex, ListView.Contain)
+                            }
+                            event.accepted = true
+                            return
+                        } else if (event.key === Qt.Key_Down) {
+                            if (groupview.currentIndex < groupview.count - 1) {
+                                groupview.currentIndex = groupview.currentIndex + 1
+                                groupview.positionViewAtIndex(groupview.currentIndex, ListView.Contain)
+                            }
+                            event.accepted = true
+                            return
+                        }
+                        event.accepted = true
+                        return
+                    }
+                    if (editLabel.readOnly && (event.key === Qt.Key_Tab || event.key === Qt.Key_Backtab)) {
+                        groupview.focus = false
+                        groupview.currentIndex = -1
+                        event.accepted = true
+                        return
+                    }
                     if (!editLabel.readOnly) {
                         return
                     }
@@ -945,7 +950,7 @@ DccObject {
                     }
                 }
 
-                property var editTextWidth: itemDelegate.width - editButton.width - rightPadding - 65
+                property var editTextWidth: itemDelegate.width - editButton.width - rightPadding - 80
                 background: DccItemBackground {
                     backgroundType: DccObject.Normal
                     separatorVisible: true
@@ -966,12 +971,15 @@ DccObject {
                 }
 
                 contentItem: RowLayout {
+                    spacing: 0
                     Item {
                         id: editContainer
                         Layout.fillWidth: !editLabel.readOnly
-                        implicitHeight: 40
+                        Layout.alignment: Qt.AlignVCenter
+                        Layout.leftMargin: 14
+                        implicitHeight: 36
                         implicitWidth: Math.min(editLabel.metrics.advanceWidth(editLabel.text) + editButton.width + 20,
-                                        groupview.width - editButton.width - 30)
+                                         groupview.width - editButton.width - 30)
                         
                         EditActionLabel {
                             id: editLabel
@@ -984,7 +992,8 @@ DccObject {
                             completeText: model.display
                             rightPadding: editButton.width + 10
                             placeholderText: qsTr("Group name")
-                            horizontalAlignment: TextInput.AlignLeft | Qt.AlignVCenter
+                            horizontalAlignment: TextInput.AlignLeft
+                            verticalAlignment: TextInput.AlignVCenter
                             editBtn.visible: readOnly && editAble
                                              && !groupSettings.isEditing
                             readOnly: model.display.length > 0
@@ -1022,6 +1031,9 @@ DccObject {
                         }
                         
                         onTextChanged: {
+                            if (readOnly) {
+                                return
+                            }
                             if (isRestoring) {
                                 isRestoring = false
                                 return
@@ -1144,11 +1156,14 @@ DccObject {
 
                     Item {
                         Layout.fillWidth: true
-                        implicitHeight: 40
+                        Layout.alignment: Qt.AlignVCenter
+                        implicitHeight: 36
                         
                         MouseArea {
                             anchors.fill: parent
                             visible: !groupSettings.isEditing
+                            enabled: model.groupEnabled
+                            acceptedButtons: Qt.AllButtons
                             onClicked: {
                                 dccData.setGroup(settings.userId, model.display, !editButton.checked)
                             }
@@ -1157,10 +1172,11 @@ DccObject {
 
                     ActionButton {
                         id: editButton
-                        focusPolicy: Qt.StrongFocus
-                        icon.width: 18
-                        icon.height: 18
+                        focusPolicy: Qt.NoFocus
+                        icon.width: 16
+                        icon.height: 16
                         visible: groupSettings.isEditing ? editLabel.editAble : editLabel.readOnly
+                        enabled: model.groupEnabled
                         icon.name: {
                             if (groupSettings.isEditing) {
                                 return "list_delete"
@@ -1186,6 +1202,44 @@ DccObject {
 
                             dccData.setGroup(settings.userId, model.display, !editButton.checked)
                         }
+                    }
+                }
+
+                Item {
+                    anchors.fill: parent
+                    visible: !model.groupEnabled
+                    z: 10000
+                    focus: true
+                    Keys.onPressed: function(event) {
+                        if (event.key === Qt.Key_Up) {
+                            if (groupview.currentIndex > 0) {
+                                groupview.currentIndex = groupview.currentIndex - 1
+                                groupview.positionViewAtIndex(groupview.currentIndex, ListView.Contain)
+                            }
+                            event.accepted = true
+                            return
+                        } else if (event.key === Qt.Key_Down) {
+                            if (groupview.currentIndex < groupview.count - 1) {
+                                groupview.currentIndex = groupview.currentIndex + 1
+                                groupview.positionViewAtIndex(groupview.currentIndex, ListView.Contain)
+                            }
+                            event.accepted = true
+                            return
+                        }
+                        event.accepted = true
+                    }
+                    Keys.onReleased: function(event) { event.accepted = true }
+                    Keys.onShortcutOverride: function(event) { event.accepted = true }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        acceptedButtons: Qt.AllButtons
+                        hoverEnabled: true
+                        preventStealing: true
+                        onPressed: function(mouse) { mouse.accepted = true }
+                        onReleased: function(mouse) { mouse.accepted = true }
+                        onClicked: function(mouse) { mouse.accepted = true }
+                        onWheel: function(wheel) { wheel.accepted = true }
                     }
                 }
 

@@ -90,17 +90,6 @@ void GestureData::addActiosPair(const QPair<QString, QString> &actionPair)
     m_actionMaps.append(actionPair);
 }
 
-QString GestureData::getActionFromActionDec(QString actionDec)
-{
-    for (auto item : m_actionMaps) {
-        if (item.second == actionDec) {
-            return item.first;
-        }
-    }
-
-    return QString();
-}
-
 GestureData::GestureData(QObject *parent)
     : QObject(parent)
 {
