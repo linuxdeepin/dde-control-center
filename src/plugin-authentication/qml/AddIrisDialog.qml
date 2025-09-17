@@ -252,7 +252,7 @@ D.DialogWindow {
 
                 RowLayout {
                     id: successBtnLayout
-                    visible: dccData.enrollIrisTips.addStage === CharaMangerModel.Success
+                    visible: dccData.irisController.addStage === CharaMangerModel.Success
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
                     Layout.bottomMargin: 0
