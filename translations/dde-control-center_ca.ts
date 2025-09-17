@@ -3102,7 +3102,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Fons de pantalla del sistema</translation>
     </message>
 </context>
 <context>
@@ -3121,7 +3121,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>mostra-ho tot - %1 elements</translation>
     </message>
 </context>
 <context>
@@ -3504,11 +3504,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Ajusteu-ne la posició per escanejar els marges de l&apos;empremta.</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Empremta afegida</translation>
     </message>
 </context>
 <context>
