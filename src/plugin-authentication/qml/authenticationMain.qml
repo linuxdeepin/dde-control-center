@@ -47,7 +47,7 @@ DccObject {
                 authIcon: "user_biometric_iris",
                 authType: CharaMangerModel.Type_Iris,
                 available: dccData.model.irisDriverVaild,
-                max: 10
+                max: 5
             }
         ]
         property var listDatas: [dccData.model.facesList, dccData.model.thumbsList, dccData.model.irisList]
@@ -296,36 +296,36 @@ DccObject {
                                 break;
                             }
                         }
+                    }
+                }
+            }
 
-                        Loader {
-                            id: addFaceDialogLoader
-                            active: false
-                            sourceComponent: AddFaceinfoDialog {
-                                onClosing: function (close) {
-                                    addFaceDialogLoader.active = false;
-                                }
-                            }
-                        }
+            Loader {
+                id: addFaceDialogLoader
+                active: false
+                sourceComponent: AddFaceinfoDialog {
+                    onClosing: function (close) {
+                        addFaceDialogLoader.active = false;
+                    }
+                }
+            }
 
-                        Loader {
-                            id: addFingerDialogLoader
-                            active: false
-                            sourceComponent: AddFingerDialog {
-                                onClosing: function (close) {
-                                    addFingerDialogLoader.active = false;
-                                }
-                            }
-                        }
+            Loader {
+                id: addFingerDialogLoader
+                active: false
+                sourceComponent: AddFingerDialog {
+                    onClosing: function (close) {
+                        addFingerDialogLoader.active = false;
+                    }
+                }
+            }
 
-                        Loader {
-                            id: addIrisDialogLoader
-                            active: false
-                            sourceComponent: AddIrisDialog {
-                                onClosing: function (close) {
-                                    addIrisDialogLoader.active = false;
-                                }
-                            }
-                        }
+            Loader {
+                id: addIrisDialogLoader
+                active: false
+                sourceComponent: AddIrisDialog {
+                    onClosing: function (close) {
+                        addIrisDialogLoader.active = false;
                     }
                 }
             }
