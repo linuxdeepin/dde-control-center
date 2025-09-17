@@ -3098,7 +3098,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>系統壁紙</translation>
     </message>
 </context>
 <context>
@@ -3117,7 +3117,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>顯示全部－%1張</translation>
     </message>
 </context>
 <context>
@@ -3500,11 +3500,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>請調整按壓區域，繼續錄入邊緣指紋</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>成功添加指紋</translation>
     </message>
 </context>
 <context>
