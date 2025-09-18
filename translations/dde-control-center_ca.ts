@@ -1506,7 +1506,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>La funció no està disponible actualment. Si us plau, primer activeu el sistema.</translation>
     </message>
 </context>
 <context>
