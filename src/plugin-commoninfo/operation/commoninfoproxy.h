@@ -96,6 +96,7 @@ Q_SIGNALS: // SIGNALS
 private Q_SLOTS:
     void onDeepinIdError(const int code, const QString &msg);
     void onACLError(quint32 exitCode);
+    void onLicenseStateChanged();
 
 private:
     DDBusInterface *m_grubInter;
