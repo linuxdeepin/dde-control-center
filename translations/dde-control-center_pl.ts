@@ -1504,6 +1504,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <source>2.please go to %1 to Download offline certificate.</source>
         <translation>2. Przejdź do %1 i pobierz certyfikat offline.</translation>
     </message>
+    <message>
+        <source>The feature is not available at present, please activate your system first.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
