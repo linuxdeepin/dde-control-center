@@ -1497,6 +1497,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>2.please go to %1 to Download offline certificate.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>The feature is not available at present, please activate your system first.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
