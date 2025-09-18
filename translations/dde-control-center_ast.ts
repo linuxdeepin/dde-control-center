@@ -94,10 +94,6 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Quickly load DDE with your login information</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Undo</source>
         <translation type="unfinished"/>
     </message>
@@ -121,15 +117,15 @@
         <source>Select All</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Quick login</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Make sure all parts of your face are not covered by objects and are clearly visible. Your face should be well-lit as well.</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -178,6 +174,13 @@ In order to better use of face recognition, please pay attention to the followin
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Face recognition does not support liveness detection, and the verification method may carry risks.
+To ensure successful entry:
+1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
+2. Ensure sufficient lighting and avoid direct sunlight.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
@@ -219,6 +222,57 @@ In order to better use of face recognition, please pay attention to the followin
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>AddIrisDialog</name>
+    <message>
+        <source>Enroll Iris</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>I have read and agree to the</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disclaimer</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Next</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Retry Enroll</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Iris enrolled</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to enroll your iris</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+
+UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -764,10 +818,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Scroll Speed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Double Click Speed</source>
         <translation type="unfinished"/>
     </message>
@@ -781,6 +831,14 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Enable Keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scrolling Speed</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1078,6 +1136,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Authentication is required to change NTP server</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Authentication is required to set the system timezone</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DccColorDialog</name>
@@ -1373,10 +1435,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>2.please go to &lt;a href=&quot;http://www.chinauos.com/developMode&quot;&gt;http：//www.chinauos.com/developMode&lt;/a&gt; to Download offline certificate.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>3.Import Certificate</source>
         <translation type="unfinished"/>
     </message>
@@ -1410,6 +1468,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You have entered developer mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>OK</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>2.please go to %1 to Download offline certificate.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The feature is not available at present, please activate your system first.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1552,31 +1626,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>GestureModel</name>
     <message>
-        <source>Three-finger</source>
+        <source>Three-finger up</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Four-finger</source>
+        <source>Three-finger down</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Up</source>
+        <source>Three-finger left</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Down</source>
+        <source>Three-finger right</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Left</source>
+        <source>Three-finger tap</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Right</source>
+        <source>Four-finger up</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>tap</source>
+        <source>Four-finger down</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Four-finger left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Four-finger right</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Four-finger tap</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1676,11 +1762,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Region and format</source>
+        <source>Operating system and applications may set date and time formats based on regional formats</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Operating system and applications may set date and time formats based on regional formats</source>
+        <source>Regional format</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1791,7 +1877,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Input Devices</source>
+        <source>Input Device</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1962,10 +2048,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>New password should differ from the current one</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
         <translation type="unfinished"/>
     </message>
@@ -1975,6 +2057,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Different from the username</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2259,10 +2345,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>RegionFormatDialog</name>
     <message>
-        <source>Regions and formats</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Search</source>
         <translation type="unfinished"/>
     </message>
@@ -2308,6 +2390,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Save</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Regional format</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2668,15 +2754,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Mono audio</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Auto pause</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -2684,7 +2762,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Output Devices</source>
+        <source>Mono Audio</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto Pause</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Output Device</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2872,15 +2958,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Gesture</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Three-finger gestures</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger gestures</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Gestures</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2989,15 +3075,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>System Wallapers</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Live Wallpaper</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>1 hour</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System Wallpapers</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3008,19 +3094,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>show all</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>items</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Set lock screen</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Set desktop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>show all - %1 items</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3246,7 +3328,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>System language, region format</source>
+        <source>System language, regional formats</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3350,13 +3432,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>dccV25::BiometricAuthController</name>
+    <name>dccV25::FaceAuthController</name>
+    <message>
+        <source>Faceprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation type="unfinished"/>
+    </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
         <translation type="unfinished"/>
     </message>
+</context>
+<context>
+    <name>dccV25::FingerprintAuthController</name>
     <message>
-        <source>Faceprint</source>
+        <source>Fingerprint</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3376,19 +3469,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fingerprint added</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3396,11 +3477,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Scan the edges of your fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Place the edges of your fingerprint on the sensor</source>
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV25::IrisAuthController</name>
+    <message>
         <source>Iris</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use your iris to unlock the device and make settings later</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4135,7 +4235,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Devices</source>
+        <source>Devices Management</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4236,10 +4336,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Wacom Mode</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Pen Mode</source>
         <translation type="unfinished"/>
     </message>
@@ -4257,6 +4353,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Heavy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Model</source>
         <translation type="unfinished"/>
     </message>
 </context>
