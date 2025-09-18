@@ -1487,6 +1487,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <source>2.please go to %1 to Download offline certificate.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>The feature is not available at present, please activate your system first.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
