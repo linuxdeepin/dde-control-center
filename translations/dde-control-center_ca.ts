@@ -1504,6 +1504,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <source>2.please go to %1 to Download offline certificate.</source>
         <translation>2. Si us plau, aneu a %1 per descarregar el certificat fora de línia.</translation>
     </message>
+    <message>
+        <source>The feature is not available at present, please activate your system first.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
