@@ -89,6 +89,13 @@ CommonInfoProxy::CommonInfoProxy(QObject *parent)
         SIGNAL(BackgroundChanged())
     );
 
+    QDBusConnection::systemBus().connect(
+        LicenseService,
+        LicensePath,
+        LicenseInterface,
+        "LicenseStateChange",
+        this, SLOT(onLicenseStateChanged()));
+
     m_isACLController =  isACLActivatable();
     if (m_isACLController) {
         qInfo(dcCommonLog) << "DeveloperMode uses ACL service to work.";
@@ -327,4 +334,10 @@ void CommonInfoProxy::onACLError(quint32 exitCode)
             << exitCode << ", errorCode" << errorCode;
         Q_EMIT developModeError("1001");
     }
+}
+
+void CommonInfoProxy::onLicenseStateChanged()
+{
+    const auto state = AuthorizationState();
+    Q_EMIT AuthorizationStateChanged(state);
 }
