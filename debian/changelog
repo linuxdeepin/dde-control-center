@@ -1,3 +1,33 @@
+dde-control-center (6.1.48) unstable; urgency=medium
+
+  * fix: connect license state change signal
+  * i18n: Updates for project Deepin Desktop Environment (#2685)
+  * fix: remove background from default app items
+  * style: update font styles in control center
+  * feat: adapt developer mode to use ACL service
+  * i18n: Updates for project Deepin Desktop Environment (#2683)
+  * fix: update iris enrollment UI and max limit
+  * feat: improve fingerprint enrollment animation and messaging
+  * fix: adjust title bar left margin
+  * feat: add configurable device management visibility
+  * fix: Adjust the display effects of the user group interface.
+  * i18n: Updates for project Deepin Desktop Environment (#2668)
+  * fix: hide current keyboard layouts from add layout dialog
+  * fix: resolve missing translation in power module US English locale
+  * fix: Fix the abnormal layout of the interface
+  * fix: Adjust the user group interface layout
+  * refactor: simplify gesture action mapping logic
+  * fix: correct i18n formatting in QML file
+  * fix: typo mistake of "Wallpapers"
+  * fix: resolve scrollbar unable to reach bottom in region list
+  * fix: add timeout dialog for X11 rotation changes
+  * fix: improve touchpad gesture animation behavior
+  * chore: Sync by
+    https://github.com/linuxdeepin/.github/commit/ae0f54a002362031e7e012
+    f4be2d79cfb370a57e
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 18 Sep 2025 20:07:38 +0800
+
 dde-control-center (6.1.47) unstable; urgency=medium
 
   * chore(iris): update translation
