@@ -20,6 +20,7 @@ D.ItemDelegate {
     bottomPadding: bottomInset
     implicitHeight: contentItem.implicitHeight + topPadding + bottomPadding
     padding: 0
+    font: D.DTK.fontManager.t6
 
     contentItem: model.item.getSectionItem(this)
     background: DccItemBackground {
