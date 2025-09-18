@@ -243,6 +243,9 @@ void CharaMangerWorker::refreshDriverInfo()
 {
     auto driverInfo = m_charaMangerInter->driverInfo();
     predefineDriverInfo(driverInfo);
+    
+    auto defaultDevice = m_charaMangerInter->defaultDevice();
+    refreshFingerDriverStatus(defaultDevice);
 }
 
 void CharaMangerWorker::entollStart(const QString &driverName, const int &charaType, const QString &charaName)
@@ -411,4 +414,20 @@ void CharaMangerWorker::renameFingerItem(const QString &userName, const QString 
 {
     m_charaMangerInter->RenameFinger(userName, finger, newName);
     refreshFingerEnrollList(userName);
+}
+
+void CharaMangerWorker::refreshFingerDriverStatus(const QString &defaultDevice)
+{
+    bool isFingerValid = !defaultDevice.isEmpty();
+    m_model->setFingerVaild(isFingerValid);
+    
+    if (isFingerValid) {
+        struct passwd *pws;
+        QString userId;
+        pws = getpwuid(getuid());
+        userId = QString(pws->pw_name);
+        refreshFingerEnrollList(userId);
+    } else {
+        m_model->setThumbsList(QStringList());
+    }
 }
