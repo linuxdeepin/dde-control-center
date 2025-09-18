@@ -1503,6 +1503,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>2.please go to %1 to Download offline certificate.</source>
         <translation>2.前往%1下载离线证书.</translation>
     </message>
+    <message>
+        <source>The feature is not available at present, please activate your system first.</source>
+        <translation>当前系统未激活，暂无法使用该功能。</translation>
+    </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
