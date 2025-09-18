@@ -16,16 +16,6 @@ DccObject {
     property CategoryModel categoryModel: null
     property bool canDelete: false
 
-    // Function to get appropriate corners for list items based on position
-    function getCornersForBackground(index, count) {
-        if (count <= 1 || index === count - 1) {
-            // Single item or last item: only bottom corners
-            return D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
-        } else {
-            // All other items: no corners (container already provides top corners)
-            return 0
-        }
-    }
 
     page: DccRightView {
         isGroup: true
@@ -81,12 +71,9 @@ DccObject {
                 hoverEnabled: true
                 cascadeSelected: false
                 checkable: false
-                corners: root.getCornersForBackground(index, categoryModel.rowCount())
                 onClicked: categoryModel.setDefaultApp(model.id)
-                background: DccItemBackground {
-                    separatorVisible: true
-                    backgroundType: DccObject.ClickStyle
-                }
+                background: null
+                implicitHeight: 48
                 content: RowLayout {
                     width: 38
                     DccCheckIcon {
