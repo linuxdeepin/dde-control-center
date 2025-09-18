@@ -52,7 +52,6 @@ DccObject {
                 Label {
                     id: speedText
                     Layout.topMargin: 10
-                    font: D.DTK.fontManager.t7
                     text: dccObj.displayName
                     Layout.leftMargin: 14
                 }
