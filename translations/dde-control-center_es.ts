@@ -1498,6 +1498,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>2.please go to %1 to Download offline certificate.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>The feature is not available at present, please activate your system first.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
