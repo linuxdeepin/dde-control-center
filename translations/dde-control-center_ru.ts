@@ -4024,7 +4024,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Панель сенсорной панели</translation>
+        <translation>Тачпад</translation>
     </message>
 </context>
 <context>
@@ -4318,11 +4318,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation>Сенсорный экран</translation>
+        <translation>Тачскрин</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation>Настройка сенсорного экрана</translation>
+        <translation>Настройка тачскрина</translation>
     </message>
 </context>
 <context>
