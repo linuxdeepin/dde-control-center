@@ -2570,7 +2570,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
+        <translation>Название комбинации уже используется. Выберете другое.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
@@ -3286,7 +3286,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Имя уже существует</translation>
     </message>
     <message>
         <source>Add a new %1 ...</source>
@@ -3384,11 +3384,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation>Имя слишком длинное</translation>
+        <translation>Полное имя слишком длинное</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>Имя уже используется другими учетными записями</translation>
+        <translation>Полное имя уже используется другой учетной записью</translation>
     </message>
     <message>
         <source>Wrong password</source>
