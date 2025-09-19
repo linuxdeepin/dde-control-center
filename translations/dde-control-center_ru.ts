@@ -421,11 +421,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
-        <translation>БлюETOOTH выключен, и имя отображается как &quot;%1&quot; </translation>
+        <translation>Bluetooth выключен, и имя отображается как &quot;%1&quot; </translation>
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation>БлюETOOTH включен, и имя отображается как &quot;%1&quot; </translation>
+        <translation>Bluetooth включен, и имя отображается как &quot;%1&quot; </translation>
     </message>
 </context>
 <context>
@@ -2884,7 +2884,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation>Сохранить настройки отображения?</translation>
+        <translation>Сохранить настройки экрана?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
@@ -3188,7 +3188,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Compact Display</source>
-        <translation>Компактный отображение</translation>
+        <translation>Компактный экран</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
