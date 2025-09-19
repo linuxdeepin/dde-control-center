@@ -545,7 +545,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Required</source>
-        <translation>Обязательно</translation>
+        <translation>Необходимо</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
@@ -940,7 +940,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Required</source>
-        <translation>Обязательно</translation>
+        <translation>Необходимо</translation>
     </message>
     <message>
         <source>FullName</source>
@@ -2027,7 +2027,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Required</source>
-        <translation>Обязательно</translation>
+        <translation>Необходимо</translation>
     </message>
     <message>
         <source>Weak</source>
@@ -2512,7 +2512,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation type="unfinished"/>
+        <translation>Для восстановления необходим пароль</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
@@ -2546,7 +2546,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Required</source>
-        <translation>Обязательно</translation>
+        <translation>Необходимо</translation>
     </message>
     <message>
         <source>Command:</source>
