@@ -964,11 +964,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>Имя пользователя может содержать только буквы, цифры, - и _</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Полное имя не должно быть более 32 символов</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
@@ -1139,7 +1139,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Пример</translation>
     </message>
 </context>
 <context>
@@ -1322,7 +1322,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>Никнейм должен содержать от 1 до 32 символов.</translation>
     </message>
 </context>
 <context>
@@ -1345,7 +1345,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>Никнейм можно изменить только один раз в сутки</translation>
     </message>
 </context>
 <context>
