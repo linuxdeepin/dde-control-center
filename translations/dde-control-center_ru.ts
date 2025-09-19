@@ -4291,7 +4291,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation>Присоединитесь к программе опыта пользователя, чтобы помочь улучшить продукт</translation>
+        <translation>Присоединитесь к программе взаимодействия с пользователем, чтобы помочь улучшить продукт</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
