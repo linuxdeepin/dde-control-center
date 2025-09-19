@@ -2340,11 +2340,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation>Настройки сенсорного экрана</translation>
+        <translation>Настройки тачскрина</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation>Настройки сенсорного экрана изменились</translation>
+        <translation>Настройки тачскрина изменены</translation>
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
@@ -2930,11 +2930,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation>Касание</translation>
+        <translation>Тачскрин</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation>Настройка здесь при подключении касания</translation>
+        <translation>Настройте здесь при подключении тачскрина</translation>
     </message>
 </context>
 <context>
@@ -4005,11 +4005,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation>Мышь и панель сенсорной панели</translation>
+        <translation>Мышь и тачпад</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation>Общие, Мышь, Панель сенсорной панели</translation>
+        <translation>Общие, мышь, тачпад</translation>
     </message>
 </context>
 <context>
