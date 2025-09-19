@@ -63,7 +63,7 @@
     </message>
     <message>
         <source>Account fullname</source>
-        <translation>اسم الحساب الكامل</translation>
+        <translation>Полное имя аккаунта</translation>
     </message>
     <message>
         <source>Account type</source>
@@ -71,15 +71,15 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Полное имя слишком длинное</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Название группы должно быть не более 32 символов</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Название группы не может состоять только из цифр</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
@@ -87,7 +87,7 @@
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation>Название группы уже используется</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
@@ -475,7 +475,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>Имя устройства не может быть более 64 символов</translation>
     </message>
 </context>
 <context>
