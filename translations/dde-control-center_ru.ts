@@ -1255,7 +1255,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
         <translation>Управляйте своим идентификатором %1 и синхронизируйте личные данные между устройствами.
-Войдите в свой идентификатор %1 для получения персонализированных функций и услуг браузера, магазина приложений и других.</translation>
+Войдите в свой идентификатор %1, чтобы получить уникальные функции и возможности Браузера, Магазина приложений и т.д.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
