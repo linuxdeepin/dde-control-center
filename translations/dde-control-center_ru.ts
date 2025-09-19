@@ -1402,7 +1402,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation>После входа в разработчический режим вы сможете получить права root, но это может также повредить целостность системы, поэтому используйте это с осторожностью.</translation>
+        <translation>После входа в режим разработчика вы сможете получить права root, но это может также повредить целостность системы, поэтому используйте это с осторожностью.</translation>
     </message>
     <message>
         <source>Allowed</source>
@@ -2071,7 +2071,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Different from the username</source>
-        <translation type="unfinished"/>
+        <translation>Отличное от имя пользователя</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
@@ -2542,7 +2542,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Name:</source>
-        <translation>Название:</translation>
+        <translation>Имя:</translation>
     </message>
     <message>
         <source>Required</source>
