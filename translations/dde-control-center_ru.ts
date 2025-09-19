@@ -11,7 +11,7 @@
     </message>
     <message>
         <source>Set fullname</source>
-        <translation>إعداد الاسم الكامل</translation>
+        <translation>Напишите полное имя</translation>
     </message>
     <message>
         <source>Login settings</source>
@@ -39,7 +39,7 @@
     </message>
     <message>
         <source>Group name</source>
-        <translation>اسم المجموعة</translation>
+        <translation>Имя группы</translation>
     </message>
     <message>
         <source>Add group</source>
@@ -55,11 +55,11 @@
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation>اسم الحساب، الاسم الكامل، نوع الحساب</translation>
+        <translation>Имя и полное имя аккаунта, тип аккаунта</translation>
     </message>
     <message>
         <source>Account name</source>
-        <translation>اسم الحساب</translation>
+        <translation>Имя аккаунта</translation>
     </message>
     <message>
         <source>Account fullname</source>
