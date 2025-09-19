@@ -727,7 +727,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>Камера занята!</translation>
     </message>
 </context>
 <context>
@@ -960,7 +960,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Имя пользователя не должно быть более 32 символов</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
