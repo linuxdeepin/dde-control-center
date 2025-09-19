@@ -11,6 +11,7 @@
 #include <QDir>
 
 #include <DIconTheme>
+#include <DWindowManagerHelper>
 
 constexpr auto PLUGIN_ICON_DIR = "/usr/share/dde-dock/icons/dcc-setting";
 constexpr auto PLUGIN_ICON_PREFIX = "dcc-";
@@ -38,6 +39,10 @@ DccDockExport::DccDockExport(QObject *parent)
 , m_pluginModel(new DockPluginModel(this))
 {
     initData();
+
+    connect(m_dockDbusProxy, &DockDBusProxy::pluginVisibleChanged, m_pluginModel, &DockPluginModel::setPluginVisible);
+    // if it has no blur effect, dcc do not need to show multitask-view plugin
+    connect(DWindowManagerHelper::instance(), &DWindowManagerHelper::hasBlurWindowChanged, this, &DccDockExport::initData);
 }
 
 void DccDockExport::initData()
@@ -69,8 +74,6 @@ void DccDockExport::initData()
         info.dcc_icon = pluginIconStr;
     }
     m_pluginModel->resetData(infos);
-
-    connect(m_dockDbusProxy, &DockDBusProxy::pluginVisibleChanged, m_pluginModel, &DockPluginModel::setPluginVisible);
 }
 
 DCC_FACTORY_CLASS(DccDockExport)
