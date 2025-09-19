@@ -1017,11 +1017,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Участвуя в программе улучшения пользовательского опыта, вы разрешаете нам собирать и использовать информацию о вашем устройстве, системе и приложениях. Если вы несогласны со сбором и использованием вышеупомянутой информации, то не присоединяйтесь к программе. Для получения подробной информации о программе улучшения пользовательского опыта, посетите сайт&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Участвуя в программе взаимодействия с пользователем, вы разрешаете нам собирать и использовать информацию о вашем устройстве, системе и приложениях. Если вы несогласны со сбором и использованием вышеупомянутой информации, то не присоединяйтесь к программе. Для получения подробной информации о программе взаимодействия с пользователем, посетите сайт&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation>Дать согласие и присоединиться к программе улучшения пользовательского опыта</translation>
+        <translation>Дать согласие и присоединиться к программе взаимодействия с пользователем</translation>
     </message>
 </context>
 <context>
@@ -1715,7 +1715,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Включите все эффекты интерфейса и окон для лучшего визуального опыта.</translation>
     </message>
 </context>
 <context>
@@ -2988,7 +2988,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation>Присоединиться к программе пользовательского опыта</translation>
+        <translation>Присоединиться к программе взаимодействия с пользователем</translation>
     </message>
     <message>
         <source>Copy Link Address</source>
@@ -4287,7 +4287,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>Программа опыта пользователя</translation>
+        <translation>Программа взаимодействия с пользователем</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
