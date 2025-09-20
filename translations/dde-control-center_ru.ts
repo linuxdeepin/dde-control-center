@@ -173,7 +173,6 @@ In order to better use of face recognition, please pay attention to the followin
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
         <translation>Прежде чем использовать распознавание лица, пожалуйста, обратите внимание на следующее:
-
 1. Ваше устройство может быть разблокировано людьми или объектами, которые выглядят или кажутся похожими на вас.
 2. Распознавание лица менее безопасно, чем цифровые пароли и смешанные пароли.
 3. Вероятность разблокировки устройства через распознавание лица будет снижена в условиях с низкой, высокой или обратной освещенностью, а также в других сценариях.
@@ -181,9 +180,8 @@ In order to better use of face recognition, please pay attention to the followin
 5. Кроме вышеуказанных сценариев, следует учитывать другие ситуации, которые могут влиять на нормальное использование распознавания лица.
 
 Чтобы лучше использовать распознавание лица, пожалуйста, обратите внимание на следующие моменты при вводе данных лица:
-
 1. Пожалуйста, оставайтесь в хорошо освещенном помещении, избегайте прямого солнечного света и других людей на записанном экране.
-2. Пожалуйста, обратите внимание на состояние лица при вводе данных, и не позволяйте шляпам, волосам, солнцезащитным очкам, маскам, тяжелой макияжу и другим факторам закрывать ваши физиognомические особенности.
+2. Пожалуйста, обратите внимание на состояние лица при вводе данных, и не позволяйте шляпам, волосам, солнцезащитным очкам, маскам, тяжелой макияжу и другим факторам закрывать ваши физиономические особенности.
 3. Пожалуйста, избегайте наклона или опускания головы, закрытия глаз или показа только одной стороны лица, и убедитесь, что передняя сторона лица полностью и четко видна в поле ввода.</translation>
     </message>
     <message>
@@ -191,7 +189,10 @@ In order to better use of face recognition, please pay attention to the followin
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation>Распознавание лиц не поддерживает определение живости, и метод верификации может быть рискованным.
+Чтобы гарантировать успешный вход:
+1. Держите черты лица четко видимыми и не закрывайте их (шляпы, солнцезащитные очки, маски и т. д.).
+2. Обеспечьте достаточное освещение и избегайте прямого солнечного света.</translation>
     </message>
 </context>
 <context>
