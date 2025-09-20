@@ -4179,7 +4179,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Программы питания, настройки экономии энергии, настройки пробуждения, настройки выключения</translation>
+        <translation>Программы питания, настройки экономии энергии, пробуждения, выключения</translation>
     </message>
     <message>
         <source>Plugged In</source>
