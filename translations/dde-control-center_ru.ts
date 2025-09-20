@@ -1392,22 +1392,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation>Программы (*.desktop</translation>
+        <translation>Программы (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation>Все файлы (*</translation>
+        <translation>Все файлы (*)</translation>
     </message>
 </context>
 <context>
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation>Доступ с правами root</translation>
+        <translation>Доступ с root правами</translation>
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation>Запросить доступ с правами root</translation>
+        <translation>Запросить root-доступ</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
