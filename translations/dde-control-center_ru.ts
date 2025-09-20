@@ -3763,7 +3763,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>Перемещение экрана вступит в силу через %1с после изменений</translation>
+        <translation>Перенастройка экрана вступит в силу через 1% с. после изменений</translation>
     </message>
     <message>
         <source>Mode</source>
