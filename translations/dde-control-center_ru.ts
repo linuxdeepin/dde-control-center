@@ -1720,7 +1720,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Ограничение некоторых оконных эффектов, чтобы добиться отличного качества изображения и при этом сохранить плавность работы системы.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
@@ -1790,7 +1790,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Формат региона</translation>
     </message>
 </context>
 <context>
@@ -1828,11 +1828,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add new keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Добавить раскладку клавиатуры</translation>
     </message>
     <message>
         <source>Current language keyboard layouts</source>
-        <translation type="unfinished"/>
+        <translation>Текущие раскладки клавиатуры</translation>
     </message>
 </context>
 <context>
