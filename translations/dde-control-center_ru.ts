@@ -875,7 +875,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation>Не удалось получить доступ к корню</translation>
+        <translation>Не удалось получить root-доступ</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
@@ -891,11 +891,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Загрузка сертификата не удалась, не удалось получить доступ root</translation>
+        <translation>Ошибка загрузки сертификата, не удалось получить root-доступ</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Проверка подписи не удалась, не удалось получить доступ root</translation>
+        <translation>Ошибка проверки подписи, не удалось получить root-доступ</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
@@ -907,7 +907,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation>Согласиться и запросить доступ root</translation>
+        <translation>Дать согласие и запросить root-доступ</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
