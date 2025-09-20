@@ -219,7 +219,7 @@ To ensure successful entry:
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>Уведомлением</translation>
+        <translation>Отказ от ответственности</translation>
     </message>
     <message>
         <source>Next</source>
@@ -246,35 +246,35 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>Сканирование радужной оболочки глаза</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Я прочитал и согласен с</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Отказ от ответственности</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Далее</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Выполнено</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Повторить сканирование</translation>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Радужная оболочка глаза отсканирована</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
