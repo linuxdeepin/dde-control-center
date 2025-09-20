@@ -3859,19 +3859,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2 (Рекомендуется)</translation>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2</translation>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1 Гц (Рекомендуется)</translation>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation type="unfinished"/>
+        <translation>%1 Гц</translation>
     </message>
     <message>
         <source>Scaling</source>
@@ -4051,7 +4051,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation>Настройки не беспокоить</translation>
+        <translation>Настройки режима &quot;Не беспокоить&quot;</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
