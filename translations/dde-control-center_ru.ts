@@ -31,11 +31,11 @@
     </message>
     <message>
         <source>Account groups</source>
-        <translation>مجموعات الحسابات</translation>
+        <translation>Группы учетной записи</translation>
     </message>
     <message>
         <source>done</source>
-        <translation>تم</translation>
+        <translation>готово</translation>
     </message>
     <message>
         <source>Group name</source>
@@ -43,11 +43,11 @@
     </message>
     <message>
         <source>Add group</source>
-        <translation>إضافة مجموعة</translation>
+        <translation>Добавить группу</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation>تسجيل دخول تلقائي</translation>
+        <translation>Автоматический вход</translation>
     </message>
     <message>
         <source>Account Information</source>
@@ -67,7 +67,7 @@
     </message>
     <message>
         <source>Account type</source>
-        <translation>نوع الحساب</translation>
+        <translation>Тип аккаунта</translation>
     </message>
     <message>
         <source>The full name is too long</source>
