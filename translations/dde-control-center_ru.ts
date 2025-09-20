@@ -3477,7 +3477,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Разместите свой палец</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
@@ -3485,7 +3485,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Поднимите палец</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
@@ -3497,7 +3497,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Сканирование приостановлено</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
@@ -3513,18 +3513,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Отпечаток добавлен</translation>
     </message>
 </context>
 <context>
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iris</translation>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Используйте Iris для разблокировки устройства и последующих настроек</translation>
     </message>
 </context>
 <context>
@@ -3620,7 +3620,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>UOS ID</source>
-        <translation>ID UOS</translation>
+        <translation>UOS ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
