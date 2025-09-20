@@ -3,150 +3,150 @@
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation>تعديل</translation>
+        <translation>редактировать</translation>
     </message>
     <message>
         <source>Add new user</source>
-        <translation>إضافة مستخدم جديد</translation>
+        <translation>Добавить нового пользователя</translation>
     </message>
     <message>
         <source>Set fullname</source>
-        <translation>إعداد الاسم الكامل</translation>
+        <translation>Напишите полное имя</translation>
     </message>
     <message>
         <source>Login settings</source>
-        <translation>إعدادات تسجيل الدخول</translation>
+        <translation>Настройки входа</translation>
     </message>
     <message>
         <source>Login without password</source>
-        <translation>تسجيل الدخول بدون كلمة مرور</translation>
+        <translation>Входить в систему без ввода пароля</translation>
     </message>
     <message>
         <source>Delete current account</source>
-        <translation>حذف الحساب الحالي</translation>
+        <translation>Удалить текущую учетную запись</translation>
     </message>
     <message>
         <source>Group setting</source>
-        <translation>إعداد المجموعة</translation>
+        <translation>Настройки групп</translation>
     </message>
     <message>
         <source>Account groups</source>
-        <translation>مجموعات الحسابات</translation>
+        <translation>Группы учетной записи</translation>
     </message>
     <message>
         <source>done</source>
-        <translation>تم</translation>
+        <translation>готово</translation>
     </message>
     <message>
         <source>Group name</source>
-        <translation>اسم المجموعة</translation>
+        <translation>Имя группы</translation>
     </message>
     <message>
         <source>Add group</source>
-        <translation>إضافة مجموعة</translation>
+        <translation>Добавить группу</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation>تسجيل دخول تلقائي</translation>
+        <translation>Автоматический вход</translation>
     </message>
     <message>
         <source>Account Information</source>
-        <translation>معلومات الحساب</translation>
+        <translation>Информация об аккаунте</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation>اسم الحساب، الاسم الكامل، نوع الحساب</translation>
+        <translation>Имя и полное имя аккаунта, тип аккаунта</translation>
     </message>
     <message>
         <source>Account name</source>
-        <translation>اسم الحساب</translation>
+        <translation>Имя аккаунта</translation>
     </message>
     <message>
         <source>Account fullname</source>
-        <translation>اسم الحساب الكامل</translation>
+        <translation>Полное имя аккаунта</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation>نوع الحساب</translation>
+        <translation>Тип аккаунта</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Полное имя слишком длинное</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Название группы должно быть не более 32 символов</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Название группы не может состоять только из цифр</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>Используйте только буквы, цифры, подчеркивания и тире, и оно должно начинаться с буквы</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation>Название группы уже используется</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Быстрый и автоматический вход, вход без пароля</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Далее</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"/>
+        <translation>Вырезать</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>Копировать</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"/>
+        <translation>Вставить</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Выбрать все</translation>
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation>Быстрый вход</translation>
     </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation>تسجيل الوجه</translation>
+        <translation>Сканировать лицо</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation>أقر وأوافق على</translation>
+        <translation>Я прочитал и согласен с</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>ال聲明</translation>
+        <translation>Отказ от ответственности</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>التالي</translation>
+        <translation>Далее</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>تم تسجيل الوجه</translation>
+        <translation>Лицо отсканировано</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation>Не удалось зарегистрировать ваше лицо</translation>
+        <translation>Не удалось отсканировать ваше лицо</translation>
     </message>
     <message>
         <source>Done</source>
@@ -158,7 +158,7 @@
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation>Повторить регистрацию</translation>
+        <translation>Повторить сканирование</translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
@@ -173,7 +173,6 @@ In order to better use of face recognition, please pay attention to the followin
 2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
 3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
         <translation>Прежде чем использовать распознавание лица, пожалуйста, обратите внимание на следующее:
-
 1. Ваше устройство может быть разблокировано людьми или объектами, которые выглядят или кажутся похожими на вас.
 2. Распознавание лица менее безопасно, чем цифровые пароли и смешанные пароли.
 3. Вероятность разблокировки устройства через распознавание лица будет снижена в условиях с низкой, высокой или обратной освещенностью, а также в других сценариях.
@@ -181,9 +180,8 @@ In order to better use of face recognition, please pay attention to the followin
 5. Кроме вышеуказанных сценариев, следует учитывать другие ситуации, которые могут влиять на нормальное использование распознавания лица.
 
 Чтобы лучше использовать распознавание лица, пожалуйста, обратите внимание на следующие моменты при вводе данных лица:
-
 1. Пожалуйста, оставайтесь в хорошо освещенном помещении, избегайте прямого солнечного света и других людей на записанном экране.
-2. Пожалуйста, обратите внимание на состояние лица при вводе данных, и не позволяйте шляпам, волосам, солнцезащитным очкам, маскам, тяжелой макияжу и другим факторам закрывать ваши физиognомические особенности.
+2. Пожалуйста, обратите внимание на состояние лица при вводе данных, и не позволяйте шляпам, волосам, солнцезащитным очкам, маскам, тяжелой макияжу и другим факторам закрывать ваши физиономические особенности.
 3. Пожалуйста, избегайте наклона или опускания головы, закрытия глаз или показа только одной стороны лица, и убедитесь, что передняя сторона лица полностью и четко видна в поле ввода.</translation>
     </message>
     <message>
@@ -191,7 +189,10 @@ In order to better use of face recognition, please pay attention to the followin
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation>Распознавание лиц не поддерживает определение живости, и метод верификации может быть рискованным.
+Чтобы гарантировать успешный вход:
+1. Держите черты лица четко видимыми и не закрывайте их (шляпы, солнцезащитные очки, маски и т. д.).
+2. Обеспечьте достаточное освещение и избегайте прямого солнечного света.</translation>
     </message>
 </context>
 <context>
@@ -218,7 +219,7 @@ To ensure successful entry:
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>Уведомлением</translation>
+        <translation>Отказ от ответственности</translation>
     </message>
     <message>
         <source>Next</source>
@@ -234,46 +235,50 @@ To ensure successful entry:
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation>&quot;Биометрическая аутентификация&quot; — это функция для аутентификации пользовательской идентификации, предоставленная компанией UnionTech Software Technology Co., Ltd. Через &quot;биометрическую аутентификацию&quot; собранные биометрические данные будут сравниваться с данными, сохраненными на устройстве, и пользовательская идентификация будет подтверждаться на основе результата сравнения.</translation>
+        <translation>«Биометрическая аутентификация» - это функция аутентификации личности пользователя, предоставляемая компанией UnionTech Software Technology Co., Ltd. С помощью «биометрической аутентификации» собранные биометрические данные сравниваются с данными, хранящимися в устройстве, и личность пользователя проверяется на основе результатов сравнения.
+
+Обратите внимание, что UnionTech Software Technology Co., Ltd. не будет собирать или получать доступ к вашей биометрической информации, которая будет храниться на вашем локальном устройстве. Пожалуйста, включайте биометрическую аутентификацию только на своем личном устройстве и используйте свою собственную биометрическую информацию для соответствующих операций, а также своевременно отключайте или удаляйте чужую биометрическую информацию на этом устройстве, в противном случае вы будете нести риск, вытекающий из этого.
+
+Компания UnionTech Software Technology Co., Ltd. стремится исследовать и улучшать безопасность, точность и стабильность биометрической аутентификации. Тем не менее, из-за экологических, технических, аппаратных и других факторов и контроля рисков нет гарантии, что вы временно пройдете биометрическую аутентификацию. Поэтому, пожалуйста, не воспринимайте биометрическую аутентификацию как единственный способ входа в UOS. Если у вас возникли вопросы или предложения по использованию биометрической аутентификации, вы можете оставить отзыв через раздел «Сервис и поддержка» в UOS. </translation>
     </message>
 </context>
 <context>
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>Сканирование радужной оболочки глаза</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Я прочитал и согласен с</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Отказ от ответственности</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Далее</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Выполнено</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Повторить сканирование</translation>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Радужная оболочка глаза отсканирована</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось отсканировать радужную оболочку глаза</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -281,18 +286,22 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>«Биометрическая аутентификация» - это функция аутентификации личности пользователя, предоставляемая компанией UnionTech Software Technology Co., Ltd. С помощью «биометрической аутентификации» собранные биометрические данные сравниваются с данными, хранящимися в устройстве, и личность пользователя проверяется на основе результатов сравнения.
+
+Обратите внимание, что UnionTech Software Technology Co., Ltd. не будет собирать или получать доступ к вашей биометрической информации, которая будет храниться на вашем локальном устройстве. Пожалуйста, включайте биометрическую аутентификацию только на своем личном устройстве и используйте свою собственную биометрическую информацию для соответствующих операций, а также своевременно отключайте или удаляйте чужую биометрическую информацию на этом устройстве, в противном случае вы будете нести риск, вытекающий из этого.
+
+Компания UnionTech Software Technology Co., Ltd. стремится исследовать и улучшать безопасность, точность и стабильность биометрической аутентификации. Тем не менее, из-за экологических, технических, аппаратных и других факторов и контроля рисков нет гарантии, что вы временно пройдете биометрическую аутентификацию. Поэтому, пожалуйста, не воспринимайте биометрическую аутентификацию как единственный способ входа в UOS. Если у вас возникли вопросы или предложения по использованию биометрической аутентификации, вы можете оставить отзыв через раздел «Сервис и поддержка» в UOS. </translation>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation>Пожалуйста, смотрите на устройство и убедитесь, что оба глаза находятся в области сканирования</translation>
     </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation>Автоматический вход можно включить только для одного аккаунта, пожалуйста, сначала отключите его для аккаунта &quot;%1&quot;.</translation>
+        <translation>Автоматический вход можно включить только для одного аккаунта, пожалуйста, сначала отключите его для аккаунта &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Ok</source>
@@ -366,7 +375,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Компьютер приостанавливается через</translation>
+        <translation>Компьютер будет приостановлен через</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -390,7 +399,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Auto Hibernate</source>
-        <translation>АвтоматическийHibernate</translation>
+        <translation>Автогибернация</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
@@ -398,7 +407,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Battery Management</source>
-        <translation>Управление аккумулятором</translation>
+        <translation>Управление батареей</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
@@ -421,11 +430,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
-        <translation>БлюETOOTH выключен, и имя отображается как &quot;%1&quot; </translation>
+        <translation>Bluetooth выключен, и имя отображается как &quot;%1&quot; </translation>
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation>БлюETOOTH включен, и имя отображается как &quot;%1&quot; </translation>
+        <translation>Bluetooth включен, и имя отображается как &quot;%1&quot; </translation>
     </message>
 </context>
 <context>
@@ -471,11 +480,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation>Режим самолета</translation>
+        <translation>Режим полета</translation>
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>Имя устройства не может быть более 64 символов</translation>
     </message>
 </context>
 <context>
@@ -545,7 +554,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Required</source>
-        <translation>Обязательно</translation>
+        <translation>Необходимо</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
@@ -573,7 +582,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation>凋整系统启动界面logo动画的大小</translation>
+        <translation>Измените размер анимации логотипа на интерфейсе запуска системы.</translation>
     </message>
 </context>
 <context>
@@ -643,7 +652,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Scan suspended</source>
-        <translation>Сcan suspended</translation>
+        <translation>Сканирование приостановлено</translation>
     </message>
     <message>
         <source>Cannot recognize</source>
@@ -727,7 +736,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>Камера занята!</translation>
     </message>
 </context>
 <context>
@@ -843,15 +852,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Включить клавиатуру</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Общие</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Скорость прокрутки</translation>
     </message>
 </context>
 <context>
@@ -866,7 +875,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation>Не удалось получить доступ к корню</translation>
+        <translation>Не удалось получить root-доступ</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
@@ -882,15 +891,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation>Загрузка сертификата не удалась, не удалось получить доступ root</translation>
+        <translation>Ошибка загрузки сертификата, не удалось получить root-доступ</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation>Проверка подписи не удалась, не удалось получить доступ root</translation>
+        <translation>Ошибка проверки подписи, не удалось получить root-доступ</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation>Согласиться и присоединиться к программе опытного пользователя</translation>
+        <translation>Дать согласие и присоединиться к программе взаимодействия с пользователем</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
@@ -898,7 +907,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation>Согласиться и запросить доступ root</translation>
+        <translation>Дать согласие и запросить root-доступ</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
@@ -940,7 +949,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Required</source>
-        <translation>Обязательно</translation>
+        <translation>Необходимо</translation>
     </message>
     <message>
         <source>FullName</source>
@@ -948,7 +957,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Optional</source>
-        <translation>Опционально</translation>
+        <translation>Необязательно</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -960,15 +969,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Имя пользователя не должно быть более 32 символов</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>Имя пользователя может содержать только буквы, цифры, - и _</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Полное имя не должно быть более 32 символов</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
@@ -983,7 +992,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation>Тип загруженного файла некорректен, пожалуйста, загрузите другой файл</translation>
     </message>
 </context>
 <context>
@@ -1013,15 +1022,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Присоединение к программе опыта пользователя означает, что вы授予和授权我们收集和使用您设备、系统和应用程序的信息。如果您拒绝我们收集和使用上述信息，请不要加入用户体验计划。有关详情，请参阅深度隐私政策（&lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;）。&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Участие в программе взаимодействия с пользователем означает, что вы разрешаете нам собирать и использовать информацию о вашем устройстве, системе и приложениях. Если вы отказываетесь от сбора и использования вышеупомянутой информации, не присоединяйтесь к программе взаимодействия с пользователем. Более подробную информацию вы можете найти в Политике конфиденциальности Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Присоединение к программе улучшения пользовательского опыта означает, что вы даете нам разрешение и авторизуете нас для сбора и использования информации о вашем устройстве, системе и приложениях. Если вы отказываетесь от сбора и использования вышеуказанной информации, пожалуйста, не присоединяйтесь к программе. Для получения подробной информации о программе улучшения пользовательского опыта, пожалуйста, посетите &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Участвуя в программе взаимодействия с пользователем, вы разрешаете нам собирать и использовать информацию о вашем устройстве, системе и приложениях. Если вы несогласны со сбором и использованием вышеупомянутой информации, то не присоединяйтесь к программе. Для получения подробной информации о программе взаимодействия с пользователем, посетите сайт&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation>Согласиться и присоединиться к программе улучшения пользовательского опыта</translation>
+        <translation>Дать согласие и присоединиться к программе взаимодействия с пользователем</translation>
     </message>
 </context>
 <context>
@@ -1056,7 +1065,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Подтверждение</translation>
+        <translation>Подтвердить</translation>
     </message>
 </context>
 <context>
@@ -1139,7 +1148,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Пример</translation>
     </message>
 </context>
 <context>
@@ -1255,7 +1264,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
         <translation>Управляйте своим идентификатором %1 и синхронизируйте личные данные между устройствами.
-Войдите в свой идентификатор %1 для получения персонализированных функций и услуг браузера, магазина приложений и других.</translation>
+Войдите в свой идентификатор %1, чтобы получить уникальные функции и возможности Браузера, Магазина приложений и т.д.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
@@ -1322,7 +1331,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>Никнейм должен содержать от 1 до 32 символов.</translation>
     </message>
 </context>
 <context>
@@ -1333,7 +1342,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation>Неверный пароль, %1 попыток осталось</translation>
+        <translation>Неверный пароль, осталось попыток: %1</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
@@ -1345,7 +1354,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>Никнейм можно изменить только один раз в сутки</translation>
     </message>
 </context>
 <context>
@@ -1383,26 +1392,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation>Программы (*.desktop</translation>
+        <translation>Программы (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation>Все файлы (*</translation>
+        <translation>Все файлы (*)</translation>
     </message>
 </context>
 <context>
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation>Доступ с правами root</translation>
+        <translation>Доступ с root правами</translation>
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation>Запросить доступ с правами root</translation>
+        <translation>Запросить root-доступ</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation>После входа в разработчический режим вы сможете получить права root, но это может также повредить целостность системы, поэтому используйте это с осторожностью.</translation>
+        <translation>После входа в режим разработчика вы сможете получить права root, но это может также повредить целостность системы, поэтому используйте это с осторожностью.</translation>
     </message>
     <message>
         <source>Allowed</source>
@@ -1434,11 +1443,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation>Ваш UOS ID вошел в систему, нажмите, чтобы перейти в разработчический режим</translation>
+        <translation>Вы вошли в UOS ID, нажмите, чтобы перейти в режим разработчика</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation>Пожалуйста, войдите в свой UOS ID сначала и продолжайте</translation>
+        <translation>Пожалуйста, сначала войдите в свой UOS ID, чтобы продолжить</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
@@ -1478,42 +1487,42 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Для установки и запуска неподписанных приложений перейдите в &lt;a href=&quot;Security Center&quot;&gt;Центр безопасности&lt;/a&gt; для изменения настроек.</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Чтобы установить и запустить неподписанные приложения, перейдите в Центр безопасности и измените настройки.</translation>
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Вы вошли в режим разработчика</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. Пожалуйста, перейдите на %1, чтобы скачать оффлайн сертификат.</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>В настоящее время функция недоступна, пожалуйста, сначала активируйте вашу систему</translation>
     </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Отказ от ответственности</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation>Согласен</translation>
     </message>
 </context>
 <context>
@@ -1586,7 +1595,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation>Автоматическое включение режима энергосбережения при подключении к电源管理设置</translation>
+        <translation>Автоматическое включение режима энергосбережения при работе от батареи</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
@@ -1594,11 +1603,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation>Необходим пароль для пробуждения компьютера</translation>
+        <translation>Требовать пароль после пробуждения компьютера</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation>Необходим пароль для пробуждения монитора</translation>
+        <translation>Требовать пароль после включения экрана</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
@@ -1641,43 +1650,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Тремя пальцами вверх</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Тремя пальцами вниз</translation>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Тремя пальцами влево</translation>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Тремя пальцами вправо</translation>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Нажатие тремя пальцами</translation>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Четырьмя пальцами вверх</translation>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Четырьмя пальцами вниз</translation>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Четырьмя пальцами влево</translation>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Четырьмя пальцами вправо</translation>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Нажатие четырьмя пальцами</translation>
     </message>
 </context>
 <context>
@@ -1707,15 +1716,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Отключите все эффекты интерфейса и окон для повышения производительности системы.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Ограничение некоторых оконных эффектов, чтобы добиться отличного качества изображения и при этом сохранить плавность работы системы.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Включите все эффекты интерфейса и окон для лучшего визуального опыта.</translation>
     </message>
 </context>
 <context>
@@ -1781,7 +1790,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Формат региона</translation>
     </message>
 </context>
 <context>
@@ -1819,11 +1828,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add new keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Добавить раскладку клавиатуры</translation>
     </message>
     <message>
         <source>Current language keyboard layouts</source>
-        <translation type="unfinished"/>
+        <translation>Текущие раскладки клавиатуры</translation>
     </message>
 </context>
 <context>
@@ -1854,25 +1863,25 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Сбросить пароль</translation>
     </message>
 </context>
 <context>
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation>Авторское право © 2011-%1 Сообщество Deepin</translation>
+        <translation>Copyright© 2011-%1 Сообщество Deepin</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation>Авторское право © 2019-%1 ООО «UnionTech Software Technology Co., LTD»</translation>
+        <translation>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
     <name>MicrophonePage</name>
     <message>
         <source>Automatic Noise Suppression</source>
-        <translation>Автоматическая подавление шума</translation>
+        <translation>Автоматическое шумоподавление</translation>
     </message>
     <message>
         <source>Input Volume</source>
@@ -2005,7 +2014,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>Должно быть от 1 до 63 символов</translation>
     </message>
 </context>
 <context>
@@ -2027,7 +2036,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Required</source>
-        <translation>Обязательно</translation>
+        <translation>Необходимо</translation>
     </message>
     <message>
         <source>Weak</source>
@@ -2067,11 +2076,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Новый пароль</translation>
     </message>
     <message>
         <source>Different from the username</source>
-        <translation type="unfinished"/>
+        <translation>Отличное от имя пользователя</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
@@ -2146,7 +2155,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Hibernate</source>
-        <translation>Заснуть</translation>
+        <translation>Спящий режим</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
@@ -2169,7 +2178,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation>Выключить монитор через</translation>
+        <translation>Выключить экран через</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -2177,7 +2186,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Компьютер приостанавливается через</translation>
+        <translation>Компьютер будет приостановлен через</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -2246,7 +2255,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Скопировать ссылку</translation>
     </message>
 </context>
 <context>
@@ -2340,20 +2349,20 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Touch Screen Settings</source>
-        <translation>Настройки сенсорного экрана</translation>
+        <translation>Настройки тачскрина</translation>
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation>Настройки сенсорного экрана изменились</translation>
+        <translation>Настройки тачскрина изменены</translation>
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation>Этот системный обоями заблокирован. Пожалуйста, свяжитесь с администратором.</translation>
+        <translation>Эти системные обои заблокированы. Пожалуйста, свяжитесь с администратором.</translation>
     </message>
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
+        <translation>%1 (%2)</translation>
     </message>
 </context>
 <context>
@@ -2392,7 +2401,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"/>
+        <translation>Число</translation>
     </message>
     <message>
         <source>Paper size</source>
@@ -2404,7 +2413,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <source>Regional format</source>
@@ -2415,34 +2424,34 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>RegionsChooserWindow</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Поиск</translation>
     </message>
 </context>
 <context>
     <name>RegisterDialog</name>
     <message>
         <source>Set a Password</source>
-        <translation type="unfinished"/>
+        <translation>Установить пароль</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64 символа</translation>
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation type="unfinished"/>
+        <translation>Повторите пароль</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Подтвердить</translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
-        <translation type="unfinished"/>
+        <translation>Пароли не совпадают</translation>
     </message>
 </context>
 <context>
@@ -2453,11 +2462,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить</translation>
     </message>
 </context>
 <context>
@@ -2468,7 +2477,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>preview</source>
-        <translation>プレビュー</translation>
+        <translation>предпросмотр</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
@@ -2480,39 +2489,39 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>idle time</source>
-        <translation type="unfinished"/>
+        <translation>Время ожидания</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1 минута</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation>5 минут</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"/>
+        <translation>10 минут</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"/>
+        <translation>15 минут</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"/>
+        <translation>30 минут</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 час</translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>никогда</translation>
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation type="unfinished"/>
+        <translation>Для восстановления необходим пароль</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
@@ -2531,7 +2540,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>Ничего не найдено</translation>
     </message>
 </context>
 <context>
@@ -2542,11 +2551,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Name:</source>
-        <translation>Название:</translation>
+        <translation>Имя:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation>Обязательно</translation>
+        <translation>Необходимо</translation>
     </message>
     <message>
         <source>Command:</source>
@@ -2570,7 +2579,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
+        <translation>Название комбинации уже используется. Выберете другое.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
@@ -2582,7 +2591,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Сохранить</translation>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
@@ -2777,11 +2786,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"/>
+        <translation>Моноаудио</translation>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"/>
+        <translation>Автопауза</translation>
     </message>
     <message>
         <source>Output Device</source>
@@ -2838,7 +2847,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Settings</source>
-        <translation>Параметры</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>Server address</source>
@@ -2866,7 +2875,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Добавить</translation>
     </message>
 </context>
 <context>
@@ -2884,7 +2893,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimeoutDialog</name>
     <message>
         <source>Save the display settings?</source>
-        <translation>Сохранить настройки отображения?</translation>
+        <translation>Сохранить настройки экрана?</translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
@@ -2930,11 +2939,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation>Касание</translation>
+        <translation>Тачскрин</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation>Настройка здесь при подключении касания</translation>
+        <translation>Настройте здесь при подключении тачскрина</translation>
     </message>
 </context>
 <context>
@@ -2969,7 +2978,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Природное скроллинг</translation>
+        <translation>Естественная прокрутка</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
@@ -2981,18 +2990,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Жесты</translation>
     </message>
 </context>
 <context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation>Присоединиться к программе пользовательского опыта</translation>
+        <translation>Присоединиться к программе взаимодействия с пользователем</translation>
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Скопировать ссылку</translation>
     </message>
 </context>
 <context>
@@ -3188,7 +3197,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Compact Display</source>
-        <translation>Компактный отображение</translation>
+        <translation>Компактный экран</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
@@ -3209,12 +3218,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
+        <translation>Средний</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
+        <translation>Средний</translation>
     </message>
 </context>
 <context>
@@ -3254,7 +3263,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation>Можно ввести до 5 данных лица</translation>
+        <translation>Можно добавить до 5 лиц</translation>
     </message>
     <message>
         <source>Fingerprint</source>
@@ -3266,11 +3275,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Iris</source>
-        <translation>Ирис</translation>
+        <translation>Iris</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation>Идентификация пользователя с помощью сканирования ириса</translation>
+        <translation>Идентификация пользователя с помощью сканирования Iris</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
@@ -3286,7 +3295,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Имя уже существует</translation>
     </message>
     <message>
         <source>Add a new %1 ...</source>
@@ -3301,7 +3310,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -3316,15 +3325,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation>Управление разработческими правами root</translation>
+        <translation>Управление правами разработчика(root)</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Разработческие опции</translation>
+        <translation>Настройки разработчика</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Параметры отладки для разработчика</translation>
     </message>
 </context>
 <context>
@@ -3343,7 +3352,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Язык системы, форматы региона</translation>
     </message>
 </context>
 <context>
@@ -3384,11 +3393,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation>Имя слишком длинное</translation>
+        <translation>Полное имя слишком длинное</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation>Имя уже используется другими учетными записями</translation>
+        <translation>Полное имя уже используется другой учетной записью</translation>
     </message>
     <message>
         <source>Wrong password</source>
@@ -3464,11 +3473,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Отпечаток пальца</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Разместите свой палец</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
@@ -3476,7 +3485,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Поднимите палец</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
@@ -3488,7 +3497,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Сканирование приостановлено</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
@@ -3504,18 +3513,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Отпечаток добавлен</translation>
     </message>
 </context>
 <context>
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iris</translation>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Используйте Iris для разблокировки устройства и последующих настроек</translation>
     </message>
 </context>
 <context>
@@ -3611,7 +3620,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>UOS ID</source>
-        <translation>ID UOS</translation>
+        <translation>UOS ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
@@ -3754,7 +3763,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>Перемещение экрана вступит в силу через %1с после изменений</translation>
+        <translation>Перенастройка экрана вступит в силу через 1% с. после изменений</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -3850,19 +3859,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2 (Рекомендуется)</translation>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2</translation>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1 Гц (Рекомендуется)</translation>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation type="unfinished"/>
+        <translation>%1 Гц</translation>
     </message>
     <message>
         <source>Scaling</source>
@@ -3998,18 +4007,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Заблокировать док</translation>
     </message>
 </context>
 <context>
     <name>mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation>Мышь и панель сенсорной панели</translation>
+        <translation>Мышь и тачпад</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation>Общие, Мышь, Панель сенсорной панели</translation>
+        <translation>Общие, мышь, тачпад</translation>
     </message>
 </context>
 <context>
@@ -4024,7 +4033,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Панель сенсорной панели</translation>
+        <translation>Тачпад</translation>
     </message>
 </context>
 <context>
@@ -4042,15 +4051,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>notificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation>Настройки не беспокоить</translation>
+        <translation>Настройки режима &quot;Не беспокоить&quot;</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>Уведомления приложения не будут отображаться на рабочем столе и звуки будут заглушены, но вы можете просмотреть все сообщения в центре уведомлений.</translation>
+        <translation>Уведомления приложений не будут отображаться на рабочем столе и звуки будут заглушены, но вы можете просмотреть все сообщения в центре уведомлений.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>Включить не беспокоить</translation>
+        <translation>Включить DND</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
@@ -4159,7 +4168,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power</source>
-        <translation>Энергия</translation>
+        <translation>Питание</translation>
     </message>
 </context>
 <context>
@@ -4170,7 +4179,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Программы питания, настройки экономии энергии, настройки пробуждения, настройки выключения</translation>
+        <translation>Программы питания, настройки экономии энергии, пробуждения, выключения</translation>
     </message>
     <message>
         <source>Plugged In</source>
@@ -4208,7 +4217,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation>Выберите, имеет ли доступ кamera приложение</translation>
+        <translation>Выберите, имеет ли приложение доступ к камере</translation>
     </message>
     <message>
         <source>Files and Folders</source>
@@ -4250,7 +4259,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation>Управление устройствами</translation>
     </message>
 </context>
 <context>
@@ -4287,11 +4296,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>Программа опыта пользователя</translation>
+        <translation>Программа взаимодействия с пользователем</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation>Присоединитесь к программе опыта пользователя, чтобы помочь улучшить продукт</translation>
+        <translation>Присоединитесь к программе взаимодействия с пользователем, чтобы помочь улучшить продукт</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
@@ -4311,18 +4320,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Уведомление о ПО с открытым исходным кодом</translation>
     </message>
 </context>
 <context>
     <name>touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation>Сенсорный экран</translation>
+        <translation>Тачскрин</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation>Настройка сенсорного экрана</translation>
+        <translation>Настройка тачскрина</translation>
     </message>
 </context>
 <context>
