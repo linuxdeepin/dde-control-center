@@ -375,7 +375,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Компьютер приостанавливается через</translation>
+        <translation>Компьютер будет приостановлен через</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -399,7 +399,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Auto Hibernate</source>
-        <translation>АвтоматическийHibernate</translation>
+        <translation>Автогибернация</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
@@ -407,7 +407,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Battery Management</source>
-        <translation>Управление аккумулятором</translation>
+        <translation>Управление батареей</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
