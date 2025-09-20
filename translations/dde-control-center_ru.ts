@@ -1863,25 +1863,25 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Сбросить пароль</translation>
     </message>
 </context>
 <context>
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation>Авторское право © 2011-%1 Сообщество Deepin</translation>
+        <translation>Copyright© 2011-%1 Сообщество Deepin</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation>Авторское право © 2019-%1 ООО «UnionTech Software Technology Co., LTD»</translation>
+        <translation>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</translation>
     </message>
 </context>
 <context>
     <name>MicrophonePage</name>
     <message>
         <source>Automatic Noise Suppression</source>
-        <translation>Автоматическая подавление шума</translation>
+        <translation>Автоматическое шумоподавление</translation>
     </message>
     <message>
         <source>Input Volume</source>
