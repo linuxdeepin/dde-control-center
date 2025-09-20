@@ -130,23 +130,23 @@
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation>أقر وأوافق على</translation>
+        <translation>Я прочитал и согласен с</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>ال聲明</translation>
+        <translation>Отказ от ответственности</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation>التالي</translation>
+        <translation>Далее</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>تم تسجيل الوجه</translation>
+        <translation>Лицо отсканировано</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation>Не удалось зарегистрировать ваше лицо</translation>
+        <translation>Не удалось отсканировать ваше лицо</translation>
     </message>
     <message>
         <source>Done</source>
@@ -158,7 +158,7 @@
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation>Повторить регистрацию</translation>
+        <translation>Повторить сканирование</translation>
     </message>
     <message>
         <source>Before using face recognition, please note that: 
