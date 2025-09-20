@@ -2014,7 +2014,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>Должно быть от 1 до 63 символов</translation>
     </message>
 </context>
 <context>
@@ -2076,7 +2076,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Новый пароль</translation>
     </message>
     <message>
         <source>Different from the username</source>
@@ -2155,7 +2155,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Hibernate</source>
-        <translation>Заснуть</translation>
+        <translation>Спящий режим</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
@@ -2178,7 +2178,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation>Выключить монитор через</translation>
+        <translation>Выключить экран через</translation>
     </message>
     <message>
         <source>Lock screen after</source>
@@ -2186,7 +2186,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Компьютер приостанавливается через</translation>
+        <translation>Компьютер будет приостановлен через</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
