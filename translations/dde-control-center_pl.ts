@@ -1506,7 +1506,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>Aby uzyskać dostęp do tej funkcji, najpierw aktywuj system</translation>
     </message>
 </context>
 <context>
@@ -3106,7 +3106,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Tapety systemowe</translation>
     </message>
 </context>
 <context>
@@ -3125,7 +3125,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>pokaż wszystkie - %1 przedmiotów</translation>
     </message>
 </context>
 <context>
@@ -3508,11 +3508,11 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Dostosuj pozycję, aby zeskanować krawędzie odcisku palca</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Dodano odcisk palca</translation>
     </message>
 </context>
 <context>
