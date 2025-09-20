@@ -3325,15 +3325,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation>Управление разработческими правами root</translation>
+        <translation>Управление правами разработчика(root)</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Разработческие опции</translation>
+        <translation>Настройки разработчика</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Параметры отладки для разработчика</translation>
     </message>
 </context>
 <context>
@@ -3352,7 +3352,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Язык системы, форматы региона</translation>
     </message>
 </context>
 <context>
@@ -3473,7 +3473,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Отпечаток пальца</translation>
     </message>
     <message>
         <source>Place your finger</source>
