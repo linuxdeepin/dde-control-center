@@ -3,7 +3,7 @@
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation>تعديل</translation>
+        <translation>редактировать</translation>
     </message>
     <message>
         <source>Add new user</source>
@@ -15,19 +15,19 @@
     </message>
     <message>
         <source>Login settings</source>
-        <translation>إعدادات تسجيل الدخول</translation>
+        <translation>Настройки входа</translation>
     </message>
     <message>
         <source>Login without password</source>
-        <translation>تسجيل الدخول بدون كلمة مرور</translation>
+        <translation>Входить в систему без ввода пароля</translation>
     </message>
     <message>
         <source>Delete current account</source>
-        <translation>حذف الحساب الحالي</translation>
+        <translation>Удалить текущую учетную запись</translation>
     </message>
     <message>
         <source>Group setting</source>
-        <translation>إعداد المجموعة</translation>
+        <translation>Настройки групп</translation>
     </message>
     <message>
         <source>Account groups</source>
