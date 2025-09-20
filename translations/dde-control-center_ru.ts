@@ -83,7 +83,7 @@
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>Используйте только буквы, цифры, подчеркивания и тире, и оно должно начинаться с буквы</translation>
     </message>
     <message>
         <source>The group name has been used</source>
@@ -91,15 +91,15 @@
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Быстрый и автоматический вход, вход без пароля</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Далее</translation>
     </message>
     <message>
         <source>Cut</source>
