@@ -4055,11 +4055,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>Уведомления приложения не будут отображаться на рабочем столе и звуки будут заглушены, но вы можете просмотреть все сообщения в центре уведомлений.</translation>
+        <translation>Уведомления приложений не будут отображаться на рабочем столе и звуки будут заглушены, но вы можете просмотреть все сообщения в центре уведомлений.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>Включить не беспокоить</translation>
+        <translation>Включить DND</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
@@ -4168,7 +4168,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power</source>
-        <translation>Энергия</translation>
+        <translation>Питание</translation>
     </message>
 </context>
 <context>
