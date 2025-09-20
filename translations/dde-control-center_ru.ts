@@ -2255,7 +2255,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Скопировать ссылку</translation>
     </message>
 </context>
 <context>
@@ -2357,12 +2357,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation>Этот системный обоями заблокирован. Пожалуйста, свяжитесь с администратором.</translation>
+        <translation>Эти системные обои заблокированы. Пожалуйста, свяжитесь с администратором.</translation>
     </message>
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
+        <translation>%1 (%2)</translation>
     </message>
 </context>
 <context>
