@@ -1443,11 +1443,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation>Ваш UOS ID вошел в систему, нажмите, чтобы перейти в разработчический режим</translation>
+        <translation>Вы вошли в UOS ID, нажмите, чтобы перейти в режим разработчика</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation>Пожалуйста, войдите в свой UOS ID сначала и продолжайте</translation>
+        <translation>Пожалуйста, сначала войдите в свой UOS ID, чтобы продолжить</translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
@@ -1487,15 +1487,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Для установки и запуска неподписанных приложений перейдите в &lt;a href=&quot;Security Center&quot;&gt;Центр безопасности&lt;/a&gt; для изменения настроек.</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Чтобы установить и запустить неподписанные приложения, перейдите в Центр безопасности и измените настройки.</translation>
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Вы вошли в режим разработчика</translation>
     </message>
     <message>
         <source>OK</source>
