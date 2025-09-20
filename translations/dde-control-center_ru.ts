@@ -2978,7 +2978,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Природное скроллинг</translation>
+        <translation>Естественная прокрутка</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
@@ -2990,7 +2990,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Жесты</translation>
     </message>
 </context>
 <context>
@@ -3001,7 +3001,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Скопировать ссылку</translation>
     </message>
 </context>
 <context>
@@ -3218,12 +3218,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
+        <translation>Средний</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
+        <translation>Средний</translation>
     </message>
 </context>
 <context>
@@ -3263,7 +3263,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation>Можно ввести до 5 данных лица</translation>
+        <translation>Можно добавить до 5 лиц</translation>
     </message>
     <message>
         <source>Fingerprint</source>
