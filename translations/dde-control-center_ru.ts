@@ -7,7 +7,7 @@
     </message>
     <message>
         <source>Add new user</source>
-        <translation>إضافة مستخدم جديد</translation>
+        <translation>Добавить нового пользователя</translation>
     </message>
     <message>
         <source>Set fullname</source>
@@ -51,7 +51,7 @@
     </message>
     <message>
         <source>Account Information</source>
-        <translation>معلومات الحساب</translation>
+        <translation>Информация об аккаунте</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
