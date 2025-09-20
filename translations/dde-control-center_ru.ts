@@ -4259,7 +4259,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation>Управление устройствами</translation>
     </message>
 </context>
 <context>
@@ -4320,7 +4320,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Уведомление о ПО с открытым исходным кодом</translation>
     </message>
 </context>
 <context>
