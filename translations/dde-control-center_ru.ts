@@ -1499,22 +1499,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. Пожалуйста, перейдите на %1, чтобы скачать оффлайн сертификат.</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>В настоящее время функция недоступна, пожалуйста, сначала активируйте вашу систему</translation>
     </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Отказ от ответственности</translation>
     </message>
     <message>
         <source>Cancel</source>
