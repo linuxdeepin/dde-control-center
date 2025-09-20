@@ -992,7 +992,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation>Тип загруженного файла некорректен, пожалуйста, загрузите другой файл</translation>
     </message>
 </context>
 <context>
@@ -1065,7 +1065,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Confirm</source>
-        <translation>Подтверждение</translation>
+        <translation>Подтвердить</translation>
     </message>
 </context>
 <context>
@@ -1342,7 +1342,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation>Неверный пароль, %1 попыток осталось</translation>
+        <translation>Неверный пароль, осталось попыток: %1</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
