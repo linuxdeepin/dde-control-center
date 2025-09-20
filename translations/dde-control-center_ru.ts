@@ -278,7 +278,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>Не удалось отсканировать радужную оболочку глаза</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -294,14 +294,14 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation>Пожалуйста, смотрите на устройство и убедитесь, что оба глаза находятся в области сканирования</translation>
     </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation>Автоматический вход можно включить только для одного аккаунта, пожалуйста, сначала отключите его для аккаунта &quot;%1&quot;.</translation>
+        <translation>Автоматический вход можно включить только для одного аккаунта, пожалуйста, сначала отключите его для аккаунта &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Ok</source>
