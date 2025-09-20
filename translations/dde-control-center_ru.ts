@@ -1518,11 +1518,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Отмена</translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation>Согласен</translation>
     </message>
 </context>
 <context>
@@ -1595,7 +1595,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation>Автоматическое включение режима энергосбережения при подключении к电源管理设置</translation>
+        <translation>Автоматическое включение режима энергосбережения при работе от батареи</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
@@ -1603,11 +1603,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation>Необходим пароль для пробуждения компьютера</translation>
+        <translation>Требовать пароль после пробуждения компьютера</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation>Необходим пароль для пробуждения монитора</translation>
+        <translation>Требовать пароль после включения экрана</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
