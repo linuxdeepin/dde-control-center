@@ -480,7 +480,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation>Режим самолета</translation>
+        <translation>Режим полета</translation>
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
@@ -582,7 +582,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation>凋整系统启动界面logo动画的大小</translation>
+        <translation>Измените размер анимации логотипа на интерфейсе запуска системы.</translation>
     </message>
 </context>
 <context>
