@@ -652,7 +652,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Scan suspended</source>
-        <translation>Сcan suspended</translation>
+        <translation>Сканирование приостановлено</translation>
     </message>
     <message>
         <source>Cannot recognize</source>
@@ -852,15 +852,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Включить клавиатуру</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Общие</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Скорость прокрутки</translation>
     </message>
 </context>
 <context>
