@@ -109,6 +109,8 @@ DccObject {
                         D.DciIcon {
                             sourceSize: Qt.size(DS.Style.itemDelegate.iconSize, DS.Style.itemDelegate.iconSize)
                             name: model.iconName
+                            theme: D.DTK.themeType
+                            palette: parent ? D.DTK.makeIconPalette(parent.palette) : D.DTK.makeIconPalette(D.DTK.palette)
                         }
                         DccLabel {
                             text: model.name
@@ -128,7 +130,7 @@ DccObject {
                                 name: "arrow_ordinary_down"
                                 sourceSize: Qt.size(12, 12)
                                 theme: D.DTK.themeType
-                                palette: D.DTK.makeIconPalette(control.palette)
+                                palette: parent ? D.DTK.makeIconPalette(parent.palette) : D.DTK.makeIconPalette(control.palette)
                             }
                         }
                         
