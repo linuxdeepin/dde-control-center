@@ -1299,8 +1299,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation>Данные, после очистки, не могут быть восстановлены!
-</translation>
+        <translation>После очистки данные не могут быть восстановлены!</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1704,7 +1703,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation>Оптимальное производительность</translation>
+        <translation>Оптимальная производительность</translation>
     </message>
     <message>
         <source>Balance</source>
