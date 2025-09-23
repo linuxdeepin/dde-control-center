@@ -579,6 +579,8 @@ void DatetimeModel::setCurrentLocaleAndLangRegion(const QString &localeName, con
     RegionFormat regionFormat = RegionProxy::regionFormat(locale);
     // case FirstDayOfWeek:
     m_work->setConfigValue(firstDayOfWeek_key, regionFormat.firstDayOfWeekFormat);
+    m_work->setWeekStartDayFormat(regionFormat.firstDayOfWeekFormat < 1 ? 0 : regionFormat.firstDayOfWeekFormat - 1);
+    setFirstDayOfWeek(regionFormat.firstDayOfWeekFormat);
     // case ShortDate:
     m_work->setConfigValue(shortDateFormat_key, regionFormat.shortDateFormat);
     // case LongDate:
