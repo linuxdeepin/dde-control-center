@@ -863,6 +863,14 @@ QString DatetimeModel::currentTime() const
     return locale.toString(QTime::currentTime(), timeFormat);
 }
 
+QString DatetimeModel::getCustomNtpServer() const
+{
+    if (m_work) {
+        return m_work->getCustomNtpServer();
+    }
+    return QString();
+}
+
 int DatetimeModel::currentLanguageAndRegionIndex()
 {
     return m_regions.keys().indexOf(m_langCountry);

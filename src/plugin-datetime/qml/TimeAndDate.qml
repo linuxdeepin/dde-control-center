@@ -128,7 +128,13 @@ DccObject {
 
                         dateAndTimeSettings.showCustom = (serverList[index] === qsTr("Customize"))
                         if (dateAndTimeSettings.showCustom) {
-                            dccData.ntpServerAddress = dateAndTimeSettings.customAddr
+                            let savedCustomServer = dccData.getCustomNtpServer()
+                            if (savedCustomServer.length > 0) {
+                                dateAndTimeSettings.customAddr = savedCustomServer
+                                dccData.ntpServerAddress = savedCustomServer
+                            } else if (dateAndTimeSettings.customAddr.length > 0) {
+                                dccData.ntpServerAddress = dateAndTimeSettings.customAddr
+                            }
                             return
                         }
 
@@ -140,10 +146,18 @@ DccObject {
                         if (!comboBox.serverList.includes(text))
                             comboBox.serverList.push(text)
 
-                        if (comboBox.currentIndex < 0) {
+                        let currentServer = dccData.ntpServerAddress
+                        let index = comboBox.serverList.indexOf(currentServer)
+                        if (index < 0) {
                             comboBox.currentIndex = comboBox.serverList.length - 1
                             dateAndTimeSettings.showCustom = true
-                            dateAndTimeSettings.customAddr = dccData.ntpServerAddress
+                            dateAndTimeSettings.customAddr = currentServer
+                        } else {
+                            dateAndTimeSettings.showCustom = false
+                            let savedCustomServer = dccData.getCustomNtpServer()
+                            if (savedCustomServer.length > 0) {
+                                dateAndTimeSettings.customAddr = savedCustomServer
+                            }
                         }
                     }
                 }

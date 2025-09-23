@@ -21,6 +21,7 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     , m_timedateInter(new DatetimeDBusProxy(this))
     , m_regionInter(new RegionProxy(this))
     , m_config(DTK_CORE_NAMESPACE::DConfig::createGeneric("org.deepin.region-format", QString(), this))
+    , m_datetimeConfig(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center.datetime", QString(), this))
 {
     QMetaObject::invokeMethod(this, "activate", Qt::QueuedConnection);
 #ifndef DCC_DISABLE_TIMEZONE
@@ -171,7 +172,29 @@ void DatetimeWorker::setNtpServer(QString server)
 
     if (server == m_timedateInter->nTPServer())
         return;
+
+    bool isCustomServer = !m_model->ntpServerList().contains(server);
+    if (isCustomServer) {
+        if (m_datetimeConfig) {
+            if (m_datetimeConfig->isValid()) {
+                QString previousCustom = m_datetimeConfig->value("customNtpServer").toString();
+                m_datetimeConfig->setValue("customNtpServer", server);
+            } else {
+                qWarning() << "Cannot save custom NTP server: dconfig is not valid!";
+            }
+        } else {
+            qWarning() << "Cannot save custom NTP server: dconfig is null!";
+        }
+    }
     m_timedateInter->SetNTPServer(server, tr("Authentication is required to change NTP server"), this, SLOT(SetNTPServerFinished()), SLOT(SetNTPServerError()));
+}
+
+QString DatetimeWorker::getCustomNtpServer()
+{
+    if (m_datetimeConfig && m_datetimeConfig->isValid()) {
+        return m_datetimeConfig->value("customNtpServer").toString();
+    }
+    return QString();
 }
 
 int DatetimeWorker::weekdayFormat()
