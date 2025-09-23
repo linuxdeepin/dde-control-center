@@ -173,38 +173,41 @@ struct LicenseSearchInfo
 
 inline LicenseSearchInfo isEndUserAgreementExist()
 {
-    static LicenseSearchInfo oldAgreementExist = std::visit([] {
-        QString oldLicenseLocal = getLicensePath(oldAgreement, "txt");
-        return LicenseSearchInfo{ QFile::exists(oldLicenseLocal), oldLicenseLocal };
-    });
+    auto pathIfExists = [](const QString &pattern, const QString &type) -> QString {
+        const QString p = getLicensePath(pattern, type);
+        return QFile::exists(p) ? p : QString();
+    };
+
+    QString candidate;
 
     if (DSysInfo::uosType() == DSysInfo::UosType::UosServer) {
-        const QString bodypath_new = getLicensePath(serverEnduserAgreement_new, "txt");
-        return LicenseSearchInfo{ QFile::exists(bodypath_new), bodypath_new };
-
+        candidate = pathIfExists(serverEnduserAgreement_new, "txt");
+        if (candidate.isEmpty())
+            candidate = pathIfExists(serverEnduserAgreement_old, "txt");
     } else if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosHome) {
-        const QString bodypath_new = getLicensePath(homeEnduserAgreement_new, "");
-        return LicenseSearchInfo{ QFile::exists(bodypath_new), bodypath_new };
+        candidate = pathIfExists(homeEnduserAgreement_new, "txt");
+        if (candidate.isEmpty())
+            candidate = pathIfExists(homeEnduserAgreement_old, "txt");
     } else if (DSysInfo::isCommunityEdition()) {
-        auto file_pa = getLicensePath(
-                "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Community/"
-                "End-User-License-Agreement-CN-%1.%2",
-                "txt");
-        return LicenseSearchInfo{ QFile::exists(file_pa), file_pa };
+        candidate = pathIfExists(
+            "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Community/"
+            "End-User-License-Agreement-CN-%1.%2",
+            "txt");
     } else if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosEducation) {
-        const QString bodypath = getLicensePath(educationEnduserAgreement, "txt");
-        return { QFile::exists(bodypath), bodypath };
+        candidate = pathIfExists(educationEnduserAgreement, "txt");
     } else if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosMilitary) {
-        const QString bodypath = getLicensePath(militaryEnduserAgreement, "txt");
-        return { QFile::exists(bodypath), bodypath };
+        candidate = pathIfExists(militaryEnduserAgreement, "txt");
     } else {
-        const QString bodypath_new = getLicensePath(professionalEnduserAgreement_new, "txt");
-        return { QFile::exists(bodypath_new), bodypath_new };
+        candidate = pathIfExists(professionalEnduserAgreement_new, "txt");
+        if (candidate.isEmpty())
+            candidate = pathIfExists(professionalEnduserAgreement_old, "txt");
     }
 
-    if (auto oldlicense = oldAgreementExist; oldlicense.exist) {
-        return oldlicense;
-    }
+    if (candidate.isEmpty())
+        candidate = pathIfExists(oldAgreement, "txt");
+
+    if (!candidate.isEmpty())
+        return { true, candidate };
 
     return { false, QString() };
 }
