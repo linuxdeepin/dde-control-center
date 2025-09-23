@@ -89,6 +89,17 @@ ColumnLayout {
         dccData.playSystemSound(14)
     }
 
+    function focusAndSelectAll(edit) {
+        if (edit) {
+            edit.forceActiveFocus()
+            if (edit.selectAll) {
+                edit.selectAll()
+            } else if (edit.select) {
+                edit.select(0, edit.text.length)
+            }
+        }
+    }
+
     PasswordItem {
         id: currentPwd
         visible: pwdLayout.currentPwdVisible
@@ -135,6 +146,7 @@ ColumnLayout {
                 // wrong password
                 if (info["oldPwd"] !== undefined && currentPwd.visible) {
                     currentPwd.edit.showAlertText(info["oldPwd"])
+                    focusAndSelectAll(currentPwd.edit)
                     return
                 }
 
@@ -244,6 +256,7 @@ ColumnLayout {
         function emptyCheck(edit) {
             if (edit.text.length < 1) {
                 edit.showAlertText(qsTr("Password cannot be empty"))
+                focusAndSelectAll(edit)
                 return false
             }
 
@@ -266,12 +279,14 @@ ColumnLayout {
             // password repeat test
             if (edit1.text.length < 1 || edit1.text !== edit0.text) {
                 edit1.showAlertText(qsTr("Passwords do not match"))
+                focusAndSelectAll(edit1)
                 return false
             }
 
             // password notchanged test
             if (edit0.text.length < 1 || (currentPwd.visible && currentPwd.edit.text === edit0.text)) {
                 edit0.showAlertText(qsTr("New password should differ from the current one"))
+                focusAndSelectAll(edit0)
                 return false
             }
 
@@ -280,17 +295,20 @@ ColumnLayout {
             alertText = dccData.checkPassword(pwdLayout.currentName, edit0.text)
             if (alertText.length > 0) {
                 edit0.showAlertText(alertText)
+                focusAndSelectAll(edit0)
                 return false
             }
             alertText = dccData.checkPassword(pwdLayout.currentName, edit1.text)
             if (alertText.length > 0) {
                 edit1.showAlertText(alertText)
+                focusAndSelectAll(edit1)
                 return false
             }
 
             // password hint test
             if (edit0.text.split('').filter(c => edit2.text.includes(c)).length > 0) {
                 edit2.showAlertText(qsTr("The hint is visible to all users. Do not include the password here."))
+                focusAndSelectAll(edit2)
                 return false
             }
 
