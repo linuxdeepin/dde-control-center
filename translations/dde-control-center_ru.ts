@@ -1104,19 +1104,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Short date</source>
-        <translation>Короткий формат даты</translation>
+        <translation>Короткая дата</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>Длинный формат даты</translation>
+        <translation>Длинная дата</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>Короткий формат времени</translation>
+        <translation>Короткое время</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>Длинный формат времени</translation>
+        <translation>Длинное время</translation>
     </message>
     <message>
         <source>Currency symbol</source>
@@ -1275,7 +1275,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation>Авто синхронизация</translation>
+        <translation>Авто-cинхронизация</translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
