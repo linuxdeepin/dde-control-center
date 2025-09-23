@@ -51,6 +51,7 @@ public Q_SLOTS:
     void addUserTimeZone(const QString &zone);
 #endif
     void setNtpServer(QString server);
+    QString getCustomNtpServer();
 
     int weekdayFormat();
     void setWeekdayFormat(int type);
@@ -107,6 +108,7 @@ private:
     QDateTime *m_setDatetime;
     RegionProxy *m_regionInter;
     DTK_CORE_NAMESPACE::DConfig *m_config;
+    DTK_CORE_NAMESPACE::DConfig *m_datetimeConfig;
     std::optional<QStringList> m_supportedLocaleList;
 };
 

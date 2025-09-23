@@ -248,6 +248,7 @@ public Q_SLOTS:
     void setCurrentFormat(int format, int index);
     QString currentDate();
     QString currentTime() const;
+    QString getCustomNtpServer() const;
 protected:
     void initModes(const QStringList &names, int indexBegin, int indexEnd, QAbstractListModel *model);
 private:
