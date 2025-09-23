@@ -3950,19 +3950,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Top</source>
-        <translation>Верх</translation>
+        <translation>Сверху</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Низ</translation>
+        <translation>Снизу</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Лево</translation>
+        <translation>Слева</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Право</translation>
+        <translation>Справа</translation>
     </message>
     <message>
         <source>Status</source>
@@ -3970,11 +3970,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Запомнить показ</translation>
+        <translation>Отобразить</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>Запомнить скрытие</translation>
+        <translation>Скрыть</translation>
     </message>
     <message>
         <source>Smart hide</source>
