@@ -323,15 +323,8 @@ void CommonInfoProxy::onDeepinIdError(const int code, const QString &msg)
 
 void CommonInfoProxy::onACLError(quint32 exitCode)
 {
-    const auto operatorCode = static_cast<uint16_t>(exitCode & 0xFFFF0000);
-    if (operatorCode != 0x100) {
-        qDebug(dcCommonLog) << "ACL error, exitCode:" << exitCode << ", operatorCode" << operatorCode;
-        return;
-    }
-    const auto errorCode = static_cast<uint16_t>(exitCode & 0xFFFF);
-    if (errorCode != 0) {
-        qWarning(dcCommonLog) << "AsyncEnableDeveloperModeCompatible DBus call exitCode:"
-            << exitCode << ", errorCode" << errorCode;
+    if (exitCode != 256) {
+        qWarning(dcCommonLog) << "AsyncEnableDeveloperModeCompatible DBus call exitCode:" << exitCode;
         Q_EMIT developModeError("1001");
     }
 }
