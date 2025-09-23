@@ -546,7 +546,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>root</source>
-        <translation>корень</translation>
+        <translation>root</translation>
     </message>
     <message>
         <source>New Password :</source>
@@ -574,7 +574,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Sure</source>
-        <translation>Уверенно</translation>
+        <translation>Уверен</translation>
     </message>
     <message>
         <source>Start animation</source>
@@ -636,7 +636,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Scan failed</source>
-        <translation>Сcan failed</translation>
+        <translation>Сканирование не удалось</translation>
     </message>
     <message>
         <source>The fingerprint already exists</source>
@@ -656,7 +656,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cannot recognize</source>
-        <translation>Не могу распознать</translation>
+        <translation>Не получилось распознать</translation>
     </message>
     <message>
         <source>Moved too fast</source>
