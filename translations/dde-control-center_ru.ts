@@ -2726,11 +2726,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Removable device connected</source>
-        <translation>Удаляемое устройство подключено</translation>
+        <translation>Съемное устройство подключено</translation>
     </message>
     <message>
         <source>Removable device removed</source>
-        <translation>Удаляемое устройство выведено</translation>
+        <translation>Съемное устройство отключено</translation>
     </message>
     <message>
         <source>Error</source>
@@ -2823,7 +2823,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation>Больше обоя</translation>
+        <translation>Больше обоев</translation>
     </message>
 </context>
 <context>
