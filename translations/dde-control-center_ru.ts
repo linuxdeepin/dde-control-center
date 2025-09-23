@@ -1900,7 +1900,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input Device</source>
-        <translation>Входное устройство</translation>
+        <translation>Устройство ввода</translation>
     </message>
 </context>
 <context>
