@@ -71,11 +71,8 @@ private Q_SLOTS:
     void onSetEntityFinished(QDBusPendingCallWatcher *w);
     void onGetPolicyFinished(QDBusPendingCallWatcher *w);
     void onSetPolicyFinished(QDBusPendingCallWatcher *w);
-    void initModstatdb();
-    void shutdownModstatdb();
 
 private:
-    bool m_initModstatdb; // dpkg 初始化标志
     bool m_serviceExists;
     Dtk::Core::DConfig *m_dconfig;
 };

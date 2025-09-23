@@ -3,9 +3,6 @@ set(LIB_NAME privacy)
 find_package(DDEShell REQUIRED)
 find_package(PolkitQt6-1 REQUIRED)
 
-pkg_check_modules(LIBDPKG REQUIRED libdpkg)
-include_directories(${DPKG_INCLUDE_DIRS})
-
 file(GLOB_RECURSE Privacy_SRCS
     "operation/*.cpp"
     "operation/*.hpp"
@@ -30,7 +27,6 @@ set(Privacy_Libraries
     ${QT_NS}::Concurrent
     Dde::Shell
     PolkitQt6-1::Agent
-    dpkg
 )
 
 target_include_directories(${LIB_NAME} PUBLIC

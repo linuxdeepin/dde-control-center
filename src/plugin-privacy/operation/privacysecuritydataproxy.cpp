@@ -18,13 +18,7 @@
 #include <QJsonObject>
 #include <QLibrary>
 #include <QStandardPaths>
-
-extern "C" {
-#define LIBDPKG_VOLATILE_API 1
-#include <dpkg/db-fsys.h>
-#include <dpkg/dpkg-db.h>
-#include <dpkg/dpkg.h>
-}
+#include <QProcess>
 
 #define DBUS_TIMEOUT 10000
 
@@ -34,7 +28,6 @@ const QString UsecInterface = "org.deepin.usec1.AccessControl";
 
 PrivacySecurityDataProxy::PrivacySecurityDataProxy(QObject *parent)
     : QObject(parent)
-    , m_initModstatdb(false)
     , m_serviceExists(false)
     , m_dconfig(nullptr)
 {
@@ -46,7 +39,6 @@ PrivacySecurityDataProxy::PrivacySecurityDataProxy(QObject *parent)
 
 PrivacySecurityDataProxy::~PrivacySecurityDataProxy()
 {
-    shutdownModstatdb();
 }
 
 void PrivacySecurityDataProxy::getMode(const QString &object)
@@ -245,34 +237,50 @@ void PrivacySecurityDataProxy::setCacheBlacklist(const QMap<QString, QSet<QStrin
 
 QStringList PrivacySecurityDataProxy::getExecutable(const QString &path, QString *package)
 {
-    QStringList files;
-    initModstatdb();
-    dpkg_program_init("");
-    modstatdb_open(msdbrw_readonly);
-    ensure_allinstfiles_available_quiet();
-    ensure_diversions();
-    struct fsys_namenode *namenode = fsys_hash_find_node(path.toLatin1().data(), FHFF_NONE);
-    if (namenode) {
-        struct fsys_node_pkgs_iter *iter = fsys_node_pkgs_iter_new(namenode);
-        struct pkginfo *pkg_owner = fsys_node_pkgs_iter_next(iter);
-        if (pkg_owner) {
-            struct fsys_namenode_list *file;
-            if (pkg_owner->set)
-                *package = pkg_owner->set->name;
-            file = pkg_owner->files;
-            while (file) {
-                QFileInfo fileInfo(file->namenode->name);
-                if (fileInfo.isFile() && fileInfo.isExecutable() && !QLibrary::isLibrary(file->namenode->name)) {
-                    files << fileInfo.filePath();
-                }
-                file = file->next;
-            }
-            note_must_reread_files_inpackage(pkg_owner);
-        }
-        fsys_node_pkgs_iter_free(iter);
+    QProcess pro;
+    QStringList args;
+    args << "-S" << path;
+    pro.start("/usr/bin/dpkg-query", args);
+    pro.waitForFinished(2000);
+    
+    if (pro.exitCode() != 0) {
+        qCWarning(DCC_PRIVACY) << "Failed to get executable for" << path << ", dpkg-query error: " << pro.readAllStandardError().simplified();
+        return {};
     }
-    modstatdb_shutdown();
-    fsys_hash_reset();
+
+    QString output = pro.readAllStandardOutput().simplified();
+    if (output.isEmpty()) {
+        qCWarning(DCC_PRIVACY) << "No package found for executable:" << path;
+        return {};
+    }
+
+    *package = output.split('\n').first().split(':').first();
+    QString listFilePath = QString("/var/lib/dpkg/info/%1.list").arg(*package);
+    QFile listFile(listFilePath);
+
+    if (!listFile.exists() || !listFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qCWarning(DCC_PRIVACY) << "Failed to open list file:" << listFilePath;
+        return {};
+    }
+
+    QStringList files;
+    QTextStream stream(&listFile);
+    while (!stream.atEnd()) {
+        QString filePath = stream.readLine().trimmed();
+        if (filePath.isEmpty()) {
+            continue;
+        }
+
+        QFileInfo fileInfo(filePath);
+        if (fileInfo.exists() && 
+            fileInfo.isFile() && 
+            fileInfo.isExecutable() && 
+            !QLibrary::isLibrary(filePath)) {
+            files << filePath;
+        }
+    }
+
+    listFile.close();
     return files;
 }
 
@@ -297,21 +305,5 @@ void PrivacySecurityDataProxy::updateServiceExists(bool serviceExists)
     if (serviceExists != m_serviceExists) {
         m_serviceExists = serviceExists;
         Q_EMIT serviceExistsChanged(m_serviceExists);
-    }
-}
-
-void PrivacySecurityDataProxy::initModstatdb()
-{
-    if (!m_initModstatdb) {
-        // dpkg_program_init("dde-control-center");
-        m_initModstatdb = true;
-    }
-}
-
-void PrivacySecurityDataProxy::shutdownModstatdb()
-{
-    if (m_initModstatdb) {
-        // dpkg_program_done();
-        m_initModstatdb = false;
     }
 }
