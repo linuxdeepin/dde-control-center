@@ -832,7 +832,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>test here</source>
-        <translation>тест здесь</translation>
+        <translation>проверить здесь</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
@@ -1014,7 +1014,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Мы глубоко осознаем важность вашей персональной информации для вас. Поэтому у нас есть Политика конфиденциальности, которая описывает, как мы собираем, используем, делятся, передаем, публично раскрываем и храним вашу информацию.&lt;/p&gt;&lt;p&gt;Вы можете &lt;a href=&quot;%1&quot;&gt;нажать здесь&lt;/a&gt;, чтобы просмотреть нашу последнюю политику конфиденциальности и/или посетить ее онлайн, перейдя по ссылке &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Пожалуйста, внимательно прочитайте и полностью понимайте наши практики по защите конфиденциальности клиентов. Если у вас есть вопросы, пожалуйста, свяжитесь с нами по адресу: support@uniontech.com.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Мы глубоко осознаем важность вашей личной информации для вас. Таким образом, у нас есть Политика Конфиденциальности, в которой описано, как мы собираем, используем, передаем, публично раскрываем и храним вашу информацию.&lt;/p&gt;&lt;p&gt;Вы можете &lt;a href=&quot;%1&quot;&gt;нажать здесь, чтобы просмотреть нашу последнюю политику конфиденциальности и/или просмотреть ее онлайн, посетив &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Пожалуйста, внимательно прочитайте и полностью поймите нашу работу по конфиденциальности клиентов. Если у Вас возникли какие-либо вопросы, пожалуйста, свяжитесь с нами по адресу: support@uniontech.com. &lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
@@ -1084,11 +1084,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation>%1 часов раньше местного времени</translation>
+        <translation>На %1 ч. раньше местного</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation>%1 часов позже местного времени</translation>
+        <translation>На %1 ч. позже местного</translation>
     </message>
     <message>
         <source>Space</source>
