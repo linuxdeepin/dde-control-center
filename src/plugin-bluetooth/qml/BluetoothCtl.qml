@@ -107,8 +107,7 @@ DccObject{
                     ToolButton {
                         id: editBtn
                         anchors.left: nameDetail.right
-                        anchors.top: nameDetail.top
-                        anchors.topMargin: 2
+                        anchors.verticalCenter: nameDetail.verticalCenter
                         font: DTK.fontManager.t10
                         text: qsTr("Edit")
                         background: null
