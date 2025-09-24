@@ -477,7 +477,6 @@ DccObject {
             visible: dccData.work().isACLController() ? dccData.mode().isActivate : true
             page: Label {
                 id: securityCenterLinkLabel
-                height: 30
                 leftPadding: 15
                 topPadding: 5
                 bottomPadding: 5
@@ -487,6 +486,8 @@ DccObject {
                     qsTr("To install and run unsigned apps, please go to <a style='text-decoration: none;' href='Security Center'> Security Center </a> to change the settings.") :
                     qsTr("To install and run unsigned apps, please go to Security Center to change the settings.")
                 font: D.DTK.fontManager.t10
+                wrapMode: Text.WordWrap
+                Layout.fillWidth: true
                 // 超链接点击事件
                 onLinkActivated: function(url) {
                     if (dccData.work().isSecurityCenterInstalled()) {
