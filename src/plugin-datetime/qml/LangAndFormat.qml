@@ -161,6 +161,7 @@ DccObject {
                             icon.height: 16
                             implicitWidth: 36
                             implicitHeight: 36
+                            hoverEnabled: false
                             anchors {
                                 right: itemDelegate.right
                                 top: itemDelegate.top
