@@ -23,6 +23,9 @@
 #include <mutex>
 #include <qdbusmetatype.h>
 #include <QJsonDocument>
+#include <QDBusConnection>
+#include <QDBusConnectionInterface>
+#include <QDBusMessage>
 
 Q_LOGGING_CATEGORY(DccCommonInfoWork, "dcc-commoninfo-work");
 
@@ -714,7 +717,20 @@ void CommonInfoWork::setPlymouthFactor(int factor)
 
 bool CommonInfoWork::isSecurityCenterInstalled()
 {
-    return QFileInfo::exists("/usr/bin/deepin-defender-scanner");
+    auto isDbusNameAvailable = [](const QDBusConnection &conn, const QString &serviceName) -> bool {
+        auto *iface = conn.interface();
+        if (!iface)
+            return false;
+        return iface->isServiceRegistered(serviceName);
+    };
+
+    if (isDbusNameAvailable(QDBusConnection::sessionBus(), QStringLiteral("com.deepin.defender.hmiscreen")))
+        return true;
+
+    if (isDbusNameAvailable(QDBusConnection::systemBus(), QStringLiteral("com.deepin.defender.AutostartManager")))
+        return true;
+
+    return QFileInfo::exists("/usr/libexec/deepin/deepin-defender");
 }
 
 bool CommonInfoWork::isACLController() const
