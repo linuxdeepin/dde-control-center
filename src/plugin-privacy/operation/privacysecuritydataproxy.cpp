@@ -26,6 +26,28 @@ const QString UsecService = "org.deepin.usec1";
 const QString UsecPath = "/org/deepin/usec1/AccessControl";
 const QString UsecInterface = "org.deepin.usec1.AccessControl";
 
+static QString getDpkgArch()
+{
+    const static QString arch = []() {
+        QString arch = QSysInfo::currentCpuArchitecture();
+        QProcess pro;
+        pro.start("/usr/bin/dpkg", QStringList() << "--print-architecture");
+        pro.waitForFinished(2000);
+        if (pro.exitCode() != 0) {
+            qCWarning(DCC_PRIVACY) << "Failed to get dpkg architecture, dpkg error: " << pro.readAllStandardError().simplified() 
+                << ", fallback to QSysInfo architecture:" << arch;
+            return arch;
+        }
+        QString output = pro.readAllStandardOutput().simplified();
+        if (output.isEmpty()) {
+            qCWarning(DCC_PRIVACY) << "No architecture found for dpkg, fallback to QSysInfo architecture:" << arch;
+            return arch;
+        }
+        return output;
+    }();
+    return arch;
+}
+
 PrivacySecurityDataProxy::PrivacySecurityDataProxy(QObject *parent)
     : QObject(parent)
     , m_serviceExists(false)
@@ -256,6 +278,9 @@ QStringList PrivacySecurityDataProxy::getExecutable(const QString &path, QString
 
     *package = output.split('\n').first().split(':').first();
     QString listFilePath = QString("/var/lib/dpkg/info/%1.list").arg(*package);
+    if (!QFile::exists(listFilePath)) {
+        listFilePath = QString("/var/lib/dpkg/info/%1.list").arg(*package + ":" + getDpkgArch());
+    }
     QFile listFile(listFilePath);
 
     if (!listFile.exists() || !listFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
