@@ -83,7 +83,7 @@ Control {
                         visible: control.showEditButtons
                         focusPolicy: Qt.NoFocus
                         hoverEnabled: true
-                        icon.name: "edit"
+                        icon.name: "keyboard_edit"
                         icon.width: 16
                         icon.height: 16
                         implicitWidth: 36
@@ -115,9 +115,9 @@ Control {
                         visible: control.showEditButtons
                         focusPolicy: Qt.NoFocus
                         hoverEnabled: true
-                        icon.name: "user-trash-symbolic"
-                        icon.width: 24
-                        icon.height: 24
+                        icon.name: "keyboard_delete"
+                        icon.width: 16
+                        icon.height: 16
                         implicitWidth: 36
                         implicitHeight: 36
                         background: Rectangle {
