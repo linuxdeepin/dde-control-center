@@ -1,3 +1,25 @@
+dde-control-center (6.1.49) unstable; urgency=medium
+
+  * fix: disable hover effect on language delete button
+  * fix: Fix the security center version judgment exception
+  * fix: Fix the issue with the display of the license file
+  * fix: resolve dark mode icon visibility in keyboard shortcut editor
+  * fix: handle multi-arch package list paths
+  * fix: enable text wrapping for security center link
+  * fix: Fix the password error not selected completely
+  * fix: update week start day format on locale change
+  * fix: correct ACL error code matching logic
+  * fix: fix applet threading and item removal issues
+  * fix: add persistent storage for custom NTP server addresses
+  * refactor: replace libdpkg API with dpkg-query command
+  * feat: remove keyboard layout management module
+  * i18n: Updates for project Deepin Desktop Environment (#2691)
+  * fix: When system has no blur effect, the Multitasking View plugin is
+    also displayed in the Control Center
+  * fix: resolve onboard icon display in privacy FileAndFolder
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 25 Sep 2025 19:28:02 +0800
+
 dde-control-center (6.1.48) unstable; urgency=medium
 
   * fix: connect license state change signal
