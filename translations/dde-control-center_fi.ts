@@ -1501,7 +1501,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>Ominaisuus ei ole käytettävissä. Aktivoi ensin tietokoneesi.</translation>
     </message>
 </context>
 <context>
@@ -3101,7 +3101,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Taustakuvat</translation>
     </message>
 </context>
 <context>
@@ -3120,7 +3120,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>näytä kaikki - %1 kohdetta</translation>
     </message>
 </context>
 <context>
