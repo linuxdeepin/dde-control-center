@@ -245,23 +245,23 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>Реєстрація райдужки</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Прочитано, погоджуюся з</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Відмова від відповідальності</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Далі</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Готово</translation>
     </message>
     <message>
         <source>Cancel</source>
