@@ -291,7 +291,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation>Будь ласка, утримуйте погляд на пристрої і переконайтеся, що обидва ока перебувають у зоні видимості</translation>
     </message>
 </context>
 <context>
@@ -1503,7 +1503,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>Цю можливість у поточній версії ще не реалізовано. Будь ласка, спочатку активуйте вашу систему.</translation>
     </message>
 </context>
 <context>
@@ -3103,7 +3103,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Загальносистемні фонові зображення</translation>
     </message>
 </context>
 <context>
@@ -3122,7 +3122,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>показ усіх - %1 записи</translation>
     </message>
 </context>
 <context>
@@ -3454,26 +3454,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Ідентифікатор обличчя</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Обличчя</translation>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Скористайтеся вашим обличчям для розблокування пристрою і змініть параметри пізніше</translation>
     </message>
 </context>
 <context>
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Відбиток пальця</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Притисніть палець</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
