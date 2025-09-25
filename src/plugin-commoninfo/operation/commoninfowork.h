@@ -78,6 +78,7 @@ private:
     bool m_scaleIsSetting;
     QDBusInterface *m_debugConfigInter;
     QDBusInterface *m_inter;
+    QString m_tmpBackgroundPath;
 };
 
 

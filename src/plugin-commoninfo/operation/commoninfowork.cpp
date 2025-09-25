@@ -17,6 +17,7 @@
 #include <QSettings>
 #include <QLoggingCategory>
 #include <QDir>
+#include <QFile>
 #include <QFileInfo>
 #include <DDBusSender>
 
@@ -34,6 +35,7 @@ Q_LOGGING_CATEGORY(DccCommonInfoWork, "dcc-commoninfo-work");
 std::mutex SCALE_SETTING_GUARD;
 
 static const QString PlyMouthConf = QStringLiteral("/etc/plymouth/plymouthd.conf");
+static const QString kTmpGrubBgDir = QStringLiteral("/tmp/dcc-grub-backgrounds");
 
 
 const QString &GRUB_EDIT_AUTH_ACCOUNT("root");
@@ -195,6 +197,11 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
         QPixmap pix = QPixmap(backgroundPath);
         m_commomModel->setGrubThemePath(backgroundPath);
         m_commomModel->setBackground(pix);
+        m_tmpBackgroundPath.clear();
+        QDir dir(kTmpGrubBgDir);
+        if (dir.exists()) {
+            dir.removeRecursively();
+        }
     });
     connect(m_commonInfoProxy, &CommonInfoProxy::EnabledUsersChanged, m_commomModel, [this] (const QStringList &users) {
         m_commomModel->setGrubEditAuthEnabled(users.contains(GRUB_EDIT_AUTH_ACCOUNT));
@@ -515,7 +522,32 @@ void CommonInfoWork::setBackground(const QString &path)
         qCDebug(DccCommonInfoWork) << "Resolved symlink" << path << "to" << realPath;
     }
 
-    m_commonInfoProxy->setBackground(realPath);
+    QString suffix = QFileInfo(realPath).suffix();
+    if (suffix.isEmpty()) {
+        suffix = "img";
+    }
+    QString baseName = QFileInfo(realPath).completeBaseName();
+    if (baseName.isEmpty()) {
+        baseName = "dcc_bg";
+    }
+    QDir tmpDir(kTmpGrubBgDir);
+    if (!tmpDir.exists()) {
+        tmpDir.mkpath(".");
+    }
+
+    QString tmpName = tmpDir.filePath(QString("%1_%2.%3")
+                                      .arg(baseName)
+                                      .arg(QDateTime::currentMSecsSinceEpoch())
+                                      .arg(suffix));
+
+    bool copied = QFile::copy(realPath, tmpName);
+    if (copied) {
+        m_tmpBackgroundPath = tmpName;
+        m_commonInfoProxy->setBackground(tmpName);
+    } else {
+        m_tmpBackgroundPath.clear();
+        m_commonInfoProxy->setBackground(realPath);
+    }
 }
 
 void CommonInfoWork::setUeProgram(bool enabled)
