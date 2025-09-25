@@ -265,19 +265,19 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Повторити реєстрацію</translation>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Райдужку зареєстровано</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>Не вдалося зареєструвати вашу райдужку</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -285,7 +285,9 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
+Будь ласка, зауважте, що UnionTech Software не збиратиме і не оброблятиме ваших біометричних даних, які зберігатимуться лише на вашому локальному пристрої. Будь ласка, вмикайте біометричне розпізнавання лише на вашому особистому пристрої і використовуйте ваші власні біометричні дані лише для відповідних операцій. Негайно вимикайте або вилучайте біометричні дані інших осіб на відповідному пристрої. Відповідальність за наслідки недотримання цих вимог покладається на вас. 
+UnionTech Software Technology Co, Ltd працює над вивченням і удосконаленням можливостей із захисту, точності і стабільності біометричного розпізнавання. Втім, через вплив факторів середовища, обладнання, технічних проблем та засобів керування ризиками немає гарантії безумовного проходження вами біометричного розпізнавання. Через це, не слід покладатися повністю на біометричне розпізнавання при вході до UOS. Якщо у вас є якісь питання та пропозиції щодо використання біометричного розпізнавання, ви можете надати ваш відгук за допомогою «Обслуговування і підтримки» у UOS.</translation>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
