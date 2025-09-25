@@ -3503,11 +3503,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Säädä asentoa sormenjälkesi reunojen skannaamiseksi</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Sormenjälki lisätty</translation>
     </message>
 </context>
 <context>
