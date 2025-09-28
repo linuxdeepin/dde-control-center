@@ -119,6 +119,7 @@ Loader {
                     maxVisibleItems: 12
                     view.model: viewModel
                     view.currentIndex: loader.currentIndex
+                    view.ScrollBar.vertical: verticalScrollBar
 
                     ButtonGroup {
                         id: regionGroup
@@ -156,6 +157,7 @@ Loader {
                 }
 
                 ScrollBar {
+                    id: verticalScrollBar
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
                     anchors.right: parent.right
@@ -166,32 +168,6 @@ Loader {
                     position: itemsView.view.visibleArea.yPosition
                     size: itemsView.view.visibleArea.heightRatio
                     active: hovered || pressed || itemsView.view.moving || itemsView.view.flicking
-
-                    onPositionChanged: {
-                        if (pressed) {
-                            Qt.callLater(function() {
-                                if (!itemsView.view) return
-                                var maxY = itemsView.view.contentHeight - itemsView.view.height
-                                if (maxY <= 0) return
-
-                                position = Math.max(0, Math.min(position, 1))
-                                size = Math.max(0, Math.min(size, 1))
-
-                                var normalized = size < 1 ? position / (1 - size) : 0
-                                var newY = Math.max(0, Math.min(normalized * maxY, maxY))
-
-                                // Snap to edges (30px = ~item height)
-                                if (newY <= 30) {
-                                    itemsView.view.positionViewAtBeginning()
-                                } else if (maxY - newY <= 30) {
-                                    itemsView.view.positionViewAtEnd()
-                                } else {
-                                    itemsView.view.contentY = newY
-                                }
-                            })
-                        }
-                    }
-
                 }
             }
         }
