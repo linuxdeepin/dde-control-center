@@ -208,6 +208,7 @@ Loader {
                     highlightFollowsCurrentItem: true
                     focus: true
                     activeFocusOnTab: true
+                    ScrollBar.vertical: verticalScrollBar
                     
                     // 根据内容确定是否需要交互（模仿ArrowListView逻辑）
                     interactive: loader.delegateModel.count > loader.maxVisibleItems
@@ -287,6 +288,20 @@ Loader {
                     enabled: !listView.atYEnd
                     focusPolicy: Qt.NoFocus
                     activeFocusOnTab: false
+                }
+
+                ScrollBar {
+                    id: verticalScrollBar
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    anchors.right: parent.right
+                    anchors.rightMargin: -6
+                    implicitWidth: 10
+                    orientation: Qt.Vertical
+
+                    position: listView.visibleArea.yPosition
+                    size: listView.visibleArea.heightRatio
+                    active: hovered || pressed || listView.moving || listView.flicking
                 }
             }
 
