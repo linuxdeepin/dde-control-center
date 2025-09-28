@@ -3912,7 +3912,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Dock size</source>
-        <translation>Tamanho da dock</translation>
+        <translation>Tamanho do dock</translation>
     </message>
     <message>
         <source>Small</source>
@@ -3924,7 +3924,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation>Posição</translation>
+        <translation>Posição na tela</translation>
     </message>
     <message>
         <source>Top</source>
