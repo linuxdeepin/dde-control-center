@@ -3952,11 +3952,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>Manter escondido</translation>
+        <translation>Sempre ocultar</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>Ocultação inteligente</translation>
+        <translation>Ocultar automaticamente</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
