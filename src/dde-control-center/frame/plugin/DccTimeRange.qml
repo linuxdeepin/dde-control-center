@@ -67,6 +67,7 @@ D.SpinBox {
     contentItem: RowLayout {
         property string text: hourInput.text + ":" + minuteInput.text
         spacing: 0
+        opacity: enabled ? 1 : 0.4
         TextInput {
             id: hourInput
             Layout.preferredWidth: 20
