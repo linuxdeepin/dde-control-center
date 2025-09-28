@@ -1237,7 +1237,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation>Sincronização na nuvem</translation>
+        <translation>Cloud</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
