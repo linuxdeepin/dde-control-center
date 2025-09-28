@@ -3924,7 +3924,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation>Posição na tela</translation>
+        <translation>Posição</translation>
     </message>
     <message>
         <source>Top</source>
@@ -3984,7 +3984,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation>Bloquear a Dock</translation>
+        <translation>Bloquear dock</translation>
     </message>
 </context>
 <context>
