@@ -72,16 +72,22 @@ GridView {
                 implicitWidth: gridView.cellWidth
                 Button {
                     id: control
+                    width: gridView.itemSize
+                    height: gridView.itemSize
+                    padding: 0
+                    leftPadding: 0
+                    rightPadding: 0
+                    topPadding: 0
+                    bottomPadding: 0
                     icon {
                         name: modelData
                         // TODO: icon size not Work!! dtk bug https://github.com/linuxdeepin/dtk/issues/207
                         height: gridView.itemSize
                         width: gridView.itemSize
                     }
-                    anchors {
-                        left: parent.left
-                        verticalCenter: parent.verticalCenter
-                    }
+                    anchors.left: parent.left
+                    anchors.leftMargin: 2
+                    anchors.verticalCenter: parent.verticalCenter
                     onClicked: {
                         requireFileDialog()
                     }
@@ -90,26 +96,35 @@ GridView {
             }
         }
 
-        D.DciIcon {
-            id: img
-            palette: D.DTK.makeIconPalette(delegate.palette)
-            mode: delegate.D.ColorSelector.controlState
-            theme: delegate.D.ColorSelector.controlTheme
-            fallbackToQIcon: false
-            name: modelData
-            sourceSize: Qt.size(gridView.itemSize, gridView.itemSize)
+        // Keep a fixed square slot for each grid item to ensure visuals remain square
+        Item {
+            id: iconSlot
+            width: gridView.itemSize
+            height: gridView.itemSize
             anchors.left: parent.left
             anchors.leftMargin: 2
             anchors.verticalCenter: parent.verticalCenter
-            visible: !delegate.isAddButton // false for MultiEffect need
-            antialiasing: true
+
+            D.DciIcon {
+                id: img
+                palette: D.DTK.makeIconPalette(delegate.palette)
+                mode: delegate.D.ColorSelector.controlState
+                theme: delegate.D.ColorSelector.controlTheme
+                fallbackToQIcon: false
+                name: modelData
+                // render at intended size, but keep centered inside square slot
+                sourceSize: Qt.size(gridView.itemSize, gridView.itemSize)
+                anchors.centerIn: parent
+                visible: !delegate.isAddButton // false for MultiEffect need
+                antialiasing: true
+            }
         }
 
         // fake round image
         D.BoxShadow {
             id: boxShadow
             hollow: true
-            anchors.fill: img
+            anchors.fill: iconSlot
             shadowBlur: 3
             spread: 3
             shadowColor: delegate.palette.window
@@ -154,7 +169,7 @@ GridView {
         background: Rectangle {
             id: background
             radius: 8
-            anchors.fill: img
+            anchors.fill: iconSlot
             anchors.margins: -2
             color: "transparent"
             border.color: delegate.palette.highlight

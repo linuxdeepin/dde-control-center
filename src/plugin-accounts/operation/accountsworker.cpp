@@ -3,6 +3,7 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "accountsworker.h"
 #include "user.h"
+#include "usermodel.h"
 #include "syncdbusproxy.h"
 #include "accountsdbusproxy.h"
 #include "userdbusproxy.h"
@@ -18,6 +19,13 @@
 #include <QRegularExpressionMatch>
 #include <QDBusReply>
 #include <DSysInfo>
+#include <QDateTime>
+#include <QUrl>
+#include <QStandardPaths>
+#include <QDir>
+#include <QFile>
+#include <QFileInfo>
+#include <QSaveFile>
 
 #include <pwd.h>
 #include <tuple>
@@ -26,6 +34,7 @@
 #include <random>
 #include <crypt.h>
 #include <PolkitQt1/Authority>
+#include <qlogging.h>
 using namespace PolkitQt1;
 
 using namespace dccV25;
@@ -427,6 +436,30 @@ void AccountsWorker::setAvatar(User *user, const QString &iconPath)
     Q_ASSERT(ui);
 
     ui->SetIconFile(iconPath);
+
+    const QString appCacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+    if (!appCacheDir.isEmpty()) {
+        const QString avatarsDir = appCacheDir + QDir::separator() + "avatars";
+        QDir().mkpath(avatarsDir);
+
+        const QString markerFile = avatarsDir + QDir::separator() + "current";
+        const QString absIcon = QFileInfo(iconPath).absoluteFilePath();
+        if (absIcon.startsWith(avatarsDir + QDir::separator())) {
+            const QString fileName = QFileInfo(absIcon).fileName();
+            QSaveFile save(markerFile);
+            if (save.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
+                save.write(fileName.toUtf8());
+                save.commit();
+            }
+        } else {
+            QFile f(markerFile);
+            if (f.exists()) {
+                if (f.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
+                    f.close();
+                }
+            }
+        }
+    }
 }
 
 void AccountsWorker::setFullname(User *user, const QString &fullname)
@@ -583,10 +616,31 @@ void AccountsWorker::resetPassword(User *user, const QString &password)
 
 void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)
 {
-    UserDBusProxy *userInter = m_userInters[user];
-    Q_ASSERT(userInter);
+    Q_UNUSED(user)
+    const QString absPath = QFileInfo(QUrl::fromUserInput(iconPath).toLocalFile()).absoluteFilePath();
+    const QString appCacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+    if (!appCacheDir.isEmpty()) {
+        const QString avatarsDir = appCacheDir + QDir::separator() + "avatars" + QDir::separator();
+        if (absPath.startsWith(avatarsDir)) {
+            QFile::remove(absPath);
+        }
+    }
 
-    userInter->DeleteIconFile(iconPath);
+    if (!appCacheDir.isEmpty()) {
+        const QString avatarsDir = appCacheDir + QDir::separator() + "avatars";
+        const QString markerFile = avatarsDir + QDir::separator() + "current";
+        QFile mf(markerFile);
+        if (mf.exists() && mf.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            const QByteArray content = mf.readAll();
+            mf.close();
+            const QString fileName = QFileInfo(iconPath).fileName();
+            if (!content.isEmpty() && QString::fromUtf8(content).trimmed() == fileName) {
+                if (mf.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
+                    mf.close();
+                }
+            }
+        }
+    }
 }
 
 void AccountsWorker::addUser(const QString &userPath)
@@ -954,4 +1008,66 @@ BindCheckResult AccountsWorker::checkLocalBind(const QString &uosid, const QStri
 void AccountsWorker::playSystemSound(int soundType)
 {
     DDesktopServices::playSystemSoundEffect(static_cast<DDesktopServices::SystemSoundEffect>(soundType));
+}
+
+QString AccountsWorker::saveCustomAvatar(const QString &tempFile, const QString &originalFile)
+{
+    const QString appCacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+    if (appCacheDir.isEmpty()) {
+        return QString();
+    }
+
+    const QString avatarsDir = appCacheDir + QDir::separator() + "avatars";
+    QDir().mkpath(avatarsDir);
+
+    QString targetFile;
+    bool replacingExisting = false;
+    if (!originalFile.isEmpty()) {
+        QFileInfo origInfo(originalFile);
+        const QString origAbs = QFileInfo(QUrl(originalFile).toLocalFile()).absoluteFilePath();
+        if (origAbs.startsWith(avatarsDir + QDir::separator())) {
+            targetFile = avatarsDir + QDir::separator() + QFileInfo(origAbs).fileName();
+            replacingExisting = true;
+        }
+    }
+    if (targetFile.isEmpty()) {
+        const QString baseName = QString::number(QDateTime::currentMSecsSinceEpoch());
+        targetFile = avatarsDir + QDir::separator() + baseName + ".png";
+    }
+
+    QStringList files = QDir(avatarsDir).entryList(QStringList() << "*.png" << "*.jpg" << "*.jpeg" << "*.bmp",
+                                                   QDir::Files, QDir::Time /* newest first */);
+    if (files.size() == 4 && !replacingExisting) {
+        QString currentName;
+        QFile mf(avatarsDir + QDir::separator() + "current");
+        if (mf.exists() && mf.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            currentName = QString::fromUtf8(mf.readAll()).trimmed();
+            mf.close();
+        }
+        int oldestIndex = files.size() - 1;
+        int candidateIndex = oldestIndex;
+        if (!currentName.isEmpty() && files.at(oldestIndex) == currentName && files.size() >= 2) {
+            candidateIndex = files.size() - 2;
+        }
+        const QString toDelete = files.at(candidateIndex);
+        QFile::remove(avatarsDir + QDir::separator() + toDelete);
+    }
+
+    const QString tempAbs = tempFile.startsWith("file:") ? QUrl(tempFile).toLocalFile() : QFileInfo(tempFile).absoluteFilePath();
+    if (QFileInfo(tempAbs).absoluteFilePath() == QFileInfo(targetFile).absoluteFilePath()) {
+        return QUrl::fromLocalFile(targetFile).toString();
+    }
+
+    if (QFile::exists(targetFile)) {
+        QFile::remove(targetFile);
+    }
+    bool ok = QFile::copy(tempAbs, targetFile);
+    if (!ok) {
+        ok = QFile::rename(tempAbs, targetFile);
+        if (!ok) {
+            return QString();
+        }
+    }
+
+    return QUrl::fromLocalFile(targetFile).toString();
 }

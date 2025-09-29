@@ -5,10 +5,12 @@ import QtQuick 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts
 import org.deepin.dtk 1.0 as D
+import Qt.labs.platform 1.1
 
 Control {
     id: control
     property string iconSource
+    property int cropSize: 120
     property alias dragActived: imgContainter.dragActived
     property alias imgScale: img2.scale
     width: 430
@@ -18,28 +20,29 @@ Control {
 
     RowLayout {
         id: layout
-        height: 200
+        height: 190
         Layout.fillWidth: true
         anchors.horizontalCenter: parent.horizontalCenter
         Rectangle {
             id: imgGrabber
-            width: 200
-            height: 200
+            width: control.cropSize
+            height: control.cropSize
             clip: true
             visible: false
 
             Image {
                 id: sourceItem
-                width: 200
-                height: 200
+                width: img2.width
+                height: img2.height
                 source: control.iconSource
+                cache: false
             }
         }
 
         Rectangle {
             id: imgContainter
             property bool dragActived: false
-            width: control.iconSource.length > 0 ? 200 : 100
+            width: control.iconSource.length > 0 ? 190 : 120
             height: width
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
             clip: true
@@ -48,39 +51,76 @@ Control {
 
             Image {
                 id: img2
-                width: 100
-                height: 100
+                property bool initialAligned: false
+                // Fit strategy: fix height to cropSize, width by aspect ratio
+                height: control.cropSize
+                width: height * (sourceSize.height > 0 ? (sourceSize.width / sourceSize.height) : 1)
+                x: (imgContainter.width - width) / 2
+                y: (imgContainter.height - height) / 2
                 source: control.iconSource
+                cache: false
+                onStatusChanged: {
+                    if (status === Image.Ready) {
+                        initialAligned = false
+                        img2.updatePos()
+                    }
+                }
+                onSourceChanged: initialAligned = false
+                Component.onCompleted: img2.updatePos()
 
                 function updatePos() {
-                    let start = 50
-                    let end = start + img2.width
-                    let offset = (img2.scale - 1.0) * img2.width / 2
+                    // Compute crop rect (fixed size cropSize centered in container)
+                    let cropStartX = (imgContainter.width - control.cropSize) / 2
+                    let cropStartY = (imgContainter.height - control.cropSize) / 2
+                    let cropEndX = cropStartX + control.cropSize
+                    let cropEndY = cropStartY + control.cropSize
 
-                    let visualX = img2.x - offset
-                    let visualY = img2.y - offset
-                    let visualSize = img2.scale * img2.width
-
-                    if (visualX > start) {
-                        img2.x = offset + start
-                    } else if (visualX + visualSize < end) {
-                        img2.x = end - visualSize + offset
-                    } else {
-                        // valid pos
+                    // Recompute size based on source aspect ratio
+                    let aspect = 1.0
+                    if (img2.sourceSize.height > 0) {
+                        aspect = img2.sourceSize.width / img2.sourceSize.height
+                        if (aspect >= 1.0) {
+                            // Landscape: fit height, width by aspect
+                            img2.height = control.cropSize
+                            img2.width = control.cropSize * aspect
+                        } else {
+                            // Portrait: fit width, height by aspect
+                            img2.width = control.cropSize
+                            img2.height = control.cropSize / aspect
+                        }
                     }
 
-                    if (visualY > start) {
-                        img2.y = offset + start
-                    } else if (visualY + visualSize < end) {
-                        img2.y = end - visualSize + offset
-                    } else {
-                        // valid pos
+                    let offsetX = (img2.scale - 1.0) * img2.width / 2
+                    let offsetY = (img2.scale - 1.0) * img2.height / 2
+
+                    // First time after image ready: center horizontally/vertically
+                    if (!initialAligned) {
+                        img2.x = (imgContainter.width - img2.width) / 2
+                        img2.y = (imgContainter.height - img2.height) / 2
+                        initialAligned = true
                     }
 
+                    let visualX = img2.x - offsetX
+                    let visualY = img2.y - offsetY
+                    let visualW = img2.scale * img2.width
+                    let visualH = img2.scale * img2.height
+
+                    // Constrain both axes so that the scaled image always covers the crop square
+                    if (visualX > cropStartX) {
+                        img2.x = offsetX + cropStartX
+                    } else if (visualX + visualW < cropEndX) {
+                        img2.x = cropEndX - visualW + offsetX
+                    }
+                    if (visualY > cropStartY) {
+                        img2.y = offsetY + cropStartY
+                    } else if (visualY + visualH < cropEndY) {
+                        img2.y = cropEndY - visualH + offsetY
+                    }
+
+                    // Sync hidden grab source to crop rect origin
                     sourceItem.scale = img2.scale
-
-                    sourceItem.x = img2.x - 50
-                    sourceItem.y = img2.y - 50
+                    sourceItem.x = img2.x - cropStartX
+                    sourceItem.y = img2.y - cropStartY
                 }
 
                 DragHandler {
@@ -93,6 +133,7 @@ Control {
                             timer.restart()
                         }
                     }
+                    onTranslationChanged: img2.updatePos()
                 }
             }
 
@@ -100,10 +141,12 @@ Control {
                 anchors.fill: parent
                 onPressed: function(mouse) {
                     mouse.accepted = false
-                    // boxShadow.visible = true
                     boxShadow.shadowColor = "#88000000"
                     imgContainter.dragActived = true
                     timer.restart()
+                }
+                onWheel: function(wheel) {
+                    img2.updatePos()
                 }
             }
 
@@ -111,14 +154,8 @@ Control {
                 id: timer
                 interval: 1000;
                 onTriggered: {
-                    // boxShadow.visible = false
-                    // fake hide...
                     boxShadow.shadowColor = palette.window
                     imgContainter.dragActived = false
-                    imgGrabber.grabToImage(function (result) {
-                        result.saveToFile("/tmp/dcc_avatar.png")
-                        croppedImage("/tmp/dcc_avatar.png")
-                    })
                 }
             }
 
@@ -126,7 +163,7 @@ Control {
                 id: boxShadow
                 hollow: true
                 anchors.fill: parent
-                anchors.margins: 50
+                anchors.margins: Math.max(0, (imgContainter.width - control.cropSize) / 2)
                 shadowBlur: 36
                 spread: 80
                 shadowColor: palette.window
@@ -135,23 +172,56 @@ Control {
         }
     }
 
-    Slider {
+    RowLayout {
         anchors.top: layout.bottom
         anchors.topMargin: 10
         anchors.horizontalCenter: parent.horizontalCenter
-        from: 1.0
-        to: 2.0
-        stepSize: 0.5
-        value: img2.scale
-        handleType: Slider.HandleType.ArrowBottom
-        onValueChanged: {
-            img2.scale = value
-            img2.updatePos()
+        spacing: 10
+
+        D.Label {
+            text: qsTr("small")
+            font: D.DTK.fontManager.t8
+            verticalAlignment: Text.AlignVCenter
+            Layout.alignment: Qt.AlignVCenter
         }
-        onPositionChanged: {
-            boxShadow.shadowColor = "#88000000"
-            imgContainter.dragActived = true
-            timer.restart()
+
+        Slider {
+            id: scaleSlider
+            from: 1.0
+            to: 2.0
+            stepSize: 0.5
+            value: img2.scale
+            implicitHeight: 24
+            handleType: Slider.HandleType.ArrowBottom
+            Layout.alignment: Qt.AlignVCenter
+            onValueChanged: {
+                img2.scale = value
+                img2.updatePos()
+            }
+            onPositionChanged: {
+                boxShadow.shadowColor = "#88000000"
+                imgContainter.dragActived = true
+                timer.restart()
+            }
         }
+
+        D.Label {
+            text: qsTr("big")
+            font: D.DTK.fontManager.t8
+            verticalAlignment: Text.AlignVCenter
+            Layout.alignment: Qt.AlignVCenter
+        }
+    }
+
+    function cropToTemp(callback) {
+        if (!control.iconSource || control.iconSource.length < 1) {
+            if (callback) callback("")
+            return
+        }
+        imgGrabber.grabToImage(function (result) {
+            const tmp = StandardPaths.writableLocation(StandardPaths.TempLocation) + "/dcc_avatar_tmp.png"
+            result.saveToFile(tmp)
+            if (callback) callback(tmp)
+        })
     }
 }

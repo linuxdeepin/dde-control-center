@@ -40,13 +40,25 @@ D.DialogWindow {
                 let selectedFile = fileDialog.selectedFile || fileDialog.file || fileDialog.fileUrl
                 if (selectedFile) {
                     let filePath = selectedFile.toString()
-                    if (scrollView.isCustom) {
-                        let icons = repeater.itemAt(0).model
-                        icons.push(filePath)
-                        repeater.itemAt(0).model = icons
-                        repeater.itemAt(0).currentAvatar = filePath
+                    const sourceFile = filePath.replace("file://", "")
+                    const saved = dccData.saveCustomAvatar(dialog.userId, sourceFile, "")
+                    if (saved && saved.length > 0) {
+                        dialog.currentAvatar = saved
+                        scrollView.filter = "icons/local"
+                        if (customEmptyAvatar && typeof customEmptyAvatar.needShow === 'function') {
+                            customEmptyAvatar.visible = customEmptyAvatar.needShow()
+                        }
+                        if (cropper && cropper.visible) {
+                            cropper.iconSource = dialog.currentAvatar
+                            cropper.imgScale = 1.0
+                        }
+                        if (scrollView.isCustom && customLocalRow && typeof customLocalRow.refresh === 'function') {
+                            customLocalRow.refresh()
+                            customLocalRow.currentAvatar = dialog.currentAvatar
+                        }
+                    } else {
+                        dialog.currentAvatar = filePath
                     }
-                    dialog.currentAvatar = filePath
                 }
                 fileDlgLoader.active = false
             }
@@ -192,8 +204,14 @@ D.DialogWindow {
                             scrollView.filter = model.filter
                             scrollView.ScrollBar.vertical.position = 0
 
-                            if (dialog.currentAvatar && dialog.currentAvatar.indexOf("/icons/local/") === -1) {
-                                dialog.currentAvatar = ""
+                            if (model.filter !== "icons/local") {
+                                if (dialog.currentAvatar && dialog.currentAvatar.length > 0) {
+                                    const cacheDir = StandardPaths.writableLocation(StandardPaths.CacheLocation)
+                                    const avatarDir = cacheDir + "/avatars/"
+                                    const normalized = dialog.currentAvatar.replace("file://", "")
+                                    const inCache = normalized.indexOf(avatarDir) === 0
+                                    if (inCache) dialog.currentAvatar = ""
+                                }
                             }
                         }
                     }
@@ -229,7 +247,7 @@ D.DialogWindow {
                         return false
 
                     let icons = dccData.avatars(dialog.userId, scrollView.filter, "")
-                    return icons.length <= 1 && dialog.currentAvatar.length < 1
+                    return icons.length <= 1
                 }
             }
 
@@ -267,12 +285,61 @@ D.DialogWindow {
                     width: scrollView.width
                     implicitWidth: scrollView.width
 
-                    CustomAvatarCropper {
-                        id: cropper
+                    Item {
+                        id: customArea
                         visible: scrollView.isCustom && !customEmptyAvatar.visible
-                        iconSource: dialog.currentAvatar
-                        onCroppedImage: function(file) {
-                            dialog.currentAvatar = file
+                        width: scrollView.width
+                        implicitHeight: childrenRect.height
+
+                        onVisibleChanged: {
+                            if (!visible)
+                                return
+                            
+                            let icons = dccData.avatars(dialog.userId, "icons/local", "")
+                            if (!icons || icons.length <= 1) {
+                                return
+                            }
+                            
+                            const currentAvatar = (dialog.currentAvatar || "").toString().replace("file://", "")
+                            let foundCurrent = false
+                            
+                            if (currentAvatar.length > 0) {
+                                for (let i = 1; i < icons.length; i++) {
+                                    const iconPath = icons[i].toString().replace("file://", "")
+                                    if (iconPath === currentAvatar) {
+                                        foundCurrent = true
+                                        break
+                                    }
+                                }
+                            }
+                            
+                            if (!foundCurrent) {
+                                dialog.currentAvatar = icons[1]
+                            }
+                        }
+
+                        CustomAvatarCropper {
+                            id: cropper
+                            anchors.top: parent.top
+                            anchors.horizontalCenter: parent.horizontalCenter
+                            iconSource: dialog.currentAvatar
+                            Component.onCompleted: Qt.callLater(function(){
+                                cropper.iconSource = dialog.currentAvatar
+                            })
+                            onCroppedImage: function(file) {
+                                dialog.currentAvatar = file
+                            }
+                        }
+
+                        CustomLocalAvatarsRow {
+                            id: customLocalRow
+                            anchors.top: cropper.bottom
+                            anchors.horizontalCenter: parent.horizontalCenter
+
+                            userId: dialog.userId
+                            currentAvatar: dialog.currentAvatar
+                            onCurrentAvatarChanged: dialog.currentAvatar = currentAvatar
+                            onRequireFileDialog: fileDlgLoader.active = true
                         }
                     }
 
@@ -281,7 +348,7 @@ D.DialogWindow {
                         model: scrollView.sections
                         AvatarGridView {
                             id: view
-                            visible: view.count > 0
+                            visible: view.count > 0 && !scrollView.isCustom
                             currentAvatar: dialog.currentAvatar
                             onCurrentAvatarChanged: {
                                 dialog.currentAvatar = currentAvatar
@@ -323,8 +390,9 @@ D.DialogWindow {
                             onIsCustomChanged: {
                                 if (isCustom && !customEmptyAvatar.visible) {
                                     let icons = dccData.avatars(dialog.userId, scrollView.filter, modelData)
-                                    if (icons.length > 1)
-                                        dialog.currentAvatar = icons[1]; // [0] is add button
+                                    if (icons.length > 1) {
+                                        dialog.currentAvatar = icons[1];
+                                    }
                                 }
                             }
                         }
@@ -353,8 +421,21 @@ D.DialogWindow {
                     Layout.fillWidth: true
                     text: qsTr("Save")
                     onClicked: {
-                        dialog.accepted()
-                        close()
+                        if (scrollView.isCustom && cropper.visible && dialog.currentAvatar.length > 0) {
+                            cropper.cropToTemp(function (tmpFile) {
+                                if (tmpFile && tmpFile.length > 0) {
+                                    const saved = dccData.saveCustomAvatar(dialog.userId, tmpFile, dialog.currentAvatar)
+                                    if (saved && saved.length > 0) {
+                                        dialog.currentAvatar = saved
+                                    }
+                                }
+                                dialog.accepted()
+                                close()
+                            })
+                        } else {
+                            dialog.accepted()
+                            close()
+                        }
                     }
                 }
             }
