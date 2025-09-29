@@ -16,7 +16,6 @@ public:
     void terminate();
 signals:
     void pushScreensaver(const QList<WallpaperItemPtr> &items);
-    void pushThumbnail(const QString &item, const QPixmap &pix);
 public slots:
     void list();
 private:

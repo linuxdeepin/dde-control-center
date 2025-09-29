@@ -91,7 +91,7 @@ ScreensaverProvider::ScreensaverProvider(PersonalizationDBusProxy *proxy, Person
     workThread->start();
 
     const static QMap<QString, QMap<QString, QString>> picScreenSaverModesMap {
-        {"default", {{"picPath", "qrc:///icons/slideshow_default_preview.webp"}, {"thumbnail", "qrc:///icons/slideshow_default.dci"}}},
+        {"default", {{"picPath", "qrc:///icons/slideshow_default_preview.webp"}, {"thumbnail", "qrc:///icons/slideshow_default.png"}}},
     };
     QList<WallpaperItemPtr> items;
 
