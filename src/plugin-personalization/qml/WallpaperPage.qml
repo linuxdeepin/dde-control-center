@@ -111,73 +111,83 @@ DccObject {
         parentName: "personalization/wallpaper/wallpaperStatusGroup"
         weight: 300
         pageType: DccObject.Item
-        page: DccGroupView { isGroup: false }
+        page: DccGroupView {
+            Layout.alignment: Qt.AlignTop
+        }
 
         DccObject {
-            name: "wallpaperSetItemGroup"
+            name: "wallpaperType"
             parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup"
+            displayName: {
+                let cutUrl = dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
+                if (dccData.model.customWallpaperModel.hasWallpaper(cutUrl)) {
+                    return qsTr("My pictures")
+                } else if (dccData.model.sysWallpaperModel.hasWallpaper(cutUrl)) {
+                    return qsTr("System Wallpaper")
+                } else if (dccData.model.solidWallpaperModel.hasWallpaper(cutUrl)) {
+                    return qsTr("Solid color wallpaper")
+                } else {
+                    return qsTr("Customizable wallpapers")
+                }
+            }
+            canSearch: false
+            pageType: DccObject.Editor
             weight: 10
-            pageType: DccObject.Item
-            page: DccGroupView { }
+            onParentItemChanged: {
+                if (parentItem)
+                    parentItem.implicitHeight = 36
+            }
+        }
+        DccObject {
+            name: "fillStyle"
+            parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup"
+            displayName: qsTr("fill style")
+            visible: false
+            weight: 100
+            pageType: DccObject.Editor
+            page: D.ComboBox {
+                flat: true
+                model: ["adapt"]
+            }
 
-            DccObject {
-                name: "wallpaperType"
-                parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup/wallpaperSetItemGroup"
-                displayName: {
-                    let cutUrl = dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
-                    if (dccData.model.customWallpaperModel.hasWallpaper(cutUrl)) {
-                        return qsTr("My pictures")
-                    } else if (dccData.model.sysWallpaperModel.hasWallpaper(cutUrl)) {
-                        return qsTr("System Wallpaper")
-                    } else if (dccData.model.solidWallpaperModel.hasWallpaper(cutUrl)) {
-                        return qsTr("Solid color wallpaper")
-                    } else {
-                        return qsTr("Customizable wallpapers")
+            onParentItemChanged: {
+                if (parentItem)
+                    parentItem.implicitHeight = 36
+            }
+        }
+        DccObject {
+            name: "automaticWallpaper"
+            parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup"
+            displayName: qsTr("Automatic wallpaper change")
+            weight: 200
+            pageType: DccObject.Editor
+            page: CustomComboBox {
+                flat: true
+                textRole: "text"
+                currentIndex: indexByValue(dccData.model.wallpaperSlideShowMap[dccData.model.currentSelectScreen])
+                model: ListModel {
+                    ListElement { text: qsTr("never"); value: "" }
+                    ListElement { text: qsTr("30 second"); value: "30" }
+                    ListElement { text: qsTr("1 minute"); value: "60" }
+                    ListElement { text: qsTr("5 minute"); value: "300" }
+                    ListElement { text: qsTr("10 minute"); value: "600" }
+                    ListElement { text: qsTr("15 minute"); value: "900" }
+                    ListElement { text: qsTr("30 minute"); value: "1800" }
+                    ListElement { text: qsTr("1 hour"); value: "3600" }
+                    ListElement { text: qsTr("login"); value: "login" }
+                    ListElement { text: qsTr("wake up"); value: "wakeup" }
+                }
+                onCurrentIndexChanged: {
+                    if (indexByValue(dccData.model.wallpaperSlideShowMap[dccData.model.currentSelectScreen]) !== currentIndex) {
+                        dccData.worker.setWallpaperSlideShow(dccData.model.currentSelectScreen, model.get(currentIndex).value)
                     }
                 }
-                canSearch: false
-                pageType: DccObject.Editor
-                weight: 10
             }
-            DccObject {
-                name: "fillStyle"
-                parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup/wallpaperSetItemGroup"
-                displayName: qsTr("fill style")
-                visible: false
-                weight: 100
-                pageType: DccObject.Editor
-                page: D.ComboBox {
-                    flat: true
-                    model: ["adapt"]
-                }
-            }
-            DccObject {
-                name: "automaticWallpaper"
-                parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup/wallpaperSetItemGroup"
-                displayName: qsTr("Automatic wallpaper change")
-                weight: 200
-                pageType: DccObject.Editor
-                page: CustomComboBox {
-                    flat: true
-                    textRole: "text"
-                    currentIndex: indexByValue(dccData.model.wallpaperSlideShowMap[dccData.model.currentSelectScreen])
-                    model: ListModel {
-                        ListElement { text: qsTr("never"); value: "" }
-                        ListElement { text: qsTr("30 second"); value: "30" }
-                        ListElement { text: qsTr("1 minute"); value: "60" }
-                        ListElement { text: qsTr("5 minute"); value: "300" }
-                        ListElement { text: qsTr("10 minute"); value: "600" }
-                        ListElement { text: qsTr("15 minute"); value: "900" }
-                        ListElement { text: qsTr("30 minute"); value: "1800" }
-                        ListElement { text: qsTr("1 hour"); value: "3600" }
-                        ListElement { text: qsTr("login"); value: "login" }
-                        ListElement { text: qsTr("wake up"); value: "wakeup" }
-                    }
-                    onCurrentIndexChanged: {
-                        if (indexByValue(dccData.model.wallpaperSlideShowMap[dccData.model.currentSelectScreen]) !== currentIndex) {
-                            dccData.worker.setWallpaperSlideShow(dccData.model.currentSelectScreen, model.get(currentIndex).value)
-                        }
-                    }
+            onParentItemChanged: {
+                if (parentItem) {
+                    parentItem.implicitHeight = 36
+                    parentItem.rightItemTopMargin = 0
+                    parentItem.rightItemBottomMargin = 0
                 }
             }
         }
