@@ -46,6 +46,8 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
                 break;
             }
         }
+
+        Q_EMIT m_model->currentFormatChanged(DatetimeModel::LongTime);
     });
 
     connect(m_timedateInter, &DatetimeDBusProxy::NTPServerChanged, m_model, &DatetimeModel::setNtpServerAddress);
