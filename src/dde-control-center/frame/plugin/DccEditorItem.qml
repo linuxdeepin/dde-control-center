@@ -15,6 +15,8 @@ D.ItemDelegate {
     property real iconRadius: model.item.iconRadius ? model.item.iconRadius : 0
     property real iconSize: model.item.iconSize ? model.item.iconSize : 0
     property real leftPaddingSize: model.item.leftPaddingSize ? model.item.leftPaddingSize : 10
+    property real rightItemTopMargin: 5
+    property real rightItemBottomMargin: 5
 
     implicitHeight: Math.max(model.item.description.length !== 0 ? 48 : 40, implicitContentHeight) + topInset + bottomInset
     backgroundVisible: false
@@ -64,8 +66,8 @@ D.ItemDelegate {
         }
         Control {
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            Layout.topMargin: 5
-            Layout.bottomMargin: 5
+            Layout.topMargin: root.rightItemTopMargin
+            Layout.bottomMargin: root.rightItemBottomMargin
             enabled: model.item.enabledToApp
             opacity: enabled ? 1 : 0.4
             contentItem: rightItem ? rightItem : model.item.getSectionItem(this)
