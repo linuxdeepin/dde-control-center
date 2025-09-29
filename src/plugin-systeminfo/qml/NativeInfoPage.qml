@@ -157,13 +157,16 @@ DccObject {
                             showAlert = false
                         }
                     }
-                    
-                    onActiveFocusChanged: {
-                        if (!activeFocus && showAlert) {
-                            showAlert = false
+
+                    Connections {
+                        target: DccApp
+                        function onActiveObjectChanged(object) {
+                            if (hostNameEdit.showAlert) {
+                                hostNameEdit.showAlert = false
+                            }
                         }
                     }
-                    
+
                     onTextChanged: {
                         if (showAlert)
                             showAlert = false
