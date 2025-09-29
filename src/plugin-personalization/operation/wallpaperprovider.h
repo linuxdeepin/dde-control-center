@@ -64,7 +64,6 @@ signals:
 
 private slots:
     void setWallpaper(const QList<WallpaperItemPtr> &items, WallpaperType type = WallpaperType::Wallpaper_Sys);
-    void setThumbnail(WallpaperItemPtr item, const WallpaperType type, const QString &thumbnail);
     void pushWallpaper(WallpaperItemPtr item, WallpaperType type = WallpaperType::Wallpaper_Sys);
     void onWallpaperChangedFromDaemon(const QString &user, uint mode, const QStringList &paths);
 

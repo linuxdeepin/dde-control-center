@@ -63,7 +63,20 @@ void ImageTask::run()
 {
     QImage originalImage;
     QUrl url(m_id);
-    if (originalImage.load(url.toLocalFile())) {
+    QString scheme = url.scheme().toLower();
+
+    QString path;
+    if (scheme == "qrc") {
+        path = ":" + url.path();
+    }
+    else if (scheme == "file" || url.isLocalFile()) {
+        path = url.toLocalFile();
+    }
+    else {
+        path = url.toString();
+    }
+
+    if (originalImage.load(path)) {
         QImage scaledImage = originalImage.scaled(m_size, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         
         if (m_provider && m_response) {
