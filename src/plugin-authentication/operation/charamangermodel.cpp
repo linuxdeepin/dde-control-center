@@ -350,7 +350,6 @@ void CharaMangerModel::onEnrollIrisStatusChanged(int code, const QString &msg)
 void CharaMangerModel::onRefreshEnrollDate(const int &charaType)
 {
     if (charaType & FACE_CHARA) {
-        qWarning()<< "=======2" << this->facesList();
         Q_EMIT facesListChanged(this->facesList());
     }
 

@@ -114,7 +114,6 @@ public:
     QModelIndex itemIndex(WallpaperItemPtr item) const;
     void resetData(const QList<WallpaperItemPtr> &list);
     void updateSelected(const QStringList &selectedLists);
-    void setThumbnail(WallpaperItemPtr item, const QString &thumbnail);
 protected:
     QHash<int, QByteArray> roleNames() const override;
 private:

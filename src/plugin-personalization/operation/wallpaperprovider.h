@@ -7,9 +7,7 @@
 
 #include <QObject>
 #include <QPixmap>
-#include <QMutex>
 #include <QHash>
-#include <atomic>
 
 #include "operation/personalizationdbusproxy.h"
 #include "personalizationmodel.h"
@@ -38,7 +36,6 @@ public:
 signals:
     void pushBackground(const QList<WallpaperItemPtr> &items, WallpaperType type = WallpaperType::Wallpaper_Sys);
     void pushOneBackground(const WallpaperItemPtr items, WallpaperType type = WallpaperType::Wallpaper_Sys);
-    void thumbnailFinished(WallpaperItemPtr item, const WallpaperType type, const QString &thumbnail);
     void listFinished();
 public slots:
     void startListBackground(WallpaperType type = WallpaperType::Wallpaper_all);
@@ -48,7 +45,6 @@ private:
 private:
     PersonalizationDBusProxy *m_proxy = nullptr;
     std::atomic_bool m_running = false;
-    static QHash<QString, QString> g_thumbnailMap;
 };
 
 class WallpaperProvider : public QObject

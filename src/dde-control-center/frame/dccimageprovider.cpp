@@ -4,6 +4,7 @@
 #include "dccimageprovider.h"
 
 #include <QMutexLocker>
+#include <QMetaObject>
 
 namespace dccV25 {
 const QSize THUMBNAIL_ICON_SIZE(400, 300);
@@ -16,16 +17,18 @@ public:
     {
         QImage *img = provider->cacheImage(id, QSize(), this, requestedSize);
         if (img) {
-            setImage(img, requestedSize);
+            setImage(*img, requestedSize);
         }
     }
 
     QQuickTextureFactory *textureFactory() const override { return QQuickTextureFactory::textureFactoryForImage(m_image); }
 
-    void setImage(QImage *image, const QSize &requestedSize)
+    void setImage(const QImage &image, const QSize &requestedSize)
     {
-        m_image = requestedSize.isValid() ? image->scaled(requestedSize) : *image;
-        Q_EMIT finished();
+        QMetaObject::invokeMethod(this, [this, image, requestedSize]() {
+            m_image = requestedSize.isValid() ? image.scaled(requestedSize) : image;
+            Q_EMIT finished();
+        }, Qt::QueuedConnection);
     }
 
 private:
@@ -52,21 +55,25 @@ protected:
     QString m_id;
     QSize m_size;
     QSize m_requestedSize;
-    DccImageProvider *m_provider;
-    CacheImageResponse *m_response;
+    QPointer<DccImageProvider> m_provider;
+    QPointer<CacheImageResponse> m_response;
 };
 
 void ImageTask::run()
 {
-    QImage *image = new QImage();
+    QImage originalImage;
     QUrl url(m_id);
-    if (image->load(url.toLocalFile())) {
-        *image = image->scaled(m_size, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        if (m_provider->insert(m_id, image) && m_response) {
-            m_response->setImage(image, m_requestedSize);
+    if (originalImage.load(url.toLocalFile())) {
+        QImage scaledImage = originalImage.scaled(m_size, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+        
+        if (m_provider && m_response) {
+            QImage *heapImage = new QImage(std::move(scaledImage));
+            if (m_provider->insert(m_id, heapImage)) {
+                m_response->setImage(*heapImage, m_requestedSize);
+            } else {
+                delete heapImage;
+            }
         }
-    } else {
-        delete image;
     }
 }
 
@@ -75,6 +82,13 @@ DccImageProvider::DccImageProvider()
     , m_cache(80)
     , m_threadPool(new QThreadPool(this))
 {
+}
+
+DccImageProvider::~DccImageProvider()
+{
+    if (m_threadPool) {
+        m_threadPool->waitForDone();
+    }
 }
 
 QImage *DccImageProvider::cacheImage(const QString &id, const QSize &thumbnailSize)

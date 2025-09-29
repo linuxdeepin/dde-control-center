@@ -197,7 +197,7 @@ ColumnLayout {
                         anchors.centerIn : parent
                         width: 2
                         height: 2
-                        source: model.thumbnail
+                        source: "image://DccImage/" + model.thumbnail
                         fillMode: Image.Stretch
                         asynchronous: true
                     }
@@ -208,7 +208,7 @@ ColumnLayout {
                         width: root.imageRectW
                         height: root.imageRectH
                         sourceSize: Qt.size(width, height)
-                        source: model.thumbnail
+                        source: "image://DccImage/" + model.thumbnail
                         mipmap: true
                         visible: false
                         fillMode: Image.PreserveAspectCrop
