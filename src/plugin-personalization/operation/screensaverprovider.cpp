@@ -61,11 +61,12 @@ void ScreensaverWorker::list()
         items.append(temp);
 
         QString coverPath = m_proxy->GetScreenSaverCover(name);
+        const QString &thumbnail = QUrl::fromLocalFile(coverPath).toString();
         temp->url = name;
         temp->configurable = configurable.contains(name);
         temp->deleteAble = false;
         temp->picPath = coverPath;
-        temp->thumbnail = generateThumbnail(coverPath, QSize(THUMBNAIL_ICON_WIDTH, THUMBNAIL_ICON_HEIGHT));
+        temp->thumbnail = thumbnail;
 
         imgs.insert(name, coverPath);
     }

@@ -83,9 +83,6 @@ bool WallpaperModel::setData(const QModelIndex &index, const QVariant &value, in
             Q_EMIT dataChanged(index, index, {role});
 
         }
-    } else if (role == Item_Thumbnail_Role) {
-        items[index.row()]->thumbnail = value.toString();
-        Q_EMIT dataChanged(index, index, {role});
     }
 
     return QAbstractItemModel::setData(index, value, role);
@@ -176,16 +173,6 @@ void WallpaperModel::updateSelected(const QStringList &selectedLists)
         setData(cutIndex, 
             selectedLists.contains(data(cutIndex, Item_Url_Role).toString()), 
             Item_Selected_Role);
-    }
-}
-
-void WallpaperModel::setThumbnail(WallpaperItemPtr item, const QString &thumbnail)
-{
-    for (int i = 0; i < items.size(); ++i) {
-        if (items[i].get() == item.get()) {
-            setData(index(i, 0), thumbnail, Item_Thumbnail_Role);
-            break;
-        }
     }
 }
 

@@ -83,33 +83,4 @@ inline static QString currentUserName()
     return cutName;
 }
 
-inline static QString ImageToBase64(const QImage &image) {
-    QByteArray byteArray;
-    
-    QBuffer buffer(&byteArray);
-    buffer.open(QIODevice::WriteOnly);
-    
-    image.save(&buffer, "PNG");
-    
-    return QString("%1,%2").arg("data:image/png;base64").arg(byteArray.toBase64());
-}
-
-inline static QString generateThumbnail(const QImage &image, const QSize &size)
-{
-    QPixmap pix = QPixmap::fromImage(image.scaled(size, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation));
-    const QRect r(QPoint(0, 0), size);
-
-    if (pix.width() > size.width() || pix.height() > size.height())
-        pix = pix.copy(QRect(pix.rect().center() - r.center(), size));
-
-    return ImageToBase64(pix.toImage());
-}
-
-inline static QString generateThumbnail(const QString &path, const QSize &size)
-{
-    QImage image(path);
-
-    return generateThumbnail(image, size);
-}
-
 #endif // UTILS_H

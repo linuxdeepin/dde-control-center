@@ -18,8 +18,6 @@
 #include "operation/personalizationdbusproxy.h"
 #include "utils.hpp"
 
-QHash<QString, QString> InterfaceWorker::g_thumbnailMap;
-
 Q_LOGGING_CATEGORY(DdcPersonalizationWallpaperWorker, "dcc-personalization-wallpaper-worker")
 
 #define SYS_WALLPAPER_DIR "/usr/share/wallpapers/deepin"
@@ -44,7 +42,6 @@ WallpaperProvider::WallpaperProvider(PersonalizationDBusProxy *PersonalizationDB
     connect(m_worker, &InterfaceWorker::pushBackground, this, &WallpaperProvider::setWallpaper, Qt::QueuedConnection);
     connect(m_worker, &InterfaceWorker::pushOneBackground, this, &WallpaperProvider::pushWallpaper, Qt::QueuedConnection);
     connect(m_worker, &InterfaceWorker::listFinished, this, &WallpaperProvider::fetchFinish);
-    connect(m_worker, &InterfaceWorker::thumbnailFinished, this, &WallpaperProvider::setThumbnail);
 
     connect(m_personalizationProxy, &PersonalizationDBusProxy::WallpaperChanged, this, &WallpaperProvider::onWallpaperChangedFromDaemon);
 }
@@ -119,23 +116,6 @@ void WallpaperProvider::pushWallpaper(WallpaperItemPtr item, WallpaperType type)
             break;
     }
     emit fetchFinish();
-}
-
-void WallpaperProvider::setThumbnail(WallpaperItemPtr item, const WallpaperType type, const QString &thumbnail)
-{
-    switch (type) {
-        case WallpaperType::Wallpaper_Sys:
-            m_model->getSysWallpaperModel()->setThumbnail(item, thumbnail);
-            break;
-        case WallpaperType::Wallpaper_Custom:
-            m_model->getCustomWallpaperModel()->setThumbnail(item, thumbnail);
-            break;
-        case WallpaperType::Wallpaper_Solid:
-            m_model->getSolidWallpaperModel()->setThumbnail(item, thumbnail);
-            break;
-        default:
-            break;
-    }
 }
 
 WallpaperType WallpaperProvider::getWallpaperType(const QString &path)
@@ -231,6 +211,7 @@ void WallpaperProvider::onWallpaperChangedFromDaemon(const QString &user, uint m
 
 WallpaperItemPtr InterfaceWorker::createItem(const QString &path, bool del, WallpaperType type)
 {
+    Q_UNUSED(type)
     if (path.isEmpty())
         return {};
 
@@ -244,43 +225,11 @@ WallpaperItemPtr InterfaceWorker::createItem(const QString &path, bool del, Wall
         url = QUrl::fromLocalFile(path);
         fileInfo = QFileInfo(path);
     }
-
+    const QString &thumbnail = url.toString();
+    
     auto ptr =  WallpaperItemPtr(new WallpaperItem{url.toString(), url.toString()
-        , "", del, fileInfo.lastModified().toMSecsSinceEpoch(), false, false});
+        , thumbnail, del, fileInfo.lastModified().toMSecsSinceEpoch(), false, false});
 
-    static QMutex thumbnailMutex;
-    QString thumbnail;
-    {
-        QMutexLocker locker(&thumbnailMutex);
-        auto iter = g_thumbnailMap.find(url.toString());
-        if (iter != g_thumbnailMap.end()) {
-            thumbnail = iter.value();
-        }
-    }
-
-    if (!thumbnail.isEmpty()) {
-        ptr->thumbnail = thumbnail;
-    } else {
-        QSharedPointer<WallpaperItem> safePtr(ptr);
-
-        (void)QtConcurrent::run([this, safePtr, type, url]() {
-            if (!safePtr) return;
-
-            const QString localPath = url.toLocalFile();
-            const auto thumbnail = generateThumbnail(localPath, QSize(THUMBNAIL_ICON_WIDTH, THUMBNAIL_ICON_HEIGHT));
-            QMetaObject::invokeMethod(this, [this, safePtr, type, thumbnail]() {
-                if (!safePtr) return;
-
-                {
-                    QMutexLocker locker(&thumbnailMutex);
-                    g_thumbnailMap.insert(safePtr->url, thumbnail);
-                }
-
-                safePtr->thumbnail = thumbnail;
-                Q_EMIT thumbnailFinished(safePtr, type, thumbnail);
-            }, Qt::QueuedConnection);
-        });
-    }
     return ptr;
 }
 

@@ -17,6 +17,7 @@ class DccImageProvider : public QQuickAsyncImageProvider
     Q_OBJECT
 public:
     explicit DccImageProvider();
+    ~DccImageProvider();
 
     QImage *cacheImage(const QString &id, const QSize &thumbnailSize);
     QImage *cacheImage(const QString &id, const QSize &thumbnailSize, CacheImageResponse *response, const QSize &requestedSize);
