@@ -38,6 +38,7 @@ public slots:
     QString avatar(const QString &id) const;
     void setAvatar(const QString &id, const QString &url);
     QStringList avatars(const QString &id, const QString &filter, const QString &section);
+    QString saveCustomAvatar(const QString &id, const QString &tempFile, const QString &originalFile = QString());
     QString userName(const QString &id) const;
     QString fullName(const QString &id) const;
     void setFullname(const QString &id, const QString &name);
@@ -94,6 +95,9 @@ public slots:
     void playSystemSound(int soundType);
 
     void updateSingleUserGroups(const QString &id);
+
+    QString customAvatarFromCache() const;
+    void deleteUserIcon(const QString &id, const QString &iconFile);
 
 signals:
     void currentUserNameChanged();

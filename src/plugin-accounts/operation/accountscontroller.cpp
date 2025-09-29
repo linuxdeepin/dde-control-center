@@ -7,8 +7,11 @@
 #include "avatarlistmodel.h"
 #include "dccfactory.h"
 #include "accountlistmodel.h"
+#include <qlogging.h>
 
 #include <QFileInfo>
+#include <QDir>
+#include <QStandardPaths>
 #include <QPainter>
 #include <QUrl>
 #include <QVariantMap>
@@ -107,7 +110,12 @@ AccountsController::~AccountsController() { }
 QString AccountsController::avatar(const QString &id) const
 {
     User *user = m_model->getUser(id);
-    return user ? user->currentAvatar() : QString();
+    if (!user)
+        return QString();
+    const QString cur = user->currentAvatar();
+    if (QFileInfo(cur).isAbsolute())
+        return QUrl::fromLocalFile(cur).toString();
+    return cur;
 }
 
 void AccountsController::setAvatar(const QString &id, const QString &url)
@@ -122,6 +130,29 @@ QStringList AccountsController::avatars(const QString &id, const QString &filter
     if (!user)
         return {};
 
+    if (filter.contains("icons/local")) {
+        QStringList res;
+        const QString addBtn = "add";
+
+        const QString cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+        if (!cacheDir.isEmpty()) {
+            const QString avatarsDir = cacheDir + QDir::separator() + "avatars";
+            QDir dir(avatarsDir);
+            if (dir.exists()) {
+                QStringList files = dir.entryList(QStringList() << "*.png" << "*.jpg" << "*.jpeg" << "*.bmp", QDir::Files, QDir::Time);
+                for (const QString &f : files) {
+                    const QString full = dir.absoluteFilePath(f);
+                    const QFileInfo fi(full);
+                    res << (QUrl::fromLocalFile(full).toString());
+                }
+            }
+        }
+
+        res.removeDuplicates();
+        res.prepend(addBtn);
+        return res;
+    }
+
     QStringList res;
     const auto &list = user->avatars();
     std::copy_if(list.begin(), list.end(), std::back_inserter(res),
@@ -130,22 +161,50 @@ QStringList AccountsController::avatars(const QString &id, const QString &filter
         const QString subPath = section.isEmpty() ? "" : section + "/";
         return exists && iconFile.contains(filter + "/" + subPath);
     });
-
-    std::sort(res.begin(), res.end(), [=](const QString &path1, const QString &path2){
-        return path1 < path2;
-    });
-
-    if (filter.contains("icons/local")) {
-        res.prepend("add"); // add button...
-    }
-
+    std::sort(res.begin(), res.end(), [=](const QString &path1, const QString &path2){ return path1 < path2; });
     return res;
+}
+
+QString AccountsController::saveCustomAvatar(const QString &id, const QString &tempFile, const QString &originalFile)
+{
+    User *user = m_model->getUser(id);
+    if (!user)
+        return QString();
+    return m_worker->saveCustomAvatar(tempFile, originalFile);
+}
+
+void AccountsController::deleteUserIcon(const QString &id, const QString &iconFile)
+{
+    User *user = m_model->getUser(id);
+    if (!user)
+        return;
+    const QString local = QUrl(iconFile).toLocalFile();
+    if (local.isEmpty())
+        return;
+    m_worker->deleteUserIcon(user, local);
 }
 
 QString AccountsController::userName(const QString &id) const
 {
     User *user = m_model->getUser(id);
     return user ? user->name() : QString();
+}
+
+QString AccountsController::customAvatarFromCache() const
+{
+    const QString cacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
+    if (cacheDir.isEmpty()) return QString();
+    const QString marker = cacheDir + QDir::separator() + "avatars" + QDir::separator() + "current";
+    QFile mf(marker);
+    if (!mf.exists()) return QString();
+    if (!mf.open(QIODevice::ReadOnly | QIODevice::Text)) return QString();
+    const QString fileName = QString::fromUtf8(mf.readAll()).trimmed();
+    mf.close();
+    if (fileName.isEmpty()) return QString();
+    const QString abs = cacheDir + QDir::separator() + "avatars" + QDir::separator() + fileName;
+    QFileInfo fi(abs);
+    if (!fi.exists()) return QString();
+    return QUrl::fromLocalFile(abs).toString();
 }
 
 QString AccountsController::fullName(const QString &id) const
