@@ -43,6 +43,7 @@ public:
     QString getCurrentUserName();
     void updateGroupinfo();
     QDBusPendingReply<bool, QString, int> isUsernameValid(const QString &name);
+    QString saveCustomAvatar(const QString &tempFile, const QString &originalFile = QString());
 
 Q_SIGNALS:
     void accountCreationFinished(CreationResult *result) const;
