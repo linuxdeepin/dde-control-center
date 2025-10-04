@@ -3182,7 +3182,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation>Altura da barra do título</translation>
+        <translation>Altura da barra de título</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
