@@ -783,7 +783,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation>Repetir atraso</translation>
+        <translation>Atraso de repetição</translation>
     </message>
     <message>
         <source>Short</source>
@@ -3885,7 +3885,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Keyboard layout</source>
-        <translation>Layout do teclado</translation>
+        <translation>Layout de teclado</translation>
     </message>
     <message>
         <source>Set system default keyboard layout</source>
