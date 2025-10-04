@@ -850,7 +850,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Small size</source>
-        <translation>Tamanho pequeno</translation>
+        <translation>Pequeno</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
