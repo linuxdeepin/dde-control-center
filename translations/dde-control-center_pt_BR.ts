@@ -362,7 +362,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation>Quando o botão de energia for pressionado</translation>
+        <translation>Quando o botão de energia é pressionado</translation>
     </message>
     <message>
         <source>Low Battery</source>
@@ -2171,7 +2171,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation>Quando o botão de energia for pressionado</translation>
+        <translation>Quando o botão de energia é pressionado</translation>
     </message>
 </context>
 <context>
