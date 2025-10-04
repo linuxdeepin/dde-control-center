@@ -1681,11 +1681,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation>Desempenho ideal</translation>
+        <translation>Alto desempenho</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation>Balanceado</translation>
+        <translation>Equilibrado</translation>
     </message>
     <message>
         <source>Best Visuals</source>
@@ -2182,7 +2182,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation>Modo balanceado</translation>
+        <translation>Equilibrado</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
@@ -2190,7 +2190,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balanced</source>
-        <translation>Balanceado</translation>
+        <translation>Equilibrado</translation>
     </message>
     <message>
         <source>Power Saver</source>
