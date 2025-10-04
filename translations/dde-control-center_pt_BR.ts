@@ -342,7 +342,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Tela e Suspensão</translation>
+        <translation>Tela e suspensão</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
@@ -354,7 +354,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>A atividade do computador será suspensa após </translation>
+        <translation>O computador será suspenso após</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -2151,7 +2151,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Tela e Suspensão</translation>
+        <translation>Tela e suspensão</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
