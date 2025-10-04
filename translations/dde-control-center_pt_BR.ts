@@ -3619,11 +3619,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation>Página Web</translation>
+        <translation>Página da web</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation>Email</translation>
+        <translation>Cliente de e-mail</translation>
     </message>
     <message>
         <source>Text</source>
