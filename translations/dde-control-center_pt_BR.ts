@@ -4285,7 +4285,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>Ver o contrato de licença do usuário final</translation>
+        <translation>Leia o contrato de licença do usuário final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
@@ -4293,7 +4293,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>Ver informações sobre a política de privacidade</translation>
+        <translation>Leia as informações sobre a política de privacidade</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
