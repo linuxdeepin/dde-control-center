@@ -2322,7 +2322,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation>centro de controle dde</translation>
+        <translation>dde-control-center</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
@@ -4068,7 +4068,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Notification Center</source>
-        <translation>Centro de Notificação</translation>
+        <translation>Central de notificações</translation>
     </message>
     <message>
         <source>Show message preview</source>
