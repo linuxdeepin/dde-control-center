@@ -4261,7 +4261,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Sobre este PC</translation>
+        <translation>Sobre</translation>
     </message>
     <message>
         <source>System version, device information</source>
