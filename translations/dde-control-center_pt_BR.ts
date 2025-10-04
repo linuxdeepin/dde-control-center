@@ -1939,7 +1939,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer name</source>
-        <translation>Nome do computador</translation>
+        <translation>Computador</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
@@ -1947,7 +1947,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>OS Name</source>
-        <translation>Nome do OS</translation>
+        <translation>Sistema operacional</translation>
     </message>
     <message>
         <source>Version</source>
@@ -1959,7 +1959,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Type</source>
-        <translation>Tipo</translation>
+        <translation>Arquitetura</translation>
     </message>
     <message>
         <source>bit</source>
@@ -1975,7 +1975,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Kernel</source>
-        <translation>Núcleo</translation>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
