@@ -489,7 +489,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>grub start delay</source>
-        <translation>atraso no início do grub</translation>
+        <translation>Atrasar inicialização</translation>
     </message>
     <message>
         <source>theme</source>
@@ -846,7 +846,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation>Tamanho grande</translation>
+        <translation>Grande</translation>
     </message>
     <message>
         <source>Small size</source>
