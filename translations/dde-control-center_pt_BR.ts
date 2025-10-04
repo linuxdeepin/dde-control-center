@@ -1545,11 +1545,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Standard Font</source>
-        <translation>Fonte Padrão</translation>
+        <translation>Fonte padrão</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation>Fonte Monoespaçada</translation>
+        <translation>Fonte monoespaçada</translation>
     </message>
 </context>
 <context>
@@ -4126,7 +4126,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation>Papel de Parede</translation>
+        <translation>Papel de parede</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
