@@ -95,31 +95,31 @@
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Zhbëje</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Ribëje</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"/>
+        <translation>Prije</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>Kopjoje</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"/>
+        <translation>Ngjite</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Përzgjidhi Krejt</translation>
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation>Hyrje e shpejtë</translation>
     </message>
 </context>
 <context>
@@ -243,11 +243,11 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>Jepni Bebe Syri</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>E kam lexuar dhe pajtohem me</translation>
     </message>
     <message>
         <source>Disclaimer</source>

@@ -342,7 +342,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Tela e Suspensão</translation>
+        <translation>Tela e suspensão</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
@@ -354,7 +354,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>A atividade do computador será suspensa após </translation>
+        <translation>O computador será suspenso após</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -362,7 +362,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation>Quando o botão de energia for pressionado</translation>
+        <translation>Quando o botão de energia é pressionado</translation>
     </message>
     <message>
         <source>Low Battery</source>
@@ -489,7 +489,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>grub start delay</source>
-        <translation>atraso no início do grub</translation>
+        <translation>Atrasar inicialização</translation>
     </message>
     <message>
         <source>theme</source>
@@ -783,7 +783,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation>Repetir atraso</translation>
+        <translation>Atraso de repetição</translation>
     </message>
     <message>
         <source>Short</source>
@@ -846,11 +846,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation>Tamanho grande</translation>
+        <translation>Grande</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation>Tamanho pequeno</translation>
+        <translation>Pequeno</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
@@ -1099,7 +1099,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Símbolo da moeda</translation>
+        <translation>Símbolo de moeda</translation>
     </message>
     <message>
         <source>Positive currency</source>
@@ -1237,7 +1237,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation>Sincronização na nuvem</translation>
+        <translation>Cloud</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
@@ -1545,11 +1545,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Standard Font</source>
-        <translation>Fonte Padrão</translation>
+        <translation>Fonte padrão</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation>Fonte Monoespaçada</translation>
+        <translation>Fonte monoespaçada</translation>
     </message>
 </context>
 <context>
@@ -1681,15 +1681,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation>Desempenho ideal</translation>
+        <translation>Alto desempenho</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation>Balanceado</translation>
+        <translation>Equilibrado</translation>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation>Melhores visuais</translation>
+        <translation>Visuais aprimorados</translation>
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
@@ -1708,7 +1708,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>KeyboardLayout</name>
     <message>
         <source>Keyboard layout</source>
-        <translation>Layout do teclado</translation>
+        <translation>Layout de teclado</translation>
     </message>
     <message>
         <source>done</source>
@@ -1731,7 +1731,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation>Linguagem</translation>
+        <translation>Idioma</translation>
     </message>
     <message>
         <source>done</source>
@@ -1755,7 +1755,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Area</source>
-        <translation>Área</translation>
+        <translation>País ou região</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
@@ -1928,7 +1928,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation>Meus Dispositivos</translation>
+        <translation>Dispositivos pareados</translation>
     </message>
 </context>
 <context>
@@ -1939,7 +1939,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer name</source>
-        <translation>Nome do computador</translation>
+        <translation>Computador</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
@@ -1947,7 +1947,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>OS Name</source>
-        <translation>Nome do OS</translation>
+        <translation>Sistema operacional</translation>
     </message>
     <message>
         <source>Version</source>
@@ -1959,7 +1959,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Type</source>
-        <translation>Tipo</translation>
+        <translation>Arquitetura</translation>
     </message>
     <message>
         <source>bit</source>
@@ -1975,11 +1975,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Kernel</source>
-        <translation>Núcleo</translation>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation>Plataforma gráfica</translation>
+        <translation>Servidor de exibição</translation>
     </message>
     <message>
         <source>Processor</source>
@@ -1987,7 +1987,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Memory</source>
-        <translation>Memória</translation>
+        <translation>Memória RAM</translation>
     </message>
     <message>
         <source>1~63 characters please</source>
@@ -2151,7 +2151,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Tela e Suspensão</translation>
+        <translation>Tela e suspensão</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
@@ -2163,7 +2163,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Após o computador entrar em modo de suspensão</translation>
+        <translation>O computador será suspenso após</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -2171,7 +2171,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation>Quando o botão de energia for pressionado</translation>
+        <translation>Quando o botão de energia é pressionado</translation>
     </message>
 </context>
 <context>
@@ -2182,7 +2182,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation>Modo balanceado</translation>
+        <translation>Equilibrado</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
@@ -2190,7 +2190,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balanced</source>
-        <translation>Balanceado</translation>
+        <translation>Equilibrado</translation>
     </message>
     <message>
         <source>Power Saver</source>
@@ -2213,7 +2213,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation>Minutos</translation>
+        <translation>minutos</translation>
     </message>
     <message>
         <source>Hour</source>
@@ -2298,7 +2298,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View</source>
-        <translation>Visualizar</translation>
+        <translation>Exibir</translation>
     </message>
     <message>
         <source>To be activated</source>
@@ -2322,7 +2322,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation>centro de controle dde</translation>
+        <translation>dde-control-center</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
@@ -2374,7 +2374,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Símbolo da moeda</translation>
+        <translation>Símbolo de moeda</translation>
     </message>
     <message>
         <source>Digit</source>
@@ -2808,7 +2808,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation>Sincronizar hora automaticamente</translation>
+        <translation>Sincronização automática de horário</translation>
     </message>
     <message>
         <source>Ntp server</source>
@@ -3134,7 +3134,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
-        <translation>Habilitar efeitos transparentes quando as janelas se moverem</translation>
+        <translation>Transparência ao mover as janelas</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
@@ -3182,7 +3182,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation>Altura da barra do título</translation>
+        <translation>Altura da barra de título</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
@@ -3306,7 +3306,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Opções de Desenvolvedor</translation>
+        <translation>Opções de desenvolvedor</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
@@ -3619,11 +3619,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation>Página Web</translation>
+        <translation>Página da web</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation>Email</translation>
+        <translation>Cliente de e-mail</translation>
     </message>
     <message>
         <source>Text</source>
@@ -3650,7 +3650,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation>Dispositivo</translation>
+        <translation>Dispositivos</translation>
     </message>
 </context>
 <context>
@@ -3796,7 +3796,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation>Conforto para os olhos</translation>
+        <translation>Conforto ocular</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
@@ -3885,7 +3885,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Keyboard layout</source>
-        <translation>Layout do teclado</translation>
+        <translation>Layout de teclado</translation>
     </message>
     <message>
         <source>Set system default keyboard layout</source>
@@ -3912,7 +3912,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Dock size</source>
-        <translation>Tamanho da dock</translation>
+        <translation>Tamanho do dock</translation>
     </message>
     <message>
         <source>Small</source>
@@ -3944,7 +3944,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Status</source>
-        <translation>Status</translation>
+        <translation>Visibilidade</translation>
     </message>
     <message>
         <source>Keep shown</source>
@@ -3952,11 +3952,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>Manter escondido</translation>
+        <translation>Sempre ocultar</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>Ocultação inteligente</translation>
+        <translation>Ocultar automaticamente</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
@@ -3984,7 +3984,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation>Bloquear a Dock</translation>
+        <translation>Bloquear dock</translation>
     </message>
 </context>
 <context>
@@ -4068,7 +4068,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Notification Center</source>
-        <translation>Centro de Notificação</translation>
+        <translation>Central de notificações</translation>
     </message>
     <message>
         <source>Show message preview</source>
@@ -4126,7 +4126,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation>Papel de Parede</translation>
+        <translation>Papel de parede</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
@@ -4261,7 +4261,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Sobre este PC</translation>
+        <translation>Sobre</translation>
     </message>
     <message>
         <source>System version, device information</source>
@@ -4269,7 +4269,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>Ver aviso de software de código aberto</translation>
+        <translation>Leia o aviso de software livre</translation>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -4285,7 +4285,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>Ver o contrato de licença do usuário final</translation>
+        <translation>Leia o contrato de licença do usuário final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
@@ -4293,11 +4293,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>Ver informações sobre a política de privacidade</translation>
+        <translation>Leia as informações sobre a política de privacidade</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>Aviso de Software de Código Aberto</translation>
+        <translation>Aviso de software livre</translation>
     </message>
 </context>
 <context>

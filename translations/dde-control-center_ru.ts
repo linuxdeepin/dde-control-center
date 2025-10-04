@@ -546,7 +546,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>root</source>
-        <translation>корень</translation>
+        <translation>root</translation>
     </message>
     <message>
         <source>New Password :</source>
@@ -574,7 +574,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Sure</source>
-        <translation>Уверенно</translation>
+        <translation>Уверен</translation>
     </message>
     <message>
         <source>Start animation</source>
@@ -636,7 +636,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Scan failed</source>
-        <translation>Сcan failed</translation>
+        <translation>Сканирование не удалось</translation>
     </message>
     <message>
         <source>The fingerprint already exists</source>
@@ -656,7 +656,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cannot recognize</source>
-        <translation>Не могу распознать</translation>
+        <translation>Не получилось распознать</translation>
     </message>
     <message>
         <source>Moved too fast</source>
@@ -832,7 +832,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>test here</source>
-        <translation>тест здесь</translation>
+        <translation>проверить здесь</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
@@ -1014,7 +1014,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Мы глубоко осознаем важность вашей персональной информации для вас. Поэтому у нас есть Политика конфиденциальности, которая описывает, как мы собираем, используем, делятся, передаем, публично раскрываем и храним вашу информацию.&lt;/p&gt;&lt;p&gt;Вы можете &lt;a href=&quot;%1&quot;&gt;нажать здесь&lt;/a&gt;, чтобы просмотреть нашу последнюю политику конфиденциальности и/или посетить ее онлайн, перейдя по ссылке &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Пожалуйста, внимательно прочитайте и полностью понимайте наши практики по защите конфиденциальности клиентов. Если у вас есть вопросы, пожалуйста, свяжитесь с нами по адресу: support@uniontech.com.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;Мы глубоко осознаем важность вашей личной информации для вас. Таким образом, у нас есть Политика Конфиденциальности, в которой описано, как мы собираем, используем, передаем, публично раскрываем и храним вашу информацию.&lt;/p&gt;&lt;p&gt;Вы можете &lt;a href=&quot;%1&quot;&gt;нажать здесь, чтобы просмотреть нашу последнюю политику конфиденциальности и/или просмотреть ее онлайн, посетив &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Пожалуйста, внимательно прочитайте и полностью поймите нашу работу по конфиденциальности клиентов. Если у Вас возникли какие-либо вопросы, пожалуйста, свяжитесь с нами по адресу: support@uniontech.com. &lt;/p&gt;</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
@@ -1084,11 +1084,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation>%1 часов раньше местного времени</translation>
+        <translation>На %1 ч. раньше местного</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation>%1 часов позже местного времени</translation>
+        <translation>На %1 ч. позже местного</translation>
     </message>
     <message>
         <source>Space</source>
@@ -1104,19 +1104,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Short date</source>
-        <translation>Короткий формат даты</translation>
+        <translation>Короткая дата</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation>Длинный формат даты</translation>
+        <translation>Длинная дата</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation>Короткий формат времени</translation>
+        <translation>Короткое время</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation>Длинный формат времени</translation>
+        <translation>Длинное время</translation>
     </message>
     <message>
         <source>Currency symbol</source>
@@ -1275,7 +1275,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation>Авто синхронизация</translation>
+        <translation>Авто-cинхронизация</translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
@@ -1299,8 +1299,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation>Данные, после очистки, не могут быть восстановлены!
-</translation>
+        <translation>После очистки данные не могут быть восстановлены!</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1704,7 +1703,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation>Оптимальное производительность</translation>
+        <translation>Оптимальная производительность</translation>
     </message>
     <message>
         <source>Balance</source>
@@ -1901,7 +1900,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input Device</source>
-        <translation>Входное устройство</translation>
+        <translation>Устройство ввода</translation>
     </message>
 </context>
 <context>
@@ -2727,11 +2726,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Removable device connected</source>
-        <translation>Удаляемое устройство подключено</translation>
+        <translation>Съемное устройство подключено</translation>
     </message>
     <message>
         <source>Removable device removed</source>
-        <translation>Удаляемое устройство выведено</translation>
+        <translation>Съемное устройство отключено</translation>
     </message>
     <message>
         <source>Error</source>
@@ -2824,7 +2823,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation>Больше обоя</translation>
+        <translation>Больше обоев</translation>
     </message>
 </context>
 <context>
@@ -3951,19 +3950,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Top</source>
-        <translation>Верх</translation>
+        <translation>Сверху</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Низ</translation>
+        <translation>Снизу</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation>Лево</translation>
+        <translation>Слева</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Право</translation>
+        <translation>Справа</translation>
     </message>
     <message>
         <source>Status</source>
@@ -3971,11 +3970,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Запомнить показ</translation>
+        <translation>Отобразить</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>Запомнить скрытие</translation>
+        <translation>Скрыть</translation>
     </message>
     <message>
         <source>Smart hide</source>
