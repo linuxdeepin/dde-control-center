@@ -2163,7 +2163,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Após o computador entrar em modo de suspensão</translation>
+        <translation>O computador será suspenso após</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -2213,7 +2213,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation>Minutos</translation>
+        <translation>minutos</translation>
     </message>
     <message>
         <source>Hour</source>
