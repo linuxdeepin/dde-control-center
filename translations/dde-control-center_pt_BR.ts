@@ -1708,7 +1708,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>KeyboardLayout</name>
     <message>
         <source>Keyboard layout</source>
-        <translation>Layout do teclado</translation>
+        <translation>Layout de teclado</translation>
     </message>
     <message>
         <source>done</source>
@@ -1928,7 +1928,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation>Meus Dispositivos</translation>
+        <translation>Dispositivos pareados</translation>
     </message>
 </context>
 <context>
