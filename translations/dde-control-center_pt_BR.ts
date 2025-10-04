@@ -2808,7 +2808,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation>Sincronizar hora automaticamente</translation>
+        <translation>Sincronização automática de horário</translation>
     </message>
     <message>
         <source>Ntp server</source>
