@@ -1979,7 +1979,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation>Plataforma gráfica</translation>
+        <translation>Servidor de exibição</translation>
     </message>
     <message>
         <source>Processor</source>
@@ -1987,7 +1987,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Memory</source>
-        <translation>Memória</translation>
+        <translation>Memória RAM</translation>
     </message>
     <message>
         <source>1~63 characters please</source>
