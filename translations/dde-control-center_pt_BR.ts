@@ -4297,7 +4297,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>Aviso de Software de Código Aberto</translation>
+        <translation>Aviso de software livre</translation>
     </message>
 </context>
 <context>
