@@ -3650,7 +3650,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation>Dispositivo</translation>
+        <translation>Dispositivos</translation>
     </message>
 </context>
 <context>
