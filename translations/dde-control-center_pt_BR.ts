@@ -4269,7 +4269,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>Ver aviso de software de código aberto</translation>
+        <translation>Leia o aviso de software livre</translation>
     </message>
     <message>
         <source>User Experience Program</source>
