@@ -1099,7 +1099,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Símbolo da moeda</translation>
+        <translation>Símbolo de moeda</translation>
     </message>
     <message>
         <source>Positive currency</source>
@@ -1755,7 +1755,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Area</source>
-        <translation>Área</translation>
+        <translation>País ou região</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
@@ -2374,7 +2374,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Símbolo da moeda</translation>
+        <translation>Símbolo de moeda</translation>
     </message>
     <message>
         <source>Digit</source>
