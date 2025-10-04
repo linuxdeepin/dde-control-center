@@ -3306,7 +3306,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Opções de Desenvolvedor</translation>
+        <translation>Opções de desenvolvedor</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
