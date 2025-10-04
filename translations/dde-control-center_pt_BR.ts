@@ -1731,7 +1731,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation>Linguagem</translation>
+        <translation>Idioma</translation>
     </message>
     <message>
         <source>done</source>
