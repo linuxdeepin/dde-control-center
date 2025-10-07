@@ -962,15 +962,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation>Emri i përdoruesit s’mund të jetë më i gjatë se 32 64 shenja</translation>
+        <translation>Emri i përdoruesit s’mund të jetë më i gjatë se 32 shenja</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>Emri i përdoruesit mund të përmbajnë vetëm shkronja, numra, - dhe _</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Emri i plotë s’mund të jetë më i gjatë se 32 shenja</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
