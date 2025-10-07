@@ -259,15 +259,15 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>U bë</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Anuloje</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Riprovoni Dhënien</translation>
     </message>
     <message>
         <source>Iris enrolled</source>
@@ -849,11 +849,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Të përgjithshme</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Shpejtësi Rrëshqitjeje</translation>
     </message>
 </context>
 <context>
@@ -962,7 +962,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Emri i përdoruesit s’mund të jetë më i gjatë se 32 64 shenja</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
