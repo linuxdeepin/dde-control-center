@@ -2583,7 +2583,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Ruaje</translation>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
@@ -2982,7 +2982,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gjeste</translation>
     </message>
 </context>
 <context>
@@ -3099,7 +3099,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Sfonde Sistemi</translation>
     </message>
 </context>
 <context>
@@ -3302,7 +3302,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
