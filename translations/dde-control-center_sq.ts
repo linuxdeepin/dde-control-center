@@ -974,7 +974,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation>Emri i plotë s’mund të përmbajë pikëpresje</translation>
     </message>
 </context>
 <context>
@@ -985,7 +985,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation>Lloji i kartelës së ngarkuar është i pasaktë, ju lutemi, ringarkojeni</translation>
     </message>
 </context>
 <context>
@@ -1141,7 +1141,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Shembull</translation>
     </message>
 </context>
 <context>
@@ -1323,14 +1323,14 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>Nofka duhet të jetë 1~32 shenja e gjatë</translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"/>
+        <translation>fshehtëzimi i fjalëkalimit dështoi</translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
@@ -1346,7 +1346,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>Nofka mund të ndryshohet vetëm një herë në ditë</translation>
     </message>
 </context>
 <context>
