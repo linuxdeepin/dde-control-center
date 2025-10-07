@@ -1495,7 +1495,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. ju lutemi, kaloni te %1 që të Shkarkoni dëshmi jashtë linje.</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
@@ -1782,7 +1782,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Format rajonal</translation>
     </message>
 </context>
 <context>
@@ -1820,11 +1820,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Add new keyboard layout</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni skemë të re tastiere</translation>
     </message>
     <message>
         <source>Current language keyboard layouts</source>
-        <translation type="unfinished"/>
+        <translation>Skema të tanishme tastiere gjuhe</translation>
     </message>
 </context>
 <context>
@@ -1855,7 +1855,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Ricaktoni fjalëkalimin</translation>
     </message>
 </context>
 <context>
@@ -2068,7 +2068,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalim i ri</translation>
     </message>
     <message>
         <source>Different from the username</source>
