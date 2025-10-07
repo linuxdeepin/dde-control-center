@@ -1407,7 +1407,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Allowed</source>
-        <translation type="unfinished"/>
+        <translation>E lejuar</translation>
     </message>
     <message>
         <source>Enter</source>
@@ -1487,11 +1487,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Keni kaluar në mënyrën zhvillim</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
