@@ -1483,11 +1483,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Që të instaloni dhe xhironi aplikacione të panënshkruar, ju lutemi, kaloni te &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Qendër Sigurie &lt;/a&gt; që të ndryshoni rregullimet.</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Që të instaloni dhe xhironi aplikacione të panënshkruar, ju lutemi, kaloni te Qendër Sigurie, që të ndryshoni rregullimet.</translation>
     </message>
     <message>
         <source>You have entered developer mode</source>
@@ -1503,7 +1503,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>Kjo veçori s’është e passhme tani, ju lutemi, së pari aktivizoni sistemin tuaj</translation>
     </message>
 </context>
 <context>
@@ -1646,23 +1646,23 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Sipër me tre gishta</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Poshtë me tre gishta</translation>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Majtas me tre gishta</translation>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Djathtas me tre gishtash</translation>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Prekje me tre gishta</translation>
     </message>
     <message>
         <source>Four-finger up</source>
