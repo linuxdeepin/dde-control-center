@@ -3095,7 +3095,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Sfond Live</translation>
     </message>
     <message>
         <source>1 hour</source>
@@ -3329,7 +3329,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Mundësi diagnostikimi për zhviluesit</translation>
     </message>
 </context>
 <context>
@@ -3348,7 +3348,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Gjuhë sistemi, formate rajonale</translation>
     </message>
 </context>
 <context>
