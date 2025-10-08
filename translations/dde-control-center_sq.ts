@@ -3351,18 +3351,18 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>dcc::Locale::dialectNames</name>
     <message>
         <source>Traditional Chinese (Chinese Hong Kong)</source>
-        <translation type="unfinished"/>
+        <translation>Kineze Tradicionale (Kineze Hong-Kongu)</translation>
     </message>
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
-        <translation type="unfinished"/>
+        <translation>Kineze Tradicionale (Kineze Tajvani)</translation>
     </message>
 </context>
 <context>
     <name>dcc::Locale::regionNames</name>
     <message>
         <source>Taiwan China</source>
-        <translation type="unfinished"/>
+        <translation>Kina Tajvan</translation>
     </message>
 </context>
 <context>
