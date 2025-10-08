@@ -2591,11 +2591,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>që ta bëni këtë shkurtore të hyjë në fuqi, klikoni mbi Ruaje</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>që ta bëni këtë shkurtore të hyjë në fuqi, klikoni mbi Shtoje</translation>
     </message>
 </context>
 <context>
@@ -2650,7 +2650,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>ju lutemi, jepni një tast shkurtoreje</translation>
     </message>
 </context>
 <context>
@@ -2782,11 +2782,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"/>
+        <translation>Audio Mono</translation>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"/>
+        <translation>Pauzë e Automatizuar</translation>
     </message>
     <message>
         <source>Output Device</source>
@@ -2871,7 +2871,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Shtoje</translation>
     </message>
 </context>
 <context>
