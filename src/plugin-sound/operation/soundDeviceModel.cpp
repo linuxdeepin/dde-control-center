@@ -49,7 +49,13 @@ int SoundDeviceModel::getRowCount()
 int SoundDeviceModel::getCurrentIndex() const
 {
     for (int index = 0; index< m_ports.count(); index++) {
-        if (m_ports.at(index)->isActive()) {
+        if (m_ports.at(index)->isActive() && m_ports.at(index)->isEnabled()) {
+            return index;
+        }
+    }
+
+    for (int index = 0; index< m_ports.count(); index++) {
+        if (m_ports.at(index)->isEnabled()) {
             return index;
         }
     }
