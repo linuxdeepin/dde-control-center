@@ -80,7 +80,7 @@ DccObject {
                    corners: getCornersForBackground(index, accountView.count)
                    backgroundVisible: false
                    checkable: false
-                   focusPolicy: Qt.StrongFocus
+                   focusPolicy: Qt.TabFocus
                    activeFocusOnTab: true
                    topPadding: topInset
                    bottomPadding: bottomInset
