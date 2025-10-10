@@ -1734,29 +1734,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>KeyboardLayout</name>
-    <message>
-        <source>Keyboard layout</source>
-        <translation>ترتيب لوحة المفاتيح</translation>
-    </message>
-    <message>
-        <source>done</source>
-        <translation>تم</translation>
-    </message>
-    <message>
-        <source>edit</source>
-        <translation>تحرير</translation>
-    </message>
-    <message>
-        <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation>أضف الطريقة ذات الصلة للإدخال في &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;إدارة طرق الإدخال&lt;/a&gt; للتأكد من أن لوحة المفاتيح تعمل عند الإضافة أو التبديل.</translation>
-    </message>
-    <message>
-        <source>Add new keyboard layout...</source>
-        <translation>إضافة لوحة مفاتيح جديدة...</translation>
-    </message>
-</context>
-<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -1816,29 +1793,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add</source>
         <translation>إضافة</translation>
-    </message>
-</context>
-<context>
-    <name>LayoutsChooser</name>
-    <message>
-        <source>Search</source>
-        <translation>بحث</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>إلغاء</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>إضافة</translation>
-    </message>
-    <message>
-        <source>Add new keyboard layout</source>
-        <translation>Yeni klaviatura dizaynı əlavə edin</translation>
-    </message>
-    <message>
-        <source>Current language keyboard layouts</source>
-        <translation>Cari dillər klaviatura dizaynları</translation>
     </message>
 </context>
 <context>
@@ -3906,8 +3860,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation> لوحة المفاتيح</translation>
     </message>
     <message>
-        <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation>الإعدادات العامة، ترتيب لوحة المفاتيح، طريقة الإدخال، اختصارات</translation>
+        <source>General Settings, input method, shortcuts</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3915,14 +3869,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>عامة</translation>
-    </message>
-    <message>
-        <source>Keyboard layout</source>
-        <translation>ترتيب لوحة المفاتيح</translation>
-    </message>
-    <message>
-        <source>Set system default keyboard layout</source>
-        <translation>تحديد ترتيب لوحة المفاتيح الافتراضي للنظام</translation>
     </message>
 </context>
 <context>
