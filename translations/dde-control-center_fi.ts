@@ -1722,29 +1722,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>KeyboardLayout</name>
-    <message>
-        <source>Keyboard layout</source>
-        <translation>Näppäimistön asettelu</translation>
-    </message>
-    <message>
-        <source>done</source>
-        <translation>valmis</translation>
-    </message>
-    <message>
-        <source>edit</source>
-        <translation>muokkaa</translation>
-    </message>
-    <message>
-        <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation>Lisää sopiva kieli &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; ja testaa, että näppäimistö toimii oikein</translation>
-    </message>
-    <message>
-        <source>Add new keyboard layout...</source>
-        <translation>Lisää uusi näppäimistön asettelu...</translation>
-    </message>
-</context>
-<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -1804,29 +1781,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add</source>
         <translation>Lisää</translation>
-    </message>
-</context>
-<context>
-    <name>LayoutsChooser</name>
-    <message>
-        <source>Search</source>
-        <translation>Haku</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Peruuta</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>Lisää</translation>
-    </message>
-    <message>
-        <source>Add new keyboard layout</source>
-        <translation>Lisää uusi näppäimistön asettelu</translation>
-    </message>
-    <message>
-        <source>Current language keyboard layouts</source>
-        <translation>Nykyinen näppäimistön asettelu</translation>
     </message>
 </context>
 <context>
@@ -3890,8 +3844,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Näppäimistö</translation>
     </message>
     <message>
-        <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation>Lisäasetukset, näppäimistön asettelu, kieli, pikanäppäimet</translation>
+        <source>General Settings, input method, shortcuts</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3899,14 +3853,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>Yleinen</translation>
-    </message>
-    <message>
-        <source>Keyboard layout</source>
-        <translation>Näppäimistön asettelu</translation>
-    </message>
-    <message>
-        <source>Set system default keyboard layout</source>
-        <translation>Aseta näppäimistön oletusasettelu</translation>
     </message>
 </context>
 <context>
