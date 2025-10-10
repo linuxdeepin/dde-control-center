@@ -9,7 +9,7 @@ DccObject {
         name: "keyboard"
         parentName: "device"
         displayName: qsTr("Keyboard")
-        description: qsTr("General Settings, keyboard layout, input method, shortcuts")
+        description: qsTr("General Settings, input method, shortcuts")
         icon: "device_keyboard"
         weight: 40
     }
