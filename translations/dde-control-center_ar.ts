@@ -1732,29 +1732,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>KeyboardLayout</name>
-    <message>
-        <source>Keyboard layout</source>
-        <translation> disposition du clavier</translation>
-    </message>
-    <message>
-        <source>done</source>
-        <translation>كامل</translation>
-    </message>
-    <message>
-        <source>edit</source>
-        <translation>편집</translation>
-    </message>
-    <message>
-        <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation>أضف الطريقة المناسبة لاستقبال الإدخال في &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt; إدارة طرق الاستقبال &lt;/a&gt; لضمان عمل ترتيب لوحة المفاتيح عند إضافتها أو التحويل إليها.</translation>
-    </message>
-    <message>
-        <source>Add new keyboard layout...</source>
-        <translation>إضافة لوحة مفاتيح جديدة...</translation>
-    </message>
-</context>
-<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -1814,29 +1791,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add</source>
         <translation>إضافة</translation>
-    </message>
-</context>
-<context>
-    <name>LayoutsChooser</name>
-    <message>
-        <source>Search</source>
-        <translation>بحث</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>إلغاء</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>إضافة</translation>
-    </message>
-    <message>
-        <source>Add new keyboard layout</source>
-        <translation>إضافة تخطيط لوحة مفاتيح جديدة</translation>
-    </message>
-    <message>
-        <source>Current language keyboard layouts</source>
-        <translation>التوابل الحالية للغة لوحة المفاتيح</translation>
     </message>
 </context>
 <context>
@@ -3900,8 +3854,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>المفتاح</translation>
     </message>
     <message>
-        <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation>الإعدادات العامة، قاعدة لوحة المفاتيح، طريقة الإدخال، اختصارات</translation>
+        <source>General Settings, input method, shortcuts</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3909,14 +3863,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>متداول</translation>
-    </message>
-    <message>
-        <source>Keyboard layout</source>
-        <translation>تخطيط لوحة المفاتيح</translation>
-    </message>
-    <message>
-        <source>Set system default keyboard layout</source>
-        <translation>تعيين تخطيط لوحة المفاتيح الافتراضي للنظام</translation>
     </message>
 </context>
 <context>
