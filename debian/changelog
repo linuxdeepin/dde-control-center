@@ -1,3 +1,20 @@
+dde-control-center (6.1.51) unstable; urgency=medium
+
+  * fix: add missing signal for developer mode state sync
+  * fix: remove keyboard layout from description
+  * fix: prevent control center freeze when uninstalling third-party
+    apps
+  * fix: remove click-triggered focus highlight in accounts list
+  * fix: resolve disabled speaker still showing as current output device
+  * fix: update time format display when system timezone is modified
+  * fix: preserve hostname validation alert when input loses focus
+  * fix: support qrc scheme in image loading and replace dci with png
+  * refactor: optimize image loading and thumbnail generation
+  * fix: add missing scrollbars in timezone selection dialogs
+  * fix: adjust time range input opacity based on enabled state
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Fri, 10 Oct 2025 17:31:21 +0800
+
 dde-control-center (6.1.50) unstable; urgency=medium
 
   * fix: Fix the issue of the edit button not being horizontal
