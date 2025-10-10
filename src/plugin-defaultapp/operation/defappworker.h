@@ -16,6 +16,7 @@
 
 
 class QFileInfo;
+class QTimer;
 
 class DefAppModel;
 class Category;
@@ -56,6 +57,7 @@ private:
     MimeDBusProxy  *m_dbusManager;
     QMap<QString, DefaultAppsCategory> m_stringToCategory;
     QString m_userLocalPath;
+    QTimer *m_debounceTimer;  // 防抖定时器
 
 private:
     const QString getTypeByCategory(const DefAppWorker::DefaultAppsCategory &category);
