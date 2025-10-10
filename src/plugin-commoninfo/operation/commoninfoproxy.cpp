@@ -110,6 +110,9 @@ CommonInfoProxy::CommonInfoProxy(QObject *parent)
         QDBusConnection::systemBus().connect(ACLHelperService, ACLHelperPath, ACLHelperInterface, "NotifyDeveloperMode",
                                              this,
                                              SIGNAL(DeveloperModeChanged(bool)));
+        QDBusConnection::systemBus().connect(ACLHelperService, ACLHelperPath, ACLHelperInterface, "NotifyDeveloperMode",
+                                             this,
+                                             SIGNAL(DeviceUnlockedChanged(bool)));
         QDBusConnection::systemBus().connect(ACLHelperService, ACLHelperPath, ACLHelperInterface, "NotifyDeveloperModeError",
                                              this,
                                              SLOT(onACLError(quint32)));
