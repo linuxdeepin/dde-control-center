@@ -27,6 +27,7 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent)
     : QObject(parent)
     , m_defAppModel(model)
     , m_dbusManager(new MimeDBusProxy(this))
+    , m_debounceTimer(new QTimer(this))
 {
     m_stringToCategory.insert("Browser", Browser);
     m_stringToCategory.insert("Mail", Mail);
@@ -36,9 +37,11 @@ DefAppWorker::DefAppWorker(DefAppModel *model, QObject *parent)
     m_stringToCategory.insert("Picture", Picture);
     m_stringToCategory.insert("Terminal", Terminal);
 
-    connect(m_dbusManager, &MimeDBusProxy::Change, this, &DefAppWorker::onGetListApps);
+    m_debounceTimer->setSingleShot(true);
+    m_debounceTimer->setInterval(500);
+    connect(m_debounceTimer, &QTimer::timeout, this, &DefAppWorker::onGetListApps);
     connect(m_dbusManager, &MimeDBusProxy::Change, this, [this]() {
-        QTimer::singleShot(500, this, &DefAppWorker::onGetListApps);
+        m_debounceTimer->start();
     });
 
     m_userLocalPath = QDir::homePath() + "/.local/share/applications/";
