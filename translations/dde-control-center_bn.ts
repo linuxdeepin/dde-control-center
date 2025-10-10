@@ -1710,29 +1710,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>KeyboardLayout</name>
-    <message>
-        <source>Keyboard layout</source>
-        <translation>ক্যাবেন্ড অনুযায়ী কোয়ান্টাম</translation>
-    </message>
-    <message>
-        <source>done</source>
-        <translation>কর্ম সম্পন্ন</translation>
-    </message>
-    <message>
-        <source>edit</source>
-        <translation>সম্পাদনা</translation>
-    </message>
-    <message>
-        <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation>ক্যাবেন্ড অনুযায়ী কোয়ান্টাম যোগ করার বা বদলার সময় কর্ম করার জন্য, &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; এ যুক্ত উত্তরাদেশীয় প্রবেশ পদ্ধতি যোগ করুন।</translation>
-    </message>
-    <message>
-        <source>Add new keyboard layout...</source>
-        <translation>নতুন ক্যাবেন্ড অনুযায়ী কোয়ান্টাম যোগ করুন...</translation>
-    </message>
-</context>
-<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -1792,29 +1769,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add</source>
         <translation>যোগ করুন</translation>
-    </message>
-</context>
-<context>
-    <name>LayoutsChooser</name>
-    <message>
-        <source>Search</source>
-        <translation>অনুসন্ধান</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>বন্ধ</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>যোগ করুন</translation>
-    </message>
-    <message>
-        <source>Add new keyboard layout</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Current language keyboard layouts</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3902,8 +3856,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>কেবড্যাটা</translation>
     </message>
     <message>
-        <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation>সাধারণ নির্দেশনা, কেবড্যাটা স্থানান্তর, প্রবেশ পদ্ধতি, সরল নেম্বকি</translation>
+        <source>General Settings, input method, shortcuts</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3911,14 +3865,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>সাধারণ</translation>
-    </message>
-    <message>
-        <source>Keyboard layout</source>
-        <translation>কেবড্যাটা স্থানান্তর</translation>
-    </message>
-    <message>
-        <source>Set system default keyboard layout</source>
-        <translation>সিস্টেমের মানক কেবড্যাটা স্থানান্তর নির্ধারণ</translation>
     </message>
 </context>
 <context>
