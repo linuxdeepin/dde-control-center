@@ -1012,10 +1012,6 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
         <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
-        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;当社は、お客様の個人情報がお客様にとって極めて重要であることを深く認識しております。そのため、個人情報の収集・利用・共有・移転・公開・保管に関する方針を定めたプライバシーポリシーを策定しております。&lt;/p&gt;&lt;p&gt;最新のプライバシーポリシーは、&lt;a href=&quot;%1&quot;&gt;こちら&lt;/a&gt;から、もしくは&lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;にアクセスすることでご覧いただけます。当社のお客様のプライバシーに関する取り組みと方針を注意深くお読みいただき、十分にご理解いただきますよう、お願いいたします。本件に関するご質問は、こちらにご連絡ください: support@uniontech.com&lt;/p&gt;</translation>
-    </message>
-    <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
         <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
@@ -1030,6 +1026,18 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     <message>
         <source>Agree and Join User Experience Program</source>
         <translation type="unfinished">同意してユーザーエクスペリエンスプログラムに参加</translation>
+    </message>
+    <message>
+        <source>support@deepin.org</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>support@uniontech.com</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

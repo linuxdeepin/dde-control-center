@@ -994,10 +994,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>https://www.uniontech.com/agreement/隱私-en</translation>
     </message>
     <message>
-        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;เราเข้าใจถึงความสำคัญของข้อมูลส่วนบุคคลของคุณ เราจึงมีนโยบายความเป็นส่วนตัวที่ครอบคลุมวิธีการที่เรารวบรวม ใช้ แบ่งปัน โอนย้าย ประกาศให้สาธารณะรู้ และเก็บข้อมูลของคุณ&lt;/p&gt;&lt;p&gt;คุณสามารถ &lt;a href=&quot;%1&quot;&gt;คลิกที่นี่&lt;/a&gt; เพื่อดูนโยบายความเป็นส่วนตัวล่าสุดของเรา และ/หรือ ดูออนไลน์โดยเข้าไปที่ &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. กรุณาอ่านอย่างรอบคอบและเข้าใจวิธีการของเราในการรักษาความเป็นส่วนตัวของลูกค้า หากคุณมีคำถาม กรุณาติดต่อเราที่: support@uniontech.com.&lt;/p&gt;</translation>
-    </message>
-    <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
         <translation>https://www.uniontech.com/agreement/ประสบการณ์-en</translation>
     </message>
@@ -1012,6 +1008,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Agree and Join User Experience Program</source>
         <translation>ยอมรับและเข้าร่วมโปรแกรม User Experience Program</translation>
+    </message>
+    <message>
+        <source>support@deepin.org</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>support@uniontech.com</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1022,10 +1022,6 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
         <translation>https://www.uniontech.com/agreement/privacy-vn</translation>
     </message>
     <message>
-        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Tôi hiểu rõ tầm quan trọng của thông tin cá nhân của bạn với bạn. Do đó, chúng tôi có Chính sách Bảo mật bao gồm cách chúng tôi thu thập, sử dụng, chia sẻ, chuyển giao, công khai tiết lộ và lưu trữ thông tin của bạn.&lt;/p&gt;&lt;p&gt;Bạn có thể &lt;a href=&quot;%1&quot;&gt;nhấp vào đây&lt;/a&gt; để xem chính sách bảo mật mới nhất của chúng tôi và/hoặc xem nó trực tuyến bằng cách truy cập &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Hãy đọc cẩn thận và hiểu rõ các quy định của chúng tôi về quyền riêng tư của khách hàng. Nếu bạn có bất kỳ câu hỏi nào, vui lòng liên hệ với chúng tôi tại: support@uniontech.com.&lt;/p&gt;</translation>
-    </message>
-    <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
         <translation>https://www.uniontech.com/agreement/experience-vn</translation>
     </message>
@@ -1040,6 +1036,18 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     <message>
         <source>Agree and Join User Experience Program</source>
         <translation>Đồng ý và tham gia chương trình Kinh nghiệm Người dùng</translation>
+    </message>
+    <message>
+        <source>support@deepin.org</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>support@uniontech.com</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1022,11 +1022,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
-        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;개인 정보의 중요성을 깊이 인식하고 있습니다. 따라서, 우리는 수집, 사용, 공유, 전송, 공개 및 보관하는 방법에 대한 개인정보 보호 정책을 가지고 있습니다.&lt;/p&gt;&lt;p&gt;최신 개인정보 보호 정책을 확인하려면 &lt;a href=&quot;%1&quot;&gt;여기 클릭&lt;/a&gt;하거나, 웹사이트를 방문하여 &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;에서 온라인으로 확인하실 수 있습니다. 고객 개인정보 보호에 대한 우리의 실천을 신중하게 읽고 이해해 주십시오. 질문이 있으시면 support@uniontech.com으로 문의해 주세요.&lt;/p&gt;
-</translation>
-    </message>
-    <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
         <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
@@ -1043,6 +1038,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Agree and Join User Experience Program</source>
         <translation>사용자 경험 프로그램에 동의하고 참여하기</translation>
+    </message>
+    <message>
+        <source>support@deepin.org</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>support@uniontech.com</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

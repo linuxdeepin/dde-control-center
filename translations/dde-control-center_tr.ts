@@ -1008,10 +1008,6 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
         <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
-        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Kişisel bilgilerinizin sizin için ne kadar önemli olduğunun son derece farkındayız. Dolayısıyla, bilgilerinizi nasıl topladığımızı, kullandığımızı, paylaştığımızı, aktardığımızı, kamuya açıkladığımızı ve sakladığımızı kapsayan Gizlilik Politikasına sahibiz.&lt;/p&gt;&lt;p&gt;En son gizlilik politikamızı görüntülemek için &lt;a href=&quot;%1&quot;&gt;buraya tıklayabilirsiniz&lt;/a&gt; &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Lütfen müşteri gizliliğiyle ilgili uygulamalarımızı dikkatlice okuyun ve tam olarak anlayın.Herhangi bir sorunuz varsa, bize şu adresten ulaşabilirsiniz: support@uniontech.com&lt;/p&gt;</translation>
-    </message>
-    <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
         <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
@@ -1026,6 +1022,18 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     <message>
         <source>Agree and Join User Experience Program</source>
         <translation>Kabul Et ve Kullanıcı Deneyimi Programına Katıl</translation>
+    </message>
+    <message>
+        <source>support@deepin.org</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>support@uniontech.com</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
