@@ -3850,7 +3850,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia ogólne, metody wprowadzania, skróty</translation>
     </message>
 </context>
 <context>
