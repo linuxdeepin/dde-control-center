@@ -3249,7 +3249,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni një %1 të re …</translation>
     </message>
 </context>
 <context>
@@ -3412,7 +3412,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Fytyrë</translation>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
@@ -3847,7 +3847,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime të Përgjithshme, metodë dhëniesh, shkurtore</translation>
     </message>
 </context>
 <context>
