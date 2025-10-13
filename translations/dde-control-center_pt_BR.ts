@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt_BR">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pt_BR">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -121,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -181,7 +179,7 @@ In order to better use of face recognition, please pay attention to the followin
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -221,7 +219,7 @@ To ensure successful entry:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;A autenticação biométrica&quot; ​​é uma função para autenticação de identidade do usuário fornecida pela UnionTech Software Technology Co., Ltd. Por meio da &quot;autenticação biométrica&quot;, os dados biométricos coletados serão comparados com os armazenados no dispositivo, e a identidade do usuário será verificada com base no resultado da comparação.Observe que a UnionTech Software Technology Co., Ltd. não coletará ou acessará suas informações biométricas, que serão armazenadas em seu dispositivo local. Habilite apenas a autenticação biométrica em seu dispositivo pessoal e use suas próprias informações biométricas para operações relacionadas, e desabilite ou exclua imediatamente as informações biométricas de outras pessoas naquele dispositivo, caso contrário, você arcará com o risco decorrente disso.A UnionTech Software Technology Co., Ltd. está comprometida em pesquisar e melhorar a segurança, precisão e estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros e controle de risco, não há garantia de que você passará pela autenticação biométrica temporariamente. Portanto, não tome a autenticação biométrica como a única maneira de fazer login no UOS.  Caso tenha alguma dúvida ou sugestão ao usar a autenticação biométrica, você pode nos dar um feedback através de &quot;Serviço e Suporte&quot; no UOS.</translation>
@@ -231,51 +229,51 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished">Li e concordo com os termos</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished">Próximo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Cancelar</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished">&quot;A autenticação biométrica&quot; ​​é uma função para autenticação de identidade do usuário fornecida pela UnionTech Software Technology Co., Ltd. Por meio da &quot;autenticação biométrica&quot;, os dados biométricos coletados serão comparados com os armazenados no dispositivo, e a identidade do usuário será verificada com base no resultado da comparação.Observe que a UnionTech Software Technology Co., Ltd. não coletará ou acessará suas informações biométricas, que serão armazenadas em seu dispositivo local. Habilite apenas a autenticação biométrica em seu dispositivo pessoal e use suas próprias informações biométricas para operações relacionadas, e desabilite ou exclua imediatamente as informações biométricas de outras pessoas naquele dispositivo, caso contrário, você arcará com o risco decorrente disso.A UnionTech Software Technology Co., Ltd. está comprometida em pesquisar e melhorar a segurança, precisão e estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros e controle de risco, não há garantia de que você passará pela autenticação biométrica temporariamente. Portanto, não tome a autenticação biométrica como a única maneira de fazer login no UOS.  Caso tenha alguma dúvida ou sugestão ao usar a autenticação biométrica, você pode nos dar um feedback através de &quot;Serviço e Suporte&quot; no UOS.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -344,7 +342,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Tela e Suspensão</translation>
+        <translation>Tela e suspensão</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
@@ -356,7 +354,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>A atividade do computador será suspensa após </translation>
+        <translation>O computador será suspenso após</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -364,7 +362,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation>Quando o botão de energia for pressionado</translation>
+        <translation>Quando o botão de energia é pressionado</translation>
     </message>
     <message>
         <source>Low Battery</source>
@@ -491,7 +489,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>grub start delay</source>
-        <translation>atraso no início do grub</translation>
+        <translation>Atrasar inicialização</translation>
     </message>
     <message>
         <source>theme</source>
@@ -785,7 +783,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation>Repetir atraso</translation>
+        <translation>Atraso de repetição</translation>
     </message>
     <message>
         <source>Short</source>
@@ -837,22 +835,22 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">Geral</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation>Tamanho grande</translation>
+        <translation>Grande</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation>Tamanho pequeno</translation>
+        <translation>Pequeno</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
@@ -1101,7 +1099,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Símbolo da moeda</translation>
+        <translation>Símbolo de moeda</translation>
     </message>
     <message>
         <source>Positive currency</source>
@@ -1239,7 +1237,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation>Sincronização na nuvem</translation>
+        <translation>Cloud</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
@@ -1474,19 +1472,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1547,11 +1545,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Standard Font</source>
-        <translation>Fonte Padrão</translation>
+        <translation>Fonte padrão</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation>Fonte Monoespaçada</translation>
+        <translation>Fonte monoespaçada</translation>
     </message>
 </context>
 <context>
@@ -1629,43 +1627,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1683,15 +1681,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation>Desempenho ideal</translation>
+        <translation>Alto desempenho</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation>Balanceado</translation>
+        <translation>Equilibrado</translation>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation>Melhores visuais</translation>
+        <translation>Visuais aprimorados</translation>
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
@@ -1710,7 +1708,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation>Linguagem</translation>
+        <translation>Idioma</translation>
     </message>
     <message>
         <source>done</source>
@@ -1734,7 +1732,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Area</source>
-        <translation>Área</translation>
+        <translation>País ou região</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
@@ -1746,7 +1744,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1884,7 +1882,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation>Meus Dispositivos</translation>
+        <translation>Dispositivos pareados</translation>
     </message>
 </context>
 <context>
@@ -1895,7 +1893,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer name</source>
-        <translation>Nome do computador</translation>
+        <translation>Computador</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
@@ -1903,7 +1901,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>OS Name</source>
-        <translation>Nome do OS</translation>
+        <translation>Sistema operacional</translation>
     </message>
     <message>
         <source>Version</source>
@@ -1915,7 +1913,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Type</source>
-        <translation>Tipo</translation>
+        <translation>Arquitetura</translation>
     </message>
     <message>
         <source>bit</source>
@@ -1931,11 +1929,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Kernel</source>
-        <translation>Núcleo</translation>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation>Plataforma gráfica</translation>
+        <translation>Servidor de exibição</translation>
     </message>
     <message>
         <source>Processor</source>
@@ -1943,7 +1941,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Memory</source>
-        <translation>Memória</translation>
+        <translation>Memória RAM</translation>
     </message>
     <message>
         <source>1~63 characters please</source>
@@ -2107,7 +2105,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation>Tela e Suspensão</translation>
+        <translation>Tela e suspensão</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
@@ -2119,7 +2117,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation>Após o computador entrar em modo de suspensão</translation>
+        <translation>O computador será suspenso após</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
@@ -2127,7 +2125,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation>Quando o botão de energia for pressionado</translation>
+        <translation>Quando o botão de energia é pressionado</translation>
     </message>
 </context>
 <context>
@@ -2138,7 +2136,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation>Modo balanceado</translation>
+        <translation>Equilibrado</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
@@ -2146,7 +2144,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balanced</source>
-        <translation>Balanceado</translation>
+        <translation>Equilibrado</translation>
     </message>
     <message>
         <source>Power Saver</source>
@@ -2169,7 +2167,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation>Minutos</translation>
+        <translation>minutos</translation>
     </message>
     <message>
         <source>Hour</source>
@@ -2254,7 +2252,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View</source>
-        <translation>Visualizar</translation>
+        <translation>Exibir</translation>
     </message>
     <message>
         <source>To be activated</source>
@@ -2278,7 +2276,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation>centro de controle dde</translation>
+        <translation>dde-control-center</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
@@ -2330,7 +2328,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation>Símbolo da moeda</translation>
+        <translation>Símbolo de moeda</translation>
     </message>
     <message>
         <source>Digit</source>
@@ -2350,7 +2348,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2719,11 +2717,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Output Device</source>
@@ -2764,7 +2762,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation>Sincronizar hora automaticamente</translation>
+        <translation>Sincronização automática de horário</translation>
     </message>
     <message>
         <source>Ntp server</source>
@@ -2923,7 +2921,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3040,7 +3038,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3059,7 +3057,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3090,7 +3088,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
-        <translation>Habilitar efeitos transparentes quando as janelas se moverem</translation>
+        <translation>Transparência ao mover as janelas</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
@@ -3138,7 +3136,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation>Altura da barra do título</translation>
+        <translation>Altura da barra de título</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
@@ -3262,7 +3260,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Opções de Desenvolvedor</translation>
+        <translation>Opções de desenvolvedor</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
@@ -3285,7 +3283,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3391,73 +3389,73 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished">Rosto</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished">Impressão Digital</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished">Levante o dedo e posicione-o sobre o sensor</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished">Íris</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3575,11 +3573,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>defaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation>Página Web</translation>
+        <translation>Página da web</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation>Email</translation>
+        <translation>Cliente de e-mail</translation>
     </message>
     <message>
         <source>Text</source>
@@ -3606,7 +3604,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>device</name>
     <message>
         <source>Device</source>
-        <translation>Dispositivo</translation>
+        <translation>Dispositivos</translation>
     </message>
 </context>
 <context>
@@ -3752,7 +3750,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation>Conforto para os olhos</translation>
+        <translation>Conforto ocular</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
@@ -3830,7 +3828,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3860,7 +3858,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Dock size</source>
-        <translation>Tamanho da dock</translation>
+        <translation>Tamanho do dock</translation>
     </message>
     <message>
         <source>Small</source>
@@ -3892,7 +3890,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Status</source>
-        <translation>Status</translation>
+        <translation>Visibilidade</translation>
     </message>
     <message>
         <source>Keep shown</source>
@@ -3900,11 +3898,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>Manter escondido</translation>
+        <translation>Sempre ocultar</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>Ocultação inteligente</translation>
+        <translation>Ocultar automaticamente</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
@@ -3932,7 +3930,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation>Bloquear a Dock</translation>
+        <translation>Bloquear dock</translation>
     </message>
 </context>
 <context>
@@ -4016,7 +4014,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Notification Center</source>
-        <translation>Centro de Notificação</translation>
+        <translation>Central de notificações</translation>
     </message>
     <message>
         <source>Show message preview</source>
@@ -4074,7 +4072,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation>Papel de Parede</translation>
+        <translation>Papel de parede</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
@@ -4184,7 +4182,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4209,7 +4207,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>systemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Sobre este PC</translation>
+        <translation>Sobre</translation>
     </message>
     <message>
         <source>System version, device information</source>
@@ -4217,7 +4215,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>Ver aviso de software de código aberto</translation>
+        <translation>Leia o aviso de software livre</translation>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -4233,7 +4231,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>Ver o contrato de licença do usuário final</translation>
+        <translation>Leia o contrato de licença do usuário final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
@@ -4241,11 +4239,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>Ver informações sobre a política de privacidade</translation>
+        <translation>Leia as informações sobre a política de privacidade</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>Aviso de Software de Código Aberto</translation>
+        <translation>Aviso de software livre</translation>
     </message>
 </context>
 <context>
@@ -4305,7 +4303,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

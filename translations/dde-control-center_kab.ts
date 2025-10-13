@@ -1709,29 +1709,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>KeyboardLayout</name>
-    <message>
-        <source>Keyboard layout</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>done</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>edit</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add new keyboard layout...</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -1791,29 +1768,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add</source>
         <translation>Adja</translation>
-    </message>
-</context>
-<context>
-    <name>LayoutsChooser</name>
-    <message>
-        <source>Search</source>
-        <translation>Teb</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>Cenc</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>Adja</translation>
-    </message>
-    <message>
-        <source>Add new keyboard layout</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Current language keyboard layouts</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3877,8 +3831,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Tafasir</translation>
     </message>
     <message>
-        <source>General Settings, keyboard layout, input method, shortcuts</source>
-        <translation>Sissi gna gbaw, tafasir gna gbaw, mehdi s-ntefes, shorqad</translation>
+        <source>General Settings, input method, shortcuts</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3886,14 +3840,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common</source>
         <translation>Bass</translation>
-    </message>
-    <message>
-        <source>Keyboard layout</source>
-        <translation>Tafasir gna gbaw</translation>
-    </message>
-    <message>
-        <source>Set system default keyboard layout</source>
-        <translation>Wadawus tafasir gna gbaw s-sirtem</translation>
     </message>
 </context>
 <context>
