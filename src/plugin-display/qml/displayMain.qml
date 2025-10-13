@@ -904,6 +904,8 @@ DccObject {
                 Label {
                     Layout.alignment: Qt.AlignVCenter
                     text: Math.round(colorTemperatureSlider.value) + "%"
+                    font: D.DTK.fontManager.t10
+                    opacity: 0.5
                 }
                 D.DciIcon {
                     Layout.alignment: Qt.AlignVCenter
