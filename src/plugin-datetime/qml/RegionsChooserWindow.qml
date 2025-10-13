@@ -5,6 +5,7 @@ import QtQuick.Controls 2.0
 import QtQuick.Window
 import org.deepin.dtk 1.0
 import QtQuick.Layouts 1.0
+import org.deepin.dtk.style 1.0 as DS
 
 Loader {
     id: loader
@@ -93,7 +94,7 @@ Loader {
             anchors.margins: 6
             SearchEdit {
                 id: searchEdit
-                implicitHeight: 30
+                implicitHeight: Math.max(30, searchEditFontMetrics.height + (DS.Style.control.padding - DS.Style.control.borderWidth) * 2)
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignTop
                 placeholder: qsTr("Search")
@@ -104,6 +105,10 @@ Loader {
                 }
                 onEditingFinished: {
                     viewModel.setFilterWildcard(text);
+                }
+                FontMetrics {
+                    id: searchEditFontMetrics
+                    font: searchEdit.font
                 }
             }
 

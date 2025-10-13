@@ -104,8 +104,6 @@ Loader {
             width = loader.calculateMaxWidth()
             loader.opened()
         }
-        
-
 
         function positionWindow() {
             if (!loader.anchorItem) return
@@ -123,7 +121,7 @@ Loader {
 
             SearchEdit {
                 id: searchEdit
-                implicitHeight: 30
+                implicitHeight: Math.max(30, searchEditFontMetrics.height + (DS.Style.control.padding - DS.Style.control.borderWidth) * 2)
                 Layout.fillWidth: true
                 font: DTK.fontManager.t6
                 Layout.alignment: Qt.AlignTop
@@ -133,6 +131,10 @@ Loader {
                 }
                 onVisibleChanged: {
                     clear() // clear search text
+                }
+                FontMetrics {
+                    id: searchEditFontMetrics
+                    font: searchEdit.font
                 }
                 
                 // 键盘事件处理 - 回车直接选择
