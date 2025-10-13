@@ -984,11 +984,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation>小</translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation>大</translation>
     </message>
 </context>
 <context>
@@ -1037,7 +1037,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;統信軟件非常重視您的私隱。因此我們制定了涵蓋如何收集、使用、共享、轉讓、公開披露以及存儲您的信息的私隱政策。&lt;/p&gt;&lt;p&gt;您可以&lt;a href=&quot;%1&quot;&gt;點擊此處&lt;/a&gt; 查看我們最新的私隱政策和/或通過訪問 &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;在線查看。請您務必認真閲讀、充分理解我們針對客户私隱的做法，如果有任何疑問，請聯繫我們：%2。&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
