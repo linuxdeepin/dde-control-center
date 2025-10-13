@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ru">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ru">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -232,7 +234,7 @@ To ensure successful entry:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>«Биометрическая аутентификация» - это функция аутентификации личности пользователя, предоставляемая компанией UnionTech Software Technology Co., Ltd. С помощью «биометрической аутентификации» собранные биометрические данные сравниваются с данными, хранящимися в устройстве, и личность пользователя проверяется на основе результатов сравнения.
@@ -283,7 +285,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>«Биометрическая аутентификация» - это функция аутентификации личности пользователя, предоставляемая компанией UnionTech Software Technology Co., Ltd. С помощью «биометрической аутентификации» собранные биометрические данные сравниваются с данными, хранящимися в устройстве, и личность пользователя проверяется на основе результатов сравнения.
@@ -981,7 +983,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CustomAvatarCropper</name>
+    <message>
+        <source>small</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>big</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1013,10 +1026,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
-        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Мы глубоко осознаем важность вашей личной информации для вас. Таким образом, у нас есть Политика Конфиденциальности, в которой описано, как мы собираем, используем, передаем, публично раскрываем и храним вашу информацию.&lt;/p&gt;&lt;p&gt;Вы можете &lt;a href=&quot;%1&quot;&gt;нажать здесь, чтобы просмотреть нашу последнюю политику конфиденциальности и/или просмотреть ее онлайн, посетив &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Пожалуйста, внимательно прочитайте и полностью поймите нашу работу по конфиденциальности клиентов. Если у Вас возникли какие-либо вопросы, пожалуйста, свяжитесь с нами по адресу: support@uniontech.com. &lt;/p&gt;</translation>
-    </message>
-    <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
         <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
@@ -1031,6 +1040,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Agree and Join User Experience Program</source>
         <translation>Дать согласие и присоединиться к программе взаимодействия с пользователем</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2358,7 +2371,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Paper size</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2370,7 +2383,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Формат региона</translation>
     </message>
 </context>
 <context>
@@ -2411,7 +2424,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2426,7 +2439,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ScreenSaverPage</name>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>preview</source>
@@ -2434,7 +2447,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>setting</source>
@@ -2478,11 +2491,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2536,11 +2549,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
@@ -2548,11 +2561,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2607,7 +2620,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3060,7 +3073,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3079,7 +3092,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3252,7 +3265,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3312,18 +3325,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dcc::Locale::dialectNames</name>
     <message>
         <source>Traditional Chinese (Chinese Hong Kong)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>dcc::Locale::regionNames</name>
     <message>
         <source>Taiwan China</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3411,15 +3424,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Лицо</translation>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3434,7 +3447,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Lift your finger</source>
@@ -3442,11 +3455,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Поднимите палец и снова положите его на сенсор</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scan Suspended</source>
@@ -3454,15 +3467,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fingerprint added</source>
@@ -3828,7 +3841,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3839,7 +3852,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3850,7 +3863,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -4321,11 +4334,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

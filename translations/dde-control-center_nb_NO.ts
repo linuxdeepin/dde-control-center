@@ -966,6 +966,17 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>CustomAvatarCropper</name>
+    <message>
+        <source>small</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>big</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
@@ -994,10 +1005,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1011,6 +1018,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
