@@ -126,9 +126,11 @@ void SystemInfoWork::activate()
 
     // 隐私政策文本内容
     QString http = DSysInfo::productType() != DSysInfo::ProductType::Uos ? tr("https://www.deepin.org/en/agreement/privacy/") : tr("https://www.uniontech.com/agreement/privacy-en");
+    QString email = DSysInfo::productType() != DSysInfo::ProductType::Uos ? "support@deepin.org" : "support@uniontech.com";
     QString text = tr("<p>We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.</p>"
-              "<p>You can <a href=\"%1\">click here</a> to view our latest privacy policy and/or view it online by visiting <a href=\"%1\"> %1</a>. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.</p>")
-               .arg(http);
+              "<p>You can <a href=\"%1\">click here</a> to view our latest privacy policy and/or view it online by visiting <a href=\"%1\"> %1</a>. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.</p>")
+               .arg(http)
+               .arg(email);
     m_model->setPrivacyPolicy(text);
 
     // 用户体验计划内容
