@@ -315,6 +315,26 @@ DccObject {
                     checked: control.currentIndex === index
                     implicitHeight: visible ? DS.Style.control.implicitHeight(menuItem) : 0
 
+                    readonly property real availableTextWidth: {
+                        let totalWidth = width - leftPadding - rightPadding
+                        if (useIndicatorPadding && indicator) {
+                            totalWidth -= indicator.width + spacing
+                        }
+                        if (icon.name) {
+                            totalWidth -= icon.width + spacing
+                        }
+                        return totalWidth
+                    }
+                    FontMetrics {
+                        id: fontMetrics
+                        font: menuItem.font
+                    }
+                    ToolTip {
+                        visible: menuItem.hovered && fontMetrics.advanceWidth(model.name) > menuItem.availableTextWidth
+                        text: model.name
+                        delay: 500
+                    }
+
                     onClicked: {
                         dccData.worker().setActivePort(index, 1)
                     }
