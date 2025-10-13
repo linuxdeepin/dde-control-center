@@ -133,11 +133,11 @@ QDBusPendingReply<> CharaMangerDBusProxy::DeleteFinger(const QString &username, 
     return m_fingerprintInter->asyncCallWithArgumentList(QStringLiteral("DeleteFinger"), argumentList);
 }
 
-void CharaMangerDBusProxy::RenameFinger(const QString &username, const QString &finger, const QString &newName)
+QDBusPendingReply<> CharaMangerDBusProxy::RenameFinger(const QString &username, const QString &finger, const QString &newName)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(username) << QVariant::fromValue(finger) << QVariant::fromValue(newName);
-    m_fingerprintInter->asyncCallWithArgumentList(QStringLiteral("RenameFinger"), argumentList);
+    return m_fingerprintInter->asyncCallWithArgumentList(QStringLiteral("RenameFinger"), argumentList);
 }
 
 void CharaMangerDBusProxy::onPropertiesChanged(const QDBusMessage &message)

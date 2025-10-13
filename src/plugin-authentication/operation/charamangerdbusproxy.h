@@ -37,7 +37,7 @@ public:
     QStringList ListFingers(const QString &username);
     void StopEnroll();
     QDBusPendingReply<> DeleteFinger(const QString &username, const QString &finger);
-    void RenameFinger(const QString &username, const QString &finger, const QString &newName);
+    QDBusPendingReply<> RenameFinger(const QString &username, const QString &finger, const QString &newName);
 
 signals:
     // CharaManger signals
