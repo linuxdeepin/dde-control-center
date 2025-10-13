@@ -1038,7 +1038,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Jemi thellësisht të ndërgjegjshëm mbi rëndësinë që ka për ju informacioni juaj personal. Ndaj kemi Rregullat e Privatësisë që mbulojnë si i grumbullojmë, përdorim, ndajmë me të tjerët, shpërngulim, zbulojmë publikisht dhe depozitojmë informacion tuajin.&lt;/p&gt;&lt;p&gt;Që të shihni rregulat tona më të reja të privatësisë, mund të &lt;a href=&quot;%1&quot;&gt;klikoni këtu&lt;/a&gt; dhe/ose t’i shihni në internet duk vizituar &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Ju lutemi, lexojini me kujdes dhe kuptojini plotësisht praktikat tona rreth privatësisë së klientëve. Nëse keni ndonjë pyetje, ju lutemi, lidhuni me ne përmes: %2.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
