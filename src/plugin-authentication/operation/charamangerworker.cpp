@@ -409,6 +409,10 @@ void CharaMangerWorker::deleteFingerItem(const QString &userName, const QString 
 
 void CharaMangerWorker::renameFingerItem(const QString &userName, const QString &finger, const QString &newName)
 {
-    m_charaMangerInter->RenameFinger(userName, finger, newName);
+    auto call = m_charaMangerInter->RenameFinger(userName, finger, newName);
+    call.waitForFinished();
+    if (call.isError()) {
+        qWarning() << "call RenameFinger Error : " << call.error();
+    }
     refreshFingerEnrollList(userName);
 }

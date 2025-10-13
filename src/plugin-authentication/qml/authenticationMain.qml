@@ -156,12 +156,18 @@ DccObject {
                             onEditingFinished: {
                                 if (!checkInputInvalid()) {
                                     text = modelData;
+                                    textInputItem.text = Qt.binding(function() { 
+                                        return modelData
+                                    })
                                     return;
                                 }
                                 focus = false;
                                 if (modelData !== textInputItem.text) {
                                     layout.requestRename(modelData, text);
                                 }
+                                textInputItem.text = Qt.binding(function() { 
+                                    return modelData
+                                })
                             }
                             onFocusChanged: {
                                 if (!focus)
