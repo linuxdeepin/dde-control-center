@@ -194,6 +194,7 @@ void DisplayModulePrivate::updateMonitorList()
         });
         updateVirtualScreens();
         updateMaxGlobalScale();
+        updateDisplayMode();
         Q_EMIT q_ptr->screensChanged();
     }
 }
