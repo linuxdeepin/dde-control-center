@@ -4,9 +4,11 @@ import QtQuick
 import QtQuick.Controls 2.0
 import QtQuick.Window
 import QtQuick.Layouts 1.15
-import org.deepin.dtk 1.0
+import org.deepin.dtk 1.0 as D
+import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dcc 1.0
 import QtQml.Models
+import QtQuick.Effects
 
 Loader {
     id: regionFormatLoader
@@ -21,7 +23,7 @@ Loader {
         active = true
     }
 
-    sourceComponent: DialogWindow {
+    sourceComponent: D.DialogWindow {
         id: ddialog
         width: 738
         minimumWidth: width
@@ -34,9 +36,9 @@ Loader {
             width: parent.width
             Label {
                 Layout.alignment: Qt.AlignHCenter
-                font.family: DTK.fontManager.t5.family
+                font.family: D.DTK.fontManager.t5.family
                 font.bold: true
-                font.pixelSize: DTK.fontManager.t5.pixelSize
+                font.pixelSize: D.DTK.fontManager.t5.pixelSize
                 text: qsTr("Regional format")
             }
 
@@ -46,13 +48,13 @@ Loader {
                     Layout.preferredWidth: 348
                     Layout.maximumWidth: 348
                     spacing: 10
-                    SearchEdit {
+                    D.SearchEdit {
                         id: searchEdit
                         Layout.fillWidth: true
                         Layout.leftMargin: 0
                         Layout.rightMargin: 0
                         placeholder: qsTr("Search")
-                        font: DTK.fontManager.t6
+                        font: D.DTK.fontManager.t6
                         onTextChanged: {
                             viewModel.setFilterWildcard(text);
                             itemsView.positionViewAtBeginning();
@@ -63,19 +65,51 @@ Loader {
                         }
                     }
 
-                    ListView {
-                        id: itemsView
-                        property string checkedLang
-                        property string checkedLocale
-                        property string selectedLangKey: ""
-                        property string selectedLocaleKey: ""
+                    Item {
                         Layout.fillWidth: true
                         Layout.fillHeight: true
-                        clip: true
-                        model: regionFormatLoader.viewModel
-                        currentIndex: regionFormatLoader.currentIndex
 
-                        Component.onCompleted: {
+                        Rectangle {
+                            id: backgroundRect
+                            anchors.fill: parent
+                            color: palette.base
+                            radius: 8
+                            border.width: 0
+                        }
+
+                        Item {
+                            id: listMask
+                            anchors.fill: parent
+                            layer.enabled: true
+                            visible: false
+                            Rectangle {
+                                anchors.fill: parent
+                                anchors.margins: 0.5
+                                radius: 8
+                            }
+                        }
+
+                        D.ListView {
+                            id: itemsView
+                            property string checkedLang
+                            property string checkedLocale
+                            property string selectedLangKey: ""
+                            property string selectedLocaleKey: ""
+                            anchors.fill: parent
+                            model: regionFormatLoader.viewModel
+                            currentIndex: regionFormatLoader.currentIndex
+                            clip: true
+
+                            layer.enabled: true
+                            layer.effect: MultiEffect {
+                                maskEnabled: true
+                                maskSource: listMask
+                                antialiasing: true
+                                maskThresholdMin: 0.5
+                                maskSpreadAtMin: 1.0
+                            }
+
+                            Component.onCompleted: {
                             if (currentIndex >= 0 && currentIndex < count) {
                                 let delegateHeight = 40;
                                 contentY = currentIndex * delegateHeight;
@@ -84,45 +118,66 @@ Loader {
                                     if (currentItem && currentItem.model) {
                                         selectedLangKey = currentItem.model.langKey;
                                         selectedLocaleKey = currentItem.model.localeKey;
-                                    }
-                                });
+                                        }
+                                    });
+                                }
                             }
-                        }
 
-                        ButtonGroup {
-                            id: langGroup
-                        }
+                            ButtonGroup {
+                                id: langGroup
+                            }
 
-                        delegate: CheckDelegate {
-                            id: checkDelegate
-                            implicitWidth: itemsView.width
-                            text: model.display
-                            font: DTK.fontManager.t6
-                            checked: (itemsView.selectedLangKey === model.langKey &&
-                                     itemsView.selectedLocaleKey === model.localeKey) ||
-                                    (itemsView.selectedLangKey === "" && index === itemsView.currentIndex)
-                            hoverEnabled: true
-                            ButtonGroup.group: langGroup
-                            onCheckedChanged: {
-                                if (checked) {
-                                    itemsView.selectedLangKey = model.langKey;
-                                    itemsView.selectedLocaleKey = model.localeKey;
+                            delegate: D.CheckDelegate {
+                                id: checkDelegate
+                                implicitWidth: itemsView.width
+                                text: model.display
+                                font: D.DTK.fontManager.t6
+                                checked: (itemsView.selectedLangKey === model.langKey &&
+                                         itemsView.selectedLocaleKey === model.localeKey) ||
+                                        (itemsView.selectedLangKey === "" && index === itemsView.currentIndex)
+                                hoverEnabled: true
+                                ButtonGroup.group: langGroup
 
-                                    itemsView.checkedLang = model.langKey
-                                    itemsView.checkedLocale = model.localeKey
-                                    let idx = 0
-                                    repeater.values[idx++].value = model.firstDay
-                                    repeater.values[idx++].value = model.shortDate
-                                    repeater.values[idx++].value = model.longDate
-                                    repeater.values[idx++].value = model.shortTime
-                                    repeater.values[idx++].value = model.longTime
-                                    repeater.values[idx++].value = model.currency
-                                    repeater.values[idx++].value = model.digit
-                                    repeater.values[idx++].value = model.paperSize
+                                background: Control {
+                                    implicitWidth: DS.Style.itemDelegate.width
+                                    implicitHeight: DS.Style.itemDelegate.height
 
-                                    // TODO: any better way to reset model?
-                                    repeater.model = 0
-                                    repeater.model = repeater.values
+                                    // Hover background
+                                    Rectangle {
+                                        anchors.fill: parent
+                                        visible: !checkDelegate.checked && !D.DTK.hasAnimation && checkDelegate.hovered
+                                        color: checkDelegate.D.ColorSelector.backgroundColor
+                                    }
+
+                                    // Selected background
+                                    Rectangle {
+                                        anchors.fill: parent
+                                        visible: checkDelegate.checked
+                                        color: DS.Style.itemDelegate.checkedColor
+                                    }
+                                }
+
+                                onCheckedChanged: {
+                                    if (checked) {
+                                        itemsView.selectedLangKey = model.langKey;
+                                        itemsView.selectedLocaleKey = model.localeKey;
+
+                                        itemsView.checkedLang = model.langKey
+                                        itemsView.checkedLocale = model.localeKey
+                                        let idx = 0
+                                        repeater.values[idx++].value = model.firstDay
+                                        repeater.values[idx++].value = model.shortDate
+                                        repeater.values[idx++].value = model.longDate
+                                        repeater.values[idx++].value = model.shortTime
+                                        repeater.values[idx++].value = model.longTime
+                                        repeater.values[idx++].value = model.currency
+                                        repeater.values[idx++].value = model.digit
+                                        repeater.values[idx++].value = model.paperSize
+
+                                        // TODO: any better way to reset model?
+                                        repeater.model = 0
+                                        repeater.model = repeater.values
+                                    }
                                 }
                             }
                         }
@@ -144,7 +199,7 @@ Loader {
                         Layout.alignment: Qt.AlignLeft | Qt.AlignTop | Qt.H
                         Layout.bottomMargin: 20
                         text: qsTr("Default formats")
-                        font: DTK.fontManager.t6
+                        font: D.DTK.fontManager.t6
                     }
 
                     Repeater {
@@ -175,7 +230,7 @@ Loader {
                             topPadding: topInset
                             bottomPadding: bottomInset
                             contentFlow: true
-                            font: DTK.fontManager.t6
+                            font: D.DTK.fontManager.t6
                             corners: getCornersForBackground(index, repeater.count)
                             content: RowLayout {
                                 ColumnLayout {
@@ -214,16 +269,16 @@ Loader {
                 Layout.alignment: Qt.AlignHCenter
                 Layout.bottomMargin: 6
                 spacing: 10
-                Button {
-                    font: DTK.fontManager.t6
+                D.Button {
+                    font: D.DTK.fontManager.t6
                     text: qsTr("Cancel")
                     onClicked: {
                         ddialog.close()
                     }
                 }
-                Button {
+                D.Button {
                     text: qsTr("Save")
-                    font: DTK.fontManager.t6
+                    font: D.DTK.fontManager.t6
                     enabled: itemsView.checkedLang.length > 0
                     onClicked: {
                         regionFormatLoader.selectedRegion(itemsView.checkedLocale, itemsView.checkedLang)
