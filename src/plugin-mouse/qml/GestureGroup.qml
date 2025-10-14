@@ -47,6 +47,7 @@ Rectangle {
                 property var comboMoel: model.actionListRole
                 property int comboIndex: model.actionsIndexRole
                 property var comboItem: null
+                property int delegateIndex: index  // Save delegate's index to avoid being overridden by ComboBox's index parameter
                 content: D.ComboBox {
                     id: combo
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
@@ -56,8 +57,8 @@ Rectangle {
                     currentIndex: comboIndex
                     editable: false
                     flat: true
-                    onCurrentValueChanged: {
-                        root.comboIndexChanged(index, combo.currentValue)
+                    onActivated: {
+                        root.comboIndexChanged(itemCtl.delegateIndex, combo.currentValue)
                     }
                     Component.onCompleted: comboItem = this
                 }
@@ -68,11 +69,11 @@ Rectangle {
                 }
 
                 onHoveredChanged: {
-                    root.hoveredChanged(index, comboItem.currentValue, hovered)
+                    root.hoveredChanged(delegateIndex, comboItem.currentValue, hovered)
                 }
 
                 onClicked: {
-                    root.clicked(index, !model.isChecked)
+                    root.clicked(delegateIndex, !model.isChecked)
                 }
             }
         }
