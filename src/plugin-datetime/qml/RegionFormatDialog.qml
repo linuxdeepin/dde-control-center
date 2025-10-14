@@ -41,6 +41,7 @@ Loader {
             }
 
             RowLayout {
+                spacing: 10
                 ColumnLayout {
                     Layout.preferredWidth: 348
                     Layout.maximumWidth: 348
