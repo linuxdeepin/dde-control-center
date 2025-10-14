@@ -705,7 +705,7 @@ DccObject {
                 implicitHeight: 30
                 contentItem: Text {
                     text: deleteBtn.text
-                    color: "#FF5736"
+                    color: deleteBtn.ColorSelector.controlState === DTK.InactiveState ? "#66FF5736" : "#FF5736"
                     verticalAlignment: Text.AlignVCenter
                     horizontalAlignment: Text.AlignHCenter
                 }
@@ -1182,7 +1182,7 @@ DccObject {
                                 return "list_delete"
                             }
 
-                            return editButton.checked ? "item_checked" : "item_unchecked"
+                            return editButton.checked ? "item_checked" : "radio_unchecked"
                         }
 
                         background: null

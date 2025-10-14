@@ -151,6 +151,7 @@ DccTitleObject {
                     contentItem: TextInput {
                         id: ti
                         text: sbAge.textFromValue(sbAge.value, sbAge.locale)
+                        color: sbAge.palette.text
                         readOnly: !sbAge.editable
                         validator: sbAge.validator
                         inputMethodHints: sbAge.inputMethodHints
