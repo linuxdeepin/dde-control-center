@@ -45,11 +45,12 @@ Loader {
                 ColumnLayout {
                     Layout.preferredWidth: 348
                     Layout.maximumWidth: 348
+                    spacing: 10
                     SearchEdit {
                         id: searchEdit
                         Layout.fillWidth: true
-                        Layout.leftMargin: 10
-                        Layout.rightMargin: 10
+                        Layout.leftMargin: 0
+                        Layout.rightMargin: 0
                         placeholder: qsTr("Search")
                         font: DTK.fontManager.t6
                         onTextChanged: {
