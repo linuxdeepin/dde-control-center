@@ -13,6 +13,10 @@ add_library(${DCCFrame_Name} SHARED
 )
 
 find_package(${QT_NS} COMPONENTS QmlModels REQUIRED)
+if(${QT_NS}_VERSION VERSION_GREATER_EQUAL 6.10)
+  find_package(${QT_NS} COMPONENTS QmlModelsPrivate REQUIRED)
+endif()
+
 set(DCCFrame_Libraries
     ${DTK_NS}::Gui
     ${QT_NS}::Gui

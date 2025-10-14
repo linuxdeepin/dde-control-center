@@ -52,6 +52,7 @@ target_link_libraries(libwayqt6
     PUBLIC
     ${QT_NS}::Core
     ${QT_NS}::Gui
+    ${QT_NS}::GuiPrivate
     PkgConfig::WaylandClient
 )
 ###########################################
