@@ -988,11 +988,11 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation>petita</translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation>grossa</translation>
     </message>
 </context>
 <context>
@@ -1041,7 +1041,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Som profundament conscients de la importància de la informació personal per a vosaltres. Per això, tenim la Política de privadesa que cobreix com recopilem, usem, compartim, transferim, divulguem públicament i emmagatzemem la vostra informació.&lt;/p&gt;&lt;p&gt; Podeu &lt;a href=&quot;%1&quot;&gt;fer clic aquí&lt;/a&gt; per veure la nostra política de privadesa més recent i/o veure-la en línia a &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Llegiu atentament i mireu d&apos;entendre completament les nostres pràctiques sobre la privadesa del client. Si teniu cap pregunta, poseu-vos en contacte amb nosaltres a %2.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
