@@ -186,7 +186,7 @@ DccObject {
                    background: DccItemBackground {
                        id: background
                        separatorVisible: true
-                       backgroundType: DccObject.Hover
+                       backgroundType: DccObject.ClickStyle
                    }
                    onClicked: {
                        otherSettings.displayName = model.display
