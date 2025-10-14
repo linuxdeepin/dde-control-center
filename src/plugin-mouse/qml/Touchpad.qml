@@ -14,6 +14,14 @@ DccObject {
     property bool isHovering: false
     property bool animatedImagePlaying: false
     property var preActionDec: undefined
+    // Animation priority control: ensure selection animation has priority over hover animation
+    property bool isPlayingSelectionAnimation: false
+    property int animationPriority: 0  // 0: no animation, 1: hover animation, 2: selection animation
+    // Record current hover state details for switching after selection animation ends
+    property int currentHoverIndex: -1
+    property var currentHoverActionDec: undefined
+    property int currentFingerNum: 3  // Record current gesture finger count
+    property bool resetAnimationTrigger: false  // Trigger to reset animation frames
     DccObject {
         name: "BasicSettings"
         parentName: "MouseAndTouchpad/Touchpad"
@@ -279,10 +287,34 @@ DccObject {
                         sourceSize.height: 134
                         playing: touchpad.animatedImagePlaying
 
+                        // Reset animation frame when new selection is made
+                        Connections {
+                            target: touchpad
+                            function onResetAnimationTriggerChanged() {
+                                gestureFingerAnimatedImage.currentFrame = 0
+                            }
+                        }
+
                         onFrameChanged: {
-                            if (currentFrame  >= (frameCount - 1) && !touchpad.isHovering) {
+                            if (currentFrame >= (frameCount - 1)) {
                                 currentFrame = 0
-                                touchpad.animatedImagePlaying = false;
+                                if (touchpad.animationPriority === 2) {
+                                    // Selection animation completed, reset priority
+                                    touchpad.isPlayingSelectionAnimation = false
+                                    touchpad.animationPriority = 0
+
+                                    // If currently hovering, immediately play hover animation
+                                    if (touchpad.isHovering && touchpad.currentHoverIndex >= 0 && touchpad.currentHoverActionDec) {
+                                        // Update animation path to the hovered action
+                                        dccData.updateFigerGestureAni(touchpad.currentFingerNum, touchpad.currentHoverIndex, touchpad.currentHoverActionDec)
+                                        touchpad.animationPriority = 1
+                                        touchpad.animatedImagePlaying = true
+                                        return // Continue playing hover animation
+                                    }
+                                }
+                                if (!touchpad.isHovering || touchpad.animationPriority === 2) {
+                                    touchpad.animatedImagePlaying = false;
+                                }
                             }
                         }
                     }
@@ -295,10 +327,34 @@ DccObject {
                         sourceSize.height: 134
                         playing:  touchpad.animatedImagePlaying
 
+                        // Reset animation frame when new selection is made
+                        Connections {
+                            target: touchpad
+                            function onResetAnimationTriggerChanged() {
+                                gestureActionAnimatedImage.currentFrame = 0
+                            }
+                        }
+
                         onFrameChanged: {
-                            if (currentFrame  >= (frameCount - 1) && !touchpad.isHovering) {
+                            if (currentFrame >= (frameCount - 1)) {
                                 currentFrame = 0
-                                touchpad.animatedImagePlaying = false;
+                                if (touchpad.animationPriority === 2) {
+                                    // Selection animation completed, reset priority
+                                    touchpad.isPlayingSelectionAnimation = false
+                                    touchpad.animationPriority = 0
+
+                                    // If currently hovering, immediately play hover animation
+                                    if (touchpad.isHovering && touchpad.currentHoverIndex >= 0 && touchpad.currentHoverActionDec) {
+                                        // Update animation path to the hovered action
+                                        dccData.updateFigerGestureAni(touchpad.currentFingerNum, touchpad.currentHoverIndex, touchpad.currentHoverActionDec)
+                                        touchpad.animationPriority = 1
+                                        touchpad.animatedImagePlaying = true
+                                        return // Continue playing hover animation
+                                    }
+                                }
+                                if (!touchpad.isHovering || touchpad.animationPriority === 2) {
+                                    touchpad.animatedImagePlaying = false;
+                                }
                             }
                         }
                     }
@@ -358,18 +414,44 @@ DccObject {
 
             onComboIndexChanged: function (index, actionDec){
                 dccData.setGestures(3, index, actionDec)
-                dccData.updateFigerGestureAni(3,index, actionDec)
+                dccData.updateFigerGestureAni(3, index, actionDec)
+
+                // Reset animation frames to ensure full playback from the beginning
+                touchpad.resetAnimationTrigger = !touchpad.resetAnimationTrigger
+
+                // Set high priority for selection animation
+                touchpad.animationPriority = 2
+                touchpad.isPlayingSelectionAnimation = true
+                touchpad.animatedImagePlaying = true
             }
 
             onHoveredChanged: function (index, actionDec, hovered) {
                 if (hovered) {
-                    dccData.updateFigerGestureAni(3,index, actionDec)
-                    preActionDec = actionDec
-                    touchpad.isHovering = true
-                    touchpad.animatedImagePlaying = true
+                    // Record hover state details
+                    touchpad.currentHoverIndex = index
+                    touchpad.currentHoverActionDec = actionDec
+                    touchpad.currentFingerNum = 3  // Three-finger gesture
+
+                    // Only play hover animation when no selection animation is playing
+                    if (!touchpad.isPlayingSelectionAnimation && touchpad.animationPriority < 2) {
+                        dccData.updateFigerGestureAni(3, index, actionDec)
+                        preActionDec = actionDec
+                        touchpad.isHovering = true
+                        touchpad.animationPriority = 1
+                        touchpad.animatedImagePlaying = true
+                    } else {
+                        // Record hover state but don't play animation
+                        preActionDec = actionDec
+                        touchpad.isHovering = true
+                    }
                 } else if (preActionDec === actionDec) {
                     touchpad.isHovering = false
                     preActionDec = undefined
+                    touchpad.currentHoverIndex = -1
+                    touchpad.currentHoverActionDec = undefined
+                    if (touchpad.animationPriority === 1) {
+                        touchpad.animationPriority = 0
+                    }
                 }
             }
 
@@ -417,17 +499,44 @@ DccObject {
             model: dccData.fourFigerGestureModel()
             onComboIndexChanged: function (index, actionDec){
                 dccData.setGestures(4, index, actionDec)
+                dccData.updateFigerGestureAni(4, index, actionDec)
+
+                // Reset animation frames to ensure full playback from the beginning
+                touchpad.resetAnimationTrigger = !touchpad.resetAnimationTrigger
+
+                // Set high priority for selection animation
+                touchpad.animationPriority = 2
+                touchpad.isPlayingSelectionAnimation = true
+                touchpad.animatedImagePlaying = true
             }
 
             onHoveredChanged: function (index, actionDec, hovered) {
                 if (hovered) {
-                    dccData.updateFigerGestureAni(4,index, actionDec)
-                    preActionDec = actionDec
-                    touchpad.isHovering = true
-                    touchpad.animatedImagePlaying = true
+                    // Record hover state details (four-finger gesture)
+                    touchpad.currentHoverIndex = index
+                    touchpad.currentHoverActionDec = actionDec
+                    touchpad.currentFingerNum = 4  // Four-finger gesture
+
+                    // Only play hover animation when no selection animation is playing
+                    if (!touchpad.isPlayingSelectionAnimation && touchpad.animationPriority < 2) {
+                        dccData.updateFigerGestureAni(4, index, actionDec)
+                        preActionDec = actionDec
+                        touchpad.isHovering = true
+                        touchpad.animationPriority = 1
+                        touchpad.animatedImagePlaying = true
+                    } else {
+                        // Record hover state but don't play animation
+                        preActionDec = actionDec
+                        touchpad.isHovering = true
+                    }
                 } else if (preActionDec === actionDec) {
                     touchpad.isHovering = false
                     preActionDec = undefined
+                    touchpad.currentHoverIndex = -1
+                    touchpad.currentHoverActionDec = undefined
+                    if (touchpad.animationPriority === 1) {
+                        touchpad.animationPriority = 0
+                    }
                 }
             }
         }
