@@ -3087,7 +3087,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>shfaqi krejt - %1 objektet</translation>
     </message>
 </context>
 <context>
