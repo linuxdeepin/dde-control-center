@@ -391,9 +391,9 @@ void SystemInfoWork::setUeProgram(bool enabled)
         QString theme = themeType == Dtk::Gui::DGuiApplicationHelper::DarkType ? "dark" : "light";
         
         m_process->start("dde-license-dialog",
-                         QStringList() << "-t" << m_title << pathType << m_content << "-a" << allowContent << "-p" << theme);
+                         QStringList() << "-t" << m_title << pathType << m_content << "-a" << allowContent << "-p" << theme << "-i" << "preferences-system");
         qDebug()<<" Deliver content QStringList() = "<<"dde-license-dialog"
-                                                     << "-t" << m_title << pathType << m_content << "-a" << allowContent << "-p" << theme;
+                                                     << "-t" << m_title << pathType << m_content << "-a" << allowContent << "-p" << theme << "-i" << "preferences-system";
         connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, [=](int result) {
             if (96 == result) {
                 if (!m_model->joinUeProgram()) {
