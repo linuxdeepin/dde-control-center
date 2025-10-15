@@ -168,7 +168,7 @@ ColumnLayout {
         id: pwdIndicator
         spacing: 4
         Layout.alignment: Qt.AlignRight | Qt.AlignBottom
-        Layout.rightMargin: 0
+        Layout.rightMargin: 10
         Layout.bottomMargin: 6
         Layout.topMargin: 20
         Label {
