@@ -45,8 +45,8 @@ D.DialogWindow {
             }
             font: D.DTK.fontManager.t8
             wrapMode: Text.WordWrap
-            rightPadding: 10
-            leftPadding: 0
+            rightPadding: 20
+            leftPadding: 10
             horizontalAlignment: Text.AlignHCenter
             Layout.preferredWidth: pwdLayout.minWidth(font, text, dialog.width - 12)
             Layout.leftMargin: 0
@@ -60,7 +60,7 @@ D.DialogWindow {
             userId: dialog.userId
             currentPwdVisible: dialog.isCurrent()
             Layout.leftMargin: 0
-            Layout.rightMargin: 15
+            Layout.rightMargin: 18
             Layout.fillWidth: true
             Layout.maximumWidth: dialog.width - 12
             onRequestClose: {
@@ -74,7 +74,7 @@ D.DialogWindow {
             Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
             Layout.bottomMargin: 6
             Layout.leftMargin: 0
-            Layout.rightMargin: 10
+            Layout.rightMargin: 16
 
             Button {
                 id: cancelButton
