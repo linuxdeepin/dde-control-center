@@ -1754,7 +1754,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>add</source>
-        <translation>&amp;Додати</translation>
+        <translation>Додати</translation>
     </message>
     <message>
         <source>Region</source>
@@ -2458,7 +2458,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>5 minute</source>
-        <translation>хвилина</translation>
+        <translation>5 хвилин</translation>
     </message>
     <message>
         <source>10 minute</source>
