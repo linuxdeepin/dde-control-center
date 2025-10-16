@@ -1,3 +1,31 @@
+dde-control-center (6.1.52) unstable; urgency=medium
+
+  * i18n: Translate dde-control-center_en.ts in uk
+  * fix: Fix the issue on the change password interface
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2730)
+  * fix: Modify the issue of only X screen not updating
+  * fix: Modify the user experience plan popup style
+  * fix: Fix abnormal graying effect
+  * fix: add ListView background and rounded item selection
+  * fix: compatibility with Qt 6.10
+  * fix: adjust SearchEdit width to align with list in
+    RegionFormatDialog
+  * fix: resolve spacing issues in RegionFormatDialog
+  * fix: add background highlight when clicking accounts
+  * fix: gesture animation plays selected action instead of hovered item
+  * fix: Modify the font style of color temperature parameters
+  * fix: add tooltip for truncated text in sound device dropdown menu
+  * fix: Fix the incorrect email issue in the privacy text
+  * fix: make fingerprint renaming operation synchronous
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2722)
+  * fix: resolve SearchEdit text truncation with large font size
+  * fix: Fix custom avatar issue
+  * refactor: optimize wallpaper settings layout structure
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 16 Oct 2025 20:51:00 +0800
+
 dde-control-center (6.1.51) unstable; urgency=medium
 
   * fix: add missing signal for developer mode state sync
