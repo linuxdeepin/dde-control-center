@@ -81,6 +81,7 @@ public Q_SLOTS:
     void stopFingerEnroll(const QString& userName);
     void deleteFingerItem(const QString& userName, const QString& finger);
     void renameFingerItem(const QString& userName, const QString& finger, const QString& newName);
+    void refreshFingerDriverStatus(const QString &defaultDevice);
 
 private:
     CharaMangerModel *m_model;
