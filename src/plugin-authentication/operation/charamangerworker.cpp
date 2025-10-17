@@ -44,6 +44,9 @@ CharaMangerWorker::CharaMangerWorker(CharaMangerModel *model, QObject *parent)
     connect(m_charaMangerInter, &CharaMangerDBusProxy::EnrollStatusFingerprint, m_model, [this](const QString &, int code, const QString &msg) {
         m_model->onFingerEnrollStatusChanged(code, msg);
     });
+
+    connect(m_charaMangerInter, &CharaMangerDBusProxy::DefaultDeviceChanged, this, &CharaMangerWorker::onDefaultDeviceChanged);
+
     //当前此信号末实现
     connect(m_charaMangerInter, &CharaMangerDBusProxy::Touch, m_model, &CharaMangerModel::onTouch);
     connect(m_charaMangerInter, &CharaMangerDBusProxy::LockedChanged, m_model, &CharaMangerModel::lockedChanged);
@@ -415,4 +418,10 @@ void CharaMangerWorker::renameFingerItem(const QString &userName, const QString 
         qWarning() << "call RenameFinger Error : " << call.error();
     }
     refreshFingerEnrollList(userName);
+}
+
+void CharaMangerWorker::onDefaultDeviceChanged(const QString &device)
+{
+    qInfo() << "Finger DefaultDeviceChanged: " << device;
+    m_model->setFingerVaild(!device.isEmpty());
 }

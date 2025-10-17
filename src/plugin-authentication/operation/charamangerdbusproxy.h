@@ -48,6 +48,7 @@ signals:
 
     // Fingerprint signals
     void EnrollStatusFingerprint(const QString &id, int code, const QString &msg);
+    void DefaultDeviceChanged(const QString &defaultDevice);
     void Touch(const QString &id, bool pressed);
 
     // SessionManager singnals
