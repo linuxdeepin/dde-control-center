@@ -2045,7 +2045,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Fjalëkalimi s’mund të jetë i njëjti me emrin e përdoruesit.</translation>
     </message>
 </context>
 <context>
@@ -3547,7 +3547,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Përfshini të paktën %1 lloje nga shkronja me të vogla, me të mëdha, numra dhe simbole dhe fjalëkalimi s’mund të jetë i njëjtë me emrin e përdoruesit.</translation>
     </message>
 </context>
 <context>
