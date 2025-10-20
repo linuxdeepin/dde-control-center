@@ -2023,11 +2023,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Different from the username</source>
+        <source>New password should differ from the current one</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>New password should differ from the current one</source>
+        <source>The password cannot be the same as the username.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3527,6 +3527,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>It does not meet password rules</source>
         <translation type="unfinished">གསང་ཨང་བདེ་འཇགས་ཀྱི་བླང་བྱ་དང་མི་འཚམ་པ།</translation>
+    </message>
+    <message>
+        <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

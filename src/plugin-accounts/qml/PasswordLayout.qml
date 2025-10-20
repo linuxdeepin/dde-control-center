@@ -81,7 +81,7 @@ ColumnLayout {
 
     function showUserNameMatchPasswordAlert() {
         if (pwdContainter && pwdContainter.eidtItems && pwdContainter.eidtItems[0]) {
-            pwdContainter.eidtItems[0].showAlertText(qsTr("Different from the username"))
+            pwdContainter.eidtItems[0].showAlertText(qsTr("The password cannot be the same as the username."))
         }
     }
 
@@ -425,7 +425,7 @@ ColumnLayout {
             onEditingFinished: {
                 if (echoButtonVisible && pwdContainter.eidtItems[2] != rightItem) {
                     if (text === pwdLayout.currentName && text.length > 0) {
-                        showAlertText(qsTr("Different from the username"))
+                        showAlertText(qsTr("The password cannot be the same as the username."))
                     }
                 }
             }

@@ -67,7 +67,7 @@ QString PwqualityManager::getErrorTips(PwqualityManager::ERROR_TYPE type, CheckT
         {PW_ERR_PALINDROME, tr("No more than %1 palindrome characters please").arg(passwordPalimdromeNum)},
         {PW_ERR_PW_MONOTONE, tr("No more than %1 monotonic characters please").arg(passwordMonotoneCharacterNum)},
         {PW_ERR_PW_CONSECUTIVE_SAME, tr("No more than %1 repeating characters please").arg(passwordConsecutiveSameCharacterNum)},
-
+        {PW_ERR_CHARACTER_TYPE_TOO_FEW, tr("At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.").arg(get_pw_min_character_type(0))},
     };
 
     //服务器版校验规则
