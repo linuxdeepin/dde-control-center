@@ -51,7 +51,7 @@ KeyboardController::KeyboardController(QObject *parent)
                     return;
                 }
 
-                auto conflictName = QString("<font color=\"red\">%1</font>").arg(conflict->name);
+                auto conflictName = QString("<font color=\"red\">%1</font>").arg(conflict->name.toHtmlEscaped());
                 QString text = KeyboardController::tr("This shortcut conflicts with [%1]").arg(conflictName);
                 setConflictText(text);
                 Q_EMIT keyConflicted(current ? current->accels : "", conflict->accels);
