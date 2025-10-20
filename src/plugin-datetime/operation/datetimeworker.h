@@ -109,6 +109,7 @@ private:
     RegionProxy *m_regionInter;
     DTK_CORE_NAMESPACE::DConfig *m_config;
     DTK_CORE_NAMESPACE::DConfig *m_datetimeConfig;
+    DTK_CORE_NAMESPACE::DConfig *m_daemonTimedateConfig;
     std::optional<QStringList> m_supportedLocaleList;
 };
 
