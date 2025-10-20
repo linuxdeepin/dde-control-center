@@ -76,6 +76,8 @@ const QStringList &assistiveToolsFilter = {"textToSpeech",
 #define RightCorner TopRightCorner| BottomRightCorner
 #define AllCorner TopCorner | BottomCorner
 
+static const QString FieldSeparator = QString(QChar(0x1F));
+
 static const QMap<QString, QString> &DisplaykeyMap = { {"exclam", "!"}, {"at", "@"}, {"numbersign", "#"}, {"dollar", "$"}, {"percent", "%"},
     {"asciicircum", "^"}, {"ampersand", "&"}, {"asterisk", "*"}, {"parenleft", "("},
     {"parenright", ")"}, {"underscore", "_"}, {"plus", "+"}, {"braceleft", "{"}, {"braceright", "}"},
@@ -89,7 +91,7 @@ static const QMap<QString, QString> &DisplaykeyMap = { {"exclam", "!"}, {"at", "
 static QString toPinyin(const QString &name)
 {
     DCORE_USE_NAMESPACE
-    return pinyin(name, TS_NoneTone).join("_") + "_" + firstLetters(name).join("_");
+    return pinyin(name, TS_NoneTone).join(FieldSeparator) + FieldSeparator + firstLetters(name).join(FieldSeparator);
 }
 
 using namespace dccV25;
@@ -620,7 +622,7 @@ QVariant ShortcutListModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
         return info->name;
     case SearchedTextRole:
-        return info->name + info->pinyin + "_" + displayKeys.join("_");
+        return info->name + info->pinyin + FieldSeparator + displayKeys.join(FieldSeparator);
     case IdRole:
         return info->id;
     case TypeRole:
