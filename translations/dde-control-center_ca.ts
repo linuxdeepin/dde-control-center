@@ -2048,7 +2048,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>La contrasenya no pot ser la mateixa que el nom d&apos;usuari.</translation>
     </message>
 </context>
 <context>
@@ -3550,7 +3550,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Com a mínim, incloeu %1 tipus de grafies, entre minúscules, majúscules, números i símbols, i la contrasenya no pot ser la mateixa que el nom d&apos;usuari.</translation>
     </message>
 </context>
 <context>
