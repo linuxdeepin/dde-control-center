@@ -2047,7 +2047,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>密码不能与用户名一致。</translation>
     </message>
 </context>
 <context>
@@ -3549,7 +3549,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>至少同时包含小写字母、大写字母、数字和符号中的%1种，且密码不能与用户名一致。</translation>
     </message>
 </context>
 <context>
@@ -3864,7 +3864,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>通用设置、输入法、快捷键</translation>
     </message>
 </context>
 <context>
