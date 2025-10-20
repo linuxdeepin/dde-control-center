@@ -9,11 +9,17 @@
 #include <QtConcurrent>
 #include <QFutureWatcher>
 #include <QLoggingCategory>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
 
 #include <dconfig.h>
 #include <qvariant.h>
 
 Q_LOGGING_CATEGORY(DdcDateTimeWorkder, "dcc-datetime-worker")
+
+static const QStringList customTimeZoneList = {
+    "Asia/Chengdu", "Asia/Beijing", "Asia/Nanjing", "Asia/Wuhan", "Asia/Xian", "Asia/Urumqi"
+};
 
 DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     : QObject(parent)
@@ -22,6 +28,7 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     , m_regionInter(new RegionProxy(this))
     , m_config(DTK_CORE_NAMESPACE::DConfig::createGeneric("org.deepin.region-format", QString(), this))
     , m_datetimeConfig(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center.datetime", QString(), this))
+    , m_daemonTimedateConfig(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.daemon", "org.deepin.dde.daemon.timedate", QString(), this))
 {
     QMetaObject::invokeMethod(this, "activate", Qt::QueuedConnection);
 #ifndef DCC_DISABLE_TIMEZONE
@@ -155,7 +162,27 @@ void DatetimeWorker::set24HourType(bool state)
 #ifndef DCC_DISABLE_TIMEZONE
 void DatetimeWorker::setTimezone(const QString &timezone)
 {
-    m_timedateInter->SetTimezone(timezone, tr("Authentication is required to set the system timezone"));
+    QString currentTimezone = m_timedateInter->timezone();
+    bool isNeedUpdateProp = (timezone == "Asia/Shanghai" && customTimeZoneList.contains(currentTimezone)) ||
+                            customTimeZoneList.contains(timezone);
+
+    QDBusPendingCall call = m_timedateInter->SetTimezone(timezone, tr("Authentication is required to set the system timezone"));
+    
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, timezone, isNeedUpdateProp](QDBusPendingCallWatcher *w) {
+        QDBusPendingReply<> reply = *w;
+        if (reply.isError()) {
+            qCWarning(DdcDateTimeWorkder) << "SetTimezone failed:" << reply.error().message();
+            return;
+        }
+
+        if (isNeedUpdateProp && m_daemonTimedateConfig && m_daemonTimedateConfig->isValid()) {
+            m_daemonTimedateConfig->setValue("timeZone", timezone);
+        }
+        m_timedateInter->AddUserTimezone(timezone);
+        Q_EMIT m_timedateInter->TimezoneChanged(timezone);
+        w->deleteLater();
+    });
 }
 
 void DatetimeWorker::removeUserTimeZone(const QString &zone)
