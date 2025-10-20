@@ -27,6 +27,7 @@ ColumnLayout {
         id: scrollView
         Layout.fillWidth: true
         Layout.fillHeight: true
+        Layout.topMargin: 15
         ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
         contentWidth: scrollView.width
 
