@@ -97,6 +97,13 @@ void ThemeVieweModel::updateData()
     QStringList keys = m_themeModel->keys();
     if (keys.contains("custom")) {
         keys.removeAll("custom");
+    }
+    // 按字母排序（不区分大小写）
+    std::sort(keys.begin(), keys.end(), [this](const QString &a, const QString &b) {
+        return m_themeModel->getList().value(a)["Name"].toString().toLower() < m_themeModel->getList().value(b)["Name"].toString().toLower();
+    });
+    // custom主题始终放在最前面
+    if (m_themeModel->keys().contains("custom")) {
         keys.push_front("custom");
     }
     beginResetModel();
