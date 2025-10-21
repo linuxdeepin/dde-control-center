@@ -3328,18 +3328,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dcc::Locale::dialectNames</name>
     <message>
         <source>Traditional Chinese (Chinese Hong Kong)</source>
-        <translation type="unfinished"/>
+        <translation>Tiếng Trung phồn thể (Trung Quốc Hồng Kông)</translation>
     </message>
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
-        <translation type="unfinished"/>
+        <translation>Tiếng Trung phồn thể (Trung Quốc Đài Loan)</translation>
     </message>
 </context>
 <context>
     <name>dcc::Locale::regionNames</name>
     <message>
         <source>Taiwan China</source>
-        <translation type="unfinished"/>
+        <translation>Đài Loan Trung Quốc</translation>
     </message>
 </context>
 <context>
