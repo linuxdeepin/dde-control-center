@@ -3317,18 +3317,18 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>dcc::Locale::dialectNames</name>
     <message>
         <source>Traditional Chinese (Chinese Hong Kong)</source>
-        <translation type="unfinished"/>
+        <translation>Chino tradicional (Hong Kong)</translation>
     </message>
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
-        <translation type="unfinished"/>
+        <translation>Chino tradicional (Taiwan)</translation>
     </message>
 </context>
 <context>
     <name>dcc::Locale::regionNames</name>
     <message>
         <source>Taiwan China</source>
-        <translation type="unfinished"/>
+        <translation>Taiwan</translation>
     </message>
 </context>
 <context>
