@@ -3330,18 +3330,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dcc::Locale::dialectNames</name>
     <message>
         <source>Traditional Chinese (Chinese Hong Kong)</source>
-        <translation type="unfinished"/>
+        <translation>ত্রান্সিস্টেন্ট চাইনিজ (চাইনিজ হংকং)</translation>
     </message>
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
-        <translation type="unfinished"/>
+        <translation>ত্রান্সিস্টেন্ট চাইনিজ (চাইনিজ তাইওয়ান)</translation>
     </message>
 </context>
 <context>
     <name>dcc::Locale::regionNames</name>
     <message>
         <source>Taiwan China</source>
-        <translation type="unfinished"/>
+        <translation>তাইওয়ান চাইনিজ</translation>
     </message>
 </context>
 <context>
