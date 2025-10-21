@@ -29,7 +29,7 @@ D.DialogWindow {
 
     D.ListView {
         id: listview
-        implicitWidth: dialog.width - DS.Style.dialogWindow.contentHMargin * 2
+        implicitWidth: dialog.width - dialog.leftPadding - dialog.rightPadding
         implicitHeight: 500 - DS.Style.dialogWindow.titleBarHeight - DS.Style.dialogWindow.contentHMargin
         spacing: DS.Style.dialogWindow.contentHMargin
         model: itemModel
@@ -70,6 +70,8 @@ D.DialogWindow {
                 Label {
                     Layout.fillWidth: true
                     Layout.alignment: Qt.AlignHCenter
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
                     font: D.DTK.fontManager.t8
                     wrapMode: Text.WordWrap
                     text: qsTr("Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.")
