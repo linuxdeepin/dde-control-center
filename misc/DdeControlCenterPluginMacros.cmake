@@ -42,7 +42,7 @@ function(dcc_handle_plugin_translation)
     endif()
 
     if(NOT _config_QML_FILES)
-        file(GLOB_RECURSE _config_QML_FILES ${_config_SOURCE_DIR}/*.qml)
+        file(GLOB_RECURSE _config_QML_FILES ${_config_SOURCE_DIR}/*.qml ${_config_SOURCE_DIR}/*.js)
     endif()
 
     if(NOT _config_SOURCE_FILES)
