@@ -196,10 +196,12 @@ Loader {
                     Layout.maximumWidth: 348
                     spacing: 0
                     Label {
-                        Layout.alignment: Qt.AlignLeft | Qt.AlignTop | Qt.H
-                        Layout.bottomMargin: 20
+                        Layout.alignment: Qt.AlignLeft | Qt.AlignBottom
+                        Layout.preferredHeight: searchEdit.height
+                        Layout.bottomMargin: 10
                         text: qsTr("Default formats")
                         font: D.DTK.fontManager.t6
+                        verticalAlignment: Text.AlignBottom
                     }
 
                     Repeater {
