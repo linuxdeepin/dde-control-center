@@ -29,7 +29,7 @@ D.DialogWindow {
 
     D.ListView {
         id: listview
-        implicitWidth: dialog.width - DS.Style.dialogWindow.contentHMargin * 2
+        implicitWidth: dialog.width - dialog.leftPadding - dialog.rightPadding
         implicitHeight: 500 - DS.Style.dialogWindow.titleBarHeight - DS.Style.dialogWindow.contentHMargin
         spacing: DS.Style.dialogWindow.contentHMargin
         model: itemModel
@@ -73,8 +73,8 @@ D.DialogWindow {
                     id: infoScrollView
                     Layout.fillHeight: true
                     Layout.fillWidth: true
-                    Layout.leftMargin: 5
-                    Layout.rightMargin: 5
+                    Layout.leftMargin: 10
+                    Layout.rightMargin: 10
                     Layout.preferredHeight: Math.min(infoLabel.implicitHeight, 120)
                     ScrollBar.horizontal.policy: ScrollBar.AlwaysOff
                     ScrollBar.vertical.policy: ScrollBar.AsNeeded
