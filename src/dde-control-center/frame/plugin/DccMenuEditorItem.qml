@@ -15,6 +15,7 @@ DccEditorItem {
     bottomPadding: bottomInset
     activeFocusOnTab: true
     rightItem: RowLayout {
+        spacing: 10
         Control {
             contentItem: editor ? editor : model.item.getSectionItem(this)
         }
