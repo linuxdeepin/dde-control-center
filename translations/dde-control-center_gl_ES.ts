@@ -3330,18 +3330,18 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <name>dcc::Locale::dialectNames</name>
     <message>
         <source>Traditional Chinese (Chinese Hong Kong)</source>
-        <translation type="unfinished"/>
+        <translation>Chinés tradicional (Chinés de Hong Kong)</translation>
     </message>
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
-        <translation type="unfinished"/>
+        <translation>Chinés tradicional (Chinés de Taiwán)</translation>
     </message>
 </context>
 <context>
     <name>dcc::Locale::regionNames</name>
     <message>
         <source>Taiwan China</source>
-        <translation type="unfinished"/>
+        <translation>Taiwán China</translation>
     </message>
 </context>
 <context>
@@ -3502,7 +3502,7 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
-        <translation type="unfinished"/>
+        <translation>Este atallo entra en conflito con [%1]</translation>
     </message>
 </context>
 <context>
