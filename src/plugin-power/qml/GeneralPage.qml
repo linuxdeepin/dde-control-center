@@ -160,7 +160,7 @@ DccObject {
             visible: dccData.model.canSuspend && dccData.model.isSuspend && !dccData.model.isVirtualEnvironment
             pageType: DccObject.Editor
             page: D.Switch {
-                checked: dccData.model.sleepLock && !dccData.model.isNoPasswdLogin
+                checked: dccData.model.sleepLock
                 enabled: !dccData.model.isNoPasswdLogin
                 onCheckedChanged: {
                     dccData.worker.setSleepLock(checked)
@@ -175,7 +175,7 @@ DccObject {
             weight: 2
             pageType: DccObject.Editor
             page: D.Switch {
-                checked: dccData.model.screenBlackLock && !dccData.model.isNoPasswdLogin
+                checked: dccData.model.screenBlackLock
                 enabled: !dccData.model.isNoPasswdLogin
                 onCheckedChanged: {
                     dccData.worker.setScreenBlackLock(checked)
