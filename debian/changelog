@@ -1,3 +1,22 @@
+dde-control-center (6.1.53) unstable; urgency=medium
+
+  * fix: correct custom wallpaper delete button color in dark mode
+  * i18n: Updates for project Deepin Desktop Environment (#2749)
+  * fix: correct lock switch display with passwordless login enabled
+  * fix: Modify the spacing between menu controls
+  * fix: adjust dialog layout margins and width calculation
+  * feat: sort theme list alphabetically and keep custom theme first
+  * fix: background misalignment in format dialog
+  * fix: auth dialog missing on second timezone change
+  * feat: adjust disclaimer layout spacing
+  * fix: Fix password verification prompt
+  * fix: underscore search mismatch in keyboard shortcuts
+  * fix: escape HTML special characters in conflict name display
+  * i18n: Translate dde-control-center_en.ts in pl
+  * feat: add fingerprint device change handling
+
+ -- wujiangyu <wujiangyu@uniontech.com>  Thu, 23 Oct 2025 17:19:10 +0800
+
 dde-control-center (6.1.52) unstable; urgency=medium
 
   * i18n: Translate dde-control-center_en.ts in uk
