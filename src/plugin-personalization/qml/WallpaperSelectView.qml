@@ -260,18 +260,42 @@ ColumnLayout {
                         anchors.rightMargin: - width / 2 + root.imageMargin + 2
                         hoverEnabled: true
                         z: 999
-                        contentItem: D.IconButton {
+                        contentItem: D.ActionButton {
                             icon.name: "close"
                             implicitWidth: 20
                             implicitHeight: 20
                             icon.width: 14
                             icon.height: 14
                             visible: (control.hovered || parent.hovered) && model.deleteAble && !model.selected
-                            background: P.ButtonPanel {
-                                implicitWidth: 20
-                                implicitHeight: 20
+                            background: D.BoxPanel {
                                 radius: width / 2
-                                button: control
+                                enableBoxShadow: true
+                                boxShadowBlur: 10
+                                boxShadowOffsetY: 4
+                                color1: D.Palette {
+                                    normal {
+                                        common: Qt.rgba(240 / 255.0, 240 / 255.0, 240 / 255.0, 0.9)
+                                        // TODO crystal: Qt.rgba(240 / 255.0, 240 / 255.0, 240 / 255.0, 0.5)
+                                        crystal: Qt.rgba(240 / 255.0, 240 / 255.0, 240 / 255.0, 1.0)
+                                    }
+                                    normalDark {
+                                        common: Qt.rgba(24 / 255.0, 24 / 255.0, 24 / 255.0, 0.8)
+                                        // TODO crystal: Qt.rgba(240 / 255.0, 240 / 255.0, 240 / 255.0, 0.5)
+                                        crystal: Qt.rgba(24 / 255.0, 24 / 255.0, 24 / 255.0, 1.0)
+                                    }
+                                    hovered {
+                                        common: Qt.rgba(220 / 255.0, 220 / 255.0, 220 / 255.0, 0.95)
+                                        crystal: Qt.rgba(220 / 255.0, 220 / 255.0, 220 / 255.0, 1.0)
+                                    }
+                                    hoveredDark {
+                                        common: Qt.rgba(44 / 255.0, 44 / 255.0, 44 / 255.0, 0.9)
+                                        crystal: Qt.rgba(44 / 255.0, 44 / 255.0, 44 / 255.0, 1.0)
+                                    }
+                                }
+
+                                color2: color1
+                                insideBorderColor: null
+                                outsideBorderColor: null
                             }
                             onClicked: {
                                 root.wallpaperDeleteClicked(model.url)
