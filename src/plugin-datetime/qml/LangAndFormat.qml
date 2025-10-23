@@ -104,6 +104,8 @@ DccObject {
                     page: ItemDelegate {
                         id: itemDelegate
                         property bool isCurrentLang: dccData.currentLang === dccObj.displayName
+                        property bool isLoading: itemDelegate.isCurrentLang && !dccObj.enabled
+                                                && (dccData.langState & langAndFormat.localeStateSetLang)
                         visible: dccObj
                         hoverEnabled: true
                         implicitHeight: 40
@@ -153,9 +155,10 @@ DccObject {
 
                         IconButton {
                             id: removeButton
-                            visible: (itemDelegate.isCurrentLang && dccObj.enabled) ||
+                            visible: !itemDelegate.isLoading && (
+                                     (itemDelegate.isCurrentLang && dccObj.enabled) ||
                                      languageListTiltle.isEditing ||
-                                     (itemDelegate.isCurrentLang && regionAndFormat.localeGenRunning)
+                                     (itemDelegate.isCurrentLang && regionAndFormat.localeGenRunning))
                             icon.name: itemDelegate.isCurrentLang ? "item_checked" : "list_delete"
                             icon.width: 16
                             icon.height: 16
@@ -178,8 +181,7 @@ DccObject {
                         }
 
                         Loader {
-                            active: itemDelegate.isCurrentLang && !dccObj.enabled 
-                                && dccData.langState & langAndFormat.localeStateSetLang
+                            active: itemDelegate.isLoading
                             sourceComponent: BusyIndicator {
                                 running: visible
                                 implicitWidth: 20
