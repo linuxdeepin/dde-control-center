@@ -3545,7 +3545,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Anna vähintään %1 tyyppiä pienet ja isot kirjaimet, numerot ja symbolit, eikä salasana saa olla sama kuin käyttäjätunnus.</translation>
     </message>
 </context>
 <context>
