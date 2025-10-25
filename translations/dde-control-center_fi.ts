@@ -3860,7 +3860,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Lisäasetukset, näppäimistö, pikanäppäimet</translation>
     </message>
 </context>
 <context>
