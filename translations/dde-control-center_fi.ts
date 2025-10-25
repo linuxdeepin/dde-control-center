@@ -988,7 +988,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation>suuri</translation>
     </message>
 </context>
 <context>
@@ -1037,7 +1037,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Henkilötietojen suoja on sinulle tärkeää. Siksi meillä on tietosuojakäytäntö, joka kertoo miten keräämme, käytämme, jaamme, siirrämme, julkisesti luovutamme ja tallennamme tietojasi. &lt;/p&gt;&lt;p&gt; Voit katsoa uusinta tietosuojakäytäntöämme &lt;a href=&quot;%1&quot;&gt;tästä&lt;/a&gt; tai verkossa osoitteessa &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Lue huolellisesti ja ymmärrä täysin asiakkaidemme yksityisyyttä koskevat käytännöt. Jos sinulla on kysyttävää, ota meihin yhteyttä osoitteessa: %2&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2043,7 +2043,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Salasana ei voi olla sama kuin käyttäjätunnus.</translation>
     </message>
 </context>
 <context>
