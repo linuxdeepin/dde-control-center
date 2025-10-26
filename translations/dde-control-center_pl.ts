@@ -2048,7 +2048,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Hasło musi różnić się od nazwy użytkownika</translation>
     </message>
 </context>
 <context>
