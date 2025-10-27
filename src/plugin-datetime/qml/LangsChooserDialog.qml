@@ -70,6 +70,7 @@ Loader {
                     clip: true
                     model: langDialogLoader.viewModel
                     boundsBehavior: Flickable.StopAtBounds
+                    ScrollBar.vertical: scrollBar
 
                         ButtonGroup {
                             id: langGroup
@@ -197,25 +198,9 @@ Loader {
                     width: 10
                     orientation: Qt.Vertical
 
-                    // Break the binding cycle by using conditional binding
-                    position: pressed ? position : itemsView.visibleArea.yPosition
+                    position: itemsView.visibleArea.yPosition
                     size: itemsView.visibleArea.heightRatio
                     active: hovered || pressed || itemsView.moving || itemsView.flicking
-
-                    property bool userDragging: false
-
-                    onPressedChanged: {
-                        userDragging = pressed
-                    }
-
-                    onPositionChanged: {
-                        if (userDragging && itemsView.contentHeight > itemsView.height) {
-                            // Temporarily disconnect the binding to prevent feedback loop
-                            let maxContentY = itemsView.contentHeight - itemsView.height
-                            let newContentY = position * maxContentY
-                            itemsView.contentY = Math.max(0, Math.min(newContentY, maxContentY))
-                        }
-                    }
                 }
             }
 
