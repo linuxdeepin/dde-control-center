@@ -404,6 +404,7 @@ ColumnLayout {
             font: D.DTK.fontManager.t7
             canCopy: false
             canCut: false
+            inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             verticalAlignment: TextInput.AlignVCenter
