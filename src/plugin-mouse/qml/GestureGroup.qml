@@ -35,6 +35,7 @@ Rectangle {
                 topPadding: 0
                 bottomPadding: 0
                 implicitHeight: 36
+                topInset: index === 0 ? 2 : 0
                 cascadeSelected: true
                 backgroundVisible: root.backgroundVisible
                 text: model.descriptionRole
