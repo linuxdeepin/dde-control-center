@@ -120,7 +120,11 @@ DccObject {
                 pageType: DccObject.Editor
                 enabled: dccData.model.screenSaverModel.getConfigAbleByUrl(dccData.model.currentScreenSaver) || dccData.model.currentScreenSaver === "deepin-custom-screensaver"
                 page: D.Button {
-                    implicitWidth: 80
+                    implicitWidth: fm.advanceWidth(text) + leftPadding + rightPadding
+                    implicitHeight: 24
+                    FontMetrics {
+                        id: fm
+                    }
                     text: qsTr("setting")
                     onClicked: {
                         dccData.worker.requestScreenSaverConfig(dccData.model.currentScreenSaver)
