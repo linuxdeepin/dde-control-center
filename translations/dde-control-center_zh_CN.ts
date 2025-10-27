@@ -2448,7 +2448,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>setting</source>
-        <translation>设置</translation>
+        <translation>设 置</translation>
     </message>
     <message>
         <source>idle time</source>
