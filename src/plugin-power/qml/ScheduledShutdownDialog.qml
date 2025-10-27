@@ -69,9 +69,9 @@ D.DialogWindow {
     ColumnLayout {
         implicitWidth: parent.width
         clip: true
-        Text {
-            anchors.fill: parent
-            horizontalAlignment: Text.AlignHCenter
+        D.Label {
+            Layout.alignment: Qt.AlignHCenter
+            font: D.DTK.fontManager.t6
             text: qsTr("Customize repetition time")
         }
         ListView {
