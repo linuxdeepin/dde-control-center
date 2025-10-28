@@ -558,15 +558,18 @@ DccObject {
         parentName: "langAndFormat"
         weight: 90
         pageType: DccObject.Item
-        visible: dccData.numberExampleFormat !== ""
-        page: RowLayout {
-            Label {
-                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
-                Layout.leftMargin: 12
-                text: dccData.numberExampleFormat
-                font.pixelSize: DTK.fontManager.t10.pixelSize
-                color: DTK.themeType === ApplicationHelper.LightType ?
-                    Qt.rgba(0, 0, 0, 0.5) : Qt.rgba(1, 1, 1, 0.5)
+        visible: dccData.numberExampleParts.length > 0
+        page: Row {
+            spacing: 4
+            leftPadding: 12
+            Repeater {
+                model: dccData.numberExampleParts
+                delegate: Label {
+                    text: modelData
+                    font.pixelSize: DTK.fontManager.t10.pixelSize
+                    color: DTK.themeType === ApplicationHelper.LightType ?
+                        Qt.rgba(0, 0, 0, 0.5) : Qt.rgba(1, 1, 1, 0.5)
+                }
             }
         }
 
