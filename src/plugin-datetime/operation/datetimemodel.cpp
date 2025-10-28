@@ -200,7 +200,7 @@ DatetimeModel::DatetimeModel(QObject *parent)
     });
 
     connect(this, &DatetimeModel::symbolChanged, this, [this](int format) {
-        Q_EMIT numberExampleFormatChanged(numberExampleFormat());
+        Q_EMIT numberExampleFormatChanged(numberExampleParts());
         if (format != CurrencySymbol && format != DigitGroupingSymbol && format != DecimalSymbol)
             return;
 
@@ -1219,9 +1219,10 @@ int DatetimeModel::langState() const
     return m_langModel->getLangChangedState();
 }
 
-QString DatetimeModel::numberExampleFormat() const
+QStringList DatetimeModel::numberExampleParts() const
 {
     QString numberExampleFormat = tr("Example") + ":";
+    QStringList parts;
 
     QStringList digitGroupingValues = availableFormats(DigitGrouping);
     int digitGroupingIndex = currentFormatIndex(DigitGrouping);
@@ -1248,57 +1249,65 @@ QString DatetimeModel::numberExampleFormat() const
         numberData += normalizeSpace(decimalValues.at(decimalIndex));
         numberData += "00";
 
-        QString currencyFormat = currencyValues.at(currencyIndex);
-        int positiveCurrencyIndex = currentFormatIndex(PositiveCurrency);
+        QString currencySymbol = currencyValues.at(currencyIndex);
+        // Wrap numbers with LTR isolate marks to prevent reversal while maintaining RTL layout
+        QString protectedNumber = QString::fromUtf8("\u2066") + numberData + QString::fromUtf8("\u2069");
+
+        // Add title
+        parts << numberExampleFormat;
+
+        // Construct complete positive currency format string
         QString positiveCurrencyFormat;
+        int positiveCurrencyIndex = currentFormatIndex(PositiveCurrency);
         switch (positiveCurrencyIndex) {
         case 0://¥1.1
-            positiveCurrencyFormat = QString("%1%2").arg(currencyFormat).arg(numberData);
+            positiveCurrencyFormat = currencySymbol + protectedNumber;
             break;
         case 1://1.1¥
-            positiveCurrencyFormat = QString("%1%2").arg(numberData).arg(currencyFormat);
+            positiveCurrencyFormat = protectedNumber + currencySymbol;
             break;
         case 2://¥ 1.1
-            positiveCurrencyFormat = QString("%1 %2").arg(currencyFormat).arg(numberData);
+            positiveCurrencyFormat = currencySymbol + " " + protectedNumber;
             break;
         case 3://1.1 ¥
-            positiveCurrencyFormat = QString("%1 %2").arg(numberData).arg(currencyFormat);
+            positiveCurrencyFormat = protectedNumber + " " + currencySymbol;
             break;
         default:
+            positiveCurrencyFormat = protectedNumber + " " + currencySymbol;
             break;
         }
+        parts << positiveCurrencyFormat;
 
+        // Construct complete negative currency format string
+        QString negativeCurrencyFormat;
         int negativeCurrencyIndex = currentFormatIndex(NegativeCurrency);
-        QString negativeCurrency;
         switch (negativeCurrencyIndex) {
         case 0://-¥1.1
-            negativeCurrency = QString("%1%2%3").arg("-").arg(currencyFormat).arg(numberData);
+            negativeCurrencyFormat = "-" + currencySymbol + protectedNumber;
             break;
         case 1://¥-1.1
-            negativeCurrency = QString("%1%2%3").arg(currencyFormat).arg("-").arg(numberData);
+            negativeCurrencyFormat = currencySymbol + "-" + protectedNumber;
             break;
         case 2://¥1.1-
-            negativeCurrency = QString("%1%2%3").arg(currencyFormat).arg(numberData).arg("-");
+            negativeCurrencyFormat = currencySymbol + protectedNumber + "-";
             break;
         case 3://-1.1¥
-            negativeCurrency = QString("%1%2%3").arg("-").arg(numberData).arg(currencyFormat);
+            negativeCurrencyFormat = "-" + protectedNumber + currencySymbol;
             break;
         case 4://1.1-¥
-            negativeCurrency = QString("%1%2%3").arg(numberData).arg("-").arg(currencyFormat);
+            negativeCurrencyFormat = protectedNumber + "-" + currencySymbol;
             break;
         case 5://1.1¥-
-            negativeCurrency = QString("%1%2%3").arg(numberData).arg(currencyFormat).arg("-");
+            negativeCurrencyFormat = protectedNumber + currencySymbol + "-";
             break;
         default:
+            negativeCurrencyFormat = protectedNumber + " " + currencySymbol + "-";
             break;
         }
-
-        numberExampleFormat = numberExampleFormat + "  " + positiveCurrencyFormat + "  " + negativeCurrency;
-    } else {
-        numberExampleFormat.clear();
+        parts << negativeCurrencyFormat;
     }
 
-    return numberExampleFormat;
+    return parts;
 }
 
 DCC_FACTORY_CLASS(DatetimeModel)
