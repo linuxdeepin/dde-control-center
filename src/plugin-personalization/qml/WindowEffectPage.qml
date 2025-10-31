@@ -201,57 +201,6 @@ DccObject {
     }
 
     DccObject {
-        id: scrollBarObject
-        name: "scrollBar"
-        property bool hasDBusProperty: false
-        parentName: "personalization/windowEffect"
-        displayName: qsTr("Scroll Bars")
-        visible: dccData.model.scrollBarPolicyConfig !== "Hidden"
-        weight: 700
-        backgroundType: DccObject.Normal
-        pageType: DccObject.Editor
-        page: D.ComboBox {
-            flat: true
-            enabled: dccData.model.scrollBarPolicyConfig !== "Disabled"
-            model: [qsTr("Show on scrolling"), qsTr("Keep shown")]
-            currentIndex: {
-                let policy = dccData.model.scrollBarPolicy
-                if (policy === Qt.ScrollBarAsNeeded) {
-                    return 0
-                } else {
-                    return 1
-                }
-            }
-
-            onCurrentIndexChanged: {
-                if (currentIndex === 0) {
-                    dccData.worker.setScrollBarPolicy(Qt.ScrollBarAsNeeded)
-                } else if (currentIndex === 1) {
-                    dccData.worker.setScrollBarPolicy(Qt.ScrollBarAlwaysOn)
-                }
-            }
-        }
-    }
-
-    DccObject {
-        name: "compact"
-        parentName: "personalization/windowEffect"
-        displayName: qsTr("Compact Display")
-        description: qsTr("If enabled, more content is displayed in the window.")
-        visible: false && dccData.model.compactDisplayConfig !== "Hidden"
-        weight: 700
-        backgroundType: DccObject.Normal
-        pageType: DccObject.Editor
-        page: D.Switch {
-            enabled: dccData.model.compactDisplayConfig !== "Disabled"
-            checked: dccData.model.compactDisplay
-            onCheckedChanged: {
-                dccData.worker.setCompactDisplay(checked)
-            }
-        }
-    }
-
-    DccObject {
         name: "titleBarHeight"
         parentName: "personalization/windowEffect"
         displayName: qsTr("Title Bar Height")
@@ -297,6 +246,57 @@ DccObject {
                     }
                 }
                 return -1
+            }
+        }
+    }
+
+    DccObject {
+        id: scrollBarObject
+        name: "scrollBar"
+        property bool hasDBusProperty: false
+        parentName: "personalization/windowEffect"
+        displayName: qsTr("Scroll Bars")
+        visible: dccData.model.scrollBarPolicyConfig !== "Hidden"
+        weight: 800
+        backgroundType: DccObject.Normal
+        pageType: DccObject.Editor
+        page: D.ComboBox {
+            flat: true
+            enabled: dccData.model.scrollBarPolicyConfig !== "Disabled"
+            model: [qsTr("Show on scrolling"), qsTr("Keep shown")]
+            currentIndex: {
+                let policy = dccData.model.scrollBarPolicy
+                if (policy === Qt.ScrollBarAsNeeded) {
+                    return 0
+                } else {
+                    return 1
+                }
+            }
+
+            onCurrentIndexChanged: {
+                if (currentIndex === 0) {
+                    dccData.worker.setScrollBarPolicy(Qt.ScrollBarAsNeeded)
+                } else if (currentIndex === 1) {
+                    dccData.worker.setScrollBarPolicy(Qt.ScrollBarAlwaysOn)
+                }
+            }
+        }
+    }
+
+    DccObject {
+        name: "compact"
+        parentName: "personalization/windowEffect"
+        displayName: qsTr("Compact Display")
+        description: qsTr("If enabled, more content is displayed in the window.")
+        visible: false && dccData.model.compactDisplayConfig !== "Hidden"
+        weight: 900
+        backgroundType: DccObject.Normal
+        pageType: DccObject.Editor
+        page: D.Switch {
+            enabled: dccData.model.compactDisplayConfig !== "Disabled"
+            checked: dccData.model.compactDisplay
+            onCheckedChanged: {
+                dccData.worker.setCompactDisplay(checked)
             }
         }
     }
