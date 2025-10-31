@@ -1,3 +1,16 @@
+dde-control-center (6.1.54) unstable; urgency=medium
+
+  * fix: resolve currency format example display issues in RTL locales
+  * fix: remove hover inner shadow on first item in Touchpad gestures
+  * fix: Fix the password input box so that Chinese characters can be entered
+  * fix: Fix the main window graying out after the dialog box is displayed
+  * fix: ScheduledShutdownDialog title invisible in dark mode
+  * fix: reduce screensaver settings button height in personalization
+  * fix: scrollbar cannot reach bottom in language selection dialog
+  * fix: prevent button conflict during language loading in LangAndFormat
+
+ -- Robertkill <lvpeilong@uniontech.com>  Thu, 30 Oct 2025 19:57:25 +0800
+
 dde-control-center (6.1.53) unstable; urgency=medium
 
   * fix: correct custom wallpaper delete button color in dark mode
