@@ -36,7 +36,7 @@ DccObject {
         page: RowLayout {
             Item {
                 implicitWidth: 197
-                implicitHeight: 110
+                implicitHeight: 108
 
                 AnimatedImage {
                     id: image
@@ -103,80 +103,139 @@ DccObject {
         parentName: "personalization/screenSaver/screenSaverStatusGroup"
         weight: 300
         pageType: DccObject.Item
-        page: DccGroupView { isGroup: false }
+        page: ColumnLayout {
+            Layout.fillWidth: true
+            spacing: 0
 
-        DccObject {
-            name: "screenSaverSetItemGroup"
-            parentName: "personalization/screenSaver/screenSaverStatusGroup/screenSaverSetGroup"
-            weight: 10
-            pageType: DccObject.Item
-            page: DccGroupView { }
-
-            DccObject {
-                name: "personalizedScreensaver"
-                parentName: "personalization/screenSaver/screenSaverStatusGroup/screenSaverSetGroup/screenSaverSetItemGroup"
-                displayName: qsTr("Personalized screensaver")
-                weight: 10
-                pageType: DccObject.Editor
+            D.ItemDelegate {
+                Layout.fillWidth: true
+                Layout.preferredHeight: 36
+                backgroundVisible: false
+                leftPadding: 10
+                rightPadding: 8
+                topPadding: 0
+                bottomPadding: 0
+                topInset: 0
+                bottomInset: 0
+                corners: D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner
                 enabled: dccData.model.screenSaverModel.getConfigAbleByUrl(dccData.model.currentScreenSaver) || dccData.model.currentScreenSaver === "deepin-custom-screensaver"
-                page: D.Button {
-                    id: settingBtn
-                    implicitWidth: fm.advanceWidth(text) + leftPadding + rightPadding
-                    implicitHeight: 24
-                    FontMetrics {
-                        id: fm
-                        font: settingBtn.font
+                opacity: enabled ? 1 : 0.4
+
+                contentItem: RowLayout {
+                    DccLabel {
+                        Layout.fillWidth: true
+                        Layout.alignment: Qt.AlignVCenter
+                        text: qsTr("Personalized screensaver")
                     }
-                    text: qsTr("setting")
-                    font.letterSpacing: 2
-                    onClicked: {
-                        dccData.worker.requestScreenSaverConfig(dccData.model.currentScreenSaver)
-                    }
-                }
-            }
-            DccObject {
-                name: "idleTime"
-                parentName: "personalization/screenSaver/screenSaverStatusGroup/screenSaverSetGroup/screenSaverSetItemGroup"
-                displayName: qsTr("idle time")
-                weight: 100
-                pageType: DccObject.Editor
-                page: CustomComboBox {
-                    flat: true
-                    textRole: "text"
-                    currentIndex: {
-                        let value = dccData.model.onBattery ? dccData.model.batteryScreenSaverIdleTime : dccData.model.linePowerScreenSaverIdleTime
-                        return indexByValue(value)
-                    }
-                    model: ListModel {
-                        ListElement { text: qsTr("1 minute"); value: 60 }
-                        ListElement { text: qsTr("5 minute"); value: 300 }
-                        ListElement { text: qsTr("10 minute"); value: 600 }
-                        ListElement { text: qsTr("15 minute"); value: 900 }
-                        ListElement { text: qsTr("30 minute"); value: 1800 }
-                        ListElement { text: qsTr("1 hour"); value: 3600 }
-                        ListElement { text: qsTr("never"); value: 0 }
-                    }
-                    onCurrentIndexChanged: {
-                        let value = dccData.model.onBattery ? dccData.model.batteryScreenSaverIdleTime : dccData.model.linePowerScreenSaverIdleTime
-                        if (value !== model.get(currentIndex).value) {
-                            dccData.worker.setScreenSaverIdleTime(model.get(currentIndex).value)
+                    D.Button {
+                        id: settingBtn
+                        Layout.alignment: Qt.AlignVCenter
+                        implicitWidth: {
+                            font.pixelSize
+                            return fm.advanceWidth(text) + leftPadding + rightPadding
+                        }
+                        implicitHeight: 24
+                        enabled: parent.parent.enabled
+                        FontMetrics {
+                            id: fm
+                            font: settingBtn.font
+                        }
+                        text: qsTr("setting")
+                        font.letterSpacing: 2
+                        onClicked: {
+                            dccData.worker.requestScreenSaverConfig(dccData.model.currentScreenSaver)
                         }
                     }
                 }
+
+                background: DccItemBackground {
+                    separatorVisible: true
+                    backgroundType: 1
+                }
             }
-            DccObject {
-                name: "passwordRequired"
-                parentName: "personalization/screenSaver/screenSaverStatusGroup/screenSaverSetGroup/screenSaverSetItemGroup"
-                displayName: qsTr("Password required for recovery")
-                weight: 200
-                pageType: DccObject.Editor
-                page: D.Switch {
-                    checked: dccData.model.lockScreenAtAwake
-                    onCheckedChanged: {
-                        if (checked != dccData.model.lockScreenAtAwake) {
-                            dccData.worker.setLockScreenAtAwake(checked)
+
+            D.ItemDelegate {
+                Layout.fillWidth: true
+                Layout.preferredHeight: 36
+                backgroundVisible: false
+                leftPadding: 10
+                rightPadding: 8
+                topPadding: 0
+                bottomPadding: 0
+                topInset: 0
+                bottomInset: 0
+                corners: D.RoundRectangle.NoneCorner
+
+                contentItem: RowLayout {
+                    DccLabel {
+                        Layout.fillWidth: true
+                        Layout.alignment: Qt.AlignVCenter
+                        text: qsTr("idle time")
+                    }
+                    CustomComboBox {
+                        Layout.alignment: Qt.AlignVCenter
+                        flat: true
+                        textRole: "text"
+                        currentIndex: {
+                            let value = dccData.model.onBattery ? dccData.model.batteryScreenSaverIdleTime : dccData.model.linePowerScreenSaverIdleTime
+                            return indexByValue(value)
+                        }
+                        model: ListModel {
+                            ListElement { text: qsTr("1 minute"); value: 60 }
+                            ListElement { text: qsTr("5 minute"); value: 300 }
+                            ListElement { text: qsTr("10 minute"); value: 600 }
+                            ListElement { text: qsTr("15 minute"); value: 900 }
+                            ListElement { text: qsTr("30 minute"); value: 1800 }
+                            ListElement { text: qsTr("1 hour"); value: 3600 }
+                            ListElement { text: qsTr("never"); value: 0 }
+                        }
+                        onCurrentIndexChanged: {
+                            let value = dccData.model.onBattery ? dccData.model.batteryScreenSaverIdleTime : dccData.model.linePowerScreenSaverIdleTime
+                            if (value !== model.get(currentIndex).value) {
+                                dccData.worker.setScreenSaverIdleTime(model.get(currentIndex).value)
+                            }
                         }
                     }
+                }
+
+                background: DccItemBackground {
+                    separatorVisible: true
+                    backgroundType: 1
+                }
+            }
+
+            D.ItemDelegate {
+                Layout.fillWidth: true
+                Layout.preferredHeight: 36
+                backgroundVisible: false
+                leftPadding: 10
+                rightPadding: 8
+                topPadding: 0
+                bottomPadding: 0
+                topInset: 0
+                bottomInset: 0
+                corners: D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
+
+                contentItem: RowLayout {
+                    DccLabel {
+                        Layout.fillWidth: true
+                        Layout.alignment: Qt.AlignVCenter
+                        text: qsTr("Password required for recovery")
+                    }
+                    D.Switch {
+                        Layout.alignment: Qt.AlignVCenter
+                        checked: dccData.model.lockScreenAtAwake
+                        onCheckedChanged: {
+                            if (checked != dccData.model.lockScreenAtAwake) {
+                                dccData.worker.setLockScreenAtAwake(checked)
+                            }
+                        }
+                    }
+                }
+
+                background: DccItemBackground {
+                    separatorVisible: false
+                    backgroundType: 1
                 }
             }
         }
