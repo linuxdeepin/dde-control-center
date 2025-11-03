@@ -59,6 +59,13 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
 }
 
 void KeyboardWorker::resetAll() {
+    // Prevent duplicate calls while resetting
+    if (m_isResetting) {
+        qDebug() << "KeyboardWorker::resetAll: Already resetting, ignoring duplicate call";
+        return;
+    }
+
+    m_isResetting = true;
     QDBusPendingCallWatcher* watcher = new QDBusPendingCallWatcher(m_keyboardDBusProxy->KeybindingReset(), this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [=] (QDBusPendingCallWatcher *reply) {
         watcher->deleteLater();
@@ -67,9 +74,12 @@ void KeyboardWorker::resetAll() {
             qDebug() << Q_FUNC_INFO << reply->error();
         }
 
-        Q_EMIT onResetFinished();
         // reset 之后主动更新快捷键。。。
         refreshShortcut();
+
+        // Reset completed, restore flag and emit signal
+        m_isResetting = false;
+        Q_EMIT onResetFinished();
     });
 }
 

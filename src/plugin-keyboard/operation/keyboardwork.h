@@ -122,6 +122,7 @@ private:
     ShortcutModel *m_shortcutModel = nullptr;
     QTranslator *m_translatorLanguage;
     Dtk::Core::DConfig *m_inputDevCfg;
+    bool m_isResetting = false; // Flag to prevent duplicate reset calls
 };
 }
 #endif // KEYBOARDWORK_H
