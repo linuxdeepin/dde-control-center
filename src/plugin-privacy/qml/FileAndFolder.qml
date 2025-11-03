@@ -44,6 +44,12 @@ DccObject {
                 canSearch: false
                 backgroundType: DccObject.ClickStyle
 
+                onParentItemChanged: {
+                    if (parentItem) {
+                        parentItem.activeFocusOnTab = true
+                    }
+                }
+
                 Connections {
                     target: parentItem
                     function onClicked() {
