@@ -58,15 +58,6 @@ D.DialogWindow {
             pwdLayout.maxLabelWidth = Math.ceil(finalWidth)
         }
         
-        function checkUserNamePasswordMatch() {
-            var userName = namesContainter.eidtItems[0].text
-            var password = pwdLayout.getPwdInfo()["pwd"]
-            if (userName === password && userName.length > 0) {
-                pwdLayout.showUserNameMatchPasswordAlert()
-                return false
-            }
-            return true
-        }
         
         Connections {
             target: pwdLayout
@@ -350,9 +341,6 @@ D.DialogWindow {
                         return
 
                     if (!pwdLayout.checkPassword())
-                        return
-
-                    if (!mainLayout.checkUserNamePasswordMatch())
                         return
 
                     var info = pwdLayout.getPwdInfo()

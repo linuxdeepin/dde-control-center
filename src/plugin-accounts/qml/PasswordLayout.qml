@@ -290,18 +290,18 @@ ColumnLayout {
                 return false
             }
 
+            if (edit0.text === pwdLayout.currentName && pwdLayout.currentName.length > 0) {
+                edit0.showAlertText(qsTr("The password cannot be the same as the username."))
+                focusAndSelectAll(edit0)
+                return false
+            }
+
             let alertText = ""
             // pwcheck verifyPassword
             alertText = dccData.checkPassword(pwdLayout.currentName, edit0.text)
             if (alertText.length > 0) {
                 edit0.showAlertText(alertText)
                 focusAndSelectAll(edit0)
-                return false
-            }
-            alertText = dccData.checkPassword(pwdLayout.currentName, edit1.text)
-            if (alertText.length > 0) {
-                edit1.showAlertText(alertText)
-                focusAndSelectAll(edit1)
                 return false
             }
 
