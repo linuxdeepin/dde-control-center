@@ -6,7 +6,7 @@ function copyFont(srcFont, propertys) {
     return Qt.font({
                        "family": propertys.hasOwnProperty("family") ? propertys.family : srcFont.family,
                        "bold": propertys.hasOwnProperty("bold") ? propertys.bold : srcFont.bold,
-                       "weight": propertys.hasOwnProperty("weight") ? propertys.weight : srcFont.weight,
+                       "weight": propertys.hasOwnProperty("weight") ? propertys.weight : propertys.hasOwnProperty("bold") && propertys.bold ? 700 : srcFont.weight,
                        "italic": propertys.hasOwnProperty("italic") ? propertys.italic : srcFont.italic,
                        "underline": propertys.hasOwnProperty("underline") ? propertys.underline : srcFont.underline,
                        "pointSize": propertys.hasOwnProperty("pointSize") ? propertys.pointSize : srcFont.pointSize,

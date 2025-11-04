@@ -49,6 +49,13 @@ DccObject *DccApp::activeObject() const
     return nullptr;
 }
 
+int DccApp::sidebarWidth() const
+{
+    return 180;
+}
+
+void DccApp::setSidebarWidth(int) { }
+
 DccObject *DccApp::object(const QString &)
 {
     return nullptr;

@@ -24,6 +24,17 @@
             "permissions": "readwrite",
             "visibility": "public"
         },
+        "sidebarWidth": {
+            "value": 180,
+            "serial": 0,
+            "flags": true,
+            "name": "sidebarWidth",
+            "name[zh_CN]": "侧边栏宽度",
+            "description": "config dde-control-center sidebar width",
+            "description[zh_CN]": "控制中心侧边栏宽度",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
         "hideModule": {
             "value": [],
             "serial": 0,

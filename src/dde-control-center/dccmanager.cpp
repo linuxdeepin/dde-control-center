@@ -54,6 +54,7 @@ DccManager::DccManager(QObject *parent)
     , m_navModel(new NavigationModel(this))
     , m_searchModel(new SearchModel(this))
     , m_imageProvider(nullptr)
+    , m_sidebarWidth(180)
     , m_showTimer(nullptr)
 {
     m_hideObjects->setName("_hide");
@@ -141,6 +142,20 @@ int DccManager::height() const
 {
     auto h = m_dconfig->value(HeightConfig).toInt();
     return h > 400 ? h : 530;
+}
+
+int DccManager::sidebarWidth() const
+{
+    return m_sidebarWidth;
+}
+
+void DccManager::setSidebarWidth(int width)
+{
+    if (m_sidebarWidth != width) {
+        m_sidebarWidth = width;
+        m_dconfig->setValue("sidebarWidth", m_sidebarWidth);
+        Q_EMIT sidebarWidthChanged(m_sidebarWidth);
+    }
 }
 
 DccApp::UosEdition DccManager::uosEdition() const
@@ -406,6 +421,7 @@ void DccManager::initConfig()
 
     updateModuleConfig(HideConfig);
     updateModuleConfig(DisableConfig);
+    m_sidebarWidth = m_dconfig->value("sidebarWidth", 180).toInt();
     connect(m_dconfig, &DConfig::valueChanged, this, &DccManager::updateModuleConfig);
 }
 
