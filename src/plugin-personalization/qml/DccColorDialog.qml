@@ -112,9 +112,22 @@ ColorDialogImpl {
                 id: eyeDropperButton
                 icon.name: "color_extractor"
                 icon.width: 24
+                textColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 1)
+                    normalDark: Qt.rgba(1, 1, 1, 1)
+                }
                 flat: true
                 visible: true
                 Layout.preferredWidth: implicitHeight
+
+                background: Rectangle {
+                    implicitWidth: 24
+                    implicitHeight: 24
+                    radius: DS.Style.control.radius
+                    visible: eyeDropperButton.hovered
+                    color: eyeDropperButton.palette.windowText
+                    opacity: 0.1
+                }
             }
 
             D.TextField {
