@@ -2059,7 +2059,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation>建議密碼長度8位以上，同時包含大寫字母、小寫字母、數字、符號中的3中密碼更安全</translation>
+        <translation>建議密碼長度8位以上，同時包含大寫字母、小寫字母、數字、符號中的3種密碼更安全。</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
