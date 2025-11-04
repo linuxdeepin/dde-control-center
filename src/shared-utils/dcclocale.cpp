@@ -64,6 +64,9 @@ QStringList DCCLocale::dialectNames(const QStringList &localeCodes)
         } else if (localeCode.startsWith("zh_TW")) {
             results.append(QCoreApplication::translate("dcc::Locale::dialectNames", "Traditional Chinese (Chinese Taiwan)"));
             continue;
+        } else if (localeCode.startsWith("nan_TW")) {
+            results.append(QCoreApplication::translate("dcc::Locale::dialectNames", "Min Nan Chinese"));
+            continue;
         }
 
         icu::UnicodeString dialectName;
