@@ -35,16 +35,14 @@ public:
     };
     Q_ENUM(UosEdition)
 
-    enum AnimationMode {
-        AnimationPush,
-        AnimationPop
-    };
+    enum AnimationMode { AnimationPush, AnimationPop };
     Q_ENUM(AnimationMode)
 
     static DccApp *instance();
 
-    Q_PROPERTY(int width READ width)
-    Q_PROPERTY(int height READ height)
+    Q_PROPERTY(int width READ width FINAL)
+    Q_PROPERTY(int height READ height FINAL)
+    Q_PROPERTY(int sidebarWidth READ sidebarWidth WRITE setSidebarWidth NOTIFY sidebarWidthChanged)
     Q_PROPERTY(DccObject * root READ root NOTIFY rootChanged)
     Q_PROPERTY(DccObject * activeObject READ activeObject NOTIFY activeObjectChanged)
     Q_PROPERTY(AnimationMode animationMode READ animationMode WRITE setAnimationMode NOTIFY animationModeChanged)
@@ -53,9 +51,11 @@ public:
     virtual int height() const;
     virtual DccObject *root() const;
     virtual DccObject *activeObject() const;
-    virtual AnimationMode animationMode() const {
-        return m_animationMode;
-    }
+
+    virtual AnimationMode animationMode() const { return m_animationMode; }
+
+    virtual int sidebarWidth() const;
+    virtual void setSidebarWidth(int width);
     virtual void setAnimationMode(AnimationMode mode);
 
 public Q_SLOTS:
@@ -70,6 +70,7 @@ public Q_SLOTS:
     virtual QSortFilterProxyModel *searchModel() const;
 
 Q_SIGNALS:
+    void sidebarWidthChanged(int width);
     void rootChanged(DccObject *root);
     void activeObjectChanged(DccObject *activeObject);
     void activeItemChanged(QQuickItem *item);
@@ -78,6 +79,7 @@ Q_SIGNALS:
 protected:
     explicit DccApp(QObject *parent = nullptr);
     ~DccApp() override;
+
 private:
     AnimationMode m_animationMode;
 };

@@ -12,10 +12,13 @@ import org.deepin.dcc 1.0
 
 Item {
     id: root
-    property real oldX: 180 // 用于调整宽度时，自动调整侧边栏宽度
+    property real oldX: DccApp.sidebarWidth // 用于调整宽度时，自动调整侧边栏宽度
     property real oldSplitterX: 180 // 记录上次位置，用于恢复
     property alias splitterX: splitter.x
 
+    function updateSidebarWidth(width) {
+        DccApp.sidebarWidth = width;
+    }
     function targetSidebar() {
         if (splitter.x < 110) {
             var newX = root.oldSplitterX
@@ -36,6 +39,7 @@ Item {
             splitter.x = 0
             root.oldX = 0
         }
+        updateSidebarWidth(splitter.x)
     }
 
     activeFocusOnTab: false
@@ -72,7 +76,7 @@ Item {
             anchors.left: parent.left
             anchors.right: parent.right
             anchors.topMargin: 3
-            leftMargin : 10
+            leftMargin: 10
             rightMargin: 10
             topMargin: 6
             bottomMargin: 10
@@ -107,7 +111,7 @@ Item {
                     D.DciIcon {
                         visible: model.item.badge !== 0
                         name: "reddot"
-                        sourceSize:  Qt.size(16, 16)
+                        sourceSize: Qt.size(16, 16)
                     }
                 }
                 hoverEnabled: true
@@ -183,6 +187,7 @@ Item {
                 splitter.x = newX
                 root.oldX = newX
             }
+            updateSidebarWidth(splitter.x)
         }
     }
 
@@ -209,6 +214,7 @@ Item {
             }
             splitter.x = newX
         }
+        updateSidebarWidth(splitter.x)
     }
     Component {
         id: rightLayout
@@ -223,9 +229,7 @@ Item {
         if (activeObj.page === null) {
             activeObj.page = rightLayout
         }
-        rightView.replace(activeObj.getSectionItem(rightView), DccApp.animationMode === DccApp.AnimationPush
-                          ? StackView.PushTransition
-                          : StackView.PopTransition)
+        rightView.replace(activeObj.getSectionItem(rightView), DccApp.animationMode === DccApp.AnimationPush ? StackView.PushTransition : StackView.PopTransition)
     }
     Connections {
         target: DccApp

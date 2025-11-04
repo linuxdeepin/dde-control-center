@@ -40,6 +40,8 @@ public:
 
     int width() const override;
     int height() const override;
+    int sidebarWidth() const override;
+    void setSidebarWidth(int width) override;
 
     inline DccObject *root() const override { return m_root; }
 
@@ -126,6 +128,7 @@ private:
     NavigationModel *m_navModel;
     SearchModel *m_searchModel;
     DccImageProvider *m_imageProvider;
+    int m_sidebarWidth;
     // DBus调用时，对应项还没加载完成，此处保存跳转参数
     QTimer *m_showTimer;
     QString m_showUrl;
