@@ -144,7 +144,14 @@ void DisplayModulePrivate::updateVirtualScreens()
         m_virtualScreens << screen;
     }
     if (changed) {
+        // 屏幕按类型排序，同类型按名称排序,类型顺序：eDP-DP-DisplayPort-HDMI-DVI-VGA
+        static const QStringList c_screenSort({ "vga", "dvi", "hdmi", "displayport", "dp", "edp" });
         std::sort(m_virtualScreens.begin(), m_virtualScreens.end(), [](const DccScreen *screen1, const DccScreen *screen2) {
+            int index1 = c_screenSort.indexOf(screen1->name().split('-').first().toLower());
+            int index2 = c_screenSort.indexOf(screen2->name().split('-').first().toLower());
+            if (index1 != index2) {
+                return index1 > index2;
+            }
             return screen1->name() < screen2->name();
         });
         updatePrimary();
