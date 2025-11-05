@@ -176,7 +176,9 @@ To ensure successful entry:
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>「生物認證」是統信軟體技術有限公司提供的一種對使用者進行身份認證的功能。通過「生物認證」，將採集的生物識別資料與儲存在裝置本地的生物識別資料進行比對，並根據比對結果來驗證使用者身份。
+請您注意，統信軟體不會收集或訪問您的生物識別資訊，此類資訊將會儲存在您的本地裝置中。請您僅在您的個人裝置中開啟生物認證功能，並使用您本人的生物識別資訊進行相關操作，並及時在該裝置上停用或清除他人的生物識別資訊，否則由此給您帶來的風險將由您承擔。
+統信軟體致力於研究與提高生物認證功能的安全性、精確性、與穩定性，但是，受限於環境、裝置、技術等因素和風險控制等原因，我們暫時無法保證您一定能通過生物認證，請您不要將生物認證作為登入統信作業系統的唯一途徑。若您在使用生物認證時有任何問題或建議的，可以通過系統內的「服務與支援」進行反饋。</translation>
     </message>
 </context>
 <context>
@@ -3311,7 +3313,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>閩南語</translation>
     </message>
 </context>
 <context>
