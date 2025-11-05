@@ -11,6 +11,7 @@ import QtQuick.Templates as T
 
 import org.deepin.dtk as D
 import org.deepin.dtk.style 1.0 as DS
+import org.deepin.dcc.personalization 1.0
 
 ColorDialogImpl {
     id: control
@@ -42,7 +43,18 @@ ColorDialogImpl {
         alpha = 1.0
     }
 
-    ColorDialogImpl.eyeDropperButton: eyeDropperButton
+    Connections {
+        target: dccData
+        function onColorPicked(color) {
+            control.color = color
+        }
+        function onPickerError(error) {
+            console.warn("deepin-picker error:", error)
+        }
+    }
+
+    // Use deepin-picker if available, otherwise fallback to Qt's built-in eyeDropper
+    ColorDialogImpl.eyeDropperButton: dccData.pickerAvailable ? null : eyeDropperButton
     ColorDialogImpl.colorPicker: colorPicker
 
     contentItem: ColumnLayout {
@@ -128,6 +140,13 @@ ColorDialogImpl {
                     color: eyeDropperButton.palette.windowText
                     opacity: 0.1
                 }
+
+                    onClicked: {
+                        // Use deepin-picker if available, Qt's eyeDropper will handle it otherwise
+                        if (dccData.pickerAvailable) {
+                            dccData.startPicker()
+                        }
+                    }
             }
 
             D.TextField {

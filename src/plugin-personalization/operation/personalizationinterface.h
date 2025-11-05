@@ -54,20 +54,29 @@ class PersonalizationInterface : public QObject
     Q_PROPERTY(ImageHelper *imageHelper MEMBER m_imageHelper CONSTANT)
     Q_PROPERTY(QVariantList appearanceSwitchModel MEMBER m_appearanceSwitchModel NOTIFY appearanceSwitchModelChanged)
     Q_PROPERTY(QString currentAppearance MEMBER m_currentAppearance NOTIFY currentAppearanceChanged)
+    Q_PROPERTY(bool pickerAvailable READ isPickerAvailable CONSTANT)
 
 public:
     explicit PersonalizationInterface(QObject *parent = nullptr);
 
     QString getCurrentAppearance() const { return m_currentAppearance; };
+    bool isPickerAvailable() const { return m_pickerAvailable; }
     Q_INVOKABLE QString platformName();
     Q_INVOKABLE void handleCmdParam(PersonalizationExport::ModuleType type, const QString &cmdParam);
+    Q_INVOKABLE void startPicker();
 
 private:
     void initAppearanceSwitchModel();
+    bool checkPickerService();
+
+private Q_SLOTS:
+    void onPickerColorPicked(const QString &uuid, const QString &colorName);
 
 signals:
     void currentAppearanceChanged(const QString &appearance);
     void appearanceSwitchModelChanged(const QVariantList &model);
+    void colorPicked(const QString &color);
+    void pickerError(const QString &error);
 
 private:
     PersonalizationModel *m_model;
@@ -79,6 +88,8 @@ private:
 
     QVariantList m_appearanceSwitchModel;
     QString m_currentAppearance;
+    QString m_pickerId;
+    bool m_pickerAvailable;
 };
 
 #endif // PERSIONALIZATIONINTERFACE_H

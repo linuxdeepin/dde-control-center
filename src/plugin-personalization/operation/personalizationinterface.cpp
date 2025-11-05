@@ -11,10 +11,19 @@
 #include "model/thememodel.h"
 #include "utils.hpp"
 
-
 #include <QIcon>
 #include <QtQml>
+#include <QDBusConnection>
+#include <QDBusConnectionInterface>
+#include <QDBusMessage>
+#include <QDBusPendingCall>
+#include <QUuid>
+#include <QColor>
 #include <DGuiApplicationHelper>
+
+#define PICKER_SERVICE "com.deepin.Picker"
+#define PICKER_PATH "/com/deepin/Picker"
+
 ThemeVieweModel::ThemeVieweModel(QObject *parent)
     : QAbstractItemModel(parent)
     , m_themeModel(nullptr)
@@ -128,6 +137,8 @@ PersonalizationInterface::PersonalizationInterface(QObject *parent)
 , m_globalThemeViewModel(new ThemeVieweModel(this))
 , m_iconThemeViewModel(new ThemeVieweModel(this))
 , m_cursorThemeViewModel(new ThemeVieweModel(this))
+, m_pickerId(QUuid::createUuid().toString())
+, m_pickerAvailable(false)
 {
     qmlRegisterType<PersonalizationExport>("org.deepin.dcc.personalization", 1, 0, "PersonalizationData");
     if (Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform)) {
@@ -148,6 +159,15 @@ PersonalizationInterface::PersonalizationInterface(QObject *parent)
     m_work->refreshFont();
 
     initAppearanceSwitchModel();
+
+    m_pickerAvailable = checkPickerService();
+    if (m_pickerAvailable) {
+        QDBusConnection::sessionBus().connect(PICKER_SERVICE, PICKER_PATH, PICKER_SERVICE,
+                                              "colorPicked", this, SLOT(onPickerColorPicked(QString,QString)));
+        qDebug() << "Picker service is available, using DBus picker";
+    } else {
+        qDebug() << "Picker service is not available, will use Qt's built-in color picker";
+    }
 }
 
 void PersonalizationInterface::initAppearanceSwitchModel()
@@ -243,6 +263,52 @@ void PersonalizationInterface::handleCmdParam(PersonalizationExport::ModuleType 
             m_work->setLockBackForMonitor(monitor, url, true);
             m_work->setBackgroundForMonitor(monitor, url, true);
         }
+    }
+}
+
+bool PersonalizationInterface::checkPickerService()
+{
+    QDBusConnectionInterface *interface = QDBusConnection::sessionBus().interface();
+    if (!interface) {
+        return false;
+    }
+
+    if (interface->isServiceRegistered(PICKER_SERVICE)) {
+        return true;
+    }
+
+    QStringList activatableServices = interface->activatableServiceNames();
+    return activatableServices.contains(PICKER_SERVICE);
+}
+
+void PersonalizationInterface::startPicker()
+{
+    if (!m_pickerAvailable) {
+        qWarning() << "Picker service is not available";
+        Q_EMIT pickerError(tr("Picker service is not available"));
+        return;
+    }
+
+    QDBusMessage msg = QDBusMessage::createMethodCall(PICKER_SERVICE, PICKER_PATH,
+                                                      PICKER_SERVICE, "StartPick");
+    msg.setArguments({QVariant::fromValue(m_pickerId)});
+    QDBusConnection::sessionBus().asyncCall(msg, 5);
+
+    qDebug() << "Picker service called with ID:" << m_pickerId;
+}
+
+void PersonalizationInterface::onPickerColorPicked(const QString &uuid, const QString &colorName)
+{
+    if (uuid != m_pickerId)
+        return;
+
+    qDebug() << "Picked color:" << colorName << "for session:" << uuid;
+
+    QColor color(colorName);
+    if (color.isValid()) {
+        Q_EMIT colorPicked(color.name());
+    } else {
+        Q_EMIT pickerError(tr("Invalid color format: %1").arg(colorName));
     }
 }
 
