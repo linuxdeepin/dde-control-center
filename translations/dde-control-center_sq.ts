@@ -3102,7 +3102,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>E madhe</translation>
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
@@ -3167,12 +3167,12 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
+        <translation>Mesatare</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
+        <translation>Mesatare</translation>
     </message>
 </context>
 <context>
