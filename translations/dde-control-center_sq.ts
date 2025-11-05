@@ -173,7 +173,11 @@ To ensure successful entry:
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>“Mirëfilltësimi biometrik” është një funksion mirëfilltësimi identiteti përdoruesi, që jepet nga UnionTech Software Technology Co., Ltd. Përmes “mirëfilltësimit biometrik”, të dhënat biometrike të grumbulluara do të krahasohen me ato të depozituara në pajisje dhe identiteti i përdoruesit do të verifikohet bazuar në përfundimin e krahasimit.
+
+Ju lutemi, kini parasysh se UnionTech Software Technology Co., Ltd. s’do të grumbullojë apo përdorë informacion biometrik tuajin,, i cili do të depozitohet në pajisjen tuaj vendore. Ju lutemi, aktivizojeni mirëfilltësimin biometrik në pajisjen tuaj personale dhe përdorni të dhëna tuajat biometrike vetëm për veprimet përkatëse dhe çaktivizojeni pa humbur kohë, ose fshini në atë pajisje të dhëna biometrike personash të tjerë, ndryshme do të jeni përballë rrezikut të rrjedhur prej tyre.
+
+UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe përmirësojë sigurinë, përpikërinë dhe qëndrueshmërinë e mirëfilltësimit biometrik. Sidoqoftë, për shkak faktorësh mjedisorë, pajisjeje, teknikë dhe të tjerë, si dhe kontrolli rreziku, s’ka garanci se do të kaloni mirëfilltësimin biometrik përkohësisht. Ndaj, ju lutemi, mos e merrni mirëfilltësimin biometrik si të vetmen rrugë për të bërë hyrjen në UOS. Nëse keni pyetje apo sugjerime, kur përdorni mirëfilltësimin biometrik, mund të jepni idetë tuaja përmes “Shërbim dhe Asistencë” te UOS.</translation>
     </message>
 </context>
 <context>
@@ -275,7 +279,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, kini mendjen te pajisja dhe siguroni se të dy sytë gjenden brenda zonës së marrjes</translation>
     </message>
 </context>
 <context>
@@ -969,11 +973,11 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation>e vogël</translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation>e madhe</translation>
     </message>
 </context>
 <context>
@@ -3094,7 +3098,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>E vogël</translation>
     </message>
     <message>
         <source>Large</source>
