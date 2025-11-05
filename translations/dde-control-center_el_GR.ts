@@ -12,35 +12,11 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Account Information</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Account name</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Account fullname</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Set fullname</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Account type</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Login settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Auto login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -69,6 +45,30 @@
     </message>
     <message>
         <source>Add group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Account Information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Account name, account fullname, account type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Account name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Account fullname</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Account type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -156,24 +156,10 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
-    </message>
-    <message>
-        <source>Retry Enroll</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Before using face recognition, please note that: 
-1. Your device may be unlocked by people or objects that look or appear similar to you.
-2. Face recognition is less secure than digital passwords and mixed passwords.
-3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
-4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
-5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
-
-In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
-1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
-2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
-3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
+        <source>Retry Enroll</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -183,9 +169,25 @@ To ensure successful entry:
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+
+UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Done</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
         <source>Enroll Finger</source>
         <translation type="unfinished"></translation>
@@ -205,14 +207,6 @@ To ensure successful entry:
     <message>
         <source>Next</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Done</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
@@ -251,7 +245,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Retry Enroll</source>
@@ -333,7 +327,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
@@ -375,14 +369,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Disable</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Low battery level</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Auto suspend</source>
         <translation type="unfinished"></translation>
     </message>
@@ -406,15 +392,23 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Maximum capacity</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Low battery level</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
-        <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
+        <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
+        <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -449,7 +443,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished">Επεξεργασία</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
@@ -551,7 +545,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sure</source>
@@ -713,7 +707,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Camera occupied!</source>
@@ -759,7 +753,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
@@ -774,7 +768,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -837,7 +831,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">Γενικά</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
@@ -942,7 +936,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Create account</source>
@@ -1053,11 +1047,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished">Επιβεβαίωση</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1158,7 +1152,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DccColorDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
@@ -1294,7 +1288,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clear</source>
@@ -1508,7 +1502,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Agree</source>
@@ -1554,7 +1548,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished">Μέγεθος</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Standard Font</source>
@@ -1585,10 +1579,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Decrease screen brightness on power saver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1633,6 +1623,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Custom Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Decrease screen brightness on power saver</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -1772,11 +1766,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Προσθήκη</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1791,7 +1785,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">Κωδικός πρόσβασης</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Modify password</source>
@@ -1824,11 +1818,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Input</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No input device for sound found</source>
+        <source>Automatic Noise Suppression</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1840,7 +1830,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Automatic Noise Suppression</source>
+        <source>Input</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No input device for sound found</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2051,14 +2045,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
-        <translation type="unfinished">Light</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Auto</source>
@@ -2148,10 +2142,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Balance Performance</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2164,11 +2154,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Balancing performance and battery life, automatically adjusted according to usage</source>
+        <source>Power Saver</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Power Saver</source>
+        <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Balancing performance and battery life, automatically adjusted according to usage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2257,11 +2251,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>QObject</name>
     <message>
         <source>Control Center</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation type="unfinished"></translation>
+        <translation>Κέντρο Ελέγχου</translation>
     </message>
     <message>
         <source>Activated</source>
@@ -2301,6 +2291,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The settings of touch screen changed</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>This system wallpaper is locked. Please contact your admin.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2353,7 +2347,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
@@ -2387,11 +2381,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished">Επιβεβαίωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
@@ -2406,7 +2400,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
@@ -2515,11 +2509,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Προσθήκη</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
@@ -2578,7 +2572,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>or</source>
@@ -2685,11 +2679,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>SpeakerPage</name>
     <message>
-        <source>Output</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>No output device for sound found</source>
+        <source>Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2705,16 +2695,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Left Right Balance</source>
+        <source>Left</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Left</source>
-        <translation type="unfinished">Αριστερά</translation>
+        <source>Right</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Right</source>
-        <translation type="unfinished">Δεξιά</translation>
+        <source>Output</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>No output device for sound found</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Left Right Balance</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
@@ -2722,10 +2720,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Mode</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -2745,7 +2739,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SyncInfoListModel</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished">Ήχος</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Power</source>
@@ -2819,7 +2813,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Προσθήκη</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2836,20 +2830,20 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>TimeoutDialog</name>
     <message>
-        <source>Save</source>
-        <translation type="unfinished">Αποθήκευση</translation>
+        <source>Save the display settings?</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Save the display settings?</source>
+        <source>Revert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Revert</source>
-        <translation type="unfinished"></translation>
+        <source>Save</source>
+        <translation>Αποθήκευση</translation>
     </message>
 </context>
 <context>
@@ -2872,7 +2866,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
@@ -2968,11 +2962,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">Ακύρωση</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished">Επιβεβαίωση</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3034,10 +3028,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>1 hour</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>login</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3047,6 +3037,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Live Wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1 hour</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3268,11 +3262,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Developer Options</source>
+        <source>Developer root permission management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Developer root permission management</source>
+        <source>Developer Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3307,6 +3301,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Min Nan Chinese</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3537,15 +3535,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::ShortcutModel</name>
     <message>
         <source>System</source>
-        <translation type="unfinished">Σύστημα</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Window</source>
-        <translation type="unfinished">Παράθυρο</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Workspace</source>
-        <translation type="unfinished">Χώρος εργασίας</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>AssistiveTools</source>
@@ -3683,7 +3681,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished">Προεπιλογή</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fit</source>
@@ -3899,11 +3897,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished">Αριστερά</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished">Δεξιά</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Status</source>
@@ -3979,11 +3977,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>notification</name>
     <message>
-        <source>Notification</source>
+        <source>DND mode, app notifications</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>DND mode, app notifications</source>
+        <source>Notification</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4060,19 +4058,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Window effect</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wallpaper</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -4099,15 +4085,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Change system font and size</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Select light, dark or automatic theme appearance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>power</name>
     <message>
-        <source>Power</source>
+        <source>Power saving settings, screen and suspend</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Power saving settings, screen and suspend</source>
+        <source>Power</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4115,7 +4113,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>powerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished">Γενικά</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
@@ -4172,7 +4170,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>sound</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished">Ήχος</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
@@ -4205,11 +4203,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>system</name>
     <message>
-        <source>System</source>
-        <translation type="unfinished">Σύστημα</translation>
+        <source>Common settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Common settings</source>
+        <source>System</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4312,7 +4310,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished">Light</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Heavy</source>

@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fi">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fi">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -161,30 +163,6 @@
         <translation>Tunnista uudelleen</translation>
     </message>
     <message>
-        <source>Before using face recognition, please note that: 
-1. Your device may be unlocked by people or objects that look or appear similar to you.
-2. Face recognition is less secure than digital passwords and mixed passwords.
-3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
-4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
-5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
-
-In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
-1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
-2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
-3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
-        <translation>Ennen kuin käytät kasvojentunnistusta, ota huomioont:
-1. Laitteesi lukituksen voivat avata ihmiset tai esineet, jotka näyttävät sinulta.
-2. Kasvojentunnistus on vähemmän turvallinen kuin salasanat.
-3. Laitteen lukituksen avaamisen onnistumisprosentti kasvojentunnistuksella  vähenee valaistoksen ollessa heikko, korkea, takavalo tai suuressa kulmassa.
-4. Älä anna laitettasi muille välttääksesi kasvojentunnistuksen haitallisen käytön.
-5. Yllä olevien skenaarioiden lisäksi sinun tulee kiinnittää huomiota muihin tilanteisiin, jotka voivat vaikuttaa kasvojentunnistuksen normaaliin käyttöön.
-
-Kasvojentunnistuksen paremman toimivuuden varmistamiseksi huomioi seuraavat asiat kasvotietoja tallentaessa:
-1. Ole hyvin valaistussa ympäristössä, vältä suoraa auringonvaloa ja muiden ihmisten esiintymistä.
-2. Kiinnitä huomiota kasvojen asentoon, kun tallennat tietoja, äläkä anna hattujen, hiusten, aurinkolasien, raskaan meikin ja muiden tekijöiden peittää piirteitäsi.
-3. Vältä kallistamasta tai laskemasta päätäsi, sulkemasta silmiä tai kuvaamasta vain toista kasvon puolta. Varmista, että kasvosi näkyvät selvästi ja kokonaan kuvausalueella.</translation>
-    </message>
-    <message>
         <source>Face recognition does not support liveness detection, and the verification method may carry risks.
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
@@ -193,6 +171,16 @@ To ensure successful entry:
 Varmista onnistunut sisäänpääsy:
 1. Pidä kasvot selvästi näkyvissä (ei hattua, aurinkolaseja, maskia jne.).
 2. Varmista riittävä valaistus ja vältä suoraa auringonvaloa.</translation>
+    </message>
+    <message>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+
+UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
+        <translation type="unfinished">&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
+Huomaa, että UnionTech Co.Ltd. ei kerää tai käytä biometrisiä tietojasi, jotka tallennetaan paikallisesti tietokoneellesi. Otamalla biometrinen todennus käyttöön vain henkilökohtaisella tietokoneella ja käytät omia biometrisiä tietojasi siihen liittyvissä toiminnoissa. Jos tietokoneessa on  muiden ihmisten biometrisiä tietoja, poista ne laitteeltasi, muuten otat niistä aiheutuvan kirjautumisriskin.
+UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen todennuksen turvallisuutta, tarkkuutta ja vakautta. Teknisten laitteiden ja muista tekijöistä ei kuitenkaan ole takeita, että läpäisit aina biometrisen todennuksen. Älä siksi pidä biometristä todennusta ainoana tapana kirjautua UOS:ään. Jos sinulla on kysyttävää tai ehdotuksia biometriseen todennukseen, voit antaa palautetta UOS:n &quot;Palvelut ja tuki&quot; -kohdassa.</translation>
     </message>
 </context>
 <context>
@@ -232,7 +220,7 @@ Varmista onnistunut sisäänpääsy:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
@@ -281,7 +269,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
@@ -3323,6 +3311,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
         <translation>Perinteinen kiina (Kiina Taiwan)</translation>
+    </message>
+    <message>
+        <source>Min Nan Chinese</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ca">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ca">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -161,30 +163,6 @@
         <translation>Torna a provar la inscripció</translation>
     </message>
     <message>
-        <source>Before using face recognition, please note that: 
-1. Your device may be unlocked by people or objects that look or appear similar to you.
-2. Face recognition is less secure than digital passwords and mixed passwords.
-3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
-4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
-5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
-
-In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
-1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
-2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
-3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
-        <translation>Abans d&apos;usar el reconeixement facial, tingueu en compte el següent: 
-1. El dispositiu pot ser desblocat per persones o objectes que s&apos;assemblin a vosaltres.
-2. El reconeixement facial és menys segur que les contrasenyes digitals i les contrasenyes mixtes.
-3. La taxa d&apos;èxit de desblocar el dispositiu mitjançant el reconeixement facial es reduirà en un escenari amb poca llum, llum alta, retroil·luminació, angles grans i altres escenaris.
-4. No doneu el dispositiu a altres persones de manera aleatòria, per evitar l&apos;ús maliciós del reconeixement facial.
-5. A més dels escenaris anteriors, hauríeu de prestar atenció a altres situacions que poden afectar l&apos;ús normal del reconeixement facial.
-
-Per tal d&apos;usar millor el reconeixement facial, presteu atenció als aspectes següents quan introduïu les dades facials:
-1. Mantingueu-vos en un lloc ben il·luminat, eviteu la llum solar directa i altres persones que apareguin a la pantalla que es grava.
-2. Si us plau, presteu atenció a l&apos;estat de la cara quan introduïu dades i no deixeu que els barrets, cabells, ulleres de sol, màscares, maquillatge pesat i altres factors cobreixin els trets facials.
-3. Si us plau, eviteu inclinar o abaixar el cap, tancar els ulls o mostrar només un costat de la cara, i assegureu-vos que la cara frontal aparegui clarament i completament al quadre.</translation>
-    </message>
-    <message>
         <source>Face recognition does not support liveness detection, and the verification method may carry risks.
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
@@ -193,6 +171,14 @@ To ensure successful entry:
 Per garantir una entrada correcta:
 1. Mantingueu els trets facials clarament visibles i no els cobriu (barrets, ulleres de sol, màscares, etc.).
 2. Assegureu-vos que hi hagi prou il·luminació i eviteu la llum solar directa.</translation>
+    </message>
+    <message>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+
+UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -232,7 +218,7 @@ Per garantir una entrada correcta:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat d&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà en funció del resultat de la comparació.
@@ -283,7 +269,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat de l&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà en funció del resultat de la comparació.
@@ -3328,6 +3314,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
         <translation>Xinès tradicional (xinès taiwanès)</translation>
+    </message>
+    <message>
+        <source>Min Nan Chinese</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
