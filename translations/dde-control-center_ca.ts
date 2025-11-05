@@ -176,7 +176,11 @@ Per garantir una entrada correcta:
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat de l&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà en funció del resultat de la comparació.
+
+Tingueu en compte que UnionTech Software Technology Co., Ltd. no recopilarà ni accedirà a la vostra informació biomètrica, que s&apos;emmagatzemarà al vostre dispositiu local. Si us plau, activeu l&apos;autenticació biomètrica només al dispositiu personal i useu la pròpia informació biomètrica per a operacions relacionades, i desactiveu o elimineu immediatament la informació biomètrica d&apos;altres persones en aquest dispositiu; en cas contrari, assumireu el risc que se&apos;n derivi.
+
+UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la seguretat, la precisió i l&apos;estabilitat de l&apos;autenticació biomètrica. Tanmateix, a causa de factors ambientals, d&apos;equipament, tècnics i altres factors, i del control de riscos, no hi ha cap garantia que supereu sempre l&apos;autenticació biomètrica. Per tant, no useu l&apos;autenticació biomètrica com a única manera d&apos;iniciar sessió a l&apos;UOS. Si teniu cap pregunta o suggeriment sobre l&apos;ús de l&apos;autenticació biomètrica, podeu enviar comentaris a través del Servei i assistència a UOS.</translation>
     </message>
 </context>
 <context>
@@ -3315,7 +3319,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>Xinès Min Nan</translation>
     </message>
 </context>
 <context>
