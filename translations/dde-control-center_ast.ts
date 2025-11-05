@@ -964,6 +964,17 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>CustomAvatarCropper</name>
+    <message>
+        <source>small</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>big</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
@@ -992,10 +1003,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: support@uniontech.com.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
         <translation type="unfinished"/>
     </message>
@@ -1009,6 +1016,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1705,29 +1716,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>KeyboardLayout</name>
-    <message>
-        <source>Keyboard layout</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>done</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>edit</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add the corresponding input method in &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Manage Input Methods&apos;&gt;Input Method Management&lt;/a&gt; to ensure the keyboard layout works when added or switched.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add new keyboard layout...</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -1786,29 +1774,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>LayoutsChooser</name>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add new keyboard layout</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Current language keyboard layouts</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2056,11 +2021,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Different from the username</source>
+        <source>New password should differ from the current one</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>New password should differ from the current one</source>
+        <source>The password cannot be the same as the username.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3561,6 +3526,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>It does not meet password rules</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>dccV25::ShortcutModel</name>
@@ -3873,7 +3842,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>General Settings, keyboard layout, input method, shortcuts</source>
+        <source>General Settings, input method, shortcuts</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3881,14 +3850,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>keyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Keyboard layout</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Set system default keyboard layout</source>
         <translation type="unfinished"/>
     </message>
 </context>
