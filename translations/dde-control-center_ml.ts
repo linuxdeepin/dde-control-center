@@ -2062,6 +2062,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Dark</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Picker service is not available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid color format: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>PersonalizationWorker</name>
@@ -2591,7 +2599,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>please enter a shortcut key</source>
+        <source>please enter a new shortcut key</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
