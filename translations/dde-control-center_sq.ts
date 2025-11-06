@@ -2611,7 +2611,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>ju lutemi, jepni për shkurtoren një tast të ri</translation>
     </message>
 </context>
 <context>
@@ -3324,7 +3324,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>Kineze Min Nan</translation>
     </message>
 </context>
 <context>
