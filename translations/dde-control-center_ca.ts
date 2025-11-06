@@ -2078,11 +2078,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation>El servei del selector no està disponible.</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation>Format de color no vàlid: %1</translation>
     </message>
 </context>
 <context>
@@ -2614,7 +2614,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Si us plau, introduïu una tecla de drecera nova.</translation>
     </message>
 </context>
 <context>
