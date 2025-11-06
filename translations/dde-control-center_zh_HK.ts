@@ -2608,7 +2608,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>請輸入新的快捷鍵</translation>
     </message>
 </context>
 <context>
