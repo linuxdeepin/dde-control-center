@@ -1,3 +1,28 @@
+dde-control-center (6.1.55) unstable; urgency=medium
+
+  * fix: add hover tooltip for Mode options in Sound settings
+  * fix: Modifying text beyond the scope of the control
+  * fix: update shortcut placeholder text
+  * i18n: Updates for project Deepin Desktop Environment (#2786)
+  * fix: resolve color picker dialog shaking issue
+  * refactor: reorder window effect settings
+  * fix: update translations
+  * fix: Screen sorted by type
+  * fix: Record the status of the sidebar
+  * fix: Update disclaimer content
+  * fix: correct eyedropper button style in custom color dialog
+  * i18n: Updates for project Deepin Desktop Environment (#2782)
+  * feat: add Min Nan Chinese locale support
+  * [dde-control-center] Updates for project Deepin Desktop Environment (#2759)
+  * fix: align screensaver preview height with settings items
+  * fix: Repeated incorrect password change prompt
+  * fix: enable tab focus for app items in FileAndFolder
+  * fix: align selection background with design spec in ScreenTab
+  * fix: prevent UI freeze when rapidly clicking Restore Defaults button
+  * fix: resolve text spacing issue in ScreenSaver setting button
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Thu, 06 Nov 2025 16:56:37 +0800
+
 dde-control-center (6.1.54) UNRELEASED; urgency=medium
 
   * fix: resolve currency format example display issues in RTL locales
