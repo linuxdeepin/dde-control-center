@@ -350,17 +350,99 @@ DccObject {
             pageType: DccObject.Editor
             visible: dccData.model().showBluetoothMode
             page: ComboBox {
+                id: bluetoothControl
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
                 flat: true
                 model: dccData.model().bluetoothModeOpts
                 currentIndex: count > 0 ? Math.max(0, indexOfValue(dccData.model().currentBluetoothAudioMode)) : 0
                 property bool isInitialized: false
+                implicitWidth: 300
+
+                contentItem: RowLayout {
+                    spacing: DS.Style.comboBox.spacing
+
+                    T.TextField {
+                        id: textField
+
+                        function getDisplayText() {
+                            return bluetoothControl.editable ? bluetoothControl.editText : fm.elidedText(bluetoothControl.displayText,
+                                                Text.ElideRight, bluetoothControl.implicitWidth - DS.Style.comboBox.spacing * 4)
+                        }
+
+                        FontMetrics {
+                            id: fm
+                            font: textField.font
+                            onFontChanged: {
+                                textField.text = textField.getDisplayText()
+                            }
+                        }
+                        Connections {
+                            target: bluetoothControl
+                            function onDisplayTextChanged() {
+                                textField.text = textField.getDisplayText()
+                            }
+                        }
+
+                        Layout.fillWidth: true
+                        implicitHeight: fm.height
+                        Layout.rightMargin: DS.Style.comboBox.spacing
+                        text: getDisplayText()
+
+                        enabled: bluetoothControl.editable
+                        autoScroll: bluetoothControl.editable
+                        readOnly: bluetoothControl.down
+                        inputMethodHints: bluetoothControl.inputMethodHints
+                        validator: bluetoothControl.validator
+                        selectByMouse: true
+
+                        color: bluetoothControl.editable ? bluetoothControl.palette.text : bluetoothControl.palette.buttonText
+                        selectionColor: bluetoothControl.palette.highlight
+                        selectedTextColor: bluetoothControl.palette.highlightedText
+                        verticalAlignment: Text.AlignVCenter
+                        horizontalAlignment: bluetoothControl.horizontalAlignment
+
+                        ToolTip {
+                            visible: !bluetoothControl.editable && textField.text !== bluetoothControl.displayText && textField.hovered
+                            text: bluetoothControl.displayText
+                            delay: 500
+                        }
+                    }
+                }
+
+                delegate: MenuItem {
+                    id: menuItem
+                    useIndicatorPadding: true
+                    width: bluetoothControl.width
+                    text: modelData
+                    highlighted: bluetoothControl.highlightedIndex === index
+                    hoverEnabled: bluetoothControl.hoverEnabled
+                    autoExclusive: true
+                    checked: bluetoothControl.currentIndex === index
+                    implicitHeight: DS.Style.control.implicitHeight(menuItem)
+
+                    readonly property real availableTextWidth: {
+                        let totalWidth = width - leftPadding - rightPadding
+                        if (useIndicatorPadding && indicator) {
+                            totalWidth -= indicator.width + spacing
+                        }
+                        return totalWidth
+                    }
+                    FontMetrics {
+                        id: fontMetrics
+                        font: menuItem.font
+                    }
+                    ToolTip {
+                        visible: menuItem.hovered && fontMetrics.advanceWidth(modelData) > menuItem.availableTextWidth
+                        text: modelData
+                        delay: 500
+                    }
+                }
                 
                 Connections {
                     target: dccData.model()
-                    function onBluetoothModeOptsChanged() { currentIndex = Math.max(0, indexOfValue(dccData.model().currentBluetoothAudioMode)) }
-                    function onBluetoothModeChanged() { currentIndex = Math.max(0, indexOfValue(dccData.model().currentBluetoothAudioMode)) }
+                    function onBluetoothModeOptsChanged() { bluetoothControl.currentIndex = Math.max(0, bluetoothControl.indexOfValue(dccData.model().currentBluetoothAudioMode)) }
+                    function onBluetoothModeChanged() { bluetoothControl.currentIndex = Math.max(0, bluetoothControl.indexOfValue(dccData.model().currentBluetoothAudioMode)) }
                 }
                 
                 Component.onCompleted: { isInitialized = true }
