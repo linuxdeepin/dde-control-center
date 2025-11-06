@@ -9,6 +9,7 @@ DccObject {
     pageType: DccObject.Item
     page: ColumnLayout {
         DccLabel {
+            Layout.fillWidth: true
             property D.Palette textColor: D.Palette {
                 normal: Qt.rgba(0, 0, 0, 0.9)
                 normalDark: Qt.rgba(1, 1, 1, 0.9)
@@ -20,6 +21,7 @@ DccObject {
             // color: D.ColorSelector.textColor
         }
         DccLabel {
+            Layout.fillWidth: true
             visible: text !== ""
             font: D.DTK.fontManager.t8
             text: dccObj.description
