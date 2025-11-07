@@ -54,6 +54,11 @@ void DccDockExport::initData()
     dciPaths.push_back(PLUGIN_ICON_DIR);
     DIconTheme::setDciThemeSearchPaths(dciPaths);
 
+    //更新插件不需要显示在插件列表中
+    infos.removeIf([](const DockItemInfo &info) {
+        return info.name == "plugin-update";
+    });
+
     for (auto &info : infos) {
         QString pluginIconStr{};
         if (QFile::exists(QString(PLUGIN_ICON_DIR) + QDir::separator() + PLUGIN_ICON_PREFIX + info.name + ".dci")) {
