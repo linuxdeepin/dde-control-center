@@ -249,9 +249,31 @@ public Q_SLOTS:
     QString currentDate();
     QString currentTime() const;
     QString getCustomNtpServer() const;
+
+    // 符号冲突检测功能
+    bool hasSymbolConflict() const;
+    QStringList getAllSupportedSymbols() const;
+    
+    // 自动冲突解决功能
+    void resolveSymbolConflict();
+    
+    // UI符号列表过滤功能
+    QStringList getFilteredDecimalSymbols() const;
+    QStringList getFilteredSeparatorSymbols() const;
+    
+    // 中文区域默认设置功能
+    bool isChineseLocale() const;
+    void applyChineseDefaults();
+
 protected:
     void initModes(const QStringList &names, int indexBegin, int indexEnd, QAbstractListModel *model);
+
+    // 符号冲突检测方法（供DatetimeWorker使用）
+    bool symbolsConflict(const QString &decimal, const QString &separator) const;
+
 private:
+    // 自动冲突解决私有方法
+    QString resolveDecimalSymbol(const QString &decimal, const QString &separator) const;
     bool m_ntp;
     bool m_bUse24HourType;
     QStringList m_userZoneIds;

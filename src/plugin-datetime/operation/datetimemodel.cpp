@@ -595,7 +595,32 @@ void DatetimeModel::setCurrentLocaleAndLangRegion(const QString &localeName, con
     // case Digit:
     m_work->setConfigValue(numberFormat_key, regionFormat.numberFormat.toUtf8());
     m_work->setDigitGrouping(regionFormat.numberFormat.toUtf8());
-    m_work->setDigitGroupingSymbol(unEscapSpace(regionFormat.digitgroupFormat));
+    
+    // 获取当前小数点符号（在设置之前）
+    QString currentDecimal = m_work->decimalSymbol();
+    QString newSeparator = unEscapSpace(regionFormat.digitgroupFormat);
+    
+    // 检查新传入的区域格式是否为中文区域
+    bool isNewLocaleChinese = locale.language() == QLocale::Chinese;
+    
+    // 检查新传入的区域格式是否为中文区域，如果是则直接应用中文默认设置
+    if (isNewLocaleChinese) {
+        // 中文区域直接应用默认设置：小数点"."，分隔符","
+        m_work->setDecimalSymbol(".");
+        m_work->setDigitGroupingSymbol(",");
+    } else {
+        // 非中文区域：先设置新区域的千位分隔符（遵循区域格式）
+        m_work->setDigitGroupingSymbol(newSeparator);
+        
+        // 检查当前小数点是否与新分隔符冲突，如果冲突则自动调整小数点
+        // 小数点保持当前设置不变，只有在冲突时才调整
+        if (symbolsConflict(currentDecimal, newSeparator)) {
+            // 如果当前小数点与新分隔符冲突，使用冲突解决逻辑调整小数点
+            QString resolvedDecimal = resolveDecimalSymbol(currentDecimal, newSeparator);
+            m_work->setDecimalSymbol(resolvedDecimal);
+        }
+    }
+    
     // case PaperSize:
     m_work->setConfigValue(paperFormat_key, regionFormat.paperFormat.toUtf8());
     m_work->genLocale(locale.name());
@@ -819,20 +844,42 @@ void DatetimeModel::setCurrentFormat(int format, int index)
     // number formats
     case DecimalSymbol: {
         auto fmts = separatorSymbol(locale, false);
-        if (index < fmts.count())
-            m_work->setDecimalSymbol(fmts.value(index));
+        if (index < fmts.count()) {
+            QString newDecimal = fmts.value(index);
+            QString currentSeparator = m_work->digitGroupingSymbol();
+            
+            // 验证符号变更是否会导致冲突
+            if (m_work->validateSymbolChange(newDecimal, currentSeparator)) {
+                m_work->setDecimalSymbol(newDecimal);
+            } else {
+                qWarning() << "Decimal symbol change rejected due to conflict:" << newDecimal << "conflicts with separator:" << currentSeparator;
+                // 不设置会导致冲突的符号组合，保持当前设置
+                return;
+            }
+        }
     }
     break;
     case DigitGroupingSymbol: {
         auto fmts = separatorSymbol(locale, true);
-        if (index < fmts.count())
-            m_work->setDigitGroupingSymbol(fmts.value(index));
+        if (index < fmts.count()) {
+            QString newSeparator = fmts.value(index);
+            QString currentDecimal = m_work->decimalSymbol();
+            
+            // 验证符号变更是否会导致冲突
+            if (m_work->validateSymbolChange(currentDecimal, newSeparator)) {
+                m_work->setDigitGroupingSymbol(newSeparator);
+            } else {
+                qWarning() << "Digit grouping symbol change rejected due to conflict:" << newSeparator << "conflicts with decimal:" << currentDecimal;
+                // 不设置会导致冲突的符号组合，保持当前设置
+                return;
+            }
+        }
     }
     break;
     case DigitGrouping: {
         QStringList fmts = availableFormats(format);
         if (index >= fmts.count())
-            return
+            return;
 
         // dconfig
         setConfig(index, numberFormat_key, fmts);
@@ -1308,6 +1355,209 @@ QStringList DatetimeModel::numberExampleParts() const
     }
 
     return parts;
+}
+
+// 符号冲突检测功能实现
+bool DatetimeModel::hasSymbolConflict() const
+{
+    if (!m_work) {
+        return false;
+    }
+    
+    QString decimal = m_work->decimalSymbol();
+    QString separator = m_work->digitGroupingSymbol();
+    
+    return symbolsConflict(decimal, separator);
+}
+
+bool DatetimeModel::symbolsConflict(const QString &decimal, const QString &separator) const
+{
+    // 检查两个符号是否非空且相同
+    return !decimal.isEmpty() && !separator.isEmpty() && decimal == separator;
+}
+
+QStringList DatetimeModel::getAllSupportedSymbols() const
+{
+    // 返回所有支持的符号列表，与separatorSymbol函数中的符号保持一致
+    QStringList symbols;
+    symbols << QString(".") << QString(",") << QString("'") << tr("Space");
+    return symbols;
+}
+
+// 自动冲突解决功能实现
+void DatetimeModel::resolveSymbolConflict()
+{
+    if (!m_work) {
+        return;
+    }
+    
+    QString decimal = m_work->decimalSymbol();
+    QString separator = m_work->digitGroupingSymbol();
+    
+    // 如果没有冲突，直接返回
+    if (!symbolsConflict(decimal, separator)) {
+        return;
+    }
+    
+    // 使用解决规则获取新的小数点符号
+    QString newDecimal = resolveDecimalSymbol(decimal, separator);
+    
+    // 设置新的小数点符号
+    if (newDecimal != decimal) {
+        m_work->setDecimalSymbol(newDecimal);
+    }
+}
+
+QString DatetimeModel::resolveDecimalSymbol(const QString &decimal, const QString &separator) const
+{
+    // 如果没有冲突，返回原始小数点符号
+    if (!symbolsConflict(decimal, separator)) {
+        return decimal;
+    }
+    
+    // 实现四种冲突情况的自动调整逻辑
+    if (separator == ",") {
+        // 逗号→点：当分隔符是逗号时，小数点改为点
+        return ".";
+    } else if (separator == ".") {
+        // 点→逗号：当分隔符是点时，小数点改为逗号
+        return ",";
+    } else if (separator == " " || separator == tr("Space")) {
+        // 空格→点：当分隔符是空格时，小数点改为点
+        return ".";
+    } else if (separator == "'") {
+        // 引号→点：当分隔符是引号时，小数点改为点
+        return ".";
+    }
+    
+    // 默认情况：返回点作为小数点符号
+    return ".";
+}
+
+// UI符号列表过滤功能实现
+QStringList DatetimeModel::getFilteredDecimalSymbols() const
+{
+    if (!m_work) {
+        return QStringList();
+    }
+    
+    // 使用与原始模型相同的符号列表生成方式
+    QLocale locale(m_localeName);
+    QStringList symbols = separatorSymbol(locale, false);  // false表示小数点符号
+    
+    // 获取当前的千位分隔符符号
+    QString currentSeparator = m_work->digitGroupingSymbol();
+    
+    // 处理空格符号的特殊情况 - unEscapSpace将空格字符转换为"Space"字符串
+    QString displaySeparator = unEscapSpace(currentSeparator);
+    
+    // 检查当前分隔符是否在符号列表中
+    bool isSeparatorInList = symbols.contains(displaySeparator) || symbols.contains(currentSeparator);
+    
+    if (isSeparatorInList) {
+        // 从小数点符号列表中排除当前选择的千位分隔符符号
+        symbols.removeAll(displaySeparator);
+        symbols.removeAll(currentSeparator);
+        
+        // 如果当前分隔符是空格字符，也要排除实际的空格字符
+        if (currentSeparator.contains(' ')) {
+            symbols.removeAll(" ");
+        }
+    }
+    
+    return symbols;
+}
+
+QStringList DatetimeModel::getFilteredSeparatorSymbols() const
+{
+    if (!m_work) {
+        return QStringList();
+    }
+    
+    // 使用与原始模型相同的符号列表生成方式
+    QLocale locale(m_localeName);
+    QStringList symbols = separatorSymbol(locale, true);   // true表示千位分隔符符号
+    
+    // 获取当前的小数点和分隔符符号
+    QString currentDecimal = m_work->decimalSymbol();
+    QString currentSeparator = m_work->digitGroupingSymbol();
+    
+    // 检查小数点是否为空格（空字符串或空格字符）
+    bool isDecimalSpace = currentDecimal.isEmpty() || currentDecimal.contains(' ');
+    // 检查分隔符是否为空格
+    bool isSeparatorSpace = currentSeparator.isEmpty() || currentSeparator.contains(' ');
+    
+    // 场景1：小数点为空格，分隔符也为空格 → 冲突！需要自动调整小数点
+    if (isDecimalSpace && isSeparatorSpace) {
+        // 获取第一个可用的小数点符号（通常是"."）
+        QString firstDecimal = symbols.isEmpty() ? "." : symbols.first();
+        // 如果第一个符号是"Space"，则使用"."
+        if (firstDecimal == tr("Space") || firstDecimal == " ") {
+            firstDecimal = ".";
+        }
+        // 立即设置新的小数点，避免冲突
+        m_work->setDecimalSymbol(firstDecimal);
+        // 从分隔符列表中排除这个新的小数点符号
+        symbols.removeAll(firstDecimal);
+    }
+    // 场景2：小数点为空格，分隔符不为空格 → 排除空格选项
+    else if (isDecimalSpace) {
+        symbols.removeAll(tr("Space"));
+        symbols.removeAll(" ");
+    }
+    // 场景3：小数点不为空格 → 正常排除小数点符号
+    else {
+        // 处理空格符号的特殊情况 - unEscapSpace将空格字符转换为"Space"字符串
+        QString displayDecimal = unEscapSpace(currentDecimal);
+        
+        // 检查当前小数点是否在符号列表中
+        bool isDecimalInList = symbols.contains(displayDecimal) || symbols.contains(currentDecimal);
+        
+        if (isDecimalInList) {
+            // 从千位分隔符符号列表中排除当前选择的小数点符号
+            symbols.removeAll(displayDecimal);
+            symbols.removeAll(currentDecimal);
+            
+            // 如果当前小数点是空格字符，也要排除实际的空格字符
+            if (currentDecimal.contains(' ')) {
+                symbols.removeAll(" ");
+            }
+        } else {
+            // 当前小数点不在列表中（可能是其他区域的符号）
+            // UI会显示为"Space"，所以需要从分隔符列表中排除"Space"
+            symbols.removeAll(tr("Space"));
+            symbols.removeAll(" ");
+        }
+    }
+    
+    return symbols;
+}
+
+// 中文区域默认设置功能实现
+bool DatetimeModel::isChineseLocale() const
+{
+    return QLocale::Chinese == QLocale(m_localeName).language();
+}
+
+void DatetimeModel::applyChineseDefaults()
+{
+    if (!m_work) {
+        return;
+    }
+    
+    // 只有在当前是中文区域时才应用默认设置
+    if (!isChineseLocale()) {
+        return;
+    }
+    
+    // 中文区域默认设置：小数点为点，千位分隔符为逗号
+    const QString chineseDecimal = ".";
+    const QString chineseSeparator = ",";
+    
+    // 强制应用中文区域默认设置（按照需求3.2的要求）
+    // 当切换到中文区域时，必须重置为中文默认设置
+    m_work->setDecimalSymbol(chineseDecimal);
+    m_work->setDigitGroupingSymbol(chineseSeparator);
 }
 
 DCC_FACTORY_CLASS(DatetimeModel)
