@@ -176,7 +176,11 @@ Aby pomyślnie odblokować urządzenie:
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>„Uwierzytelnienie biometryczne” to funkcja uwierzytelnienia tożsamości użytkownika stworzona przez UnionTech Software Technology Co., Ltd. Dzięki „uwierzytelnieniu biometrycznemu” zebrane dane biometryczne będą porównywane z danymi przechowywanymi na urządzeniu, a tożsamość użytkownika zostanie zweryfikowana na podstawie wyniku porównania.
+
+Należy pamiętać, że UnionTech Software Technology Co., Ltd. nie będzie gromadzić, ani uzyskiwać dostępu do żadnych danych biometrycznych użytkownika, które będą przechowywane lokalnie na urządzeniu. Aktywuj uwierzytelnienie biometryczne wyłącznie na swoim urządzeniu osobistym i posługuj się wyłącznie swoimi informacjami biometrycznymi. Pamiętaj również, aby usunąć dane innych użytkowników, by uniknąć potencjalnych problemów w przyszłości.
+
+Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i poprawę jakości bezpieczeństwa, dokładności i stabilności uwierzytelniania biometrycznego. Jednak ze względu na czynniki środowiskowe, sprzętowe, techniczne i tym podobne oraz kontrole ryzyka związanego z tą technologią, nie możemy zagwarantować, że to rozwiązanie będzie działać za każdym razem. Dlatego nie należy traktować uwierzytelniania biometrycznego jako jedyny sposób logowania do systemu UOS. Jeśli masz jakiekolwiek pytania lub sugestie dotyczące uwierzytelniania biometrycznego, możesz przekazać opinię poprzez „Serwis i wsparcie” w systemie UOS.</translation>
     </message>
 </context>
 <context>
@@ -2074,11 +2078,11 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation>Usługa suplikanta nie jest dostępna</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation>Błędny format koloru: %1</translation>
     </message>
 </context>
 <context>
@@ -2610,7 +2614,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>wprowadź skrót</translation>
     </message>
 </context>
 <context>
@@ -3323,7 +3327,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>Chiński Min Nan</translation>
     </message>
 </context>
 <context>
