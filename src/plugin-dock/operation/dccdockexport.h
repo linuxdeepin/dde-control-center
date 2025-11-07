@@ -16,6 +16,9 @@ public:
 
 private:
     void initData();
+    
+public Q_SLOTS:
+    void reload();
 
 private:
     DockDBusProxy *m_dockDbusProxy;

@@ -11,6 +11,16 @@ import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0 as D
 
 DccObject {
+    Connections {
+        target: DccApp
+        function onActiveObjectChanged(activeObject) {
+            if (activeObject.name === "pluginArea") {
+                console.log("pluginArea object activated, refreshing plugin data...")
+                dccData.reload()
+            }
+        }
+    }
+
     DccObject {
         name: "pluginAreaTitle"
         weight: 10
