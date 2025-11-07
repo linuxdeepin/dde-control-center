@@ -12,12 +12,12 @@ import org.deepin.dcc 1.0
 
 Item {
     id: root
-    property real oldX: DccApp.sidebarWidth // 用于调整宽度时，自动调整侧边栏宽度
+    property real oldX: 180 // 用于调整宽度时，自动调整侧边栏宽度
     property real oldSplitterX: 180 // 记录上次位置，用于恢复
     property alias splitterX: splitter.x
 
-    function updateSidebarWidth(width) {
-        DccApp.sidebarWidth = width;
+    function updateSidebarWidth(sidebarWidth) {
+        DccApp.sidebarWidth = sidebarWidth
     }
     function targetSidebar() {
         if (splitter.x < 110) {
@@ -237,5 +237,8 @@ Item {
             updateRightView()
         }
     }
-    Component.onCompleted: updateRightView()
+    Component.onCompleted: {
+        oldX = DccApp.sidebarWidth
+        updateRightView()
+    }
 }
