@@ -76,6 +76,11 @@ void DccDockExport::initData()
     m_pluginModel->resetData(infos);
 }
 
+void DccDockExport::reload()
+{
+    m_pluginModel->resetData(m_dockDbusProxy->plugins().value());
+}
+
 DCC_FACTORY_CLASS(DccDockExport)
 
 #include "dccdockexport.moc"
