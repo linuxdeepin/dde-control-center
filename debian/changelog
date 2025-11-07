@@ -1,3 +1,9 @@
+dde-control-center (6.1.56) unstable; urgency=medium
+
+  * fix: Record the status of the sidebar
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Fri, 07 Nov 2025 10:11:47 +0800
+
 dde-control-center (6.1.55) unstable; urgency=medium
 
   * fix: add hover tooltip for Mode options in Sound settings
