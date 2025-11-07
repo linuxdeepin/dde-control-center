@@ -537,6 +537,9 @@ DccObject {
                 page: ComboLabel {
                     comboModel: model.values
                     comboCurrentIndex: model.current
+                    // 设置符号类型标识，用于过滤功能
+                    isDecimalSymbol: index === 0  // 第一个是小数点符号
+                    isDigitGroupingSymbol: index === 1  // 第二个是千位分隔符符号
                     onComboBoxActivated: function (idx) {
                         dccData.setCurrentFormat(model.indexBegin + index, idx)
                     }

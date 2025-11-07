@@ -84,6 +84,8 @@ public Q_SLOTS:
     QString positiveCurrencyFormat();
     void setPositiveCurrencyFormat(const QString &value);
 
+    bool validateSymbolChange(const QString &decimal, const QString &separator);
+
 private Q_SLOTS:
 #ifndef DCC_DISABLE_TIMEZONE
     void onTimezoneListChanged(const QStringList &timezones);
@@ -101,6 +103,7 @@ private:
     void refreshNtpServerList();
     void initRegionFormatData();
     std::optional<QStringList> getSupportedLocale();
+    void checkAndResolveConflicts();
 
 private:
     DatetimeModel *m_model;

@@ -110,6 +110,9 @@ void DatetimeWorker::activate()
     m_model->setSystemTimeZoneId(m_timedateInter->timezone());
     onTimezoneListChanged(m_timedateInter->userTimezones());
 #endif
+    
+    // 启动时检测并解决符号冲突
+    checkAndResolveConflicts();
 }
 
 void DatetimeWorker::deactivate()
@@ -572,4 +575,33 @@ bool DatetimeWorker::genLocale(const QString &localeName)
     m_timedateInter->GenLocale(localeSet);
 
     return true;
+}
+
+void DatetimeWorker::checkAndResolveConflicts()
+{
+    if (!m_model) {
+        return;
+    }
+    
+    // 首先检查是否为中文区域，如果是则应用中文默认设置
+    if (m_model->isChineseLocale()) {
+        // 应用中文区域默认设置（小数点为点，分隔符为逗号）
+        m_model->applyChineseDefaults();
+    }
+    
+    // 检测是否存在符号冲突
+    if (m_model->hasSymbolConflict()) {
+        // 自动解决冲突
+        m_model->resolveSymbolConflict();
+    }
+}
+
+bool DatetimeWorker::validateSymbolChange(const QString &decimal, const QString &separator)
+{
+    if (!m_model) {
+        return false;
+    }
+    
+    // 使用DatetimeModel中的符号冲突检测逻辑
+    return !m_model->symbolsConflict(decimal, separator);
 }
