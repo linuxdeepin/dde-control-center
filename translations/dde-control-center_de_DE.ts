@@ -946,11 +946,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>Benutzername kann nur bestehen aus Buchstaben, Ziffern, - und _</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Voller Name darf nicht mehr als 32 Zeichen haben</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
