@@ -1653,23 +1653,23 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Vier-Finger hoch</translation>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Vier-Finger runter</translation>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Vier-Finger links</translation>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Vier-Finger rechts</translation>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Vier-Finger antippen</translation>
     </message>
 </context>
 <context>
@@ -1800,7 +1800,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort zurücksetzen</translation>
     </message>
 </context>
 <context>
@@ -2013,7 +2013,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Neues Passwort</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
@@ -2021,7 +2021,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Das Passwort muss sich vom Benutzernamen unterscheiden</translation>
     </message>
 </context>
 <context>
