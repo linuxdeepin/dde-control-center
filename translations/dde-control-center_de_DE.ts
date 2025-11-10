@@ -267,7 +267,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation>Bitte schauen Sie auf das Gerät und stellen Sie sicher, dass beide Augen im Aufnahmefeld sind</translation>
     </message>
 </context>
 <context>
