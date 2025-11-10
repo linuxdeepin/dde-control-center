@@ -2540,11 +2540,11 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation>klicken Sie Speichern, um das Tastenkrzel einzurichten</translation>
+        <translation>klicken Sie Speichern, um das Tastenkürzel einzurichten</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>klicken Sie Hinzufügen, um das Tastenkürzel einzurichten</translation>
     </message>
 </context>
 <context>
@@ -2599,7 +2599,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Bitte geben Sie ein neues Tastenkürzel ein</translation>
     </message>
 </context>
 <context>
@@ -2731,11 +2731,11 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"/>
+        <translation>Mono</translation>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"/>
+        <translation>Auto-Pause</translation>
     </message>
     <message>
         <source>Output Device</source>
@@ -2820,7 +2820,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Hinzufügen</translation>
     </message>
 </context>
 <context>
@@ -2935,7 +2935,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Wischgeste</translation>
     </message>
 </context>
 <context>
@@ -3052,7 +3052,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>System-Bildschirmhintergründe</translation>
     </message>
 </context>
 <context>
