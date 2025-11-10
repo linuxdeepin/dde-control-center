@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation>Schnell-Anmeldung</translation>
     </message>
 </context>
 <context>
@@ -223,11 +223,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iris erfassen</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Ich habe gelesen und verstanden die</translation>
     </message>
     <message>
         <source>Disclaimer</source>
