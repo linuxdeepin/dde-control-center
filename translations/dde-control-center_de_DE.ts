@@ -2536,11 +2536,11 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>klicken Sie Speichern, um das Tastenkrzel einzurichten</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
