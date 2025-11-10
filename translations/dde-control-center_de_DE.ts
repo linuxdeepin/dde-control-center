@@ -2695,7 +2695,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Volume Boost</source>
-        <translation>Lautstärkenmaimierung</translation>
+        <translation>Lautstärkenmaximierung</translation>
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
