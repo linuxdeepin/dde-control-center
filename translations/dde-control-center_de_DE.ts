@@ -2524,15 +2524,15 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
+        <translation>Der Kürzel-Name wird bereits verwendet. Wählen Sie einen anderen.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Eigenes Tastenkürzel ändern</translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Bitte geben Sie ein Tastenkürzel ein</translation>
     </message>
     <message>
         <source>Save</source>
