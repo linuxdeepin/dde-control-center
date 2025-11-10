@@ -66,6 +66,9 @@ public:
     bool DeveloperMode();
 
     bool isACLController() const;
+    
+    // Solid System Read-Only Protection
+    bool setReadOnlyProtectionEnabled(bool enabled);
 
 Q_SIGNALS: // SIGNALS
     // deepin id

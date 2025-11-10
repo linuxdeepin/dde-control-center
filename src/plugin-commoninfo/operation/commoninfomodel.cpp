@@ -4,7 +4,12 @@
 #include "commoninfomodel.h"
 
 #include <QDebug>
+#include <QLoggingCategory>
 #include <DSysInfo>
+
+namespace {
+    Q_LOGGING_CATEGORY(dcCommonLog, "org.deepin.dde.dcc.commoninfo")
+}
 
 CommonInfoModel::CommonInfoModel(QObject *parent)
     : QObject(parent)
@@ -155,12 +160,24 @@ bool CommonInfoModel::isDeveloperMode() const
     return m_isDeveloperMode;
 }
 
+bool CommonInfoModel::readOnlyProtectionEnabled() const
+{
+    return m_readOnlyProtectionEnabled;
+}
+
 void CommonInfoModel::setIsDeveloperMode(bool newIsDeveloperMode)
 {
     if (m_isDeveloperMode == newIsDeveloperMode)
         return;
     m_isDeveloperMode = newIsDeveloperMode;
     emit isDeveloperModeChanged();
+}
+
+void CommonInfoModel::setReadOnlyProtectionEnabled(bool enabled)
+{
+    qCDebug(dcCommonLog) << "setReadOnlyProtectionEnabled:" << enabled;
+    m_readOnlyProtectionEnabled = enabled;
+    emit readOnlyProtectionEnabledChanged();
 }
 
 
