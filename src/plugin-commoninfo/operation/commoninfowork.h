@@ -61,6 +61,8 @@ public Q_SLOTS:
     void onDevelopModeError(const QString &msgCode);
     void setPlymouthFactor(int factor);
     void resetEditAuthEnabled();
+    void setReadOnlyProtectionEnabled(bool enabled);
+    bool showReadOnlyProtection() const;
 
 Q_SIGNALS:
     void settingScaling(bool);
@@ -68,6 +70,10 @@ Q_SIGNALS:
 private:
     QString passwdEncrypt(const QString &password);
     std::pair<int, QString> getPlyMouthInformation();
+    void updateImmutableWritableStatus();
+    bool existImmutableWritable() const;
+    bool isImmutableAutoRecovery() const;
+    bool isReadOnlyProtectionEnabled() const;
 
 private:
     CommonInfoModel *m_commomModel;
@@ -79,6 +85,7 @@ private:
     QDBusInterface *m_debugConfigInter;
     QDBusInterface *m_inter;
     QString m_tmpBackgroundPath;
+    QString m_immutableWritableStatus;
 };
 
 

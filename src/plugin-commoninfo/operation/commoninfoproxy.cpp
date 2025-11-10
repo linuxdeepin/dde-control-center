@@ -5,6 +5,7 @@
 #include "commoninfoproxy.h"
 
 #include <DNotifySender>
+#include <DDBusSender>
 
 #include <QDBusConnection>
 #include <QDBusInterface>
@@ -50,6 +51,10 @@ const QString &SyncHelperInterface = QStringLiteral("com.deepin.sync.Helper");
 static const QString &ACLHelperService = QStringLiteral("com.deepin.daemon.ACL");
 static const QString &ACLHelperPath = QStringLiteral("/com/uos/usec/DeveloperMode");
 static const QString &ACLHelperInterface = QStringLiteral("com.uos.usec.DeveloperMode");
+
+static const QString &ReadOnlyProtectionService = QStringLiteral("org.deepin.dde.Daemon1");
+static const QString &ReadOnlyProtectionPath = QStringLiteral("/org/deepin/dde/Daemon1");
+static const QString &ReadOnlyProtectionInterface = QStringLiteral("org.deepin.dde.Daemon1");
 
 // 判断是否可以使用ACL服务来处理开发者模式
 static bool isACLActivatable()
@@ -312,6 +317,25 @@ void CommonInfoProxy::Notify(const QString &inAppName, const uint replacesId, co
 bool CommonInfoProxy::isACLController() const
 {
     return m_isACLController;
+}
+
+bool CommonInfoProxy::setReadOnlyProtectionEnabled(bool enabled)
+{
+    qCInfo(dcCommonLog) << "setReadOnlyProtectionEnabled:" << enabled;
+    auto call = DDBusSender::system()
+        .service(ReadOnlyProtectionService)
+        .path(ReadOnlyProtectionPath)
+        .interface(ReadOnlyProtectionInterface)
+        .method("SetReadOnlyProtection")
+        .arg(enabled)
+        .call();
+
+    call.waitForFinished();
+    if (call.isError()) {
+        qCWarning(dcCommonLog) << "setReadOnlyProtectionEnabled failed:" << call.error().message();
+        return false;
+    }
+    return true;
 }
 
 void CommonInfoProxy::onDeepinIdError(const int code, const QString &msg)

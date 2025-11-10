@@ -585,4 +585,52 @@ DccObject {
 
 
     }
+
+    DccObject {
+        name: "developReadOnlyProtection"
+        parentName: "developerMode"
+        displayName: qsTr("Solid System Read-Only Protection")
+        weight: 70
+        visible: dccData.work().showReadOnlyProtection()
+        canSearch: visible
+        backgroundType: DccObject.Normal
+        pageType: DccObject.Item
+        page: RowLayout {
+            Layout.topMargin: 5
+            ColumnLayout {
+                spacing: 2
+                Layout.leftMargin: 15
+                Layout.topMargin: 5
+                Layout.bottomMargin: 5
+                Label {
+                    text: dccObj.displayName
+                    font: D.DTK.fontManager.t6
+                }
+
+                Label {
+                    horizontalAlignment: Text.AlignLeft
+                    wrapMode: Text.WordWrap
+                    text: dccData.mode().readOnlyProtectionEnabled
+                            ? qsTr("Disabling protection unlocks system directories，This action carries a high risk of system damage.")
+                            : qsTr("Enable protection to lock system directories and ensure optimal stability.")
+                    font: D.DTK.fontManager.t10
+                    opacity: 0.5
+
+                    Layout.fillWidth: true
+                }
+            }
+
+            Switch {
+                Layout.alignment: Qt.AlignRight
+                Layout.rightMargin: 10
+                implicitWidth: 50
+                checked: dccData.mode().readOnlyProtectionEnabled
+                onClicked: {
+                    console.log("Read-Only Protection switched to:", checked, "current state:", dccData.mode().readOnlyProtectionEnabled)
+
+                    dccData.work().setReadOnlyProtectionEnabled(checked)
+                }
+            }
+        }
+    }
 }

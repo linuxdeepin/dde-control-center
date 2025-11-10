@@ -20,10 +20,13 @@
 #include <QFile>
 #include <QFileInfo>
 #include <DDBusSender>
+#include <DConfig>
 
 #include <mutex>
 #include <qdbusmetatype.h>
 #include <QJsonDocument>
+#include <QJsonObject>
+#include <QJsonParseError>
 #include <QDBusConnection>
 #include <QDBusConnectionInterface>
 #include <QDBusMessage>
@@ -240,7 +243,10 @@ void CommonInfoWork::active()
     m_commomModel->setGrubEditAuthEnabled(m_commonInfoProxy->EnabledUsers().contains(GRUB_EDIT_AUTH_ACCOUNT));
     m_commomModel->setUpdating(m_commonInfoProxy->Updating());
 
-
+    updateImmutableWritableStatus();
+    m_commomModel->setReadOnlyProtectionEnabled(isReadOnlyProtectionEnabled());
+    
+    
 
     auto AuthorizationState = m_commonInfoProxy->AuthorizationState();
     m_commomModel->setActivation(AuthorizationState == 1 || AuthorizationState == 3);
@@ -481,6 +487,52 @@ void CommonInfoWork::resetEditAuthEnabled()
     Q_EMIT m_commomModel->grubEditAuthEnabledChanged(m_commomModel->grubEditAuthEnabled());
 }
 
+void CommonInfoWork::setReadOnlyProtectionEnabled(bool enabled)
+{
+    auto ret = m_commonInfoProxy->setReadOnlyProtectionEnabled(enabled);
+    if (!ret) {
+        qCWarning(DccCommonInfoWork) << "setReadOnlyProtectionEnabled failed, enabled:" << enabled;
+    }
+
+    updateImmutableWritableStatus();
+    const bool status = isReadOnlyProtectionEnabled();
+    if (enabled == status) {
+        qCInfo(DccCommonInfoWork) << "setReadOnlyProtectionEnabled applied successfully, enabled:" << enabled;
+
+        const QStringList rebootCommand{"dbus-send", "--session", "--print-reply", "--dest=org.deepin.dde.ShutdownFront1", "/org/deepin/dde/ShutdownFront1", "org.deepin.dde.ShutdownFront1.Restart"};
+        DUtil::DNotifySender("Restart device to finish applying Solid System Read-Only Protection settings")
+            .actions({"reboot", tr("Restart now"), "dismiss", tr("Dismiss")})
+            .hints({
+                {"x-deepin-action-reboot", rebootCommand}
+            })
+            .timeOut(5000)
+            .call();
+    } else {
+        qCWarning(DccCommonInfoWork) << "setReadOnlyProtectionEnabled failed to apply, enabled:" << enabled;
+    }
+    
+    m_commomModel->setReadOnlyProtectionEnabled(status);
+}
+
+bool CommonInfoWork::showReadOnlyProtection() const
+{
+    if (!existImmutableWritable()) {
+        qCDebug(DccCommonInfoWork) << "showReadOnlyProtection: false, immutable writable not exist";
+        return false;
+    }
+
+    if (isImmutableAutoRecovery()) {
+        qCDebug(DccCommonInfoWork) << "showReadOnlyProtection: false, immutable writable in auto recovery";
+        return false;
+    }
+
+    Dtk::Core::DConfig config("org.deepin.dde.control-center.commoninfo");
+    bool ret = config.value("showReadOnlyProtection", true).toBool();
+
+    qCDebug(DccCommonInfoWork) << "showReadOnlyProtection:" << ret;
+    return ret;
+}
+
 void CommonInfoWork::setBootDelay(bool value)
 {
     qDebug()<<" CommonInfoWork::setBootDelay  value =  "<< value;
@@ -682,6 +734,78 @@ std::pair<int, QString> CommonInfoWork::getPlyMouthInformation()
     }
 
     return {0, QString()};
+}
+
+bool CommonInfoWork::existImmutableWritable() const
+{
+    return m_immutableWritableStatus != "error";
+}
+
+bool CommonInfoWork::isImmutableAutoRecovery() const
+{
+    return m_immutableWritableStatus == "overlay";
+}
+
+bool CommonInfoWork::isReadOnlyProtectionEnabled() const
+{
+    return m_immutableWritableStatus == "remount";
+}
+
+static QString getDeepinImmutableWritableStatus()
+{
+    QProcess process;
+    process.setProgram("/usr/bin/deepin-immutable-writable");
+    process.setArguments({"status", "-j"});
+    process.start();
+    process.waitForFinished();
+    
+    if (process.exitCode() != 0) {
+        qWarning() << "deepin-immutable-writable status command failed, exit code:" << process.exitCode();
+        return QString("error");
+    }
+
+    const QByteArray data = process.readAllStandardOutput();
+
+    // 解析 JSON 格式的输出
+    QJsonParseError error;
+    QJsonDocument doc = QJsonDocument::fromJson(data, &error);
+    if (error.error != QJsonParseError::NoError) {
+        qWarning() << "Failed to parse deepin-immutable-writable JSON output:" << error.errorString();
+        return QString("error");
+    }
+
+    QJsonObject rootObj = doc.object();
+    
+    // 检查返回状态
+    int code = rootObj.value("code").toInt(-1);
+    if (code != 0) {
+        qWarning() << "deepin-immutable-writable returned error code:" << code 
+                    << "message:" << rootObj.value("message").toString();
+        return QString("error");
+    }
+    
+    QJsonObject dataObj = rootObj.value("data").toObject();
+    QJsonObject confObj = dataObj.value("conf").toObject();
+    
+    bool enable = confObj.value("enable").toBool(false);
+
+    bool clearAfterReboot = confObj.value("clearAfterReboot").toBool(false);
+    bool cleanData = confObj.value("cleanData").toBool(false);
+
+    // Enable 为 true, 表明功能已开启
+    // ClearAfterReboot和CleanData在开启无忧还原的时候才会是true
+    if (clearAfterReboot && cleanData) {
+        return QStringLiteral("overlay");  // 无忧还原
+    } else if (!enable) {
+        return QStringLiteral("remount");  // 只读保护
+    }
+    
+    return QString();
+}
+
+void CommonInfoWork::updateImmutableWritableStatus()
+{
+    m_immutableWritableStatus = getDeepinImmutableWritableStatus();
 }
 
 void CommonInfoWork::onDevelopModeError(const QString &msgCode)

@@ -27,6 +27,7 @@ class CommonInfoModel : public QObject
     Q_PROPERTY(QString grubThemePath READ grubThemePath NOTIFY grubThemePathChanged FINAL)
     Q_PROPERTY(bool needShowModalDialog READ needShowModalDialog NOTIFY needShowModalDialogChanged FINAL)
     Q_PROPERTY(bool isDeveloperMode READ isDeveloperMode NOTIFY isDeveloperModeChanged FINAL)
+    Q_PROPERTY(bool readOnlyProtectionEnabled READ readOnlyProtectionEnabled NOTIFY readOnlyProtectionEnabledChanged FINAL)
 
 
 public:
@@ -65,6 +66,7 @@ public:
 
 
     bool isDeveloperMode() const;
+    bool readOnlyProtectionEnabled() const;
 
 Q_SIGNALS:
     void bootDelayChanged(const bool enabled) const;
@@ -90,6 +92,7 @@ Q_SIGNALS:
     void needShowModalDialogChanged();
 
     void isDeveloperModeChanged();
+    void readOnlyProtectionEnabledChanged();
 
 public Q_SLOTS:
     void setBootDelay(bool bootDelay);
@@ -104,6 +107,7 @@ public Q_SLOTS:
     void setPlymouthScale(int scale);
     void setPlymouthTheme(const QString &themeName);
     void setIsDeveloperMode(bool newIsDeveloperMode);
+    void setReadOnlyProtectionEnabled(bool enabled);
 
 
 private:
@@ -130,5 +134,6 @@ private:
     bool m_needShowModalDialog;
 
     bool m_isDeveloperMode;
+    bool m_readOnlyProtectionEnabled{false};
 
 };
