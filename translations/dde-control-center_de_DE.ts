@@ -3812,23 +3812,23 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2 (Empfohlen)</translation>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2</translation>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1Hz (Empfohlen)</translation>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation type="unfinished"/>
+        <translation>%1Hz</translation>
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Skalieren</translation>
     </message>
 </context>
 <context>
@@ -3850,7 +3850,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Allgemeine Einstellungen, Eingabemethode, Tastenkürzel</translation>
     </message>
 </context>
 <context>
