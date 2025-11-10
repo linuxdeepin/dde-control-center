@@ -3071,7 +3071,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>alle - %1 Möglichkeiten anzeigen</translation>
     </message>
 </context>
 <context>
