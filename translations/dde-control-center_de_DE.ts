@@ -1486,11 +1486,11 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. gehen Sie bitte zu %1 um das Offline-Zertifikat herunterzuladen</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>Diese Eigenschaft ist aktuell nicht verfügbar, bitte aktivieren Sie zuerst das System.</translation>
     </message>
 </context>
 <context>
@@ -1633,11 +1633,11 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Drei-Finger hoch</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Drei-Finger runter</translation>
     </message>
     <message>
         <source>Three-finger left</source>
