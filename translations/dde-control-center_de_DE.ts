@@ -954,18 +954,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation>Voller Name darf keine Doppelpunkte enthalten</translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation>klein</translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation>groß</translation>
     </message>
 </context>
 <context>
@@ -976,7 +976,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation>Hochgeladene Dateiendung ist nicht richtig, bitte nochmals hochladen</translation>
     </message>
 </context>
 <context>
@@ -1132,7 +1132,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Beispiel</translation>
     </message>
 </context>
 <context>
@@ -1143,7 +1143,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Authentication is required to set the system timezone</source>
-        <translation type="unfinished"/>
+        <translation>Sie müssen sich authentifizieren, um die System-Zeitzone einzustellen</translation>
     </message>
 </context>
 <context>
@@ -1314,7 +1314,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>Der Kurzname muss zwischen 1 und 32 Zeichen lang sein</translation>
     </message>
 </context>
 <context>
@@ -1337,7 +1337,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>Der Kurzname darf nur einmal pro Tag geändert werden</translation>
     </message>
 </context>
 <context>
@@ -1474,7 +1474,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Um unsignierte Anwendungen zu installieren und zu starten, gehen Sie bitte in das Sicherheitszentrum und ändern dort die Einstellungen.</translation>
     </message>
     <message>
         <source>You have entered developer mode</source>
