@@ -829,11 +829,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Scroll-Geschwindigkeit</translation>
     </message>
 </context>
 <context>
@@ -942,7 +942,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Benutzername darf nicht mehr als 32 Zeichen haben</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
