@@ -1750,7 +1750,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Regionsformat</translation>
     </message>
 </context>
 <context>
@@ -3278,7 +3278,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Entwickler-Debug-Optionen</translation>
     </message>
 </context>
 <context>
@@ -3297,7 +3297,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Systemsprache, Regionsformate</translation>
     </message>
 </context>
 <context>
