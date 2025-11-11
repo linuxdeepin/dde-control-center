@@ -15,6 +15,7 @@ import org.deepin.dcc.personalization 1.0
 
 ColumnLayout {
     id: root
+    spacing: 0
     readonly property int imageRectW: 84
     readonly property int imageRectH: 54
     readonly property int imageBorder: 2
@@ -22,7 +23,7 @@ ColumnLayout {
     readonly property int imageMargin: imageBorder + 1
     readonly property int itemWidth: imageRectW + imageBorder * 2 + 1
     readonly property int itemHeight: imageRectH + imageBorder * 2 + 1
-    readonly property int imageSpacing: 5
+    readonly property int imageSpacing: 7
 
     property var model
     property bool isExpand: false
@@ -41,9 +42,13 @@ ColumnLayout {
 
     RowLayout {
         id: titleLayout
-        Layout.preferredHeight: 50
         Layout.fillWidth: true
+        Layout.preferredHeight: Math.max(titleLabel.implicitHeight, titleLoolButton.implicitHeight)
+        Layout.topMargin: 6
+        Layout.bottomMargin: 0
+
         Label {
+            id: titleLabel
             Layout.leftMargin: 10
             font: D.DTK.fontManager.t6
             text: dccObj.displayName
@@ -52,6 +57,7 @@ ColumnLayout {
             Layout.fillWidth: true
         }
         D.ToolButton {
+            id: titleLoolButton
             visible: layout.lineCount * 2 < root.model.count + root.firstItemVisible ? 1 : 0
             textColor: D.Palette {
                 normal {
@@ -94,7 +100,7 @@ ColumnLayout {
             property int lineCount: Math.floor((parent.width + root.imageSpacing) / (root.itemWidth + root.imageSpacing))
             width: lineCount * (root.itemWidth + root.imageSpacing) - root.imageSpacing
             spacing: root.imageSpacing
-            bottomPadding: root.imageSpacing
+            bottomPadding: 12
             anchors.horizontalCenter: parent.horizontalCenter
 
             move: Transition {
