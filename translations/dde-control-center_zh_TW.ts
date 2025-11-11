@@ -903,6 +903,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>The settings will be applied after rebooting the system</source>
         <translation>新的設定會在重啟系統後生效</translation>
     </message>
+    <message>
+        <source>Restart now</source>
+        <translation>立即重啟</translation>
+    </message>
+    <message>
+        <source>Dismiss</source>
+        <translation>忽略</translation>
+    </message>
+    <message>
+        <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
+        <translation>磐石只讀保護設定需重啟後纔能生效</translation>
+    </message>
 </context>
 <context>
     <name>ConfirmManager</name>
@@ -1500,6 +1512,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
         <translation>當前系統未啟用，暫無法使用該功能。</translation>
+    </message>
+    <message>
+        <source>Solid System Read-Only Protection</source>
+        <translation>磐石只讀保護</translation>
+    </message>
+    <message>
+        <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
+        <translation>關閉保護會解鎖系統目錄，可能導致系統損壞的高風險。</translation>
+    </message>
+    <message>
+        <source>Enable protection to lock system directories and ensure optimal stability.</source>
+        <translation>開啟保護以鎖定系統目錄，確保最佳穩定性。</translation>
     </message>
 </context>
 <context>
