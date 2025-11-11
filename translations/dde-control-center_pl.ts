@@ -919,7 +919,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation>Uruchom ponownie urządzenie, aby włączyć ochronę systemu tylko-do-odczytu</translation>
     </message>
 </context>
 <context>
@@ -1521,11 +1521,11 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"/>
+        <translation>Ochrona systemu tylko-do-odczytu</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"/>
+        <translation>Wyłączenie tej opcji zezwala na edycję katalogów systemowych, co zwiększa ryzyko uszkodzenia systemu.</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
