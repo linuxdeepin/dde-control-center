@@ -161,24 +161,18 @@
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Before using face recognition, please note that: 
-1. Your device may be unlocked by people or objects that look or appear similar to you.
-2. Face recognition is less secure than digital passwords and mixed passwords.
-3. The success rate of unlocking your device through face recognition will be reduced in a low-light, high-light, back-light, large angle scenario and other scenarios.
-4. Please do not give your device to others randomly, so as to avoid malicious use of face recognition.
-5. In addition to the above scenarios, you should pay attention to other situations that may affect the normal use of face recognition.
-
-In order to better use of face recognition, please pay attention to the following matters when inputting the facial data:
-1. Please stay in a well-lit setting, avoid direct sunlight and other people appearing in the recorded screen.
-2. Please pay attention to the facial state when inputting data, and do not let your hats, hair, sunglasses, masks, heavy makeup and other factors to cover your facial features.
-3. Please avoid tilting or lowering your head, closing your eyes or showing only one side of your face, and make sure your front face appears clearly and completely in the prompt box.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Face recognition does not support liveness detection, and the verification method may carry risks.
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
+
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+
+UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -900,6 +894,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>The settings will be applied after rebooting the system</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Restart now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dismiss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ConfirmManager</name>
@@ -1497,6 +1503,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>The feature is not available at present, please activate your system first.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Solid System Read-Only Protection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable protection to lock system directories and ensure optimal stability.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
@@ -2066,6 +2084,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Dark</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Picker service is not available</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid color format: %1</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>PersonalizationWorker</name>
@@ -2595,7 +2621,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>please enter a shortcut key</source>
+        <source>please enter a new shortcut key</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3306,6 +3332,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Traditional Chinese (Chinese Taiwan)</source>
         <translation>ترائیل چینی (چینی ٹائوان)</translation>
+    </message>
+    <message>
+        <source>Min Nan Chinese</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
