@@ -210,13 +210,16 @@ DccObject{
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 Layout.rightMargin: 10
 
-                enabled: !dccData.model().airplaneEnable && !isSwitching
+                enabled: !dccData.model().airplaneEnable && !isSwitching               
+                checked: !dccData.model().airplaneEnable && model.powered
 
                 Component.onCompleted: {
                     if (dccData.model().airplaneEnable) {
-                        checked = false;
+                        if (checked) checked = false;
                     } else {
-                        checked = model.powered;
+                        if (checked !== model.powered) {
+                            checked = model.powered;
+                        }
                     }
                 }
 
