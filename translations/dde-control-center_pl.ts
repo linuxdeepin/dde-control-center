@@ -1529,7 +1529,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation>Włącz ochronę, aby zablokować katalogi systemowe i zapewnić ochronę systemu.</translation>
     </message>
 </context>
 <context>
