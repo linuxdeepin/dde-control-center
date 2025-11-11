@@ -908,15 +908,15 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation>Rinise tani</translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation>Hidhe tej</translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation>Rinisni pajisjen që të përfundojë aplikimi i rregullimeve për Mbrojtje Vetë-Lexim Sistemi Solid</translation>
     </message>
 </context>
 <context>
