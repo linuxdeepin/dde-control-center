@@ -1526,7 +1526,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation>Aktivizoni mbrojtjen, që të kyçe drejtori sistemi dhe të garantohet qëndrueshmëri optimale.</translation>
     </message>
 </context>
 <context>
@@ -2103,7 +2103,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation>Format i pavlefshëm ngjyrash: %1</translation>
     </message>
 </context>
 <context>
