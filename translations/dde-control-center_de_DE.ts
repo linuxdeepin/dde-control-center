@@ -894,6 +894,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>The settings will be applied after rebooting the system</source>
         <translation>Die Einstellungen werden nach einem Neustart des Systems wirksam</translation>
     </message>
+    <message>
+        <source>Restart now</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dismiss</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ConfirmManager</name>
@@ -1491,6 +1503,18 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
         <translation>Diese Eigenschaft ist aktuell nicht verfügbar, bitte aktivieren Sie zuerst das System.</translation>
+    </message>
+    <message>
+        <source>Solid System Read-Only Protection</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable protection to lock system directories and ensure optimal stability.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
