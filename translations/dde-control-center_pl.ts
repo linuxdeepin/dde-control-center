@@ -911,11 +911,11 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation>Uruchom ponownie teraz</translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation>Pomiń</translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
