@@ -500,7 +500,7 @@ void CommonInfoWork::setReadOnlyProtectionEnabled(bool enabled)
         qCInfo(DccCommonInfoWork) << "setReadOnlyProtectionEnabled applied successfully, enabled:" << enabled;
 
         const QStringList rebootCommand{"dbus-send", "--session", "--print-reply", "--dest=org.deepin.dde.ShutdownFront1", "/org/deepin/dde/ShutdownFront1", "org.deepin.dde.ShutdownFront1.Restart"};
-        DUtil::DNotifySender("Restart device to finish applying Solid System Read-Only Protection settings")
+        DUtil::DNotifySender(tr("Restart device to finish applying Solid System Read-Only Protection settings"))
             .actions({"reboot", tr("Restart now"), "dismiss", tr("Dismiss")})
             .hints({
                 {"x-deepin-action-reboot", rebootCommand}
