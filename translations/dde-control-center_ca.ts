@@ -1529,7 +1529,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation>Activeu la protecció per blocar els directoris del sistema i garantir una estabilitat òptima.</translation>
     </message>
 </context>
 <context>
