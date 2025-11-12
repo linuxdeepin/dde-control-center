@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ca">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ca">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -175,7 +173,7 @@ Per garantir una entrada correcta:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat de l&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà en funció del resultat de la comparació.
@@ -222,7 +220,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat d&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà en funció del resultat de la comparació.
@@ -273,7 +271,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat de l&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà en funció del resultat de la comparació.
@@ -913,15 +911,15 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"></translation>
+        <translation>Reinicia&apos;t ara</translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"></translation>
+        <translation>Descarta-ho</translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Reinicieu el dispositiu per acabar d&apos;aplicar la configuració de la protecció de només lectura del sistema sòlid.</translation>
     </message>
 </context>
 <context>
@@ -1523,15 +1521,15 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"></translation>
+        <translation>Protecció de només lectura de sistema sòlid</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"></translation>
+        <translation>La desactivació de la protecció desbloca els directoris del sistema. Aquesta acció comporta un risc alt de danys al sistema.</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"></translation>
+        <translation>Activeu la protecció per blocar els directoris del sistema i garantir una estabilitat òptima.</translation>
     </message>
 </context>
 <context>
@@ -2104,11 +2102,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"></translation>
+        <translation>El servei del selector no està disponible.</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Format de color no vàlid: %1</translation>
     </message>
 </context>
 <context>
@@ -2640,7 +2638,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"></translation>
+        <translation>Si us plau, introduïu una tecla de drecera nova.</translation>
     </message>
 </context>
 <context>
