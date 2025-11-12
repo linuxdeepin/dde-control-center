@@ -9,7 +9,10 @@ export DEB_CFLAGS_MAINT_APPEND = -Wall -Wl,-E
 export DEB_CXXFLAGS_MAINT_APPEND = -Wall -Wl,-E
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed -Wl,-z,relro -Wl,-z,now -Wl,-z,noexecstack
 
+# reproducible编译参数
+DEB_CMAKE_EXTRA_FLAGS += -DCMAKE_SKIP_BUILD_RPATH=ON
+
 %:
 	dh $@ --parallel
 override_dh_auto_configure:
-	dh_auto_configure -- -DCVERSION=$(DEB_VERSION_UPSTREAM) -DDVERSION=$(PACK_VER) -DUSE_DEEPIN_ZONE=ON
+	dh_auto_configure -- $(DEB_CMAKE_EXTRA_FLAGS) -DCVERSION=$(DEB_VERSION_UPSTREAM) -DDVERSION=$(PACK_VER) -DUSE_DEEPIN_ZONE=ON
