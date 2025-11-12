@@ -293,14 +293,13 @@ DccObject {
                     implicitHeight: visible ? DS.Style.control.implicitHeight(menuItem) : 0
 
                     readonly property real availableTextWidth: {
-                        let totalWidth = width - leftPadding - rightPadding
-                        if (useIndicatorPadding && indicator) {
-                            totalWidth -= indicator.width + spacing
-                        }
+                        if (!contentItem)
+                            return width - leftPadding - rightPadding
+                        let textWidth = contentItem.width - contentItem.leftPadding - contentItem.rightPadding
                         if (icon.name) {
-                            totalWidth -= icon.width + spacing
+                            textWidth -= DS.Style.menu.item.iconSize.width + spacing
                         }
-                        return totalWidth
+                        return textWidth
                     }
                     FontMetrics {
                         id: fontMetrics
