@@ -134,6 +134,8 @@ DccObject {
                                 dccData.ntpServerAddress = savedCustomServer
                             } else if (dateAndTimeSettings.customAddr.length > 0) {
                                 dccData.ntpServerAddress = dateAndTimeSettings.customAddr
+                            } else {
+                                dccData.ntpServerAddress = ""
                             }
                             return
                         }
