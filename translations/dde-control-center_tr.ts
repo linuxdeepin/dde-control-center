@@ -3506,11 +3506,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>İris</translation>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Cihazın kilidini açmak ve daha sonra ayarları yapmak için irisinizi kullanın</translation>
     </message>
 </context>
 <context>
@@ -3572,7 +3572,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Küçük harf, büyük harf, rakam ve sembollerden en az %1 tanesini içermeli ve şifre kullanıcı adı ile aynı olmamalıdır.</translation>
     </message>
 </context>
 <context>
