@@ -176,7 +176,11 @@ Başarılı bir giriş sağlamak için:
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>&quot;&quot;Biyometrik kimlik doğrulama&quot;, UnionTech Software Technology Co., Ltd. tarafından sağlanan kullanıcı kimliği doğrulama işlevidir. &quot;Biyometrik kimlik doğrulama&quot; yoluyla, toplanan biyometrik veriler cihazda saklanan verilerle karşılaştırılacak ve karşılaştırma sonucuna göre kullanıcı kimliği doğrulanacaktır.
+
+UnionTech Software Technology Co., Ltd.&apos;nin yerel cihazınızda saklanacak olan biyometrik bilgilerinizi toplamayacağını veya bunlara erişmeyeceğini lütfen unutmayın. Lütfen yalnızca kişisel cihazınızda biyometrik kimlik doğrulamayı etkinleştirin ve ilgili işlemler için kendi biyometrik bilgilerinizi kullanın. Ayrıca, söz konusu cihazdaki diğer kişilerin biyometrik bilgilerini derhal devre dışı bırakın veya silin; aksi takdirde bundan kaynaklanacak risk size ait olacaktır.
+
+UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güvenliğini, doğruluğunu ve kararlılığını araştırmaya ve geliştirmeye kendini adamıştır. Ancak, çevresel, ekipman, teknik ve diğer faktörler ile risk kontrolü nedeniyle, biyometrik kimlik doğrulamayı geçici olarak geçeceğinizin garantisi yoktur. Bu nedenle, lütfen biyometrik kimlik doğrulamayı UOS&apos;ye giriş yapmanın tek yolu olarak görmeyin. Biyometrik kimlik doğrulamayı kullanırken herhangi bir sorunuz veya öneriniz varsa, UOS&apos;deki &quot;Hizmet ve Destek&quot; bölümünden geri bildirimde bulunabilirsiniz.</translation>
     </message>
 </context>
 <context>
@@ -228,27 +232,27 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>İris kaydet</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Okudum ve onaylıyorum</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Feragat</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Sonraki</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Tamamlandı</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Vazgeç</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
