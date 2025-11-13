@@ -1670,11 +1670,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Üç parmak yukarı</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Üç parmak aşağı</translation>
     </message>
     <message>
         <source>Three-finger left</source>
