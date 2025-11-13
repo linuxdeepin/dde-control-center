@@ -5,6 +5,7 @@
 #include "dccfactory.h"
 #include "mouseworker.h"
 #include "mousedbusproxy.h"
+#include <QFile>
 
 using namespace DCC_NAMESPACE;
 MouseModel::MouseModel(QObject *parent)
@@ -411,6 +412,10 @@ void MouseModel::setThemeType(const Dtk::Gui::DGuiApplicationHelper::ColorType &
     emit themeTypeChanged();
 }
 
+bool MouseModel::touchpadSwitchFileExists() const
+{
+    return QFile::exists("/proc/uos/touchpad_switch");
+}
 
 DCC_FACTORY_CLASS(MouseModel)
 

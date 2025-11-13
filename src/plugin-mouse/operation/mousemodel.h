@@ -38,6 +38,7 @@ public:
     Q_PROPERTY(bool tapEnabled READ tapEnabled WRITE setTapEnabled NOTIFY tapEnabledChanged FINAL)
     Q_PROPERTY(QString gestureFingerAniPath READ getGestureFingerAniPath NOTIFY gestureFingerAniPathChanged FINAL)
     Q_PROPERTY(QString gestureActionAniPath READ getGestureActionAniPath NOTIFY gestureActionAniPathChanged FINAL)
+    Q_PROPERTY(bool touchpadSwitchFileExists READ touchpadSwitchFileExists FINAL)
 
     inline bool leftHandState() const { return m_leftHandState; }
     void setLeftHandState(const bool state);
@@ -110,6 +111,8 @@ public:
 
     QString getGestureActionAniPath() const;
     void setGestureActionAniPath(const QString &newGestureActionAniPath);
+
+    bool touchpadSwitchFileExists() const;
 
     Dtk::Gui::DGuiApplicationHelper::ColorType themeType() const;
 
