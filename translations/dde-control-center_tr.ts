@@ -1039,7 +1039,8 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Kişisel bilgilerinizin sizin için ne kadar önemli olduğunun bilincindeyiz. Bu nedenle, bilgilerinizi nasıl topladığımızı, kullandığımızı, paylaştığımızı, aktardığımızı, kamuya açıkladığımızı ve sakladığımızı kapsayan bir Gizlilik Politikası hazırladık.
+&lt;/p&gt;&lt;p&gt;En son gizlilik politikamızı görüntülemek için &lt;a href=&quot;%1&quot;&gt;buraya tıklayabilir&lt;/a&gt; ve/veya &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt; adresini ziyaret ederek çevrimiçi olarak görüntüleyebilirsiniz.. Lütfen müşteri gizliliğine ilişkin uygulamalarımızı dikkatlice okuyun ve tam olarak anlayın. Herhangi bir sorunuz varsa lütfen bizimle şu adresten iletişime geçin: %2.&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
