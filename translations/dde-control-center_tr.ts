@@ -1515,19 +1515,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>Özellik şu anda kullanılamıyor, lütfen önce sisteminizi etkinleştirin.</translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"/>
+        <translation>Katı Sistem Salt Okunur Koruması</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"/>
+        <translation>Korumayı devre dışı bırakmak sistem dizinlerinin kilidini açar, bu eylem sisteme zarar verme riskini artırır.</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation>Sistem dizinlerini kilitlemek ve optimum kararlılığı sağlamak için korumayı etkinleştirin.</translation>
     </message>
 </context>
 <context>
