@@ -2100,11 +2100,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation>Toplayıcı hizmet mevcut değil</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation>Geçersiz renk biçimi: %1</translation>
     </message>
 </context>
 <context>
@@ -2344,7 +2344,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
+        <translation>%1 (%2)</translation>
     </message>
 </context>
 <context>
@@ -2399,7 +2399,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Bölgesel format</translation>
     </message>
 </context>
 <context>
@@ -2561,11 +2561,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
+        <translation>Kısayol adı zaten kullanımda. Farklı bir ad seçin.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Özel kısayolu değiştir</translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
