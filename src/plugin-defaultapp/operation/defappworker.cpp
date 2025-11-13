@@ -320,8 +320,12 @@ void DefAppWorker::getManagerObjectFinished(QDBusPendingCallWatcher *call)
 void DefAppWorker::onDelUserApp([[maybe_unused]] const QString &mime,
                                 [[maybe_unused]] const App &item)
 {
-    m_dbusManager->DeleteUserApp(item.Id);
-    onGetListApps();
+    App itemToDelete = item;
+    m_dbusManager->DeleteUserApp(itemToDelete.Id);
+    // Delete user application
+    if (Category *category = getCategory(mime)) {
+        category->delUserItem(itemToDelete);
+    }
 }
 
 void DefAppWorker::onCreateFile([[maybe_unused]] const QString &mime, [[maybe_unused]] const QFileInfo &info)
