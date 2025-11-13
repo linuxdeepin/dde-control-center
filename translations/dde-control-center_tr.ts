@@ -909,15 +909,15 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation>Şimdi yeniden başlat</translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation>Yok say</translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation>Katı Sistem Salt Okunur Koruması ayarlarının uygulanmasını tamamlamak için cihazı yeniden başlatın</translation>
     </message>
 </context>
 <context>
