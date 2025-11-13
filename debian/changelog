@@ -1,3 +1,24 @@
+dde-control-center (6.1.57) unstable; urgency=medium
+
+  * fix: fix QML memory management crash issues
+  * fix: Fix where custom dates have no authorization
+  * fix: prioritize loading group plugins and fix icon paths
+  * fix: Fix shortcut key tooltip text overflow
+  * fix: hide touchpad switch on devices without touchpad_switch file
+  * fix: Fix language long text overflow
+  * fix: resolve delay when removing user apps via trash button
+  * feat: enhance number format symbol conflict handling
+  * refactor: expose initData as public slot and add activation handler
+  * fix: improve text width calculation in sound plugin menu items
+  * i18n: Updates for project Deepin Desktop Environment (#2803)
+  * fix: update DNotifySender usage for system protection
+  * fix: add translation for system protection notification
+  * feat: add solid system read-only protection feature
+  * fix: normalize title-to-thumbnail spacing in WallpaperSelectView
+  * fix: Fix Bluetooth name change flashing
+
+ -- xionglinlin <xionglinlin@uniontech.com>  Thu, 13 Nov 2025 19:53:05 +0800
+
 dde-control-center (6.1.56) unstable; urgency=medium
 
   * fix: Record the status of the sidebar
