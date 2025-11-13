@@ -121,7 +121,10 @@ DccObject {
                                 leftMargin: 12
                                 top: itemDelegate.top
                                 topMargin: (itemDelegate.height - height) / 2
+                                right: removeButton.left
+                                rightMargin: 6
                             }
+                            clip: true
                             sourceComponent: shouldSplit ? splitComponent : singleComponent
 
                             Component {
@@ -130,6 +133,12 @@ DccObject {
                                     text: langNameLoader.text
                                     elide: Text.ElideRight
                                     font: DTK.fontManager.t6
+                                    width: parent.width
+                                    HoverHandler { id: hhSingle }
+                                    ToolTip.visible: hhSingle.hovered && fm.advanceWidth(langNameLoader.text) > width
+                                    ToolTip.text: langNameLoader.text
+                                    ToolTip.delay: 500
+                                    ToolTip.timeout: 4000
                                 }
                             }
 
@@ -137,6 +146,13 @@ DccObject {
                                 id: splitComponent
                                 RowLayout {
                                     spacing: 0
+                                    Layout.fillWidth: true
+                                    width: parent.width
+                                    HoverHandler { id: hhSplit }
+                                    ToolTip.visible: hhSplit.hovered && fm.advanceWidth(langNameLoader.text) > width
+                                    ToolTip.text: langNameLoader.text
+                                    ToolTip.delay: 500
+                                    ToolTip.timeout: 4000
                                     Label {
                                         text: langNameLoader.text.split("-")[0] || ""
                                         font: DTK.fontManager.t6
@@ -148,6 +164,9 @@ DccObject {
                                     Label {
                                         text: langNameLoader.text.split("-")[1] || ""
                                         font: DTK.fontManager.t6
+                                        Layout.fillWidth: true
+                                        horizontalAlignment: Text.AlignLeft
+                                        elide: Text.ElideRight
                                     }
                                 }
                             }
