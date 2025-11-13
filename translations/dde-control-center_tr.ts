@@ -3349,7 +3349,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>Min Nan Çincesi</translation>
     </message>
 </context>
 <context>
@@ -3444,62 +3444,62 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Yüz izi</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Yüz</translation>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Cihazın kilidini açmak ve ayarları daha sonra yapmak için yüzünüzü kullanın</translation>
     </message>
 </context>
 <context>
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Parmak İzi</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Parmağınızı yerleştirin</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Kaldırmanız istenene kadar parmağınızı sensöre sıkıca yerleştirin</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Parmağınızı kaldırın</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Parmağınızı kaldırın ve yeniden algılayıcıya koyun</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Parmağınızı kaldırın ve tekrar yapın</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Tarama Askıya Alındı</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Parmak izinizin kenarlarını tarayın</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Parmak izinizin kenarlarını sensöre yerleştirin</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Parmak izinizin kenarlarını taramak için konumu ayarlayın</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Parmak izi eklendi</translation>
     </message>
 </context>
 <context>
