@@ -2569,19 +2569,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>lütfen bir kısayol tuşu girin</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Kaydet</translation>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>Bu kısayol tuşunu etkili hale getirmek için Kaydet&apos;e tıklayın</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>Bu kısayol tuşunu etkili hale getirmek için Ekle&apos;ye tıklayın</translation>
     </message>
 </context>
 <context>
