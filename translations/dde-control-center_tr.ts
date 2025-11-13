@@ -3089,7 +3089,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Sistem Duvar Kağıtları</translation>
     </message>
 </context>
 <context>
@@ -3108,7 +3108,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>tümünü göster - %1 öğe</translation>
     </message>
 </context>
 <context>
@@ -3281,7 +3281,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation>Yeni bir %1 ekle...</translation>
     </message>
 </context>
 <context>
