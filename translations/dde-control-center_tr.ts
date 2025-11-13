@@ -967,19 +967,19 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Kullanıcı adı 32 karakteri aşamaz</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>Kullanıcı adı yalnızca harf, rakam, - ve _ içerebilir</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Tam adınız 32 karakteri geçemez</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation>Tam adınız iki nokta üst üste içeremez</translation>
     </message>
 </context>
 <context>
