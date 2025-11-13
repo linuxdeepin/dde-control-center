@@ -1339,7 +1339,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>Takma adın uzunluğu 1 ila 32 karakter arasında olmalıdır</translation>
     </message>
 </context>
 <context>
@@ -1362,7 +1362,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>Takma ad günde yalnızca bir kez değiştirilebilir</translation>
     </message>
 </context>
 <context>
@@ -1499,15 +1499,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>İmzalanmamış uygulamaları yüklemek ve çalıştırmak için lütfen Güvenlik Merkezi&apos;ne giderek ayarları değiştirin.</translation>
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Geliştirici moduna girdiniz</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>Tamam</translation>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
