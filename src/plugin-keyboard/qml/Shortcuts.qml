@@ -248,6 +248,7 @@ DccObject {
                             implicitWidth: row.implicitWidth
                             Layout.alignment: Qt.AlignRight
                             Layout.rightMargin: 20
+                            Layout.fillWidth: true
 
                             onVisibleChanged : {
                                 if (visible && model.index === (shortcutView.count - 1)) {
@@ -255,17 +256,28 @@ DccObject {
                                 }
                             }
 
-                            Row {
+                            RowLayout {
                                 id: row
-                                anchors.fill: parent
+                                width: parent.width
                                 spacing: 3
-                                Text {
+                                Label {
+                                    id: conflictTextLabel
                                     text: dccData.conflictText + ","
+                                    elide: Text.ElideLeft
+                                    Layout.fillWidth: true
+                                    horizontalAlignment: Text.AlignRight
+                                    HoverHandler { id: conflictHandler }
+                                    ToolTip.visible: conflictHandler.hovered
+                                    ToolTip.text: conflictTextLabel.text + clickLabel.text + " " + cancelLabel.text + " " + orLabel.text + " " + replaceLabel.text
+                                    ToolTip.delay: 500
+                                    ToolTip.timeout: 4000
                                 }
-                                Text {
+                                Label {
+                                    id: clickLabel
                                     text: qsTr("Click")
                                 }
-                                Text {
+                                Label {
+                                    id: cancelLabel
                                     text: qsTr("Cancel")
                                     color: palette.highlight
                                     MouseArea {
@@ -275,10 +287,12 @@ DccObject {
                                         }
                                     }
                                 }
-                                Text {
+                                Label {
+                                    id: orLabel
                                     text: qsTr("or")
                                 }
-                                Text {
+                                Label {
+                                    id: replaceLabel
                                     text: qsTr("Replace")
                                     color: palette.highlight
                                     MouseArea {
