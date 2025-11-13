@@ -280,7 +280,7 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation>Lütfen cihaza bakın ve her iki gözünüzün de kayıt alanı içerisinde olduğundan emin olun</translation>
     </message>
 </context>
 <context>
@@ -842,11 +842,11 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Genel</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Kaydırma Hızı</translation>
     </message>
 </context>
 <context>
