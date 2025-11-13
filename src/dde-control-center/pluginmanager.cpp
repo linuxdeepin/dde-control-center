@@ -519,16 +519,23 @@ void PluginManager::loadModules(DccObject *root, bool async, const QStringList &
             pluginList += plugindir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
         }
     }
+    const QStringList groupPlugins({ "system", "device" }); // 优先加载只是组的插件
     QStringList paths = Dtk::Gui::DIconTheme::dciThemeSearchPaths();
     for (auto &lib : pluginList) {
         const QString &filepath = lib.absoluteFilePath();
         auto filename = lib.fileName();
         PluginData *plugin = new PluginData(lib.baseName(), filepath);
-        m_plugins.append(plugin);
-        loadPlugin(plugin);
+        if (groupPlugins.contains(filename)) {
+            m_plugins.prepend(plugin);
+        } else {
+            m_plugins.append(plugin);
+        }
         paths.prepend(filepath);
     }
     Dtk::Gui::DIconTheme::setDciThemeSearchPaths(paths);
+    for (const auto& plugin : m_plugins) {
+        loadPlugin(plugin);
+    }
 }
 
 void PluginManager::cancelLoad()
