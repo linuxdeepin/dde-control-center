@@ -1787,7 +1787,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Bölgesel format</translation>
     </message>
 </context>
 <context>
@@ -1837,7 +1837,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Parolayı sıfırla</translation>
     </message>
 </context>
 <context>
@@ -2050,7 +2050,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Yeni parola</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
@@ -2058,7 +2058,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Parola kullanıcı adınızla aynı olamaz.</translation>
     </message>
 </context>
 <context>
