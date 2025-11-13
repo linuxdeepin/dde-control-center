@@ -2636,7 +2636,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>lütfen yeni bir kısayol tuşu girin</translation>
     </message>
 </context>
 <context>
@@ -2768,11 +2768,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"/>
+        <translation>Mono Ses</translation>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"/>
+        <translation>Otomatik Duraklatma</translation>
     </message>
     <message>
         <source>Output Device</source>
@@ -2857,7 +2857,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Ekle</translation>
     </message>
 </context>
 <context>
@@ -2972,7 +2972,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Hareket</translation>
     </message>
 </context>
 <context>
