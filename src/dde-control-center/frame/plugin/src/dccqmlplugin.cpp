@@ -9,7 +9,7 @@
 #include "dccrepeater.h"
 #include "dccquickdbusinterface.h"
 
-#include <qqml.h>
+#include <QQmlEngine>
 
 namespace dccV25 {
 
@@ -21,7 +21,7 @@ void DccQmlPlugin::registerTypes(const char *uri)
     qmlRegisterType<dccV25::DccRepeater>(uri, 1, 0, "DccRepeater");
     qmlRegisterType<dccV25::DccModel>(uri, 1, 0, "DccModel");
     qmlRegisterType<dccV25::DccQuickDBusInterface>(uri, 1, 0, "DccDBusInterface");
-
+    QQmlEngine::setObjectOwnership(dccV25::DccApp::instance(),QQmlEngine::CppOwnership);
     qmlRegisterSingletonInstance(uri, 1, 0, "DccApp", dccV25::DccApp::instance());
 }
 

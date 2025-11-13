@@ -7,6 +7,7 @@
 
 #include <QLoggingCategory>
 #include <QQmlContext>
+#include <QQmlEngine>
 #include <QQuickItem>
 #include <QQuickWindow>
 #include <QTimer>
@@ -72,7 +73,7 @@ bool DccObject::Private::setFlagState(uint32_t flag, bool state)
             m_flags &= (~flag);
         if (hidden != getFlagState(DCC_ALL_HIDDEN)) {
             if (!hidden) {
-                deleteSectionItem();
+                deleteSectionItem(false);
             }
             Q_EMIT q_ptr->visibleToAppChanged(hidden);
         }
@@ -191,21 +192,20 @@ int DccObject::Private::getChildIndex(const DccObject *child) const
     return m_children.indexOf(const_cast<DccObject *>(child));
 }
 
-void DccObject::Private::deleteSectionItem()
+void DccObject::Private::deleteSectionItem(bool later)
 {
     if (m_sectionItem) {
         QQuickItem *item = m_sectionItem.get();
         m_sectionItem = nullptr;
         q_ptr->setParentItem(nullptr);
-        for (auto &&child : m_children) {
-            if (child->p_ptr->m_sectionItem) {
-                Q_EMIT child->deactive();
-            }
-        }
-        // 延时delete等动画完成
-        QTimer::singleShot(500, item, [item]() {
+        if (later) {
+            // 延时delete等动画完成
+            QTimer::singleShot(500, item, [item]() {
+                item->deleteLater();
+            });
+        } else {
             item->deleteLater();
-        });
+        }
     }
 }
 
@@ -248,7 +248,7 @@ DccObject::DccObject(QObject *parent)
     , p_ptr(new DccObject::Private(this))
 {
     connect(this, &DccObject::deactive, this, [this]() {
-        p_ptr->deleteSectionItem();
+        p_ptr->deleteSectionItem(true);
     });
 }
 
@@ -450,12 +450,15 @@ void DccObject::setPageType(quint8 type)
     }
 }
 
-QQuickItem *DccObject::getSectionItem(QObject *)
+QQuickItem *DccObject::getSectionItem(QObject *parent)
 {
-    p_ptr->deleteSectionItem();
+    p_ptr->deleteSectionItem(false);
     if (p_ptr->m_page) {
         QQmlContext *creationContext = p_ptr->m_page->creationContext();
-        QQmlContext *context = new QQmlContext(creationContext, p_ptr->m_page);
+        if (!creationContext) {
+            creationContext = qmlContext(this);
+        }
+        QQmlContext *context = new QQmlContext(creationContext);
         context->setContextProperty("dccObj", this);
 #if 0
         QObject *nobj = p_ptr->m_page->beginCreate(context);
@@ -486,7 +489,9 @@ QQuickItem *DccObject::getSectionItem(QObject *)
 #else
         p_ptr->m_sectionItem = qobject_cast<QQuickItem *>(p_ptr->m_page->create(context));
         if (p_ptr->m_sectionItem) {
-            p_ptr->m_sectionItem->setParent(this);
+            context->setParent(p_ptr->m_sectionItem.get());
+            p_ptr->m_sectionItem.get()->setParent(parent);
+            p_ptr->m_sectionItem->setParentItem(qobject_cast<QQuickItem *>(parent));
             p_ptr->m_sectionItem->setEnabled(isEnabledToApp());
         } else {
             qCWarning(dccLog()) << "create page error:" << p_ptr->m_page->errorString();
