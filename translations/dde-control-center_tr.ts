@@ -256,15 +256,15 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Tekrar Kaydolmayı Dene</translation>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>İris kaydoldu</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>İris kaydedilemedi</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
