@@ -4358,11 +4358,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Ağır</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"/>
+        <translation>Model</translation>
     </message>
 </context>
 </TS>
