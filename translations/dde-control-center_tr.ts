@@ -986,11 +986,11 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation>küçük</translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation>büyük</translation>
     </message>
 </context>
 <context>
@@ -1001,7 +1001,7 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation>Yüklenen dosya türü yanlış, lütfen tekrar yükleyin</translation>
     </message>
 </context>
 <context>
@@ -1157,7 +1157,7 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Örnek</translation>
     </message>
 </context>
 <context>
