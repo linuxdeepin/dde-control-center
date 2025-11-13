@@ -165,7 +165,10 @@
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation>Yüz tanıma canlılık tespitini desteklemez ve doğrulama yöntemi risk taşıyabilir.
+Başarılı bir giriş sağlamak için:
+1. Yüz hatlarınızı açıkça görünür tutun ve bunları kapatmayın (şapka, güneş gözlüğü, maske vb.).
+2. Yeterli aydınlatma sağlayın ve doğrudan güneş ışığına maruz kalmaktan kaçının.</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
