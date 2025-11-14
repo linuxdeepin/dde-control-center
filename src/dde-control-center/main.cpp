@@ -18,6 +18,7 @@
 #include <QScreen>
 #include <QStringList>
 #include <QWindow>
+#include <QStandardPaths>
 
 DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
@@ -119,6 +120,14 @@ int main(int argc, char *argv[])
     DLogManager::registerJournalAppender();
     DLogManager::registerConsoleAppender();
     DLogManager::registerFileAppender();
+
+    auto dirs = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
+    QStringList fallbacks = QIcon::fallbackSearchPaths();
+    for (const auto &fb : dirs) {
+        fallbacks << fb + QLatin1String("/icons");
+    }
+    // To Fix Qt6 find icons will ignore ${GenericDataLocation}/icons/xxx
+    QIcon::setFallbackSearchPaths(fallbacks);
 
 #ifdef CVERSION
     QString verstr(CVERSION);
