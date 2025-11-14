@@ -16,7 +16,7 @@ DccObject {
         function onActiveObjectChanged(activeObject) {
             if (activeObject.name === "pluginArea") {
                 console.log("pluginArea object activated, refreshing plugin data...")
-                dccData.reload()
+                dccData.loadPluginData()
             }
         }
     }

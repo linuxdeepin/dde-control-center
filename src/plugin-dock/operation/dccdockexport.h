@@ -18,7 +18,7 @@ private:
     void initData();
     
 public Q_SLOTS:
-    void reload();
+    void loadPluginData();
 
 private:
     DockDBusProxy *m_dockDbusProxy;
