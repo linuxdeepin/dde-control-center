@@ -47,13 +47,16 @@ DccDockExport::DccDockExport(QObject *parent)
 
 void DccDockExport::initData()
 {
-    QDBusPendingReply<DockItemInfos> pluginInfos = m_dockDbusProxy->plugins();
-    auto infos = pluginInfos.value();
-
     auto dciPaths = DIconTheme::dciThemeSearchPaths();
     dciPaths.push_back(PLUGIN_ICON_DIR);
     DIconTheme::setDciThemeSearchPaths(dciPaths);
+    loadPluginData();
+}
 
+void DccDockExport::loadPluginData()
+{
+    QDBusPendingReply<DockItemInfos> pluginInfos = m_dockDbusProxy->plugins();
+    auto infos = pluginInfos.value();
     for (auto &info : infos) {
         QString pluginIconStr{};
         if (QFile::exists(QString(PLUGIN_ICON_DIR) + QDir::separator() + PLUGIN_ICON_PREFIX + info.name + ".dci")) {
@@ -74,11 +77,6 @@ void DccDockExport::initData()
         info.dcc_icon = pluginIconStr;
     }
     m_pluginModel->resetData(infos);
-}
-
-void DccDockExport::reload()
-{
-    m_pluginModel->resetData(m_dockDbusProxy->plugins().value());
 }
 
 DCC_FACTORY_CLASS(DccDockExport)
