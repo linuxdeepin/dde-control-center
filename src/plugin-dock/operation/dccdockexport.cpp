@@ -4,14 +4,25 @@
 
 #include "dccfactory.h"
 #include "operation/dockpluginmodel.h"
+#include <qtypes.h>
 
 #include "dccdockexport.h"
+
 #include <QFile>
 #include <QIcon>
 #include <QDir>
+#include <QDBusInterface>
+#include <QDBusConnection>
+#include <QDebug>
 
 #include <DIconTheme>
 #include <DWindowManagerHelper>
+
+// 显示模式定义
+#define CUSTOM_MODE 0
+#define MERGE_MODE 1
+#define EXTEND_MODE 2
+#define SINGLE_MODE 3
 
 constexpr auto PLUGIN_ICON_DIR = "/usr/share/dde-dock/icons/dcc-setting";
 constexpr auto PLUGIN_ICON_PREFIX = "dcc-";
@@ -33,16 +44,27 @@ static const QMap<QString, QString> pluginIconMap = {
 
 DGUI_USE_NAMESPACE;
 
-DccDockExport::DccDockExport(QObject *parent) 
+DccDockExport::DccDockExport(QObject *parent)
 : QObject(parent)
 , m_dockDbusProxy(new DockDBusProxy(this))
 , m_pluginModel(new DockPluginModel(this))
+, m_displayInter(nullptr)
+, m_displayMode(EXTEND_MODE)
 {
     initData();
+    initDisplayModeConnection();
 
     connect(m_dockDbusProxy, &DockDBusProxy::pluginVisibleChanged, m_pluginModel, &DockPluginModel::setPluginVisible);
     // if it has no blur effect, dcc do not need to show multitask-view plugin
     connect(DWindowManagerHelper::instance(), &DWindowManagerHelper::hasBlurWindowChanged, this, &DccDockExport::initData);
+}
+
+DccDockExport::~DccDockExport()
+{
+    if (m_displayInter) {
+        delete m_displayInter;
+        m_displayInter = nullptr;
+    }
 }
 
 void DccDockExport::initData()
@@ -77,6 +99,60 @@ void DccDockExport::loadPluginData()
         info.dcc_icon = pluginIconStr;
     }
     m_pluginModel->resetData(infos);
+}
+
+void DccDockExport::initDisplayModeConnection()
+{
+    // 创建DBus接口连接
+    m_displayInter = new QDBusInterface("org.deepin.dde.Display1",
+                                       "/org/deepin/dde/Display1",
+                                       "org.deepin.dde.Display1",
+                                       QDBusConnection::sessionBus(),
+                                       this);
+    
+    if (!m_displayInter->isValid()) {
+        qWarning() << "Display DBus interface is not valid!";
+        return;
+    }
+
+    // 获取当前显示模式
+    QVariant displayModeVar = m_displayInter->property("DisplayMode");
+    if (displayModeVar.isValid()) {
+        uchar mode = displayModeVar.toUInt();
+        if (m_displayMode != mode) {
+            m_displayMode = mode;
+            Q_EMIT displayModeChanged();
+        }
+    }
+
+    QDBusConnection::sessionBus().connect("org.deepin.dde.Display1",
+                                       "/org/deepin/dde/Display1",
+                                       "org.freedesktop.DBus.Properties",
+                                       "PropertiesChanged",
+                                       this,
+                                       SLOT(onPropertiesChanged(QString,QMap<QString,QVariant>,QStringList)));
+}
+
+int DccDockExport::displayMode() const
+{
+    return m_displayMode;
+}
+
+void DccDockExport::onDisplayModeChanged(uint mode)
+{
+    int newMode = static_cast<int>(mode);
+    if (m_displayMode != newMode) {
+        m_displayMode = newMode;
+        Q_EMIT displayModeChanged();
+    }
+}
+
+void DccDockExport::onPropertiesChanged(const QString &/*interfaceName*/, const QMap<QString, QVariant> &changedProperties, const QStringList &/*invalidatedProperties*/)
+{
+    if (changedProperties.contains("DisplayMode")) {
+        uint newMode = changedProperties["DisplayMode"].toUInt();
+        onDisplayModeChanged(newMode);
+    }
 }
 
 DCC_FACTORY_CLASS(DccDockExport)
