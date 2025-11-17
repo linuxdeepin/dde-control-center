@@ -29,6 +29,10 @@ endmacro()
 
 function(dcc_install_plugin)
     dcc_build_plugin(${ARGN})
+    if (DEFINED _config_TARGET)
+        install(TARGETS ${_config_TARGET} DESTINATION ${DDE_CONTROL_CENTER_PLUGIN_INSTALL_DIR}/${_config_NAME})
+    endif()
+
     install(DIRECTORY ${plugin_dirs} DESTINATION ${DDE_CONTROL_CENTER_PLUGIN_INSTALL_DIR}/${_config_NAME})
 endfunction()
 
