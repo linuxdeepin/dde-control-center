@@ -232,11 +232,26 @@ D.DialogWindow {
                 Layout.alignment: Qt.AlignHCenter
                 Layout.rightMargin: 10
                 onIconDropped: function (url){
-                    dialog.currentAvatar = url
-                    needShow()
-                    let icons = repeater.itemAt(0).model
-                    icons.push(url)
-                    repeater.itemAt(0).model = icons
+                    let filePath = url.toString()
+                    const sourceFile = filePath.replace("file://", "")
+                    const saved = dccData.saveCustomAvatar(dialog.userId, sourceFile, "")
+                    if (saved && saved.length > 0) {
+                        dialog.currentAvatar = saved
+                        scrollView.filter = "icons/local"
+                        if (customEmptyAvatar && typeof customEmptyAvatar.needShow === 'function') {
+                            customEmptyAvatar.visible = customEmptyAvatar.needShow()
+                        }
+                        if (cropper && cropper.visible) {
+                            cropper.iconSource = dialog.currentAvatar
+                            cropper.imgScale = 1.0
+                        }
+                        if (scrollView.isCustom && customLocalRow && typeof customLocalRow.refresh === 'function') {
+                            customLocalRow.refresh()
+                            customLocalRow.currentAvatar = dialog.currentAvatar
+                        }
+                    } else {
+                        dialog.currentAvatar = filePath
+                    }
                 }
                 onRequireFileDialog: {
                     fileDlgLoader.active = true
