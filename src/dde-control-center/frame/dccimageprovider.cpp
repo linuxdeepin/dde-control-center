@@ -7,7 +7,8 @@
 #include <QMetaObject>
 
 namespace dccV25 {
-const QSize THUMBNAIL_ICON_SIZE(400, 300);
+// 4x of 84x54 => 336x216, used as a high-res base thumbnail size
+const QSize THUMBNAIL_ICON_SIZE(336, 216);
 
 class CacheImageResponse : public QQuickImageResponse
 {
@@ -15,9 +16,10 @@ public:
     CacheImageResponse(const QString &id, const QSize &requestedSize, DccImageProvider *provider)
         : QQuickImageResponse()
     {
-        QImage *img = provider->cacheImage(id, QSize(), this, requestedSize);
+        QImage *img = provider->cacheImage(id, requestedSize, this, requestedSize);
         if (img) {
-            setImage(*img, requestedSize);
+            // Image is already scaled to the proper size, no need to rescale here.
+            setImage(*img, QSize());
         }
     }
 
@@ -77,12 +79,25 @@ void ImageTask::run()
     }
 
     if (originalImage.load(path)) {
-        QImage scaledImage = originalImage.scaled(m_size, Qt::KeepAspectRatio, Qt::SmoothTransformation);
-        
+        QSize targetSize = m_requestedSize.isValid() ? m_requestedSize : m_size;
+        if (!targetSize.isValid()) {
+            targetSize = THUMBNAIL_ICON_SIZE;
+        }
+
+        QImage img = originalImage.scaled(targetSize,
+                                          Qt::KeepAspectRatioByExpanding,
+                                          Qt::SmoothTransformation);
+        if (img.width() > targetSize.width() || img.height() > targetSize.height()) {
+            const QRect r(QPoint(0, 0), targetSize);
+            const QRect srcRect(img.rect().center() - r.center(), targetSize);
+            img = img.copy(srcRect);
+        }
+
         if (m_provider && m_response) {
-            QImage *heapImage = new QImage(std::move(scaledImage));
+            QImage *heapImage = new QImage(std::move(img));
             if (m_provider->insert(m_id, heapImage)) {
-                m_response->setImage(*heapImage, m_requestedSize);
+                // Image already at target size, no further scaling needed.
+                m_response->setImage(*heapImage, QSize());
             } else {
                 delete heapImage;
             }
