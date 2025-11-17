@@ -215,7 +215,7 @@ ColumnLayout {
                         height: root.imageRectH
                         sourceSize: Qt.size(width, height)
                         source: "image://DccImage/" + model.thumbnail
-                        mipmap: true
+                        mipmap: false
                         visible: false
                         fillMode: Image.PreserveAspectCrop
                         asynchronous: true
