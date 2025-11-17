@@ -769,6 +769,9 @@ DccObject {
             property bool blockInitialFocus: true
             property bool suppressAutoFocusFirstOnFocus: false
             property bool focusNewlyCreatedItem: false
+            property bool focusFromHeader: false
+            property Item headerEditButton
+            property Item addGroupButton
             spacing: 0
             currentIndex: -1
             activeFocusOnTab: true
@@ -784,7 +787,7 @@ DccObject {
                     if (focusNewlyCreatedItem) {
                         return
                     }
-                    if (blockInitialFocus) {
+                    if (blockInitialFocus && !focusFromHeader) {
                         if (model && model.isCreatingGroup) {
                             blockInitialFocus = false
                             return
@@ -793,12 +796,18 @@ DccObject {
                         focus = false
                         return
                     }
+                    if (groupview.headerEditButton && !focusFromHeader) {
+                        groupview.headerEditButton.forceActiveFocus(Qt.TabFocusReason)
+                    }
                     if (suppressAutoFocusFirstOnFocus) {
                         suppressAutoFocusFirstOnFocus = false
                         return
                     }
-                    currentIndex = 0
-                    positionViewAtIndex(0, ListView.Beginning)
+                    if (focusFromHeader) {
+                        focusFromHeader = false
+                        currentIndex = 0
+                        positionViewAtIndex(0, ListView.Beginning)
+                    }
                 }
             }
 
@@ -873,8 +882,37 @@ DccObject {
                         Layout.rightMargin: 10
                         text: groupSettings.isEditing ? qsTr("done") : qsTr("edit")
                         font: DTK.fontManager.t8
-                        background: null
-                        focusPolicy: Qt.NoFocus
+                        focusPolicy: Qt.StrongFocus
+                        activeFocusOnTab: true
+                        background: Rectangle {
+                            radius: addGroupButton.background.radius
+                            color: "transparent"
+                            border.color: parent.palette.highlight
+                            border.width: button.activeFocus ? 2 : 0
+                        }
+                        Keys.onPressed: function(event) {
+                            if (event.key === Qt.Key_Tab && !event.isAutoRepeat) {
+                                event.accepted = true
+                                groupview.blockInitialFocus = false
+                                groupview.focusFromHeader = false
+                                groupview.currentIndex = 0
+                                groupview.positionViewAtIndex(0, ListView.Beginning)
+                                Qt.callLater(function() {
+                                    if (groupview.currentItem && groupview.currentItem.forceActiveFocus) {
+                                        groupview.currentItem.forceActiveFocus(Qt.TabFocusReason)
+                                    }
+                                })
+                                return
+                            }
+                        }
+                        Component.onCompleted: {
+                            groupview.headerEditButton = button
+                        }
+                        onActiveFocusChanged: {
+                            if (activeFocus) {
+                                groupview.positionViewAtBeginning()
+                            }
+                        }
                         textColor: Palette {
                             normal {
                                 common: DTK.makeColor(Color.Highlight)
@@ -902,6 +940,7 @@ DccObject {
 
                 focusPolicy: Qt.StrongFocus
                 activeFocusOnTab: false
+                KeyNavigation.tab: groupview.addGroupButton
 
                 Keys.onPressed: function(event) {
                     if (!model.groupEnabled) {
@@ -920,12 +959,6 @@ DccObject {
                             event.accepted = true
                             return
                         }
-                        event.accepted = true
-                        return
-                    }
-                    if (editLabel.readOnly && (event.key === Qt.Key_Tab || event.key === Qt.Key_Backtab)) {
-                        groupview.focus = false
-                        groupview.currentIndex = -1
                         event.accepted = true
                         return
                     }
@@ -1261,11 +1294,29 @@ DccObject {
                 RowLayout {
                     anchors.fill: parent
                     Button {
+                        id: addGroupButton
                         Layout.alignment: Qt.AlignRight
                         text: qsTr("Add group")
                         implicitWidth: implicitContentWidth + 20
                         implicitHeight: 30
-                        focusPolicy: Qt.NoFocus
+                        focusPolicy: Qt.StrongFocus
+                        activeFocusOnTab: true
+                        Component.onCompleted: {
+                            groupview.addGroupButton = addGroupButton
+                        }
+                        onActiveFocusChanged: {
+                            if (activeFocus) {
+                                groupview.positionViewAtEnd()
+                            }
+                        }
+                        Keys.onPressed: function(event) {
+                            if (event.key === Qt.Key_Tab || event.key === Qt.Key_Backtab) {
+                                groupview.blockInitialFocus = true
+                                groupview.focus = false
+                                event.accepted = false
+                                return
+                            }
+                        }
                         onClicked: {
                             groupview.suppressAutoFocusFirstOnFocus = true
                             groupview.focusNewlyCreatedItem = true
