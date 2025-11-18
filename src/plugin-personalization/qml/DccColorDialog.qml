@@ -12,6 +12,7 @@ import QtQuick.Templates as T
 import org.deepin.dtk as D
 import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dcc.personalization 1.0
+import org.deepin.dcc 1.0
 
 ColorDialogImpl {
     id: control

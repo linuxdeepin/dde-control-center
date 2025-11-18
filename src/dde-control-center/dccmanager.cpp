@@ -558,7 +558,7 @@ bool DccManager::eventFilter(QObject *watched, QEvent *event)
     if (event->type() == QEvent::MouseButtonPress && watched == m_window && m_window) {
         QMouseEvent *e = static_cast<QMouseEvent *>(event);
         if (e->buttons() == Qt::LeftButton) {
-            QQuickWindow *w = static_cast<QQuickWindow *>(m_window);
+            QQuickWindow *w = static_cast<QQuickWindow *>(m_window.get());
             QQuickItem *focusItem = w->activeFocusItem();
             if (focusItem) {
                 QObject *popup = focusItem->property("popup").value<QObject *>();
@@ -933,8 +933,11 @@ void DccManager::clearData()
     m_window->close();
     // doShowPage(m_root, QString());
 
-    // #ifdef QT_DEBUG
+#ifdef DCC_MEMORY_MANAGEME
     // TODO: delete m_engine会有概率崩溃
+    if (m_window) {
+        delete m_window;
+    }
     qCDebug(dccLog()) << "delete root begin";
     DccObject *root = m_root;
     m_root = nullptr;
@@ -961,7 +964,7 @@ void DccManager::clearData()
     delete m_engine;
     qCDebug(dccLog()) << "clear QmlEngine";
     m_engine = nullptr;
-    // #endif
+#endif
 }
 
 void DccManager::waitLoadFinished() const

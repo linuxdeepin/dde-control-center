@@ -120,7 +120,7 @@ private:
     QVector<DccObject *> m_currentObjects;
 
     PluginManager *m_plugins;
-    QWindow *m_window;
+    QPointer<QWindow> m_window;
     Dtk::Core::DConfig *m_dconfig;
     QSet<QString> m_hideModule;
     QSet<QString> m_disableModule;

@@ -6,8 +6,9 @@
 #include "dccapp.h"
 #include "dccmodel.h"
 #include "dccobject.h"
-#include "dccrepeater.h"
 #include "dccquickdbusinterface.h"
+#include "dccquickrepeater.h"
+#include "dccrepeater.h"
 
 #include <QQmlEngine>
 
@@ -21,7 +22,8 @@ void DccQmlPlugin::registerTypes(const char *uri)
     qmlRegisterType<dccV25::DccRepeater>(uri, 1, 0, "DccRepeater");
     qmlRegisterType<dccV25::DccModel>(uri, 1, 0, "DccModel");
     qmlRegisterType<dccV25::DccQuickDBusInterface>(uri, 1, 0, "DccDBusInterface");
-    QQmlEngine::setObjectOwnership(dccV25::DccApp::instance(),QQmlEngine::CppOwnership);
+    qmlRegisterType<dccV25::DccQuickRepeater>(uri, 1, 0, "Repeater");
+    QQmlEngine::setObjectOwnership(dccV25::DccApp::instance(), QQmlEngine::CppOwnership);
     qmlRegisterSingletonInstance(uri, 1, 0, "DccApp", dccV25::DccApp::instance());
 }
 

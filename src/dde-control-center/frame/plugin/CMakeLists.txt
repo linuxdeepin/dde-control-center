@@ -41,6 +41,7 @@ target_include_directories(${DCCQmlPlugin_Name} PRIVATE
 set(DCCQmlPlugin_Libraries
     ${QT_NS}::Gui
     ${QT_NS}::Quick
+    ${QT_NS}::QuickPrivate
     ${DCC_FRAME_Library}
 )
 
