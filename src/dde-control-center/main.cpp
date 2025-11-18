@@ -16,9 +16,9 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QScreen>
+#include <QStandardPaths>
 #include <QStringList>
 #include <QWindow>
-#include <QStandardPaths>
 
 DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
@@ -194,7 +194,9 @@ int main(int argc, char *argv[])
     }
     int exitCode = app->exec();
     conn.unregisterService(DccDBusService);
+#ifdef DCC_ENABLE_MEMORY_MANAGEMENT
     delete dccManager;
     delete app;
+#endif
     return exitCode;
 }

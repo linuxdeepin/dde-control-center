@@ -5,6 +5,7 @@ import QtQuick 2.15
 
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
+import org.deepin.dcc 1.0
 
 D.TipsSlider {
     id: slider

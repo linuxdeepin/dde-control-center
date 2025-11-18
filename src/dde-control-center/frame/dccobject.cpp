@@ -195,9 +195,8 @@ int DccObject::Private::getChildIndex(const DccObject *child) const
 void DccObject::Private::deleteSectionItem(bool later)
 {
     if (m_sectionItem) {
+#ifdef DCC_ENABLE_MEMORY_MANAGEMENT
         QQuickItem *item = m_sectionItem.get();
-        m_sectionItem = nullptr;
-        q_ptr->setParentItem(nullptr);
         if (later) {
             // 延时delete等动画完成
             QTimer::singleShot(500, item, [item]() {
@@ -206,6 +205,9 @@ void DccObject::Private::deleteSectionItem(bool later)
         } else {
             item->deleteLater();
         }
+#endif
+        m_sectionItem = nullptr;
+        q_ptr->setParentItem(nullptr);
     }
 }
 
@@ -493,6 +495,7 @@ QQuickItem *DccObject::getSectionItem(QObject *parent)
             p_ptr->m_sectionItem.get()->setParent(parent);
             p_ptr->m_sectionItem->setParentItem(qobject_cast<QQuickItem *>(parent));
             p_ptr->m_sectionItem->setEnabled(isEnabledToApp());
+            QQmlEngine::setObjectOwnership(p_ptr->m_sectionItem, QQmlEngine::JavaScriptOwnership);
         } else {
             qCWarning(dccLog()) << "create page error:" << p_ptr->m_page->errorString();
             delete context;
