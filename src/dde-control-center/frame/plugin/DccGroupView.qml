@@ -8,6 +8,7 @@ import QtQml.Models //Delegatechoice for Qt >= 6.9
 import Qt.labs.qmlmodels //DelegateChooser
 
 import org.deepin.dtk 1.0 as D
+import org.deepin.dcc 1.0
 
 Rectangle {
     id: root

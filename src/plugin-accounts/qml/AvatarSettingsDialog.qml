@@ -11,6 +11,7 @@ import Qt.labs.qmlmodels
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 import Qt.labs.platform 1.1
+import org.deepin.dcc 1.0
 
 D.DialogWindow {
     id: dialog

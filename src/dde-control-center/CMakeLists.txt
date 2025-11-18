@@ -21,6 +21,7 @@ set(DCCFrame_Libraries
     ${DTK_NS}::Gui
     ${QT_NS}::Gui
     ${QT_NS}::Quick
+    ${QT_NS}::QuickPrivate
     ${QT_NS}::QmlModelsPrivate
 )
 

@@ -85,7 +85,7 @@ D.DialogWindow {
                 id: toolTip
                 property alias model: arrowListView.model
                 contentItem: ColumnLayout {
-                    Repeater {
+                    Dcc.Repeater {
                         id: arrowListView
                         D.ItemDelegate {
                             id: item
