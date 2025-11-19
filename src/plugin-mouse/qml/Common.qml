@@ -171,7 +171,7 @@ DccObject {
                     }
                 }
                 ColumnLayout {
-                    // Layout.preferredWidth: 200
+                    Layout.preferredWidth: 165
                     Label {
                         id: scrollText
                         Layout.alignment: Qt.AlignLeft
@@ -181,7 +181,8 @@ DccObject {
                     ClickTest {
                         id: doubleClickAni
                         Layout.alignment: Qt.AlignHCenter
-                        Layout.preferredWidth: 128
+                        Layout.leftMargin: 8
+                        Layout.preferredWidth: 150
                         Layout.preferredHeight: 76
                     }
                 }
