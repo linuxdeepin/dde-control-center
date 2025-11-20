@@ -90,8 +90,16 @@ void AppsModel::reset(ApplicationItemListPtr appList)
 
 void AppsModel::appendItem(ApplicationItem *appItem)
 {
-    beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    m_appItems.append(appItem);
+    int insertPos = m_appItems.size();
+    for (int i = 0; i < m_appItems.size(); ++i) {
+        if (appItem->sortField() < m_appItems.at(i)->sortField()) {
+            insertPos = i;
+            break;
+        }
+    }
+
+    beginInsertRows(QModelIndex(), insertPos, insertPos);
+    m_appItems.insert(insertPos, appItem);
     endInsertRows();
 }
 

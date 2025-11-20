@@ -100,7 +100,24 @@ void ApplicationItem::onNameChanged(const QString &name)
         return;
     m_name = name;
     // 不区分大小写，中文按拼音排序排后面
-    m_sortField = DTK_CORE_NAMESPACE::Chinese2Pinyin(m_name.toUpper());
+    QString upperName = m_name.toUpper();
+
+    int category = 2;
+    for (const QChar &ch : upperName) {
+        if (ch.isSpace())
+            continue;
+        if (ch.isDigit()) {
+            category = 0;
+        } else if (ch.isLetter() && ch.unicode() < 128) {
+            category = 1;
+        } else {
+            category = 2;
+        }
+        break;
+    }
+
+    QString pinyin = DTK_CORE_NAMESPACE::Chinese2Pinyin(upperName);
+    m_sortField = QString::number(category) + pinyin;
     emitDataChanged();
 }
 
