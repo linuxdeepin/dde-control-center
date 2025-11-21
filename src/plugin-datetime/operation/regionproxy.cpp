@@ -302,7 +302,20 @@ RegionFormat RegionProxy::regionFormat(const QLocale &locale)
     if (regionFormat.currencyFormat.isEmpty())
         regionFormat.currencyFormat = QString::fromLocal8Bit("¥");
 
-    regionFormat.numberFormat = replaceSpace(locale.toString(123456789));
+    // 处理数字格式，确保数字使用拉丁数字显示
+    // 通过替换数字字符实现
+    // 同时保留原始的分隔符字符（包括特殊空格字符）
+    QMap<QString, QString> numberMap;
+    for (int i = 1; i < 10; ++i) {
+        QString number = locale.toString(i);
+        numberMap.insert(QString::number(i), number);
+    }
+    QString regionNumberFormat = replaceSpace(locale.toString(123456789));
+    for (auto number : numberMap.keys()) {
+        regionNumberFormat.replace(numberMap.value(number), number);
+    } 
+    regionFormat.numberFormat = regionNumberFormat;
+
     regionFormat.digitgroupFormat = locale.groupSeparator();
     regionFormat.paperFormat = "A4";
 

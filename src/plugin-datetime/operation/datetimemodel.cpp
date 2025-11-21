@@ -123,16 +123,12 @@ static inline QString escapSpace(const QString &space)
 
 static inline QString normalizeSpace(const QString &value)
 {
-    QString ret = " ";
-    QStringList numberKeepList{ QString("."), QString(","), QString("'"), QString("٬"), QString("’"), QString("ወ"), QString("،")};
-    if (numberKeepList.contains(value)) {
-        ret = value;
-    } else {
-        if (value == "Space" || value == DatetimeModel::tr("Space")) {
-            return ret;
-        }
+    // 如果是 "Space" 字符串，转换为普通空格
+    if (value == "Space" || value == DatetimeModel::tr("Space")) {
+        return QString(" ");
     }
-    return ret;
+    // 其他所有字符（包括特殊分隔符）都保持原样
+    return value;
 }
 
 static inline QString unEscapSpace(const QString &space)
@@ -140,17 +136,35 @@ static inline QString unEscapSpace(const QString &space)
     if (space.isEmpty())
         return QLatin1String(" ");
 
+    // 将所有空格类字符（包括普通空格和特殊空格）都转换为 "Space" 显示
+    // 这样用户在UI中看到的都是 "Space"，但实际使用的是区域对应的空格字符
     return space.at(0).isSpace() ? DatetimeModel::tr("Space") : space;
+}
+
+// 将显示用的符号转换回实际的字符
+// 如果用户选择了 "Space"，返回区域对应的实际空格字符
+static inline QString escapSpace(const QString &displaySymbol, const QLocale &locale, bool grouping)
+{
+    if (displaySymbol == DatetimeModel::tr("Space")) {
+        // 用户选择了 "Space"，返回区域对应的实际空格字符
+        return grouping ? locale.groupSeparator() : locale.decimalPoint();
+    }
+    return displaySymbol;
 }
 
 static inline QStringList separatorSymbol(const QLocale &locale, bool grouping)
 {
     QStringList symbols{ QString("."), QString(","), QString("'"), DatetimeModel::tr("Space") };
-    QString separator = grouping ? locale.groupSeparator() : locale.decimalPoint();
-    separator = unEscapSpace(separator);
+    
+    // 只有千位分隔符需要添加区域特殊字符，小数点只使用默认的四个选项
+    if (grouping) {
+        QString separator = locale.groupSeparator();
+        separator = unEscapSpace(separator);
 
-    if (!symbols.contains(separator))
-        symbols.prepend(separator);
+        if (!symbols.contains(separator)) {
+            symbols.prepend(separator);
+        }
+    }
 
     return symbols;
 }
@@ -572,7 +586,19 @@ void DatetimeModel::setCurrentLocaleAndLangRegion(const QString &localeName, con
     if (!m_work)
         return;
 
-    QLocale locale(localeName);
+    // 立即更新 m_localeName，确保后续的 availableFormats 使用正确的 locale
+    setLocaleName(localeName);
+    setLangRegion(langAndRegion);
+
+    // 从 m_regions 中获取 locale，而不是重新创建
+    // 这样可以保留完整的 locale 信息（包括数字系统等）
+    QLocale locale;
+    if (m_regions.contains(langAndRegion)) {
+        locale = m_regions.value(langAndRegion);
+    } else {
+        locale = QLocale(localeName);
+    }
+    
     m_work->setConfigValue(languageRegion_key, langAndRegion);
     m_work->setConfigValue(localeName_key, localeName);
 
@@ -598,7 +624,8 @@ void DatetimeModel::setCurrentLocaleAndLangRegion(const QString &localeName, con
     
     // 获取当前小数点符号（在设置之前）
     QString currentDecimal = m_work->decimalSymbol();
-    QString newSeparator = unEscapSpace(regionFormat.digitgroupFormat);
+    // 保留原始的分隔符字符（包括特殊空格字符）
+    QString newSeparator = regionFormat.digitgroupFormat;
     
     // 检查新传入的区域格式是否为中文区域
     bool isNewLocaleChinese = locale.language() == QLocale::Chinese;
@@ -628,7 +655,13 @@ void DatetimeModel::setCurrentLocaleAndLangRegion(const QString &localeName, con
 
 QStringList DatetimeModel::availableFormats(int format) const
 {
-    QLocale locale(m_localeName);
+    // 从 m_regions 中获取 locale，保留完整的 locale 信息（包括数字系统）
+    QLocale locale;
+    if (m_regions.contains(m_langCountry)) {
+        locale = m_regions.value(m_langCountry);
+    } else {
+        locale = QLocale(m_localeName);
+    }
     RegionAvailableData regionFormatsAvailable = RegionProxy::allTextData(locale);
     switch (format) {
     // date time formats
@@ -673,13 +706,14 @@ QStringList DatetimeModel::availableFormats(int format) const
         return separatorSymbol(locale, true);
     }
     case DigitGrouping: {
-        QString dgSymbol = escapSpace(normalizeSpace(m_work->digitGroupingSymbol()));
+        QString dgSymbol = escapSpace(m_work->digitGroupingSymbol());
         // 不带数字分隔符，方便自定义追加
         locale.setNumberOptions(QLocale::OmitGroupSeparator);
         // 有的国家使用的是阿拉伯*文*数字（东阿拉伯数字）
         // 如伊朗、阿富汗、巴基斯坦及印度部分地区  ١٢٣٤٥٦٧٨٩
         // https://zh.wikipedia.org/wiki/%E9%98%BF%E6%8B%89%E4%BC%AF%E6%96%87%E6%95%B0%E5%AD%97
-        const QString numString = locale.toString(123456789);
+        // 始终使用阿拉伯数字（0-9）显示，避免字体渲染问题
+        const QString numString = "123456789";
         return {
             numString,                                                                      // 123456789
             QString(numString).insert(3, dgSymbol).insert(7, dgSymbol),                     // 123,456,789
@@ -751,12 +785,12 @@ int DatetimeModel::currentFormatIndex(int format) const
     }
     case DigitGroupingSymbol: {
         const QString &current = m_work->digitGroupingSymbol();
-        QStringList defaultSymbols = separatorSymbol(QLocale(m_localeName), true);
+        QStringList defaultSymbols = separatorSymbol(m_regions.contains(m_langCountry)?m_regions.value(m_langCountry):QLocale(m_localeName), true);
         int index = defaultSymbols.indexOf(unEscapSpace(current));
         return (index != -1) ? index : defaultSymbols.indexOf(DatetimeModel::tr("Space"));
     }
     case DigitGrouping: {
-        const QString &current = m_work->digitGrouping();
+        const QString &current = normalizeSpace(m_work->digitGrouping());
         QStringList defaultSymbols = availableFormats(format);
         auto index = defaultSymbols.indexOf(current);
         return index;
@@ -845,7 +879,9 @@ void DatetimeModel::setCurrentFormat(int format, int index)
     case DecimalSymbol: {
         auto fmts = separatorSymbol(locale, false);
         if (index < fmts.count()) {
-            QString newDecimal = fmts.value(index);
+            QString displaySymbol = fmts.value(index);
+            // 将显示用的符号转换回实际的字符（如果是 "Space"，使用区域对应的空格字符）
+            QString newDecimal = escapSpace(displaySymbol, locale, false);
             QString currentSeparator = m_work->digitGroupingSymbol();
             
             // 验证符号变更是否会导致冲突
@@ -860,8 +896,9 @@ void DatetimeModel::setCurrentFormat(int format, int index)
     }
     break;
     case DigitGroupingSymbol: {
-        auto fmts = separatorSymbol(locale, true);
+        auto fmts = separatorSymbol(m_regions.contains(m_langCountry)?m_regions.value(m_langCountry):locale, true);
         if (index < fmts.count()) {
+            // 将显示用的符号转换回实际的字符（如果是 "Space"，使用区域对应的空格字符）
             QString newSeparator = fmts.value(index);
             QString currentDecimal = m_work->decimalSymbol();
             
@@ -1379,8 +1416,17 @@ bool DatetimeModel::symbolsConflict(const QString &decimal, const QString &separ
 QStringList DatetimeModel::getAllSupportedSymbols() const
 {
     // 返回所有支持的符号列表，与separatorSymbol函数中的符号保持一致
+    // 小数点只使用默认的四个选项，千位分隔符可以包含区域特殊字符
     QStringList symbols;
     symbols << QString(".") << QString(",") << QString("'") << tr("Space");
+    
+    // 只添加千位分隔符的特殊字符（如果不在列表中）
+    QLocale locale(m_localeName);
+    QString groupSep = unEscapSpace(locale.groupSeparator());
+    
+    if (!symbols.contains(groupSep) && !groupSep.isEmpty())
+        symbols.append(groupSep);
+    
     return symbols;
 }
 
@@ -1476,7 +1522,7 @@ QStringList DatetimeModel::getFilteredSeparatorSymbols() const
     
     // 使用与原始模型相同的符号列表生成方式
     QLocale locale(m_localeName);
-    QStringList symbols = separatorSymbol(locale, true);   // true表示千位分隔符符号
+    QStringList symbols = separatorSymbol(m_regions.contains(m_langCountry)?m_regions.value(m_langCountry):locale, true);   // true表示千位分隔符符号
     
     // 获取当前的小数点和分隔符符号
     QString currentDecimal = m_work->decimalSymbol();
