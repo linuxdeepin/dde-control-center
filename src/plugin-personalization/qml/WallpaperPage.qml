@@ -201,7 +201,8 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: WallpaperSelectView {
-            firstItemImgSource: "wallpaper_add"
+            firstItemImgSource: "wallpaper_add_bg"
+            firstItemTopIconName: "wallpaper_add"
             model: dccData.model.customWallpaperModel
             currentItem: dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
             onFirstItemClicked: {

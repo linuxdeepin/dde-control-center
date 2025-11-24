@@ -16,20 +16,29 @@ import org.deepin.dcc.personalization 1.0
 ColumnLayout {
     id: root
     spacing: 0
-    readonly property int imageRectW: 84
-    readonly property int imageRectH: 54
     readonly property int imageBorder: 2
     // 1 is the distance between the border and the image
+    readonly property int imageSpacing: 4
     readonly property int imageMargin: imageBorder + 1
-    readonly property int itemWidth: imageRectW + imageBorder * 2 + 1
-    readonly property int itemHeight: imageRectH + imageBorder * 2 + 1
-    readonly property int imageSpacing: 7
+
+    // base size for layout calculation (fixed 84x54)
+    property int baseImageRectW: 84
+    property int baseImageRectH: 54
+    // scaling factor applied to thumbnails when window is resized
+    property real scaleFactor: 1.0
+    property int imageRectW: baseImageRectW * scaleFactor
+    property int imageRectH: baseImageRectH * scaleFactor
+    property int baseItemWidth: baseImageRectW + imageBorder * 2 + 1
+    property int baseItemHeight: baseImageRectH + imageBorder * 2 + 1
+    property int itemWidth: baseItemWidth * scaleFactor
+    property int itemHeight: baseItemHeight * scaleFactor
 
     property var model
     property bool isExpand: false
     property var currentItem
     property string firstItemImgSource: ""
     property bool firstItemVisible: firstItemImgSource !== ""
+    property string firstItemTopIconName: ""
     property bool enableContextMenu: true
 
     signal wallpaperSelected(var url, bool isDark, var option)
@@ -38,6 +47,14 @@ ColumnLayout {
 
     onIsExpandChanged: {
         sortedModel.update()
+    }
+
+    onFirstItemVisibleChanged: {
+        layout.updateLayout()
+    }
+
+    Component.onCompleted: {
+        layout.updateLayout()
     }
 
     RowLayout {
@@ -80,6 +97,8 @@ ColumnLayout {
     Item {
         Layout.fillWidth: true
         Layout.preferredHeight: containter.height
+        Layout.leftMargin: 8
+        Layout.rightMargin: 8
 
         // animation used
         Rectangle {
@@ -97,11 +116,46 @@ ColumnLayout {
 
         Flow {
             id: layout
-            property int lineCount: Math.floor((parent.width + root.imageSpacing) / (root.itemWidth + root.imageSpacing))
-            width: lineCount * (root.itemWidth + root.imageSpacing) - root.imageSpacing
+            property int lineCount: 0
+            width: parent.width
             spacing: root.imageSpacing
             bottomPadding: 12
-            anchors.horizontalCenter: parent.horizontalCenter
+
+            function updateLayout() {
+                var modelCount = root.model ? root.model.count : 0
+                var totalItems = (root.firstItemVisible ? 1 : 0) + modelCount
+
+                if (totalItems <= 0 || parent.width <= 0) {
+                    lineCount = 0
+                    root.scaleFactor = 1.0
+                    return
+                }
+
+                var availableWidth = parent.width
+                var spacing = root.imageSpacing
+                var baseItemTotal = root.baseItemWidth + spacing
+
+                // theoretical columns based purely on base width 84 and spacing
+                var columns = Math.max(1, Math.floor((availableWidth + spacing) / baseItemTotal))
+
+                // distribute the remaining width across columns to get a scale factor
+                var usedWidth = columns * baseItemTotal - spacing
+                var extra = availableWidth - usedWidth
+
+                var actualItemWidth = root.baseItemWidth
+                var scale = 1.0
+
+                if (columns > 0) {
+                    var delta = extra / columns
+                    actualItemWidth = root.baseItemWidth + delta
+                    scale = actualItemWidth / root.baseItemWidth
+                }
+
+                lineCount = columns
+                root.scaleFactor = scale
+            }
+
+            onWidthChanged: updateLayout()
 
             move: Transition {
             }
@@ -119,7 +173,7 @@ ColumnLayout {
                             id: firstItemImage
                             anchors.fill: parent
                             visible: false
-                            sourceSize: Qt.size(width, height)
+                            sourceSize: Qt.size(168, 108)
                             name: root.firstItemImgSource
                             asynchronous: true
                             theme: iconControl.D.ColorSelector.controlTheme
@@ -135,6 +189,25 @@ ColumnLayout {
                             implicitWidth: firstItemImage.width
                             implicitHeight: firstItemImage.height
                             radius: 6
+                        }
+                    }
+
+                    Item {
+                        id: firstItemTopIconContainer
+                        anchors.fill: parent
+                        anchors.margins: root.imageMargin
+
+                        D.DciIcon {
+                            id: firstItemTopIcon
+                            anchors.centerIn: parent
+                            anchors.horizontalCenterOffset: 1
+                            width: 18
+                            height: 18
+                            sourceSize: Qt.size(18, 18)
+                            theme: firstItemImage.theme
+                            name: root.firstItemTopIconName
+                            visible: root.firstItemTopIconName !== ""
+                            asynchronous: true
                         }
                     }
 

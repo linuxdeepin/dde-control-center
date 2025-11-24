@@ -46,5 +46,6 @@
         <file>icons/arrow_right.dci</file>
         <file>icons/wallpaper_add.dci</file>
         <file>icons/wallpaper_addcolor.dci</file>
+        <file>icons/wallpaper_add_bg.dci</file>
     </qresource>
 </RCC>
