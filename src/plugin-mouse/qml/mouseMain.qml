@@ -15,9 +15,8 @@ DccObject {
         weight: 10
         pageType: DccObject.Item
         page: DccGroupView {
-            spacing: 5
+            spacing: -5
             isGroup: false
-            height: implicitHeight + 20
         }
         Common {}
     }
