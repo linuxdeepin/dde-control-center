@@ -21,8 +21,14 @@ DccObject {
             Label {
                 height: contentHeight
                 Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
+                font.pixelSize: D.DTK.fontManager.t5.pixelSize
+                font.weight: 500
                 text: dccObj.displayName
+            }
+        }
+        onParentItemChanged: {
+            if (parentItem) {
+                parentItem.bottomInset = 10
             }
         }
     }
@@ -41,14 +47,18 @@ DccObject {
                 font: D.DTK.fontManager.t6
                 text: dccObj.displayName
                 Layout.leftMargin: 14
+                Layout.bottomMargin: 0
             }
             D.TipsSlider {
                 id: scrollSlider
                 readonly property var tips: [("1"), ("2"), ("3"), ("4"), ("5"), ("6"), ("7"), ("8"), ("9"), ("10")]
-                Layout.preferredHeight: 90
                 Layout.alignment: Qt.AlignCenter
-                Layout.margins: 10
+                Layout.leftMargin: 10
+                Layout.rightMargin: 10
+                Layout.topMargin: 2
+                Layout.bottomMargin: 10
                 Layout.fillWidth: true
+                slider.height: 30
                 tickDirection: D.TipsSlider.TickDirection.Back
                 slider.handleType: Slider.HandleType.ArrowBottom
                 slider.value: dccData.scrollSpeed
@@ -114,7 +124,7 @@ DccObject {
         pageType: DccObject.Item
         page: Rectangle {
             color: "transparent"
-            implicitHeight: rowView.height + 20
+            implicitHeight: rowView.height
             RowLayout {
                 id: rowView
                 width: parent.width
@@ -131,8 +141,12 @@ DccObject {
                         id: doubleClickSlider
                         readonly property var tips: [qsTr("Slow"), (""), (""), (""), (""), (""), qsTr("Fast")]
                         Layout.alignment: Qt.AlignCenter
-                        Layout.margins: 10
+                        Layout.leftMargin: 10
+                        Layout.rightMargin: 10
+                        Layout.topMargin: 2
+                        Layout.bottomMargin: 10
                         Layout.fillWidth: true
+                        slider.height: 30
                         tickDirection: D.TipsSlider.TickDirection.Back
                         slider.handleType: Slider.HandleType.ArrowBottom
                         slider.value: dccData.doubleSpeed
@@ -171,7 +185,7 @@ DccObject {
                     }
                 }
                 ColumnLayout {
-                    Layout.preferredWidth: 165
+                    Layout.preferredWidth: 145
                     Label {
                         id: scrollText
                         Layout.alignment: Qt.AlignLeft
@@ -182,8 +196,9 @@ DccObject {
                         id: doubleClickAni
                         Layout.alignment: Qt.AlignHCenter
                         Layout.leftMargin: 8
+                        Layout.bottomMargin: 10
                         Layout.preferredWidth: 150
-                        Layout.preferredHeight: 76
+                        Layout.preferredHeight: 60
                     }
                 }
             }
@@ -200,6 +215,12 @@ DccObject {
             checked: dccData.leftHandState
             onCheckedChanged: {
                 dccData.leftHandState = checked
+            }
+        }
+        onParentItemChanged: {
+            if (parentItem) {
+                parentItem.topInset = 6
+                parentItem.bottomInset = 15
             }
         }
     }

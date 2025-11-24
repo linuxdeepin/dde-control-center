@@ -12,5 +12,9 @@ DccObject {
     icon:"device_mouse"
     weight: 30
 
+    page: DccRightView {
+        spacing: -4
+    }
+
     visible: !DccApp.isTreeland()
 }
