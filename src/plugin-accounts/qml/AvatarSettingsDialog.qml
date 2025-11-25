@@ -328,8 +328,10 @@ D.DialogWindow {
                                 }
                             }
                             
-                            if (!foundCurrent) {
-                                dialog.currentAvatar = icons[1]
+                            if (!foundCurrent && icons.length > 1) {
+                                Qt.callLater(function() {
+                                    cropper.iconSource = icons[1]
+                                })
                             }
                         }
 
@@ -337,10 +339,18 @@ D.DialogWindow {
                             id: cropper
                             anchors.top: parent.top
                             anchors.horizontalCenter: parent.horizontalCenter
-                            iconSource: dialog.currentAvatar
-                            Component.onCompleted: Qt.callLater(function(){
-                                cropper.iconSource = dialog.currentAvatar
-                            })
+                            iconSource: {
+                                const isCustom = dialog.currentAvatar.indexOf("/local/") >= 0 || dialog.currentAvatar.indexOf("/avatars/") >= 0
+                                if (isCustom) {
+                                    return dialog.currentAvatar
+                                }
+                                // 系统头像时，返回第一个自定义头像作为预览（如果有的话）
+                                let icons = dccData.avatars(dialog.userId, "icons/local", "")
+                                if (icons && icons.length > 1) {
+                                    return icons[1]
+                                }
+                                return ""
+                            }
                             onCroppedImage: function(file) {
                                 dialog.currentAvatar = file
                             }

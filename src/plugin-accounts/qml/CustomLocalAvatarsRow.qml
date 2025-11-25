@@ -19,13 +19,17 @@ Item {
     width: parent ? parent.width : 460
 
     Component.onCompleted: {
-        const cached = dccData.customAvatarFromCache()
-        if (cached && cached.length > 0) {
-            root.currentAvatar = cached
-        } else {
-            const icons = dccData.avatars(root.userId, root.filter, "")
-            if (icons && icons.length > 1)
-                root.currentAvatar = icons[1]
+        // 只有在当前没有有效的 currentAvatar 时才设置默认值
+        // 避免覆盖从 dialog.currentAvatar 绑定过来的系统头像
+        if (!root.currentAvatar || root.currentAvatar.length === 0) {
+            const cached = dccData.customAvatarFromCache()
+            if (cached && cached.length > 0) {
+                root.currentAvatar = cached
+            } else {
+                const icons = dccData.avatars(root.userId, root.filter, "")
+                if (icons && icons.length > 1)
+                    root.currentAvatar = icons[1]
+            }
         }
         const tmp = row.icons
         row.icons = []
@@ -46,9 +50,18 @@ Item {
             delegate: D.ItemDelegate {
                 id: delegate
                 property bool isAddButton: modelData == "add"
-                property string modelPathNoQuery: (modelData || "")
-                property string currentNoQuery: (root.currentAvatar || "")
-                property bool isSelected: !isAddButton && (currentNoQuery === modelPathNoQuery)
+                property string modelPathNoQuery: (modelData || "").toString().replace("file://", "")
+                property string currentNoQuery: (root.currentAvatar || "").toString().replace("file://", "")
+                property bool currentIsCustom: currentNoQuery.indexOf("/local/") >= 0 || currentNoQuery.indexOf("/avatars/") >= 0
+                // 检查是否直接匹配，或者当前是自定义头像且列表中没有匹配项时选中第一个自定义头像
+                property bool isFirstCustomInList: !isAddButton && index === 1
+                property bool isSelected: {
+                    if (isAddButton) return false
+                    // 直接路径匹配
+                    if (currentNoQuery.length > 0 && currentNoQuery === modelPathNoQuery) return true
+                    if (currentIsCustom && currentNoQuery.indexOf("/var/lib/") >= 0 && isFirstCustomInList) return true
+                    return false
+                }
                 implicitHeight: 72
                 implicitWidth: 72
                 checkable: false
