@@ -9,6 +9,7 @@ import org.deepin.dtk as D
 
 SaturationLightnessPickerImpl {
     id: control
+    clip: true
 
     implicitWidth: Math.max(background ? background.implicitWidth : 0, contentItem.implicitWidth)
     implicitHeight: Math.max(background ? background.implicitHeight : 0, contentItem.implicitHeight)
