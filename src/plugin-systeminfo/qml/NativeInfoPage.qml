@@ -293,6 +293,7 @@ DccObject {
                 }
 
                 Button {
+                    id: licenseActionBtn
                     text: dccData.systemInfoMode().licenseActionText
                     ColorSelector.family: Palette.CommonColor
                     implicitHeight: 30
@@ -301,6 +302,14 @@ DccObject {
                     visible: dccData.systemInfoMode().showDetail
                     onClicked: {
                         dccData.systemInfoWork().showActivatorDialog()
+                    }
+                    ToolTip.visible: licenseActionBtn.hovered && licenseActionBtnMetrics.width > licenseActionBtn.availableWidth
+                    ToolTip.text: licenseActionBtn.text
+                    ToolTip.delay: 500
+                    TextMetrics {
+                        id: licenseActionBtnMetrics
+                        font: licenseActionBtn.font
+                        text: licenseActionBtn.text
                     }
                 }
             }
