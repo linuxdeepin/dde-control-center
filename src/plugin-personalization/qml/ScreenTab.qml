@@ -20,21 +20,13 @@ Item {
                 property alias hovered: mouseArea.containsMouse
                 implicitWidth: nameLabel.implicitWidth + 20
                 implicitHeight: 30
-                anchors.topMargin: 2
                 radius: 8
-                color: isSelect ? this.palette.midlight : "transparent"
-                Rectangle {
-                    color: isSelect ? (D.DTK.themeType == D.ApplicationHelper.LightType ? Qt.rgba(0, 0, 0, 0.1) : Qt.rgba(1, 1, 1, 0.1)) : "transparent"
-                    anchors.fill: parent
-                    anchors.topMargin: -2
-                    anchors.bottomMargin: 2
-                    radius: 8
-                    Label {
-                        id: nameLabel
-                        anchors.centerIn: parent
-                        text: modelData
-                        color: hovered ? this.palette.link : (isSelect ? this.palette.highlight : this.palette.text)
-                    }
+                color: isSelect ? (D.DTK.themeType == D.ApplicationHelper.LightType ? Qt.rgba(0, 0, 0, 0.1) : Qt.rgba(1, 1, 1, 0.1)) : "transparent"
+                Label {
+                    id: nameLabel
+                    anchors.centerIn: parent
+                    text: modelData
+                    color: hovered ? this.palette.link : (isSelect ? this.palette.highlight : this.palette.text)
                 }
                 MouseArea {
                     id: mouseArea
