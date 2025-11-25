@@ -77,10 +77,17 @@ DccObject {
                     anchors.bottom: parent.bottom
                     anchors.bottomMargin: 15
                     anchors.horizontalCenter: parent.horizontalCenter
-                    width: 68
-                    height: 24
+                    implicitWidth: {
+                        font.pixelSize
+                        return previewFm.advanceWidth(text) + leftPadding + rightPadding
+                    }
+                    implicitHeight: 24
                     visible: hoverHandler.hovered
                     text: qsTr("preview")
+                    FontMetrics {
+                        id: previewFm
+                        font: previewBtn.font
+                    }
                     background: P.ButtonPanel {
                         implicitWidth: DS.Style.button.width
                         implicitHeight: DS.Style.button.height
