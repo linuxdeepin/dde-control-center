@@ -184,6 +184,8 @@ void DefAppWorker::onGetListApps()
                         QDBusObjectPath objectPath = getDefaultAppCall.argumentAt<1>();
                         if (objectPath.path() == "/") {
                             qCWarning(DdcDefaultWorker) << "Cannot find Mime: " << type;
+                            // Still call getDefaultAppFinished with empty id to trigger fallback logic
+                            getDefaultAppFinished(mimelist.key(), QString());
                             defappWatcher->deleteLater();
                             return;
                         }
@@ -537,6 +539,13 @@ void DefAppWorker::getDefaultAppFinished(const QString &mimeKey, const QString &
     if (it != items.cend()) {
         category->setDefault(*it);
         category->setCategory(mimeKey);
+    } else {
+        // If the default app is not found (e.g., uninstalled), fallback to the first system app
+        auto systemApps = category->systemAppList();
+        if (!systemApps.isEmpty()) {
+            category->setDefault(systemApps.first());
+            category->setCategory(mimeKey);
+        }
     }
 }
 
