@@ -148,7 +148,10 @@ DccObject {
                             font: settingBtn.font
                         }
                         text: qsTr("setting")
-                        font.letterSpacing: 2
+                        font {
+                            pixelSize: D.DTK.fontManager.t7.pixelSize
+                            letterSpacing: 2
+                        }
                         onClicked: {
                             dccData.worker.requestScreenSaverConfig(dccData.model.currentScreenSaver)
                         }
