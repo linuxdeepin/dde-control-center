@@ -3992,7 +3992,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"/>
+        <translation>Ndërthur ikona aplikacionesh</translation>
     </message>
 </context>
 <context>
