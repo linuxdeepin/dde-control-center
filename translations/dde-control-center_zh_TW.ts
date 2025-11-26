@@ -967,7 +967,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation>使用者名稱只能包含字母、數字 - 和 _</translation>
+        <translation>使用者名稱只能包含字母、數字、- 和 _</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
