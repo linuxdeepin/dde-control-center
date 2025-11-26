@@ -3995,7 +3995,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"/>
+        <translation>Combina les icones de l&apos;aplicació</translation>
     </message>
 </context>
 <context>
