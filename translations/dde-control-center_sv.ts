@@ -3981,6 +3981,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Lock the Dock</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Combine application icons</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>mouse</name>
