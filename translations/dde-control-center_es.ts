@@ -3982,6 +3982,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>Lock the Dock</source>
         <translation>Bloquear el muelle</translation>
     </message>
+    <message>
+        <source>Combine application icons</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>mouse</name>
