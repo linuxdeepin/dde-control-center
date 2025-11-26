@@ -3012,7 +3012,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>My pictures</source>
-        <translation>独自の画像</translation>
+        <translation>カスタム画像</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
