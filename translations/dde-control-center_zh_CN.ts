@@ -2053,7 +2053,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation>密码不能与用户名一致</translation>
+        <translation>新密码和旧密码不能相同</translation>
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
