@@ -970,7 +970,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation>用户名只能包含字母、数字 - 和 _</translation>
+        <translation>用户名只能包含字母、数字、 - 和 _</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
@@ -2053,7 +2053,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation>密码不能与用户名一致</translation>
+        <translation>新密码和旧密码不能相同</translation>
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
