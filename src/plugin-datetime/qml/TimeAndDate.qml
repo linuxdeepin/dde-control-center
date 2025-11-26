@@ -148,6 +148,10 @@ DccObject {
                         if (!comboBox.serverList.includes(text))
                             comboBox.serverList.push(text)
 
+                        if (dccData.ntpServerAddress.length === 0 && dccData.previousServerAddress.length > 0) {
+                            dccData.ntpServerAddress = dccData.previousServerAddress
+                        }
+
                         let currentServer = dccData.ntpServerAddress
                         let index = comboBox.serverList.indexOf(currentServer)
                         if (index < 0) {
