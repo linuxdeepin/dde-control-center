@@ -2050,7 +2050,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation>密碼不能與使用者名稱一致</translation>
+        <translation>新的密碼必須不同於目前密碼</translation>
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
