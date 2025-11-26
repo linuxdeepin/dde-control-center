@@ -166,6 +166,7 @@ DccObject {
             D.ToolButton {
                 Layout.preferredHeight: 40
                 text: qsTr("Clear cloud data")
+                font: D.DTK.fontManager.t10
 
                 textColor: D.Palette {
                     normal {
