@@ -15,6 +15,7 @@
 #include <QDBusConnection>
 #include <QDebug>
 
+#include <DConfig>
 #include <DIconTheme>
 #include <DWindowManagerHelper>
 
@@ -48,9 +49,27 @@ DccDockExport::DccDockExport(QObject *parent)
 : QObject(parent)
 , m_dockDbusProxy(new DockDBusProxy(this))
 , m_pluginModel(new DockPluginModel(this))
+, m_dconfig(Dtk::Core::DConfig::create("org.deepin.dde.shell", "org.deepin.ds.dock.taskmanager", QString(), this))
 , m_displayInter(nullptr)
 , m_displayMode(EXTEND_MODE)
+, m_combineApp(true)
 {
+    if (m_dconfig && m_dconfig->isValid()) {
+        const bool noTaskGrouping = m_dconfig->value("noTaskGrouping", false).toBool();
+        m_combineApp = !noTaskGrouping;
+
+        connect(m_dconfig, &Dtk::Core::DConfig::valueChanged, this, [this](const QString &key) {
+            if (key == QLatin1String("noTaskGrouping")) {
+                const bool noTaskGrouping = m_dconfig->value("noTaskGrouping", false).toBool();
+                bool combine = !noTaskGrouping;
+                if (m_combineApp != combine) {
+                    m_combineApp = combine;
+                    Q_EMIT combineAppChanged(m_combineApp);
+                }
+            }
+        });
+    }
+
     initData();
     initDisplayModeConnection();
 
@@ -101,6 +120,11 @@ void DccDockExport::loadPluginData()
     m_pluginModel->resetData(infos);
 }
 
+bool DccDockExport::combineApp() const
+{
+    return m_combineApp;
+}
+
 void DccDockExport::initDisplayModeConnection()
 {
     // 创建DBus接口连接
@@ -136,6 +160,21 @@ void DccDockExport::initDisplayModeConnection()
 int DccDockExport::displayMode() const
 {
     return m_displayMode;
+}
+
+void DccDockExport::setCombineApp(bool value)
+{
+    if (m_combineApp == value)
+        return;
+
+    m_combineApp = value;
+
+    if (!m_dconfig || !m_dconfig->isValid())
+        return;
+
+    const bool noTaskGrouping = !value;
+    m_dconfig->setValue("noTaskGrouping", noTaskGrouping);
+    Q_EMIT combineAppChanged(m_combineApp);
 }
 
 void DccDockExport::onDisplayModeChanged(uint mode)

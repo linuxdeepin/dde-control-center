@@ -218,6 +218,20 @@ DccObject {
                 }
             }
         }
+        DccObject {
+            name: "combineApp"
+            parentName: "personalization/dock/dockSettingsGroup"
+            displayName: qsTr("Combine application icons")
+            weight: 200
+            pageType: DccObject.Editor
+            page: Switch {
+                checked: dccData.combineApp
+                onCheckedChanged: {
+                    if (dccData.combineApp !== checked)
+                        dccData.setCombineApp(checked)
+                }
+            }
+        }
     }
 
     DccObject {
