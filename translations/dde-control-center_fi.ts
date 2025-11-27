@@ -1518,7 +1518,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"/>
+        <translation>Suojauksen poistaminen käytöstä avaa järjestelmän hakemistoja. Tämä voi aiheuttaa suuren vaurioriskin järjestelmälle.</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
