@@ -230,7 +230,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>Enregistrer une iris</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -3455,7 +3455,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Empreinte digitale</translation>
     </message>
     <message>
         <source>Place your finger</source>
@@ -3502,7 +3502,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iris</translation>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
