@@ -1,3 +1,36 @@
+dde-control-center (6.1.59) unstable; urgency=medium
+
+  * fix: adjust clear cloud data button font size
+  * fix: Fix the date server authentication issue
+  * fix: update transaltion
+  * feat: add combine application icons option to dock settings
+  * i18n: Updates for project Deepin Desktop Environment (#2806)
+  * fix: auto fallback to system app when default app is uninstalled
+  * fix: unify screen tab style in display and wallpaper modules
+  * fix: adjust font size of setting button in ScreenSaver page
+  * fix: add tooltip for truncated authorization button in
+    NativeInfoPage
+  * fix: resolve preview button text truncation in ScreenSaverPage
+  * fix: Modify mouse interface layout
+  * fix: resolve color picker handle overflow in
+    SaturationLightnessPicker
+  * fix: Fix custom avatar selection issue
+  * fix: improve wallpaper thumbnail alignment and layout
+  * fix: improve locale-aware number formatting
+  * fix: Fixed an issue where the edit and add buttons could not be
+    focused using the tab key
+  * i18n: remove de_DE translation resources
+  * fix: Fix the mouse interface layout effect
+  * fix: improve wallpaper thumbnail rendering quality
+  * refactor: use install command for plugin binaries
+  * fix: resolve unknown icons in notifications after editor install
+  * fix: Fix the issue of drag-and-drop images not working
+  * fix: resolve duplicate installation in QML plugin build
+  * feat: add reproducible build parameters
+  * fix: add display mode detection for dock plugin visibility
+
+ -- zhaoyingzhen <zhaoyingzhen@uniontech.com>  Thu, 27 Nov 2025 17:31:35 +0800
+
 dde-control-center (6.1.58) unstable; urgency=medium
 
   * fix: update dock plugins reload, icon not show.
