@@ -1522,7 +1522,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation>Ota suojaus käyttöön ja lukitse järjestelmän hakemistot se varmistaa optimaalisen vakauden.</translation>
     </message>
 </context>
 <context>
@@ -3988,7 +3988,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"/>
+        <translation>Yhdistä sovelluskuvakkeita</translation>
     </message>
 </context>
 <context>
