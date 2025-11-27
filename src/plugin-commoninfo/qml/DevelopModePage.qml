@@ -591,7 +591,7 @@ DccObject {
         parentName: "developerMode"
         displayName: qsTr("Solid System Read-Only Protection")
         weight: 70
-        visible: dccData.work().showReadOnlyProtection()
+        visible: DccApp.uosEdition() === DccApp.UosCommunity && dccData.work().showReadOnlyProtection()
         canSearch: visible
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
