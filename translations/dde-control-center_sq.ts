@@ -3990,6 +3990,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>Lock the Dock</source>
         <translation>Kyçe Panelin</translation>
     </message>
+    <message>
+        <source>Combine application icons</source>
+        <translation>Ndërthur ikona aplikacionesh</translation>
+    </message>
 </context>
 <context>
     <name>mouse</name>

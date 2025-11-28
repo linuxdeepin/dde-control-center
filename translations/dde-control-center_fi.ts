@@ -905,15 +905,15 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistä</translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation>Hylkää</translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation>Käynnistä uudelleen, jotta Solid System Read-Only Protection -asetukset voidaan ottaa käyttöön.</translation>
     </message>
 </context>
 <context>
@@ -1514,15 +1514,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"/>
+        <translation>Solid System Read-Only Protection</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"/>
+        <translation>Suojauksen poistaminen käytöstä avaa järjestelmän hakemistoja. Tämä voi aiheuttaa suuren vaurioriskin järjestelmälle.</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation>Ota suojaus käyttöön ja lukitse järjestelmän hakemistot se varmistaa optimaalisen vakauden.</translation>
     </message>
 </context>
 <context>
@@ -3985,6 +3985,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Lock the Dock</source>
         <translation>Lukitse telakka</translation>
+    </message>
+    <message>
+        <source>Combine application icons</source>
+        <translation>Yhdistä sovelluskuvakkeita</translation>
     </message>
 </context>
 <context>

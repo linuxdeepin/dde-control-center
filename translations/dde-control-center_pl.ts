@@ -3993,6 +3993,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <source>Lock the Dock</source>
         <translation>Zablokuj dok</translation>
     </message>
+    <message>
+        <source>Combine application icons</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>mouse</name>

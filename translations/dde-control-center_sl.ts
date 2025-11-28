@@ -3981,6 +3981,10 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <source>Lock the Dock</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Combine application icons</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>mouse</name>

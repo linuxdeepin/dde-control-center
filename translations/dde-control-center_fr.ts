@@ -230,7 +230,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>Enregistrer une iris</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -238,19 +238,19 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Clause de non-responsabilité</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Suivant</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Terminé</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Annuler</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
@@ -903,7 +903,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation>Redémarrer maintenant</translation>
     </message>
     <message>
         <source>Dismiss</source>
@@ -3455,11 +3455,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Empreinte digitale</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Placez votre doigt</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
@@ -3467,7 +3467,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Soulevez votre doigt</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
@@ -3502,7 +3502,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iris</translation>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
@@ -3986,6 +3986,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>Lock the Dock</source>
         <translation>Verrouiller le Dock</translation>
+    </message>
+    <message>
+        <source>Combine application icons</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

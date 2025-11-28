@@ -4006,6 +4006,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <source>Lock the Dock</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Combine application icons</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>mouse</name>
