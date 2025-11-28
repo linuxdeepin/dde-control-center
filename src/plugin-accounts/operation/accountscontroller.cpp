@@ -789,12 +789,13 @@ QString AccountsController::checkUsername(const QString &name)
 QString AccountsController::checkFullname(const QString &name)
 {
     QString alertMsg;
+    QString trimmedName = name.simplified(); // 与 setFullname 保持一致，去除首尾空格
     do {
-        if (name.simplified().isEmpty()) {
+        if (trimmedName.isEmpty()) {
             break;
         }
 
-        if (name.size() > 32) {
+        if (trimmedName.size() > 32) {
             alertMsg = tr("The full name is too long");
             break;
         }
@@ -802,7 +803,7 @@ QString AccountsController::checkFullname(const QString &name)
         // 欧拉版会自己创建 shutdown 等 root 组账户且不会添加到 userList 中，导致无法重复性算法无效，
         // 先通过 isUsernameValid 校验这些账户再通过重复性算法校验
         // vaild == false && code == 6 是用户名已存在
-        QDBusPendingReply<bool, QString, int> reply = m_worker->isUsernameValid(name);
+        QDBusPendingReply<bool, QString, int> reply = m_worker->isUsernameValid(trimmedName);
         if (!reply.argumentAt(0).toBool() &&
             ErrCodeSystemUsed == reply.argumentAt(2).toInt()) {
             alertMsg = tr("The full name has been used by other user accounts");
@@ -810,8 +811,8 @@ QString AccountsController::checkFullname(const QString &name)
         }
 
         QList<User *> userList = m_model->userList();
-        auto ret = std::any_of(userList.begin(), userList.end(), [name](User *user) {
-            return name == user->fullname() || name == user->name();
+        auto ret = std::any_of(userList.begin(), userList.end(), [trimmedName](User *user) {
+            return trimmedName == user->fullname() || trimmedName == user->name();
         });
         /* 与已有的用户全名和用户名进行重复性校验 */
         if (ret) {
@@ -820,8 +821,8 @@ QString AccountsController::checkFullname(const QString &name)
         }
 
         QList<QString> groupList = m_model->getAllGroups();
-        ret = std::any_of(groupList.begin(), groupList.end(), [name](const QString &group) {
-            return name == group;
+        ret = std::any_of(groupList.begin(), groupList.end(), [trimmedName](const QString &group) {
+            return trimmedName == group;
         });
         if (ret) {
             alertMsg = tr("The full name has been used by other user accounts");
