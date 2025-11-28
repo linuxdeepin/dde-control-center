@@ -1,3 +1,9 @@
+dde-control-center (6.1.60) unstable; urgency=medium
+
+  * i18n: Updates for project Deepin Desktop Environment (#2840)
+
+ -- wjyrich <wujiangyu@uniontech.com>  Fri, 28 Nov 2025 10:45:26 +0800
+
 dde-control-center (6.1.59) unstable; urgency=medium
 
   * fix: adjust clear cloud data button font size
