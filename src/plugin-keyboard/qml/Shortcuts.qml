@@ -103,7 +103,7 @@ DccObject {
                     D.Button {
                         id: button
                         focusPolicy: Qt.NoFocus
-                        visible: parent.section === qsTr("Custom")
+                        visible: parent.section === qsTranslate("dccV25::ShortcutModel", "Custom")
                         checkable: true
                         checked: shortcutSettingsBody.isEditing
                         Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
