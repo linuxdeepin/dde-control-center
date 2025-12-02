@@ -248,8 +248,16 @@ DccObject {
         pageType: DccObject.Editor
         backgroundType: DccObject.Normal
         page: Switch {
+            id: bootDelaySwitch
             Layout.alignment: Qt.AlignRight
             checked: dccData.mode().bootDelay
+
+            Connections {
+                target: dccData.mode()
+                function onBootDelayChanged() {
+                    bootDelaySwitch.checked = dccData.mode().bootDelay
+                }
+            }
 
             onCheckedChanged: {
                 if (dccData.mode().bootDelay != checked) {

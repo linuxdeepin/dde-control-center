@@ -219,6 +219,10 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
 
     connect(m_commonInfoProxy, &CommonInfoProxy::resetGrubEditAuthEnabled, this, &CommonInfoWork::resetEditAuthEnabled);
 
+    connect(m_commonInfoProxy, &CommonInfoProxy::resetBootDelay, this, [=](){
+        Q_EMIT m_commomModel->bootDelayChanged(m_commomModel->bootDelay());
+    });
+
     connect(m_commonInfoProxy, &CommonInfoProxy::DeveloperModeChanged, m_commomModel, &CommonInfoModel::setIsDeveloperMode);
 }
 
