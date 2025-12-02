@@ -198,7 +198,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation>将要录入的手指放入指纹录入器里面饼从下往上移动手指,完成动作后请抬起您的手指</translation>
+        <translation>将要录入的手指放入指纹录入器里面，并从下往上移动手指，完成动作后请抬起您的手指</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
