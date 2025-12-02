@@ -66,6 +66,10 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
             &SystemInfoDBusProxy::ShortDateFormatChanged,
             this,
             &SystemInfoWork::onShortDateFormatChanged);
+    connect(Dtk::Gui::DGuiApplicationHelper::instance(),
+            &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
+            this,
+            &SystemInfoWork::onThemeTypeChanged);
 
 
     updateFrequency(false);
@@ -136,18 +140,7 @@ void SystemInfoWork::activate()
     // 用户体验计划内容
     m_model->setJoinUeProgram(isUeProgramEnabled());
 
-    http = IS_COMMUNITY_SYSTEM ? tr("https://www.deepin.org/en/agreement/privacy/") : tr("https://www.uniontech.com/agreement/experience-en");
-    if (IS_COMMUNITY_SYSTEM) {
-        text = tr("<p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
-                  "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
-                  "For details, please refer to Deepin Privacy Policy (<a href=\"%1\"> %1</a>).</p>")
-               .arg(http);
-    } else {
-        text = tr("<p>Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
-                  "If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit <a href=\"%1\"> %1</a>.</p>")
-               .arg(http);
-    }
-    m_model->setUserExperienceProgramText(text);
+    updateUserExperienceProgramText();
 
     m_model->setShowDetail(true);
 
@@ -165,6 +158,37 @@ void SystemInfoWork::activate()
     initUserLicenseData();
 
     initSystemCopyright();
+}
+
+void SystemInfoWork::updateUserExperienceProgramText()
+{
+    if (!m_model)
+        return;
+
+    QString http = IS_COMMUNITY_SYSTEM ? tr("https://www.deepin.org/en/agreement/privacy/")
+                                       : tr("https://www.uniontech.com/agreement/experience-en");
+
+    // 根据当前主题选择普通文本颜色：浅色主题用半透明黑，深色主题用半透明白
+    auto themeType = Dtk::Gui::DGuiApplicationHelper::instance()->themeType();
+    const QString normalColor = themeType == Dtk::Gui::DGuiApplicationHelper::DarkType
+            ? QStringLiteral("#B3FFFFFF")
+            : QStringLiteral("#64000000");
+
+    QString text;
+    if (IS_COMMUNITY_SYSTEM) {
+        text = tr("<p><span style=\"color:%2;\">Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
+                   "If you refuse our collection and use of the aforementioned information, do not join User Experience Program. "
+                   "For details, please refer to Deepin Privacy Policy (</span><a href=\"%1\" style=\"text-decoration: none;\">%1</a><span style=\"color:%2;\">).</span></p>")
+                .arg(http)
+                .arg(normalColor);
+    } else {
+        text = tr("<p><span style=\"color:%2;\">Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. "
+                   "If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit </span><a href=\"%1\" style=\"text-decoration: none;\">%1</a><span style=\"color:%2;\">.</span></p>")
+                .arg(http)
+                .arg(normalColor);
+    }
+
+    m_model->setUserExperienceProgramText(text);
 }
 
 void SystemInfoWork::deactivate() { }
@@ -449,6 +473,11 @@ void SystemInfoWork::onTimezoneChanged(const QString)
 void SystemInfoWork::onShortDateFormatChanged(const int)
 {
     m_model->setSystemInstallationDate(getSystemInstallDate(m_systemInfDBusProxy->shortDateFormat(), m_systemInfDBusProxy->timezone()));
+}
+
+void SystemInfoWork::onThemeTypeChanged()
+{
+    updateUserExperienceProgramText();
 }
 
 bool SystemInfoWork::isUeProgramEnabled()

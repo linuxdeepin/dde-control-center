@@ -55,9 +55,11 @@ public Q_SLOTS:
     void onTimezoneChanged(const QString timezone);
     void onShortDateFormatChanged(const int shortDateFormate);
     void onLicenseAuthorizationProperty();
+    void onThemeTypeChanged();
 
 private:
     void getLicenseState();
+    void updateUserExperienceProgramText();
 
 private:
     SystemInfoModel *m_model;
