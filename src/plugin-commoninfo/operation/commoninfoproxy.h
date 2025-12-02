@@ -95,11 +95,13 @@ Q_SIGNALS: // SIGNALS
     // reset signals
     void resetEnableTheme();
     void resetGrubEditAuthEnabled();
+    void resetBootDelay();
 
 private Q_SLOTS:
     void onDeepinIdError(const int code, const QString &msg);
     void onACLError(quint32 exitCode);
     void onLicenseStateChanged();
+    void onSetTimeoutError(const QDBusError &error);
 
 private:
     DDBusInterface *m_grubInter;

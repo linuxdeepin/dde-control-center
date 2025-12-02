@@ -227,7 +227,9 @@ uint CommonInfoProxy::Timeout()
 
 void CommonInfoProxy::setTimeout(const uint timeout)
 {
-    m_grubInter->asyncCallWithArgumentList("SetTimeout", { timeout });
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(timeout);
+    m_grubInter->callWithCallback(QStringLiteral("SetTimeout"), argumentList, this, nullptr, SLOT(onSetTimeoutError(QDBusError)));
 }
 
 QStringList CommonInfoProxy::EnabledUsers()
@@ -360,4 +362,10 @@ void CommonInfoProxy::onLicenseStateChanged()
 {
     const auto state = AuthorizationState();
     Q_EMIT AuthorizationStateChanged(state);
+}
+
+void CommonInfoProxy::onSetTimeoutError(const QDBusError &error)
+{
+    Q_UNUSED(error);
+    Q_EMIT resetBootDelay();
 }
