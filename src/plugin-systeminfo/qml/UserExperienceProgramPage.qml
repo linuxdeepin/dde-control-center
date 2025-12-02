@@ -62,12 +62,15 @@ DccObject {
         pageType: DccObject.Item
         page: D.Label {
             id: userExperienceLabel
-            anchors.fill: parent
-            anchors.margins: 10
-            font: DTK.fontManager.t6
+            leftPadding: 10
+            rightPadding: 10
+            topPadding: 10
+            bottomPadding: 10
+            font: D.DTK.fontManager.t6
             horizontalAlignment: Text.AlignLeft
             wrapMode: Text.WordWrap
-            opacity: 0.7
+            textFormat: Text.RichText
+            width: parent ? parent.width : implicitWidth
             text: dccData.systemInfoMode().userExperienceProgramText
 
             property string currentLinkUrl: ""
