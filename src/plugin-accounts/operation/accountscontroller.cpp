@@ -182,6 +182,7 @@ void AccountsController::deleteUserIcon(const QString &id, const QString &iconFi
     if (local.isEmpty())
         return;
     m_worker->deleteUserIcon(user, local);
+    Q_EMIT avatarChanged(id, user->currentAvatar());
 }
 
 void AccountsController::cleanupTempPreviewFiles(const QStringList &files)

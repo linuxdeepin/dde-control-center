@@ -278,6 +278,15 @@ D.DialogWindow {
                     let icons = dccData.avatars(dialog.userId, scrollView.filter, "")
                     return icons.length <= 1
                 }
+
+                Connections {
+                    target: dccData
+                    function onAvatarChanged(userId, avatar) {
+                        if (userId === dialog.userId && scrollView.isCustom) {
+                            customEmptyAvatar.visible = customEmptyAvatar.needShow()
+                        }
+                    }
+                }
             }
 
             ScrollView {
