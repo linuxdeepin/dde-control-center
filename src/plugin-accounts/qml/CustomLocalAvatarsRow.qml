@@ -205,7 +205,6 @@ Item {
                         if (typeof dccData.deleteUserIcon === 'function') {
                             dccData.deleteUserIcon(root.userId, modelData)
                         }
-                        root.refresh()
                     }
                 }
             }
