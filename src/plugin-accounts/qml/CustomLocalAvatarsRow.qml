@@ -12,6 +12,7 @@ Item {
     property string userId
     property string filter: "icons/local"
     property string currentAvatar
+    property string previewUrl: ""
 
     signal requireFileDialog()
 
@@ -19,18 +20,18 @@ Item {
     width: parent ? parent.width : 460
 
     Component.onCompleted: {
-        // 只有在当前没有有效的 currentAvatar 时才设置默认值
-        // 避免覆盖从 dialog.currentAvatar 绑定过来的系统头像
-        if (!root.currentAvatar || root.currentAvatar.length === 0) {
+        const currentNoQuery = (root.currentAvatar || "").toString().replace("file://", "")
+        const isCustom = currentNoQuery.indexOf("/local/") >= 0 || currentNoQuery.indexOf("/avatars/") >= 0
+        
+        if (isCustom) {
+            // For custom avatars, try to get from cache
             const cached = dccData.customAvatarFromCache()
             if (cached && cached.length > 0) {
                 root.currentAvatar = cached
-            } else {
-                const icons = dccData.avatars(root.userId, root.filter, "")
-                if (icons && icons.length > 1)
-                    root.currentAvatar = icons[1]
             }
         }
+        // For system avatars, keep the original currentAvatar value from dialog
+        
         const tmp = row.icons
         row.icons = []
         Qt.callLater(function(){ row.icons = tmp })
@@ -117,7 +118,14 @@ Item {
 
                         Image {
                             id: img
-                            source: modelData && !delegate.isAddButton ? modelData : ""
+                            source: {
+                                if (delegate.isAddButton) return ""
+                                if (delegate.isSelected && root.previewUrl.length > 0) {
+                                    return root.previewUrl
+                                }
+                                return modelData || ""
+                            }
+                            cache: false
                             width: parent.width
                             height: parent.height
                             fillMode: Image.PreserveAspectCrop
@@ -223,7 +231,7 @@ Item {
             const existsNoQuery = row.allIcons.some(function(p){ return (p||"") === curNoQuery })
             if (!existsNoQuery) root.currentAvatar = ""
         }
-        root.currentAvatar = dccData.customAvatarFromCache() || root.currentAvatar
+        // Don't override currentAvatar from cache during refresh
         const tmp = row.icons
         row.icons = []
         Qt.callLater(function(){ row.icons = tmp })

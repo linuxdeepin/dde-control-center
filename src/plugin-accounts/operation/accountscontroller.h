@@ -98,6 +98,7 @@ public slots:
 
     QString customAvatarFromCache() const;
     void deleteUserIcon(const QString &id, const QString &iconFile);
+    void cleanupTempPreviewFiles(const QStringList &files);
 
 signals:
     void currentUserNameChanged();

@@ -1071,5 +1071,15 @@ QString AccountsWorker::saveCustomAvatar(const QString &tempFile, const QString 
         }
     }
 
+    if (replacingExisting) {
+        const QString markerFile = avatarsDir + QDir::separator() + "current";
+        QFile mf(markerFile);
+        if (mf.open(QIODevice::WriteOnly | QIODevice::Text | QIODevice::Truncate)) {
+            const QString fileName = QFileInfo(targetFile).fileName();
+            mf.write(fileName.toUtf8());
+            mf.close();
+        }
+    }
+
     return QUrl::fromLocalFile(targetFile).toString();
 }
