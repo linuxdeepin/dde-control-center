@@ -200,6 +200,7 @@ set(Test_Libraries
 )
 
 set(DCC_FRAME_Library dde-control-center_frame)
+set(Enable_TreelandSupport ON CACHE BOOL "Enable Treeland Support")
 
 add_subdirectory(src/dde-control-center)
 #-----------------------shared-utils------------------------

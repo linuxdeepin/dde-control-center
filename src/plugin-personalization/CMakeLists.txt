@@ -6,8 +6,6 @@ if(Qt6_VERSION VERSION_GREATER_EQUAL 6.10)
   find_package(Qt6 COMPONENTS WaylandClientPrivate REQUIRED)
 endif()
 
-set(Enable_TreelandSupport ON CACHE BOOL "Enable Treeland Support")
-
 if (Enable_TreelandSupport)
 find_package(TreelandProtocols REQUIRED)
 endif()

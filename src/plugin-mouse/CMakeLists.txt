@@ -1,5 +1,15 @@
 if (BUILD_PLUGIN)
+
     set(Mouse_Name mouse)
+    find_package(Qt6 REQUIRED COMPONENTS WaylandClient)
+    if(Qt6_VERSION VERSION_GREATER_EQUAL 6.10)
+        find_package(Qt6 COMPONENTS WaylandClientPrivate REQUIRED)
+    endif()
+
+    if (Enable_TreelandSupport)
+    find_package(TreelandProtocols REQUIRED)
+    endif()
+
     file(GLOB_RECURSE mouse_SRCS
         "operation/*.cpp"
         "operation/qrc/mouse.qrc"
@@ -12,6 +22,14 @@ if (BUILD_PLUGIN)
         ${mouse_SRCS}
     )
 
+    if (Enable_TreelandSupport)
+    qt6_generate_wayland_protocol_client_sources(${Mouse_Name} FILES
+        ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-personalization-manager-v1.xml
+    )
+
+    target_compile_definitions(${Mouse_Name} PRIVATE Enable_Treeland)
+    endif()
+
     set(mouse_Includes
         src/plugin-mouse/operation
     )
@@ -20,6 +38,7 @@ if (BUILD_PLUGIN)
         ${DTK_NS}::Gui
         ${QT_NS}::DBus
         ${QT_NS}::Qml
+        ${QT_NS}::WaylandClientPrivate
         # PkgConfig::QGSettings
     )
     target_include_directories(${Mouse_Name} PUBLIC

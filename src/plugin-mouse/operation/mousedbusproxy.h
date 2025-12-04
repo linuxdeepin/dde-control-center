@@ -44,6 +44,10 @@ public Q_SLOTS:
     void setPalmMinz(int palmMinz);
     void setTouchpadEnabled(bool state);
 
+    // appearance
+    void setCursorSize(const int cursorSize);
+    void listCursor();
+
     // redpoint settings
     void setTrackPointMotionAcceleration(const double &value);
 
@@ -57,6 +61,7 @@ public Q_SLOTS:
     void onTrackpointPathPropertiesChanged(QDBusMessage msg);
     void onInputDevicesPathPropertiesChanged(QDBusMessage msg);
     void onGesturePropertiesChanged(QDBusMessage msg);
+    void onAppearancePropertiesChanged(QDBusMessage msg);
 
 private:
     MouseWorker  *m_worker;
@@ -71,10 +76,8 @@ private:
     QDBusInterface *m_dbusTrackPoint;
     QDBusInterface *m_dbusDevices;
     QDBusInterface *m_dbusGesture;
-
+    QDBusInterface *m_appearance;
 };
 }
-
-
 
 #endif // MOUSEWORKER_H

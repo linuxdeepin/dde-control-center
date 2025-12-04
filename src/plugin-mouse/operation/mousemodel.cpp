@@ -29,6 +29,7 @@ MouseModel::MouseModel(QObject *parent)
     , m_palmMinWidth(1)
     , m_palmMinz(100)
     , m_scrollSpeed(1)
+    , m_cursorSize(24)
     , m_gestureFingerAniPath("")
     , m_gestureActionAniPath("")
     , m_themeType(Dtk::Gui::DGuiApplicationHelper::instance()->themeType())
@@ -251,6 +252,20 @@ void MouseModel::setScrollSpeed(int speed)
                               Qt::QueuedConnection,
                               Q_ARG(int, m_scrollSpeed));
     Q_EMIT scrollSpeedChanged(speed);
+}
+
+void MouseModel::setCursorSize(int cursorSize)
+{
+    if (m_cursorSize == cursorSize)
+        return;
+
+    m_cursorSize = cursorSize;
+
+    QMetaObject::invokeMethod(m_worker,
+                              "onCursorSizeChanged",
+                              Qt::QueuedConnection,
+                              Q_ARG(int, m_cursorSize));
+    Q_EMIT cursorSizeChanged(cursorSize);
 }
 
 void MouseModel::updateGesturesData(const GestureData &gestureData)

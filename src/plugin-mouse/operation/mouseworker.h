@@ -5,10 +5,11 @@
 #define MOUSEWORKER_H
 
 #include "mousemodel.h"
+#include "treelandworker.h"
 
 #include <QObject>
 
-
+using namespace DCC_MOUSE;
 namespace DCC_NAMESPACE {
 class MouseWorker : public QObject
 {
@@ -42,6 +43,8 @@ public Q_SLOTS:
     void setPalmMinz(int palmMinz);
     void setScrollSpeed(uint speed);
     void setGestureData(const GestureData &data);
+    void setCursorSize(const int cursorSize);
+    void setAvailableCursorSizes(QList<int> sizes);
 
     void onLeftHandStateChanged(const bool state);
     void onMouseNaturalScrollStateChanged(const bool state);
@@ -59,6 +62,7 @@ public Q_SLOTS:
     void onPalmMinzChanged(int palmMinz);
     void onScrollSpeedChanged(int speed);
     void onTouchpadEnabledChanged(const bool state);
+    void onCursorSizeChanged(const int cursorSize);
 
 Q_SIGNALS:
     void requestSetPalmDetect(bool palmDetect);
@@ -78,6 +82,7 @@ Q_SIGNALS:
     void requestSetTrackPointMotionAcceleration(const double &value);
     void requestSetTouchpadEnabled(const bool state);
     void requestSetGesture(const QString& name, const QString& direction, int fingers, const QString& action);
+    void requestSetCursorSize(const int cursorSize);
 
 private:
     int converToDouble(int value);
@@ -87,9 +92,8 @@ private:
 
 private:
     MouseModel *m_model;
+    TreeLandWorker *m_treelandWorker;
 };
 }
-
-
 
 #endif // MOUSEWORKER_H

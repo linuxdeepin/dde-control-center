@@ -11,9 +11,13 @@ const QString Service = "org.deepin.dde.InputDevices1";
 MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
+    , m_treelandWorker(new TreeLandWorker(this))
 {
-    MouseDBusProxy* proxy = new MouseDBusProxy(this, this);
+    MouseDBusProxy *proxy = new MouseDBusProxy(this, this);
     QMetaObject::invokeMethod(proxy, "active", Qt::QueuedConnection);
+#ifdef Enable_Treeland
+    m_treelandWorker->active();
+#endif
 }
 
 void MouseWorker::initFingerGestures()
@@ -121,6 +125,16 @@ void MouseWorker::setGestureData(const GestureData &data)
     m_model->updateGesturesData(data);
 }
 
+void MouseWorker::setCursorSize(const int cursorSize)
+{
+    m_model->setCursorSize(cursorSize);
+}
+
+void MouseWorker::setAvailableCursorSizes(QList<int> sizes)
+{
+    m_model->setAvailableCursorSizes(sizes);
+}
+
 void MouseWorker::onPalmDetectChanged(bool palmDetect)
 {
     Q_EMIT requestSetPalmDetect(palmDetect);
@@ -144,6 +158,17 @@ void MouseWorker::onScrollSpeedChanged(int speed)
 void MouseWorker::onTouchpadEnabledChanged(const bool state)
 {
     Q_EMIT requestSetTouchpadEnabled(state);
+}
+
+void MouseWorker::onCursorSizeChanged(const int cursorSize)
+{
+    Q_EMIT requestSetCursorSize(cursorSize);
+#ifdef Enable_Treeland
+    if (Dtk::Gui::DGuiApplicationHelper::testAttribute(
+                Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform)) {
+        m_treelandWorker->setCursorSize(cursorSize);
+    }
+#endif
 }
 
 void MouseWorker::onLeftHandStateChanged(const bool state)

@@ -29,6 +29,9 @@ const QString InputDevicesInterface = "org.deepin.dde.InputDevices1";
 const QString GestureInterface = "org.deepin.dde.Gesture1";
 const QString GesturePath = "/org/deepin/dde/Gesture1";
 const QString GestureService = "org.deepin.dde.Gesture1";
+const QString AppearanceService = "org.deepin.dde.Appearance1";
+const QString AppearancePath = "/org/deepin/dde/Appearance1";
+const QString AppearanceInterface = "org.deepin.dde.Appearance1";
 
 MouseDBusProxy::MouseDBusProxy(MouseWorker *worker, QObject *parent)
     : QObject(parent)
@@ -92,6 +95,10 @@ void MouseDBusProxy::active()
     QVariant gestureInfos = m_dbusGestureProperties->call("Get", GestureInterface, "Infos").arguments().at(0).value<QDBusVariant>().variant();
     parseGesturesData(qvariant_cast<QDBusArgument>(gestureInfos));
     m_worker->initFingerGestures();
+
+    listCursor();
+    auto cursorSize = m_appearance->property("CursorSize").toInt();
+    m_worker->setCursorSize(cursorSize);
 }
 
 void MouseDBusProxy::deactive()
@@ -140,6 +147,14 @@ void MouseDBusProxy::init()
                                           this,
                                           SLOT(onGesturePropertiesChanged(QDBusMessage)));
 
+    QDBusConnection::sessionBus().connect(AppearanceService,
+                                          AppearancePath,
+                                          PropertiesInterface,
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this,
+                                          SLOT(onAppearancePropertiesChanged(QDBusMessage)));
+
     // 初始化dbus接口
     m_dbusMouseProperties = new QDBusInterface(Service,
                                                MousePath,
@@ -161,6 +176,11 @@ void MouseDBusProxy::init()
                                                  GesturePath,
                                                  PropertiesInterface,
                                                  QDBusConnection::sessionBus());
+                                                
+    m_appearance = new QDBusInterface(AppearanceService,
+                                      AppearancePath,
+                                      AppearanceInterface,
+                                      QDBusConnection::sessionBus());
 
     m_dbusMouse = new QDBusInterface(Service, MousePath, MouseInterface, QDBusConnection::sessionBus());
     m_dbusTouchPad = new QDBusInterface(Service,
@@ -229,6 +249,7 @@ void MouseDBusProxy::init()
             &MouseDBusProxy::setTouchpadEnabled);
 
     connect(m_worker, &MouseWorker::requestSetGesture, this, &MouseDBusProxy::setGesture);
+    connect(m_worker, &MouseWorker::requestSetCursorSize, this, &MouseDBusProxy::setCursorSize);
 }
 
 void MouseDBusProxy::parseGesturesData(const QDBusArgument &argument)
@@ -380,6 +401,11 @@ void MouseDBusProxy::setTouchpadEnabled(bool state)
     m_dbusTouchPad->asyncCallWithArgumentList("Enable", { state });
 }
 
+void MouseDBusProxy::setCursorSize(const int cursorSize)
+{
+    m_appearance->setProperty("CursorSize", QVariant::fromValue(cursorSize));
+}
+
 void MouseDBusProxy::setTrackPointMotionAcceleration(const double &value)
 {
     m_dbusTrackPointProperties->call("Set", TrackpointInterface, "MotionAcceleration", value);
@@ -515,4 +541,59 @@ void MouseDBusProxy::onGesturePropertiesChanged(QDBusMessage msg)
             }
         }
     }
+}
+
+void MouseDBusProxy::onAppearancePropertiesChanged(QDBusMessage msg)
+{
+    QList<QVariant> arguments = msg.arguments();
+    if (3 != arguments.count()) {
+        return;
+    }
+    QString interfaceName = msg.arguments().at(0).toString();
+    if (interfaceName == AppearanceInterface) {
+        QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+        QStringList keys = changedProps.keys();
+        for (int i = 0; i < keys.size(); i++) {
+            if (keys.at(i) == "CursorSize") {
+                int cursorSize = changedProps.value(keys.at(i)).toInt();
+                m_worker->setCursorSize(cursorSize);
+            } else if (keys.at(i) == "CursorTheme") {
+                listCursor();
+            }
+        }
+    }
+}
+
+void MouseDBusProxy::listCursor()
+{
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(
+        m_appearance->asyncCall("List", "cursor"), this);
+        
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [=](){
+        QDBusPendingReply<QString> reply = *watcher;
+        if (!reply.isError()) {
+            QString cursorTheme =  m_appearance->property("CursorTheme").toString();
+            QJsonDocument document = QJsonDocument::fromJson(reply.value().toUtf8());
+            auto array = document.array();
+            for (int i = 0; i < array.size(); ++i) {
+                QJsonValue value = array.at(i);
+                if (value.isObject()) {
+                    QJsonObject object = value.toObject();
+                    QString name = object.value("Id").toString();
+                    if (name == cursorTheme) {
+                        auto availableSizesValue = object.value("AvailableSize").toArray();
+                        QList<int> availableSizes;
+                        for (const auto &size : availableSizesValue) {
+                            availableSizes.append(size.toInt(-1));
+                        }
+                        m_worker->setAvailableCursorSizes(availableSizes);
+                        break;
+                    }
+                }
+            }
+        } else {
+            qWarning() << "asyncCall list cursor failed:" << reply.error();
+        }
+        watcher->deleteLater();
+    });
 }

@@ -48,6 +48,14 @@
         <file>icons/light/ToggleNotifications.webp</file>
         <file>icons/dark/Three_finger_tap_ani.webp</file>
         <file>icons/dark/Three_finger_up_ani.webp</file>
+        <file>icons/light/mouse_cursor_size_big.png</file>
+        <file>icons/light/mouse_cursor_size_largest.png</file>
+        <file>icons/light/mouse_cursor_size_medium.png</file>
+        <file>icons/light/mouse_cursor_size_small.png</file>
+        <file>icons/dark/mouse_cursor_size_big.png</file>
+        <file>icons/dark/mouse_cursor_size_largest.png</file>
+        <file>icons/dark/mouse_cursor_size_medium.png</file>
+        <file>icons/dark/mouse_cursor_size_small.png</file>
     </qresource>
     <qresource prefix="/mouse">
         <file>double_test/bow_head/bow_head_00001.png</file>

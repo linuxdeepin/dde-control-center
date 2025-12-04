@@ -91,71 +91,131 @@ DccObject {
             }
         }
     }
+
     DccObject {
         name: "PointerSize"
         parentName: "MouseAndTouchpadMouse"
         displayName: qsTr("Pointer Size")
         weight: 30
-        visible: false
-        backgroundType: DccObject.Normal
         pageType: DccObject.Item
-        page: RowLayout {
-            ColumnLayout {
-                Label {
-                    enabled: false
-                    id: doubleClickText
-                    Layout.topMargin: 10
-                    font: D.DTK.fontManager.t6
-                    text: dccObj.displayName
-                    Layout.leftMargin: 14
-                }
-                D.TipsSlider {
-                    id: doubleClickSlider
-                    enabled: false
-                    readonly property var tips: [qsTr("Short"), (""), (""), (""), (""), (""), qsTr("Long")]
-                    Layout.preferredHeight: 100
-                    Layout.alignment: Qt.AlignCenter
-                    Layout.margins: 10
-                    Layout.fillWidth: true
-                    tickDirection: D.TipsSlider.TickDirection.Back
-                    slider.handleType: Slider.HandleType.ArrowBottom
-                    slider.value: dccData.scrollSpeed
-                    slider.from: 200
-                    slider.to: 800
-                    slider.live: true
-                    slider.stepSize: 100
-                    slider.snapMode: Slider.SnapAlways
-                    ticks: [
-                        D.SliderTipItem {
-                            text: doubleClickSlider.tips[0]
-                            // highlight: doubleClickSlider.slider.value === 1
-                        },
-                        D.SliderTipItem {
-                            text: doubleClickSlider.tips[1]
-                        },
-                        D.SliderTipItem {
-                            text: doubleClickSlider.tips[2]
-                        },
-                        D.SliderTipItem {
-                            text: doubleClickSlider.tips[3]
-                        },
-                        D.SliderTipItem {
-                            text: doubleClickSlider.tips[4]
-                        },
-                        D.SliderTipItem {
-                            text: doubleClickSlider.tips[5]
-                        },
-                        D.SliderTipItem {
-                            text: doubleClickSlider.tips[6]
+        backgroundType: DccObject.Normal
+        visible: pointerConfig.showPointerSize !== "Hidden"
+        enabled: pointerConfig.showPointerSize === "Enabled"
+        page: ColumnLayout {
+            anchors.fill: parent
+            Label {
+                Layout.topMargin: 10
+                text: dccObj.displayName
+                Layout.leftMargin: 14
+            }
+
+            Flow {
+                id: listview
+                Layout.fillWidth: true
+                Layout.bottomMargin: 10
+                Layout.leftMargin: 10
+                property var tips: [qsTr("Small"), qsTr("Medium"), qsTr("Large"), qsTr("X-Large")]
+                property var icons: ["mouse_cursor_size_small.png", "mouse_cursor_size_medium.png", "mouse_cursor_size_big.png", "mouse_cursor_size_largest.png"]
+                property var availables: [false, false, false, false]
+                property var availableSizes: [-1, -1, -1, -1]
+                property var availableSizesModel: dccData.availableCursorSizes
+
+                onAvailableSizesModelChanged: {
+                    availableSizes = [-1, -1, -1, -1]
+                    availables = [false, false, false, false]
+                    for (let i = 0; i < availableSizesModel.length; i++) {
+                        let size = availableSizesModel[i]
+                        // 1: (0,28], 2:(28,40], 3:(40,60], 4:(60,128] 加绝对值最接近的那个
+                        if (size > 0 && size <= 28 && Math.abs(24 - size) < Math.abs(24 - availableSizes[0])) {
+                            availableSizes[0] = size
+                            availables[0] = true
+                        } else if (size > 28 && size <= 40 && Math.abs(32 - size) < Math.abs(32 - availableSizes[1])) {
+                            availableSizes[1] = size
+                            availables[1] = true
+                        } else if (size > 40 && size <= 60 && Math.abs(48 - size) < Math.abs(48 - availableSizes[2])) {
+                            availableSizes[2] = size
+                            availables[2] = true
+                        } else if (size > 60 && size <= 128 && Math.abs(72 - size) < Math.abs(72 - availableSizes[3])) {
+                            availableSizes[3] = size
+                            availables[3] = true
                         }
-                    ]
-                    slider.onValueChanged: {
-                        dccData.doubleSpeed = slider.value
+                    }
+                }
+
+                spacing: 8
+                Repeater {
+                    model: listview.tips.length
+                    ColumnLayout {
+                        id: layout
+                        visible: listview.availables[index]
+                        property bool checked: {
+                            let cutCursorSize = dccData.cursorSize
+                            if (index === 0 && cutCursorSize > 0 && cutCursorSize <= 28) {
+                                return true
+                            } else if (index === 1 && cutCursorSize > 28 && cutCursorSize <= 40) {
+                                return true
+                            } else if (index === 2 && cutCursorSize > 40 && cutCursorSize <= 60) {
+                                return true
+                            } else if (index === 3 && cutCursorSize > 60 && cutCursorSize <= 128) {
+                                return true
+                            }
+                            return false
+                        }
+                        width: 112
+                        height: 104
+                        Item {
+                            Layout.preferredHeight: 78
+                            Layout.fillWidth: true
+
+                            Rectangle {
+                                anchors.fill: parent
+                                color: "transparent"
+                                border.width: 2
+                                border.color: layout.checked ? D.DTK.platformTheme.activeColor : "transparent"
+                                radius: 7
+                                Control {
+                                    id: iconControl
+                                    anchors.fill: parent
+                                    anchors.margins: 4
+                                    
+                                    contentItem: Image {
+                                        sourceSize: Qt.size(width, height)
+                                        source: "qrc:/icons/deepin/builtin/icons/" + (D.DTK.themeType === D.ApplicationHelper.LightType ? "light/" : "dark/") + listview.icons[index]
+                                    }
+                                }
+                            }
+                            MouseArea {
+                                anchors.fill: parent
+                                onClicked: {
+                                    console.warn("set cursor size:", listview.availableSizes[index])
+                                    if (dccData.cursorSize === listview.availableSizes[index]) {
+                                        return
+                                    }
+                                    dccData.cursorSize = listview.availableSizes[index];
+                                }
+                            }
+                        }
+
+                        Text {
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+                            text: listview.tips[index]
+                            horizontalAlignment: Text.AlignHCenter
+                            verticalAlignment: Text.AlignVCenter
+                            color: layout.checked ? D.DTK.platformTheme.activeColor : this.palette.windowText
+                        }
                     }
                 }
             }
         }
     }
+
+    D.Config {
+        id: pointerConfig
+        name: "org.deepin.dde.control-center.mouse"
+        property string showPointerSize: "Enabled"
+    }
+
     DccObject {
         name: "MouseSettings"
         parentName: "MouseAndTouchpadMouse"
