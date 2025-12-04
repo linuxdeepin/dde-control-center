@@ -39,6 +39,8 @@ public:
     Q_PROPERTY(QString gestureFingerAniPath READ getGestureFingerAniPath NOTIFY gestureFingerAniPathChanged FINAL)
     Q_PROPERTY(QString gestureActionAniPath READ getGestureActionAniPath NOTIFY gestureActionAniPathChanged FINAL)
     Q_PROPERTY(bool touchpadSwitchFileExists READ touchpadSwitchFileExists FINAL)
+    Q_PROPERTY(int cursorSize READ cursorSize WRITE setCursorSize NOTIFY cursorSizeChanged FINAL)
+    Q_PROPERTY(QList<int> availableCursorSizes READ availableCursorSizes WRITE setAvailableCursorSizes NOTIFY availableCursorSizesChanged FINAL)
 
     inline bool leftHandState() const { return m_leftHandState; }
     void setLeftHandState(const bool state);
@@ -97,6 +99,12 @@ public:
     int scrollSpeed() const { return m_scrollSpeed; }
     void setScrollSpeed(int speed);
 
+    int cursorSize() const { return m_cursorSize; }
+    void setCursorSize(int cursorSize);
+
+    QList<int> availableCursorSizes() const { return m_availableCursorSizes; }
+    void setAvailableCursorSizes(const QList<int> sizes) { m_availableCursorSizes = sizes; }
+
     void updateGesturesData(const GestureData &gestureData);
 
     Q_INVOKABLE GestureModel *threeFingerGestureModel() const;
@@ -143,6 +151,8 @@ Q_SIGNALS:
     void tapEnabledChanged(bool tapClick);
     void scrollSpeedChanged(int speed);
     void disIfTypingChanged(bool state);
+    void cursorSizeChanged(int cursorSize);
+    void availableCursorSizesChanged(QList<int> sizes);
 
     void gestureFingerAniPathChanged();
 
@@ -170,6 +180,8 @@ private:
     int  m_palmMinWidth;
     int  m_palmMinz;
     int  m_scrollSpeed;
+    int  m_cursorSize;
+    QList<int> m_availableCursorSizes;
 
     QString m_gestureFingerAniPath;
     QString m_gestureActionAniPath;

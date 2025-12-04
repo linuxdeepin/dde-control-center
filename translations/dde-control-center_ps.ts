@@ -1889,14 +1889,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Short</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Long</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Mouse Acceleration</source>
         <translation type="unfinished"></translation>
     </message>
@@ -1906,6 +1898,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Natural Scrolling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X-Large</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2585,10 +2593,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Search shortcuts</source>
         <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation type="unfinished">دوديز</translation>
     </message>
     <message>
         <source>done</source>
@@ -3977,6 +3981,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Combine application icons</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
