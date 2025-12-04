@@ -1891,14 +1891,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Tashit tafarrut n tashit</translation>
     </message>
     <message>
-        <source>Short</source>
-        <translation>Dra</translation>
-    </message>
-    <message>
-        <source>Long</source>
-        <translation>Llal</translation>
-    </message>
-    <message>
         <source>Mouse Acceleration</source>
         <translation>Tafarrut tiswurt tennawen</translation>
     </message>
@@ -1909,6 +1901,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Natural Scrolling</source>
         <translation>Tiswurt tafayut tawer</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>X-Large</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2587,10 +2595,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Search shortcuts</source>
         <translation>Tefit tefit zefen</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>Talgu wertefit zefen</translation>
     </message>
     <message>
         <source>done</source>
