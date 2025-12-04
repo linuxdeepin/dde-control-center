@@ -184,6 +184,13 @@ void AccountsController::deleteUserIcon(const QString &id, const QString &iconFi
     m_worker->deleteUserIcon(user, local);
 }
 
+void AccountsController::cleanupTempPreviewFiles(const QStringList &files)
+{
+    for (const QString &file : files) {
+        QFile::remove(file);
+    }
+}
+
 QString AccountsController::userName(const QString &id) const
 {
     User *user = m_model->getUser(id);

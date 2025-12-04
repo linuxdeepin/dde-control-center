@@ -28,6 +28,20 @@ D.DialogWindow {
 
     signal accepted();
 
+    function cleanupTempFiles() {
+        if (cropper && typeof cropper.getTempPreviewFiles === 'function') {
+            const files = cropper.getTempPreviewFiles()
+            if (files && files.length > 0) {
+                dccData.cleanupTempPreviewFiles(files)
+                cropper.clearTempPreviewFiles()
+            }
+        }
+    }
+
+    Component.onDestruction: {
+        cleanupTempFiles()
+    }
+
     Loader {
         id: fileDlgLoader
         active: false
@@ -353,6 +367,16 @@ D.DialogWindow {
                             }
                             onCroppedImage: function(file) {
                                 dialog.currentAvatar = file
+                            }
+                            onPreviewUpdated: function(previewFile) {
+                                if (customLocalRow) {
+                                    customLocalRow.previewUrl = previewFile
+                                }
+                            }
+                            onIconSourceChanged: {
+                                if (customLocalRow) {
+                                    customLocalRow.previewUrl = ""
+                                }
                             }
                         }
 

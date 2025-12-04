@@ -13,10 +13,12 @@ Control {
     property int cropSize: 120
     property alias dragActived: imgContainter.dragActived
     property alias imgScale: img2.scale
+    property string previewUrl: ""
     width: 430
     height: 240
 
     signal croppedImage(string file)
+    signal previewUpdated(string previewFile)
 
     RowLayout {
         id: layout
@@ -156,6 +158,7 @@ Control {
                 onTriggered: {
                     boxShadow.shadowColor = palette.window
                     imgContainter.dragActived = false
+                    control.updatePreview()
                 }
             }
 
@@ -223,5 +226,32 @@ Control {
             result.saveToFile(tmp)
             if (callback) callback(tmp)
         })
+    }
+
+    property var _tempPreviewFiles: []
+
+    function updatePreview() {
+        if (!control.iconSource || control.iconSource.length < 1) {
+            control.previewUrl = ""
+            return
+        }
+        imgGrabber.grabToImage(function (result) {
+            let tmpDir = StandardPaths.writableLocation(StandardPaths.TempLocation).toString()
+            tmpDir = tmpDir.replace("file://", "")
+            const tmp = tmpDir + "/dcc_avatar_preview_" + Date.now() + ".png"
+            result.saveToFile(tmp)
+            control._tempPreviewFiles.push(tmp)
+            control.previewUrl = "file://" + tmp
+            control.previewUpdated(control.previewUrl)
+        })
+    }
+
+    function getTempPreviewFiles() {
+        return control._tempPreviewFiles
+    }
+
+    function clearTempPreviewFiles() {
+        control._tempPreviewFiles = []
+        control.previewUrl = ""
     }
 }
