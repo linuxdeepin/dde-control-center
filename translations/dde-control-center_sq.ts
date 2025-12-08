@@ -3288,7 +3288,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Emri s’mund të jetë i zbrazët</translation>
     </message>
 </context>
 <context>
