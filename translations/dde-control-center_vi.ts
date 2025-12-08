@@ -1017,19 +1017,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>https://www.uniontech.com/agreement/experience-vn</translation>
     </message>
     <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Nhập chương trình Kinh nghiệm Người dùng nghĩa là bạn cấp và ủy quyền cho chúng tôi thu thập và sử dụng thông tin của thiết bị, hệ thống và ứng dụng của bạn. Nếu bạn từ chối việc chúng tôi thu thập và sử dụng thông tin nêu trên, đừng tham gia chương trình Kinh nghiệm Người dùng. Để biết thêm chi tiết, xin vui lòng tham khảo Chính sách Bảo mật Deepin (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Nhập chương trình Kinh nghiệm Người dùng nghĩa là bạn cấp và ủy quyền cho chúng tôi thu thập và sử dụng thông tin của thiết bị, hệ thống và ứng dụng của bạn. Nếu bạn từ chối việc chúng tôi thu thập và sử dụng thông tin nêu trên, đừng tham gia chương trình. Để biết thêm chi tiết về chương trình Kinh nghiệm Người dùng, vui lòng truy cập &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</translation>
-    </message>
-    <message>
         <source>Agree and Join User Experience Program</source>
         <translation>Đồng ý và tham gia chương trình Kinh nghiệm Người dùng</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3278,6 +3278,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add a new %1 ...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The name cannot be empty</source>
         <translation type="unfinished"/>
     </message>
 </context>
