@@ -42,7 +42,10 @@ D.DialogWindow {
             }
         }
         Label {
+            Layout.fillWidth: true
             Layout.alignment: Qt.AlignHCenter
+            horizontalAlignment: Text.AlignHCenter
+            wrapMode: Text.WordWrap
             font {
                 family: D.DTK.fontManager.t5.family
                 pixelSize: D.DTK.fontManager.t5.pixelSize

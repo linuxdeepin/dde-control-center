@@ -61,10 +61,36 @@ DccObject {
             D.TipsSlider {
                 id: scrollSlider
                 readonly property var tips: [qsTr("Short"), (""), (""), (""), (""), (""), qsTr("Long")]
+                
+                property real leftTextWidth: 10
+                property real rightTextWidth: 10
+                property real dynamicLeftMargin: Math.max(10, leftTextWidth / 2)
+                property real dynamicRightMargin: Math.max(10, rightTextWidth / 2)
+                
                 Layout.preferredHeight: 90
                 Layout.alignment: Qt.AlignCenter
-                Layout.margins: 10
+                Layout.leftMargin: dynamicLeftMargin
+                Layout.rightMargin: dynamicRightMargin
+                Layout.topMargin: 10
+                Layout.bottomMargin: 10
                 Layout.fillWidth: true
+
+                TextMetrics {
+                    id: leftTextMetrics
+                    font: D.DTK.fontManager.t7
+                    text: scrollSlider.tips[0]
+                    Component.onCompleted: {
+                        scrollSlider.leftTextWidth = width
+                    }
+                }
+                TextMetrics {
+                    id: rightTextMetrics
+                    font: D.DTK.fontManager.t7
+                    text: scrollSlider.tips[scrollSlider.tips.length - 1]
+                    Component.onCompleted: {
+                        scrollSlider.rightTextWidth = width
+                    }
+                }
                 tickDirection: D.TipsSlider.TickDirection.Back
                 slider.handleType: Slider.HandleType.ArrowBottom
                 slider.value: dccData.repeatDelay
@@ -146,9 +172,39 @@ DccObject {
                     D.TipsSlider {
                         id: repeatRateSlider
                         readonly property var tips: [qsTr("Slow"), (""), (""), (""), (""), (""), qsTr("Fast")]
+                        
+                        // 动态计算左右边距
+                        property real leftTextWidth: 0
+                        property real rightTextWidth: 0
+                        property real dynamicLeftMargin: Math.max(10, leftTextWidth / 2 + 5)
+                        property real dynamicRightMargin: Math.max(10, rightTextWidth / 2 + 5)
+                        
+                        Layout.preferredHeight: 90
                         Layout.alignment: Qt.AlignCenter
-                        Layout.margins: 10
+                        Layout.leftMargin: dynamicLeftMargin
+                        Layout.rightMargin: dynamicRightMargin
+                        Layout.topMargin: 10
+                        Layout.bottomMargin: 10
                         Layout.fillWidth: true
+                        
+                        // 测量左右端文字宽度
+                        TextMetrics {
+                            id: repeatLeftTextMetrics
+                            font: D.DTK.fontManager.t7
+                            text: repeatRateSlider.tips[0] // 最左边的文字
+                            Component.onCompleted: {
+                                repeatRateSlider.leftTextWidth = width
+                            }
+                        }
+                        
+                        TextMetrics {
+                            id: repeatRightTextMetrics
+                            font: D.DTK.fontManager.t7
+                            text: repeatRateSlider.tips[repeatRateSlider.tips.length - 1] // 最右边的文字
+                            Component.onCompleted: {
+                                repeatRateSlider.rightTextWidth = width
+                            }
+                        }
                         tickDirection: D.TipsSlider.TickDirection.Back
                         slider.handleType: Slider.HandleType.ArrowBottom
                         slider.value: dccData.repeatInterval
