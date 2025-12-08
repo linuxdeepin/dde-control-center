@@ -15,6 +15,7 @@ DccObject {
     description: qsTr("System shortcut, custom shortcut")
     icon: "keyboard_fn"
     weight: parent.weight // 300
+    property int searchEditWidth: 600
     property var viewScrollbar: ScrollBar {
         width: 10
     }
@@ -68,6 +69,7 @@ DccObject {
                 Component.onCompleted: {
                     // clear
                     shortcutView.model.setFilterWildcard("");
+                    shortcutSettingsView.searchEditWidth = Qt.binding(function() { return width; });
                 }
             }
 
@@ -362,22 +364,49 @@ DccObject {
     }
 
     DccObject {
+        id: bottomAreaFoot
         name: "bottomAreaFoot"
         parentName: "shortcutSettingsView"
         weight: 40
         pageType: DccObject.Item
+        property int restoreButtonWidth: DS.Style.button.width
 
         DccObject {
             name: "bottomAreaRestoreButton"
             parentName: "bottomAreaFoot"
             pageType: DccObject.Item
             page: Button {
+                id: restoreButton
                 text: qsTr("Restore default")
+                implicitWidth: {
+                    const totalPadding = leftPadding + rightPadding
+                    const contentWidth = implicitContentWidth + totalPadding
+                    const minWidth = DS.Style.button.width
+                    const maxWidth = shortcutSettingsView.searchEditWidth / 2 - totalPadding
+                    return Math.min(Math.max(contentWidth, minWidth), maxWidth)
+                }
+                
+                Text {
+                    id: restoreHiddenText
+                    text: restoreButton.text
+                    font: restoreButton.font
+                    visible: false
+                }
+                
+                ToolTip.visible: {
+                    const contentWidth = restoreHiddenText.width + leftPadding + rightPadding
+                    return width < contentWidth && hovered
+                }
+                ToolTip.text: text
+                
                 onClicked: {
                     shortcutSettingsBody.isEditing = false
                     shortcutSettingsBody.requestRestore()
 
                     dccData.resetAllShortcuts()
+                }
+                Component.onCompleted: {
+                    bottomAreaFoot.restoreButtonWidth = Qt.binding(function() { return implicitWidth; })
                 }
             }
         }
@@ -399,6 +428,25 @@ DccObject {
                 id: addButton
                 property bool needShowDialog: false
                 text: qsTr("Add custom shortcut")
+                implicitWidth: {
+                    const totalPadding = leftPadding + rightPadding
+                    const contentWidth = implicitContentWidth + totalPadding
+                    const minWidth = DS.Style.button.width
+                    const maxWidth = shortcutSettingsView.searchEditWidth - bottomAreaFoot.restoreButtonWidth - 2*totalPadding - DS.Style.control.spacing
+                    return Math.min(Math.max(contentWidth, minWidth), maxWidth)
+                }
+
+                Text {
+                    id: hiddenText
+                    text: addButton.text
+                    font: addButton.font
+                    visible: false
+                }
+                ToolTip.visible: {
+                    const contentWidth = hiddenText.width + leftPadding + rightPadding
+                    return width < contentWidth && hovered
+                }
+                ToolTip.text: text
 
                 Loader {
                     id: loader
