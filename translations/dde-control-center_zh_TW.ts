@@ -1022,20 +1022,20 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>https://www.uniontech.com/agreement/experience-cn</translation>
     </message>
     <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;開啟使用者體驗計劃視為您授權我們收集和使用您的裝置及系統資訊，以及應用軟體資訊，您可以關閉使用者體驗計劃以拒絕我們對前述資訊的收集和使用。詳細說明請參照Deepin隱私政策 (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;)。&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;開啟使用者體驗計劃視為您授權我們收集和使用您的裝置及系統資訊，以及應用軟體資訊，您可以關閉使用者體驗計劃以拒絕我們對前述資訊的收集和使用。瞭解使用者體驗計劃，請訪問：&lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;。&lt;/p&gt;</translation>
-    </message>
-    <message>
         <source>Agree and Join User Experience Program</source>
         <translation>同意並加入使用者體驗計劃</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
         <translation>&lt;p&gt;統信軟體非常重視您的隱私。因此我們制定了涵蓋如何收集、使用、共享、轉讓、公開披露以及儲存您的資訊的隱私政策。&lt;/p&gt;&lt;p&gt;您可以&lt;a href=&quot;%1&quot;&gt;點選此處&lt;/a&gt; t檢視我們最新的隱私政策和/或通過訪問&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;線上檢視。請您務必認真閱讀、充分理解我們針對客戶隱私的做法，如果有任何疑問，請聯絡我們：%2。&lt;/p&gt;</translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3282,6 +3282,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Add a new %1 ...</source>
         <translation>新增新的%1...</translation>
+    </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
