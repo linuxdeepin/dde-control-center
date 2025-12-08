@@ -554,13 +554,7 @@ void PersonalizationWorker::requestScreenSaverConfig(const QString &name)
 
 void PersonalizationWorker::startScreenSaverPreview()
 {
-    // Directly use start for preview, which can automatically release the screensaver state after moving the mouse
-    m_personalizationDBusProxy->startScreenSaver();
-}
-
-void PersonalizationWorker::stopScreenSaverPreview()
-{
-    m_personalizationDBusProxy->stopScreenSaver();
+    m_personalizationDBusProxy->preview(m_model->getCurrentScreenSaver());
 }
 
 void PersonalizationWorker::setLockScreenAtAwake(bool value)

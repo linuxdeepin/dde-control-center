@@ -314,14 +314,9 @@ QString PersonalizationDBusProxy::getCurrentScreenSaver()
     return qvariant_cast<QString>(m_screenSaverInter->property("currentScreenSaver"));
 }
 
-void PersonalizationDBusProxy::startScreenSaver()
+void PersonalizationDBusProxy::preview(const QString &name, bool stayOn)
 {
-    m_screenSaverInter->asyncCall(QStringLiteral("Start"));
-}
-
-void PersonalizationDBusProxy::stopScreenSaver()
-{
-    m_screenSaverInter->asyncCall(QStringLiteral("Stop"));
+    m_screenSaverInter->asyncCall(QStringLiteral("Preview"), name, int32_t(stayOn));
 }
 
 void PersonalizationDBusProxy::setLinePowerScreenSaverTimeout(int value)
