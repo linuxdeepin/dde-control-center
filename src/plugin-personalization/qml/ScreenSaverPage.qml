@@ -89,6 +89,45 @@ DccObject {
                         font: previewBtn.font
                     }
                     background: P.ButtonPanel {
+                        property D.Palette background1: D.Palette {
+                            normal {
+                                common: ("#f7f7f7")
+                                crystal: Qt.rgba(0, 0, 0, 0.1)
+                            }
+                            normalDark {
+                                common: Qt.rgba(0, 0, 0, 1)
+                                crystal: Qt.rgba(0, 0, 0, 1)
+                            }
+                            hovered {
+                                common: ("#e1e1e1")
+                                crystal:  Qt.rgba(16.0 / 255, 16.0 / 255, 16.0 / 255, 0.2)
+                            }
+                            pressed {
+                                common: ("#bcc4d0")
+                                crystal: Qt.rgba(16.0 / 255, 16.0 / 255, 16.0 / 255, 0.15)
+                            }
+                        }
+
+                        property D.Palette background2: D.Palette {
+                            normal {
+                                common: ("#f0f0f0")
+                                crystal: Qt.rgba(0, 0, 0, 0.1)
+                            }
+                            normalDark {
+                                common: Qt.rgba(0, 0, 0, 1)
+                                crystal: Qt.rgba(0, 0, 0, 1)
+                            }
+                            hovered {
+                                common: ("#d2d2d2")
+                                crystal: Qt.rgba(16.0 / 255, 16.0 / 255, 16.0 / 255, 0.2)
+                            }
+                            pressed {
+                                common: ("#cdd6e0")
+                                crystal: Qt.rgba(16.0 / 255, 16.0 / 255, 16.0 / 255, 0.15)
+                            }
+                        }
+                        color1: selectValue(background1, DS.Style.checkedButton.background, background1)
+                        color2: selectValue(background2, DS.Style.checkedButton.background, background2)
                         implicitWidth: DS.Style.button.width
                         implicitHeight: DS.Style.button.height
                         button: previewBtn
