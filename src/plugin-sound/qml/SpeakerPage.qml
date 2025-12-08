@@ -166,7 +166,7 @@ DccObject {
                     implicitHeight: 24
                     from: -1
                     handleType: Slider.HandleType.ArrowBottom
-                    highlightedPassedGroove: true
+                    highlightedPassedGroove: false
                     stepSize: 0.01
                     to: 1
                     value: dccData.model().speakerBalance
