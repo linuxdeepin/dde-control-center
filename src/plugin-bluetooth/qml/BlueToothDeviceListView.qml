@@ -106,7 +106,7 @@ Rectangle {
                                         text: model.connectStatusText
                                         horizontalAlignment: Qt.AlignLeft
                                         verticalAlignment: Qt.AlignTop
-                                        font: DTK.fontManager.t10.pixelSize
+                                        font: D.DTK.fontManager.t10
                                         Layout.fillHeight: true
                                         wrapMode: Text.WordWrap
                                         maximumLineCount: 2
@@ -156,9 +156,9 @@ Rectangle {
                                     text = model.name
                                 }
                             }
-                            Keys.onPressed: {
+                            Keys.onPressed: function(event) {
                                 if (event.key === Qt.Key_Return) {
-                                    hostNameEdit.forceActiveFocus(false); // 结束编辑
+                                    nameEdit.forceActiveFocus(false); // 结束编辑
                                 }
                             }
                         }

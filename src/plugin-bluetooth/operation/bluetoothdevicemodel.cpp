@@ -52,11 +52,13 @@ void BluetoothDeviceModel::updateData(BluetoothDevice *device)
             bool isConnected = (device->state() == BluetoothDevice::StateConnected && device->connectState());
             if (isConnected && index > 0) {
                 moveToTop(device->id());
+                QModelIndex modelIndex = createIndex(0, 0);
+                emit dataChanged(modelIndex, modelIndex, {Name});
             } else if (!isConnected) {
                 reorderDevices();
             } else {
                 QModelIndex modelIndex = createIndex(index, 0);
-                emit dataChanged(modelIndex, modelIndex, {});
+                emit dataChanged(modelIndex, modelIndex, {Name});
             }
             return;
         }
