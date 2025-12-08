@@ -1017,19 +1017,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
     <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Bidrag till Användarupplevelsesprogrammet betyder att du ger och authoriserar oss att samla in och använda informationen från din enhet, system och program. Om du nekar vår samling och användning av den ovan nämnade informationen, avsluta inte Användarupplevelsesprogrammet. För detaljer, se Deepin Integritetspolicy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt; </translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Bidrag till Användarupplevelsesprogrammet betyder att du ger och authoriserar oss att samla in och använda informationen från din enhet, system och program. Om du nekar vår samling och användning av den ovan nämnade informationen, avsluta inte Användarupplevelsesprogrammet. För detaljer, besök &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt; </translation>
-    </message>
-    <message>
         <source>Agree and Join User Experience Program</source>
         <translation>Godkänn och gå med i Användarupplevelsesprogrammet</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3275,6 +3275,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add a new %1 ...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The name cannot be empty</source>
         <translation type="unfinished"/>
     </message>
 </context>
