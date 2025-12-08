@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="uk">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="uk">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -173,10 +175,12 @@ To ensure successful entry:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
+Будь ласка, зауважте, що UnionTech Software не збиратиме і не оброблятиме ваших біометричних даних, які зберігатимуться лише на вашому локальному пристрої. Будь ласка, вмикайте біометричне розпізнавання лише на вашому особистому пристрої і використовуйте ваші власні біометричні дані лише для відповідних операцій. Негайно вимикайте або вилучайте біометричні дані інших осіб на відповідному пристрої. Відповідальність за наслідки недотримання цих вимог покладається на вас. 
+UnionTech Software Technology Co, Ltd працює над вивченням і удосконаленням можливостей із захисту, точності і стабільності біометричного розпізнавання. Втім, через вплив факторів середовища, обладнання, технічних проблем та засобів керування ризиками немає гарантії безумовного проходження вами біометричного розпізнавання. Через це, не слід покладатися повністю на біометричне розпізнавання при вході до UOS. Якщо у вас є якісь питання та пропозиції щодо використання біометричного розпізнавання, ви можете надати ваш відгук за допомогою «Обслуговування і підтримки» у UOS.</translation>
     </message>
 </context>
 <context>
@@ -216,7 +220,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
@@ -265,7 +269,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
@@ -903,15 +907,15 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -980,11 +984,11 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1020,20 +1024,20 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
         <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
     <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;).&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Участь у програмі відгуків користувачів означає, що ви надаєте нам доступ до збирання і використання відомостей щодо вашого пристрою, системи та використаних програм. Якщо ви не хочете, щоб ми збирали і використовували ці дані, не беріть участь у програмі відгуків. Щоб дізнатися більше, будь ласка, ознайомтеся із Правилами конфіденційності Deepin (&lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;).&lt;/p&gt;</translation>
-    </message>
-    <message>
-        <source>&lt;p&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;Участь у програмі відгуків користувачів означає, що ви надаєте нам доступ до збирання і використання відомостей щодо вашого пристрою, системи та використаних програм. Якщо ви не хочете, щоб ми збирали і використовували ці дані, не беріть участь у програмі відгуків. Щоб дізнатися більше про програму відгуків користувачів, будь ласка, відвідайте &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;.&lt;/p&gt;</translation>
-    </message>
-    <message>
         <source>Agree and Join User Experience Program</source>
         <translation>Погодитися та приєднатися до програми досвіду користувачів</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1513,15 +1517,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1908,19 +1912,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Малий</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Великий</translation>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2060,7 +2064,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2102,11 +2106,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2634,7 +2638,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3281,6 +3285,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Add a new %1 ...</source>
         <translation>Додати новий %1…</translation>
     </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>blueTooth</name>
@@ -3347,7 +3355,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3570,7 +3578,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3885,7 +3893,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3991,7 +3999,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
