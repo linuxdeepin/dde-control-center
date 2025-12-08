@@ -48,7 +48,6 @@ public Q_SLOTS:
     void setWallpaperSlideShow(const QString &monitorName, const QString &sliderShow);
 
     void startScreenSaverPreview();
-    void stopScreenSaverPreview();
     void setLockScreenAtAwake(bool value);
     void setScreenSaverIdleTime(int value);
     void setCurrentScreenSaverPicMode(const QString &mode);

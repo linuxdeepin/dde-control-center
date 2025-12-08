@@ -102,8 +102,7 @@ public:
     void setLockScreenAtAwake(bool value);
     bool getLockScreenAtAwake();
 
-    void startScreenSaver();
-    void stopScreenSaver();
+    void preview(const QString &name, bool stayOn = true);
 
     void setLinePowerScreenSaverTimeout(int value);
     void setBatteryScreenSaverTimeout(int value);
