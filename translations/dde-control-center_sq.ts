@@ -1038,7 +1038,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Pjesëmarrja te “User Experience Program” do të thotë se na akordoni leje dhe autorizoni të grumbullojmë dhe përdorim informacion të pajisjes, sistemit dhe aplikacioneve tuaja. Nëse s’pranoni grumbullimin dhe përdorim prej nesh të informacioneve të përmendura më sipër, mos merrni pjesë në të. Për hollësi rreth “User Experience Program”, ju lutemi, vizitoni &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -1426,7 +1426,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Enter</source>
-        <translation type="unfinished"/>
+        <translation>Tasti Enter</translation>
     </message>
     <message>
         <source>Online</source>
