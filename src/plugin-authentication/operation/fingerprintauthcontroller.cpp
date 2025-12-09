@@ -54,6 +54,9 @@ FingerprintAuthController::FingerprintAuthController(CharaMangerModel *model, Ch
 
 void FingerprintAuthController::startEnroll()
 {
+    // 先刷新指纹列表，确保获取到最新的设备状态
+    m_worker->refreshFingerEnrollList(m_model->userName());
+    
     QString newFingerName;
     auto thumbList = m_model->thumbsList();
     for (const auto &predefineName : m_model->getPredefineThumbsName()) {
