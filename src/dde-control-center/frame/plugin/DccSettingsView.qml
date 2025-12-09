@@ -7,7 +7,7 @@ import QtQuick.Layouts 1.15
 import "DccUtils.js" as DccUtils
 
 Flickable {
-    id: root
+    id: control
     property real spacing: 0
     property bool isGroup: false
     property real margin: DccUtils.getMargin(width)
@@ -20,8 +20,8 @@ Flickable {
     Component {
         id: groupView
         DccGroupView {
-            isGroup: root.isGroup
-            spacing: root.spacing
+            isGroup: control.isGroup
+            spacing: control.spacing
         }
     }
     Component {
@@ -29,36 +29,35 @@ Flickable {
         DccRowView {}
     }
     Item {
-        y: root.contentY
-        height: root.height - bottomItem.height
+        y: control.contentY
+        height: control.height - bottomItem.height
         width: parent.width
         clip: true
-        Control {
+        DccLoader {
             id: centralItem
-            y: -root.contentY
-            hoverEnabled: false
+            y: -control.contentY
             focus: true
             anchors {
                 left: parent.left
                 right: parent.right
-                leftMargin: root.margin
-                rightMargin: root.margin
+                leftMargin: control.margin
+                rightMargin: control.margin
             }
         }
     }
-    Control {
+    DccLoader {
         id: bottomItem
-        implicitHeight: contentItem.implicitHeight + 10
+        height: item ? (item.implicitHeight + 10) : 0
         focus: true
         anchors {
             left: parent.left
             right: parent.right
             topMargin: 5
             bottomMargin: 5
-            leftMargin: root.margin + 10
-            rightMargin: root.margin + 10
+            leftMargin: control.margin + 10
+            rightMargin: control.margin + 10
         }
-        y: (root.contentHeight - root.contentY > root.height ? root.height - this.implicitHeight + root.contentY : root.contentHeight - this.implicitHeight)
+        y: (control.contentHeight - control.contentY > control.height ? control.height - this.height + control.contentY : control.contentHeight - this.height)
     }
     Rectangle {
         id: panel
@@ -76,22 +75,22 @@ Flickable {
         repeat: true
         running: panel.item !== undefined
         onTriggered: {
-            if (!panel.item || !panel.item.visible || !root.visible || panel.cnt > 5) {
+            if (!panel.item || !panel.item.visible || !control.visible || panel.cnt > 5) {
                 panel.visible = false
                 panel.cnt = 1
                 panel.item = undefined
                 stop()
             } else {
-                let itemY = panel.item.mapToItem(root, 0, 0).y
-                let rHeight = root.height - bottomItem.height
+                let itemY = panel.item.mapToItem(control, 0, 0).y
+                let rHeight = control.height - bottomItem.height
                 if ((itemY + panel.item.height) > rHeight) {
-                    root.contentY = itemY + panel.item.height - rHeight + root.contentY
+                    control.contentY = itemY + panel.item.height - rHeight + control.contentY
                 } else if (itemY < 0) {
-                    root.contentY = panel.item.mapToItem(groupView, 0, 0).y
+                    control.contentY = panel.item.mapToItem(groupView, 0, 0).y
                 }
 
-                panel.x = panel.item.mapToItem(root, 0, 0).x
-                panel.y = panel.item.mapToItem(root, 0, 0).y + root.contentY
+                panel.x = panel.item.mapToItem(control, 0, 0).x
+                panel.y = panel.item.mapToItem(control, 0, 0).y + control.contentY
                 panel.height = panel.item.height
                 panel.width = panel.item.width
                 panel.visible = panel.cnt & 1
@@ -117,12 +116,12 @@ Flickable {
                 return
             }
 
-            let itemY = focusItem.mapToItem(root, 0, 0).y
-            let rHeight = root.height - bottomItem.height
+            let itemY = focusItem.mapToItem(control, 0, 0).y
+            let rHeight = control.height - bottomItem.height
             if ((itemY + focusItem.height) > rHeight) {
-                root.contentY = itemY + focusItem.height - rHeight + root.contentY
+                control.contentY = itemY + focusItem.height - rHeight + control.contentY
             } else if (itemY < 0) {
-                root.contentY = focusItem.mapToItem(centralItem.contentItem, 0, 0).y
+                control.contentY = focusItem.mapToItem(centralItem.contentItem, 0, 0).y
             }
         }
     }
@@ -131,11 +130,11 @@ Flickable {
             if (!dccObj.children[0].page) {
                 dccObj.children[0].page = groupView
             }
-            centralItem.contentItem = dccObj.children[0].getSectionItem(centralItem)
+            centralItem.dccObj = dccObj.children[0]
             if (!dccObj.children[1].page) {
                 dccObj.children[1].page = footer
             }
-            bottomItem.contentItem = dccObj.children[1].getSectionItem(bottomItem)
+            bottomItem.dccObj = dccObj.children[1]
             initItem = true
         }
     }

@@ -8,7 +8,7 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 Rectangle {
-    id: root
+    id: control
     property alias model: view.model
     property alias edit: searchEdit
     signal clicked(var model)
@@ -117,7 +117,7 @@ Rectangle {
                     text: model.display ? model.display : ""
                 }
                 onClicked: {
-                    root.clicked(model)
+                    control.clicked(model)
                     popup.close()
                 }
                 background: DccItemBackground {

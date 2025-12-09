@@ -10,7 +10,6 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dcc 1.0
 
 RowLayout {
-    id: root
     objectName: "noPadding"
     Layout.fillWidth: true
     spacing: 10
@@ -19,13 +18,10 @@ RowLayout {
         model: DccModel {
             root: dccObj
         }
-        delegate: Control {
-            Layout.fillWidth: contentItem.Layout.fillWidth
-            Layout.alignment: contentItem.Layout.alignment
-            contentItem: model.item.getSectionItem(this)
-            Component.onCompleted: {
-                model.item.parentItem = this
-            }
+        delegate: DccLoader {
+            Layout.fillWidth: item.Layout.fillWidth
+            Layout.alignment: item.Layout.alignment
+            dccObj: model.item
         }
     }
 }

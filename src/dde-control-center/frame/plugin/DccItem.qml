@@ -7,7 +7,7 @@ import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 
 D.ItemDelegate {
-    id: root
+    id: control
     property alias separatorVisible: background.separatorVisible
     property alias backgroundType: background.backgroundType
     property var item: model.item
@@ -22,7 +22,9 @@ D.ItemDelegate {
     padding: 0
     font: D.DTK.fontManager.t6
 
-    contentItem: model.item.getSectionItem(this)
+    contentItem: DccLoader {
+        dccObj: model.item
+    }
     background: DccItemBackground {
         id: background
         separatorVisible: false
@@ -32,6 +34,6 @@ D.ItemDelegate {
             leftPadding = 0
             rightPadding = 0
         }
-        model.item.parentItem = root
+        model.item.parentItem = control
     }
 }

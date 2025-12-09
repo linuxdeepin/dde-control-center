@@ -220,7 +220,10 @@ Item {
         id: rightLayout
         DccRightView {}
     }
-
+    Component {
+        id: mainView
+        DccLoader {}
+    }
     function updateRightView() {
         var activeObj = DccApp.activeObject
         if (activeObj === dccObj) {
@@ -229,7 +232,9 @@ Item {
         if (activeObj.page === null) {
             activeObj.page = rightLayout
         }
-        rightView.replace(activeObj.getSectionItem(rightView), DccApp.animationMode === DccApp.AnimationPush ? StackView.PushTransition : StackView.PopTransition)
+        rightView.replace(mainView, {
+                              "dccObj": activeObj
+                          }, DccApp.animationMode === DccApp.AnimationPush ? StackView.PushTransition : StackView.PopTransition)
     }
     Connections {
         target: DccApp

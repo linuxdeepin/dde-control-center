@@ -7,8 +7,7 @@ import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 
 DccEditorItem {
-    id: control
-    property var editor: null
+    property Component editor: null
     leftPadding: 12
     rightPadding: 10
     topPadding: topInset
@@ -16,18 +15,20 @@ DccEditorItem {
     activeFocusOnTab: true
     rightItem: RowLayout {
         spacing: 10
-        Control {
-            contentItem: editor ? editor : model.item.getSectionItem(this)
+        DccLoader {
+            active: !editor
+            dccObj: model.item
         }
-
+        Loader {
+            active: editor
+            sourceComponent: editor
+        }
         D.IconLabel {
             icon {
                 width: 12
                 height: 12
                 name: "arrow_ordinary_right"
-                palette: D.DTK.makeIconPalette(control.palette)
-                mode: control.D.ColorSelector.controlState
-                theme: control.D.ColorSelector.controlTheme
+                palette: D.DTK.makeIconPalette(palette)
             }
         }
     }
