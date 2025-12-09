@@ -423,5 +423,11 @@ void CharaMangerWorker::renameFingerItem(const QString &userName, const QString 
 void CharaMangerWorker::onDefaultDeviceChanged(const QString &device)
 {
     qInfo() << "Finger DefaultDeviceChanged: " << device;
-    m_model->setFingerVaild(!device.isEmpty());
+    bool isDeviceAvailable = !device.isEmpty();
+    m_model->setFingerVaild(isDeviceAvailable);
+
+    // Refresh fingerprint list when device is reconnected
+    if (isDeviceAvailable) {
+        refreshFingerEnrollList(m_model->userName());
+    }
 }
