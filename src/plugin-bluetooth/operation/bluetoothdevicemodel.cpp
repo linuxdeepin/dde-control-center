@@ -107,14 +107,30 @@ void BluetoothDeviceModel::reorderDevices()
         updateAllData();
         return;
     }
-    
-    beginResetModel();
-    
-    m_deviceData.clear();
-    m_deviceData.append(connectedDevices);
-    m_deviceData.append(disconnectedDevices);
-    
-    endResetModel();
+
+    QList<BluetoothDevice*> newOrder;
+    newOrder.append(connectedDevices);
+    newOrder.append(disconnectedDevices);
+
+    bool orderChanged = false;
+    if (newOrder.count() == m_deviceData.count()) {
+        for (int i = 0; i < newOrder.count(); i++) {
+            if (newOrder.at(i) != m_deviceData.at(i)) {
+                orderChanged = true;
+                break;
+            }
+        }
+    } else {
+        orderChanged = true;
+    }
+
+    if (orderChanged) {
+        beginResetModel();
+        m_deviceData = newOrder;
+        endResetModel();
+    } else {
+        updateAllData();
+    }
 }
 
 int BluetoothDeviceModel::rowCount(const QModelIndex &parent) const
