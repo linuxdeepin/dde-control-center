@@ -29,18 +29,12 @@ DccObject::Private::Private(DccObject *obj)
     , m_parent(nullptr)
     , m_currentObject(nullptr)
     , m_page(nullptr)
-    , m_sectionItem(nullptr)
     , m_parentItem(nullptr)
 {
 }
 
 DccObject::Private::~Private()
 {
-    if (m_sectionItem) {
-        m_parentItem = nullptr;
-        delete m_sectionItem;
-        m_sectionItem = nullptr;
-    }
     if (m_page && (!m_page->parent() || m_page->parent() == q_ptr)) {
         delete m_page;
         m_page = nullptr;
@@ -72,16 +66,10 @@ bool DccObject::Private::setFlagState(uint32_t flag, bool state)
         else
             m_flags &= (~flag);
         if (hidden != getFlagState(DCC_ALL_HIDDEN)) {
-            if (!hidden) {
-                deleteSectionItem(false);
-            }
             Q_EMIT q_ptr->visibleToAppChanged(hidden);
         }
         bool allDisabled = getFlagState(DCC_ALL_DISABLED);
         if (disabled != allDisabled) {
-            if (m_sectionItem) {
-                m_sectionItem->setEnabled(!allDisabled);
-            }
             Q_EMIT q_ptr->enabledToAppChanged(disabled);
         }
         return true;
@@ -192,25 +180,6 @@ int DccObject::Private::getChildIndex(const DccObject *child) const
     return m_children.indexOf(const_cast<DccObject *>(child));
 }
 
-void DccObject::Private::deleteSectionItem(bool later)
-{
-    if (m_sectionItem) {
-#ifdef DCC_ENABLE_MEMORY_MANAGEMENT
-        QQuickItem *item = m_sectionItem.get();
-        if (later) {
-            // 延时delete等动画完成
-            QTimer::singleShot(500, item, [item]() {
-                item->deleteLater();
-            });
-        } else {
-            item->deleteLater();
-        }
-#endif
-        m_sectionItem = nullptr;
-        q_ptr->setParentItem(nullptr);
-    }
-}
-
 void DccObject::Private::data_append(QQmlListProperty<QObject> *data, QObject *o)
 {
     if (!o)
@@ -249,9 +218,6 @@ DccObject::DccObject(QObject *parent)
     : QObject(parent)
     , p_ptr(new DccObject::Private(this))
 {
-    connect(this, &DccObject::deactive, this, [this]() {
-        p_ptr->deleteSectionItem(true);
-    });
 }
 
 DccObject::~DccObject()
@@ -450,59 +416,6 @@ void DccObject::setPageType(quint8 type)
         p_ptr->m_pageType = type;
         Q_EMIT pageTypeChanged(p_ptr->m_pageType);
     }
-}
-
-QQuickItem *DccObject::getSectionItem(QObject *parent)
-{
-    p_ptr->deleteSectionItem(false);
-    if (p_ptr->m_page) {
-        QQmlContext *creationContext = p_ptr->m_page->creationContext();
-        if (!creationContext) {
-            creationContext = qmlContext(this);
-        }
-        QQmlContext *context = new QQmlContext(creationContext);
-        context->setContextProperty("dccObj", this);
-#if 0
-        QObject *nobj = p_ptr->m_page->beginCreate(context);
-        if (nobj) {
-            p_ptr->m_sectionItem = qobject_cast<QQuickItem *>(nobj);
-            if (!p_ptr->m_sectionItem) {
-                delete nobj;
-            } else {
-                if (qFuzzyIsNull(p_ptr->m_sectionItem->z()))
-                    p_ptr->m_sectionItem->setZ(2);
-                // QQml_setParent_noEvent(sectionItem, contentItem);
-                if (QQuickItem *p = qobject_cast<QQuickItem *>(parent)) {
-                    p_ptr->m_sectionItem->setParentItem(p);
-                    p_ptr->m_sectionItem->setParent(this);
-                } else if (QQuickWindow *p = qobject_cast<QQuickWindow *>(parent)) {
-                    p_ptr->m_sectionItem->setParent(this);
-                } else {
-                    p_ptr->m_sectionItem->setParent(this);
-                }
-                p_ptr->m_sectionItem->setEnabled(isEnabledToApp());
-            }
-            // sections are not controlled by FxListItemSG, so apply attached properties here
-        } else {
-            qCWarning(dccLog()) << "create page error:" << p_ptr->m_page->errorString();
-            delete context;
-        }
-        p_ptr->m_page->completeCreate();
-#else
-        p_ptr->m_sectionItem = qobject_cast<QQuickItem *>(p_ptr->m_page->create(context));
-        if (p_ptr->m_sectionItem) {
-            context->setParent(p_ptr->m_sectionItem.get());
-            p_ptr->m_sectionItem.get()->setParent(parent);
-            p_ptr->m_sectionItem->setParentItem(qobject_cast<QQuickItem *>(parent));
-            p_ptr->m_sectionItem->setEnabled(isEnabledToApp());
-            QQmlEngine::setObjectOwnership(p_ptr->m_sectionItem, QQmlEngine::JavaScriptOwnership);
-        } else {
-            qCWarning(dccLog()) << "create page error:" << p_ptr->m_page->errorString();
-            delete context;
-        }
-#endif
-    }
-    return p_ptr->m_sectionItem.get();
 }
 
 QQuickItem *DccObject::parentItem()

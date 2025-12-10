@@ -8,7 +8,7 @@ import org.deepin.dtk 1.0 as D
 
 DccEditorItem {
     id: control
-    property var editor: null
+    property Component editor: null
     leftPadding: 12
     rightPadding: 10
     topPadding: topInset
@@ -16,10 +16,15 @@ DccEditorItem {
     activeFocusOnTab: true
     rightItem: RowLayout {
         spacing: 10
-        Control {
-            contentItem: editor ? editor : model.item.getSectionItem(this)
+        DccLoader {
+            active: !editor
+            dccObj: model.item
+            dccObjItem: control
         }
-
+        Loader {
+            active: editor
+            sourceComponent: editor
+        }
         D.IconLabel {
             icon {
                 width: 12

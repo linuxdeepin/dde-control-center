@@ -47,7 +47,6 @@ public:
 
     DccObject *getChild(int childPos) const;
     int getChildIndex(const DccObject *child) const;
-    void deleteSectionItem(bool later);
 
 protected:
     explicit Private(DccObject *obj);
@@ -75,7 +74,6 @@ protected:
     QVector<DccObject *> m_objects;  // m_data中DccObject(未保证有效(delete时未处理))
     QObjectList m_data;              // data属性，为qml能加子项
     QPointer<QQmlComponent> m_page;
-    QPointer<QQuickItem> m_sectionItem; // Item
     QPointer<QQuickItem> m_parentItem;  // Item父项
 
     QString m_parentName;

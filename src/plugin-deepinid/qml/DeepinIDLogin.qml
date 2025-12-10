@@ -19,6 +19,8 @@ DccObject {
     parentName: "deepinid"
     pageType: DccObject.Item
     page: Flickable {
+        Layout.fillWidth: true
+        Layout.fillHeight: true
         contentHeight: groupView.height
         ScrollBar.vertical: ScrollBar {
             width: 10

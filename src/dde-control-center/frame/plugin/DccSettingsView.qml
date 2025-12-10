@@ -33,11 +33,11 @@ Flickable {
         height: root.height - bottomItem.height
         width: parent.width
         clip: true
-        Control {
+        DccLoader {
             id: centralItem
             y: -root.contentY
-            hoverEnabled: false
             focus: true
+            dccObjItem: parent
             anchors {
                 left: parent.left
                 right: parent.right
@@ -46,10 +46,11 @@ Flickable {
             }
         }
     }
-    Control {
+    DccLoader {
         id: bottomItem
-        implicitHeight: contentItem.implicitHeight + 10
+        height: item ? (item.implicitHeight + 10) : 0
         focus: true
+        dccObjItem: root
         anchors {
             left: parent.left
             right: parent.right
@@ -58,7 +59,7 @@ Flickable {
             leftMargin: root.margin + 10
             rightMargin: root.margin + 10
         }
-        y: (root.contentHeight - root.contentY > root.height ? root.height - this.implicitHeight + root.contentY : root.contentHeight - this.implicitHeight)
+        y: (root.contentHeight - root.contentY > root.height ? root.height - this.height + root.contentY : root.contentHeight - this.height)
     }
     Rectangle {
         id: panel
@@ -131,11 +132,11 @@ Flickable {
             if (!dccObj.children[0].page) {
                 dccObj.children[0].page = groupView
             }
-            centralItem.contentItem = dccObj.children[0].getSectionItem(centralItem)
+            centralItem.dccObj = dccObj.children[0]
             if (!dccObj.children[1].page) {
                 dccObj.children[1].page = footer
             }
-            bottomItem.contentItem = dccObj.children[1].getSectionItem(bottomItem)
+            bottomItem.dccObj = dccObj.children[1]
             initItem = true
         }
     }

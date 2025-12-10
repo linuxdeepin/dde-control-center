@@ -107,7 +107,8 @@ public:
     Q_ENUM(PageType)
     quint8 pageType() const;
     void setPageType(quint8 type);
-    Q_INVOKABLE QQuickItem *getSectionItem(QObject *parent);
+    // QT_DEPRECATED_X("use DccLoader")
+    // Q_INVOKABLE QQuickItem *getSectionItem(QObject *parent);
     QQuickItem *parentItem();
     void setParentItem(QQuickItem *item);
     QQmlComponent *page() const;
