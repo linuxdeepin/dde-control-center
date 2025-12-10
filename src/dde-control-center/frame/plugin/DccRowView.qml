@@ -19,13 +19,12 @@ RowLayout {
         model: DccModel {
             root: dccObj
         }
-        delegate: Control {
-            Layout.fillWidth: contentItem.Layout.fillWidth
-            Layout.alignment: contentItem.Layout.alignment
-            contentItem: model.item.getSectionItem(this)
-            Component.onCompleted: {
-                model.item.parentItem = this
-            }
+        delegate: DccLoader {
+            Layout.fillWidth: item ? item.Layout.fillWidth : false
+            Layout.fillHeight: item ? item.Layout.fillHeight : false
+            Layout.alignment: item ? item.Layout.alignment : Qt.AlignLeft
+            dccObj: model.item
+            dccObjItem: this
         }
     }
 }

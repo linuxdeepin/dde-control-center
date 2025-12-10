@@ -17,7 +17,10 @@ DccObject {
     name: "userinfo"
     parentName: "deepinid"
     pageType: DccObject.Item
-    page: DccRightView {}
+    page: DccRightView {
+        Layout.fillWidth: true
+        Layout.fillHeight: true
+    }
 
     DccObject {
         name: "title"
@@ -88,7 +91,7 @@ DccObject {
                     anchors.verticalCenter: nameLabel.verticalCenter
                     focusPolicy: Qt.NoFocus
                     width: 30
-                    height: 30                        
+                    height: 30
                     icon.name: "dcc-edit"
                     icon.width: DS.Style.edit.actionIconSize
                     icon.height: DS.Style.edit.actionIconSize

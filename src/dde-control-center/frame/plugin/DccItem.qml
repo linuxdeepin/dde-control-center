@@ -22,16 +22,18 @@ D.ItemDelegate {
     padding: 0
     font: D.DTK.fontManager.t6
 
-    contentItem: model.item.getSectionItem(this)
+    contentItem: DccLoader {
+        dccObj: model.item
+        dccObjItem: root
+    }
     background: DccItemBackground {
         id: background
         separatorVisible: false
     }
     Component.onCompleted: {
-        if (contentItem.objectName === "noPadding") {
+        if (contentItem.item && contentItem.item.objectName === "noPadding") {
             leftPadding = 0
             rightPadding = 0
         }
-        model.item.parentItem = root
     }
 }

@@ -173,10 +173,10 @@ D.ApplicationWindow {
         }
     }
 
-    Control {
+    DccLoader {
         id: centralView
-        hoverEnabled: false
         anchors.fill: parent
+        dccObj: DccApp.root
     }
 
 
@@ -220,6 +220,7 @@ D.ApplicationWindow {
         id: rootLayout
         SwipeView {
             id: stackView
+            hoverEnabled: false
             currentIndex: 1
             interactive: false
             activeFocusOnTab: false
@@ -270,6 +271,5 @@ D.ApplicationWindow {
         root.x = Screen.virtualX + (Screen.width - root.width) / 2
         root.y = Screen.virtualY + (Screen.height - root.height) / 2
         DccApp.root.page = rootLayout
-        centralView.contentItem = DccApp.root.getSectionItem(centralView)
     }
 }

@@ -11,7 +11,7 @@ D.ItemDelegate {
     property alias separatorVisible: background.separatorVisible
     property alias backgroundType: background.backgroundType
     property var item: model.item
-    property var rightItem: null
+    property Component rightItem: null
     property real iconRadius: model.item.iconRadius ? model.item.iconRadius : 0
     property real iconSize: model.item.iconSize ? model.item.iconSize : 0
     property real leftPaddingSize: model.item.leftPaddingSize ? model.item.leftPaddingSize : 10
@@ -64,13 +64,24 @@ D.ItemDelegate {
                 opacity: 0.5
             }
         }
-        Control {
+        DccLoader {
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             Layout.topMargin: root.rightItemTopMargin
             Layout.bottomMargin: root.rightItemBottomMargin
             enabled: model.item.enabledToApp
             opacity: enabled ? 1 : 0.4
-            contentItem: rightItem ? rightItem : model.item.getSectionItem(this)
+            active: !rightItem
+            dccObj: model.item
+            dccObjItem: root
+        }
+        Loader {
+            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+            Layout.topMargin: root.rightItemTopMargin
+            Layout.bottomMargin: root.rightItemBottomMargin
+            enabled: model.item.enabledToApp
+            opacity: enabled ? 1 : 0.4
+            active: rightItem
+            sourceComponent: rightItem
         }
     }
 
@@ -99,9 +110,5 @@ D.ItemDelegate {
         if ((backgroundType & 0x04) && model.item.enabledToApp) {
             model.item.active("")
         }
-    }
-
-    Component.onCompleted: {
-        model.item.parentItem = root
     }
 }
