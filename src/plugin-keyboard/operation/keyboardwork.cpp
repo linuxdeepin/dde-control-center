@@ -19,6 +19,7 @@
 #include <QDBusInterface>
 #include <QDBusPendingCallWatcher>
 #include <QTranslator>
+#include <QDateTime>
 
 using namespace DTK_NAMESPACE::Core;
 using namespace dccV25;
@@ -635,13 +636,26 @@ void KeyboardWorker::onLangSelectorServiceFinished()
 
 void KeyboardWorker::onShortcutChanged(const QString &id, int type)
 {
+    QString key = id + "_" + QString::number(type);
+    qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
+    m_shortcutQueryTime[key] = currentTime;
+
     QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keyboardDBusProxy->Query(id, type));
+    result->setProperty("queryTime", currentTime);
+    result->setProperty("queryKey", key);
     connect(result, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onGetShortcutFinished);
 }
 
 void KeyboardWorker::onGetShortcutFinished(QDBusPendingCallWatcher *watch)
 {
     QDBusPendingReply<QString> reply = *watch;
+
+    qint64 queryTime = watch->property("queryTime").toLongLong();
+    QString key = watch->property("queryKey").toString();
+    if (queryTime < m_shortcutQueryTime.value(key, 0)) {
+        watch->deleteLater();
+        return;
+    }
 
     if (m_shortcutModel && !watch->isError())
         m_shortcutModel->onKeyBindingChanged(reply.value());
