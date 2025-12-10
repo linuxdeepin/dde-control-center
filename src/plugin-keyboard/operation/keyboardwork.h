@@ -123,6 +123,7 @@ private:
     QTranslator *m_translatorLanguage;
     Dtk::Core::DConfig *m_inputDevCfg;
     bool m_isResetting = false; // Flag to prevent duplicate reset calls
+    QMap<QString, qint64> m_shortcutQueryTime; // 记录每个快捷键最后一次 Query 的时间戳
 };
 }
 #endif // KEYBOARDWORK_H
