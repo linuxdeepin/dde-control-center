@@ -1,3 +1,25 @@
+dde-control-center (6.1.62) unstable; urgency=medium
+
+  * refactor: standardize QML component id naming
+  * fix: fix sidebar width update when right view is empty
+  * fix: Tooltip for the add image button
+  * fix: add monitor count tracking for multi-screen visibility
+  * fix: Fix the issue of shortcut key replacement failure
+  * fix: Fix Bluetooth model being reset
+  * refactor: replace custom object creation with Qt Loader
+  * fix: refresh fingerprint list before enrollment
+  * feat: replace screen saver start/stop with preview method
+  * fix: fix repeater child object crash without parent
+  * fix: refresh fingerprint list when device is hot-plugged
+  * fix: align balance slider style with design specification
+  * fix: Fix issue where renaming a Bluetooth device does not refresh
+  * chore: fix screensaver button colors
+  * fix: resolve text overflow issues in keyboard plugin for Russian
+    locale
+  * fix: Update translation file
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 11 Dec 2025 20:32:03 +0800
+
 dde-control-center (6.1.61) unstable; urgency=medium
 
   * fix: Fix the issue with link text style errors
