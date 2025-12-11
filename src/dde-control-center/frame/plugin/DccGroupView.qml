@@ -11,7 +11,7 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dcc 1.0
 
 Rectangle {
-    id: root
+    id: control
     property bool isGroup: true
     property alias spacing: layoutView.spacing
     property var model: DccModel {
@@ -28,52 +28,52 @@ Rectangle {
         spacing: 0
         Repeater {
             id: repeater
-            model: root.model
+            model: control.model
 
             delegate: DelegateChooser {
                 role: "pageType"
                 DelegateChoice {
                     roleValue: DccObject.Menu
                     delegate: DccMenuItem {
-                        topInset: root.isGroup ? 0 : 5
-                        bottomInset: root.isGroup ? 0 : 5
-                        separatorVisible: root.isGroup
+                        topInset: control.isGroup ? 0 : 5
+                        bottomInset: control.isGroup ? 0 : 5
+                        separatorVisible: control.isGroup
                         backgroundType: model.item.backgroundType | DccObject.ClickStyle
                         Layout.fillWidth: true
-                        corners: root.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
+                        corners: control.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
                 }
                 DelegateChoice {
                     roleValue: DccObject.Editor
                     delegate: DccEditorItem {
-                        topInset: root.isGroup ? 0 : 5
-                        bottomInset: root.isGroup ? 0 : 5
-                        separatorVisible: root.isGroup
-                        backgroundType:model.item.backgroundType | (root.isGroup ? 1 : 0)
+                        topInset: control.isGroup ? 0 : 5
+                        bottomInset: control.isGroup ? 0 : 5
+                        separatorVisible: control.isGroup
+                        backgroundType:model.item.backgroundType | (control.isGroup ? 1 : 0)
                         Layout.fillWidth: true
-                        corners: root.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
+                        corners: control.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
                 }
                 DelegateChoice {
                     roleValue: DccObject.Item
                     delegate: DccItem {
-                        topInset: root.isGroup ? 0 : 5
-                        bottomInset: root.isGroup ? 0 : 5
-                        separatorVisible: root.isGroup
-                        backgroundType: model.item.backgroundType | (root.isGroup ? 1 : 0)
+                        topInset: control.isGroup ? 0 : 5
+                        bottomInset: control.isGroup ? 0 : 5
+                        separatorVisible: control.isGroup
+                        backgroundType: model.item.backgroundType | (control.isGroup ? 1 : 0)
                         Layout.fillWidth: true
-                        corners: root.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
+                        corners: control.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
                 }
                 DelegateChoice {
                     roleValue: DccObject.MenuEditor
                     delegate: DccMenuEditorItem {
-                        topInset: root.isGroup ? 0 : 5
-                        bottomInset: root.isGroup ? 0 : 5
-                        separatorVisible: root.isGroup
+                        topInset: control.isGroup ? 0 : 5
+                        bottomInset: control.isGroup ? 0 : 5
+                        separatorVisible: control.isGroup
                         backgroundType: model.item.backgroundType | DccObject.ClickStyle
                         Layout.fillWidth: true
-                        corners: root.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
+                        corners: control.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
                 }
             }

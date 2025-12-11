@@ -7,7 +7,7 @@ import QtQuick.Layouts 1.15
 import "DccUtils.js" as DccUtils
 
 Flickable {
-    id: root
+    id: control
     property alias spacing: groupView.spacing
     property alias isGroup: groupView.isGroup
     property real margin: DccUtils.getMargin(width)
@@ -23,8 +23,8 @@ Flickable {
         anchors {
             left: parent.left
             right: parent.right
-            leftMargin: root.margin
-            rightMargin: root.margin
+            leftMargin: control.margin
+            rightMargin: control.margin
         }
     }
     Rectangle {
@@ -43,23 +43,23 @@ Flickable {
         repeat: true
         running: panel.item !== undefined
         onTriggered: {
-            if (!panel.item || !panel.item.visible || !root.visible || panel.cnt > 6) {
+            if (!panel.item || !panel.item.visible || !control.visible || panel.cnt > 6) {
                 panel.visible = false
                 panel.cnt = 0
                 panel.item = undefined
                 stop()
             } else {
-                let itemY = panel.item.mapToItem(root, 0, 0).y
-                if ((itemY + panel.item.height) > root.height) {
-                    root.contentY = itemY + panel.item.height - root.height + root.contentY
+                let itemY = panel.item.mapToItem(control, 0, 0).y
+                if ((itemY + panel.item.height) > control.height) {
+                    control.contentY = itemY + panel.item.height - control.height + control.contentY
                 }
-                itemY = panel.item.mapToItem(root, 0, 0).y
+                itemY = panel.item.mapToItem(control, 0, 0).y
                 if (itemY < 0) {
-                    root.contentY = -itemY
+                    control.contentY = -itemY
                 }
 
-                panel.x = panel.item.mapToItem(root, 0, 0).x
-                panel.y = panel.item.mapToItem(root, 0, 0).y + root.contentY
+                panel.x = panel.item.mapToItem(control, 0, 0).x
+                panel.y = panel.item.mapToItem(control, 0, 0).y + control.contentY
                 panel.height = panel.item.height
                 panel.width = panel.item.width
                 panel.visible = panel.cnt & 1
@@ -85,11 +85,11 @@ Flickable {
                 return
             }
 
-            let itemY = focusItem.mapToItem(root, 0, 0).y
-            if ((itemY + focusItem.height) > root.height) {
-                root.contentY = itemY + focusItem.height - root.height + root.contentY
+            let itemY = focusItem.mapToItem(control, 0, 0).y
+            if ((itemY + focusItem.height) > control.height) {
+                control.contentY = itemY + focusItem.height - control.height + control.contentY
             } else if (itemY < 0) {
-                root.contentY = focusItem.mapToItem(groupView, 0, 0).y
+                control.contentY = focusItem.mapToItem(groupView, 0, 0).y
             }
         }
     }

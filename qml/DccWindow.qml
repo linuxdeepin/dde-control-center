@@ -10,7 +10,7 @@ import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dcc 1.0
 
 D.ApplicationWindow {
-    id: root
+    id: mainWindow
     property string appProductName: Qt.application.displayName
     property string appLicense: "GPL-3.0-or-later"
     property real currentIndex: 1
@@ -26,7 +26,7 @@ D.ApplicationWindow {
 
     D.StyledBehindWindowBlur {
         anchors.fill: parent
-        control: root
+        control: mainWindow
         blendColor: {
             if (valid) {
                 return DS.Style.control.selectColor(control ? control.palette.window : undefined, Qt.rgba(1, 1, 1, 0.8), Qt.rgba(0.06, 0.06, 0.06, 0.8))
@@ -78,7 +78,7 @@ D.ApplicationWindow {
             implicitWidth: 30
             hoverEnabled: enabled
             activeFocusOnTab: true
-            visible: root.currentIndex === 1
+            visible: mainWindow.currentIndex === 1
             icon {
                 name: "sidebar"
                 height: 16
@@ -101,22 +101,22 @@ D.ApplicationWindow {
                 }
             }
             onClicked: {
-                if (root.sidebarPage) {
-                    root.sidebarPage.targetSidebar()
+                if (mainWindow.sidebarPage) {
+                    mainWindow.sidebarPage.targetSidebar()
                 }
             }
         }
         content: Item {
             anchors {
                 fill: parent
-                leftMargin: root.currentIndex === 0 ? 0 : -200
+                leftMargin: mainWindow.currentIndex === 0 ? 0 : -200
             }
             SearchBar {
                 anchors {
                     horizontalCenter: parent.horizontalCenter
                     verticalCenter: parent.verticalCenter
                 }
-                visible: root.currentIndex === 0
+                visible: mainWindow.currentIndex === 0
                 model: DccApp.searchModel()
                 onClicked: function (model) {
                     DccApp.showPage(model.url)
@@ -127,9 +127,9 @@ D.ApplicationWindow {
                 palette.windowText: D.ColorSelector.textColor
                 implicitHeight: 30
                 implicitWidth: 30
-                x: ((root.sidebarPage && root.sidebarPage.splitterX > 110) ? root.sidebarPage.splitterX : 110) - 1
+                x: ((mainWindow.sidebarPage && mainWindow.sidebarPage.splitterX > 110) ? mainWindow.sidebarPage.splitterX : 110) - 1
                 anchors.verticalCenter: parent.verticalCenter
-                visible: root.currentIndex === 1
+                visible: mainWindow.currentIndex === 1
                 hoverEnabled: enabled
                 activeFocusOnTab: enabled
                 enabled: DccApp.activeObject.parentName.length !== 0 && DccApp.activeObject.parentName !== "root"
@@ -163,7 +163,7 @@ D.ApplicationWindow {
                     leftMargin: 8
                     verticalCenter: parent.verticalCenter
                 }
-                visible: root.currentIndex === 1
+                visible: mainWindow.currentIndex === 1
                 model: DccApp.navModel()
                 onClicked: function (model) {
                     DccApp.showPage(model.url)
@@ -182,9 +182,9 @@ D.ApplicationWindow {
 
     /*  焦点切换调试，暂不删
     onActiveFocusItemChanged: {
-        console.log("root onActiveFocusItemChanged:  ", root.activeFocusItem, root.activeFocusControl)
-        if (root.activeFocusItem && root.activeFocusControl) {
-            console.log("root activeFocusOnTab:  ", root.activeFocusItem.activeFocusOnTab, root.activeFocusControl.activeFocusOnTab)
+        console.log("root onActiveFocusItemChanged:  ", mainWindow.activeFocusItem, mainWindow.activeFocusControl)
+        if (mainWindow.activeFocusItem && mainWindow.activeFocusControl) {
+            console.log("root activeFocusOnTab:  ", mainWindow.activeFocusItem.activeFocusOnTab, mainWindow.activeFocusControl.activeFocusOnTab)
         }
     }
     D.FocusBoxBorder {
@@ -192,25 +192,25 @@ D.ApplicationWindow {
         z: 98
         x: {
             if (visible) {
-                var p1 = root.activeFocusItem.parent.mapToGlobal(root.activeFocusItem.x, root.activeFocusItem.y)
+                var p1 = mainWindow.activeFocusItem.parent.mapToGlobal(mainWindow.activeFocusItem.x, mainWindow.activeFocusItem.y)
                 console.log("p1:", p1)
-                var p2 = mapFromItem(root.activeFocusItem, root.activeFocusItem.x, root.activeFocusItem.y)
+                var p2 = mapFromItem(mainWindow.activeFocusItem, mainWindow.activeFocusItem.x, mainWindow.activeFocusItem.y)
                 console.log("p2:", p2)
                 var p3 = parent.mapFromGlobal(p1.x, p1.y)
                 console.log("p3:", p3)
                 return p3.x
-                // mapFromGlobal(root, root.activeFocusItem.mapToGlobal(
-                //                   root.activeFocusItem.x,
-                //                   root.activeFocusItem.y)).x
+                // mapFromGlobal(root, mainWindow.activeFocusItem.mapToGlobal(
+                //                   mainWindow.activeFocusItem.x,
+                //                   mainWindow.activeFocusItem.y)).x
             } else {
                 return 0
             }
         }
-        y: visible ? parent.mapFromGlobal(root.activeFocusItem.parent.mapToGlobal(root.activeFocusItem.x, root.activeFocusItem.y)).y : 0
-        width: visible ? root.activeFocusItem.width : 0
-        height: visible ? root.activeFocusItem.height : 0
+        y: visible ? parent.mapFromGlobal(mainWindow.activeFocusItem.parent.mapToGlobal(mainWindow.activeFocusItem.x, mainWindow.activeFocusItem.y)).y : 0
+        width: visible ? mainWindow.activeFocusItem.width : 0
+        height: visible ? mainWindow.activeFocusItem.height : 0
         // anchors.topMargin:
-        visible: root.activeFocusItem
+        visible: mainWindow.activeFocusItem
 
         radius: DS.Style.control.radius
         color: "#80FF0000"
@@ -231,7 +231,7 @@ D.ApplicationWindow {
             SecondPage {
                 id: secondPage
                 // visible: false
-                Component.onCompleted: root.sidebarPage = this
+                Component.onCompleted: mainWindow.sidebarPage = this
             }
             Timer {
                 id: hideTimer
@@ -248,16 +248,16 @@ D.ApplicationWindow {
                     if (stackView.currentIndex !== 0 && DccApp.root === DccApp.activeObject) {
                         homePage.contentVisible = true
                         secondPage.visible = true
-                        root.sidebarPage = null
+                        mainWindow.sidebarPage = null
                         stackView.currentIndex = 0
-                        root.currentIndex = 0
+                        mainWindow.currentIndex = 0
                         hideTimer.restart()
                     } else if (stackView.currentIndex !== 1 && DccApp.root !== DccApp.activeObject) {
                         homePage.contentVisible = true
                         secondPage.visible = true
-                        root.sidebarPage = secondPage
+                        mainWindow.sidebarPage = secondPage
                         stackView.currentIndex = 1
-                        root.currentIndex = 1
+                        mainWindow.currentIndex = 1
                         hideTimer.restart()
                     }
                 }
@@ -266,10 +266,10 @@ D.ApplicationWindow {
     }
 
     Component.onCompleted: {
-        root.width = DccApp.width
-        root.height = DccApp.height
-        root.x = Screen.virtualX + (Screen.width - root.width) / 2
-        root.y = Screen.virtualY + (Screen.height - root.height) / 2
+        mainWindow.width = DccApp.width
+        mainWindow.height = DccApp.height
+        mainWindow.x = Screen.virtualX + (Screen.width - mainWindow.width) / 2
+        mainWindow.y = Screen.virtualY + (Screen.height - mainWindow.height) / 2
         DccApp.root.page = rootLayout
     }
 }

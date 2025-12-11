@@ -5,7 +5,6 @@ import QtQuick.Controls
 import org.deepin.dtk 1.0 as D
 
 D.ActionButton {
-    id: root
     property real size: 16
     checked: true
     icon {
