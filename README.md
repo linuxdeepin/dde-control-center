@@ -59,9 +59,9 @@ You may also find these channels useful if you encounter any other issues:
 
 # just show the target link way
 
-find_pacakge(DdeControlCenter REQUIRED)
-find_pacakge(Dtk COMPONENTS Core Widget REQUIRED)
-find_pacakge(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
+find_package(DdeControlCenter REQUIRED)
+find_package(Dtk COMPONENTS Core Widget REQUIRED)
+find_package(Qt5 COMPONENTS Core Gui Widgets REQUIRED)
 
 add_library(dcc_exampleplugin SHARED
     plugin.h
