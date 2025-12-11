@@ -21,25 +21,29 @@ class DccDockExport : public QObject
     Q_PROPERTY(DockDBusProxy *dockInter MEMBER m_dockDbusProxy CONSTANT)
     Q_PROPERTY(DockPluginModel *pluginModel MEMBER m_pluginModel CONSTANT)
     Q_PROPERTY(int displayMode READ displayMode NOTIFY displayModeChanged)
+    Q_PROPERTY(int monitorCount READ monitorCount NOTIFY monitorCountChanged)
     Q_PROPERTY(bool combineApp READ combineApp WRITE setCombineApp NOTIFY combineAppChanged)
+
 public:
     explicit DccDockExport(QObject *parent = nullptr);
     ~DccDockExport() override;
 
     int displayMode() const;
+    int monitorCount() const;
     bool combineApp() const;
 
 private:
     void initData();
     void initDisplayModeConnection();
-    
+
 public Q_SLOTS:
     void loadPluginData();
     void setCombineApp(bool value);
 
 Q_SIGNALS:
     void displayModeChanged();
-    void combineAppChanged(bool value);
+    void monitorCountChanged();
+    void combineAppChanged(bool combineApp);
 
 private:
     DockDBusProxy *m_dockDbusProxy;
@@ -47,6 +51,7 @@ private:
     Dtk::Core::DConfig *m_dconfig;
     QDBusInterface *m_displayInter;
     int m_displayMode;
+    int m_monitorCount;
     bool m_combineApp;
     
 private Q_SLOTS:

@@ -13,7 +13,10 @@
 #include <QDir>
 #include <QDBusInterface>
 #include <QDBusConnection>
+#include <QDBusObjectPath>
 #include <QDebug>
+#include <QDBusArgument>
+#include <QDBusMetaType>
 
 #include <DConfig>
 #include <DIconTheme>
@@ -52,6 +55,7 @@ DccDockExport::DccDockExport(QObject *parent)
 , m_dconfig(Dtk::Core::DConfig::create("org.deepin.dde.shell", "org.deepin.ds.dock.taskmanager", QString(), this))
 , m_displayInter(nullptr)
 , m_displayMode(EXTEND_MODE)
+, m_monitorCount(0)
 , m_combineApp(true)
 {
     if (m_dconfig && m_dconfig->isValid()) {
@@ -149,6 +153,23 @@ void DccDockExport::initDisplayModeConnection()
         }
     }
 
+    QVariant monitorsVar = m_displayInter->property("Monitors");
+    if (monitorsVar.isValid()) {
+        QList<QDBusObjectPath> monitors;
+        if (monitorsVar.userType() == qMetaTypeId<QDBusArgument>()) {
+             const QDBusArgument &arg = monitorsVar.value<QDBusArgument>();
+             arg >> monitors;
+        } else {
+             monitors = qvariant_cast<QList<QDBusObjectPath>>(monitorsVar);
+        }
+        int count = monitors.count();
+
+        if (m_monitorCount != count) {
+            m_monitorCount = count;
+            Q_EMIT monitorCountChanged();
+        }
+    }
+
     QDBusConnection::sessionBus().connect("org.deepin.dde.Display1",
                                        "/org/deepin/dde/Display1",
                                        "org.freedesktop.DBus.Properties",
@@ -160,6 +181,11 @@ void DccDockExport::initDisplayModeConnection()
 int DccDockExport::displayMode() const
 {
     return m_displayMode;
+}
+
+int DccDockExport::monitorCount() const
+{
+    return m_monitorCount;
 }
 
 void DccDockExport::setCombineApp(bool value)
@@ -191,6 +217,23 @@ void DccDockExport::onPropertiesChanged(const QString &/*interfaceName*/, const 
     if (changedProperties.contains("DisplayMode")) {
         uint newMode = changedProperties["DisplayMode"].toUInt();
         onDisplayModeChanged(newMode);
+    }
+    
+    if (changedProperties.contains("Monitors")) {
+        QVariant monitorsVar = changedProperties["Monitors"];
+        QList<QDBusObjectPath> monitors;
+        if (monitorsVar.userType() == qMetaTypeId<QDBusArgument>()) {
+             const QDBusArgument &arg = monitorsVar.value<QDBusArgument>();
+             arg >> monitors;
+        } else {
+             monitors = qvariant_cast<QList<QDBusObjectPath>>(monitorsVar);
+        }
+        int count = monitors.count();
+
+        if (m_monitorCount != count) {
+            m_monitorCount = count;
+            Q_EMIT monitorCountChanged();
+        }
     }
 }
 

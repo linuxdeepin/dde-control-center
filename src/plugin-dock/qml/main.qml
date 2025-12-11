@@ -246,7 +246,7 @@ DccObject {
             parentName: "personalization/dock/multiscreenGroup"
             displayName: qsTr("Multiple Displays")
             description: qsTr("Set the position of the taskbar on the screen")
-            visible: dccData.displayMode === 2
+            visible: dccData.displayMode === 2 && dccData.monitorCount > 1
             weight: 10
             pageType: DccObject.Editor
             page: CustomComBobox {
