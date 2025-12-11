@@ -3115,7 +3115,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"/>
+        <translation>添加图片</translation>
     </message>
 </context>
 <context>
