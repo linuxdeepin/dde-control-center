@@ -197,17 +197,29 @@ ColumnLayout {
                         anchors.fill: parent
                         anchors.margins: root.imageMargin
 
-                        D.DciIcon {
-                            id: firstItemTopIcon
+                        Column {
                             anchors.centerIn: parent
-                            anchors.horizontalCenterOffset: 1
-                            width: 18
-                            height: 18
-                            sourceSize: Qt.size(18, 18)
-                            theme: firstItemImage.theme
-                            name: root.firstItemTopIconName
-                            visible: root.firstItemTopIconName !== ""
-                            asynchronous: true
+                            spacing: 4
+
+                            D.DciIcon {
+                                id: firstItemTopIcon
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                width: 18
+                                height: 18
+                                sourceSize: Qt.size(18, 18)
+                                theme: firstItemImage.theme
+                                name: root.firstItemTopIconName
+                                visible: root.firstItemTopIconName !== ""
+                                asynchronous: true
+                            }
+
+                            Label {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                text: qsTr("Add Picture")
+                                font: D.DTK.fontManager.t10
+                                opacity: 0.7
+                                visible: root.firstItemTopIconName !== ""
+                            }
                         }
                     }
 
