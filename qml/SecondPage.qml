@@ -17,7 +17,9 @@ Item {
     property alias splitterX: splitter.x
 
     function updateSidebarWidth(sidebarWidth) {
-        DccApp.sidebarWidth = sidebarWidth
+        if (!rightView.empty) {
+            DccApp.sidebarWidth = sidebarWidth
+        }
     }
     function targetSidebar() {
         if (splitter.x < 110) {
