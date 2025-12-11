@@ -7,7 +7,7 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 D.ItemDelegate {
-    id: root
+    id: control
     property alias separatorVisible: background.separatorVisible
     property alias backgroundType: background.backgroundType
     property var item: model.item
@@ -23,7 +23,7 @@ D.ItemDelegate {
     checkable: false
     topPadding: topInset
     bottomPadding: bottomInset
-    leftPadding: root.leftPaddingSize
+    leftPadding: control.leftPaddingSize
     rightPadding: 8
     hoverEnabled: model.item.enabledToApp
     checked: backgroundType & 0x08
@@ -33,18 +33,18 @@ D.ItemDelegate {
     icon {
         name: model.item.icon
         source: model.item.iconSource
-        width: root.iconSize > 0 ? root.iconSize : DS.Style.itemDelegate.iconSize
-        height: root.iconSize > 0 ? root.iconSize : DS.Style.itemDelegate.iconSize
+        width: control.iconSize > 0 ? control.iconSize : DS.Style.itemDelegate.iconSize
+        height: control.iconSize > 0 ? control.iconSize : DS.Style.itemDelegate.iconSize
     }
     contentItem: RowLayout {
         Layout.fillWidth: true
         Layout.fillHeight: true
 
         D.DciIcon {
-            name: root.icon.name
-            sourceSize: Qt.size(root.icon.width, root.icon.height)
+            name: control.icon.name
+            sourceSize: Qt.size(control.icon.width, control.icon.height)
             theme: D.DTK.themeType
-            palette: D.DTK.makeIconPalette(root.palette)
+            palette: D.DTK.makeIconPalette(control.palette)
         }
         ColumnLayout {
             Layout.leftMargin: model.item.icon.length === 0 ? 0 : 8
@@ -54,7 +54,7 @@ D.ItemDelegate {
             DccLabel {
                 Layout.fillWidth: true
                 text: model.display
-                font: root.font
+                font: control.font
             }
             DccLabel {
                 Layout.fillWidth: true
@@ -66,18 +66,18 @@ D.ItemDelegate {
         }
         DccLoader {
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            Layout.topMargin: root.rightItemTopMargin
-            Layout.bottomMargin: root.rightItemBottomMargin
+            Layout.topMargin: control.rightItemTopMargin
+            Layout.bottomMargin: control.rightItemBottomMargin
             enabled: model.item.enabledToApp
             opacity: enabled ? 1 : 0.4
             active: !rightItem
             dccObj: model.item
-            dccObjItem: root
+            dccObjItem: control
         }
         Loader {
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            Layout.topMargin: root.rightItemTopMargin
-            Layout.bottomMargin: root.rightItemBottomMargin
+            Layout.topMargin: control.rightItemTopMargin
+            Layout.bottomMargin: control.rightItemBottomMargin
             enabled: model.item.enabledToApp
             opacity: enabled ? 1 : 0.4
             active: rightItem
@@ -87,18 +87,18 @@ D.ItemDelegate {
 
     Loader {
         id: loader
-        active: root.iconRadius > 0
+        active: control.iconRadius > 0
         sourceComponent: D.ItemViewport {
-            parent: root
+            parent: control
             sourceItem: contentItem.children[0]
-            radius: root.iconRadius
+            radius: control.iconRadius
             fixed: true
-            width: root.icon.width
-            height: root.icon.height
+            width: control.icon.width
+            height: control.icon.height
             hideSource: true
             antialiasing: true
             x: 15
-            y: (root.height - icon.height) / 2
+            y: (control.height - icon.height) / 2
         }
     }
 

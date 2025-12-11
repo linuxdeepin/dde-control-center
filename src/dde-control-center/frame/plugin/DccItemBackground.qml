@@ -9,12 +9,12 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 Item {
-    id: root
+    id: bgItem
     implicitWidth: DS.Style.itemDelegate.width
     implicitHeight: DS.Style.itemDelegate.height
     property bool separatorVisible: false // 分隔线
     property bool shadowVisible: true // 阴影
-    property alias control: root.parent
+    property alias control: bgItem.parent
     property real radius: DS.Style.control.radius
     property real bgMargins: 3
 
@@ -52,7 +52,7 @@ Item {
         active: shadowVisible && (!control.checked) && (backgroundType & 0x01) && (control.corners & D.RoundRectangle.BottomCorner)
         sourceComponent: Canvas {
             id: canvas
-            property var color: root.D.ColorSelector.shadowColor
+            property var color: bgItem.D.ColorSelector.shadowColor
             property real h: 1
             anchors.fill: parent
             renderTarget: Canvas.FramebufferObject
@@ -62,10 +62,10 @@ Item {
                 ctx.fillStyle = canvas.color
                 ctx.beginPath()
                 ctx.moveTo(0, canvas.height / 2)
-                ctx.lineTo(0, canvas.height - root.radius)
-                ctx.quadraticCurveTo(0, canvas.height, root.radius, canvas.height)
-                ctx.lineTo(canvas.width - root.radius, canvas.height)
-                ctx.quadraticCurveTo(canvas.width, canvas.height, canvas.width, canvas.height - root.radius)
+                ctx.lineTo(0, canvas.height - bgItem.radius)
+                ctx.quadraticCurveTo(0, canvas.height, bgItem.radius, canvas.height)
+                ctx.lineTo(canvas.width - bgItem.radius, canvas.height)
+                ctx.quadraticCurveTo(canvas.width, canvas.height, canvas.width, canvas.height - bgItem.radius)
                 ctx.lineTo(canvas.width, canvas.height / 2)
                 ctx.closePath()
                 ctx.fill()
@@ -73,10 +73,10 @@ Item {
                 ctx.fillStyle = "black"
                 ctx.beginPath()
                 ctx.moveTo(0, canvas.height / 2 - canvas.h)
-                ctx.lineTo(0, canvas.height - root.radius - canvas.h)
-                ctx.quadraticCurveTo(0, canvas.height - canvas.h, root.radius, canvas.height - canvas.h)
-                ctx.lineTo(canvas.width - root.radius, canvas.height - canvas.h)
-                ctx.quadraticCurveTo(canvas.width, canvas.height - canvas.h, canvas.width, canvas.height - root.radius - canvas.h)
+                ctx.lineTo(0, canvas.height - bgItem.radius - canvas.h)
+                ctx.quadraticCurveTo(0, canvas.height - canvas.h, bgItem.radius, canvas.height - canvas.h)
+                ctx.lineTo(canvas.width - bgItem.radius, canvas.height - canvas.h)
+                ctx.quadraticCurveTo(canvas.width, canvas.height - canvas.h, canvas.width, canvas.height - bgItem.radius - canvas.h)
                 ctx.lineTo(canvas.width, canvas.height / 2 - canvas.h)
                 ctx.closePath()
                 ctx.fill()
@@ -100,8 +100,8 @@ Item {
         anchors.bottomMargin: 0
         sourceComponent: D.RoundRectangle {
             // 高亮时，hovered状态HighlightPanel有处理,无阴影时，hovered状态使用半透明
-            color: ((backgroundType & 0x08) || (backgroundType & 0x02) === 0 || !control.hoverEnabled) ? root.D.ColorSelector.bgColor : root.D.ColorSelector.backgroundColor
-            radius: root.radius
+            color: ((backgroundType & 0x08) || (backgroundType & 0x02) === 0 || !control.hoverEnabled) ? bgItem.D.ColorSelector.bgColor : bgItem.D.ColorSelector.backgroundColor
+            radius: bgItem.radius
             corners: control.corners
         }
     }
@@ -116,7 +116,7 @@ Item {
         }
         active: control.activeFocus || control.visualFocus
         sourceComponent: D.FocusBoxBorder {
-            radius: root.radius
+            radius: bgItem.radius
             color: control.palette.highlight
         }
     }
@@ -141,7 +141,7 @@ Item {
         anchors.bottomMargin: 1
         active: (backgroundType & 0x10)
         sourceComponent: Rectangle {
-            radius: root.radius
+            radius: bgItem.radius
             color: Qt.rgba(0.95, 0.22, 0.20, 0.15)
         }
     }
@@ -160,7 +160,7 @@ Item {
             rightMargin: 10
         }
         sourceComponent: Rectangle {
-            color: root.D.ColorSelector.separatorColor
+            color: bgItem.D.ColorSelector.separatorColor
         }
     }
 }

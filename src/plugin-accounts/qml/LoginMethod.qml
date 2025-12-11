@@ -86,9 +86,7 @@ DccTitleObject {
                 page: D.IconLabel {
                     icon {
                         name: "arrow_ordinary_right"
-                        palette: D.DTK.makeIconPalette(parent.palette)
-                        mode: parent.D.ColorSelector.controlState
-                        theme: parent.D.ColorSelector.controlTheme
+                        palette: D.DTK.makeIconPalette(palette)
                     }
                     opacity: enabled ? 1 : 0.4
                 }
