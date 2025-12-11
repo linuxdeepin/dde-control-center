@@ -3115,6 +3115,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>show all - %1 items</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Add Picture</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WindowEffectPage</name>

@@ -3107,6 +3107,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <source>show all - %1 items</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Add Picture</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WindowEffectPage</name>

@@ -3118,6 +3118,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <source>show all - %1 items</source>
         <translation>pokaż wszystkie - %1 przedmiotów</translation>
     </message>
+    <message>
+        <source>Add Picture</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WindowEffectPage</name>

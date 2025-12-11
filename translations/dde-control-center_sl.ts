@@ -3106,6 +3106,10 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <source>show all - %1 items</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Add Picture</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WindowEffectPage</name>

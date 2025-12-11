@@ -3131,6 +3131,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <source>show all - %1 items</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Add Picture</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WindowEffectPage</name>

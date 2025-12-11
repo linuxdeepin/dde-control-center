@@ -3115,6 +3115,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>show all - %1 items</source>
         <translation>shfaqi krejt - %1 objektet</translation>
     </message>
+    <message>
+        <source>Add Picture</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WindowEffectPage</name>

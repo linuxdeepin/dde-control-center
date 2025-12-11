@@ -3118,6 +3118,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <source>show all - %1 items</source>
         <translation>mostra-ho tot - %1 elements</translation>
     </message>
+    <message>
+        <source>Add Picture</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WindowEffectPage</name>

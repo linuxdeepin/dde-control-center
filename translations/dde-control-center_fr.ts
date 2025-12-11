@@ -3120,6 +3120,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <source>show all - %1 items</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Add Picture</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WindowEffectPage</name>
