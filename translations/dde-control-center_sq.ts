@@ -3115,7 +3115,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"/>
+        <translation>Shtoni Foto</translation>
     </message>
 </context>
 <context>
