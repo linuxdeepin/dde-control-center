@@ -3118,7 +3118,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"/>
+        <translation>Afegeix-hi una imatge</translation>
     </message>
 </context>
 <context>
