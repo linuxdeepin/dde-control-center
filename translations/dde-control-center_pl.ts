@@ -1041,7 +1041,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Przystąpienie do Programu doświadczeń użytkowników oznacza, że udzielasz nam zgody i upoważniasz nas do gromadzenia i wykorzystywania informacji o Twoim urządzeniu, systemie i aplikacjach. Jeśli nie zgadzasz się na przetwarzanie wyżej wymienionych danych, nie dołączaj do programu. Aby uzyskać szczegółowe informacje, zapoznaj się z Polityką prywatności Deepin &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -3118,7 +3118,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj zdjęcie</translation>
     </message>
 </context>
 <context>
@@ -3295,7 +3295,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Nazwa użytkownika nie może być pusta</translation>
     </message>
 </context>
 <context>
