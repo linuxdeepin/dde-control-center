@@ -75,6 +75,7 @@ ColumnLayout {
         }
         D.ToolButton {
             id: titleLoolButton
+            font: D.DTK.fontManager.t7
             visible: layout.lineCount * 2 < root.model.count + root.firstItemVisible ? 1 : 0
             textColor: D.Palette {
                 normal {
