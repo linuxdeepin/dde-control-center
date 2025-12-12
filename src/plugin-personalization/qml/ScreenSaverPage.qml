@@ -68,7 +68,8 @@ DccObject {
                     anchors.fill: parent
                     radius: 6
                     color: "transparent"
-                    border.color: Qt.rgba(0, 0, 0, 0.1)
+                    border.color: D.DTK.themeType === D.ApplicationHelper.LightType ?
+                                    Qt.rgba(0, 0, 0, 0.1) : Qt.rgba(1, 1, 1, 0.1)
                     border.width: 1
                 }
 
