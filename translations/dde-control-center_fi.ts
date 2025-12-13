@@ -1921,7 +1921,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"/>
+        <translation>Kookas</translation>
     </message>
 </context>
 <context>
@@ -3111,7 +3111,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"/>
+        <translation>Lisää kuva</translation>
     </message>
 </context>
 <context>
@@ -3288,7 +3288,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Nimeä ei voi jättää tyhjäksi</translation>
     </message>
 </context>
 <context>
