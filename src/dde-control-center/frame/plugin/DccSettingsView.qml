@@ -13,7 +13,7 @@ Flickable {
     property real margin: DccUtils.getMargin(width)
     property bool initItem: false
 
-    contentHeight: centralItem.height + bottomItem.height
+    contentHeight: centralItem.height + bottomItem.height - (bottomItem.height > 0 ? bottomItem.anchors.topMargin : 0)
     ScrollBar.vertical: ScrollBar {
         width: 10
     }
@@ -48,7 +48,7 @@ Flickable {
     }
     DccLoader {
         id: bottomItem
-        height: item ? (item.implicitHeight + 10) : 0
+        height: item ? (item.implicitHeight + 20) : 0
         focus: true
         dccObjItem: parent
         anchors {
@@ -56,8 +56,8 @@ Flickable {
             right: parent.right
             topMargin: 5
             bottomMargin: 5
-            leftMargin: control.margin + 10
-            rightMargin: control.margin + 10
+            leftMargin: control.margin
+            rightMargin: control.margin
         }
         y: (control.contentHeight - control.contentY > control.height ? control.height - this.height + control.contentY : control.contentHeight - this.height)
     }
