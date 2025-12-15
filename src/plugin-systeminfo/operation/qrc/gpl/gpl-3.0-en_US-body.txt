@@ -1,71 +1,53 @@
 The notice provides license information of respective open source software contained in this operation system.
 
 Open Source Software Licensed under the LGPL-3.0-only or GPL-2.0-only:
-1、source package:qtbase-opensource-src 5.11.3
+1、source package:qt6-base-src 6.x
 
 package:
 
-libqt5core5a
-libqt5gui5
-qt5-gtk-platformtheme
-qt5-flatpak-platformtheme
-libqt5network5
-libqt5opengl5
-libqt5sql5
-libqt5sql5-mysql
-libqt5sql5-odbc
-libqt5sql5-psql
-libqt5sql5-sqlite
-libqt5sql5-tds
-libqt5sql5-ibase
-libqt5xml5
-libqt5dbus5
-libqt5test5
-libqt5concurrent5
-libqt5widgets5
-libqt5printsupport5
-qtbase5-dev
-qtbase5-private-dev
-libqt5opengl5-dev
-qtbase5-dev-tools
-qt5-qmake-bin
-qt5-qmake
-qtbase5-examples
-qt5-default
-qtbase5-doc
-qtbase5-doc-html
+libqt6core6
+libqt6gui6
+libqt6network6
+libqt6opengl6
+libqt6openglwidgets6
+libqt6sql6
+libqt6sql6-mysql
+libqt6sql6-odbc
+libqt6sql6-psql
+libqt6sql6-sqlite
+libqt6sql6-ibase
+libqt6xml6
+libqt6dbus6
+libqt6test6
+libqt6concurrent6
+libqt6widgets6
+libqt6printsupport6
+qt6-base-dev
 
 Copyright:
 2016-2017 The Qt Company Ltd.
 
-2、source package:qt3d-opensource-src 5.11.3
+2、source package:qt6-3d-src 6.x
 
 package:
 
-libqt53dcore5
-libqt53dquick5
-libqt53dquickrender5
-libqt53dinput5
-libqt53drender5
-libqt53dlogic5
-libqt53dquickinput5
-libqt53dquickextras5
-libqt53dextras5
-libqt53dquickscene2d5
-libqt53danimation5
-libqt53dquickanimation5
-qt3d5-dev-tools
-qt3d-gltfsceneio-plugin
-qt3d-assimpsceneimport-plugin
-qt3d-defaultgeometryloader-plugin
-qt3d-scene2d-plugin
-qml-module-qt3d
-qml-module-qtquick-scene3d
-qml-module-qtquick-scene2d
-qt3d5-dev
-qt3d5-examples
-qt3d5-doc
-qt3d5-doc-html
+libqt63dcore6
+libqt63dquick6
+libqt63dinput6
+libqt63drender6
+libqt63dlogic6
+libqt63dquickextras6
+libqt63dextras6
+libqt63dquickscene2d6
+libqt63danimation6
+qml6-module-qt3d-core
+qml6-module-qt3d-input
+qml6-module-qt3d-logic
+qml6-module-qt3d-render
+qml6-module-qt3d-extras
+qml6-module-qt3d-animation
+qml6-module-qtquick-scene3d
+qml6-module-qtquick-scene2d
 
 Copyright:
 2013 Research In Motion
@@ -78,126 +60,84 @@ Copyright:
 2016 Svenn-Arne Dragly
 2017 Juan José Casafranca
 
-3、source package:qtgraphicaleffects-opensource-src 5.11.3
+3、source package:qt6-5compat-src 6.x
 
 package:
 
-qml-module-qtgraphicaleffects
-qtgraphicaleffects5-doc
-qtgraphicaleffects5-doc-html
+libqt6core5compat6
+qml6-module-qt5compat-graphicaleffects
 
 Copyright:
 2017 The Qt Company Ltd.
 
-4、source package:qtimageformats-opensource-src 5.11.3
+4、source package:qt6-imageformats-src 6.x
 
 package:
 
-qt5-image-formats-plugins
+qt6-image-formats-plugins
 
 Copyright:
 2016-2017 The Qt Company Ltd.
 
-5、source package:qtlocation-opensource-src 5.11.3
+5、source package:qt6-positioning-src 6.x
 
 package:
 
-libqt5location5
-libqt5positioningquick5
-libqt5positioning5
-libqt5location5-plugins
-libqt5positioning5-plugins
-qml-module-qtlocation
-qml-module-qtpositioning
-qml-module-qt-labs-location
-qtlocation5-dev
-qtpositioning5-dev
-qtlocation5-examples
-qtlocation5-doc
-qtlocation5-doc-html
+libqt6positioningquick6
+libqt6positioning6
+libqt6positioning6-plugins
+qml6-module-qtpositioning
 
 Copyright:
 2015-2017 The Qt Company Ltd.
 2015-2016 Jolla Ltd.
 2013-2016 Aaron McCarthy mccarthy.aaron@gmail.com
 
-6、source package:qtmultimedia-opensource-src 5.11.3
+6、source package:qt6-multimedia-src 6.x
 
 package:
 
-libqt5multimedia5
-libqt5multimedia5-plugins
-libqt5multimediaquick5
-libqt5multimediawidgets5
-qml-module-qtmultimedia
-qml-module-qtaudioengine
-libqt5multimediagsttools5
-qtmultimedia5-examples
-qtmultimedia5-dev
-qtmultimedia5-doc
-qtmultimedia5-doc-html
+libqt6multimedia6
+libqt6multimediawidgets6
+libqt6spatialaudio6
+qml6-module-qtmultimedia
+qt6-multimedia-dev
 
 Copyright:
 2016-2018 The Qt Company Ltd.
 2016 Research In Motion
 2016 Jolla Ltd.
 
-7、source package:qtquickcontrols-opensource-src 5.11.3
+7、source package:qt6-declarative-src 6.x
 
 package:
 
-qml-module-qtquick-controls
-qml-module-qtquick-extras
-qml-module-qtquick-dialogs
-qml-module-qtquick-privatewidgets
-qtquickcontrols5-examples
-qtquickcontrols5-doc
-qtquickcontrols5-doc-html
-
-Copyright:
-2016 The Qt Company Ltd.
-
-8、source package:qtquickcontrols2-opensource-src 5.11.3
-
-package:
-
-libqt5quickcontrols2-5
-libqt5quicktemplates2-5
-qml-module-qt-labs-calendar
-qml-module-qt-labs-platform
-qml-module-qtquick-controls2
-qml-module-qtquick-templates2
-qtquickcontrols2-5-dev
-qtquickcontrols2-5-doc
-qtquickcontrols2-5-doc-html
-qtquickcontrols2-5-examples
+qml6-module-qtquick-controls
+qml6-module-qtquick-dialogs
+qml6-module-qtquick-templates
+qml6-module-qt-labs-platform
+qt6-declarative-dev
 
 Copyright:
 2015-2017 The Qt Company Ltd.
 
-9、source package:qtsensors-opensource-src 5.11.3
+8、source package:qt6-sensors-src 6.x
 
 package:
 
-libqt5sensors5
-qml-module-qtsensors
-libqt5sensors5-dev
-qtsensors5-examples
-qtsensors5-doc
-qtsensors5-doc-html
+libqt6sensors6
+qml6-module-qtsensors
+qt6-sensors-dev
 
 Copyright:
 2016-2017 The Qt Company Ltd.
 
-10、source package:qtserialport-opensource-src 5.11.3
+9、source package:qt6-serialport-src 6.x
 
 package:
 
-libqt5serialport5
-libqt5serialport5-dev
-qt5serialport-examples
-qtserialport5-doc
-qtserialport5-doc-html
+libqt6serialport6
+qt6-serialport-dev
 
 Copyright:
 2011-2016 Denis Shienkov denis.shienkov@gmail.com
@@ -206,151 +146,107 @@ Copyright:
 2012 Andre Hartmann aha_1980@gmx.de
 2016 The Qt Company Ltd.
 
-11、source package:qtsvg-opensource-src 5.11.3
+10、source package:qt6-svg-src 6.x
 
 package:
 
-libqt5svg5
-libqt5svg5-dev
-qtsvg5-examples
-qtsvg5-doc
-qtsvg5-doc-html
+libqt6svg6
+libqt6svgwidgets6
+qt6-svg-dev
 
 Copyright:
 2016 The Qt Company Ltd.
 
-12、source package:qtwebsockets-opensource-src 5.11.3
+11、source package:qt6-websockets-src 6.x
 
 package:
 
-libqt5websockets5
-libqt5websockets5-dev
-qml-module-qtwebsockets
-qml-module-qt-websockets
-qtwebsockets5-examples
-qtwebsockets5-doc
+libqt6websockets6
+qml6-module-qtwebsockets
+qt6-websockets-dev
 
 Copyright:
 2016 Kurt Pattyn pattyn.kurt@gmail.com
 
-13、source package:qtx11extras-opensource-src 5.11.3
+12、source package:qt6-wayland-src 6.x
 
 package:
 
-libqt5x11extras5
-libqt5x11extras5-dev
-qtx11extras5-doc
-qtx11extras5-doc-html
-
-Copyright:
-2016 The Qt Company Ltd.
-2016 Richard Moore rich@kde.org
-2016 David Faure david.faure@kdab.com
-
-14、source package:qtwayland-opensource-src 5.15.1
-
-package:
-
-qtwayland5-examples
-libqt5waylandclient5
-libqt5waylandcompositor5
-qml-module-qtwayland-compositor
-qml-module-qtwayland-client-texturesharing
-libqt5waylandcompositor5-dev
-libqt5waylandclient5-dev
-qtwayland5-private-dev
-qtwayland5-dev-tools
-qtwayland5
-qtwayland5-doc
-qtwayland5-doc-html
+libqt6waylandclient6
+libqt6waylandcompositor6
+libqt6wlshellintegration6
+qml6-module-qtwayland-compositor
+qml6-module-qtwayland-client-texturesharing
+qt6-wayland-dev
+qt6-wayland-private-dev
+qt6-wayland-dev-tools
 
 Copyright:
 2016-2020 The Qt Company Ltd.
 
-15、source package:qtwebview-opensource-src 5.11.3
+13、source package:qt6-webview-src 6.x
 
 package:
 
-qtwebview5-doc
-qtwebview5-doc-html
-libqt5webview5-dev
-qtwebview5-examples
-libqt5webview5
-qml-module-qtwebview
+libqt6webview6
+qml6-module-qtwebview
 
 Copyright:
 2015,2016 The Qt Company Ltd.
 
 Open Source Software Licensed under the GPL-3.0-or-later:
-1、source package:qtcharts-opensource-src 5.11.3
+1、source package:qt6-charts-src 6.x
 
 package:
 
-libqt5charts5
-libqt5charts5-dev
-qml-module-qtcharts
-qtcharts5-examples
-qtcharts5-doc
-qtcharts5-doc-html
+libqt6charts6
+qml6-module-qtcharts
+qt6-charts-dev
 
 Copyright:
 2016-2018 The Qt Company Ltd.
 
-2、source package:qtvirtualkeyboard-opensource-src 5.11.3
+2、source package:qt6-virtualkeyboard-src 6.x
 
 package:
 
-qml-module-qtquick-virtualkeyboard
-qtvirtualkeyboard-plugin
-qtvirtualkeyboard5-examples
-qtvirtualkeyboard5-doc
-qtvirtualkeyboard5-doc-html
+libqt6virtualkeyboard6
+qml6-module-qtquick-virtualkeyboard
 
 Copyright:
 2016-2018 The Qt Company Ltd.
 
-3、source package:qtdatavis3d-everywhere-src 5.11.3
+3、source package:qt6-datavis3d-src 6.x
 
 package:
 
-libqt5datavisualization5
-libqt5datavisualization5-dev
-qml-module-qtdatavisualization
-qtdatavisualization5-examples
-qtdatavisualization5-doc
-qtdatavisualization5-doc-html
+libqt6datavisualization6
+qml6-module-qtdatavisualization
+qt6-datavis3d-dev
 
 Copyright:
 2016-2017 The Qt Company Ltd.
 
 Open Source Software Licensed under the GPL-3.0-only:
-1、source package:qtnetworkauth-everywhere-src 5.11.3
+1、source package:qt6-networkauth-src 6.x
 
 package:
 
-qtnetworkauth5-doc
-qtnetworkauth5-doc-html
-libqt5networkauth5-dev
-qtnetworkauth5-examples
-libqt5networkauth5
+libqt6networkauth6
+qt6-networkauth-dev
 
 Copyright:
 2017 The Qt Company Ltd.
 
 Open Source Software Licensed under the LGPL-3.0-only or GPL-2.0-or-later:
-1、source package:qtconnectivity-opensource-src 5.11.3
+1、source package:qt6-connectivity-src 6.x
 
 package:
 
-libqt5bluetooth5
-libqt5bluetooth5-bin
-qml-module-qtbluetooth
-libqt5nfc5
-qml-module-qtnfc
-qtconnectivity5-dev
-qtconnectivity5-examples
-qtconnectivity5-doc
-qtconnectivity5-doc-html
+libqt6bluetooth6
+libqt6bluetooth6-bin
+libqt6nfc6
+qt6-connectivity-dev
 
 Copyright:
 2015-2018 The Qt Company Ltd.
@@ -358,111 +254,81 @@ Copyright:
 2016 Centria research and development
 2015-2016 BasysKom GmbH
 
-2、source package:qtdeclarative-opensource-src 5.11.3
+2、source package:qt6-declarative-src 6.x
 
 package:
 
-libqt5qml5
-libqt5quick5
-libqt5quickparticles5
-libqt5quicktest5
-libqt5quickwidgets5
-qml-module-qtquick-layouts
-qt5-qmltooling-plugins
-qml-module-qt-labs-folderlistmodel
-qml-module-qtquick-localstorage
-qml-module-qt-labs-sharedimage
-qml-module-qtqml-models2
-qml-module-qtqml-statemachine
-qml-module-qtquick-particles2
-qml-module-qtquick2
-qml-module-qtquick-shapes
-qml-module-qt-labs-handlers
-qml-module-qt-labs-settings
-qml-module-qttest
-qml-module-qtquick-window2
-qml-module-qtquick-xmllistmodel
-qtdeclarative5-dev
-qtdeclarative5-private-dev
-qtdeclarative5-dev-tools
-qmlscene
-qml
-qtdeclarative5-examples
-qtdeclarative5-doc
-qtdeclarative5-doc-html
+libqt6qml6
+libqt6qmlcompiler6
+libqt6qmlmodels6
+libqt6quick6
+libqt6quickwidgets6
+libqt6quickshapes6
+libqt6statemachine6
+qml6-module-qtquick
+qml6-module-qtquick-layouts
+qml6-module-qtquick-window
+qml6-module-qtquick-particles
+qml6-module-qtquick-shapes
+qml6-module-qtquick-localstorage
+qml6-module-qtqml
+qml6-module-qtqml-models
+qml6-module-qtqml-statemachine
+qml6-module-qtqml-workerscript
+qml6-module-qtqml-xmllistmodel
+qml6-module-qt-labs-folderlistmodel
+qml6-module-qt-labs-settings
+qml6-module-qt-labs-sharedimage
+qml6-module-qt-labs-animation
+qml6-module-qt-labs-qmlmodels
+qml6-module-qttest
+qt6-declarative-dev
+qt6-declarative-private-dev
+qt6-declarative-dev-tools
+qt6-qmltooling-plugins
 
 Copyright:
 2016-2018 The Qt Company Ltd.
 
-3、source package:qtspeech-opensource-src 5.11.3
+3、source package:qt6-speech-src 6.x
 
 package:
 
-libqt5texttospeech5-dev
-libqt5texttospeech5
-qtspeech5-flite-plugin
-qtspeech5-speechd-plugin
-qtspeech5-examples
-qtspeech5-doc
-qtspeech5-doc-html
+libqt6texttospeech6
+qml6-module-qttexttospeech
+qt6-speech-dev
+qt6-speech-flite-plugin
+qt6-speech-speechd-plugin
 
 Copyright:
 2015-2017 The Qt Company Ltd.
 
-4、source package:qtxmlpatterns-opensource-src 5.11.3
+4、source package:qt6-serialbus-src 6.x
 
 package:
 
-libqt5xmlpatterns5
-libqt5xmlpatterns5-dev
-qtxmlpatterns5-dev-tools
-qtxmlpatterns5-examples
-qtxmlpatterns5-doc
-qtxmlpatterns5-doc-html
-
-Copyright:
-2016-2018 The Qt Company Ltd.
-
-5、source package:qtgamepad-everywhere-src 5.11.3
-
-package:
-
-libqt5gamepad5-dev
-qtgamepad5-examples
-
-Copyright:
-2016 The Qt Company Ltd.
-
-6、source package:qtserialbus-everywhere-src 5.11.3
-
-package:
-
-libqt5serialbus5
-libqt5serialbus5-bin
-libqt5serialbus5-plugins
-libqt5serialbus5-dev
-qtserialbus5-examples
-qtserialbus5-doc
-qtserialbus5-doc-html
+libqt6serialbus6
+libqt6serialbus6-bin
+qt6-serialbus-dev
 
 Copyright:
 2015-2017 The Qt Company Ltd.
 2017 Denis Shienkov denis.shienkov@gmail.com
 2017 Andre Hartmann aha_1980@gmx.de
 
-7、source package:qtwebengine-opensource-src 5.11.3
+5、source package:qt6-webengine-src 6.x
 
 package:
 
-libqt5webengine5
-libqt5webenginecore5
-libqt5webengine-data
-libqt5webenginewidgets5
-qml-module-qtwebengine
-qtwebengine5-dev
-qtwebengine5-dev-tools
-qtwebengine5-examples
-qtwebengine5-private-dev
+libqt6webenginecore6
+libqt6webenginecore6-bin
+libqt6webengine6-data
+libqt6webenginewidgets6
+libqt6webenginequick6
+qml6-module-qtwebengine
+qt6-webengine-dev
+qt6-webengine-dev-tools
+qt6-webengine-private-dev
 
 Copyright:
 2013, BlackBerry Limited
@@ -471,45 +337,40 @@ Copyright:
 2015-2016, The Qt Company Ltd.
 
 Open Source Software Licensed under the GPL-3.0-only with Qt 1.0 exception:
-1、source package:qttools-opensource-src 5.11.3
+1、source package:qt6-tools-src 6.x
 
 package:
 
-libqt5designer5
-libqt5designercomponents5
-qdbus-qt5
-qdoc-qt5
-libqt5help5
-qttools5-dev
-qttools5-private-dev
-qttools5-dev-tools
-qt5-assistant
-qttools5-examples
-qttools5-doc
-qttools5-doc-html
+libqt6designer6
+libqt6designercomponents6
+libqt6help6
+libqt6uitools6
+qt6-tools-dev
+qt6-tools-private-dev
+qt6-tools-dev-tools
+qt6-l10n-tools
+qt6-documentation-tools
 
 Copyright:
 2016-2018 The Qt Company Ltd.
 
-2、source package:qttranslations-opensource-src 5.11.3
+2、source package:qt6-translations-src 6.x
 
 package:
 
-qttranslations5-l10n
+qt6-translations-l10n
 
 Copyright:
 2017 The Qt Company Ltd.
 
-3、source package:qtwebchannel-opensource-src 5.11.3
+3、source package:qt6-webchannel-src 6.x
 
 package:
 
-qtwebchannel5-doc
-qtwebchannel5-doc-html
-libqt5webchannel5-dev
-qtwebchannel5-examples
-libqt5webchannel5
-qml-module-qtwebchannel
+libqt6webchannel6
+libqt6webchannelquick6
+qml6-module-qtwebchannel
+qt6-webchannel-dev
 
 Copyright:
 2016, Klarälvdalens Datakonsult AB, a KDAB Group company, info@kdab.com, author Milian Wolff milian.wolff@kdab.com
@@ -517,96 +378,16 @@ Copyright:
 2016, basysKom GmbH, author Lutz Schönemann lutz.schoenemann@basyskom.com
 2015-2016 BasysKom GmbH
 
-Open Source Software Licensed under the BSD-2-clause:
-1、source package:qtwebkit-opensource-src 5.212.0
-
-package:
-
-libqt5webkit5-dev
-libqt5webkit5
-qml-module-qtwebkit
-
-Copyright:
-2013, Adenilson Cavalcanti cavalcantii@gmail.com
-2013, Adobe Systems Incorporated
-2006, Alexey Proskuryakov ap@webkit.org
-2010, Andras Becsi (abecsi@inf.u-szeged.hu), University of Szeged
-2011, Andreas Kling kling@webkit.org
-2013, Andrew Bortz
-2008-2009, Anthony Ricaud rik@webkit.org
-2014, Antoine Quint
-2003-2016, Apple Inc
-2011, Benjamin Poulain benjamin@webkit.org
-2011, Brian Grinstead
-2015, Canon Inc
-2013, Cisco Systems, Inc
-2010-2014, Collabora Ltd
-2012-2013, Company 100, Inc
-2015-2016, Devin Rousso dcrousso+webkit@gmail.com
-2006, Dirk Mueller mueller@kde.org
-2015, Electronic Arts, Inc
-2011, Gabor Loki loki@webkit.org
-2006, George Staikos staikos@kde.org
-2009, Girish Ramakrishnan girish@forwardbias.in
-2005-2013, Google Inc
-2012, Hewlett-Packard Development Company, L.P
-2009, Holger Hans Peter Freyther
-2011-2016, Igalia S.L
-2012-2013, Intel Corporation
-2009-2010, Joseph Pecoraro
-2010, Juha Savolainen juha.savolainen@weego.fi
-2007, Justin Haygood jhaygood@reaktix.com
-2016-2017, Konstantin Tokarev annulen@yandex.ru
-2011, Kristof Kosztyo Kosztyo.Kristof@stud.u-szeged.hu
-2013, Matt Holden jftholden@yahoo.com
-2008, Matt Lilek
-2015, Metrological
-2010-2011, Motorola Mobility, Inc
-2015, Naver Corp
-2010, Nikita Vasilyev
-2006, Nikolas Zimmermann zimmermann@kde.org
-2009-2013, Nokia Corporation and/or its subsidiary(-ies)
-2010-2014, Patrick Gansterer paroga@paroga.com
-2012, Raphael Kubo da Costa rakuco@webkit.org
-2013, Renata Hodovan reni@inf.u-szeged.hu
-2014-2015, Saam Barati saambarati1@gmail.com
-2011-2014, Samsung Electronics
-2013, Seokju Kwon seokju.kwon@gmail.com
-2006, Simon Hausmann hausmann@kde.org
-2015, The Qt Company Ltd
-2015, Tobias Reiss tobi+webkit@basecode.de
-2007-2009, Torch Mobile, Inc. (http://www.torchmobile.com/)
-2009-2015, University of Szeged
-2013-2015, University of Washington
-2015, Yusuke Suzuki utatane.tea@gmail.com
-2006, Zack Rusin zack@kde.org
-2011, Zeno Albisser zeno@webkit.org
-
 Open Source Software Licensed under the BSD-3-clause:
-1、source package:qtdoc-opensource-src 5.11.3
+1、source package:qt6-doc-src 6.x
 
 package:
 
-qt5-doc
-qt5-doc-html
+qt6-base-doc
+qt6-base-doc-html
 
 Copyright:
 2015-2017 The Qt Company Ltd.
-
-Open Source Software Licensed under the LGPL-2.1-only or LGPL-3.0-only with Qt-1.1 exception:
-1、source package: qtscript-opensource-src 5.11.3
-
-package:
-
-libqt5script5
-libqt5scripttools5
-qtscript5-dev
-qtscript5-examples
-qtscript5-doc
-qtscript5-doc-html
-
-Copyright:
-2015 The Qt Company Ltd.
 
 Copy of Licenses
 
