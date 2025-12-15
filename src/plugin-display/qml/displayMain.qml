@@ -569,10 +569,14 @@ DccObject {
             weight: 20
             pageType: DccObject.Editor
             page: ComboBox {
+                id: resolutionComboBox
                 flat: true
                 model: root.getResolutionModel(screen.resolutionList, screen.bestResolution)
                 textRole: "text"
                 valueRole: "value"
+
+                property real popupContentWidth: 0
+
                 function indexOfSize(model, currentSize) {
                     for (var i = 0; i < model.length; i++) {
                         let v = model[i]
@@ -582,6 +586,28 @@ DccObject {
                     }
                     return -1
                 }
+
+                TextMetrics {
+                    id: resolutionTextMetrics
+                    font: resolutionComboBox.font
+                }
+
+                function updatePopupWidth() {
+                    var maxWidth = 0
+                    for (var i = 0; i < model.length; i++) {
+                        resolutionTextMetrics.text = model[i].text
+                        var itemWidth = resolutionTextMetrics.width + 80
+                        if (itemWidth > maxWidth) {
+                            maxWidth = itemWidth
+                        }
+                    }
+                    popupContentWidth = maxWidth
+                }
+
+                Component.onCompleted: updatePopupWidth()
+                onModelChanged: updatePopupWidth()
+
+                popup.width: Math.max(popupContentWidth, width)
 
                 currentIndex: indexOfSize(model, screen.currentResolution)
                 onActivated: {
