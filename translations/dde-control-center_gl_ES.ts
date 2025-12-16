@@ -1921,6 +1921,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <source>X-Large</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Some apps require logout or system restart to take effect</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MyDevice</name>

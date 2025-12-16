@@ -1929,6 +1929,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>X-Large</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Some apps require logout or system restart to take effect</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MyDevice</name>
