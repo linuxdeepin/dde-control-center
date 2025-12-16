@@ -1930,6 +1930,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <source>X-Large</source>
         <translation>Ogromny</translation>
     </message>
+    <message>
+        <source>Some apps require logout or system restart to take effect</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MyDevice</name>
