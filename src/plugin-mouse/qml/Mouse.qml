@@ -191,7 +191,8 @@ DccObject {
                                     if (dccData.cursorSize === listview.availableSizes[index]) {
                                         return
                                     }
-                                    dccData.cursorSize = listview.availableSizes[index];
+                                    dccData.cursorSize = listview.availableSizes[index]
+                                    pointerSizeTips.visible = true
                                 }
                             }
                         }
@@ -217,9 +218,39 @@ DccObject {
     }
 
     DccObject {
+        id: pointerSizeTips
+        name: "PointerSizeTips"
+        parentName: "MouseAndTouchpadMouse"
+        weight: 40
+        pageType: DccObject.Item
+        visible: false
+        page: RowLayout {
+            D.DciIcon {
+                name: "sp_alert"
+                sourceSize: Qt.size(18, 18)
+                Layout.leftMargin: 10
+            }
+
+            Label {
+                Layout.fillWidth: true
+                font: D.DTK.fontManager.t6
+                text: qsTr("Some apps require logout or system restart to take effect")
+                wrapMode: Text.Wrap
+            }
+        }
+
+        onParentItemChanged: item => {
+            if (item) {
+                item.topPadding = 0
+                item.bottomPadding = 0
+            }
+        }
+    }
+
+    DccObject {
         name: "MouseSettings"
         parentName: "MouseAndTouchpadMouse"
-        weight: 30
+        weight: 50
         pageType: DccObject.Item
         page: DccGroupView {}
         DccObject {
