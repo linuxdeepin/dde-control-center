@@ -5,14 +5,14 @@ import QtQuick.Controls 2.15
 import org.deepin.dtk 1.0
 
 Label {
-    id: root
+    id: control
     property alias hovered: mouseArea.containsMouse
 
     elide: Text.ElideRight
     font: DTK.fontManager.t6
     ToolTip {
-        visible: root.width < root.implicitWidth && root.hovered
-        text: root.text
+        visible: control.width < control.implicitWidth && control.hovered
+        text: control.text
         delay: 500
         timeout: 3000
     }

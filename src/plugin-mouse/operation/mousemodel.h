@@ -38,7 +38,7 @@ public:
     Q_PROPERTY(bool tapEnabled READ tapEnabled WRITE setTapEnabled NOTIFY tapEnabledChanged FINAL)
     Q_PROPERTY(QString gestureFingerAniPath READ getGestureFingerAniPath NOTIFY gestureFingerAniPathChanged FINAL)
     Q_PROPERTY(QString gestureActionAniPath READ getGestureActionAniPath NOTIFY gestureActionAniPathChanged FINAL)
-    Q_PROPERTY(bool touchpadSwitchFileExists READ touchpadSwitchFileExists FINAL)
+    Q_PROPERTY(bool touchpadSwitchFileExists READ touchpadSwitchFileExists CONSTANT)
     Q_PROPERTY(int cursorSize READ cursorSize WRITE setCursorSize NOTIFY cursorSizeChanged FINAL)
     Q_PROPERTY(QList<int> availableCursorSizes READ availableCursorSizes WRITE setAvailableCursorSizes NOTIFY availableCursorSizesChanged FINAL)
 

@@ -7,7 +7,7 @@ import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 
 D.ItemDelegate {
-    id: root
+    id: control
     property alias separatorVisible: background.separatorVisible
     property alias backgroundType: background.backgroundType
     property var item: model.item
@@ -24,7 +24,7 @@ D.ItemDelegate {
 
     contentItem: DccLoader {
         dccObj: model.item
-        dccObjItem: root
+        dccObjItem: control
     }
     background: DccItemBackground {
         id: background
