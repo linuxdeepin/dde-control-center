@@ -428,15 +428,24 @@ void DccManager::initConfig()
 bool DccManager::contains(const QSet<QString> &urls, const DccObject *obj)
 {
     for (auto &&url : urls) {
-        if (isMatch(url, obj)) {
-            return true;
+        if (url.contains("*")) {
+            if (isMatch(url, obj)) {
+                return true;
+            }
+        } else {
+            if (isEqual(url, obj)) {
+                return true;
+            }
         }
     }
     return false;
 }
 
+// url需要在调用处保证非空
 bool DccManager::isMatch(const QString &url, const DccObject *obj)
 {
+    Q_ASSERT(!url.isEmpty());
+
     QString objPath = "/" + obj->parentName() + "/" + obj->name();
     int urlPos = url.size() - 1;
     int objPos = objPath.size() - 1;
@@ -459,10 +468,10 @@ bool DccManager::isMatch(const QString &url, const DccObject *obj)
         return true;
     }
     if (urlPos >= 0) {
-        return url[urlPos] == '/';
+        return true; // 等价于 objPath[0] == '/' || url[urlPos] == '/';
     }
     if (objPos >= 0) {
-        return objPath[objPos] == '/';
+        return objPath[objPos] == '/' || url[0] == '/';
     }
     return true;
 }
@@ -481,7 +490,7 @@ bool DccManager::isEqual(const QString &url, const DccObject *obj)
 
 DccObject *DccManager::findObject(const QString &url, bool onlyRoot)
 {
-    if (!m_root) {
+    if (!m_root || url.isEmpty()) {
         return nullptr;
     }
     QString path = url;
@@ -508,7 +517,7 @@ DccObject *DccManager::findObject(const QString &url, bool onlyRoot)
 
 QVector<DccObject *> DccManager::findObjects(const QString &url, bool onlyRoot, bool one)
 {
-    if (!m_root) {
+    if (!m_root || url.isEmpty()) {
         return {};
     }
     QString path = url;
@@ -780,17 +789,12 @@ void DccManager::updateModuleConfig(const QString &key)
     // 预处理，去掉首尾空格项，去多通配符项
     newModuleConfig->clear();
     for (auto &&config : list) {
-        if (config.isEmpty()       // 空
-            || config.at(0) == ' ' // 首尾空格
-            || config.at(config.length() - 1) == ' ') {
-            continue;
-        }
         bool isValid = false;
+        // 有效字符为：字母、数字、'/'、'*'
         for (auto &c : config) {
-            if (c == '/') {
-                isValid = false;
-            } else {
-                isValid |= c.isLetterOrNumber();
+            isValid = c == '/' || c == '*' || c.isLetterOrNumber();
+            if (!isValid) {
+                break;
             }
         }
         if (isValid) {
