@@ -133,6 +133,7 @@ DccObject {
         visible: dccData.screens.length > 1
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
+        onParentItemChanged: item => { if (item) item.topPadding = 5 }
         page: DccGroupView {
             isGroup: false
         }
@@ -159,6 +160,7 @@ DccObject {
             enabled: dccData.virtualScreens.length > 1
             Component.onCompleted: cacheImage()
             pageType: DccObject.Item
+            onParentItemChanged: item => { if (item) { item.topInset = 0; item.bottomInset = 0 } }
             page: Item {
                 id: monitorsGround
                 property real translationX: 100
@@ -308,6 +310,7 @@ DccObject {
             weight: 20
             visible: dccData.virtualScreens.length > 1 || (dccData.virtualScreens.length === 1 && dccData.virtualScreens[0].screenItems.length > 1)
             pageType: DccObject.Item
+            onParentItemChanged: item => { if (item) item.topInset = 6 }
             page: Item {
                 implicitHeight: identifyBut.implicitHeight + 4
                 DccLabel {
@@ -369,6 +372,7 @@ DccObject {
         weight: 30
         visible: dccData.screens.length > 1
         pageType: DccObject.Item
+        onParentItemChanged: item => { if (item) item.topInset = 2 }
         page: DccGroupView {}
         DccObject {
             name: "mode"
@@ -453,6 +457,7 @@ DccObject {
         parentName: "display"
         displayName: qsTr("Display And Layout")
         weight: 40
+        onParentItemChanged: item => { if (item) item.topInset = 12 }
     }
     DccObject {
         name: "screenTab"
@@ -550,6 +555,7 @@ DccObject {
         weight: 70
         pageType: DccObject.Item
         page: DccGroupView {}
+        onParentItemChanged: item => { if (item) item.topInset = 3 }
         DccObject {
             name: "brightness"
             parentName: "display/screenGroup"
@@ -829,6 +835,7 @@ DccObject {
         visible: dccData.isX11 && dccData.virtualScreens.length > 1
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
+        onParentItemChanged: item => { if (item) item.topInset = 6 }
         page: ComboBox {
             flat: true
             textRole: "text"
@@ -847,6 +854,7 @@ DccObject {
         name: "displayColorTemperature"
         parentName: "display"
         displayName: qsTr("Eye Comfort")
+        onParentItemChanged: item => { if (item) item.topInset = 12 }
         weight: 90
     }
     DccObject {
