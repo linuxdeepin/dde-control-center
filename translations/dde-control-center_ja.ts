@@ -1919,6 +1919,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>X-Large</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Some apps require logout or system restart to take effect</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MyDevice</name>
