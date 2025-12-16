@@ -15,10 +15,10 @@ DccObject {
                 normalDark: Qt.rgba(1, 1, 1, 0.9)
             }
             font: DccUtils.copyFont(D.DTK.fontManager.t5, {
-                                        "weight": 700
+                                        "weight": 500
                                     })
             text: dccObj.displayName
-            // color: D.ColorSelector.textColor
+            color: D.ColorSelector.textColor
         }
         DccLabel {
             Layout.fillWidth: true
@@ -30,7 +30,7 @@ DccObject {
     }
     onParentItemChanged: {
         if (parentItem) {
-            parentItem.leftPadding = 10
+            parentItem.leftPadding = 12
         }
     }
 }
