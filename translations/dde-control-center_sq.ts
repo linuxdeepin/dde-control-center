@@ -1927,6 +1927,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>X-Large</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Some apps require logout or system restart to take effect</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MyDevice</name>
