@@ -1930,6 +1930,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <source>X-Large</source>
         <translation>Enorme</translation>
     </message>
+    <message>
+        <source>Some apps require logout or system restart to take effect</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>MyDevice</name>
