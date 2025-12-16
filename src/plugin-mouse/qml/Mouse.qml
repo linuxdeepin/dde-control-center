@@ -99,8 +99,6 @@ DccObject {
         weight: 30
         pageType: DccObject.Item
         backgroundType: DccObject.Normal
-        visible: pointerConfig.showPointerSize !== "Hidden"
-        enabled: pointerConfig.showPointerSize === "Enabled"
         page: ColumnLayout {
             anchors.fill: parent
             Label {
@@ -209,12 +207,6 @@ DccObject {
                 }
             }
         }
-    }
-
-    D.Config {
-        id: pointerConfig
-        name: "org.deepin.dde.control-center.mouse"
-        property string showPointerSize: "Enabled"
     }
 
     DccObject {
