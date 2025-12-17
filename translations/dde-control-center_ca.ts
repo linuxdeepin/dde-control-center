@@ -1932,11 +1932,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Algunes aplicacions requereixen tancar la sessió o reiniciar el sistema per tenir efecte.</translation>
     </message>
 </context>
 <context>
