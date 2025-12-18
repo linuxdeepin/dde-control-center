@@ -1929,11 +1929,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Disa aplikacione lypin dalje nga llogaria, ose rinisje sistemi, që të hyjnë në fuqi</translation>
     </message>
 </context>
 <context>

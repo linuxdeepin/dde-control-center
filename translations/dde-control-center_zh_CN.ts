@@ -1929,7 +1929,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>部分应用需注销或重启系统后生效</translation>
     </message>
 </context>
 <context>
