@@ -1,3 +1,21 @@
+dde-control-center (6.1.63) unstable; urgency=medium
+
+  * i18n: Updates for project Deepin Desktop Environment (#2885)
+  * fix: fix QML component loading and gesture data handling
+  * fix: Modify display interface layout spacing
+  * fix: improve URL matching logic and empty URL handling
+  * fix: Fix build with Qt 6.10 and higher
+  * i18n: Updates for project Deepin Desktop Environment (#2873)
+  * feat: remove pointer size configuration from mouse settings
+  * fix: add pointer size change notification
+  * fix: adjust DccTitleObject styling for better visual consistency
+  * fix: Fix incomplete display of resolution options
+  * fix: adjust footer layout spacing in DccSettingsView
+  * fix: Update open source license
+  * fix: Optimize the UI of wallpaper selection page
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 18 Dec 2025 19:43:30 +0800
+
 dde-control-center (6.1.62) unstable; urgency=medium
 
   * refactor: standardize QML component id naming
