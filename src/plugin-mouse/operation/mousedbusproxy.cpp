@@ -94,7 +94,6 @@ void MouseDBusProxy::active()
 
     QVariant gestureInfos = m_dbusGestureProperties->call("Get", GestureInterface, "Infos").arguments().at(0).value<QDBusVariant>().variant();
     parseGesturesData(qvariant_cast<QDBusArgument>(gestureInfos));
-    m_worker->initFingerGestures();
 
     listCursor();
     auto cursorSize = m_appearance->property("CursorSize").toInt();
@@ -264,43 +263,22 @@ void MouseDBusProxy::parseGesturesData(const QDBusArgument &argument)
         // 开始解析 Struct of (String,String,Int32,String)
         argument.beginStructure();
 
-        argument >> actionType ;
-        argument >> direction ;
+        argument >> actionType;
+        argument >> direction;
         argument >> fingerNum;
         argument >> actionName;
         argument.endStructure();
 
-        GestureData data;
-        data.setActionType(actionType);
-        data.setDirection(direction);
-        data.setActionName(actionName);
-        data.setFingersNum(fingerNum);
+        QVariantMap data;
+        data.insert("actionType", actionType);
+        data.insert("direction", direction);
+        data.insert("actionName", actionName);
+        data.insert("fingerNum", fingerNum);
 
-        QDBusPendingReply<QString> reply = m_dbusGesture->callWithArgumentList(QDBus::BlockWithGui,"GetGestureAvaiableActions", {actionType, fingerNum});
-
-        if (!reply.isError()) {
-            QString actions = reply.value();
-            QJsonDocument document = QJsonDocument::fromJson(actions.toUtf8());
-
-            if (document.isArray()) {
-                QJsonArray array = document.array();
-                QStringList actionNameList;
-                QStringList actionDescriptionList;
-                for (int i = 0; i < array.size(); ++i) {
-                    QJsonValue value = array.at(i);
-                    if (value.isObject()) {
-                        QJsonObject object = value.toObject();
-
-                        QPair<QString, QString> actionPair;
-                        actionPair.first = object.value("Name").toString();;
-                        actionPair.second = object.value("Description").toString();
-                        data.addActiosPair(actionPair);
-                    }
-                }
-            }
-        }
-
-        m_worker->setGestureData(data);
+        QDBusPendingReply<QString> reply = m_dbusGesture->asyncCall("GetGestureAvaiableActions", actionType, fingerNum);
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+        watcher->setProperty("data", QVariant::fromValue(data));
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, &MouseDBusProxy::onGetGestureAvaiableActionsFinished);
     }
     argument.endArray();
 }
@@ -562,6 +540,43 @@ void MouseDBusProxy::onAppearancePropertiesChanged(QDBusMessage msg)
             }
         }
     }
+}
+
+void MouseDBusProxy::onGetGestureAvaiableActionsFinished(QDBusPendingCallWatcher *w)
+{
+    QVariantMap dbusData = w->property("data").toMap();
+
+    GestureData data;
+    data.setActionType(dbusData.value("actionType").toString());
+    data.setDirection(dbusData.value("direction").toString());
+    data.setActionName(dbusData.value("actionName").toString());
+    data.setFingersNum(dbusData.value("fingerNum").toInt());
+    QDBusPendingReply<QString> reply = *w;
+    if (!reply.isError()) {
+        QString actions = reply.value();
+        QJsonDocument document = QJsonDocument::fromJson(actions.toUtf8());
+
+        if (document.isArray()) {
+            QJsonArray array = document.array();
+            QStringList actionNameList;
+            QStringList actionDescriptionList;
+            for (int i = 0; i < array.size(); ++i) {
+                QJsonValue value = array.at(i);
+                if (value.isObject()) {
+                    QJsonObject object = value.toObject();
+
+                    QPair<QString, QString> actionPair;
+                    actionPair.first = object.value("Name").toString();
+                    actionPair.second = object.value("Description").toString();
+                    data.addActiosPair(actionPair);
+                }
+            }
+        }
+    }
+
+    m_worker->setGestureData(data);
+    m_worker->initFingerGestures();
+    w->deleteLater();
 }
 
 void MouseDBusProxy::listCursor()

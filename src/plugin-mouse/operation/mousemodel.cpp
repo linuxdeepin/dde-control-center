@@ -380,6 +380,9 @@ void MouseModel::updateFigerAniPath(QString actionName, GestureData *data)
     if (data == nullptr) {
         data = m_threeFingerGestureModel->getGestureData(0);
     }
+    if (data == nullptr) {
+        return;
+    }
     if (actionName == "") {
         actionName = data->actionName();
     }
