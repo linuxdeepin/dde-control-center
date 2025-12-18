@@ -608,28 +608,6 @@ void DisplayWorker::setIndividualScaling(Monitor *m, const double scaling)
     }
 }
 
-void DisplayWorker::setNightMode(const bool nightmode)
-{
-    if (WQt::Utils::isTreeland()) {
-        // TODO: support treeland
-    } else {
-        QProcess *process = new QProcess(this);
-
-        QString cmd;
-        QString serverCmd;
-        if (nightmode) {
-            cmd = "start";
-            serverCmd = "enable";
-        } else {
-            cmd = "stop";
-            serverCmd = "disable";
-        }
-
-        connect(process, static_cast<void (QProcess::*)(int exitCode, QProcess::ExitStatus)>(&QProcess::finished), process, &QProcess::deleteLater);
-
-        process->start("bash", QStringList() << "-c" << QString("systemctl --user %1 redshift.service && systemctl --user %2 redshift.service").arg(serverCmd).arg(cmd));
-    }
-}
 
 void DisplayWorker::monitorAdded(const QString &path)
 {
