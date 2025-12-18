@@ -111,10 +111,10 @@ Flickable {
         function onActiveFocusItemChanged() {
             var focusItem = target.activeFocusItem
             var parentItem = focusItem
-            while (parentItem && parentItem !== centralItem.contentItem) {
+            while (parentItem && parentItem !== centralItem.item) {
                 parentItem = parentItem.parent
             }
-            if (!parentItem || parentItem !== centralItem.contentItem) {
+            if (!parentItem || parentItem !== centralItem.item) {
                 return
             }
 
@@ -123,7 +123,7 @@ Flickable {
             if ((itemY + focusItem.height) > rHeight) {
                 control.contentY = itemY + focusItem.height - rHeight + control.contentY
             } else if (itemY < 0) {
-                control.contentY = focusItem.mapToItem(centralItem.contentItem, 0, 0).y
+                control.contentY = focusItem.mapToItem(centralItem.item, 0, 0).y
             }
         }
     }

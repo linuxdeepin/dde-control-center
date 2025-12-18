@@ -7,6 +7,7 @@
 #include "mouseworker.h"
 
 #include <QDBusMessage>
+#include <QDBusPendingCallWatcher>
 #include <QObject>
 
 class QDBusInterface;
@@ -62,6 +63,8 @@ public Q_SLOTS:
     void onInputDevicesPathPropertiesChanged(QDBusMessage msg);
     void onGesturePropertiesChanged(QDBusMessage msg);
     void onAppearancePropertiesChanged(QDBusMessage msg);
+
+    void onGetGestureAvaiableActionsFinished(QDBusPendingCallWatcher *w);
 
 private:
     MouseWorker  *m_worker;

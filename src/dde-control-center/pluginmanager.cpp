@@ -338,11 +338,8 @@ void PluginManager::loadModule(PluginData *plugin)
     if (QFile::exists(qmlPath)) {
         QQmlComponent *component = new QQmlComponent(m_manager->engine(), m_manager->engine());
         component->setProperty("PluginData", QVariant::fromValue(plugin));
+        connect(component, &QQmlComponent::statusChanged, this, &PluginManager::moduleLoading);
         component->loadUrl(qmlPath, QQmlComponent::Asynchronous);
-        if (component->isLoading())
-            connect(component, &QQmlComponent::statusChanged, this, &PluginManager::moduleLoading);
-        else
-            createModule(component);
     } else {
         Q_EMIT updatePluginStatus(plugin, ModuleErr | ModuleEnd, "module qml not exists");
     }
@@ -364,12 +361,8 @@ void PluginManager::loadMain(PluginData *plugin)
     if (!qmlPath.isEmpty()) {
         QQmlComponent *component = new QQmlComponent(m_manager->engine(), m_manager->engine());
         component->setProperty("PluginData", QVariant::fromValue(plugin));
+        connect(component, &QQmlComponent::statusChanged, this, &PluginManager::mainLoading);
         component->loadUrl(qmlPath, QQmlComponent::Asynchronous);
-        if (component->isLoading()) {
-            connect(component, &QQmlComponent::statusChanged, this, &PluginManager::mainLoading);
-        } else {
-            createMain(component);
-        }
     } else {
         Q_EMIT updatePluginStatus(plugin, MainObjErr | MainObjEnd, "Main.qml not exists");
     }
@@ -382,10 +375,10 @@ void PluginManager::createModule(QQmlComponent *component)
     }
     PluginData *plugin = component->property("PluginData").value<PluginData *>();
     Q_EMIT updatePluginStatus(plugin, ModuleCreate, "create module");
-    if (component->isError()) {
-        Q_EMIT updatePluginStatus(plugin, ModuleErr | ModuleEnd, " component create module object error:" + component->errorString());
-    } else {
+    switch (component->status()) {
+    case QQmlComponent::Ready: {
         QObject *object = component->create();
+        component->deleteLater();
         if (!object) {
             Q_EMIT updatePluginStatus(plugin, ModuleErr | ModuleEnd, " component create module object is null:" + component->errorString());
             return;
@@ -393,6 +386,13 @@ void PluginManager::createModule(QQmlComponent *component)
         plugin->module = qobject_cast<DccObject *>(object);
         Q_EMIT updatePluginStatus(plugin, ModuleEnd, "create module finished");
         m_manager->addObject(plugin->module);
+    } break;
+    case QQmlComponent::Error: {
+        component->deleteLater();
+        Q_EMIT updatePluginStatus(plugin, ModuleErr | ModuleEnd, " component create module object error:" + component->errorString());
+    } break;
+    default:
+        break;
     }
 }
 
@@ -403,21 +403,26 @@ void PluginManager::createMain(QQmlComponent *component)
     }
     PluginData *plugin = component->property("PluginData").value<PluginData *>();
     Q_EMIT updatePluginStatus(plugin, MainObjCreate, "create main");
-    if (component->isError()) {
-        Q_EMIT updatePluginStatus(plugin, MainObjErr | MainObjEnd, " component create main object error:" + component->errorString());
-    } else {
-        QQmlContext *context = new QQmlContext(component->engine(), component);
+    switch (component->status()) {
+    case QQmlComponent::Ready: {
+        QQmlContext *context = new QQmlContext(component->engine());
         context->setContextProperties({ { "dccData", QVariant::fromValue(plugin->data) }, { "dccModule", QVariant::fromValue(plugin->module) } });
         QObject *object = component->create(context);
-        // component->createWithInitialProperties({}, context);
+        component->deleteLater();
         if (!object) {
-            Q_EMIT updatePluginStatus(plugin, MainObjErr, " component create main object is null:" + component->errorString());
+            Q_EMIT updatePluginStatus(plugin, MainObjErr | MainObjEnd, " component create main object is null:" + component->errorString());
             return;
         }
         plugin->mainObj = qobject_cast<DccObject *>(object);
         Q_EMIT updatePluginStatus(plugin, MainObjEnd, ": create main finished");
+    } break;
+    case QQmlComponent::Error: {
+        Q_EMIT updatePluginStatus(plugin, MainObjErr | MainObjEnd, " component create main object error:" + component->errorString());
+        component->deleteLater();
+    } break;
+    default:
+        break;
     }
-    Q_EMIT updatePluginStatus(plugin, MainObjEnd, QString());
 }
 
 void PluginManager::addMainObject(PluginData *plugin)
@@ -533,7 +538,7 @@ void PluginManager::loadModules(DccObject *root, bool async, const QStringList &
         paths.prepend(filepath);
     }
     Dtk::Gui::DIconTheme::setDciThemeSearchPaths(paths);
-    for (const auto& plugin : m_plugins) {
+    for (const auto &plugin : m_plugins) {
         loadPlugin(plugin);
     }
 }
