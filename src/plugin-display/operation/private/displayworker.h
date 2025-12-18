@@ -60,7 +60,6 @@ public Q_SLOTS:
     void setMonitorPosition(QHash<Monitor *, QPair<int, int>> monitorPosition);
     void setUiScale(const double value);
     void setIndividualScaling(Monitor *m, const double scaling);
-    void setNightMode(const bool nightmode);
     void setTouchScreenAssociation(const QString &monitor, const QString &touchscreenUUID);
     void setMonitorResolutionBySize(Monitor *mon, const int width, const int height);
     void setAmbientLightAdjustBrightness(bool);
