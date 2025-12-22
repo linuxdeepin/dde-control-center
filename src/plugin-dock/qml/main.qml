@@ -253,6 +253,7 @@ DccObject {
                 flat: true
                 model: showModeModel
                 currentIndex: indexByValue(dccData.dockInter.showInPrimary)
+                implicitWidth: 260
 
                 ListModel {
                     id: showModeModel
