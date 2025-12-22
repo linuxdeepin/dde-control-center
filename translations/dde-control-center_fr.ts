@@ -3124,7 +3124,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"/>
+        <translation>Ajouter une image</translation>
     </message>
 </context>
 <context>
@@ -3301,7 +3301,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Le nom ne peut pas être vide.</translation>
     </message>
 </context>
 <context>
@@ -3369,7 +3369,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>Chinois min nan</translation>
     </message>
 </context>
 <context>
@@ -3464,15 +3464,15 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Empreinte faciale</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Visage</translation>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Utilisez votre visage pour déverrouiller l&apos;appareil et configurez les paramètres ultérieurement.</translation>
     </message>
 </context>
 <context>
@@ -3487,7 +3487,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Placez votre doigt fermement sur le capteur jusqu&apos;à ce que vous soyez invité à le soulever</translation>
     </message>
     <message>
         <source>Lift your finger</source>
@@ -3495,19 +3495,19 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Soulevez votre doigt et placer-le à nouveau sur le capteur</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Soulevez votre doigt et recommencer</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Analyse suspendue</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Scannez les bords de votre empreinte digitale</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
