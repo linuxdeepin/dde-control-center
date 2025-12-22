@@ -1515,23 +1515,23 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. Veuillez vous rendre sur %1 pour télécharger le certificat hors ligne.</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>Cette fonctionnalité n&apos;est pas disponible pour le moment, veuillez d&apos;abord activer votre système.</translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"/>
+        <translation>Protection en lecture seule du système solide</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"/>
+        <translation>La désactivation de la protection déverrouille les répertoires système. Cette action comporte un risque élevé d&apos;endommagement du système.</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation>Activez la protection pour verrouiller les répertoires système et garantir une stabilité optimale.</translation>
     </message>
 </context>
 <context>
@@ -1918,19 +1918,19 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Petit</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Moyen</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Grand</translation>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"/>
+        <translation>Très grand</translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
