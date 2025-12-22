@@ -933,7 +933,12 @@ void DatetimeModel::setCurrentFormat(int format, int index)
 
 QString DatetimeModel::currentDate()
 {
-    QLocale locale(QLocale::system().name());
+    QLocale locale;
+    if (m_regions.contains(m_langCountry)) {
+        locale = m_regions.value(m_langCountry);
+    } else {
+        locale = QLocale(m_localeName);
+    }
     QString week = weekdayFormat() == 1 ? "ddd" : "dddd";
     QString dateFormat = shortDateFormat() + " " + week;
 
@@ -942,7 +947,12 @@ QString DatetimeModel::currentDate()
 
 QString DatetimeModel::currentTime() const
 {
-    QLocale locale(QLocale::system().name());
+    QLocale locale;
+    if (m_regions.contains(m_langCountry)) {
+        locale = m_regions.value(m_langCountry);
+    } else {
+        locale = QLocale(m_localeName);
+    }
     QString timeFormat = longTimeFormat();
     // remove all occurrences of 't' and '[tttt]' or similar patterns
     timeFormat.remove(QRegularExpression("(\\[t+?\\]|t+)"));
