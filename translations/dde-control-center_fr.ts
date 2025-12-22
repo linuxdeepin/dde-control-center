@@ -1934,7 +1934,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Certaines applications nécessitent une déconnexion ou un redémarrage du système pour que les modifications prennent effet.</translation>
     </message>
 </context>
 <context>
@@ -2074,7 +2074,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Le mot de passe ne peut pas être identique au nom d&apos;utilisateur.</translation>
     </message>
 </context>
 <context>
@@ -2116,11 +2116,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation>Le service de ramassage n&apos;est pas disponible.</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation>Format de couleur non valide : %1</translation>
     </message>
 </context>
 <context>
@@ -2648,7 +2648,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Veuillez saisir un nouveau raccourci clavier</translation>
     </message>
 </context>
 <context>
@@ -3101,7 +3101,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Fonds d&apos;écran système</translation>
     </message>
 </context>
 <context>
@@ -3120,7 +3120,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>Tout afficher - %1 éléments</translation>
     </message>
     <message>
         <source>Add Picture</source>
