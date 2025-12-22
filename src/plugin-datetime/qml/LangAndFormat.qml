@@ -201,17 +201,15 @@ DccObject {
 
                         Loader {
                             active: itemDelegate.isLoading
+                            anchors {
+                                right: itemDelegate.right
+                                rightMargin: 10
+                                verticalCenter: itemDelegate.verticalCenter
+                            }
                             sourceComponent: BusyIndicator {
                                 running: visible
                                 implicitWidth: 20
                                 implicitHeight: 20
-                            }
-                            onLoaded: {
-                                item.parent = itemDelegate
-                                item.anchors.right = itemDelegate.right
-                                item.anchors.rightMargin = 10
-                                item.anchors.top = itemDelegate.top
-                                item.anchors.topMargin = (itemDelegate.height - implicitHeight) / 2
                             }
                         }
 
