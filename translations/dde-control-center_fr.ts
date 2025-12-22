@@ -3511,15 +3511,15 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Placez les bords de votre empreinte digitale sur le capteur</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Ajustez la position pour numériser les bords de votre empreinte digitale</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Empreinte digitale ajoutée</translation>
     </message>
 </context>
 <context>
@@ -3530,7 +3530,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Utilisez votre iris pour déverrouiller l&apos;appareil et configurer les paramètres ultérieurement.</translation>
     </message>
 </context>
 <context>
@@ -3592,7 +3592,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Incluez au moins %1 types parmi les lettres minuscules, les lettres majuscules, les chiffres et les symboles, et le mot de passe ne peut pas être identique au nom d&apos;utilisateur.</translation>
     </message>
 </context>
 <context>
@@ -3907,7 +3907,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Paramètres généraux, méthode de saisie, raccourcis</translation>
     </message>
 </context>
 <context>
@@ -4013,7 +4013,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"/>
+        <translation>Combiner les icônes d&apos;application</translation>
     </message>
 </context>
 <context>
