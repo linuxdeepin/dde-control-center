@@ -1,9 +1,0 @@
-<RCC>
-    <qresource prefix="/icons/deepin/builtin">
-        <file>icons/dcc_nav_power_42px.svg</file>
-        <file>icons/dcc_nav_power_84px.svg</file>
-        <file>actions/dcc_general_purpose_32px.svg</file>
-        <file>actions/dcc_battery_32px.svg</file>
-        <file>actions/dcc_using_electric_32px.svg</file>
-    </qresource>
-</RCC>

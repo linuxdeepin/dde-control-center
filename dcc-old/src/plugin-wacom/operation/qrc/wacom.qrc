@@ -1,6 +1,0 @@
-<RCC>
-    <qresource prefix="/icons/deepin/builtin">
-        <file>icons/dcc_nav_wacom_42px.svg</file>
-        <file>icons/dcc_nav_wacom_84px.svg</file>
-    </qresource>
-</RCC>
