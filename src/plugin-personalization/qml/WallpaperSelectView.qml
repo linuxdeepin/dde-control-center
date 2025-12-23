@@ -11,7 +11,6 @@ import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dtk.private as P
-import org.deepin.dcc.personalization 1.0
 
 ColumnLayout {
     id: root

@@ -5,10 +5,12 @@
 #pragma once
 
 #include <QObject>
+#include <QtQml/qqml.h>
 
 class PersonalizationExport : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 public:
     PersonalizationExport(QObject *parent = nullptr)
     : QObject(parent)

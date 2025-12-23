@@ -37,9 +37,28 @@ if (BUILD_PLUGIN)
         ${CMAKE_CURRENT_SOURCE_DIR}/operation/xml/org.desktopspec.ObjectManager1.xml
     )
 
-    add_library(${notification_Name} MODULE
-        ${notification_SRCS}
-        ${DBUS_INTERFACES}
+    # List of QML files with their source paths
+    set(QML_SOURCE_FILES
+        qml/ImageCheckBox.qml
+        qml/notificationMain.qml
+        qml/notification.qml
+        qml/TimeRange.qml
+    )
+
+    # Set QT_RESOURCE_ALIAS for each QML file to remove the 'qml/' prefix
+    foreach(_qml_file IN LISTS QML_SOURCE_FILES)
+        get_filename_component(_qml_filename "${_qml_file}" NAME)
+        set_source_files_properties("${_qml_file}" PROPERTIES
+            QT_RESOURCE_ALIAS "${_qml_filename}"
+        )
+    endforeach()
+
+    qt_add_qml_module(${notification_Name}
+        URI "org.deepin.dcc.notification"
+        QML_FILES ${QML_SOURCE_FILES}
+        SOURCES ${notification_SRCS}
+            ${DBUS_INTERFACES}
+        NO_PLUGIN
     )
 
     set(notification_Includes
@@ -60,5 +79,5 @@ if (BUILD_PLUGIN)
         ${notification_Libraries}
     )
 
-    dcc_install_plugin(NAME ${notification_Name} TARGET ${notification_Name})
+    dcc_install_plugin(NAME ${notification_Name} TARGET ${notification_Name} DISABLE_QML_COPY)
 endif()

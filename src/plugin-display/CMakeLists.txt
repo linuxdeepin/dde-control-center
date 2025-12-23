@@ -61,8 +61,30 @@ file(GLOB_RECURSE Display_SRCS
     "operation/*.cpp"
 )
 
-add_library(${Display_Name} MODULE
-    ${Display_SRCS}
+# List of QML files with their source paths
+set(QML_SOURCE_FILES
+    qml/displayMain.qml
+    qml/display.qml
+    qml/ScreenIndicator.qml
+    qml/ScreenItem.qml
+    qml/ScreenRecognize.qml
+    qml/ScreenTab.qml
+    qml/TimeoutDialog.qml
+)
+
+# Set QT_RESOURCE_ALIAS for each QML file to remove the 'qml/' prefix
+foreach(_qml_file IN LISTS QML_SOURCE_FILES)
+    get_filename_component(_qml_filename "${_qml_file}" NAME)
+    set_source_files_properties("${_qml_file}" PROPERTIES
+        QT_RESOURCE_ALIAS "${_qml_filename}"
+    )
+endforeach()
+
+qt_add_qml_module(${Display_Name}
+    URI "org.deepin.dcc.display"
+    QML_FILES ${QML_SOURCE_FILES}
+    SOURCES ${Display_SRCS}
+    NO_PLUGIN
 )
 
 target_include_directories(${Display_Name} PUBLIC
@@ -83,5 +105,5 @@ target_link_libraries(${Display_Name} PRIVATE
     PkgConfig::WaylandClient
 )
 
-dcc_install_plugin(NAME ${Display_Name} TARGET ${Display_Name})
+dcc_install_plugin(NAME ${Display_Name} TARGET ${Display_Name} DISABLE_QML_COPY)
 #########################################

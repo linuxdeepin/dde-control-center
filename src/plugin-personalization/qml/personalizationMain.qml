@@ -8,7 +8,6 @@ import QtQuick.Layouts 1.15
 
 import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0 as D
-import org.deepin.dcc.personalization 1.0
 
 DccObject {
     DccObject {
@@ -19,7 +18,7 @@ DccObject {
         page: DccGroupView {}
 
         onActive: function (cmdParam) {
-            dccData.handleCmdParam(PersonalizationData.Theme, cmdParam)
+            dccData.handleCmdParam(PersonalizationExport.Theme, cmdParam)
         }
 
         DccObject {

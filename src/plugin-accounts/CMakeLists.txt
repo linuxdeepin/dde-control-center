@@ -36,7 +36,6 @@ endforeach()
 
 qt_add_qml_module(${pluginName}
     URI "org.deepin.dcc.accounts"
-    VERSION 1.0
     QML_FILES ${QML_SOURCE_FILES}
     SOURCES ${accounts_SRCS}
     NO_PLUGIN
@@ -55,8 +54,13 @@ set(accounts_Libraries
     ${DEEPIN_PW_CHECK_LIBRARIES}
 )
 
+target_include_directories(${pluginName} PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/operation
+)
+
 target_link_libraries(${pluginName} PRIVATE
     ${accounts_Libraries}
+    crypt
 )
 
 dcc_install_plugin(NAME ${pluginName} TARGET ${pluginName} DISABLE_QML_COPY)

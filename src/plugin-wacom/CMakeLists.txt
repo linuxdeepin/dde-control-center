@@ -7,9 +7,27 @@ if (BUILD_PLUGIN)
     file(GLOB_RECURSE wacom_qml_SRCS
         "qml/*.qml"
     )
+    
+    # List of QML files with their source paths
+    set(QML_SOURCE_FILES
+        qml/wacomMain.qml
+        qml/wacom.qml
+    )
+
+    # Set QT_RESOURCE_ALIAS for each QML file to remove the 'qml/' prefix
+    foreach(_qml_file IN LISTS QML_SOURCE_FILES)
+        get_filename_component(_qml_filename "${_qml_file}" NAME)
+        set_source_files_properties("${_qml_file}" PROPERTIES
+            QT_RESOURCE_ALIAS "${_qml_filename}"
+        )
+    endforeach()
+    
     find_package(${QT_NS} COMPONENTS Concurrent REQUIRED COMPONENTS Qml)
-    add_library(${wacom_Name} MODULE
-        ${wacom_SRCS}
+    qt_add_qml_module(${wacom_Name}
+        URI "org.deepin.dcc.wacom"
+        QML_FILES ${QML_SOURCE_FILES}
+        SOURCES ${wacom_SRCS}
+        NO_PLUGIN
     )
 
     set(wacom_Includes
@@ -26,5 +44,5 @@ if (BUILD_PLUGIN)
     target_link_libraries(${wacom_Name} PRIVATE
         ${wacom_Libraries}
     )
-    dcc_install_plugin(NAME ${wacom_Name} TARGET ${wacom_Name})
+    dcc_install_plugin(NAME ${wacom_Name} TARGET ${wacom_Name} DISABLE_QML_COPY)
 endif()

@@ -15,9 +15,6 @@ soundInteraction::soundInteraction(QObject *parent)
     , m_soundWork(new SoundWorker(m_soundModel,this))
 {
     m_soundWork->activate();
-
-    qmlRegisterType<SoundWorker>("dcc", 1, 0, "SoundWorker");
-    qmlRegisterType<SoundModel>("dcc", 1, 0, "SoundModel");
 }
 
 soundInteraction::~soundInteraction()

@@ -259,11 +259,13 @@ QString PluginManager::pluginQmlPath(PluginData *plugin) const
         plugin->path + "/" + plugin->name + ".qml"
     };
     
-    qCDebug(dccLog()) << "Searching for QML file for plugin:" << plugin->name;
+    qWarning(dccLog()) << "Searching for QML file for plugin:" << plugin->name;
     for (const auto &path : qmlPaths) {
         if (QQmlFile::isLocalFile(path) && QFileInfo(QQmlFile::urlToLocalFileOrQrc(path)).exists()) {
+            qWarning() << "Found QML file for plugin:" << plugin->name << "at path:" << path;
             return path;
         } else if (QFileInfo(path).exists()) {
+            qWarning() << "Found QML file for plugin:" << plugin->name << "at path:" << path;
             return path;
         }
     }
@@ -281,6 +283,7 @@ QString PluginManager::pluginMainQmlPath(PluginData *plugin) const
     QStringList qmlPaths {
         // 资源路径（qt_add_qml_module 编译的资源）
         QString("qrc:/org/deepin/dcc/%1/%1Main.qml").arg(plugin->name),
+        QString("qrc:/org/deepin/dcc/%1/main.qml").arg(plugin->name),
         // 文件系统路径（开发时）
         plugin->path + "/" + plugin->name + "Main.qml"
     };
@@ -520,6 +523,7 @@ void PluginManager::addMainObject(PluginData *plugin)
 
 void PluginManager::moduleLoading()
 {
+    qWarning() << "moduleLoading called";
     QQmlComponent *component = qobject_cast<QQmlComponent *>(sender());
     if (component)
         createModule(component);
@@ -527,6 +531,7 @@ void PluginManager::moduleLoading()
 
 void PluginManager::mainLoading()
 {
+    qWarning() << "mainLoading called";
     QQmlComponent *component = qobject_cast<QQmlComponent *>(sender());
     if (component) {
         createMain(component);

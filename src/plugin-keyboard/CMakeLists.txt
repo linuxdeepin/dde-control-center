@@ -8,9 +8,31 @@ if (BUILD_PLUGIN)
     file(GLOB_RECURSE keyboard_qml_SRCS
         "qml/*.qml"
     )
+    
+    # List of QML files with their source paths
+    set(QML_SOURCE_FILES
+        qml/Common.qml
+        qml/keyboardMain.qml
+        qml/keyboard.qml
+        qml/KeySequenceDisplay.qml
+        qml/ShortcutSettingDialog.qml
+        qml/Shortcuts.qml
+    )
+
+    # Set QT_RESOURCE_ALIAS for each QML file to remove the 'qml/' prefix
+    foreach(_qml_file IN LISTS QML_SOURCE_FILES)
+        get_filename_component(_qml_filename "${_qml_file}" NAME)
+        set_source_files_properties("${_qml_file}" PROPERTIES
+            QT_RESOURCE_ALIAS "${_qml_filename}"
+        )
+    endforeach()
+    
     # pkg_check_modules(QGSettings REQUIRED IMPORTED_TARGET gsettings-qt)
-    add_library(${Plugin_Name} MODULE
-        ${keyboard_SRCS}
+    qt_add_qml_module(${Plugin_Name}
+        URI "org.deepin.dcc.keyboard"
+        QML_FILES ${QML_SOURCE_FILES}
+        SOURCES ${keyboard_SRCS}
+        NO_PLUGIN
     )
 
     set(keyboard_Includes
@@ -32,6 +54,6 @@ if (BUILD_PLUGIN)
         ${keyboard_Libraries}
         dcc-shared-utils
     )
-    dcc_install_plugin(NAME ${Plugin_Name} TARGET ${Plugin_Name})
+    dcc_install_plugin(NAME ${Plugin_Name} TARGET ${Plugin_Name} DISABLE_QML_COPY)
     # dcc_handle_plugin_translation(NAME ${Plugin_Name}  QML_FILES ${keyboard_qml_SRCS} SOURCE_FILES ${keyboard_SRCS})
 endif()
