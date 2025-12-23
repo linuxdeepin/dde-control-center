@@ -21,11 +21,6 @@ option(BUILD_TESTING "UNIT test" OFF)
 set(BUILD_EXAMPLES OFF)
 
 set(DCC_ENABLE_MEMORY_MANAGEMENT ON)
-# dcc-v23
-set(BUILD_DCC_OLD OFF)
-if (BUILD_DCC_OLD)
-    add_subdirectory(dcc-old)
-endif()
 
 set(QT_NS Qt6)
 set(DTK_NS Dtk6)

@@ -55,20 +55,11 @@ file(GLOB Control_Center_SRCS
     "*.h"
     "*.cpp"
 )
-if (BUILD_DCC_OLD)
-    add_library(${Control_Center_Name} SHARED
-        ${Control_Center_SRCS}
-        qrc/dcc.qrc
-    )
-    set_target_properties(${Control_Center_Name} PROPERTIES
-        OUTPUT_NAME dde-control-center-lib
-    )
-else()
-    add_executable(${Control_Center_Name}
-        ${Control_Center_SRCS}
-        qrc/dcc.qrc
-    )
-endif()
+
+add_executable(${Control_Center_Name}
+    ${Control_Center_SRCS}
+    qrc/dcc.qrc
+)
 
 target_compile_definitions(${Control_Center_Name} PRIVATE CVERSION="${CMAKE_PROJECT_VERSION}")
 
@@ -102,11 +93,7 @@ file(GLOB_RECURSE DCC_Translation_QML_FILES ${DCC_PROJECT_ROOT_DIR}/qml/*.qml ${
 file(GLOB_RECURSE DCC_Translation_SOURCE_FILES ${DCC_PROJECT_ROOT_DIR}/src/*.cpp ${DCC_PROJECT_ROOT_DIR}/src/*.h)
 dcc_handle_plugin_translation(NAME ${Control_Center_Name} SOURCE_DIR ${DCC_PROJECT_ROOT_DIR} QML_FILES ${DCC_Translation_QML_FILES} SOURCE_FILES ${DCC_Translation_SOURCE_FILES})
 # bin
-if (BUILD_DCC_OLD)
-    install(TARGETS ${Control_Center_Name} DESTINATION ${DCC_DEBUG_LIBDIR})
-else()
-    install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
-endif()
+install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
 install(DIRECTORY "${DCC_PROJECT_ROOT_DIR}/qml/" DESTINATION ${DCC_INSTALL_DIR})
 #----------------------------install config------------------------------
 #desktop
@@ -139,19 +126,11 @@ install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.control-center.service
 file(GLOB HEADERS "${DCC_PROJECT_ROOT_DIR}/include/*")
 set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center)
 install(FILES ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
-if (BUILD_DCC_OLD)
-    configure_package_config_file(${DCC_PROJECT_ROOT_DIR}/misc/DdeControlCenterConfigOld.cmake.in
-        ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
-        INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
-        PATH_VARS INCLUDE_INSTALL_DIR
-        INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
-else()
-    configure_package_config_file(${DCC_PROJECT_ROOT_DIR}/misc/DdeControlCenterConfig.cmake.in
-        ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
-        INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
-        PATH_VARS INCLUDE_INSTALL_DIR
-        INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
-endif()
+configure_package_config_file(${DCC_PROJECT_ROOT_DIR}/misc/DdeControlCenterConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
+    PATH_VARS INCLUDE_INSTALL_DIR
+    INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
 
 write_basic_package_version_file(
     "${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfigVersion.cmake"
