@@ -42,6 +42,8 @@ Q_SIGNALS:
 private:
     bool compareVersion(const QString &targetVersion, const QString &baseVersion);
     QThreadPool *threadPool();
+    QString pluginQmlPath(PluginData *plugin) const;
+    QString pluginMainQmlPath(PluginData *plugin) const;
 
 private Q_SLOTS:
     void loadPlugin(PluginData *plugin);

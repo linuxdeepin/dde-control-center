@@ -4,6 +4,7 @@
 #include "dccobject.h"
 
 #include "dccobject_p.h"
+#include <qlogging.h>
 
 #include <QLoggingCategory>
 #include <QQmlContext>

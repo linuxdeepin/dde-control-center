@@ -163,6 +163,7 @@ message(STATUS ${DCC_PLUGINS_INSTALL_DIR})
 
 add_definitions(-DDefaultModuleDirectory="${MODULE_READ_FULL_DIR}")
 add_definitions(-DDefaultPluginsDirectory="${PLUGINS_READ_FULL_DIR}")
+add_definitions(-DDefaultQmlModuleDirectory="${DCC_PLUGINS_INSTALL_DIR}")
 
 # DdeControlCenterPluginMacros.cmake 使用
 set(DDE_CONTROL_CENTER_PLUGIN_DIR ${DCC_PLUGINS_DIR})

@@ -1,6 +1,8 @@
 include(CMakeParseArguments)
 
 macro(dcc_build_plugin)
+    # add option: DISABLE_QML_COPY (default: not set => copy enabled)
+    set(options DISABLE_QML_COPY)
     set(oneValueArgs NAME TARGET QML_ROOT_DIR)
     set(qml_root_dir ${CMAKE_CURRENT_SOURCE_DIR}/qml)
     cmake_parse_arguments(_config "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
@@ -12,9 +14,20 @@ macro(dcc_build_plugin)
         SOURCES ${qml_files}
     )
     set(plugin_dirs ${PROJECT_BINARY_DIR}/lib/${DDE_CONTROL_CENTER_PLUGIN_DIR}/${_config_NAME}/)
-    add_custom_command(TARGET ${_config_NAME}_qml POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory ${qml_root_dir} ${plugin_dirs}
-    )
+    # By default copy non-.qml and non-.js files from qml_root_dir to plugin_dirs
+    if(_config_DISABLE_QML_COPY)
+        # Use rsync to copy everything except .qml and .js files (preserves relative paths)
+        # Note: requires `rsync` available on the build machine.
+        add_custom_command(TARGET ${_config_NAME}_qml POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E make_directory "${plugin_dirs}"
+            COMMAND rsync -a --exclude='*.qml' --exclude='*.js' "${qml_root_dir}/" "${plugin_dirs}/"
+        )
+    else()
+        # Default: copy entire qml tree (preserve everything)
+        add_custom_command(TARGET ${_config_NAME}_qml POST_BUILD
+            COMMAND ${CMAKE_COMMAND} -E copy_directory "${qml_root_dir}" "${plugin_dirs}"
+        )
+    endif()
 
     if (DEFINED _config_TARGET)
         set_target_properties(${_config_TARGET} PROPERTIES

@@ -9,6 +9,7 @@
 #include "navigationmodel.h"
 #include "pluginmanager.h"
 #include "searchmodel.h"
+#include <qlogging.h>
 
 #include <DGuiApplicationHelper>
 #include <DIconTheme>
@@ -104,7 +105,10 @@ void DccManager::init()
     m_engine = new QQmlApplicationEngine(this);
     auto paths = m_engine->importPathList();
     paths.prepend(DefaultModuleDirectory);
+    paths.prepend(DefaultQmlModuleDirectory);
+    paths.prepend(":/");
     m_engine->setImportPathList(paths);
+    qWarning() << "DccManager: QML import paths:" << m_engine->importPathList();
     m_imageProvider = new DccImageProvider();
     m_engine->addImageProvider("DccImage", m_imageProvider);
     QStringList dciPaths = Dtk::Gui::DIconTheme::dciThemeSearchPaths();
