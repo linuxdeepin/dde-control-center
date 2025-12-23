@@ -40,11 +40,20 @@ D.ItemDelegate {
         Layout.fillWidth: true
         Layout.fillHeight: true
 
-        D.DciIcon {
-            name: control.icon.name
-            sourceSize: Qt.size(control.icon.width, control.icon.height)
-            theme: D.DTK.themeType
-            palette: D.DTK.makeIconPalette(control.palette)
+        D.IconLabel {
+            spacing: control.spacing
+            mirrored: control.mirrored
+            display: control.display
+            alignment: control.display === D.IconLabel.IconOnly || control.display === D.IconLabel.TextUnderIcon ? Qt.AlignCenter : Qt.AlignLeft | Qt.AlignVCenter
+            color: control.palette.windowText
+            icon {
+                name: control.icon.name
+                source: control.icon.source
+                width: control.icon.width
+                height: control.icon.height
+                palette: D.DTK.makeIconPalette(control.palette)
+                theme: control.D.ColorSelector.controlTheme
+            }
         }
         ColumnLayout {
             Layout.leftMargin: model.item.icon.length === 0 ? 0 : 8
