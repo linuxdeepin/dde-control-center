@@ -152,7 +152,7 @@ void LoadPluginTask::doRun()
                 }
                 dataObj = factory->create();
 
-                qWarning() << "loadPlugin created dataObj:" << dataObj << " for plugin:" << m_data->name;
+                // qWarning() << "loadPlugin created dataObj:" << dataObj << " for plugin:" << m_data->name;
                 if (dataObj && dataObj->parent()) {
                     dataObj->setParent(nullptr);
                 }
@@ -259,13 +259,13 @@ QString PluginManager::pluginQmlPath(PluginData *plugin) const
         plugin->path + "/" + plugin->name + ".qml"
     };
     
-    qWarning(dccLog()) << "Searching for QML file for plugin:" << plugin->name;
+    // qWarning(dccLog()) << "Searching for QML file for plugin:" << plugin->name;
     for (const auto &path : qmlPaths) {
         if (QQmlFile::isLocalFile(path) && QFileInfo(QQmlFile::urlToLocalFileOrQrc(path)).exists()) {
-            qWarning() << "Found QML file for plugin:" << plugin->name << "at path:" << path;
+            // qWarning() << "Found QML file for plugin:" << plugin->name << "at path:" << path;
             return path;
         } else if (QFileInfo(path).exists()) {
-            qWarning() << "Found QML file for plugin:" << plugin->name << "at path:" << path;
+            // qWarning() << "Found QML file for plugin:" << plugin->name << "at path:" << path;
             return path;
         }
     }
@@ -323,7 +323,7 @@ void PluginManager::loadPlugin(PluginData *plugin)
         if (plugin->module) {
             disconnect(plugin->module, nullptr, this, nullptr);
             if (plugin->module->isVisibleToApp()) {
-                qWarning() << "loadPlugin start LoadPluginTask:" << plugin->name;
+                // qWarning() << "loadPlugin start LoadPluginTask:" << plugin->name;
                 threadPool()->start(new LoadPluginTask(plugin, this));
             } else {
                 connect(plugin->module, &DccObject::visibleToAppChanged, this, &PluginManager::onVisibleToAppChanged);
@@ -395,7 +395,7 @@ void PluginManager::loadModule(PluginData *plugin)
 
     const auto qmlPath = pluginQmlPath(plugin);
     Q_EMIT updatePluginStatus(plugin, ModuleLoad, ": load module " + qmlPath);
-    qWarning() << "loadModule qml:" << qmlPath;
+    // qWarning() << "loadModule qml:" << qmlPath;
     if (!qmlPath.isEmpty()) {
         QQmlComponent *component = new QQmlComponent(m_manager->engine(), m_manager->engine());
         component->setProperty("PluginData", QVariant::fromValue(plugin));

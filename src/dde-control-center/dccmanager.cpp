@@ -105,8 +105,7 @@ void DccManager::init()
     m_engine = new QQmlApplicationEngine(this);
     auto paths = m_engine->importPathList();
     paths.prepend(DefaultModuleDirectory);
-    paths.prepend(DefaultQmlModuleDirectory);
-    paths.prepend(":/");
+    paths.prepend(DefaultPluginsDirectory);
     m_engine->setImportPathList(paths);
     qWarning() << "DccManager: QML import paths:" << m_engine->importPathList();
     m_imageProvider = new DccImageProvider();

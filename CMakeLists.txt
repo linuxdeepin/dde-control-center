@@ -159,7 +159,7 @@ GNUInstallDirs_get_absolute_install_dir(
 
 message(STATUS ${MODULE_READ_FULL_DIR})
 message(STATUS ${PLUGINS_READ_FULL_DIR})
-message(STATUS ${DCC_PLUGINS_INSTALL_DIR})
+message(STATUS "------------------" ${DCC_PLUGINS_INSTALL_DIR})
 
 add_definitions(-DDefaultModuleDirectory="${MODULE_READ_FULL_DIR}")
 add_definitions(-DDefaultPluginsDirectory="${PLUGINS_READ_FULL_DIR}")

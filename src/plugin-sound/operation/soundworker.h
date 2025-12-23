@@ -22,7 +22,6 @@ class SoundWorker : public QObject
     Q_OBJECT
 
     QML_NAMED_ELEMENT(SoundWorker)
-    QML_SINGLETON
 public:
     explicit SoundWorker(SoundModel *model, QObject * parent = 0);
 
