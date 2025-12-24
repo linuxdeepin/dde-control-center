@@ -7,6 +7,7 @@ import org.deepin.dtk 1.0 as D
 D.ActionButton {
     property real size: 16
     checked: true
+    activeFocusOnTab: false
     icon {
         width: size
         height: size

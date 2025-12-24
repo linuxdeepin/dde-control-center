@@ -28,6 +28,7 @@ DccObject {
         pageType: DccObject.Item
         displayName: qsTr("Plugin Area")
         description: qsTr("Select which icons appear in the Dock")
+        onParentItemChanged: item => { if (item) item.activeFocusOnTab = false }
         page: ColumnLayout {
             Label {
                 font.family: D.DTK.fontManager.t5.family
