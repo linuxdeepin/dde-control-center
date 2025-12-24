@@ -53,41 +53,55 @@ DccObject {
                     }
 
                     Repeater {
+                        id: modeRepeater
                         model: modeData
                         ColumnLayout {
-                            Item {
-                                id: borderRect
+                            D.ItemDelegate {
+                                id: modeDelegate
                                 Layout.preferredWidth: 144
                                 Layout.preferredHeight: 70
                                 Layout.alignment: Qt.AlignHCenter
                                 Layout.margins: 0
+                                checkable: false
+                                backgroundVisible: false
+                                focusPolicy: Qt.TabFocus
+                                activeFocusOnTab: index === 0
 
-                                Rectangle {
-                                    anchors.fill: parent
-                                    radius: 8
-                                    color: "transparent"
-                                    border.width: 2
-                                    border.color: D.DTK.platformTheme.activeColor
-                                    visible: dccData.dockInter.DisplayMode === model.value
+                                function activate() {
+                                    dccData.dockInter.setDisplayMode(model.value)
                                 }
 
-                                Control {
+                                background: Rectangle {
+                                    radius: 8
+                                    color: "transparent"
+                                    border.width: dccData.dockInter.DisplayMode === model.value || modeDelegate.activeFocus ? 2 : 0
+                                    border.color: D.DTK.platformTheme.activeColor
+                                }
+
+                                contentItem: Control {
                                     id: iconControl
-                                    anchors.fill: parent
-                                    anchors.margins: 4
-                                    
+
                                     contentItem: D.DciIcon {
                                         palette: D.DTK.makeIconPalette(iconControl.palette)
                                         theme: iconControl.D.ColorSelector.controlTheme
-                                        sourceSize: Qt.size(width, height)
+                                        sourceSize: Qt.size(iconControl.width, iconControl.height)
                                         name: model.icon
                                     }
                                 }
 
-                                MouseArea {
-                                    anchors.fill: parent
-                                    onClicked: {
-                                        dccData.dockInter.setDisplayMode(model.value)
+                                onClicked: activate()
+                                Keys.onSpacePressed: activate()
+                                Keys.onReturnPressed: activate()
+
+                                Keys.onLeftPressed: {
+                                    if (index > 0) {
+                                        modeRepeater.itemAt(index - 1).children[0].forceActiveFocus()
+                                    }
+                                }
+
+                                Keys.onRightPressed: {
+                                    if (index < modeRepeater.count - 1) {
+                                        modeRepeater.itemAt(index + 1).children[0].forceActiveFocus()
                                     }
                                 }
                             }

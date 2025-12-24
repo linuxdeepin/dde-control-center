@@ -28,6 +28,7 @@ DccObject {
             displayName: qsTr("Theme")
             weight: 1
             pageType: DccObject.Item
+            onParentItemChanged: item => { if (item) item.activeFocusOnTab = false }
             page: ColumnLayout {
                 Layout.fillHeight: true
                 Layout.margins: 10
