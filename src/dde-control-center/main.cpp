@@ -11,6 +11,7 @@
 #include <QCommandLineOption>
 #include <QCommandLineParser>
 #include <QDBusConnection>
+#include <QDir>
 #include <QGuiApplication>
 #include <QIcon>
 #include <QQmlApplicationEngine>
@@ -19,10 +20,26 @@
 #include <QStandardPaths>
 #include <QStringList>
 #include <QWindow>
-
+#ifndef QT_DEBUG
+#  include <signal.h>
+#endif
 DGUI_USE_NAMESPACE
-DCORE_USE_NAMESPACE
 
+DCORE_USE_NAMESPACE
+#ifndef QT_DEBUG
+void sig_crash(int signum)
+{
+    // 崩溃了，尝试清下缓存，防止下次还起不来
+    QString qmlCache = QStandardPaths::writableLocation(QStandardPaths::GenericCacheLocation) + "/deepin/dde-control-center/qmlcache";
+    QDir dir(qmlCache);
+    if (dir.exists()) {
+        dir.removeRecursively();
+    }
+    // 重新触发信号，产生coredump
+    signal(signum, SIG_DFL);
+    raise(signum);
+}
+#endif
 QString loggingRules(const QString &loggingModule)
 {
     if (loggingModule.isEmpty())
@@ -53,6 +70,19 @@ QStringList defaultpath()
 
 int main(int argc, char *argv[])
 {
+#ifndef QT_DEBUG
+    // 设置信号处理函数
+    struct sigaction sa;
+    sa.sa_handler = sig_crash;
+    sigemptyset(&sa.sa_mask);
+    // 在处理完信号后恢复默认信号处理
+    sa.sa_flags = SA_RESETHAND;
+
+    sigaction(SIGSEGV, &sa, nullptr);
+    sigaction(SIGILL, &sa, nullptr);
+    sigaction(SIGABRT, &sa, nullptr);
+    sigaction(SIGFPE, &sa, nullptr);
+#endif
     QGuiApplication *app = new QGuiApplication(argc, argv);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
