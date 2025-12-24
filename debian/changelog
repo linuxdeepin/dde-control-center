@@ -1,3 +1,19 @@
+dde-control-center (6.1.64) unstable; urgency=medium
+
+  * feat: manage QML cache versioning proactively
+  * fix: Fix the issue where the theme area cannot switch focus
+  * fix: Fix the issue where tab cannot select focus
+  * fix: Change the app order in Privacy and Security
+  * feat: Remove old code
+  * fix: avoid list refresh on camera auth dialog open
+  * fix: Fixed the issue where the time format did not follow the locale
+  * fix: resolve text truncation in multi-screen dock settings
+  * fix: correct loading indicator position when adding language
+  * fix: add scrollbar to region format list in RegionFormatDialog
+  * feat: remove night mode redshift integration
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Wed, 24 Dec 2025 14:36:14 +0800
+
 dde-control-center (6.1.63) unstable; urgency=medium
 
   * i18n: Updates for project Deepin Desktop Environment (#2885)
