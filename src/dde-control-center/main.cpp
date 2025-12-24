@@ -19,6 +19,7 @@
 #include <QStandardPaths>
 #include <QStringList>
 #include <QWindow>
+#include <QDir>
 
 DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
@@ -51,6 +52,27 @@ QStringList defaultpath()
     return path;
 }
 
+static void refreshQmlCache(const QString &version)
+{
+    if (version.isEmpty())
+        return;
+    static const QByteArray envCachePath = qgetenv("QML_DISK_CACHE_PATH");
+
+    QString directory = envCachePath.isEmpty()
+            ? QStandardPaths::writableLocation(QStandardPaths::CacheLocation)
+                    + QLatin1String("/qmlcache/")
+            : QString::fromLocal8Bit(envCachePath) + QLatin1String("/");
+
+    QDir dir(directory);
+    if (dir.exists()) {
+        if (dir.exists(version))
+            return;
+        const auto ret = dir.removeRecursively();
+        qDebug() << "Remove old QML cache:" << directory << "result:" << ret;
+    }
+    dir.mkpath(version);
+}
+
 int main(int argc, char *argv[])
 {
     QGuiApplication *app = new QGuiApplication(argc, argv);
@@ -60,6 +82,16 @@ int main(int argc, char *argv[])
 
     app->setOrganizationName("deepin");
     app->setApplicationName("dde-control-center");
+#ifdef CVERSION
+    QString verstr(CVERSION);
+    if (verstr.isEmpty())
+        verstr = "6.0";
+    app->setApplicationVersion(verstr);
+#else
+    app->setApplicationVersion("6.0");
+#endif
+
+    refreshQmlCache(app->applicationVersion());
 
     // take care of command line options
     QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");
@@ -129,14 +161,6 @@ int main(int argc, char *argv[])
     // To Fix Qt6 find icons will ignore ${GenericDataLocation}/icons/xxx
     QIcon::setFallbackSearchPaths(fallbacks);
 
-#ifdef CVERSION
-    QString verstr(CVERSION);
-    if (verstr.isEmpty())
-        verstr = "6.0";
-    app->setApplicationVersion(verstr);
-#else
-    app->setApplicationVersion("6.0");
-#endif
     app->setWindowIcon(DIconTheme::findQIcon("preferences-system"));
     dccV25::DccManager::installTranslator("dde-control-center");
     app->setApplicationDisplayName(QObject::tr("Control Center"));
