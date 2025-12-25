@@ -176,7 +176,11 @@ Pour garantir une entrée réussie :
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;authentification biométrique est une fonction d&apos;authentification d&apos;identité utilisateur fournie par UnionTech Software Technology Co., Ltd. À travers l&apos;authentification biométrique, les données biométriques collectées seront comparées à celles stockées sur l&apos;appareil, et l&apos;identité de l&apos;utilisateur sera vérifiée en fonction du résultat de la comparaison.
+
+Veuillez noter que UnionTech Software Technology Co., Ltd. ne collectera ni ne consultera vos informations biométriques, qui seront stockées sur votre appareil local. Veuillez uniquement activer l&apos;authentification biométrique sur votre appareil personnel et utiliser vos propres informations biométriques pour les opérations pertinentes, et supprimez ou supprimez rapidement les informations biométriques d&apos;autres personnes sur cet appareil, sinon vous assumerez le risque qui en découlera.
+
+UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer la sécurité, l&apos;exactitude et la stabilité de l&apos;authentification biométrique. Cependant, en raison de divers facteurs environnementaux, matériels, techniques et autres et de la gestion des risques, il n&apos;y a aucune garantie que vous passerez l&apos;authentification biométrique temporairement. Par conséquent, veuillez ne pas considérer l&apos;authentification biométrique comme la seule méthode pour vous connecter à UOS. Si vous avez des questions ou des suggestions lors de l&apos;utilisation de l&apos;authentification biométrique, vous pouvez donner des retours via &apos;Service et Support&apos; dans UOS.</translation>
     </message>
 </context>
 <context>
@@ -234,7 +238,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>J&apos;ai lu et j&apos;accepte les</translation>
     </message>
     <message>
         <source>Disclaimer</source>
@@ -254,15 +258,15 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Réessayer l&apos;enregistrement</translation>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Iris inscrit</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>Échec de l&apos;inscription de votre iris</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -270,11 +274,15 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>L&apos;authentification biométrique est une fonction d&apos;authentification d&apos;identité utilisateur fournie par UnionTech Software Technology Co., Ltd. À travers l&apos;authentification biométrique, les données biométriques collectées seront comparées à celles stockées sur l&apos;appareil, et l&apos;identité de l&apos;utilisateur sera vérifiée en fonction du résultat de la comparaison.
+
+Veuillez noter que UnionTech Software Technology Co., Ltd. ne collectera ni ne consultera vos informations biométriques, qui seront stockées sur votre appareil local. Veuillez uniquement activer l&apos;authentification biométrique sur votre appareil personnel et utiliser vos propres informations biométriques pour les opérations pertinentes, et supprimez ou supprimez rapidement les informations biométriques d&apos;autres personnes sur cet appareil, sinon vous assumerez le risque qui en découlera.
+
+UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer la sécurité, l&apos;exactitude et la stabilité de l&apos;authentification biométrique. Cependant, en raison de divers facteurs environnementaux, matériels, techniques et autres et de la gestion des risques, il n&apos;y a aucune garantie que vous passerez l&apos;authentification biométrique temporairement. Par conséquent, veuillez ne pas considérer l&apos;authentification biométrique comme la seule méthode pour vous connecter à UOS. Si vous avez des questions ou des suggestions lors de l&apos;utilisation de l&apos;authentification biométrique, vous pouvez donner des retours via &apos;Service et Support&apos; dans UOS.</translation>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation>Veuillez regarder l&apos;appareil et vous assurer que vos deux yeux se trouvent dans la zone de capture.</translation>
     </message>
 </context>
 <context>
@@ -907,11 +915,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation>Refuser</translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation>Redémarrez l&apos;appareil pour terminer l&apos;application des paramètres de protection en lecture seule du système Solid.</translation>
     </message>
 </context>
 <context>
@@ -980,11 +988,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation>petit</translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation>grand</translation>
     </message>
 </context>
 <context>
@@ -1025,15 +1033,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Nous sommes pleinement conscients de l&apos;importance que revêtent vos informations personnelles à vos yeux. C&apos;est pourquoi nous avons mis en place une politique de confidentialité qui régit la manière dont nous collectons, utilisons, partageons, transférons, divulguons publiquement et stockons vos informations.&lt;/p&gt;&lt;p&gt;Vous pouvez&lt;a href=&quot;%1&quot;&gt;cliquez ici&lt;/a&gt;pour consulter notre dernière politique de confidentialité et/ou la consulter en ligne en vous rendant sur &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Veuillez lire attentivement et comprendre pleinement nos pratiques en matière de confidentialité des données clients. Si vous avez des questions, veuillez nous contacter à l&apos;adresse suivante : %2.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;En adhérant au programme d&apos;expérience utilisateur, vous nous autorisez à collecter et à utiliser les informations relatives à votre appareil, votre système et vos applications. Si vous refusez que nous collections et utilisions les informations susmentionnées, veuillez ne pas adhérer au programme d&apos;expérience utilisateur. Pour plus de détails, veuillez consulter la politique de confidentialité de Deepin (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;En adhérant au programme d&apos;expérience utilisateur, vous nous autorisez à collecter et à utiliser les informations relatives à votre appareil, votre système et vos applications. Si vous refusez que nous collections et utilisions les informations susmentionnées, veuillez ne pas adhérer au programme. Pour plus d&apos;informations sur le programme d&apos;expérience utilisateur, rendez-vous sur &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -1507,23 +1515,23 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. Veuillez vous rendre sur %1 pour télécharger le certificat hors ligne.</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>Cette fonctionnalité n&apos;est pas disponible pour le moment, veuillez d&apos;abord activer votre système.</translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"/>
+        <translation>Protection en lecture seule du système solide</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"/>
+        <translation>La désactivation de la protection déverrouille les répertoires système. Cette action comporte un risque élevé d&apos;endommagement du système.</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation>Activez la protection pour verrouiller les répertoires système et garantir une stabilité optimale.</translation>
     </message>
 </context>
 <context>
@@ -1910,27 +1918,23 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Petit</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Moyen</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Grand</translation>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"/>
+        <translation>Très grand</translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Certaines applications nécessitent une déconnexion ou un redémarrage du système pour que les modifications prennent effet.</translation>
     </message>
 </context>
 <context>
@@ -2070,7 +2074,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Le mot de passe ne peut pas être identique au nom d&apos;utilisateur.</translation>
     </message>
 </context>
 <context>
@@ -2112,11 +2116,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation>Le service de ramassage n&apos;est pas disponible.</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation>Format de couleur non valide : %1</translation>
     </message>
 </context>
 <context>
@@ -2644,7 +2648,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Veuillez saisir un nouveau raccourci clavier</translation>
     </message>
 </context>
 <context>
@@ -3097,7 +3101,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Fonds d&apos;écran système</translation>
     </message>
 </context>
 <context>
@@ -3116,11 +3120,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>Tout afficher - %1 éléments</translation>
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"/>
+        <translation>Ajouter une image</translation>
     </message>
 </context>
 <context>
@@ -3297,7 +3301,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Le nom ne peut pas être vide.</translation>
     </message>
 </context>
 <context>
@@ -3365,7 +3369,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>Chinois min nan</translation>
     </message>
 </context>
 <context>
@@ -3460,15 +3464,15 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Empreinte faciale</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Visage</translation>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Utilisez votre visage pour déverrouiller l&apos;appareil et configurez les paramètres ultérieurement.</translation>
     </message>
 </context>
 <context>
@@ -3483,7 +3487,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Placez votre doigt fermement sur le capteur jusqu&apos;à ce que vous soyez invité à le soulever</translation>
     </message>
     <message>
         <source>Lift your finger</source>
@@ -3491,31 +3495,31 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Soulevez votre doigt et placer-le à nouveau sur le capteur</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Soulevez votre doigt et recommencer</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Analyse suspendue</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Scannez les bords de votre empreinte digitale</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Placez les bords de votre empreinte digitale sur le capteur</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Ajustez la position pour numériser les bords de votre empreinte digitale</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Empreinte digitale ajoutée</translation>
     </message>
 </context>
 <context>
@@ -3526,7 +3530,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Utilisez votre iris pour déverrouiller l&apos;appareil et configurer les paramètres ultérieurement.</translation>
     </message>
 </context>
 <context>
@@ -3588,7 +3592,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Incluez au moins %1 types parmi les lettres minuscules, les lettres majuscules, les chiffres et les symboles, et le mot de passe ne peut pas être identique au nom d&apos;utilisateur.</translation>
     </message>
 </context>
 <context>
@@ -3903,7 +3907,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Paramètres généraux, méthode de saisie, raccourcis</translation>
     </message>
 </context>
 <context>
@@ -4009,7 +4013,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"/>
+        <translation>Combiner les icônes d&apos;application</translation>
     </message>
 </context>
 <context>
