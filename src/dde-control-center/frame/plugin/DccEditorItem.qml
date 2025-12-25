@@ -66,6 +66,7 @@ D.ItemDelegate {
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignVCenter
             spacing: 2
+            opacity: model.item.enabledToApp ? 1 : 0.4
             DccLabel {
                 Layout.fillWidth: true
                 text: model.display
