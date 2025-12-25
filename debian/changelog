@@ -1,3 +1,11 @@
+dde-control-center (6.1.65) unstable; urgency=medium
+
+  * fix: adjust alert tooltip target in authentication UI
+  * fix: Fix the issue with selecting screensaver settings
+  * fix: emit all relevant roles on bluetooth device state change
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 25 Dec 2025 19:33:39 +0800
+
 dde-control-center (6.1.64) unstable; urgency=medium
 
   * feat: manage QML cache versioning proactively
