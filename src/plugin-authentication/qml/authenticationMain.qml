@@ -254,7 +254,7 @@ DccObject {
 
                         D.AlertToolTip {
                             id: alert
-                            target: textInputBackground
+                            target: layout
                             timeout: 3000
                             visible: false
 
