@@ -521,6 +521,9 @@ void PluginManager::loadModules(DccObject *root, bool async, const QStringList &
     for (const auto &dir : dirs) {
         QDir plugindir(dir);
         if (plugindir.exists()) {
+            if (!plugindir.isEmpty(QDir::Files)) {
+                pluginList += QFileInfo(plugindir.absolutePath());
+            }
             pluginList += plugindir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
         }
     }

@@ -122,7 +122,7 @@ int main(int argc, char *argv[])
     if (!reqModule.isEmpty()) {
         reqPage = reqModule + "/" + reqPage;
     }
-    const QString &refPluginDir = parser.value(pluginDir);
+    const QStringList &refPluginDirs = parser.values(pluginDir);
 
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService(DccDBusService)) {
@@ -192,8 +192,8 @@ int main(int argc, char *argv[])
         qDebug() << "dbus service already registered!" << "pid is:" << qApp->applicationPid();
         return -1;
     }
-    if (!refPluginDir.isEmpty()) {
-        dccManager->loadModules(true, { refPluginDir });
+    if (!refPluginDirs.isEmpty()) {
+        dccManager->loadModules(true, refPluginDirs);
         adaptor->Show();
     } else {
         dccManager->loadModules(!parser.isSet(dbusOption), defaultpath());
