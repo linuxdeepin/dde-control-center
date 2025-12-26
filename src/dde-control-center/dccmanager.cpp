@@ -27,6 +27,7 @@
 #include <QTimer>
 #include <QTranslator>
 #include <QWindow>
+#include <QFileInfo>
 
 DCORE_USE_NAMESPACE
 
@@ -104,6 +105,11 @@ void DccManager::init()
     m_engine = new QQmlApplicationEngine(this);
     auto paths = m_engine->importPathList();
     paths.prepend(DefaultModuleDirectory);
+    const auto runtimePluginDir = QCoreApplication::applicationDirPath() + "/../lib/";
+    if (QFileInfo::exists(runtimePluginDir)) {
+        paths.prepend(runtimePluginDir);
+    }
+    qCInfo(dccLog()) << "Import paths:" << paths;
     m_engine->setImportPathList(paths);
     m_imageProvider = new DccImageProvider();
     m_engine->addImageProvider("DccImage", m_imageProvider);
