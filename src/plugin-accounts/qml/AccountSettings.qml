@@ -766,10 +766,9 @@ DccObject {
             id: groupview
             property int lrMargin: DccUtils.getMargin(width)
             property int conY: 0
-            property bool blockInitialFocus: true
-            property bool suppressAutoFocusFirstOnFocus: false
+            property bool blockInitialFocus: false
             property bool focusNewlyCreatedItem: false
-            property bool focusFromHeader: false
+            property bool mousePressed: false
             property Item headerEditButton
             property Item addGroupButton
             spacing: 0
@@ -782,31 +781,43 @@ DccObject {
             displayMarginBeginning: height * 2
             displayMarginEnd: height * 2
 
+            MouseArea {
+                anchors.fill: parent
+                propagateComposedEvents: true
+                onPressed: function(mouse) {
+                    groupview.mousePressed = true
+                    mouse.accepted = false
+                }
+                onReleased: function(mouse) {
+                    groupview.mousePressed = false
+                    mouse.accepted = false
+                }
+            }
+
             onActiveFocusChanged: {
                 if (activeFocus && count > 0) {
                     if (focusNewlyCreatedItem) {
                         return
                     }
-                    if (blockInitialFocus && !focusFromHeader) {
+                    if (blockInitialFocus) {
                         if (model && model.isCreatingGroup) {
                             blockInitialFocus = false
                             return
                         }
                         blockInitialFocus = false
+                        if (mousePressed) {
+                            mousePressed = false
+                            return
+                        }
                         focus = false
                         return
                     }
-                    if (groupview.headerEditButton && !focusFromHeader) {
+                    if (groupview.headerEditButton && !mousePressed) {
                         groupview.headerEditButton.forceActiveFocus(Qt.TabFocusReason)
-                    }
-                    if (suppressAutoFocusFirstOnFocus) {
-                        suppressAutoFocusFirstOnFocus = false
                         return
                     }
-                    if (focusFromHeader) {
-                        focusFromHeader = false
-                        currentIndex = 0
-                        positionViewAtIndex(0, ListView.Beginning)
+                    if (mousePressed) {
+                        mousePressed = false
                     }
                 }
             }
@@ -894,7 +905,6 @@ DccObject {
                             if (event.key === Qt.Key_Tab && !event.isAutoRepeat) {
                                 event.accepted = true
                                 groupview.blockInitialFocus = false
-                                groupview.focusFromHeader = false
                                 groupview.currentIndex = 0
                                 groupview.positionViewAtIndex(0, ListView.Beginning)
                                 Qt.callLater(function() {
@@ -918,9 +928,6 @@ DccObject {
                                 common: DTK.makeColor(Color.Highlight)
                                 crystal: DTK.makeColor(Color.Highlight)
                             }
-                        }
-                        onPressed: {
-                            groupview.suppressAutoFocusFirstOnFocus = true
                         }
                         onCheckedChanged: {
                             groupSettings.isEditing = button.checked
@@ -1049,7 +1056,6 @@ DccObject {
                         
                         onReadOnlyChanged: {
                             if (!readOnly) {
-                                groupview.suppressAutoFocusFirstOnFocus = true
                                 text = completeText
                                 lastValidText = model.display
                                 originalGroupName = model.display
@@ -1318,7 +1324,6 @@ DccObject {
                             }
                         }
                         onClicked: {
-                            groupview.suppressAutoFocusFirstOnFocus = true
                             groupview.focusNewlyCreatedItem = true
                             dccData.requestCreateGroup(settings.userId)
                             groupview.positionViewAtEnd()
