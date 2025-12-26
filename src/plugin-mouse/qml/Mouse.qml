@@ -112,6 +112,7 @@ DccObject {
                 Layout.fillWidth: true
                 Layout.bottomMargin: 10
                 Layout.leftMargin: 10
+                opacity: enabled ? 1 : 0.4
                 property var tips: [qsTr("Small"), qsTr("Medium"), qsTr("Large"), qsTr("X-Large")]
                 property var icons: ["mouse_cursor_size_small.png", "mouse_cursor_size_medium.png", "mouse_cursor_size_big.png", "mouse_cursor_size_largest.png"]
                 property var availables: [false, false, false, false]
