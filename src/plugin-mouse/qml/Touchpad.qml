@@ -53,7 +53,6 @@ DccObject {
         weight: 20
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
-        visible: dccData.touchpadSwitchFileExists
         page: D.Switch {
             Layout.rightMargin: 10
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
