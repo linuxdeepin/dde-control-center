@@ -47,6 +47,16 @@ Rectangle {
         placeholderTextColor: palette.brightText
         padding: 1
 
+        DropArea {
+            anchors.fill: parent
+            onDropped: function(drop) {
+                if (drop.hasText) {
+                    searchEdit.text = drop.text
+                    drop.acceptProposedAction()
+                }
+            }
+        }
+
         property Palette nomalPalette: Palette {
             normal: ("#FCFCFC")
             normalDark: ("#0C0C0C")
