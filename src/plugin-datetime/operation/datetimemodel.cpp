@@ -147,7 +147,7 @@ static inline QString escapSpace(const QString &displaySymbol, const QLocale &lo
 {
     if (displaySymbol == DatetimeModel::tr("Space")) {
         // 用户选择了 "Space"，返回区域对应的实际空格字符
-        return grouping ? locale.groupSeparator() : locale.decimalPoint();
+        return grouping ? locale.groupSeparator() : QStringLiteral(" ");
     }
     return displaySymbol;
 }
