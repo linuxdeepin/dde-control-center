@@ -3296,7 +3296,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>名称不能为空</translation>
     </message>
 </context>
 <context>
