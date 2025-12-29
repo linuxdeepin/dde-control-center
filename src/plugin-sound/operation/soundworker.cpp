@@ -191,7 +191,14 @@ void SoundWorker::setSoundEffectEnable(int index, bool enable)
 
 void SoundWorker::setSourceVolume(double volume)
 {
-    m_soundDBusInter->SetSourceVolume(volume, true);
+    // Skip if volume is unchanged to avoid unnecessary DBus calls
+    if (qFuzzyCompare(m_soundDBusInter->volumeSource(), volume)) {
+        return;
+    }
+    if (m_soundDBusInter->muteSource()) {
+        m_soundDBusInter->SetSourceMute(false);
+    }
+    m_soundDBusInter->SetSourceVolume(volume, !m_soundDBusInter->muteSource());
     qCDebug(DdcSoundWorker) << "set source volume to " << volume;
 }
 
