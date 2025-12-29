@@ -45,8 +45,11 @@ D.DialogWindow {
             id: itemModel
             // 添加前
             ColumnLayout {
+                id: firstPage
                 height: listview.implicitHeight
                 width: listview.implicitWidth
+
+                property bool disclaimerAccepted: false
 
                 Label {
                     Layout.fillWidth: true
@@ -128,6 +131,8 @@ To ensure successful entry:\n\
                             id: agreeCheckbox
                             text: qsTr("I have read and agree to the")
                             anchors.verticalCenter: parent.verticalCenter
+                            checked: firstPage.disclaimerAccepted
+                            onCheckedChanged: firstPage.disclaimerAccepted = checked
                         }
 
                         D.ToolButton {
@@ -164,8 +169,8 @@ To ensure successful entry:\n\
                             id: agreeCheckboxWrapped
                             anchors.horizontalCenter: parent.horizontalCenter
                             text: qsTr("I have read and agree to the")
-                            checked: agreeCheckbox.checked
-                            onCheckedChanged: agreeCheckbox.checked = checked
+                            checked: firstPage.disclaimerAccepted
+                            onCheckedChanged: firstPage.disclaimerAccepted = checked
                             // 移除组件默认的边距
                             topPadding: 0
                             bottomPadding: 0
@@ -195,14 +200,6 @@ To ensure successful entry:\n\
                             }
                         }
                     }
-
-                    // 统一的checked状态管理
-                    Connections {
-                        target: agreeCheckboxWrapped
-                        function onCheckedChanged() {
-                            agreeCheckbox.checked = agreeCheckboxWrapped.checked
-                        }
-                    }
                 }
 
                 D.RecommandButton {
@@ -213,7 +210,7 @@ To ensure successful entry:\n\
                     Layout.rightMargin: 0
                     Layout.fillWidth: true
                     text: qsTr("Next")
-                    enabled: agreeCheckbox.checked || agreeCheckboxWrapped.checked
+                    enabled: firstPage.disclaimerAccepted
                     onClicked: {
                         dccData.faceController.startEnroll();
                         dialog.hide()
@@ -399,13 +396,11 @@ Please be noted that UnionTech Software Technology Co., Ltd. will not collect or
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through "Service and Support" in the UOS.`)
                 onCancelClicked: {
                     listview.currentIndex = 0
-                    agreeCheckbox.checked = false
-                    agreeCheckboxWrapped.checked = false
+                    firstPage.disclaimerAccepted = false
                 }
                 onAgreeClicked: {
                     listview.currentIndex = 0
-                    agreeCheckbox.checked = true
-                    agreeCheckboxWrapped.checked = true
+                    firstPage.disclaimerAccepted = true
                 }
             }
         }
