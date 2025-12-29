@@ -55,6 +55,8 @@ void FaceAuthController::startEnroll()
     setAddStage(CharaMangerModel::Processing);
     m_enrollFaceTips = "";
     emit enrollFaceTipsChanged();
+    m_faceImgContent = "";
+    emit faceImgContentChanged();
     m_enrollFaceInProgress = true;
     m_worker->entollStart(m_model->faceDriverName(), m_model->faceCharaType(), newName);
 }
