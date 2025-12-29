@@ -1932,11 +1932,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Niektóre aplikacje wymagają wylogowania lub ponownego uruchomienia systemu, aby zastosować zmiany.</translation>
     </message>
 </context>
 <context>
