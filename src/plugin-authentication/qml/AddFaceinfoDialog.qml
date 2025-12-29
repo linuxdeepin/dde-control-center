@@ -245,7 +245,7 @@ To ensure successful entry:\n\
 
                     D.DciIcon {
                         id: faceImg
-                        visible: dccData.faceController.addStage === CharaMangerModel.Processing 
+                        visible: dccData.faceController.addStage === CharaMangerModel.Processing && dccData.faceController.faceImgContent !== ""
                         anchors.centerIn: parent
                         name: dccData.faceController.faceImgContent
                         sourceSize: Qt.size(210, 210)
