@@ -1523,7 +1523,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути захист для блокування каталогів системи і забезпечення оптимальної стабільності.</translation>
     </message>
 </context>
 <context>
