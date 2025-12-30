@@ -913,7 +913,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation>Перезапустіть пристрій, щоб завершити застосування параметрів надійного захисту системи лише для читання</translation>
     </message>
 </context>
 <context>
@@ -982,11 +982,11 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation>малий</translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation>великий</translation>
     </message>
 </context>
 <context>
@@ -1027,7 +1027,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Ми поважаємо ваші права на конфіденційність ваших особистих даних. Тому нами розроблено правила конфіденційності, які обмежують збирання, використання, оприлюднення, передавання, розкриття для громадськості та зберігання нами відомостей щодо вас.&lt;/p&gt;&lt;p&gt;Можете натиснути &lt;a href=&quot;%1&quot;&gt;тут&lt;/a&gt;, щоб переглянути найсвіжішу версію правил конфіденційності і/або переглянути ці дані у мережі, відвідавши &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Будь ласка, уважно прочитайте та переконайтеся, що вам повністю зрозумілий наш підхід до конфіденційності даних користувачів. Якщо у вас виникнуть якісь питання, будь ласка, зв&apos;яжіться із нами за адресою %2.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
