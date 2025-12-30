@@ -3116,7 +3116,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"/>
+        <translation>Додати зображення</translation>
     </message>
 </context>
 <context>
@@ -3293,7 +3293,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Назва не може бути порожньою</translation>
     </message>
 </context>
 <context>
