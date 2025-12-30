@@ -2066,7 +2066,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Пароль не повинен збігатися з іменем користувача.</translation>
     </message>
 </context>
 <context>
@@ -2108,11 +2108,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation>Служба піпетки недоступна</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation>Некоректний формат кольору: %1</translation>
     </message>
 </context>
 <context>
@@ -2640,7 +2640,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>будь ласка, введіть нове скорочення</translation>
     </message>
 </context>
 <context>
