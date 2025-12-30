@@ -1910,23 +1910,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Малий</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Середній</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Великий</translation>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"/>
+        <translation>Надвеликий</translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Для деяких програм доведеться вийти з системи або перезапустити її, щоб це набуло чинності</translation>
     </message>
 </context>
 <context>
