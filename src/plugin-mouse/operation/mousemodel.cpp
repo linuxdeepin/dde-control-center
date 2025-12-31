@@ -430,11 +430,6 @@ void MouseModel::setThemeType(const Dtk::Gui::DGuiApplicationHelper::ColorType &
     emit themeTypeChanged();
 }
 
-bool MouseModel::touchpadSwitchFileExists() const
-{
-    return QFile::exists("/proc/uos/touchpad_switch");
-}
-
 DCC_FACTORY_CLASS(MouseModel)
 
 #include "mousemodel.moc"
