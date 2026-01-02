@@ -1925,11 +1925,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Sovellukset vaativat kirjautumisen ulos tai tietokoneen käynnistämisen tullakseen voimaan</translation>
     </message>
 </context>
 <context>
