@@ -3733,7 +3733,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Extend</source>
-        <translation>擴充套件</translation>
+        <translation>擴展</translation>
     </message>
     <message>
         <source>Default</source>
