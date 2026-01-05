@@ -14,6 +14,7 @@
 #include <QDebug>
 #include <QDateTime>
 #include <QProcess>
+#include <QRegularExpression>
 #include <QSettings>
 #include <QLoggingCategory>
 #include <QDir>
@@ -711,13 +712,53 @@ void CommonInfoWork::login()
 
 QString CommonInfoWork::passwdEncrypt(const QString &password)
 {
-    const QString &pbkdf2_cmd(R"(echo -e "%1\n%2\n"| grub-mkpasswd-pbkdf2 | grep PBKDF2 | awk '{print $4}')");
+    if (password.isEmpty()) {
+        qCWarning(DccCommonInfoWork) << "Empty password provided";
+        return QString();
+    }
+
     QProcess pbkdf2;
-    pbkdf2.start("bash", {"-c", pbkdf2_cmd.arg(password).arg(password)});
-    pbkdf2.waitForFinished();
-    QString pwdOut = pbkdf2.readAllStandardOutput();
-    pwdOut[pwdOut.length() - 1] = '\0';
-    return pwdOut;
+    pbkdf2.setProgram("grub-mkpasswd-pbkdf2");
+    pbkdf2.setProcessChannelMode(QProcess::SeparateChannels);
+
+    pbkdf2.start();
+    if (!pbkdf2.waitForStarted()) {
+        qCWarning(DccCommonInfoWork) << "Failed to start grub-mkpasswd-pbkdf2:" << pbkdf2.errorString();
+        return QString();
+    }
+
+    // 通过标准输入传递密码（避免命令行注入）
+    // grub-mkpasswd-pbkdf2 期望格式: password\npassword\n
+    QString input = password + "\n" + password + "\n";
+    pbkdf2.write(input.toUtf8());
+    pbkdf2.closeWriteChannel();
+
+    if (!pbkdf2.waitForFinished()) {
+        qCWarning(DccCommonInfoWork) << "grub-mkpasswd-pbkdf2 execution failed:" << pbkdf2.errorString();
+        return QString();
+    }
+
+    if (pbkdf2.exitCode() != 0) {
+        qCWarning(DccCommonInfoWork) << "grub-mkpasswd-pbkdf2 exited with code:" << pbkdf2.exitCode()
+                                      << "stderr:" << pbkdf2.readAllStandardError();
+        return QString();
+    }
+
+    // 解析输出：grep PBKDF2 并提取第4个字段
+    QString output = QString::fromUtf8(pbkdf2.readAllStandardOutput());
+    QStringList lines = output.split('\n', Qt::SkipEmptyParts);
+
+    for (const QString &line : lines) {
+        if (line.contains("PBKDF2")) {
+            QStringList fields = line.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts);
+            if (fields.size() >= 4) {
+                return fields.at(3);  // 返回第4个字段（下标3）
+            }
+        }
+    }
+
+    qCWarning(DccCommonInfoWork) << "Failed to parse PBKDF2 output";
+    return QString();
 }
 
 std::pair<int, QString> CommonInfoWork::getPlyMouthInformation()
