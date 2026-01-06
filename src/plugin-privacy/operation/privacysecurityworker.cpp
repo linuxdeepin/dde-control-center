@@ -326,6 +326,7 @@ ApplicationItem *PrivacySecurityWorker::addAppItem(int dataIndex)
     // 不展示的应用
     static const QStringList s_excludeApp = {
         "dde-computer", "org.deepin.dde.control-center", "dde-file-manager", "dde-trash", "deepin-manual", "deepin-terminal",
+        "onboard", "onboard-settings",
     };
 
     const auto &NoDisplay = m_ddeAmModel->data(m_ddeAmModel->index(dataIndex, 0), DS_NAMESPACE::AppItemModel::NoDisplayRole).toBool();
