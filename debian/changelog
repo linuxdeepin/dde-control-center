@@ -1,3 +1,28 @@
+dde-control-center (6.1.66) unstable; urgency=medium
+
+  * chore: remove touchpad switch file existence check
+  * fix: fix command injection vulnerability in password encryption
+  * fix: correct 12-hour time format patterns in RegionProxy
+  * i18n: Updates for project Deepin Desktop Environment (#2920)
+  * fix: Fix the issue with focus in the user group interface
+  * refactor: migrate InterfaceEffectListview to DccObject for search
+    support
+  * i18n: Updates for project Deepin Desktop Environment (#2889)
+  * fix: unmute input device when adjusting volume
+  * fix: Fix the issue where error messages do not disappear
+    automatically
+  * fix: resolve Next button not disabled after unchecking disclaimer
+  * fix: reset face image content when starting enrollment
+  * fix: Fix the issue where disabled modules are not grayed out
+  * fix: correct decimal symbol setting when user selects space
+  * docs: add GitHub Copilot instructions file
+  * feat: support multiple plugin directories via --spec option
+  * fix: add text drop support to search bar
+  * fix: add close button hint to timezone popup
+  * fix: prepend runtime plugin directory to QML import paths
+
+ -- zhangkun <zhangkun2@uniontech.com>  Tue, 06 Jan 2026 20:51:47 +0800
+
 dde-control-center (6.1.65) unstable; urgency=medium
 
   * fix: adjust alert tooltip target in authentication UI
