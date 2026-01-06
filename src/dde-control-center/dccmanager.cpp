@@ -17,6 +17,7 @@
 #include <QDBusConnection>
 #include <QDBusPendingCall>
 #include <QElapsedTimer>
+#include <QFileInfo>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -27,7 +28,6 @@
 #include <QTimer>
 #include <QTranslator>
 #include <QWindow>
-#include <QFileInfo>
 
 DCORE_USE_NAMESPACE
 
@@ -82,19 +82,10 @@ DccManager::~DccManager()
 
 bool DccManager::installTranslator(const QString &name)
 {
-    QTranslator *translator = new QTranslator(qApp);
-    if (translator->load(QLocale(), name, "_", TRANSLATE_READ_DIR)) {
-        qApp->installTranslator(translator);
-#if 1 // 兼容旧版位置
-    } else if (translator->load(QLocale(), name, "_", TRANSLATE_READ_DIR "/..")) {
-        qApp->installTranslator(translator);
-#endif
-    } else {
-        delete translator;
-        qCWarning(dccLog()) << "install translator fail:" << name << ", dir:" << TRANSLATE_READ_DIR;
-        return false;
-    }
-    return true;
+    const QStringList translateDirs = { TRANSLATE_READ_DIR,
+                                        TRANSLATE_READ_DIR "/../v1.0", // 兼容旧版位置
+                                        TRANSLATE_READ_DIR "/.." };
+    return Dtk::Gui::DGuiApplicationHelper::loadTranslator(name, translateDirs, { QLocale() });
 }
 
 void DccManager::init()
@@ -102,20 +93,12 @@ void DccManager::init()
     if (m_engine)
         return;
 
+    QQmlEngine::setObjectOwnership(dccV25::DccApp::instance(), QQmlEngine::CppOwnership);
+    qmlRegisterSingletonInstance("org.deepin.dcc", 1, 0, "DccApp", dccV25::DccApp::instance());
+
     m_engine = new QQmlApplicationEngine(this);
-    auto paths = m_engine->importPathList();
-    paths.prepend(DefaultModuleDirectory);
-    const auto runtimePluginDir = QCoreApplication::applicationDirPath() + "/../lib/";
-    if (QFileInfo::exists(runtimePluginDir)) {
-        paths.prepend(runtimePluginDir);
-    }
-    qCInfo(dccLog()) << "Import paths:" << paths;
-    m_engine->setImportPathList(paths);
     m_imageProvider = new DccImageProvider();
     m_engine->addImageProvider("DccImage", m_imageProvider);
-    QStringList dciPaths = Dtk::Gui::DIconTheme::dciThemeSearchPaths();
-    dciPaths << QStringLiteral(DefaultModuleDirectory);
-    Dtk::Gui::DIconTheme::setDciThemeSearchPaths(dciPaths);
 }
 
 QQmlApplicationEngine *DccManager::engine()
@@ -134,7 +117,7 @@ void DccManager::setMainWindow(QWindow *window)
 void DccManager::loadModules(bool async, const QStringList &dirs)
 {
     // onAddModule(m_rootModule);
-    m_plugins->loadModules(m_root, async, dirs);
+    m_plugins->loadModules(m_root, async, dirs, m_engine);
     // showModule(m_rootModule);
 }
 

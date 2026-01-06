@@ -5,6 +5,7 @@
 #define DCCMODEL_H
 
 #include <QAbstractItemModel>
+#include <QQmlEngine>
 
 namespace dccV25 {
 class DccObject;
@@ -13,6 +14,7 @@ class DccModel : public QAbstractItemModel
 {
     Q_OBJECT
     Q_PROPERTY(DccObject * root READ root WRITE setRoot NOTIFY rootChanged)
+    QML_ELEMENT
 public:
     explicit DccModel(QObject *parent = nullptr);
     ~DccModel() override;

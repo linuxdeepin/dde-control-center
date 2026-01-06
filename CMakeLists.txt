@@ -117,12 +117,13 @@ if(BUILD_DOCS)
     add_subdirectory(docs)
 endif()
 
-set(DCC_TRANSLATION_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/translations/v1.0" CACHE STRING "Install dir for dde-control-center translate files")
+set(DCC_PLUGINS_VERSION 1.1)
+set(DCC_TRANSLATION_INSTALL_DIR "${CMAKE_INSTALL_DATAROOTDIR}/${PROJECT_NAME}/translations/v${DCC_PLUGINS_VERSION}" CACHE STRING "Install dir for dde-control-center translate files")
 
 # 输出目录
 set(DCC_LIBDIR ${PROJECT_BINARY_DIR}/lib)
 # 插件目录
-set(DCC_PLUGINS_DIR plugins_v1.0)
+set(DCC_PLUGINS_DIR plugins_v${DCC_PLUGINS_VERSION})
 # 安装目录
 set(DCC_INSTALL_DIR ${CMAKE_INSTALL_LIBDIR}/dde-control-center)
 set(DCC_DEBUG_LIBDIR ${DCC_INSTALL_DIR})
@@ -205,6 +206,8 @@ add_subdirectory(src/dde-control-center)
 #-----------------------shared-utils------------------------
 add_subdirectory(src/shared-utils)
 #--------------------------plugins--------------------------
+add_subdirectory(src/plugin-system)
+add_subdirectory(src/plugin-device)
 add_subdirectory(src/plugin-accounts)
 if (NOT DISABLE_AUTHENTICATION)
     add_subdirectory(src/plugin-authentication)

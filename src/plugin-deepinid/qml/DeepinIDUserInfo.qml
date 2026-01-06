@@ -38,7 +38,7 @@ DccObject {
                 Image {
                     id: image
                     anchors.fill: parent
-                    source: dccData.model.avatar
+                    source: "file://" + dccData.model.avatar
                     sourceSize: Qt.size(80, 80)
 
                     layer.enabled: true

@@ -47,7 +47,8 @@ QString loggingRules(const QString &loggingModule)
 
 QStringList defaultpath()
 {
-    const QStringList path{ QStringLiteral(DefaultPluginsDirectory) };
+    QString pluginsDir(DefaultModuleDirectory);
+    const QStringList path{ pluginsDir + "/plugins_v1.1", pluginsDir + "/plugins_v1.0" };
     // , QStringLiteral("/usr/lib/dde-control-center/modules/") };
     return path;
 }
@@ -171,7 +172,7 @@ int main(int argc, char *argv[])
     dccV25::DccManager *dccManager = new dccV25::DccManager(app);
     dccManager->init();
     QQmlApplicationEngine *engine = dccManager->engine();
-    engine->load(QUrl(QStringLiteral(DefaultModuleDirectory) + "/DccWindow.qml"));
+    engine->loadFromModule("org.deepin.dcc", "DccWindow");
     QList<QObject *> objs = engine->rootObjects();
     for (auto &&obj : objs) {
         QWindow *w = qobject_cast<QWindow *>(obj);

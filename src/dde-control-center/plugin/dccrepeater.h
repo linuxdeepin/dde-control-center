@@ -5,16 +5,18 @@
 #ifndef DCCREPEATER_H
 #define DCCREPEATER_H
 
+#include <private/qqmlchangeset_p.h>
+
 #include <QObject>
 #include <QQmlComponent>
 
-class QQmlChangeSet;
-
 namespace dccV25 {
 class DccRepeaterPrivate;
+
 class DccRepeater : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 public:
     Q_PROPERTY(QVariant model READ model WRITE setModel NOTIFY modelChanged FINAL)
     Q_PROPERTY(QQmlComponent *delegate READ delegate WRITE setDelegate NOTIFY delegateChanged FINAL)

@@ -29,7 +29,7 @@ DccObject {
         page: DccRightView {
             spacing: 5
         }
-        Mouse {}
+        MousePage {}
     }
     DccObject {
         name: "Touchpad"
