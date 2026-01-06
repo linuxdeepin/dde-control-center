@@ -171,7 +171,7 @@ int main(int argc, char *argv[])
     dccV25::DccManager *dccManager = new dccV25::DccManager(app);
     dccManager->init();
     QQmlApplicationEngine *engine = dccManager->engine();
-    engine->load(QUrl(QStringLiteral(DefaultModuleDirectory) + "/DccWindow.qml"));
+    engine->loadFromModule("org.deepin.dcc", "DccWindow");
     QList<QObject *> objs = engine->rootObjects();
     for (auto &&obj : objs) {
         QWindow *w = qobject_cast<QWindow *>(obj);

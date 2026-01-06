@@ -205,6 +205,8 @@ add_subdirectory(src/dde-control-center)
 #-----------------------shared-utils------------------------
 add_subdirectory(src/shared-utils)
 #--------------------------plugins--------------------------
+add_subdirectory(src/plugin-system)
+add_subdirectory(src/plugin-device)
 add_subdirectory(src/plugin-accounts)
 if (NOT DISABLE_AUTHENTICATION)
     add_subdirectory(src/plugin-authentication)
