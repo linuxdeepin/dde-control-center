@@ -23,7 +23,8 @@ DccObject {
         weight: 100
         pageType: DccObject.Item
         visible: dccData.platformName() !== "wayland"
-        page: InterfaceEffectListview {}
+        page: DccGroupView {}
+        InterfaceEffectListview {}
     }
 
     DccTitleObject {
@@ -85,7 +86,7 @@ DccObject {
                                         id: iconControl
                                         anchors.fill: parent
                                         anchors.margins: 4
-                                        
+
                                         contentItem: D.DciIcon {
                                             palette: D.DTK.makeIconPalette(iconControl.palette)
                                             theme: iconControl.D.ColorSelector.controlTheme

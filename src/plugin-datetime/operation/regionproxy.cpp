@@ -162,7 +162,7 @@ public:
 
     virtual QStringList longTimeFormats() override
     {
-        return { "H:mm:ss ap", "HH:mm:ss ap", "H:mm:ss", "HH:mm:ss" };
+        return { "h:mm:ss AP", "hh:mm:ss AP", "H:mm:ss", "HH:mm:ss" };
     }
 };
 

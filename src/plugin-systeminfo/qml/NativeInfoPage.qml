@@ -143,6 +143,7 @@ DccObject {
                     text: dccData.systemInfoMode().hostName
                     visible: false
                     showAlert: false
+                    alertDuration: 3000
                     
                     MouseArea {
                         anchors.fill: parent
@@ -200,7 +201,7 @@ DccObject {
                             editBtn.visible = true
                             hostNameLabel.visible = true
                             hostNameEdit.visible = false
-                            hostNameLabel.showAlert = false
+                            hostNameEdit.showAlert = false
                             return
                         }
 
@@ -208,6 +209,7 @@ DccObject {
 
                             hostNameEdit.showAlert = true
                             hostNameEdit.alertText = qsTr("It cannot start or end with dashes")
+                            dccData.systemInfoWork().playSystemSound(14)
                             return
                         }
 

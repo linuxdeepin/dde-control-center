@@ -3293,7 +3293,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>名稱不能為空</translation>
     </message>
 </context>
 <context>
@@ -3733,7 +3733,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Extend</source>
-        <translation>擴充套件</translation>
+        <translation>擴展</translation>
     </message>
     <message>
         <source>Default</source>

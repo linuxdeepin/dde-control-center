@@ -176,7 +176,9 @@ To ensure successful entry:
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
+Будь ласка, зауважте, що UnionTech Software не збиратиме і не оброблятиме ваших біометричних даних, які зберігатимуться лише на вашому локальному пристрої. Будь ласка, вмикайте біометричне розпізнавання лише на вашому особистому пристрої і використовуйте ваші власні біометричні дані лише для відповідних операцій. Негайно вимикайте або вилучайте біометричні дані інших осіб на відповідному пристрої. Відповідальність за наслідки недотримання цих вимог покладається на вас. 
+UnionTech Software Technology Co, Ltd працює над вивченням і удосконаленням можливостей із захисту, точності і стабільності біометричного розпізнавання. Втім, через вплив факторів середовища, обладнання, технічних проблем та засобів керування ризиками немає гарантії безумовного проходження вами біометричного розпізнавання. Через це, не слід покладатися повністю на біометричне розпізнавання при вході до UOS. Якщо у вас є якісь питання та пропозиції щодо використання біометричного розпізнавання, ви можете надати ваш відгук за допомогою «Обслуговування і підтримки» у UOS.</translation>
     </message>
 </context>
 <context>
@@ -903,15 +905,15 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation>Перезавантажити зараз</translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation>Відкинути</translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation>Перезапустіть пристрій, щоб завершити застосування параметрів надійного захисту системи лише для читання</translation>
     </message>
 </context>
 <context>
@@ -980,11 +982,11 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation>малий</translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation>великий</translation>
     </message>
 </context>
 <context>
@@ -1025,15 +1027,15 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Ми поважаємо ваші права на конфіденційність ваших особистих даних. Тому нами розроблено правила конфіденційності, які обмежують збирання, використання, оприлюднення, передавання, розкриття для громадськості та зберігання нами відомостей щодо вас.&lt;/p&gt;&lt;p&gt;Можете натиснути &lt;a href=&quot;%1&quot;&gt;тут&lt;/a&gt;, щоб переглянути найсвіжішу версію правил конфіденційності і/або переглянути ці дані у мережі, відвідавши &lt;a href=&quot;%1&quot;&gt;%1&lt;/a&gt;. Будь ласка, уважно прочитайте та переконайтеся, що вам повністю зрозумілий наш підхід до конфіденційності даних користувачів. Якщо у вас виникнуть якісь питання, будь ласка, зв&apos;яжіться із нами за адресою %2.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Участь у програмі відгуків користувачів означає, що ви надаєте нам доступ до збирання і використання відомостей щодо вашого пристрою, системи та використаних програм. Якщо ви не хочете, щоб ми збирали і використовували ці дані, не беріть участь у програмі відгуків. Щоб дізнатися більше, будь ласка, ознайомтеся із Правилами конфіденційності Deepin (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Участь у програмі відгуків користувачів означає, що ви надаєте нам доступ до збирання і використання відомостей щодо вашого пристрою, системи та використаних програм. Якщо ви не хочете, щоб ми збирали і використовували ці дані, не беріть участь у програмі відгуків. Щоб дізнатися більше про програму відгуків користувачів, будь ласка, відвідайте &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -1513,15 +1515,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"/>
+        <translation>Надійний захист системи лише для читання</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"/>
+        <translation>Вимикання захисту розблоковує каталоги системи. Ця дія загрожує наступним пошкодженням системи.</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути захист для блокування каталогів системи і забезпечення оптимальної стабільності.</translation>
     </message>
 </context>
 <context>
@@ -1908,27 +1910,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Малий</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Середній</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Великий</translation>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"/>
+        <translation>Надвеликий</translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"></translation>
+        <translation>Для деяких програм доведеться вийти з системи або перезапустити її, щоб це набуло чинності</translation>
     </message>
 </context>
 <context>
@@ -2068,7 +2066,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Пароль не повинен збігатися з іменем користувача.</translation>
     </message>
 </context>
 <context>
@@ -2110,11 +2108,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation>Служба піпетки недоступна</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation>Некоректний формат кольору: %1</translation>
     </message>
 </context>
 <context>
@@ -2642,7 +2640,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>будь ласка, введіть нове скорочення</translation>
     </message>
 </context>
 <context>
@@ -3118,7 +3116,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"/>
+        <translation>Додати зображення</translation>
     </message>
 </context>
 <context>
@@ -3295,7 +3293,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Назва не може бути порожньою</translation>
     </message>
 </context>
 <context>
@@ -3363,7 +3361,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>Китайська (мінь-нан)</translation>
     </message>
 </context>
 <context>
@@ -3901,7 +3899,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Загальні параметри, спосіб введення, скорочення</translation>
     </message>
 </context>
 <context>
@@ -4007,7 +4005,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"/>
+        <translation>Поєднувати піктограми програм</translation>
     </message>
 </context>
 <context>
