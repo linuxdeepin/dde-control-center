@@ -18,6 +18,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlComponent>
 #include <QQmlContext>
+#include <QQmlFile>
 #include <QRunnable>
 #include <QSet>
 #include <QSettings>
@@ -33,6 +34,7 @@ enum PluginStatus {
     // metaData 0xFF000000
     PluginBegin = 0x10000000,
     PluginEnd = 0x20000000,
+    MetaDataLoad = 0x02000000,
     MetaDataEnd = 0x04000000,
     MetaDataErr = 0x08000000,
     // module 0x00FF0000
@@ -56,10 +58,24 @@ enum PluginStatus {
     PluginEndMask = PluginEnd | MetaDataEnd | ModuleEnd | DataEnd | MainObjEnd,
 };
 
+enum PluginType {
+    T_Unknown = 0,
+    T_V1_0 = 0x01000000,
+    T_V1_1 = 0x02000000,
+    T_V_MASK = 0xFF000000,
+
+    T_HasMoudule = 0x00000001,
+    T_HasMain = 0x00000002,
+    T_DataMask = 0x00000003,
+    T_ShortMain = 0x00000004, // main模块名为main.qml
+};
+
 struct PluginData
 {
     QString name;
     QString path;
+    uint type;
+
     DccObject *module;
     DccObject *mainObj;
     DccObject *soObj;
@@ -70,6 +86,7 @@ struct PluginData
     PluginData(const QString &_name, const QString &_path)
         : name(_name)
         , path(_path)
+        , type(T_Unknown)
         , module(nullptr)
         , mainObj(nullptr)
         , soObj(nullptr)
@@ -78,6 +95,8 @@ struct PluginData
         , status(PluginBegin)
     {
     }
+
+    inline uint version() { return type & T_V_MASK; }
 };
 
 class LoadPluginTask : public QRunnable
@@ -92,7 +111,7 @@ public:
 
 protected:
     void run() override;
-    void doRun();
+    void doLoadSo();
 
 protected:
     PluginManager *m_pManager;
@@ -102,11 +121,11 @@ protected:
 void LoadPluginTask::run()
 {
     m_data->thread = QThread::currentThread();
-    doRun();
+    doLoadSo();
     m_data->thread = nullptr;
 }
 
-void LoadPluginTask::doRun()
+void LoadPluginTask::doLoadSo()
 {
     Q_EMIT m_pManager->updatePluginStatus(m_data, DataBegin, "load plugin begin");
     // {main.qml}
@@ -173,7 +192,7 @@ void LoadPluginTask::doRun()
         m_data->soObj->moveToThread(m_pManager->thread());
         m_data->soObj->setParent(m_pManager->parent());
     }
-    Q_EMIT m_pManager->updatePluginStatus(m_data, DataEnd, ": load plugin finished. elasped time :" + QString::number(timer.elapsed()));
+    Q_EMIT m_pManager->updatePluginStatus(m_data, DataEnd, ": load plugin finished. elapsed time :" + QString::number(timer.elapsed()));
 }
 
 PluginManager::PluginManager(DccManager *parent)
@@ -233,6 +252,57 @@ bool PluginManager::compareVersion(const QString &targetVersion, const QString &
     }
 
     return true;
+}
+
+bool PluginManager::updatePluginType(PluginData *plugin)
+{
+    QString qrcPath;
+    switch (plugin->type) {
+    case T_V1_1: {
+        if (QFile::exists(plugin->path + "/qmldir")) {
+            plugin->type |= T_HasMoudule | T_HasMain;
+            qrcPath = ":/qt/qml/" + plugin->name;
+            auto paths = m_engine->importPathList();
+            QDir pluginDir(plugin->path);
+            pluginDir.cdUp();
+            QString qmlPlugin = pluginDir.absolutePath();
+            if (!paths.contains(qmlPlugin)) {
+                m_engine->addImportPath(qmlPlugin);
+            }
+        }
+    } break;
+    case T_V1_0: {
+        QDir dir(plugin->path);
+        if (dir.exists("main.qml")) {
+            plugin->type |= T_ShortMain | T_HasMain;
+        } else if (dir.exists(plugin->name + "Main.qml")) {
+            plugin->type |= T_HasMain;
+        }
+        if (dir.exists(plugin->name + ".qml")) {
+            plugin->type |= T_HasMoudule;
+        }
+        qrcPath = plugin->path;
+    } break;
+    default: { // 尝试枚举版本
+        plugin->type = T_V1_1;
+        if (updatePluginType(plugin)) {
+            return true;
+        }
+        plugin->type = T_V1_0;
+        if (updatePluginType(plugin)) {
+            return true;
+        }
+        plugin->type = T_Unknown;
+        return false;
+    } break;
+    }
+    if (plugin->type & T_DataMask) {
+        QStringList paths = Dtk::Gui::DIconTheme::dciThemeSearchPaths();
+        paths.append(qrcPath);
+        Dtk::Gui::DIconTheme::setDciThemeSearchPaths(paths);
+        return true;
+    }
+    return false;
 }
 
 QThreadPool *PluginManager::threadPool()
@@ -300,6 +370,7 @@ void PluginManager::loadMetaData(PluginData *plugin)
     if (isDeleting()) {
         return;
     }
+    updatePluginType(plugin);
     if (m_manager->hideModule().contains(plugin->name)) {
         // 跳过隐藏的模块,需要动态加载回来
         Q_EMIT updatePluginStatus(plugin, PluginEnd | MetaDataEnd, QString());
@@ -333,15 +404,26 @@ void PluginManager::loadModule(PluginData *plugin)
     if (isDeleting()) {
         return;
     }
-    const QString qmlPath = plugin->path + "/" + plugin->name + ".qml";
-    Q_EMIT updatePluginStatus(plugin, ModuleLoad, ": load module " + qmlPath);
-    if (QFile::exists(qmlPath)) {
-        QQmlComponent *component = new QQmlComponent(m_manager->engine(), m_manager->engine());
-        component->setProperty("PluginData", QVariant::fromValue(plugin));
-        connect(component, &QQmlComponent::statusChanged, this, &PluginManager::moduleLoading);
-        component->loadUrl(qmlPath, QQmlComponent::Asynchronous);
-    } else {
+    if (!(plugin->type & T_HasMoudule)) {
         Q_EMIT updatePluginStatus(plugin, ModuleErr | ModuleEnd, "module qml not exists");
+        return;
+    }
+    QQmlComponent *component = new QQmlComponent(m_manager->engine(), m_manager->engine());
+    component->setProperty("PluginData", QVariant::fromValue(plugin));
+    connect(component, &QQmlComponent::statusChanged, this, &PluginManager::moduleLoading);
+    switch (plugin->version()) {
+    case T_V1_0: {
+        const QString qmlPath = plugin->path + "/" + plugin->name + ".qml";
+        Q_EMIT updatePluginStatus(plugin, ModuleLoad, ": load module " + qmlPath);
+        component->loadUrl(qmlPath, QQmlComponent::Asynchronous);
+    } break;
+    case T_V1_1:
+    default: {
+        QString typeName = plugin->name;
+        typeName[0] = typeName[0].toUpper();
+        Q_EMIT updatePluginStatus(plugin, ModuleLoad, ": load module " + typeName);
+        component->loadFromModule(plugin->name, typeName, QQmlComponent::Asynchronous);
+    } break;
     }
 }
 
@@ -350,21 +432,26 @@ void PluginManager::loadMain(PluginData *plugin)
     if (isDeleting()) {
         return;
     }
-    Q_EMIT updatePluginStatus(plugin, MainObjLoad, "load Main");
-    QString qmlPath = plugin->path + "/" + plugin->name + "Main.qml";
-    if (!QFile::exists(qmlPath)) {
-        qmlPath = plugin->path + "/main.qml";
-        if (!QFile::exists(qmlPath)) {
-            qmlPath.clear();
-        }
+    if (!(plugin->type & T_HasMain)) {
+        Q_EMIT updatePluginStatus(plugin, MainObjErr | MainObjEnd, "main qml not exists");
+        return;
     }
-    if (!qmlPath.isEmpty()) {
-        QQmlComponent *component = new QQmlComponent(m_manager->engine(), m_manager->engine());
-        component->setProperty("PluginData", QVariant::fromValue(plugin));
-        connect(component, &QQmlComponent::statusChanged, this, &PluginManager::mainLoading);
+    QQmlComponent *component = new QQmlComponent(m_manager->engine(), m_manager->engine());
+    component->setProperty("PluginData", QVariant::fromValue(plugin));
+    connect(component, &QQmlComponent::statusChanged, this, &PluginManager::mainLoading);
+    switch (plugin->version()) {
+    case T_V1_0: {
+        const QString qmlPath = plugin->path + "/" + ((plugin->type & T_ShortMain) ? "main.qml" : plugin->name + "Main.qml");
+        Q_EMIT updatePluginStatus(plugin, MainObjLoad, ": load Main " + qmlPath);
         component->loadUrl(qmlPath, QQmlComponent::Asynchronous);
-    } else {
-        Q_EMIT updatePluginStatus(plugin, MainObjErr | MainObjEnd, "Main.qml not exists");
+    } break;
+    case T_V1_1:
+    default: {
+        QString typeName = plugin->name + "Main";
+        typeName[0] = typeName[0].toUpper();
+        Q_EMIT updatePluginStatus(plugin, MainObjLoad, ": load Main " + typeName);
+        component->loadFromModule(plugin->name, typeName, QQmlComponent::Asynchronous);
+    } break;
     }
 }
 
@@ -509,14 +596,14 @@ void PluginManager::onVisibleToAppChanged(bool visibleToApp)
     }
 }
 
-void PluginManager::loadModules(DccObject *root, bool async, const QStringList &dirs)
+void PluginManager::loadModules(DccObject *root, bool async, const QStringList &dirs, QQmlEngine *engine)
 {
     Q_UNUSED(async)
     if (!root)
         return;
     m_rootModule = root;
     qCDebug(dccLog()) << "plugin dir:" << dirs;
-
+    m_engine = engine;
     QFileInfoList pluginList;
     for (const auto &dir : dirs) {
         QDir plugindir(dir);
@@ -528,19 +615,23 @@ void PluginManager::loadModules(DccObject *root, bool async, const QStringList &
         }
     }
     const QStringList groupPlugins({ "system", "device" }); // 优先加载只是组的插件
-    QStringList paths = Dtk::Gui::DIconTheme::dciThemeSearchPaths();
     for (auto &lib : pluginList) {
         const QString &filepath = lib.absoluteFilePath();
         auto filename = lib.fileName();
         PluginData *plugin = new PluginData(lib.baseName(), filepath);
+        if (filepath.contains("_v1.1")) {
+            plugin->type = T_V1_1;
+        } else if (filepath.contains("_v1.0")) {
+            plugin->type = T_V1_0;
+        } else {
+            plugin->type = T_Unknown;
+        }
         if (groupPlugins.contains(filename)) {
             m_plugins.prepend(plugin);
         } else {
             m_plugins.append(plugin);
         }
-        paths.prepend(filepath);
     }
-    Dtk::Gui::DIconTheme::setDciThemeSearchPaths(paths);
     for (const auto &plugin : m_plugins) {
         loadPlugin(plugin);
     }

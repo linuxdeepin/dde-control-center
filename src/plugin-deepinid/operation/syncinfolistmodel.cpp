@@ -4,6 +4,8 @@
 
 #include "syncinfolistmodel.h"
 
+#include <QUrl>
+
 SyncInfoListModel::SyncInfoListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -46,7 +48,7 @@ QVariant SyncInfoListModel::data(const QModelIndex &index, int role) const
         case TypeRole:
             return syncItem.type;
         case DisplayIconRole:
-            return syncItem.displayIcon;
+            return syncItem.displayIcon.startsWith("/") ? QUrl::fromLocalFile(syncItem.displayIcon).toString() : syncItem.displayIcon;
         case DisplayNameRole:
             return syncItem.displayName;
         case KeyListRole:

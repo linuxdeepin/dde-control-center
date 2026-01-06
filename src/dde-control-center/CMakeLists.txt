@@ -2,14 +2,9 @@ cmake_minimum_required(VERSION 3.18)
 
 #--------------------------frame--------------------------
 set(DCCFrame_Name ${DCC_FRAME_Library})
-file(GLOB DCCFrame_SRCS
-    "${DCC_PROJECT_ROOT_DIR}/include/*.h"
-    "frame/*.cpp"
-    "frame/*.h"
-)
 
 add_library(${DCCFrame_Name} SHARED
-    ${DCCFrame_SRCS}
+    "${DCC_PROJECT_ROOT_DIR}/include/dccfactory.h"
 )
 
 find_package(${QT_NS} COMPONENTS QmlModels REQUIRED)
@@ -17,16 +12,8 @@ if(${QT_NS}_VERSION VERSION_GREATER_EQUAL 6.10)
   find_package(${QT_NS} COMPONENTS QmlModelsPrivate QuickPrivate REQUIRED)
 endif()
 
-set(DCCFrame_Libraries
-    ${DTK_NS}::Gui
-    ${QT_NS}::Gui
-    ${QT_NS}::Quick
-    ${QT_NS}::QuickPrivate
-    ${QT_NS}::QmlModelsPrivate
-)
-
 target_link_libraries(${DCCFrame_Name} PRIVATE
-    ${DCCFrame_Libraries}
+    ${QT_NS}::Core
 )
 
 set_target_properties(${DCCFrame_Name} PROPERTIES
@@ -48,7 +35,7 @@ install(EXPORT DdeControlCenterTargets
         DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
 )
 #--------------------------qml-plugin--------------------------
-add_subdirectory(frame/plugin)
+add_subdirectory(plugin)
 #--------------------------dde-control-center--------------------------
 set(Control_Center_Name dde-control-center)
 file(GLOB Control_Center_SRCS
@@ -64,8 +51,8 @@ add_executable(${Control_Center_Name}
 target_compile_definitions(${Control_Center_Name} PRIVATE CVERSION="${CMAKE_PROJECT_VERSION}")
 
 target_include_directories(${Control_Center_Name} PRIVATE
-    include/interface
-    frame
+    include
+    plugin
 )
 
 set(Control_Center_Libraries
@@ -75,18 +62,11 @@ set(Control_Center_Libraries
     ${QT_NS}::DBus
     ${QT_NS}::Concurrent
     ${QT_NS}::Quick
+    dde-control-center-lib
 )
 
 target_link_libraries(${Control_Center_Name} PRIVATE
     ${Control_Center_Libraries}
-)
-
-file(GLOB_RECURSE qmlFiles  "${DCC_PROJECT_ROOT_DIR}/qml/*.*")
-add_custom_target(${Control_Center_Name}_qml ALL
-    SOURCES ${qmlFiles}
-)
-add_custom_command(TARGET ${Control_Center_Name}_qml POST_BUILD
-    COMMAND ${CMAKE_COMMAND} -E copy_directory "${DCC_PROJECT_ROOT_DIR}/qml" ${DCC_LIBDIR}
 )
 
 file(GLOB_RECURSE DCC_Translation_QML_FILES ${DCC_PROJECT_ROOT_DIR}/qml/*.qml ${DCC_PROJECT_ROOT_DIR}/src/*.qml)
@@ -94,7 +74,6 @@ file(GLOB_RECURSE DCC_Translation_SOURCE_FILES ${DCC_PROJECT_ROOT_DIR}/src/*.cpp
 dcc_handle_plugin_translation(NAME ${Control_Center_Name} SOURCE_DIR ${DCC_PROJECT_ROOT_DIR} QML_FILES ${DCC_Translation_QML_FILES} SOURCE_FILES ${DCC_Translation_SOURCE_FILES})
 # bin
 install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
-install(DIRECTORY "${DCC_PROJECT_ROOT_DIR}/qml/" DESTINATION ${DCC_INSTALL_DIR})
 #----------------------------install config------------------------------
 #desktop
 install(FILES ${DCC_PROJECT_ROOT_DIR}/misc/org.deepin.dde.control-center.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)

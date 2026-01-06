@@ -23,7 +23,7 @@ class PluginManager : public QObject
 public:
     explicit PluginManager(DccManager *parent);
     ~PluginManager();
-    void loadModules(DccObject *root, bool async, const QStringList &dirs);
+    void loadModules(DccObject *root, bool async, const QStringList &dirs, QQmlEngine *engine);
     bool loadFinished() const;
     void beginDelete();
 
@@ -41,6 +41,7 @@ Q_SIGNALS:
 
 private:
     bool compareVersion(const QString &targetVersion, const QString &baseVersion);
+    bool updatePluginType(PluginData *plugin);
     QThreadPool *threadPool();
 
 private Q_SLOTS:
@@ -65,6 +66,7 @@ private:
     DccObject *m_rootModule;       // root module from MainWindow
     QThreadPool *m_threadPool;
     bool m_isDeleting;
+    QQmlEngine *m_engine;
 };
 
 } // namespace dccV25

@@ -10,7 +10,7 @@ namespace dccV25 {
 class DccQuickRepeater : public QQuickRepeater
 {
     Q_OBJECT
-    QML_ELEMENT
+    QML_NAMED_ELEMENT(Repeater)
 public:
     explicit DccQuickRepeater(QQuickItem *parent = nullptr);
     ~DccQuickRepeater() override;

@@ -6,6 +6,7 @@
 #include "applicationitem.h"
 #include "privacysecuritydataproxy.h"
 #include <QStandardPaths>
+#include <QUrl>
 
 AppsModel::AppsModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -23,7 +24,8 @@ QVariant AppsModel::data(const QModelIndex &index, int role) const
             return m_appItems.at(index.row())->name();
         }
         case IconNameRole: {
-            return m_appItems.at(index.row())->icon();
+            QString icon = m_appItems.at(index.row())->icon();
+            return icon.startsWith("/") ? QUrl::fromLocalFile(icon).toString() : icon;
         }
         case CameraRole: {
             return m_appItems.at(index.row())->isPremissionEnabled(ApplicationItem::CameraPermission);
