@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "systeminfowork.h"
@@ -258,15 +258,19 @@ void SystemInfoWork::initSystemCopyright()
 {
     const QSettings settings("/etc/deepin-installer.conf", QSettings::IniFormat);
     QString oem_copyright = settings.value("system_info_vendor_name").toString().toUtf8();
+
+    const int buildYear = QString(__DATE__).right(4).toInt();
+    int validYear = QDateTime::currentDateTime().date().year();
+    validYear = qMax(buildYear, validYear);
     if (oem_copyright.isEmpty()) {
         if (DSysInfo::productType() != DSysInfo::ProductType::Uos)
             oem_copyright = QCoreApplication::translate("LogoModule", "Copyright© 2011-%1 Deepin Community")
-                    .arg(QString(__DATE__).right(4));
+                    .arg(validYear);
         else
             oem_copyright =  QCoreApplication::translate(
                            "LogoModule",
                            "Copyright© 2019-%1 UnionTech Software Technology Co., LTD")
-                    .arg(QString(__DATE__).right(4));
+                    .arg(validYear);
     }
 
     m_model->setSystemCopyright(oem_copyright);
