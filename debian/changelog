@@ -1,3 +1,9 @@
+dde-control-center (6.1.67) unstable; urgency=medium
+
+  * fix: exclude onboard from privacy FileAndFolder app list
+
+ -- zhangkun <zhangkun2@uniontech.com>  Wed, 07 Jan 2026 13:35:37 +0800
+
 dde-control-center (6.1.66) unstable; urgency=medium
 
   * chore: remove touchpad switch file existence check
