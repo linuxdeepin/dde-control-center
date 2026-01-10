@@ -3107,7 +3107,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation>すべて(%1個)表示</translation>
+        <translation>すべて(%1個)を表示</translation>
     </message>
     <message>
         <source>Add Picture</source>
