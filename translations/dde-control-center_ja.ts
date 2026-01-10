@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation>クイックログイン</translation>
     </message>
 </context>
 <context>
@@ -860,7 +860,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation>PC 情報を読み込めません</translation>
+        <translation>PC情報を読み込めません</translation>
     </message>
     <message>
         <source>No network connection</source>
@@ -880,7 +880,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation>デベロッパーモードの免責事項</translation>
+        <translation>開発者向けモードの免責事項</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
@@ -900,15 +900,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation>今すぐ再起動</translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation>無視</translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation>Solidシステム読み取り専用保護の設定を適用するには、再起動してください。</translation>
     </message>
 </context>
 <context>
@@ -977,11 +977,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation>小</translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation>大</translation>
     </message>
 </context>
 <context>
@@ -1018,7 +1018,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>同意してユーザーエクスペリエンスプログラムに参加</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
@@ -1159,7 +1159,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Authentication is required to set the system timezone</source>
-        <translation type="unfinished"/>
+        <translation>システムのタイムゾーンを変更するには認証が必要です</translation>
     </message>
 </context>
 <context>
@@ -1177,7 +1177,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation>コントロールセンターはシステムの設定を変更するためのオプションを提供します</translation>
+        <translation>コントロールセンターは、システムの設定を変更するためのオプションを提供します。</translation>
     </message>
 </context>
 <context>
@@ -1410,7 +1410,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation>デベロッパーモードを有効にすると、root権限を取得することができますが、システムの完全性を損なうことがあります。注意してください。</translation>
+        <translation>開発者モードを有効にすると、root権限を取得することができますが、システムの完全性を損なうことがあります。注意してください。</translation>
     </message>
     <message>
         <source>Allowed</source>
@@ -1462,7 +1462,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation>デベロッパーとデバッグオプション</translation>
+        <translation>開発とデバッグオプション</translation>
     </message>
     <message>
         <source>System logging level</source>
@@ -1923,10 +1923,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Some apps require logout or system restart to take effect</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>MyDevice</name>
@@ -2057,7 +2053,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>新しいパスワード</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
@@ -2065,7 +2061,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>ユーザー名と同一のパスワードを設定することはできません。</translation>
     </message>
 </context>
 <context>
@@ -2107,11 +2103,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation>ピッカーサービスが利用できません</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation>無効なカラー形式: %1</translation>
     </message>
 </context>
 <context>
@@ -2351,7 +2347,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
+        <translation>%1 (%2)</translation>
     </message>
 </context>
 <context>
@@ -2639,7 +2635,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>新しいショートカットキーを入力してください</translation>
     </message>
 </context>
 <context>
@@ -2882,7 +2878,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Settings will be reverted in %1s.</source>
-        <translation>%1秒後に元の設定に戻ります</translation>
+        <translation>%1秒後に元の設定に戻ります。</translation>
     </message>
     <message>
         <source>Revert</source>
@@ -2905,7 +2901,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Time zone:</source>
-        <translation>タイムゾーン</translation>
+        <translation>タイムゾーン:</translation>
     </message>
     <message>
         <source>Nearest City:</source>
@@ -3036,7 +3032,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation>カスタム可能な壁紙</translation>
+        <translation>カスタム壁紙</translation>
     </message>
     <message>
         <source>fill style</source>
@@ -3044,7 +3040,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation>壁紙を自動で切り替える</translation>
+        <translation>壁紙を自動で切り替えるタイミング</translation>
     </message>
     <message>
         <source>never</source>
@@ -3092,14 +3088,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>システム壁紙</translation>
     </message>
 </context>
 <context>
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation>ひらく</translation>
+        <translation>一部を表示</translation>
     </message>
     <message>
         <source>Set lock screen</source>
@@ -3111,11 +3107,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>すべて(%1個)表示</translation>
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"/>
+        <translation>画像を追加</translation>
     </message>
 </context>
 <context>
@@ -3292,7 +3288,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>名前を空白にすることはできません</translation>
     </message>
 </context>
 <context>
@@ -3318,15 +3314,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation>デベロッパーroot権限管理</translation>
+        <translation>開発者向けroot権限管理</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>デベロッパーオプション</translation>
+        <translation>開発者向けオプション</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>デベロッパーデバッギングオプション</translation>
+        <translation>開発者向けデバッグオプション</translation>
     </message>
 </context>
 <context>
@@ -3410,7 +3406,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Customized</source>
-        <translation type="unfinished"/>
+        <translation>カスタム</translation>
     </message>
 </context>
 <context>
@@ -3517,7 +3513,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>虹彩</translation>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
@@ -3898,7 +3894,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>一般設定、入力メソッド、ショートカット</translation>
     </message>
 </context>
 <context>
