@@ -380,7 +380,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation>バッテリー残量低下とみなす閾値</translation>
+        <translation>バッテリー残量低下のしきい値</translation>
     </message>
     <message>
         <source>Battery Management</source>
@@ -396,7 +396,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Low battery level</source>
-        <translation>バッテリー残量低下</translation>
+        <translation>バッテリー残量低下時の動作</translation>
     </message>
     <message>
         <source>Disable</source>
@@ -1650,7 +1650,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>カスタム時刻</translation>
+        <translation>カスタム</translation>
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
