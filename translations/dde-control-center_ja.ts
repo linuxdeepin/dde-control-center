@@ -83,7 +83,7 @@
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>文字、数字、アンダーバー、ハイフンのみを使用し、文字から始まるようにしてください</translation>
     </message>
     <message>
         <source>The group name has been used</source>
@@ -1084,11 +1084,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>現在地より%1時間早い</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation>現在地より%1時間遅い</translation>
     </message>
     <message>
         <source>Space</source>
@@ -1510,11 +1510,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"/>
+        <translation>Solidシステム読み取り専用保護</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"/>
+        <translation>システムディレクトリの保護を無効化します。システムが破損する可能性があります。</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
@@ -1778,7 +1778,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>地域の形式</translation>
     </message>
 </context>
 <context>
@@ -1905,23 +1905,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>小</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>中</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>大</translation>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"/>
+        <translation>特大</translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>一部のアプリケーションで変更を適用するためにログアウトまたは再起動が必要な場合があります</translation>
     </message>
 </context>
 <context>
@@ -4000,7 +4000,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"/>
+        <translation>アプリケーションアイコンを結合する</translation>
     </message>
 </context>
 <context>
@@ -4060,7 +4060,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation>　デスクトップに表示する通知の数</translation>
+        <translation>デスクトップに表示する通知の数</translation>
     </message>
     <message>
         <source>App Notifications</source>
