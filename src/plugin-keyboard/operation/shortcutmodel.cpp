@@ -42,7 +42,8 @@ QStringList systemFilter = {"terminal",
                             "switchMonitors"
 };
 
-const QStringList &windowFilter = {"maximize",
+const QStringList &windowFilter = {"activateWindowMenu",
+                                   "maximize",
                                    "unmaximize",
                                    "minimize",
                                    "beginMove",
