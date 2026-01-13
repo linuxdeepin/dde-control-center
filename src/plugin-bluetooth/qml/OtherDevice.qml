@@ -70,7 +70,7 @@ DccObject{
 
     DccObject {
         name: "OtherDeviceTitle"
-        parentName: "otherDevice" + model.name
+        parentName: "otherDevice" + model.id
         displayName: qsTr("Other Devices")
         weight: 10
         visible: model.powered
@@ -87,7 +87,7 @@ DccObject{
 
     DccObject {
         name: "blueToothSwitch"
-        parentName: "otherDevice" + model.name
+        parentName: "otherDevice" + model.id
         pageType: DccObject.Item
         weight: 20
         visible: model.powered && !hideWhenUserClosing
@@ -148,7 +148,7 @@ DccObject{
 
     DccObject {
         name: "otherDeviceList"
-        parentName: "otherDevice" + model.name
+        parentName: "otherDevice" + model.id
         weight: 40
         visible: model.powered
         backgroundType: DccObject.Normal

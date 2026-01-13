@@ -21,8 +21,8 @@ DccObject{
     }
     
     DccObject {
-        name: "blueToothCtl" + model.name
-        parentName: "blueToothAdapters" + model.name + index
+        name: "blueToothCtl" + model.id
+        parentName: "blueToothAdapters" + model.id + index
         weight: 10
         pageType: DccObject.Item
         page: DccGroupView {
@@ -43,8 +43,8 @@ DccObject{
     }
 
     DccObject {
-        name: "myDevice" + model.name
-        parentName: "blueToothAdapters" + model.name+ index
+        name: "myDevice" + model.id
+        parentName: "blueToothAdapters" + model.id + index
         weight: 30
         pageType: DccObject.Item
         visible: model.powered && !isUserClosingBluetooth
@@ -57,8 +57,8 @@ DccObject{
     }
 
     DccObject {
-        name: "otherDevice" + model.name
-        parentName: "blueToothAdapters" + model.name+ index
+        name: "otherDevice" + model.id
+        parentName: "blueToothAdapters" + model.id + index
         weight: 40
         pageType: DccObject.Item
         visible: model.powered && !isUserClosingBluetooth

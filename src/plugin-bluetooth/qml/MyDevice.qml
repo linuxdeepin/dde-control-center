@@ -10,7 +10,7 @@ import org.deepin.dtk 1.0
 DccObject{
     DccObject {
         name: "myDeviceTitle"
-        parentName: "myDevice" + model.name
+        parentName: "myDevice" + model.id
         displayName: qsTr("My Devices")
         weight: 10
         pageType: DccObject.Item
@@ -26,7 +26,7 @@ DccObject{
 
     DccObject {
         name: "myDeviceList"
-        parentName: "myDevice" + model.name
+        parentName: "myDevice" + model.id
         weight: 11
         backgroundType: DccObject.Normal
         visible: model.myDeviceVisiable

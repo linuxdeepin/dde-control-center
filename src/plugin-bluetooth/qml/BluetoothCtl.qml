@@ -16,7 +16,7 @@ DccObject{
     
     DccObject {
         name: "blueToothSwitch"
-        parentName: "blueToothCtl" + model.name
+        parentName: "blueToothCtl" + model.id
         displayName: model.name
         pageType: DccObject.Item
         weight: 10
@@ -257,7 +257,7 @@ DccObject{
 
     DccObject {
         name: "blueToothSwitch"
-        parentName: "blueToothCtl"  + model.name
+        parentName: "blueToothCtl"  + model.id
         icon: "audio"
         pageType: DccObject.Item
         weight: 20
@@ -279,7 +279,7 @@ DccObject{
 
     DccObject {
         name: "airplaneModeTips"
-        parentName: "blueToothCtl"  + model.name
+        parentName: "blueToothCtl"  + model.id
         pageType: DccObject.Item
         weight: 30
         visible: dccData.model().airplaneEnable
