@@ -110,7 +110,6 @@ DccObject {
             Flow {
                 id: listview
                 Layout.fillWidth: true
-                Layout.bottomMargin: 10
                 Layout.leftMargin: 10
                 opacity: enabled ? 1 : 0.4
                 property var tips: [qsTr("Small"), qsTr("Medium"), qsTr("Large"), qsTr("X-Large")]
@@ -186,7 +185,6 @@ DccObject {
                             MouseArea {
                                 anchors.fill: parent
                                 onClicked: {
-                                    console.warn("set cursor size:", listview.availableSizes[index])
                                     if (dccData.cursorSize === listview.availableSizes[index]) {
                                         return
                                     }
@@ -207,35 +205,33 @@ DccObject {
                     }
                 }
             }
-        }
-    }
 
-    DccObject {
-        id: pointerSizeTips
-        name: "PointerSizeTips"
-        parentName: "MouseAndTouchpadMouse"
-        weight: 40
-        pageType: DccObject.Item
-        visible: false
-        page: RowLayout {
-            D.DciIcon {
-                name: "sp_alert"
-                sourceSize: Qt.size(18, 18)
-                Layout.leftMargin: 10
-            }
-
-            Label {
+            Item {
+                id: pointerSizeTips
+                visible: false
                 Layout.fillWidth: true
-                font: D.DTK.fontManager.t6
-                text: qsTr("Some apps require logout or system restart to take effect")
-                wrapMode: Text.Wrap
-            }
-        }
+                Layout.preferredHeight: tipsRow.implicitHeight
+                RowLayout {
+                    id: tipsRow
+                    anchors.horizontalCenter: parent.horizontalCenter
+                    D.DciIcon {
+                        name: "tip_warning"
+                        sourceSize: Qt.size(18, 18)
+                        Layout.leftMargin: 10
+                    }
 
-        onParentItemChanged: item => {
-            if (item) {
-                item.topPadding = 0
-                item.bottomPadding = 0
+                    Label {
+                        Layout.fillWidth: true
+                        font: D.DTK.fontManager.t7
+                        text: qsTr("Some apps require logout or system restart to take effect")
+                        wrapMode: Text.Wrap
+                    }
+                }
+            }
+
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: 6
             }
         }
     }
