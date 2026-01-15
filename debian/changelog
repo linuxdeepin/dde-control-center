@@ -1,5 +1,11 @@
 dde-control-center (6.1.68) unstable; urgency=medium
 
+  * Release 6.1.68
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 15 Jan 2026 21:27:22 +0800
+
+dde-control-center (6.1.68) unstable; urgency=medium
+
   * feat: Change "Device" to "Bluetooth and other devices"
   * i18n: Translate dde-control-center_en.ts in ja
   * i18n: Translate dde-control-center_en.ts in ja
