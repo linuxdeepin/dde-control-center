@@ -7,7 +7,7 @@
 #include "types/touchscreeninfolist_v2.h"
 #include "types/touchscreenmap.h"
 
-#include "ddbusinterface.h"
+#include <DDBusInterface>
 #include <QDBusReply>
 #include <QObject>
 
@@ -39,7 +39,7 @@ public Q_SLOTS:
     QDBusPendingReply<> AssociateTouchByUUID(const QString &in0, const QString &in1);
 
 private:
-    DDBusInterface *m_displayInter;
+    Dtk::Core::DDBusInterface *m_displayInter;
     TouchscreenInfoList_V2 m_TouchscreensList;
     QList<QDBusObjectPath> m_Monitors;
     TouchscreenMap m_TouchMap;
