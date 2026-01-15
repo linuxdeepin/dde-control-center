@@ -5,7 +5,8 @@
 #define PERSONALIZATIONDBUSPROXY_H
 
 #include <QObject>
-class QDBusInterface;
+#include <DDBusInterface>
+
 class QDBusMessage;
 
 class PersonalizationDBusProxy : public QObject
@@ -178,17 +179,14 @@ public slots:
     bool isEffectLoaded(const QString &name);
     bool isEffectLoaded(const QString &name, QObject *receiver, const char *member);
 
-private slots:
-    void onPropertiesChanged(const QDBusMessage &message);
-
 private:
-    QDBusInterface *m_AppearanceInter = nullptr;
-    QDBusInterface *m_WMInter = nullptr;
-    QDBusInterface *m_EffectsInter = nullptr;
-    QDBusInterface *m_DaemonInter = nullptr;
-    QDBusInterface *m_screenSaverInter = nullptr;
-    QDBusInterface *m_wallpaperSlideshowInter = nullptr;
-    QDBusInterface *m_powerInter = nullptr;
+    Dtk::Core::DDBusInterface *m_AppearanceInter = nullptr;
+    Dtk::Core::DDBusInterface *m_WMInter = nullptr;
+    Dtk::Core::DDBusInterface *m_EffectsInter = nullptr;
+    Dtk::Core::DDBusInterface *m_DaemonInter = nullptr;
+    Dtk::Core::DDBusInterface *m_screenSaverInter = nullptr;
+    Dtk::Core::DDBusInterface *m_wallpaperSlideshowInter = nullptr;
+    Dtk::Core::DDBusInterface *m_powerInter = nullptr;
 };
 
 #endif // PERSONALIZATIONDBUSPROXY_H

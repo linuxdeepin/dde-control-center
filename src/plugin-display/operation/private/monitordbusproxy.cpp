@@ -16,6 +16,8 @@ const static QString MonitorInterface = "org.deepin.dde.Display1.Monitor";
 const static QString PropertiesInterface = "org.freedesktop.DBus.Properties";
 const static QString PropertiesChanged = "PropertiesChanged";
 
+DCORE_USE_NAMESPACE
+
 MonitorDBusProxy::MonitorDBusProxy(QString monitorPath, QObject *parent)
     : QObject(parent)
     , m_monitorUserPath(monitorPath)
@@ -30,8 +32,8 @@ MonitorDBusProxy::MonitorDBusProxy(QString monitorPath, QObject *parent)
 
 void MonitorDBusProxy::init()
 {
-    m_dBusMonitorInter = new QDBusInterface(MonitorService, m_monitorUserPath, MonitorInterface, QDBusConnection::sessionBus(), this);
-    m_dBusMonitorPropertiesInter = new QDBusInterface(MonitorService, m_monitorUserPath, PropertiesInterface, QDBusConnection::sessionBus(), this);
+    m_dBusMonitorInter = new DDBusInterface(MonitorService, m_monitorUserPath, MonitorInterface, QDBusConnection::sessionBus(), this);
+    m_dBusMonitorPropertiesInter = new DDBusInterface(MonitorService, m_monitorUserPath, PropertiesInterface, QDBusConnection::sessionBus(), this);
     QDBusConnection dbusConnection = m_dBusMonitorInter->connection();
     dbusConnection.connect(MonitorService, m_monitorUserPath, PropertiesInterface, PropertiesChanged, this, SLOT(onPropertiesChanged(QDBusMessage)));
 }
@@ -209,8 +211,6 @@ void MonitorDBusProxy::onPropertiesChanged(const QDBusMessage &message)
             emit BestModeChanged(qdbus_cast<Resolution>(changedProps.value(it.key())));
         } else if(it.key() =="Modes") {
             emit ModesChanged(qdbus_cast<ResolutionList>(changedProps.value(it.key())));
-        } else {
-            QMetaObject::invokeMethod(this, it.key().toLatin1() + "Changed", Qt::DirectConnection, QGenericArgument(it.value().typeName(), it.value().data()));
         }
     }
 }

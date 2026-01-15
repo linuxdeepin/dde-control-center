@@ -6,6 +6,8 @@
 #include <QDBusConnection>
 #include <QDBusInterface>
 
+DCORE_USE_NAMESPACE
+
 // using namespace DCC_NAMESPACE;
 namespace DCC_NAMESPACE {
 TouchScreenProxy::TouchScreenProxy(QObject *parent)
