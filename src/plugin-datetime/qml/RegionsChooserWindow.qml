@@ -37,7 +37,8 @@ Loader {
         DWindow.enableSystemResize: false
         DWindow.enableBlurWindow: true
         // ensure show in center of mainwindow
-        flags: Qt.Dialog
+        // _NET_WM_WINDOW_TYPE will add Dialog when added Qt.WindowCloseButtonHint.
+        flags: Qt.Dialog | Qt.WindowCloseButtonHint
         // default color is white
         color: active ? DTK.palette.window : DTK.inactivePalette.window
         palette: DTK.palette

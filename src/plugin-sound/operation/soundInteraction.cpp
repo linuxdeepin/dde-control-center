@@ -37,7 +37,6 @@ void soundInteraction::setSoundModel(SoundModel *newSoundModel)
 
 SoundWorker *soundInteraction::worker() const
 {
-    qWarning() <<__FUNCTION__<<__LINE__<<m_soundWork;
     return m_soundWork;
 }
 

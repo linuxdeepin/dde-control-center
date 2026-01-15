@@ -258,7 +258,6 @@ void PersonalizationWorker::onScreensChanged()
     bool isMirror = true;
     QRect geometry = qApp->primaryScreen()->availableGeometry();
     for (const auto screen : qApp->screens()) {
-        qWarning() << screen->availableGeometry() << screen->availableGeometry();
         if (geometry != screen->availableGeometry()) {
             isMirror = false;
             break;
@@ -634,7 +633,7 @@ void PersonalizationWorker::onPersonalizationConfigChanged(const QString &key)
 
 void PersonalizationWorker::onDTKConfigChanged(const QString &key)
 {
-    qCWarning(DdcPersonalWorker) << "PersonalizationWorker::onDTKConfigChanged" << key << m_dtkConfig->value(key);
+    qCDebug(DdcPersonalWorker) << "PersonalizationWorker::onDTKConfigChanged" << key << m_dtkConfig->value(key);
     if (key == SIZE_MODE_KEY) {
         m_model->setCompactDisplay(m_dtkConfig->value(key).toBool());
     } else if (key == SCROLLBAR_POLICY_KEY) {

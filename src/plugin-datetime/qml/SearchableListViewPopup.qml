@@ -29,20 +29,6 @@ Loader {
         font.pixelSize: DTK.fontManager.baseFont.pixelSize
     }
 
-    function calculateMaxWidth() {
-        if (!delegateModel || delegateModel.count === 0) return windowWidth
-
-        var maxWidth = 0
-        for (var i = 0; i < delegateModel.count; i++) {
-            var item = delegateModel.items.get(i)
-            if (item && item.model && item.model.display) {
-                textMetrics.text = item.model.display
-                maxWidth = Math.max(maxWidth, textMetrics.width)
-            }
-        }
-        return Math.max(maxWidth + 50, 300)
-    }
-
     signal opened()
     signal closed()
     
@@ -102,7 +88,6 @@ Loader {
 
         Component.onCompleted: {
             positionWindow()
-            width = loader.calculateMaxWidth()
             loader.opened()
         }
 
