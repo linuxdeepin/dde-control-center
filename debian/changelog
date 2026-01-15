@@ -1,3 +1,25 @@
+dde-control-center (6.1.68) unstable; urgency=medium
+
+  * feat: Change "Device" to "Bluetooth and other devices"
+  * i18n: Translate dde-control-center_en.ts in ja
+  * i18n: Translate dde-control-center_en.ts in ja
+  * i18n: Translate dde-control-center_en.ts in ja
+  * i18n: Translate dde-control-center_en.ts in ja
+  * fix: resolve binding loop in CustomComBobox MenuItem
+  * refactor: migrate DBus interfaces to DDBusInterface
+  * fix: Fix the issue of the timeRange control sending signals
+    repeatedly
+  * fix: remove duplicate taskbar icon for region chooser
+  * fix: adjust mouse cursor size UI layout and remove debug log
+  * fix spelling errors
+  * fix: Fix multiple entries showing in the list after renaming
+    Bluetooth
+  * fix: improve timezone list display performance
+  * fix: correct copyright year logic for system info
+  * feat: add Alt+Space shortcut for window menu
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 15 Jan 2026 20:00:09 +0800
+
 dde-control-center (6.1.67) unstable; urgency=medium
 
   * fix: exclude onboard from privacy FileAndFolder app list
