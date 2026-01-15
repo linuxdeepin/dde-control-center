@@ -12,9 +12,21 @@ D.SpinBox {
     readonly property string timeString: textFromValue(value)
     property int hour: 0
     property int minute: 0
+    property int initialValue: 0
     signal timeChanged
 
     Layout.maximumWidth: 110
+    
+    Timer {
+        id: valueChangeTimer
+        interval: 500  // 500ms 防抖，用户停止操作后才发送
+        onTriggered: {
+            if (control.value !== control.initialValue) {
+                control.timeChanged()
+                control.initialValue = control.value  // 更新初始值
+            }
+        }
+    }
     from: 0
     to: 1380 // 23 hours * 60 minutes
     stepSize: 60
@@ -138,7 +150,14 @@ D.SpinBox {
         }
     }
     onValueChanged: {
-        // onValueChanged early than onCurInputChanged
-        Qt.callLater(control.timeChanged)
+        valueChangeTimer.restart()
+    }
+    onActiveFocusChanged: {
+        if (activeFocus) {
+            valueChangeTimer.stop()
+            initialValue = value
+        } else {
+            valueChangeTimer.restart()
+        }
     }
 }
