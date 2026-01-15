@@ -334,7 +334,7 @@ ColumnLayout {
                         anchors.fill: parent
                         hoverEnabled: true
                         acceptedButtons: Qt.LeftButton | Qt.RightButton
-                        onClicked: {
+                        onClicked: function(mouse) {
                             if (mouse.button === Qt.LeftButton) {
                                 wallpaperItem.requestSetWallpaper(PersonalizationExport.Option_All)
                             } else if (mouse.button === Qt.RightButton && root.enableContextMenu && !DccApp.isTreeland()) {

@@ -56,7 +56,6 @@ QVariant DockPluginModel::data(const QModelIndex &index, int role) const
     case PluginSettingKeyRole:
         return m_dockItemInfos[row].settingKey;
     case PluginIconKeyRole:
-        qWarning() << m_dockItemInfos[row].dcc_icon;
         return m_dockItemInfos[row].dcc_icon;
     case PluginVisibleRole:
         return m_dockItemInfos[row].visible;

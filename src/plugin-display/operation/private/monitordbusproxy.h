@@ -14,7 +14,8 @@
 #include <QDBusPendingReply>
 #include <QDBusReply>
 
-class QDBusInterface;
+#include <DDBusInterface>
+
 class QDBusMessage;
 
 class MonitorDBusProxy : public QObject
@@ -132,8 +133,8 @@ Q_SIGNALS: // SIGNALS
     void YChanged(short  value) const;
 
 private:
-    QDBusInterface *m_dBusMonitorInter;
-    QDBusInterface *m_dBusMonitorPropertiesInter;
+    Dtk::Core::DDBusInterface *m_dBusMonitorInter;
+    Dtk::Core::DDBusInterface *m_dBusMonitorPropertiesInter;
     QString m_monitorUserPath;
 };
 
