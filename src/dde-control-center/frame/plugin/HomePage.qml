@@ -153,7 +153,7 @@ Control {
                         id: description
                         Layout.maximumWidth: 160
                         visible: text !== ""
-                        font: DTK.fontManager.t10
+                        font: D.DTK.fontManager.t10
                         text: updateDescription()
                         color: palette.brightText
                         opacity: 0.5

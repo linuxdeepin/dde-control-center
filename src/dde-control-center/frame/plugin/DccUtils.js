@@ -1,6 +1,6 @@
+.pragma library
 // SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
-.pragma library
 
 function copyFont(srcFont, propertys) {
     return Qt.font({

@@ -17,6 +17,7 @@
 #include <QDBusConnection>
 #include <QDBusPendingCall>
 #include <QElapsedTimer>
+#include <QFileInfo>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -27,7 +28,6 @@
 #include <QTimer>
 #include <QTranslator>
 #include <QWindow>
-#include <QFileInfo>
 
 DCORE_USE_NAMESPACE
 
@@ -102,20 +102,12 @@ void DccManager::init()
     if (m_engine)
         return;
 
+    QQmlEngine::setObjectOwnership(dccV25::DccApp::instance(), QQmlEngine::CppOwnership);
+    qmlRegisterSingletonInstance("org.deepin.dcc", 1, 0, "DccApp", dccV25::DccApp::instance());
+
     m_engine = new QQmlApplicationEngine(this);
-    auto paths = m_engine->importPathList();
-    paths.prepend(DefaultModuleDirectory);
-    const auto runtimePluginDir = QCoreApplication::applicationDirPath() + "/../lib/";
-    if (QFileInfo::exists(runtimePluginDir)) {
-        paths.prepend(runtimePluginDir);
-    }
-    qCInfo(dccLog()) << "Import paths:" << paths;
-    m_engine->setImportPathList(paths);
     m_imageProvider = new DccImageProvider();
     m_engine->addImageProvider("DccImage", m_imageProvider);
-    QStringList dciPaths = Dtk::Gui::DIconTheme::dciThemeSearchPaths();
-    dciPaths << QStringLiteral(DefaultModuleDirectory);
-    Dtk::Gui::DIconTheme::setDciThemeSearchPaths(dciPaths);
 }
 
 QQmlApplicationEngine *DccManager::engine()

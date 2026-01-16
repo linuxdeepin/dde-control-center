@@ -12,7 +12,7 @@ namespace dccV25 {
 class DccQuickDBusInterface : public QObject, public QQmlParserStatus
 {
     Q_OBJECT
-    QML_ELEMENT
+    QML_NAMED_ELEMENT(DccDBusInterface)
 
     Q_PROPERTY(QString service READ service WRITE setService NOTIFY serviceChanged)
     Q_PROPERTY(QString path READ path WRITE setPath NOTIFY pathChanged)

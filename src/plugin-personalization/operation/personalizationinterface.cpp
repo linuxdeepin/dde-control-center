@@ -93,8 +93,10 @@ QVariant ThemeVieweModel::data(const QModelIndex &index, int role) const
     }
     case ThemeVieweModel::IdRole:
         return m_keys.at(row);
-    case ThemeVieweModel::PicRole:
-        return m_themeModel->getPicList().value(m_keys.at(row));
+    case ThemeVieweModel::PicRole: {
+        QString pic = m_themeModel->getPicList().value(m_keys.at(row));
+        return pic.startsWith("/") ? QUrl::fromLocalFile(pic).toString() : pic;
+    }
     default:
         break;
     }

@@ -4,6 +4,8 @@
 
 #include "appinfolistmodel.h"
 
+#include <QUrl>
+
 AppInfoListModel::AppInfoListModel(QObject *parent)
     : QAbstractListModel(parent)
 {
@@ -71,7 +73,7 @@ QVariant AppInfoListModel::data(const QModelIndex &index, int role) const
         case NameRole:
             return appItem->name;
         case IconRole:
-            return appItem->icon;
+            return appItem->icon.startsWith("/") ? QUrl::fromLocalFile(appItem->icon).toString() : appItem->icon;
         case KeyRole:
             return appItem->key;
         case EnableRole:

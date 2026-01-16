@@ -13,6 +13,7 @@ namespace dccV25 {
 class DccObject : public QObject
 {
     Q_OBJECT
+    QML_ELEMENT
 public:
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
     Q_PROPERTY(QString parentName READ parentName WRITE setParentName NOTIFY parentNameChanged)

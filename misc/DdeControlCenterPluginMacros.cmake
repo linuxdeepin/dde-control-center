@@ -2,19 +2,58 @@ include(CMakeParseArguments)
 
 macro(dcc_build_plugin)
     set(oneValueArgs NAME TARGET QML_ROOT_DIR)
-    set(qml_root_dir ${CMAKE_CURRENT_SOURCE_DIR}/qml)
+    set(multiValueArgs QML_FILES RESOURCE_FILES)
+    set(QML_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/qml)
+    find_package(Qt6 COMPONENTS Qml)
+
     cmake_parse_arguments(_config "${options}" "${oneValueArgs}" "${multiValueArgs}" ${ARGN})
     if (DEFINED _config_QML_ROOT_DIR)
-        set(qml_root_dir ${_config_QML_ROOT_DIR})
+        set(QML_ROOT_DIR ${_config_QML_ROOT_DIR})
     endif()
-    file(GLOB_RECURSE qml_files ${qml_root_dir}/*)
-    add_custom_target(${_config_NAME}_qml ALL
-        SOURCES ${qml_files}
-    )
+
+
+    if(NOT _config_QML_FILES)
+        file(GLOB_RECURSE _config_QML_FILES ${QML_ROOT_DIR}/*.qml ${QML_ROOT_DIR}/*.js)
+    endif()
+
+    if(NOT _config_RESOURCE_FILES)
+        file(GLOB_RECURSE _config_RESOURCE_FILES ${QML_ROOT_DIR}/*.dci ${QML_ROOT_DIR}/*.svg ${QML_ROOT_DIR}/*.png ${QML_ROOT_DIR}/*.jpg)
+    endif()
+
     set(plugin_dirs ${PROJECT_BINARY_DIR}/lib/${DDE_CONTROL_CENTER_PLUGIN_DIR}/${_config_NAME}/)
-    add_custom_command(TARGET ${_config_NAME}_qml POST_BUILD
-        COMMAND ${CMAKE_COMMAND} -E copy_directory ${qml_root_dir} ${plugin_dirs}
+    foreach(FILE_PATH ${_config_QML_FILES})
+        file(RELATIVE_PATH FILE_NAME ${CMAKE_CURRENT_SOURCE_DIR} ${FILE_PATH})
+        list(APPEND QML_PATHS ${FILE_NAME})
+
+        file(RELATIVE_PATH F_NAME ${QML_ROOT_DIR} ${FILE_PATH})
+        set_source_files_properties(${FILE_NAME} PROPERTIES
+            QT_RESOURCE_ALIAS ${F_NAME}
+        )
+    endforeach(FILE_PATH)
+
+    foreach(FILE_PATH ${_config_RESOURCE_FILES})
+        file(RELATIVE_PATH FILE_NAME ${CMAKE_CURRENT_SOURCE_DIR} ${FILE_PATH})
+        list(APPEND RESOURCE_PATHS ${FILE_NAME})
+
+        file(RELATIVE_PATH F_NAME ${QML_ROOT_DIR} ${FILE_PATH})
+        set_source_files_properties(${FILE_NAME} PROPERTIES
+            QT_RESOURCE_ALIAS ${F_NAME}
+        )
+    endforeach(FILE_PATH)
+    qt_policy(SET QTP0001 NEW)
+    qt_policy(SET QTP0004 NEW)
+    qt_add_qml_module(${_config_NAME}_qml
+        URI "org.deepin.dcc.${_config_NAME}"
+        VERSION 1.0
+        QML_FILES ${QML_PATHS}
+        RESOURCES ${RESOURCE_PATHS}
+        NO_PLUGIN
+        OUTPUT_DIRECTORY "org/deepin/dcc/${_config_NAME}"
     )
+    set_target_properties(${_config_NAME}_qml PROPERTIES
+        LIBRARY_OUTPUT_DIRECTORY ${plugin_dirs}
+    )
+    install(TARGETS ${_config_NAME}_qml DESTINATION ${DDE_CONTROL_CENTER_PLUGIN_INSTALL_DIR}/${_config_NAME})
 
     if (DEFINED _config_TARGET)
         set_target_properties(${_config_TARGET} PROPERTIES
