@@ -438,7 +438,6 @@ void PrivacySecurityWorker::onEntityChanged(const QString &entity, const QString
 
 void PrivacySecurityWorker::onPolicyChanged(const QString &policy, const QString &type)
 {
-    qCWarning(DCC_PRIVACY) << "policy changed: " << policy << type;
     if (type != "add" && type != "modify")
         return;
     QJsonParseError jsonError;

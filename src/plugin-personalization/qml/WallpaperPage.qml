@@ -222,7 +222,7 @@ DccObject {
                 title: "Choose an Image File"
                 nameFilters: ["Image files (*.png *.jpg *.jpeg *.bmp *.tiff)", "All files (*)"]
                 fileMode: FileDialog.OpenFile
-                onSelectedFilesChanged: {
+                onAccepted: {
                     dccData.worker.addCustomWallpaper(customWallpaperFileDialog.selectedFile)
                 }
             }
