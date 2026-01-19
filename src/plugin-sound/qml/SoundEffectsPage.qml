@@ -28,6 +28,7 @@ DccObject {
         weight: 20
         visible: dccData.model().enableSoundEffect
         pageType: DccObject.Item
+        onParentItemChanged: item => { if (item) item.activeFocusOnTab = false }
         page: DeviceListView {
             backgroundVisible: false
             showPlayBtn: true

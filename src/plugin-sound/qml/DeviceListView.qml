@@ -38,6 +38,8 @@ Rectangle {
                 contentFlow: true
                 text: model.name
                 hoverEnabled: true
+                focusPolicy: Qt.TabFocus
+                activeFocusOnTab: true
                 corners: getCornersForBackground(index, repeater.count)
                 content: RowLayout {
                     Layout.alignment: Qt.AlignVCenter
