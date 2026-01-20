@@ -3681,7 +3681,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>device</name>
     <message>
         <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth i inne urządzenia</translation>
     </message>
 </context>
 <context>
