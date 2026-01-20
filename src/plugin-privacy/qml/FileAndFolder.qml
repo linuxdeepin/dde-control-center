@@ -61,13 +61,23 @@ DccObject {
                     id: rep
                     property var itemIndex: index
                     model: [
-                        { name: qsTr("Documents"), checked: privacyFolderItem.dataModel.documentPermission, premission: ApplicationItem.DocumentFoldersPermission},
-                        { name: qsTr("Desktop"), checked: privacyFolderItem.dataModel.desktopPermission, premission: ApplicationItem.DesktopFoldersPermission},
-                        { name: qsTr("Pictures"), checked: privacyFolderItem.dataModel.picturePermission, premission: ApplicationItem.PictureFoldersPermission},
-                        { name: qsTr("Videos"), checked: privacyFolderItem.dataModel.videoPermission, premission: ApplicationItem.VideoFoldersPermission},
-                        { name: qsTr("Music"), checked: privacyFolderItem.dataModel.musicPermission, premission: ApplicationItem.MusicFoldersPermission},
-                        { name: qsTr("Downloads"), checked: privacyFolderItem.dataModel.downloadPermission, premission: ApplicationItem.DownloadFoldersPermission}
+                        { name: qsTr("Documents"), premission: ApplicationItem.DocumentFoldersPermission},
+                        { name: qsTr("Desktop"), premission: ApplicationItem.DesktopFoldersPermission},
+                        { name: qsTr("Pictures"), premission: ApplicationItem.PictureFoldersPermission},
+                        { name: qsTr("Videos"), premission: ApplicationItem.VideoFoldersPermission},
+                        { name: qsTr("Music"), premission: ApplicationItem.MusicFoldersPermission},
+                        { name: qsTr("Downloads"), premission: ApplicationItem.DownloadFoldersPermission}
                     ]
+
+                    property var checkedStates: [
+                        privacyFolderItem.dataModel.documentPermission,
+                        privacyFolderItem.dataModel.desktopPermission,
+                        privacyFolderItem.dataModel.picturePermission,
+                        privacyFolderItem.dataModel.videoPermission,
+                        privacyFolderItem.dataModel.musicPermission,
+                        privacyFolderItem.dataModel.downloadPermission
+                    ]
+
                     delegate: DccObject {
                         parentName: "privacy/filefolder/filefolderViewGroup"
                         weight: privacyFolderItem.weight + 1
@@ -95,10 +105,10 @@ DccObject {
                             D.Switch {
                                 Layout.alignment: Qt.AlignRight
                                 Layout.rightMargin: 10
-                                checked: modelData.checked
+                                checked: rep.checkedStates[index]
 
                                 onCheckedChanged: {
-                                    if (checked != modelData.checked) {
+                                    if (checked != rep.checkedStates[index]) {
                                         dccData.worker.setPremissionEnabled(rep.itemIndex, modelData.premission, checked)
                                     }
                                 }
