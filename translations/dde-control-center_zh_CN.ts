@@ -3678,7 +3678,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>device</name>
     <message>
         <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>蓝牙和其他设备</translation>
     </message>
 </context>
 <context>
