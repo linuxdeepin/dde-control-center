@@ -148,7 +148,6 @@ void PersonalizationModel::setWallpaperMap(const QVariantMap &map)
     if (m_wallpaperMap == map)
         return;
     m_wallpaperMap = map;
-    Q_EMIT wallpaperMapChanged(map);
 }
 
 void PersonalizationModel::setWallpaperSlideShowMap(const QVariantMap &map)
