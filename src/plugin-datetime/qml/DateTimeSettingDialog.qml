@@ -36,8 +36,16 @@ D.DialogWindow {
         selectByMouse: spinbox.editable
 
         onActiveFocusChanged: {
-            if (!activeFocus && text === "") {
-                text = spinbox.value
+            if (!activeFocus) {
+                if (text === "") {
+                    text = spinbox.value
+                } else if (parseInt(text) < spinbox.from) {
+                    text = spinbox.from
+                } else if (parseInt(text) > spinbox.to) {
+                    text = spinbox.to
+                } else {
+                    spinbox.value = parseInt(text)
+                }
             }
         }
 
