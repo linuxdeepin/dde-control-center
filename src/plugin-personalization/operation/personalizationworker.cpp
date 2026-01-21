@@ -328,6 +328,8 @@ void PersonalizationWorker::updateWallpaperSelected()
     m_model->getSysWallpaperModel()->updateSelected(wallpaperList);
     m_model->getSolidWallpaperModel()->updateSelected(wallpaperList);
     m_model->getCustomWallpaperModel()->updateSelected(wallpaperList);
+    // 等待model更新完成后再发出wallpaperMapChanged信号,避免qml中读取到旧的数据
+    Q_EMIT m_model->wallpaperMapChanged(m_model->getWallpaperMap());
 }
 
 void PersonalizationWorker::onWallpaperUrlsChanged()
