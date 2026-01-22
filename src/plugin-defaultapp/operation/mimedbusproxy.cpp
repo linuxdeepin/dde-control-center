@@ -43,6 +43,7 @@ MimeDBusProxy::MimeDBusProxy(QObject *parent)
     qRegisterMetaType<PropMap>();
     qDBusRegisterMetaType<PropMap>();
     QDBusConnection::sessionBus().connect(ApplicationManagerServer, ApplicationManager1Path, "org.freedesktop.DBus.Properties", "PropertiesChanged", this, SIGNAL(Change()));
+    QDBusConnection::sessionBus().connect(ApplicationManagerServer, MimePath, MimeInterface, "MimeInfoReloaded", this, SIGNAL(Change()));
 }
 
 QDBusPendingReply<ObjectMap> MimeDBusProxy::GetManagedObjects()
