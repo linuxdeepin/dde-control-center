@@ -1,3 +1,3 @@
-Getting root access may cause data loss and system failure, and you will no longer be provided with the official after-sales service. Once it is allowed, you cannot exit the developer mode or return to normal user mode. Please carefully consider whether you need root privileges.
+Enabling this feature grants advanced system permissions. Misuse may cause data loss, boot failures, or system errors. Official warranty service is void. Once it is allowed, you cannot exit the developer mode or return to normal user mode. Please carefully consider whether you need root privileges.
 
 To the maximum extent without any violation of the applicable laws, we do not take any liability for the damages and risks resulting from using or inability to use this product, including, but not limited to direct or indirect personal injuries, commercial profit loss, trade interruption, data loss, or any other economic loss.
