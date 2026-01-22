@@ -48,12 +48,12 @@ PersonalizationDBusProxy::PersonalizationDBusProxy(QObject *parent)
 {
     m_AppearanceInter = new DDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
     m_DaemonInter = new DDBusInterface(DaemonService, DaemonPath, DaemonInterface, QDBusConnection::systemBus(), this);
-    m_screenSaverInter = new DDBusInterface(ScreenSaverServive, ScreenSaverPath, ScreenSaverInterface, QDBusConnection::sessionBus(), this);
     m_wallpaperSlideshowInter = new DDBusInterface(WallpaperSlideshowService, WallpaperSlideshowPath, WallpaperSlideshowInterface, QDBusConnection::sessionBus(), this);
     m_powerInter = new DDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
     if (!DGuiApplicationHelper::testAttribute(DGuiApplicationHelper::IsWaylandPlatform)) {
         m_WMInter = new DDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this);
         m_EffectsInter = new DDBusInterface(EffectsService, EffectsPath, EffectsInterface, QDBusConnection::sessionBus(), this);
+        m_screenSaverInter = new DDBusInterface(ScreenSaverServive, ScreenSaverPath, ScreenSaverInterface, QDBusConnection::sessionBus(), this);
     }
 
     connect(m_AppearanceInter, SIGNAL(Changed(const QString &, const QString &)), this, SIGNAL(Changed(const QString &, const QString &)));
@@ -286,66 +286,92 @@ QStringList PersonalizationDBusProxy::getCustomWallpaper(const QString &userName
 // screenSaver
 QStringList PersonalizationDBusProxy::getAllscreensaver()
 {
+    if (!m_screenSaverInter)
+        return {};
     return qvariant_cast<QStringList>(m_screenSaverInter->property("allScreenSaver"));
 }
 
 QString PersonalizationDBusProxy::GetScreenSaverCover(const QString &name)
 {
+    if (!m_screenSaverInter)
+        return {};
     return QDBusPendingReply<QString>(m_screenSaverInter->asyncCall(QStringLiteral("GetScreenSaverCover"), QVariant::fromValue(name)));
 }
 
 QStringList PersonalizationDBusProxy::ConfigurableItems()
 {
+    if (!m_screenSaverInter)
+        return {};
     return QDBusPendingReply<QStringList>(m_screenSaverInter->asyncCall(QStringLiteral("ConfigurableItems")));
 }
 
 void PersonalizationDBusProxy::setCurrentScreenSaver(const QString &value)
 {
+    if (!m_screenSaverInter)
+        return;
     m_screenSaverInter->setProperty("currentScreenSaver", QVariant::fromValue(value));
 }
 
 QString PersonalizationDBusProxy::getCurrentScreenSaver()
 {
+    if (!m_screenSaverInter)
+        return {};
     return qvariant_cast<QString>(m_screenSaverInter->property("currentScreenSaver"));
 }
 
 void PersonalizationDBusProxy::preview(const QString &name, bool stayOn)
 {
+    if (!m_screenSaverInter)
+        return;
     m_screenSaverInter->asyncCall(QStringLiteral("Preview"), name, int32_t(stayOn));
 }
 
 void PersonalizationDBusProxy::setLinePowerScreenSaverTimeout(int value)
 {
+    if (!m_screenSaverInter)
+        return;
     m_screenSaverInter->setProperty("linePowerScreenSaverTimeout", QVariant::fromValue(value));
 }
 
 void PersonalizationDBusProxy::setBatteryScreenSaverTimeout(int value)
 {
+    if (!m_screenSaverInter)
+        return;
     m_screenSaverInter->setProperty("batteryScreenSaverTimeout", QVariant::fromValue(value));
 }
 
 int PersonalizationDBusProxy::getLinePowerScreenSaverTimeout()
 {
+    if (!m_screenSaverInter)
+        return {};
     return qvariant_cast<int>(m_screenSaverInter->property("linePowerScreenSaverTimeout"));
 }
 
 int PersonalizationDBusProxy::getBatteryScreenSaverTimeout()
 {
+    if (!m_screenSaverInter)
+        return {};
     return qvariant_cast<int>(m_screenSaverInter->property("batteryScreenSaverTimeout"));
 }
 
 void PersonalizationDBusProxy::requestScreenSaverConfig(const QString& name)
 {
+    if (!m_screenSaverInter)
+        return;
     m_screenSaverInter->asyncCall(QStringLiteral("StartCustomConfig"), QVariant::fromValue(name));
 }
 
 bool PersonalizationDBusProxy::getLockScreenAtAwake()
 {
+    if (!m_screenSaverInter)
+        return false;
     return qvariant_cast<bool>(m_screenSaverInter->property("lockScreenAtAwake"));
 }
 
 void PersonalizationDBusProxy::setLockScreenAtAwake(bool value)
 {
+    if (!m_screenSaverInter)
+        return;
     m_screenSaverInter->setProperty("lockScreenAtAwake", QVariant::fromValue(value));
 }
 

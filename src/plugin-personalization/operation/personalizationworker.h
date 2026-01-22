@@ -114,10 +114,10 @@ protected:
     PersonalizationDBusProxy *m_personalizationDBusProxy;
 
 private:
-    WallpaperProvider *m_wallpaperWorker;
-    ScreensaverProvider *m_screenSaverProvider;
-    Dtk::Core::DConfig *m_personalizationConfig;
-    Dtk::Core::DConfig *m_dtkConfig;
+    WallpaperProvider *m_wallpaperWorker = nullptr;
+    ScreensaverProvider *m_screenSaverProvider = nullptr;
+    Dtk::Core::DConfig *m_personalizationConfig = nullptr;
+    Dtk::Core::DConfig *m_dtkConfig = nullptr;
 
     QMap<QString, ThemeModel *> m_themeModels;
     QMap<QString, FontModel *> m_fontModels;
@@ -139,7 +139,7 @@ private Q_SLOTS:
     void errorSlot(const QDBusError &err);
 
 private:
-    PersonalizationWorker *m_work;
+    PersonalizationWorker *m_work = nullptr;
 };
 
 #endif // PERSONALIZATIONWORKER_H
