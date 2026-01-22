@@ -26,6 +26,7 @@
 
 #include <DConfig>
 #include <DDBusSender>
+#include <DGuiApplicationHelper>
 
 DCORE_USE_NAMESPACE
 Q_LOGGING_CATEGORY(DdcPersonalWorker, "dcc-personal-worker")
@@ -50,10 +51,12 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     , m_model(model)
     , m_personalizationDBusProxy(new PersonalizationDBusProxy(this))
     , m_wallpaperWorker(new WallpaperProvider(m_personalizationDBusProxy, m_model, this))
-    , m_screenSaverProvider(new ScreensaverProvider(m_personalizationDBusProxy, m_model, this))
     , m_personalizationConfig(DConfig::create(ORG_DEEPIN_CONTROL_CENTER, CONTROL_CENTER_PERSONALIZATION, "", this))
     , m_dtkConfig(DConfig::createGeneric(DTK_PREFERENCE_NAME, "", this))
-{
+    {
+    if (!Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform)) {
+        m_screenSaverProvider = new ScreensaverProvider(m_personalizationDBusProxy, m_model, this);
+    }
     ThemeModel *cursorTheme = m_model->getMouseModel();
     ThemeModel *windowTheme = m_model->getWindowModel();
     ThemeModel *iconTheme = m_model->getIconModel();
@@ -108,7 +111,9 @@ void PersonalizationWorker::active()
     m_personalizationDBusProxy->blockSignals(false);
 
     m_wallpaperWorker->fetchData();
-    m_screenSaverProvider->fecthData();
+
+    if (m_screenSaverProvider)
+        m_screenSaverProvider->fecthData();
 
     refreshOpacity(m_personalizationDBusProxy->opacity());
     refreshActiveColor(m_personalizationDBusProxy->qtActiveColor());

@@ -176,7 +176,6 @@ DccObject {
         weight: 400
         backgroundType: DccObject.Normal
         pageType: DccObject.MenuEditor
-        visible: dccData.platformName() !== "wayland"
         page: Label {
             text: dccData.model.cursorModel.currentThemeName
         }
