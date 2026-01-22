@@ -143,6 +143,7 @@ DccObject {
         description: qsTr("Personalize your wallpaper and screensaver")
         icon: "screensaver"
         weight: 400
+        visible: !DccApp.isTreeland()
         ScreenSaverPage {}
     }
     DccObject {
