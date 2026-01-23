@@ -1,31 +1,10 @@
-/**
- * The MIT License (MIT)
- *
- * Copyright (c) 2021 Marcus Britanicus (https://gitlab.com/marcusbritanicus)
- * Copyright (c) 2021 Abrar (https://gitlab.com/s96Abrar)
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- **/
+// SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "wayland-client-protocol.h"
 
-#include "Output.hpp"
+#include "Output.h"
 #include <wayland-client.h>
 
 #include <QCoreApplication>
@@ -96,16 +75,9 @@ int32_t WQt::Output::scale()
     return mScale;
 }
 
-void WQt::Output::waitForReady()
+bool WQt::Output::isReady() const
 {
-    if (mDone) {
-        return;
-    }
-
-    do {
-        QThread::usleep(100);
-        qApp->processEvents();
-    } while (not mDone);
+    return mDone;
 }
 
 wl_output *WQt::Output::get()
@@ -153,6 +125,7 @@ void WQt::Output::handleDone(void *data, struct wl_output *)
     Output *output = reinterpret_cast<WQt::Output *>(data);
 
     output->mDone = true;
+    Q_EMIT output->done();
 }
 
 void WQt::Output::handleScale(void *data, struct wl_output *, int32_t scale)
