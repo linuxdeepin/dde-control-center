@@ -3683,7 +3683,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>device</name>
     <message>
         <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth et autres périphériques</translation>
     </message>
 </context>
 <context>
