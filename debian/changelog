@@ -1,3 +1,21 @@
+dde-control-center (6.1.69) unstable; urgency=medium
+
+  * fix: fix screensaver initialization on Wayland
+  * docs: update developer mode license agreement text
+  * fix: hide screensaver module when treeland is active
+  * chore: update commoninfo icon
+  * fix: add DBus signal connection for mime info changes
+  * fix: separate model data from checked states in privacy folder
+  * fix: improve spinbox input validation and sync
+  * fix: remove premature wallpaperMapChanged signal emission
+  * i18n: Updates for project Deepin Desktop Environment (#2942)
+  * fix: Fix issue where system sound effects cannot be selected using
+    the Tab key
+  * feat: add privacy configuration for control center
+  * fix: update file dialog signal handling and remove debug log
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 23 Jan 2026 10:05:33 +0800
+
 dde-control-center (6.1.68) unstable; urgency=medium
 
   * feat: Change "Device" to "Bluetooth and other devices"
