@@ -1,9 +1,9 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "displaymodule.h"
 
-#include "WayQtUtils.hpp"
+#include "WayQtUtils.h"
 #include "dccfactory.h"
 #include "dccscreen.h"
 #include "private/concatscreen.h"

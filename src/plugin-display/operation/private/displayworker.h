@@ -1,9 +1,10 @@
-//SPDX-FileCopyrightText: 2018 - 2024 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DISPLAYWORKER_H
 #define DISPLAYWORKER_H
 
+#include "Registry.h"
 #include "displaydbusproxy.h"
 #include "monitor.h"
 
@@ -29,6 +30,7 @@ namespace WQt {
     class Registry;
     class OutputHead;
 }
+struct treeland_output_color_control_v1;
 
 namespace dccV25 {
 class DisplayModel;
@@ -76,9 +78,13 @@ private Q_SLOTS:
     void onGetScreenScalesFinished(QDBusPendingCallWatcher *w);
 
     // for wlroots-based compositors
+    void onInterfaceRegistered(WQt::Registry::Interface interface);
+    void onWlOutputManagerDone();
     void onWlMonitorListChanged();
     void updateWallpaper();
     void updateMonitorWallpaper(Monitor *mon);
+
+    void onBrightnessChanged(const treeland_output_color_control_v1 *colorControl, double brightness);
 
 private:
     void monitorAdded(const QString &path);
@@ -87,6 +93,11 @@ private:
     // for wlroots-based compositors
     void wlMonitorAdded(WQt::OutputHead *head);
     void wlMonitorRemoved(WQt::OutputHead *head);
+
+    void wlOutputAdded(WQt::Output *output);
+    void wlOutputRemoved(WQt::Output *output);
+
+    void updateControl();
 
 Q_SIGNALS:
     void requestUpdateModeList();
@@ -99,6 +110,7 @@ private:
     // for wlroots-based compositors
     WQt::Registry *m_reg { nullptr };
     QMap<Monitor *, WQt::OutputHead *> m_wl_monitors;
+    QMap<Monitor *, treeland_output_color_control_v1 *> m_control_monitors;
 #if GAMMA_SUPPORT
     QMap<Monitor *, DFL::GammaEffects *> *m_wl_gammaEffects;
     QMap<Monitor *, DFL::GammaEffectsConfig *> *m_wl_gammaConfig;

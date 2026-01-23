@@ -2,6 +2,7 @@ cmake_minimum_required(VERSION 3.18)
 ###########################################
 function(ws_generate_local type input_file output_name)
     pkg_get_variable(WAYLAND_SCANNER wayland-scanner wayland_scanner)
+    message(${input_file})
     execute_process(COMMAND ${WAYLAND_SCANNER}
         ${type}-header
         ${input_file}
@@ -16,19 +17,27 @@ function(ws_generate_local type input_file output_name)
 endfunction()
 
 find_package(PkgConfig REQUIRED)
+find_package(TreelandProtocols REQUIRED)
 pkg_check_modules(WaylandClient REQUIRED IMPORTED_TARGET wayland-client)
+pkg_check_modules(WLR_PROTOCOLS REQUIRED wlr-protocols)
+
+execute_process(
+    COMMAND pkg-config --variable=pkgdatadir wlr-protocols
+    OUTPUT_VARIABLE WLR_PROTOCOLS_XML_DIR
+    OUTPUT_STRIP_TRAILING_WHITESPACE
+)
 
 ws_generate_local(client
-    ${CMAKE_CURRENT_SOURCE_DIR}/wayland/libwayqt/protocols/wlr-output-management-unstable-v1.xml
+    ${WLR_PROTOCOLS_XML_DIR}/unstable/wlr-output-management-unstable-v1.xml
     wlr-output-management-unstable-v1-client-protocol)
 
 ws_generate_local(client
-    ${CMAKE_CURRENT_SOURCE_DIR}/wayland/libwayqt/protocols/treeland-output-management.xml
+    ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-output-manager-v1.xml
     treeland-output-management-client-protocol)
 
 file(GLOB_RECURSE LIBWAYQT_SRCS
     "wayland/libwayqt/*.cpp"
-    "wayland/libwayqt/*.hpp"
+    "wayland/libwayqt/*.h"
 )
 
 add_library(libwayqt6

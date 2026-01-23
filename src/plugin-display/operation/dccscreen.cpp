@@ -317,12 +317,12 @@ int DccScreen::y() const
 
 int DccScreen::width() const
 {
-    return d_ptrDccScreen->monitor()->w();
+    return d_ptrDccScreen->monitor()->scale() > 0 ? (d_ptrDccScreen->monitor()->w() / d_ptrDccScreen->monitor()->scale()) : d_ptrDccScreen->monitor()->w();
 }
 
 int DccScreen::height() const
 {
-    return d_ptrDccScreen->monitor()->h();
+    return d_ptrDccScreen->monitor()->scale() > 0 ? (d_ptrDccScreen->monitor()->h() / d_ptrDccScreen->monitor()->scale()) : d_ptrDccScreen->monitor()->h();
 }
 
 QSize DccScreen::bestResolution() const

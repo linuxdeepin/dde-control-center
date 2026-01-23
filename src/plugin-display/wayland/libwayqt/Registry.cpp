@@ -1,36 +1,15 @@
-/**
- * The MIT License (MIT)
- *
- * Copyright (c) 2021 Marcus Britanicus (https://gitlab.com/marcusbritanicus)
- * Copyright (c) 2021 Abrar (https://gitlab.com/s96Abrar)
- *
- * Permission is hereby granted, free of charge, to any person obtaining a copy
- * of this software and associated documentation files (the "Software"), to deal
- * in the Software without restriction, including without limitation the rights
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
- * copies of the Software, and to permit persons to whom the Software is
- * furnished to do so, subject to the following conditions:
- *
- * The above copyright notice and this permission notice shall be included in all
- * copies or substantial portions of the Software.
- *
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
- * SOFTWARE.
- **/
+// SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "treeland-output-management-client-protocol.h"
 #include "wayland-client-protocol.h"
 #include "wlr-output-management-unstable-v1-client-protocol.h"
 
-#include "Output.hpp"
-#include "OutputManager.hpp"
-#include "Registry.hpp"
-#include "TreeLandOutputManager.hpp"
+#include "Output.h"
+#include "OutputManager.h"
+#include "Registry.h"
+#include "TreeLandOutputManager.h"
 
 #include <QCoreApplication>
 #include <QDebug>
@@ -94,7 +73,7 @@ WQt::Registry::~Registry()
 
 void WQt::Registry::setup()
 {
-    if (mIsSetup == false) {
+    if (!mIsSetup) {
         mIsSetup = true;
 
         for (WQt::Registry::ErrorType et : pendingErrors) {
@@ -139,28 +118,6 @@ QList<WQt::Output *> WQt::Registry::waylandOutputs()
 QList<uint32_t> WQt::Registry::registeredInterfaces()
 {
     return mRegisteredInterfaces;
-}
-
-bool WQt::Registry::waitForInterface(WQt::Registry::Interface id, int timeout)
-{
-    int t = 0;
-
-    while (t < timeout) {
-        if (mRegisteredInterfaces.contains(id)) {
-            return true;
-        }
-
-        /** We will take 10 ms nap */
-        QThread::msleep(10);
-
-        /** Increment the timer */
-        t += 10;
-
-        /** Flush the queue */
-        QCoreApplication::processEvents();
-    }
-
-    return false;
 }
 
 WQt::OutputManager *WQt::Registry::outputManager()
@@ -237,7 +194,7 @@ void WQt::Registry::handleAnnounce(uint32_t name, const char *interface, uint32_
 
     else if (strcmp(interface, treeland_output_manager_v1_interface.name) == 0) {
         m_treeland_output_mgr = (treeland_output_manager_v1 *)
-                wl_registry_bind(mObj, name, &treeland_output_manager_v1_interface, 1);
+                wl_registry_bind(mObj, name, &treeland_output_manager_v1_interface, 2);
         if (!m_treeland_output_mgr) {
             emitError(WQt::Registry::EmptyTreeLandOuputManager);
         } else {
