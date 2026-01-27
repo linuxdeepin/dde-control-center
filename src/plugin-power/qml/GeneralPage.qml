@@ -278,12 +278,50 @@ DccObject {
         }
         DccObject {
             id: repeatDaysEditObject
-            property bool forceShow: false
             name: "repeatDaysEdit"
             parentName: "power/general/shutdownGroup"
             visible: (dccData.model.scheduledShutdownState && dccData.model.shutdownRepetition === 3)
             weight: 4
             pageType: DccObject.Editor
+
+            onVisibleChanged: {
+                if (visible) {
+                    scrollTimer.restart()
+                }
+            }
+
+            Timer {
+                id: scrollTimer
+                interval: 50
+                repeat: false
+                onTriggered: {
+                    if (repeatDaysEditObject.visible && repeatDaysEditObject.parentItem) {
+                        repeatDaysEditObject.scrollToItem()
+                    }
+                }
+            }
+
+            function scrollToItem() {
+                if (!parentItem) return
+                var flickable = null
+                var item = parentItem
+                while (item) {
+                    if (item.hasOwnProperty('contentY') && item.hasOwnProperty('contentHeight')) {
+                        flickable = item
+                        break
+                    }
+                    item = item.parent
+                }
+                
+                if (!flickable) return
+                
+                var itemY = parentItem.mapToItem(flickable, 0, 0).y
+                var itemBottom = itemY + parentItem.height
+                if (itemBottom > flickable.height) {
+                    flickable.contentY = itemBottom - flickable.height + flickable.contentY + 20
+                }
+            }
+
             page: RowLayout {
                 Label {
                     text: {
