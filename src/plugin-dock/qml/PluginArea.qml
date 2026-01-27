@@ -68,6 +68,58 @@ DccObject {
                         dccData.dockInter.setItemOnDock(model.settingKey, model.key, !checked)
                     }
                 }
+                onParentItemChanged: function(item) {
+                    if (!item) return
+                    
+                    function isSameGroup(obj) {
+                        return obj && obj.toString().indexOf("DccEditorItem") >= 0
+                    }
+                    
+                    function findContainer() {
+                        var container = item.parent
+                        while (container && container.children.length <= 1) {
+                            container = container.parent
+                        }
+                        return container
+                    }
+                    
+                    function findEdgeItem(forward) {
+                        var container = findContainer()
+                        if (!container) return null
+                        
+                        var siblings = container.children
+                        if (forward) {
+                            for (var i = siblings.length - 1; i >= 0; i--) {
+                                if (isSameGroup(siblings[i])) return siblings[i]
+                            }
+                        } else {
+                            for (var i = 0; i < siblings.length; i++) {
+                                if (isSameGroup(siblings[i])) return siblings[i]
+                            }
+                        }
+                        return null
+                    }
+                    
+                    item.Keys.onUpPressed.connect(function() {
+                        var next = item.nextItemInFocusChain(false)
+                        if (isSameGroup(next)) {
+                            next.forceActiveFocus(Qt.BacktabFocusReason)
+                        } else {
+                            var lastItem = findEdgeItem(true)
+                            if (lastItem) lastItem.forceActiveFocus(Qt.BacktabFocusReason)
+                        }
+                    })
+                    
+                    item.Keys.onDownPressed.connect(function() {
+                        var next = item.nextItemInFocusChain(true)
+                        if (isSameGroup(next)) {
+                            next.forceActiveFocus(Qt.TabFocusReason)
+                        } else {
+                            var firstItem = findEdgeItem(false)
+                            if (firstItem) firstItem.forceActiveFocus(Qt.TabFocusReason)
+                        }
+                    })
+                }
             }
         }
     }
