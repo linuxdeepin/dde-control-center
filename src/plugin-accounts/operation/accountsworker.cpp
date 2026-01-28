@@ -31,8 +31,8 @@
 #include <tuple>
 #include <unistd.h>
 #include <libintl.h>
-#include <random>
 #include <crypt.h>
+#include <errno.h>
 #include <PolkitQt1/Authority>
 #include <qlogging.h>
 using namespace PolkitQt1;
@@ -41,6 +41,27 @@ using namespace dccV25;
 DCORE_USE_NAMESPACE
 DGUI_USE_NAMESPACE
 
+namespace {
+// 密码加密算法前缀映射，按优先级排序（从高到低）
+// 注意：顺序除非产品要求不要变更
+const QList<QPair<QString, QString>> kPasswordAlgorithmPrefixes = {
+    {"sm3",      "$sm3$"},
+    {"yescrypt", "$y$"},
+    {"sha512",   "$6$"},
+    {"sha256",   "$5$"}
+};
+
+// 根据算法名称获取前缀的辅助函数
+QString getAlgorithmPrefix(const QString &algorithm) {
+    for (const auto &pair : kPasswordAlgorithmPrefixes) {
+        if (pair.first.toLower() == algorithm.toLower()) {
+            return pair.second;
+        }
+    }
+    return QString();
+}
+} // anonymous namespace
+
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
     , m_accountsInter(new AccountsDBusProxy(this))
@@ -48,6 +69,7 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     , m_syncInter(new SyncDBusProxy(this))
     , m_securityInter(new SecurityDBusProxy(this))
     , m_userModel(userList)
+    , m_accountCfg(DConfig::create("org.deepin.dde.daemon", "org.deepin.dde.daemon.account", QString(), this))
 {
     struct passwd *pws;
     pws = getpwuid(getuid());
@@ -973,27 +995,84 @@ CreationResult *AccountsWorker::createAccountInternal(const User *user)
     return result;
 }
 
-QString AccountsWorker::cryptUserPassword(const QString &password)
+QString AccountsWorker::tryEncryptPassword(const QString &password, const QString &algorithm)
 {
-    /*
-        NOTE(kirigaya): Password is a combination of salt and crypt function.
-        slat is begin with $6$, 16 byte of random values, at the end of $.
-        crypt function will return encrypted values.
-     */
-
-    const QString seedchars("./0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz");
-    char salt[] = "$6$................$";
-
-    std::random_device r;
-    std::default_random_engine e1(r());
-    std::uniform_int_distribution<int> uniform_dist(0, seedchars.size() - 1); //seedchars.size()是64，生成随机数的范围应该写成[0, 63]。
-
-    // Random access to a character in a restricted list
-    for (int i = 0; i != 16; i++) {
-        salt[3 + i] = seedchars.at(uniform_dist(e1)).toLatin1();
+    // 获取算法对应的 salt 前缀
+    QString saltPrefix = getAlgorithmPrefix(algorithm);
+    if (saltPrefix.isEmpty()) {
+        return QString();  // 不支持的算法
+    }
+    
+    // 使用 crypt_gensalt_rn 生成 salt setting（线程安全版本）
+    // 这个函数会为每种算法自动生成正确格式的 salt
+    char output[CRYPT_GENSALT_OUTPUT_SIZE];
+    char *setting = crypt_gensalt_rn(saltPrefix.toLatin1().data(), 0, nullptr, 0, 
+                                     output, sizeof(output));
+    
+    if (setting == nullptr || setting[0] == '*') {
+        qWarning() << "Failed to generate salt for algorithm:" << algorithm
+                   << "(crypt_gensalt_rn returned" << (setting == nullptr ? "nullptr" : "invalid setting")
+                   << ", errno:" << errno << ")";
+        return QString();
     }
 
-    return crypt(password.toUtf8().data(), salt);
+    // 调用 crypt 函数进行加密
+    char *result = crypt(password.toUtf8().data(), setting);
+    
+    // 检查加密是否成功
+    // 根据 man crypt 文档：
+    // 1. 返回 nullptr 表示失败
+    // 2. 返回以 '*' 开头的字符串也表示失败（无效哈希）
+    if (result == nullptr || result[0] == '*') {
+        qWarning() << "Password encryption failed with algorithm:" << algorithm 
+                   << "(crypt returned" << (result == nullptr ? "nullptr" : "invalid hash starting with '*'")
+                   << ", errno:" << errno << ")";
+        return QString();  // 加密失败
+    }
+    
+    qDebug() << "Password encryption succeeded with algorithm:" << algorithm;
+    return QString(result);
+}
+
+QString AccountsWorker::cryptUserPassword(const QString &password)
+{
+    // 从 dconfig 获取加密算法，如果获取失败或不存在则默认为 sm3
+    QString algorithm = "sm3";
+    if (m_accountCfg && m_accountCfg->isValid()) {
+        algorithm = m_accountCfg->value("passwordEncryptionAlgorithm", "sm3").toString();
+        if (algorithm.isEmpty()) {
+            algorithm = "sm3";
+        }
+    }
+
+    // 尝试使用配置的算法加密
+    QString encrypted = tryEncryptPassword(password, algorithm);
+    if (!encrypted.isEmpty()) {
+        return encrypted;
+    }
+
+    // 如果配置的算法失败，按优先级顺序遍历所有支持的算法重试
+    qWarning() << "Password encryption failed with configured algorithm:" << algorithm 
+               << ", trying fallback algorithms...";
+    
+    for (const auto &pair : kPasswordAlgorithmPrefixes) {
+        const QString &fallbackAlg = pair.first;
+        
+        // 跳过已经尝试过的算法
+        if (fallbackAlg.toLower() == algorithm.toLower()) {
+            continue;
+        }
+        
+        encrypted = tryEncryptPassword(password, fallbackAlg);
+        if (!encrypted.isEmpty()) {
+            qWarning() << "Password encryption succeeded with fallback algorithm:" << fallbackAlg;
+            return encrypted;
+        }
+    }
+    
+    // 所有算法都失败
+    qCritical() << "Password encryption failed with all supported algorithms!";
+    return QString();
 }
 
 BindCheckResult AccountsWorker::checkLocalBind(const QString &uosid, const QString &uuid)
