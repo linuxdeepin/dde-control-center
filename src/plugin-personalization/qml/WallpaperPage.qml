@@ -282,8 +282,8 @@ DccObject {
                 id: colorDialog
                 anchors.centerIn: Overlay.overlay
                 popupType: Popup.Item
-                width: 300
-                height: 300
+                width: 274
+                height: 322
                 onAccepted: {
                     dccData.worker.addSolidWallpaper(colorDialog.color)
                 }
