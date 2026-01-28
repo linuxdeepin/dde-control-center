@@ -9,6 +9,7 @@
 
 #include <QObject>
 #include <QDBusPendingReply>
+#include <DConfig>
 
 #define SECURITY_QUESTIONS_ERROR_COUNT 1
 
@@ -108,6 +109,7 @@ private:
     UserDBusProxy *userInter(const QString &userName) const;
     CreationResult *createAccountInternal(const User *user);
     QString cryptUserPassword(const QString &password);
+    QString tryEncryptPassword(const QString &password, const QString &algorithm);
     BindCheckResult checkLocalBind(const QString &uosid, const QString &uuid);
     QList<int> securityQuestionsCheck();
 
@@ -120,6 +122,7 @@ private:
     QString m_currentUserName;
     QStringList m_onlineUsers;
     UserModel *m_userModel;
+    Dtk::Core::DConfig *m_accountCfg;
 };
 
 }   // namespace dccV25
