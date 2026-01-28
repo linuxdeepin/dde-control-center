@@ -34,11 +34,26 @@ SaturationLightnessPickerImpl {
         }
     }
 
-    handle: PickerHandle {
+    handle: Rectangle {
+        implicitWidth: 12
+        implicitHeight: 12
+        radius: 6
+        color: "transparent"
+        border.color: Qt.rgba(0, 0, 0, 0.2)
+        border.width: 1
         x: control.leftPadding + control.lightness * control.availableWidth - width / 2
         y: control.topPadding + (1.0 - control.saturation) * control.availableHeight - height / 2
-        picker: control
-        handleColor: control.color
         z: 1
+
+        Rectangle {
+            x: 1
+            y: 1
+            width: 10
+            height: 10
+            radius: 5
+            color: control.color
+            border.color: "white"
+            border.width: 2
+        }
     }
 }

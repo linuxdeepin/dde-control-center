@@ -26,9 +26,10 @@ ColorDialogImpl {
                              + (implicitHeaderHeight > 0 ? implicitHeaderHeight + spacing : 0)
                              + (implicitFooterHeight > 0 ? implicitFooterHeight + spacing : 0))
 
-    topPadding: 6
-    leftPadding: 6
-    rightPadding: 6
+    topPadding: 10
+    leftPadding: 10
+    rightPadding: 10
+    bottomPadding: 10
 
     background: Loader {
         sourceComponent: D.FloatingPanel {
@@ -71,18 +72,44 @@ ColorDialogImpl {
             Layout.preferredHeight: 20
             Layout.topMargin: 2
             Layout.bottomMargin: 2
-            Rectangle {
-                Layout.preferredHeight: 20
-                Layout.preferredWidth: 20
-                color: control.color
-                radius: 3
+
+            D.IconButton {
+                id: eyeDropperButton
+                icon.name: "color_extractor"
+                icon.width: 20
+                textColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 1)
+                    normalDark: Qt.rgba(1, 1, 1, 1)
+                }
+                
+                flat: true
+                visible: true
+                Layout.preferredWidth: 22
+                Layout.preferredHeight: 22
+                opacity: 0.6
+
+                background: Rectangle {
+                    implicitWidth: 22
+                    implicitHeight: 22
+                    radius: 4
+                    visible: eyeDropperButton.hovered
+                    color: eyeDropperButton.palette.windowText
+                    opacity: 0.1
+                }
+
+                onClicked: {
+                    // Use deepin-picker if available, Qt's eyeDropper will handle it otherwise
+                    if (dccData.pickerAvailable) {
+                        dccData.startPicker()
+                    }
+                }
             }
 
             Slider {
                 id: hueSlider
                 orientation: Qt.Horizontal
                 value: control.hue
-                implicitHeight: 20
+                implicitHeight: 16
                 onMoved: function() { control.hue = value; }
                 handle: Rectangle {
                     implicitWidth: 6
@@ -101,9 +128,9 @@ ColorDialogImpl {
                     anchors.rightMargin: hueSlider.handle.width / 2
                     Rectangle {
                         anchors.fill: parent
-                        anchors.topMargin: 4
-                        anchors.bottomMargin: 4
-                        radius: 3
+                        anchors.topMargin: 3
+                        anchors.bottomMargin: 3
+                        radius: 2
                         gradient: HueGradient {
                             orientation: Gradient.Horizontal
                         }
@@ -121,40 +148,27 @@ ColorDialogImpl {
             Layout.bottomMargin: 2
             columns: 5
             rows: 2
-            D.IconButton {
-                id: eyeDropperButton
-                icon.name: "color_extractor"
-                icon.width: 24
-                textColor: D.Palette {
-                    normal: Qt.rgba(0, 0, 0, 1)
-                    normalDark: Qt.rgba(1, 1, 1, 1)
-                }
-                flat: true
-                visible: true
-                Layout.preferredWidth: implicitHeight
 
-                background: Rectangle {
-                    implicitWidth: 24
-                    implicitHeight: 24
-                    radius: DS.Style.control.radius
-                    visible: eyeDropperButton.hovered
-                    color: eyeDropperButton.palette.windowText
-                    opacity: 0.1
-                }
-
-                    onClicked: {
-                        // Use deepin-picker if available, Qt's eyeDropper will handle it otherwise
-                        if (dccData.pickerAvailable) {
-                            dccData.startPicker()
-                        }
-                    }
+            Rectangle {
+                Layout.preferredHeight: 28
+                Layout.preferredWidth: 28
+                color: control.color
+                border.width: 1
+                border.color: Qt.rgba(0, 0, 0, 0.1)
+                radius: 3
             }
 
             D.TextField {
                 text: control.color.toString().substring(1).toUpperCase()
-                Layout.preferredWidth: 70
+                Layout.preferredWidth: 74
+                Layout.preferredHeight: 28
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
+                font {
+                    family: D.DTK.fontManager.t8.family
+                    pointSize: D.DTK.fontManager.t8.pointSize
+                    weight: Font.Medium
+                }
                 validator: RegularExpressionValidator {
                     regularExpression: /^[0-9a-fA-F]{6}$/
                 }
@@ -168,11 +182,17 @@ ColorDialogImpl {
                 D.TextField {
                     text: modelData
                     Layout.fillWidth: true
-                    Layout.preferredWidth: 70
+                    Layout.preferredWidth: 44
+                    Layout.preferredHeight: 28
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
                     inputMethodHints: Qt.ImhDigitsOnly
                     validator: IntValidator { bottom: 0; top: 255 }
+                    font {
+                        family: D.DTK.fontManager.t8.family
+                        pointSize: D.DTK.fontManager.t8.pointSize
+                        weight: Font.Medium
+                    }
 
                     onEditingFinished: {
                         if (text !== "") {
@@ -191,29 +211,70 @@ ColorDialogImpl {
             Item { }
 
             Repeater {
-                model: ["#", "R", "G", "B"]
+                model: ["Hex", "R", "G", "B"]
                 Label {
                     Layout.fillWidth: true
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                    font: D.DTK.fontManager.t8
+                    font {
+                        family: D.DTK.fontManager.t8.family
+                        pointSize: D.DTK.fontManager.t8.pointSize
+                        weight: Font.Medium
+                    }
                     text: modelData
                 }
             }
         }
     }
 
-    footer: D.DialogButtonBox {
-        alignment: Qt.AlignCenter
-        standardButtons: DialogButtonBox.NoButton
-        Button {
-            text: qsTr("Cancel")
-            DialogButtonBox.buttonRole: DialogButtonBox.RejectRole
+    footer: ColumnLayout {
+        spacing: 10
+        Rectangle {
+            id: line
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
+            color: Qt.rgba(0, 0, 0, 0.08)
+            height: 1
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignVCenter
         }
-        Button {
-            text: qsTr("Save")
-            highlighted: true
-            DialogButtonBox.buttonRole: DialogButtonBox.AcceptRole
-        }
+        RowLayout {
+            Layout.leftMargin: 10
+            Layout.rightMargin: 10
+            Layout.bottomMargin: 10
+            spacing: 9
+            D.Button {
+                text: qsTr("Cancel")
+                Layout.fillWidth: true
+                background: Rectangle {
+                    color: Qt.rgba(0, 0, 0, 0.15)
+                    radius: 6
+                }
+                onClicked: {
+                    control.reject()
+                }
+            }
+            D.Button {
+                text: qsTr("Save")
+                Layout.fillWidth: true
+                background: Rectangle {
+                    color: Qt.rgba(0, 0, 0, 0.15)
+                    radius: 6
+                }
+                textColor: D.Palette {
+                    normal {
+                    common: D.DTK.makeColor(D.Color.Highlight)
+                    }
+                    normalDark: normal
+                    hovered {
+                        common: D.DTK.makeColor(D.Color.Highlight).lightness(+10)
+                    }
+                    hoveredDark: hovered
+                }
+                onClicked: {
+                    control.accept()
+                }
+            }
+        }   
     }
 }
