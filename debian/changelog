@@ -1,3 +1,13 @@
+dde-control-center (6.1.70) unstable; urgency=medium
+
+  * feat: support configurable password encryption algorithms
+  * fix: Fix the timing of when the popup appears
+  * fix: adjust mode delegate styling properties
+  * feat: redesign color picker dialog UI
+  * fix: Fix the error of looping through the plugin area list
+
+ -- fuleyi <fuleyi@uniontech.com>  Wed, 28 Jan 2026 15:59:27 +0800
+
 dde-control-center (6.1.69) unstable; urgency=medium
 
   * fix: fix screensaver initialization on Wayland
