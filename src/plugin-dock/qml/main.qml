@@ -11,6 +11,11 @@ import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0 as D
 
 DccObject {
+    readonly property int modeDelegateWidth: 144
+    readonly property int modeDelegateHeight: 72
+    readonly property int modeDelegatePadding: 4
+    readonly property int modeDelegateRadius: 9
+    
     DccTitleObject {
         name: "taskBarTitle"
         weight: 500
@@ -58,21 +63,22 @@ DccObject {
                         ColumnLayout {
                             D.ItemDelegate {
                                 id: modeDelegate
-                                Layout.preferredWidth: 144
-                                Layout.preferredHeight: 70
+                                Layout.preferredWidth: modeDelegateWidth
+                                Layout.preferredHeight: modeDelegateHeight
                                 Layout.alignment: Qt.AlignHCenter
                                 Layout.margins: 0
                                 checkable: false
                                 backgroundVisible: false
                                 focusPolicy: Qt.TabFocus
                                 activeFocusOnTab: index === 0
+                                padding: modeDelegatePadding
 
                                 function activate() {
                                     dccData.dockInter.setDisplayMode(model.value)
                                 }
 
                                 background: Rectangle {
-                                    radius: 8
+                                    radius: modeDelegateRadius
                                     color: "transparent"
                                     border.width: dccData.dockInter.DisplayMode === model.value || modeDelegate.activeFocus ? 2 : 0
                                     border.color: D.DTK.platformTheme.activeColor
