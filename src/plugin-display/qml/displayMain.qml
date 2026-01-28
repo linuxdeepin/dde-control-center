@@ -470,6 +470,32 @@ DccObject {
             TimeoutDialog {}
         }
 
+        Timer {
+            id: dialogDelayTimer
+            interval: 300
+            repeat: false
+            property var targetScreen: null
+            property var parentItem: null
+
+            function showDelayed(parentItemArg, screenArg) {
+                targetScreen = screenArg
+                parentItem = parentItemArg
+                restart()
+            }
+
+            onTriggered: {
+                // Check if parentItem is still valid and visible before creating dialog
+                if (targetScreen && parentItem && parentItem.visible) {
+                    timeoutDialog.createObject(parentItem, {
+                        "screen": targetScreen
+                    }).show()
+                }
+                // Clear references to avoid stale object reuse
+                targetScreen = null
+                parentItem = null
+            }
+        }
+
         page: ScreenTab {
             model: dccData.virtualScreens
             screen: root.screen
@@ -622,9 +648,7 @@ DccObject {
                     }
                     screen.currentResolution = currentValue
                     if (dccData.isX11) {
-                        timeoutDialog.createObject(this, {
-                                                       "screen": getQtScreen(root.screen)
-                                                   }).show()
+                        dialogDelayTimer.showDelayed(this, getQtScreen(root.screen))
                     }
                 }
             }
@@ -710,9 +734,7 @@ DccObject {
                     }
                     screen.currentFillMode = currentValue
                     if (dccData.isX11) {
-                        timeoutDialog.createObject(this, {
-                                                       "screen": getQtScreen(root.screen)
-                                                   }).show()
+                        dialogDelayTimer.showDelayed(this, getQtScreen(root.screen))
                     }
                 }
             }
@@ -744,9 +766,7 @@ DccObject {
                     }
                     screen.currentRate = currentValue
                     if (dccData.isX11) {
-                        timeoutDialog.createObject(this, {
-                                                       "screen": getQtScreen(root.screen)
-                                                   }).show()
+                        dialogDelayTimer.showDelayed(this, getQtScreen(root.screen))
                     }
                 }
             }
@@ -790,9 +810,7 @@ DccObject {
                     if (screen.rotate !== currentValue) {
                         screen.rotate = currentValue
                         if (dccData.isX11) {
-                            timeoutDialog.createObject(this, {
-                                                           "screen": getQtScreen(root.screen)
-                                                       }).show()
+                            dialogDelayTimer.showDelayed(this, getQtScreen(root.screen))
                         }
                     }
                 }
