@@ -222,6 +222,10 @@ void KeyboardWorker::modifyShortcutEditAux(ShortcutInfo *info, bool isKPDelete)
 
     if (!result.isEmpty()) {
         const QJsonObject obj = QJsonDocument::fromJson(result.toLatin1()).object();
+        
+        QString targetKey = info->id + "_" + QString::number(info->type);
+        m_replacingShortcuts.insert(targetKey);
+        
         QDBusPendingCall call = m_keyboardDBusProxy->ClearShortcutKeystrokes(obj["Id"].toString(), obj["Type"].toInt());
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
 
@@ -262,6 +266,10 @@ void KeyboardWorker::modifyCustomShortcut(ShortcutInfo *info)
 
     if (!result.isEmpty()) {
         const QJsonObject obj = QJsonDocument::fromJson(result.toUtf8()).object();
+        
+        QString targetKey = info->id + "_" + QString::number(info->type);
+        m_replacingShortcuts.insert(targetKey);
+        
         QDBusPendingCall call = m_keyboardDBusProxy->ClearShortcutKeystrokes(obj["Id"].toString(), obj["Type"].toInt());
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
 
@@ -272,6 +280,8 @@ void KeyboardWorker::modifyCustomShortcut(ShortcutInfo *info)
 
         connect(watcher, &QDBusPendingCallWatcher::finished, this, &KeyboardWorker::onCustomConflictCleanFinished);
     } else {
+        QString targetKey = info->id + "_" + QString::number(info->type);
+        m_replacingShortcuts.insert(targetKey);
         m_keyboardDBusProxy->ModifyCustomShortcut(info->id, info->name, info->command, info->accels);
     }
 }
@@ -636,7 +646,7 @@ void KeyboardWorker::onLangSelectorServiceFinished()
 
 void KeyboardWorker::onShortcutChanged(const QString &id, int type)
 {
-    QString key = id + "_" + QString::number(type);
+    QString key = makeShortcutKey(id, type);
     qint64 currentTime = QDateTime::currentMSecsSinceEpoch();
     m_shortcutQueryTime[key] = currentTime;
 
@@ -657,8 +667,29 @@ void KeyboardWorker::onGetShortcutFinished(QDBusPendingCallWatcher *watch)
         return;
     }
 
-    if (m_shortcutModel && !watch->isError())
+    if (m_shortcutModel && !watch->isError()) {
+        const QJsonObject obj = QJsonDocument::fromJson(reply.value().toStdString().c_str()).object();
+        const QJsonArray accels = obj["Accels"].toArray();
+        
+        // Skip UI update if shortcut is being replaced to prevent flicker
+        // Wait until the new shortcut data is available (non-empty accels)
+        if (m_replacingShortcuts.contains(key)) {
+            if (!accels.isEmpty()) {
+                // New shortcut data has arrived, clear the flag and proceed with update
+                m_replacingShortcuts.remove(key);
+            } else {
+                // Still waiting for new shortcut data, skip this stale response
+                watch->deleteLater();
+                return;
+            }
+        }
+        
         m_shortcutModel->onKeyBindingChanged(reply.value());
+    } else if (watch->isError()) {
+        if (m_replacingShortcuts.contains(key)) {
+            m_replacingShortcuts.remove(key);
+        }
+    }
 
     watch->deleteLater();
 }
@@ -673,6 +704,9 @@ void KeyboardWorker::updateKey(ShortcutInfo *info)
 
 void KeyboardWorker::cleanShortcutSlef(const QString &id, const int type, const QString &shortcut)
 {
+    QString key = makeShortcutKey(id, type);
+    m_replacingShortcuts.insert(key);
+    
     QDBusPendingCall call = m_keyboardDBusProxy->ClearShortcutKeystrokes(id, type);
 
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
@@ -702,6 +736,11 @@ void KeyboardWorker::onConflictShortcutCleanFinished(QDBusPendingCallWatcher *wa
         } else {
             m_keyboardDBusProxy->AddShortcutKeystroke(id, type, shortcut);
         }
+    } else {
+        const QString &id = watch->property("id").toString();
+        const int type = watch->property("type").toInt();
+        QString key = makeShortcutKey(id, type);
+        m_replacingShortcuts.remove(key);
     }
 
     watch->deleteLater();
@@ -726,6 +765,10 @@ void KeyboardWorker::onShortcutCleanFinished(QDBusPendingCallWatcher *watch)
         }
     } else {
         qDebug() << watch->error();
+        const QString &id = watch->property("id").toString();
+        const int type = watch->property("type").toInt();
+        QString key = makeShortcutKey(id, type);
+        m_replacingShortcuts.remove(key);
     }
 
     watch->deleteLater();
@@ -740,9 +783,18 @@ void KeyboardWorker::onCustomConflictCleanFinished(QDBusPendingCallWatcher *w)
         const QString &accles = w->property("shortcut").toString();
 
         setNewCustomShortcut(id, name, command, accles);
+    } else {
+        const QString &id = w->property("id").toString();
+        QString key = id + "_1";
+        m_replacingShortcuts.remove(key);
     }
 
     w->deleteLater();
+}
+
+QString KeyboardWorker::makeShortcutKey(const QString &id, int type)
+{
+    return id + "_" + QString::number(type);
 }
 
 uint KeyboardWorker::converToDBusDelay(uint value)
