@@ -2053,7 +2053,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation>Combina les icones de l&apos;aplicació</translation>
+        <translation>Combina les icones d&apos;aplicacions</translation>
     </message>
 </context>
 <context>
@@ -2262,18 +2262,18 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>Keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Teclat</translation>
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Configuració general, mètode d&apos;entrada, dreceres</translation>
     </message>
 </context>
 <context>
     <name>KeyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Comú</translation>
     </message>
 </context>
 <context>
