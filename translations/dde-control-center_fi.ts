@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fi">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="fi">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -123,6 +125,24 @@
     </message>
 </context>
 <context>
+    <name>Accounts</name>
+    <message>
+        <source>Account</source>
+        <translation>Tili</translation>
+    </message>
+    <message>
+        <source>Account manager</source>
+        <translation>Tilin hallinta</translation>
+    </message>
+</context>
+<context>
+    <name>AccountsMain</name>
+    <message>
+        <source>Other accounts</source>
+        <translation>Muut tilit</translation>
+    </message>
+</context>
+<context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
@@ -173,7 +193,7 @@ Varmista onnistunut sisäänpääsy:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
@@ -218,7 +238,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
@@ -267,7 +287,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;Biometrinen todennus&quot; on UnionTech Software Technology Co., Ltd:n kehittämä toiminto käyttäjän identiteetin tunnistamiseen. &quot;Biometrisen todentamisen&quot; avulla kerättyjä biometrisiä tietoja verrataan tietokoneeseen tallennettuihin tietoihin ja varmistetaan näiden tietojen perusteella.
@@ -277,6 +297,68 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
         <translation>Varmista, että molemmat silmät ovat laitteen lukualueella</translation>
+    </message>
+</context>
+<context>
+    <name>Authentication</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>Biometrinen todennus</translation>
+    </message>
+</context>
+<context>
+    <name>AuthenticationMain</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>Biometrinen todennus</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Kasvot</translation>
+    </message>
+    <message>
+        <source>Up to 5 facial data can be entered</source>
+        <translation>Enintään 5 kasvotietoa voidaan antaa</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation>Sormenjälki</translation>
+    </message>
+    <message>
+        <source>Identifying user identity through scanning fingerprints</source>
+        <translation>Käyttäjän identiteetin tunnistaminen sormenjälkien avulla</translation>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation>Iiris</translation>
+    </message>
+    <message>
+        <source>Identity recognition through iris scanning</source>
+        <translation>Henkilöllisyyden tunnistus iiriksen skannauksella</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation>Käytä vain kirjaimia, numeroita ja alaviivoja, enintään 15 merkkiä</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only</source>
+        <translation>Käytä vain kirjaimia, numeroita ja alaviivoja</translation>
+    </message>
+    <message>
+        <source>No more than 15 characters</source>
+        <translation>Enintään 15 merkkiä</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation>Nimi on jo olemassa</translation>
+    </message>
+    <message>
+        <source>Add a new %1 ...</source>
+        <translation>Lisää uusi %1 ...</translation>
+    </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation>Nimeä ei voi jättää tyhjäksi</translation>
     </message>
 </context>
 <context>
@@ -406,6 +488,17 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <message>
         <source>Disable</source>
         <translation>Pois</translation>
+    </message>
+</context>
+<context>
+    <name>BlueTooth</name>
+    <message>
+        <source>Bluetooth settings, devices</source>
+        <translation>Bluetooth asetukset, laitteet</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -846,6 +939,29 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
 </context>
 <context>
+    <name>CommonInfoMain</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation>Käynnistysvalikko</translation>
+    </message>
+    <message>
+        <source>Manage your boot menu</source>
+        <translation>Hallitse käynnistysvalikkoa</translation>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation>Kehittäjän root oikeuksien hallinta</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation>Kehittäjäasetukset</translation>
+    </message>
+    <message>
+        <source>Developer debugging options</source>
+        <translation>Kehittäjän vianetsinnän valinnat</translation>
+    </message>
+</context>
+<context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
@@ -1071,6 +1187,25 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <message>
         <source>Confirm</source>
         <translation>Vahvista</translation>
+    </message>
+</context>
+<context>
+    <name>Datetime</name>
+    <message>
+        <source>Time and date</source>
+        <translation>Aika ja päivämäärä</translation>
+    </message>
+    <message>
+        <source>Time and date, time zone settings</source>
+        <translation>Aika ja aikavyöhyke, maa-asetukset</translation>
+    </message>
+    <message>
+        <source>Language and region</source>
+        <translation>Kieli ja maa</translation>
+    </message>
+    <message>
+        <source>System language, regional formats</source>
+        <translation>Tietokoneen kieli, maa-asetukset</translation>
     </message>
 </context>
 <context>
@@ -1361,6 +1496,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Deepinid</name>
+    <message>
+        <source>deepin ID</source>
+        <translation>deepin tunnus</translation>
+    </message>
+    <message>
+        <source>UOS ID</source>
+        <translation>UOS ID</translation>
+    </message>
+    <message>
+        <source>Cloud services</source>
+        <translation>Pilvipalvelut</translation>
+    </message>
+</context>
+<context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
@@ -1377,6 +1527,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
         <translation>Paikallisten lakien ja määräysten mukaisesti tämä ei ole saatavilla sinun maassasi.</translation>
+    </message>
+</context>
+<context>
+    <name>Defaultapp</name>
+    <message>
+        <source>Default App</source>
+        <translation>Oletussovellus</translation>
+    </message>
+    <message>
+        <source>Set the default application for opening various types of files</source>
+        <translation>Aseta oletussovellus erityyppisten tiedostojen avaamiseen</translation>
+    </message>
+</context>
+<context>
+    <name>DefaultappMain</name>
+    <message>
+        <source>Webpage</source>
+        <translation>Salain</translation>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation>Sähköposti</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Teksti</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation>Musiikki</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation>Videot</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation>Kuvat</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation>Pääte</translation>
     </message>
 </context>
 <context>
@@ -1526,6 +1718,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Device</name>
+    <message>
+        <source>Bluetooth and Other Devices</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -1538,6 +1737,318 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Agree</source>
         <translation>Hyväksyn</translation>
+    </message>
+</context>
+<context>
+    <name>Display</name>
+    <message>
+        <source>Display</source>
+        <translation>Näyttö</translation>
+    </message>
+    <message>
+        <source>Brightness,resolution,scaling</source>
+        <translation>Kirkkaus, resoluutio, skaalaus</translation>
+    </message>
+</context>
+<context>
+    <name>DisplayMain</name>
+    <message>
+        <source>100%</source>
+        <translation>100%</translation>
+    </message>
+    <message>
+        <source>125%</source>
+        <translation>125%</translation>
+    </message>
+    <message>
+        <source>150%</source>
+        <translation>150%</translation>
+    </message>
+    <message>
+        <source>175%</source>
+        <translation>175%</translation>
+    </message>
+    <message>
+        <source>200%</source>
+        <translation>200%</translation>
+    </message>
+    <message>
+        <source>225%</source>
+        <translation>225%</translation>
+    </message>
+    <message>
+        <source>250%</source>
+        <translation>250%</translation>
+    </message>
+    <message>
+        <source>275%</source>
+        <translation>275%</translation>
+    </message>
+    <message>
+        <source>300%</source>
+        <translation>300%</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Monista</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Laajenna</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>Oletus</translation>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation>Sovita</translation>
+    </message>
+    <message>
+        <source>Stretch</source>
+        <translation>Venytä</translation>
+    </message>
+    <message>
+        <source>Center</source>
+        <translation>Keskitetty</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Vain %1</translation>
+    </message>
+    <message>
+        <source>Multiple Displays Settings</source>
+        <translation>Usean näytön asetuksia</translation>
+    </message>
+    <message>
+        <source>Identify</source>
+        <translation>Tunnista</translation>
+    </message>
+    <message>
+        <source>Screen rearrangement will take effect in %1s after changes</source>
+        <translation>Näytön järjestely tulee voimaan %1s muutosten jälkeen</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>Tila</translation>
+    </message>
+    <message>
+        <source>Main Screen</source>
+        <translation>Päänäyttö</translation>
+    </message>
+    <message>
+        <source>Display And Layout</source>
+        <translation>Näyttö ja asettelu</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Kirkkaus</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation>Resoluutio</translation>
+    </message>
+    <message>
+        <source>Resize Desktop</source>
+        <translation>Muuta työpöydän kokoa</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation>Virkistystaajuus</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Kääntö</translation>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation>Vakio</translation>
+    </message>
+    <message>
+        <source>90°</source>
+        <translation>90°</translation>
+    </message>
+    <message>
+        <source>180°</source>
+        <translation>180°</translation>
+    </message>
+    <message>
+        <source>270°</source>
+        <translation>270°</translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation>Näyttö tukee vain 100% skaalausta</translation>
+    </message>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Silmien mukavuus</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Ota silmien mukavuus käyttöön</translation>
+    </message>
+    <message>
+        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
+        <translation>Säädä näyttöä lämpimämpiin väreihin vähentäen näytön sinistä valoa</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>Aika</translation>
+    </message>
+    <message>
+        <source>All day</source>
+        <translation>Koko päivä</translation>
+    </message>
+    <message>
+        <source>Sunset to Sunrise</source>
+        <translation>Auringonlaskusta nousuun</translation>
+    </message>
+    <message>
+        <source>Custom Time</source>
+        <translation>Mukautettu aika</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>kohteesta</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>-</translation>
+    </message>
+    <message>
+        <source>Color Temperature</source>
+        <translation>Värilämpötila</translation>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation>%1x%2 (suositus)</translation>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation>%1x%2</translation>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation>%1Hz (suositus)</translation>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation>%1Hz</translation>
+    </message>
+    <message>
+        <source>Scaling</source>
+        <translation>Skaalaus</translation>
+    </message>
+</context>
+<context>
+    <name>Dock</name>
+    <message>
+        <source>Desktop and taskbar</source>
+        <translation>Työpöytä ja tehtäväpalkki</translation>
+    </message>
+    <message>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation>Organisointi, tehtäväpalkin tila, laajennusalueen asetukset</translation>
+    </message>
+</context>
+<context>
+    <name>DockMain</name>
+    <message>
+        <source>Dock</source>
+        <translation>Telakka</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>Tila</translation>
+    </message>
+    <message>
+        <source>Classic Mode</source>
+        <translation>Klassinen</translation>
+    </message>
+    <message>
+        <source>Centered Mode</source>
+        <translation>Keskitetty</translation>
+    </message>
+    <message>
+        <source>Dock size</source>
+        <translation>Telakan koko</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>Pieni</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Suuri</translation>
+    </message>
+    <message>
+        <source>Position on the screen</source>
+        <translation>Paikka ruudulla</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>Ylös</translation>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation>Alas</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation>Vasen</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>Oikea</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Tila</translation>
+    </message>
+    <message>
+        <source>Keep shown</source>
+        <translation>Näytä aina</translation>
+    </message>
+    <message>
+        <source>Keep hidden</source>
+        <translation>Pidä piilossa</translation>
+    </message>
+    <message>
+        <source>Smart hide</source>
+        <translation>Älykäs piilotus</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Useita näyttöjä</translation>
+    </message>
+    <message>
+        <source>Set the position of the taskbar on the screen</source>
+        <translation>Aseta tehtäväpalkin paikka näytöllä</translation>
+    </message>
+    <message>
+        <source>Only on main</source>
+        <translation>Päänäytössä</translation>
+    </message>
+    <message>
+        <source>On screen where the cursor is</source>
+        <translation>Näytöllä, jossa kohdistin on</translation>
+    </message>
+    <message>
+        <source>Plugin Area</source>
+        <translation>Laajennusalue</translation>
+    </message>
+    <message>
+        <source>Select which icons appear in the Dock</source>
+        <translation>Valitse telakan kuvakkeet</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation>Lukitse telakka</translation>
+    </message>
+    <message>
+        <source>Combine application icons</source>
+        <translation>Yhdistä sovelluskuvakkeita</translation>
     </message>
 </context>
 <context>
@@ -1743,6 +2254,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Keyboard</name>
+    <message>
+        <source>Keyboard</source>
+        <translation>Näppäimistö</translation>
+    </message>
+    <message>
+        <source>General Settings, input method, shortcuts</source>
+        <translation>Lisäasetukset, näppäimistö, pikanäppäimet</translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardMain</name>
+    <message>
+        <source>Common</source>
+        <translation>Yleinen</translation>
+    </message>
+</context>
+<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -1876,6 +2405,32 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>Mouse</name>
     <message>
+        <source>Mouse and Touchpad</source>
+        <translation>Hiiri ja kosketuslevy</translation>
+    </message>
+    <message>
+        <source>Common、Mouse、Touchpad</source>
+        <translation>Yleinen, hiiri, kosketuslevy</translation>
+    </message>
+</context>
+<context>
+    <name>MouseMain</name>
+    <message>
+        <source>Common</source>
+        <translation>Yleinen</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation>Hiiri</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation>Kosketuslevy</translation>
+    </message>
+</context>
+<context>
+    <name>MousePage</name>
+    <message>
         <source>Mouse</source>
         <translation>Hiiri</translation>
     </message>
@@ -1999,6 +2554,72 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Notification</name>
+    <message>
+        <source>DND mode, app notifications</source>
+        <translation>Älä häiritse, sovellusten ilmoitukset</translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation>Ilmoitus</translation>
+    </message>
+</context>
+<context>
+    <name>NotificationMain</name>
+    <message>
+        <source>Do Not Disturb Settings</source>
+        <translation>Älä häiritse -  asetukset</translation>
+    </message>
+    <message>
+        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
+        <translation>Sovellusten ilmoituksia ei näytetä työpöydälle ja äänimerkit ovat äänettömiä, mutta voit tarkastella kaikkia viestejä ilmoitusalueella.</translation>
+    </message>
+    <message>
+        <source>Enable Do Not Disturb</source>
+        <translation>Älä häiritse käyttöön</translation>
+    </message>
+    <message>
+        <source>When the screen is locked</source>
+        <translation>Kun näyttö on lukittu</translation>
+    </message>
+    <message>
+        <source>Number of notifications shown on the desktop</source>
+        <translation>Työpöydällä näkyvien ilmoitusten määrä</translation>
+    </message>
+    <message>
+        <source>App Notifications</source>
+        <translation>Sovellusten ilmoitukset</translation>
+    </message>
+    <message>
+        <source>Allow Notifications</source>
+        <translation>Salli ilmoitukset</translation>
+    </message>
+    <message>
+        <source>Display notification on desktop or show unread messages in the notification center</source>
+        <translation>Näytä ilmoituksia työpöydällä tai näytä lukemattomat ilmoitusalueella</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>Työpöytä</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>Lukitse näyttö</translation>
+    </message>
+    <message>
+        <source>Notification Center</source>
+        <translation>Ilmoituskeskus</translation>
+    </message>
+    <message>
+        <source>Show message preview</source>
+        <translation>Näytä viestin esikatselu</translation>
+    </message>
+    <message>
+        <source>Play a sound</source>
+        <translation>Toista ääni</translation>
+    </message>
+</context>
+<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2092,6 +2713,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Personalization</name>
+    <message>
+        <source>Personalization</source>
+        <translation>Personointi</translation>
+    </message>
+</context>
+<context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
@@ -2115,6 +2743,57 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>PersonalizationMain</name>
+    <message>
+        <source>Theme</source>
+        <translation>Teema</translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation>Ulkoasu</translation>
+    </message>
+    <message>
+        <source>Window effect</source>
+        <translation>Tehosteet</translation>
+    </message>
+    <message>
+        <source>Personalize your wallpaper and screensaver</source>
+        <translation>Personoi taustakuvaa ja näytönsäästää</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation>Näytönsäästäjä</translation>
+    </message>
+    <message>
+        <source>Colors and icons</source>
+        <translation>Värit ja kuvakkeet</translation>
+    </message>
+    <message>
+        <source>Adjust accent color and theme icons</source>
+        <translation>Säädä korostusvärejä ja teeman kuvakkeisiin</translation>
+    </message>
+    <message>
+        <source>Font and font size</source>
+        <translation>Kirjasin ja koko</translation>
+    </message>
+    <message>
+        <source>Change system font and size</source>
+        <translation>Muuta kirjasinta ja kokoa</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation>Taustakuva</translation>
+    </message>
+    <message>
+        <source>Select light, dark or automatic theme appearance</source>
+        <translation>Valitse vaalea, tumma tai autom. teeman ulkoasu</translation>
+    </message>
+    <message>
+        <source>Interface and effects, rounded corners</source>
+        <translation>Käyttöliittymä ja tehosteet, pyöristetyt kulmat</translation>
+    </message>
+</context>
+<context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
@@ -2130,6 +2809,44 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Valitse telakan kuvakkeet</translation>
+    </message>
+</context>
+<context>
+    <name>Power</name>
+    <message>
+        <source>Power saving settings, screen and suspend</source>
+        <translation>Virransäästö, näyttö ja valmiustila</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation>Virta</translation>
+    </message>
+</context>
+<context>
+    <name>PowerMain</name>
+    <message>
+        <source>General</source>
+        <translation>Yleinen</translation>
+    </message>
+    <message>
+        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
+        <translation>Virrankäyttö, virransäästö, herääminen, sammuttaminen, asetukset</translation>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation>Kytketty</translation>
+    </message>
+    <message>
+        <source>Screen and suspend</source>
+        <translation>Näyttö ja valmiustila</translation>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation>Akulla</translation>
+    </message>
+    <message>
+        <source>screen and suspend, low battery, battery management</source>
+        <translation>näyttö ja valmustila, alhainen akku, akun hallinta</translation>
     </message>
 </context>
 <context>
@@ -2234,6 +2951,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Never</source>
         <translation>Ei koskaan</translation>
+    </message>
+</context>
+<context>
+    <name>Privacy</name>
+    <message>
+        <source>Privacy and Security</source>
+        <translation>Yksityisyys ja tietoturva</translation>
+    </message>
+    <message>
+        <source>Camera, folder permissions</source>
+        <translation>Kamera, kansion käyttöoikeudet</translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyMain</name>
+    <message>
+        <source>Camera</source>
+        <translation>Kamera</translation>
+    </message>
+    <message>
+        <source>Choose whether the application has access to the camera</source>
+        <translation>Valitse, onko sovelluksella pääsy kameraan</translation>
+    </message>
+    <message>
+        <source>Files and Folders</source>
+        <translation>Tiedostot ja kansiot</translation>
+    </message>
+    <message>
+        <source>Choose whether the application has access to files and folders</source>
+        <translation>Valitse, onko sovelluksella pääsy tiedostoihin ja kansioihin</translation>
     </message>
 </context>
 <context>
@@ -2643,6 +3390,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Sound</name>
+    <message>
+        <source>Sound</source>
+        <translation>Ääni</translation>
+    </message>
+    <message>
+        <source>Output, input, sound effects, devices</source>
+        <translation>Ulostulo, sisääntulo, äänitehosteet, laitteet</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -2662,6 +3420,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Sound Effects</source>
         <translation>Äänitehosteet</translation>
+    </message>
+</context>
+<context>
+    <name>SoundMain</name>
+    <message>
+        <source>Settings</source>
+        <translation>Asetukset</translation>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation>Äänitehosteet</translation>
+    </message>
+    <message>
+        <source>Enable/disable sound effects</source>
+        <translation>Äänitehosteet käyttöön/pois</translation>
+    </message>
+    <message>
+        <source>Enable/disable audio devices</source>
+        <translation>Käytä/poista äänilaite käytöstä</translation>
+    </message>
+    <message>
+        <source>Devices Management</source>
+        <translation>Laitehallinta</translation>
     </message>
 </context>
 <context>
@@ -2803,6 +3584,67 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Screensaver</source>
         <translation>Näytönsäästäjä</translation>
+    </message>
+</context>
+<context>
+    <name>System</name>
+    <message>
+        <source>Common settings</source>
+        <translation>Yleiset asetukset</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation>Järjestelmä</translation>
+    </message>
+</context>
+<context>
+    <name>SystemInfo</name>
+    <message>
+        <source>Auxiliary Information</source>
+        <translation>Aputiedot</translation>
+    </message>
+</context>
+<context>
+    <name>SystemInfoMain</name>
+    <message>
+        <source>About This PC</source>
+        <translation>Tietoja tästä tietokoneesta</translation>
+    </message>
+    <message>
+        <source>System version, device information</source>
+        <translation>Versio, järjestelmätiedot</translation>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation>Katso ilmoitus avoimen lähdekoodin ohjelmistoista</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation>Käyttökokemusohjelma</translation>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation>Liity käyttökokemusohjelmaan ja voit auttaa parantamaan tätä tuotetta</translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation>Loppukäyttäjän lisenssisopimus</translation>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation>Näytä loppukäyttäjän lisenssisopimus</translation>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation>Tietosuojakäytäntö</translation>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation>Katso tietoja tietosuojakäytännöstä</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation>Ilmoitus avoimen lähdekoodin ohjelmistosta</translation>
     </message>
 </context>
 <context>
@@ -2979,6 +3821,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Touchscreen</name>
+    <message>
+        <source>Touchscreen</source>
+        <translation>Kosketusnäyttö</translation>
+    </message>
+    <message>
+        <source>Configuring Touchscreen</source>
+        <translation>Kosketusnäytön konfigurointi</translation>
+    </message>
+</context>
+<context>
+    <name>TouchscreenMain</name>
+    <message>
+        <source>Common</source>
+        <translation>Yleinen</translation>
+    </message>
+</context>
+<context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
@@ -3014,6 +3874,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Confirm</source>
         <translation>Vahvista</translation>
+    </message>
+</context>
+<context>
+    <name>Wacom</name>
+    <message>
+        <source>wacom</source>
+        <translation>wacom</translation>
+    </message>
+    <message>
+        <source>Configuring wacom</source>
+        <translation>Wacomin konfigurointi</translation>
+    </message>
+</context>
+<context>
+    <name>WacomMain</name>
+    <message>
+        <source>wacom</source>
+        <translation>wacom</translation>
+    </message>
+    <message>
+        <source>Pen Mode</source>
+        <translation>Kynä</translation>
+    </message>
+    <message>
+        <source>Mouse Mode</source>
+        <translation>Hiiri</translation>
+    </message>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation>Paineherkkyys</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Kevyt</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation>Vahva</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation>Malli</translation>
     </message>
 </context>
 <context>
@@ -3216,139 +4118,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>accounts</name>
-    <message>
-        <source>Account</source>
-        <translation>Tili</translation>
-    </message>
-    <message>
-        <source>Account manager</source>
-        <translation>Tilin hallinta</translation>
-    </message>
-</context>
-<context>
-    <name>accountsMain</name>
-    <message>
-        <source>Other accounts</source>
-        <translation>Muut tilit</translation>
-    </message>
-</context>
-<context>
-    <name>authentication</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>Biometrinen todennus</translation>
-    </message>
-</context>
-<context>
-    <name>authenticationMain</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>Biometrinen todennus</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>Kasvot</translation>
-    </message>
-    <message>
-        <source>Up to 5 facial data can be entered</source>
-        <translation>Enintään 5 kasvotietoa voidaan antaa</translation>
-    </message>
-    <message>
-        <source>Fingerprint</source>
-        <translation>Sormenjälki</translation>
-    </message>
-    <message>
-        <source>Identifying user identity through scanning fingerprints</source>
-        <translation>Käyttäjän identiteetin tunnistaminen sormenjälkien avulla</translation>
-    </message>
-    <message>
-        <source>Iris</source>
-        <translation>Iiris</translation>
-    </message>
-    <message>
-        <source>Identity recognition through iris scanning</source>
-        <translation>Henkilöllisyyden tunnistus iiriksen skannauksella</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Käytä vain kirjaimia, numeroita ja alaviivoja, enintään 15 merkkiä</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only</source>
-        <translation>Käytä vain kirjaimia, numeroita ja alaviivoja</translation>
-    </message>
-    <message>
-        <source>No more than 15 characters</source>
-        <translation>Enintään 15 merkkiä</translation>
-    </message>
-    <message>
-        <source>This name already exists</source>
-        <translation>Nimi on jo olemassa</translation>
-    </message>
-    <message>
-        <source>Add a new %1 ...</source>
-        <translation>Lisää uusi %1 ...</translation>
-    </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>Nimeä ei voi jättää tyhjäksi</translation>
-    </message>
-</context>
-<context>
-    <name>blueTooth</name>
-    <message>
-        <source>Bluetooth settings, devices</source>
-        <translation>Bluetooth asetukset, laitteet</translation>
-    </message>
-    <message>
-        <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
-    </message>
-</context>
-<context>
-    <name>commonInfoMain</name>
-    <message>
-        <source>Boot Menu</source>
-        <translation>Käynnistysvalikko</translation>
-    </message>
-    <message>
-        <source>Manage your boot menu</source>
-        <translation>Hallitse käynnistysvalikkoa</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Kehittäjän root oikeuksien hallinta</translation>
-    </message>
-    <message>
-        <source>Developer Options</source>
-        <translation>Kehittäjäasetukset</translation>
-    </message>
-    <message>
-        <source>Developer debugging options</source>
-        <translation>Kehittäjän vianetsinnän valinnat</translation>
-    </message>
-</context>
-<context>
-    <name>datetime</name>
-    <message>
-        <source>Time and date</source>
-        <translation>Aika ja päivämäärä</translation>
-    </message>
-    <message>
-        <source>Time and date, time zone settings</source>
-        <translation>Aika ja aikavyöhyke, maa-asetukset</translation>
-    </message>
-    <message>
-        <source>Language and region</source>
-        <translation>Kieli ja maa</translation>
-    </message>
-    <message>
-        <source>System language, regional formats</source>
-        <translation>Tietokoneen kieli, maa-asetukset</translation>
-    </message>
-</context>
-<context>
     <name>dcc::Locale::dialectNames</name>
     <message>
         <source>Traditional Chinese (Chinese Hong Kong)</source>
@@ -3360,7 +4129,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3611,773 +4380,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Mitään</translation>
-    </message>
-</context>
-<context>
-    <name>deepinid</name>
-    <message>
-        <source>deepin ID</source>
-        <translation>deepin tunnus</translation>
-    </message>
-    <message>
-        <source>UOS ID</source>
-        <translation>UOS ID</translation>
-    </message>
-    <message>
-        <source>Cloud services</source>
-        <translation>Pilvipalvelut</translation>
-    </message>
-</context>
-<context>
-    <name>defaultapp</name>
-    <message>
-        <source>Default App</source>
-        <translation>Oletussovellus</translation>
-    </message>
-    <message>
-        <source>Set the default application for opening various types of files</source>
-        <translation>Aseta oletussovellus erityyppisten tiedostojen avaamiseen</translation>
-    </message>
-</context>
-<context>
-    <name>defaultappMain</name>
-    <message>
-        <source>Webpage</source>
-        <translation>Salain</translation>
-    </message>
-    <message>
-        <source>Mail</source>
-        <translation>Sähköposti</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation>Teksti</translation>
-    </message>
-    <message>
-        <source>Music</source>
-        <translation>Musiikki</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation>Videot</translation>
-    </message>
-    <message>
-        <source>Picture</source>
-        <translation>Kuvat</translation>
-    </message>
-    <message>
-        <source>Terminal</source>
-        <translation>Pääte</translation>
-    </message>
-</context>
-<context>
-    <name>device</name>
-    <message>
-        <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>display</name>
-    <message>
-        <source>Display</source>
-        <translation>Näyttö</translation>
-    </message>
-    <message>
-        <source>Brightness,resolution,scaling</source>
-        <translation>Kirkkaus, resoluutio, skaalaus</translation>
-    </message>
-</context>
-<context>
-    <name>displayMain</name>
-    <message>
-        <source>100%</source>
-        <translation>100%</translation>
-    </message>
-    <message>
-        <source>125%</source>
-        <translation>125%</translation>
-    </message>
-    <message>
-        <source>150%</source>
-        <translation>150%</translation>
-    </message>
-    <message>
-        <source>175%</source>
-        <translation>175%</translation>
-    </message>
-    <message>
-        <source>200%</source>
-        <translation>200%</translation>
-    </message>
-    <message>
-        <source>225%</source>
-        <translation>225%</translation>
-    </message>
-    <message>
-        <source>250%</source>
-        <translation>250%</translation>
-    </message>
-    <message>
-        <source>275%</source>
-        <translation>275%</translation>
-    </message>
-    <message>
-        <source>300%</source>
-        <translation>300%</translation>
-    </message>
-    <message>
-        <source>Duplicate</source>
-        <translation>Monista</translation>
-    </message>
-    <message>
-        <source>Extend</source>
-        <translation>Laajenna</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation>Oletus</translation>
-    </message>
-    <message>
-        <source>Fit</source>
-        <translation>Sovita</translation>
-    </message>
-    <message>
-        <source>Stretch</source>
-        <translation>Venytä</translation>
-    </message>
-    <message>
-        <source>Center</source>
-        <translation>Keskitetty</translation>
-    </message>
-    <message>
-        <source>Only on %1</source>
-        <translation>Vain %1</translation>
-    </message>
-    <message>
-        <source>Multiple Displays Settings</source>
-        <translation>Usean näytön asetuksia</translation>
-    </message>
-    <message>
-        <source>Identify</source>
-        <translation>Tunnista</translation>
-    </message>
-    <message>
-        <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>Näytön järjestely tulee voimaan %1s muutosten jälkeen</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation>Tila</translation>
-    </message>
-    <message>
-        <source>Main Screen</source>
-        <translation>Päänäyttö</translation>
-    </message>
-    <message>
-        <source>Display And Layout</source>
-        <translation>Näyttö ja asettelu</translation>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation>Kirkkaus</translation>
-    </message>
-    <message>
-        <source>Resolution</source>
-        <translation>Resoluutio</translation>
-    </message>
-    <message>
-        <source>Resize Desktop</source>
-        <translation>Muuta työpöydän kokoa</translation>
-    </message>
-    <message>
-        <source>Refresh Rate</source>
-        <translation>Virkistystaajuus</translation>
-    </message>
-    <message>
-        <source>Rotation</source>
-        <translation>Kääntö</translation>
-    </message>
-    <message>
-        <source>Standard</source>
-        <translation>Vakio</translation>
-    </message>
-    <message>
-        <source>90°</source>
-        <translation>90°</translation>
-    </message>
-    <message>
-        <source>180°</source>
-        <translation>180°</translation>
-    </message>
-    <message>
-        <source>270°</source>
-        <translation>270°</translation>
-    </message>
-    <message>
-        <source>The monitor only supports 100% display scaling</source>
-        <translation>Näyttö tukee vain 100% skaalausta</translation>
-    </message>
-    <message>
-        <source>Eye Comfort</source>
-        <translation>Silmien mukavuus</translation>
-    </message>
-    <message>
-        <source>Enable eye comfort</source>
-        <translation>Ota silmien mukavuus käyttöön</translation>
-    </message>
-    <message>
-        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation>Säädä näyttöä lämpimämpiin väreihin vähentäen näytön sinistä valoa</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Aika</translation>
-    </message>
-    <message>
-        <source>All day</source>
-        <translation>Koko päivä</translation>
-    </message>
-    <message>
-        <source>Sunset to Sunrise</source>
-        <translation>Auringonlaskusta nousuun</translation>
-    </message>
-    <message>
-        <source>Custom Time</source>
-        <translation>Mukautettu aika</translation>
-    </message>
-    <message>
-        <source>from</source>
-        <translation>kohteesta</translation>
-    </message>
-    <message>
-        <source>to</source>
-        <translation>-</translation>
-    </message>
-    <message>
-        <source>Color Temperature</source>
-        <translation>Värilämpötila</translation>
-    </message>
-    <message>
-        <source>%1x%2 (Recommended)</source>
-        <translation>%1x%2 (suositus)</translation>
-    </message>
-    <message>
-        <source>%1x%2</source>
-        <translation>%1x%2</translation>
-    </message>
-    <message>
-        <source>%1Hz (Recommended)</source>
-        <translation>%1Hz (suositus)</translation>
-    </message>
-    <message>
-        <source>%1Hz</source>
-        <translation>%1Hz</translation>
-    </message>
-    <message>
-        <source>Scaling</source>
-        <translation>Skaalaus</translation>
-    </message>
-</context>
-<context>
-    <name>dock</name>
-    <message>
-        <source>Desktop and taskbar</source>
-        <translation>Työpöytä ja tehtäväpalkki</translation>
-    </message>
-    <message>
-        <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation>Organisointi, tehtäväpalkin tila, laajennusalueen asetukset</translation>
-    </message>
-</context>
-<context>
-    <name>keyboard</name>
-    <message>
-        <source>Keyboard</source>
-        <translation>Näppäimistö</translation>
-    </message>
-    <message>
-        <source>General Settings, input method, shortcuts</source>
-        <translation>Lisäasetukset, näppäimistö, pikanäppäimet</translation>
-    </message>
-</context>
-<context>
-    <name>keyboardMain</name>
-    <message>
-        <source>Common</source>
-        <translation>Yleinen</translation>
-    </message>
-</context>
-<context>
-    <name>main</name>
-    <message>
-        <source>Dock</source>
-        <translation>Telakka</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation>Tila</translation>
-    </message>
-    <message>
-        <source>Classic Mode</source>
-        <translation>Klassinen</translation>
-    </message>
-    <message>
-        <source>Centered Mode</source>
-        <translation>Keskitetty</translation>
-    </message>
-    <message>
-        <source>Dock size</source>
-        <translation>Telakan koko</translation>
-    </message>
-    <message>
-        <source>Small</source>
-        <translation>Pieni</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Suuri</translation>
-    </message>
-    <message>
-        <source>Position on the screen</source>
-        <translation>Paikka ruudulla</translation>
-    </message>
-    <message>
-        <source>Top</source>
-        <translation>Ylös</translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation>Alas</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation>Vasen</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation>Oikea</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Tila</translation>
-    </message>
-    <message>
-        <source>Keep shown</source>
-        <translation>Näytä aina</translation>
-    </message>
-    <message>
-        <source>Keep hidden</source>
-        <translation>Pidä piilossa</translation>
-    </message>
-    <message>
-        <source>Smart hide</source>
-        <translation>Älykäs piilotus</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Useita näyttöjä</translation>
-    </message>
-    <message>
-        <source>Set the position of the taskbar on the screen</source>
-        <translation>Aseta tehtäväpalkin paikka näytöllä</translation>
-    </message>
-    <message>
-        <source>Only on main</source>
-        <translation>Päänäytössä</translation>
-    </message>
-    <message>
-        <source>On screen where the cursor is</source>
-        <translation>Näytöllä, jossa kohdistin on</translation>
-    </message>
-    <message>
-        <source>Plugin Area</source>
-        <translation>Laajennusalue</translation>
-    </message>
-    <message>
-        <source>Select which icons appear in the Dock</source>
-        <translation>Valitse telakan kuvakkeet</translation>
-    </message>
-    <message>
-        <source>Lock the Dock</source>
-        <translation>Lukitse telakka</translation>
-    </message>
-    <message>
-        <source>Combine application icons</source>
-        <translation>Yhdistä sovelluskuvakkeita</translation>
-    </message>
-</context>
-<context>
-    <name>mouse</name>
-    <message>
-        <source>Mouse and Touchpad</source>
-        <translation>Hiiri ja kosketuslevy</translation>
-    </message>
-    <message>
-        <source>Common、Mouse、Touchpad</source>
-        <translation>Yleinen, hiiri, kosketuslevy</translation>
-    </message>
-</context>
-<context>
-    <name>mouseMain</name>
-    <message>
-        <source>Common</source>
-        <translation>Yleinen</translation>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation>Hiiri</translation>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation>Kosketuslevy</translation>
-    </message>
-</context>
-<context>
-    <name>notification</name>
-    <message>
-        <source>DND mode, app notifications</source>
-        <translation>Älä häiritse, sovellusten ilmoitukset</translation>
-    </message>
-    <message>
-        <source>Notification</source>
-        <translation>Ilmoitus</translation>
-    </message>
-</context>
-<context>
-    <name>notificationMain</name>
-    <message>
-        <source>Do Not Disturb Settings</source>
-        <translation>Älä häiritse -  asetukset</translation>
-    </message>
-    <message>
-        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>Sovellusten ilmoituksia ei näytetä työpöydälle ja äänimerkit ovat äänettömiä, mutta voit tarkastella kaikkia viestejä ilmoitusalueella.</translation>
-    </message>
-    <message>
-        <source>Enable Do Not Disturb</source>
-        <translation>Älä häiritse käyttöön</translation>
-    </message>
-    <message>
-        <source>When the screen is locked</source>
-        <translation>Kun näyttö on lukittu</translation>
-    </message>
-    <message>
-        <source>Number of notifications shown on the desktop</source>
-        <translation>Työpöydällä näkyvien ilmoitusten määrä</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>Sovellusten ilmoitukset</translation>
-    </message>
-    <message>
-        <source>Allow Notifications</source>
-        <translation>Salli ilmoitukset</translation>
-    </message>
-    <message>
-        <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>Näytä ilmoituksia työpöydällä tai näytä lukemattomat ilmoitusalueella</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Työpöytä</translation>
-    </message>
-    <message>
-        <source>Lock Screen</source>
-        <translation>Lukitse näyttö</translation>
-    </message>
-    <message>
-        <source>Notification Center</source>
-        <translation>Ilmoituskeskus</translation>
-    </message>
-    <message>
-        <source>Show message preview</source>
-        <translation>Näytä viestin esikatselu</translation>
-    </message>
-    <message>
-        <source>Play a sound</source>
-        <translation>Toista ääni</translation>
-    </message>
-</context>
-<context>
-    <name>personalization</name>
-    <message>
-        <source>Personalization</source>
-        <translation>Personointi</translation>
-    </message>
-</context>
-<context>
-    <name>personalizationMain</name>
-    <message>
-        <source>Theme</source>
-        <translation>Teema</translation>
-    </message>
-    <message>
-        <source>Appearance</source>
-        <translation>Ulkoasu</translation>
-    </message>
-    <message>
-        <source>Window effect</source>
-        <translation>Tehosteet</translation>
-    </message>
-    <message>
-        <source>Personalize your wallpaper and screensaver</source>
-        <translation>Personoi taustakuvaa ja näytönsäästää</translation>
-    </message>
-    <message>
-        <source>Screensaver</source>
-        <translation>Näytönsäästäjä</translation>
-    </message>
-    <message>
-        <source>Colors and icons</source>
-        <translation>Värit ja kuvakkeet</translation>
-    </message>
-    <message>
-        <source>Adjust accent color and theme icons</source>
-        <translation>Säädä korostusvärejä ja teeman kuvakkeisiin</translation>
-    </message>
-    <message>
-        <source>Font and font size</source>
-        <translation>Kirjasin ja koko</translation>
-    </message>
-    <message>
-        <source>Change system font and size</source>
-        <translation>Muuta kirjasinta ja kokoa</translation>
-    </message>
-    <message>
-        <source>Wallpaper</source>
-        <translation>Taustakuva</translation>
-    </message>
-    <message>
-        <source>Select light, dark or automatic theme appearance</source>
-        <translation>Valitse vaalea, tumma tai autom. teeman ulkoasu</translation>
-    </message>
-    <message>
-        <source>Interface and effects, rounded corners</source>
-        <translation>Käyttöliittymä ja tehosteet, pyöristetyt kulmat</translation>
-    </message>
-</context>
-<context>
-    <name>power</name>
-    <message>
-        <source>Power saving settings, screen and suspend</source>
-        <translation>Virransäästö, näyttö ja valmiustila</translation>
-    </message>
-    <message>
-        <source>Power</source>
-        <translation>Virta</translation>
-    </message>
-</context>
-<context>
-    <name>powerMain</name>
-    <message>
-        <source>General</source>
-        <translation>Yleinen</translation>
-    </message>
-    <message>
-        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Virrankäyttö, virransäästö, herääminen, sammuttaminen, asetukset</translation>
-    </message>
-    <message>
-        <source>Plugged In</source>
-        <translation>Kytketty</translation>
-    </message>
-    <message>
-        <source>Screen and suspend</source>
-        <translation>Näyttö ja valmiustila</translation>
-    </message>
-    <message>
-        <source>On Battery</source>
-        <translation>Akulla</translation>
-    </message>
-    <message>
-        <source>screen and suspend, low battery, battery management</source>
-        <translation>näyttö ja valmustila, alhainen akku, akun hallinta</translation>
-    </message>
-</context>
-<context>
-    <name>privacy</name>
-    <message>
-        <source>Privacy and Security</source>
-        <translation>Yksityisyys ja tietoturva</translation>
-    </message>
-    <message>
-        <source>Camera, folder permissions</source>
-        <translation>Kamera, kansion käyttöoikeudet</translation>
-    </message>
-</context>
-<context>
-    <name>privacyMain</name>
-    <message>
-        <source>Camera</source>
-        <translation>Kamera</translation>
-    </message>
-    <message>
-        <source>Choose whether the application has access to the camera</source>
-        <translation>Valitse, onko sovelluksella pääsy kameraan</translation>
-    </message>
-    <message>
-        <source>Files and Folders</source>
-        <translation>Tiedostot ja kansiot</translation>
-    </message>
-    <message>
-        <source>Choose whether the application has access to files and folders</source>
-        <translation>Valitse, onko sovelluksella pääsy tiedostoihin ja kansioihin</translation>
-    </message>
-</context>
-<context>
-    <name>sound</name>
-    <message>
-        <source>Sound</source>
-        <translation>Ääni</translation>
-    </message>
-    <message>
-        <source>Output, input, sound effects, devices</source>
-        <translation>Ulostulo, sisääntulo, äänitehosteet, laitteet</translation>
-    </message>
-</context>
-<context>
-    <name>soundMain</name>
-    <message>
-        <source>Settings</source>
-        <translation>Asetukset</translation>
-    </message>
-    <message>
-        <source>Sound Effects</source>
-        <translation>Äänitehosteet</translation>
-    </message>
-    <message>
-        <source>Enable/disable sound effects</source>
-        <translation>Äänitehosteet käyttöön/pois</translation>
-    </message>
-    <message>
-        <source>Enable/disable audio devices</source>
-        <translation>Käytä/poista äänilaite käytöstä</translation>
-    </message>
-    <message>
-        <source>Devices Management</source>
-        <translation>Laitehallinta</translation>
-    </message>
-</context>
-<context>
-    <name>system</name>
-    <message>
-        <source>Common settings</source>
-        <translation>Yleiset asetukset</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>Järjestelmä</translation>
-    </message>
-</context>
-<context>
-    <name>systemInfo</name>
-    <message>
-        <source>Auxiliary Information</source>
-        <translation>Aputiedot</translation>
-    </message>
-</context>
-<context>
-    <name>systemInfoMain</name>
-    <message>
-        <source>About This PC</source>
-        <translation>Tietoja tästä tietokoneesta</translation>
-    </message>
-    <message>
-        <source>System version, device information</source>
-        <translation>Versio, järjestelmätiedot</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>Katso ilmoitus avoimen lähdekoodin ohjelmistoista</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>Käyttökokemusohjelma</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>Liity käyttökokemusohjelmaan ja voit auttaa parantamaan tätä tuotetta</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>Loppukäyttäjän lisenssisopimus</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>Näytä loppukäyttäjän lisenssisopimus</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>Tietosuojakäytäntö</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>Katso tietoja tietosuojakäytännöstä</translation>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
-        <translation>Ilmoitus avoimen lähdekoodin ohjelmistosta</translation>
-    </message>
-</context>
-<context>
-    <name>touchscreen</name>
-    <message>
-        <source>Touchscreen</source>
-        <translation>Kosketusnäyttö</translation>
-    </message>
-    <message>
-        <source>Configuring Touchscreen</source>
-        <translation>Kosketusnäytön konfigurointi</translation>
-    </message>
-</context>
-<context>
-    <name>touchscreenMain</name>
-    <message>
-        <source>Common</source>
-        <translation>Yleinen</translation>
-    </message>
-</context>
-<context>
-    <name>wacom</name>
-    <message>
-        <source>wacom</source>
-        <translation>wacom</translation>
-    </message>
-    <message>
-        <source>Configuring wacom</source>
-        <translation>Wacomin konfigurointi</translation>
-    </message>
-</context>
-<context>
-    <name>wacomMain</name>
-    <message>
-        <source>wacom</source>
-        <translation>wacom</translation>
-    </message>
-    <message>
-        <source>Pen Mode</source>
-        <translation>Kynä</translation>
-    </message>
-    <message>
-        <source>Mouse Mode</source>
-        <translation>Hiiri</translation>
-    </message>
-    <message>
-        <source>Pressure Sensitivity</source>
-        <translation>Paineherkkyys</translation>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation>Kevyt</translation>
-    </message>
-    <message>
-        <source>Heavy</source>
-        <translation>Vahva</translation>
-    </message>
-    <message>
-        <source>Model</source>
-        <translation>Malli</translation>
     </message>
 </context>
 </TS>

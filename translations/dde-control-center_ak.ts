@@ -1847,7 +1847,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>Mouse</name>
+    <name>MousePage</name>
     <message>
         <source>Mouse</source>
         <translation type="unfinished"/>
@@ -3169,7 +3169,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>accounts</name>
+    <name>Accounts</name>
     <message>
         <source>Account</source>
         <translation type="unfinished"/>
@@ -3180,21 +3180,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>accountsMain</name>
+    <name>AccountsMain</name>
     <message>
         <source>Other accounts</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>authentication</name>
+    <name>Authentication</name>
     <message>
         <source>Biometric Authentication</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>authenticationMain</name>
+    <name>AuthenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
         <translation type="unfinished"/>
@@ -3245,7 +3245,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>blueTooth</name>
+    <name>BlueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
         <translation type="unfinished"/>
@@ -3256,7 +3256,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>commonInfoMain</name>
+    <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
         <translation type="unfinished"/>
@@ -3279,7 +3279,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>datetime</name>
+    <name>Datetime</name>
     <message>
         <source>Time and date</source>
         <translation type="unfinished"/>
@@ -3559,7 +3559,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>deepinid</name>
+    <name>Deepinid</name>
     <message>
         <source>deepin ID</source>
         <translation type="unfinished"/>
@@ -3574,7 +3574,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>defaultapp</name>
+    <name>Defaultapp</name>
     <message>
         <source>Default App</source>
         <translation type="unfinished"/>
@@ -3585,7 +3585,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>defaultappMain</name>
+    <name>DefaultappMain</name>
     <message>
         <source>Webpage</source>
         <translation type="unfinished"/>
@@ -3616,14 +3616,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>device</name>
+    <name>Device</name>
     <message>
         <source>Device</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>display</name>
+    <name>Display</name>
     <message>
         <source>Display</source>
         <translation type="unfinished"/>
@@ -3634,7 +3634,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>displayMain</name>
+    <name>DisplayMain</name>
     <message>
         <source>100%</source>
         <translation type="unfinished"/>
@@ -3825,7 +3825,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>dock</name>
+    <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
         <translation type="unfinished"/>
@@ -3836,7 +3836,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>keyboard</name>
+    <name>Keyboard</name>
     <message>
         <source>Keyboard</source>
         <translation type="unfinished"/>
@@ -3847,14 +3847,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>keyboardMain</name>
+    <name>KeyboardMain</name>
     <message>
         <source>Common</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>main</name>
+    <name>DockMain</name>
     <message>
         <source>Dock</source>
         <translation type="unfinished"/>
@@ -3949,7 +3949,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>mouse</name>
+    <name>Mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
         <translation type="unfinished"/>
@@ -3960,7 +3960,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>mouseMain</name>
+    <name>MouseMain</name>
     <message>
         <source>Common</source>
         <translation type="unfinished"/>
@@ -3975,7 +3975,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>notification</name>
+    <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
         <translation type="unfinished"/>
@@ -3986,7 +3986,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>notificationMain</name>
+    <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
         <translation type="unfinished"/>
@@ -4041,14 +4041,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>personalization</name>
+    <name>Personalization</name>
     <message>
         <source>Personalization</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>personalizationMain</name>
+    <name>PersonalizationMain</name>
     <message>
         <source>Theme</source>
         <translation type="unfinished"/>
@@ -4099,7 +4099,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>power</name>
+    <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
         <translation type="unfinished"/>
@@ -4110,7 +4110,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>powerMain</name>
+    <name>PowerMain</name>
     <message>
         <source>General</source>
         <translation type="unfinished"/>
@@ -4137,7 +4137,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>privacy</name>
+    <name>Privacy</name>
     <message>
         <source>Privacy and Security</source>
         <translation type="unfinished"/>
@@ -4148,7 +4148,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>privacyMain</name>
+    <name>PrivacyMain</name>
     <message>
         <source>Camera</source>
         <translation type="unfinished"/>
@@ -4167,7 +4167,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>sound</name>
+    <name>Sound</name>
     <message>
         <source>Sound</source>
         <translation type="unfinished"/>
@@ -4178,7 +4178,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>soundMain</name>
+    <name>SoundMain</name>
     <message>
         <source>Settings</source>
         <translation type="unfinished"/>
@@ -4201,7 +4201,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>system</name>
+    <name>System</name>
     <message>
         <source>Common settings</source>
         <translation type="unfinished"/>
@@ -4212,14 +4212,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>systemInfo</name>
+    <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>systemInfoMain</name>
+    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
         <translation type="unfinished"/>
@@ -4262,7 +4262,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>touchscreen</name>
+    <name>Touchscreen</name>
     <message>
         <source>Touchscreen</source>
         <translation type="unfinished"/>
@@ -4273,14 +4273,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>touchscreenMain</name>
+    <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
         <translation type="unfinished"/>
     </message>
 </context>
 <context>
-    <name>wacom</name>
+    <name>Wacom</name>
     <message>
         <source>wacom</source>
         <translation type="unfinished"/>
@@ -4291,7 +4291,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>wacomMain</name>
+    <name>WacomMain</name>
     <message>
         <source>wacom</source>
         <translation type="unfinished"/>

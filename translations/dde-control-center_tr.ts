@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="tr">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="tr">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -123,6 +125,24 @@
     </message>
 </context>
 <context>
+    <name>Accounts</name>
+    <message>
+        <source>Account</source>
+        <translation>Hesap</translation>
+    </message>
+    <message>
+        <source>Account manager</source>
+        <translation>Hesap yönetimi</translation>
+    </message>
+</context>
+<context>
+    <name>AccountsMain</name>
+    <message>
+        <source>Other accounts</source>
+        <translation>Diğer hesaplar</translation>
+    </message>
+</context>
+<context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
@@ -173,7 +193,7 @@ Başarılı bir giriş sağlamak için:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;&quot;Biyometrik kimlik doğrulama&quot;, UnionTech Software Technology Co., Ltd. tarafından sağlanan kullanıcı kimliği doğrulama işlevidir. &quot;Biyometrik kimlik doğrulama&quot; yoluyla, toplanan biyometrik veriler cihazda saklanan verilerle karşılaştırılacak ve karşılaştırma sonucuna göre kullanıcı kimliği doğrulanacaktır.
@@ -220,7 +240,7 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;Biyometrik kimlik doğrulama&quot;, UnionTech Software Technology Co., Ltd. tarafından sağlanan kullanıcı kimliği kimlik doğrulaması için bir işlevdir. &quot;Biyometrik kimlik doğrulama&quot; yoluyla, toplanan biyometrik veriler cihazda depolanan verilerle karşılaştırılacak ve kullanıcı kimliği, karşılaştırma sonucu. 
@@ -269,7 +289,7 @@ UnionTech Software Technology Co., Ltd, biyometrik kimlik doğrulamanın güvenl
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;&quot;Biyometrik kimlik doğrulama&quot;, UnionTech Software Technology Co., Ltd. tarafından sağlanan kullanıcı kimliği doğrulama işlevidir. &quot;Biyometrik kimlik doğrulama&quot; yoluyla, toplanan biyometrik veriler cihazda saklanan verilerle karşılaştırılacak ve karşılaştırma sonucuna göre kullanıcı kimliği doğrulanacaktır.
@@ -281,6 +301,68 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
         <translation>Lütfen cihaza bakın ve her iki gözünüzün de kayıt alanı içerisinde olduğundan emin olun</translation>
+    </message>
+</context>
+<context>
+    <name>Authentication</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>Biyometrik Kimlik Doğrulama</translation>
+    </message>
+</context>
+<context>
+    <name>AuthenticationMain</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>Biyometrik Kimlik Doğrulama</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Yüz</translation>
+    </message>
+    <message>
+        <source>Up to 5 facial data can be entered</source>
+        <translation>5 adede kadar yüz verisi girilebilir</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation>Parmak İzi</translation>
+    </message>
+    <message>
+        <source>Identifying user identity through scanning fingerprints</source>
+        <translation>Parmak izlerinin taranmasıyla kullanıcı kimliğinin belirlenmesi</translation>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation>İris</translation>
+    </message>
+    <message>
+        <source>Identity recognition through iris scanning</source>
+        <translation>İris taramasıyla kimlik tanıma</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation>Yalnızca harf, rakam ve alt çizgi kullanın ve en fazla 15 karakter kullanın</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only</source>
+        <translation>Yalnızca harf, rakam ve alt çizgi kullanın</translation>
+    </message>
+    <message>
+        <source>No more than 15 characters</source>
+        <translation>15 karakterden fazla değil</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation>Bu isim zaten mevcut</translation>
+    </message>
+    <message>
+        <source>Add a new %1 ...</source>
+        <translation>Yeni bir %1 ekle...</translation>
+    </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -410,6 +492,17 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     <message>
         <source>Disable</source>
         <translation>Devre Dışı </translation>
+    </message>
+</context>
+<context>
+    <name>BlueTooth</name>
+    <message>
+        <source>Bluetooth settings, devices</source>
+        <translation>Bluetooth ayarları, Aygıtlar</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -850,6 +943,29 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     </message>
 </context>
 <context>
+    <name>CommonInfoMain</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation>Ön Yükleme Menüsü</translation>
+    </message>
+    <message>
+        <source>Manage your boot menu</source>
+        <translation>Önyükleme menünüzü yönetin</translation>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation>Geliştirici root izin yönetimi</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation>Geliştirici Seçenekleri</translation>
+    </message>
+    <message>
+        <source>Developer debugging options</source>
+        <translation>Geliştirici hata ayıklama seçenekleri</translation>
+    </message>
+</context>
+<context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
@@ -1036,11 +1152,11 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1076,6 +1192,25 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     <message>
         <source>Confirm</source>
         <translation>Onayla</translation>
+    </message>
+</context>
+<context>
+    <name>Datetime</name>
+    <message>
+        <source>Time and date</source>
+        <translation>Saat ve tarih</translation>
+    </message>
+    <message>
+        <source>Time and date, time zone settings</source>
+        <translation>Saat ve tarih, saat dilimi ayarları</translation>
+    </message>
+    <message>
+        <source>Language and region</source>
+        <translation>Dil ve bölge</translation>
+    </message>
+    <message>
+        <source>System language, regional formats</source>
+        <translation>Sistem dili, bölgesel formatlar</translation>
     </message>
 </context>
 <context>
@@ -1367,6 +1502,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Deepinid</name>
+    <message>
+        <source>deepin ID</source>
+        <translation>Deepin Kimliği</translation>
+    </message>
+    <message>
+        <source>UOS ID</source>
+        <translation>UOS Kimliği</translation>
+    </message>
+    <message>
+        <source>Cloud services</source>
+        <translation>Bulut hizmetleri</translation>
+    </message>
+</context>
+<context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
@@ -1383,6 +1533,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
         <translation>Yerel yasa ve yönetmeliklerinize bağlı olarak, şu anda bölgenizde kullanılamamaktadır.</translation>
+    </message>
+</context>
+<context>
+    <name>Defaultapp</name>
+    <message>
+        <source>Default App</source>
+        <translation>Varsayılan Uygulama</translation>
+    </message>
+    <message>
+        <source>Set the default application for opening various types of files</source>
+        <translation>Çeşitli dosya türlerini açmak için varsayılan uygulamayı ayarlayın</translation>
+    </message>
+</context>
+<context>
+    <name>DefaultappMain</name>
+    <message>
+        <source>Webpage</source>
+        <translation>Web sayfası</translation>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation>E-posta</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Metin</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation>Müzik</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation>Video</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation>Resim</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation>Uçbirim</translation>
     </message>
 </context>
 <context>
@@ -1532,6 +1724,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Device</name>
+    <message>
+        <source>Bluetooth and Other Devices</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -1544,6 +1743,318 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Agree</source>
         <translation>Kabul et</translation>
+    </message>
+</context>
+<context>
+    <name>Display</name>
+    <message>
+        <source>Display</source>
+        <translation>Ekran</translation>
+    </message>
+    <message>
+        <source>Brightness,resolution,scaling</source>
+        <translation>Parlaklık, çözünürlük, ölçekleme</translation>
+    </message>
+</context>
+<context>
+    <name>DisplayMain</name>
+    <message>
+        <source>100%</source>
+        <translation>100%</translation>
+    </message>
+    <message>
+        <source>125%</source>
+        <translation>125%</translation>
+    </message>
+    <message>
+        <source>150%</source>
+        <translation>150%</translation>
+    </message>
+    <message>
+        <source>175%</source>
+        <translation>175%</translation>
+    </message>
+    <message>
+        <source>200%</source>
+        <translation>200%</translation>
+    </message>
+    <message>
+        <source>225%</source>
+        <translation>225%</translation>
+    </message>
+    <message>
+        <source>250%</source>
+        <translation>250%</translation>
+    </message>
+    <message>
+        <source>275%</source>
+        <translation>275%</translation>
+    </message>
+    <message>
+        <source>300%</source>
+        <translation>300%</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Çoğalt</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Genişlet</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>Varsayılan</translation>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation>Sığdır</translation>
+    </message>
+    <message>
+        <source>Stretch</source>
+        <translation>Uzat</translation>
+    </message>
+    <message>
+        <source>Center</source>
+        <translation>Ortala</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Sadece %1&apos;de</translation>
+    </message>
+    <message>
+        <source>Multiple Displays Settings</source>
+        <translation>Çoklu Ekran Ayarları</translation>
+    </message>
+    <message>
+        <source>Identify</source>
+        <translation>Tanımlama</translation>
+    </message>
+    <message>
+        <source>Screen rearrangement will take effect in %1s after changes</source>
+        <translation>Ekran yeniden düzenlemesi, değişikliklerden sonra %1s içinde geçerli olacak</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>Kip</translation>
+    </message>
+    <message>
+        <source>Main Screen</source>
+        <translation>Ana Ekran</translation>
+    </message>
+    <message>
+        <source>Display And Layout</source>
+        <translation>Görüntüleme ve Düzen</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Parlaklık</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation>Çözünürlük</translation>
+    </message>
+    <message>
+        <source>Resize Desktop</source>
+        <translation>Masaüstünü Yeniden Boyutlandır</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation>Yenileme Hızı</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Döndür</translation>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation>Standart</translation>
+    </message>
+    <message>
+        <source>90°</source>
+        <translation>90°</translation>
+    </message>
+    <message>
+        <source>180°</source>
+        <translation>180°</translation>
+    </message>
+    <message>
+        <source>270°</source>
+        <translation>270°</translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation>Ekran yalnızca %100 ekran ölçeklendirmeyi destekler</translation>
+    </message>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Göz Rahatlığı</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Göz rahatlığını enkileştir</translation>
+    </message>
+    <message>
+        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
+        <translation>Ekran görüntüsünü daha sıcak renklere ayarlayın, ekrandaki mavi ışığı azaltın</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>Zaman</translation>
+    </message>
+    <message>
+        <source>All day</source>
+        <translation>Tüm gün</translation>
+    </message>
+    <message>
+        <source>Sunset to Sunrise</source>
+        <translation>Gün batımından gün doğumuna</translation>
+    </message>
+    <message>
+        <source>Custom Time</source>
+        <translation>Özel Zaman</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>buradan</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>buraya</translation>
+    </message>
+    <message>
+        <source>Color Temperature</source>
+        <translation>Renk Sıcaklığı</translation>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation>%1x%2 (Tavsiye edilen)</translation>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation>%1x%2</translation>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation>%1Hz (Tavsiye edilen)</translation>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation>%1Hz</translation>
+    </message>
+    <message>
+        <source>Scaling</source>
+        <translation>Ölçekleme</translation>
+    </message>
+</context>
+<context>
+    <name>Dock</name>
+    <message>
+        <source>Desktop and taskbar</source>
+        <translation>Masaüstü ve görev çubuğu</translation>
+    </message>
+    <message>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation>Masaüstü organizasyonu, görev çubuğu modu, eklenti alanı ayarları</translation>
+    </message>
+</context>
+<context>
+    <name>DockMain</name>
+    <message>
+        <source>Dock</source>
+        <translation>Rıhtım</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>Kip</translation>
+    </message>
+    <message>
+        <source>Classic Mode</source>
+        <translation>Klasik Kip</translation>
+    </message>
+    <message>
+        <source>Centered Mode</source>
+        <translation>Ortalanmış Kip</translation>
+    </message>
+    <message>
+        <source>Dock size</source>
+        <translation>Rıhtım boyutu</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>Küçük</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Büyük</translation>
+    </message>
+    <message>
+        <source>Position on the screen</source>
+        <translation>Ekrandaki konumu</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>Üst</translation>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation>Alt</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation>Sol</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>Sağ</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Durum</translation>
+    </message>
+    <message>
+        <source>Keep shown</source>
+        <translation>Sürekli görünür</translation>
+    </message>
+    <message>
+        <source>Keep hidden</source>
+        <translation>Sürekli gizli</translation>
+    </message>
+    <message>
+        <source>Smart hide</source>
+        <translation>Akıllı gizlenme</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Birden Fazla Ekran</translation>
+    </message>
+    <message>
+        <source>Set the position of the taskbar on the screen</source>
+        <translation>Görev çubuğunun ekrandaki konumunu ayarlayın</translation>
+    </message>
+    <message>
+        <source>Only on main</source>
+        <translation>Yalnızca ana ekranda</translation>
+    </message>
+    <message>
+        <source>On screen where the cursor is</source>
+        <translation>İmlecin olduğu ekranda</translation>
+    </message>
+    <message>
+        <source>Plugin Area</source>
+        <translation>Eklenti Alanı</translation>
+    </message>
+    <message>
+        <source>Select which icons appear in the Dock</source>
+        <translation>Rıhtım&apos;da hangi simgelerin görüneceğini seçin</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation>Rıhtım&apos;ı Kilitle</translation>
+    </message>
+    <message>
+        <source>Combine application icons</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1749,6 +2260,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Keyboard</name>
+    <message>
+        <source>Keyboard</source>
+        <translation>Klavye</translation>
+    </message>
+    <message>
+        <source>General Settings, input method, shortcuts</source>
+        <translation>Genel Ayarlar, giriş yöntemi, kısayollar</translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardMain</name>
+    <message>
+        <source>Common</source>
+        <translation>Ortak</translation>
+    </message>
+</context>
+<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -1882,6 +2411,32 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>Mouse</name>
     <message>
+        <source>Mouse and Touchpad</source>
+        <translation>Fare ve Dokunmatik Yüzey</translation>
+    </message>
+    <message>
+        <source>Common、Mouse、Touchpad</source>
+        <translation>Ortak, Fare, Dokunmatik Yüzey</translation>
+    </message>
+</context>
+<context>
+    <name>MouseMain</name>
+    <message>
+        <source>Common</source>
+        <translation>Ortak</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation>Fare</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation>Dokunmatik Yüzey</translation>
+    </message>
+</context>
+<context>
+    <name>MousePage</name>
+    <message>
         <source>Mouse</source>
         <translation>Fare</translation>
     </message>
@@ -1915,23 +2470,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Küçük</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Orta</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">Büyük</translation>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2002,6 +2557,72 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>1~63 characters please</source>
         <translation>1~63 karakterler lütfen</translation>
+    </message>
+</context>
+<context>
+    <name>Notification</name>
+    <message>
+        <source>DND mode, app notifications</source>
+        <translation>RHT Kipi, uygulama Bildirimleri</translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation>Bildirim</translation>
+    </message>
+</context>
+<context>
+    <name>NotificationMain</name>
+    <message>
+        <source>Do Not Disturb Settings</source>
+        <translation>Rahatsız Etme Ayarları</translation>
+    </message>
+    <message>
+        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
+        <translation>Uygulama bildirimleri masaüstünde gösterilmeyecek ve sesler susturulacak, ancak bildirim merkezindeki tüm mesajları görüntüleyebilirsiniz.</translation>
+    </message>
+    <message>
+        <source>Enable Do Not Disturb</source>
+        <translation>Etkinleştir Rahatsız Etmeyin</translation>
+    </message>
+    <message>
+        <source>When the screen is locked</source>
+        <translation>Ekran kilitlendiğinde</translation>
+    </message>
+    <message>
+        <source>Number of notifications shown on the desktop</source>
+        <translation>Masaüstünde gösterilen bildirim sayısı</translation>
+    </message>
+    <message>
+        <source>App Notifications</source>
+        <translation>Uygulama Bildirimleri</translation>
+    </message>
+    <message>
+        <source>Allow Notifications</source>
+        <translation>Bildirimlere İzin Ver</translation>
+    </message>
+    <message>
+        <source>Display notification on desktop or show unread messages in the notification center</source>
+        <translation>Masaüstünde bildirimi görüntüle veya okunmamış mesajları bildirim merkezinde göster</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>Masaüstü</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>Ekranı Kilitle</translation>
+    </message>
+    <message>
+        <source>Notification Center</source>
+        <translation>Bildirim Merkezi</translation>
+    </message>
+    <message>
+        <source>Show message preview</source>
+        <translation>Mesaj önizlemesini göster</translation>
+    </message>
+    <message>
+        <source>Play a sound</source>
+        <translation>Bir ses çal</translation>
     </message>
 </context>
 <context>
@@ -2098,6 +2719,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Personalization</name>
+    <message>
+        <source>Personalization</source>
+        <translation>Kişiselleştir</translation>
+    </message>
+</context>
+<context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
@@ -2121,6 +2749,57 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>PersonalizationMain</name>
+    <message>
+        <source>Theme</source>
+        <translation>Tema</translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation>Görünüm</translation>
+    </message>
+    <message>
+        <source>Window effect</source>
+        <translation>Pencere efekti</translation>
+    </message>
+    <message>
+        <source>Personalize your wallpaper and screensaver</source>
+        <translation>Duvar kağıdınızı ve ekran koruyucunuzu kişiselleştirin</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation>Ekran koruyucu</translation>
+    </message>
+    <message>
+        <source>Colors and icons</source>
+        <translation>Renkler ve simgeler</translation>
+    </message>
+    <message>
+        <source>Adjust accent color and theme icons</source>
+        <translation>Vurgu rengini ve tema simgelerini ayarlayın</translation>
+    </message>
+    <message>
+        <source>Font and font size</source>
+        <translation>Yazı tipi ve yazı tipi boyutu</translation>
+    </message>
+    <message>
+        <source>Change system font and size</source>
+        <translation>Sistem yazı tipini ve boyutunu değiştir</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation>Duvar Kâğıdı</translation>
+    </message>
+    <message>
+        <source>Select light, dark or automatic theme appearance</source>
+        <translation>Açık, koyu veya otomatik tema görünümünü seçin</translation>
+    </message>
+    <message>
+        <source>Interface and effects, rounded corners</source>
+        <translation>Arayüz ve efektler, yuvarlatılmış köşeler</translation>
+    </message>
+</context>
+<context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
@@ -2136,6 +2815,44 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Rıhtım&apos;da hangi simgelerin görüneceğini seçin</translation>
+    </message>
+</context>
+<context>
+    <name>Power</name>
+    <message>
+        <source>Power saving settings, screen and suspend</source>
+        <translation>Güç tasarrufu ayarları, ekran ve askıya alma</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation>Güç</translation>
+    </message>
+</context>
+<context>
+    <name>PowerMain</name>
+    <message>
+        <source>General</source>
+        <translation>Genel</translation>
+    </message>
+    <message>
+        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
+        <translation>Güç planları, güç tasarrufu ayarları, uyandırma ayarları, kapatma ayarları</translation>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation>Fişe Takılı</translation>
+    </message>
+    <message>
+        <source>Screen and suspend</source>
+        <translation>Ekran ve askıya al</translation>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation>Pilde</translation>
+    </message>
+    <message>
+        <source>screen and suspend, low battery, battery management</source>
+        <translation>ekran ve askıya alma, düşük pil, pil yönetimi</translation>
     </message>
 </context>
 <context>
@@ -2240,6 +2957,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Never</source>
         <translation>Asla</translation>
+    </message>
+</context>
+<context>
+    <name>Privacy</name>
+    <message>
+        <source>Privacy and Security</source>
+        <translation>Gizlilik ve Güvenlik</translation>
+    </message>
+    <message>
+        <source>Camera, folder permissions</source>
+        <translation>Kamera, klasör izinleri</translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyMain</name>
+    <message>
+        <source>Camera</source>
+        <translation>Kamera</translation>
+    </message>
+    <message>
+        <source>Choose whether the application has access to the camera</source>
+        <translation>Uygulamanın kameraya erişimi olup olmadığını seçin</translation>
+    </message>
+    <message>
+        <source>Files and Folders</source>
+        <translation>Dosyalar ve klasörler</translation>
+    </message>
+    <message>
+        <source>Choose whether the application has access to files and folders</source>
+        <translation>Uygulamanın dosyalara ve klasörlere erişimi olup olmadığını seçin</translation>
     </message>
 </context>
 <context>
@@ -2649,6 +3396,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Sound</name>
+    <message>
+        <source>Sound</source>
+        <translation>Ses</translation>
+    </message>
+    <message>
+        <source>Output, input, sound effects, devices</source>
+        <translation>Çıkış, giriş, ses efektleri, cihazlar</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -2668,6 +3426,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Sound Effects</source>
         <translation>Ses Etkileri</translation>
+    </message>
+</context>
+<context>
+    <name>SoundMain</name>
+    <message>
+        <source>Settings</source>
+        <translation>Ayarlar</translation>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation>Ses Efektleri</translation>
+    </message>
+    <message>
+        <source>Enable/disable sound effects</source>
+        <translation>Ses efektlerini etkinleştir/devre dışı bırak</translation>
+    </message>
+    <message>
+        <source>Enable/disable audio devices</source>
+        <translation>Ses aygıtlarını etkinleştir/devre dışı bırak</translation>
+    </message>
+    <message>
+        <source>Devices Management</source>
+        <translation>Cihaz Yönetimi</translation>
     </message>
 </context>
 <context>
@@ -2809,6 +3590,67 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Screensaver</source>
         <translation>Ekran koruyucu</translation>
+    </message>
+</context>
+<context>
+    <name>System</name>
+    <message>
+        <source>Common settings</source>
+        <translation>Ortak ayarlar</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation>Sistem</translation>
+    </message>
+</context>
+<context>
+    <name>SystemInfo</name>
+    <message>
+        <source>Auxiliary Information</source>
+        <translation>Yardımcı Bilgiler</translation>
+    </message>
+</context>
+<context>
+    <name>SystemInfoMain</name>
+    <message>
+        <source>About This PC</source>
+        <translation>Bu PC Hakkında</translation>
+    </message>
+    <message>
+        <source>System version, device information</source>
+        <translation>Sistem sürümü, cihaz bilgileri</translation>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation>Açık kaynaklı yazılım bildirimini görüntüle</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation>Kullanıcı Deneyimi Programı</translation>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation>Ürünü iyileştirmeye yardımcı olmak için kullanıcı deneyimi programına katılın</translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation>Son Kullanıcı Lisans Sözleşmesi</translation>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation>Son kullanıcı lisans sözleşmesini görüntüleyin</translation>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation>Gizlilik Politikası</translation>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation>Gizlilik politikası hakkında bilgi görüntüle</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation>Açık Kaynak Yazılım Bildirimi</translation>
     </message>
 </context>
 <context>
@@ -2985,6 +3827,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Touchscreen</name>
+    <message>
+        <source>Touchscreen</source>
+        <translation>Dokunmatik ekran</translation>
+    </message>
+    <message>
+        <source>Configuring Touchscreen</source>
+        <translation>Dokunmatik Ekranı Yapılandır</translation>
+    </message>
+</context>
+<context>
+    <name>TouchscreenMain</name>
+    <message>
+        <source>Common</source>
+        <translation>Ortak</translation>
+    </message>
+</context>
+<context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
@@ -3020,6 +3880,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Confirm</source>
         <translation>Onayla</translation>
+    </message>
+</context>
+<context>
+    <name>Wacom</name>
+    <message>
+        <source>wacom</source>
+        <translation>wacom</translation>
+    </message>
+    <message>
+        <source>Configuring wacom</source>
+        <translation>Wacom&apos;u yapılandır</translation>
+    </message>
+</context>
+<context>
+    <name>WacomMain</name>
+    <message>
+        <source>wacom</source>
+        <translation>wacom</translation>
+    </message>
+    <message>
+        <source>Pen Mode</source>
+        <translation>Kalem Kipi</translation>
+    </message>
+    <message>
+        <source>Mouse Mode</source>
+        <translation>Fare Kipi</translation>
+    </message>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation>Basınç Duyarlığı</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Açık</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation>Ağır</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation>Model</translation>
     </message>
 </context>
 <context>
@@ -3121,7 +4023,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3219,139 +4121,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
         <translation>Orta</translation>
-    </message>
-</context>
-<context>
-    <name>accounts</name>
-    <message>
-        <source>Account</source>
-        <translation>Hesap</translation>
-    </message>
-    <message>
-        <source>Account manager</source>
-        <translation>Hesap yönetimi</translation>
-    </message>
-</context>
-<context>
-    <name>accountsMain</name>
-    <message>
-        <source>Other accounts</source>
-        <translation>Diğer hesaplar</translation>
-    </message>
-</context>
-<context>
-    <name>authentication</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>Biyometrik Kimlik Doğrulama</translation>
-    </message>
-</context>
-<context>
-    <name>authenticationMain</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>Biyometrik Kimlik Doğrulama</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>Yüz</translation>
-    </message>
-    <message>
-        <source>Up to 5 facial data can be entered</source>
-        <translation>5 adede kadar yüz verisi girilebilir</translation>
-    </message>
-    <message>
-        <source>Fingerprint</source>
-        <translation>Parmak İzi</translation>
-    </message>
-    <message>
-        <source>Identifying user identity through scanning fingerprints</source>
-        <translation>Parmak izlerinin taranmasıyla kullanıcı kimliğinin belirlenmesi</translation>
-    </message>
-    <message>
-        <source>Iris</source>
-        <translation>İris</translation>
-    </message>
-    <message>
-        <source>Identity recognition through iris scanning</source>
-        <translation>İris taramasıyla kimlik tanıma</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Yalnızca harf, rakam ve alt çizgi kullanın ve en fazla 15 karakter kullanın</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only</source>
-        <translation>Yalnızca harf, rakam ve alt çizgi kullanın</translation>
-    </message>
-    <message>
-        <source>No more than 15 characters</source>
-        <translation>15 karakterden fazla değil</translation>
-    </message>
-    <message>
-        <source>This name already exists</source>
-        <translation>Bu isim zaten mevcut</translation>
-    </message>
-    <message>
-        <source>Add a new %1 ...</source>
-        <translation>Yeni bir %1 ekle...</translation>
-    </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>blueTooth</name>
-    <message>
-        <source>Bluetooth settings, devices</source>
-        <translation>Bluetooth ayarları, Aygıtlar</translation>
-    </message>
-    <message>
-        <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
-    </message>
-</context>
-<context>
-    <name>commonInfoMain</name>
-    <message>
-        <source>Boot Menu</source>
-        <translation>Ön Yükleme Menüsü</translation>
-    </message>
-    <message>
-        <source>Manage your boot menu</source>
-        <translation>Önyükleme menünüzü yönetin</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Geliştirici root izin yönetimi</translation>
-    </message>
-    <message>
-        <source>Developer Options</source>
-        <translation>Geliştirici Seçenekleri</translation>
-    </message>
-    <message>
-        <source>Developer debugging options</source>
-        <translation>Geliştirici hata ayıklama seçenekleri</translation>
-    </message>
-</context>
-<context>
-    <name>datetime</name>
-    <message>
-        <source>Time and date</source>
-        <translation>Saat ve tarih</translation>
-    </message>
-    <message>
-        <source>Time and date, time zone settings</source>
-        <translation>Saat ve tarih, saat dilimi ayarları</translation>
-    </message>
-    <message>
-        <source>Language and region</source>
-        <translation>Dil ve bölge</translation>
-    </message>
-    <message>
-        <source>System language, regional formats</source>
-        <translation>Sistem dili, bölgesel formatlar</translation>
     </message>
 </context>
 <context>
@@ -3617,773 +4386,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Hiçbiri</translation>
-    </message>
-</context>
-<context>
-    <name>deepinid</name>
-    <message>
-        <source>deepin ID</source>
-        <translation>Deepin Kimliği</translation>
-    </message>
-    <message>
-        <source>UOS ID</source>
-        <translation>UOS Kimliği</translation>
-    </message>
-    <message>
-        <source>Cloud services</source>
-        <translation>Bulut hizmetleri</translation>
-    </message>
-</context>
-<context>
-    <name>defaultapp</name>
-    <message>
-        <source>Default App</source>
-        <translation>Varsayılan Uygulama</translation>
-    </message>
-    <message>
-        <source>Set the default application for opening various types of files</source>
-        <translation>Çeşitli dosya türlerini açmak için varsayılan uygulamayı ayarlayın</translation>
-    </message>
-</context>
-<context>
-    <name>defaultappMain</name>
-    <message>
-        <source>Webpage</source>
-        <translation>Web sayfası</translation>
-    </message>
-    <message>
-        <source>Mail</source>
-        <translation>E-posta</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation>Metin</translation>
-    </message>
-    <message>
-        <source>Music</source>
-        <translation>Müzik</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation>Video</translation>
-    </message>
-    <message>
-        <source>Picture</source>
-        <translation>Resim</translation>
-    </message>
-    <message>
-        <source>Terminal</source>
-        <translation>Uçbirim</translation>
-    </message>
-</context>
-<context>
-    <name>device</name>
-    <message>
-        <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>display</name>
-    <message>
-        <source>Display</source>
-        <translation>Ekran</translation>
-    </message>
-    <message>
-        <source>Brightness,resolution,scaling</source>
-        <translation>Parlaklık, çözünürlük, ölçekleme</translation>
-    </message>
-</context>
-<context>
-    <name>displayMain</name>
-    <message>
-        <source>100%</source>
-        <translation>100%</translation>
-    </message>
-    <message>
-        <source>125%</source>
-        <translation>125%</translation>
-    </message>
-    <message>
-        <source>150%</source>
-        <translation>150%</translation>
-    </message>
-    <message>
-        <source>175%</source>
-        <translation>175%</translation>
-    </message>
-    <message>
-        <source>200%</source>
-        <translation>200%</translation>
-    </message>
-    <message>
-        <source>225%</source>
-        <translation>225%</translation>
-    </message>
-    <message>
-        <source>250%</source>
-        <translation>250%</translation>
-    </message>
-    <message>
-        <source>275%</source>
-        <translation>275%</translation>
-    </message>
-    <message>
-        <source>300%</source>
-        <translation>300%</translation>
-    </message>
-    <message>
-        <source>Duplicate</source>
-        <translation>Çoğalt</translation>
-    </message>
-    <message>
-        <source>Extend</source>
-        <translation>Genişlet</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation>Varsayılan</translation>
-    </message>
-    <message>
-        <source>Fit</source>
-        <translation>Sığdır</translation>
-    </message>
-    <message>
-        <source>Stretch</source>
-        <translation>Uzat</translation>
-    </message>
-    <message>
-        <source>Center</source>
-        <translation>Ortala</translation>
-    </message>
-    <message>
-        <source>Only on %1</source>
-        <translation>Sadece %1&apos;de</translation>
-    </message>
-    <message>
-        <source>Multiple Displays Settings</source>
-        <translation>Çoklu Ekran Ayarları</translation>
-    </message>
-    <message>
-        <source>Identify</source>
-        <translation>Tanımlama</translation>
-    </message>
-    <message>
-        <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>Ekran yeniden düzenlemesi, değişikliklerden sonra %1s içinde geçerli olacak</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation>Kip</translation>
-    </message>
-    <message>
-        <source>Main Screen</source>
-        <translation>Ana Ekran</translation>
-    </message>
-    <message>
-        <source>Display And Layout</source>
-        <translation>Görüntüleme ve Düzen</translation>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation>Parlaklık</translation>
-    </message>
-    <message>
-        <source>Resolution</source>
-        <translation>Çözünürlük</translation>
-    </message>
-    <message>
-        <source>Resize Desktop</source>
-        <translation>Masaüstünü Yeniden Boyutlandır</translation>
-    </message>
-    <message>
-        <source>Refresh Rate</source>
-        <translation>Yenileme Hızı</translation>
-    </message>
-    <message>
-        <source>Rotation</source>
-        <translation>Döndür</translation>
-    </message>
-    <message>
-        <source>Standard</source>
-        <translation>Standart</translation>
-    </message>
-    <message>
-        <source>90°</source>
-        <translation>90°</translation>
-    </message>
-    <message>
-        <source>180°</source>
-        <translation>180°</translation>
-    </message>
-    <message>
-        <source>270°</source>
-        <translation>270°</translation>
-    </message>
-    <message>
-        <source>The monitor only supports 100% display scaling</source>
-        <translation>Ekran yalnızca %100 ekran ölçeklendirmeyi destekler</translation>
-    </message>
-    <message>
-        <source>Eye Comfort</source>
-        <translation>Göz Rahatlığı</translation>
-    </message>
-    <message>
-        <source>Enable eye comfort</source>
-        <translation>Göz rahatlığını enkileştir</translation>
-    </message>
-    <message>
-        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation>Ekran görüntüsünü daha sıcak renklere ayarlayın, ekrandaki mavi ışığı azaltın</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Zaman</translation>
-    </message>
-    <message>
-        <source>All day</source>
-        <translation>Tüm gün</translation>
-    </message>
-    <message>
-        <source>Sunset to Sunrise</source>
-        <translation>Gün batımından gün doğumuna</translation>
-    </message>
-    <message>
-        <source>Custom Time</source>
-        <translation>Özel Zaman</translation>
-    </message>
-    <message>
-        <source>from</source>
-        <translation>buradan</translation>
-    </message>
-    <message>
-        <source>to</source>
-        <translation>buraya</translation>
-    </message>
-    <message>
-        <source>Color Temperature</source>
-        <translation>Renk Sıcaklığı</translation>
-    </message>
-    <message>
-        <source>%1x%2 (Recommended)</source>
-        <translation>%1x%2 (Tavsiye edilen)</translation>
-    </message>
-    <message>
-        <source>%1x%2</source>
-        <translation>%1x%2</translation>
-    </message>
-    <message>
-        <source>%1Hz (Recommended)</source>
-        <translation>%1Hz (Tavsiye edilen)</translation>
-    </message>
-    <message>
-        <source>%1Hz</source>
-        <translation>%1Hz</translation>
-    </message>
-    <message>
-        <source>Scaling</source>
-        <translation>Ölçekleme</translation>
-    </message>
-</context>
-<context>
-    <name>dock</name>
-    <message>
-        <source>Desktop and taskbar</source>
-        <translation>Masaüstü ve görev çubuğu</translation>
-    </message>
-    <message>
-        <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation>Masaüstü organizasyonu, görev çubuğu modu, eklenti alanı ayarları</translation>
-    </message>
-</context>
-<context>
-    <name>keyboard</name>
-    <message>
-        <source>Keyboard</source>
-        <translation>Klavye</translation>
-    </message>
-    <message>
-        <source>General Settings, input method, shortcuts</source>
-        <translation>Genel Ayarlar, giriş yöntemi, kısayollar</translation>
-    </message>
-</context>
-<context>
-    <name>keyboardMain</name>
-    <message>
-        <source>Common</source>
-        <translation>Ortak</translation>
-    </message>
-</context>
-<context>
-    <name>main</name>
-    <message>
-        <source>Dock</source>
-        <translation>Rıhtım</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation>Kip</translation>
-    </message>
-    <message>
-        <source>Classic Mode</source>
-        <translation>Klasik Kip</translation>
-    </message>
-    <message>
-        <source>Centered Mode</source>
-        <translation>Ortalanmış Kip</translation>
-    </message>
-    <message>
-        <source>Dock size</source>
-        <translation>Rıhtım boyutu</translation>
-    </message>
-    <message>
-        <source>Small</source>
-        <translation>Küçük</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Büyük</translation>
-    </message>
-    <message>
-        <source>Position on the screen</source>
-        <translation>Ekrandaki konumu</translation>
-    </message>
-    <message>
-        <source>Top</source>
-        <translation>Üst</translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation>Alt</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation>Sol</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation>Sağ</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Durum</translation>
-    </message>
-    <message>
-        <source>Keep shown</source>
-        <translation>Sürekli görünür</translation>
-    </message>
-    <message>
-        <source>Keep hidden</source>
-        <translation>Sürekli gizli</translation>
-    </message>
-    <message>
-        <source>Smart hide</source>
-        <translation>Akıllı gizlenme</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Birden Fazla Ekran</translation>
-    </message>
-    <message>
-        <source>Set the position of the taskbar on the screen</source>
-        <translation>Görev çubuğunun ekrandaki konumunu ayarlayın</translation>
-    </message>
-    <message>
-        <source>Only on main</source>
-        <translation>Yalnızca ana ekranda</translation>
-    </message>
-    <message>
-        <source>On screen where the cursor is</source>
-        <translation>İmlecin olduğu ekranda</translation>
-    </message>
-    <message>
-        <source>Plugin Area</source>
-        <translation>Eklenti Alanı</translation>
-    </message>
-    <message>
-        <source>Select which icons appear in the Dock</source>
-        <translation>Rıhtım&apos;da hangi simgelerin görüneceğini seçin</translation>
-    </message>
-    <message>
-        <source>Lock the Dock</source>
-        <translation>Rıhtım&apos;ı Kilitle</translation>
-    </message>
-    <message>
-        <source>Combine application icons</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>mouse</name>
-    <message>
-        <source>Mouse and Touchpad</source>
-        <translation>Fare ve Dokunmatik Yüzey</translation>
-    </message>
-    <message>
-        <source>Common、Mouse、Touchpad</source>
-        <translation>Ortak, Fare, Dokunmatik Yüzey</translation>
-    </message>
-</context>
-<context>
-    <name>mouseMain</name>
-    <message>
-        <source>Common</source>
-        <translation>Ortak</translation>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation>Fare</translation>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation>Dokunmatik Yüzey</translation>
-    </message>
-</context>
-<context>
-    <name>notification</name>
-    <message>
-        <source>DND mode, app notifications</source>
-        <translation>RHT Kipi, uygulama Bildirimleri</translation>
-    </message>
-    <message>
-        <source>Notification</source>
-        <translation>Bildirim</translation>
-    </message>
-</context>
-<context>
-    <name>notificationMain</name>
-    <message>
-        <source>Do Not Disturb Settings</source>
-        <translation>Rahatsız Etme Ayarları</translation>
-    </message>
-    <message>
-        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>Uygulama bildirimleri masaüstünde gösterilmeyecek ve sesler susturulacak, ancak bildirim merkezindeki tüm mesajları görüntüleyebilirsiniz.</translation>
-    </message>
-    <message>
-        <source>Enable Do Not Disturb</source>
-        <translation>Etkinleştir Rahatsız Etmeyin</translation>
-    </message>
-    <message>
-        <source>When the screen is locked</source>
-        <translation>Ekran kilitlendiğinde</translation>
-    </message>
-    <message>
-        <source>Number of notifications shown on the desktop</source>
-        <translation>Masaüstünde gösterilen bildirim sayısı</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>Uygulama Bildirimleri</translation>
-    </message>
-    <message>
-        <source>Allow Notifications</source>
-        <translation>Bildirimlere İzin Ver</translation>
-    </message>
-    <message>
-        <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>Masaüstünde bildirimi görüntüle veya okunmamış mesajları bildirim merkezinde göster</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Masaüstü</translation>
-    </message>
-    <message>
-        <source>Lock Screen</source>
-        <translation>Ekranı Kilitle</translation>
-    </message>
-    <message>
-        <source>Notification Center</source>
-        <translation>Bildirim Merkezi</translation>
-    </message>
-    <message>
-        <source>Show message preview</source>
-        <translation>Mesaj önizlemesini göster</translation>
-    </message>
-    <message>
-        <source>Play a sound</source>
-        <translation>Bir ses çal</translation>
-    </message>
-</context>
-<context>
-    <name>personalization</name>
-    <message>
-        <source>Personalization</source>
-        <translation>Kişiselleştir</translation>
-    </message>
-</context>
-<context>
-    <name>personalizationMain</name>
-    <message>
-        <source>Theme</source>
-        <translation>Tema</translation>
-    </message>
-    <message>
-        <source>Appearance</source>
-        <translation>Görünüm</translation>
-    </message>
-    <message>
-        <source>Window effect</source>
-        <translation>Pencere efekti</translation>
-    </message>
-    <message>
-        <source>Personalize your wallpaper and screensaver</source>
-        <translation>Duvar kağıdınızı ve ekran koruyucunuzu kişiselleştirin</translation>
-    </message>
-    <message>
-        <source>Screensaver</source>
-        <translation>Ekran koruyucu</translation>
-    </message>
-    <message>
-        <source>Colors and icons</source>
-        <translation>Renkler ve simgeler</translation>
-    </message>
-    <message>
-        <source>Adjust accent color and theme icons</source>
-        <translation>Vurgu rengini ve tema simgelerini ayarlayın</translation>
-    </message>
-    <message>
-        <source>Font and font size</source>
-        <translation>Yazı tipi ve yazı tipi boyutu</translation>
-    </message>
-    <message>
-        <source>Change system font and size</source>
-        <translation>Sistem yazı tipini ve boyutunu değiştir</translation>
-    </message>
-    <message>
-        <source>Wallpaper</source>
-        <translation>Duvar Kâğıdı</translation>
-    </message>
-    <message>
-        <source>Select light, dark or automatic theme appearance</source>
-        <translation>Açık, koyu veya otomatik tema görünümünü seçin</translation>
-    </message>
-    <message>
-        <source>Interface and effects, rounded corners</source>
-        <translation>Arayüz ve efektler, yuvarlatılmış köşeler</translation>
-    </message>
-</context>
-<context>
-    <name>power</name>
-    <message>
-        <source>Power saving settings, screen and suspend</source>
-        <translation>Güç tasarrufu ayarları, ekran ve askıya alma</translation>
-    </message>
-    <message>
-        <source>Power</source>
-        <translation>Güç</translation>
-    </message>
-</context>
-<context>
-    <name>powerMain</name>
-    <message>
-        <source>General</source>
-        <translation>Genel</translation>
-    </message>
-    <message>
-        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Güç planları, güç tasarrufu ayarları, uyandırma ayarları, kapatma ayarları</translation>
-    </message>
-    <message>
-        <source>Plugged In</source>
-        <translation>Fişe Takılı</translation>
-    </message>
-    <message>
-        <source>Screen and suspend</source>
-        <translation>Ekran ve askıya al</translation>
-    </message>
-    <message>
-        <source>On Battery</source>
-        <translation>Pilde</translation>
-    </message>
-    <message>
-        <source>screen and suspend, low battery, battery management</source>
-        <translation>ekran ve askıya alma, düşük pil, pil yönetimi</translation>
-    </message>
-</context>
-<context>
-    <name>privacy</name>
-    <message>
-        <source>Privacy and Security</source>
-        <translation>Gizlilik ve Güvenlik</translation>
-    </message>
-    <message>
-        <source>Camera, folder permissions</source>
-        <translation>Kamera, klasör izinleri</translation>
-    </message>
-</context>
-<context>
-    <name>privacyMain</name>
-    <message>
-        <source>Camera</source>
-        <translation>Kamera</translation>
-    </message>
-    <message>
-        <source>Choose whether the application has access to the camera</source>
-        <translation>Uygulamanın kameraya erişimi olup olmadığını seçin</translation>
-    </message>
-    <message>
-        <source>Files and Folders</source>
-        <translation>Dosyalar ve klasörler</translation>
-    </message>
-    <message>
-        <source>Choose whether the application has access to files and folders</source>
-        <translation>Uygulamanın dosyalara ve klasörlere erişimi olup olmadığını seçin</translation>
-    </message>
-</context>
-<context>
-    <name>sound</name>
-    <message>
-        <source>Sound</source>
-        <translation>Ses</translation>
-    </message>
-    <message>
-        <source>Output, input, sound effects, devices</source>
-        <translation>Çıkış, giriş, ses efektleri, cihazlar</translation>
-    </message>
-</context>
-<context>
-    <name>soundMain</name>
-    <message>
-        <source>Settings</source>
-        <translation>Ayarlar</translation>
-    </message>
-    <message>
-        <source>Sound Effects</source>
-        <translation>Ses Efektleri</translation>
-    </message>
-    <message>
-        <source>Enable/disable sound effects</source>
-        <translation>Ses efektlerini etkinleştir/devre dışı bırak</translation>
-    </message>
-    <message>
-        <source>Enable/disable audio devices</source>
-        <translation>Ses aygıtlarını etkinleştir/devre dışı bırak</translation>
-    </message>
-    <message>
-        <source>Devices Management</source>
-        <translation>Cihaz Yönetimi</translation>
-    </message>
-</context>
-<context>
-    <name>system</name>
-    <message>
-        <source>Common settings</source>
-        <translation>Ortak ayarlar</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>Sistem</translation>
-    </message>
-</context>
-<context>
-    <name>systemInfo</name>
-    <message>
-        <source>Auxiliary Information</source>
-        <translation>Yardımcı Bilgiler</translation>
-    </message>
-</context>
-<context>
-    <name>systemInfoMain</name>
-    <message>
-        <source>About This PC</source>
-        <translation>Bu PC Hakkında</translation>
-    </message>
-    <message>
-        <source>System version, device information</source>
-        <translation>Sistem sürümü, cihaz bilgileri</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>Açık kaynaklı yazılım bildirimini görüntüle</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>Kullanıcı Deneyimi Programı</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>Ürünü iyileştirmeye yardımcı olmak için kullanıcı deneyimi programına katılın</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>Son Kullanıcı Lisans Sözleşmesi</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>Son kullanıcı lisans sözleşmesini görüntüleyin</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>Gizlilik Politikası</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>Gizlilik politikası hakkında bilgi görüntüle</translation>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
-        <translation>Açık Kaynak Yazılım Bildirimi</translation>
-    </message>
-</context>
-<context>
-    <name>touchscreen</name>
-    <message>
-        <source>Touchscreen</source>
-        <translation>Dokunmatik ekran</translation>
-    </message>
-    <message>
-        <source>Configuring Touchscreen</source>
-        <translation>Dokunmatik Ekranı Yapılandır</translation>
-    </message>
-</context>
-<context>
-    <name>touchscreenMain</name>
-    <message>
-        <source>Common</source>
-        <translation>Ortak</translation>
-    </message>
-</context>
-<context>
-    <name>wacom</name>
-    <message>
-        <source>wacom</source>
-        <translation>wacom</translation>
-    </message>
-    <message>
-        <source>Configuring wacom</source>
-        <translation>Wacom&apos;u yapılandır</translation>
-    </message>
-</context>
-<context>
-    <name>wacomMain</name>
-    <message>
-        <source>wacom</source>
-        <translation>wacom</translation>
-    </message>
-    <message>
-        <source>Pen Mode</source>
-        <translation>Kalem Kipi</translation>
-    </message>
-    <message>
-        <source>Mouse Mode</source>
-        <translation>Fare Kipi</translation>
-    </message>
-    <message>
-        <source>Pressure Sensitivity</source>
-        <translation>Basınç Duyarlığı</translation>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation>Açık</translation>
-    </message>
-    <message>
-        <source>Heavy</source>
-        <translation>Ağır</translation>
-    </message>
-    <message>
-        <source>Model</source>
-        <translation>Model</translation>
     </message>
 </context>
 </TS>

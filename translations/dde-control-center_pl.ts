@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pl">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="pl">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -123,6 +125,24 @@
     </message>
 </context>
 <context>
+    <name>Accounts</name>
+    <message>
+        <source>Account</source>
+        <translation>Konto</translation>
+    </message>
+    <message>
+        <source>Account manager</source>
+        <translation>Menedżer kont</translation>
+    </message>
+</context>
+<context>
+    <name>AccountsMain</name>
+    <message>
+        <source>Other accounts</source>
+        <translation>Inne konta</translation>
+    </message>
+</context>
+<context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
@@ -173,7 +193,7 @@ Aby pomyślnie odblokować urządzenie:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>„Uwierzytelnienie biometryczne” to funkcja uwierzytelnienia tożsamości użytkownika stworzona przez UnionTech Software Technology Co., Ltd. Dzięki „uwierzytelnieniu biometrycznemu” zebrane dane biometryczne będą porównywane z danymi przechowywanymi na urządzeniu, a tożsamość użytkownika zostanie zweryfikowana na podstawie wyniku porównania.
@@ -220,7 +240,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>„Uwierzytelnienie biometryczne” to funkcja uwierzytelnienia tożsamości użytkownika stworzona przez UnionTech Software Technology Co., Ltd. Dzięki „uwierzytelnieniu biometrycznemu” zebrane dane biometryczne będą porównywane z danymi przechowywanymi na urządzeniu, a tożsamość użytkownika zostanie zweryfikowana na podstawie wyniku porównania.
@@ -271,7 +291,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>„Uwierzytelnienie biometryczne” to funkcja uwierzytelnienia tożsamości użytkownika stworzona przez UnionTech Software Technology Co., Ltd. Dzięki „uwierzytelnieniu biometrycznemu” zebrane dane biometryczne będą porównywane z danymi przechowywanymi na urządzeniu, a tożsamość użytkownika zostanie zweryfikowana na podstawie wyniku porównania.
@@ -283,6 +303,68 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
         <translation>Skup wzrok na urządzeniu i upewnij się, że oczy znajdują się w obszarze skanowania.</translation>
+    </message>
+</context>
+<context>
+    <name>Authentication</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>Uwierzytelnienie biometryczne</translation>
+    </message>
+</context>
+<context>
+    <name>AuthenticationMain</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>Uwierzytelnienie biometryczne</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Twarz</translation>
+    </message>
+    <message>
+        <source>Up to 5 facial data can be entered</source>
+        <translation>Można dodać maksymalnie 5 twarzy</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation>Odcisk palca</translation>
+    </message>
+    <message>
+        <source>Identifying user identity through scanning fingerprints</source>
+        <translation>Rozpoznawanie tożsamości użytkownika skanując odcisk palca</translation>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation>Tęczówka</translation>
+    </message>
+    <message>
+        <source>Identity recognition through iris scanning</source>
+        <translation>Rozpoznawanie tożsamości użytkownika skanując tęczówkę</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation>Używaj tylko liter, cyfr i znaków podkreślenia, nie więcej niż 15 znaków</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only</source>
+        <translation>Używaj tylko liter, cyfr i znaków podkreślenia</translation>
+    </message>
+    <message>
+        <source>No more than 15 characters</source>
+        <translation>Nie więcej niż 15 znaków</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation>Taka nazwa już istnieje</translation>
+    </message>
+    <message>
+        <source>Add a new %1 ...</source>
+        <translation>Dodaj nowe %1 ...</translation>
+    </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation>Nazwa użytkownika nie może być pusta</translation>
     </message>
 </context>
 <context>
@@ -412,6 +494,17 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <message>
         <source>Disable</source>
         <translation>Wyłącz</translation>
+    </message>
+</context>
+<context>
+    <name>BlueTooth</name>
+    <message>
+        <source>Bluetooth settings, devices</source>
+        <translation>Ustawienia Bluetooth, urządzenia</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -852,6 +945,29 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
 </context>
 <context>
+    <name>CommonInfoMain</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation>Menu rozruchu</translation>
+    </message>
+    <message>
+        <source>Manage your boot menu</source>
+        <translation>Zarządzaj menu rozruchu</translation>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation>Zarządzanie uprawnieniami konta root</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation>Opcje programisty</translation>
+    </message>
+    <message>
+        <source>Developer debugging options</source>
+        <translation>Opcje debugowania dewelopera</translation>
+    </message>
+</context>
+<context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
@@ -1077,6 +1193,25 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <message>
         <source>Confirm</source>
         <translation>Potwierdź</translation>
+    </message>
+</context>
+<context>
+    <name>Datetime</name>
+    <message>
+        <source>Time and date</source>
+        <translation>Czas i data</translation>
+    </message>
+    <message>
+        <source>Time and date, time zone settings</source>
+        <translation>Czas i data, ustawienia strefy czasowej</translation>
+    </message>
+    <message>
+        <source>Language and region</source>
+        <translation>Język i region</translation>
+    </message>
+    <message>
+        <source>System language, regional formats</source>
+        <translation>Język systemu, format regionu</translation>
     </message>
 </context>
 <context>
@@ -1368,6 +1503,21 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
+    <name>Deepinid</name>
+    <message>
+        <source>deepin ID</source>
+        <translation>deepin ID</translation>
+    </message>
+    <message>
+        <source>UOS ID</source>
+        <translation>UOS ID</translation>
+    </message>
+    <message>
+        <source>Cloud services</source>
+        <translation>Usługi w chmurze</translation>
+    </message>
+</context>
+<context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
@@ -1384,6 +1534,48 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
         <translation>Ze względu na lokalne prawa i regulacje w Twoim regionie, ta obecnie funkcja nie jest dostępna.</translation>
+    </message>
+</context>
+<context>
+    <name>Defaultapp</name>
+    <message>
+        <source>Default App</source>
+        <translation>Aplikacje domyślne</translation>
+    </message>
+    <message>
+        <source>Set the default application for opening various types of files</source>
+        <translation>Ustaw aplikację domyślną do otwierania różnych typów plików</translation>
+    </message>
+</context>
+<context>
+    <name>DefaultappMain</name>
+    <message>
+        <source>Webpage</source>
+        <translation>Witryna</translation>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation>Poczta</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Tekst</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation>Muzyka</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation>Wideo</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation>Zdjęcie</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation>Terminal</translation>
     </message>
 </context>
 <context>
@@ -1533,6 +1725,13 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
+    <name>Device</name>
+    <message>
+        <source>Bluetooth and Other Devices</source>
+        <translation>Bluetooth i inne urządzenia</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -1545,6 +1744,318 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Agree</source>
         <translation>Akceptuj</translation>
+    </message>
+</context>
+<context>
+    <name>Display</name>
+    <message>
+        <source>Display</source>
+        <translation>Ekran</translation>
+    </message>
+    <message>
+        <source>Brightness,resolution,scaling</source>
+        <translation>Jasność, rozdzielczość, skalowanie itp.</translation>
+    </message>
+</context>
+<context>
+    <name>DisplayMain</name>
+    <message>
+        <source>100%</source>
+        <translation>100%</translation>
+    </message>
+    <message>
+        <source>125%</source>
+        <translation>125%</translation>
+    </message>
+    <message>
+        <source>150%</source>
+        <translation>150%</translation>
+    </message>
+    <message>
+        <source>175%</source>
+        <translation>175%</translation>
+    </message>
+    <message>
+        <source>200%</source>
+        <translation>200%</translation>
+    </message>
+    <message>
+        <source>225%</source>
+        <translation>225%</translation>
+    </message>
+    <message>
+        <source>250%</source>
+        <translation>250%</translation>
+    </message>
+    <message>
+        <source>275%</source>
+        <translation>275%</translation>
+    </message>
+    <message>
+        <source>300%</source>
+        <translation>300%</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Duplikuj</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Rozszerz</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>Domyślne</translation>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation>Dopasuj</translation>
+    </message>
+    <message>
+        <source>Stretch</source>
+        <translation>Rozciągnij</translation>
+    </message>
+    <message>
+        <source>Center</source>
+        <translation>Wyśrodkuj</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Tylko na %1</translation>
+    </message>
+    <message>
+        <source>Multiple Displays Settings</source>
+        <translation>Opcje wielu ekranów</translation>
+    </message>
+    <message>
+        <source>Identify</source>
+        <translation>Identyfikuj</translation>
+    </message>
+    <message>
+        <source>Screen rearrangement will take effect in %1s after changes</source>
+        <translation>Układ ekranu ulegnie zmianie za %1s, po zatwierdzeniu ustawień</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>Tryb</translation>
+    </message>
+    <message>
+        <source>Main Screen</source>
+        <translation>Ekran główny</translation>
+    </message>
+    <message>
+        <source>Display And Layout</source>
+        <translation>Ekran i układ ekranów</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Jasność</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation>Rozdzielczość</translation>
+    </message>
+    <message>
+        <source>Resize Desktop</source>
+        <translation>Zmień rozmiar pulpitu</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation>Częstotliwość odświeżania</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Rotacja</translation>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation>Standardowa</translation>
+    </message>
+    <message>
+        <source>90°</source>
+        <translation>90°</translation>
+    </message>
+    <message>
+        <source>180°</source>
+        <translation>180°</translation>
+    </message>
+    <message>
+        <source>270°</source>
+        <translation>270°</translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation>Monitor obsługuje tylko 100% skalowanie ekranu</translation>
+    </message>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Komfort oczu</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Włącz komfort oczu</translation>
+    </message>
+    <message>
+        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
+        <translation>Dostosuj wyświetlacz do cieplejszych kolorów, redukując przy tym światło niebieskie</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>Czas</translation>
+    </message>
+    <message>
+        <source>All day</source>
+        <translation>Cały dzień</translation>
+    </message>
+    <message>
+        <source>Sunset to Sunrise</source>
+        <translation>Od wschodu do zachodu</translation>
+    </message>
+    <message>
+        <source>Custom Time</source>
+        <translation>Własny czas</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>od</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>do</translation>
+    </message>
+    <message>
+        <source>Color Temperature</source>
+        <translation>Temperatura koloru</translation>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation>%1x%2 (Zalecane)</translation>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation>%1x%2</translation>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation>%1Hz (Zalecane)</translation>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation>%1Hz</translation>
+    </message>
+    <message>
+        <source>Scaling</source>
+        <translation>Skalowanie</translation>
+    </message>
+</context>
+<context>
+    <name>Dock</name>
+    <message>
+        <source>Desktop and taskbar</source>
+        <translation>Pulpit i pasek zadań</translation>
+    </message>
+    <message>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation>Organizacja pulpitu, tryb paska zadań, ustawienia obszaru wtyczek</translation>
+    </message>
+</context>
+<context>
+    <name>DockMain</name>
+    <message>
+        <source>Dock</source>
+        <translation>Dok</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>Tryb</translation>
+    </message>
+    <message>
+        <source>Classic Mode</source>
+        <translation>Tryb klasyczny</translation>
+    </message>
+    <message>
+        <source>Centered Mode</source>
+        <translation>Tryb wyśrodkowany</translation>
+    </message>
+    <message>
+        <source>Dock size</source>
+        <translation>Rozmiar doku</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>Mały</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Duży</translation>
+    </message>
+    <message>
+        <source>Position on the screen</source>
+        <translation>Pozycja na ekranie</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>Góra</translation>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation>Dół</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation>Lewo</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>Prawo</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Status</translation>
+    </message>
+    <message>
+        <source>Keep shown</source>
+        <translation>Zawsze wyświetlaj</translation>
+    </message>
+    <message>
+        <source>Keep hidden</source>
+        <translation>Zawsze ukrywaj</translation>
+    </message>
+    <message>
+        <source>Smart hide</source>
+        <translation>Inteligentne ukrywanie</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Wiele ekranów</translation>
+    </message>
+    <message>
+        <source>Set the position of the taskbar on the screen</source>
+        <translation>Ustaw położenie paska zadań na ekranie</translation>
+    </message>
+    <message>
+        <source>Only on main</source>
+        <translation>Tylko na głównym</translation>
+    </message>
+    <message>
+        <source>On screen where the cursor is</source>
+        <translation>Na ekranie, tam gdzie jest kursor</translation>
+    </message>
+    <message>
+        <source>Plugin Area</source>
+        <translation>Strefa wtyczek</translation>
+    </message>
+    <message>
+        <source>Select which icons appear in the Dock</source>
+        <translation>Wybierz, które ikony pojawią się w doku</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation>Zablokuj dok</translation>
+    </message>
+    <message>
+        <source>Combine application icons</source>
+        <translation>Połącz ikony aplikacji</translation>
     </message>
 </context>
 <context>
@@ -1750,6 +2261,24 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
+    <name>Keyboard</name>
+    <message>
+        <source>Keyboard</source>
+        <translation>Klawiatura</translation>
+    </message>
+    <message>
+        <source>General Settings, input method, shortcuts</source>
+        <translation>Ustawienia ogólne, metody wprowadzania, skróty</translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardMain</name>
+    <message>
+        <source>Common</source>
+        <translation>Ogólne</translation>
+    </message>
+</context>
+<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -1883,6 +2412,32 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
 <context>
     <name>Mouse</name>
     <message>
+        <source>Mouse and Touchpad</source>
+        <translation>Mysz i panel dotykowy</translation>
+    </message>
+    <message>
+        <source>Common、Mouse、Touchpad</source>
+        <translation>Ogólne, mysz, panel dotykowy</translation>
+    </message>
+</context>
+<context>
+    <name>MouseMain</name>
+    <message>
+        <source>Common</source>
+        <translation>Ogólne</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation>Mysz</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation>Panel dotykowy</translation>
+    </message>
+</context>
+<context>
+    <name>MousePage</name>
+    <message>
         <source>Mouse</source>
         <translation>Mysz</translation>
     </message>
@@ -2006,6 +2561,72 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
+    <name>Notification</name>
+    <message>
+        <source>DND mode, app notifications</source>
+        <translation>Tryb Nie przeszkadzać, powiadomienia aplikacji</translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation>Powiadomienia</translation>
+    </message>
+</context>
+<context>
+    <name>NotificationMain</name>
+    <message>
+        <source>Do Not Disturb Settings</source>
+        <translation>Ustawienia Nie przeszkadzać</translation>
+    </message>
+    <message>
+        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
+        <translation>Powiadomienia aplikacji nie będą wyświetlane, dźwięki zostaną wyciszone, a wszystkie wiadomości będzie można przeczytać w Centrum powiadomień.</translation>
+    </message>
+    <message>
+        <source>Enable Do Not Disturb</source>
+        <translation>Włącz tryb Nie przeszkadzać</translation>
+    </message>
+    <message>
+        <source>When the screen is locked</source>
+        <translation>Gdy ekran jest zablokowany</translation>
+    </message>
+    <message>
+        <source>Number of notifications shown on the desktop</source>
+        <translation>Liczba powiadomień widocznych na pulpicie</translation>
+    </message>
+    <message>
+        <source>App Notifications</source>
+        <translation>Powiadomienia aplikacji</translation>
+    </message>
+    <message>
+        <source>Allow Notifications</source>
+        <translation>Zezwól na powiadomienia</translation>
+    </message>
+    <message>
+        <source>Display notification on desktop or show unread messages in the notification center</source>
+        <translation>Wyświetl powiadomienia na pulpicie lub pokaż nieprzeczytane wiadomości w Centrum powiadomień</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>Pulpit</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>Ekran blokady</translation>
+    </message>
+    <message>
+        <source>Notification Center</source>
+        <translation>Centrum powiadomień</translation>
+    </message>
+    <message>
+        <source>Show message preview</source>
+        <translation>Pokaż podgląd wiadomości</translation>
+    </message>
+    <message>
+        <source>Play a sound</source>
+        <translation>Odtwórz dźwięk</translation>
+    </message>
+</context>
+<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2099,6 +2720,13 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
+    <name>Personalization</name>
+    <message>
+        <source>Personalization</source>
+        <translation>Personalizacja</translation>
+    </message>
+</context>
+<context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
@@ -2122,6 +2750,57 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
+    <name>PersonalizationMain</name>
+    <message>
+        <source>Theme</source>
+        <translation>Motyw</translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation>Wygląd</translation>
+    </message>
+    <message>
+        <source>Window effect</source>
+        <translation>Efekty okien</translation>
+    </message>
+    <message>
+        <source>Personalize your wallpaper and screensaver</source>
+        <translation>Ustaw swoją tapetę i wygaszacz ekranu</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation>Wygaszacz ekranu</translation>
+    </message>
+    <message>
+        <source>Colors and icons</source>
+        <translation>Kolory i ikony</translation>
+    </message>
+    <message>
+        <source>Adjust accent color and theme icons</source>
+        <translation>Dostosuj kolor akcentu i motyw ikon</translation>
+    </message>
+    <message>
+        <source>Font and font size</source>
+        <translation>Czcionka i rozmiar czcionki</translation>
+    </message>
+    <message>
+        <source>Change system font and size</source>
+        <translation>Zmień czcionkę systemu i jej rozmiar</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation>Tapeta</translation>
+    </message>
+    <message>
+        <source>Select light, dark or automatic theme appearance</source>
+        <translation>Wybierz motyw jasny, ciemny lub automatycznie</translation>
+    </message>
+    <message>
+        <source>Interface and effects, rounded corners</source>
+        <translation>Efekty interfejsu i zaokrąglony róg</translation>
+    </message>
+</context>
+<context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
@@ -2137,6 +2816,44 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Wybierz, które wtyczki pojawią się w doku</translation>
+    </message>
+</context>
+<context>
+    <name>Power</name>
+    <message>
+        <source>Power saving settings, screen and suspend</source>
+        <translation>Ustawienia planu zasilania, ekran i wstrzymywanie</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation>Zasilanie</translation>
+    </message>
+</context>
+<context>
+    <name>PowerMain</name>
+    <message>
+        <source>General</source>
+        <translation>Ogólne</translation>
+    </message>
+    <message>
+        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
+        <translation>Plany zasilania, ustawienia oszczędzania energii, wybudzenie i wyłączanie</translation>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation>Podłączony</translation>
+    </message>
+    <message>
+        <source>Screen and suspend</source>
+        <translation>Ekran i wstrzymywanie</translation>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation>Na baterii</translation>
+    </message>
+    <message>
+        <source>screen and suspend, low battery, battery management</source>
+        <translation>Ekran, wstrzymywanie i zarządzanie baterią</translation>
     </message>
 </context>
 <context>
@@ -2241,6 +2958,36 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Never</source>
         <translation>Nigdy</translation>
+    </message>
+</context>
+<context>
+    <name>Privacy</name>
+    <message>
+        <source>Privacy and Security</source>
+        <translation>Prywatność i bezpieczeństwo</translation>
+    </message>
+    <message>
+        <source>Camera, folder permissions</source>
+        <translation>Kamera, uprawnienia folderów</translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyMain</name>
+    <message>
+        <source>Camera</source>
+        <translation>Kamera</translation>
+    </message>
+    <message>
+        <source>Choose whether the application has access to the camera</source>
+        <translation>Wybierz, która aplikacja ma dostęp do kamery</translation>
+    </message>
+    <message>
+        <source>Files and Folders</source>
+        <translation>Pliki i foldery</translation>
+    </message>
+    <message>
+        <source>Choose whether the application has access to files and folders</source>
+        <translation>Wybierz, która aplikacja ma dostęp do plików i folderów</translation>
     </message>
 </context>
 <context>
@@ -2650,6 +3397,17 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
+    <name>Sound</name>
+    <message>
+        <source>Sound</source>
+        <translation>Dźwięk</translation>
+    </message>
+    <message>
+        <source>Output, input, sound effects, devices</source>
+        <translation>Wyjście, wejście, efekty dźwiękowe, urządzenia</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -2669,6 +3427,29 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Sound Effects</source>
         <translation>Dźwięki systemu</translation>
+    </message>
+</context>
+<context>
+    <name>SoundMain</name>
+    <message>
+        <source>Settings</source>
+        <translation>Ustawienia</translation>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation>Dźwięki systemu</translation>
+    </message>
+    <message>
+        <source>Enable/disable sound effects</source>
+        <translation>Włącz/wyłącz dźwięki systemu</translation>
+    </message>
+    <message>
+        <source>Enable/disable audio devices</source>
+        <translation>Włącz/wyłącz urządzenia audio</translation>
+    </message>
+    <message>
+        <source>Devices Management</source>
+        <translation>Zarządzanie urządzeniami</translation>
     </message>
 </context>
 <context>
@@ -2810,6 +3591,67 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Screensaver</source>
         <translation>Wygaszacz ekranu</translation>
+    </message>
+</context>
+<context>
+    <name>System</name>
+    <message>
+        <source>Common settings</source>
+        <translation>Ustawienia ogólne</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation>System</translation>
+    </message>
+</context>
+<context>
+    <name>SystemInfo</name>
+    <message>
+        <source>Auxiliary Information</source>
+        <translation>Informacje dodatkowe</translation>
+    </message>
+</context>
+<context>
+    <name>SystemInfoMain</name>
+    <message>
+        <source>About This PC</source>
+        <translation>O tym komputerze</translation>
+    </message>
+    <message>
+        <source>System version, device information</source>
+        <translation>Wersja systemu, informacje o urządzeniu</translation>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation>Wyświetl notatkę oprogramowania open-source</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation>Program doświadczeń użytkownika</translation>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation>Dołącz do programu doświadczeń użytkownika i pomóż nam ulepszać nasze produkty</translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation>Umowa licencyjna EULA</translation>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation>Wyświetl umowę licencyjną EULA</translation>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation>Polityka prywatności</translation>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation>Wyświetl informacje o polityce prywatności</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation>Informacja oprogramowania open-source</translation>
     </message>
 </context>
 <context>
@@ -2986,6 +3828,24 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
+    <name>Touchscreen</name>
+    <message>
+        <source>Touchscreen</source>
+        <translation>Ekran dotykowy</translation>
+    </message>
+    <message>
+        <source>Configuring Touchscreen</source>
+        <translation>Konfiguracja ekranu dotykowego</translation>
+    </message>
+</context>
+<context>
+    <name>TouchscreenMain</name>
+    <message>
+        <source>Common</source>
+        <translation>Ogólne</translation>
+    </message>
+</context>
+<context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
@@ -3021,6 +3881,48 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>Confirm</source>
         <translation>Potwierdź</translation>
+    </message>
+</context>
+<context>
+    <name>Wacom</name>
+    <message>
+        <source>wacom</source>
+        <translation>Wacom</translation>
+    </message>
+    <message>
+        <source>Configuring wacom</source>
+        <translation>Konfiguracja Wacom</translation>
+    </message>
+</context>
+<context>
+    <name>WacomMain</name>
+    <message>
+        <source>wacom</source>
+        <translation>Wacom</translation>
+    </message>
+    <message>
+        <source>Pen Mode</source>
+        <translation>Tryb pióra</translation>
+    </message>
+    <message>
+        <source>Mouse Mode</source>
+        <translation>Tryb myszy</translation>
+    </message>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation>Czułość nacisku</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Jasny</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation>Ciężka</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation>Model</translation>
     </message>
 </context>
 <context>
@@ -3220,139 +4122,6 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
         <translation>Średnia</translation>
-    </message>
-</context>
-<context>
-    <name>accounts</name>
-    <message>
-        <source>Account</source>
-        <translation>Konto</translation>
-    </message>
-    <message>
-        <source>Account manager</source>
-        <translation>Menedżer kont</translation>
-    </message>
-</context>
-<context>
-    <name>accountsMain</name>
-    <message>
-        <source>Other accounts</source>
-        <translation>Inne konta</translation>
-    </message>
-</context>
-<context>
-    <name>authentication</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>Uwierzytelnienie biometryczne</translation>
-    </message>
-</context>
-<context>
-    <name>authenticationMain</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>Uwierzytelnienie biometryczne</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>Twarz</translation>
-    </message>
-    <message>
-        <source>Up to 5 facial data can be entered</source>
-        <translation>Można dodać maksymalnie 5 twarzy</translation>
-    </message>
-    <message>
-        <source>Fingerprint</source>
-        <translation>Odcisk palca</translation>
-    </message>
-    <message>
-        <source>Identifying user identity through scanning fingerprints</source>
-        <translation>Rozpoznawanie tożsamości użytkownika skanując odcisk palca</translation>
-    </message>
-    <message>
-        <source>Iris</source>
-        <translation>Tęczówka</translation>
-    </message>
-    <message>
-        <source>Identity recognition through iris scanning</source>
-        <translation>Rozpoznawanie tożsamości użytkownika skanując tęczówkę</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Używaj tylko liter, cyfr i znaków podkreślenia, nie więcej niż 15 znaków</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only</source>
-        <translation>Używaj tylko liter, cyfr i znaków podkreślenia</translation>
-    </message>
-    <message>
-        <source>No more than 15 characters</source>
-        <translation>Nie więcej niż 15 znaków</translation>
-    </message>
-    <message>
-        <source>This name already exists</source>
-        <translation>Taka nazwa już istnieje</translation>
-    </message>
-    <message>
-        <source>Add a new %1 ...</source>
-        <translation>Dodaj nowe %1 ...</translation>
-    </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>Nazwa użytkownika nie może być pusta</translation>
-    </message>
-</context>
-<context>
-    <name>blueTooth</name>
-    <message>
-        <source>Bluetooth settings, devices</source>
-        <translation>Ustawienia Bluetooth, urządzenia</translation>
-    </message>
-    <message>
-        <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
-    </message>
-</context>
-<context>
-    <name>commonInfoMain</name>
-    <message>
-        <source>Boot Menu</source>
-        <translation>Menu rozruchu</translation>
-    </message>
-    <message>
-        <source>Manage your boot menu</source>
-        <translation>Zarządzaj menu rozruchu</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Zarządzanie uprawnieniami konta root</translation>
-    </message>
-    <message>
-        <source>Developer Options</source>
-        <translation>Opcje programisty</translation>
-    </message>
-    <message>
-        <source>Developer debugging options</source>
-        <translation>Opcje debugowania dewelopera</translation>
-    </message>
-</context>
-<context>
-    <name>datetime</name>
-    <message>
-        <source>Time and date</source>
-        <translation>Czas i data</translation>
-    </message>
-    <message>
-        <source>Time and date, time zone settings</source>
-        <translation>Czas i data, ustawienia strefy czasowej</translation>
-    </message>
-    <message>
-        <source>Language and region</source>
-        <translation>Język i region</translation>
-    </message>
-    <message>
-        <source>System language, regional formats</source>
-        <translation>Język systemu, format regionu</translation>
     </message>
 </context>
 <context>
@@ -3618,773 +4387,6 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <message>
         <source>None</source>
         <translation>Brak</translation>
-    </message>
-</context>
-<context>
-    <name>deepinid</name>
-    <message>
-        <source>deepin ID</source>
-        <translation>deepin ID</translation>
-    </message>
-    <message>
-        <source>UOS ID</source>
-        <translation>UOS ID</translation>
-    </message>
-    <message>
-        <source>Cloud services</source>
-        <translation>Usługi w chmurze</translation>
-    </message>
-</context>
-<context>
-    <name>defaultapp</name>
-    <message>
-        <source>Default App</source>
-        <translation>Aplikacje domyślne</translation>
-    </message>
-    <message>
-        <source>Set the default application for opening various types of files</source>
-        <translation>Ustaw aplikację domyślną do otwierania różnych typów plików</translation>
-    </message>
-</context>
-<context>
-    <name>defaultappMain</name>
-    <message>
-        <source>Webpage</source>
-        <translation>Witryna</translation>
-    </message>
-    <message>
-        <source>Mail</source>
-        <translation>Poczta</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation>Tekst</translation>
-    </message>
-    <message>
-        <source>Music</source>
-        <translation>Muzyka</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation>Wideo</translation>
-    </message>
-    <message>
-        <source>Picture</source>
-        <translation>Zdjęcie</translation>
-    </message>
-    <message>
-        <source>Terminal</source>
-        <translation>Terminal</translation>
-    </message>
-</context>
-<context>
-    <name>device</name>
-    <message>
-        <source>Bluetooth and Other Devices</source>
-        <translation>Bluetooth i inne urządzenia</translation>
-    </message>
-</context>
-<context>
-    <name>display</name>
-    <message>
-        <source>Display</source>
-        <translation>Ekran</translation>
-    </message>
-    <message>
-        <source>Brightness,resolution,scaling</source>
-        <translation>Jasność, rozdzielczość, skalowanie itp.</translation>
-    </message>
-</context>
-<context>
-    <name>displayMain</name>
-    <message>
-        <source>100%</source>
-        <translation>100%</translation>
-    </message>
-    <message>
-        <source>125%</source>
-        <translation>125%</translation>
-    </message>
-    <message>
-        <source>150%</source>
-        <translation>150%</translation>
-    </message>
-    <message>
-        <source>175%</source>
-        <translation>175%</translation>
-    </message>
-    <message>
-        <source>200%</source>
-        <translation>200%</translation>
-    </message>
-    <message>
-        <source>225%</source>
-        <translation>225%</translation>
-    </message>
-    <message>
-        <source>250%</source>
-        <translation>250%</translation>
-    </message>
-    <message>
-        <source>275%</source>
-        <translation>275%</translation>
-    </message>
-    <message>
-        <source>300%</source>
-        <translation>300%</translation>
-    </message>
-    <message>
-        <source>Duplicate</source>
-        <translation>Duplikuj</translation>
-    </message>
-    <message>
-        <source>Extend</source>
-        <translation>Rozszerz</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation>Domyślne</translation>
-    </message>
-    <message>
-        <source>Fit</source>
-        <translation>Dopasuj</translation>
-    </message>
-    <message>
-        <source>Stretch</source>
-        <translation>Rozciągnij</translation>
-    </message>
-    <message>
-        <source>Center</source>
-        <translation>Wyśrodkuj</translation>
-    </message>
-    <message>
-        <source>Only on %1</source>
-        <translation>Tylko na %1</translation>
-    </message>
-    <message>
-        <source>Multiple Displays Settings</source>
-        <translation>Opcje wielu ekranów</translation>
-    </message>
-    <message>
-        <source>Identify</source>
-        <translation>Identyfikuj</translation>
-    </message>
-    <message>
-        <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>Układ ekranu ulegnie zmianie za %1s, po zatwierdzeniu ustawień</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation>Tryb</translation>
-    </message>
-    <message>
-        <source>Main Screen</source>
-        <translation>Ekran główny</translation>
-    </message>
-    <message>
-        <source>Display And Layout</source>
-        <translation>Ekran i układ ekranów</translation>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation>Jasność</translation>
-    </message>
-    <message>
-        <source>Resolution</source>
-        <translation>Rozdzielczość</translation>
-    </message>
-    <message>
-        <source>Resize Desktop</source>
-        <translation>Zmień rozmiar pulpitu</translation>
-    </message>
-    <message>
-        <source>Refresh Rate</source>
-        <translation>Częstotliwość odświeżania</translation>
-    </message>
-    <message>
-        <source>Rotation</source>
-        <translation>Rotacja</translation>
-    </message>
-    <message>
-        <source>Standard</source>
-        <translation>Standardowa</translation>
-    </message>
-    <message>
-        <source>90°</source>
-        <translation>90°</translation>
-    </message>
-    <message>
-        <source>180°</source>
-        <translation>180°</translation>
-    </message>
-    <message>
-        <source>270°</source>
-        <translation>270°</translation>
-    </message>
-    <message>
-        <source>The monitor only supports 100% display scaling</source>
-        <translation>Monitor obsługuje tylko 100% skalowanie ekranu</translation>
-    </message>
-    <message>
-        <source>Eye Comfort</source>
-        <translation>Komfort oczu</translation>
-    </message>
-    <message>
-        <source>Enable eye comfort</source>
-        <translation>Włącz komfort oczu</translation>
-    </message>
-    <message>
-        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation>Dostosuj wyświetlacz do cieplejszych kolorów, redukując przy tym światło niebieskie</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Czas</translation>
-    </message>
-    <message>
-        <source>All day</source>
-        <translation>Cały dzień</translation>
-    </message>
-    <message>
-        <source>Sunset to Sunrise</source>
-        <translation>Od wschodu do zachodu</translation>
-    </message>
-    <message>
-        <source>Custom Time</source>
-        <translation>Własny czas</translation>
-    </message>
-    <message>
-        <source>from</source>
-        <translation>od</translation>
-    </message>
-    <message>
-        <source>to</source>
-        <translation>do</translation>
-    </message>
-    <message>
-        <source>Color Temperature</source>
-        <translation>Temperatura koloru</translation>
-    </message>
-    <message>
-        <source>%1x%2 (Recommended)</source>
-        <translation>%1x%2 (Zalecane)</translation>
-    </message>
-    <message>
-        <source>%1x%2</source>
-        <translation>%1x%2</translation>
-    </message>
-    <message>
-        <source>%1Hz (Recommended)</source>
-        <translation>%1Hz (Zalecane)</translation>
-    </message>
-    <message>
-        <source>%1Hz</source>
-        <translation>%1Hz</translation>
-    </message>
-    <message>
-        <source>Scaling</source>
-        <translation>Skalowanie</translation>
-    </message>
-</context>
-<context>
-    <name>dock</name>
-    <message>
-        <source>Desktop and taskbar</source>
-        <translation>Pulpit i pasek zadań</translation>
-    </message>
-    <message>
-        <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation>Organizacja pulpitu, tryb paska zadań, ustawienia obszaru wtyczek</translation>
-    </message>
-</context>
-<context>
-    <name>keyboard</name>
-    <message>
-        <source>Keyboard</source>
-        <translation>Klawiatura</translation>
-    </message>
-    <message>
-        <source>General Settings, input method, shortcuts</source>
-        <translation>Ustawienia ogólne, metody wprowadzania, skróty</translation>
-    </message>
-</context>
-<context>
-    <name>keyboardMain</name>
-    <message>
-        <source>Common</source>
-        <translation>Ogólne</translation>
-    </message>
-</context>
-<context>
-    <name>main</name>
-    <message>
-        <source>Dock</source>
-        <translation>Dok</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation>Tryb</translation>
-    </message>
-    <message>
-        <source>Classic Mode</source>
-        <translation>Tryb klasyczny</translation>
-    </message>
-    <message>
-        <source>Centered Mode</source>
-        <translation>Tryb wyśrodkowany</translation>
-    </message>
-    <message>
-        <source>Dock size</source>
-        <translation>Rozmiar doku</translation>
-    </message>
-    <message>
-        <source>Small</source>
-        <translation>Mały</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Duży</translation>
-    </message>
-    <message>
-        <source>Position on the screen</source>
-        <translation>Pozycja na ekranie</translation>
-    </message>
-    <message>
-        <source>Top</source>
-        <translation>Góra</translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation>Dół</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation>Lewo</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation>Prawo</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Status</translation>
-    </message>
-    <message>
-        <source>Keep shown</source>
-        <translation>Zawsze wyświetlaj</translation>
-    </message>
-    <message>
-        <source>Keep hidden</source>
-        <translation>Zawsze ukrywaj</translation>
-    </message>
-    <message>
-        <source>Smart hide</source>
-        <translation>Inteligentne ukrywanie</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Wiele ekranów</translation>
-    </message>
-    <message>
-        <source>Set the position of the taskbar on the screen</source>
-        <translation>Ustaw położenie paska zadań na ekranie</translation>
-    </message>
-    <message>
-        <source>Only on main</source>
-        <translation>Tylko na głównym</translation>
-    </message>
-    <message>
-        <source>On screen where the cursor is</source>
-        <translation>Na ekranie, tam gdzie jest kursor</translation>
-    </message>
-    <message>
-        <source>Plugin Area</source>
-        <translation>Strefa wtyczek</translation>
-    </message>
-    <message>
-        <source>Select which icons appear in the Dock</source>
-        <translation>Wybierz, które ikony pojawią się w doku</translation>
-    </message>
-    <message>
-        <source>Lock the Dock</source>
-        <translation>Zablokuj dok</translation>
-    </message>
-    <message>
-        <source>Combine application icons</source>
-        <translation>Połącz ikony aplikacji</translation>
-    </message>
-</context>
-<context>
-    <name>mouse</name>
-    <message>
-        <source>Mouse and Touchpad</source>
-        <translation>Mysz i panel dotykowy</translation>
-    </message>
-    <message>
-        <source>Common、Mouse、Touchpad</source>
-        <translation>Ogólne, mysz, panel dotykowy</translation>
-    </message>
-</context>
-<context>
-    <name>mouseMain</name>
-    <message>
-        <source>Common</source>
-        <translation>Ogólne</translation>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation>Mysz</translation>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation>Panel dotykowy</translation>
-    </message>
-</context>
-<context>
-    <name>notification</name>
-    <message>
-        <source>DND mode, app notifications</source>
-        <translation>Tryb Nie przeszkadzać, powiadomienia aplikacji</translation>
-    </message>
-    <message>
-        <source>Notification</source>
-        <translation>Powiadomienia</translation>
-    </message>
-</context>
-<context>
-    <name>notificationMain</name>
-    <message>
-        <source>Do Not Disturb Settings</source>
-        <translation>Ustawienia Nie przeszkadzać</translation>
-    </message>
-    <message>
-        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>Powiadomienia aplikacji nie będą wyświetlane, dźwięki zostaną wyciszone, a wszystkie wiadomości będzie można przeczytać w Centrum powiadomień.</translation>
-    </message>
-    <message>
-        <source>Enable Do Not Disturb</source>
-        <translation>Włącz tryb Nie przeszkadzać</translation>
-    </message>
-    <message>
-        <source>When the screen is locked</source>
-        <translation>Gdy ekran jest zablokowany</translation>
-    </message>
-    <message>
-        <source>Number of notifications shown on the desktop</source>
-        <translation>Liczba powiadomień widocznych na pulpicie</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>Powiadomienia aplikacji</translation>
-    </message>
-    <message>
-        <source>Allow Notifications</source>
-        <translation>Zezwól na powiadomienia</translation>
-    </message>
-    <message>
-        <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>Wyświetl powiadomienia na pulpicie lub pokaż nieprzeczytane wiadomości w Centrum powiadomień</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>Pulpit</translation>
-    </message>
-    <message>
-        <source>Lock Screen</source>
-        <translation>Ekran blokady</translation>
-    </message>
-    <message>
-        <source>Notification Center</source>
-        <translation>Centrum powiadomień</translation>
-    </message>
-    <message>
-        <source>Show message preview</source>
-        <translation>Pokaż podgląd wiadomości</translation>
-    </message>
-    <message>
-        <source>Play a sound</source>
-        <translation>Odtwórz dźwięk</translation>
-    </message>
-</context>
-<context>
-    <name>personalization</name>
-    <message>
-        <source>Personalization</source>
-        <translation>Personalizacja</translation>
-    </message>
-</context>
-<context>
-    <name>personalizationMain</name>
-    <message>
-        <source>Theme</source>
-        <translation>Motyw</translation>
-    </message>
-    <message>
-        <source>Appearance</source>
-        <translation>Wygląd</translation>
-    </message>
-    <message>
-        <source>Window effect</source>
-        <translation>Efekty okien</translation>
-    </message>
-    <message>
-        <source>Personalize your wallpaper and screensaver</source>
-        <translation>Ustaw swoją tapetę i wygaszacz ekranu</translation>
-    </message>
-    <message>
-        <source>Screensaver</source>
-        <translation>Wygaszacz ekranu</translation>
-    </message>
-    <message>
-        <source>Colors and icons</source>
-        <translation>Kolory i ikony</translation>
-    </message>
-    <message>
-        <source>Adjust accent color and theme icons</source>
-        <translation>Dostosuj kolor akcentu i motyw ikon</translation>
-    </message>
-    <message>
-        <source>Font and font size</source>
-        <translation>Czcionka i rozmiar czcionki</translation>
-    </message>
-    <message>
-        <source>Change system font and size</source>
-        <translation>Zmień czcionkę systemu i jej rozmiar</translation>
-    </message>
-    <message>
-        <source>Wallpaper</source>
-        <translation>Tapeta</translation>
-    </message>
-    <message>
-        <source>Select light, dark or automatic theme appearance</source>
-        <translation>Wybierz motyw jasny, ciemny lub automatycznie</translation>
-    </message>
-    <message>
-        <source>Interface and effects, rounded corners</source>
-        <translation>Efekty interfejsu i zaokrąglony róg</translation>
-    </message>
-</context>
-<context>
-    <name>power</name>
-    <message>
-        <source>Power saving settings, screen and suspend</source>
-        <translation>Ustawienia planu zasilania, ekran i wstrzymywanie</translation>
-    </message>
-    <message>
-        <source>Power</source>
-        <translation>Zasilanie</translation>
-    </message>
-</context>
-<context>
-    <name>powerMain</name>
-    <message>
-        <source>General</source>
-        <translation>Ogólne</translation>
-    </message>
-    <message>
-        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Plany zasilania, ustawienia oszczędzania energii, wybudzenie i wyłączanie</translation>
-    </message>
-    <message>
-        <source>Plugged In</source>
-        <translation>Podłączony</translation>
-    </message>
-    <message>
-        <source>Screen and suspend</source>
-        <translation>Ekran i wstrzymywanie</translation>
-    </message>
-    <message>
-        <source>On Battery</source>
-        <translation>Na baterii</translation>
-    </message>
-    <message>
-        <source>screen and suspend, low battery, battery management</source>
-        <translation>Ekran, wstrzymywanie i zarządzanie baterią</translation>
-    </message>
-</context>
-<context>
-    <name>privacy</name>
-    <message>
-        <source>Privacy and Security</source>
-        <translation>Prywatność i bezpieczeństwo</translation>
-    </message>
-    <message>
-        <source>Camera, folder permissions</source>
-        <translation>Kamera, uprawnienia folderów</translation>
-    </message>
-</context>
-<context>
-    <name>privacyMain</name>
-    <message>
-        <source>Camera</source>
-        <translation>Kamera</translation>
-    </message>
-    <message>
-        <source>Choose whether the application has access to the camera</source>
-        <translation>Wybierz, która aplikacja ma dostęp do kamery</translation>
-    </message>
-    <message>
-        <source>Files and Folders</source>
-        <translation>Pliki i foldery</translation>
-    </message>
-    <message>
-        <source>Choose whether the application has access to files and folders</source>
-        <translation>Wybierz, która aplikacja ma dostęp do plików i folderów</translation>
-    </message>
-</context>
-<context>
-    <name>sound</name>
-    <message>
-        <source>Sound</source>
-        <translation>Dźwięk</translation>
-    </message>
-    <message>
-        <source>Output, input, sound effects, devices</source>
-        <translation>Wyjście, wejście, efekty dźwiękowe, urządzenia</translation>
-    </message>
-</context>
-<context>
-    <name>soundMain</name>
-    <message>
-        <source>Settings</source>
-        <translation>Ustawienia</translation>
-    </message>
-    <message>
-        <source>Sound Effects</source>
-        <translation>Dźwięki systemu</translation>
-    </message>
-    <message>
-        <source>Enable/disable sound effects</source>
-        <translation>Włącz/wyłącz dźwięki systemu</translation>
-    </message>
-    <message>
-        <source>Enable/disable audio devices</source>
-        <translation>Włącz/wyłącz urządzenia audio</translation>
-    </message>
-    <message>
-        <source>Devices Management</source>
-        <translation>Zarządzanie urządzeniami</translation>
-    </message>
-</context>
-<context>
-    <name>system</name>
-    <message>
-        <source>Common settings</source>
-        <translation>Ustawienia ogólne</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>System</translation>
-    </message>
-</context>
-<context>
-    <name>systemInfo</name>
-    <message>
-        <source>Auxiliary Information</source>
-        <translation>Informacje dodatkowe</translation>
-    </message>
-</context>
-<context>
-    <name>systemInfoMain</name>
-    <message>
-        <source>About This PC</source>
-        <translation>O tym komputerze</translation>
-    </message>
-    <message>
-        <source>System version, device information</source>
-        <translation>Wersja systemu, informacje o urządzeniu</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>Wyświetl notatkę oprogramowania open-source</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>Program doświadczeń użytkownika</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>Dołącz do programu doświadczeń użytkownika i pomóż nam ulepszać nasze produkty</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>Umowa licencyjna EULA</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>Wyświetl umowę licencyjną EULA</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>Polityka prywatności</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>Wyświetl informacje o polityce prywatności</translation>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
-        <translation>Informacja oprogramowania open-source</translation>
-    </message>
-</context>
-<context>
-    <name>touchscreen</name>
-    <message>
-        <source>Touchscreen</source>
-        <translation>Ekran dotykowy</translation>
-    </message>
-    <message>
-        <source>Configuring Touchscreen</source>
-        <translation>Konfiguracja ekranu dotykowego</translation>
-    </message>
-</context>
-<context>
-    <name>touchscreenMain</name>
-    <message>
-        <source>Common</source>
-        <translation>Ogólne</translation>
-    </message>
-</context>
-<context>
-    <name>wacom</name>
-    <message>
-        <source>wacom</source>
-        <translation>Wacom</translation>
-    </message>
-    <message>
-        <source>Configuring wacom</source>
-        <translation>Konfiguracja Wacom</translation>
-    </message>
-</context>
-<context>
-    <name>wacomMain</name>
-    <message>
-        <source>wacom</source>
-        <translation>Wacom</translation>
-    </message>
-    <message>
-        <source>Pen Mode</source>
-        <translation>Tryb pióra</translation>
-    </message>
-    <message>
-        <source>Mouse Mode</source>
-        <translation>Tryb myszy</translation>
-    </message>
-    <message>
-        <source>Pressure Sensitivity</source>
-        <translation>Czułość nacisku</translation>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation>Jasny</translation>
-    </message>
-    <message>
-        <source>Heavy</source>
-        <translation>Ciężka</translation>
-    </message>
-    <message>
-        <source>Model</source>
-        <translation>Model</translation>
     </message>
 </context>
 </TS>

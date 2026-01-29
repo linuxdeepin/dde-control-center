@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="bn">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="bn">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -71,55 +73,73 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">মোট নাম খুব দীর্ঘ</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Accounts</name>
+    <message>
+        <source>Account</source>
+        <translation>বাতিল</translation>
+    </message>
+    <message>
+        <source>Account manager</source>
+        <translation>বাতিল ম্যানেজার</translation>
+    </message>
+</context>
+<context>
+    <name>AccountsMain</name>
+    <message>
+        <source>Other accounts</source>
+        <translation>অন্যান্য অ্যাকাউন্ট</translation>
     </message>
 </context>
 <context>
@@ -146,170 +166,232 @@
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Face recognition does not support liveness detection, and the verification method may carry risks.
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">আমি পড়েছি এবং আমি এটির সহমতি দিয়েছি</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">রিজার্মেন্ট</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">পরবর্তী</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">আমি পড়েছি এবং আমি এটির সহমতি দিয়েছি</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">রিজার্মেন্ট</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">পরবর্তী</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Authentication</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>বীমেট্রিক আইডেনটিফিকেশন</translation>
+    </message>
+</context>
+<context>
+    <name>AuthenticationMain</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>বীমেট্রিক আইডেনটিফিকেশন</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>মুখ</translation>
+    </message>
+    <message>
+        <source>Up to 5 facial data can be entered</source>
+        <translation>মুখের ডেটা প্রায় 5টি যোগ করা যায়</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation>প্রেক্ষিতা</translation>
+    </message>
+    <message>
+        <source>Identifying user identity through scanning fingerprints</source>
+        <translation>প্রেক্ষিতার মাধ্যমে ইউজার আইডিটি উন্ন্যাস্ত করা</translation>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation>আইরিস</translation>
+    </message>
+    <message>
+        <source>Identity recognition through iris scanning</source>
+        <translation>আইরিস স্ক্যান দিয়ে ইউনিক আইডিটি তাৎপর্যপূর্ণ করা</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation>লিটারাল, নাম্বার এবং অ্যাউন্ডারসাইন্ড এবং 15 টির কম ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only</source>
+        <translation>লিটারাল, নাম্বার এবং অ্যাউন্ডারসাইন্ড এবং ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <source>No more than 15 characters</source>
+        <translation>15 টির কম ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a new %1 ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AvatarSettingsDialog</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Human</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Emoji</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>custom</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cartoon style</source>
@@ -400,6 +482,17 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>BlueTooth</name>
+    <message>
+        <source>Bluetooth settings, devices</source>
+        <translation>ব্লুটুথ সেটিংস, ডিভাইস</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
@@ -457,7 +550,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -709,7 +802,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -826,15 +919,38 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">সাধারণ</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CommonInfoMain</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation>প্রোগ্রাম মেনু</translation>
+    </message>
+    <message>
+        <source>Manage your boot menu</source>
+        <translation>প্রোগ্রাম মেনুটি পরিচালনা করুন</translation>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation>ডেভেলপার রুট অনুমোদন পরিচালনা</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation>ডেভেলপার অপশনস</translation>
+    </message>
+    <message>
+        <source>Developer debugging options</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -897,15 +1013,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -955,30 +1071,30 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -989,7 +1105,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1007,109 +1123,129 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">সম্মত হলে ইউজার এক্সপারিয়েন্স প্রোগ্রামে যোগ দিন</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">যাচাই করুন</translation>
+    </message>
+</context>
+<context>
+    <name>Datetime</name>
+    <message>
+        <source>Time and date</source>
+        <translation>তারিখ এবং সময়</translation>
+    </message>
+    <message>
+        <source>Time and date, time zone settings</source>
+        <translation>তারিখ এবং সময়, সময় ইউনিট সেটিংস</translation>
+    </message>
+    <message>
+        <source>Language and region</source>
+        <translation>ভাষা এবং অঞ্চল</translation>
+    </message>
+    <message>
+        <source>System language, regional formats</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DatetimeModel</name>
     <message>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Week</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">সপ্তাহের প্রথম দিন
+</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">ছুটির তারিখ</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">দীর্ঘ তারিখ</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">ছুটির সময়</translation>
     </message>
     <message>
         <source>Long time</source>
@@ -1145,7 +1281,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1330,7 +1466,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1353,7 +1489,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Deepinid</name>
+    <message>
+        <source>deepin ID</source>
+        <translation>দিপিন আইডি</translation>
+    </message>
+    <message>
+        <source>UOS ID</source>
+        <translation>UOS আইডি</translation>
+    </message>
+    <message>
+        <source>Cloud services</source>
+        <translation>ক্লাউড সেবা</translation>
     </message>
 </context>
 <context>
@@ -1373,6 +1524,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
         <translation>অন্যান্য অঞ্চলে আপনার স্থানীয় বিধি এবং নীতি অনুযায়ী, এটি এখন উপলব্ধ নয়।</translation>
+    </message>
+</context>
+<context>
+    <name>Defaultapp</name>
+    <message>
+        <source>Default App</source>
+        <translation>মূল্যায়ন করা এ্যাপ্লিকেশন</translation>
+    </message>
+    <message>
+        <source>Set the default application for opening various types of files</source>
+        <translation>বিভিন্ন ধরনের ফাইল খোলার জন্য মূল্যায়ন করা এ্যাপ্লিকেশন নির্বাচন করুন</translation>
+    </message>
+</context>
+<context>
+    <name>DefaultappMain</name>
+    <message>
+        <source>Webpage</source>
+        <translation>ওয়েবপেজ</translation>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation>ইমেইল</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>তেক্সট</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation>মিউজিক</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation>ভিডিও</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation>ছবি</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation>টার্মিনাল</translation>
     </message>
 </context>
 <context>
@@ -1486,2219 +1679,65 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Device</name>
+    <message>
+        <source>Bluetooth and Other Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">রিজার্মেন্ট</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>FileAndFolder</name>
-    <message>
-        <source>Allow below apps to access these files and folders:</source>
-        <translation>এই ফাইলস এবং ফোল্ডারগুলো নিম্নলিখিত এ্যাপ্সে এক্সেস দাও:</translation>
-    </message>
-    <message>
-        <source>Documents</source>
-        <translation>ডকুমেন্টস</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>ডেস্কটপ</translation>
-    </message>
-    <message>
-        <source>Pictures</source>
-        <translation>ছবি</translation>
-    </message>
-    <message>
-        <source>Videos</source>
-        <translation>ভিডিও</translation>
-    </message>
-    <message>
-        <source>Music</source>
-        <translation>মিউজিক</translation>
-    </message>
-    <message>
-        <source>Downloads</source>
-        <translation>ডাউনলোড</translation>
-    </message>
-    <message>
-        <source>folder</source>
-        <translation>ফোল্ডার</translation>
-    </message>
-</context>
-<context>
-    <name>FontSizePage</name>
-    <message>
-        <source>Size</source>
-        <translation>সাইজ</translation>
-    </message>
-    <message>
-        <source>Standard Font</source>
-        <translation>স্ট্যান্ডার্ড ফন্ট</translation>
-    </message>
-    <message>
-        <source>Monospaced Font</source>
-        <translation>মোনোস্পেসেড ফন্ট</translation>
-    </message>
-</context>
-<context>
-    <name>GeneralPage</name>
-    <message>
-        <source>Power Plans</source>
-        <translation>পাউর প্লানস</translation>
-    </message>
-    <message>
-        <source>Power Saving Settings</source>
-        <translation>পাউর সেভিং সেটিংস</translation>
-    </message>
-    <message>
-        <source>Auto power saving on low battery</source>
-        <translation>লোই ব্যাটারি উপর আটু পাউর সেভিং</translation>
-    </message>
-    <message>
-        <source>Low battery threshold</source>
-        <translation>লোই ব্যাটারি থ্রেশহল্ড</translation>
-    </message>
-    <message>
-        <source>Auto power saving on battery</source>
-        <translation>ব্যাটারি উপর আটু পাউর সেভিং</translation>
-    </message>
-    <message>
-        <source>Wakeup Settings</source>
-        <translation>ওয়াকাপ সেটিংস</translation>
-    </message>
-    <message>
-        <source>Password is required to wake up the computer</source>
-        <translation>কম্পিউটার ওয়াকাপ করতে কোড প্রয়োজন</translation>
-    </message>
-    <message>
-        <source>Password is required to wake up the monitor</source>
-        <translation>মনিটর ওয়াকাপ করতে কোড প্রয়োজন</translation>
-    </message>
-    <message>
-        <source>Shutdown Settings</source>
-        <translation>শাডওয়ার সেটিংস</translation>
-    </message>
-    <message>
-        <source>Scheduled Shutdown</source>
-        <translation>সেইন্ডার শাডওয়ার</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>সময়</translation>
-    </message>
-    <message>
-        <source>Repeat</source>
-        <translation>পুনরায় চালান</translation>
-    </message>
-    <message>
-        <source>Once</source>
-        <translation>একবার</translation>
-    </message>
-    <message>
-        <source>Every day</source>
-        <translation>প্রতিদিন</translation>
-    </message>
-    <message>
-        <source>Working days</source>
-        <translation>কাজের দিন</translation>
-    </message>
-    <message>
-        <source>Custom Time</source>
-        <translation>মূল্যায়ন সময়</translation>
-    </message>
-    <message>
-        <source>Decrease screen brightness on power saver</source>
-        <translation>পার্টি সেভারে স্ক্রিন ব্রিজ্যাস কমান</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>HomePage</name>
-    <message>
-        <source>,</source>
-        <translation>, </translation>
-    </message>
-    <message>
-        <source>...</source>
-        <translation>...</translation>
-    </message>
-</context>
-<context>
-    <name>InterfaceEffectListview</name>
-    <message>
-        <source>Optimal Performance</source>
-        <translation>সুস্থাপিত পরিকল্পনা</translation>
-    </message>
-    <message>
-        <source>Balance</source>
-        <translation>খাড়াবার্ষিকি</translation>
-    </message>
-    <message>
-        <source>Best Visuals</source>
-        <translation>সুন্দর দৃশ্য</translation>
-    </message>
-    <message>
-        <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>LangAndFormat</name>
-    <message>
-        <source>Language</source>
-        <translation>ভাষা</translation>
-    </message>
-    <message>
-        <source>done</source>
-        <translation>কর্ম সম্পন্ন</translation>
-    </message>
-    <message>
-        <source>edit</source>
-        <translation>সম্পাদনা</translation>
-    </message>
-    <message>
-        <source>Other languages</source>
-        <translation>অন্যান্য ভাষা</translation>
-    </message>
-    <message>
-        <source>add</source>
-        <translation>যোগ করুন</translation>
-    </message>
-    <message>
-        <source>Region</source>
-        <translation>প্রদেশ</translation>
-    </message>
-    <message>
-        <source>Area</source>
-        <translation>ঊষ্মানীয় অঞ্চল</translation>
-    </message>
-    <message>
-        <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation>প্রদেশ ও অঞ্চল অনুযায়ী, সিস্টেম ও অ্যাপ্লিকেশনগুলি আপনাকে দেশ ও প্রদেশ ভিত্তিক স্থানীয় কন্টেন্ট দিতে পারে।</translation>
-    </message>
-    <message>
-        <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation>প্রদেশ অনুযায়ী, সিস্টেম ও অ্যাপ্লিকেশনগুলি তারিখ ও সময় আকার নির্ধারণ করতে পারে।</translation>
-    </message>
-    <message>
-        <source>Regional format</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>LangsChooserDialog</name>
-    <message>
-        <source>Add language</source>
-        <translation>ভাষা যোগ করুন</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>অনুসন্ধান</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>বন্ধ</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>যোগ করুন</translation>
-    </message>
-</context>
-<context>
-    <name>LoginMethod</name>
-    <message>
-        <source>Login method</source>
-        <translation>স্থাপনা পদ্ধতি</translation>
-    </message>
-    <message>
-        <source>Password, wechat, biometric authentication, security key</source>
-        <translation>পাসওয়ার্ড, ওয়েচাট, জীবনী উপর ভিত্তি করে আইデン্টিফিকেশন, উপার্জ্জন কুইক</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>পাসওয়ার্ড</translation>
-    </message>
-    <message>
-        <source>Modify password</source>
-        <translation>পাসওয়ার্ড পরিবর্তন করুন</translation>
-    </message>
-    <message>
-        <source>Validity days</source>
-        <translation>মূল্যায়ন দিন</translation>
-    </message>
-    <message>
-        <source>Always</source>
-        <translation>সবসময়</translation>
-    </message>
-    <message>
-        <source>Reset password</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>LogoModule</name>
-    <message>
-        <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation>সংক্রান্ত অধিকার © 2011-%1 ডিপিন কমিউনিটি</translation>
-    </message>
-    <message>
-        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation>সংক্রান্ত অধিকার © 2019-%1 যুনিয়নটেক সফটওয়্যার টেকনোলজি কো., ল্টড</translation>
-    </message>
-</context>
-<context>
-    <name>MicrophonePage</name>
-    <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>ট্যাটিক্যাল শব্দ স্থানান্তরন</translation>
-    </message>
-    <message>
-        <source>Input Volume</source>
-        <translation>ইনপুট আওয়াজ</translation>
-    </message>
-    <message>
-        <source>Input Level</source>
-        <translation>ইনপুট স্তর</translation>
-    </message>
-    <message>
-        <source>Input</source>
-        <translation>ইনপুট</translation>
-    </message>
-    <message>
-        <source>No input device for sound found</source>
-        <translation>স্বরের জন্য ইনপুট ডিভাইস পাওয়া যায়নি</translation>
-    </message>
-    <message>
-        <source>Input Device</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Mouse</name>
-    <message>
-        <source>Mouse</source>
-        <translation>মিউজ</translation>
-    </message>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>পয়েন্টার গতি</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>গতিশীল</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>গতিশীল বেশি</translation>
-    </message>
-    <message>
-        <source>Pointer Size</source>
-        <translation>মিউসিকেল বাইল ব্যাটারি সাইজ</translation>
-    </message>
-    <message>
-        <source>Mouse Acceleration</source>
-        <translation>মিউসিকেল অ্যাক্সেলেরেশন</translation>
-    </message>
-    <message>
-        <source>Disable touchpad when a mouse is connected</source>
-        <translation>মিউসিকেল সংযোগ হলে টাচপেড ব্যবহার বন্ধ করুন</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>নাটীয় স্ক্রিন ব্রুজিং</translation>
-    </message>
-    <message>
-        <source>Small</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Medium</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>X-Large</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>MyDevice</name>
-    <message>
-        <source>My Devices</source>
-        <translation>আমার ডিভাইসেস</translation>
-    </message>
-</context>
-<context>
-    <name>NativeInfoPage</name>
-    <message>
-        <source>UOS</source>
-        <translation>UOS</translation>
-    </message>
-    <message>
-        <source>Computer name</source>
-        <translation>কম্পিউটারের নাম</translation>
-    </message>
-    <message>
-        <source>It cannot start or end with dashes</source>
-        <translation>এটি ত্রিশটা দিয়ে শুরু করা বা শেষ করা যায় না</translation>
-    </message>
-    <message>
-        <source>OS Name</source>
-        <translation>অপারেটিং সিস্টেমের নাম</translation>
-    </message>
-    <message>
-        <source>Version</source>
-        <translation>ভার্সিয়ন</translation>
-    </message>
-    <message>
-        <source>Edition</source>
-        <translation>এডিশন</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>টাইপ</translation>
-    </message>
-    <message>
-        <source>bit</source>
-        <translation>বিট</translation>
-    </message>
-    <message>
-        <source>Authorization</source>
-        <translation>অ্যাথোরাইজেশন</translation>
-    </message>
-    <message>
-        <source>System installation time</source>
-        <translation>সিস্টেম ইনস্টলেশন সময়</translation>
-    </message>
-    <message>
-        <source>Kernel</source>
-        <translation>কার্নেল</translation>
-    </message>
-    <message>
-        <source>Graphics Platform</source>
-        <translation>গ্রাফিক্স প্ল্যাটফর্ম</translation>
-    </message>
-    <message>
-        <source>Processor</source>
-        <translation>প্রসেসর</translation>
-    </message>
-    <message>
-        <source>Memory</source>
-        <translation>মেমরি</translation>
-    </message>
-    <message>
-        <source>1~63 characters please</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>OtherDevice</name>
-    <message>
-        <source>Other Devices</source>
-        <translation>অন্যান্য ডিভাইসেস</translation>
-    </message>
-    <message>
-        <source>Show Bluetooth devices without names</source>
-        <translation>নাম থাকার বিন্দুমাত্র ব্লুটুথ ডিভাইস প্রদর্শন করুন</translation>
-    </message>
-</context>
-<context>
-    <name>PasswordLayout</name>
-    <message>
-        <source>Current password</source>
-        <translation>বর্তমান পাসওয়ার্ড</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>অনুরোধিত</translation>
-    </message>
-    <message>
-        <source>Weak</source>
-        <translation>বেশিরভাগ</translation>
-    </message>
-    <message>
-        <source>Medium</source>
-        <translation>মধ্যরেখা</translation>
-    </message>
-    <message>
-        <source>Strong</source>
-        <translation>ঝুঁকিপূর্ণ</translation>
-    </message>
-    <message>
-        <source>Repeat Password</source>
-        <translation>পাসওয়ার্ড পুনরায় লিখুন</translation>
-    </message>
-    <message>
-        <source>Password hint</source>
-        <translation>পাসওয়ার্ডের হিন্ট</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation>অপশনাল</translation>
-    </message>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation>পাসওয়ার্ড অবশ্যই হওয়া দরকার</translation>
-    </message>
-    <message>
-        <source>Passwords do not match</source>
-        <translation>পাসওয়ার্ড মিলছে না</translation>
-    </message>
-    <message>
-        <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation>হিন্ট সব উপযোক্তার দৃশ্যমান। এখানে পাসওয়ার্ড লিখবেন না।</translation>
-    </message>
-    <message>
-        <source>New password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>New password should differ from the current one</source>
-        <translation>নতুন পাসওয়ার্ড বর্তমানের সাথে ভিন্ন হওয়া দরকার</translation>
-    </message>
-    <message>
-        <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>PasswordModifyDialog</name>
-    <message>
-        <source>Modify password</source>
-        <translation>পাসওয়ার্ড পরিবর্তন করুন</translation>
-    </message>
-    <message>
-        <source>Reset password</source>
-        <translation>পাসওয়ার্ড পুনরায় সেট করুন</translation>
-    </message>
-    <message>
-        <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation>পাসওয়ার্ডের দৈর্ঘ্য কমপক্ষে ৮ অক্ষর হওয়া দরকার এবং পাসওয়ার্ডে নাম্বার, সিম্বল এবং উভয় ক্যাডার্সের মধ্যে কমপক্ষে ৩টি প্রকার অক্ষর অথবা সংখ্যার মিশ্রণ রয়েছে এটি নিরাপদতর।</translation>
-    </message>
-    <message>
-        <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation>পাসওয়ার্ড পুনরায় সেট করা প্রার্থনা করার সূচনায় স্টোরেড ডেটা পুরণ হবে।</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>বাতিল</translation>
-    </message>
-</context>
-<context>
-    <name>PersonalizationInterface</name>
-    <message>
-        <source>Light</source>
-        <translation>আলো</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation>টুকরো</translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation>ট্যাগ</translation>
-    </message>
-    <message>
-        <source>Picker service is not available</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>PersonalizationWorker</name>
-    <message>
-        <source>Custom</source>
-        <translation>মোটামুটি</translation>
-    </message>
-</context>
-<context>
-    <name>PluginArea</name>
-    <message>
-        <source>Plugin Area</source>
-        <translation>প্লাগইন ইউনিট</translation>
-    </message>
-    <message>
-        <source>Select which icons appear in the Dock</source>
-        <translation>ডকে দেখানো চিহ্নগুলি কোনগুলি নির্বাচন করুন</translation>
-    </message>
-</context>
-<context>
-    <name>PowerOperatorModel</name>
-    <message>
-        <source>Shut down</source>
-        <translation>ফাঁকানাক করুন</translation>
-    </message>
-    <message>
-        <source>Suspend</source>
-        <translation>প্রাক্তন</translation>
-    </message>
-    <message>
-        <source>Hibernate</source>
-        <translation>হাইব্রিডিটি</translation>
-    </message>
-    <message>
-        <source>Turn off the monitor</source>
-        <translation>মনিটর বন্ধ করুন</translation>
-    </message>
-    <message>
-        <source>Show the shutdown Interface</source>
-        <translation>ফাইন্ড করার পরবর্তী পরিস্থিতি দেখান</translation>
-    </message>
-    <message>
-        <source>Do nothing</source>
-        <translation>কিছুই করবেন না</translation>
-    </message>
-</context>
-<context>
-    <name>PowerPage</name>
-    <message>
-        <source>Screen and Suspend</source>
-        <translation>স্ক্রিন এবং স্পাংজ</translation>
-    </message>
-    <message>
-        <source>Turn off the monitor after</source>
-        <translation>মনিটর বন্ধ করুন</translation>
-    </message>
-    <message>
-        <source>Lock screen after</source>
-        <translation>স্ক্রিন লোক করুন</translation>
-    </message>
-    <message>
-        <source>Computer suspends after</source>
-        <translation>প্রোগ্রাম স্পাংজ করবে</translation>
-    </message>
-    <message>
-        <source>When the lid is closed</source>
-        <translation>লিড বন্ধ হয়ে থাকলে</translation>
-    </message>
-    <message>
-        <source>When the power button is pressed</source>
-        <translation>পাউর বীটন প্রেস করার সময়</translation>
-    </message>
-</context>
-<context>
-    <name>PowerPlansListview</name>
-    <message>
-        <source>High Performance</source>
-        <translation>উচ্চ পরিকল্পনা</translation>
-    </message>
-    <message>
-        <source>Balance Performance</source>
-        <translation>পরিকল্পনা সুরক্ষিত রাখুন</translation>
-    </message>
-    <message>
-        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation>CPU ব্যবহারের অবস্থার উপর সেট করে ক্যাপিউ কর্যকালি অ্যারে সার্কিট অবশ্যই পরিবর্তন করুন</translation>
-    </message>
-    <message>
-        <source>Balanced</source>
-        <translation>সুরক্ষিত রাখুন</translation>
-    </message>
-    <message>
-        <source>Power Saver</source>
-        <translation>পার্শ্ব সেভার</translation>
-    </message>
-    <message>
-        <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation>পরিকল্পনার প্রাথমিকতা দেওয়া, যা শক্তি উপাদান ও গরম গенেরেশনের সুনির্দিষ্ট বৃদ্ধি করবে</translation>
-    </message>
-    <message>
-        <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation>পরিকল্পনা ও ব্যাটারি জীবনকাল সুরক্ষিত রাখার মাধ্যমে সংগ্রাহক পরিবর্তন করা হবে যেমন ব্যবহার করা হয়</translation>
-    </message>
-    <message>
-        <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation>ব্যাটারি জীবনকাল প্রাথমিকতা দেওয়া, যা শক্তি উপাদান উপাদান কমানোর জন্য কিছু পরিকল্পনা দেখান দেখান</translation>
-    </message>
-</context>
-<context>
-    <name>PowerWorker</name>
-    <message>
-        <source>Minutes</source>
-        <translation>মিনিট</translation>
-    </message>
-    <message>
-        <source>Hour</source>
-        <translation>ঘন্টা</translation>
-    </message>
-    <message>
-        <source>Never</source>
-        <translation>সবসময়</translation>
-    </message>
-</context>
-<context>
-    <name>PrivacyPolicyPage</name>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>জায়গার নীতি</translation>
-    </message>
-    <message>
-        <source>Copy Link Address</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>PwqualityManager</name>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation>পাসওয়ার্ড খালি থাকতে পারে না</translation>
-    </message>
-    <message>
-        <source>Password must have at least %1 characters</source>
-        <translation>পাসওয়ার্ডের কমপক্ষে %1 অক্ষর থাকতে হবে</translation>
-    </message>
-    <message>
-        <source>Password must be no more than %1 characters</source>
-        <translation>পাসওয়ার্ডের মোট কর্মকর্তার সংখ্যা %1 থেকে বেশি হতে পারে না</translation>
-    </message>
-    <message>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>পাসওয়ার্ডের মধ্যে শুধু কেস সেন্টিটিভ ইংরেজি বাক্যার্টিয়াল, সংখ্যা বা বিশেষ অক্ষর (~/`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/)
-</translation>
-    </message>
-    <message>
-        <source>No more than %1 palindrome characters please</source>
-        <translation>%1 পলিনড্রোম অক্ষর বেশি নেই
-</translation>
-    </message>
-    <message>
-        <source>No more than %1 monotonic characters please</source>
-        <translation>%1 মনোটনিক অক্ষর বেশি নেই
-</translation>
-    </message>
-    <message>
-        <source>No more than %1 repeating characters please</source>
-        <translation>%1 পুনরাবৃত্ত অক্ষর বেশি নেই
-</translation>
-    </message>
-    <message>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>পাসওয়ার্ডে উচ্চ ক্যাডের বাক্যার্টিয়াল, নিচ্ছ ক্যাডের বাক্যার্টিয়াল, সংখ্যা এবং সিমবলগুলি (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/) থাকতে হবে
-</translation>
-    </message>
-    <message>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>পাসওয়ার্ডে 4 টি পলিনড্রোম অক্ষর বেশি থাকতে পারে না
-</translation>
-    </message>
-    <message>
-        <source>Do not use common words and combinations as password</source>
-        <translation>সাধারণ শব্দ বা কোম্বিনেশন পাসওয়ার্ড হিসাবে ব্যবহার করবেন না
-</translation>
-    </message>
-    <message>
-        <source>Create a strong password please</source>
-        <translation>অগ্রাধিকারী পাসওয়ার্ড তৈরি করুন
-</translation>
-    </message>
-    <message>
-        <source>It does not meet password rules</source>
-        <translation>এটি পাসওয়ার্ড নিয়মগুলি সিদ্ধান্ত করে নেই
-</translation>
-    </message>
-</context>
-<context>
-    <name>QObject</name>
-    <message>
-        <source>Control Center</source>
-        <translation>কন্ট্রোল সেন্টার
-</translation>
-    </message>
-    <message>
-        <source>Activated</source>
-        <translation>ট্যাক্টিভেড
-</translation>
-    </message>
-    <message>
-        <source>View</source>
-        <translation>ভিউ
-</translation>
-    </message>
-    <message>
-        <source>To be activated</source>
-        <translation>ট্যাক্টিভেড হবার পর
-</translation>
-    </message>
-    <message>
-        <source>Activate</source>
-        <translation>ট্যাক্টিভেট
-</translation>
-    </message>
-    <message>
-        <source>Expired</source>
-        <translation>প্রাপ্ত হয়েছে
-</translation>
-    </message>
-    <message>
-        <source>In trial period</source>
-        <translation>ট্রিয়াল অবস্থায়
-</translation>
-    </message>
-    <message>
-        <source>Trial expired</source>
-        <translation>ট্রিয়াল প্রাপ্ত হয়েছে
-</translation>
-    </message>
-    <message>
-        <source>dde-control-center</source>
-        <translation>dde-control-center
-</translation>
-    </message>
-    <message>
-        <source>Touch Screen Settings</source>
-        <translation>টাচ সিক্রেন সেটিংস
-</translation>
-    </message>
-    <message>
-        <source>The settings of touch screen changed</source>
-        <translation>টাচ সিক্রেনের সেটিংস পরিবর্তিত হয়েছে
-</translation>
-    </message>
-    <message>
-        <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation>এই সিস্টেম পেপারওয়াল লকেড হয়েছে। অপেরেটরের সাথে যোগাযোগ করুন।
-</translation>
-    </message>
-    <message>
-        <source>%1 (%2)</source>
-        <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>RegionFormatDialog</name>
-    <message>
-        <source>Search</source>
-        <translation>অনুসন্ধান
-</translation>
-    </message>
-    <message>
-        <source>Default formats</source>
-        <translation>স্বামিত্বাধীন ফরম্যাট
-</translation>
-    </message>
-    <message>
-        <source>First day of week</source>
-        <translation>সপ্তাহের প্রথম দিন
-</translation>
-    </message>
-    <message>
-        <source>Short date</source>
-        <translation>ছুটির তারিখ</translation>
-    </message>
-    <message>
-        <source>Long date</source>
-        <translation>দীর্ঘ তারিখ</translation>
-    </message>
-    <message>
-        <source>Short time</source>
-        <translation>ছুটির সময়</translation>
-    </message>
-    <message>
-        <source>Long time</source>
-        <translation>দীর্ঘ সময়</translation>
-    </message>
-    <message>
-        <source>Currency symbol</source>
-        <translation>মুদ্রাস্বর</translation>
-    </message>
-    <message>
-        <source>Digit</source>
-        <translation>সংখ্যা</translation>
-    </message>
-    <message>
-        <source>Paper size</source>
-        <translation>পেপার সাইজ</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>বন্ধ করুন</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>পরিবর্তন সংরক্ষণ করুন</translation>
-    </message>
-    <message>
-        <source>Regional format</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>RegionsChooserWindow</name>
-    <message>
-        <source>Search</source>
-        <translation>অনুসন্ধান</translation>
-    </message>
-</context>
-<context>
-    <name>RegisterDialog</name>
-    <message>
-        <source>Set a Password</source>
-        <translation>পাসওয়ার্ড নির্ধারণ করুন</translation>
-    </message>
-    <message>
-        <source>8-64 characters</source>
-        <translation>8-64 ক্যারেক্টার</translation>
-    </message>
-    <message>
-        <source>Repeat the password</source>
-        <translation>পাসওয়ার্ড পুনরাবৃত্তি করুন</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>বন্ধ করুন</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>যাচাই করুন</translation>
-    </message>
-    <message>
-        <source>Passwords don&apos;t match</source>
-        <translation>পাসওয়ার্ড মিলছে না</translation>
-    </message>
-</context>
-<context>
-    <name>ScheduledShutdownDialog</name>
-    <message>
-        <source>Customize repetition time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>ScreenSaverPage</name>
-    <message>
-        <source>Screensaver</source>
-        <translation>স্ক্রিন সেভার</translation>
-    </message>
-    <message>
-        <source>preview</source>
-        <translation>প্রাইভিয়ার</translation>
-    </message>
-    <message>
-        <source>Personalized screensaver</source>
-        <translation>প্রতিষ্ঠিত স্ক্রিন সেভার</translation>
-    </message>
-    <message>
-        <source>setting</source>
-        <translation>সেটিং</translation>
-    </message>
-    <message>
-        <source>idle time</source>
-        <translation>অপারেশন অবস্থায় সময়</translation>
-    </message>
-    <message>
-        <source>1 minute</source>
-        <translation>1 মিনিট</translation>
-    </message>
-    <message>
-        <source>5 minute</source>
-        <translation>5 মিনিট</translation>
-    </message>
-    <message>
-        <source>10 minute</source>
-        <translation>10 মিনিট</translation>
-    </message>
-    <message>
-        <source>15 minute</source>
-        <translation>15 মিনিট</translation>
-    </message>
-    <message>
-        <source>30 minute</source>
-        <translation>30 মিনিট</translation>
-    </message>
-    <message>
-        <source>1 hour</source>
-        <translation>1 ঘন্টা</translation>
-    </message>
-    <message>
-        <source>never</source>
-        <translation>বসে থাকলেও</translation>
-    </message>
-    <message>
-        <source>Password required for recovery</source>
-        <translation>পুনর্সংযোগের জন্য পাসওয়ার্ড প্রয়োজন</translation>
-    </message>
-    <message>
-        <source>Picture slideshow screensaver</source>
-        <translation>ছবি স্লাইডশো স্ক্রিনসেভার</translation>
-    </message>
-    <message>
-        <source>System screensaver</source>
-        <translation>সিস্টেম স্ক্রিনসেভার</translation>
-    </message>
-</context>
-<context>
-    <name>SearchableListViewPopup</name>
-    <message>
-        <source>Search</source>
-        <translation>অনুসন্ধান</translation>
-    </message>
-    <message>
-        <source>No search results</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>ShortcutSettingDialog</name>
-    <message>
-        <source>Add custom shortcut</source>
-        <translation>নির্দিষ্ট ট্রিভিয়াল যোগ করুন</translation>
-    </message>
-    <message>
-        <source>Name:</source>
-        <translation>নাম:</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>প্রয়োজন</translation>
-    </message>
-    <message>
-        <source>Command:</source>
-        <translation>কম্যান্ড:</translation>
-    </message>
-    <message>
-        <source>Shortcut</source>
-        <translation>ট্রিভিয়াল</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>কোনো একটি নেই</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>বন্ধ করুন</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>যোগ করুন</translation>
-    </message>
-    <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Shortcuts</name>
-    <message>
-        <source>Shortcuts</source>
-        <translation>ট্রিভিয়াল</translation>
-    </message>
-    <message>
-        <source>System shortcut, custom shortcut</source>
-        <translation>সিস্টেম ট্রিভিয়াল, নির্দিষ্ট ট্রিভিয়াল</translation>
-    </message>
-    <message>
-        <source>Search shortcuts</source>
-        <translation>অনুসন্ধান ট্রিভিয়াল</translation>
-    </message>
-    <message>
-        <source>done</source>
-        <translation>গোপনীয়</translation>
-    </message>
-    <message>
-        <source>edit</source>
-        <translation>সম্পাদনা</translation>
-    </message>
-    <message>
-        <source>Click</source>
-        <translation>ক্লিক করুন</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>বন্ধন পরিহার</translation>
-    </message>
-    <message>
-        <source>or</source>
-        <translation>বা</translation>
-    </message>
-    <message>
-        <source>Replace</source>
-        <translation>পরিবর্তন করুন</translation>
-    </message>
-    <message>
-        <source>Restore default</source>
-        <translation>মূল অবস্থায় পুনরায় স্থাপন করুন</translation>
-    </message>
-    <message>
-        <source>Add custom shortcut</source>
-        <translation>কাস্টম চার্জট যোগ করুন</translation>
-    </message>
-    <message>
-        <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>SoundDevicemanagesPage</name>
-    <message>
-        <source>Output Devices</source>
-        <translation>আউটপুট ডিভাইস</translation>
-    </message>
-    <message>
-        <source>Select whether to enable the devices</source>
-        <translation>ডিভাইসগুলি সক্রিয় করতে কি করতে নির্বাচন করুন</translation>
-    </message>
-    <message>
-        <source>Input Devices</source>
-        <translation>ইনপুট ডিভাইস</translation>
-    </message>
-</context>
-<context>
-    <name>SoundEffectsPage</name>
-    <message>
-        <source>Sound Effects</source>
-        <translation>স্বর প্রভাব</translation>
-    </message>
-</context>
-<context>
-    <name>SoundModel</name>
-    <message>
-        <source>Boot up</source>
-        <translation>নেভার উঠান</translation>
-    </message>
-    <message>
-        <source>Shut down</source>
-        <translation>ফাউন্ড করান</translation>
-    </message>
-    <message>
-        <source>Log out</source>
-        <translation>লগ আউট করুন</translation>
-    </message>
-    <message>
-        <source>Wake up</source>
-        <translation>ঘুম থেকে উঠান</translation>
-    </message>
-    <message>
-        <source>Volume +/-</source>
-        <translation>গল্ফ সুরের মাত্রা +/-</translation>
-    </message>
-    <message>
-        <source>Notification</source>
-        <translation>বিনোদন</translation>
-    </message>
-    <message>
-        <source>Low battery</source>
-        <translation>লোয়া ব্যাটারি</translation>
-    </message>
-    <message>
-        <source>Send icon in Launcher to Desktop</source>
-        <translation>লঞ্চারে ইকনট ডেস্কটপে পাঠান</translation>
-    </message>
-    <message>
-        <source>Empty Trash</source>
-        <translation>মেঘাতি খালি করুন</translation>
-    </message>
-    <message>
-        <source>Plug in</source>
-        <translation>সংযোগ করুন</translation>
-    </message>
-    <message>
-        <source>Plug out</source>
-        <translation>ঘুঁট দিন</translation>
-    </message>
-    <message>
-        <source>Removable device connected</source>
-        <translation>অপরিচিত ডিভাইস সংযোগ করা হয়েছে</translation>
-    </message>
-    <message>
-        <source>Removable device removed</source>
-        <translation>অপরিচিত ডিভাইস বাদ দেওয়া হয়েছে</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>ভুল</translation>
-    </message>
-</context>
-<context>
-    <name>SpeakerPage</name>
-    <message>
-        <source>Mode</source>
-        <translation>মড</translation>
-    </message>
-    <message>
-        <source>Output Volume</source>
-        <translation>আউটপুট সুরের মাত্রা</translation>
-    </message>
-    <message>
-        <source>Volume Boost</source>
-        <translation>ভার্জুস্ট ভার্জেন্সি</translation>
-    </message>
-    <message>
-        <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation>যদি গোল্ডের শব্দের স্তর 100% এর বেশি হয়, তাহলে এটি শব্দের স্তরকে পরিবর্তন করতে পারে এবং এটি উত্তরাধিকার ডিভাইসে নিষ্পক্ষ হতে পারে</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation>বাম</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation>ডান</translation>
-    </message>
-    <message>
-        <source>Output</source>
-        <translation>উত্তরাধিকার</translation>
-    </message>
-    <message>
-        <source>No output device for sound found</source>
-        <translation>�ব্দের উত্তরাধিকার ডিভাইস পাওয়া যায় নি</translation>
-    </message>
-    <message>
-        <source>Left Right Balance</source>
-        <translation>বাম-ডান সূচনা</translation>
-    </message>
-    <message>
-        <source>Merge left and right channels into a single channel</source>
-        <translation>বাম এবং ডান চ্যানেল একটি চ্যানেলে মিশান</translation>
-    </message>
-    <message>
-        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation>এখন ব্যবহৃত শব্দের ডিভাইস থেকে বাহির করা হলে শব্দটি টুলো আটুটি হবে কি</translation>
-    </message>
-    <message>
-        <source>Mono Audio</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Auto Pause</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Output Device</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>SyncInfoListModel</name>
-    <message>
-        <source>Sound</source>
-        <translation>স্বর</translation>
-    </message>
-    <message>
-        <source>Power</source>
-        <translation>পাবল্যাট</translation>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation>মিউজ</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>আপডেট</translation>
-    </message>
-    <message>
-        <source>Screensaver</source>
-        <translation>স্ক্রিন সেভার</translation>
-    </message>
-</context>
-<context>
-    <name>ThemeSelectView</name>
-    <message>
-        <source>More Wallpapers</source>
-        <translation>ধারণা পোস্টার</translation>
-    </message>
-</context>
-<context>
-    <name>TimeAndDate</name>
-    <message>
-        <source>Auto sync time</source>
-        <translation>টাইম টুলো আটুটি</translation>
-    </message>
-    <message>
-        <source>Ntp server</source>
-        <translation>NTP সার্ভার</translation>
-    </message>
-    <message>
-        <source>System date and time</source>
-        <translation>সিস্টেম তারিখ এবং সময়</translation>
-    </message>
-    <message>
-        <source>Customize</source>
-        <translation>পরিষেবা করুন</translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation>সেটিংস</translation>
-    </message>
-    <message>
-        <source>Server address</source>
-        <translation>সার্ভার ঠিকানা</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>অনুগ্রহ করে প্রয়োজনীয়</translation>
-    </message>
-    <message>
-        <source>The ntp server address cannot be empty</source>
-        <translation>এনটিপি সারভার ঠিকানা খালি থাকতে পারে না</translation>
-    </message>
-    <message>
-        <source>Use 24-hour format</source>
-        <translation>24 ঘণ্টা আকার ব্যবহার করুন</translation>
-    </message>
-    <message>
-        <source>system time zone</source>
-        <translation>সিস্টেম সময় অঞ্চল</translation>
-    </message>
-    <message>
-        <source>Timezone list</source>
-        <translation>সময় অঞ্চল তালিকা</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>TimeRange</name>
-    <message>
-        <source>from</source>
-        <translation>সার্বিক</translation>
-    </message>
-    <message>
-        <source>to</source>
-        <translation>পর্যন্ত</translation>
-    </message>
-</context>
-<context>
-    <name>TimeoutDialog</name>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>প্রদর্শন সেটিংস সংরক্ষণ করুন</translation>
-    </message>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>সেটিংস %1s পরে পুনরায় সংশোধিত হবে।</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>পুনরায় সংশোধন করুন</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>সংরক্ষণ করুন</translation>
-    </message>
-</context>
-<context>
-    <name>TimezoneDialog</name>
-    <message>
-        <source>Add time zone</source>
-        <translation>সময় অঞ্চল যোগ করুন</translation>
-    </message>
-    <message>
-        <source>Determine the time zone based on the current location</source>
-        <translation>বর্তমান অবস্থান অনুযায়ী সময় অঞ্চল নির্ধারণ করুন</translation>
-    </message>
-    <message>
-        <source>Time zone:</source>
-        <translation>সময় অঞ্চল:</translation>
-    </message>
-    <message>
-        <source>Nearest City:</source>
-        <translation>নিকটতম শহর:</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>বাতাস</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>সংরক্ষণ করুন</translation>
-    </message>
-</context>
-<context>
-    <name>TouchScreen</name>
-    <message>
-        <source>TouchScreen</source>
-        <translation>উপরীতাপ্স্ক্রিন</translation>
-    </message>
-    <message>
-        <source>Set up here when connecting the touch screen</source>
-        <translation>উপরীতাপ্স্ক্রিন সংযোগ করার সময় এখানে নিয়ন্ত্রণ করুন</translation>
-    </message>
-</context>
-<context>
-    <name>Touchpad</name>
-    <message>
-        <source>Basic Settings</source>
-        <translation>ভিত্তি সেটিংস</translation>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation>টাচপ্যাড</translation>
-    </message>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>বাইন্ডার গতি</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>কম</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>গ্রাহক</translation>
-    </message>
-    <message>
-        <source>Disable touchpad during input</source>
-        <translation>প্রবেশ সময়ে টাচপ্যাড ব্যবহার বন্ধ করুন</translation>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation>ক্লিক করার জন্য টপ করুন</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>নাটীয় পরিস্থিতি পরিবর্তন</translation>
-    </message>
-    <message>
-        <source>Three-finger gestures</source>
-        <translation>তিন পাত্র গাস্টার</translation>
-    </message>
-    <message>
-        <source>Four-finger gestures</source>
-        <translation>চার পাত্র গাস্টার</translation>
-    </message>
-    <message>
-        <source>Gestures</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>UserExperienceProgramPage</name>
-    <message>
-        <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Copy Link Address</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>VerifyDialog</name>
-    <message>
-        <source>Security Verification</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>8-64 characters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Forgot Password?</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>WallpaperPage</name>
-    <message>
-        <source>wallpaper</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>My pictures</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System Wallpaper</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Solid color wallpaper</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Customizable wallpapers</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>fill style</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Automatic wallpaper change</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>never</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>30 second</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>1 minute</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>5 minute</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>10 minute</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>15 minute</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>30 minute</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>login</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>wake up</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Live Wallpaper</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>1 hour</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System Wallpapers</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>WallpaperSelectView</name>
-    <message>
-        <source>unfold</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Set lock screen</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Set desktop</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>show all - %1 items</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add Picture</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>WindowEffectPage</name>
-    <message>
-        <source>Interface and Effects</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Window Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Window rounded corners</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>None</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Small</source>
-        <translation>ক্ষুদ্র</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>ভারী</translation>
-    </message>
-    <message>
-        <source>Enable transparent effects when moving windows</source>
-        <translation>ウインドウを移動するときに透過効果を有効にする</translation>
-    </message>
-    <message>
-        <source>Window Minimize Effect</source>
-        <translation>ウインドウの最小化効果</translation>
-    </message>
-    <message>
-        <source>Scale</source>
-        <translation>মাত্রা</translation>
-    </message>
-    <message>
-        <source>Magic Lamp</source>
-        <translation>মজাকি জাম্পান</translation>
-    </message>
-    <message>
-        <source>Opacity</source>
-        <translation>অপার্সিবিটি</translation>
-    </message>
-    <message>
-        <source>Low</source>
-        <translation>লোও</translation>
-    </message>
-    <message>
-        <source>High</source>
-        <translation>হাই</translation>
-    </message>
-    <message>
-        <source>Scroll Bars</source>
-        <translation>স্ক্রিন স্ক্রিল বার</translation>
-    </message>
-    <message>
-        <source>Show on scrolling</source>
-        <translation>স্ক্রিন স্ক্রিল করার সময় প্রদর্শন করুন</translation>
-    </message>
-    <message>
-        <source>Keep shown</source>
-        <translation>প্রদর্শিত রাখুন</translation>
-    </message>
-    <message>
-        <source>Compact Display</source>
-        <translation>কমপ্লেক্ট ডিস্প্লে</translation>
-    </message>
-    <message>
-        <source>If enabled, more content is displayed in the window.</source>
-        <translation>যদি সক্রিয় হয়, তাহলে উইন্ডোয়ে বেশি কনটেন্ট প্রদর্শিত হবে।</translation>
-    </message>
-    <message>
-        <source>Title Bar Height</source>
-        <translation>শিরোনাম বার উচ্চতা</translation>
-    </message>
-    <message>
-        <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation>প্রতিবেদক ম্যানেজার দ্বারা রেখে থাকা উইন্ডোয়ের শিরোনাম বারে ইহা শুধুমাত্র উপযুক্ত।</translation>
-    </message>
-    <message>
-        <source>Extremely small</source>
-        <translation>অত্যন্ত ক্ষুদ্র</translation>
-    </message>
-    <message>
-        <source>Medium</source>
-        <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Medium</source>
-        <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>accounts</name>
-    <message>
-        <source>Account</source>
-        <translation>বাতিল</translation>
-    </message>
-    <message>
-        <source>Account manager</source>
-        <translation>বাতিল ম্যানেজার</translation>
-    </message>
-</context>
-<context>
-    <name>accountsMain</name>
-    <message>
-        <source>Other accounts</source>
-        <translation>অন্যান্য অ্যাকাউন্ট</translation>
-    </message>
-</context>
-<context>
-    <name>authentication</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>বীমেট্রিক আইডেনটিফিকেশন</translation>
-    </message>
-</context>
-<context>
-    <name>authenticationMain</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>বীমেট্রিক আইডেনটিফিকেশন</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>মুখ</translation>
-    </message>
-    <message>
-        <source>Up to 5 facial data can be entered</source>
-        <translation>মুখের ডেটা প্রায় 5টি যোগ করা যায়</translation>
-    </message>
-    <message>
-        <source>Fingerprint</source>
-        <translation>প্রেক্ষিতা</translation>
-    </message>
-    <message>
-        <source>Identifying user identity through scanning fingerprints</source>
-        <translation>প্রেক্ষিতার মাধ্যমে ইউজার আইডিটি উন্ন্যাস্ত করা</translation>
-    </message>
-    <message>
-        <source>Iris</source>
-        <translation>আইরিস</translation>
-    </message>
-    <message>
-        <source>Identity recognition through iris scanning</source>
-        <translation>আইরিস স্ক্যান দিয়ে ইউনিক আইডিটি তাৎপর্যপূর্ণ করা</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>লিটারাল, নাম্বার এবং অ্যাউন্ডারসাইন্ড এবং 15 টির কম ব্যবহার করুন</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only</source>
-        <translation>লিটারাল, নাম্বার এবং অ্যাউন্ডারসাইন্ড এবং ব্যবহার করুন</translation>
-    </message>
-    <message>
-        <source>No more than 15 characters</source>
-        <translation>15 টির কম ব্যবহার করুন</translation>
-    </message>
-    <message>
-        <source>This name already exists</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>blueTooth</name>
-    <message>
-        <source>Bluetooth settings, devices</source>
-        <translation>ব্লুটুথ সেটিংস, ডিভাইস</translation>
-    </message>
-    <message>
-        <source>Bluetooth</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>commonInfoMain</name>
-    <message>
-        <source>Boot Menu</source>
-        <translation>প্রোগ্রাম মেনু</translation>
-    </message>
-    <message>
-        <source>Manage your boot menu</source>
-        <translation>প্রোগ্রাম মেনুটি পরিচালনা করুন</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>ডেভেলপার রুট অনুমোদন পরিচালনা</translation>
-    </message>
-    <message>
-        <source>Developer Options</source>
-        <translation>ডেভেলপার অপশনস</translation>
-    </message>
-    <message>
-        <source>Developer debugging options</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>datetime</name>
-    <message>
-        <source>Time and date</source>
-        <translation>তারিখ এবং সময়</translation>
-    </message>
-    <message>
-        <source>Time and date, time zone settings</source>
-        <translation>তারিখ এবং সময়, সময় ইউনিট সেটিংস</translation>
-    </message>
-    <message>
-        <source>Language and region</source>
-        <translation>ভাষা এবং অঞ্চল</translation>
-    </message>
-    <message>
-        <source>System language, regional formats</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dcc::Locale::dialectNames</name>
-    <message>
-        <source>Traditional Chinese (Chinese Hong Kong)</source>
-        <translation>ত্রান্সিস্টেন্ট চাইনিজ (চাইনিজ হংকং)</translation>
-    </message>
-    <message>
-        <source>Traditional Chinese (Chinese Taiwan)</source>
-        <translation>ত্রান্সিস্টেন্ট চাইনিজ (চাইনিজ তাইওয়ান)</translation>
-    </message>
-    <message>
-        <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dcc::Locale::regionNames</name>
-    <message>
-        <source>Taiwan China</source>
-        <translation>তাইওয়ান চাইনিজ</translation>
-    </message>
-</context>
-<context>
-    <name>dccV25::AccountsController</name>
-    <message>
-        <source>Username must be between 3 and 32 characters</source>
-        <translation>ইউজারনেম 3 থেকে 32 অক্ষরের মধ্যে থাকতে হবে</translation>
-    </message>
-    <message>
-        <source>The first character must be a letter or number</source>
-        <translation>প্রথম অক্ষর হতে একটি লিটারাল বা নাম্বার হতে হবে</translation>
-    </message>
-    <message>
-        <source>Your username should not only have numbers</source>
-        <translation>ইউজারনেমে কেবলমাত্র নাম্বার থাকতে পারে না</translation>
-    </message>
-    <message>
-        <source>The username has been used by other user accounts</source>
-        <translation>ইউজারনেম অন্যান্য ইউজার অকাউন্টে ব্যবহার হয়েছে</translation>
-    </message>
-    <message>
-        <source>The full name is too long</source>
-        <translation>মোট নাম খুব দীর্ঘ</translation>
-    </message>
-    <message>
-        <source>The full name has been used by other user accounts</source>
-        <translation>মোট নাম অন্যান্য ইউজার অকাউন্টে ব্যবহার হয়েছে</translation>
-    </message>
-    <message>
-        <source>Wrong password</source>
-        <translation>গোঁাব গ্রাহক</translation>
-    </message>
-    <message>
-        <source>Standard User</source>
-        <translation>ধর্মিয়ান ব্যবহারকারী</translation>
-    </message>
-    <message>
-        <source>Administrator</source>
-        <translation>প্রশাসক</translation>
-    </message>
-    <message>
-        <source>Customized</source>
-        <translation>কাস্টমাইজেড</translation>
-    </message>
-</context>
-<context>
-    <name>dccV25::AccountsWorker</name>
-    <message>
-        <source>Your host was removed from the domain server successfully</source>
-        <translation>আপনার হোস্ট সফলভাবে ডোমেইন সারভার থেকে মুছে দেওয়া হয়েছে</translation>
-    </message>
-    <message>
-        <source>Your host joins the domain server successfully</source>
-        <translation>আপনার হোস্ট সফলভাবে ডোমেইন সারভারে যোগ করা হয়েছে</translation>
-    </message>
-    <message>
-        <source>Your host failed to leave the domain server</source>
-        <translation>আপনার হোস্ট ডোমেইন সারভার থেকে অবসান করতে সমস্যা হয়েছে</translation>
-    </message>
-    <message>
-        <source>Your host failed to join the domain server</source>
-        <translation>আপনার হোস্ট ডোমেইন সারভারে যোগ করতে সমস্যা হয়েছে</translation>
-    </message>
-    <message>
-        <source>AD domain settings</source>
-        <translation>AD ডোমেইন সেটিংস</translation>
-    </message>
-    <message>
-        <source>Password not match</source>
-        <translation>পাসওয়ার্ড মিলছে না</translation>
-    </message>
-</context>
-<context>
-    <name>dccV25::AvatarTypesModel</name>
-    <message>
-        <source>Dimensional</source>
-        <translation>মাত্রার</translation>
-    </message>
-    <message>
-        <source>Flat</source>
-        <translation>ফ্ল্যাট</translation>
-    </message>
-</context>
-<context>
-    <name>dccV25::FaceAuthController</name>
-    <message>
-        <source>Faceprint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV25::FingerprintAuthController</name>
-    <message>
-        <source>Fingerprint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Place your finger</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lift your finger</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Scan Suspended</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fingerprint added</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV25::IrisAuthController</name>
-    <message>
-        <source>Iris</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV25::KeyboardController</name>
-    <message>
-        <source>This shortcut conflicts with [%1]</source>
-        <translation>এই শক্তিশালী সংক্ষিপ্ত কমান্ড [%1] সাথে যোগাযোগ করছে</translation>
-    </message>
-</context>
-<context>
-    <name>dccV25::PwqualityManager</name>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation>পাসওয়ার্ড খালি থাকতে পারে না</translation>
-    </message>
-    <message>
-        <source>Password must have at least %1 characters</source>
-        <translation>পাসওয়ার্ডের আগে %1 অক্ষর থাকতে হবে</translation>
-    </message>
-    <message>
-        <source>Password must be no more than %1 characters</source>
-        <translation>পাসওয়ার্ডের দৈর্ঘ্য %1 অক্ষরের কম হতে হবে</translation>
-    </message>
-    <message>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>পাসওয়ার্ডে শুধুমাত্র ক্যাসেইসেন্টিভ ইংরেজি বাক্য, সংখ্যা বা বিশেষ চিহ্ন (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/ ) দ্বারা সৃষ্ট হতে পারে</translation>
-    </message>
-    <message>
-        <source>No more than %1 palindrome characters please</source>
-        <translation>%1 বার পলিনড্রোমিক চিহ্ন ব্যবহার করুন</translation>
-    </message>
-    <message>
-        <source>No more than %1 monotonic characters please</source>
-        <translation>%1 বার সামঞ্জস্যপূর্ণ চিহ্ন ব্যবহার করুন</translation>
-    </message>
-    <message>
-        <source>No more than %1 repeating characters please</source>
-        <translation>%1 বার পুনরাবৃত্ত চিহ্ন ব্যবহার করুন</translation>
-    </message>
-    <message>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>পাসওয়ার্ডে উঠোন বাক্য, নিচোল বাক্য, সংখ্যা এবং বিশেষ চিহ্ন (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/ ) দ্বারা সৃষ্ট হতে হবে</translation>
-    </message>
-    <message>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>পাসওয়ার্ডে 4 বার বেশি পলিনড্রোমিক চিহ্ন দ্বারা সৃষ্ট হতে পারে না</translation>
-    </message>
-    <message>
-        <source>Do not use common words and combinations as password</source>
-        <translation>সাধারণ শব্দ বা সংশ্লিষ্ট ব্যবহার করতে হবে না</translation>
-    </message>
-    <message>
-        <source>Create a strong password please</source>
-        <translation>অগ্রাহ্য পাসওয়ার্ড তৈরি করুন</translation>
-    </message>
-    <message>
-        <source>It does not meet password rules</source>
-        <translation>পাসওয়ার্ডের নিয়ম পূরণ করা হয়নি</translation>
-    </message>
-    <message>
-        <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV25::ShortcutModel</name>
-    <message>
-        <source>System</source>
-        <translation>সিস্টেম</translation>
-    </message>
-    <message>
-        <source>Window</source>
-        <translation>বিন্ডো</translation>
-    </message>
-    <message>
-        <source>Workspace</source>
-        <translation>ব্যবস্থাপনা অঞ্চল</translation>
-    </message>
-    <message>
-        <source>AssistiveTools</source>
-        <translation>অনুরোধ সাহায্য লিংক</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>মূল্যায়ন করা</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>কোনো একটি নেই</translation>
-    </message>
-</context>
-<context>
-    <name>deepinid</name>
-    <message>
-        <source>deepin ID</source>
-        <translation>দিপিন আইডি</translation>
-    </message>
-    <message>
-        <source>UOS ID</source>
-        <translation>UOS আইডি</translation>
-    </message>
-    <message>
-        <source>Cloud services</source>
-        <translation>ক্লাউড সেবা</translation>
-    </message>
-</context>
-<context>
-    <name>defaultapp</name>
-    <message>
-        <source>Default App</source>
-        <translation>মূল্যায়ন করা এ্যাপ্লিকেশন</translation>
-    </message>
-    <message>
-        <source>Set the default application for opening various types of files</source>
-        <translation>বিভিন্ন ধরনের ফাইল খোলার জন্য মূল্যায়ন করা এ্যাপ্লিকেশন নির্বাচন করুন</translation>
-    </message>
-</context>
-<context>
-    <name>defaultappMain</name>
-    <message>
-        <source>Webpage</source>
-        <translation>ওয়েবপেজ</translation>
-    </message>
-    <message>
-        <source>Mail</source>
-        <translation>ইমেইল</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation>তেক্সট</translation>
-    </message>
-    <message>
-        <source>Music</source>
-        <translation>মিউজিক</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation>ভিডিও</translation>
-    </message>
-    <message>
-        <source>Picture</source>
-        <translation>ছবি</translation>
-    </message>
-    <message>
-        <source>Terminal</source>
-        <translation>টার্মিনাল</translation>
-    </message>
-</context>
-<context>
-    <name>device</name>
-    <message>
-        <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>display</name>
+    <name>Display</name>
     <message>
         <source>Display</source>
         <translation>প্রদর্শনী</translation>
@@ -3709,7 +1748,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>displayMain</name>
+    <name>DisplayMain</name>
     <message>
         <source>100%</source>
         <translation>100%</translation>
@@ -3880,56 +1919,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dock</name>
+    <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
         <translation>ডেস্কটপ এবং সাইন্স বার</translation>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>keyboard</name>
-    <message>
-        <source>Keyboard</source>
-        <translation>কেবড্যাটা</translation>
-    </message>
-    <message>
-        <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>keyboardMain</name>
-    <message>
-        <source>Common</source>
-        <translation>সাধারণ</translation>
-    </message>
-</context>
-<context>
-    <name>main</name>
+    <name>DockMain</name>
     <message>
         <source>Dock</source>
         <translation>ডেক</translation>
@@ -4020,15 +2041,366 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>mouse</name>
+    <name>FileAndFolder</name>
+    <message>
+        <source>Allow below apps to access these files and folders:</source>
+        <translation>এই ফাইলস এবং ফোল্ডারগুলো নিম্নলিখিত এ্যাপ্সে এক্সেস দাও:</translation>
+    </message>
+    <message>
+        <source>Documents</source>
+        <translation>ডকুমেন্টস</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>ডেস্কটপ</translation>
+    </message>
+    <message>
+        <source>Pictures</source>
+        <translation>ছবি</translation>
+    </message>
+    <message>
+        <source>Videos</source>
+        <translation>ভিডিও</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation>মিউজিক</translation>
+    </message>
+    <message>
+        <source>Downloads</source>
+        <translation>ডাউনলোড</translation>
+    </message>
+    <message>
+        <source>folder</source>
+        <translation>ফোল্ডার</translation>
+    </message>
+</context>
+<context>
+    <name>FontSizePage</name>
+    <message>
+        <source>Size</source>
+        <translation>সাইজ</translation>
+    </message>
+    <message>
+        <source>Standard Font</source>
+        <translation>স্ট্যান্ডার্ড ফন্ট</translation>
+    </message>
+    <message>
+        <source>Monospaced Font</source>
+        <translation>মোনোস্পেসেড ফন্ট</translation>
+    </message>
+</context>
+<context>
+    <name>GeneralPage</name>
+    <message>
+        <source>Power Plans</source>
+        <translation>পাউর প্লানস</translation>
+    </message>
+    <message>
+        <source>Power Saving Settings</source>
+        <translation>পাউর সেভিং সেটিংস</translation>
+    </message>
+    <message>
+        <source>Auto power saving on low battery</source>
+        <translation>লোই ব্যাটারি উপর আটু পাউর সেভিং</translation>
+    </message>
+    <message>
+        <source>Low battery threshold</source>
+        <translation>লোই ব্যাটারি থ্রেশহল্ড</translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation>ব্যাটারি উপর আটু পাউর সেভিং</translation>
+    </message>
+    <message>
+        <source>Wakeup Settings</source>
+        <translation>ওয়াকাপ সেটিংস</translation>
+    </message>
+    <message>
+        <source>Password is required to wake up the computer</source>
+        <translation>কম্পিউটার ওয়াকাপ করতে কোড প্রয়োজন</translation>
+    </message>
+    <message>
+        <source>Password is required to wake up the monitor</source>
+        <translation>মনিটর ওয়াকাপ করতে কোড প্রয়োজন</translation>
+    </message>
+    <message>
+        <source>Shutdown Settings</source>
+        <translation>শাডওয়ার সেটিংস</translation>
+    </message>
+    <message>
+        <source>Scheduled Shutdown</source>
+        <translation>সেইন্ডার শাডওয়ার</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>সময়</translation>
+    </message>
+    <message>
+        <source>Repeat</source>
+        <translation>পুনরায় চালান</translation>
+    </message>
+    <message>
+        <source>Once</source>
+        <translation>একবার</translation>
+    </message>
+    <message>
+        <source>Every day</source>
+        <translation>প্রতিদিন</translation>
+    </message>
+    <message>
+        <source>Working days</source>
+        <translation>কাজের দিন</translation>
+    </message>
+    <message>
+        <source>Custom Time</source>
+        <translation>মূল্যায়ন সময়</translation>
+    </message>
+    <message>
+        <source>Decrease screen brightness on power saver</source>
+        <translation>পার্টি সেভারে স্ক্রিন ব্রিজ্যাস কমান</translation>
+    </message>
+</context>
+<context>
+    <name>GestureModel</name>
+    <message>
+        <source>Three-finger up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Three-finger down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Three-finger left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Three-finger right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Three-finger tap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger tap</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HomePage</name>
+    <message>
+        <source>,</source>
+        <translation>, </translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation>...</translation>
+    </message>
+</context>
+<context>
+    <name>InterfaceEffectListview</name>
+    <message>
+        <source>Optimal Performance</source>
+        <translation>সুস্থাপিত পরিকল্পনা</translation>
+    </message>
+    <message>
+        <source>Balance</source>
+        <translation>খাড়াবার্ষিকি</translation>
+    </message>
+    <message>
+        <source>Best Visuals</source>
+        <translation>সুন্দর দৃশ্য</translation>
+    </message>
+    <message>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Keyboard</name>
+    <message>
+        <source>Keyboard</source>
+        <translation>কেবড্যাটা</translation>
+    </message>
+    <message>
+        <source>General Settings, input method, shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardMain</name>
+    <message>
+        <source>Common</source>
+        <translation>সাধারণ</translation>
+    </message>
+</context>
+<context>
+    <name>LangAndFormat</name>
+    <message>
+        <source>Language</source>
+        <translation>ভাষা</translation>
+    </message>
+    <message>
+        <source>done</source>
+        <translation>কর্ম সম্পন্ন</translation>
+    </message>
+    <message>
+        <source>edit</source>
+        <translation>সম্পাদনা</translation>
+    </message>
+    <message>
+        <source>Other languages</source>
+        <translation>অন্যান্য ভাষা</translation>
+    </message>
+    <message>
+        <source>add</source>
+        <translation>যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Region</source>
+        <translation>প্রদেশ</translation>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation>ঊষ্মানীয় অঞ্চল</translation>
+    </message>
+    <message>
+        <source>Operating system and applications may provide you with local content based on your country and region</source>
+        <translation>প্রদেশ ও অঞ্চল অনুযায়ী, সিস্টেম ও অ্যাপ্লিকেশনগুলি আপনাকে দেশ ও প্রদেশ ভিত্তিক স্থানীয় কন্টেন্ট দিতে পারে।</translation>
+    </message>
+    <message>
+        <source>Operating system and applications may set date and time formats based on regional formats</source>
+        <translation>প্রদেশ অনুযায়ী, সিস্টেম ও অ্যাপ্লিকেশনগুলি তারিখ ও সময় আকার নির্ধারণ করতে পারে।</translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LangsChooserDialog</name>
+    <message>
+        <source>Add language</source>
+        <translation>ভাষা যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>অনুসন্ধান</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বন্ধ</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>যোগ করুন</translation>
+    </message>
+</context>
+<context>
+    <name>LoginMethod</name>
+    <message>
+        <source>Login method</source>
+        <translation>স্থাপনা পদ্ধতি</translation>
+    </message>
+    <message>
+        <source>Password, wechat, biometric authentication, security key</source>
+        <translation>পাসওয়ার্ড, ওয়েচাট, জীবনী উপর ভিত্তি করে আইデン্টিফিকেশন, উপার্জ্জন কুইক</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>পাসওয়ার্ড</translation>
+    </message>
+    <message>
+        <source>Modify password</source>
+        <translation>পাসওয়ার্ড পরিবর্তন করুন</translation>
+    </message>
+    <message>
+        <source>Validity days</source>
+        <translation>মূল্যায়ন দিন</translation>
+    </message>
+    <message>
+        <source>Always</source>
+        <translation>সবসময়</translation>
+    </message>
+    <message>
+        <source>Reset password</source>
+        <translation type="unfinished">পাসওয়ার্ড পুনরায় সেট করুন</translation>
+    </message>
+</context>
+<context>
+    <name>LogoModule</name>
+    <message>
+        <source>Copyright© 2011-%1 Deepin Community</source>
+        <translation>সংক্রান্ত অধিকার © 2011-%1 ডিপিন কমিউনিটি</translation>
+    </message>
+    <message>
+        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
+        <translation>সংক্রান্ত অধিকার © 2019-%1 যুনিয়নটেক সফটওয়্যার টেকনোলজি কো., ল্টড</translation>
+    </message>
+</context>
+<context>
+    <name>MicrophonePage</name>
+    <message>
+        <source>Automatic Noise Suppression</source>
+        <translation>ট্যাটিক্যাল শব্দ স্থানান্তরন</translation>
+    </message>
+    <message>
+        <source>Input Volume</source>
+        <translation>ইনপুট আওয়াজ</translation>
+    </message>
+    <message>
+        <source>Input Level</source>
+        <translation>ইনপুট স্তর</translation>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation>ইনপুট</translation>
+    </message>
+    <message>
+        <source>No input device for sound found</source>
+        <translation>স্বরের জন্য ইনপুট ডিভাইস পাওয়া যায়নি</translation>
+    </message>
+    <message>
+        <source>Input Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
         <translation>মস্তিষ্ক এবং ট্যাচপেড</translation>
@@ -4039,7 +2411,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>mouseMain</name>
+    <name>MouseMain</name>
     <message>
         <source>Common</source>
         <translation>সাধারণ</translation>
@@ -4054,7 +2426,132 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>notification</name>
+    <name>MousePage</name>
+    <message>
+        <source>Mouse</source>
+        <translation>মিউজ</translation>
+    </message>
+    <message>
+        <source>Pointer Speed</source>
+        <translation>পয়েন্টার গতি</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation>গতিশীল</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation>গতিশীল বেশি</translation>
+    </message>
+    <message>
+        <source>Pointer Size</source>
+        <translation>মিউসিকেল বাইল ব্যাটারি সাইজ</translation>
+    </message>
+    <message>
+        <source>Mouse Acceleration</source>
+        <translation>মিউসিকেল অ্যাক্সেলেরেশন</translation>
+    </message>
+    <message>
+        <source>Disable touchpad when a mouse is connected</source>
+        <translation>মিউসিকেল সংযোগ হলে টাচপেড ব্যবহার বন্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation>নাটীয় স্ক্রিন ব্রুজিং</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation type="unfinished">ক্ষুদ্র</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="unfinished">মধ্যরেখা</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>X-Large</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Some apps require logout or system restart to take effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MyDevice</name>
+    <message>
+        <source>My Devices</source>
+        <translation>আমার ডিভাইসেস</translation>
+    </message>
+</context>
+<context>
+    <name>NativeInfoPage</name>
+    <message>
+        <source>UOS</source>
+        <translation>UOS</translation>
+    </message>
+    <message>
+        <source>Computer name</source>
+        <translation>কম্পিউটারের নাম</translation>
+    </message>
+    <message>
+        <source>It cannot start or end with dashes</source>
+        <translation>এটি ত্রিশটা দিয়ে শুরু করা বা শেষ করা যায় না</translation>
+    </message>
+    <message>
+        <source>OS Name</source>
+        <translation>অপারেটিং সিস্টেমের নাম</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>ভার্সিয়ন</translation>
+    </message>
+    <message>
+        <source>Edition</source>
+        <translation>এডিশন</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>টাইপ</translation>
+    </message>
+    <message>
+        <source>bit</source>
+        <translation>বিট</translation>
+    </message>
+    <message>
+        <source>Authorization</source>
+        <translation>অ্যাথোরাইজেশন</translation>
+    </message>
+    <message>
+        <source>System installation time</source>
+        <translation>সিস্টেম ইনস্টলেশন সময়</translation>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>কার্নেল</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation>গ্রাফিক্স প্ল্যাটফর্ম</translation>
+    </message>
+    <message>
+        <source>Processor</source>
+        <translation>প্রসেসর</translation>
+    </message>
+    <message>
+        <source>Memory</source>
+        <translation>মেমরি</translation>
+    </message>
+    <message>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
         <translation>DND মোড, অ্যাপ নোটিফিকেশন</translation>
@@ -4065,7 +2562,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>notificationMain</name>
+    <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
         <translation>অ্যালার্ট না দিবে অবস্থান</translation>
@@ -4120,14 +2617,130 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>personalization</name>
+    <name>OtherDevice</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>অন্যান্য ডিভাইসেস</translation>
+    </message>
+    <message>
+        <source>Show Bluetooth devices without names</source>
+        <translation>নাম থাকার বিন্দুমাত্র ব্লুটুথ ডিভাইস প্রদর্শন করুন</translation>
+    </message>
+</context>
+<context>
+    <name>PasswordLayout</name>
+    <message>
+        <source>Current password</source>
+        <translation>বর্তমান পাসওয়ার্ড</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>অনুরোধিত</translation>
+    </message>
+    <message>
+        <source>Weak</source>
+        <translation>বেশিরভাগ</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation>মধ্যরেখা</translation>
+    </message>
+    <message>
+        <source>Strong</source>
+        <translation>ঝুঁকিপূর্ণ</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation>পাসওয়ার্ড পুনরায় লিখুন</translation>
+    </message>
+    <message>
+        <source>Password hint</source>
+        <translation>পাসওয়ার্ডের হিন্ট</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>অপশনাল</translation>
+    </message>
+    <message>
+        <source>Password cannot be empty</source>
+        <translation>পাসওয়ার্ড অবশ্যই হওয়া দরকার</translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation>পাসওয়ার্ড মিলছে না</translation>
+    </message>
+    <message>
+        <source>The hint is visible to all users. Do not include the password here.</source>
+        <translation>হিন্ট সব উপযোক্তার দৃশ্যমান। এখানে পাসওয়ার্ড লিখবেন না।</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
+        <translation>নতুন পাসওয়ার্ড বর্তমানের সাথে ভিন্ন হওয়া দরকার</translation>
+    </message>
+    <message>
+        <source>The password cannot be the same as the username.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PasswordModifyDialog</name>
+    <message>
+        <source>Modify password</source>
+        <translation>পাসওয়ার্ড পরিবর্তন করুন</translation>
+    </message>
+    <message>
+        <source>Reset password</source>
+        <translation>পাসওয়ার্ড পুনরায় সেট করুন</translation>
+    </message>
+    <message>
+        <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
+        <translation>পাসওয়ার্ডের দৈর্ঘ্য কমপক্ষে ৮ অক্ষর হওয়া দরকার এবং পাসওয়ার্ডে নাম্বার, সিম্বল এবং উভয় ক্যাডার্সের মধ্যে কমপক্ষে ৩টি প্রকার অক্ষর অথবা সংখ্যার মিশ্রণ রয়েছে এটি নিরাপদতর।</translation>
+    </message>
+    <message>
+        <source>Resetting the password will clear the data stored in the keyring.</source>
+        <translation>পাসওয়ার্ড পুনরায় সেট করা প্রার্থনা করার সূচনায় স্টোরেড ডেটা পুরণ হবে।</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতিল</translation>
+    </message>
+</context>
+<context>
+    <name>Personalization</name>
     <message>
         <source>Personalization</source>
         <translation>প্রতিষ্ঠানীকরণ</translation>
     </message>
 </context>
 <context>
-    <name>personalizationMain</name>
+    <name>PersonalizationInterface</name>
+    <message>
+        <source>Light</source>
+        <translation>আলো</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>টুকরো</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>ট্যাগ</translation>
+    </message>
+    <message>
+        <source>Picker service is not available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid color format: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PersonalizationMain</name>
     <message>
         <source>Theme</source>
         <translation>থিম</translation>
@@ -4174,11 +2787,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>power</name>
+    <name>PersonalizationWorker</name>
+    <message>
+        <source>Custom</source>
+        <translation>মোটামুটি</translation>
+    </message>
+</context>
+<context>
+    <name>PluginArea</name>
+    <message>
+        <source>Plugin Area</source>
+        <translation>প্লাগইন ইউনিট</translation>
+    </message>
+    <message>
+        <source>Select which icons appear in the Dock</source>
+        <translation>ডকে দেখানো চিহ্নগুলি কোনগুলি নির্বাচন করুন</translation>
+    </message>
+</context>
+<context>
+    <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
         <translation>পাবলিক সংরক্ষণ সেটিংস, স্ক্রিন ও স্লোয় প্রদান</translation>
@@ -4189,7 +2820,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>powerMain</name>
+    <name>PowerMain</name>
     <message>
         <source>General</source>
         <translation>সাধারণ</translation>
@@ -4216,7 +2847,111 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>privacy</name>
+    <name>PowerOperatorModel</name>
+    <message>
+        <source>Shut down</source>
+        <translation>ফাঁকানাক করুন</translation>
+    </message>
+    <message>
+        <source>Suspend</source>
+        <translation>প্রাক্তন</translation>
+    </message>
+    <message>
+        <source>Hibernate</source>
+        <translation>হাইব্রিডিটি</translation>
+    </message>
+    <message>
+        <source>Turn off the monitor</source>
+        <translation>মনিটর বন্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation>ফাইন্ড করার পরবর্তী পরিস্থিতি দেখান</translation>
+    </message>
+    <message>
+        <source>Do nothing</source>
+        <translation>কিছুই করবেন না</translation>
+    </message>
+</context>
+<context>
+    <name>PowerPage</name>
+    <message>
+        <source>Screen and Suspend</source>
+        <translation>স্ক্রিন এবং স্পাংজ</translation>
+    </message>
+    <message>
+        <source>Turn off the monitor after</source>
+        <translation>মনিটর বন্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation>স্ক্রিন লোক করুন</translation>
+    </message>
+    <message>
+        <source>Computer suspends after</source>
+        <translation>প্রোগ্রাম স্পাংজ করবে</translation>
+    </message>
+    <message>
+        <source>When the lid is closed</source>
+        <translation>লিড বন্ধ হয়ে থাকলে</translation>
+    </message>
+    <message>
+        <source>When the power button is pressed</source>
+        <translation>পাউর বীটন প্রেস করার সময়</translation>
+    </message>
+</context>
+<context>
+    <name>PowerPlansListview</name>
+    <message>
+        <source>High Performance</source>
+        <translation>উচ্চ পরিকল্পনা</translation>
+    </message>
+    <message>
+        <source>Balance Performance</source>
+        <translation>পরিকল্পনা সুরক্ষিত রাখুন</translation>
+    </message>
+    <message>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation>CPU ব্যবহারের অবস্থার উপর সেট করে ক্যাপিউ কর্যকালি অ্যারে সার্কিট অবশ্যই পরিবর্তন করুন</translation>
+    </message>
+    <message>
+        <source>Balanced</source>
+        <translation>সুরক্ষিত রাখুন</translation>
+    </message>
+    <message>
+        <source>Power Saver</source>
+        <translation>পার্শ্ব সেভার</translation>
+    </message>
+    <message>
+        <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
+        <translation>পরিকল্পনার প্রাথমিকতা দেওয়া, যা শক্তি উপাদান ও গরম গенেরেশনের সুনির্দিষ্ট বৃদ্ধি করবে</translation>
+    </message>
+    <message>
+        <source>Balancing performance and battery life, automatically adjusted according to usage</source>
+        <translation>পরিকল্পনা ও ব্যাটারি জীবনকাল সুরক্ষিত রাখার মাধ্যমে সংগ্রাহক পরিবর্তন করা হবে যেমন ব্যবহার করা হয়</translation>
+    </message>
+    <message>
+        <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
+        <translation>ব্যাটারি জীবনকাল প্রাথমিকতা দেওয়া, যা শক্তি উপাদান উপাদান কমানোর জন্য কিছু পরিকল্পনা দেখান দেখান</translation>
+    </message>
+</context>
+<context>
+    <name>PowerWorker</name>
+    <message>
+        <source>Minutes</source>
+        <translation>মিনিট</translation>
+    </message>
+    <message>
+        <source>Hour</source>
+        <translation>ঘন্টা</translation>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation>সবসময়</translation>
+    </message>
+</context>
+<context>
+    <name>Privacy</name>
     <message>
         <source>Privacy and Security</source>
         <translation>সরকারি এবং উপাদান</translation>
@@ -4227,7 +2962,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>privacyMain</name>
+    <name>PrivacyMain</name>
     <message>
         <source>Camera</source>
         <translation>ক্যামেরা</translation>
@@ -4246,7 +2981,437 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>sound</name>
+    <name>PrivacyPolicyPage</name>
+    <message>
+        <source>Privacy Policy</source>
+        <translation>জায়গার নীতি</translation>
+    </message>
+    <message>
+        <source>Copy Link Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PwqualityManager</name>
+    <message>
+        <source>Password cannot be empty</source>
+        <translation>পাসওয়ার্ড খালি থাকতে পারে না</translation>
+    </message>
+    <message>
+        <source>Password must have at least %1 characters</source>
+        <translation>পাসওয়ার্ডের কমপক্ষে %1 অক্ষর থাকতে হবে</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation>পাসওয়ার্ডের মোট কর্মকর্তার সংখ্যা %1 থেকে বেশি হতে পারে না</translation>
+    </message>
+    <message>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>পাসওয়ার্ডের মধ্যে শুধু কেস সেন্টিটিভ ইংরেজি বাক্যার্টিয়াল, সংখ্যা বা বিশেষ অক্ষর (~/`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/)
+</translation>
+    </message>
+    <message>
+        <source>No more than %1 palindrome characters please</source>
+        <translation>%1 পলিনড্রোম অক্ষর বেশি নেই
+</translation>
+    </message>
+    <message>
+        <source>No more than %1 monotonic characters please</source>
+        <translation>%1 মনোটনিক অক্ষর বেশি নেই
+</translation>
+    </message>
+    <message>
+        <source>No more than %1 repeating characters please</source>
+        <translation>%1 পুনরাবৃত্ত অক্ষর বেশি নেই
+</translation>
+    </message>
+    <message>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>পাসওয়ার্ডে উচ্চ ক্যাডের বাক্যার্টিয়াল, নিচ্ছ ক্যাডের বাক্যার্টিয়াল, সংখ্যা এবং সিমবলগুলি (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/) থাকতে হবে
+</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than 4 palindrome characters</source>
+        <translation>পাসওয়ার্ডে 4 টি পলিনড্রোম অক্ষর বেশি থাকতে পারে না
+</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation>সাধারণ শব্দ বা কোম্বিনেশন পাসওয়ার্ড হিসাবে ব্যবহার করবেন না
+</translation>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation>অগ্রাধিকারী পাসওয়ার্ড তৈরি করুন
+</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation>এটি পাসওয়ার্ড নিয়মগুলি সিদ্ধান্ত করে নেই
+</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Control Center</source>
+        <translation>কন্ট্রোল সেন্টার
+</translation>
+    </message>
+    <message>
+        <source>Activated</source>
+        <translation>ট্যাক্টিভেড
+</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation>ভিউ
+</translation>
+    </message>
+    <message>
+        <source>To be activated</source>
+        <translation>ট্যাক্টিভেড হবার পর
+</translation>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation>ট্যাক্টিভেট
+</translation>
+    </message>
+    <message>
+        <source>Expired</source>
+        <translation>প্রাপ্ত হয়েছে
+</translation>
+    </message>
+    <message>
+        <source>In trial period</source>
+        <translation>ট্রিয়াল অবস্থায়
+</translation>
+    </message>
+    <message>
+        <source>Trial expired</source>
+        <translation>ট্রিয়াল প্রাপ্ত হয়েছে
+</translation>
+    </message>
+    <message>
+        <source>dde-control-center</source>
+        <translation>dde-control-center
+</translation>
+    </message>
+    <message>
+        <source>Touch Screen Settings</source>
+        <translation>টাচ সিক্রেন সেটিংস
+</translation>
+    </message>
+    <message>
+        <source>The settings of touch screen changed</source>
+        <translation>টাচ সিক্রেনের সেটিংস পরিবর্তিত হয়েছে
+</translation>
+    </message>
+    <message>
+        <source>This system wallpaper is locked. Please contact your admin.</source>
+        <translation>এই সিস্টেম পেপারওয়াল লকেড হয়েছে। অপেরেটরের সাথে যোগাযোগ করুন।
+</translation>
+    </message>
+    <message>
+        <source>%1 (%2)</source>
+        <comment>Language and region name, e.g. Chinese (China)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RegionFormatDialog</name>
+    <message>
+        <source>Search</source>
+        <translation>অনুসন্ধান
+</translation>
+    </message>
+    <message>
+        <source>Default formats</source>
+        <translation>স্বামিত্বাধীন ফরম্যাট
+</translation>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation>সপ্তাহের প্রথম দিন
+</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>ছুটির তারিখ</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>দীর্ঘ তারিখ</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>ছুটির সময়</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>দীর্ঘ সময়</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>মুদ্রাস্বর</translation>
+    </message>
+    <message>
+        <source>Digit</source>
+        <translation>সংখ্যা</translation>
+    </message>
+    <message>
+        <source>Paper size</source>
+        <translation>পেপার সাইজ</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বন্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>পরিবর্তন সংরক্ষণ করুন</translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RegionsChooserWindow</name>
+    <message>
+        <source>Search</source>
+        <translation>অনুসন্ধান</translation>
+    </message>
+</context>
+<context>
+    <name>RegisterDialog</name>
+    <message>
+        <source>Set a Password</source>
+        <translation>পাসওয়ার্ড নির্ধারণ করুন</translation>
+    </message>
+    <message>
+        <source>8-64 characters</source>
+        <translation>8-64 ক্যারেক্টার</translation>
+    </message>
+    <message>
+        <source>Repeat the password</source>
+        <translation>পাসওয়ার্ড পুনরাবৃত্তি করুন</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বন্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>যাচাই করুন</translation>
+    </message>
+    <message>
+        <source>Passwords don&apos;t match</source>
+        <translation>পাসওয়ার্ড মিলছে না</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ScreenSaverPage</name>
+    <message>
+        <source>Screensaver</source>
+        <translation>স্ক্রিন সেভার</translation>
+    </message>
+    <message>
+        <source>preview</source>
+        <translation>প্রাইভিয়ার</translation>
+    </message>
+    <message>
+        <source>Personalized screensaver</source>
+        <translation>প্রতিষ্ঠিত স্ক্রিন সেভার</translation>
+    </message>
+    <message>
+        <source>setting</source>
+        <translation>সেটিং</translation>
+    </message>
+    <message>
+        <source>idle time</source>
+        <translation>অপারেশন অবস্থায় সময়</translation>
+    </message>
+    <message>
+        <source>1 minute</source>
+        <translation>1 মিনিট</translation>
+    </message>
+    <message>
+        <source>5 minute</source>
+        <translation>5 মিনিট</translation>
+    </message>
+    <message>
+        <source>10 minute</source>
+        <translation>10 মিনিট</translation>
+    </message>
+    <message>
+        <source>15 minute</source>
+        <translation>15 মিনিট</translation>
+    </message>
+    <message>
+        <source>30 minute</source>
+        <translation>30 মিনিট</translation>
+    </message>
+    <message>
+        <source>1 hour</source>
+        <translation>1 ঘন্টা</translation>
+    </message>
+    <message>
+        <source>never</source>
+        <translation>বসে থাকলেও</translation>
+    </message>
+    <message>
+        <source>Password required for recovery</source>
+        <translation>পুনর্সংযোগের জন্য পাসওয়ার্ড প্রয়োজন</translation>
+    </message>
+    <message>
+        <source>Picture slideshow screensaver</source>
+        <translation>ছবি স্লাইডশো স্ক্রিনসেভার</translation>
+    </message>
+    <message>
+        <source>System screensaver</source>
+        <translation>সিস্টেম স্ক্রিনসেভার</translation>
+    </message>
+</context>
+<context>
+    <name>SearchableListViewPopup</name>
+    <message>
+        <source>Search</source>
+        <translation>অনুসন্ধান</translation>
+    </message>
+    <message>
+        <source>No search results</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ShortcutSettingDialog</name>
+    <message>
+        <source>Add custom shortcut</source>
+        <translation>নির্দিষ্ট ট্রিভিয়াল যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation>নাম:</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>প্রয়োজন</translation>
+    </message>
+    <message>
+        <source>Command:</source>
+        <translation>কম্যান্ড:</translation>
+    </message>
+    <message>
+        <source>Shortcut</source>
+        <translation>ট্রিভিয়াল</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>কোনো একটি নেই</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বন্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>যোগ করুন</translation>
+    </message>
+    <message>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Shortcuts</name>
+    <message>
+        <source>Shortcuts</source>
+        <translation>ট্রিভিয়াল</translation>
+    </message>
+    <message>
+        <source>System shortcut, custom shortcut</source>
+        <translation>সিস্টেম ট্রিভিয়াল, নির্দিষ্ট ট্রিভিয়াল</translation>
+    </message>
+    <message>
+        <source>Search shortcuts</source>
+        <translation>অনুসন্ধান ট্রিভিয়াল</translation>
+    </message>
+    <message>
+        <source>done</source>
+        <translation>গোপনীয়</translation>
+    </message>
+    <message>
+        <source>edit</source>
+        <translation>সম্পাদনা</translation>
+    </message>
+    <message>
+        <source>Click</source>
+        <translation>ক্লিক করুন</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বন্ধন পরিহার</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>বা</translation>
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation>পরিবর্তন করুন</translation>
+    </message>
+    <message>
+        <source>Restore default</source>
+        <translation>মূল অবস্থায় পুনরায় স্থাপন করুন</translation>
+    </message>
+    <message>
+        <source>Add custom shortcut</source>
+        <translation>কাস্টম চার্জট যোগ করুন</translation>
+    </message>
+    <message>
+        <source>please enter a new shortcut key</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Sound</name>
     <message>
         <source>Sound</source>
         <translation>সোন্দ</translation>
@@ -4257,7 +3422,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>soundMain</name>
+    <name>SoundDevicemanagesPage</name>
+    <message>
+        <source>Output Devices</source>
+        <translation>আউটপুট ডিভাইস</translation>
+    </message>
+    <message>
+        <source>Select whether to enable the devices</source>
+        <translation>ডিভাইসগুলি সক্রিয় করতে কি করতে নির্বাচন করুন</translation>
+    </message>
+    <message>
+        <source>Input Devices</source>
+        <translation>ইনপুট ডিভাইস</translation>
+    </message>
+</context>
+<context>
+    <name>SoundEffectsPage</name>
+    <message>
+        <source>Sound Effects</source>
+        <translation>স্বর প্রভাব</translation>
+    </message>
+</context>
+<context>
+    <name>SoundMain</name>
     <message>
         <source>Settings</source>
         <translation>সেটিংস</translation>
@@ -4276,11 +3463,152 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>system</name>
+    <name>SoundModel</name>
+    <message>
+        <source>Boot up</source>
+        <translation>নেভার উঠান</translation>
+    </message>
+    <message>
+        <source>Shut down</source>
+        <translation>ফাউন্ড করান</translation>
+    </message>
+    <message>
+        <source>Log out</source>
+        <translation>লগ আউট করুন</translation>
+    </message>
+    <message>
+        <source>Wake up</source>
+        <translation>ঘুম থেকে উঠান</translation>
+    </message>
+    <message>
+        <source>Volume +/-</source>
+        <translation>গল্ফ সুরের মাত্রা +/-</translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation>বিনোদন</translation>
+    </message>
+    <message>
+        <source>Low battery</source>
+        <translation>লোয়া ব্যাটারি</translation>
+    </message>
+    <message>
+        <source>Send icon in Launcher to Desktop</source>
+        <translation>লঞ্চারে ইকনট ডেস্কটপে পাঠান</translation>
+    </message>
+    <message>
+        <source>Empty Trash</source>
+        <translation>মেঘাতি খালি করুন</translation>
+    </message>
+    <message>
+        <source>Plug in</source>
+        <translation>সংযোগ করুন</translation>
+    </message>
+    <message>
+        <source>Plug out</source>
+        <translation>ঘুঁট দিন</translation>
+    </message>
+    <message>
+        <source>Removable device connected</source>
+        <translation>অপরিচিত ডিভাইস সংযোগ করা হয়েছে</translation>
+    </message>
+    <message>
+        <source>Removable device removed</source>
+        <translation>অপরিচিত ডিভাইস বাদ দেওয়া হয়েছে</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>ভুল</translation>
+    </message>
+</context>
+<context>
+    <name>SpeakerPage</name>
+    <message>
+        <source>Mode</source>
+        <translation>মড</translation>
+    </message>
+    <message>
+        <source>Output Volume</source>
+        <translation>আউটপুট সুরের মাত্রা</translation>
+    </message>
+    <message>
+        <source>Volume Boost</source>
+        <translation>ভার্জুস্ট ভার্জেন্সি</translation>
+    </message>
+    <message>
+        <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
+        <translation>যদি গোল্ডের শব্দের স্তর 100% এর বেশি হয়, তাহলে এটি শব্দের স্তরকে পরিবর্তন করতে পারে এবং এটি উত্তরাধিকার ডিভাইসে নিষ্পক্ষ হতে পারে</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation>বাম</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>ডান</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>উত্তরাধিকার</translation>
+    </message>
+    <message>
+        <source>No output device for sound found</source>
+        <translation>�ব্দের উত্তরাধিকার ডিভাইস পাওয়া যায় নি</translation>
+    </message>
+    <message>
+        <source>Left Right Balance</source>
+        <translation>বাম-ডান সূচনা</translation>
+    </message>
+    <message>
+        <source>Merge left and right channels into a single channel</source>
+        <translation>বাম এবং ডান চ্যানেল একটি চ্যানেলে মিশান</translation>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation>এখন ব্যবহৃত শব্দের ডিভাইস থেকে বাহির করা হলে শব্দটি টুলো আটুটি হবে কি</translation>
+    </message>
+    <message>
+        <source>Mono Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Output Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SyncInfoListModel</name>
+    <message>
+        <source>Sound</source>
+        <translation>স্বর</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation>পাবল্যাট</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation>মিউজ</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>আপডেট</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation>স্ক্রিন সেভার</translation>
+    </message>
+</context>
+<context>
+    <name>System</name>
     <message>
         <source>Common settings</source>
         <translation>সাধারণ সেটিংস</translation>
@@ -4291,14 +3619,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>systemInfo</name>
+    <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>সাহায্য তথ্য</translation>
     </message>
 </context>
 <context>
-    <name>systemInfoMain</name>
+    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
         <translation>এই পিসি সম্পর্কে</translation>
@@ -4337,11 +3665,184 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>touchscreen</name>
+    <name>ThemeSelectView</name>
+    <message>
+        <source>More Wallpapers</source>
+        <translation>ধারণা পোস্টার</translation>
+    </message>
+</context>
+<context>
+    <name>TimeAndDate</name>
+    <message>
+        <source>Auto sync time</source>
+        <translation>টাইম টুলো আটুটি</translation>
+    </message>
+    <message>
+        <source>Ntp server</source>
+        <translation>NTP সার্ভার</translation>
+    </message>
+    <message>
+        <source>System date and time</source>
+        <translation>সিস্টেম তারিখ এবং সময়</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation>পরিষেবা করুন</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>সেটিংস</translation>
+    </message>
+    <message>
+        <source>Server address</source>
+        <translation>সার্ভার ঠিকানা</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>অনুগ্রহ করে প্রয়োজনীয়</translation>
+    </message>
+    <message>
+        <source>The ntp server address cannot be empty</source>
+        <translation>এনটিপি সারভার ঠিকানা খালি থাকতে পারে না</translation>
+    </message>
+    <message>
+        <source>Use 24-hour format</source>
+        <translation>24 ঘণ্টা আকার ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <source>system time zone</source>
+        <translation>সিস্টেম সময় অঞ্চল</translation>
+    </message>
+    <message>
+        <source>Timezone list</source>
+        <translation>সময় অঞ্চল তালিকা</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">যোগ করুন</translation>
+    </message>
+</context>
+<context>
+    <name>TimeRange</name>
+    <message>
+        <source>from</source>
+        <translation>সার্বিক</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>পর্যন্ত</translation>
+    </message>
+</context>
+<context>
+    <name>TimeoutDialog</name>
+    <message>
+        <source>Save the display settings?</source>
+        <translation>প্রদর্শন সেটিংস সংরক্ষণ করুন</translation>
+    </message>
+    <message>
+        <source>Settings will be reverted in %1s.</source>
+        <translation>সেটিংস %1s পরে পুনরায় সংশোধিত হবে।</translation>
+    </message>
+    <message>
+        <source>Revert</source>
+        <translation>পুনরায় সংশোধন করুন</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>সংরক্ষণ করুন</translation>
+    </message>
+</context>
+<context>
+    <name>TimezoneDialog</name>
+    <message>
+        <source>Add time zone</source>
+        <translation>সময় অঞ্চল যোগ করুন</translation>
+    </message>
+    <message>
+        <source>Determine the time zone based on the current location</source>
+        <translation>বর্তমান অবস্থান অনুযায়ী সময় অঞ্চল নির্ধারণ করুন</translation>
+    </message>
+    <message>
+        <source>Time zone:</source>
+        <translation>সময় অঞ্চল:</translation>
+    </message>
+    <message>
+        <source>Nearest City:</source>
+        <translation>নিকটতম শহর:</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>বাতাস</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>সংরক্ষণ করুন</translation>
+    </message>
+</context>
+<context>
+    <name>TouchScreen</name>
+    <message>
+        <source>TouchScreen</source>
+        <translation>উপরীতাপ্স্ক্রিন</translation>
+    </message>
+    <message>
+        <source>Set up here when connecting the touch screen</source>
+        <translation>উপরীতাপ্স্ক্রিন সংযোগ করার সময় এখানে নিয়ন্ত্রণ করুন</translation>
+    </message>
+</context>
+<context>
+    <name>Touchpad</name>
+    <message>
+        <source>Basic Settings</source>
+        <translation>ভিত্তি সেটিংস</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation>টাচপ্যাড</translation>
+    </message>
+    <message>
+        <source>Pointer Speed</source>
+        <translation>বাইন্ডার গতি</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation>কম</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation>গ্রাহক</translation>
+    </message>
+    <message>
+        <source>Disable touchpad during input</source>
+        <translation>প্রবেশ সময়ে টাচপ্যাড ব্যবহার বন্ধ করুন</translation>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation>ক্লিক করার জন্য টপ করুন</translation>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation>নাটীয় পরিস্থিতি পরিবর্তন</translation>
+    </message>
+    <message>
+        <source>Three-finger gestures</source>
+        <translation>তিন পাত্র গাস্টার</translation>
+    </message>
+    <message>
+        <source>Four-finger gestures</source>
+        <translation>চার পাত্র গাস্টার</translation>
+    </message>
+    <message>
+        <source>Gestures</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Touchscreen</name>
     <message>
         <source>Touchscreen</source>
         <translation>ট্যাচস্ক্রিন</translation>
@@ -4352,14 +3853,52 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>touchscreenMain</name>
+    <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
         <translation>সাধারণ</translation>
     </message>
 </context>
 <context>
-    <name>wacom</name>
+    <name>UserExperienceProgramPage</name>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Copy Link Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VerifyDialog</name>
+    <message>
+        <source>Security Verification</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The action is sensitive, please enter the login password first</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>8-64 characters</source>
+        <translation type="unfinished">8-64 ক্যারেক্টার</translation>
+    </message>
+    <message>
+        <source>Forgot Password?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished">যাচাই করুন</translation>
+    </message>
+</context>
+<context>
+    <name>Wacom</name>
     <message>
         <source>wacom</source>
         <translation>wacom</translation>
@@ -4370,7 +3909,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>wacomMain</name>
+    <name>WacomMain</name>
     <message>
         <source>wacom</source>
         <translation>wacom</translation>
@@ -4393,11 +3932,475 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WallpaperPage</name>
+    <message>
+        <source>wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>My pictures</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>System Wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Solid color wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Customizable wallpapers</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>fill style</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Automatic wallpaper change</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>never</source>
+        <translation type="unfinished">বসে থাকলেও</translation>
+    </message>
+    <message>
+        <source>30 second</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1 minute</source>
+        <translation type="unfinished">1 মিনিট</translation>
+    </message>
+    <message>
+        <source>5 minute</source>
+        <translation type="unfinished">5 মিনিট</translation>
+    </message>
+    <message>
+        <source>10 minute</source>
+        <translation type="unfinished">10 মিনিট</translation>
+    </message>
+    <message>
+        <source>15 minute</source>
+        <translation type="unfinished">15 মিনিট</translation>
+    </message>
+    <message>
+        <source>30 minute</source>
+        <translation type="unfinished">30 মিনিট</translation>
+    </message>
+    <message>
+        <source>login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>wake up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Live Wallpaper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>1 hour</source>
+        <translation type="unfinished">1 ঘন্টা</translation>
+    </message>
+    <message>
+        <source>System Wallpapers</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WallpaperSelectView</name>
+    <message>
+        <source>unfold</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set lock screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>show all - %1 items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Picture</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WindowEffectPage</name>
+    <message>
+        <source>Interface and Effects</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window Settings</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window rounded corners</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation type="unfinished">কোনো একটি নেই</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>ক্ষুদ্র</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>ভারী</translation>
+    </message>
+    <message>
+        <source>Enable transparent effects when moving windows</source>
+        <translation>ウインドウを移動するときに透過効果を有効にする</translation>
+    </message>
+    <message>
+        <source>Window Minimize Effect</source>
+        <translation>ウインドウの最小化効果</translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation>মাত্রা</translation>
+    </message>
+    <message>
+        <source>Magic Lamp</source>
+        <translation>মজাকি জাম্পান</translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation>অপার্সিবিটি</translation>
+    </message>
+    <message>
+        <source>Low</source>
+        <translation>লোও</translation>
+    </message>
+    <message>
+        <source>High</source>
+        <translation>হাই</translation>
+    </message>
+    <message>
+        <source>Scroll Bars</source>
+        <translation>স্ক্রিন স্ক্রিল বার</translation>
+    </message>
+    <message>
+        <source>Show on scrolling</source>
+        <translation>স্ক্রিন স্ক্রিল করার সময় প্রদর্শন করুন</translation>
+    </message>
+    <message>
+        <source>Keep shown</source>
+        <translation>প্রদর্শিত রাখুন</translation>
+    </message>
+    <message>
+        <source>Compact Display</source>
+        <translation>কমপ্লেক্ট ডিস্প্লে</translation>
+    </message>
+    <message>
+        <source>If enabled, more content is displayed in the window.</source>
+        <translation>যদি সক্রিয় হয়, তাহলে উইন্ডোয়ে বেশি কনটেন্ট প্রদর্শিত হবে।</translation>
+    </message>
+    <message>
+        <source>Title Bar Height</source>
+        <translation>শিরোনাম বার উচ্চতা</translation>
+    </message>
+    <message>
+        <source>Only suitable for application window title bars drawn by the window manager.</source>
+        <translation>প্রতিবেদক ম্যানেজার দ্বারা রেখে থাকা উইন্ডোয়ের শিরোনাম বারে ইহা শুধুমাত্র উপযুক্ত।</translation>
+    </message>
+    <message>
+        <source>Extremely small</source>
+        <translation>অত্যন্ত ক্ষুদ্র</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished">মধ্যরেখা</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished">মধ্যরেখা</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::Locale::dialectNames</name>
+    <message>
+        <source>Traditional Chinese (Chinese Hong Kong)</source>
+        <translation>ত্রান্সিস্টেন্ট চাইনিজ (চাইনিজ হংকং)</translation>
+    </message>
+    <message>
+        <source>Traditional Chinese (Chinese Taiwan)</source>
+        <translation>ত্রান্সিস্টেন্ট চাইনিজ (চাইনিজ তাইওয়ান)</translation>
+    </message>
+    <message>
+        <source>Min Nan Chinese</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dcc::Locale::regionNames</name>
+    <message>
+        <source>Taiwan China</source>
+        <translation>তাইওয়ান চাইনিজ</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::AccountsController</name>
+    <message>
+        <source>Username must be between 3 and 32 characters</source>
+        <translation>ইউজারনেম 3 থেকে 32 অক্ষরের মধ্যে থাকতে হবে</translation>
+    </message>
+    <message>
+        <source>The first character must be a letter or number</source>
+        <translation>প্রথম অক্ষর হতে একটি লিটারাল বা নাম্বার হতে হবে</translation>
+    </message>
+    <message>
+        <source>Your username should not only have numbers</source>
+        <translation>ইউজারনেমে কেবলমাত্র নাম্বার থাকতে পারে না</translation>
+    </message>
+    <message>
+        <source>The username has been used by other user accounts</source>
+        <translation>ইউজারনেম অন্যান্য ইউজার অকাউন্টে ব্যবহার হয়েছে</translation>
+    </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation>মোট নাম খুব দীর্ঘ</translation>
+    </message>
+    <message>
+        <source>The full name has been used by other user accounts</source>
+        <translation>মোট নাম অন্যান্য ইউজার অকাউন্টে ব্যবহার হয়েছে</translation>
+    </message>
+    <message>
+        <source>Wrong password</source>
+        <translation>গোঁাব গ্রাহক</translation>
+    </message>
+    <message>
+        <source>Standard User</source>
+        <translation>ধর্মিয়ান ব্যবহারকারী</translation>
+    </message>
+    <message>
+        <source>Administrator</source>
+        <translation>প্রশাসক</translation>
+    </message>
+    <message>
+        <source>Customized</source>
+        <translation>কাস্টমাইজেড</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::AccountsWorker</name>
+    <message>
+        <source>Your host was removed from the domain server successfully</source>
+        <translation>আপনার হোস্ট সফলভাবে ডোমেইন সারভার থেকে মুছে দেওয়া হয়েছে</translation>
+    </message>
+    <message>
+        <source>Your host joins the domain server successfully</source>
+        <translation>আপনার হোস্ট সফলভাবে ডোমেইন সারভারে যোগ করা হয়েছে</translation>
+    </message>
+    <message>
+        <source>Your host failed to leave the domain server</source>
+        <translation>আপনার হোস্ট ডোমেইন সারভার থেকে অবসান করতে সমস্যা হয়েছে</translation>
+    </message>
+    <message>
+        <source>Your host failed to join the domain server</source>
+        <translation>আপনার হোস্ট ডোমেইন সারভারে যোগ করতে সমস্যা হয়েছে</translation>
+    </message>
+    <message>
+        <source>AD domain settings</source>
+        <translation>AD ডোমেইন সেটিংস</translation>
+    </message>
+    <message>
+        <source>Password not match</source>
+        <translation>পাসওয়ার্ড মিলছে না</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::AvatarTypesModel</name>
+    <message>
+        <source>Dimensional</source>
+        <translation>মাত্রার</translation>
+    </message>
+    <message>
+        <source>Flat</source>
+        <translation>ফ্ল্যাট</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::FaceAuthController</name>
+    <message>
+        <source>Faceprint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation type="unfinished">মুখ</translation>
+    </message>
+    <message>
+        <source>Use your face to unlock the device and make settings later</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::FingerprintAuthController</name>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="unfinished">প্রেক্ষিতা</translation>
+    </message>
+    <message>
+        <source>Place your finger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lift your finger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation type="unfinished">পায়ে উঠিয়ে দিন এবং আবার সেন্সরে রাখুন</translation>
+    </message>
+    <message>
+        <source>Lift your finger and do that again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scan Suspended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scan the edges of your fingerprint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::IrisAuthController</name>
+    <message>
+        <source>Iris</source>
+        <translation type="unfinished">আইরিস</translation>
+    </message>
+    <message>
+        <source>Use your iris to unlock the device and make settings later</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::KeyboardController</name>
+    <message>
+        <source>This shortcut conflicts with [%1]</source>
+        <translation>এই শক্তিশালী সংক্ষিপ্ত কমান্ড [%1] সাথে যোগাযোগ করছে</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::PwqualityManager</name>
+    <message>
+        <source>Password cannot be empty</source>
+        <translation>পাসওয়ার্ড খালি থাকতে পারে না</translation>
+    </message>
+    <message>
+        <source>Password must have at least %1 characters</source>
+        <translation>পাসওয়ার্ডের আগে %1 অক্ষর থাকতে হবে</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation>পাসওয়ার্ডের দৈর্ঘ্য %1 অক্ষরের কম হতে হবে</translation>
+    </message>
+    <message>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>পাসওয়ার্ডে শুধুমাত্র ক্যাসেইসেন্টিভ ইংরেজি বাক্য, সংখ্যা বা বিশেষ চিহ্ন (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/ ) দ্বারা সৃষ্ট হতে পারে</translation>
+    </message>
+    <message>
+        <source>No more than %1 palindrome characters please</source>
+        <translation>%1 বার পলিনড্রোমিক চিহ্ন ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <source>No more than %1 monotonic characters please</source>
+        <translation>%1 বার সামঞ্জস্যপূর্ণ চিহ্ন ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <source>No more than %1 repeating characters please</source>
+        <translation>%1 বার পুনরাবৃত্ত চিহ্ন ব্যবহার করুন</translation>
+    </message>
+    <message>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>পাসওয়ার্ডে উঠোন বাক্য, নিচোল বাক্য, সংখ্যা এবং বিশেষ চিহ্ন (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/ ) দ্বারা সৃষ্ট হতে হবে</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than 4 palindrome characters</source>
+        <translation>পাসওয়ার্ডে 4 বার বেশি পলিনড্রোমিক চিহ্ন দ্বারা সৃষ্ট হতে পারে না</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation>সাধারণ শব্দ বা সংশ্লিষ্ট ব্যবহার করতে হবে না</translation>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation>অগ্রাহ্য পাসওয়ার্ড তৈরি করুন</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation>পাসওয়ার্ডের নিয়ম পূরণ করা হয়নি</translation>
+    </message>
+    <message>
+        <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::ShortcutModel</name>
+    <message>
+        <source>System</source>
+        <translation>সিস্টেম</translation>
+    </message>
+    <message>
+        <source>Window</source>
+        <translation>বিন্ডো</translation>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation>ব্যবস্থাপনা অঞ্চল</translation>
+    </message>
+    <message>
+        <source>AssistiveTools</source>
+        <translation>অনুরোধ সাহায্য লিংক</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation>মূল্যায়ন করা</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>কোনো একটি নেই</translation>
     </message>
 </context>
 </TS>
