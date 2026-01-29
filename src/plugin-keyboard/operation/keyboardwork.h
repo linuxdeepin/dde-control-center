@@ -106,6 +106,7 @@ public Q_SLOTS:
     void onCustomConflictCleanFinished(QDBusPendingCallWatcher *w);
 
 private:
+    static QString makeShortcutKey(const QString &id, int type);
     uint converToDBusDelay(uint value);
     uint converToModelDelay(uint value);
     int converToDBusInterval(int value);
@@ -124,6 +125,7 @@ private:
     Dtk::Core::DConfig *m_inputDevCfg;
     bool m_isResetting = false; // Flag to prevent duplicate reset calls
     QMap<QString, qint64> m_shortcutQueryTime; // 记录每个快捷键最后一次 Query 的时间戳
+    QSet<QString> m_replacingShortcuts; // 记录正在替换的快捷键，用于屏蔽中间状态的UI更新
 };
 }
 #endif // KEYBOARDWORK_H
