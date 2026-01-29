@@ -946,23 +946,23 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú d&apos;arrencada</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Gestioneu el menú d&apos;arrencada</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Gestió de permisos d&apos;arrel del desenvolupador</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Opcions de desenvolupament</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Opcions de depuració per a desenvolupadors</translation>
     </message>
 </context>
 <context>
