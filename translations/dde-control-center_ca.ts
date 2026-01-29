@@ -3443,7 +3443,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Activa / desactiva els dispositius d&apos;àudio</translation>
     </message>
     <message>
         <source>Devices Management</source>
