@@ -342,7 +342,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>Useu només lletres, números i guionets baixos, i no més de 15 caràcters.</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
@@ -350,11 +350,11 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>No ha de tenir més de 15 caràcters.</translation>
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Aquest nom ja existeix.</translation>
     </message>
     <message>
         <source>Add a new %1 ...</source>
