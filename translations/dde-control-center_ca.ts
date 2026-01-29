@@ -1752,7 +1752,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation type="unfinished"/>
+        <translation>Brillantor, resolució, escala</translation>
     </message>
 </context>
 <context>
