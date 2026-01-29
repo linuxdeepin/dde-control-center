@@ -2981,11 +2981,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"/>
+        <translation>Fitxers i carpetes</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"/>
+        <translation>Trieu si l&apos;aplicació té accés a fitxers i carpetes.</translation>
     </message>
 </context>
 <context>
@@ -3402,7 +3402,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Sortida, entrada, efectes de so, dispositius</translation>
     </message>
 </context>
 <context>
