@@ -3617,7 +3617,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Versió del sistema, informació del dispositiu</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
