@@ -2759,11 +2759,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"/>
+        <translation>Efectes de les finestres</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Personalitzeu el fons i l&apos;estalvi de pantalla</translation>
     </message>
     <message>
         <source>Screensaver</source>
