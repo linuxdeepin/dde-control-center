@@ -1835,23 +1835,23 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mode</translation>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla principal</translation>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla i disposició</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Brillantor</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Resolució</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
