@@ -135,6 +135,13 @@ D.DialogWindow {
             }
             onRequestKeys: {
                 keys = [];
+                var win = DccApp.mainWindow()
+                if (win) {
+                    if (win.forceActiveAppearance !== undefined)
+                        win.forceActiveAppearance = true
+                    if (win.pendingReactivation !== undefined)
+                        win.pendingReactivation = true
+                }
                 dccData.updateKey(ddialog.keyId, 1);
             }
         }
@@ -192,9 +199,15 @@ D.DialogWindow {
         Connections {
             target: dccData
             function onRequestRestore() {
+                var win = DccApp.mainWindow()
+                if (win) {
+                    if (win.forceActiveAppearance !== undefined)
+                        win.forceActiveAppearance = false
+                    if (win.pendingReactivation !== undefined)
+                        win.pendingReactivation = false
+                }
                 edit.keys = ddialog.saveKeys;
                 conflictText.text = "";
-                // 重置名称验证状态
                 if (nameEdit.text.trim().length > 0) {
                     ddialog.nameExists = dccData.isShortcutNameExists(nameEdit.text.trim(), ddialog.keyId);
                 } else {
@@ -205,11 +218,25 @@ D.DialogWindow {
                 onRequestRestore();
             }
             function onKeyConflicted(oldAccels, newAccels) {
-                edit.accels = newAccels; // 冲突也可以覆盖
+                var win = DccApp.mainWindow()
+                if (win) {
+                    if (win.forceActiveAppearance !== undefined)
+                        win.forceActiveAppearance = false
+                    if (win.pendingReactivation !== undefined)
+                        win.pendingReactivation = false
+                }
+                edit.accels = newAccels;
                 var actionText = ddialog.keyId.length > 0 ? qsTr("click Save to make this shortcut key effective") : qsTr("click Add to make this shortcut key effective");
                 conflictText.text = dccData.conflictText + ", " + actionText;
             }
             function onKeyDone(accels) {
+                var win = DccApp.mainWindow()
+                if (win) {
+                    if (win.forceActiveAppearance !== undefined)
+                        win.forceActiveAppearance = false
+                    if (win.pendingReactivation !== undefined)
+                        win.pendingReactivation = false
+                }
                 edit.keys = dccData.formatKeys(accels);
                 edit.accels = accels;
                 conflictText.text = "";
