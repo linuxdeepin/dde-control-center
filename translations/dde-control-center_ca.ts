@@ -2775,7 +2775,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Ajusteu el color d&apos;accentuació i les icones del tema</translation>
     </message>
     <message>
         <source>Font and font size</source>
