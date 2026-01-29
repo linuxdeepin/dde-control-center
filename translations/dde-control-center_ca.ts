@@ -3447,7 +3447,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation>Gestió de dispositius</translation>
     </message>
 </context>
 <context>
@@ -3595,7 +3595,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>System</name>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Configuracions comunes</translation>
     </message>
     <message>
         <source>System</source>
