@@ -1981,15 +1981,15 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Petita</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Grossa</translation>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation type="unfinished"/>
+        <translation>Posició a la pantalla</translation>
     </message>
     <message>
         <source>Top</source>
