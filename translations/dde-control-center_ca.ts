@@ -1795,11 +1795,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>Duplica</translation>
+        <translation>Duplica&apos;l</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation>Estén</translation>
+        <translation>Estén-lo</translation>
     </message>
     <message>
         <source>Default</source>
