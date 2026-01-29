@@ -2593,11 +2593,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificacions de les aplicacions</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Permet les notificacions</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
