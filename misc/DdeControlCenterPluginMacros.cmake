@@ -1,3 +1,4 @@
+cmake_minimum_required(VERSION 3.23)
 include(CMakeParseArguments)
 
 function(dcc_to_capitalized_string input_string output_variable)
@@ -11,7 +12,6 @@ function(dcc_to_capitalized_string input_string output_variable)
     endif()
     set(${output_variable} ${result} PARENT_SCOPE)
 endfunction()
-
 
 macro(dcc_build_plugin)
     set(oneValueArgs NAME TARGET QML_ROOT_DIR)
@@ -69,6 +69,7 @@ macro(dcc_build_plugin)
     endforeach(FILE_PATH)
     qt_policy(SET QTP0001 NEW)
     qt_policy(SET QTP0004 NEW)
+    cmake_policy(SET CMP0071 NEW)
     qt_add_qml_module(${_config_NAME}_qml
         PLUGIN_TARGET ${_config_NAME}_qml
         URI ${_config_NAME}
