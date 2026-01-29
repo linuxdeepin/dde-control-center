@@ -2771,7 +2771,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Colors i icones</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
