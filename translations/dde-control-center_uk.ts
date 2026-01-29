@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="uk">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="uk">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -123,6 +125,24 @@
     </message>
 </context>
 <context>
+    <name>Accounts</name>
+    <message>
+        <source>Account</source>
+        <translation>Обліковий запис</translation>
+    </message>
+    <message>
+        <source>Account manager</source>
+        <translation>Керування обліковими записами</translation>
+    </message>
+</context>
+<context>
+    <name>AccountsMain</name>
+    <message>
+        <source>Other accounts</source>
+        <translation>Інші облікові записи</translation>
+    </message>
+</context>
+<context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
@@ -173,7 +193,7 @@ To ensure successful entry:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
@@ -218,7 +238,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
@@ -267,7 +287,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
@@ -277,6 +297,68 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
         <translation>Будь ласка, утримуйте погляд на пристрої і переконайтеся, що обидва ока перебувають у зоні видимості</translation>
+    </message>
+</context>
+<context>
+    <name>Authentication</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>Біометричне розпізнавання</translation>
+    </message>
+</context>
+<context>
+    <name>AuthenticationMain</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>Біометричне розпізнавання</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>Фото</translation>
+    </message>
+    <message>
+        <source>Up to 5 facial data can be entered</source>
+        <translation>Можна реєструвати до 5 записів облич</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation>Відбиток</translation>
+    </message>
+    <message>
+        <source>Identifying user identity through scanning fingerprints</source>
+        <translation>Розпізнавання користувача за сканованими відбитками пальців</translation>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation>Райдуга</translation>
+    </message>
+    <message>
+        <source>Identity recognition through iris scanning</source>
+        <translation>Розпізнавання користувача за скануванням райдужки</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation>Можна використовувати лише латинські літери, цифри та символи підкреслювання. Довжина назви не повинна перевищувати 15 символів.</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only</source>
+        <translation>Можна використовувати лише латинські літери, цифри та символи підкреслювання</translation>
+    </message>
+    <message>
+        <source>No more than 15 characters</source>
+        <translation>Не більше 15 символів</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation>Запис і з такою назвою вже існує</translation>
+    </message>
+    <message>
+        <source>Add a new %1 ...</source>
+        <translation>Додати новий %1…</translation>
+    </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation>Назва не може бути порожньою</translation>
     </message>
 </context>
 <context>
@@ -406,6 +488,17 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <message>
         <source>Disable</source>
         <translation>Вимкнути</translation>
+    </message>
+</context>
+<context>
+    <name>BlueTooth</name>
+    <message>
+        <source>Bluetooth settings, devices</source>
+        <translation>Параметри Bluetooth, пристрої</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -846,6 +939,29 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
 </context>
 <context>
+    <name>CommonInfoMain</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation>Меню завантаження</translation>
+    </message>
+    <message>
+        <source>Manage your boot menu</source>
+        <translation>Керування меню завантаження</translation>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation>Керування правами доступу root для розробника</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation>Параметри для розробників</translation>
+    </message>
+    <message>
+        <source>Developer debugging options</source>
+        <translation>Діагностичні параметри для розробників</translation>
+    </message>
+</context>
+<context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
@@ -1071,6 +1187,25 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <message>
         <source>Confirm</source>
         <translation>Підтвердити</translation>
+    </message>
+</context>
+<context>
+    <name>Datetime</name>
+    <message>
+        <source>Time and date</source>
+        <translation>Час і дата</translation>
+    </message>
+    <message>
+        <source>Time and date, time zone settings</source>
+        <translation>Час і дата, параметри часового поясу</translation>
+    </message>
+    <message>
+        <source>Language and region</source>
+        <translation>Мова і регіон</translation>
+    </message>
+    <message>
+        <source>System language, regional formats</source>
+        <translation>Мова системи, формат регіону</translation>
     </message>
 </context>
 <context>
@@ -1362,6 +1497,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Deepinid</name>
+    <message>
+        <source>deepin ID</source>
+        <translation>Ідентифікатор Deepin</translation>
+    </message>
+    <message>
+        <source>UOS ID</source>
+        <translation>Ід. UOS</translation>
+    </message>
+    <message>
+        <source>Cloud services</source>
+        <translation>«Хмарні» служби</translation>
+    </message>
+</context>
+<context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
@@ -1378,6 +1528,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
         <translation>Через вимоги місцевого законодавства у вашому регіоні доступу до цих даних немає.</translation>
+    </message>
+</context>
+<context>
+    <name>Defaultapp</name>
+    <message>
+        <source>Default App</source>
+        <translation>Типова програма</translation>
+    </message>
+    <message>
+        <source>Set the default application for opening various types of files</source>
+        <translation>Встановлення типових програм для відкриття файлів різних типів</translation>
+    </message>
+</context>
+<context>
+    <name>DefaultappMain</name>
+    <message>
+        <source>Webpage</source>
+        <translation>Вебсторінка</translation>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation>Пошта</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>Текст</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation>Музика</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation>Відео</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation>Зображення</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation>Термінал</translation>
     </message>
 </context>
 <context>
@@ -1527,6 +1719,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Device</name>
+    <message>
+        <source>Bluetooth and Other Devices</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -1539,6 +1738,318 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Agree</source>
         <translation>Погоджуюсь</translation>
+    </message>
+</context>
+<context>
+    <name>Display</name>
+    <message>
+        <source>Display</source>
+        <translation>Показ</translation>
+    </message>
+    <message>
+        <source>Brightness,resolution,scaling</source>
+        <translation>Яскравість,роздільність,масштабування</translation>
+    </message>
+</context>
+<context>
+    <name>DisplayMain</name>
+    <message>
+        <source>100%</source>
+        <translation>100%</translation>
+    </message>
+    <message>
+        <source>125%</source>
+        <translation>125%</translation>
+    </message>
+    <message>
+        <source>150%</source>
+        <translation>150%</translation>
+    </message>
+    <message>
+        <source>175%</source>
+        <translation>175%</translation>
+    </message>
+    <message>
+        <source>200%</source>
+        <translation>200%</translation>
+    </message>
+    <message>
+        <source>225%</source>
+        <translation>225%</translation>
+    </message>
+    <message>
+        <source>250%</source>
+        <translation>250%</translation>
+    </message>
+    <message>
+        <source>275%</source>
+        <translation>275%</translation>
+    </message>
+    <message>
+        <source>300%</source>
+        <translation>300%</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Здублювати</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Розширити</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>Типове</translation>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation>Вмістити</translation>
+    </message>
+    <message>
+        <source>Stretch</source>
+        <translation>Розтягнути</translation>
+    </message>
+    <message>
+        <source>Center</source>
+        <translation>За центром</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Лише на %1</translation>
+    </message>
+    <message>
+        <source>Multiple Displays Settings</source>
+        <translation>Параметри для декількох дисплеїв</translation>
+    </message>
+    <message>
+        <source>Identify</source>
+        <translation>Визначити</translation>
+    </message>
+    <message>
+        <source>Screen rearrangement will take effect in %1s after changes</source>
+        <translation>Перевпорядковування екранів буде виконано за %1с після внесення змін</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>Режим</translation>
+    </message>
+    <message>
+        <source>Main Screen</source>
+        <translation>Головний екран</translation>
+    </message>
+    <message>
+        <source>Display And Layout</source>
+        <translation>Дисплей і компонування</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>Яскравість</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation>Роздільна здатність</translation>
+    </message>
+    <message>
+        <source>Resize Desktop</source>
+        <translation>Змінити розміри стільниці</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation>Частота оновлення</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>Обертання</translation>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation>Стандартний</translation>
+    </message>
+    <message>
+        <source>90°</source>
+        <translation>90°</translation>
+    </message>
+    <message>
+        <source>180°</source>
+        <translation>180°</translation>
+    </message>
+    <message>
+        <source>270°</source>
+        <translation>270°</translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation>Параметрами монітора передбачено лише масштабування у 100%</translation>
+    </message>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Комфорт для очей</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Увімкнути комфорт для очей</translation>
+    </message>
+    <message>
+        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
+        <translation>Зробити кольори теплішими, зменшуючи вплив синього компонента світла</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>Час</translation>
+    </message>
+    <message>
+        <source>All day</source>
+        <translation>Увесь день</translation>
+    </message>
+    <message>
+        <source>Sunset to Sunrise</source>
+        <translation>Від заходу до світанку</translation>
+    </message>
+    <message>
+        <source>Custom Time</source>
+        <translation>Нетиповий час</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>від</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>до</translation>
+    </message>
+    <message>
+        <source>Color Temperature</source>
+        <translation>Кольорова температура</translation>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation>%1x%2 (рекомендовано)</translation>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation>%1x%2</translation>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation>%1Гц (рекомендовано)</translation>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation>%1Гц</translation>
+    </message>
+    <message>
+        <source>Scaling</source>
+        <translation>Масштабування</translation>
+    </message>
+</context>
+<context>
+    <name>Dock</name>
+    <message>
+        <source>Desktop and taskbar</source>
+        <translation>Стільниця і панель задач</translation>
+    </message>
+    <message>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation>Упорядковування стільниці, режим панелі задач, параметри області додатків</translation>
+    </message>
+</context>
+<context>
+    <name>DockMain</name>
+    <message>
+        <source>Dock</source>
+        <translation>Панель</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>Режим</translation>
+    </message>
+    <message>
+        <source>Classic Mode</source>
+        <translation>Класичний режим</translation>
+    </message>
+    <message>
+        <source>Centered Mode</source>
+        <translation>Центрований режим</translation>
+    </message>
+    <message>
+        <source>Dock size</source>
+        <translation>Розмір панелі</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>Малий</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>Великий</translation>
+    </message>
+    <message>
+        <source>Position on the screen</source>
+        <translation>Розташування на екрані</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>Вгорі</translation>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation>Внизу</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation>Ліворуч</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>Праворуч</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>Стан</translation>
+    </message>
+    <message>
+        <source>Keep shown</source>
+        <translation>Показувати постійно</translation>
+    </message>
+    <message>
+        <source>Keep hidden</source>
+        <translation>Приховувати постійно</translation>
+    </message>
+    <message>
+        <source>Smart hide</source>
+        <translation>Розумне приховування</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Кілька дисплеїв</translation>
+    </message>
+    <message>
+        <source>Set the position of the taskbar on the screen</source>
+        <translation>Встановити розташування панелі задач на екрані</translation>
+    </message>
+    <message>
+        <source>Only on main</source>
+        <translation>Лише на головному</translation>
+    </message>
+    <message>
+        <source>On screen where the cursor is</source>
+        <translation>На екрані, де перебуває вказівник</translation>
+    </message>
+    <message>
+        <source>Plugin Area</source>
+        <translation>Область додатків</translation>
+    </message>
+    <message>
+        <source>Select which icons appear in the Dock</source>
+        <translation>Виберіть, які піктограми буде показано на бічній панелі</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation>Заблокувати панель</translation>
+    </message>
+    <message>
+        <source>Combine application icons</source>
+        <translation>Поєднувати піктограми програм</translation>
     </message>
 </context>
 <context>
@@ -1744,6 +2255,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Keyboard</name>
+    <message>
+        <source>Keyboard</source>
+        <translation>Клавіатура</translation>
+    </message>
+    <message>
+        <source>General Settings, input method, shortcuts</source>
+        <translation>Загальні параметри, спосіб введення, скорочення</translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardMain</name>
+    <message>
+        <source>Common</source>
+        <translation>Загальні</translation>
+    </message>
+</context>
+<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -1877,6 +2406,32 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>Mouse</name>
     <message>
+        <source>Mouse and Touchpad</source>
+        <translation>Миша та сенсорна панель</translation>
+    </message>
+    <message>
+        <source>Common、Mouse、Touchpad</source>
+        <translation>Загальне, миша, сенсорна панель</translation>
+    </message>
+</context>
+<context>
+    <name>MouseMain</name>
+    <message>
+        <source>Common</source>
+        <translation>Загальні</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation>Миша</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation>Сенсорна панель</translation>
+    </message>
+</context>
+<context>
+    <name>MousePage</name>
+    <message>
         <source>Mouse</source>
         <translation>Миша</translation>
     </message>
@@ -2000,6 +2555,72 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Notification</name>
+    <message>
+        <source>DND mode, app notifications</source>
+        <translation>Режим «Не турбувати», сповіщення програм</translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation>Сповіщення</translation>
+    </message>
+</context>
+<context>
+    <name>NotificationMain</name>
+    <message>
+        <source>Do Not Disturb Settings</source>
+        <translation>Параметри режиму «Не турбувати»</translation>
+    </message>
+    <message>
+        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
+        <translation>Сповіщення програм не буде показано на стільниці, а звуковий супровід буде вимкнено, але ви зможете бачити повідомлення у центрі сповіщень.</translation>
+    </message>
+    <message>
+        <source>Enable Do Not Disturb</source>
+        <translation>Увімкнути «Не турбувати»</translation>
+    </message>
+    <message>
+        <source>When the screen is locked</source>
+        <translation>Якщо екран заблоковано</translation>
+    </message>
+    <message>
+        <source>Number of notifications shown on the desktop</source>
+        <translation>Кількість сповіщень, які буде показано на стільниці</translation>
+    </message>
+    <message>
+        <source>App Notifications</source>
+        <translation>Сповіщення програм</translation>
+    </message>
+    <message>
+        <source>Allow Notifications</source>
+        <translation>Дозволити сповіщення</translation>
+    </message>
+    <message>
+        <source>Display notification on desktop or show unread messages in the notification center</source>
+        <translation>Показ сповіщення на стільниці або показ кількості непрочитаних повідомлень у центрі сповіщень</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>%1 (стільниця)</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>Заблокувати екран</translation>
+    </message>
+    <message>
+        <source>Notification Center</source>
+        <translation>Центр сповіщень</translation>
+    </message>
+    <message>
+        <source>Show message preview</source>
+        <translation>Показати попередній перегляд повідомлення</translation>
+    </message>
+    <message>
+        <source>Play a sound</source>
+        <translation>Програти звук</translation>
+    </message>
+</context>
+<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2093,6 +2714,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Personalization</name>
+    <message>
+        <source>Personalization</source>
+        <translation>Персоналізація</translation>
+    </message>
+</context>
+<context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
@@ -2116,6 +2744,57 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>PersonalizationMain</name>
+    <message>
+        <source>Theme</source>
+        <translation>Тема</translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation>Вигляд</translation>
+    </message>
+    <message>
+        <source>Window effect</source>
+        <translation>Ефект вікон</translation>
+    </message>
+    <message>
+        <source>Personalize your wallpaper and screensaver</source>
+        <translation>Персоналізація фонового зображення і зберігача екрана</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation>Збереження екрана</translation>
+    </message>
+    <message>
+        <source>Colors and icons</source>
+        <translation>Кольори і піктограми</translation>
+    </message>
+    <message>
+        <source>Adjust accent color and theme icons</source>
+        <translation>Скоригувати кольори акценту та піктограми теми</translation>
+    </message>
+    <message>
+        <source>Font and font size</source>
+        <translation>Шрифт і розмір шрифту</translation>
+    </message>
+    <message>
+        <source>Change system font and size</source>
+        <translation>Змінити загальносистемний шрифт і його розмір</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation>Зображення тла</translation>
+    </message>
+    <message>
+        <source>Select light, dark or automatic theme appearance</source>
+        <translation>Виберіть світлий, темний або автоматичний режим вигляду теми</translation>
+    </message>
+    <message>
+        <source>Interface and effects, rounded corners</source>
+        <translation>Інтерфейс і ефекти, заокруглені краї</translation>
+    </message>
+</context>
+<context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
@@ -2131,6 +2810,44 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Виберіть, які піктограми буде показано на бічній панелі</translation>
+    </message>
+</context>
+<context>
+    <name>Power</name>
+    <message>
+        <source>Power saving settings, screen and suspend</source>
+        <translation>Параметри заощадження енергії, екрана та призупинення роботи</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation>Живлення</translation>
+    </message>
+</context>
+<context>
+    <name>PowerMain</name>
+    <message>
+        <source>General</source>
+        <translation>Загальне</translation>
+    </message>
+    <message>
+        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
+        <translation>Плани живлення, параметри заощадження енергії, параметри пробудження, параметри вимикання</translation>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation>Підключено</translation>
+    </message>
+    <message>
+        <source>Screen and suspend</source>
+        <translation>Екран та призупинення</translation>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation>Живлення від акумулятора</translation>
+    </message>
+    <message>
+        <source>screen and suspend, low battery, battery management</source>
+        <translation>екран і призупинення, низький рівень заряду акумулятора, керування акумулятором</translation>
     </message>
 </context>
 <context>
@@ -2235,6 +2952,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Never</source>
         <translation>Ніколи</translation>
+    </message>
+</context>
+<context>
+    <name>Privacy</name>
+    <message>
+        <source>Privacy and Security</source>
+        <translation>Конфіденційність та безпека</translation>
+    </message>
+    <message>
+        <source>Camera, folder permissions</source>
+        <translation>Камера, доступ до тек</translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyMain</name>
+    <message>
+        <source>Camera</source>
+        <translation>Камера</translation>
+    </message>
+    <message>
+        <source>Choose whether the application has access to the camera</source>
+        <translation>Виберіть, чи матиме програма доступ до камери</translation>
+    </message>
+    <message>
+        <source>Files and Folders</source>
+        <translation>Файли і теки</translation>
+    </message>
+    <message>
+        <source>Choose whether the application has access to files and folders</source>
+        <translation>Виберіть, чи матиме програма доступ до файлів і тек</translation>
     </message>
 </context>
 <context>
@@ -2644,6 +3391,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Sound</name>
+    <message>
+        <source>Sound</source>
+        <translation>Звук</translation>
+    </message>
+    <message>
+        <source>Output, input, sound effects, devices</source>
+        <translation>Виведення, введення, звукові ефекти, пристрої</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -2663,6 +3421,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Sound Effects</source>
         <translation>Звукові ефекти</translation>
+    </message>
+</context>
+<context>
+    <name>SoundMain</name>
+    <message>
+        <source>Settings</source>
+        <translation>Параметри</translation>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation>Звукові ефекти</translation>
+    </message>
+    <message>
+        <source>Enable/disable sound effects</source>
+        <translation>Вмикає або вимикає звукові ефекти.</translation>
+    </message>
+    <message>
+        <source>Enable/disable audio devices</source>
+        <translation>Увімкнути/Вимкнути звукові пристрої</translation>
+    </message>
+    <message>
+        <source>Devices Management</source>
+        <translation>Керування пристроями</translation>
     </message>
 </context>
 <context>
@@ -2804,6 +3585,67 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Screensaver</source>
         <translation>Зберігач екрана</translation>
+    </message>
+</context>
+<context>
+    <name>System</name>
+    <message>
+        <source>Common settings</source>
+        <translation>Загальні параметри</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation>Система</translation>
+    </message>
+</context>
+<context>
+    <name>SystemInfo</name>
+    <message>
+        <source>Auxiliary Information</source>
+        <translation>Допоміжні відомості</translation>
+    </message>
+</context>
+<context>
+    <name>SystemInfoMain</name>
+    <message>
+        <source>About This PC</source>
+        <translation>Про цей ПК</translation>
+    </message>
+    <message>
+        <source>System version, device information</source>
+        <translation>Версія системи, відомості щодо пристроїв</translation>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation>Переглянути зауваження щодо вільного програмного забезпечення</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation>Програма взаємодії з користувачем</translation>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation>Долучайтеся до програми вражень користувачів, щоб допомогти у поліпшення продукту</translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation>Ліцензійна угода із кінцевим користувачем</translation>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation>Переглянути ліцензійну угоду з кінцевим користувачем</translation>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation>Правила конфіденційності</translation>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation>Переглянути відомості щодо правил конфіденційності</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation>Зауваження щодо програмного забезпечення з відкритим кодом</translation>
     </message>
 </context>
 <context>
@@ -2980,6 +3822,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Touchscreen</name>
+    <message>
+        <source>Touchscreen</source>
+        <translation>Сенсорний екран</translation>
+    </message>
+    <message>
+        <source>Configuring Touchscreen</source>
+        <translation>Налаштовування сенсорної панелі</translation>
+    </message>
+</context>
+<context>
+    <name>TouchscreenMain</name>
+    <message>
+        <source>Common</source>
+        <translation>Загальні</translation>
+    </message>
+</context>
+<context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
@@ -3015,6 +3875,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Confirm</source>
         <translation>Підтвердити</translation>
+    </message>
+</context>
+<context>
+    <name>Wacom</name>
+    <message>
+        <source>wacom</source>
+        <translation>Wacom</translation>
+    </message>
+    <message>
+        <source>Configuring wacom</source>
+        <translation>Налаштовування wacom</translation>
+    </message>
+</context>
+<context>
+    <name>WacomMain</name>
+    <message>
+        <source>wacom</source>
+        <translation>Wacom</translation>
+    </message>
+    <message>
+        <source>Pen Mode</source>
+        <translation>Режим пера</translation>
+    </message>
+    <message>
+        <source>Mouse Mode</source>
+        <translation>Режим миші</translation>
+    </message>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation>Чутливість до натиску</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Легкий</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation>Важкий</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation>Модель</translation>
     </message>
 </context>
 <context>
@@ -3214,139 +4116,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
         <translation>Середня</translation>
-    </message>
-</context>
-<context>
-    <name>accounts</name>
-    <message>
-        <source>Account</source>
-        <translation>Обліковий запис</translation>
-    </message>
-    <message>
-        <source>Account manager</source>
-        <translation>Керування обліковими записами</translation>
-    </message>
-</context>
-<context>
-    <name>accountsMain</name>
-    <message>
-        <source>Other accounts</source>
-        <translation>Інші облікові записи</translation>
-    </message>
-</context>
-<context>
-    <name>authentication</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>Біометричне розпізнавання</translation>
-    </message>
-</context>
-<context>
-    <name>authenticationMain</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>Біометричне розпізнавання</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>Фото</translation>
-    </message>
-    <message>
-        <source>Up to 5 facial data can be entered</source>
-        <translation>Можна реєструвати до 5 записів облич</translation>
-    </message>
-    <message>
-        <source>Fingerprint</source>
-        <translation>Відбиток</translation>
-    </message>
-    <message>
-        <source>Identifying user identity through scanning fingerprints</source>
-        <translation>Розпізнавання користувача за сканованими відбитками пальців</translation>
-    </message>
-    <message>
-        <source>Iris</source>
-        <translation>Райдуга</translation>
-    </message>
-    <message>
-        <source>Identity recognition through iris scanning</source>
-        <translation>Розпізнавання користувача за скануванням райдужки</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Можна використовувати лише латинські літери, цифри та символи підкреслювання. Довжина назви не повинна перевищувати 15 символів.</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only</source>
-        <translation>Можна використовувати лише латинські літери, цифри та символи підкреслювання</translation>
-    </message>
-    <message>
-        <source>No more than 15 characters</source>
-        <translation>Не більше 15 символів</translation>
-    </message>
-    <message>
-        <source>This name already exists</source>
-        <translation>Запис і з такою назвою вже існує</translation>
-    </message>
-    <message>
-        <source>Add a new %1 ...</source>
-        <translation>Додати новий %1…</translation>
-    </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>Назва не може бути порожньою</translation>
-    </message>
-</context>
-<context>
-    <name>blueTooth</name>
-    <message>
-        <source>Bluetooth settings, devices</source>
-        <translation>Параметри Bluetooth, пристрої</translation>
-    </message>
-    <message>
-        <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
-    </message>
-</context>
-<context>
-    <name>commonInfoMain</name>
-    <message>
-        <source>Boot Menu</source>
-        <translation>Меню завантаження</translation>
-    </message>
-    <message>
-        <source>Manage your boot menu</source>
-        <translation>Керування меню завантаження</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Керування правами доступу root для розробника</translation>
-    </message>
-    <message>
-        <source>Developer Options</source>
-        <translation>Параметри для розробників</translation>
-    </message>
-    <message>
-        <source>Developer debugging options</source>
-        <translation>Діагностичні параметри для розробників</translation>
-    </message>
-</context>
-<context>
-    <name>datetime</name>
-    <message>
-        <source>Time and date</source>
-        <translation>Час і дата</translation>
-    </message>
-    <message>
-        <source>Time and date, time zone settings</source>
-        <translation>Час і дата, параметри часового поясу</translation>
-    </message>
-    <message>
-        <source>Language and region</source>
-        <translation>Мова і регіон</translation>
-    </message>
-    <message>
-        <source>System language, regional formats</source>
-        <translation>Мова системи, формат регіону</translation>
     </message>
 </context>
 <context>
@@ -3584,7 +4353,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3612,773 +4381,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Немає</translation>
-    </message>
-</context>
-<context>
-    <name>deepinid</name>
-    <message>
-        <source>deepin ID</source>
-        <translation>Ідентифікатор Deepin</translation>
-    </message>
-    <message>
-        <source>UOS ID</source>
-        <translation>Ід. UOS</translation>
-    </message>
-    <message>
-        <source>Cloud services</source>
-        <translation>«Хмарні» служби</translation>
-    </message>
-</context>
-<context>
-    <name>defaultapp</name>
-    <message>
-        <source>Default App</source>
-        <translation>Типова програма</translation>
-    </message>
-    <message>
-        <source>Set the default application for opening various types of files</source>
-        <translation>Встановлення типових програм для відкриття файлів різних типів</translation>
-    </message>
-</context>
-<context>
-    <name>defaultappMain</name>
-    <message>
-        <source>Webpage</source>
-        <translation>Вебсторінка</translation>
-    </message>
-    <message>
-        <source>Mail</source>
-        <translation>Пошта</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation>Текст</translation>
-    </message>
-    <message>
-        <source>Music</source>
-        <translation>Музика</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation>Відео</translation>
-    </message>
-    <message>
-        <source>Picture</source>
-        <translation>Зображення</translation>
-    </message>
-    <message>
-        <source>Terminal</source>
-        <translation>Термінал</translation>
-    </message>
-</context>
-<context>
-    <name>device</name>
-    <message>
-        <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>display</name>
-    <message>
-        <source>Display</source>
-        <translation>Показ</translation>
-    </message>
-    <message>
-        <source>Brightness,resolution,scaling</source>
-        <translation>Яскравість,роздільність,масштабування</translation>
-    </message>
-</context>
-<context>
-    <name>displayMain</name>
-    <message>
-        <source>100%</source>
-        <translation>100%</translation>
-    </message>
-    <message>
-        <source>125%</source>
-        <translation>125%</translation>
-    </message>
-    <message>
-        <source>150%</source>
-        <translation>150%</translation>
-    </message>
-    <message>
-        <source>175%</source>
-        <translation>175%</translation>
-    </message>
-    <message>
-        <source>200%</source>
-        <translation>200%</translation>
-    </message>
-    <message>
-        <source>225%</source>
-        <translation>225%</translation>
-    </message>
-    <message>
-        <source>250%</source>
-        <translation>250%</translation>
-    </message>
-    <message>
-        <source>275%</source>
-        <translation>275%</translation>
-    </message>
-    <message>
-        <source>300%</source>
-        <translation>300%</translation>
-    </message>
-    <message>
-        <source>Duplicate</source>
-        <translation>Здублювати</translation>
-    </message>
-    <message>
-        <source>Extend</source>
-        <translation>Розширити</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation>Типове</translation>
-    </message>
-    <message>
-        <source>Fit</source>
-        <translation>Вмістити</translation>
-    </message>
-    <message>
-        <source>Stretch</source>
-        <translation>Розтягнути</translation>
-    </message>
-    <message>
-        <source>Center</source>
-        <translation>За центром</translation>
-    </message>
-    <message>
-        <source>Only on %1</source>
-        <translation>Лише на %1</translation>
-    </message>
-    <message>
-        <source>Multiple Displays Settings</source>
-        <translation>Параметри для декількох дисплеїв</translation>
-    </message>
-    <message>
-        <source>Identify</source>
-        <translation>Визначити</translation>
-    </message>
-    <message>
-        <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>Перевпорядковування екранів буде виконано за %1с після внесення змін</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation>Режим</translation>
-    </message>
-    <message>
-        <source>Main Screen</source>
-        <translation>Головний екран</translation>
-    </message>
-    <message>
-        <source>Display And Layout</source>
-        <translation>Дисплей і компонування</translation>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation>Яскравість</translation>
-    </message>
-    <message>
-        <source>Resolution</source>
-        <translation>Роздільна здатність</translation>
-    </message>
-    <message>
-        <source>Resize Desktop</source>
-        <translation>Змінити розміри стільниці</translation>
-    </message>
-    <message>
-        <source>Refresh Rate</source>
-        <translation>Частота оновлення</translation>
-    </message>
-    <message>
-        <source>Rotation</source>
-        <translation>Обертання</translation>
-    </message>
-    <message>
-        <source>Standard</source>
-        <translation>Стандартний</translation>
-    </message>
-    <message>
-        <source>90°</source>
-        <translation>90°</translation>
-    </message>
-    <message>
-        <source>180°</source>
-        <translation>180°</translation>
-    </message>
-    <message>
-        <source>270°</source>
-        <translation>270°</translation>
-    </message>
-    <message>
-        <source>The monitor only supports 100% display scaling</source>
-        <translation>Параметрами монітора передбачено лише масштабування у 100%</translation>
-    </message>
-    <message>
-        <source>Eye Comfort</source>
-        <translation>Комфорт для очей</translation>
-    </message>
-    <message>
-        <source>Enable eye comfort</source>
-        <translation>Увімкнути комфорт для очей</translation>
-    </message>
-    <message>
-        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation>Зробити кольори теплішими, зменшуючи вплив синього компонента світла</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>Час</translation>
-    </message>
-    <message>
-        <source>All day</source>
-        <translation>Увесь день</translation>
-    </message>
-    <message>
-        <source>Sunset to Sunrise</source>
-        <translation>Від заходу до світанку</translation>
-    </message>
-    <message>
-        <source>Custom Time</source>
-        <translation>Нетиповий час</translation>
-    </message>
-    <message>
-        <source>from</source>
-        <translation>від</translation>
-    </message>
-    <message>
-        <source>to</source>
-        <translation>до</translation>
-    </message>
-    <message>
-        <source>Color Temperature</source>
-        <translation>Кольорова температура</translation>
-    </message>
-    <message>
-        <source>%1x%2 (Recommended)</source>
-        <translation>%1x%2 (рекомендовано)</translation>
-    </message>
-    <message>
-        <source>%1x%2</source>
-        <translation>%1x%2</translation>
-    </message>
-    <message>
-        <source>%1Hz (Recommended)</source>
-        <translation>%1Гц (рекомендовано)</translation>
-    </message>
-    <message>
-        <source>%1Hz</source>
-        <translation>%1Гц</translation>
-    </message>
-    <message>
-        <source>Scaling</source>
-        <translation>Масштабування</translation>
-    </message>
-</context>
-<context>
-    <name>dock</name>
-    <message>
-        <source>Desktop and taskbar</source>
-        <translation>Стільниця і панель задач</translation>
-    </message>
-    <message>
-        <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation>Упорядковування стільниці, режим панелі задач, параметри області додатків</translation>
-    </message>
-</context>
-<context>
-    <name>keyboard</name>
-    <message>
-        <source>Keyboard</source>
-        <translation>Клавіатура</translation>
-    </message>
-    <message>
-        <source>General Settings, input method, shortcuts</source>
-        <translation>Загальні параметри, спосіб введення, скорочення</translation>
-    </message>
-</context>
-<context>
-    <name>keyboardMain</name>
-    <message>
-        <source>Common</source>
-        <translation>Загальні</translation>
-    </message>
-</context>
-<context>
-    <name>main</name>
-    <message>
-        <source>Dock</source>
-        <translation>Панель</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation>Режим</translation>
-    </message>
-    <message>
-        <source>Classic Mode</source>
-        <translation>Класичний режим</translation>
-    </message>
-    <message>
-        <source>Centered Mode</source>
-        <translation>Центрований режим</translation>
-    </message>
-    <message>
-        <source>Dock size</source>
-        <translation>Розмір панелі</translation>
-    </message>
-    <message>
-        <source>Small</source>
-        <translation>Малий</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Великий</translation>
-    </message>
-    <message>
-        <source>Position on the screen</source>
-        <translation>Розташування на екрані</translation>
-    </message>
-    <message>
-        <source>Top</source>
-        <translation>Вгорі</translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation>Внизу</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation>Ліворуч</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation>Праворуч</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Стан</translation>
-    </message>
-    <message>
-        <source>Keep shown</source>
-        <translation>Показувати постійно</translation>
-    </message>
-    <message>
-        <source>Keep hidden</source>
-        <translation>Приховувати постійно</translation>
-    </message>
-    <message>
-        <source>Smart hide</source>
-        <translation>Розумне приховування</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>Кілька дисплеїв</translation>
-    </message>
-    <message>
-        <source>Set the position of the taskbar on the screen</source>
-        <translation>Встановити розташування панелі задач на екрані</translation>
-    </message>
-    <message>
-        <source>Only on main</source>
-        <translation>Лише на головному</translation>
-    </message>
-    <message>
-        <source>On screen where the cursor is</source>
-        <translation>На екрані, де перебуває вказівник</translation>
-    </message>
-    <message>
-        <source>Plugin Area</source>
-        <translation>Область додатків</translation>
-    </message>
-    <message>
-        <source>Select which icons appear in the Dock</source>
-        <translation>Виберіть, які піктограми буде показано на бічній панелі</translation>
-    </message>
-    <message>
-        <source>Lock the Dock</source>
-        <translation>Заблокувати панель</translation>
-    </message>
-    <message>
-        <source>Combine application icons</source>
-        <translation>Поєднувати піктограми програм</translation>
-    </message>
-</context>
-<context>
-    <name>mouse</name>
-    <message>
-        <source>Mouse and Touchpad</source>
-        <translation>Миша та сенсорна панель</translation>
-    </message>
-    <message>
-        <source>Common、Mouse、Touchpad</source>
-        <translation>Загальне, миша, сенсорна панель</translation>
-    </message>
-</context>
-<context>
-    <name>mouseMain</name>
-    <message>
-        <source>Common</source>
-        <translation>Загальні</translation>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation>Миша</translation>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation>Сенсорна панель</translation>
-    </message>
-</context>
-<context>
-    <name>notification</name>
-    <message>
-        <source>DND mode, app notifications</source>
-        <translation>Режим «Не турбувати», сповіщення програм</translation>
-    </message>
-    <message>
-        <source>Notification</source>
-        <translation>Сповіщення</translation>
-    </message>
-</context>
-<context>
-    <name>notificationMain</name>
-    <message>
-        <source>Do Not Disturb Settings</source>
-        <translation>Параметри режиму «Не турбувати»</translation>
-    </message>
-    <message>
-        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>Сповіщення програм не буде показано на стільниці, а звуковий супровід буде вимкнено, але ви зможете бачити повідомлення у центрі сповіщень.</translation>
-    </message>
-    <message>
-        <source>Enable Do Not Disturb</source>
-        <translation>Увімкнути «Не турбувати»</translation>
-    </message>
-    <message>
-        <source>When the screen is locked</source>
-        <translation>Якщо екран заблоковано</translation>
-    </message>
-    <message>
-        <source>Number of notifications shown on the desktop</source>
-        <translation>Кількість сповіщень, які буде показано на стільниці</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>Сповіщення програм</translation>
-    </message>
-    <message>
-        <source>Allow Notifications</source>
-        <translation>Дозволити сповіщення</translation>
-    </message>
-    <message>
-        <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>Показ сповіщення на стільниці або показ кількості непрочитаних повідомлень у центрі сповіщень</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>%1 (стільниця)</translation>
-    </message>
-    <message>
-        <source>Lock Screen</source>
-        <translation>Заблокувати екран</translation>
-    </message>
-    <message>
-        <source>Notification Center</source>
-        <translation>Центр сповіщень</translation>
-    </message>
-    <message>
-        <source>Show message preview</source>
-        <translation>Показати попередній перегляд повідомлення</translation>
-    </message>
-    <message>
-        <source>Play a sound</source>
-        <translation>Програти звук</translation>
-    </message>
-</context>
-<context>
-    <name>personalization</name>
-    <message>
-        <source>Personalization</source>
-        <translation>Персоналізація</translation>
-    </message>
-</context>
-<context>
-    <name>personalizationMain</name>
-    <message>
-        <source>Theme</source>
-        <translation>Тема</translation>
-    </message>
-    <message>
-        <source>Appearance</source>
-        <translation>Вигляд</translation>
-    </message>
-    <message>
-        <source>Window effect</source>
-        <translation>Ефект вікон</translation>
-    </message>
-    <message>
-        <source>Personalize your wallpaper and screensaver</source>
-        <translation>Персоналізація фонового зображення і зберігача екрана</translation>
-    </message>
-    <message>
-        <source>Screensaver</source>
-        <translation>Збереження екрана</translation>
-    </message>
-    <message>
-        <source>Colors and icons</source>
-        <translation>Кольори і піктограми</translation>
-    </message>
-    <message>
-        <source>Adjust accent color and theme icons</source>
-        <translation>Скоригувати кольори акценту та піктограми теми</translation>
-    </message>
-    <message>
-        <source>Font and font size</source>
-        <translation>Шрифт і розмір шрифту</translation>
-    </message>
-    <message>
-        <source>Change system font and size</source>
-        <translation>Змінити загальносистемний шрифт і його розмір</translation>
-    </message>
-    <message>
-        <source>Wallpaper</source>
-        <translation>Зображення тла</translation>
-    </message>
-    <message>
-        <source>Select light, dark or automatic theme appearance</source>
-        <translation>Виберіть світлий, темний або автоматичний режим вигляду теми</translation>
-    </message>
-    <message>
-        <source>Interface and effects, rounded corners</source>
-        <translation>Інтерфейс і ефекти, заокруглені краї</translation>
-    </message>
-</context>
-<context>
-    <name>power</name>
-    <message>
-        <source>Power saving settings, screen and suspend</source>
-        <translation>Параметри заощадження енергії, екрана та призупинення роботи</translation>
-    </message>
-    <message>
-        <source>Power</source>
-        <translation>Живлення</translation>
-    </message>
-</context>
-<context>
-    <name>powerMain</name>
-    <message>
-        <source>General</source>
-        <translation>Загальне</translation>
-    </message>
-    <message>
-        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Плани живлення, параметри заощадження енергії, параметри пробудження, параметри вимикання</translation>
-    </message>
-    <message>
-        <source>Plugged In</source>
-        <translation>Підключено</translation>
-    </message>
-    <message>
-        <source>Screen and suspend</source>
-        <translation>Екран та призупинення</translation>
-    </message>
-    <message>
-        <source>On Battery</source>
-        <translation>Живлення від акумулятора</translation>
-    </message>
-    <message>
-        <source>screen and suspend, low battery, battery management</source>
-        <translation>екран і призупинення, низький рівень заряду акумулятора, керування акумулятором</translation>
-    </message>
-</context>
-<context>
-    <name>privacy</name>
-    <message>
-        <source>Privacy and Security</source>
-        <translation>Конфіденційність та безпека</translation>
-    </message>
-    <message>
-        <source>Camera, folder permissions</source>
-        <translation>Камера, доступ до тек</translation>
-    </message>
-</context>
-<context>
-    <name>privacyMain</name>
-    <message>
-        <source>Camera</source>
-        <translation>Камера</translation>
-    </message>
-    <message>
-        <source>Choose whether the application has access to the camera</source>
-        <translation>Виберіть, чи матиме програма доступ до камери</translation>
-    </message>
-    <message>
-        <source>Files and Folders</source>
-        <translation>Файли і теки</translation>
-    </message>
-    <message>
-        <source>Choose whether the application has access to files and folders</source>
-        <translation>Виберіть, чи матиме програма доступ до файлів і тек</translation>
-    </message>
-</context>
-<context>
-    <name>sound</name>
-    <message>
-        <source>Sound</source>
-        <translation>Звук</translation>
-    </message>
-    <message>
-        <source>Output, input, sound effects, devices</source>
-        <translation>Виведення, введення, звукові ефекти, пристрої</translation>
-    </message>
-</context>
-<context>
-    <name>soundMain</name>
-    <message>
-        <source>Settings</source>
-        <translation>Параметри</translation>
-    </message>
-    <message>
-        <source>Sound Effects</source>
-        <translation>Звукові ефекти</translation>
-    </message>
-    <message>
-        <source>Enable/disable sound effects</source>
-        <translation>Вмикає або вимикає звукові ефекти.</translation>
-    </message>
-    <message>
-        <source>Enable/disable audio devices</source>
-        <translation>Увімкнути/Вимкнути звукові пристрої</translation>
-    </message>
-    <message>
-        <source>Devices Management</source>
-        <translation>Керування пристроями</translation>
-    </message>
-</context>
-<context>
-    <name>system</name>
-    <message>
-        <source>Common settings</source>
-        <translation>Загальні параметри</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>Система</translation>
-    </message>
-</context>
-<context>
-    <name>systemInfo</name>
-    <message>
-        <source>Auxiliary Information</source>
-        <translation>Допоміжні відомості</translation>
-    </message>
-</context>
-<context>
-    <name>systemInfoMain</name>
-    <message>
-        <source>About This PC</source>
-        <translation>Про цей ПК</translation>
-    </message>
-    <message>
-        <source>System version, device information</source>
-        <translation>Версія системи, відомості щодо пристроїв</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>Переглянути зауваження щодо вільного програмного забезпечення</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>Програма взаємодії з користувачем</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>Долучайтеся до програми вражень користувачів, щоб допомогти у поліпшення продукту</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>Ліцензійна угода із кінцевим користувачем</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>Переглянути ліцензійну угоду з кінцевим користувачем</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>Правила конфіденційності</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>Переглянути відомості щодо правил конфіденційності</translation>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
-        <translation>Зауваження щодо програмного забезпечення з відкритим кодом</translation>
-    </message>
-</context>
-<context>
-    <name>touchscreen</name>
-    <message>
-        <source>Touchscreen</source>
-        <translation>Сенсорний екран</translation>
-    </message>
-    <message>
-        <source>Configuring Touchscreen</source>
-        <translation>Налаштовування сенсорної панелі</translation>
-    </message>
-</context>
-<context>
-    <name>touchscreenMain</name>
-    <message>
-        <source>Common</source>
-        <translation>Загальні</translation>
-    </message>
-</context>
-<context>
-    <name>wacom</name>
-    <message>
-        <source>wacom</source>
-        <translation>Wacom</translation>
-    </message>
-    <message>
-        <source>Configuring wacom</source>
-        <translation>Налаштовування wacom</translation>
-    </message>
-</context>
-<context>
-    <name>wacomMain</name>
-    <message>
-        <source>wacom</source>
-        <translation>Wacom</translation>
-    </message>
-    <message>
-        <source>Pen Mode</source>
-        <translation>Режим пера</translation>
-    </message>
-    <message>
-        <source>Mouse Mode</source>
-        <translation>Режим миші</translation>
-    </message>
-    <message>
-        <source>Pressure Sensitivity</source>
-        <translation>Чутливість до натиску</translation>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation>Легкий</translation>
-    </message>
-    <message>
-        <source>Heavy</source>
-        <translation>Важкий</translation>
-    </message>
-    <message>
-        <source>Model</source>
-        <translation>Модель</translation>
     </message>
 </context>
 </TS>

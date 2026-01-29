@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ja">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="ja">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -123,6 +125,24 @@
     </message>
 </context>
 <context>
+    <name>Accounts</name>
+    <message>
+        <source>Account</source>
+        <translation>アカウント</translation>
+    </message>
+    <message>
+        <source>Account manager</source>
+        <translation>アカウント管理</translation>
+    </message>
+</context>
+<context>
+    <name>AccountsMain</name>
+    <message>
+        <source>Other accounts</source>
+        <translation>その他のアカウント</translation>
+    </message>
+</context>
+<context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
@@ -165,15 +185,19 @@
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">「生体認証」とは、UnionTech Software Technology Co., Ltd.が提供するユーザー本人認証機能です。「生体認証」では、収集した生体データとデバイスに保存されている生体データを照合し、その照合結果に基づいてユーザーの本人確認を行います。
+
+UnionTech Software Technology Co., Ltd.は、お客様の生体認証情報を収集またはアクセスすることはありません。生体認証情報はお客様のローカルデバイスに保存されます。個人用デバイスでのみ生体認証を有効にし、関連する操作にはご自身の生体認証情報を使用してください。また、当該デバイス上の他者の生体認証情報は速やかに無効化または削除してください。そうしないと、当該情報に起因するリスクを負うことになります。
+
+UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ、精度、安定性の向上に尽力しております。しかしながら、環境、設備、技術、その他の要因やリスク管理上の理由により、生体認証が一時的に成功するという保証はございません。そのため、生体認証をUOSへのログインの唯一の方法としないでください。生体認証のご利用に関してご質問やご提案がございましたら、UOSの「サービスとサポート」からフィードバックをお寄せください。</translation>
     </message>
 </context>
 <context>
@@ -213,7 +237,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>「生体認証」とは、UnionTech Software Technology Co., Ltd.が提供するユーザー本人認証機能です。「生体認証」では、収集した生体データとデバイスに保存されている生体データを照合し、その照合結果に基づいてユーザーの本人確認を行います。
@@ -227,51 +251,117 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">次を読みこれに同意します</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">免責事項</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">次へ</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">完了</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">キャンセル</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">登録を再試行</translation>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">「生体認証」とは、UnionTech Software Technology Co., Ltd.が提供するユーザー本人認証機能です。「生体認証」では、収集した生体データとデバイスに保存されている生体データを照合し、その照合結果に基づいてユーザーの本人確認を行います。
+
+UnionTech Software Technology Co., Ltd.は、お客様の生体認証情報を収集またはアクセスすることはありません。生体認証情報はお客様のローカルデバイスに保存されます。個人用デバイスでのみ生体認証を有効にし、関連する操作にはご自身の生体認証情報を使用してください。また、当該デバイス上の他者の生体認証情報は速やかに無効化または削除してください。そうしないと、当該情報に起因するリスクを負うことになります。
+
+UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ、精度、安定性の向上に尽力しております。しかしながら、環境、設備、技術、その他の要因やリスク管理上の理由により、生体認証が一時的に成功するという保証はございません。そのため、生体認証をUOSへのログインの唯一の方法としないでください。生体認証のご利用に関してご質問やご提案がございましたら、UOSの「サービスとサポート」からフィードバックをお寄せください。</translation>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Authentication</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>生体認証</translation>
+    </message>
+</context>
+<context>
+    <name>AuthenticationMain</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>生体認証</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>顔</translation>
+    </message>
+    <message>
+        <source>Up to 5 facial data can be entered</source>
+        <translation>最大５つの顔データを登録できます</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation>指紋</translation>
+    </message>
+    <message>
+        <source>Identifying user identity through scanning fingerprints</source>
+        <translation>指紋をスキャンしてユーザーの本人確認を行います</translation>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation>虹彩</translation>
+    </message>
+    <message>
+        <source>Identity recognition through iris scanning</source>
+        <translation>虹彩をスキャンして認証を行います</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation>文字、数字、アンダーバーのみを使用し、15文字以下にしてください</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only</source>
+        <translation>文字、数字、アンダーバーのみを使用してください</translation>
+    </message>
+    <message>
+        <source>No more than 15 characters</source>
+        <translation>15文字以下にしてください</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation>この名前はすでに存在します</translation>
+    </message>
+    <message>
+        <source>Add a new %1 ...</source>
+        <translation>%1 を追加...</translation>
+    </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation>名前を空白にすることはできません</translation>
     </message>
 </context>
 <context>
@@ -401,6 +491,17 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Disable</source>
         <translation>無効</translation>
+    </message>
+</context>
+<context>
+    <name>BlueTooth</name>
+    <message>
+        <source>Bluetooth settings, devices</source>
+        <translation>Bluetooth設定、デバイス</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -551,7 +652,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Sure</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Start animation</source>
@@ -841,6 +942,29 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>CommonInfoMain</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation>起動メニュー</translation>
+    </message>
+    <message>
+        <source>Manage your boot menu</source>
+        <translation>起動メニューを管理</translation>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation>開発者向けroot権限管理</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation>開発者向けオプション</translation>
+    </message>
+    <message>
+        <source>Developer debugging options</source>
+        <translation>開発者向けデバッグオプション</translation>
+    </message>
+</context>
+<context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
@@ -962,7 +1086,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation>ユーザー名には文字、数字、　-と_が使用できます</translation>
+        <translation>ユーザー名には文字、数字、&#x3000;-と_が使用できます</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
@@ -1022,15 +1146,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1066,6 +1190,25 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Confirm</source>
         <translation>確認</translation>
+    </message>
+</context>
+<context>
+    <name>Datetime</name>
+    <message>
+        <source>Time and date</source>
+        <translation>時刻と日付</translation>
+    </message>
+    <message>
+        <source>Time and date, time zone settings</source>
+        <translation>時刻と日付、タイムゾーン設定</translation>
+    </message>
+    <message>
+        <source>Language and region</source>
+        <translation>言語と地域</translation>
+    </message>
+    <message>
+        <source>System language, regional formats</source>
+        <translation>システム言語、地域の形式</translation>
     </message>
 </context>
 <context>
@@ -1212,7 +1355,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Local Account Binding</source>
@@ -1220,27 +1363,27 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1337,7 +1480,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
@@ -1357,6 +1500,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Deepinid</name>
+    <message>
+        <source>deepin ID</source>
+        <translation>deepin ID</translation>
+    </message>
+    <message>
+        <source>UOS ID</source>
+        <translation>UOS ID</translation>
+    </message>
+    <message>
+        <source>Cloud services</source>
+        <translation>クラウドサービス</translation>
+    </message>
+</context>
+<context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
@@ -1373,6 +1531,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
         <translation>お住まいの地域の法律および制限により、現在ご利用いただけません。</translation>
+    </message>
+</context>
+<context>
+    <name>Defaultapp</name>
+    <message>
+        <source>Default App</source>
+        <translation>デフォルトアプリケーション</translation>
+    </message>
+    <message>
+        <source>Set the default application for opening various types of files</source>
+        <translation>ファイルの種類ごとにデフォルトアプリケーションを設定</translation>
+    </message>
+</context>
+<context>
+    <name>DefaultappMain</name>
+    <message>
+        <source>Webpage</source>
+        <translation>Webページ</translation>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation>メール</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>テキスト</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation>音楽</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation>動画</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation>画像</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation>ターミナル</translation>
     </message>
 </context>
 <context>
@@ -1414,11 +1614,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Allowed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enter</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Online</source>
@@ -1426,7 +1626,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Offline</source>
@@ -1442,15 +1642,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Export</source>
@@ -1458,7 +1658,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Development and debugging options</source>
@@ -1470,7 +1670,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Off</source>
@@ -1482,19 +1682,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OK</source>
@@ -1502,11 +1702,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
@@ -1518,7 +1718,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Device</name>
+    <message>
+        <source>Bluetooth and Other Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1534,6 +1741,318 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Agree</source>
         <translation>同意</translation>
+    </message>
+</context>
+<context>
+    <name>Display</name>
+    <message>
+        <source>Display</source>
+        <translation>ディスプレイ</translation>
+    </message>
+    <message>
+        <source>Brightness,resolution,scaling</source>
+        <translation>輝度、解像度、スケーリング</translation>
+    </message>
+</context>
+<context>
+    <name>DisplayMain</name>
+    <message>
+        <source>100%</source>
+        <translation>100%</translation>
+    </message>
+    <message>
+        <source>125%</source>
+        <translation>125%</translation>
+    </message>
+    <message>
+        <source>150%</source>
+        <translation>150%</translation>
+    </message>
+    <message>
+        <source>175%</source>
+        <translation>175%</translation>
+    </message>
+    <message>
+        <source>200%</source>
+        <translation>200%</translation>
+    </message>
+    <message>
+        <source>225%</source>
+        <translation>225%</translation>
+    </message>
+    <message>
+        <source>250%</source>
+        <translation>250%</translation>
+    </message>
+    <message>
+        <source>275%</source>
+        <translation>275%</translation>
+    </message>
+    <message>
+        <source>300%</source>
+        <translation>300%</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>複製</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>拡張</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>デフォルト</translation>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation>フィット</translation>
+    </message>
+    <message>
+        <source>Stretch</source>
+        <translation>拡大</translation>
+    </message>
+    <message>
+        <source>Center</source>
+        <translation>中央</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>%1 のみ</translation>
+    </message>
+    <message>
+        <source>Multiple Displays Settings</source>
+        <translation>マルチディスプレイの設定</translation>
+    </message>
+    <message>
+        <source>Identify</source>
+        <translation>識別</translation>
+    </message>
+    <message>
+        <source>Screen rearrangement will take effect in %1s after changes</source>
+        <translation>ディスプレイの配置は変更から%1秒後に適用されます</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>モード</translation>
+    </message>
+    <message>
+        <source>Main Screen</source>
+        <translation>メインディスプレイ</translation>
+    </message>
+    <message>
+        <source>Display And Layout</source>
+        <translation>ディスプレイとレイアウト</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>輝度</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation>解像度</translation>
+    </message>
+    <message>
+        <source>Resize Desktop</source>
+        <translation>デスクトップのリサイズ</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation>リフレッシュレート</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>回転</translation>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation>標準</translation>
+    </message>
+    <message>
+        <source>90°</source>
+        <translation>90°</translation>
+    </message>
+    <message>
+        <source>180°</source>
+        <translation>180°</translation>
+    </message>
+    <message>
+        <source>270°</source>
+        <translation>270°</translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation>モニターは 100% ディスプレイスケーリングのみに対応しています</translation>
+    </message>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>目の保護モード</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>目の保護モードを有効にする</translation>
+    </message>
+    <message>
+        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
+        <translation>暖かい色に調節して、ディスプレイのブルーライトを軽減します</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>時間</translation>
+    </message>
+    <message>
+        <source>All day</source>
+        <translation>終日</translation>
+    </message>
+    <message>
+        <source>Sunset to Sunrise</source>
+        <translation>日没から日の出まで</translation>
+    </message>
+    <message>
+        <source>Custom Time</source>
+        <translation>カスタム設定</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>開始時刻</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>終了時刻</translation>
+    </message>
+    <message>
+        <source>Color Temperature</source>
+        <translation>色温度</translation>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation>%1x%2 (推奨)</translation>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation>%1x%2</translation>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation>%1 Hz (推奨)</translation>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation>%1 Hz</translation>
+    </message>
+    <message>
+        <source>Scaling</source>
+        <translation>スケーリング</translation>
+    </message>
+</context>
+<context>
+    <name>Dock</name>
+    <message>
+        <source>Desktop and taskbar</source>
+        <translation>デスクトップとタスクバー</translation>
+    </message>
+    <message>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation>デスクトップの構成、タスクバーのモード、プラグインエリアの設定</translation>
+    </message>
+</context>
+<context>
+    <name>DockMain</name>
+    <message>
+        <source>Dock</source>
+        <translation>ドック</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>モード</translation>
+    </message>
+    <message>
+        <source>Classic Mode</source>
+        <translation>クラシック</translation>
+    </message>
+    <message>
+        <source>Centered Mode</source>
+        <translation>中央</translation>
+    </message>
+    <message>
+        <source>Dock size</source>
+        <translation>ドックのサイズ</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>小</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>大</translation>
+    </message>
+    <message>
+        <source>Position on the screen</source>
+        <translation>表示位置</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>上</translation>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation>下</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation>左</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>右</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>状態</translation>
+    </message>
+    <message>
+        <source>Keep shown</source>
+        <translation>常に表示</translation>
+    </message>
+    <message>
+        <source>Keep hidden</source>
+        <translation>非表示</translation>
+    </message>
+    <message>
+        <source>Smart hide</source>
+        <translation>スマートハイド</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>マルチディスプレイ</translation>
+    </message>
+    <message>
+        <source>Set the position of the taskbar on the screen</source>
+        <translation>タスクバーの位置</translation>
+    </message>
+    <message>
+        <source>Only on main</source>
+        <translation>メインのみ</translation>
+    </message>
+    <message>
+        <source>On screen where the cursor is</source>
+        <translation>カーソルのあるディスプレイ</translation>
+    </message>
+    <message>
+        <source>Plugin Area</source>
+        <translation>プラグインエリア</translation>
+    </message>
+    <message>
+        <source>Select which icons appear in the Dock</source>
+        <translation>ドックに表示するアイコンの選択</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation>ドックを固定</translation>
+    </message>
+    <message>
+        <source>Combine application icons</source>
+        <translation>アプリケーションアイコンを結合する</translation>
     </message>
 </context>
 <context>
@@ -1739,6 +2258,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Keyboard</name>
+    <message>
+        <source>Keyboard</source>
+        <translation>キーボード</translation>
+    </message>
+    <message>
+        <source>General Settings, input method, shortcuts</source>
+        <translation>一般設定、入力メソッド、ショートカット</translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardMain</name>
+    <message>
+        <source>Common</source>
+        <translation>一般</translation>
+    </message>
+</context>
+<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -1872,6 +2409,32 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>Mouse</name>
     <message>
+        <source>Mouse and Touchpad</source>
+        <translation>マウスとタッチパッド</translation>
+    </message>
+    <message>
+        <source>Common、Mouse、Touchpad</source>
+        <translation>一般、マウス、タッチパッド</translation>
+    </message>
+</context>
+<context>
+    <name>MouseMain</name>
+    <message>
+        <source>Common</source>
+        <translation>一般</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation>マウス</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation>タッチパッド</translation>
+    </message>
+</context>
+<context>
+    <name>MousePage</name>
+    <message>
         <source>Mouse</source>
         <translation>マウス</translation>
     </message>
@@ -1995,6 +2558,72 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Notification</name>
+    <message>
+        <source>DND mode, app notifications</source>
+        <translation>おやすみモード、アプリケーションの通知</translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation>通知</translation>
+    </message>
+</context>
+<context>
+    <name>NotificationMain</name>
+    <message>
+        <source>Do Not Disturb Settings</source>
+        <translation>おやすみモードの設定</translation>
+    </message>
+    <message>
+        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
+        <translation>アプリケーションの通知が表示されたり通知音が鳴ったりしなくなります。通知センターですべてのメッセージを確認できます。</translation>
+    </message>
+    <message>
+        <source>Enable Do Not Disturb</source>
+        <translation>おやすみモードを有効にする</translation>
+    </message>
+    <message>
+        <source>When the screen is locked</source>
+        <translation>ロックされているとき</translation>
+    </message>
+    <message>
+        <source>Number of notifications shown on the desktop</source>
+        <translation>デスクトップに表示する通知の数</translation>
+    </message>
+    <message>
+        <source>App Notifications</source>
+        <translation>アプリケーションの通知</translation>
+    </message>
+    <message>
+        <source>Allow Notifications</source>
+        <translation>通知を許可</translation>
+    </message>
+    <message>
+        <source>Display notification on desktop or show unread messages in the notification center</source>
+        <translation>デスクトップまたは通知センターに未読のメッセージを表示する</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>デスクトップ</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>ロック画面</translation>
+    </message>
+    <message>
+        <source>Notification Center</source>
+        <translation>通知センター</translation>
+    </message>
+    <message>
+        <source>Show message preview</source>
+        <translation>メッセージプレビューを表示</translation>
+    </message>
+    <message>
+        <source>Play a sound</source>
+        <translation>通知音を鳴らす</translation>
+    </message>
+</context>
+<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2076,15 +2705,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
         <translation>キャンセル</translation>
+    </message>
+</context>
+<context>
+    <name>Personalization</name>
+    <message>
+        <source>Personalization</source>
+        <translation>個人設定</translation>
     </message>
 </context>
 <context>
@@ -2111,6 +2747,57 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>PersonalizationMain</name>
+    <message>
+        <source>Theme</source>
+        <translation>テーマ</translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation>外観</translation>
+    </message>
+    <message>
+        <source>Window effect</source>
+        <translation>ウィンドウ効果</translation>
+    </message>
+    <message>
+        <source>Personalize your wallpaper and screensaver</source>
+        <translation>壁紙とスクリーンセーバーの変更</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation>スクリーンセーバー</translation>
+    </message>
+    <message>
+        <source>Colors and icons</source>
+        <translation>色とアイコン</translation>
+    </message>
+    <message>
+        <source>Adjust accent color and theme icons</source>
+        <translation>アクセントカラーとテーマアイコンを変更</translation>
+    </message>
+    <message>
+        <source>Font and font size</source>
+        <translation>フォントスタイルとサイズ</translation>
+    </message>
+    <message>
+        <source>Change system font and size</source>
+        <translation>システムフォントのスタイルとサイズを変更</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation>壁紙</translation>
+    </message>
+    <message>
+        <source>Select light, dark or automatic theme appearance</source>
+        <translation>ライト、ダークまたは自動設定を選択</translation>
+    </message>
+    <message>
+        <source>Interface and effects, rounded corners</source>
+        <translation>インターフェースと効果、角の丸み</translation>
+    </message>
+</context>
+<context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
@@ -2126,6 +2813,44 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>ドックに表示するアイコンの選択</translation>
+    </message>
+</context>
+<context>
+    <name>Power</name>
+    <message>
+        <source>Power saving settings, screen and suspend</source>
+        <translation>電力節約の設定、ディスプレイとサスペンド</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation>電源</translation>
+    </message>
+</context>
+<context>
+    <name>PowerMain</name>
+    <message>
+        <source>General</source>
+        <translation>一般</translation>
+    </message>
+    <message>
+        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
+        <translation>電源プラン、電力節約の設定、復帰時の設定、シャットダウンの設定</translation>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation>電源接続時</translation>
+    </message>
+    <message>
+        <source>Screen and suspend</source>
+        <translation>ディスプレイとサスペンド</translation>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation>バッテリー駆動時</translation>
+    </message>
+    <message>
+        <source>screen and suspend, low battery, battery management</source>
+        <translation>ディスプレイとサスペンド、バッテリー残量低下時の設定、バッテリー管理</translation>
     </message>
 </context>
 <context>
@@ -2233,6 +2958,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Privacy</name>
+    <message>
+        <source>Privacy and Security</source>
+        <translation>プライバシーとセキュリティ</translation>
+    </message>
+    <message>
+        <source>Camera, folder permissions</source>
+        <translation>カメラ、フォルダ権限</translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyMain</name>
+    <message>
+        <source>Camera</source>
+        <translation>カメラ</translation>
+    </message>
+    <message>
+        <source>Choose whether the application has access to the camera</source>
+        <translation>カメラへのアクセスを許可するアプリケーションを選択</translation>
+    </message>
+    <message>
+        <source>Files and Folders</source>
+        <translation>ファイルとフォルダ</translation>
+    </message>
+    <message>
+        <source>Choose whether the application has access to files and folders</source>
+        <translation>ファイルとフォルダへのアクセスを許可するアプリケーションを選択</translation>
+    </message>
+</context>
+<context>
     <name>PrivacyPolicyPage</name>
     <message>
         <source>Privacy Policy</source>
@@ -2310,7 +3065,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To be activated</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Activate</source>
@@ -2402,7 +3157,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">地域の形式</translation>
     </message>
 </context>
 <context>
@@ -2466,7 +3221,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>setting</source>
@@ -2506,7 +3261,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
@@ -2564,15 +3319,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Save</source>
@@ -2580,11 +3335,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2639,6 +3394,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Sound</name>
+    <message>
+        <source>Sound</source>
+        <translation>サウンド</translation>
+    </message>
+    <message>
+        <source>Output, input, sound effects, devices</source>
+        <translation>出力、入力、効果音、デバイス</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -2658,6 +3424,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Sound Effects</source>
         <translation>効果音</translation>
+    </message>
+</context>
+<context>
+    <name>SoundMain</name>
+    <message>
+        <source>Settings</source>
+        <translation>設定</translation>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation>効果音</translation>
+    </message>
+    <message>
+        <source>Enable/disable sound effects</source>
+        <translation>効果音を有効/無効にする</translation>
+    </message>
+    <message>
+        <source>Enable/disable audio devices</source>
+        <translation>オーディオデバイスを有効/無効にする</translation>
+    </message>
+    <message>
+        <source>Devices Management</source>
+        <translation>デバイス管理</translation>
     </message>
 </context>
 <context>
@@ -2799,6 +3588,67 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Screensaver</source>
         <translation>スクリーンセーバー</translation>
+    </message>
+</context>
+<context>
+    <name>System</name>
+    <message>
+        <source>Common settings</source>
+        <translation>一般設定</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation>システム</translation>
+    </message>
+</context>
+<context>
+    <name>SystemInfo</name>
+    <message>
+        <source>Auxiliary Information</source>
+        <translation>補助的な情報</translation>
+    </message>
+</context>
+<context>
+    <name>SystemInfoMain</name>
+    <message>
+        <source>About This PC</source>
+        <translation>この PC について</translation>
+    </message>
+    <message>
+        <source>System version, device information</source>
+        <translation>システムバージョン、デバイス情報</translation>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation>オープンソースソフトウェアに関する通知を表示</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation>ユーザーエクスペリエンスプログラム</translation>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation>ユーザーエクスペリエンスプログラムに参加して製品の開発を支援</translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation>利用規約(EULA)</translation>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation>利用規約(EULA)を表示</translation>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation>プライバシーポリシー</translation>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation>プライバシーポリシーに関する情報を表示</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation>オープンソースソフトウェアに関する通知</translation>
     </message>
 </context>
 <context>
@@ -2975,6 +3825,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Touchscreen</name>
+    <message>
+        <source>Touchscreen</source>
+        <translation>タッチスクリーン</translation>
+    </message>
+    <message>
+        <source>Configuring Touchscreen</source>
+        <translation>タッチスクリーンの構成</translation>
+    </message>
+</context>
+<context>
+    <name>TouchscreenMain</name>
+    <message>
+        <source>Common</source>
+        <translation>一般</translation>
+    </message>
+</context>
+<context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
@@ -3010,6 +3878,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Confirm</source>
         <translation>確認</translation>
+    </message>
+</context>
+<context>
+    <name>Wacom</name>
+    <message>
+        <source>wacom</source>
+        <translation>ワコム</translation>
+    </message>
+    <message>
+        <source>Configuring wacom</source>
+        <translation>wacomを構成しています</translation>
+    </message>
+</context>
+<context>
+    <name>WacomMain</name>
+    <message>
+        <source>wacom</source>
+        <translation>ワコム</translation>
+    </message>
+    <message>
+        <source>Pen Mode</source>
+        <translation>ペンモード</translation>
+    </message>
+    <message>
+        <source>Mouse Mode</source>
+        <translation>マウスモード</translation>
+    </message>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation>押し込み感度</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>軽い</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3212,139 +4122,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>accounts</name>
-    <message>
-        <source>Account</source>
-        <translation>アカウント</translation>
-    </message>
-    <message>
-        <source>Account manager</source>
-        <translation>アカウント管理</translation>
-    </message>
-</context>
-<context>
-    <name>accountsMain</name>
-    <message>
-        <source>Other accounts</source>
-        <translation>その他のアカウント</translation>
-    </message>
-</context>
-<context>
-    <name>authentication</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>生体認証</translation>
-    </message>
-</context>
-<context>
-    <name>authenticationMain</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>生体認証</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>顔</translation>
-    </message>
-    <message>
-        <source>Up to 5 facial data can be entered</source>
-        <translation>最大５つの顔データを登録できます</translation>
-    </message>
-    <message>
-        <source>Fingerprint</source>
-        <translation>指紋</translation>
-    </message>
-    <message>
-        <source>Identifying user identity through scanning fingerprints</source>
-        <translation>指紋をスキャンしてユーザーの本人確認を行います</translation>
-    </message>
-    <message>
-        <source>Iris</source>
-        <translation>虹彩</translation>
-    </message>
-    <message>
-        <source>Identity recognition through iris scanning</source>
-        <translation>虹彩をスキャンして認証を行います</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>文字、数字、アンダーバーのみを使用し、15文字以下にしてください</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only</source>
-        <translation>文字、数字、アンダーバーのみを使用してください</translation>
-    </message>
-    <message>
-        <source>No more than 15 characters</source>
-        <translation>15文字以下にしてください</translation>
-    </message>
-    <message>
-        <source>This name already exists</source>
-        <translation>この名前はすでに存在します</translation>
-    </message>
-    <message>
-        <source>Add a new %1 ...</source>
-        <translation>%1 を追加...</translation>
-    </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>名前を空白にすることはできません</translation>
-    </message>
-</context>
-<context>
-    <name>blueTooth</name>
-    <message>
-        <source>Bluetooth settings, devices</source>
-        <translation>Bluetooth設定、デバイス</translation>
-    </message>
-    <message>
-        <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
-    </message>
-</context>
-<context>
-    <name>commonInfoMain</name>
-    <message>
-        <source>Boot Menu</source>
-        <translation>起動メニュー</translation>
-    </message>
-    <message>
-        <source>Manage your boot menu</source>
-        <translation>起動メニューを管理</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>開発者向けroot権限管理</translation>
-    </message>
-    <message>
-        <source>Developer Options</source>
-        <translation>開発者向けオプション</translation>
-    </message>
-    <message>
-        <source>Developer debugging options</source>
-        <translation>開発者向けデバッグオプション</translation>
-    </message>
-</context>
-<context>
-    <name>datetime</name>
-    <message>
-        <source>Time and date</source>
-        <translation>時刻と日付</translation>
-    </message>
-    <message>
-        <source>Time and date, time zone settings</source>
-        <translation>時刻と日付、タイムゾーン設定</translation>
-    </message>
-    <message>
-        <source>Language and region</source>
-        <translation>言語と地域</translation>
-    </message>
-    <message>
-        <source>System language, regional formats</source>
-        <translation>システム言語、地域の形式</translation>
-    </message>
-</context>
-<context>
     <name>dcc::Locale::dialectNames</name>
     <message>
         <source>Traditional Chinese (Chinese Hong Kong)</source>
@@ -3356,7 +4133,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3413,19 +4190,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>AD domain settings</source>
@@ -3440,73 +4217,73 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">顔</translation>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">指紋</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">指をセンサーから離して、もう一度置いてください</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3517,7 +4294,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3539,23 +4316,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">パスワードは %1 文字以上にする必要があります</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">パスワードには英字 (大文字と小文字を区別します)、数字、特殊記号 (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/) のみを使用できます</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">回文になっている文字を%1文字以上含めないでください</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">連続する単調な文字列を%1文字以上含めないでください</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">連続した同じ文字を%1文字以上含めないでください</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
@@ -3563,7 +4340,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">パスワードに回文になっている文字列を4文字以上含めないでください。</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
@@ -3579,7 +4356,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3607,773 +4384,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>なし</translation>
-    </message>
-</context>
-<context>
-    <name>deepinid</name>
-    <message>
-        <source>deepin ID</source>
-        <translation>deepin ID</translation>
-    </message>
-    <message>
-        <source>UOS ID</source>
-        <translation>UOS ID</translation>
-    </message>
-    <message>
-        <source>Cloud services</source>
-        <translation>クラウドサービス</translation>
-    </message>
-</context>
-<context>
-    <name>defaultapp</name>
-    <message>
-        <source>Default App</source>
-        <translation>デフォルトアプリケーション</translation>
-    </message>
-    <message>
-        <source>Set the default application for opening various types of files</source>
-        <translation>ファイルの種類ごとにデフォルトアプリケーションを設定</translation>
-    </message>
-</context>
-<context>
-    <name>defaultappMain</name>
-    <message>
-        <source>Webpage</source>
-        <translation>Webページ</translation>
-    </message>
-    <message>
-        <source>Mail</source>
-        <translation>メール</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation>テキスト</translation>
-    </message>
-    <message>
-        <source>Music</source>
-        <translation>音楽</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation>動画</translation>
-    </message>
-    <message>
-        <source>Picture</source>
-        <translation>画像</translation>
-    </message>
-    <message>
-        <source>Terminal</source>
-        <translation>ターミナル</translation>
-    </message>
-</context>
-<context>
-    <name>device</name>
-    <message>
-        <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>display</name>
-    <message>
-        <source>Display</source>
-        <translation>ディスプレイ</translation>
-    </message>
-    <message>
-        <source>Brightness,resolution,scaling</source>
-        <translation>輝度、解像度、スケーリング</translation>
-    </message>
-</context>
-<context>
-    <name>displayMain</name>
-    <message>
-        <source>100%</source>
-        <translation>100%</translation>
-    </message>
-    <message>
-        <source>125%</source>
-        <translation>125%</translation>
-    </message>
-    <message>
-        <source>150%</source>
-        <translation>150%</translation>
-    </message>
-    <message>
-        <source>175%</source>
-        <translation>175%</translation>
-    </message>
-    <message>
-        <source>200%</source>
-        <translation>200%</translation>
-    </message>
-    <message>
-        <source>225%</source>
-        <translation>225%</translation>
-    </message>
-    <message>
-        <source>250%</source>
-        <translation>250%</translation>
-    </message>
-    <message>
-        <source>275%</source>
-        <translation>275%</translation>
-    </message>
-    <message>
-        <source>300%</source>
-        <translation>300%</translation>
-    </message>
-    <message>
-        <source>Duplicate</source>
-        <translation>複製</translation>
-    </message>
-    <message>
-        <source>Extend</source>
-        <translation>拡張</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation>デフォルト</translation>
-    </message>
-    <message>
-        <source>Fit</source>
-        <translation>フィット</translation>
-    </message>
-    <message>
-        <source>Stretch</source>
-        <translation>拡大</translation>
-    </message>
-    <message>
-        <source>Center</source>
-        <translation>中央</translation>
-    </message>
-    <message>
-        <source>Only on %1</source>
-        <translation>%1 のみ</translation>
-    </message>
-    <message>
-        <source>Multiple Displays Settings</source>
-        <translation>マルチディスプレイの設定</translation>
-    </message>
-    <message>
-        <source>Identify</source>
-        <translation>識別</translation>
-    </message>
-    <message>
-        <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>ディスプレイの配置は変更から%1秒後に適用されます</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation>モード</translation>
-    </message>
-    <message>
-        <source>Main Screen</source>
-        <translation>メインディスプレイ</translation>
-    </message>
-    <message>
-        <source>Display And Layout</source>
-        <translation>ディスプレイとレイアウト</translation>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation>輝度</translation>
-    </message>
-    <message>
-        <source>Resolution</source>
-        <translation>解像度</translation>
-    </message>
-    <message>
-        <source>Resize Desktop</source>
-        <translation>デスクトップのリサイズ</translation>
-    </message>
-    <message>
-        <source>Refresh Rate</source>
-        <translation>リフレッシュレート</translation>
-    </message>
-    <message>
-        <source>Rotation</source>
-        <translation>回転</translation>
-    </message>
-    <message>
-        <source>Standard</source>
-        <translation>標準</translation>
-    </message>
-    <message>
-        <source>90°</source>
-        <translation>90°</translation>
-    </message>
-    <message>
-        <source>180°</source>
-        <translation>180°</translation>
-    </message>
-    <message>
-        <source>270°</source>
-        <translation>270°</translation>
-    </message>
-    <message>
-        <source>The monitor only supports 100% display scaling</source>
-        <translation>モニターは 100% ディスプレイスケーリングのみに対応しています</translation>
-    </message>
-    <message>
-        <source>Eye Comfort</source>
-        <translation>目の保護モード</translation>
-    </message>
-    <message>
-        <source>Enable eye comfort</source>
-        <translation>目の保護モードを有効にする</translation>
-    </message>
-    <message>
-        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation>暖かい色に調節して、ディスプレイのブルーライトを軽減します</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>時間</translation>
-    </message>
-    <message>
-        <source>All day</source>
-        <translation>終日</translation>
-    </message>
-    <message>
-        <source>Sunset to Sunrise</source>
-        <translation>日没から日の出まで</translation>
-    </message>
-    <message>
-        <source>Custom Time</source>
-        <translation>カスタム設定</translation>
-    </message>
-    <message>
-        <source>from</source>
-        <translation>開始時刻</translation>
-    </message>
-    <message>
-        <source>to</source>
-        <translation>終了時刻</translation>
-    </message>
-    <message>
-        <source>Color Temperature</source>
-        <translation>色温度</translation>
-    </message>
-    <message>
-        <source>%1x%2 (Recommended)</source>
-        <translation>%1x%2 (推奨)</translation>
-    </message>
-    <message>
-        <source>%1x%2</source>
-        <translation>%1x%2</translation>
-    </message>
-    <message>
-        <source>%1Hz (Recommended)</source>
-        <translation>%1 Hz (推奨)</translation>
-    </message>
-    <message>
-        <source>%1Hz</source>
-        <translation>%1 Hz</translation>
-    </message>
-    <message>
-        <source>Scaling</source>
-        <translation>スケーリング</translation>
-    </message>
-</context>
-<context>
-    <name>dock</name>
-    <message>
-        <source>Desktop and taskbar</source>
-        <translation>デスクトップとタスクバー</translation>
-    </message>
-    <message>
-        <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation>デスクトップの構成、タスクバーのモード、プラグインエリアの設定</translation>
-    </message>
-</context>
-<context>
-    <name>keyboard</name>
-    <message>
-        <source>Keyboard</source>
-        <translation>キーボード</translation>
-    </message>
-    <message>
-        <source>General Settings, input method, shortcuts</source>
-        <translation>一般設定、入力メソッド、ショートカット</translation>
-    </message>
-</context>
-<context>
-    <name>keyboardMain</name>
-    <message>
-        <source>Common</source>
-        <translation>一般</translation>
-    </message>
-</context>
-<context>
-    <name>main</name>
-    <message>
-        <source>Dock</source>
-        <translation>ドック</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation>モード</translation>
-    </message>
-    <message>
-        <source>Classic Mode</source>
-        <translation>クラシック</translation>
-    </message>
-    <message>
-        <source>Centered Mode</source>
-        <translation>中央</translation>
-    </message>
-    <message>
-        <source>Dock size</source>
-        <translation>ドックのサイズ</translation>
-    </message>
-    <message>
-        <source>Small</source>
-        <translation>小</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>大</translation>
-    </message>
-    <message>
-        <source>Position on the screen</source>
-        <translation>表示位置</translation>
-    </message>
-    <message>
-        <source>Top</source>
-        <translation>上</translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation>下</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation>左</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation>右</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>状態</translation>
-    </message>
-    <message>
-        <source>Keep shown</source>
-        <translation>常に表示</translation>
-    </message>
-    <message>
-        <source>Keep hidden</source>
-        <translation>非表示</translation>
-    </message>
-    <message>
-        <source>Smart hide</source>
-        <translation>スマートハイド</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>マルチディスプレイ</translation>
-    </message>
-    <message>
-        <source>Set the position of the taskbar on the screen</source>
-        <translation>タスクバーの位置</translation>
-    </message>
-    <message>
-        <source>Only on main</source>
-        <translation>メインのみ</translation>
-    </message>
-    <message>
-        <source>On screen where the cursor is</source>
-        <translation>カーソルのあるディスプレイ</translation>
-    </message>
-    <message>
-        <source>Plugin Area</source>
-        <translation>プラグインエリア</translation>
-    </message>
-    <message>
-        <source>Select which icons appear in the Dock</source>
-        <translation>ドックに表示するアイコンの選択</translation>
-    </message>
-    <message>
-        <source>Lock the Dock</source>
-        <translation>ドックを固定</translation>
-    </message>
-    <message>
-        <source>Combine application icons</source>
-        <translation>アプリケーションアイコンを結合する</translation>
-    </message>
-</context>
-<context>
-    <name>mouse</name>
-    <message>
-        <source>Mouse and Touchpad</source>
-        <translation>マウスとタッチパッド</translation>
-    </message>
-    <message>
-        <source>Common、Mouse、Touchpad</source>
-        <translation>一般、マウス、タッチパッド</translation>
-    </message>
-</context>
-<context>
-    <name>mouseMain</name>
-    <message>
-        <source>Common</source>
-        <translation>一般</translation>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation>マウス</translation>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation>タッチパッド</translation>
-    </message>
-</context>
-<context>
-    <name>notification</name>
-    <message>
-        <source>DND mode, app notifications</source>
-        <translation>おやすみモード、アプリケーションの通知</translation>
-    </message>
-    <message>
-        <source>Notification</source>
-        <translation>通知</translation>
-    </message>
-</context>
-<context>
-    <name>notificationMain</name>
-    <message>
-        <source>Do Not Disturb Settings</source>
-        <translation>おやすみモードの設定</translation>
-    </message>
-    <message>
-        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>アプリケーションの通知が表示されたり通知音が鳴ったりしなくなります。通知センターですべてのメッセージを確認できます。</translation>
-    </message>
-    <message>
-        <source>Enable Do Not Disturb</source>
-        <translation>おやすみモードを有効にする</translation>
-    </message>
-    <message>
-        <source>When the screen is locked</source>
-        <translation>ロックされているとき</translation>
-    </message>
-    <message>
-        <source>Number of notifications shown on the desktop</source>
-        <translation>デスクトップに表示する通知の数</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>アプリケーションの通知</translation>
-    </message>
-    <message>
-        <source>Allow Notifications</source>
-        <translation>通知を許可</translation>
-    </message>
-    <message>
-        <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>デスクトップまたは通知センターに未読のメッセージを表示する</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>デスクトップ</translation>
-    </message>
-    <message>
-        <source>Lock Screen</source>
-        <translation>ロック画面</translation>
-    </message>
-    <message>
-        <source>Notification Center</source>
-        <translation>通知センター</translation>
-    </message>
-    <message>
-        <source>Show message preview</source>
-        <translation>メッセージプレビューを表示</translation>
-    </message>
-    <message>
-        <source>Play a sound</source>
-        <translation>通知音を鳴らす</translation>
-    </message>
-</context>
-<context>
-    <name>personalization</name>
-    <message>
-        <source>Personalization</source>
-        <translation>個人設定</translation>
-    </message>
-</context>
-<context>
-    <name>personalizationMain</name>
-    <message>
-        <source>Theme</source>
-        <translation>テーマ</translation>
-    </message>
-    <message>
-        <source>Appearance</source>
-        <translation>外観</translation>
-    </message>
-    <message>
-        <source>Window effect</source>
-        <translation>ウィンドウ効果</translation>
-    </message>
-    <message>
-        <source>Personalize your wallpaper and screensaver</source>
-        <translation>壁紙とスクリーンセーバーの変更</translation>
-    </message>
-    <message>
-        <source>Screensaver</source>
-        <translation>スクリーンセーバー</translation>
-    </message>
-    <message>
-        <source>Colors and icons</source>
-        <translation>色とアイコン</translation>
-    </message>
-    <message>
-        <source>Adjust accent color and theme icons</source>
-        <translation>アクセントカラーとテーマアイコンを変更</translation>
-    </message>
-    <message>
-        <source>Font and font size</source>
-        <translation>フォントスタイルとサイズ</translation>
-    </message>
-    <message>
-        <source>Change system font and size</source>
-        <translation>システムフォントのスタイルとサイズを変更</translation>
-    </message>
-    <message>
-        <source>Wallpaper</source>
-        <translation>壁紙</translation>
-    </message>
-    <message>
-        <source>Select light, dark or automatic theme appearance</source>
-        <translation>ライト、ダークまたは自動設定を選択</translation>
-    </message>
-    <message>
-        <source>Interface and effects, rounded corners</source>
-        <translation>インターフェースと効果、角の丸み</translation>
-    </message>
-</context>
-<context>
-    <name>power</name>
-    <message>
-        <source>Power saving settings, screen and suspend</source>
-        <translation>電力節約の設定、ディスプレイとサスペンド</translation>
-    </message>
-    <message>
-        <source>Power</source>
-        <translation>電源</translation>
-    </message>
-</context>
-<context>
-    <name>powerMain</name>
-    <message>
-        <source>General</source>
-        <translation>一般</translation>
-    </message>
-    <message>
-        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>電源プラン、電力節約の設定、復帰時の設定、シャットダウンの設定</translation>
-    </message>
-    <message>
-        <source>Plugged In</source>
-        <translation>電源接続時</translation>
-    </message>
-    <message>
-        <source>Screen and suspend</source>
-        <translation>ディスプレイとサスペンド</translation>
-    </message>
-    <message>
-        <source>On Battery</source>
-        <translation>バッテリー駆動時</translation>
-    </message>
-    <message>
-        <source>screen and suspend, low battery, battery management</source>
-        <translation>ディスプレイとサスペンド、バッテリー残量低下時の設定、バッテリー管理</translation>
-    </message>
-</context>
-<context>
-    <name>privacy</name>
-    <message>
-        <source>Privacy and Security</source>
-        <translation>プライバシーとセキュリティ</translation>
-    </message>
-    <message>
-        <source>Camera, folder permissions</source>
-        <translation>カメラ、フォルダ権限</translation>
-    </message>
-</context>
-<context>
-    <name>privacyMain</name>
-    <message>
-        <source>Camera</source>
-        <translation>カメラ</translation>
-    </message>
-    <message>
-        <source>Choose whether the application has access to the camera</source>
-        <translation>カメラへのアクセスを許可するアプリケーションを選択</translation>
-    </message>
-    <message>
-        <source>Files and Folders</source>
-        <translation>ファイルとフォルダ</translation>
-    </message>
-    <message>
-        <source>Choose whether the application has access to files and folders</source>
-        <translation>ファイルとフォルダへのアクセスを許可するアプリケーションを選択</translation>
-    </message>
-</context>
-<context>
-    <name>sound</name>
-    <message>
-        <source>Sound</source>
-        <translation>サウンド</translation>
-    </message>
-    <message>
-        <source>Output, input, sound effects, devices</source>
-        <translation>出力、入力、効果音、デバイス</translation>
-    </message>
-</context>
-<context>
-    <name>soundMain</name>
-    <message>
-        <source>Settings</source>
-        <translation>設定</translation>
-    </message>
-    <message>
-        <source>Sound Effects</source>
-        <translation>効果音</translation>
-    </message>
-    <message>
-        <source>Enable/disable sound effects</source>
-        <translation>効果音を有効/無効にする</translation>
-    </message>
-    <message>
-        <source>Enable/disable audio devices</source>
-        <translation>オーディオデバイスを有効/無効にする</translation>
-    </message>
-    <message>
-        <source>Devices Management</source>
-        <translation>デバイス管理</translation>
-    </message>
-</context>
-<context>
-    <name>system</name>
-    <message>
-        <source>Common settings</source>
-        <translation>一般設定</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>システム</translation>
-    </message>
-</context>
-<context>
-    <name>systemInfo</name>
-    <message>
-        <source>Auxiliary Information</source>
-        <translation>補助的な情報</translation>
-    </message>
-</context>
-<context>
-    <name>systemInfoMain</name>
-    <message>
-        <source>About This PC</source>
-        <translation>この PC について</translation>
-    </message>
-    <message>
-        <source>System version, device information</source>
-        <translation>システムバージョン、デバイス情報</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>オープンソースソフトウェアに関する通知を表示</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>ユーザーエクスペリエンスプログラム</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>ユーザーエクスペリエンスプログラムに参加して製品の開発を支援</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>利用規約(EULA)</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>利用規約(EULA)を表示</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>プライバシーポリシー</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>プライバシーポリシーに関する情報を表示</translation>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
-        <translation>オープンソースソフトウェアに関する通知</translation>
-    </message>
-</context>
-<context>
-    <name>touchscreen</name>
-    <message>
-        <source>Touchscreen</source>
-        <translation>タッチスクリーン</translation>
-    </message>
-    <message>
-        <source>Configuring Touchscreen</source>
-        <translation>タッチスクリーンの構成</translation>
-    </message>
-</context>
-<context>
-    <name>touchscreenMain</name>
-    <message>
-        <source>Common</source>
-        <translation>一般</translation>
-    </message>
-</context>
-<context>
-    <name>wacom</name>
-    <message>
-        <source>wacom</source>
-        <translation>ワコム</translation>
-    </message>
-    <message>
-        <source>Configuring wacom</source>
-        <translation>wacomを構成しています</translation>
-    </message>
-</context>
-<context>
-    <name>wacomMain</name>
-    <message>
-        <source>wacom</source>
-        <translation>ワコム</translation>
-    </message>
-    <message>
-        <source>Pen Mode</source>
-        <translation>ペンモード</translation>
-    </message>
-    <message>
-        <source>Mouse Mode</source>
-        <translation>マウスモード</translation>
-    </message>
-    <message>
-        <source>Pressure Sensitivity</source>
-        <translation>押し込み感度</translation>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation>軽い</translation>
-    </message>
-    <message>
-        <source>Heavy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Model</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

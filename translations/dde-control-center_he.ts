@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="he">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="he">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -71,55 +73,73 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">שם מלא הוא מדי ארוך</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Accounts</name>
+    <message>
+        <source>Account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Account manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AccountsMain</name>
+    <message>
+        <source>Other accounts</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -146,170 +166,232 @@
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Face recognition does not support liveness detection, and the verification method may carry risks.
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AddFingerDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">אילותי ומסכים ל</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">האזהרה</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">הבא</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">אילותי ומסכים ל</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">האזהרה</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">הבא</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Authentication</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AuthenticationMain</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Up to 5 facial data can be entered</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation>האצבע</translation>
+    </message>
+    <message>
+        <source>Identifying user identity through scanning fingerprints</source>
+        <translation>تعرفת על זהות המשתמש באמצעות סCAN של אצבעות</translation>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation>איסר</translation>
+    </message>
+    <message>
+        <source>Identity recognition through iris scanning</source>
+        <translation>تعرفת על זהות באמצעות סCAN של איסר</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation>استخدام אותיות, מספרים ותווים תחתית בלבד, ולא יותר מ-15 תווים</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only</source>
+        <translation>استخدام אותיות, מספרים ותווים תחתית בלבד</translation>
+    </message>
+    <message>
+        <source>No more than 15 characters</source>
+        <translation>לא יותר מ-15 תווים</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add a new %1 ...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AvatarSettingsDialog</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Human</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Emoji</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>custom</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cartoon style</source>
@@ -400,6 +482,17 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>BlueTooth</name>
+    <message>
+        <source>Bluetooth settings, devices</source>
+        <translation>הגדרות Bluetooth, מכשירים</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
@@ -422,42 +515,42 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Send Files</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Remove Device</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">בחר קובץ</translation>
     </message>
 </context>
 <context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -468,66 +561,66 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>grub start delay</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>theme</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>User Name :</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>root</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>New Password :</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
@@ -709,7 +802,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -728,123 +821,146 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Repeat rate</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">איטי</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>test here</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Double Click Speed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">כללי</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CommonInfoMain</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation>תפריט התחלה</translation>
+    </message>
+    <message>
+        <source>Manage your boot menu</source>
+        <translation>ניהול תפריט התחלה</translation>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation>ניהול הרשאות השורט של מפתח</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation>אפשרויות מפתח</translation>
+    </message>
+    <message>
+        <source>Developer debugging options</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Failed to get root access</source>
@@ -896,15 +1012,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -954,30 +1070,30 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -988,7 +1104,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1018,15 +1134,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1062,6 +1178,25 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Confirm</source>
         <translation>CAFIR</translation>
+    </message>
+</context>
+<context>
+    <name>Datetime</name>
+    <message>
+        <source>Time and date</source>
+        <translation>הזמן והתאריך</translation>
+    </message>
+    <message>
+        <source>Time and date, time zone settings</source>
+        <translation>הזמן והתאריך, הגדרות צבעי זמן</translation>
+    </message>
+    <message>
+        <source>Language and region</source>
+        <translation>שפה וeregיה</translation>
+    </message>
+    <message>
+        <source>System language, regional formats</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1144,7 +1279,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1155,7 +1290,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Authentication is required to set the system timezone</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -1232,130 +1367,145 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">UOS</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System Settings</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Deepinid</name>
+    <message>
+        <source>deepin ID</source>
+        <translation>ID של deepin</translation>
+    </message>
+    <message>
+        <source>UOS ID</source>
+        <translation>ID של UOS</translation>
+    </message>
+    <message>
+        <source>Cloud services</source>
+        <translation>שירותי облака</translation>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Other regions</source>
@@ -1368,6 +1518,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
         <translation>לפי החוקים והתקנות המקומיים, זה זמין כעת באזור שלך.</translation>
+    </message>
+</context>
+<context>
+    <name>Defaultapp</name>
+    <message>
+        <source>Default App</source>
+        <translation>אפליקציה ברירת המחדל</translation>
+    </message>
+    <message>
+        <source>Set the default application for opening various types of files</source>
+        <translation>הגדר את האפליקציה ברירת המחדל להפתיחה של סוגי קבצים שונים</translation>
+    </message>
+</context>
+<context>
+    <name>DefaultappMain</name>
+    <message>
+        <source>Webpage</source>
+        <translation> stron internet</translation>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation>אימייל</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>טקסט</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation>מוזיקה</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation>וידאו</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation>תמונה</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation>מסוף פונקציות</translation>
     </message>
 </context>
 <context>
@@ -1481,2195 +1673,65 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Device</name>
+    <message>
+        <source>Bluetooth and Other Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished">האזהרה</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>FileAndFolder</name>
-    <message>
-        <source>Allow below apps to access these files and folders:</source>
-        <translation>תאפשר ל_APPS_ להיע朦文件和文件夹</translation>
-    </message>
-    <message>
-        <source>Documents</source>
-        <translation>קבצים של דוקומנטים</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>שולחן העבודה</translation>
-    </message>
-    <message>
-        <source>Pictures</source>
-        <translation>תמונות</translation>
-    </message>
-    <message>
-        <source>Videos</source>
-        <translation>וידאו</translation>
-    </message>
-    <message>
-        <source>Music</source>
-        <translation>מוזיקה</translation>
-    </message>
-    <message>
-        <source>Downloads</source>
-        <translation>הורדות</translation>
-    </message>
-    <message>
-        <source>folder</source>
-        <translation>תיקיה</translation>
-    </message>
-</context>
-<context>
-    <name>FontSizePage</name>
-    <message>
-        <source>Size</source>
-        <translation>גודל</translation>
-    </message>
-    <message>
-        <source>Standard Font</source>
-        <translation>שכיח שפה</translation>
-    </message>
-    <message>
-        <source>Monospaced Font</source>
-        <translation>שפה תווים אחידים</translation>
-    </message>
-</context>
-<context>
-    <name>GeneralPage</name>
-    <message>
-        <source>Power Plans</source>
-        <translation>תנאי כוח</translation>
-    </message>
-    <message>
-        <source>Power Saving Settings</source>
-        <translation>הגדרות שמירה של כוח</translation>
-    </message>
-    <message>
-        <source>Auto power saving on low battery</source>
-        <translation>שמירת כוח אוטומטית ב batterylow</translation>
-    </message>
-    <message>
-        <source>Low battery threshold</source>
-        <translation>סף מינימלי של בATTERY</translation>
-    </message>
-    <message>
-        <source>Auto power saving on battery</source>
-        <translation>שמירת כוח אוטומטית ב batterysystem</translation>
-    </message>
-    <message>
-        <source>Wakeup Settings</source>
-        <translation>הגדרות תעורר</translation>
-    </message>
-    <message>
-        <source>Password is required to wake up the computer</source>
-        <translation>האם יש צורך סיסמה כדי להתחבר למחשב</translation>
-    </message>
-    <message>
-        <source>Password is required to wake up the monitor</source>
-        <translation>האם יש צורך סיסמה כדי להתחבר למדפסת</translation>
-    </message>
-    <message>
-        <source>Shutdown Settings</source>
-        <translation>הגדרות היעדר</translation>
-    </message>
-    <message>
-        <source>Scheduled Shutdown</source>
-        <translation>היעדר מוקדם</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>זמן</translation>
-    </message>
-    <message>
-        <source>Repeat</source>
-        <translation>חזור</translation>
-    </message>
-    <message>
-        <source>Once</source>
-        <translation>פעם</translation>
-    </message>
-    <message>
-        <source>Every day</source>
-        <translation>כל יום</translation>
-    </message>
-    <message>
-        <source>Working days</source>
-        <translation>הימים האכיפתיים</translation>
-    </message>
-    <message>
-        <source>Custom Time</source>
-        <translation>זמן מותאם אישית</translation>
-    </message>
-    <message>
-        <source>Decrease screen brightness on power saver</source>
-        <translation>איבד את הנורמות של המסך בזמן שמירת האנרגיה</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>HomePage</name>
-    <message>
-        <source>,</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>...</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>InterfaceEffectListview</name>
-    <message>
-        <source>Optimal Performance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Balance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Best Visuals</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>LangAndFormat</name>
-    <message>
-        <source>Language</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>done</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>edit</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Other languages</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>add</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Region</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Area</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Regional format</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>LangsChooserDialog</name>
-    <message>
-        <source>Add language</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>חיפוש</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>ביטול</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>הוסף</translation>
-    </message>
-</context>
-<context>
-    <name>LoginMethod</name>
-    <message>
-        <source>Login method</source>
-        <translation>방식 של כניסה</translation>
-    </message>
-    <message>
-        <source>Password, wechat, biometric authentication, security key</source>
-        <translation>סיסמה, ו챗, אימות פיזי, מפתח אבטחה</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>סיסמה</translation>
-    </message>
-    <message>
-        <source>Modify password</source>
-        <translation>הצג סיסמה</translation>
-    </message>
-    <message>
-        <source>Validity days</source>
-        <translation>ימים בתוקף</translation>
-    </message>
-    <message>
-        <source>Always</source>
-        <translation>תמיד</translation>
-    </message>
-    <message>
-        <source>Reset password</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>LogoModule</name>
-    <message>
-        <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation>כל הזכויות שמורות © 2011-%1 קהילת Deepin</translation>
-    </message>
-    <message>
-        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation>כל הזכויות שמורות © 2019-%1 חברת תוכנה של וינדט</translation>
-    </message>
-</context>
-<context>
-    <name>MicrophonePage</name>
-    <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>ה.fromStringילינג הסופטי של רעש</translation>
-    </message>
-    <message>
-        <source>Input Volume</source>
-        <translation>볼륨 של הכניסה</translation>
-    </message>
-    <message>
-        <source>Input Level</source>
-        <translation>כמות הכניסה</translation>
-    </message>
-    <message>
-        <source>Input</source>
-        <translation>הכנס</translation>
-    </message>
-    <message>
-        <source>No input device for sound found</source>
-        <translation>לא נמצאו תשתית להכנסה של סאונד</translation>
-    </message>
-    <message>
-        <source>Input Device</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Mouse</name>
-    <message>
-        <source>Mouse</source>
-        <translation>מקלט</translation>
-    </message>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>מהירות מיקום</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>איטי</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>חכם</translation>
-    </message>
-    <message>
-        <source>Pointer Size</source>
-        <translation>גודל העיטור</translation>
-    </message>
-    <message>
-        <source>Mouse Acceleration</source>
-        <translation>הכפלה של העיטור</translation>
-    </message>
-    <message>
-        <source>Disable touchpad when a mouse is connected</source>
-        <translation>השבת את המוטה של המקלדת כאשר מקלט נסובך</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>הספinner טבעי</translation>
-    </message>
-    <message>
-        <source>Small</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Medium</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>X-Large</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>MyDevice</name>
-    <message>
-        <source>My Devices</source>
-        <translation>הустройств שלי</translation>
-    </message>
-</context>
-<context>
-    <name>NativeInfoPage</name>
-    <message>
-        <source>UOS</source>
-        <translation>UOS</translation>
-    </message>
-    <message>
-        <source>Computer name</source>
-        <translation>שם המחשב</translation>
-    </message>
-    <message>
-        <source>It cannot start or end with dashes</source>
-        <translation>לא ניתן להתחיל או להסתיים בנקודות פסיק</translation>
-    </message>
-    <message>
-        <source>OS Name</source>
-        <translation>שם הOS</translation>
-    </message>
-    <message>
-        <source>Version</source>
-        <translation>גרסה</translation>
-    </message>
-    <message>
-        <source>Edition</source>
-        <translation>dition</translation>
-    </message>
-    <message>
-        <source>Type</source>
-        <translation>סוג</translation>
-    </message>
-    <message>
-        <source>bit</source>
-        <translation>bit</translation>
-    </message>
-    <message>
-        <source>Authorization</source>
-        <translation>השכלה</translation>
-    </message>
-    <message>
-        <source>System installation time</source>
-        <translation>זמן התקנה של מערכת</translation>
-    </message>
-    <message>
-        <source>Kernel</source>
-        <translation>כרnice</translation>
-    </message>
-    <message>
-        <source>Graphics Platform</source>
-        <translation>תמונה שטח</translation>
-    </message>
-    <message>
-        <source>Processor</source>
-        <translation>معالג</translation>
-    </message>
-    <message>
-        <source>Memory</source>
-        <translation>זיכרון</translation>
-    </message>
-    <message>
-        <source>1~63 characters please</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>OtherDevice</name>
-    <message>
-        <source>Other Devices</source>
-        <translation>устройств אחרים</translation>
-    </message>
-    <message>
-        <source>Show Bluetooth devices without names</source>
-        <translation>הצג-devices של Bluetooth ללא שמות</translation>
-    </message>
-</context>
-<context>
-    <name>PasswordLayout</name>
-    <message>
-        <source>Current password</source>
-        <translation>סיסמה נוכחית</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>נדרש</translation>
-    </message>
-    <message>
-        <source>Weak</source>
-        <translation>ضعيف</translation>
-    </message>
-    <message>
-        <source>Medium</source>
-        <translation>בינוני</translation>
-    </message>
-    <message>
-        <source>Strong</source>
-        <translation> חזק</translation>
-    </message>
-    <message>
-        <source>Repeat Password</source>
-        <translation>אתחול סיסמה</translation>
-    </message>
-    <message>
-        <source>Password hint</source>
-        <translation>אזהרה סיסמה</translation>
-    </message>
-    <message>
-        <source>Optional</source>
-        <translation>לא חובה</translation>
-    </message>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation>הסיסמה不能为空</translation>
-    </message>
-    <message>
-        <source>Passwords do not match</source>
-        <translation>הסיסמאות לא תואמות</translation>
-    </message>
-    <message>
-        <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation>האזהרה מופיעה לכל משתמשים. אל תכתוב כאן את הסיסמה.</translation>
-    </message>
-    <message>
-        <source>New password</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>New password should differ from the current one</source>
-        <translation>הסיסמה החדשה צריכה להיות שונה מהסיסמה הנוכחית</translation>
-    </message>
-    <message>
-        <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>PasswordModifyDialog</name>
-    <message>
-        <source>Modify password</source>
-        <translation>לכבות את הסיסמה</translation>
-    </message>
-    <message>
-        <source>Reset password</source>
-        <translation>אפס את הסיסמה</translation>
-    </message>
-    <message>
-        <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation>אורך הסיסמה צריך להיות לפחות 8 תווים, והסיסמה צריכה לכלול תערובת של לפחות 3 מהלולאות הבאות: אותיות גדולות, אותיות קטנות, מספרים וסימנים. הסיסמה הזו היא יותר בטוחה.</translation>
-    </message>
-    <message>
-        <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation>איפוס הסיסמה ימחק את הנתונים שמורים בקירחון.</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>ביטול</translation>
-    </message>
-</context>
-<context>
-    <name>PersonalizationInterface</name>
-    <message>
-        <source>Light</source>
-        <translation>בהיר</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation>אוטומטי</translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation>😉</translation>
-    </message>
-    <message>
-        <source>Picker service is not available</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>PersonalizationWorker</name>
-    <message>
-        <source>Custom</source>
-        <translation> Cástom</translation>
-    </message>
-</context>
-<context>
-    <name>PluginArea</name>
-    <message>
-        <source>Plugin Area</source>
-        <translation>אזור הממוצעים</translation>
-    </message>
-    <message>
-        <source>Select which icons appear in the Dock</source>
-        <translation>בחר את הסמלים שמת.ToDateTime</translation>
-    </message>
-</context>
-<context>
-    <name>PowerOperatorModel</name>
-    <message>
-        <source>Shut down</source>
-        <translation> TURN OFF</translation>
-    </message>
-    <message>
-        <source>Suspend</source>
-        <translation>הסРИ</translation>
-    </message>
-    <message>
-        <source>Hibernate</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Do nothing</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>PowerPage</name>
-    <message>
-        <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lock screen after</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Computer suspends after</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the lid is closed</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>PowerPlansListview</name>
-    <message>
-        <source>High Performance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Balance Performance</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Balanced</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Power Saver</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>PowerWorker</name>
-    <message>
-        <source>Minutes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Hour</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Never</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>PrivacyPolicyPage</name>
-    <message>
-        <source>Privacy Policy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Copy Link Address</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>PwqualityManager</name>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>הסיסמה יכולה להכיל רק אותיות אנגלית (🙂-🙂), מספרים או סמלים מיוחדים (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
-    </message>
-    <message>
-        <source>No more than %1 palindrome characters please</source>
-        <translation>אינקסם יותר מ%1 סימנים פלינדרום, אנא</translation>
-    </message>
-    <message>
-        <source>No more than %1 monotonic characters please</source>
-        <translation>אינקסם יותר מ%1 סימנים רצופים, אנא</translation>
-    </message>
-    <message>
-        <source>No more than %1 repeating characters please</source>
-        <translation>אינקסם יותר מ%1 סימנים מופ�מים, אנא</translation>
-    </message>
-    <message>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>הסיסמה חייבת להכיל אותיות גדולות, אותיות קטנות, מספרים וסמלים (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
-    </message>
-    <message>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>הסיסמה לא תכיל יותר מ-4 סימנים פלינדרום</translation>
-    </message>
-    <message>
-        <source>Do not use common words and combinations as password</source>
-        <translation>אל תשתמש בסיסמאות משותפות או תכונות</translation>
-    </message>
-    <message>
-        <source>Create a strong password please</source>
-        <translation>בבקשה צור סיסמה חזקה</translation>
-    </message>
-    <message>
-        <source>It does not meet password rules</source>
-        <translation>זה לא מקיים את כללי הסיסמה</translation>
-    </message>
-</context>
-<context>
-    <name>QObject</name>
-    <message>
-        <source>Control Center</source>
-        <translation>מרכז kontrol</translation>
-    </message>
-    <message>
-        <source>Activated</source>
-        <translation>מפעיל</translation>
-    </message>
-    <message>
-        <source>View</source>
-        <translation>הצג</translation>
-    </message>
-    <message>
-        <source>To be activated</source>
-        <translation>להפעיל</translation>
-    </message>
-    <message>
-        <source>Activate</source>
-        <translation>פעיל</translation>
-    </message>
-    <message>
-        <source>Expired</source>
-        <translation>הסתיימה</translation>
-    </message>
-    <message>
-        <source>In trial period</source>
-        <translation>בתקופה ניסיון</translation>
-    </message>
-    <message>
-        <source>Trial expired</source>
-        <translation>תקופת הניסיון הסתיימה</translation>
-    </message>
-    <message>
-        <source>dde-control-center</source>
-        <translation>dde-control-center</translation>
-    </message>
-    <message>
-        <source>Touch Screen Settings</source>
-        <translation>הגדרות מסך-touch</translation>
-    </message>
-    <message>
-        <source>The settings of touch screen changed</source>
-        <translation>ה הגדרות מסך-touch נמשכו</translation>
-    </message>
-    <message>
-        <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation>ה)(((( [[[ מותקן של מערכת זה מוטקן. אנא התató את המנהל שלך]]]] ((((ה</translation>
-    </message>
-    <message>
-        <source>%1 (%2)</source>
-        <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>RegionFormatDialog</name>
-    <message>
-        <source>Search</source>
-        <translation>חיפוש</translation>
-    </message>
-    <message>
-        <source>Default formats</source>
-        <translation>צורות ברירת מחדל</translation>
-    </message>
-    <message>
-        <source>First day of week</source>
-        <translation>יום ראשון של שבוע</translation>
-    </message>
-    <message>
-        <source>Short date</source>
-        <translation>תאריך קצר</translation>
-    </message>
-    <message>
-        <source>Long date</source>
-        <translation>תאריך מאריך</translation>
-    </message>
-    <message>
-        <source>Short time</source>
-        <translation>שעה קצרה</translation>
-    </message>
-    <message>
-        <source>Long time</source>
-        <translation>שעה מאריך</translation>
-    </message>
-    <message>
-        <source>Currency symbol</source>
-        <translation>סמל מטבע</translation>
-    </message>
-    <message>
-        <source>Digit</source>
-        <translation>מספר</translation>
-    </message>
-    <message>
-        <source>Paper size</source>
-        <translation>גודל עמודה</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>ביטול</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>שמור</translation>
-    </message>
-    <message>
-        <source>Regional format</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>RegionsChooserWindow</name>
-    <message>
-        <source>Search</source>
-        <translation>חיפוש</translation>
-    </message>
-</context>
-<context>
-    <name>RegisterDialog</name>
-    <message>
-        <source>Set a Password</source>
-        <translation>設置密碼</translation>
-    </message>
-    <message>
-        <source>8-64 characters</source>
-        <translation>8-64 תווים</translation>
-    </message>
-    <message>
-        <source>Repeat the password</source>
-        <translation>הסיט סיסמה נוספת</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>ביטול</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>#afirmar</translation>
-    </message>
-    <message>
-        <source>Passwords don&apos;t match</source>
-        <translation>הסיסמאות לא תואמות</translation>
-    </message>
-</context>
-<context>
-    <name>ScheduledShutdownDialog</name>
-    <message>
-        <source>Customize repetition time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>ScreenSaverPage</name>
-    <message>
-        <source>Screensaver</source>
-        <translation>ה哈哈哈</translation>
-    </message>
-    <message>
-        <source>preview</source>
-        <translation>תצוגה מקדימה</translation>
-    </message>
-    <message>
-        <source>Personalized screensaver</source>
-        <translation>螢幕保護程式</translation>
-    </message>
-    <message>
-        <source>setting</source>
-        <translation>הגדרות</translation>
-    </message>
-    <message>
-        <source>idle time</source>
-        <translation>זמן בזבז</translation>
-    </message>
-    <message>
-        <source>1 minute</source>
-        <translation>1 דקות</translation>
-    </message>
-    <message>
-        <source>5 minute</source>
-        <translation>5 דקות</translation>
-    </message>
-    <message>
-        <source>10 minute</source>
-        <translation>10 דקות</translation>
-    </message>
-    <message>
-        <source>15 minute</source>
-        <translation>15 דקות</translation>
-    </message>
-    <message>
-        <source>30 minute</source>
-        <translation>30 דקות</translation>
-    </message>
-    <message>
-        <source>1 hour</source>
-        <translation>שעה</translation>
-    </message>
-    <message>
-        <source>never</source>
-        <translation>никогда</translation>
-    </message>
-    <message>
-        <source>Password required for recovery</source>
-        <translation>האם יש צורך בסיס סיסמה כדי להחזיר</translation>
-    </message>
-    <message>
-        <source>Picture slideshow screensaver</source>
-        <translation>הצג את התמונה בהצגה גלובית</translation>
-    </message>
-    <message>
-        <source>System screensaver</source>
-        <translation>הצג את מסגף מערכת</translation>
-    </message>
-</context>
-<context>
-    <name>SearchableListViewPopup</name>
-    <message>
-        <source>Search</source>
-        <translation>חיפוש</translation>
-    </message>
-    <message>
-        <source>No search results</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>ShortcutSettingDialog</name>
-    <message>
-        <source>Add custom shortcut</source>
-        <translation>הוסף מקצט אישי</translation>
-    </message>
-    <message>
-        <source>Name:</source>
-        <translation>שם:</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>נדרש</translation>
-    </message>
-    <message>
-        <source>Command:</source>
-        <translation>פקודה:</translation>
-    </message>
-    <message>
-        <source>Shortcut</source>
-        <translation>מקצט</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>לא קיים</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>בטל</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation>הוסף</translation>
-    </message>
-    <message>
-        <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Shortcuts</name>
-    <message>
-        <source>Shortcuts</source>
-        <translation>מקצצים</translation>
-    </message>
-    <message>
-        <source>System shortcut, custom shortcut</source>
-        <translation>מקצט מערכת, מקצט אישי</translation>
-    </message>
-    <message>
-        <source>Search shortcuts</source>
-        <translation>מקצצים לחיפוש</translation>
-    </message>
-    <message>
-        <source>done</source>
-        <translation>נגמר</translation>
-    </message>
-    <message>
-        <source>edit</source>
-        <translation>ערוך</translation>
-    </message>
-    <message>
-        <source>Click</source>
-        <translation>לחץ</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>ביטול</translation>
-    </message>
-    <message>
-        <source>or</source>
-        <translation>או</translation>
-    </message>
-    <message>
-        <source>Replace</source>
-        <translation>החלף</translation>
-    </message>
-    <message>
-        <source>Restore default</source>
-        <translation>אשנה לבררת</translation>
-    </message>
-    <message>
-        <source>Add custom shortcut</source>
-        <translation>הוסף מקצט אישי</translation>
-    </message>
-    <message>
-        <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>SoundDevicemanagesPage</name>
-    <message>
-        <source>Output Devices</source>
-        <translation>устройств יציאה</translation>
-    </message>
-    <message>
-        <source>Select whether to enable the devices</source>
-        <translation>בחר אם להפעיל את הустройств</translation>
-    </message>
-    <message>
-        <source>Input Devices</source>
-        <translation>устройств כניסה</translation>
-    </message>
-</context>
-<context>
-    <name>SoundEffectsPage</name>
-    <message>
-        <source>Sound Effects</source>
-        <translation>הפקות קול</translation>
-    </message>
-</context>
-<context>
-    <name>SoundModel</name>
-    <message>
-        <source>Boot up</source>
-        <translation>הפעלה</translation>
-    </message>
-    <message>
-        <source>Shut down</source>
-        <translation>הסגר</translation>
-    </message>
-    <message>
-        <source>Log out</source>
-        <translation>יציאה</translation>
-    </message>
-    <message>
-        <source>Wake up</source>
-        <translation>akeup</translation>
-    </message>
-    <message>
-        <source>Volume +/-</source>
-        <translation>用微信翻译</translation>
-    </message>
-    <message>
-        <source>Notification</source>
-        <translation>Thông báo</translation>
-    </message>
-    <message>
-        <source>Low battery</source>
-        <translation>בatterיה נמוכה</translation>
-    </message>
-    <message>
-        <source>Send icon in Launcher to Desktop</source>
-        <translation>שלח סמל מlauncher לשולחן עבודה</translation>
-    </message>
-    <message>
-        <source>Empty Trash</source>
-        <translation>אפס את/recycle bin</translation>
-    </message>
-    <message>
-        <source>Plug in</source>
-        <translation>העתק</translation>
-    </message>
-    <message>
-        <source>Plug out</source>
-        <translation>העתק</translation>
-    </message>
-    <message>
-        <source>Removable device connected</source>
-        <translation>DEVICE-CONNECTED</translation>
-    </message>
-    <message>
-        <source>Removable device removed</source>
-        <translation>DEVICE-REMOVED</translation>
-    </message>
-    <message>
-        <source>Error</source>
-        <translation>שגיאה</translation>
-    </message>
-</context>
-<context>
-    <name>SpeakerPage</name>
-    <message>
-        <source>Mode</source>
-        <translation>מצב</translation>
-    </message>
-    <message>
-        <source>Output Volume</source>
-        <translation>היקף יציאה</translation>
-    </message>
-    <message>
-        <source>Volume Boost</source>
-        <translation>העלאה ב-volume</translation>
-    </message>
-    <message>
-        <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation>אם volume גדול מ-100%, הוא עשוי לפגוע ב음을 ולהיות מסוכן לש (*)(device)</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation>שמאל</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation>ימין</translation>
-    </message>
-    <message>
-        <source>Output</source>
-        <translation>פלט</translation>
-    </message>
-    <message>
-        <source>No output device for sound found</source>
-        <translation>לא נמצאה מכשיר פלט ל-sound</translation>
-    </message>
-    <message>
-        <source>Left Right Balance</source>
-        <translation>균형 בין שמאליים-ימיניים</translation>
-    </message>
-    <message>
-        <source>Merge left and right channels into a single channel</source>
-        <translation>לכלול את ערוצי השמאליים והימיניים לערוץ אחד</translation>
-    </message>
-    <message>
-        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation>האם האודיו ישבח אוטומטית כאשר מכשיר האודיו הנוכחי נתקל</translation>
-    </message>
-    <message>
-        <source>Mono Audio</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Auto Pause</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Output Device</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>SyncInfoListModel</name>
-    <message>
-        <source>Sound</source>
-        <translation>음을</translation>
-    </message>
-    <message>
-        <source>Power</source>
-        <translation>חשמל</translation>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation>ה *)&amp;mouse</translation>
-    </message>
-    <message>
-        <source>Update</source>
-        <translation>עדכון</translation>
-    </message>
-    <message>
-        <source>Screensaver</source>
-        <translation>שימור מסך</translation>
-    </message>
-</context>
-<context>
-    <name>ThemeSelectView</name>
-    <message>
-        <source>More Wallpapers</source>
-        <translation>מגזר קבצי שים מסך נוספים</translation>
-    </message>
-</context>
-<context>
-    <name>TimeAndDate</name>
-    <message>
-        <source>Auto sync time</source>
-        <translation>הפעלת השתוא אוטומטי זמן</translation>
-    </message>
-    <message>
-        <source>Ntp server</source>
-        <translation>שרת NTP</translation>
-    </message>
-    <message>
-        <source>System date and time</source>
-        <translation>תאריך וזמן מערכת</translation>
-    </message>
-    <message>
-        <source>Customize</source>
-        <translation> Cáןוס</translation>
-    </message>
-    <message>
-        <source>Settings</source>
-        <translation>הגדרות</translation>
-    </message>
-    <message>
-        <source>Server address</source>
-        <translation>כתובת שרת</translation>
-    </message>
-    <message>
-        <source>Required</source>
-        <translation>נדרש</translation>
-    </message>
-    <message>
-        <source>The ntp server address cannot be empty</source>
-        <translation>כתובתשרת ntp不能为空</translation>
-    </message>
-    <message>
-        <source>Use 24-hour format</source>
-        <translation>استخدم تنسيق 24 ساعة</translation>
-    </message>
-    <message>
-        <source>system time zone</source>
-        <translation>منطقة الزمان النظامية</translation>
-    </message>
-    <message>
-        <source>Timezone list</source>
-        <translation>قائمة المناطق الزمنية</translation>
-    </message>
-    <message>
-        <source>Add</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>TimeRange</name>
-    <message>
-        <source>from</source>
-        <translation>מ</translation>
-    </message>
-    <message>
-        <source>to</source>
-        <translation>עד</translation>
-    </message>
-</context>
-<context>
-    <name>TimeoutDialog</name>
-    <message>
-        <source>Save the display settings?</source>
-        <translation>שמור הגדרות התצוגה</translation>
-    </message>
-    <message>
-        <source>Settings will be reverted in %1s.</source>
-        <translation>ת revenות הגדרותיו ב %1 שניות.</translation>
-    </message>
-    <message>
-        <source>Revert</source>
-        <translation>חזרה</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>שמור</translation>
-    </message>
-</context>
-<context>
-    <name>TimezoneDialog</name>
-    <message>
-        <source>Add time zone</source>
-        <translation>הוסףzonת ime</translation>
-    </message>
-    <message>
-        <source>Determine the time zone based on the current location</source>
-        <translation>קבע אתzonת ime לפי המיקום הנוכחי</translation>
-    </message>
-    <message>
-        <source>Time zone:</source>
-        <translation>zonת ime:</translation>
-    </message>
-    <message>
-        <source>Nearest City:</source>
-        <translation> עיר קרובת:</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>בטל</translation>
-    </message>
-    <message>
-        <source>Save</source>
-        <translation>שמור</translation>
-    </message>
-</context>
-<context>
-    <name>TouchScreen</name>
-    <message>
-        <source>TouchScreen</source>
-        <translation>מסך משיק</translation>
-    </message>
-    <message>
-        <source>Set up here when connecting the touch screen</source>
-        <translation>הגדר כאן בעת תצוגת מסך המשיק</translation>
-    </message>
-</context>
-<context>
-    <name>Touchpad</name>
-    <message>
-        <source>Basic Settings</source>
-        <translation>הגדרות בסיסיות</translation>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation>מגנטית משיק</translation>
-    </message>
-    <message>
-        <source>Pointer Speed</source>
-        <translation>מהירות העיגול</translation>
-    </message>
-    <message>
-        <source>Slow</source>
-        <translation>איטי</translation>
-    </message>
-    <message>
-        <source>Fast</source>
-        <translation>רחב</translation>
-    </message>
-    <message>
-        <source>Disable touchpad during input</source>
-        <translation> Dezקוף מגנטית המשיק במהלך הכניסה</translation>
-    </message>
-    <message>
-        <source>Tap to Click</source>
-        <translation>לחץ כדי לחץ</translation>
-    </message>
-    <message>
-        <source>Natural Scrolling</source>
-        <translation>התקדמות טבעי</translation>
-    </message>
-    <message>
-        <source>Three-finger gestures</source>
-        <translation>ה惴 של שלושה אצבעות</translation>
-    </message>
-    <message>
-        <source>Four-finger gestures</source>
-        <translation>ה惴 של ארבעה אצבעות</translation>
-    </message>
-    <message>
-        <source>Gestures</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>UserExperienceProgramPage</name>
-    <message>
-        <source>Join User Experience Program</source>
-        <translation>הצטרף לתוכנית ניסוי משתמש</translation>
-    </message>
-    <message>
-        <source>Copy Link Address</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>VerifyDialog</name>
-    <message>
-        <source>Security Verification</source>
-        <translation>הוכחת בטיחות</translation>
-    </message>
-    <message>
-        <source>The action is sensitive, please enter the login password first</source>
-        <translation>הפעולה היא רגישת, אנא הכנס את סיסמת הכניסה קודם</translation>
-    </message>
-    <message>
-        <source>8-64 characters</source>
-        <translation>8-64 תווים</translation>
-    </message>
-    <message>
-        <source>Forgot Password?</source>
-        <translation>שכחתי סיסמה?</translation>
-    </message>
-    <message>
-        <source>Cancel</source>
-        <translation>בטל</translation>
-    </message>
-    <message>
-        <source>Confirm</source>
-        <translation>אשר</translation>
-    </message>
-</context>
-<context>
-    <name>WallpaperPage</name>
-    <message>
-        <source>wallpaper</source>
-        <translation>תמונה מסך</translation>
-    </message>
-    <message>
-        <source>My pictures</source>
-        <translation>תמונות שלי</translation>
-    </message>
-    <message>
-        <source>System Wallpaper</source>
-        <translation>תמונה מסך מערכת</translation>
-    </message>
-    <message>
-        <source>Solid color wallpaper</source>
-        <translation>.Snירחית צבע ثابت</translation>
-    </message>
-    <message>
-        <source>Customizable wallpapers</source>
-        <translation>.Snירחיות מ定制化</translation>
-    </message>
-    <message>
-        <source>fill style</source>
-        <translation>סגנון למלא</translation>
-    </message>
-    <message>
-        <source>Automatic wallpaper change</source>
-        <translation>שינוי נייר הירח אוטומטי</translation>
-    </message>
-    <message>
-        <source>never</source>
-        <translation>никогда</translation>
-    </message>
-    <message>
-        <source>30 second</source>
-        <translation>30 שניות</translation>
-    </message>
-    <message>
-        <source>1 minute</source>
-        <translation>1 דקה</translation>
-    </message>
-    <message>
-        <source>5 minute</source>
-        <translation>5 דקות</translation>
-    </message>
-    <message>
-        <source>10 minute</source>
-        <translation>10 דקות</translation>
-    </message>
-    <message>
-        <source>15 minute</source>
-        <translation>15 דקות</translation>
-    </message>
-    <message>
-        <source>30 minute</source>
-        <translation>30 דקות</translation>
-    </message>
-    <message>
-        <source>login</source>
-        <translation>כניסה</translation>
-    </message>
-    <message>
-        <source>wake up</source>
-        <translation>akeup</translation>
-    </message>
-    <message>
-        <source>Live Wallpaper</source>
-        <translation>Snירחית חיה</translation>
-    </message>
-    <message>
-        <source>1 hour</source>
-        <translation>1 שעה</translation>
-    </message>
-    <message>
-        <source>System Wallpapers</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>WallpaperSelectView</name>
-    <message>
-        <source>unfold</source>
-        <translation> desarROLLO</translation>
-    </message>
-    <message>
-        <source>Set lock screen</source>
-        <translation>הגדר מסך ההסעה</translation>
-    </message>
-    <message>
-        <source>Set desktop</source>
-        <translation>הגדר שולחן עבודה</translation>
-    </message>
-    <message>
-        <source>show all - %1 items</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add Picture</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>WindowEffectPage</name>
-    <message>
-        <source>Interface and Effects</source>
-        <translation>רפרון והפקות</translation>
-    </message>
-    <message>
-        <source>Window Settings</source>
-        <translation>הגדרות נוחות הווינטת</translation>
-    </message>
-    <message>
-        <source>Window rounded corners</source>
-        <translation>קצוות עגולים של החלון</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>לא כלום</translation>
-    </message>
-    <message>
-        <source>Small</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable transparent effects when moving windows</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Window Minimize Effect</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Scale</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Magic Lamp</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Opacity</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Low</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>High</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Scroll Bars</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show on scrolling</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Keep shown</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Compact Display</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Title Bar Height</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Extremely small</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Medium</source>
-        <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Medium</source>
-        <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>accounts</name>
-    <message>
-        <source>Account</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Account manager</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>accountsMain</name>
-    <message>
-        <source>Other accounts</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>authentication</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>authenticationMain</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fingerprint</source>
-        <translation>האצבע</translation>
-    </message>
-    <message>
-        <source>Identifying user identity through scanning fingerprints</source>
-        <translation>تعرفת על זהות המשתמש באמצעות סCAN של אצבעות</translation>
-    </message>
-    <message>
-        <source>Iris</source>
-        <translation>איסר</translation>
-    </message>
-    <message>
-        <source>Identity recognition through iris scanning</source>
-        <translation>تعرفת על זהות באמצעות סCAN של איסר</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>استخدام אותיות, מספרים ותווים תחתית בלבד, ולא יותר מ-15 תווים</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only</source>
-        <translation>استخدام אותיות, מספרים ותווים תחתית בלבד</translation>
-    </message>
-    <message>
-        <source>No more than 15 characters</source>
-        <translation>לא יותר מ-15 תווים</translation>
-    </message>
-    <message>
-        <source>This name already exists</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>blueTooth</name>
-    <message>
-        <source>Bluetooth settings, devices</source>
-        <translation>הגדרות Bluetooth, מכשירים</translation>
-    </message>
-    <message>
-        <source>Bluetooth</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>commonInfoMain</name>
-    <message>
-        <source>Boot Menu</source>
-        <translation>תפריט התחלה</translation>
-    </message>
-    <message>
-        <source>Manage your boot menu</source>
-        <translation>ניהול תפריט התחלה</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>ניהול הרשאות השורט של מפתח</translation>
-    </message>
-    <message>
-        <source>Developer Options</source>
-        <translation>אפשרויות מפתח</translation>
-    </message>
-    <message>
-        <source>Developer debugging options</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>datetime</name>
-    <message>
-        <source>Time and date</source>
-        <translation>הזמן והתאריך</translation>
-    </message>
-    <message>
-        <source>Time and date, time zone settings</source>
-        <translation>הזמן והתאריך, הגדרות צבעי זמן</translation>
-    </message>
-    <message>
-        <source>Language and region</source>
-        <translation>שפה וeregיה</translation>
-    </message>
-    <message>
-        <source>System language, regional formats</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dcc::Locale::dialectNames</name>
-    <message>
-        <source>Traditional Chinese (Chinese Hong Kong)</source>
-        <translation>סינית מסורתית (סינית הונג קונג)</translation>
-    </message>
-    <message>
-        <source>Traditional Chinese (Chinese Taiwan)</source>
-        <translation>סינית מסורתית (סינית טיוואן)</translation>
-    </message>
-    <message>
-        <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dcc::Locale::regionNames</name>
-    <message>
-        <source>Taiwan China</source>
-        <translation>טיוואן סין</translation>
-    </message>
-</context>
-<context>
-    <name>dccV25::AccountsController</name>
-    <message>
-        <source>Username must be between 3 and 32 characters</source>
-        <translation>שם משתמש חייב להיות בין 3 ל-32 תווים</translation>
-    </message>
-    <message>
-        <source>The first character must be a letter or number</source>
-        <translation>האות הראשונה חייבת להיות אות או מספר</translation>
-    </message>
-    <message>
-        <source>Your username should not only have numbers</source>
-        <translation>שם משתמש שלך לא יכול להכיל רק מספרים</translation>
-    </message>
-    <message>
-        <source>The username has been used by other user accounts</source>
-        <translation>שם משתמש זה בשימוש על ידי חשבון משתמש אחר</translation>
-    </message>
-    <message>
-        <source>The full name is too long</source>
-        <translation>שם מלא הוא מדי ארוך</translation>
-    </message>
-    <message>
-        <source>The full name has been used by other user accounts</source>
-        <translation>שם מלא זה בשימוש על ידי חשבון משתמש אחר</translation>
-    </message>
-    <message>
-        <source>Wrong password</source>
-        <translation>סיסמה לא נכונה</translation>
-    </message>
-    <message>
-        <source>Standard User</source>
-        <translation>משתמש סטנדרטי</translation>
-    </message>
-    <message>
-        <source>Administrator</source>
-        <translation>מנהל</translation>
-    </message>
-    <message>
-        <source>Customized</source>
-        <translation> Cástuizado</translation>
-    </message>
-</context>
-<context>
-    <name>dccV25::AccountsWorker</name>
-    <message>
-        <source>Your host was removed from the domain server successfully</source>
-        <translation>המארח שלך נמחק מהשרת של המתחום בהצלחה</translation>
-    </message>
-    <message>
-        <source>Your host joins the domain server successfully</source>
-        <translation>המארח שלך הצטרף לשרת של המתחום בהצלחה</translation>
-    </message>
-    <message>
-        <source>Your host failed to leave the domain server</source>
-        <translation>המארח שלך נכשל להיעלם מהשרת של המתחום</translation>
-    </message>
-    <message>
-        <source>Your host failed to join the domain server</source>
-        <translation>המארח שלך נכשל להצטרף לשרת של המתחום</translation>
-    </message>
-    <message>
-        <source>AD domain settings</source>
-        <translation>הגדרות מתחום AD</translation>
-    </message>
-    <message>
-        <source>Password not match</source>
-        <translation>הסיסמאות לא תואמות</translation>
-    </message>
-</context>
-<context>
-    <name>dccV25::AvatarTypesModel</name>
-    <message>
-        <source>Dimensional</source>
-        <translation>מימדי</translation>
-    </message>
-    <message>
-        <source>Flat</source>
-        <translation>שטוח</translation>
-    </message>
-</context>
-<context>
-    <name>dccV25::FaceAuthController</name>
-    <message>
-        <source>Faceprint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV25::FingerprintAuthController</name>
-    <message>
-        <source>Fingerprint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Place your finger</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lift your finger</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Scan Suspended</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fingerprint added</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV25::IrisAuthController</name>
-    <message>
-        <source>Iris</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV25::KeyboardController</name>
-    <message>
-        <source>This shortcut conflicts with [%1]</source>
-        <translation>הקצרה הזו מתנגשת עם [%1]</translation>
-    </message>
-</context>
-<context>
-    <name>dccV25::PwqualityManager</name>
-    <message>
-        <source>Password cannot be empty</source>
-        <translation>הסיסמה不能为空</translation>
-    </message>
-    <message>
-        <source>Password must have at least %1 characters</source>
-        <translation>הסיסמה חייבת להכיל לפחות %1 תווים</translation>
-    </message>
-    <message>
-        <source>Password must be no more than %1 characters</source>
-        <translation>הסיסמה חייבת להכיל לא יותר מ-%1 תווים</translation>
-    </message>
-    <message>
-        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>הסיסמה יכולת להכיל רק אותיות אנגלית (😉שונה בין גדול小额写)，数字或特殊符号 (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
-    </message>
-    <message>
-        <source>No more than %1 palindrome characters please</source>
-        <translation>לא יותר מ-%1 תווים פלינדרום,  בבקשה</translation>
-    </message>
-    <message>
-        <source>No more than %1 monotonic characters please</source>
-        <translation>לא יותר מ-%1 תווים רציפים,  בבקשה</translation>
-    </message>
-    <message>
-        <source>No more than %1 repeating characters please</source>
-        <translation>לא יותר מ-%1 תווים רואים שוב ושוב,  בבקשה</translation>
-    </message>
-    <message>
-        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation>הסיסמה חייבת להכילאות גדול, אותיות מינuscile, מספרים וסימנים (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
-    </message>
-    <message>
-        <source>Password must not contain more than 4 palindrome characters</source>
-        <translation>הסיסמה לא יכולה להכיל יותר מ-4 תווים פלינדרום</translation>
-    </message>
-    <message>
-        <source>Do not use common words and combinations as password</source>
-        <translation>אל תשתמשו בשמות משובחים ותאימות כסיסמה</translation>
-    </message>
-    <message>
-        <source>Create a strong password please</source>
-        <translation>בבקשה תיצור סיסמה חזקה</translation>
-    </message>
-    <message>
-        <source>It does not meet password rules</source>
-        <translation>זה לא משקף את כללי הסיסמה</translation>
-    </message>
-    <message>
-        <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>dccV25::ShortcutModel</name>
-    <message>
-        <source>System</source>
-        <translation>מערכת</translation>
-    </message>
-    <message>
-        <source>Window</source>
-        <translation>חלון</translation>
-    </message>
-    <message>
-        <source>Workspace</source>
-        <translation>מישור עבודה</translation>
-    </message>
-    <message>
-        <source>AssistiveTools</source>
-        <translation> Werkzeuge zur Unterstützung</translation>
-    </message>
-    <message>
-        <source>Custom</source>
-        <translation>מאפיין</translation>
-    </message>
-    <message>
-        <source>None</source>
-        <translation>לא</translation>
-    </message>
-</context>
-<context>
-    <name>deepinid</name>
-    <message>
-        <source>deepin ID</source>
-        <translation>ID של deepin</translation>
-    </message>
-    <message>
-        <source>UOS ID</source>
-        <translation>ID של UOS</translation>
-    </message>
-    <message>
-        <source>Cloud services</source>
-        <translation>שירותי облака</translation>
-    </message>
-</context>
-<context>
-    <name>defaultapp</name>
-    <message>
-        <source>Default App</source>
-        <translation>אפליקציה ברירת המחדל</translation>
-    </message>
-    <message>
-        <source>Set the default application for opening various types of files</source>
-        <translation>הגדר את האפליקציה ברירת המחדל להפתיחה של סוגי קבצים שונים</translation>
-    </message>
-</context>
-<context>
-    <name>defaultappMain</name>
-    <message>
-        <source>Webpage</source>
-        <translation> stron internet</translation>
-    </message>
-    <message>
-        <source>Mail</source>
-        <translation>אימייל</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation>טקסט</translation>
-    </message>
-    <message>
-        <source>Music</source>
-        <translation>מוזיקה</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation>וידאו</translation>
-    </message>
-    <message>
-        <source>Picture</source>
-        <translation>תמונה</translation>
-    </message>
-    <message>
-        <source>Terminal</source>
-        <translation>מסוף פונקציות</translation>
-    </message>
-</context>
-<context>
-    <name>device</name>
-    <message>
-        <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>display</name>
+    <name>Display</name>
     <message>
         <source>Display</source>
         <translation>הצגה</translation>
@@ -3680,7 +1742,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>displayMain</name>
+    <name>DisplayMain</name>
     <message>
         <source>100%</source>
         <translation>100%</translation>
@@ -3851,56 +1913,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>dock</name>
+    <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
         <translation>שולחן עבודה והגדרות משימה</translation>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>keyboard</name>
-    <message>
-        <source>Keyboard</source>
-        <translation>שטיח</translation>
-    </message>
-    <message>
-        <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>keyboardMain</name>
-    <message>
-        <source>Common</source>
-        <translation>הופך נפוץ</translation>
-    </message>
-</context>
-<context>
-    <name>main</name>
+    <name>DockMain</name>
     <message>
         <source>Dock</source>
         <translation>מדOCK</translation>
@@ -3991,15 +2035,366 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>mouse</name>
+    <name>FileAndFolder</name>
+    <message>
+        <source>Allow below apps to access these files and folders:</source>
+        <translation>תאפשר ל_APPS_ להיע朦文件和文件夹</translation>
+    </message>
+    <message>
+        <source>Documents</source>
+        <translation>קבצים של דוקומנטים</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>שולחן העבודה</translation>
+    </message>
+    <message>
+        <source>Pictures</source>
+        <translation>תמונות</translation>
+    </message>
+    <message>
+        <source>Videos</source>
+        <translation>וידאו</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation>מוזיקה</translation>
+    </message>
+    <message>
+        <source>Downloads</source>
+        <translation>הורדות</translation>
+    </message>
+    <message>
+        <source>folder</source>
+        <translation>תיקיה</translation>
+    </message>
+</context>
+<context>
+    <name>FontSizePage</name>
+    <message>
+        <source>Size</source>
+        <translation>גודל</translation>
+    </message>
+    <message>
+        <source>Standard Font</source>
+        <translation>שכיח שפה</translation>
+    </message>
+    <message>
+        <source>Monospaced Font</source>
+        <translation>שפה תווים אחידים</translation>
+    </message>
+</context>
+<context>
+    <name>GeneralPage</name>
+    <message>
+        <source>Power Plans</source>
+        <translation>תנאי כוח</translation>
+    </message>
+    <message>
+        <source>Power Saving Settings</source>
+        <translation>הגדרות שמירה של כוח</translation>
+    </message>
+    <message>
+        <source>Auto power saving on low battery</source>
+        <translation>שמירת כוח אוטומטית ב batterylow</translation>
+    </message>
+    <message>
+        <source>Low battery threshold</source>
+        <translation>סף מינימלי של בATTERY</translation>
+    </message>
+    <message>
+        <source>Auto power saving on battery</source>
+        <translation>שמירת כוח אוטומטית ב batterysystem</translation>
+    </message>
+    <message>
+        <source>Wakeup Settings</source>
+        <translation>הגדרות תעורר</translation>
+    </message>
+    <message>
+        <source>Password is required to wake up the computer</source>
+        <translation>האם יש צורך סיסמה כדי להתחבר למחשב</translation>
+    </message>
+    <message>
+        <source>Password is required to wake up the monitor</source>
+        <translation>האם יש צורך סיסמה כדי להתחבר למדפסת</translation>
+    </message>
+    <message>
+        <source>Shutdown Settings</source>
+        <translation>הגדרות היעדר</translation>
+    </message>
+    <message>
+        <source>Scheduled Shutdown</source>
+        <translation>היעדר מוקדם</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>זמן</translation>
+    </message>
+    <message>
+        <source>Repeat</source>
+        <translation>חזור</translation>
+    </message>
+    <message>
+        <source>Once</source>
+        <translation>פעם</translation>
+    </message>
+    <message>
+        <source>Every day</source>
+        <translation>כל יום</translation>
+    </message>
+    <message>
+        <source>Working days</source>
+        <translation>הימים האכיפתיים</translation>
+    </message>
+    <message>
+        <source>Custom Time</source>
+        <translation>זמן מותאם אישית</translation>
+    </message>
+    <message>
+        <source>Decrease screen brightness on power saver</source>
+        <translation>איבד את הנורמות של המסך בזמן שמירת האנרגיה</translation>
+    </message>
+</context>
+<context>
+    <name>GestureModel</name>
+    <message>
+        <source>Three-finger up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Three-finger down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Three-finger left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Three-finger right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Three-finger tap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger down</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger left</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger right</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Four-finger tap</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>HomePage</name>
+    <message>
+        <source>,</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>InterfaceEffectListview</name>
+    <message>
+        <source>Optimal Performance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Balance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Best Visuals</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable all interface and window effects for efficient system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Enable all interface and window effects for the best visual experience.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Keyboard</name>
+    <message>
+        <source>Keyboard</source>
+        <translation>שטיח</translation>
+    </message>
+    <message>
+        <source>General Settings, input method, shortcuts</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardMain</name>
+    <message>
+        <source>Common</source>
+        <translation>הופך נפוץ</translation>
+    </message>
+</context>
+<context>
+    <name>LangAndFormat</name>
+    <message>
+        <source>Language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>done</source>
+        <translation type="unfinished">נגמר</translation>
+    </message>
+    <message>
+        <source>edit</source>
+        <translation type="unfinished">ערוך</translation>
+    </message>
+    <message>
+        <source>Other languages</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>add</source>
+        <translation type="unfinished">הוסף</translation>
+    </message>
+    <message>
+        <source>Region</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Area</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Operating system and applications may provide you with local content based on your country and region</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Operating system and applications may set date and time formats based on regional formats</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LangsChooserDialog</name>
+    <message>
+        <source>Add language</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
+        <translation>חיפוש</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>ביטול</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>הוסף</translation>
+    </message>
+</context>
+<context>
+    <name>LoginMethod</name>
+    <message>
+        <source>Login method</source>
+        <translation>방식 של כניסה</translation>
+    </message>
+    <message>
+        <source>Password, wechat, biometric authentication, security key</source>
+        <translation>סיסמה, ו챗, אימות פיזי, מפתח אבטחה</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>סיסמה</translation>
+    </message>
+    <message>
+        <source>Modify password</source>
+        <translation>הצג סיסמה</translation>
+    </message>
+    <message>
+        <source>Validity days</source>
+        <translation>ימים בתוקף</translation>
+    </message>
+    <message>
+        <source>Always</source>
+        <translation>תמיד</translation>
+    </message>
+    <message>
+        <source>Reset password</source>
+        <translation type="unfinished">אפס את הסיסמה</translation>
+    </message>
+</context>
+<context>
+    <name>LogoModule</name>
+    <message>
+        <source>Copyright© 2011-%1 Deepin Community</source>
+        <translation>כל הזכויות שמורות © 2011-%1 קהילת Deepin</translation>
+    </message>
+    <message>
+        <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
+        <translation>כל הזכויות שמורות © 2019-%1 חברת תוכנה של וינדט</translation>
+    </message>
+</context>
+<context>
+    <name>MicrophonePage</name>
+    <message>
+        <source>Automatic Noise Suppression</source>
+        <translation>ה.fromStringילינג הסופטי של רעש</translation>
+    </message>
+    <message>
+        <source>Input Volume</source>
+        <translation>볼륨 של הכניסה</translation>
+    </message>
+    <message>
+        <source>Input Level</source>
+        <translation>כמות הכניסה</translation>
+    </message>
+    <message>
+        <source>Input</source>
+        <translation>הכנס</translation>
+    </message>
+    <message>
+        <source>No input device for sound found</source>
+        <translation>לא נמצאו תשתית להכנסה של סאונד</translation>
+    </message>
+    <message>
+        <source>Input Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
         <translation>עכבר ומכ ifndef TOUCHPAD</translation>
@@ -4010,7 +2405,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>mouseMain</name>
+    <name>MouseMain</name>
     <message>
         <source>Common</source>
         <translation>נורמלי</translation>
@@ -4025,7 +2420,132 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>notification</name>
+    <name>MousePage</name>
+    <message>
+        <source>Mouse</source>
+        <translation>מקלט</translation>
+    </message>
+    <message>
+        <source>Pointer Speed</source>
+        <translation>מהירות מיקום</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation>איטי</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation>חכם</translation>
+    </message>
+    <message>
+        <source>Pointer Size</source>
+        <translation>גודל העיטור</translation>
+    </message>
+    <message>
+        <source>Mouse Acceleration</source>
+        <translation>הכפלה של העיטור</translation>
+    </message>
+    <message>
+        <source>Disable touchpad when a mouse is connected</source>
+        <translation>השבת את המוטה של המקלדת כאשר מקלט נסובך</translation>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation>הספinner טבעי</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation type="unfinished">קטן</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation type="unfinished">בינוני</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished">גדול</translation>
+    </message>
+    <message>
+        <source>X-Large</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Some apps require logout or system restart to take effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>MyDevice</name>
+    <message>
+        <source>My Devices</source>
+        <translation>הустройств שלי</translation>
+    </message>
+</context>
+<context>
+    <name>NativeInfoPage</name>
+    <message>
+        <source>UOS</source>
+        <translation>UOS</translation>
+    </message>
+    <message>
+        <source>Computer name</source>
+        <translation>שם המחשב</translation>
+    </message>
+    <message>
+        <source>It cannot start or end with dashes</source>
+        <translation>לא ניתן להתחיל או להסתיים בנקודות פסיק</translation>
+    </message>
+    <message>
+        <source>OS Name</source>
+        <translation>שם הOS</translation>
+    </message>
+    <message>
+        <source>Version</source>
+        <translation>גרסה</translation>
+    </message>
+    <message>
+        <source>Edition</source>
+        <translation>dition</translation>
+    </message>
+    <message>
+        <source>Type</source>
+        <translation>סוג</translation>
+    </message>
+    <message>
+        <source>bit</source>
+        <translation>bit</translation>
+    </message>
+    <message>
+        <source>Authorization</source>
+        <translation>השכלה</translation>
+    </message>
+    <message>
+        <source>System installation time</source>
+        <translation>זמן התקנה של מערכת</translation>
+    </message>
+    <message>
+        <source>Kernel</source>
+        <translation>כרnice</translation>
+    </message>
+    <message>
+        <source>Graphics Platform</source>
+        <translation>תמונה שטח</translation>
+    </message>
+    <message>
+        <source>Processor</source>
+        <translation>معالג</translation>
+    </message>
+    <message>
+        <source>Memory</source>
+        <translation>זיכרון</translation>
+    </message>
+    <message>
+        <source>1~63 characters please</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
         <translation>מצב DND, התראות של האפליקציות</translation>
@@ -4036,7 +2556,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>notificationMain</name>
+    <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
         <translation>הגדרות הגנה מהתראות</translation>
@@ -4091,14 +2611,130 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>personalization</name>
+    <name>OtherDevice</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>устройств אחרים</translation>
+    </message>
+    <message>
+        <source>Show Bluetooth devices without names</source>
+        <translation>הצג-devices של Bluetooth ללא שמות</translation>
+    </message>
+</context>
+<context>
+    <name>PasswordLayout</name>
+    <message>
+        <source>Current password</source>
+        <translation>סיסמה נוכחית</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>נדרש</translation>
+    </message>
+    <message>
+        <source>Weak</source>
+        <translation>ضعيف</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <translation>בינוני</translation>
+    </message>
+    <message>
+        <source>Strong</source>
+        <translation> חזק</translation>
+    </message>
+    <message>
+        <source>Repeat Password</source>
+        <translation>אתחול סיסמה</translation>
+    </message>
+    <message>
+        <source>Password hint</source>
+        <translation>אזהרה סיסמה</translation>
+    </message>
+    <message>
+        <source>Optional</source>
+        <translation>לא חובה</translation>
+    </message>
+    <message>
+        <source>Password cannot be empty</source>
+        <translation>הסיסמה不能为空</translation>
+    </message>
+    <message>
+        <source>Passwords do not match</source>
+        <translation>הסיסמאות לא תואמות</translation>
+    </message>
+    <message>
+        <source>The hint is visible to all users. Do not include the password here.</source>
+        <translation>האזהרה מופיעה לכל משתמשים. אל תכתוב כאן את הסיסמה.</translation>
+    </message>
+    <message>
+        <source>New password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>New password should differ from the current one</source>
+        <translation>הסיסמה החדשה צריכה להיות שונה מהסיסמה הנוכחית</translation>
+    </message>
+    <message>
+        <source>The password cannot be the same as the username.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PasswordModifyDialog</name>
+    <message>
+        <source>Modify password</source>
+        <translation>לכבות את הסיסמה</translation>
+    </message>
+    <message>
+        <source>Reset password</source>
+        <translation>אפס את הסיסמה</translation>
+    </message>
+    <message>
+        <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
+        <translation>אורך הסיסמה צריך להיות לפחות 8 תווים, והסיסמה צריכה לכלול תערובת של לפחות 3 מהלולאות הבאות: אותיות גדולות, אותיות קטנות, מספרים וסימנים. הסיסמה הזו היא יותר בטוחה.</translation>
+    </message>
+    <message>
+        <source>Resetting the password will clear the data stored in the keyring.</source>
+        <translation>איפוס הסיסמה ימחק את הנתונים שמורים בקירחון.</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>ביטול</translation>
+    </message>
+</context>
+<context>
+    <name>Personalization</name>
     <message>
         <source>Personalization</source>
         <translation>ת&lt;small&gt;אילתה אישית</translation>
     </message>
 </context>
 <context>
-    <name>personalizationMain</name>
+    <name>PersonalizationInterface</name>
+    <message>
+        <source>Light</source>
+        <translation>בהיר</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>אוטומטי</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>😉</translation>
+    </message>
+    <message>
+        <source>Picker service is not available</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid color format: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PersonalizationMain</name>
     <message>
         <source>Theme</source>
         <translation>ת&lt;small&gt;אילתה</translation>
@@ -4145,11 +2781,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>power</name>
+    <name>PersonalizationWorker</name>
+    <message>
+        <source>Custom</source>
+        <translation> Cástom</translation>
+    </message>
+</context>
+<context>
+    <name>PluginArea</name>
+    <message>
+        <source>Plugin Area</source>
+        <translation>אזור הממוצעים</translation>
+    </message>
+    <message>
+        <source>Select which icons appear in the Dock</source>
+        <translation>בחר את הסמלים שמת.ToDateTime</translation>
+    </message>
+</context>
+<context>
+    <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
         <translation>הגדרות שמירה של כוח, מסך ותיקור</translation>
@@ -4160,7 +2814,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>powerMain</name>
+    <name>PowerMain</name>
     <message>
         <source>General</source>
         <translation>כללי</translation>
@@ -4187,7 +2841,111 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>privacy</name>
+    <name>PowerOperatorModel</name>
+    <message>
+        <source>Shut down</source>
+        <translation> TURN OFF</translation>
+    </message>
+    <message>
+        <source>Suspend</source>
+        <translation>הסРИ</translation>
+    </message>
+    <message>
+        <source>Hibernate</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Turn off the monitor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show the shutdown Interface</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Do nothing</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PowerPage</name>
+    <message>
+        <source>Screen and Suspend</source>
+        <translation type="unfinished">מסך ופסק פעילות</translation>
+    </message>
+    <message>
+        <source>Turn off the monitor after</source>
+        <translation type="unfinished">כבה את מסך המחשב לאחר</translation>
+    </message>
+    <message>
+        <source>Lock screen after</source>
+        <translation type="unfinished">לOCK מסך המחשב לאחר</translation>
+    </message>
+    <message>
+        <source>Computer suspends after</source>
+        <translation type="unfinished">מחשב הפסק פעילות לאחר</translation>
+    </message>
+    <message>
+        <source>When the lid is closed</source>
+        <translation type="unfinished">כאשר סילוק הסלע נסגר</translation>
+    </message>
+    <message>
+        <source>When the power button is pressed</source>
+        <translation type="unfinished">כאשר לחץ על כפתור האמצעי</translation>
+    </message>
+</context>
+<context>
+    <name>PowerPlansListview</name>
+    <message>
+        <source>High Performance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Balance Performance</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Balanced</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Power Saver</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Balancing performance and battery life, automatically adjusted according to usage</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PowerWorker</name>
+    <message>
+        <source>Minutes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hour</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Never</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Privacy</name>
     <message>
         <source>Privacy and Security</source>
         <translation>פרטיות ובטיחון</translation>
@@ -4198,7 +2956,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>privacyMain</name>
+    <name>PrivacyMain</name>
     <message>
         <source>Camera</source>
         <translation>كاميرا</translation>
@@ -4217,7 +2975,413 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>sound</name>
+    <name>PrivacyPolicyPage</name>
+    <message>
+        <source>Privacy Policy</source>
+        <translation type="unfinished">מדיניות פרטיות</translation>
+    </message>
+    <message>
+        <source>Copy Link Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PwqualityManager</name>
+    <message>
+        <source>Password cannot be empty</source>
+        <translation type="unfinished">הסיסמה不能为空</translation>
+    </message>
+    <message>
+        <source>Password must have at least %1 characters</source>
+        <translation type="unfinished">הסיסמה חייבת להכיל לפחות %1 תווים</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation type="unfinished">הסיסמה חייבת להכיל לא יותר מ-%1 תווים</translation>
+    </message>
+    <message>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>הסיסמה יכולה להכיל רק אותיות אנגלית (🙂-🙂), מספרים או סמלים מיוחדים (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+    </message>
+    <message>
+        <source>No more than %1 palindrome characters please</source>
+        <translation>אינקסם יותר מ%1 סימנים פלינדרום, אנא</translation>
+    </message>
+    <message>
+        <source>No more than %1 monotonic characters please</source>
+        <translation>אינקסם יותר מ%1 סימנים רצופים, אנא</translation>
+    </message>
+    <message>
+        <source>No more than %1 repeating characters please</source>
+        <translation>אינקסם יותר מ%1 סימנים מופ�מים, אנא</translation>
+    </message>
+    <message>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>הסיסמה חייבת להכיל אותיות גדולות, אותיות קטנות, מספרים וסמלים (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than 4 palindrome characters</source>
+        <translation>הסיסמה לא תכיל יותר מ-4 סימנים פלינדרום</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation>אל תשתמש בסיסמאות משותפות או תכונות</translation>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation>בבקשה צור סיסמה חזקה</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation>זה לא מקיים את כללי הסיסמה</translation>
+    </message>
+</context>
+<context>
+    <name>QObject</name>
+    <message>
+        <source>Control Center</source>
+        <translation>מרכז kontrol</translation>
+    </message>
+    <message>
+        <source>Activated</source>
+        <translation>מפעיל</translation>
+    </message>
+    <message>
+        <source>View</source>
+        <translation>הצג</translation>
+    </message>
+    <message>
+        <source>To be activated</source>
+        <translation>להפעיל</translation>
+    </message>
+    <message>
+        <source>Activate</source>
+        <translation>פעיל</translation>
+    </message>
+    <message>
+        <source>Expired</source>
+        <translation>הסתיימה</translation>
+    </message>
+    <message>
+        <source>In trial period</source>
+        <translation>בתקופה ניסיון</translation>
+    </message>
+    <message>
+        <source>Trial expired</source>
+        <translation>תקופת הניסיון הסתיימה</translation>
+    </message>
+    <message>
+        <source>dde-control-center</source>
+        <translation>dde-control-center</translation>
+    </message>
+    <message>
+        <source>Touch Screen Settings</source>
+        <translation>הגדרות מסך-touch</translation>
+    </message>
+    <message>
+        <source>The settings of touch screen changed</source>
+        <translation>ה הגדרות מסך-touch נמשכו</translation>
+    </message>
+    <message>
+        <source>This system wallpaper is locked. Please contact your admin.</source>
+        <translation>ה)(((( [[[ מותקן של מערכת זה מוטקן. אנא התató את המנהל שלך]]]] ((((ה</translation>
+    </message>
+    <message>
+        <source>%1 (%2)</source>
+        <comment>Language and region name, e.g. Chinese (China)</comment>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RegionFormatDialog</name>
+    <message>
+        <source>Search</source>
+        <translation>חיפוש</translation>
+    </message>
+    <message>
+        <source>Default formats</source>
+        <translation>צורות ברירת מחדל</translation>
+    </message>
+    <message>
+        <source>First day of week</source>
+        <translation>יום ראשון של שבוע</translation>
+    </message>
+    <message>
+        <source>Short date</source>
+        <translation>תאריך קצר</translation>
+    </message>
+    <message>
+        <source>Long date</source>
+        <translation>תאריך מאריך</translation>
+    </message>
+    <message>
+        <source>Short time</source>
+        <translation>שעה קצרה</translation>
+    </message>
+    <message>
+        <source>Long time</source>
+        <translation>שעה מאריך</translation>
+    </message>
+    <message>
+        <source>Currency symbol</source>
+        <translation>סמל מטבע</translation>
+    </message>
+    <message>
+        <source>Digit</source>
+        <translation>מספר</translation>
+    </message>
+    <message>
+        <source>Paper size</source>
+        <translation>גודל עמודה</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>ביטול</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>שמור</translation>
+    </message>
+    <message>
+        <source>Regional format</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>RegionsChooserWindow</name>
+    <message>
+        <source>Search</source>
+        <translation>חיפוש</translation>
+    </message>
+</context>
+<context>
+    <name>RegisterDialog</name>
+    <message>
+        <source>Set a Password</source>
+        <translation>設置密碼</translation>
+    </message>
+    <message>
+        <source>8-64 characters</source>
+        <translation>8-64 תווים</translation>
+    </message>
+    <message>
+        <source>Repeat the password</source>
+        <translation>הסיט סיסמה נוספת</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>ביטול</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>#afirmar</translation>
+    </message>
+    <message>
+        <source>Passwords don&apos;t match</source>
+        <translation>הסיסמאות לא תואמות</translation>
+    </message>
+</context>
+<context>
+    <name>ScheduledShutdownDialog</name>
+    <message>
+        <source>Customize repetition time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">שמור</translation>
+    </message>
+</context>
+<context>
+    <name>ScreenSaverPage</name>
+    <message>
+        <source>Screensaver</source>
+        <translation>ה哈哈哈</translation>
+    </message>
+    <message>
+        <source>preview</source>
+        <translation>תצוגה מקדימה</translation>
+    </message>
+    <message>
+        <source>Personalized screensaver</source>
+        <translation>螢幕保護程式</translation>
+    </message>
+    <message>
+        <source>setting</source>
+        <translation>הגדרות</translation>
+    </message>
+    <message>
+        <source>idle time</source>
+        <translation>זמן בזבז</translation>
+    </message>
+    <message>
+        <source>1 minute</source>
+        <translation>1 דקות</translation>
+    </message>
+    <message>
+        <source>5 minute</source>
+        <translation>5 דקות</translation>
+    </message>
+    <message>
+        <source>10 minute</source>
+        <translation>10 דקות</translation>
+    </message>
+    <message>
+        <source>15 minute</source>
+        <translation>15 דקות</translation>
+    </message>
+    <message>
+        <source>30 minute</source>
+        <translation>30 דקות</translation>
+    </message>
+    <message>
+        <source>1 hour</source>
+        <translation>שעה</translation>
+    </message>
+    <message>
+        <source>never</source>
+        <translation>никогда</translation>
+    </message>
+    <message>
+        <source>Password required for recovery</source>
+        <translation>האם יש צורך בסיס סיסמה כדי להחזיר</translation>
+    </message>
+    <message>
+        <source>Picture slideshow screensaver</source>
+        <translation>הצג את התמונה בהצגה גלובית</translation>
+    </message>
+    <message>
+        <source>System screensaver</source>
+        <translation>הצג את מסגף מערכת</translation>
+    </message>
+</context>
+<context>
+    <name>SearchableListViewPopup</name>
+    <message>
+        <source>Search</source>
+        <translation>חיפוש</translation>
+    </message>
+    <message>
+        <source>No search results</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ShortcutSettingDialog</name>
+    <message>
+        <source>Add custom shortcut</source>
+        <translation>הוסף מקצט אישי</translation>
+    </message>
+    <message>
+        <source>Name:</source>
+        <translation>שם:</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>נדרש</translation>
+    </message>
+    <message>
+        <source>Command:</source>
+        <translation>פקודה:</translation>
+    </message>
+    <message>
+        <source>Shortcut</source>
+        <translation>מקצט</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>לא קיים</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>בטל</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation>הוסף</translation>
+    </message>
+    <message>
+        <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Change custom shortcut</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>please enter a shortcut key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">שמור</translation>
+    </message>
+    <message>
+        <source>click Save to make this shortcut key effective</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>click Add to make this shortcut key effective</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Shortcuts</name>
+    <message>
+        <source>Shortcuts</source>
+        <translation>מקצצים</translation>
+    </message>
+    <message>
+        <source>System shortcut, custom shortcut</source>
+        <translation>מקצט מערכת, מקצט אישי</translation>
+    </message>
+    <message>
+        <source>Search shortcuts</source>
+        <translation>מקצצים לחיפוש</translation>
+    </message>
+    <message>
+        <source>done</source>
+        <translation>נגמר</translation>
+    </message>
+    <message>
+        <source>edit</source>
+        <translation>ערוך</translation>
+    </message>
+    <message>
+        <source>Click</source>
+        <translation>לחץ</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>ביטול</translation>
+    </message>
+    <message>
+        <source>or</source>
+        <translation>או</translation>
+    </message>
+    <message>
+        <source>Replace</source>
+        <translation>החלף</translation>
+    </message>
+    <message>
+        <source>Restore default</source>
+        <translation>אשנה לבררת</translation>
+    </message>
+    <message>
+        <source>Add custom shortcut</source>
+        <translation>הוסף מקצט אישי</translation>
+    </message>
+    <message>
+        <source>please enter a new shortcut key</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Sound</name>
     <message>
         <source>Sound</source>
         <translation>음을</translation>
@@ -4228,7 +3392,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>soundMain</name>
+    <name>SoundDevicemanagesPage</name>
+    <message>
+        <source>Output Devices</source>
+        <translation>устройств יציאה</translation>
+    </message>
+    <message>
+        <source>Select whether to enable the devices</source>
+        <translation>בחר אם להפעיל את הустройств</translation>
+    </message>
+    <message>
+        <source>Input Devices</source>
+        <translation>устройств כניסה</translation>
+    </message>
+</context>
+<context>
+    <name>SoundEffectsPage</name>
+    <message>
+        <source>Sound Effects</source>
+        <translation>הפקות קול</translation>
+    </message>
+</context>
+<context>
+    <name>SoundMain</name>
     <message>
         <source>Settings</source>
         <translation>הגדרות</translation>
@@ -4247,11 +3433,152 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>system</name>
+    <name>SoundModel</name>
+    <message>
+        <source>Boot up</source>
+        <translation>הפעלה</translation>
+    </message>
+    <message>
+        <source>Shut down</source>
+        <translation>הסגר</translation>
+    </message>
+    <message>
+        <source>Log out</source>
+        <translation>יציאה</translation>
+    </message>
+    <message>
+        <source>Wake up</source>
+        <translation>akeup</translation>
+    </message>
+    <message>
+        <source>Volume +/-</source>
+        <translation>用微信翻译</translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation>Thông báo</translation>
+    </message>
+    <message>
+        <source>Low battery</source>
+        <translation>בatterיה נמוכה</translation>
+    </message>
+    <message>
+        <source>Send icon in Launcher to Desktop</source>
+        <translation>שלח סמל מlauncher לשולחן עבודה</translation>
+    </message>
+    <message>
+        <source>Empty Trash</source>
+        <translation>אפס את/recycle bin</translation>
+    </message>
+    <message>
+        <source>Plug in</source>
+        <translation>העתק</translation>
+    </message>
+    <message>
+        <source>Plug out</source>
+        <translation>העתק</translation>
+    </message>
+    <message>
+        <source>Removable device connected</source>
+        <translation>DEVICE-CONNECTED</translation>
+    </message>
+    <message>
+        <source>Removable device removed</source>
+        <translation>DEVICE-REMOVED</translation>
+    </message>
+    <message>
+        <source>Error</source>
+        <translation>שגיאה</translation>
+    </message>
+</context>
+<context>
+    <name>SpeakerPage</name>
+    <message>
+        <source>Mode</source>
+        <translation>מצב</translation>
+    </message>
+    <message>
+        <source>Output Volume</source>
+        <translation>היקף יציאה</translation>
+    </message>
+    <message>
+        <source>Volume Boost</source>
+        <translation>העלאה ב-volume</translation>
+    </message>
+    <message>
+        <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
+        <translation>אם volume גדול מ-100%, הוא עשוי לפגוע ב음을 ולהיות מסוכן לש (*)(device)</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation>שמאל</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>ימין</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>פלט</translation>
+    </message>
+    <message>
+        <source>No output device for sound found</source>
+        <translation>לא נמצאה מכשיר פלט ל-sound</translation>
+    </message>
+    <message>
+        <source>Left Right Balance</source>
+        <translation>균형 בין שמאליים-ימיניים</translation>
+    </message>
+    <message>
+        <source>Merge left and right channels into a single channel</source>
+        <translation>לכלול את ערוצי השמאליים והימיניים לערוץ אחד</translation>
+    </message>
+    <message>
+        <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
+        <translation>האם האודיו ישבח אוטומטית כאשר מכשיר האודיו הנוכחי נתקל</translation>
+    </message>
+    <message>
+        <source>Mono Audio</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto Pause</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Output Device</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SyncInfoListModel</name>
+    <message>
+        <source>Sound</source>
+        <translation>음을</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation>חשמל</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation>ה *)&amp;mouse</translation>
+    </message>
+    <message>
+        <source>Update</source>
+        <translation>עדכון</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation>שימור מסך</translation>
+    </message>
+</context>
+<context>
+    <name>System</name>
     <message>
         <source>Common settings</source>
         <translation>הגדרות כלליות</translation>
@@ -4262,14 +3589,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>systemInfo</name>
+    <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>מידע נוסף</translation>
     </message>
 </context>
 <context>
-    <name>systemInfoMain</name>
+    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
         <translation> CrushersPC</translation>
@@ -4308,11 +3635,184 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
-    <name>touchscreen</name>
+    <name>ThemeSelectView</name>
+    <message>
+        <source>More Wallpapers</source>
+        <translation>מגזר קבצי שים מסך נוספים</translation>
+    </message>
+</context>
+<context>
+    <name>TimeAndDate</name>
+    <message>
+        <source>Auto sync time</source>
+        <translation>הפעלת השתוא אוטומטי זמן</translation>
+    </message>
+    <message>
+        <source>Ntp server</source>
+        <translation>שרת NTP</translation>
+    </message>
+    <message>
+        <source>System date and time</source>
+        <translation>תאריך וזמן מערכת</translation>
+    </message>
+    <message>
+        <source>Customize</source>
+        <translation> Cáןוס</translation>
+    </message>
+    <message>
+        <source>Settings</source>
+        <translation>הגדרות</translation>
+    </message>
+    <message>
+        <source>Server address</source>
+        <translation>כתובת שרת</translation>
+    </message>
+    <message>
+        <source>Required</source>
+        <translation>נדרש</translation>
+    </message>
+    <message>
+        <source>The ntp server address cannot be empty</source>
+        <translation>כתובתשרת ntp不能为空</translation>
+    </message>
+    <message>
+        <source>Use 24-hour format</source>
+        <translation>استخدم تنسيق 24 ساعة</translation>
+    </message>
+    <message>
+        <source>system time zone</source>
+        <translation>منطقة الزمان النظامية</translation>
+    </message>
+    <message>
+        <source>Timezone list</source>
+        <translation>قائمة المناطق الزمنية</translation>
+    </message>
+    <message>
+        <source>Add</source>
+        <translation type="unfinished">הוסף</translation>
+    </message>
+</context>
+<context>
+    <name>TimeRange</name>
+    <message>
+        <source>from</source>
+        <translation>מ</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>עד</translation>
+    </message>
+</context>
+<context>
+    <name>TimeoutDialog</name>
+    <message>
+        <source>Save the display settings?</source>
+        <translation>שמור הגדרות התצוגה</translation>
+    </message>
+    <message>
+        <source>Settings will be reverted in %1s.</source>
+        <translation>ת revenות הגדרותיו ב %1 שניות.</translation>
+    </message>
+    <message>
+        <source>Revert</source>
+        <translation>חזרה</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>שמור</translation>
+    </message>
+</context>
+<context>
+    <name>TimezoneDialog</name>
+    <message>
+        <source>Add time zone</source>
+        <translation>הוסףzonת ime</translation>
+    </message>
+    <message>
+        <source>Determine the time zone based on the current location</source>
+        <translation>קבע אתzonת ime לפי המיקום הנוכחי</translation>
+    </message>
+    <message>
+        <source>Time zone:</source>
+        <translation>zonת ime:</translation>
+    </message>
+    <message>
+        <source>Nearest City:</source>
+        <translation> עיר קרובת:</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>בטל</translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation>שמור</translation>
+    </message>
+</context>
+<context>
+    <name>TouchScreen</name>
+    <message>
+        <source>TouchScreen</source>
+        <translation>מסך משיק</translation>
+    </message>
+    <message>
+        <source>Set up here when connecting the touch screen</source>
+        <translation>הגדר כאן בעת תצוגת מסך המשיק</translation>
+    </message>
+</context>
+<context>
+    <name>Touchpad</name>
+    <message>
+        <source>Basic Settings</source>
+        <translation>הגדרות בסיסיות</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation>מגנטית משיק</translation>
+    </message>
+    <message>
+        <source>Pointer Speed</source>
+        <translation>מהירות העיגול</translation>
+    </message>
+    <message>
+        <source>Slow</source>
+        <translation>איטי</translation>
+    </message>
+    <message>
+        <source>Fast</source>
+        <translation>רחב</translation>
+    </message>
+    <message>
+        <source>Disable touchpad during input</source>
+        <translation> Dezקוף מגנטית המשיק במהלך הכניסה</translation>
+    </message>
+    <message>
+        <source>Tap to Click</source>
+        <translation>לחץ כדי לחץ</translation>
+    </message>
+    <message>
+        <source>Natural Scrolling</source>
+        <translation>התקדמות טבעי</translation>
+    </message>
+    <message>
+        <source>Three-finger gestures</source>
+        <translation>ה惴 של שלושה אצבעות</translation>
+    </message>
+    <message>
+        <source>Four-finger gestures</source>
+        <translation>ה惴 של ארבעה אצבעות</translation>
+    </message>
+    <message>
+        <source>Gestures</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Touchscreen</name>
     <message>
         <source>Touchscreen</source>
         <translation>מסך טוקן</translation>
@@ -4323,14 +3823,52 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>touchscreenMain</name>
+    <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
         <translation>ה😉מגניב</translation>
     </message>
 </context>
 <context>
-    <name>wacom</name>
+    <name>UserExperienceProgramPage</name>
+    <message>
+        <source>Join User Experience Program</source>
+        <translation>הצטרף לתוכנית ניסוי משתמש</translation>
+    </message>
+    <message>
+        <source>Copy Link Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>VerifyDialog</name>
+    <message>
+        <source>Security Verification</source>
+        <translation>הוכחת בטיחות</translation>
+    </message>
+    <message>
+        <source>The action is sensitive, please enter the login password first</source>
+        <translation>הפעולה היא רגישת, אנא הכנס את סיסמת הכניסה קודם</translation>
+    </message>
+    <message>
+        <source>8-64 characters</source>
+        <translation>8-64 תווים</translation>
+    </message>
+    <message>
+        <source>Forgot Password?</source>
+        <translation>שכחתי סיסמה?</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>בטל</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation>אשר</translation>
+    </message>
+</context>
+<context>
+    <name>Wacom</name>
     <message>
         <source>wacom</source>
         <translation>wacom</translation>
@@ -4341,7 +3879,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>wacomMain</name>
+    <name>WacomMain</name>
     <message>
         <source>wacom</source>
         <translation>wacom</translation>
@@ -4364,11 +3902,475 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WallpaperPage</name>
+    <message>
+        <source>wallpaper</source>
+        <translation>תמונה מסך</translation>
+    </message>
+    <message>
+        <source>My pictures</source>
+        <translation>תמונות שלי</translation>
+    </message>
+    <message>
+        <source>System Wallpaper</source>
+        <translation>תמונה מסך מערכת</translation>
+    </message>
+    <message>
+        <source>Solid color wallpaper</source>
+        <translation>.Snירחית צבע ثابت</translation>
+    </message>
+    <message>
+        <source>Customizable wallpapers</source>
+        <translation>.Snירחיות מ定制化</translation>
+    </message>
+    <message>
+        <source>fill style</source>
+        <translation>סגנון למלא</translation>
+    </message>
+    <message>
+        <source>Automatic wallpaper change</source>
+        <translation>שינוי נייר הירח אוטומטי</translation>
+    </message>
+    <message>
+        <source>never</source>
+        <translation>никогда</translation>
+    </message>
+    <message>
+        <source>30 second</source>
+        <translation>30 שניות</translation>
+    </message>
+    <message>
+        <source>1 minute</source>
+        <translation>1 דקה</translation>
+    </message>
+    <message>
+        <source>5 minute</source>
+        <translation>5 דקות</translation>
+    </message>
+    <message>
+        <source>10 minute</source>
+        <translation>10 דקות</translation>
+    </message>
+    <message>
+        <source>15 minute</source>
+        <translation>15 דקות</translation>
+    </message>
+    <message>
+        <source>30 minute</source>
+        <translation>30 דקות</translation>
+    </message>
+    <message>
+        <source>login</source>
+        <translation>כניסה</translation>
+    </message>
+    <message>
+        <source>wake up</source>
+        <translation>akeup</translation>
+    </message>
+    <message>
+        <source>Live Wallpaper</source>
+        <translation>Snירחית חיה</translation>
+    </message>
+    <message>
+        <source>1 hour</source>
+        <translation>1 שעה</translation>
+    </message>
+    <message>
+        <source>System Wallpapers</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WallpaperSelectView</name>
+    <message>
+        <source>unfold</source>
+        <translation> desarROLLO</translation>
+    </message>
+    <message>
+        <source>Set lock screen</source>
+        <translation>הגדר מסך ההסעה</translation>
+    </message>
+    <message>
+        <source>Set desktop</source>
+        <translation>הגדר שולחן עבודה</translation>
+    </message>
+    <message>
+        <source>show all - %1 items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Picture</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>WindowEffectPage</name>
+    <message>
+        <source>Interface and Effects</source>
+        <translation>רפרון והפקות</translation>
+    </message>
+    <message>
+        <source>Window Settings</source>
+        <translation>הגדרות נוחות הווינטת</translation>
+    </message>
+    <message>
+        <source>Window rounded corners</source>
+        <translation>קצוות עגולים של החלון</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>לא כלום</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation type="unfinished">קטן</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished">גדול</translation>
+    </message>
+    <message>
+        <source>Enable transparent effects when moving windows</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Window Minimize Effect</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scale</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Magic Lamp</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Opacity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Low</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>High</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scroll Bars</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show on scrolling</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Keep shown</source>
+        <translation type="unfinished">הישאר מוצג</translation>
+    </message>
+    <message>
+        <source>Compact Display</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>If enabled, more content is displayed in the window.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Title Bar Height</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Only suitable for application window title bars drawn by the window manager.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Extremely small</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe size of window rounded corners</comment>
+        <translation type="unfinished">בינוני</translation>
+    </message>
+    <message>
+        <source>Medium</source>
+        <comment>describe height of window title bar</comment>
+        <translation type="unfinished">בינוני</translation>
+    </message>
+</context>
+<context>
+    <name>dcc::Locale::dialectNames</name>
+    <message>
+        <source>Traditional Chinese (Chinese Hong Kong)</source>
+        <translation>סינית מסורתית (סינית הונג קונג)</translation>
+    </message>
+    <message>
+        <source>Traditional Chinese (Chinese Taiwan)</source>
+        <translation>סינית מסורתית (סינית טיוואן)</translation>
+    </message>
+    <message>
+        <source>Min Nan Chinese</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dcc::Locale::regionNames</name>
+    <message>
+        <source>Taiwan China</source>
+        <translation>טיוואן סין</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::AccountsController</name>
+    <message>
+        <source>Username must be between 3 and 32 characters</source>
+        <translation>שם משתמש חייב להיות בין 3 ל-32 תווים</translation>
+    </message>
+    <message>
+        <source>The first character must be a letter or number</source>
+        <translation>האות הראשונה חייבת להיות אות או מספר</translation>
+    </message>
+    <message>
+        <source>Your username should not only have numbers</source>
+        <translation>שם משתמש שלך לא יכול להכיל רק מספרים</translation>
+    </message>
+    <message>
+        <source>The username has been used by other user accounts</source>
+        <translation>שם משתמש זה בשימוש על ידי חשבון משתמש אחר</translation>
+    </message>
+    <message>
+        <source>The full name is too long</source>
+        <translation>שם מלא הוא מדי ארוך</translation>
+    </message>
+    <message>
+        <source>The full name has been used by other user accounts</source>
+        <translation>שם מלא זה בשימוש על ידי חשבון משתמש אחר</translation>
+    </message>
+    <message>
+        <source>Wrong password</source>
+        <translation>סיסמה לא נכונה</translation>
+    </message>
+    <message>
+        <source>Standard User</source>
+        <translation>משתמש סטנדרטי</translation>
+    </message>
+    <message>
+        <source>Administrator</source>
+        <translation>מנהל</translation>
+    </message>
+    <message>
+        <source>Customized</source>
+        <translation> Cástuizado</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::AccountsWorker</name>
+    <message>
+        <source>Your host was removed from the domain server successfully</source>
+        <translation>המארח שלך נמחק מהשרת של המתחום בהצלחה</translation>
+    </message>
+    <message>
+        <source>Your host joins the domain server successfully</source>
+        <translation>המארח שלך הצטרף לשרת של המתחום בהצלחה</translation>
+    </message>
+    <message>
+        <source>Your host failed to leave the domain server</source>
+        <translation>המארח שלך נכשל להיעלם מהשרת של המתחום</translation>
+    </message>
+    <message>
+        <source>Your host failed to join the domain server</source>
+        <translation>המארח שלך נכשל להצטרף לשרת של המתחום</translation>
+    </message>
+    <message>
+        <source>AD domain settings</source>
+        <translation>הגדרות מתחום AD</translation>
+    </message>
+    <message>
+        <source>Password not match</source>
+        <translation>הסיסמאות לא תואמות</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::AvatarTypesModel</name>
+    <message>
+        <source>Dimensional</source>
+        <translation>מימדי</translation>
+    </message>
+    <message>
+        <source>Flat</source>
+        <translation>שטוח</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::FaceAuthController</name>
+    <message>
+        <source>Faceprint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Use your face to unlock the device and make settings later</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::FingerprintAuthController</name>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="unfinished">האצבע</translation>
+    </message>
+    <message>
+        <source>Place your finger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lift your finger</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lift your finger and place it on the sensor again</source>
+        <translation type="unfinished">הרים את האצבע והניח אותה על הסינזור שוב</translation>
+    </message>
+    <message>
+        <source>Lift your finger and do that again</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scan Suspended</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Scan the edges of your fingerprint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Place the edges of your fingerprint on the sensor</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Adjust the position to scan the edges of your fingerprint</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Fingerprint added</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::IrisAuthController</name>
+    <message>
+        <source>Iris</source>
+        <translation type="unfinished">איסר</translation>
+    </message>
+    <message>
+        <source>Use your iris to unlock the device and make settings later</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::KeyboardController</name>
+    <message>
+        <source>This shortcut conflicts with [%1]</source>
+        <translation>הקצרה הזו מתנגשת עם [%1]</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::PwqualityManager</name>
+    <message>
+        <source>Password cannot be empty</source>
+        <translation>הסיסמה不能为空</translation>
+    </message>
+    <message>
+        <source>Password must have at least %1 characters</source>
+        <translation>הסיסמה חייבת להכיל לפחות %1 תווים</translation>
+    </message>
+    <message>
+        <source>Password must be no more than %1 characters</source>
+        <translation>הסיסמה חייבת להכיל לא יותר מ-%1 תווים</translation>
+    </message>
+    <message>
+        <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>הסיסמה יכולת להכיל רק אותיות אנגלית (😉שונה בין גדול小额写)，数字或特殊符号 (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+    </message>
+    <message>
+        <source>No more than %1 palindrome characters please</source>
+        <translation>לא יותר מ-%1 תווים פלינדרום,  בבקשה</translation>
+    </message>
+    <message>
+        <source>No more than %1 monotonic characters please</source>
+        <translation>לא יותר מ-%1 תווים רציפים,  בבקשה</translation>
+    </message>
+    <message>
+        <source>No more than %1 repeating characters please</source>
+        <translation>לא יותר מ-%1 תווים רואים שוב ושוב,  בבקשה</translation>
+    </message>
+    <message>
+        <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
+        <translation>הסיסמה חייבת להכילאות גדול, אותיות מינuscile, מספרים וסימנים (~`!@#$%^&amp;*()-_+=|{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
+    </message>
+    <message>
+        <source>Password must not contain more than 4 palindrome characters</source>
+        <translation>הסיסמה לא יכולה להכיל יותר מ-4 תווים פלינדרום</translation>
+    </message>
+    <message>
+        <source>Do not use common words and combinations as password</source>
+        <translation>אל תשתמשו בשמות משובחים ותאימות כסיסמה</translation>
+    </message>
+    <message>
+        <source>Create a strong password please</source>
+        <translation>בבקשה תיצור סיסמה חזקה</translation>
+    </message>
+    <message>
+        <source>It does not meet password rules</source>
+        <translation>זה לא משקף את כללי הסיסמה</translation>
+    </message>
+    <message>
+        <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::ShortcutModel</name>
+    <message>
+        <source>System</source>
+        <translation>מערכת</translation>
+    </message>
+    <message>
+        <source>Window</source>
+        <translation>חלון</translation>
+    </message>
+    <message>
+        <source>Workspace</source>
+        <translation>מישור עבודה</translation>
+    </message>
+    <message>
+        <source>AssistiveTools</source>
+        <translation> Werkzeuge zur Unterstützung</translation>
+    </message>
+    <message>
+        <source>Custom</source>
+        <translation>מאפיין</translation>
+    </message>
+    <message>
+        <source>None</source>
+        <translation>לא</translation>
     </message>
 </context>
 </TS>

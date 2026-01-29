@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_CN">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -123,6 +125,24 @@
     </message>
 </context>
 <context>
+    <name>Accounts</name>
+    <message>
+        <source>Account</source>
+        <translation>账户</translation>
+    </message>
+    <message>
+        <source>Account manager</source>
+        <translation>账户管理</translation>
+    </message>
+</context>
+<context>
+    <name>AccountsMain</name>
+    <message>
+        <source>Other accounts</source>
+        <translation>其他账户</translation>
+    </message>
+</context>
+<context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
@@ -173,7 +193,7 @@ To ensure successful entry:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
@@ -219,7 +239,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
@@ -269,7 +289,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
@@ -280,6 +300,68 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
         <translation>请注视设备，确保双眼在采集区域内</translation>
+    </message>
+</context>
+<context>
+    <name>Authentication</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>生物认证</translation>
+    </message>
+</context>
+<context>
+    <name>AuthenticationMain</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation>生物认证</translation>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation>人脸</translation>
+    </message>
+    <message>
+        <source>Up to 5 facial data can be entered</source>
+        <translation>最多可录入5个人脸数据</translation>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation>指纹</translation>
+    </message>
+    <message>
+        <source>Identifying user identity through scanning fingerprints</source>
+        <translation>通过对指纹的扫描进行用户身份的识别</translation>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation>虹膜</translation>
+    </message>
+    <message>
+        <source>Identity recognition through iris scanning</source>
+        <translation>通过扫描虹膜进行身份识别</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation>只能由字母、数字、中文、下划线组成，且不超过15个字符</translation>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only</source>
+        <translation>只能由字母、数字、中文、下划线组成</translation>
+    </message>
+    <message>
+        <source>No more than 15 characters</source>
+        <translation>不得超过15个字符</translation>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation>该名称已存在</translation>
+    </message>
+    <message>
+        <source>Add a new %1 ...</source>
+        <translation>添加新的%1...</translation>
+    </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation>名称不能为空</translation>
     </message>
 </context>
 <context>
@@ -409,6 +491,17 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Disable</source>
         <translation>从不</translation>
+    </message>
+</context>
+<context>
+    <name>BlueTooth</name>
+    <message>
+        <source>Bluetooth settings, devices</source>
+        <translation>蓝牙设置、设备管理</translation>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation>蓝牙</translation>
     </message>
 </context>
 <context>
@@ -849,6 +942,29 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>CommonInfoMain</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation>启动菜单</translation>
+    </message>
+    <message>
+        <source>Manage your boot menu</source>
+        <translation>管理您的开机启动菜单</translation>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation>开发者Root权限管理</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation>开发者选项</translation>
+    </message>
+    <message>
+        <source>Developer debugging options</source>
+        <translation>开发者调试选项</translation>
+    </message>
+</context>
+<context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
@@ -1074,6 +1190,25 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Confirm</source>
         <translation>确认</translation>
+    </message>
+</context>
+<context>
+    <name>Datetime</name>
+    <message>
+        <source>Time and date</source>
+        <translation>时间和日期</translation>
+    </message>
+    <message>
+        <source>Time and date, time zone settings</source>
+        <translation>时间日期、时区设置</translation>
+    </message>
+    <message>
+        <source>Language and region</source>
+        <translation>语言和区域</translation>
+    </message>
+    <message>
+        <source>System language, regional formats</source>
+        <translation>系统语言、区域格式</translation>
     </message>
 </context>
 <context>
@@ -1365,6 +1500,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Deepinid</name>
+    <message>
+        <source>deepin ID</source>
+        <translation>deepin ID</translation>
+    </message>
+    <message>
+        <source>UOS ID</source>
+        <translation>UOS ID</translation>
+    </message>
+    <message>
+        <source>Cloud services</source>
+        <translation>云服务</translation>
+    </message>
+</context>
+<context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
@@ -1381,6 +1531,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
         <translation>受限于您当地的法律法规，同步服务暂未覆盖您所在地区，敬请期待。</translation>
+    </message>
+</context>
+<context>
+    <name>Defaultapp</name>
+    <message>
+        <source>Default App</source>
+        <translation>默认程序</translation>
+    </message>
+    <message>
+        <source>Set the default application for opening various types of files</source>
+        <translation>设置打开各类文件的默认程序</translation>
+    </message>
+</context>
+<context>
+    <name>DefaultappMain</name>
+    <message>
+        <source>Webpage</source>
+        <translation>网页</translation>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation>邮件</translation>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation>文本</translation>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation>音乐</translation>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation>视频</translation>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation>图片</translation>
+    </message>
+    <message>
+        <source>Terminal</source>
+        <translation>终端</translation>
     </message>
 </context>
 <context>
@@ -1530,6 +1722,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Device</name>
+    <message>
+        <source>Bluetooth and Other Devices</source>
+        <translation>蓝牙和其他设备</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -1542,6 +1741,318 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Agree</source>
         <translation>同意</translation>
+    </message>
+</context>
+<context>
+    <name>Display</name>
+    <message>
+        <source>Display</source>
+        <translation>显示</translation>
+    </message>
+    <message>
+        <source>Brightness,resolution,scaling</source>
+        <translation>亮度、分辨率、缩放</translation>
+    </message>
+</context>
+<context>
+    <name>DisplayMain</name>
+    <message>
+        <source>100%</source>
+        <translation>100%</translation>
+    </message>
+    <message>
+        <source>125%</source>
+        <translation>125%</translation>
+    </message>
+    <message>
+        <source>150%</source>
+        <translation>150%</translation>
+    </message>
+    <message>
+        <source>175%</source>
+        <translation>175%</translation>
+    </message>
+    <message>
+        <source>200%</source>
+        <translation>200%</translation>
+    </message>
+    <message>
+        <source>225%</source>
+        <translation>225%</translation>
+    </message>
+    <message>
+        <source>250%</source>
+        <translation>250%</translation>
+    </message>
+    <message>
+        <source>275%</source>
+        <translation>275%</translation>
+    </message>
+    <message>
+        <source>300%</source>
+        <translation>300%</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>复制</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>扩展</translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation>默认</translation>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation>适应</translation>
+    </message>
+    <message>
+        <source>Stretch</source>
+        <translation>拉伸</translation>
+    </message>
+    <message>
+        <source>Center</source>
+        <translation>居中</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>仅%1屏</translation>
+    </message>
+    <message>
+        <source>Multiple Displays Settings</source>
+        <translation>多屏设置</translation>
+    </message>
+    <message>
+        <source>Identify</source>
+        <translation>识别</translation>
+    </message>
+    <message>
+        <source>Screen rearrangement will take effect in %1s after changes</source>
+        <translation>屏幕拼接将在修改完成%1s后生效</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>模式</translation>
+    </message>
+    <message>
+        <source>Main Screen</source>
+        <translation>主屏幕</translation>
+    </message>
+    <message>
+        <source>Display And Layout</source>
+        <translation>显示和布局</translation>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation>亮度</translation>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation>分辨率</translation>
+    </message>
+    <message>
+        <source>Resize Desktop</source>
+        <translation>桌面显示</translation>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation>刷新率</translation>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation>方向</translation>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation>标准</translation>
+    </message>
+    <message>
+        <source>90°</source>
+        <translation>90度</translation>
+    </message>
+    <message>
+        <source>180°</source>
+        <translation>180度</translation>
+    </message>
+    <message>
+        <source>270°</source>
+        <translation>270度</translation>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation>当前屏幕仅支持1倍缩放</translation>
+    </message>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>护眼模式</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>开启护眼模式</translation>
+    </message>
+    <message>
+        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
+        <translation>调整屏幕显示较暖的颜色，减少屏幕蓝光</translation>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation>时间</translation>
+    </message>
+    <message>
+        <source>All day</source>
+        <translation>全天</translation>
+    </message>
+    <message>
+        <source>Sunset to Sunrise</source>
+        <translation>日落到日出</translation>
+    </message>
+    <message>
+        <source>Custom Time</source>
+        <translation>自定义</translation>
+    </message>
+    <message>
+        <source>from</source>
+        <translation>从</translation>
+    </message>
+    <message>
+        <source>to</source>
+        <translation>至</translation>
+    </message>
+    <message>
+        <source>Color Temperature</source>
+        <translation>色温</translation>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation>%1x%2 （推荐）</translation>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation>%1x%2</translation>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation>%1赫兹 （推荐）</translation>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation>%1赫兹</translation>
+    </message>
+    <message>
+        <source>Scaling</source>
+        <translation>缩放</translation>
+    </message>
+</context>
+<context>
+    <name>Dock</name>
+    <message>
+        <source>Desktop and taskbar</source>
+        <translation>桌面和任务栏</translation>
+    </message>
+    <message>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation>桌面整理、任务栏模式、插件区域设置</translation>
+    </message>
+</context>
+<context>
+    <name>DockMain</name>
+    <message>
+        <source>Dock</source>
+        <translation>任务栏</translation>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation>模式</translation>
+    </message>
+    <message>
+        <source>Classic Mode</source>
+        <translation>经典模式</translation>
+    </message>
+    <message>
+        <source>Centered Mode</source>
+        <translation>居中模式</translation>
+    </message>
+    <message>
+        <source>Dock size</source>
+        <translation>任务栏大小</translation>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation>小</translation>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation>大</translation>
+    </message>
+    <message>
+        <source>Position on the screen</source>
+        <translation>屏幕中的位置</translation>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation>上</translation>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation>下</translation>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation>左</translation>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation>右</translation>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation>状态</translation>
+    </message>
+    <message>
+        <source>Keep shown</source>
+        <translation>一直显示</translation>
+    </message>
+    <message>
+        <source>Keep hidden</source>
+        <translation>一直隐藏</translation>
+    </message>
+    <message>
+        <source>Smart hide</source>
+        <translation>智能隐藏</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>多屏显示</translation>
+    </message>
+    <message>
+        <source>Set the position of the taskbar on the screen</source>
+        <translation>设置任务栏在屏幕中的位置</translation>
+    </message>
+    <message>
+        <source>Only on main</source>
+        <translation>仅主屏显示</translation>
+    </message>
+    <message>
+        <source>On screen where the cursor is</source>
+        <translation>跟随鼠标位置显示</translation>
+    </message>
+    <message>
+        <source>Plugin Area</source>
+        <translation>插件区域</translation>
+    </message>
+    <message>
+        <source>Select which icons appear in the Dock</source>
+        <translation>选择显示在任务栏插件区域的图标</translation>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation>禁用自由调节</translation>
+    </message>
+    <message>
+        <source>Combine application icons</source>
+        <translation>合并应用图标</translation>
     </message>
 </context>
 <context>
@@ -1747,6 +2258,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Keyboard</name>
+    <message>
+        <source>Keyboard</source>
+        <translation>键盘</translation>
+    </message>
+    <message>
+        <source>General Settings, input method, shortcuts</source>
+        <translation>通用设置、输入法、快捷键</translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardMain</name>
+    <message>
+        <source>Common</source>
+        <translation>通用</translation>
+    </message>
+</context>
+<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -1880,6 +2409,32 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>Mouse</name>
     <message>
+        <source>Mouse and Touchpad</source>
+        <translation>鼠标与触控板</translation>
+    </message>
+    <message>
+        <source>Common、Mouse、Touchpad</source>
+        <translation>通用、鼠标、触控板</translation>
+    </message>
+</context>
+<context>
+    <name>MouseMain</name>
+    <message>
+        <source>Common</source>
+        <translation>通用</translation>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation>鼠标</translation>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation>触控板</translation>
+    </message>
+</context>
+<context>
+    <name>MousePage</name>
+    <message>
         <source>Mouse</source>
         <translation>鼠标</translation>
     </message>
@@ -2003,6 +2558,72 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Notification</name>
+    <message>
+        <source>DND mode, app notifications</source>
+        <translation>勿扰模式、应用通知</translation>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation>通知</translation>
+    </message>
+</context>
+<context>
+    <name>NotificationMain</name>
+    <message>
+        <source>Do Not Disturb Settings</source>
+        <translation>勿扰设置</translation>
+    </message>
+    <message>
+        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
+        <translation>所有应用消息横幅将会被隐藏，通知声音将会静音，您可在通知中心查看所有消息。</translation>
+    </message>
+    <message>
+        <source>Enable Do Not Disturb</source>
+        <translation>启用勿扰模式</translation>
+    </message>
+    <message>
+        <source>When the screen is locked</source>
+        <translation>在屏幕锁屏时</translation>
+    </message>
+    <message>
+        <source>Number of notifications shown on the desktop</source>
+        <translation>通知横幅展示数量</translation>
+    </message>
+    <message>
+        <source>App Notifications</source>
+        <translation>应用通知</translation>
+    </message>
+    <message>
+        <source>Allow Notifications</source>
+        <translation>允许通知</translation>
+    </message>
+    <message>
+        <source>Display notification on desktop or show unread messages in the notification center</source>
+        <translation>可以显示通知横幅，或在通知中心显示未读消息</translation>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation>桌面</translation>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation>锁屏</translation>
+    </message>
+    <message>
+        <source>Notification Center</source>
+        <translation>通知中心</translation>
+    </message>
+    <message>
+        <source>Show message preview</source>
+        <translation>显示消息预览</translation>
+    </message>
+    <message>
+        <source>Play a sound</source>
+        <translation>通知时提示声音</translation>
+    </message>
+</context>
+<context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
@@ -2096,6 +2717,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Personalization</name>
+    <message>
+        <source>Personalization</source>
+        <translation>个性化</translation>
+    </message>
+</context>
+<context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
@@ -2111,11 +2739,62 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>PersonalizationMain</name>
+    <message>
+        <source>Theme</source>
+        <translation>主题</translation>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation>外观</translation>
+    </message>
+    <message>
+        <source>Window effect</source>
+        <translation>窗口效果</translation>
+    </message>
+    <message>
+        <source>Personalize your wallpaper and screensaver</source>
+        <translation>个性化您的壁纸和屏保</translation>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation>屏幕保护</translation>
+    </message>
+    <message>
+        <source>Colors and icons</source>
+        <translation>颜色和图标</translation>
+    </message>
+    <message>
+        <source>Adjust accent color and theme icons</source>
+        <translation>调整活动色和主题图标</translation>
+    </message>
+    <message>
+        <source>Font and font size</source>
+        <translation>字体和字号</translation>
+    </message>
+    <message>
+        <source>Change system font and size</source>
+        <translation>修改系统字体与字号</translation>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation>壁纸</translation>
+    </message>
+    <message>
+        <source>Select light, dark or automatic theme appearance</source>
+        <translation>选择浅色、深色或自动切换主题外观</translation>
+    </message>
+    <message>
+        <source>Interface and effects, rounded corners</source>
+        <translation>界面和效果、窗口圆角</translation>
     </message>
 </context>
 <context>
@@ -2134,6 +2813,44 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>选择显示在任务栏插件区域的图标</translation>
+    </message>
+</context>
+<context>
+    <name>Power</name>
+    <message>
+        <source>Power saving settings, screen and suspend</source>
+        <translation>节能设置、屏幕和待机管理</translation>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation>电源管理</translation>
+    </message>
+</context>
+<context>
+    <name>PowerMain</name>
+    <message>
+        <source>General</source>
+        <translation>通用</translation>
+    </message>
+    <message>
+        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
+        <translation>性能模式、节能设置、唤醒设置、关机设置</translation>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation>使用电源</translation>
+    </message>
+    <message>
+        <source>Screen and suspend</source>
+        <translation>屏幕和待机管理</translation>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation>使用电池</translation>
+    </message>
+    <message>
+        <source>screen and suspend, low battery, battery management</source>
+        <translation>屏幕和待机管理、低电量管理、电池管理</translation>
     </message>
 </context>
 <context>
@@ -2238,6 +2955,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Never</source>
         <translation>从不</translation>
+    </message>
+</context>
+<context>
+    <name>Privacy</name>
+    <message>
+        <source>Privacy and Security</source>
+        <translation>隐私和安全</translation>
+    </message>
+    <message>
+        <source>Camera, folder permissions</source>
+        <translation>摄像头、文件夹权限</translation>
+    </message>
+</context>
+<context>
+    <name>PrivacyMain</name>
+    <message>
+        <source>Camera</source>
+        <translation>摄像头</translation>
+    </message>
+    <message>
+        <source>Choose whether the application has access to the camera</source>
+        <translation>选择应用是否有摄像头的访问权限</translation>
+    </message>
+    <message>
+        <source>Files and Folders</source>
+        <translation>文件和文件夹</translation>
+    </message>
+    <message>
+        <source>Choose whether the application has access to files and folders</source>
+        <translation>选择应用是否有文件和文件夹的访问权限</translation>
     </message>
 </context>
 <context>
@@ -2647,6 +3394,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Sound</name>
+    <message>
+        <source>Sound</source>
+        <translation>声音</translation>
+    </message>
+    <message>
+        <source>Output, input, sound effects, devices</source>
+        <translation>输入、输出、系统音效、设备管理</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -2666,6 +3424,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Sound Effects</source>
         <translation>系统音效</translation>
+    </message>
+</context>
+<context>
+    <name>SoundMain</name>
+    <message>
+        <source>Settings</source>
+        <translation>设置</translation>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation>系统音效</translation>
+    </message>
+    <message>
+        <source>Enable/disable sound effects</source>
+        <translation>开启/关闭系统音效</translation>
+    </message>
+    <message>
+        <source>Enable/disable audio devices</source>
+        <translation>启用/禁用音频设备</translation>
+    </message>
+    <message>
+        <source>Devices Management</source>
+        <translation>设备管理</translation>
     </message>
 </context>
 <context>
@@ -2810,6 +3591,67 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>System</name>
+    <message>
+        <source>Common settings</source>
+        <translation>常用设置</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation>系统</translation>
+    </message>
+</context>
+<context>
+    <name>SystemInfo</name>
+    <message>
+        <source>Auxiliary Information</source>
+        <translation>辅助信息</translation>
+    </message>
+</context>
+<context>
+    <name>SystemInfoMain</name>
+    <message>
+        <source>About This PC</source>
+        <translation>关于本机</translation>
+    </message>
+    <message>
+        <source>System version, device information</source>
+        <translation>系统版本、设备信息</translation>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation>查看开源软件声明</translation>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation>用户体验计划</translation>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation>加入用户体验计划，帮助改进产品</translation>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation>用户许可协议</translation>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation>查看最终用户许可协议</translation>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation>隐私政策</translation>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation>查看隐私政策相关信息</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation>开源软件声明</translation>
+    </message>
+</context>
+<context>
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
@@ -2901,19 +3743,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2983,6 +3825,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Touchscreen</name>
+    <message>
+        <source>Touchscreen</source>
+        <translation>触控屏</translation>
+    </message>
+    <message>
+        <source>Configuring Touchscreen</source>
+        <translation>触控屏设置</translation>
+    </message>
+</context>
+<context>
+    <name>TouchscreenMain</name>
+    <message>
+        <source>Common</source>
+        <translation>通用</translation>
+    </message>
+</context>
+<context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
@@ -3018,6 +3878,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Confirm</source>
         <translation>确定</translation>
+    </message>
+</context>
+<context>
+    <name>Wacom</name>
+    <message>
+        <source>wacom</source>
+        <translation>数位板</translation>
+    </message>
+    <message>
+        <source>Configuring wacom</source>
+        <translation>数位板选项设置</translation>
+    </message>
+</context>
+<context>
+    <name>WacomMain</name>
+    <message>
+        <source>wacom</source>
+        <translation>数位板</translation>
+    </message>
+    <message>
+        <source>Pen Mode</source>
+        <translation>笔模式</translation>
+    </message>
+    <message>
+        <source>Mouse Mode</source>
+        <translation>鼠标模式</translation>
+    </message>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation>压杆力度</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>轻</translation>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation>重</translation>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation>模式</translation>
     </message>
 </context>
 <context>
@@ -3217,139 +4119,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
         <translation>中</translation>
-    </message>
-</context>
-<context>
-    <name>accounts</name>
-    <message>
-        <source>Account</source>
-        <translation>账户</translation>
-    </message>
-    <message>
-        <source>Account manager</source>
-        <translation>账户管理</translation>
-    </message>
-</context>
-<context>
-    <name>accountsMain</name>
-    <message>
-        <source>Other accounts</source>
-        <translation>其他账户</translation>
-    </message>
-</context>
-<context>
-    <name>authentication</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>生物认证</translation>
-    </message>
-</context>
-<context>
-    <name>authenticationMain</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>生物认证</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>人脸</translation>
-    </message>
-    <message>
-        <source>Up to 5 facial data can be entered</source>
-        <translation>最多可录入5个人脸数据</translation>
-    </message>
-    <message>
-        <source>Fingerprint</source>
-        <translation>指纹</translation>
-    </message>
-    <message>
-        <source>Identifying user identity through scanning fingerprints</source>
-        <translation>通过对指纹的扫描进行用户身份的识别</translation>
-    </message>
-    <message>
-        <source>Iris</source>
-        <translation>虹膜</translation>
-    </message>
-    <message>
-        <source>Identity recognition through iris scanning</source>
-        <translation>通过扫描虹膜进行身份识别</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>只能由字母、数字、中文、下划线组成，且不超过15个字符</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only</source>
-        <translation>只能由字母、数字、中文、下划线组成</translation>
-    </message>
-    <message>
-        <source>No more than 15 characters</source>
-        <translation>不得超过15个字符</translation>
-    </message>
-    <message>
-        <source>This name already exists</source>
-        <translation>该名称已存在</translation>
-    </message>
-    <message>
-        <source>Add a new %1 ...</source>
-        <translation>添加新的%1...</translation>
-    </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>名称不能为空</translation>
-    </message>
-</context>
-<context>
-    <name>blueTooth</name>
-    <message>
-        <source>Bluetooth settings, devices</source>
-        <translation>蓝牙设置、设备管理</translation>
-    </message>
-    <message>
-        <source>Bluetooth</source>
-        <translation>蓝牙</translation>
-    </message>
-</context>
-<context>
-    <name>commonInfoMain</name>
-    <message>
-        <source>Boot Menu</source>
-        <translation>启动菜单</translation>
-    </message>
-    <message>
-        <source>Manage your boot menu</source>
-        <translation>管理您的开机启动菜单</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>开发者Root权限管理</translation>
-    </message>
-    <message>
-        <source>Developer Options</source>
-        <translation>开发者选项</translation>
-    </message>
-    <message>
-        <source>Developer debugging options</source>
-        <translation>开发者调试选项</translation>
-    </message>
-</context>
-<context>
-    <name>datetime</name>
-    <message>
-        <source>Time and date</source>
-        <translation>时间和日期</translation>
-    </message>
-    <message>
-        <source>Time and date, time zone settings</source>
-        <translation>时间日期、时区设置</translation>
-    </message>
-    <message>
-        <source>Language and region</source>
-        <translation>语言和区域</translation>
-    </message>
-    <message>
-        <source>System language, regional formats</source>
-        <translation>系统语言、区域格式</translation>
     </message>
 </context>
 <context>
@@ -3615,773 +4384,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>无</translation>
-    </message>
-</context>
-<context>
-    <name>deepinid</name>
-    <message>
-        <source>deepin ID</source>
-        <translation>deepin ID</translation>
-    </message>
-    <message>
-        <source>UOS ID</source>
-        <translation>UOS ID</translation>
-    </message>
-    <message>
-        <source>Cloud services</source>
-        <translation>云服务</translation>
-    </message>
-</context>
-<context>
-    <name>defaultapp</name>
-    <message>
-        <source>Default App</source>
-        <translation>默认程序</translation>
-    </message>
-    <message>
-        <source>Set the default application for opening various types of files</source>
-        <translation>设置打开各类文件的默认程序</translation>
-    </message>
-</context>
-<context>
-    <name>defaultappMain</name>
-    <message>
-        <source>Webpage</source>
-        <translation>网页</translation>
-    </message>
-    <message>
-        <source>Mail</source>
-        <translation>邮件</translation>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation>文本</translation>
-    </message>
-    <message>
-        <source>Music</source>
-        <translation>音乐</translation>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation>视频</translation>
-    </message>
-    <message>
-        <source>Picture</source>
-        <translation>图片</translation>
-    </message>
-    <message>
-        <source>Terminal</source>
-        <translation>终端</translation>
-    </message>
-</context>
-<context>
-    <name>device</name>
-    <message>
-        <source>Bluetooth and Other Devices</source>
-        <translation>蓝牙和其他设备</translation>
-    </message>
-</context>
-<context>
-    <name>display</name>
-    <message>
-        <source>Display</source>
-        <translation>显示</translation>
-    </message>
-    <message>
-        <source>Brightness,resolution,scaling</source>
-        <translation>亮度、分辨率、缩放</translation>
-    </message>
-</context>
-<context>
-    <name>displayMain</name>
-    <message>
-        <source>100%</source>
-        <translation>100%</translation>
-    </message>
-    <message>
-        <source>125%</source>
-        <translation>125%</translation>
-    </message>
-    <message>
-        <source>150%</source>
-        <translation>150%</translation>
-    </message>
-    <message>
-        <source>175%</source>
-        <translation>175%</translation>
-    </message>
-    <message>
-        <source>200%</source>
-        <translation>200%</translation>
-    </message>
-    <message>
-        <source>225%</source>
-        <translation>225%</translation>
-    </message>
-    <message>
-        <source>250%</source>
-        <translation>250%</translation>
-    </message>
-    <message>
-        <source>275%</source>
-        <translation>275%</translation>
-    </message>
-    <message>
-        <source>300%</source>
-        <translation>300%</translation>
-    </message>
-    <message>
-        <source>Duplicate</source>
-        <translation>复制</translation>
-    </message>
-    <message>
-        <source>Extend</source>
-        <translation>扩展</translation>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation>默认</translation>
-    </message>
-    <message>
-        <source>Fit</source>
-        <translation>适应</translation>
-    </message>
-    <message>
-        <source>Stretch</source>
-        <translation>拉伸</translation>
-    </message>
-    <message>
-        <source>Center</source>
-        <translation>居中</translation>
-    </message>
-    <message>
-        <source>Only on %1</source>
-        <translation>仅%1屏</translation>
-    </message>
-    <message>
-        <source>Multiple Displays Settings</source>
-        <translation>多屏设置</translation>
-    </message>
-    <message>
-        <source>Identify</source>
-        <translation>识别</translation>
-    </message>
-    <message>
-        <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>屏幕拼接将在修改完成%1s后生效</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation>模式</translation>
-    </message>
-    <message>
-        <source>Main Screen</source>
-        <translation>主屏幕</translation>
-    </message>
-    <message>
-        <source>Display And Layout</source>
-        <translation>显示和布局</translation>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation>亮度</translation>
-    </message>
-    <message>
-        <source>Resolution</source>
-        <translation>分辨率</translation>
-    </message>
-    <message>
-        <source>Resize Desktop</source>
-        <translation>桌面显示</translation>
-    </message>
-    <message>
-        <source>Refresh Rate</source>
-        <translation>刷新率</translation>
-    </message>
-    <message>
-        <source>Rotation</source>
-        <translation>方向</translation>
-    </message>
-    <message>
-        <source>Standard</source>
-        <translation>标准</translation>
-    </message>
-    <message>
-        <source>90°</source>
-        <translation>90度</translation>
-    </message>
-    <message>
-        <source>180°</source>
-        <translation>180度</translation>
-    </message>
-    <message>
-        <source>270°</source>
-        <translation>270度</translation>
-    </message>
-    <message>
-        <source>The monitor only supports 100% display scaling</source>
-        <translation>当前屏幕仅支持1倍缩放</translation>
-    </message>
-    <message>
-        <source>Eye Comfort</source>
-        <translation>护眼模式</translation>
-    </message>
-    <message>
-        <source>Enable eye comfort</source>
-        <translation>开启护眼模式</translation>
-    </message>
-    <message>
-        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation>调整屏幕显示较暖的颜色，减少屏幕蓝光</translation>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation>时间</translation>
-    </message>
-    <message>
-        <source>All day</source>
-        <translation>全天</translation>
-    </message>
-    <message>
-        <source>Sunset to Sunrise</source>
-        <translation>日落到日出</translation>
-    </message>
-    <message>
-        <source>Custom Time</source>
-        <translation>自定义</translation>
-    </message>
-    <message>
-        <source>from</source>
-        <translation>从</translation>
-    </message>
-    <message>
-        <source>to</source>
-        <translation>至</translation>
-    </message>
-    <message>
-        <source>Color Temperature</source>
-        <translation>色温</translation>
-    </message>
-    <message>
-        <source>%1x%2 (Recommended)</source>
-        <translation>%1x%2 （推荐）</translation>
-    </message>
-    <message>
-        <source>%1x%2</source>
-        <translation>%1x%2</translation>
-    </message>
-    <message>
-        <source>%1Hz (Recommended)</source>
-        <translation>%1赫兹 （推荐）</translation>
-    </message>
-    <message>
-        <source>%1Hz</source>
-        <translation>%1赫兹</translation>
-    </message>
-    <message>
-        <source>Scaling</source>
-        <translation>缩放</translation>
-    </message>
-</context>
-<context>
-    <name>dock</name>
-    <message>
-        <source>Desktop and taskbar</source>
-        <translation>桌面和任务栏</translation>
-    </message>
-    <message>
-        <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation>桌面整理、任务栏模式、插件区域设置</translation>
-    </message>
-</context>
-<context>
-    <name>keyboard</name>
-    <message>
-        <source>Keyboard</source>
-        <translation>键盘</translation>
-    </message>
-    <message>
-        <source>General Settings, input method, shortcuts</source>
-        <translation>通用设置、输入法、快捷键</translation>
-    </message>
-</context>
-<context>
-    <name>keyboardMain</name>
-    <message>
-        <source>Common</source>
-        <translation>通用</translation>
-    </message>
-</context>
-<context>
-    <name>main</name>
-    <message>
-        <source>Dock</source>
-        <translation>任务栏</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation>模式</translation>
-    </message>
-    <message>
-        <source>Classic Mode</source>
-        <translation>经典模式</translation>
-    </message>
-    <message>
-        <source>Centered Mode</source>
-        <translation>居中模式</translation>
-    </message>
-    <message>
-        <source>Dock size</source>
-        <translation>任务栏大小</translation>
-    </message>
-    <message>
-        <source>Small</source>
-        <translation>小</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>大</translation>
-    </message>
-    <message>
-        <source>Position on the screen</source>
-        <translation>屏幕中的位置</translation>
-    </message>
-    <message>
-        <source>Top</source>
-        <translation>上</translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation>下</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation>左</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation>右</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>状态</translation>
-    </message>
-    <message>
-        <source>Keep shown</source>
-        <translation>一直显示</translation>
-    </message>
-    <message>
-        <source>Keep hidden</source>
-        <translation>一直隐藏</translation>
-    </message>
-    <message>
-        <source>Smart hide</source>
-        <translation>智能隐藏</translation>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation>多屏显示</translation>
-    </message>
-    <message>
-        <source>Set the position of the taskbar on the screen</source>
-        <translation>设置任务栏在屏幕中的位置</translation>
-    </message>
-    <message>
-        <source>Only on main</source>
-        <translation>仅主屏显示</translation>
-    </message>
-    <message>
-        <source>On screen where the cursor is</source>
-        <translation>跟随鼠标位置显示</translation>
-    </message>
-    <message>
-        <source>Plugin Area</source>
-        <translation>插件区域</translation>
-    </message>
-    <message>
-        <source>Select which icons appear in the Dock</source>
-        <translation>选择显示在任务栏插件区域的图标</translation>
-    </message>
-    <message>
-        <source>Lock the Dock</source>
-        <translation>禁用自由调节</translation>
-    </message>
-    <message>
-        <source>Combine application icons</source>
-        <translation>合并应用图标</translation>
-    </message>
-</context>
-<context>
-    <name>mouse</name>
-    <message>
-        <source>Mouse and Touchpad</source>
-        <translation>鼠标与触控板</translation>
-    </message>
-    <message>
-        <source>Common、Mouse、Touchpad</source>
-        <translation>通用、鼠标、触控板</translation>
-    </message>
-</context>
-<context>
-    <name>mouseMain</name>
-    <message>
-        <source>Common</source>
-        <translation>通用</translation>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation>鼠标</translation>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation>触控板</translation>
-    </message>
-</context>
-<context>
-    <name>notification</name>
-    <message>
-        <source>DND mode, app notifications</source>
-        <translation>勿扰模式、应用通知</translation>
-    </message>
-    <message>
-        <source>Notification</source>
-        <translation>通知</translation>
-    </message>
-</context>
-<context>
-    <name>notificationMain</name>
-    <message>
-        <source>Do Not Disturb Settings</source>
-        <translation>勿扰设置</translation>
-    </message>
-    <message>
-        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>所有应用消息横幅将会被隐藏，通知声音将会静音，您可在通知中心查看所有消息。</translation>
-    </message>
-    <message>
-        <source>Enable Do Not Disturb</source>
-        <translation>启用勿扰模式</translation>
-    </message>
-    <message>
-        <source>When the screen is locked</source>
-        <translation>在屏幕锁屏时</translation>
-    </message>
-    <message>
-        <source>Number of notifications shown on the desktop</source>
-        <translation>通知横幅展示数量</translation>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation>应用通知</translation>
-    </message>
-    <message>
-        <source>Allow Notifications</source>
-        <translation>允许通知</translation>
-    </message>
-    <message>
-        <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>可以显示通知横幅，或在通知中心显示未读消息</translation>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation>桌面</translation>
-    </message>
-    <message>
-        <source>Lock Screen</source>
-        <translation>锁屏</translation>
-    </message>
-    <message>
-        <source>Notification Center</source>
-        <translation>通知中心</translation>
-    </message>
-    <message>
-        <source>Show message preview</source>
-        <translation>显示消息预览</translation>
-    </message>
-    <message>
-        <source>Play a sound</source>
-        <translation>通知时提示声音</translation>
-    </message>
-</context>
-<context>
-    <name>personalization</name>
-    <message>
-        <source>Personalization</source>
-        <translation>个性化</translation>
-    </message>
-</context>
-<context>
-    <name>personalizationMain</name>
-    <message>
-        <source>Theme</source>
-        <translation>主题</translation>
-    </message>
-    <message>
-        <source>Appearance</source>
-        <translation>外观</translation>
-    </message>
-    <message>
-        <source>Window effect</source>
-        <translation>窗口效果</translation>
-    </message>
-    <message>
-        <source>Personalize your wallpaper and screensaver</source>
-        <translation>个性化您的壁纸和屏保</translation>
-    </message>
-    <message>
-        <source>Screensaver</source>
-        <translation>屏幕保护</translation>
-    </message>
-    <message>
-        <source>Colors and icons</source>
-        <translation>颜色和图标</translation>
-    </message>
-    <message>
-        <source>Adjust accent color and theme icons</source>
-        <translation>调整活动色和主题图标</translation>
-    </message>
-    <message>
-        <source>Font and font size</source>
-        <translation>字体和字号</translation>
-    </message>
-    <message>
-        <source>Change system font and size</source>
-        <translation>修改系统字体与字号</translation>
-    </message>
-    <message>
-        <source>Wallpaper</source>
-        <translation>壁纸</translation>
-    </message>
-    <message>
-        <source>Select light, dark or automatic theme appearance</source>
-        <translation>选择浅色、深色或自动切换主题外观</translation>
-    </message>
-    <message>
-        <source>Interface and effects, rounded corners</source>
-        <translation>界面和效果、窗口圆角</translation>
-    </message>
-</context>
-<context>
-    <name>power</name>
-    <message>
-        <source>Power saving settings, screen and suspend</source>
-        <translation>节能设置、屏幕和待机管理</translation>
-    </message>
-    <message>
-        <source>Power</source>
-        <translation>电源管理</translation>
-    </message>
-</context>
-<context>
-    <name>powerMain</name>
-    <message>
-        <source>General</source>
-        <translation>通用</translation>
-    </message>
-    <message>
-        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>性能模式、节能设置、唤醒设置、关机设置</translation>
-    </message>
-    <message>
-        <source>Plugged In</source>
-        <translation>使用电源</translation>
-    </message>
-    <message>
-        <source>Screen and suspend</source>
-        <translation>屏幕和待机管理</translation>
-    </message>
-    <message>
-        <source>On Battery</source>
-        <translation>使用电池</translation>
-    </message>
-    <message>
-        <source>screen and suspend, low battery, battery management</source>
-        <translation>屏幕和待机管理、低电量管理、电池管理</translation>
-    </message>
-</context>
-<context>
-    <name>privacy</name>
-    <message>
-        <source>Privacy and Security</source>
-        <translation>隐私和安全</translation>
-    </message>
-    <message>
-        <source>Camera, folder permissions</source>
-        <translation>摄像头、文件夹权限</translation>
-    </message>
-</context>
-<context>
-    <name>privacyMain</name>
-    <message>
-        <source>Camera</source>
-        <translation>摄像头</translation>
-    </message>
-    <message>
-        <source>Choose whether the application has access to the camera</source>
-        <translation>选择应用是否有摄像头的访问权限</translation>
-    </message>
-    <message>
-        <source>Files and Folders</source>
-        <translation>文件和文件夹</translation>
-    </message>
-    <message>
-        <source>Choose whether the application has access to files and folders</source>
-        <translation>选择应用是否有文件和文件夹的访问权限</translation>
-    </message>
-</context>
-<context>
-    <name>sound</name>
-    <message>
-        <source>Sound</source>
-        <translation>声音</translation>
-    </message>
-    <message>
-        <source>Output, input, sound effects, devices</source>
-        <translation>输入、输出、系统音效、设备管理</translation>
-    </message>
-</context>
-<context>
-    <name>soundMain</name>
-    <message>
-        <source>Settings</source>
-        <translation>设置</translation>
-    </message>
-    <message>
-        <source>Sound Effects</source>
-        <translation>系统音效</translation>
-    </message>
-    <message>
-        <source>Enable/disable sound effects</source>
-        <translation>开启/关闭系统音效</translation>
-    </message>
-    <message>
-        <source>Enable/disable audio devices</source>
-        <translation>启用/禁用音频设备</translation>
-    </message>
-    <message>
-        <source>Devices Management</source>
-        <translation>设备管理</translation>
-    </message>
-</context>
-<context>
-    <name>system</name>
-    <message>
-        <source>Common settings</source>
-        <translation>常用设置</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>系统</translation>
-    </message>
-</context>
-<context>
-    <name>systemInfo</name>
-    <message>
-        <source>Auxiliary Information</source>
-        <translation>辅助信息</translation>
-    </message>
-</context>
-<context>
-    <name>systemInfoMain</name>
-    <message>
-        <source>About This PC</source>
-        <translation>关于本机</translation>
-    </message>
-    <message>
-        <source>System version, device information</source>
-        <translation>系统版本、设备信息</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>查看开源软件声明</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>用户体验计划</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>加入用户体验计划，帮助改进产品</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>用户许可协议</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>查看最终用户许可协议</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>隐私政策</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>查看隐私政策相关信息</translation>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
-        <translation>开源软件声明</translation>
-    </message>
-</context>
-<context>
-    <name>touchscreen</name>
-    <message>
-        <source>Touchscreen</source>
-        <translation>触控屏</translation>
-    </message>
-    <message>
-        <source>Configuring Touchscreen</source>
-        <translation>触控屏设置</translation>
-    </message>
-</context>
-<context>
-    <name>touchscreenMain</name>
-    <message>
-        <source>Common</source>
-        <translation>通用</translation>
-    </message>
-</context>
-<context>
-    <name>wacom</name>
-    <message>
-        <source>wacom</source>
-        <translation>数位板</translation>
-    </message>
-    <message>
-        <source>Configuring wacom</source>
-        <translation>数位板选项设置</translation>
-    </message>
-</context>
-<context>
-    <name>wacomMain</name>
-    <message>
-        <source>wacom</source>
-        <translation>数位板</translation>
-    </message>
-    <message>
-        <source>Pen Mode</source>
-        <translation>笔模式</translation>
-    </message>
-    <message>
-        <source>Mouse Mode</source>
-        <translation>鼠标模式</translation>
-    </message>
-    <message>
-        <source>Pressure Sensitivity</source>
-        <translation>压杆力度</translation>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation>轻</translation>
-    </message>
-    <message>
-        <source>Heavy</source>
-        <translation>重</translation>
-    </message>
-    <message>
-        <source>Model</source>
-        <translation>模式</translation>
     </message>
 </context>
 </TS>
