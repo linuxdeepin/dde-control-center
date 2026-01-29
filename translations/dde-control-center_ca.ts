@@ -2783,15 +2783,15 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Canvieu el tipus i la mida de la lletra del sistema</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fons de pantalla</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Seleccioneu l&apos;aspecte del tema: clar, fosc o automàtic.</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
