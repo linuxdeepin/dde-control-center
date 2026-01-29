@@ -2477,15 +2477,15 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Grossa</translation>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"/>
+        <translation>Molt grossa</translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Algunes aplicacions requereixen tancar la sessió o reiniciar el sistema per tenir efecte.</translation>
     </message>
 </context>
 <context>
