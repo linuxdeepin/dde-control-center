@@ -2779,7 +2779,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Tipus i mida de la lletra</translation>
     </message>
     <message>
         <source>Change system font and size</source>
