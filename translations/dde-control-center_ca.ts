@@ -1871,15 +1871,15 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
