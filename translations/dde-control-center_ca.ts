@@ -2617,7 +2617,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Show message preview</source>
-        <translation>Mostra la previsualització del missatge.</translation>
+        <translation>Mostra la previsualització del missatge</translation>
     </message>
     <message>
         <source>Play a sound</source>
@@ -2721,7 +2721,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>Personalization</name>
     <message>
         <source>Personalization</source>
-        <translation type="unfinished"/>
+        <translation>Personalització</translation>
     </message>
 </context>
 <context>
@@ -2751,11 +2751,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>PersonalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Aparença</translation>
     </message>
     <message>
         <source>Window effect</source>
@@ -2767,7 +2767,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Estalvi de pantalla</translation>
     </message>
     <message>
         <source>Colors and icons</source>
