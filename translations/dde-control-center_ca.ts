@@ -1726,7 +1726,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>Device</name>
     <message>
         <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth i altres dispositius</translation>
     </message>
 </context>
 <context>
