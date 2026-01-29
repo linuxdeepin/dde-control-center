@@ -326,19 +326,19 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Empremta</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Identificació de la identitat de l&apos;usuari mitjançant l&apos;escaneig d&apos;empremtes</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iris</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"/>
+        <translation>Reconeixement de la identitat mitjançant l&apos;escaneig de l&apos;iris</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
@@ -346,7 +346,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation type="unfinished"/>
+        <translation>Useu només lletres, números i guionets baixos.</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
