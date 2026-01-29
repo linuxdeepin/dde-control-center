@@ -3621,11 +3621,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Vegeu l&apos;avís del programari de codi obert</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Programa d&apos;experiència d&apos;usuari</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
