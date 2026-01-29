@@ -1,3 +1,17 @@
+dde-control-center (6.1.71) unstable; urgency=medium
+
+  * i18n: Updates for project Deepin Desktop Environment (#2967)
+  * fix: Fix the UI flickering issue when editing shortcut keys
+  * fix: Modified the time setting logic in the scheduled shutdown
+    feature.
+  * chore: update cmake minimum version to 3.23
+  * fix(sound): sync source mute state with volume
+  * feat: Updated translation
+  * feat: add brightness control for Treeland compositor
+  * feat: migrate QML plugins to Qt6 resource system
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 29 Jan 2026 20:22:08 +0800
+
 dde-control-center (6.1.70) unstable; urgency=medium
 
   * feat: support configurable password encryption algorithms
