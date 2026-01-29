@@ -1779,15 +1779,15 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>225%</source>
-        <translation type="unfinished"/>
+        <translation>225 %</translation>
     </message>
     <message>
         <source>250%</source>
-        <translation type="unfinished"/>
+        <translation>250 %</translation>
     </message>
     <message>
         <source>275%</source>
-        <translation type="unfinished"/>
+        <translation>275 %</translation>
     </message>
     <message>
         <source>300%</source>
