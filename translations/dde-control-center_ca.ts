@@ -2009,19 +2009,19 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished"/>
+        <translation>Estat</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>Mantén-lo visible</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation type="unfinished"/>
+        <translation>Mantén-lo amagat</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation type="unfinished"/>
+        <translation>Ocultació intel·ligent</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
