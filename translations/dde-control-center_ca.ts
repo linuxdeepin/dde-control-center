@@ -1565,15 +1565,15 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Vídeo</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation type="unfinished"/>
+        <translation>Imatge</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished"/>
+        <translation>Terminal</translation>
     </message>
 </context>
 <context>
