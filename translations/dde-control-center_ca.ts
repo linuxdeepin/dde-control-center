@@ -1197,19 +1197,19 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <name>Datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Hora i data</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Hora i data, configuració de la zona horària</translation>
     </message>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Llengua i regió</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Llengua del sistema, formats de regió</translation>
     </message>
 </context>
 <context>
