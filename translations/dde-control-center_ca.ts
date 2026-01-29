@@ -1883,23 +1883,23 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>El monitor només admet un escalatge del 100 %.</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation type="unfinished"/>
+        <translation>Confort ocular</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation type="unfinished"/>
+        <translation>Activa el confort ocular</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>Ajusta la visualització de la pantalla a colors més càlids i redueix la llum blava de la pantalla.</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>All day</source>
