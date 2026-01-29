@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="fr">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="fr">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -128,18 +126,18 @@
     <name>Accounts</name>
     <message>
         <source>Account</source>
-        <translation>Compte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Account manager</source>
-        <translation>Gestionnaire de compte</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AccountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation>Autres comptes</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -193,7 +191,7 @@ Pour garantir une entrée réussie :
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;authentification biométrique est une fonction d&apos;authentification d&apos;identité utilisateur fournie par UnionTech Software Technology Co., Ltd. À travers l&apos;authentification biométrique, les données biométriques collectées seront comparées à celles stockées sur l&apos;appareil, et l&apos;identité de l&apos;utilisateur sera vérifiée en fonction du résultat de la comparaison.
@@ -240,7 +238,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;authentification biométrique est une fonction d&apos;authentification d&apos;identité utilisateur fournie par UnionTech Software Technology Co., Ltd. À travers l&apos;authentification biométrique, les données biométriques collectées seront comparées à celles stockées sur l&apos;appareil, et l&apos;identité de l&apos;utilisateur sera vérifiée en fonction du résultat de la comparaison.
@@ -291,7 +289,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;authentification biométrique est une fonction d&apos;authentification d&apos;identité utilisateur fournie par UnionTech Software Technology Co., Ltd. À travers l&apos;authentification biométrique, les données biométriques collectées seront comparées à celles stockées sur l&apos;appareil, et l&apos;identité de l&apos;utilisateur sera vérifiée en fonction du résultat de la comparaison.
@@ -309,62 +307,62 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     <name>Authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Authentification biométrique</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AuthenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Authentification biométrique</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Face</source>
-        <translation>Visage</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation>Il est possible d&apos;enregistrer jusqu&apos;à 5 données faciales.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation>Empreinte digitale</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation>Identification de l&apos;identité de l&apos;utilisateur par le biais de la lecture des empreintes digitales</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Iris</source>
-        <translation>Iris</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation>Reconnaissance d&apos;identité par scan de l&apos;iris</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Utilisez uniquement des lettres, des chiffres et des traits de soulignement, et ne dépassez pas 15 caractères.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation>Utilisez uniquement des lettres, des chiffres et des traits de soulignement.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation>Pas plus de 15 caractères</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This name already exists</source>
-        <translation>Ce nom existe déjà</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation>Ajouter un nouveau %1 ...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation>Le nom ne peut pas être vide.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -500,11 +498,11 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     <name>BlueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation>Paramètres Bluetooth, appareils</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation>Bluetooth</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -948,23 +946,23 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Menu de démarrage</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Gérer votre menu de démarrage</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation>Gestion des autorisations root des développeurs</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Options pour les développeurs</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>Options de débogage de développeur</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1199,19 +1197,19 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     <name>Datetime</name>
     <message>
         <source>Time and date</source>
-        <translation>Date et heure</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation>Date et heure, paramètres du fuseau horaire</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Language and region</source>
-        <translation>Langue et région</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation>Langue du système, formats régionaux</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1508,15 +1506,15 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>Deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation>deepin ID</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation>UOS ID</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation>Services en nuage</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1542,42 +1540,42 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>Defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation>Application par défaut</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation>Définir l&apos;application par défaut pour ouvrir différents types de fichiers</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DefaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation>Page web</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mail</source>
-        <translation>Courrier</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Text</source>
-        <translation>Texte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Music</source>
-        <translation>Musique</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Video</source>
-        <translation>Vidéo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Picture</source>
-        <translation>Image</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Terminal</source>
-        <translation>Terminal</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1730,7 +1728,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>Device</name>
     <message>
         <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1756,308 +1754,308 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation>Brillance, résolution, échelle</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DisplayMain</name>
     <message>
         <source>100%</source>
-        <translation>100%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>125%</source>
-        <translation>125%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>150%</source>
-        <translation>150%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>175%</source>
-        <translation>175%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>200%</source>
-        <translation>200%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>225%</source>
-        <translation>225%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>250%</source>
-        <translation>250%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>275%</source>
-        <translation>275%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>300%</source>
-        <translation>300%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>Dupliquer</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Extend</source>
-        <translation>Étendre</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Default</source>
-        <translation>Par défaut</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fit</source>
-        <translation>Adapte</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Stretch</source>
-        <translation>Étirer</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center</source>
-        <translation>Centrer</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation>Seulement sur %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation>Paramètres de plusieurs écrans</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identify</source>
-        <translation>Identifier</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>Les modifications de la réorganisation de l&apos;écran seront appliquées dans %1s</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Mode</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation>Écran principal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation>Affichage et disposition</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Brightness</source>
-        <translation>Éclat</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resolution</source>
-        <translation>Résolution</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation>Redimensionner le bureau</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation>Fréquence de rafraîchissement</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Rotation</source>
-        <translation>Rotation</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Standard</source>
-        <translation>Standard</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>90°</source>
-        <translation>90°</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>180°</source>
-        <translation>180°</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>270°</source>
-        <translation>270°</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>Le moniteur ne prend en charge que l&apos;échelle d&apos;affichage de 100%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation>Confort oculaire</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation>Activer la confort oculaire</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation>Ajuster l&apos;affichage de l&apos;écran vers des couleurs plus chaudes, réduisant la lumière bleue de l&apos;écran</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time</source>
-        <translation>Heure</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>All day</source>
-        <translation>Toute la journée</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation>Coucher de soleil à l&apos;aube</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>Heure personnalisée</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>from</source>
-        <translation>de</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>to</source>
-        <translation>à</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation>Température de couleur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation>%1x%2 (Recommandé)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation>%1x%2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation>1 Hz (Recommandé)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation>%1Hz</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scaling</source>
-        <translation>Mise à l&apos;échelle</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation>Bureau et barre des tâches</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation>Organisation du bureau, mode barre des tâches, paramètres de la zone des plugins</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DockMain</name>
     <message>
         <source>Dock</source>
-        <translation>Dock</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Mode</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation>Mode classique</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation>Mode centré</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dock size</source>
-        <translation>Taille de la barre des tâches</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Small</source>
-        <translation>Petit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Large</source>
-        <translation>Grand</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation>Position sur l&apos;écran</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Top</source>
-        <translation>Haut</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Bas</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Left</source>
-        <translation>Gauche</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Right</source>
-        <translation>Droite</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Status</source>
-        <translation>État</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Reste affiché</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>Reste masqué</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>Masquage intelligent</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation>Affichage multiple</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation>Définir la position de la barre des tâches sur l&apos;écran</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Only on main</source>
-        <translation>Seulement sur le principal</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation>Sur l&apos;écran où se trouve le curseur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation>Aire de plugin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Sélectionnez les icônes qui apparaissent dans la barre des tâches</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation>Verrouiller le Dock</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation>Combiner les icônes d&apos;application</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2266,18 +2264,18 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>Keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation>Clavier</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation>Paramètres généraux, méthode de saisie, raccourcis</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>KeyboardMain</name>
     <message>
         <source>Common</source>
-        <translation>Commun</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2415,81 +2413,81 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>Mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation>Souris et tactile</translation>
+        <translation>Souris et Touchpad</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation>Commun, Souris, Tactile</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
-        <translation>Commun</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse</source>
-        <translation>Souris</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Pavé tactile</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>MousePage</name>
     <message>
         <source>Mouse</source>
-        <translation>Souris</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>Vitesse du pointeur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Lent</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Rapide</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation>Taille du pointeur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation>Accélération de la souris</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Désactiver le pavé tactile lorsqu&apos;une souris est connectée</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Défilement naturel</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Small</source>
-        <translation>Petit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Medium</source>
-        <translation>Moyen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Large</source>
-        <translation>Grand</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>X-Large</source>
-        <translation>Très grand</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation>Certaines applications nécessitent une déconnexion ou un redémarrage du système pour que les modifications prennent effet.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2566,66 +2564,66 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation>Mode DND, notifications des applications</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Notification</source>
-        <translation>Notification</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation>Paramètres de ne pas déranger</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>Les notifications des applications ne seront pas affichées sur le bureau et les sons seront silencieux, mais vous pouvez consulter toutes les messages dans le centre de notifications.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>Activer ne pas déranger</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation>Lorsque l&apos;écran est verrouillé</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation>Nombre de notifications affichées sur le bureau</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation>Notifications des applications</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation>Autoriser les notifications</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>Afficher la notification sur le bureau ou montrer les messages non lus dans le centre de notifications</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Bureau</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Verrouiller l&apos;écran</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation>Centre de notifications</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation>Afficher un aperçu du message</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation>Jouer un son</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2755,51 +2753,51 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>PersonalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation>Thème</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Appearance</source>
-        <translation>Apparence</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Window effect</source>
-        <translation>Effet de fenêtre</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation>Personnalisez votre fond d&apos;écran et votre économiseur d&apos;écran</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation>Écran d&apos;économie d&apos;énergie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation>Couleurs et icônes</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation>Adaptez la couleur d’accentuation et les icônes du thème</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation>Police et taille de police</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation>Changer la police système et la taille</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation>Fond d&apos;écran</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation>Sélectionner un thème clair, sombre ou automatique</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation>Interface et effets, coins arrondis</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2824,38 +2822,38 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation>Paramètres d&apos;économie d&apos;énergie, écran et mise en veille</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Power</source>
-        <translation>Puissance</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PowerMain</name>
     <message>
         <source>General</source>
-        <translation>Général</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Plans de puissance, paramètres d&apos;économie d&apos;énergie, paramètres de réveil, paramètres de fermeture</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation>Branché</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation>Écran et suspension</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>On Battery</source>
-        <translation>Sur batterie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation>écran et suspension, batterie faible, gestion de la batterie</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2966,30 +2964,30 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>Privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation>Intimité et Sécurité</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation>Webcam, permissions de dossier</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PrivacyMain</name>
     <message>
         <source>Camera</source>
-        <translation>Webcam</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation>Sélectionnez si l&apos;application a accès à la caméra</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation>Fichiers et dossiers</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation>Sélectionnez si l&apos;application a accès aux fichiers et dossiers</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3406,7 +3404,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation>Sortie, entrée, effets sonores, appareils</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3435,23 +3433,23 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>SoundMain</name>
     <message>
         <source>Settings</source>
-        <translation>Paramètres</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation>Effets sonores</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation>Activer/désactiver les effets sonores</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation>Activer/désactiver les appareils audio</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Devices Management</source>
-        <translation>Gestion des périphériques</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3599,61 +3597,61 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>System</name>
     <message>
         <source>Common settings</source>
-        <translation>Paramètres communs</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System</source>
-        <translation>Système</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation>Informations complémentaires</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>À propos de ce PC</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Version du système, informations sur l&apos;appareil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>Consulter l&apos;avis relatif aux logiciels libres</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>Programme d&apos;expérience utilisateur</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation>Rejoignez le programme d&apos;expérience utilisateur pour aider à améliorer le produit.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Contrat de licence utilisateur final</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>Consulter le contrat de licence utilisateur final</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>Politique de confidentialité</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>Consulter les informations relatives à la politique de confidentialité</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>Avis sur les logiciels open source</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3833,18 +3831,18 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>Touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation>Écran tactile</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation>Configuration de l&apos;écran tactile</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation>Commun</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3889,42 +3887,42 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>Wacom</name>
     <message>
         <source>wacom</source>
-        <translation>wacom</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation>Configuration de Wacom</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>WacomMain</name>
     <message>
         <source>wacom</source>
-        <translation>wacom</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation>Mode stylo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation>Mode souris</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation>Sensibilité à la pression</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Light</source>
-        <translation>Léger</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Heavy</source>
-        <translation>Fort</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Model</source>
-        <translation>Modèle</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="sq">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="sq">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -185,12 +183,12 @@
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“Mirëfilltësimi biometrik” është një funksion mirëfilltësimi identiteti përdoruesi, që jepet nga UnionTech Software Technology Co., Ltd. Përmes “mirëfilltësimit biometrik”, të dhënat biometrike të grumbulluara do të krahasohen me ato të depozituara në pajisje dhe identiteti i përdoruesit do të verifikohet bazuar në përfundimin e krahasimit.
@@ -237,7 +235,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“Mirëfilltësimi biometrik” është një funksion mirëfilltësimi identiteti përdoruesi, që jepet nga UnionTech Software Technology Co., Ltd. Përmes “mirëfilltësimit biometrik”, të dhënat biometrike të grumbulluara do të krahasohen me ato të depozituara në pajisje dhe identiteti i përdoruesit do të verifikohet bazuar në përfundimin e krahasimit.
@@ -288,7 +286,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“Mirëfilltësimi biometrik” është një funksion mirëfilltësimi identiteti përdoruesi, që jepet nga UnionTech Software Technology Co., Ltd. Përmes “mirëfilltësimit biometrik”, të dhënat biometrike të grumbulluara do të krahasohen me ato të depozituara në pajisje dhe identiteti i përdoruesit do të verifikohet bazuar në përfundimin e krahasimit.
@@ -321,7 +319,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation>Mund të jepen deri në 5 palë të dhënash fytyrash</translation>
+        <translation>Mund të jepen deri në 5 të dhëna fytyrash</translation>
     </message>
     <message>
         <source>Fingerprint</source>
@@ -333,19 +331,19 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Iris</source>
-        <translation>Bebe Syri</translation>
+        <translation>Iris</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation>Dallim identiteti përmes skanimi bebeje syri</translation>
+        <translation>Njohje identiteti përmes skanimi bebeje syri</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Përdorni vetëm shkronja, numra dhe nënvija, si dhe jo më shumë se 15 shenja</translation>
+        <translation>Përdorni vetë shkronja, numra dhe nënvija dhe jo më shumë se 15 shenja</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation>Përdorni vetëm shkronja, numra dhe nënvija</translation>
+        <translation>Përdorni vetë shkronja, numra dhe nënvija</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
@@ -497,7 +495,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <name>BlueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation>Rregullime, pajisje Bluetooth</translation>
+        <translation>Rregullime Bluetooth, pajisje</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -914,7 +912,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"></translation>
+        <translation>Menu nisjesh</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
@@ -953,15 +951,15 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation>Administrim lejesh rrënjë për zhvillues</translation>
+        <translation>Administrim lejesh rrënje për zhvilluesit</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Mundësi Zhvilluesi</translation>
+        <translation>Mundësi Zhvilluesish</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>Mundësi diagnostikimi për zhviluesit</translation>
+        <translation>Mundësi diagnostikimi për zhvillues</translation>
     </message>
 </context>
 <context>
@@ -1123,7 +1121,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1196,11 +1194,11 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <name>Datetime</name>
     <message>
         <source>Time and date</source>
-        <translation>Kohë dhe datë</translation>
+        <translation>Datë dhe kohë</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation>Rregullime kohe, date dhe zone kohore</translation>
+        <translation>Datë dhe kohë, rregullime zone kohore</translation>
     </message>
     <message>
         <source>Language and region</source>
@@ -1208,7 +1206,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation>Gjuhë sistemi, formate rajonale</translation>
+        <translation>Gjuhë sistemi, formate rajonalë</translation>
     </message>
 </context>
 <context>
@@ -1511,7 +1509,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Cloud services</source>
-        <translation>Shërbime me bazë në re</translation>
+        <translation>Shërbime në re</translation>
     </message>
 </context>
 <context>
@@ -1537,11 +1535,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>Defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation>Aplikacion parazgjedhje</translation>
+        <translation>Aplikacion Parazgjedhje</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation>Caktoni aplikacioni parazgjedhje për hapje llojesh të ndryshëm kartelash</translation>
+        <translation>Caktoni aplikacionin parazgjedhje për hapje llojesh të ndryshëm kartelash</translation>
     </message>
 </context>
 <context>
@@ -1674,7 +1672,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Off</translation>
     </message>
     <message>
         <source>Debug</source>
@@ -1706,7 +1704,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation>Kjo veçori s’është e passhme tani, ju lutemi, së pari aktivizoni sistemin tuaj</translation>
+        <translation>Kjo veçori s’është e passhme tani, ju lutemi, së pari aktivizoni sistemin tuaj.</translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
@@ -1725,7 +1723,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>Device</name>
     <message>
         <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Pajisje Bluetooth dhe të Tjera</translation>
     </message>
 </context>
 <context>
@@ -1751,7 +1749,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation>Ndriçim,qartësi,ripërmasim</translation>
+        <translation>Ndriçim, qartësi, ripërmasim</translation>
     </message>
 </context>
 <context>
@@ -1810,11 +1808,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Stretch</source>
-        <translation>Tërhiqe</translation>
+        <translation>Shformoje</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation>Vëre Në Qendër</translation>
+        <translation>Qendër</translation>
     </message>
     <message>
         <source>Only on %1</source>
@@ -1822,7 +1820,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation>Rregullime për Ekrane të Shumtë</translation>
+        <translation>Rregullime për Shumë Ekrane</translation>
     </message>
     <message>
         <source>Identify</source>
@@ -1830,7 +1828,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>Risistemimi i ekranit do të hyjë në fuqi pas %1s pas ndryshimesh</translation>
+        <translation>Risistemimi i ekraneve do të hyjë në fuqi te %1s pas ndryshimeve</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -1838,7 +1836,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Main Screen</source>
-        <translation>Skena Kryesore</translation>
+        <translation>Ekrani kryesor</translation>
     </message>
     <message>
         <source>Display And Layout</source>
@@ -1854,11 +1852,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation>Ripërmasoni Dekstopin</translation>
+        <translation>Ripërmasoni Desktopin</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation>Shpeshti Rifreskimi</translation>
+        <translation>Shpejtësi Rifreskimi</translation>
     </message>
     <message>
         <source>Rotation</source>
@@ -1882,7 +1880,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>Monitori mbulon vetëm përshkallëzim 100% të ekranit</translation>
+        <translation>Monitoni mbulon vetëm ripërmasim 100% ekrani</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
@@ -1894,7 +1892,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation>Përimtoje me ngjyra më të ngrohta shfaqjen e ekranit, duke reduktuar dritë blu ekrani</translation>
+        <translation>Përimtoni shfaqjen e ekrani me ngjyra më të ngrohta, duke reduktuar ndriçimin e kaltër</translation>
     </message>
     <message>
         <source>Time</source>
@@ -1902,11 +1900,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>All day</source>
-        <translation>Gjithë ditën</translation>
+        <translation>Tërë ditën</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation>Nga Agu Gjer Në Perëndim</translation>
+        <translation>Nga Lindja deri në Perëndim të Diellit</translation>
     </message>
     <message>
         <source>Custom Time</source>
@@ -1918,11 +1916,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>to</source>
-        <translation>në</translation>
+        <translation>deri më</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation>Temperaturë Ngjyre</translation>
+        <translation>Temperaturë Ngjyrash</translation>
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
@@ -1942,18 +1940,18 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"></translation>
+        <translation>Ripërmasim</translation>
     </message>
 </context>
 <context>
     <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation>Desktop dhe panel punësh</translation>
+        <translation>Desktop dhe shtyllë punësh</translation>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation>Sistemim desktopi, mënyra shtyllë punësh, rregullime fushe shtojcash</translation>
+        <translation>Sistemim desktopi, mënyrë shtylle punësh, rregullime zone shtojcash</translation>
     </message>
 </context>
 <context>
@@ -1980,11 +1978,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Small</source>
-        <translation>E vogël</translation>
+        <translation>I vogël</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation>E madhe</translation>
+        <translation>I madh</translation>
     </message>
     <message>
         <source>Position on the screen</source>
@@ -2000,7 +1998,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Left</source>
-        <translation>Majtas</translation>
+        <translation>Mjatas</translation>
     </message>
     <message>
         <source>Right</source>
@@ -2028,11 +2026,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation>Caktoni pozicionin në ekran të panelit të punëve</translation>
+        <translation>Caktoni pozicionin në ekran të shtyllës së punëve</translation>
     </message>
     <message>
         <source>Only on main</source>
-        <translation>Vetëm te kryesore</translation>
+        <translation>Vetëm te kryesori</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
@@ -2044,7 +2042,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Përzgjidhni cilat ikona shfaqen te Paneli</translation>
+        <translation>Përzgjidhni cilat ikona të shfaqen te Paneli</translation>
     </message>
     <message>
         <source>Lock the Dock</source>
@@ -2272,7 +2270,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>KeyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished">Hollësi të Rëndomta</translation>
+        <translation>E rëndomtë</translation>
     </message>
 </context>
 <context>
@@ -2395,7 +2393,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No input device for sound found</source>
@@ -2414,14 +2412,14 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished">Hollësi të Rëndomta</translation>
+        <translation>I rëndomtë</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -2429,7 +2427,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished">Touchpad</translation>
+        <translation>Touchpad</translation>
     </message>
 </context>
 <context>
@@ -2460,7 +2458,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Çaktivizoje touchpad-in, kur lidhet një mi</translation>
+        <translation>Çaktivizo touchpad-in, kur lidhet një mi</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -2468,23 +2466,23 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished">E vogël</translation>
+        <translation>I vogël</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"></translation>
+        <translation>Mesatar</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished">E madhe</translation>
+        <translation>I madh</translation>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"></translation>
+        <translation>X-I madh</translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation>Disa aplikacione lypin dalje nga llogaria, ose rinisje sistemi, që të hyjnë në fuqi</translation>
+        <translation>Disa aplikacione lypin dalje nga llogaria, ose rinisje sistemi, që të hyjnë në fuqi ndryshimet</translation>
     </message>
 </context>
 <context>
@@ -2561,7 +2559,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation>Mënyra MMB, njoftime aplikacionesh</translation>
+        <translation>Mënyrë MMSh, njoftime aplikacionesh</translation>
     </message>
     <message>
         <source>Notification</source>
@@ -2572,15 +2570,15 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation>Rregullime për “Mos Më Bezdisni”</translation>
+        <translation>Rregullime për “Mos më Shqetësoni”</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>Njoftimet nga aplikacionet s’do të shfaqen në desktop dhe tingujt do të heshtohen, por mund t’i shihni krejt mesazhet te qendra e njoftimeve.</translation>
+        <translation>Njoftimet e plaikacioneve s’do të shfaqen në desktop dhe tingujt do të heshtohen, por mundeni të shihni krejt mesazhet te qendra e njoftimeve.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>Aktivizo “Mos Më Bezdisni”</translation>
+        <translation>Aktivizo “Mos më Shqetësoni”</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
@@ -2588,11 +2586,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation>Numër njoftimesh shfaqur te desktopi</translation>
+        <translation>Numër njoftimesh për t’u shfaqur te dekstopi</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation>Njoftime Aplikacioni</translation>
+        <translation>Njoftime Aplikacionesh</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
@@ -2600,7 +2598,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>Shfaq njoftim në desktop, ose shfaq mesazhe të palexuar te qendra e njoftimeve</translation>
+        <translation>Shfaq njoftim në dekstop, ose shfaq te qendra e njoftimeve mesazhe të palexuar</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -2739,7 +2737,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Invalid color format: %1</source>
@@ -2762,7 +2760,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation>Personalizoni sfondin dhe ekrankuryesin tuaj</translation>
+        <translation>Personalizoni sfondin dhe ekrankursyesin tuaj</translation>
     </message>
     <message>
         <source>Screensaver</source>
@@ -2774,15 +2772,15 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation>Përimtoni ngjyrë theksimesh dhe ikona teme</translation>
+        <translation>Përimtoni njgyrë theksimesh dhe ikona temash</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation>Shkronja dhe Madhësi Shkronjash</translation>
+        <translation>Shkronja dhe madhësi shkronjash</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation>Ndryshoni shkronja sistemi dhe madhësi</translation>
+        <translation>Ndryshoni shkronja sistemi dhe madhësi të tyre</translation>
     </message>
     <message>
         <source>Wallpaper</source>
@@ -2790,11 +2788,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation>Përzgjidhni dukje të çelët, të errët, ose automatike teme</translation>
+        <translation>Përzgjidhni temë të çelët, të errët ose të automatizuar</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation>Ndërfaqe dhe efekte, cepa të rrumbullakët</translation>
+        <translation>Ndërfaqe dhe efekte, cepa të rrumbullakosur</translation>
     </message>
 </context>
 <context>
@@ -2834,7 +2832,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Plane energjie, rregullime kursimi energjie, rregullime zgjimi, rregullime fikjeje</translation>
+        <translation>Regjime energjie, rregullime kursimi energjie, rregullime zgjimi, rregullime fikjeje</translation>
     </message>
     <message>
         <source>Plugged In</source>
@@ -2846,7 +2844,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>On Battery</source>
-        <translation>Nën Bateri</translation>
+        <translation>Me bateri</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
@@ -2911,7 +2909,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Balance Performance</source>
@@ -2965,7 +2963,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation>Kamerë, leje dosjesh</translation>
+        <translation>Kamerë, leje mbi dosje</translation>
     </message>
 </context>
 <context>
@@ -2976,7 +2974,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation>Zgjidhni të ketë a jo aplikacioni hyrje te kamera</translation>
+        <translation>Zgjidhni nëse aplikacioni mund të përdorë kamerën apo jo</translation>
     </message>
     <message>
         <source>Files and Folders</source>
@@ -2984,7 +2982,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation>Zgjidhni të ketë a jo aplikacioni hyrje te kartela dhe dosje</translation>
+        <translation>Zgjidhni nëse aplikacioni mund të përdorë kartela dhe dosje</translation>
     </message>
 </context>
 <context>
@@ -3401,7 +3399,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation>Zë në hyrje, zë në dale, efekte zanore, pajisje</translation>
+        <translation>Tinguj në dalje, në hyrje, efekte zanore, pajisje</translation>
     </message>
 </context>
 <context>
@@ -3594,7 +3592,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>System</name>
     <message>
         <source>Common settings</source>
-        <translation>Rregullime të rëndomta</translation>
+        <translation>Rregullime të rëndomëta</translation>
     </message>
     <message>
         <source>System</source>
@@ -3616,27 +3614,27 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Version sistemi, hollësi pajisjesh</translation>
+        <translation>Version sistemi, informacion pajisjesh</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>Shihni shënimin për “software” me burim të hapët</translation>
+        <translation>Shihni shënimin rreth software-i me burim të hapët</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>“User Experience Program”</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation>Merrni pjesë te programi “User Experience Program” që të ndihmoni të përmirësohet produkti</translation>
+        <translation>Merrni pjesë te “User Experience Program” që të ndihmoni të përmirësohet produkti</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Marrëveshje Licence Përdoruesi</translation>
+        <translation>Marrëveshje Licence Përdoruesi të Thjeshtë</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>Shihni marrëveshje licence përdoruesi</translation>
+        <translation>Shihni marrëveshjen e licencës së përdoruesit të thjeshtë</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
@@ -3648,7 +3646,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>Shënim Mbi Software Me Burim të Hapët</translation>
+        <translation>Shënim Software-i Me Burim të Hapët</translation>
     </message>
 </context>
 <context>
@@ -3774,7 +3772,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3801,7 +3799,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tap to Click</source>
@@ -3839,7 +3837,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished">Hollësi të Rëndomta</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3884,7 +3882,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>Wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Configuring wacom</source>
@@ -3895,15 +3893,15 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>WacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation>Mënyrë PENË</translation>
+        <translation>Mënyra Penë</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation>Mënyrë Miu</translation>
+        <translation>Mënyra Mi</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
@@ -3911,11 +3909,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Light</source>
-        <translation>Butë</translation>
+        <translation>E vogël</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"></translation>
+        <translation>E madhe</translation>
     </message>
     <message>
         <source>Model</source>
@@ -4005,7 +4003,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"></translation>
+        <translation>shmbështille</translation>
     </message>
     <message>
         <source>Set lock screen</source>
@@ -4228,7 +4226,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Face</source>

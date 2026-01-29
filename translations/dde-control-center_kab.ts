@@ -123,6 +123,24 @@
     </message>
 </context>
 <context>
+    <name>Accounts</name>
+    <message>
+        <source>Account</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Account manager</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>AccountsMain</name>
+    <message>
+        <source>Other accounts</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
@@ -271,6 +289,68 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>Authentication</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>AuthenticationMain</name>
+    <message>
+        <source>Biometric Authentication</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Face</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Up to 5 facial data can be entered</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fingerprint</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identifying user identity through scanning fingerprints</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Iris</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identity recognition through iris scanning</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Use letters, numbers and underscores only</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>No more than 15 characters</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>This name already exists</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Add a new %1 ...</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
@@ -397,6 +477,17 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Disable</source>
         <translation>Difasak</translation>
+    </message>
+</context>
+<context>
+    <name>BlueTooth</name>
+    <message>
+        <source>Bluetooth settings, devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -837,6 +928,29 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>CommonInfoMain</name>
+    <message>
+        <source>Boot Menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Manage your boot menu</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer debugging options</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
@@ -1062,6 +1176,25 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Confirm</source>
         <translation>Tafassasen</translation>
+    </message>
+</context>
+<context>
+    <name>Datetime</name>
+    <message>
+        <source>Time and date</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time and date, time zone settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Language and region</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System language, regional formats</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1356,6 +1489,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Deepinid</name>
+    <message>
+        <source>deepin ID</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>UOS ID</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cloud services</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
@@ -1371,6 +1519,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Defaultapp</name>
+    <message>
+        <source>Default App</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Set the default application for opening various types of files</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>DefaultappMain</name>
+    <message>
+        <source>Webpage</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Mail</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Text</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Music</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Video</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Picture</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Terminal</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1521,6 +1711,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Device</name>
+    <message>
+        <source>Bluetooth and Other Devices</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -1532,6 +1729,318 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Agree</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Display</name>
+    <message>
+        <source>Display</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Brightness,resolution,scaling</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>DisplayMain</name>
+    <message>
+        <source>100%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>125%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>150%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>175%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>200%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>225%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>250%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>275%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>300%</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Fit</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Stretch</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Center</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multiple Displays Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Identify</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Screen rearrangement will take effect in %1s after changes</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Main Screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display And Layout</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Brightness</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Resolution</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Resize Desktop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Refresh Rate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Rotation</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Standard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>90°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>180°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>270°</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The monitor only supports 100% display scaling</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Eye Comfort</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>All day</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sunset to Sunrise</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Custom Time</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>from</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>to</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Color Temperature</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1x%2 (Recommended)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1x%2</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1Hz (Recommended)</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>%1Hz</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Scaling</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Dock</name>
+    <message>
+        <source>Desktop and taskbar</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Desktop organization, taskbar mode, plugin area settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>DockMain</name>
+    <message>
+        <source>Dock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Classic Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Centered Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dock size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Small</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Large</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Position on the screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Top</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bottom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Left</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Right</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Status</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Keep shown</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Keep hidden</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Smart hide</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Set the position of the taskbar on the screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Only on main</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On screen where the cursor is</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugin Area</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select which icons appear in the Dock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock the Dock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Combine application icons</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -1738,6 +2247,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Keyboard</name>
+    <message>
+        <source>Keyboard</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>General Settings, input method, shortcuts</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>KeyboardMain</name>
+    <message>
+        <source>Common</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -1869,38 +2396,64 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Mouse</name>
+    <message>
+        <source>Mouse and Touchpad</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Common、Mouse、Touchpad</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>MouseMain</name>
+    <message>
+        <source>Common</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Mouse</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Touchpad</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MousePage</name>
     <message>
         <source>Mouse</source>
-        <translation>Mouss</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>Tafir l-ḍir l-taḍil</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Sla</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Ḥadra</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation>Tashit tafarrut n tashit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation>Tafarrut tiswurt tennawen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Tetghart tawlet tafayut u tawen tennawen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Tiswurt tafayut tawer</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Small</source>
@@ -1990,6 +2543,72 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1~63 characters please</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>Notification</name>
+    <message>
+        <source>DND mode, app notifications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Notification</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>NotificationMain</name>
+    <message>
+        <source>Do Not Disturb Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable Do Not Disturb</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>When the screen is locked</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Number of notifications shown on the desktop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>App Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Allow Notifications</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display notification on desktop or show unread messages in the notification center</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Desktop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock Screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Notification Center</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show message preview</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Play a sound</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2087,6 +2706,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Personalization</name>
+    <message>
+        <source>Personalization</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>PersonalizationInterface</name>
     <message>
         <source>Light</source>
@@ -2110,6 +2736,57 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>PersonalizationMain</name>
+    <message>
+        <source>Theme</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Appearance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Window effect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Personalize your wallpaper and screensaver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Screensaver</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Colors and icons</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Adjust accent color and theme icons</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Font and font size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Change system font and size</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Wallpaper</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Select light, dark or automatic theme appearance</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Interface and effects, rounded corners</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>PersonalizationWorker</name>
     <message>
         <source>Custom</source>
@@ -2125,6 +2802,44 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Ddiwuss ddiwuss ddiwuss ddiwuss ddiwuss ddiwuss</translation>
+    </message>
+</context>
+<context>
+    <name>Power</name>
+    <message>
+        <source>Power saving settings, screen and suspend</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Power</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PowerMain</name>
+    <message>
+        <source>General</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Plugged In</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Screen and suspend</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>On Battery</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>screen and suspend, low battery, battery management</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2229,6 +2944,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Never</source>
         <translation>Chak</translation>
+    </message>
+</context>
+<context>
+    <name>Privacy</name>
+    <message>
+        <source>Privacy and Security</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Camera, folder permissions</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PrivacyMain</name>
+    <message>
+        <source>Camera</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Choose whether the application has access to the camera</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Files and Folders</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Choose whether the application has access to files and folders</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2638,6 +3383,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Sound</name>
+    <message>
+        <source>Sound</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Output, input, sound effects, devices</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -2657,6 +3413,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Sound Effects</source>
         <translation>Effets sonores</translation>
+    </message>
+</context>
+<context>
+    <name>SoundMain</name>
+    <message>
+        <source>Settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sound Effects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable/disable sound effects</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Enable/disable audio devices</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Devices Management</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2798,6 +3577,67 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Screensaver</source>
         <translation>Géni fezzan</translation>
+    </message>
+</context>
+<context>
+    <name>System</name>
+    <message>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>SystemInfo</name>
+    <message>
+        <source>Auxiliary Information</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>SystemInfoMain</name>
+    <message>
+        <source>About This PC</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System version, device information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2974,6 +3814,24 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Touchscreen</name>
+    <message>
+        <source>Touchscreen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configuring Touchscreen</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>TouchscreenMain</name>
+    <message>
+        <source>Common</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
@@ -3009,6 +3867,48 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Confirm</source>
         <translation>Confirm</translation>
+    </message>
+</context>
+<context>
+    <name>Wacom</name>
+    <message>
+        <source>wacom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Configuring wacom</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>WacomMain</name>
+    <message>
+        <source>wacom</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pen Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Mouse Mode</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Pressure Sensitivity</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Heavy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Model</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3207,139 +4107,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Accounts</name>
-    <message>
-        <source>Account</source>
-        <translation>Tchafa</translation>
-    </message>
-    <message>
-        <source>Account manager</source>
-        <translation>Tchafa manager</translation>
-    </message>
-</context>
-<context>
-    <name>AccountsMain</name>
-    <message>
-        <source>Other accounts</source>
-        <translation>Tchafas dëgg</translation>
-    </message>
-</context>
-<context>
-    <name>Authentication</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>Authentifk biometrik</translation>
-    </message>
-</context>
-<context>
-    <name>AuthenticationMain</name>
-    <message>
-        <source>Biometric Authentication</source>
-        <translation>Authentifk biometrik</translation>
-    </message>
-    <message>
-        <source>Face</source>
-        <translation>Chelch</translation>
-    </message>
-    <message>
-        <source>Up to 5 facial data can be entered</source>
-        <translation>5 chelch dëgg ad chellaz</translation>
-    </message>
-    <message>
-        <source>Fingerprint</source>
-        <translation>Fingherprint</translation>
-    </message>
-    <message>
-        <source>Identifying user identity through scanning fingerprints</source>
-        <translation>Identiqat l&apos;identit l&apos;insass through scanqan fingeqrprint</translation>
-    </message>
-    <message>
-        <source>Iris</source>
-        <translation>Iris</translation>
-    </message>
-    <message>
-        <source>Identity recognition through iris scanning</source>
-        <translation>Identiqat l&apos;identit through scanqan iris</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Izil letres, nqamres i akz underscores, ak 15 charakters tawer</translation>
-    </message>
-    <message>
-        <source>Use letters, numbers and underscores only</source>
-        <translation>Izil letres, nqamres i akz underscores</translation>
-    </message>
-    <message>
-        <source>No more than 15 characters</source>
-        <translation>15 charakters tawer</translation>
-    </message>
-    <message>
-        <source>This name already exists</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>BlueTooth</name>
-    <message>
-        <source>Bluetooth settings, devices</source>
-        <translation>margzat bluetooth, dispositifs</translation>
-    </message>
-    <message>
-        <source>Bluetooth</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>CommonInfoMain</name>
-    <message>
-        <source>Boot Menu</source>
-        <translation>Menu d&apos;iniqat</translation>
-    </message>
-    <message>
-        <source>Manage your boot menu</source>
-        <translation>Gérer l&apos;menu d&apos;iniqat</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Gestion des permision d&apos;root l&apos;insass</translation>
-    </message>
-    <message>
-        <source>Developer Options</source>
-        <translation>Options l&apos;insass</translation>
-    </message>
-    <message>
-        <source>Developer debugging options</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Datetime</name>
-    <message>
-        <source>Time and date</source>
-        <translation>Waqt i akz date</translation>
-    </message>
-    <message>
-        <source>Time and date, time zone settings</source>
-        <translation>Waqt i akz date, margzat zone waqt</translation>
-    </message>
-    <message>
-        <source>Language and region</source>
-        <translation>Linga i akz région</translation>
-    </message>
-    <message>
-        <source>System language, regional formats</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3605,773 +4372,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Deepinid</name>
-    <message>
-        <source>deepin ID</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>UOS ID</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Cloud services</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Defaultapp</name>
-    <message>
-        <source>Default App</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>DefaultappMain</name>
-    <message>
-        <source>Webpage</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Mail</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Text</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Music</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Video</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Picture</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Terminal</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Display</name>
-    <message>
-        <source>Display</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Brightness,resolution,scaling</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>DisplayMain</name>
-    <message>
-        <source>100%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>125%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>150%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>175%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>200%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>225%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>250%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>275%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>300%</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Duplicate</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Extend</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Default</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Fit</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Stretch</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Center</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Only on %1</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Multiple Displays Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Identify</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Main Screen</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Display And Layout</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Brightness</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Resolution</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Resize Desktop</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Refresh Rate</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Rotation</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Standard</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>90°</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>180°</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>270°</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Eye Comfort</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable eye comfort</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>All day</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Sunset to Sunrise</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Custom Time</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>from</source>
-        <translation>smi</translation>
-    </message>
-    <message>
-        <source>to</source>
-        <translation>sii</translation>
-    </message>
-    <message>
-        <source>Color Temperature</source>
-        <translation>Temperaturs n-gasus</translation>
-    </message>
-    <message>
-        <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1x%2</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>%1Hz</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Scaling</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Dock</name>
-    <message>
-        <source>Desktop and taskbar</source>
-        <translation>Deshabta s-n-tafasir</translation>
-    </message>
-    <message>
-        <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Keyboard</name>
-    <message>
-        <source>Keyboard</source>
-        <translation>Tafasir</translation>
-    </message>
-    <message>
-        <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>KeyboardMain</name>
-    <message>
-        <source>Common</source>
-        <translation>Bass</translation>
-    </message>
-</context>
-<context>
-    <name>DockMain</name>
-    <message>
-        <source>Dock</source>
-        <translation>Dock</translation>
-    </message>
-    <message>
-        <source>Mode</source>
-        <translation>Mode</translation>
-    </message>
-    <message>
-        <source>Classic Mode</source>
-        <translation>Mode klassik</translation>
-    </message>
-    <message>
-        <source>Centered Mode</source>
-        <translation>Mode t-guern</translation>
-    </message>
-    <message>
-        <source>Dock size</source>
-        <translation>Gnassen dock</translation>
-    </message>
-    <message>
-        <source>Small</source>
-        <translation>Gnassen bett</translation>
-    </message>
-    <message>
-        <source>Large</source>
-        <translation>Gnassen beni</translation>
-    </message>
-    <message>
-        <source>Position on the screen</source>
-        <translation>Tpos s-sib</translation>
-    </message>
-    <message>
-        <source>Top</source>
-        <translation>Top</translation>
-    </message>
-    <message>
-        <source>Bottom</source>
-        <translation>Botton</translation>
-    </message>
-    <message>
-        <source>Left</source>
-        <translation>Gnaft</translation>
-    </message>
-    <message>
-        <source>Right</source>
-        <translation>Gnaft</translation>
-    </message>
-    <message>
-        <source>Status</source>
-        <translation>Status</translation>
-    </message>
-    <message>
-        <source>Keep shown</source>
-        <translation>Wadawus</translation>
-    </message>
-    <message>
-        <source>Keep hidden</source>
-        <translation>Gawwus</translation>
-    </message>
-    <message>
-        <source>Smart hide</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Multiple Displays</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Set the position of the taskbar on the screen</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Only on main</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>On screen where the cursor is</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Plugin Area</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lock the Dock</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Combine application icons</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Mouse</name>
-    <message>
-        <source>Mouse and Touchpad</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>MouseMain</name>
-    <message>
-        <source>Common</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Mouse</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Touchpad</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Notification</name>
-    <message>
-        <source>DND mode, app notifications</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Notification</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>NotificationMain</name>
-    <message>
-        <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>When the screen is locked</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>App Notifications</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Allow Notifications</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Desktop</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lock Screen</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Notification Center</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show message preview</source>
-        <translation>Deshawen mizal wenshi</translation>
-    </message>
-    <message>
-        <source>Play a sound</source>
-        <translation>Tefrahou soud</translation>
-    </message>
-</context>
-<context>
-    <name>Personalization</name>
-    <message>
-        <source>Personalization</source>
-        <translation>Personalis</translation>
-    </message>
-</context>
-<context>
-    <name>PersonalizationMain</name>
-    <message>
-        <source>Theme</source>
-        <translation>Tema</translation>
-    </message>
-    <message>
-        <source>Appearance</source>
-        <translation>Tasamit</translation>
-    </message>
-    <message>
-        <source>Window effect</source>
-        <translation>Afrif window</translation>
-    </message>
-    <message>
-        <source>Personalize your wallpaper and screensaver</source>
-        <translation>Personalis walsafir yiwiki u sifrahou</translation>
-    </message>
-    <message>
-        <source>Screensaver</source>
-        <translation>Sifrahou</translation>
-    </message>
-    <message>
-        <source>Colors and icons</source>
-        <translation>Kolori u ikon</translation>
-    </message>
-    <message>
-        <source>Adjust accent color and theme icons</source>
-        <translation>Tiffen kolor akcent u ikon tema</translation>
-    </message>
-    <message>
-        <source>Font and font size</source>
-        <translation>Font u tafrirt font</translation>
-    </message>
-    <message>
-        <source>Change system font and size</source>
-        <translation>Chifra font system u tafrirt</translation>
-    </message>
-    <message>
-        <source>Wallpaper</source>
-        <translation>Walsafir</translation>
-    </message>
-    <message>
-        <source>Select light, dark or automatic theme appearance</source>
-        <translation>Sesel light, dark ur automatic tema</translation>
-    </message>
-    <message>
-        <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Power</name>
-    <message>
-        <source>Power saving settings, screen and suspend</source>
-        <translation>Afrif tassub wassal u suspend</translation>
-    </message>
-    <message>
-        <source>Power</source>
-        <translation>Tassub</translation>
-    </message>
-</context>
-<context>
-    <name>PowerMain</name>
-    <message>
-        <source>General</source>
-        <translation>Général</translation>
-    </message>
-    <message>
-        <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Plan tassub, afrif tassub tassub, afrif tawak, afrif ferhass</translation>
-    </message>
-    <message>
-        <source>Plugged In</source>
-        <translation>Chewara</translation>
-    </message>
-    <message>
-        <source>Screen and suspend</source>
-        <translation>Ssal u suspend</translation>
-    </message>
-    <message>
-        <source>On Battery</source>
-        <translation>A bateri</translation>
-    </message>
-    <message>
-        <source>screen and suspend, low battery, battery management</source>
-        <translation>Ssal u suspend, bateri tigraz, gestion bateri</translation>
-    </message>
-</context>
-<context>
-    <name>Privacy</name>
-    <message>
-        <source>Privacy and Security</source>
-        <translation>Wassifiet u segui</translation>
-    </message>
-    <message>
-        <source>Camera, folder permissions</source>
-        <translation>Kamera, permess folder</translation>
-    </message>
-</context>
-<context>
-    <name>PrivacyMain</name>
-    <message>
-        <source>Camera</source>
-        <translation>Kaméra</translation>
-    </message>
-    <message>
-        <source>Choose whether the application has access to the camera</source>
-        <translation>Axsus teni an mabsas kaméra tawen aksusla</translation>
-    </message>
-    <message>
-        <source>Files and Folders</source>
-        <translation>Xifren i flek i dëgës</translation>
-    </message>
-    <message>
-        <source>Choose whether the application has access to files and folders</source>
-        <translation>Axsus teni an mabsas xifren i flek i dëgës tawen aksusla</translation>
-    </message>
-</context>
-<context>
-    <name>Sound</name>
-    <message>
-        <source>Sound</source>
-        <translation>Tafassen</translation>
-    </message>
-    <message>
-        <source>Output, input, sound effects, devices</source>
-        <translation>Xalqas, dëgë, afassas tafassen, as-salet</translation>
-    </message>
-</context>
-<context>
-    <name>SoundMain</name>
-    <message>
-        <source>Settings</source>
-        <translation>Xifren</translation>
-    </message>
-    <message>
-        <source>Sound Effects</source>
-        <translation>Afassas tafassen</translation>
-    </message>
-    <message>
-        <source>Enable/disable sound effects</source>
-        <translation>Tatgarni/tatgarni afassas tafassen</translation>
-    </message>
-    <message>
-        <source>Enable/disable audio devices</source>
-        <translation>Tatgarni/tatgarni as-salet tafassen</translation>
-    </message>
-    <message>
-        <source>Devices Management</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation>Xifren tawens</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>Sistema</translation>
-    </message>
-</context>
-<context>
-    <name>SystemInfo</name>
-    <message>
-        <source>Auxiliary Information</source>
-        <translation>Xifren tas-safar</translation>
-    </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
-    <message>
-        <source>About This PC</source>
-        <translation>An tawen as-sibgat</translation>
-    </message>
-    <message>
-        <source>System version, device information</source>
-        <translation>Sistema tawen, xifren as-salet</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>Tafassas xifren as-salet tafassen tawens tafassen</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>Program tafassen as-safar</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>Tatgarni program tafassen as-safar tafassas xifren tawen as-safar</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>Xifren tafassen as-salet</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>Tafassas xifren tafassen as-salet</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>Xifren tafassen tassafi</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>Afišeš nissegartut ulewiz wizartut</translation>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>Touchscreen</name>
-    <message>
-        <source>Touchscreen</source>
-        <translation>Touchscreen</translation>
-    </message>
-    <message>
-        <source>Configuring Touchscreen</source>
-        <translation>Tefuzi touchscreen</translation>
-    </message>
-</context>
-<context>
-    <name>TouchscreenMain</name>
-    <message>
-        <source>Common</source>
-        <translation>Wawel</translation>
-    </message>
-</context>
-<context>
-    <name>Wacom</name>
-    <message>
-        <source>wacom</source>
-        <translation>wacom</translation>
-    </message>
-    <message>
-        <source>Configuring wacom</source>
-        <translation>Tefuzi wacom</translation>
-    </message>
-</context>
-<context>
-    <name>WacomMain</name>
-    <message>
-        <source>wacom</source>
-        <translation>wacom</translation>
-    </message>
-    <message>
-        <source>Pen Mode</source>
-        <translation>Mode pen</translation>
-    </message>
-    <message>
-        <source>Mouse Mode</source>
-        <translation>Mode souris</translation>
-    </message>
-    <message>
-        <source>Pressure Sensitivity</source>
-        <translation>Sensibilitat d&apos;afuz</translation>
-    </message>
-    <message>
-        <source>Light</source>
-        <translation>Lig</translation>
-    </message>
-    <message>
-        <source>Heavy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Model</source>
         <translation type="unfinished"/>
     </message>
 </context>

@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ar">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ar">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -97,49 +95,49 @@
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Accounts</name>
     <message>
         <source>Account</source>
-        <translation>الحساب</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Account manager</source>
-        <translation>مدير الحسابات</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AccountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation>الحسابات الأخرى</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -185,20 +183,15 @@
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished">&quot;التحقق البيومטרי&quot; هو وظيفة لتأكيد هوية المستخدم تقدمها شركة تكنولوجيا البرمجيات المتحدة. من خلال &quot;التحقق البيومטרי&quot;، سيتم مقارنة البيانات البيومترية المجمعة مع البيانات المخزنة في الجهاز، وسيتم التحقق من هوية المستخدم بناءً على نتيجة المقارنة.
-
-يرجى الملاحظة أن شركة تكنولوجيا البرمجيات المتحدة لن تجمع أو تُدخل بياناتك البيومترية، والتي سيتم تخزينها على جهازك المحلي. يرجى تمكين &quot;التحقق البيومטרי&quot; فقط في جهازك الشخصي واستخدم بياناتك البيومترية الخاصة لإجراء العمليات المرتبطة، وقم بتعطيل أو حذف بيانات البيومترية الأخرى على ذلك الجهاز في أقرب وقت، وإلا فإنك ستحمل المخاطر الناشئة عن ذلك.
-
-
-تلتزم شركة تكنولوجيا البرمجيات المتحدة ببحث وتحسين أمان ودقة وثبات &quot;التحقق البيومטרי&quot;. ومع ذلك، لا يوجد ضمان بأنك ستمكين &quot;التحقق البيومטרי&quot; مؤقتًا بسبب عوامل بيئية وتقنية وآلاتية وغيرها من عوامل التحكم في المخاطر. لذلك، يرجى عدم الاعتماد على &quot;التحقق البيومטרי&quot; كالطريقة الوحيدة لتسجيل الدخول إلى نظام التشغيل UOS. إذا كانت لديك أي أسئلة أو ملاحظات عند استخدام &quot;التحقق البيومטרי&quot;، يمكنك إعطاء ملاحظات عبر &quot;الدعم والمساعدة&quot; في نظام التشغيل UOS.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -238,7 +231,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;التحقق البيومטרי&quot; هو وظيفة لتأكيد هوية المستخدم تقدمها شركة تكنولوجيا البرمجيات المتحدة. من خلال &quot;التحقق البيومטרי&quot;، سيتم مقارنة البيانات البيومترية المجمعة مع البيانات المخزنة في الجهاز، وسيتم التحقق من هوية المستخدم بناءً على نتيجة المقارنة.
@@ -253,118 +246,113 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished">التالي</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished">تم</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished">حاول التسجيل مرة أخرى</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished">&quot;التحقق البيومטרי&quot; هو وظيفة لتأكيد هوية المستخدم تقدمها شركة تكنولوجيا البرمجيات المتحدة. من خلال &quot;التحقق البيومטרי&quot;، سيتم مقارنة البيانات البيومترية المجمعة مع البيانات المخزنة في الجهاز، وسيتم التحقق من هوية المستخدم بناءً على نتيجة المقارنة.
-
-يرجى الملاحظة أن شركة تكنولوجيا البرمجيات المتحدة لن تجمع أو تُدخل بياناتك البيومترية، والتي سيتم تخزينها على جهازك المحلي. يرجى تمكين &quot;التحقق البيومטרי&quot; فقط في جهازك الشخصي واستخدم بياناتك البيومترية الخاصة لإجراء العمليات المرتبطة، وقم بتعطيل أو حذف بيانات البيومترية الأخرى على ذلك الجهاز في أقرب وقت، وإلا فإنك ستحمل المخاطر الناشئة عن ذلك.
-
-
-تلتزم شركة تكنولوجيا البرمجيات المتحدة ببحث وتحسين أمان ودقة وثبات &quot;التحقق البيومטרי&quot;. ومع ذلك، لا يوجد ضمان بأنك ستمكين &quot;التحقق البيومטרי&quot; مؤقتًا بسبب عوامل بيئية وتقنية وآلاتية وغيرها من عوامل التحكم في المخاطر. لذلك، يرجى عدم الاعتماد على &quot;التحقق البيومטרי&quot; كالطريقة الوحيدة لتسجيل الدخول إلى نظام التشغيل UOS. إذا كانت لديك أي أسئلة أو ملاحظات عند استخدام &quot;التحقق البيومטרי&quot;، يمكنك إعطاء ملاحظات عبر &quot;الدعم والمساعدة&quot; في نظام التشغيل UOS.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>التحقق المعرفي</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AuthenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>التحقق المعرفي</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Face</source>
-        <translation>وجه</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation>يمكن إدخال حتى 5 بيانات ووجه</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation>بصمة الإصبع</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation>تحديد هوية المستخدم عن طريق сканирование отпечатков пальцев</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Iris</source>
-        <translation>العصبون</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation>إدراك الهوية عن طريق сканирование зрачка</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>استخدم حروف وأرقام وخطوطEmphasis号，并且不要超过15个字符</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation>استخدم حروف وأرقام وخطوطEmphasis号</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation>لا يتجاوز 15 حرف</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This name already exists</source>
-        <translation>هذا الاسم موجود بالفعل</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -500,11 +488,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BlueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation>إعدادات الواي فاي، الأجهزة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -938,34 +926,34 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">عام</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation>قائمة التشغيل</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>إدارة قائمة التشغيل الخاصة بك</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation>إدارة صلاحيات الوصول الجذر للمطور</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>خيارات المطور</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1028,15 +1016,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1086,30 +1074,30 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1120,7 +1108,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1150,15 +1138,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1200,19 +1188,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>Datetime</name>
     <message>
         <source>Time and date</source>
-        <translation>الوقت والتاريخ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation>الوقت والتاريخ، إعدادات المنطقة الزمنية</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Language and region</source>
-        <translation>اللغة والمنطقة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1295,7 +1283,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1480,7 +1468,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1503,22 +1491,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation>ID ديبي إن</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation>ID UOS</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation>خدمات السحابة</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1544,42 +1532,42 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation>تطبيق الافتراضي</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation>قم بتعيين التطبيق الافتراضي لفتح أنواع مختلفة من الملفات</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DefaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation>صفحة الويب</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mail</source>
-        <translation>البريد الإلكتروني</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Text</source>
-        <translation>نص</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Music</source>
-        <translation>موسيقى</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Video</source>
-        <translation>فيديو</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Picture</source>
-        <translation>صورة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Terminal</source>
-        <translation>موفر الأوامر</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1697,42 +1685,42 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Device</name>
     <message>
         <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1754,312 +1742,312 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Display</name>
     <message>
         <source>Display</source>
-        <translation>عرض</translation>
+        <translation>العرض</translation>
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation> الإضاءة، الدقة، التكبير</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DisplayMain</name>
     <message>
         <source>100%</source>
-        <translation>100%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>125%</source>
-        <translation>125%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>150%</source>
-        <translation>150%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>175%</source>
-        <translation>175%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>200%</source>
-        <translation>200%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>225%</source>
-        <translation>225%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>250%</source>
-        <translation>250%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>275%</source>
-        <translation>275%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>300%</source>
-        <translation>300%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>نسخ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Extend</source>
-        <translation>تمتد</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Default</source>
-        <translation>وضع افتراضي</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fit</source>
-        <translation>يلحفظ الشكل</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Stretch</source>
-        <translation>يتمدد</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center</source>
-        <translation>授予屏幕居中</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation>فقط على %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation>إعدادات الشاشات متعددة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identify</source>
-        <translation>تحديد</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>سيطبق zm IRQ إعادة تنظيم الشاشة بعد %1 ثانية من التغييرات</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mode</source>
-        <translation>النظام</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation>الشاشة الرئيسية</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation>الاستعراض والتخطيط</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Brightness</source>
-        <translation>الاشعeraة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resolution</source>
-        <translation>التقويم</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation>تغيير حجم الطاولة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation>سرعة تحديث الشاشة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Rotation</source>
-        <translation>التأديr</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Standard</source>
-        <translation>スタンダード</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>90°</source>
-        <translation>90°</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>180°</source>
-        <translation>180°</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>270°</source>
-        <translation>270°</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>يبقى منقوش فقط 100%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation>راحة العين</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation>تفعيل راحة العين</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation>凋整屏幕显示，使其具有更暖的颜色，降低屏幕蓝色光量</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time</source>
-        <translation>الوقت</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>All day</source>
-        <translation>الم acting  entirety of the day</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation> Sunset to Sunrise</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>وقت فق standard تاتي</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>from</source>
-        <translation>من</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>to</source>
-        <translation>إلى</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation>درجة حرارة الألوان</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation>الطاولة وال barr إلى أجنحة المهام</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation>تنظيم سطح المكتب، وضع شريط المهام، إعدادات منطقة الملحقات</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DockMain</name>
     <message>
         <source>Dock</source>
-        <translation>طوق</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mode</source>
-        <translation>الemode</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation>ال新模式</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation>الوضع المركزي</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dock size</source>
-        <translation>حجم الطوق</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Small</source>
-        <translation>صغير</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Large</source>
-        <translation>كبير</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation>الموقع على الشاشة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Top</source>
-        <translation>أعلى</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>низ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Left</source>
-        <translation>عن يمينها</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Right</source>
-        <translation>في اليمين</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Status</source>
-        <translation>الحالة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>احفظ العرض</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>تخزين الخفاء</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>ẩn thông minh</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation>شاشات متعددة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation>تعيين موضع شريط المهام على الشاشة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Only on main</source>
-        <translation>فقط على الرئيسي</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation>على الشاشة حيث المؤشر</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation>المنطقة الإضافية</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>حدد أي الرموز تظهر في السلة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation>قفل الشريط</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2187,43 +2175,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2268,18 +2256,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation>المفتاح</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>KeyboardMain</name>
     <message>
         <source>Common</source>
-        <translation>متداول</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2322,7 +2310,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2372,7 +2360,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished">استعادة كلمة المرور</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2410,88 +2398,88 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input Device</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation>المouse و لوحة اللمس</translation>
+        <translation>الفأرة ولوح اللمس</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation>عام، المouse، لوحة اللمس</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
-        <translation>عام</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse</source>
-        <translation>المouse</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>لمس لوحة اللمس</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>MousePage</name>
     <message>
         <source>Mouse</source>
-        <translation>فأرة الرسومات</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>سرعة الموجه</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Slow</source>
-        <translation>عاجز</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fast</source>
-        <translation>سريع</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation>حجم المؤشر</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation>تسريع مؤشر الفأرة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>تعطيل لوحة اللمس عند الاتصال بالفأرة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>انطباع التصفح الطبيعي</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished">صغير</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished">متوسط</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished">كبير</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2568,66 +2556,66 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation>وضع عدم الإزعاج، إشعارات التطبيقات</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Notification</source>
-        <translation>إشعار</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation>إعدادات عدم الإزعاج</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>لن يتم عرض إشعارات التطبيقات على الطاولة وستتم إسكات الأصوات، ولكن يمكنك مشاهدة جميع الرسائل في مركز الإشعارات.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>تفعيل عدم الإزعاج</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation>عند إغلاق الشاشة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation>عدد الإشعارات المعرضة على الطاولة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation>إشعارات التطبيقات</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation>السماح بالإشعارات</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>عرض الإشعارات على الطاولة أو عرض الرسائل غير المقرؤة في مركز الإشعارات</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>الطاولة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>إغلاق الشاشة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation>مركز الإشعارات</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation>عرض نص الرسالة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation>تشغيل صوت</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2689,7 +2677,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>New password should differ from the current one</source>
@@ -2697,7 +2685,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2727,7 +2715,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Personalization</name>
     <message>
         <source>Personalization</source>
-        <translation>خصائص الشخصنة</translation>
+        <translation>التخصيص</translation>
     </message>
 </context>
 <context>
@@ -2746,62 +2734,62 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PersonalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation>ItemType</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Appearance</source>
-        <translation>الجرا酬户A面</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Window effect</source>
-        <translation>تأثيرات الاشراف</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation>شخصف جدار الأفعال والمنصات</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation>برنامج حماية الشاشة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation>الألوان والرموز</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation>تعديل الألوان الأبرز والرموز الم yımlcel主题</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation>خط和发展方案</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation>변경 시스템 폰트와 크기</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation>┌角戏</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation>حدد ظلام، ضوء أو ظلام تلقائي</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation>واجهة وتأثيرات، زوايا منحنية</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2826,38 +2814,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation>إعدادات بطاقية المع Mars部署</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Power</source>
-        <translation>قوى</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PowerMain</name>
     <message>
         <source>General</source>
-        <translation>عام</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>إعدادات خطة الطاقة، إعدادات حفظ الطاقة، إعدادات استيقاظ، إعدادات إغلاق</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation>متص aphA线</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation>شاشة ووقاية الشاشة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>On Battery</source>
-        <translation>مع توتير</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation>شاشة ووقاية الشاشة، منخفض بطارية، إدارة البطارية</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2968,30 +2956,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation>خصوصية وكأ功秘</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation>_webcam，文件夹权限</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PrivacyMain</name>
     <message>
         <source>Camera</source>
-        <translation>الكاميرا</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation>اختر ما إذا كان تطبيقك يملك إمكانية الوصول إلى الكاميرا</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation>ملفات وقفائف</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation>اختر ما إذا كان تطبيقك يملك إمكانية الوصول إلى الملفات وقفائف</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3109,7 +3097,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3164,7 +3152,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3326,27 +3314,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">حفظ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3397,7 +3385,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3408,7 +3396,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation>الإعتران، الدخول، التأثيرات الصوتية، الأجهزة</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3437,23 +3425,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundMain</name>
     <message>
         <source>Settings</source>
-        <translation>الإعدادات</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation>التؤثيرات الصوتية</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation>تفعيل أو تعطيل التأثيرات الصوتية</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation>تفعيل أو تعطيل أجهزة الصوت</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3563,15 +3551,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Output Device</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3601,61 +3589,61 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>System</name>
     <message>
         <source>Common settings</source>
-        <translation>إعدادات عامة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System</source>
-        <translation>النظام</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation>معلومات مساعدية</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>حول هذا الكمبيوتر</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>نوع النظام، معلومات الأجهزة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>عرض إشعار البرمجيات المصدر المفتوح</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>برنامج تجربة المستخدم</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation>انضم إلى برنامج تجربة المستخدم لمساعدتك في تحسين المنتج</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>اتفاقي كلمة المستخدم النهائي</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>عرض اتفاقي كلمة المستخدم النهائي</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation> 정책</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>عرض معلومات سياسة الخصوصية</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>إشعار برمجيات المصدر المفتوح</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3713,7 +3701,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">إضافة</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3828,25 +3816,25 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation>شاشة اللمس</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation>تكوين شاشة اللمس</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation>عام</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3891,42 +3879,42 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Wacom</name>
     <message>
         <source>wacom</source>
-        <translation>wacom</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation>تكوين wacom</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>WacomMain</name>
     <message>
         <source>wacom</source>
-        <translation>wacom</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation>وضع القلم</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation>وضع الماوس</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation>حساسية الضغط</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Light</source>
-        <translation>الإضاءة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4005,7 +3993,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4024,11 +4012,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4140,7 +4128,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4235,73 +4223,73 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished">وجه</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished">بصمة الإصبع</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished">抬起您的手指并将其放在传感器上</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished">العصبون</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4363,7 +4351,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

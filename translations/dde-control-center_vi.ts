@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="vi">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="vi">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -73,73 +71,73 @@
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished">Tên đầy đủ quá dài</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Accounts</name>
     <message>
         <source>Account</source>
-        <translation>Tài khoản</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Account manager</source>
-        <translation>Quản lý tài khoản</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AccountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation>Tài khoản khác</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -185,19 +183,15 @@
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished">Biometric authentication là một chức năng xác thực danh tính người dùng cung cấp bởi UnionTech Software Technology Co., Ltd. Qua biometric authentication, dữ liệu sinh trắc học thu thập sẽ được so sánh với dữ liệu lưu trữ trong thiết bị, và danh tính người dùng sẽ được xác thực dựa trên kết quả so sánh.
-
-Vui lòng chú ý rằng UnionTech Software Technology Co., Ltd. sẽ không thu thập hoặc truy cập thông tin sinh trắc học của bạn, dữ liệu này sẽ được lưu trữ trên thiết bị của bạn. Vui lòng chỉ kích hoạt biometric authentication trên thiết bị cá nhân của bạn và sử dụng thông tin sinh trắc học của riêng bạn cho các hoạt động liên quan, và nhanh chóng vô hiệu hóa hoặc xóa thông tin sinh trắc học của người khác trên thiết bị đó, nếu không bạn sẽ phải chịu rủi ro do đó.
-
-UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiện an toàn, chính xác và ổn định của biometric authentication. Tuy nhiên, do các yếu tố môi trường, thiết bị, kỹ thuật và các yếu tố khác và kiểm soát rủi ro, không có đảm bảo bạn sẽ thông qua kiểm tra sinh trắc học tạm thời. Vì vậy, vui lòng không coi biometric authentication là cách duy nhất để đăng nhập vào UOS. Nếu bạn có bất kỳ câu hỏi hoặc ý kiến ​​khi sử dụng biometric authentication, bạn có thể cung cấp phản hồi thông qua &apos;Service and Support&apos; trong UOS.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -237,7 +231,7 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>Biometric authentication là một chức năng xác thực danh tính người dùng cung cấp bởi UnionTech Software Technology Co., Ltd. Qua biometric authentication, dữ liệu sinh trắc học thu thập sẽ được so sánh với dữ liệu lưu trữ trong thiết bị, và danh tính người dùng sẽ được xác thực dựa trên kết quả so sánh.
@@ -251,117 +245,113 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished">Tiếp theo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished">Hoàn tất</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished">Thử lại</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished">Biometric authentication là một chức năng xác thực danh tính người dùng cung cấp bởi UnionTech Software Technology Co., Ltd. Qua biometric authentication, dữ liệu sinh trắc học thu thập sẽ được so sánh với dữ liệu lưu trữ trong thiết bị, và danh tính người dùng sẽ được xác thực dựa trên kết quả so sánh.
-
-Vui lòng chú ý rằng UnionTech Software Technology Co., Ltd. sẽ không thu thập hoặc truy cập thông tin sinh trắc học của bạn, dữ liệu này sẽ được lưu trữ trên thiết bị của bạn. Vui lòng chỉ kích hoạt biometric authentication trên thiết bị cá nhân của bạn và sử dụng thông tin sinh trắc học của riêng bạn cho các hoạt động liên quan, và nhanh chóng vô hiệu hóa hoặc xóa thông tin sinh trắc học của người khác trên thiết bị đó, nếu không bạn sẽ phải chịu rủi ro do đó.
-
-UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiện an toàn, chính xác và ổn định của biometric authentication. Tuy nhiên, do các yếu tố môi trường, thiết bị, kỹ thuật và các yếu tố khác và kiểm soát rủi ro, không có đảm bảo bạn sẽ thông qua kiểm tra sinh trắc học tạm thời. Vì vậy, vui lòng không coi biometric authentication là cách duy nhất để đăng nhập vào UOS. Nếu bạn có bất kỳ câu hỏi hoặc ý kiến ​​khi sử dụng biometric authentication, bạn có thể cung cấp phản hồi thông qua &apos;Service and Support&apos; trong UOS.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Xác thực sinh trắc học</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AuthenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>Xác thực sinh trắc học</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Face</source>
-        <translation>Mặt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation>Bạn có thể nhập tối đa 5 dữ liệu khuôn mặt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation>Vân tay</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation>Xác thực danh tính người dùng thông qua quét vân tay</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Iris</source>
-        <translation>Mắt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation>Xác thực danh tính thông qua quét mắt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>Chỉ sử dụng chữ cái, số và dấu gạch dưới, không quá 15 ký tự</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation>Chỉ sử dụng chữ cái, số và dấu gạch dưới</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation>Không quá 15 ký tự</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -497,11 +487,11 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     <name>BlueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation>Cài đặt Bluetooth, thiết bị</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -562,7 +552,7 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -814,7 +804,7 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -930,38 +920,38 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">Chung</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Menu khởi động</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Quản lý menu khởi động</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation>Quản lý quyền root của nhà phát triển</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Các tùy chọn phát triển</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1024,15 +1014,15 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1082,30 +1072,30 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1116,7 +1106,7 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1146,15 +1136,15 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1196,19 +1186,19 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     <name>Datetime</name>
     <message>
         <source>Time and date</source>
-        <translation>Thời gian và ngày</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation>Thời gian và ngày, cài đặt múi giờ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Language and region</source>
-        <translation>Ngôn ngữ và khu vực</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1291,7 +1281,7 @@ UnionTech Software Technology Co., Ltd. cam kết nghiên cứu và cải thiệ
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1475,7 +1465,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1498,22 +1488,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation>deepin ID</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation>UOS ID</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation>Dịch vụ đám mây</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1539,42 +1529,42 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation>Ứng dụng mặc định</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation>Đặt ứng dụng mặc định để mở các loại tệp khác nhau</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DefaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation>Trang web</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mail</source>
-        <translation>Email</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Text</source>
-        <translation>Text</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Music</source>
-        <translation>Music</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Video</source>
-        <translation>Video</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Picture</source>
-        <translation>Picture</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Terminal</source>
-        <translation>Terminal</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1688,373 +1678,373 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Device</name>
     <message>
         <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Agree</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Display</name>
     <message>
         <source>Display</source>
-        <translation>Display</translation>
+        <translation>Hiển thị</translation>
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation>Brightness, resolution, scaling</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DisplayMain</name>
     <message>
         <source>100%</source>
-        <translation>100%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>125%</source>
-        <translation>125%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>150%</source>
-        <translation>150%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>175%</source>
-        <translation>175%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>200%</source>
-        <translation>200%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>225%</source>
-        <translation>225%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>250%</source>
-        <translation>250%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>275%</source>
-        <translation>275%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>300%</source>
-        <translation>300%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>Duplicate</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Extend</source>
-        <translation>Extend</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Default</source>
-        <translation>Default</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fit</source>
-        <translation>Fit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Stretch</source>
-        <translation>Stretch</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center</source>
-        <translation>Center</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation>Only on %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation>Cài đặt nhiều màn hình</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identify</source>
-        <translation>Phát hiện</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>Thay đổi sắp xếp màn hình sẽ có hiệu lực sau %1s</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Chế độ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation>Màn hình chính</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation>Hiển thị và bố trí</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Brightness</source>
-        <translation>Sáng độ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resolution</source>
-        <translation>Độ phân giải</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation>Đóng gói bàn làm việc</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation>Tần số làm mới</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Rotation</source>
-        <translation>Vị trí xoay</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Standard</source>
-        <translation>Tiêu chuẩn</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>90°</source>
-        <translation>90°</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>180°</source>
-        <translation>180°</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>270°</source>
-        <translation>270°</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>Màn hình chỉ hỗ trợ chia nhỏ 100%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation>Thân thiện với mắt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation>Kích hoạt thân thiện với mắt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation>Điều chỉnh màn hình sang màu ấm hơn, giảm ánh sáng xanh màn hình</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time</source>
-        <translation>Thời gian</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>All day</source>
-        <translation>Tất cả ngày</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation>Từ hoàng hôn đến bình minh</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>Thời gian tùy chỉnh</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>from</source>
-        <translation>từ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>to</source>
-        <translation>đến</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation>Màu nhiệt độ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation>Bàn làm việc và thanh tác vụ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DockMain</name>
     <message>
         <source>Dock</source>
-        <translation>Két</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mode</source>
-        <translation>Phương thức</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation>Phương thức cổ điển</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation>Phương thức trung tâm</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dock size</source>
-        <translation>Kích thước két</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Small</source>
-        <translation>Nhỏ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Large</source>
-        <translation>Lớn</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation>Vị trí trên màn hình</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Top</source>
-        <translation>Trên</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>Dưới</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Left</source>
-        <translation>Trái</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Right</source>
-        <translation>Phải</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Status</source>
-        <translation>Trạng thái</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>Giữ hiển thị</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>Giữ ẩn</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>Tự động ẩn</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation>Hiển thị đa màn hình</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation>Đặt vị trí thanh tác vụ trên màn hình</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Only on main</source>
-        <translation>Chỉ trên màn hình chính</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation>Trên màn hình nơi con trỏ đang ở</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation>Khu vực plugin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>Chọn biểu tượng nào xuất hiện trong Dock</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2182,149 +2172,149 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Balance</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation>Bàn phím</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>KeyboardMain</name>
     <message>
         <source>Common</source>
-        <translation>Chung</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Other languages</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished">Thêm</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Region</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>LangsChooserDialog</name>
     <message>
         <source>Add language</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Search</source>
@@ -2367,7 +2357,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished">Khôi phục mật khẩu</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2405,88 +2395,88 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input Device</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation>Chuột và bàn phím cảm ứng</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation>Chung, Chuột, Bàn phím cảm ứng</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
-        <translation>Chung</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse</source>
-        <translation>Chuột</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>Bàn phím cảm ứng</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>MousePage</name>
     <message>
         <source>Mouse</source>
-        <translation> Chuột</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>Nhanh chậm con trỏ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Slow</source>
-        <translation>Thấp</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fast</source>
-        <translation>Nhanh</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation>Kích cỡ con trỏ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation>Tăng tốc chuột</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>Tắt bàn phím cảm ứng khi kết nối chuột</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>Lướt tự nhiên</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished">Nhỏ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished">Trung bình中</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished">Lớn</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2556,73 +2546,73 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation>Chế độ DND, thông báo ứng dụng</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Notification</source>
-        <translation>Thông báo</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation>Cài đặt Không làm phiền</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>Thông báo ứng dụng sẽ không xuất hiện trên bàn làm việc và âm thanh sẽ bị tắt, nhưng bạn có thể xem tất cả thông báo trong trung tâm thông báo.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>Kích hoạt Không làm phiền</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation>Khi màn hình bị khóa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation>Số lượng thông báo xuất hiện trên bàn làm việc</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation>Thông báo ứng dụng</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation>Cho phép thông báo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>Hiển thị thông báo trên bàn làm việc hoặc hiển thị thông báo chưa đọc trong trung tâm thông báo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>Bàn làm việc</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>Khóa màn hình</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation>Trung tâm thông báo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation>Hiển thị bản xem trước thông báo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation>Chơi âm thanh</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2684,7 +2674,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>New password should differ from the current one</source>
@@ -2692,7 +2682,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2741,62 +2731,62 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PersonalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation>Tiêu đề</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Appearance</source>
-        <translation>Hiển thị</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Window effect</source>
-        <translation>Hiệu ứng cửa sổ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation>Cá nhân hóa hình nền và màn hình chờ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation>Màn hình chờ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation>Màu sắc và biểu tượng</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation>JUSTIFY màu sắc chính và biểu tượng tiêu đề</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation>Phông chữ và kích thước phông chữ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation>Thay đổi phông chữ hệ thống và kích thước</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation>Hình nền</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation>Chọn tiêu đề sáng, tối hoặc tự động</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2821,38 +2811,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation>Cài đặt tiết kiệm năng lượng, màn hình và tạm dừng</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Power</source>
-        <translation>Năng lượng</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PowerMain</name>
     <message>
         <source>General</source>
-        <translation>Chung</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Dự án năng lượng, cài đặt tiết kiệm năng lượng, cài đặt thức dậy, cài đặt tắt máy</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation>Đã cắm</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation>Màn hình và tạm dừng</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>On Battery</source>
-        <translation>Trên pin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation>màn hình và tạm dừng, pin thấp, quản lý pin</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2963,30 +2953,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation>Quyền riêng tư và an ninh</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation>Đoạn phim, quyền truy cập thư mục</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PrivacyMain</name>
     <message>
         <source>Camera</source>
-        <translation>Đoạn video</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation>Chọn liệu ứng dụng có quyền truy cập vào máy ảnh hay không</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation>Tệp và thư mục</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation>Chọn liệu ứng dụng có quyền truy cập vào tệp và thư mục hay không</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2997,7 +2987,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3104,7 +3094,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3159,7 +3149,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3200,15 +3190,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Lưu</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3282,7 +3272,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3321,27 +3311,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">Lưu</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3392,18 +3382,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Sound</name>
     <message>
         <source>Sound</source>
-        <translation>Âm thanh</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation>Thiết bị đầu ra, đầu vào, hiệu ứng âm thanh, thiết bị</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3432,23 +3422,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundMain</name>
     <message>
         <source>Settings</source>
-        <translation>Cài đặt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation>Hiệu ứng âm thanh</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation>Bật/tắt hiệu ứng âm thanh</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation>Bật/tắt thiết bị âm thanh</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3558,15 +3548,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Output Device</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3596,61 +3586,61 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>System</name>
     <message>
         <source>Common settings</source>
-        <translation>Cài đặt chung</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System</source>
-        <translation>Hệ thống</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation>Thông tin bổ sung</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Về máy tính này</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Phiên bản hệ thống, thông tin thiết bị</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>Xem thông báo về phần mềm nguồn mở</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>Chương trình trải nghiệm người dùng</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation>Tham gia chương trình trải nghiệm người dùng để giúp cải thiện sản phẩm</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Hợp đồng sử dụng cuối cùng</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>Xem hợp đồng sử dụng cuối cùng</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>Chính sách bảo mật</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>Xem thông tin về chính sách bảo mật</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3708,7 +3698,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished">Thêm</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3823,25 +3813,25 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation>Touchscreen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation>Cấu hình touchscreen</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation>Chung</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3852,7 +3842,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3886,42 +3876,42 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Wacom</name>
     <message>
         <source>wacom</source>
-        <translation>wacom</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation>Cấu hình wacom</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>WacomMain</name>
     <message>
         <source>wacom</source>
-        <translation>wacom</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation>Chế độ bút</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation>Chế độ chuột</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation>Độ nhạy lực</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Light</source>
-        <translation>Ánh sáng</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4000,7 +3990,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4019,11 +4009,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4115,12 +4105,12 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished">Trung bình中</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished">Trung bình中</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4135,7 +4125,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4230,73 +4220,73 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished">Mặt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished">Vân tay</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished">Nhấc ngón tay lên và đặt lại lên cảm biến</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished">Mắt</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4358,7 +4348,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

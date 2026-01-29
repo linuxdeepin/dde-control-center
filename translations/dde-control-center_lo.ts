@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="lo">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="lo">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -121,25 +119,25 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Accounts</name>
     <message>
         <source>Account</source>
-        <translation>ບັນຊີ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Account manager</source>
-        <translation>ຕົວຈັດການບັນຊີ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AccountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation>ບັນຊີອື່ນໆ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -185,19 +183,15 @@
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished">&quot;ການກວດສອບຊີວະມິຕິ&quot; ແມ່ນຫນ້າທີ່ການກວດສອບຕົວຕົນຜູ້ໃຊ້ທີ່ສະໜອງໃຫ້ໂດຍບໍລິສັດ UnionTech Software Technology Co., Ltd. ຜ່ານ &quot;ການກວດສອບຊີວະມິຕິ&quot;, ຂໍ້ມູນຊີວະມິຕິທີ່ເກັບກຳຈະຖືກປຽບທຽບກັບຂໍ້ມູນທີ່ເກັບໄວ້ໃນອຸປະກອນ, ແລະຕົວຕົນຜູ້ໃຊ້ຈະຖືກກວດສອບຕາມຜົນການປຽບທຽບ.
-
-ກະລຸນາຮັບຊາບວ່າບໍລິສັດ UnionTech Software Technology Co., Ltd. ຈະບໍ່ເກັບກຳຫຼືເຂົ້າເຖິງຂໍ້ມູນຊີວະມິຕິຂອງທ່ານ, ຂໍ້ມູນເຫຼົ່ານີ້ຈະຖືກເກັບໄວ້ໃນອຸປະກອນໃນທ້ອງຖິ່ນຂອງທ່ານ. ກະລຸນາເປີດໃຊ້ການກວດສອບຊີວະມິຕິໃນອຸປະກອນສ່ວນຕົວຂອງທ່ານເທົ່ານັ້ນ ແລະໃຊ້ຂໍ້ມູນຊີວະມິຕິຂອງທ່ານເອງສຳລັບການດຳເນີນງານທີ່ກ່ຽວຂ້ອງ, ແລະໃຫ້ປິດການໃຊ້ງານຫຼືລົບຂໍ້ມູນຊີວະມິຕິຂອງຄົນອື່ນຢ່າງທັນທີ, ຖ້າບໍ່ດັ່ງນັ້ນທ່ານຈະຮັບຄວາມສ່ຽງທີ່ເກີດຂຶ້ນຈາກການນັ້ນ.
-
-ບໍລິສັດ UnionTech Software Technology Co., Ltd. ມຸ່ງໝັ້ນທີ່ຈະຄົ້ນຄວ້າແລະປັບປຸງຄວາມປອດໄພ, ຄວາມຖືກຕ້ອງ ແລະຄວາມໝັ້ນຄົງຂອງການກວດສອບຊີວະມິຕິ. ຢ່າງໃດກໍ່ຕາມ, ເນື່ອງຈາກສິ່ງແວດລ້ອມ, ອຸປະກອນ, ເຕັກນິກ ແລະປັດໄຈອື່ນໆ ລວມທັງການຄວບຄຸມຄວາມສ່ຽງ, ບໍ່ມີການຮັບປະກັນວ່າທ່ານຈະຜ່ານການກວດສອບຊີວະມິຕິໃນແຕ່ລະຄັ້ງ. ດັ່ງນັ້ນ, ກະລຸນາຢ່າໃຊ້ການກວດສອບຊີວະມິຕິເປັນວິທີດຽວໃນການເຂົ້າສູ່ລະບົບ UOS. ຖ້າທ່ານມີຄຳຖາມຫຼືຄຳແນະນຳໃດໆໃນການໃຊ້ການກວດສອບຊີວະມິຕິ, ທ່ານສາມາດໃຫ້ຄຳຄິດເຫັນຜ່ານ &quot;ການບໍລິການແລະການສະໜັບສະໜູນ&quot; ໃນ UOS.</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -237,7 +231,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;ການກວດສອບຊີວະມິຕິ&quot; ແມ່ນຫນ້າທີ່ການກວດສອບຕົວຕົນຜູ້ໃຊ້ທີ່ສະໜອງໃຫ້ໂດຍບໍລິສັດ UnionTech Software Technology Co., Ltd. ຜ່ານ &quot;ການກວດສອບຊີວະມິຕິ&quot;, ຂໍ້ມູນຊີວະມິຕິທີ່ເກັບກຳຈະຖືກປຽບທຽບກັບຂໍ້ມູນທີ່ເກັບໄວ້ໃນອຸປະກອນ, ແລະຕົວຕົນຜູ້ໃຊ້ຈະຖືກກວດສອບຕາມຜົນການປຽບທຽບ.
@@ -251,117 +245,113 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished">ຂົ້ປະກາດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished">ຕົ່ໄປ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished">ສຳເລັດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished">ຍົກເລີກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished">ລົງທະບຽນໃໝ່</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished">&quot;ການກວດສອບຊີວະມິຕິ&quot; ແມ່ນຫນ້າທີ່ການກວດສອບຕົວຕົນຜູ້ໃຊ້ທີ່ສະໜອງໃຫ້ໂດຍບໍລິສັດ UnionTech Software Technology Co., Ltd. ຜ່ານ &quot;ການກວດສອບຊີວະມິຕິ&quot;, ຂໍ້ມູນຊີວະມິຕິທີ່ເກັບກຳຈະຖືກປຽບທຽບກັບຂໍ້ມູນທີ່ເກັບໄວ້ໃນອຸປະກອນ, ແລະຕົວຕົນຜູ້ໃຊ້ຈະຖືກກວດສອບຕາມຜົນການປຽບທຽບ.
-
-ກະລຸນາຮັບຊາບວ່າບໍລິສັດ UnionTech Software Technology Co., Ltd. ຈະບໍ່ເກັບກຳຫຼືເຂົ້າເຖິງຂໍ້ມູນຊີວະມິຕິຂອງທ່ານ, ຂໍ້ມູນເຫຼົ່ານີ້ຈະຖືກເກັບໄວ້ໃນອຸປະກອນໃນທ້ອງຖິ່ນຂອງທ່ານ. ກະລຸນາເປີດໃຊ້ການກວດສອບຊີວະມິຕິໃນອຸປະກອນສ່ວນຕົວຂອງທ່ານເທົ່ານັ້ນ ແລະໃຊ້ຂໍ້ມູນຊີວະມິຕິຂອງທ່ານເອງສຳລັບການດຳເນີນງານທີ່ກ່ຽວຂ້ອງ, ແລະໃຫ້ປິດການໃຊ້ງານຫຼືລົບຂໍ້ມູນຊີວະມິຕິຂອງຄົນອື່ນຢ່າງທັນທີ, ຖ້າບໍ່ດັ່ງນັ້ນທ່ານຈະຮັບຄວາມສ່ຽງທີ່ເກີດຂຶ້ນຈາກການນັ້ນ.
-
-ບໍລິສັດ UnionTech Software Technology Co., Ltd. ມຸ່ງໝັ້ນທີ່ຈະຄົ້ນຄວ້າແລະປັບປຸງຄວາມປອດໄພ, ຄວາມຖືກຕ້ອງ ແລະຄວາມໝັ້ນຄົງຂອງການກວດສອບຊີວະມິຕິ. ຢ່າງໃດກໍ່ຕາມ, ເນື່ອງຈາກສິ່ງແວດລ້ອມ, ອຸປະກອນ, ເຕັກນິກ ແລະປັດໄຈອື່ນໆ ລວມທັງການຄວບຄຸມຄວາມສ່ຽງ, ບໍ່ມີການຮັບປະກັນວ່າທ່ານຈະຜ່ານການກວດສອບຊີວະມິຕິໃນແຕ່ລະຄັ້ງ. ດັ່ງນັ້ນ, ກະລຸນາຢ່າໃຊ້ການກວດສອບຊີວະມິຕິເປັນວິທີດຽວໃນການເຂົ້າສູ່ລະບົບ UOS. ຖ້າທ່ານມີຄຳຖາມຫຼືຄຳແນະນຳໃດໆໃນການໃຊ້ການກວດສອບຊີວະມິຕິ, ທ່ານສາມາດໃຫ້ຄຳຄິດເຫັນຜ່ານ &quot;ການບໍລິການແລະການສະໜັບສະໜູນ&quot; ໃນ UOS.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>ການພິສູດຕົວຕົນທາງຊີວະມິຕິ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>AuthenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation>ການກວດສອບຊີວະປະຫວັດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Face</source>
-        <translation>ປະເຊີນຫນ້າ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation>ເຖິງ 5 ຂໍ້ມູນທາງຫນ້າສາມາດເຂົ້າໄດ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation>ຮອຍມື</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation>ການກໍານົດຕົວຕົນຂອງຜູ້ໃຊ້ຜ່ານລາຍນິ້ວມືສະແກນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Iris</source>
-        <translation>ກົມຕາ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation>ການຮັບຮູ້ຕົວຕົນຜ່ານການສະແກນກົມຕາ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>ໃຊ້ຕົວອັກສອນ, ຕົວເລກແລະເສັ້ນກ້ອງເທົ່ານັ້ນ, ແລະບໍ່ເກີນ 15 ຕົວອັກສອນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation>ໃຊ້ຕົວອັກສອນ, ຕົວເລກແລະເສັ້ນກ້ອງເທົ່ານັ້ນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation>ບໍ່ເກີນ 15 ຕົວອັກສອນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>This name already exists</source>
-        <translation>ຊື່ນີ້ມີຢູ່ແລ້ວ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation>ເພີ່ມ %1 ໃໝ່...</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -497,11 +487,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BlueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation>ການຕັ້ງຄ່າ Bluetooth, ອຸປະກອນຕ່າງໆ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation>ພັນລະ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -934,34 +924,34 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished">ທົ່ວໄປ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation>ບູດເມນູ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>ຈັດການເມນູບູດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation>ຜູ້ບໍລິຫານອະນຸຍາດຮາກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>ຕົວເລືອກນັກພັດທະນາ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>ຕົວເລືອກ debuggers debuggers</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1024,15 +1014,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1101,11 +1091,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1146,15 +1136,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1196,19 +1186,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>Datetime</name>
     <message>
         <source>Time and date</source>
-        <translation>ເວລາແລະວັນທີ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation>ເວລາແລະວັນທີ, ການຕັ້ງຄ່າເຂດເວລາ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Language and region</source>
-        <translation>ພາສາແລະພາກພື້ນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1302,7 +1292,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Authentication is required to set the system timezone</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1502,15 +1492,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation>ID Deepin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation>UOs ID</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation>ບໍລິການຄຼາວ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1536,42 +1526,42 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation>ແອັບເລີ່ມຕົ້ນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation>ກໍານົດໃບສະຫມັກເລີ່ມຕົ້ນສໍາລັບເປີດເອກະສານຕ່າງໆ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DefaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation>ຫນ້າເວບໄຊທ໌</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mail</source>
-        <translation>ຈົດໝາຍ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Text</source>
-        <translation>ຂໍ້ຄວາມ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Music</source>
-        <translation>ດົນຕີ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Video</source>
-        <translation>ວິດີໂອ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Picture</source>
-        <translation>ຮູບ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Terminal</source>
-        <translation>ເທີມິນໍ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1669,7 +1659,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Off</source>
@@ -1693,38 +1683,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Device</name>
     <message>
         <source>Bluetooth and Other Devices</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1746,312 +1736,312 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Display</name>
     <message>
         <source>Display</source>
-        <translation>ຈໍສະແດງຜົນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation>ຄວາມສະຫວ່າງ, ຄວາມລະອຽດ, ການປັບຂະໜາດ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DisplayMain</name>
     <message>
         <source>100%</source>
-        <translation>100%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>125%</source>
-        <translation>125%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>150%</source>
-        <translation>150%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>175%</source>
-        <translation>175%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>200%</source>
-        <translation>200%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>225%</source>
-        <translation>225%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>250%</source>
-        <translation>250%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>275%</source>
-        <translation>275%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>300%</source>
-        <translation>300%</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>ຊ້ໍາ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Extend</source>
-        <translation>ຂະຍັບ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Default</source>
-        <translation>ໃນຕອນຕົ້ນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fit</source>
-        <translation>ເຮັດໃຫ້ເຫມາະສົມ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Stretch</source>
-        <translation>ຍືດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Center</source>
-        <translation>ສູນກາງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation>ພຽງແຕ່ໃນ %1</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation>ການຕັ້ງຄ່າການສະແດງທີ່ຫຼາກຫຼາຍ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Identify</source>
-        <translation>ກໍານົດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>ການຈັດແຈງຫນ້າຈໍຈະມີຜົນໃນ %1s ຫຼັງຈາກການປ່ຽນແປງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mode</source>
-        <translation>ຮູບແບບ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation>ຫນ້າຈໍຫຼັກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation>ສະແດງແລະຮູບແບບ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Brightness</source>
-        <translation>ຄວາມສະຫວ່າງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resolution</source>
-        <translation>ຄວາມລະເອີຍດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation>ປັບຂະໜາດໜ້າຕັ່ງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation>ອັດຕາການຣີເຟເສີ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Rotation</source>
-        <translation>ການຫມຸນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Standard</source>
-        <translation>ມາຕຕະຖານ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>90°</source>
-        <translation>90°</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>180°</source>
-        <translation>180°</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>270°</source>
-        <translation>270°</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>ຈໍພາບນີ້ສະໜັບສະໜູນການປັບຂະໜາດການສະແດງຜົນ 100% ເທົ່ານັ້ນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation>ສະດວກສະບາຍ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation>ເຮັດໃຫ້ຄວາມສະບາຍໃຈ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation>ປັບສະແດງຫນ້າຈໍໃຫ້ໃສ່ສີທີ່ອົບອຸ່ນ, ຫຼຸດຜ່ອນຄວາມສະຫວ່າງສີຟ້າ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time</source>
-        <translation>ເວລາ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>All day</source>
-        <translation>ຕະຫລອດວັນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation>Sunset ກັບ sunrise</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation>ເວລາຕາມຄູ່</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>from</source>
-        <translation>ແຕ່</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>to</source>
-        <translation>ເພື່ອ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation>ອຸນຫະພູມສີ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation>%1x%2 (ແນະນໍາ)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation>%1x%2</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation>%1hz (ແນະນໍາ)</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation>%1hz</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scaling</source>
-        <translation>ການຂະຫຢາຢ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation>desktop ແລະແຖບວຽກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation>ອົງການຈັດຕັ້ງຂອງ Desktop, ໂຫມດແຖບຫນ້າວຽກ, ການຕັ້ງຄ່າເຂດ Plugin</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>DockMain</name>
     <message>
         <source>Dock</source>
-        <translation>ທ່າເຮືອ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mode</source>
-        <translation>ຮູບແບບ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation>ແບບຄລາສສິກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation>ໂຫມດຫຼັກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dock size</source>
-        <translation>ຂະຫນາດ Dock</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Small</source>
-        <translation>ຂະຫນາດນ້ອຍ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Large</source>
-        <translation>ໃຫຍ່</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation>ຕໍາແຫນ່ງໃນຫນ້າຈໍ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Top</source>
-        <translation>ທາງເທີງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Bottom</source>
-        <translation>ດ້ານລຸ່ມ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Left</source>
-        <translation>ຊ້າຍ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Right</source>
-        <translation>ຂວາ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Status</source>
-        <translation>ສະຖານະພາບ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>ສະແດງຕະຫຼອດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>ຮັກສາໄວ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation>smart hide</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation>ຈໍສະແດງຜົນຫຼາຍສະແດງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation>ກໍານົດຕໍາແຫນ່ງຂອງແຖບວຽກໃນຫນ້າຈໍ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Only on main</source>
-        <translation>ພຽງແຕ່ຢູ່ໃນຫລັກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation>ໃນຫນ້າຈໍບ່ອນທີ່ຕົວກະພິບແມ່ນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation>ບໍລິເວນປັ plugin</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>ເລືອກຮູບສັນຍາລັກໃດທີ່ຢູ່ໃນທ່າເຮືອ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation>ລັອກ dock ໄດ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2179,54 +2169,54 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2260,18 +2250,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation>ປຸ່ມພິມ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>KeyboardMain</name>
     <message>
         <source>Common</source>
-        <translation>ທົ່ວໄປ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2314,7 +2304,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2402,88 +2392,88 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input Device</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation>ເມົາແລະແຜ່ນສຳພັດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation>ທົ່ວໄປ, ເມົາ, ແຜ່ນສຳພັດ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
-        <translation>ທົ່ວໄປ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse</source>
-        <translation>ເມົາ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation>ແຜ່ນສຳພັດ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>MousePage</name>
     <message>
         <source>Mouse</source>
-        <translation>ຫນູ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation>ຄວາມໄວຂອງຕົວຊີ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Slow</source>
-        <translation>ຊ້າ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fast</source>
-        <translation>ໄວ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation>ຂະຫນາດຂອງຕົວຊີ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation>ການເລັ່ງຫນູ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>ປິດການໃຊ້ງານ touchpad ໃນເວລາທີ່ຫນູເຊື່ອມຕໍ່</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation>ເລື່ອນທໍາມະຊາດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished">ຂະຫນາດນ້ອຍ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished">ກາງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished">ໃຫຍ່</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2560,66 +2550,66 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation>ໂໝດເງຽບສຸກ, ການແຈ້ງເຕືອນແອັບ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Notification</source>
-        <translation>ການແຈ້ງເຕືອນ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation>ການຕັ້ງຄ່າໂມດເງີຍບສຸກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>ການແຈ້ງເຕືອນແອັບຈະບໍ່ສະແດງບນໜ້າຕັ່ງແລະສຽງຈະຖືກປິດ, ແຕ່ທ່ານສາມາດເບິ່ງຂໍ້ຄວາມທັງໝົດໃນສູນກາງການແຈ້ງເຕືອນໄດ້.</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation>ເປີດໂມດເງີຍບສຸກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation>ເມື່ອຫນ້າຈອຖືກລົກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation>ຈຳນວນການແຈ້ງເຕືອນທີ່ສະແດງບນໜ້າຕັ່ງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation>ການແຈ້ງເຕືອນແອັບ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation>ອນຸຍາດການແຈ້ງເຕືອນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>ສະແດງການແຈ້ງເຕືອນບນໜ້າຕັ່ງຫຼືສະແດງຂໍ້ຄວາມທີ່ບໍ່ໄດ້ອ່ານໃນສູນກາງການແຈ້ງເຕືອນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Desktop</source>
-        <translation>ໜ້າຕັ່ງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>ໜ້າຈໍລັອກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation>ສູນກາງການແຈ້ງເຕືອນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation>ສະແດງການມອງເບິ່ງຂໍ້ຄວາມລ່ວງໜ້າ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation>ຫຼິ້ນສຽງ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2689,7 +2679,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2719,7 +2709,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Personalization</name>
     <message>
         <source>Personalization</source>
-        <translation>ການປັບແຕ່ງສ່ວນບຸກຄົນ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2738,62 +2728,62 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PersonalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation>ຫົວຂໍ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Appearance</source>
-        <translation>ຮູບລັກສະນະ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Window effect</source>
-        <translation>ເອຟເຟັກຫນ້າຕ່າງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation>ປັບແຕ່ງພາບພື້ນຫລັງແລະໂປຣແກຣມປົກປ້ອງໜ້າຈໍຂອງທ່ານ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation>ໂປຣແກຣມປົກປ້ອງໜ້າຈໍ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation>ສີແລະໄອຄອນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation>ປັບສີເດັ່ນແລະໄອຄອນຫົວຂໍ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation>ຕົວອັກສອນແລະຂະໜາດຕົວອັກສອນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation>ປ່ຽນຕົວອັກສອນແລະຂະໜາດຂອງລະບົບ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation>ພາບພື້ນຫລັງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation>ເລືອກຮູບລັກສະນະຫົວຂໍ້ແບບສະຫວ່າງ, ມືດ ຫຼື ອັດຕະໂນມັດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation>ການໂຕ້ຕອບແລະຜົນກະທົບ, ມູມມົນ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2818,38 +2808,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation>ການຕັ້ງຄ່າປະຢັດໄຟ, ໜ້າຈໍແລະພັກຜ່ອນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Power</source>
-        <translation>ໄຟຟ້າ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PowerMain</name>
     <message>
         <source>General</source>
-        <translation>ທົ່ວໄປ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>ແຜນໄຟຟ້າ, ການຕັ້ງຄ່າປະຢັດໄຟ, ການຕັ້ງຄ່າເປີດເຄື່ອງ, ການຕັ້ງຄ່າປິດເຄື່ອງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation>ສຽບໄຟ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation>ໜ້າຈໍແລະພັກຜ່ອນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>On Battery</source>
-        <translation>ໃນໄຟແບັດເຕີຣີ່</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation>ໜ້າຈໍແລະພັກຜ່ອນ, ແບັດເຕີຣີ່ຕ່ຳ, ການຈັດການແບັດເຕີຣີ່</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2960,30 +2950,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation>ຄວາມເປັນສ່ວນຕົວແລະຄວາມປອດໄພ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation>ກ້ອງ, ສິດເຂົ້າເຖິງໂຟນເດີ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>PrivacyMain</name>
     <message>
         <source>Camera</source>
-        <translation>ກ້ອງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation>ເລືອກວ່າແອັບພລິເຄຊັນສາມາດເຂົ້າເຖິງກ້ອງໄດ້ຫຼືບໍ່</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation>ໄຟລ໌ແລະໂຟນເດີ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation>ເລືອກວ່າແອັບພລິເຄຊັນສາມາດເຂົ້າເຖິງໄຟລ໌ແລະໂຟນເດີໄດ້ຫຼືບໍ່</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3156,7 +3146,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3318,27 +3308,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished">ບັນທຶກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3389,18 +3379,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Sound</name>
     <message>
         <source>Sound</source>
-        <translation>ສຽງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation>ອອກ, ເຂົ້າ, ລັກສະນະສຽງ, ອຸປະກອນ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3429,23 +3419,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundMain</name>
     <message>
         <source>Settings</source>
-        <translation>ການຕັ້ງຄ່າ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation>ລັກສະນະສຽງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation>ເປີດ/ປິດລັກສະນະສຽງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation>ເປີດ/ປິດອຸປະກອນສຽງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3555,15 +3545,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Output Device</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3593,61 +3583,61 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>System</name>
     <message>
         <source>Common settings</source>
-        <translation>ການຕັ້ງຄ່າທົ່ວໄປ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System</source>
-        <translation>ລະບົບ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation>ຂໍ້ມູນເສີມ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>ເກີ່ຍວກັບຄອມພິວເຕີນີ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>ເວີຊັນລະບົບ, ຂໍ້ມູນອຸປະກອນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>ດູການແຈ້ງເຕືອນໂປຣແກຣມໂອເພີນສອດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>ໂປຣແກຣມປະສົບການຜູ້ໃຊ້</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation>ເຂົ້າຣ່ວມໂປຣແກຣມປະສົບການຜູ້ໃຊ້ເພື່ອຊ່ວຍປັບປຸງຜານຜະລິຕ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>ຂໍ້ຕົກລົງໃບອະນຸຍາດສໍາລັບຜູ້ໃຊ້ປາຍທາງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>ດູຂໍ້ຕົກລົງແຂ່ງຂາດຄົນແທ້ຜູ້ໃຊ້ປັງສຸດທ້າຍ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>ນໂຍບາຍຄວາມເປັນສ່ວນຕົວ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>ດູຂໍ້ມູນເກີ່ຍວກັບນໂຍບາຍຄວາມເປັນສ່ວນຕົວ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>ການແຈ້ງເຕືອນໂປຣແກຣມໂອເພີນສອດ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3820,25 +3810,25 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>Touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation>ຫນ້າຈໍສໍາພັດ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation>ການຕັ້ງຄ່າຫນ້າຈໍສໍາພັດ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation>ທົ່ວໄປ</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3883,42 +3873,42 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Wacom</name>
     <message>
         <source>wacom</source>
-        <translation>wacom</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation>ການຕັ້ງຄ່າ wacom</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>WacomMain</name>
     <message>
         <source>wacom</source>
-        <translation>wacom</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation>ຮູບແບບປາກກາ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation>ຮູບແບບຫນູ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation>ຄວາມອ່ອນໄຫວຂອງຄວາມກົດດັນ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Light</source>
-        <translation>ແສງສະຫວ່າງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Heavy</source>
-        <translation>ຫນັກ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3997,7 +3987,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4016,11 +4006,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4132,7 +4122,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4227,73 +4217,73 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished">ປະເຊີນຫນ້າ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished">ຮອຍມື</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished">ຍົກນິ້ວມືຂອງທ່ານແລະວາງມັນໃສ່ເຊັນເຊີອີກຄັ້ງ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished">ກົມຕາ</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4355,7 +4345,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
