@@ -1903,11 +1903,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>All day</source>
-        <translation type="unfinished"/>
+        <translation>Tot el dia</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"/>
+        <translation>De la posta a la sortida del sol</translation>
     </message>
     <message>
         <source>Custom Time</source>
