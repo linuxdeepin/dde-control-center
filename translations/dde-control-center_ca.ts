@@ -3912,7 +3912,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Lleugera</translation>
     </message>
     <message>
         <source>Heavy</source>
