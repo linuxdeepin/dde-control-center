@@ -9,6 +9,7 @@ import org.deepin.dtk.style 1.0 as DS
 
 D.SpinBox {
     id: control
+    wrap: true
     readonly property string timeString: textFromValue(value)
     property int hour: 0
     property int minute: 0
@@ -82,6 +83,7 @@ D.SpinBox {
         opacity: enabled ? 1 : 0.4
         TextInput {
             id: hourInput
+            property bool typingDigit: false
             Layout.preferredWidth: 20
             Layout.alignment: Qt.AlignHCenter
             text: control.formatText(Math.floor(value / 60))
@@ -106,6 +108,29 @@ D.SpinBox {
                     var minutes = value % 60
                     control.from = minutes
                     control.to = 23 * 60 + minutes
+                } else {
+                    typingDigit = false
+                }
+            }
+            Keys.onPressed: function(event) {
+                if (event.key >= Qt.Key_0 && event.key <= Qt.Key_9) {
+                    typingDigit = true
+                }
+            }
+            onTextChanged: {
+                if (text.length === 2 && focus && typingDigit) {
+                    typingDigit = false
+                    minuteInput.forceActiveFocus()
+                    minuteInput.selectAll()
+                }
+            }
+            Keys.onRightPressed: function(event) {
+                if (cursorPosition === length) {
+                    minuteInput.forceActiveFocus()
+                    minuteInput.selectAll()
+                    event.accepted = true
+                } else {
+                    event.accepted = false
                 }
             }
         }
@@ -145,6 +170,15 @@ D.SpinBox {
                     var hours = Math.floor(value / 60)
                     control.from = hours * 60
                     control.to = hours * 60 + 59
+                }
+            }
+            Keys.onLeftPressed: function(event) {
+                if (cursorPosition === 0) {
+                    hourInput.forceActiveFocus()
+                    hourInput.selectAll()
+                    event.accepted = true
+                } else {
+                    event.accepted = false
                 }
             }
         }
