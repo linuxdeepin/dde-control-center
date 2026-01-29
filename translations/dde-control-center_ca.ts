@@ -2445,23 +2445,23 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lenta</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Ràpida</translation>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation type="unfinished"/>
+        <translation>Mida del punter</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Acceleració del ratolí</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>Inhabilita el ratolí tàctil en connectar un ratolí.</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
