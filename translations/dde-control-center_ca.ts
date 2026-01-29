@@ -498,11 +498,11 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <name>BlueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"/>
+        <translation>Configuració del bluetooth, dispositius</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
