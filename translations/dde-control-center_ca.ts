@@ -358,11 +358,11 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation>Afegiu-hi un/a %1 nou/nova...</translation>
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>El nom no es pot deixar en blanc.</translation>
     </message>
 </context>
 <context>
