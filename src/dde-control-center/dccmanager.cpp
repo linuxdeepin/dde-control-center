@@ -579,6 +579,11 @@ bool DccManager::eventFilter(QObject *watched, QEvent *event)
     return DccApp::eventFilter(watched, event);
 }
 
+bool DccManager::isIndicatorShown(const QString &cmd) const
+{
+    return cmd == "indicator=true";
+}
+
 void DccManager::saveSize()
 {
     if (m_dconfig->isValid()) {
@@ -620,7 +625,7 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
     }
     if (message.type() != QDBusMessage::InvalidMessage) {
         if (obj) {
-            if (cmd.isEmpty()) {
+            if (cmd.isEmpty() || isIndicatorShown(cmd)) {
                 show();
             }
             QDBusConnection::sessionBus().send(message.createReply());
@@ -686,7 +691,8 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
     if (m_activeObject == obj && cmd.isEmpty()) {
         return;
     }
-    if (!cmd.isEmpty()) {
+    bool indicatorShown = isIndicatorShown(cmd);
+    if (!cmd.isEmpty() && !indicatorShown) {
         Q_EMIT obj->active(cmd);
         return;
     }
@@ -744,7 +750,7 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
 
     // 触发父项变更
     if (auto *parentItem = triggeredObj->parentItem(); !(triggeredObj->pageType() & DccObject::Menu) && parentItem) {
-        Q_EMIT activeItemChanged(parentItem);
+        Q_EMIT activeItemChanged(parentItem, indicatorShown);
     }
 }
 

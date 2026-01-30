@@ -211,7 +211,16 @@ DccObject {
             page: D.Switch {
                 checked: dccData.model.scheduledShutdownState
                 onCheckedChanged: {
-                    dccData.worker.setScheduledShutdownState(checked)
+                    if (dccData.model.scheduledShutdownState !== checked) {
+                        dccData.worker.setScheduledShutdownState(checked)
+                        Qt.callLater(function () {
+                            if (repeatDaysEditObject.visible) {
+                                DccApp.showPage(repeatDaysEditObject)
+                            } else {
+                                DccApp.showPage("repeatDays")
+                            }
+                        })
+                    }
                 }
             }
         }
@@ -257,6 +266,11 @@ DccObject {
                             return
                         }
                         dccData.worker.setShutdownRepetition(currentIndex)
+                        if (currentIndex === 3) {
+                            Qt.callLater(function () {
+                                DccApp.showPage(repeatDaysEditObject)
+                            })
+                        }
                     }
                 }
                 ScheduledShutdownDialog {

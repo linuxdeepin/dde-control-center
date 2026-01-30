@@ -80,7 +80,7 @@ public Q_SLOTS:
     QString GetAllModule();
 
 Q_SIGNALS:
-    void activeItemChanged(QQuickItem *item);
+    void activeItemChanged(QQuickItem *item, bool isIndicatorShown);
     void hideModuleChanged(const QSet<QString> &hideModule);
 
 private:
@@ -92,6 +92,7 @@ private:
     QVector<DccObject *> findObjects(const QString &url, bool onlyRoot = false, bool one = false);
     const DccObject *findParent(const DccObject *obj);
     bool eventFilter(QObject *watched, QEvent *event) override;
+    bool isIndicatorShown(const QString &cmd) const;
 
 private Q_SLOTS:
     void saveSize();
