@@ -201,7 +201,7 @@ QVariant SearchSourceModel::data(const QModelIndex &index, int role) const
     case SearchModel::SearchDataRole:
         return QVariant::fromValue(data);
     case SearchModel::SearchUrlRole:
-        return data->sourceUrl();
+        return data->sourceUrl() + "?indicator=true";
     case SearchModel::SearchTextRole:
         return data->sourceText();
     case SearchModel::SearchWeightRole:
