@@ -1,19 +1,15 @@
 // SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
-//
 // SPDX-License-Identifier: GPL-3.0-or-later
 import org.deepin.dcc 1.0
 
 DccObject {
     id: keyboard
-    DccObject {
-        name: "keyboard"
-        parentName: "device"
-        displayName: qsTr("Keyboard")
-        description: qsTr("General Settings, input method, shortcuts")
-        icon: "device_keyboard"
-        weight: 40
-    }
-
+    name: "keyboard"
+    parentName: "device"
+    displayName: qsTr("Keyboard")
+    description: qsTr("General Settings, input method, shortcuts")
+    icon: "device_keyboard"
+    weight: 40
     visible: false
     DccDBusInterface {
         property var numLockState

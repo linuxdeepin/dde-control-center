@@ -43,7 +43,7 @@ const QString ControlCenterGroupName = "com.deepin.dde-grand-search.group.dde-co
 
 DccManager::DccManager(QObject *parent)
     : DccApp(parent)
-    , m_root(new DccObject(this))
+    , m_root(new DccObject())
     , m_activeObject(m_root)
     , m_hideObjects(new DccObject(this))
     , m_noAddObjects(new DccObject(this))
@@ -206,7 +206,7 @@ void DccManager::addObject(DccObject *obj)
     objs.append(m_noAddObjects->getChildren());
     while (!objs.isEmpty()) {
         DccObject *o = objs.takeFirst();
-        if (DccObject *parentObj = findParent(o)) {
+        if (const DccObject *parentObj = findParent(o)) {
             DccObject::Private::FromObject(m_noAddObjects)->removeChild(o);
             DccObject::Private::FromObject(parentObj)->addChild(o);
             objs = m_noAddObjects->getChildren();
@@ -535,20 +535,21 @@ QVector<DccObject *> DccManager::findObjects(const QString &url, bool onlyRoot, 
     return rets;
 }
 
-DccObject *DccManager::findParent(const DccObject *obj)
+const DccObject *DccManager::findParent(const DccObject *obj)
 {
     const QString &path = obj->parentName();
-    DccObject *p = qobject_cast<DccObject *>(obj->parent());
-    if (p) {
-        if (isEqual(path, p)) {
-            return p;
-        }
-        p = qobject_cast<DccObject *>(p->parent());
-        if (p && isEqual(path, p)) {
+    const DccObject *p = obj;
+    const QObject *op = obj;
+    while (op) {
+        op = op->parent();
+        p = qobject_cast<const DccObject *>(op);
+        if (p && !p->name().isEmpty() && isEqual(path, p)) {
             return p;
         }
     }
-    return findObject(path);
+    qCDebug(dccLog()) << obj->name() << "find parent:" << path << ".Parent-child position error, traverse all objects to find.";
+    p = findObject(path);
+    return p;
 }
 
 bool DccManager::eventFilter(QObject *watched, QEvent *event)
@@ -898,7 +899,7 @@ void DccManager::onObjectDisplayChanged()
 
 bool DccManager::addObjectToParent(DccObject *obj)
 {
-    if (DccObject *parentObj = findParent(obj)) {
+    if (const DccObject *parentObj = findParent(obj)) {
         DccObject::Private::FromObject(parentObj)->addChild(obj);
         return true;
     }
