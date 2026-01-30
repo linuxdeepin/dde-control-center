@@ -104,7 +104,6 @@ DccTitleObject {
                         }
                     }
                     onLoaded: function () {
-                        pmdLoader.item.transientParent = DccApp.mainWindow()
                         pmdLoader.item.show()
                     }
                 }

@@ -17,6 +17,7 @@ Item {
     property alias control: bgItem.parent
     property real radius: DS.Style.control.radius
     property real bgMargins: 3
+    property bool focusBorderVisible: true
 
     property real backgroundType: 0
     property D.Palette backgroundColor: D.Palette {
@@ -90,6 +91,7 @@ Item {
             }
         }
     }
+
     // 背景
     Loader {
         z: 1
@@ -114,7 +116,7 @@ Item {
             leftMargin: bgMargins
             rightMargin: bgMargins
         }
-        active: control.activeFocus || control.visualFocus
+        active: focusBorderVisible && (control.activeFocus || control.visualFocus)
         sourceComponent: D.FocusBoxBorder {
             radius: bgItem.radius
             color: control.palette.highlight
