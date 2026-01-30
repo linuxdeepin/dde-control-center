@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick
 import QtQuick.Controls 2.0
@@ -574,7 +574,7 @@ DccObject {
 
     // Number example
     DccObject {
-        name: "langlistTiltle"
+        name: "numberExample"
         parentName: "langAndFormat"
         weight: 90
         pageType: DccObject.Item

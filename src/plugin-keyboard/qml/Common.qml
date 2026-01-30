@@ -61,12 +61,12 @@ DccObject {
             D.TipsSlider {
                 id: scrollSlider
                 readonly property var tips: [qsTr("Short"), (""), (""), (""), (""), (""), qsTr("Long")]
-                
+
                 property real leftTextWidth: 10
                 property real rightTextWidth: 10
                 property real dynamicLeftMargin: Math.max(10, leftTextWidth / 2)
                 property real dynamicRightMargin: Math.max(10, rightTextWidth / 2)
-                
+
                 Layout.preferredHeight: 90
                 Layout.alignment: Qt.AlignCenter
                 Layout.leftMargin: dynamicLeftMargin
@@ -144,137 +144,137 @@ DccObject {
         page: DccGroupView {
             height: implicitHeight + 20
         }
-    }
 
-    DccObject {
-        name: "RepeatRate"
-        parentName: "RepeatRateGroup"
-        displayName: qsTr("Repeat rate")
-        weight: 50
-        visible: dccData.keyboardEnabled
-        backgroundType: DccObject.Normal
-        pageType: DccObject.Item
-        page: Rectangle {
-            color: "transparent"
-            implicitHeight: rowView.height + 20
-            RowLayout {
-                id: rowView
-                width: parent.width
-                ColumnLayout {
-                    Layout.fillHeight: true
-                    Label {
-                        id: doubleClickText
-                        Layout.topMargin: 10
-                        Layout.leftMargin: 14
-                        font: D.DTK.fontManager.t6
-                        text: dccObj.displayName
-                    }
-                    D.TipsSlider {
-                        id: repeatRateSlider
-                        readonly property var tips: [qsTr("Slow"), (""), (""), (""), (""), (""), qsTr("Fast")]
-                        
-                        // 动态计算左右边距
-                        property real leftTextWidth: 0
-                        property real rightTextWidth: 0
-                        property real dynamicLeftMargin: Math.max(10, leftTextWidth / 2 + 5)
-                        property real dynamicRightMargin: Math.max(10, rightTextWidth / 2 + 5)
-                        
-                        Layout.preferredHeight: 90
-                        Layout.alignment: Qt.AlignCenter
-                        Layout.leftMargin: dynamicLeftMargin
-                        Layout.rightMargin: dynamicRightMargin
-                        Layout.topMargin: 10
-                        Layout.bottomMargin: 10
-                        Layout.fillWidth: true
-                        
-                        // 测量左右端文字宽度
-                        TextMetrics {
-                            id: repeatLeftTextMetrics
-                            font: D.DTK.fontManager.t7
-                            text: repeatRateSlider.tips[0] // 最左边的文字
-                            Component.onCompleted: {
-                                repeatRateSlider.leftTextWidth = width
-                            }
+        DccObject {
+            name: "RepeatRate"
+            parentName: "RepeatRateGroup"
+            displayName: qsTr("Repeat rate")
+            weight: 50
+            visible: dccData.keyboardEnabled
+            backgroundType: DccObject.Normal
+            pageType: DccObject.Item
+            page: Rectangle {
+                color: "transparent"
+                implicitHeight: rowView.height + 20
+                RowLayout {
+                    id: rowView
+                    width: parent.width
+                    ColumnLayout {
+                        Layout.fillHeight: true
+                        Label {
+                            id: doubleClickText
+                            Layout.topMargin: 10
+                            Layout.leftMargin: 14
+                            font: D.DTK.fontManager.t6
+                            text: dccObj.displayName
                         }
-                        
-                        TextMetrics {
-                            id: repeatRightTextMetrics
-                            font: D.DTK.fontManager.t7
-                            text: repeatRateSlider.tips[repeatRateSlider.tips.length - 1] // 最右边的文字
-                            Component.onCompleted: {
-                                repeatRateSlider.rightTextWidth = width
+                        D.TipsSlider {
+                            id: repeatRateSlider
+                            readonly property var tips: [qsTr("Slow"), (""), (""), (""), (""), (""), qsTr("Fast")]
+
+                            // 动态计算左右边距
+                            property real leftTextWidth: 0
+                            property real rightTextWidth: 0
+                            property real dynamicLeftMargin: Math.max(10, leftTextWidth / 2 + 5)
+                            property real dynamicRightMargin: Math.max(10, rightTextWidth / 2 + 5)
+
+                            Layout.preferredHeight: 90
+                            Layout.alignment: Qt.AlignCenter
+                            Layout.leftMargin: dynamicLeftMargin
+                            Layout.rightMargin: dynamicRightMargin
+                            Layout.topMargin: 10
+                            Layout.bottomMargin: 10
+                            Layout.fillWidth: true
+
+                            // 测量左右端文字宽度
+                            TextMetrics {
+                                id: repeatLeftTextMetrics
+                                font: D.DTK.fontManager.t7
+                                text: repeatRateSlider.tips[0] // 最左边的文字
+                                Component.onCompleted: {
+                                    repeatRateSlider.leftTextWidth = width
+                                }
                             }
-                        }
-                        tickDirection: D.TipsSlider.TickDirection.Back
-                        slider.handleType: Slider.HandleType.ArrowBottom
-                        slider.value: dccData.repeatInterval
-                        slider.from: 1
-                        slider.to: ticks.length
-                        slider.live: true
-                        slider.stepSize: 1
-                        slider.snapMode: Slider.SnapAlways
-                        ticks: [
-                            D.SliderTipItem {
-                                text: repeatRateSlider.tips[0]
-                                highlight: repeatRateSlider.slider.value === 1
-                            },
-                            D.SliderTipItem {
-                                text: repeatRateSlider.tips[1]
-                                highlight: repeatRateSlider.slider.value === 2
-                            },
-                            D.SliderTipItem {
-                                text: repeatRateSlider.tips[2]
-                                highlight: repeatRateSlider.slider.value === 3
-                            },
-                            D.SliderTipItem {
-                                text: repeatRateSlider.tips[3]
-                                highlight: repeatRateSlider.slider.value === 4
-                            },
-                            D.SliderTipItem {
-                                text: repeatRateSlider.tips[4]
-                                highlight: repeatRateSlider.slider.value === 5
-                            },
-                            D.SliderTipItem {
-                                text: repeatRateSlider.tips[5]
-                                highlight: repeatRateSlider.slider.value === 6
-                            },
-                            D.SliderTipItem {
-                                text: repeatRateSlider.tips[6]
-                                highlight: repeatRateSlider.slider.value === 7
+
+                            TextMetrics {
+                                id: repeatRightTextMetrics
+                                font: D.DTK.fontManager.t7
+                                text: repeatRateSlider.tips[repeatRateSlider.tips.length - 1] // 最右边的文字
+                                Component.onCompleted: {
+                                    repeatRateSlider.rightTextWidth = width
+                                }
                             }
-                        ]
-                        slider.onValueChanged: {
-                            dccData.repeatInterval = slider.value
+                            tickDirection: D.TipsSlider.TickDirection.Back
+                            slider.handleType: Slider.HandleType.ArrowBottom
+                            slider.value: dccData.repeatInterval
+                            slider.from: 1
+                            slider.to: ticks.length
+                            slider.live: true
+                            slider.stepSize: 1
+                            slider.snapMode: Slider.SnapAlways
+                            ticks: [
+                                D.SliderTipItem {
+                                    text: repeatRateSlider.tips[0]
+                                    highlight: repeatRateSlider.slider.value === 1
+                                },
+                                D.SliderTipItem {
+                                    text: repeatRateSlider.tips[1]
+                                    highlight: repeatRateSlider.slider.value === 2
+                                },
+                                D.SliderTipItem {
+                                    text: repeatRateSlider.tips[2]
+                                    highlight: repeatRateSlider.slider.value === 3
+                                },
+                                D.SliderTipItem {
+                                    text: repeatRateSlider.tips[3]
+                                    highlight: repeatRateSlider.slider.value === 4
+                                },
+                                D.SliderTipItem {
+                                    text: repeatRateSlider.tips[4]
+                                    highlight: repeatRateSlider.slider.value === 5
+                                },
+                                D.SliderTipItem {
+                                    text: repeatRateSlider.tips[5]
+                                    highlight: repeatRateSlider.slider.value === 6
+                                },
+                                D.SliderTipItem {
+                                    text: repeatRateSlider.tips[6]
+                                    highlight: repeatRateSlider.slider.value === 7
+                                }
+                            ]
+                            slider.onValueChanged: {
+                                dccData.repeatInterval = slider.value
+                            }
                         }
                     }
                 }
             }
         }
-    }
 
-    DccObject {
-        name: "EditTesting"
-        parentName: "RepeatRateGroup"
-        weight: 60
-        visible: dccData.keyboardEnabled
-        backgroundType: DccObject.Normal
-        pageType: DccObject.Item
-        page: TextField {
-            id: textField
-            placeholderText: qsTr("test here")
-            background: null
-            horizontalAlignment: textMetrics.boundingRect.width > width ? Text.AlignRight : Text.AlignHCenter
-            font: D.DTK.fontManager.t5
-            onActiveFocusChanged: {
-                if (!activeFocus) {
-                    text = ""
+        DccObject {
+            name: "EditTesting"
+            parentName: "RepeatRateGroup"
+            weight: 60
+            visible: dccData.keyboardEnabled
+            backgroundType: DccObject.Normal
+            pageType: DccObject.Item
+            page: TextField {
+                id: textField
+                placeholderText: qsTr("test here")
+                background: null
+                horizontalAlignment: textMetrics.boundingRect.width > width ? Text.AlignRight : Text.AlignHCenter
+                font: D.DTK.fontManager.t5
+                onActiveFocusChanged: {
+                    if (!activeFocus) {
+                        text = ""
+                    }
                 }
-            }
-            // 创建文本测量器
-            TextMetrics {
-                id: textMetrics
-                font: textField.font  // 使用与 TextField 相同的字体
-                text: textField.text  // 绑定到当前文本
+                // 创建文本测量器
+                TextMetrics {
+                    id: textMetrics
+                    font: textField.font // 使用与 TextField 相同的字体
+                    text: textField.text // 绑定到当前文本
+                }
             }
         }
     }
@@ -288,34 +288,34 @@ DccObject {
         page: DccGroupView {
             height: implicitHeight + 20
         }
-    }
-    DccObject {
-        name: "EnableNumLock"
-        parentName: "KeypadSettings"
-        displayName: qsTr("Numeric Keypad")
-        weight: 80
-        visible: dccData.keyboardEnabled
-        backgroundType: DccObject.Normal
-        pageType: DccObject.Editor
-        page: D.Switch {
-            checked: dccData.numLock
-            onCheckedChanged: {
-                dccData.numLock = checked
+        DccObject {
+            name: "EnableNumLock"
+            parentName: "KeypadSettings"
+            displayName: qsTr("Numeric Keypad")
+            weight: 80
+            visible: dccData.keyboardEnabled
+            backgroundType: DccObject.Normal
+            pageType: DccObject.Editor
+            page: D.Switch {
+                checked: dccData.numLock
+                onCheckedChanged: {
+                    dccData.numLock = checked
+                }
             }
         }
-    }
-    DccObject {
-        name: "CapsLockPrompt"
-        parentName: "KeypadSettings"
-        displayName: qsTr("Caps lock prompt")
-        weight: 90
-        visible: dccData.keyboardEnabled
-        backgroundType: DccObject.Normal
-        pageType: DccObject.Editor
-        page: D.Switch {
-            checked: dccData.capsLock
-            onCheckedChanged: {
-                dccData.capsLock = checked
+        DccObject {
+            name: "CapsLockPrompt"
+            parentName: "KeypadSettings"
+            displayName: qsTr("Caps lock prompt")
+            weight: 90
+            visible: dccData.keyboardEnabled
+            backgroundType: DccObject.Normal
+            pageType: DccObject.Editor
+            page: D.Switch {
+                checked: dccData.capsLock
+                onCheckedChanged: {
+                    dccData.capsLock = checked
+                }
             }
         }
     }
