@@ -135,6 +135,11 @@ void MouseWorker::setAvailableCursorSizes(QList<int> sizes)
     m_model->setAvailableCursorSizes(sizes);
 }
 
+void MouseWorker::setLidIsPresent(bool lidIsPresent)
+{
+    m_model->setLidIsPresent(lidIsPresent);
+}
+
 void MouseWorker::onPalmDetectChanged(bool palmDetect)
 {
     Q_EMIT requestSetPalmDetect(palmDetect);

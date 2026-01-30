@@ -45,6 +45,7 @@ public Q_SLOTS:
     void setGestureData(const GestureData &data);
     void setCursorSize(const int cursorSize);
     void setAvailableCursorSizes(QList<int> sizes);
+    void setLidIsPresent(bool lidIsPresent);
 
     void onLeftHandStateChanged(const bool state);
     void onMouseNaturalScrollStateChanged(const bool state);
