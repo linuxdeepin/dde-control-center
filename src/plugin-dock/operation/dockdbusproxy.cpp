@@ -61,8 +61,9 @@ DockDBusProxy::DockDBusProxy(QObject *parent)
     QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "showRecentChanged", this, SIGNAL(showRecentChanged(bool)));
     QDBusConnection::sessionBus().connect(DaemonDockService, DaemonDockPath, DaemonDockInterface, "LockedChanged", this, SIGNAL(LockedChanged(bool)));
     
-    QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "showInPrimaryChanged", this, SLOT(ShowInPrimaryChanged(bool)));
-    QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "pluginVisibleChanged", this, SLOT(pluginVisibleChanged(const QString &, bool)));
+    QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "showInPrimaryChanged", this, SIGNAL(ShowInPrimaryChanged(bool)));
+    QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "pluginVisibleChanged", this, SIGNAL(pluginVisibleChanged(const QString &, bool)));
+    QDBusConnection::sessionBus().connect(DockService, DockPath, DockInterface, "pluginsChanged", this, SIGNAL(pluginsChanged()));
 
     registDockItemType();
 }
