@@ -94,17 +94,6 @@ DccObject {
                 }
             }
         }
-        DccObject {
-            name: "calcType" // 该DccObject会显示在example_2中，不建议这样写
-            parentName: "example_2/body" // DccObject位置只与parentName和weight有关，与其自身位置无关
-            weight: 80
-            displayName: qsTr("calc type")
-            pageType: DccObject.Editor
-            backgroundType: DccObject.Normal
-            page: Text {
-                text: calcType
-            }
-        }
     }
 
     DccObject {
