@@ -32,6 +32,9 @@ const QString GestureService = "org.deepin.dde.Gesture1";
 const QString AppearanceService = "org.deepin.dde.Appearance1";
 const QString AppearancePath = "/org/deepin/dde/Appearance1";
 const QString AppearanceInterface = "org.deepin.dde.Appearance1";
+const QString PowerService = QStringLiteral("org.deepin.dde.Power1");
+const QString PowerPath = QStringLiteral("/org/deepin/dde/Power1");
+const QString PowerInterface = QStringLiteral("org.deepin.dde.Power1");
 
 MouseDBusProxy::MouseDBusProxy(MouseWorker *worker, QObject *parent)
     : QObject(parent)
@@ -91,6 +94,10 @@ void MouseDBusProxy::active()
     uint wheelSpeed  = m_dbusDevicesProperties->call("Get", InputDevicesInterface, "WheelSpeed").arguments().at(0).value<QDBusVariant>().variant().toUInt();
 
     m_worker->setScrollSpeed(wheelSpeed);
+
+    // initial lid is present
+    bool lidIsPresent = getLidIsPresent();
+    m_worker->setLidIsPresent(lidIsPresent);
 
     QVariant gestureInfos = m_dbusGestureProperties->call("Get", GestureInterface, "Infos").arguments().at(0).value<QDBusVariant>().variant();
     parseGesturesData(qvariant_cast<QDBusArgument>(gestureInfos));
@@ -611,4 +618,18 @@ void MouseDBusProxy::listCursor()
         }
         watcher->deleteLater();
     });
+}
+
+bool MouseDBusProxy::getLidIsPresent()
+{
+    // 通过Power1 DBus服务获取Lid状态
+    QDBusInterface powerInterface(PowerService,
+                                  PowerPath,
+                                  PowerInterface,
+                                  QDBusConnection::sessionBus());
+    QVariant lidIsPresentVariant = powerInterface.property("LidIsPresent");
+    if (lidIsPresentVariant.isValid()) {
+        return lidIsPresentVariant.toBool();
+    }
+    return false;
 }

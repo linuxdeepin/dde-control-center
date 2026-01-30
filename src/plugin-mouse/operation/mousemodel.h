@@ -40,6 +40,7 @@ public:
     Q_PROPERTY(QString gestureActionAniPath READ getGestureActionAniPath NOTIFY gestureActionAniPathChanged FINAL)
     Q_PROPERTY(int cursorSize READ cursorSize WRITE setCursorSize NOTIFY cursorSizeChanged FINAL)
     Q_PROPERTY(QList<int> availableCursorSizes READ availableCursorSizes WRITE setAvailableCursorSizes NOTIFY availableCursorSizesChanged FINAL)
+    Q_PROPERTY(bool lidIsPresent READ lidIsPresent NOTIFY lidIsPresentChanged FINAL)
 
     inline bool leftHandState() const { return m_leftHandState; }
     void setLeftHandState(const bool state);
@@ -104,6 +105,9 @@ public:
     QList<int> availableCursorSizes() const { return m_availableCursorSizes; }
     void setAvailableCursorSizes(const QList<int> sizes) { m_availableCursorSizes = sizes; }
 
+    bool lidIsPresent() const { return m_lidIsPresent; }
+    void setLidIsPresent(bool lidIsPresent);
+
     void updateGesturesData(const GestureData &gestureData);
 
     Q_INVOKABLE GestureModel *threeFingerGestureModel() const;
@@ -150,6 +154,7 @@ Q_SIGNALS:
     void disIfTypingChanged(bool state);
     void cursorSizeChanged(int cursorSize);
     void availableCursorSizesChanged(QList<int> sizes);
+    void lidIsPresentChanged(bool lidIsPresent);
 
     void gestureFingerAniPathChanged();
 
@@ -178,6 +183,7 @@ private:
     int  m_palmMinz;
     int  m_scrollSpeed;
     int  m_cursorSize;
+    bool m_lidIsPresent;
     QList<int> m_availableCursorSizes;
 
     QString m_gestureFingerAniPath;

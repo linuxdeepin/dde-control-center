@@ -30,6 +30,7 @@ MouseModel::MouseModel(QObject *parent)
     , m_palmMinz(100)
     , m_scrollSpeed(1)
     , m_cursorSize(24)
+    , m_lidIsPresent(false)
     , m_gestureFingerAniPath("")
     , m_gestureActionAniPath("")
     , m_themeType(Dtk::Gui::DGuiApplicationHelper::instance()->themeType())
@@ -428,6 +429,15 @@ void MouseModel::setThemeType(const Dtk::Gui::DGuiApplicationHelper::ColorType &
         return;
     m_themeType = newThemeType;
     emit themeTypeChanged();
+}
+
+void MouseModel::setLidIsPresent(bool lidIsPresent)
+{
+    if (m_lidIsPresent == lidIsPresent)
+        return;
+
+    m_lidIsPresent = lidIsPresent;
+    Q_EMIT lidIsPresentChanged(lidIsPresent);
 }
 
 DCC_FACTORY_CLASS(MouseModel)

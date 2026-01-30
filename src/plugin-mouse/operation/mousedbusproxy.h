@@ -54,6 +54,7 @@ public Q_SLOTS:
 
     // device properties
     void setScrollSpeed(uint speed);
+    bool getLidIsPresent();
 
     void setGesture(const QString& name, const QString& direction, int fingers, const QString& action);
 
