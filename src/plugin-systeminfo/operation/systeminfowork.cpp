@@ -118,7 +118,7 @@ void SystemInfoWork::activate()
 
     m_model->setType(QSysInfo::WordSize);
     m_model->setKernel(QSysInfo::kernelVersion());
-    m_model->setProcessor(DSysInfo::cpuModelName());
+    // 注意：不在此处设置 processor，因为构造函数中的 updateFrequency() 已经设置了 processor
 
     if (m_systemInfDBusProxy->memorySize() > 0) {
         m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()), m_systemInfDBusProxy->memorySize());

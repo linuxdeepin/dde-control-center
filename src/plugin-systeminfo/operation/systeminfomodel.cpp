@@ -90,7 +90,7 @@ void SystemInfoModel::setProcessor(const QString &processor)
         return;
 
     m_processor = processor;
-    processorChanged(processor);
+    Q_EMIT processorChanged(processor);
 }
 
 void SystemInfoModel::setHostName(const QString &hostName)
