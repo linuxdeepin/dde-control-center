@@ -78,6 +78,7 @@ DccDockExport::DccDockExport(QObject *parent)
     initDisplayModeConnection();
 
     connect(m_dockDbusProxy, &DockDBusProxy::pluginVisibleChanged, m_pluginModel, &DockPluginModel::setPluginVisible);
+    connect(m_dockDbusProxy, &DockDBusProxy::pluginsChanged, this, &DccDockExport::loadPluginData);
     // if it has no blur effect, dcc do not need to show multitask-view plugin
     connect(DWindowManagerHelper::instance(), &DWindowManagerHelper::hasBlurWindowChanged, this, &DccDockExport::initData);
 }

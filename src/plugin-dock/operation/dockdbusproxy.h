@@ -79,6 +79,7 @@ Q_SIGNALS:
     // real singals
     void pluginVisibleChanged(const QString &pluginName, bool visible) const;
     void showRecentChanged(bool) const;
+    void pluginsChanged() const;
 
 private:
     QDBusInterface *m_daemonDockInter;
