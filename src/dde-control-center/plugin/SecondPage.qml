@@ -55,6 +55,7 @@ Item {
             right: splitter.left
         }
         visible: width > 20
+
         SearchBar {
             id: searchEdit
             anchors {
@@ -82,12 +83,67 @@ Item {
             rightMargin: 10
             topMargin: 6
             bottomMargin: 10
-            currentIndex: dccObj ? dccObj.children.indexOf(dccObj.currentObject) : -1
-            activeFocusOnTab: true
             clip: true
-            ScrollBar.vertical: ScrollBar {
-                width: 10
+            focus: true
+            activeFocusOnTab: true
+            currentIndex: dccObj ? dccObj.children.indexOf(dccObj.currentObject) : -1
+
+            MouseArea {
+                anchors.fill: parent
+                z: 999
+                acceptedButtons: Qt.LeftButton
+                propagateComposedEvents: true
+                onPressed: function(mouse) {
+                    list.forceActiveFocus()
+                    mouse.accepted = false
+                }
             }
+
+            ScrollBar.vertical: ScrollBar { width: 10 }
+
+            Keys.enabled: true
+            Keys.onPressed: function (event) {
+                switch (event.key) {
+                case Qt.Key_Up:
+                    if (count <= 0 || !dccObj)
+                        break
+                    var upIdx = currentIndex
+                    if (upIdx < 0)
+                        upIdx = 0
+                    else if (upIdx > 0)
+                        upIdx--
+                    var upObj = dccModel.getObject(upIdx)
+                    if (upObj) {
+                        dccObj.currentObject = upObj
+                        DccApp.showPage(upObj)
+                    }
+                    break
+                case Qt.Key_Down:
+                    if (count <= 0 || !dccObj)
+                        break
+                    var downIdx = currentIndex
+                    if (downIdx < 0)
+                        downIdx = 0
+                    else if (downIdx < count - 1)
+                        downIdx++
+                    var downObj = dccModel.getObject(downIdx)
+                    if (downObj) {
+                        dccObj.currentObject = downObj
+                        DccApp.showPage(downObj)
+                    }
+                    break
+                case Qt.Key_Enter:
+                case Qt.Key_Return:
+                    var obj = dccModel.getObject(currentIndex)
+                    if (obj)
+                        DccApp.showPage(obj)
+                    break
+                default:
+                    return
+                }
+                event.accepted = true
+            }
+
             model: DccModel {
                 id: dccModel
                 root: dccObj
@@ -96,8 +152,13 @@ Item {
             delegate: D.ItemDelegate {
                 implicitHeight: 40
                 width: parent ? parent.width : 300
-                checked: dccObj.currentObject === model.item
                 font: D.DTK.fontManager.t6
+                activeFocusOnTab: false
+                focusPolicy: Qt.NoFocus
+
+                checked: dccObj.currentObject === model.item
+                cascadeSelected: false
+
                 icon {
                     name: model.item.icon
                     source: model.item.iconSource
@@ -117,7 +178,9 @@ Item {
                     }
                 }
                 hoverEnabled: true
+
                 background: DccItemBackground {
+                    focusBorderVisible: false
                     separatorVisible: false
                     bgMargins: 0
                     backgroundType: DccObject.Hover | DccObject.Clickable
@@ -131,8 +194,8 @@ Item {
                     }
                 }
                 onClicked: {
+                    list.forceActiveFocus()
                     DccApp.showPage(model.item)
-                    console.log(model.item.name, model.display, model.item.icon)
                 }
             }
         }

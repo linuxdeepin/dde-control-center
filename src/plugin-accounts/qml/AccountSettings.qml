@@ -71,7 +71,6 @@ DccObject {
                             }
                         }
                         onLoaded: function () {
-                            dilogLoader.item.transientParent = DccApp.mainWindow()
                             dilogLoader.item.show()
                         }
                     }
@@ -231,7 +230,6 @@ DccObject {
                             }
                         }
                         onLoaded: function () {
-                            cadLoader.item.transientParent = DccApp.mainWindow()
                             cadLoader.item.show()
                         }
                     }
@@ -619,7 +617,6 @@ DccObject {
                         }
                     }
                     onLoaded: function () {
-                        awdLoader.item.transientParent = DccApp.mainWindow()
                         awdLoader.item.show()
                     }
                 }
@@ -724,7 +721,6 @@ DccObject {
                         }
                     }
                     onLoaded: function () {
-                        cfdLoader.item.transientParent = DccApp.mainWindow()
                         cfdLoader.item.show()
                     }
                 }
