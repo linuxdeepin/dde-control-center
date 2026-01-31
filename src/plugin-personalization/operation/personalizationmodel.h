@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef PERSONALIZATIONMODEL_H
@@ -38,6 +38,7 @@ class PersonalizationModel : public QObject
     Q_PROPERTY(QString currentScreenSaverPicMode WRITE setCurrentScreenSaverPicMode READ getCurrentScreenSaverPicMode NOTIFY currentScreenSaverPicModeChanged)
     Q_PROPERTY(QVariantMap wallpaperSlideShowMap WRITE setWallpaperSlideShowMap READ getWallpaperSlideShowMap NOTIFY wallpaperSlideShowMapChanged)
     Q_PROPERTY(bool onBattery READ getOnBattery WRITE setOnBattery NOTIFY onBatteryChanged)
+    Q_PROPERTY(QStringList supportEffects READ supportEffects WRITE setSupportEffects NOTIFY supportEffectsChanged)
 
     Q_PROPERTY(FontSizeModel *fontSizeModel MEMBER m_fontSizeModel CONSTANT)
     Q_PROPERTY(FontModel *standardFontModel MEMBER m_standFontModel CONSTANT)
@@ -133,6 +134,9 @@ public:
     inline bool getOnBattery() const { return m_onBattery; }
     void setOnBattery(bool value);
 
+    inline QStringList supportEffects() const { return m_supportEffects; }
+    void setSupportEffects(const QStringList &value);
+
 Q_SIGNALS:
     void wmChanged(const bool is3d);
     void opacityChanged(double opacity);
@@ -158,6 +162,8 @@ Q_SIGNALS:
     void currentScreenSaverPicModeChanged(const QString &value);
     void wallpaperSlideShowMapChanged(const QVariantMap &value);
     void onBatteryChanged(bool value);
+    void miniEffectChanged(bool value);
+    void supportEffectsChanged(const QStringList &value);
 private:
     ThemeModel *m_windowModel;
     ThemeModel *m_iconModel;
@@ -202,5 +208,6 @@ private:
     int m_batteryScreenSaverIdleTime;
     QString m_currentScreenSaverPicMode;
     bool m_onBattery;
+    QStringList m_supportEffects;
 };
 #endif // PERSONALIZATIONMODEL_H

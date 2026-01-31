@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -20,6 +20,8 @@ constexpr auto WINDOW_EFFECT_TYPE_KEY = "user_type";
 constexpr auto ORG_KDE_KWIN = "org.kde.kwin";
 constexpr auto ORG_KDE_KWIN_COMPOSITING = "org.kde.kwin.compositing";
 constexpr auto EffectMoveWindowArg = "kwin4_effect_translucency";
+constexpr auto EffectMiniLampArg = "magiclamp";
+constexpr auto EffectMiniScaleArg = "kwin4_effect_scale";
 
 X11Worker::X11Worker(PersonalizationModel *model, QObject *parent)
     : PersonalizationWorker(model, parent)
@@ -37,8 +39,20 @@ void X11Worker::active()
     onTitleHeightChanged();
     int windowEffectType = m_kwinCompositingConfig->value(WINDOW_EFFECT_TYPE_KEY).toInt();
     m_model->setWindowEffectType(windowEffectType);
-    m_personalizationDBusProxy->isEffectLoaded("magiclamp", this, SLOT(onMiniEffectChanged(bool)));
+    m_personalizationDBusProxy->isEffectLoaded(EffectMiniLampArg, this, SLOT(onMiniEffectChanged(bool)));
     m_model->setIsMoveWindow(m_personalizationDBusProxy->isEffectLoaded(EffectMoveWindowArg));
+
+    QStringList supportEffects;
+    if (m_personalizationDBusProxy->isEffectSupported(EffectMiniLampArg)) {
+        supportEffects.append(EffectMiniLampArg);
+    }
+    if (m_personalizationDBusProxy->isEffectSupported(EffectMiniScaleArg)) {
+        supportEffects.append(EffectMiniScaleArg);
+    }
+    if (m_personalizationDBusProxy->isEffectSupported(EffectMoveWindowArg)) {
+        supportEffects.append(EffectMoveWindowArg);
+    }
+    m_model->setSupportEffects(supportEffects);
 }
 
 void X11Worker::setTitleBarHeight(int value)
@@ -98,13 +112,13 @@ void X11Worker::setMiniEffect(int effect)
 {
     switch (effect) {
     case 0:
-        qCDebug(DdcPersonnalizationX11Worker) << "scale";
-        m_personalizationDBusProxy->unloadEffect("magiclamp");
+        qCDebug(DdcPersonnalizationX11Worker) << EffectMiniScaleArg;
+        m_personalizationDBusProxy->unloadEffect(EffectMiniLampArg);
         m_model->setMiniEffect(effect);
         break;
     case 1:
-        qCDebug(DdcPersonnalizationX11Worker) << "magiclamp";
-        m_personalizationDBusProxy->loadEffect("magiclamp");
+        qCDebug(DdcPersonnalizationX11Worker) << EffectMiniLampArg;
+        m_personalizationDBusProxy->loadEffect(EffectMiniLampArg);
         m_model->setMiniEffect(effect);
         break;
     default:

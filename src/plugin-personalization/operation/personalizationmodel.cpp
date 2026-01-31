@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "personalizationmodel.h"
@@ -225,4 +225,13 @@ void PersonalizationModel::setOnBattery(bool value)
 
     m_onBattery = value;
     Q_EMIT onBatteryChanged(value);
+}
+
+void PersonalizationModel::setSupportEffects(const QStringList &value)
+{
+    if (m_supportEffects == value)
+        return;
+
+    m_supportEffects = value;
+    Q_EMIT supportEffectsChanged(value);
 }
