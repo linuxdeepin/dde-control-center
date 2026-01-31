@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "personalizationdbusproxy.h"
@@ -443,7 +443,7 @@ void PersonalizationDBusProxy::setZoneEnabled(bool value)
 // Effects
 bool PersonalizationDBusProxy::loadEffect(const QString &name)
 {
-    if (!m_WMInter) {
+    if (!m_EffectsInter) {
         return false;
     }
     return QDBusPendingReply<bool>(m_EffectsInter->asyncCall(QStringLiteral("loadEffect"), QVariant::fromValue(name)));
@@ -459,7 +459,7 @@ void PersonalizationDBusProxy::unloadEffect(const QString &name)
 
 bool PersonalizationDBusProxy::isEffectLoaded(const QString &name)
 {
-    if (!m_WMInter) {
+    if (!m_EffectsInter) {
         return false;
     }
     return QDBusPendingReply<bool>(m_EffectsInter->asyncCall(QStringLiteral("isEffectLoaded"), QVariant::fromValue(name)));
@@ -467,12 +467,20 @@ bool PersonalizationDBusProxy::isEffectLoaded(const QString &name)
 
 bool PersonalizationDBusProxy::isEffectLoaded(const QString &name, QObject *receiver, const char *member)
 {
-    if (!m_WMInter) {
+    if (!m_EffectsInter) {
         return false;
     }
     QList<QVariant> args;
     args << QVariant::fromValue(name);
     return m_EffectsInter->callWithCallback(QStringLiteral("isEffectLoaded"), args, receiver, member);
+}
+
+bool PersonalizationDBusProxy::isEffectSupported(const QString &name)
+{
+    if (!m_EffectsInter) {
+        return false;
+    }
+    return QDBusPendingReply<bool>(m_EffectsInter->asyncCall(QStringLiteral("isEffectSupported"), QVariant::fromValue(name)));
 }
 
 QString PersonalizationDBusProxy::activeColors()
