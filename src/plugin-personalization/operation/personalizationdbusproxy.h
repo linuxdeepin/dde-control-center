@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef PERSONALIZATIONDBUSPROXY_H
@@ -6,6 +6,7 @@
 
 #include <QObject>
 #include <DDBusInterface>
+#include <QDBusPendingReply>
 
 class QDBusMessage;
 
@@ -178,6 +179,7 @@ public slots:
     void unloadEffect(const QString &name);
     bool isEffectLoaded(const QString &name);
     bool isEffectLoaded(const QString &name, QObject *receiver, const char *member);
+    bool isEffectSupported(const QString &name);
 
 private:
     Dtk::Core::DDBusInterface *m_AppearanceInter = nullptr;
