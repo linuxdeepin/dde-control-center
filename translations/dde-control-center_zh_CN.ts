@@ -3749,7 +3749,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>时区：</translation>
     </message>
     <message>
         <source>Nearest City:</source>
