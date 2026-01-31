@@ -325,6 +325,8 @@ void PrivacySecurityWorker::updateAppPath(ApplicationItem *item)
                 m_model->removeApplictionItem(itemId);
             } else {
                 item->onAppPathChanged(path);
+                m_model->updatePermission(item);
+                m_model->emitAppDataChanged(item);
             }
         }, Qt::QueuedConnection);
     });
@@ -374,8 +376,6 @@ ApplicationItem *PrivacySecurityWorker::addAppItem(int dataIndex)
     appItem->onIconChanged(iconName);
     appItem->onExecsChanged(execs);
     if (m_model->addApplictionItem(appItem)) {
-        m_model->updatePermission(appItem);
-
         updateAppPath(appItem);
         connect(appItem, &ApplicationItem::requestSetPremissionEnabled, this, &PrivacySecurityWorker::setAppPermissionEnable);
     } else {
