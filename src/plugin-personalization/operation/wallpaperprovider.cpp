@@ -337,6 +337,18 @@ void InterfaceWorker::getSolodBackground()
         if (ptr)
             wallpapers.append(ptr);
     }
+    if (wallpapers.size() > 4) {
+        for (int i = 0; i < 4 && i < wallpapers.size(); ++i) {
+            if (wallpapers[i]->url.contains("mono-black")) {
+                WallpaperItemPtr blackItem = wallpapers.takeAt(i);
+                wallpapers.insert(4, blackItem);
+                break;
+            }
+        }
+        for (int i = 0; i < wallpapers.size(); ++i) {
+            wallpapers[i]->lastModifiedTime = wallpapers.size() - i;
+        }
+    }
     Q_EMIT pushBackground(wallpapers, WallpaperType::Wallpaper_Solid);
 }
 
