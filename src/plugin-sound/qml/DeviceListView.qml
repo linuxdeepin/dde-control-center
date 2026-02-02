@@ -41,6 +41,20 @@ Rectangle {
                 focusPolicy: Qt.TabFocus
                 activeFocusOnTab: true
                 corners: getCornersForBackground(index, repeater.count)
+                Keys.onUpPressed: function (event) {
+                    const prev = repeater.itemAt(index - 1)
+                    if (prev) {
+                        prev.forceActiveFocus(Qt.BacktabFocusReason)
+                        event.accepted = true
+                    }
+                }
+                Keys.onDownPressed: function (event) {
+                    const next = repeater.itemAt(index + 1)
+                    if (next) {
+                        next.forceActiveFocus(Qt.TabFocusReason)
+                        event.accepted = true
+                    }
+                }
                 content: RowLayout {
                     Layout.alignment: Qt.AlignVCenter
                     spacing: 0
