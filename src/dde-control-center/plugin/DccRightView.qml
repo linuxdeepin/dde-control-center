@@ -11,10 +11,16 @@ Flickable {
     property alias spacing: groupView.spacing
     property alias isGroup: groupView.isGroup
     property real margin: DccUtils.getMargin(width)
+    property bool scrollBarVisible: false
 
     contentHeight: groupView.height
     ScrollBar.vertical: ScrollBar {
+        id: vbar
         width: 10
+        opacity: control.scrollBarVisible ? 1 : 0
+        Behavior on opacity {
+            NumberAnimation { duration: 150 }
+        }
     }
     DccGroupView {
         id: groupView
@@ -26,6 +32,15 @@ Flickable {
             leftMargin: control.margin
             rightMargin: control.margin
         }
+    }
+    Timer {
+        id: showScrollBarTimer
+        interval: 300
+        repeat: false
+        onTriggered: control.scrollBarVisible = true
+    }
+    Component.onCompleted: {
+        showScrollBarTimer.start()
     }
     Rectangle {
         id: panel

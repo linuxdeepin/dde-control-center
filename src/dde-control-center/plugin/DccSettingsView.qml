@@ -12,10 +12,16 @@ Flickable {
     property bool isGroup: false
     property real margin: DccUtils.getMargin(width)
     property bool initItem: false
+    property bool scrollBarVisible: false
 
     contentHeight: centralItem.height + bottomItem.height - (bottomItem.height > 0 ? bottomItem.anchors.topMargin : 0)
     ScrollBar.vertical: ScrollBar {
+        id: vbar
         width: 10
+        opacity: control.scrollBarVisible ? 1 : 0
+        Behavior on opacity {
+            NumberAnimation { duration: 150 }
+        }
     }
     Component {
         id: groupView
@@ -143,8 +149,15 @@ Flickable {
             initItem = true
         }
     }
+    Timer {
+        id: showScrollBarTimer
+        interval: 300
+        repeat: false
+        onTriggered: control.scrollBarVisible = true
+    }
     Component.onCompleted: {
         updateItem()
+        showScrollBarTimer.start()
     }
     Connections {
         target: dccObj
