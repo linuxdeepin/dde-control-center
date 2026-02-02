@@ -1,10 +1,11 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
 #include "operation/dockdbusproxy.h"
+#include "operation/dockpluginsortproxymodel.h"
 #include <qtypes.h>
 
 #include <QDBusInterface>
@@ -19,7 +20,7 @@ class DccDockExport : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(DockDBusProxy *dockInter MEMBER m_dockDbusProxy CONSTANT)
-    Q_PROPERTY(DockPluginModel *pluginModel MEMBER m_pluginModel CONSTANT)
+    Q_PROPERTY(DockPluginSortProxyModel *pluginModel MEMBER m_sortProxyModel CONSTANT)
     Q_PROPERTY(int displayMode READ displayMode NOTIFY displayModeChanged)
     Q_PROPERTY(int monitorCount READ monitorCount NOTIFY monitorCountChanged)
     Q_PROPERTY(bool combineApp READ combineApp WRITE setCombineApp NOTIFY combineAppChanged)
@@ -48,6 +49,7 @@ Q_SIGNALS:
 private:
     DockDBusProxy *m_dockDbusProxy;
     DockPluginModel *m_pluginModel;
+    DockPluginSortProxyModel *m_sortProxyModel;
     Dtk::Core::DConfig *m_dconfig;
     QDBusInterface *m_displayInter;
     int m_displayMode;

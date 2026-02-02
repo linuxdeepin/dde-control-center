@@ -1,9 +1,10 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "dccfactory.h"
 #include "operation/dockpluginmodel.h"
+#include "operation/dockpluginsortproxymodel.h"
 #include <qtypes.h>
 
 #include "dccdockexport.h"
@@ -52,6 +53,7 @@ DccDockExport::DccDockExport(QObject *parent)
 : QObject(parent)
 , m_dockDbusProxy(new DockDBusProxy(this))
 , m_pluginModel(new DockPluginModel(this))
+, m_sortProxyModel(new DockPluginSortProxyModel(this))
 , m_dconfig(Dtk::Core::DConfig::create("org.deepin.dde.shell", "org.deepin.ds.dock.taskmanager", QString(), this))
 , m_displayInter(nullptr)
 , m_displayMode(EXTEND_MODE)
@@ -76,6 +78,9 @@ DccDockExport::DccDockExport(QObject *parent)
 
     initData();
     initDisplayModeConnection();
+
+    // 设置排序代理模型的源模型
+    m_sortProxyModel->setSourceModel(m_pluginModel);
 
     connect(m_dockDbusProxy, &DockDBusProxy::pluginVisibleChanged, m_pluginModel, &DockPluginModel::setPluginVisible);
     connect(m_dockDbusProxy, &DockDBusProxy::pluginsChanged, this, &DccDockExport::loadPluginData);

@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -47,6 +47,8 @@ QVariant DockPluginModel::data(const QModelIndex &index, int role) const
     }
 
     switch (role) {
+    case Qt::DisplayRole:
+        return m_dockItemInfos[row].displayName;
     case PluginNameRole:
         return m_dockItemInfos[row].name;
     case PlugindisplayNameRole:
