@@ -540,10 +540,8 @@ DccObject {
             to: 1
             stepSize: 0.01
             value: screenItem.brightness
-            onValueChanged: {
-                if (screenItem.brightness !== value) {
-                    screenItem.brightness = value
-                }
+            onMoved: {
+                screenItem.brightness = value
             }
         }
         D.DciIcon {
