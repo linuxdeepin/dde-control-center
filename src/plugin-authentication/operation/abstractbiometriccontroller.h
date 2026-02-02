@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -21,13 +21,11 @@ public:
     CharaMangerModel::AddInfoState addStage() const { return m_addStage; }
     void setAddStage(CharaMangerModel::AddInfoState stage);
 
-    // 纯虚函数，子类必须实现
     virtual void startEnroll() = 0;
     virtual void stopEnroll() = 0;
     virtual void rename(const QString &oldName, const QString &newName) = 0;
     virtual void remove(const QString &id) = 0;
     
-    // 虚函数，子类可以选择性重写
     virtual bool isAvailable() const { return true; }
     virtual QString getTypeName() const = 0;
 

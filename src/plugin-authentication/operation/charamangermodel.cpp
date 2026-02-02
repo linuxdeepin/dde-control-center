@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -131,7 +131,7 @@ void CharaMangerModel::onFingerEnrollStatusChanged(int code, const QString& msg)
     case ET_Failed: {
         m_progress = 0;
         QString title = tr("Scan failed");
-        QString msg = "";
+        QString msg = tr("Scan suspended");
         do {
             QStringList keys = jsonObject.keys();
             if (!keys.contains("subcode")) {

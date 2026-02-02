@@ -30,10 +30,8 @@ Rectangle {
         Repeater {
             id: repeater
             delegate: D.ItemDelegate {
+                readonly property bool showSendFile: model.canSendFile && model.connectStatus === 2
 
-                property bool showSendFile: model.canSendFile && model.connectStatus === 2
-                // 用于保存移除的菜单项
-                property Item removedItem: null
                 id: itemCtl
                 Layout.fillWidth: true
                 Layout.fillHeight: true
@@ -249,9 +247,11 @@ Rectangle {
                                         id: sendFile
                                         padding: 0
                                         text: qsTr("Send Files")
+                                        visible: itemCtl.showSendFile
+                                        height : sendFile.visible ? implicitHeight : 0
+                                        topPadding: sendFile.visible ? undefined : 0
+                                        bottomPadding: sendFile.visible ? undefined : 0
 
-                                        // TODO 当前通过visible属性隐藏的时候item隐藏了，但是外部的区域没有隐藏会有空白显示，暂时改成通过takeItem移除的方式
-                                        // visible: model.canSendFile && model.connectStatus
                                         onTriggered: {
                                             fileDlg.open()
                                         }
@@ -283,17 +283,6 @@ Rectangle {
                                         padding: 0
                                         onTriggered: {
                                             dccData.work().ignoreDevice(model.id, model.adapterId)
-                                        }
-                                    }
-
-                                    onOpened: {
-                                        if (contextMenu.count == 5 && !showSendFile) {
-                                            removedItem = contextMenu.takeItem(1)
-                                            return
-                                        }
-
-                                        if (contextMenu.count == 4 && showSendFile) {
-                                            contextMenu.insertItem(1, removedItem)
                                         }
                                     }
                                 }

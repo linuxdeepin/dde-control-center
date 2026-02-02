@@ -15,6 +15,7 @@
 #include <QTimer>
 #include <QProcessEnvironment>
 #include "QCoreApplication"
+#include <QtConcurrent>
 
 #include "applet.h"
 #include <dsglobal.h>
@@ -312,13 +313,23 @@ void PrivacySecurityWorker::updateAppPath(ApplicationItem *item)
     if (!item)
         return;
 
-    QString path = getAppPath(item->execs());
-    if (path.isEmpty()) {
-        qCInfo(DCC_PRIVACY) << "Exclude app id: " << item->id() << ", name: " << item->name() << "because it appPath is empty";
-        QMetaObject::invokeMethod(m_model, "removeApplictionItem", Qt::QueuedConnection, Q_ARG(QString, item->id()));
-    } else {
-        item->onAppPathChanged(path);
-    }
+    auto execs = item->execs();
+    auto itemId = item->id();
+    auto itemName = item->name();
+    
+    (void)QtConcurrent::run([this, item, execs, itemId, itemName]() {
+        QString path = getAppPath(execs);
+        QMetaObject::invokeMethod(this, [this, item, path, itemId, itemName]() {
+            if (path.isEmpty()) {
+                qCInfo(DCC_PRIVACY) << "Exclude app id: " << itemId << ", name: " << itemName << "because it appPath is empty";
+                m_model->removeApplictionItem(itemId);
+            } else {
+                item->onAppPathChanged(path);
+                m_model->updatePermission(item);
+                m_model->emitAppDataChanged(item);
+            }
+        }, Qt::QueuedConnection);
+    });
 }
 
 ApplicationItem *PrivacySecurityWorker::addAppItem(int dataIndex)
@@ -365,8 +376,6 @@ ApplicationItem *PrivacySecurityWorker::addAppItem(int dataIndex)
     appItem->onIconChanged(iconName);
     appItem->onExecsChanged(execs);
     if (m_model->addApplictionItem(appItem)) {
-        m_model->updatePermission(appItem);
-
         updateAppPath(appItem);
         connect(appItem, &ApplicationItem::requestSetPremissionEnabled, this, &PrivacySecurityWorker::setAppPermissionEnable);
     } else {

@@ -121,7 +121,9 @@ DccObject {
             name: "enableTransparentWhenMoveWindow"
             parentName: "personalization/windowEffect/windowSettingsGroup"
             displayName: qsTr("Enable transparent effects when moving windows")
-            visible: dccData.model.windowEffectType < InterfaceEffectListview.WindowEffectType.Normal && dccData.platformName() !== "wayland"
+            visible: dccData.model.windowEffectType < InterfaceEffectListview.WindowEffectType.Normal 
+                    && dccData.platformName() !== "wayland" 
+                    && dccData.model.supportEffects.indexOf("kwin4_effect_translucency") !== -1
             weight: 2
             pageType: DccObject.Editor
             page: D.Switch {
@@ -133,16 +135,26 @@ DccObject {
         }
 
         DccObject {
+            id: minimizeEffectObject
+            property var supportEffects: dccData.model.supportEffects
             name: "minimizeEffect"
             parentName: "personalization/windowEffect/windowSettingsGroup"
             displayName: qsTr("Window Minimize Effect")
-            visible: dccData.model.windowEffectType <= InterfaceEffectListview.WindowEffectType.Best && dccData.platformName() !== "wayland"
+            visible: dccData.model.windowEffectType <= InterfaceEffectListview.WindowEffectType.Best 
+                    && dccData.platformName() !== "wayland"
+                    && (supportEffects.indexOf("kwin4_effect_scale") !== -1 || supportEffects.indexOf("magiclamp") !== -1)
             weight: 3
             pageType: DccObject.Editor
-            page: D.ComboBox {
+            page: CustomComboBox {
                 flat: true
                 currentIndex: dccData.model.miniEffect
-                model: [qsTr("Scale"), qsTr("Magic Lamp")]
+                textRole: "text"
+                visibleRole: "support"
+
+                model: [
+                    {text: qsTr("Scale"), support: minimizeEffectObject.supportEffects.indexOf("kwin4_effect_scale") !== -1}, 
+                    {text: qsTr("Magic Lamp"), support: minimizeEffectObject.supportEffects.indexOf("magiclamp") !== -1}
+                ]
                 onCurrentIndexChanged: {
                     dccData.worker.setMiniEffect(currentIndex)
                 }

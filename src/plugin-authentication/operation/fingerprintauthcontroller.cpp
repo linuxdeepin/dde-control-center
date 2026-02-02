@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -157,6 +157,7 @@ void FingerprintAuthController::onFingerEnrollFailed(const QString &title, const
 {
     m_fingerTipTitle = title;
     m_fingerTipMessage = msg;
+    m_fingertipImagePath = "user_biometric_fingerprint_lose";
     setAddStage(CharaMangerModel::Fail);
     emit fingerTipsChanged();
     stopEnroll();
@@ -181,6 +182,9 @@ void FingerprintAuthController::onFingerEnrollDisconnected()
 
 void FingerprintAuthController::onFingerLiftTimerTimeout()
 {
+    if (m_addStage == CharaMangerModel::Fail || m_addStage == CharaMangerModel::Success) {
+        return;
+    }
     QString m_defTitle;
     QString m_defTip;
     if (m_fingerPro > 0 && m_fingerPro < 35) {
@@ -201,6 +205,9 @@ void FingerprintAuthController::onFingerLiftTimerTimeout()
 
 void FingerprintAuthController::onFingerAniValueChanged(const QVariant &index)
 {
+    if (m_addStage == CharaMangerModel::Fail) {
+        return;
+    }
     if (index == 150) {
         m_fingertipImagePath = "user_biometric_fingerprint_success";
     } else {

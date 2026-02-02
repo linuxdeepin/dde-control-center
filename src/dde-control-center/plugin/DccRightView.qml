@@ -31,6 +31,7 @@ Flickable {
         id: panel
         property var item: undefined
         property int cnt: 0
+        property bool isIndicatorShown: true
         z: 10
         radius: 8
         color: "transparent"
@@ -47,6 +48,7 @@ Flickable {
                 panel.visible = false
                 panel.cnt = 0
                 panel.item = undefined
+                panel.isIndicatorShown = false
                 stop()
             } else {
                 let itemY = panel.item.mapToItem(control, 0, 0).y
@@ -57,20 +59,22 @@ Flickable {
                 if (itemY < 0) {
                     control.contentY = -itemY
                 }
-
-                panel.x = panel.item.mapToItem(control, 0, 0).x
-                panel.y = panel.item.mapToItem(control, 0, 0).y + control.contentY
-                panel.height = panel.item.height
-                panel.width = panel.item.width
-                panel.visible = panel.cnt & 1
+                if (panel.isIndicatorShown) {
+                    panel.x = panel.item.mapToItem(control, 0, 0).x
+                    panel.y = panel.item.mapToItem(control, 0, 0).y + control.contentY
+                    panel.height = panel.item.height
+                    panel.width = panel.item.width
+                    panel.visible = panel.cnt & 1
+                }
                 panel.cnt++
             }
         }
     }
     Connections {
         target: DccApp
-        function onActiveItemChanged(item) {
+        function onActiveItemChanged(item, isIndicatorShown) {
             panel.item = item
+            panel.isIndicatorShown = isIndicatorShown
         }
     }
     Connections {

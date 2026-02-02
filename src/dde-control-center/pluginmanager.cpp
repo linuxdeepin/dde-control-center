@@ -470,6 +470,7 @@ void PluginManager::createModule(QQmlComponent *component)
             Q_EMIT updatePluginStatus(plugin, ModuleErr | ModuleEnd, " component create module object is null:" + component->errorString());
             return;
         }
+        object->setParent(m_rootModule);
         plugin->module = qobject_cast<DccObject *>(object);
         Q_EMIT updatePluginStatus(plugin, ModuleEnd, "create module finished");
         m_manager->addObject(plugin->module);
@@ -500,6 +501,7 @@ void PluginManager::createMain(QQmlComponent *component)
             Q_EMIT updatePluginStatus(plugin, MainObjErr | MainObjEnd, " component create main object is null:" + component->errorString());
             return;
         }
+        object->setParent(plugin->module ? plugin->module : m_rootModule);
         plugin->mainObj = qobject_cast<DccObject *>(object);
         Q_EMIT updatePluginStatus(plugin, MainObjEnd, ": create main finished");
     } break;

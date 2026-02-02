@@ -5,7 +5,7 @@ import org.deepin.dcc 1.0
 // 该文件中不能使用dccData,根对象为DccObject
 DccObject {
     id: root
-    name: "example"
+    name: "example" // 与插件名相同
     parentName: "root"
     displayName: qsTr("Example")
     icon: "dcc_example"

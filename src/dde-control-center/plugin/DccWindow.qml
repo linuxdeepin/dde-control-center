@@ -24,6 +24,12 @@ D.ApplicationWindow {
     color: "transparent"
     D.DWindow.enabled: true
 
+    MouseArea {
+        anchors.fill: parent
+        enabled: false
+        cursorShape: Qt.ArrowCursor
+    }
+
     D.StyledBehindWindowBlur {
         anchors.fill: parent
         control: mainWindow

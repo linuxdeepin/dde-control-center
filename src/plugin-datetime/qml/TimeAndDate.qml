@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick
 import QtQuick.Controls 2.0
@@ -337,206 +337,206 @@ DccObject {
         }
 
         onParentItemChanged: item => { if (item) item.topPadding = 5 }
-    }
 
-    DccObject {
-        id: systemTimezone
-        name: "systemTimezone"
-        parentName: "timezoneGroup"
-        displayName: qsTr("system time zone")
-        weight: 12
-        backgroundType: DccObject.Normal
-        pageType: DccObject.Editor
+        DccObject {
+            id: systemTimezone
+            name: "systemTimezone"
+            parentName: "timezoneGroup"
+            displayName: qsTr("system time zone")
+            weight: 12
+            backgroundType: DccObject.Normal
+            pageType: DccObject.Editor
 
-        onParentItemChanged: item => {
-            if (item) {
-                item.rightPadding = DS.Style.comboBox.spacing
-            }
-        }
-
-        page: Item {
-            id: systemTimezoneItem
-            implicitWidth: rowlayout.implicitWidth
-            implicitHeight: rowlayout.implicitHeight
-            property var model: dccData.zoneSearchModel()
-            property var currentIndex: dccData.currentTimeZoneIndex
-            property string saveZoneId: ""
-            RowLayout {
-                id: rowlayout
-                Label {
-                    id: timezoneLabel
-                    text: dccData.timeZoneDispalyName
-                }
-                D.IconLabel {
-                    Layout.alignment: Qt.AlignRight | Qt.AlignHCenter
-                    icon.name: "arrow_ordinary_down"
-                    icon.palette: D.DTK.makeIconPalette(timezoneLabel.palette)
+            onParentItemChanged: item => {
+                if (item) {
+                    item.rightPadding = DS.Style.comboBox.spacing
                 }
             }
 
-            MouseArea {
-                id: mouseArea
-                anchors.fill: parent
-
-                Component.onCompleted: {
-                    if (dccData.currentTimeZoneIndex >= 0) {
-                        let model = dccData.zoneSearchModel()
-                        systemTimezoneItem.saveZoneId = model.data(model.index(systemTimezoneItem.currentIndex, 0), ZoneInfoModel.ZoneIdRole)
+            page: Item {
+                id: systemTimezoneItem
+                implicitWidth: rowlayout.implicitWidth
+                implicitHeight: rowlayout.implicitHeight
+                property var model: dccData.zoneSearchModel()
+                property var currentIndex: dccData.currentTimeZoneIndex
+                property string saveZoneId: ""
+                RowLayout {
+                    id: rowlayout
+                    Label {
+                        id: timezoneLabel
+                        text: dccData.timeZoneDispalyName
+                    }
+                    D.IconLabel {
+                        Layout.alignment: Qt.AlignRight | Qt.AlignHCenter
+                        icon.name: "arrow_ordinary_down"
+                        icon.palette: D.DTK.makeIconPalette(timezoneLabel.palette)
                     }
                 }
 
-                Connections {
-                    target: dccData
-                    function onCurrentTimeZoneIndexChanged() {
+                MouseArea {
+                    id: mouseArea
+                    anchors.fill: parent
+
+                    Component.onCompleted: {
                         if (dccData.currentTimeZoneIndex >= 0) {
                             let model = dccData.zoneSearchModel()
                             systemTimezoneItem.saveZoneId = model.data(model.index(systemTimezoneItem.currentIndex, 0), ZoneInfoModel.ZoneIdRole)
                         }
                     }
-                }
 
-                SearchableListViewPopup {
-                    id: timezoneWindow
-                    highlightedIndex: systemTimezoneItem.currentIndex
-                    maxVisibleItems: 13
-
-                    delegateModel: DelegateModel {
-                        model: systemTimezoneItem.model
-                        delegate: D.MenuItem {
-                            useIndicatorPadding: true
-                            width: timezoneWindow.viewWidth
-                            text: model.display
-                            font: D.DTK.fontManager.t6
-                            highlighted: ListView.isCurrentItem
-                            hoverEnabled: true
-                            checkable: true
-                            autoExclusive: true
-                            checked: model.zoneId === systemTimezoneItem.saveZoneId
-
-                            contentItem: RowLayout {
-                                spacing: 8
-                                Item {
-                                    Layout.preferredWidth: parent.parent.useIndicatorPadding ? 20 : 0
-                                    Layout.preferredHeight: parent.height
-                                    visible: parent.parent.useIndicatorPadding
-                                }
-                                Text {
-                                    Layout.fillWidth: true
-                                    Layout.alignment: Qt.AlignVCenter
-                                    text: parent.parent.text
-                                    font: D.DTK.fontManager.t6
-                                    color: parent.parent.palette.windowText
-                                    elide: Text.ElideRight
-                                    horizontalAlignment: Text.AlignLeft
-                                    verticalAlignment: Text.AlignVCenter
-                                }
-                            }
-                            onHoveredChanged: {
-                                if (hovered && !ListView.view.keyboardScrolling) {
-                                    timezoneWindow.setViewIndex(index)
-                                }
-                            }
-                            onCheckedChanged: {
-                                if (checked && model.zoneId != systemTimezoneItem.saveZoneId) {
-                                    let zoneId = model.zoneId
-                                    dccData.setSystemTimeZone(zoneId)
-                                    timezoneWindow.close()
-                                }
+                    Connections {
+                        target: dccData
+                        function onCurrentTimeZoneIndexChanged() {
+                            if (dccData.currentTimeZoneIndex >= 0) {
+                                let model = dccData.zoneSearchModel()
+                                systemTimezoneItem.saveZoneId = model.data(model.index(systemTimezoneItem.currentIndex, 0), ZoneInfoModel.ZoneIdRole)
                             }
                         }
                     }
 
-                    onSearchTextChanged: {
-                        let delegateModel = dccData.zoneSearchModel()
-                        delegateModel.setFilterWildcard(timezoneWindow.searchText)
-                    }
-                }
+                    SearchableListViewPopup {
+                        id: timezoneWindow
+                        highlightedIndex: systemTimezoneItem.currentIndex
+                        maxVisibleItems: 13
 
-                onClicked: function (mouse) {
-                    if (!timezoneWindow.isVisible()) {
-                        // 保持当前选中项可见，但居中显示
-                        timezoneWindow.highlightedIndex = systemTimezoneItem.currentIndex
-                        timezoneWindow.show()
-                        timezoneWindow.setPositionByItem(parent)
+                        delegateModel: DelegateModel {
+                            model: systemTimezoneItem.model
+                            delegate: D.MenuItem {
+                                useIndicatorPadding: true
+                                width: timezoneWindow.viewWidth
+                                text: model.display
+                                font: D.DTK.fontManager.t6
+                                highlighted: ListView.isCurrentItem
+                                hoverEnabled: true
+                                checkable: true
+                                autoExclusive: true
+                                checked: model.zoneId === systemTimezoneItem.saveZoneId
+
+                                contentItem: RowLayout {
+                                    spacing: 8
+                                    Item {
+                                        Layout.preferredWidth: parent.parent.useIndicatorPadding ? 20 : 0
+                                        Layout.preferredHeight: parent.height
+                                        visible: parent.parent.useIndicatorPadding
+                                    }
+                                    Text {
+                                        Layout.fillWidth: true
+                                        Layout.alignment: Qt.AlignVCenter
+                                        text: parent.parent.text
+                                        font: D.DTK.fontManager.t6
+                                        color: parent.parent.palette.windowText
+                                        elide: Text.ElideRight
+                                        horizontalAlignment: Text.AlignLeft
+                                        verticalAlignment: Text.AlignVCenter
+                                    }
+                                }
+                                onHoveredChanged: {
+                                    if (hovered && !ListView.view.keyboardScrolling) {
+                                        timezoneWindow.setViewIndex(index)
+                                    }
+                                }
+                                onCheckedChanged: {
+                                    if (checked && model.zoneId != systemTimezoneItem.saveZoneId) {
+                                        let zoneId = model.zoneId
+                                        dccData.setSystemTimeZone(zoneId)
+                                        timezoneWindow.close()
+                                    }
+                                }
+                            }
+                        }
+
+                        onSearchTextChanged: {
+                            let delegateModel = dccData.zoneSearchModel()
+                            delegateModel.setFilterWildcard(timezoneWindow.searchText)
+                        }
+                    }
+
+                    onClicked: function (mouse) {
+                        if (!timezoneWindow.isVisible()) {
+                            // 保持当前选中项可见，但居中显示
+                            timezoneWindow.highlightedIndex = systemTimezoneItem.currentIndex
+                            timezoneWindow.show()
+                            timezoneWindow.setPositionByItem(parent)
+                        }
                     }
                 }
             }
         }
-    }
 
-    DccObject {
-        name: "timezoneList"
-        parentName: "timezoneGroup"
-        displayName: qsTr("Timezone list")
-        weight: 12
-        backgroundType: DccObject.Normal
-        pageType: DccObject.Editor
-        page: RowLayout {
-            spacing: 10
-            Button {
-                id: addButton
-                text: qsTr("Add")
-                implicitHeight: 30
-                implicitWidth: 60
+        DccObject {
+            name: "timezoneList"
+            parentName: "timezoneGroup"
+            displayName: qsTr("Timezone list")
+            weight: 12
+            backgroundType: DccObject.Normal
+            pageType: DccObject.Editor
+            page: RowLayout {
+                spacing: 10
+                Button {
+                    id: addButton
+                    text: qsTr("Add")
+                    implicitHeight: 30
+                    implicitWidth: 60
 
-                SearchableListViewPopup {
-                    id: timezoneListWindow
-                    delegateModel: DelegateModel {
-                        model: dccData.zoneSearchModel()
-                        delegate: D.MenuItem {
-                            useIndicatorPadding: true
-                            width: timezoneListWindow.viewWidth
-                            text: model.display
-                            font: D.DTK.fontManager.t6
-                            highlighted: ListView.isCurrentItem
-                            hoverEnabled: true
-                            checkable: true
-                            autoExclusive: true
+                    SearchableListViewPopup {
+                        id: timezoneListWindow
+                        delegateModel: DelegateModel {
+                            model: dccData.zoneSearchModel()
+                            delegate: D.MenuItem {
+                                useIndicatorPadding: true
+                                width: timezoneListWindow.viewWidth
+                                text: model.display
+                                font: D.DTK.fontManager.t6
+                                highlighted: ListView.isCurrentItem
+                                hoverEnabled: true
+                                checkable: true
+                                autoExclusive: true
 
-                            contentItem: RowLayout {
-                                spacing: 8
-                                Item {
-                                    Layout.preferredWidth: parent.parent.useIndicatorPadding ? 20 : 0
-                                    Layout.preferredHeight: parent.height
-                                    visible: parent.parent.useIndicatorPadding
+                                contentItem: RowLayout {
+                                    spacing: 8
+                                    Item {
+                                        Layout.preferredWidth: parent.parent.useIndicatorPadding ? 20 : 0
+                                        Layout.preferredHeight: parent.height
+                                        visible: parent.parent.useIndicatorPadding
+                                    }
+                                    Text {
+                                        Layout.fillWidth: true
+                                        Layout.alignment: Qt.AlignVCenter
+                                        text: parent.parent.text
+                                        font: D.DTK.fontManager.t6
+                                        color: parent.parent.palette.windowText
+                                        elide: Text.ElideRight
+                                        horizontalAlignment: Text.AlignLeft
+                                        verticalAlignment: Text.AlignVCenter
+                                    }
                                 }
-                                Text {
-                                    Layout.fillWidth: true
-                                    Layout.alignment: Qt.AlignVCenter
-                                    text: parent.parent.text
-                                    font: D.DTK.fontManager.t6
-                                    color: parent.parent.palette.windowText
-                                    elide: Text.ElideRight
-                                    horizontalAlignment: Text.AlignLeft
-                                    verticalAlignment: Text.AlignVCenter
+                                onHoveredChanged: {
+                                    if (hovered && !ListView.view.keyboardScrolling) {
+                                        timezoneListWindow.setViewIndex(index)
+                                    }
                                 }
-                            }
-                            onHoveredChanged: {
-                                if (hovered && !ListView.view.keyboardScrolling) {
-                                    timezoneListWindow.setViewIndex(index)
-                                }
-                            }
-                            onCheckedChanged: {
-                                if (checked) {
-                                    let zoneId = model.zoneId
-                                    dccData.addUserTimeZoneById(zoneId)
-                                    timezoneListWindow.close()
+                                onCheckedChanged: {
+                                    if (checked) {
+                                        let zoneId = model.zoneId
+                                        dccData.addUserTimeZoneById(zoneId)
+                                        timezoneListWindow.close()
+                                    }
                                 }
                             }
                         }
+                        maxVisibleItems: 13
+                        onSearchTextChanged: {
+                            let delegateModel = dccData.zoneSearchModel()
+                            delegateModel.setFilterWildcard(searchText);
+                        }
                     }
-                    maxVisibleItems: 13
-                    onSearchTextChanged: {
-                        let delegateModel = dccData.zoneSearchModel()
-                        delegateModel.setFilterWildcard(searchText);
-                    }
-                }
 
-                onClicked: {
-                    if (!timezoneListWindow.isVisible()) {
-                        timezoneListWindow.setPositionByItem(parent)
-                        timezoneListWindow.highlightedIndex = 0
-                        timezoneListWindow.show()
+                    onClicked: {
+                        if (!timezoneListWindow.isVisible()) {
+                            timezoneListWindow.setPositionByItem(parent)
+                            timezoneListWindow.highlightedIndex = 0
+                            timezoneListWindow.show()
+                        }
                     }
                 }
             }
