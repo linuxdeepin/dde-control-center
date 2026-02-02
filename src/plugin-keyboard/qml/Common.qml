@@ -263,7 +263,7 @@ DccObject {
                 placeholderText: qsTr("test here")
                 background: null
                 horizontalAlignment: textMetrics.boundingRect.width > width ? Text.AlignRight : Text.AlignHCenter
-                font: D.DTK.fontManager.t5
+                font: D.DTK.fontManager.t8
                 onActiveFocusChanged: {
                     if (!activeFocus) {
                         text = ""
