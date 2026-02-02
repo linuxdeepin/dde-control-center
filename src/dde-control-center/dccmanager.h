@@ -47,7 +47,9 @@ public:
 
     inline DccObject *activeObject() const override { return m_activeObject; }
 
-    Q_INVOKABLE inline const QVector<DccObject *> &currentObjects() const { return m_currentObjects; }
+    inline const QVector<DccObject *> &currentObjects() const override { return m_currentObjects; }
+
+    inline const QVector<DccObject *> &triggeredObjects() const override { return m_triggeredObjects; }
 
     Q_INVOKABLE DccApp::UosEdition uosEdition() const;
     Q_INVOKABLE Dtk::Core::DSysInfo::ProductType productType() const;
@@ -118,7 +120,8 @@ private:
     DccObject *m_noAddObjects;    // 未找到父对象的
     DccObject *m_noParentObjects; // 没有父对象的
 
-    QVector<DccObject *> m_currentObjects;
+    QVector<DccObject *> m_currentObjects;   // 当前显示的页面路径，从根页面到当前页面
+    QVector<DccObject *> m_triggeredObjects; // 用户交互触发的对象路径，从根菜单到当前子控件
 
     PluginManager *m_plugins;
     QPointer<QWindow> m_window;

@@ -45,12 +45,16 @@ public:
     Q_PROPERTY(int sidebarWidth READ sidebarWidth WRITE setSidebarWidth NOTIFY sidebarWidthChanged)
     Q_PROPERTY(DccObject * root READ root NOTIFY rootChanged)
     Q_PROPERTY(DccObject * activeObject READ activeObject NOTIFY activeObjectChanged)
+    Q_PROPERTY(QVector<DccObject *> currentObjects READ currentObjects NOTIFY currentObjectsChanged)
+    Q_PROPERTY(QVector<DccObject *> triggeredObjects READ triggeredObjects NOTIFY triggeredObjectsChanged)
     Q_PROPERTY(AnimationMode animationMode READ animationMode WRITE setAnimationMode NOTIFY animationModeChanged)
 
     virtual int width() const;
     virtual int height() const;
     virtual DccObject *root() const;
     virtual DccObject *activeObject() const;
+    virtual const QVector<DccObject *> &currentObjects() const = 0;
+    virtual const QVector<DccObject *> &triggeredObjects() const = 0;
 
     virtual AnimationMode animationMode() const { return m_animationMode; }
 
@@ -73,6 +77,8 @@ Q_SIGNALS:
     void sidebarWidthChanged(int width);
     void rootChanged(DccObject *root);
     void activeObjectChanged(DccObject *activeObject);
+    void currentObjectsChanged(QVector<DccObject *> currentObjects);
+    void triggeredObjectsChanged(QVector<DccObject *> triggeredObjects);
     void activeItemChanged(QQuickItem *item);
     void animationModeChanged(AnimationMode mode);
 
