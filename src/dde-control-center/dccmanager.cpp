@@ -696,14 +696,23 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
         Q_EMIT obj->active(cmd);
         return;
     }
-    QList<DccObject *> modules;
+    QVector<DccObject *> modules;
+    QVector<DccObject *> triggeredObjs;
     DccObject *triggeredObj = obj;
     if (triggeredObj->pageType() == DccObject::MenuEditor && !triggeredObj->getChildren().isEmpty()) {
         triggeredObj = triggeredObj->getChildren().first();
     }
     DccObject *tmpObj = triggeredObj;
+    tmpObj->setCurrentObject(nullptr);
+    tmpObj->active(QString());
     while (tmpObj && (tmpObj->pageType() != DccObject::Menu)) { // 页面中的控件，则激活项为父项
-        tmpObj = DccObject::Private::FromObject(tmpObj)->getParent();
+        triggeredObjs.append(tmpObj);
+        DccObject *tmpObjParent = DccObject::Private::FromObject(tmpObj)->getParent();
+        if (tmpObjParent) {
+            tmpObjParent->setCurrentObject(tmpObj);
+            tmpObjParent->active(QString());
+        }
+        tmpObj = tmpObjParent;
     }
     if (!tmpObj) {
         return;
@@ -713,32 +722,31 @@ void DccManager::doShowPage(DccObject *obj, const QString &cmd)
     while (p) {
         p->setCurrentObject(tmpObj);
         Q_EMIT p->active(QString());
-        modules.prepend(p);
+        modules.append(p);
         tmpObj = p;
         p = DccObject::Private::FromObject(p)->getParent();
     }
-
+    triggeredObjs.append(modules);
+    std::reverse(modules.begin(), modules.end());
+    std::reverse(triggeredObjs.begin(), triggeredObjs.end());
     auto animationMode = DccApp::AnimationPush;
 
     // 处理旧对象
-    for (auto *oldObj : std::as_const(m_currentObjects)) {
-        if (!modules.contains(oldObj)) {
+    for (auto *oldObj : std::as_const(m_triggeredObjects)) {
+        if (!triggeredObjs.contains(oldObj)) {
             oldObj->setCurrentObject(nullptr);
             animationMode = DccApp::AnimationPop;
         }
-        if (oldObj != m_root && oldObj != modules.last()) {
+        if (oldObj != m_root && oldObj != triggeredObjs.last()) {
             Q_EMIT oldObj->deactive();
         }
     }
     setAnimationMode(animationMode);
 
-    // 触发新对象
-    if (!cmd.isEmpty()) {
-        Q_EMIT triggeredObj->active(cmd);
-    }
-
     // 更新当前对象
     m_currentObjects = modules;
+    m_triggeredObjects = triggeredObjs;
+    Q_EMIT triggeredObjectsChanged(m_triggeredObjects);
     if (auto *lastObj = m_currentObjects.last(); lastObj != m_activeObject) {
         m_activeObject = lastObj;
         Q_EMIT activeObjectChanged(m_activeObject);
