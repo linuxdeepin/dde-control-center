@@ -1192,6 +1192,9 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Time and date, time zone settings</source>
         <translation type="unfinished"/>
     </message>
+</context>
+<context>
+    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
         <translation type="unfinished"/>
@@ -1714,7 +1717,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
 <context>
     <name>Device</name>
     <message>
-        <source>Bluetooth and Other Devices</source>
+        <source>Bluetooth and Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
