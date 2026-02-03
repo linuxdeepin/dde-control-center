@@ -56,6 +56,7 @@ void SoundWorker::initConnect()
     connect(m_model, &SoundModel::defaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
     connect(m_model, &SoundModel::defaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
     connect(m_model, &SoundModel::audioCardsChanged, this, &SoundWorker::cardsChanged);
+    connect(m_model, &SoundModel::bluetoothModeChanged, this, &SoundWorker::changeOutputDeviceComboxStatus);
 
     connect(m_soundDBusInter, &SoundDBusProxy::DefaultSinkChanged, m_model, &SoundModel::setDefaultSink);
     connect(m_soundDBusInter, &SoundDBusProxy::DefaultSourceChanged, m_model, &SoundModel::setDefaultSource);
@@ -362,6 +363,8 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 
 void SoundWorker::cardsChanged(const QString &cards)
 {
+    changeOutputDeviceComboxStatus();
+    changeInputDeviceComboxStatus();
     QMap<uint, QStringList> tmpCardIds;
     QJsonDocument doc = QJsonDocument::fromJson(cards.toUtf8());
     QJsonArray jCards = doc.array();
@@ -384,7 +387,19 @@ void SoundWorker::cardsChanged(const QString &cards)
 
                 Port *port = m_model->findPort(portId, cardId);
                 const bool include = port != nullptr;
-                if (!include) { port = new Port(m_model); }
+                if (!include) {
+                    port = new Port(m_model);
+                    connect(port, &Port::isOutputActiveChanged, this, [this](bool isActive) {
+                        if (isActive) {
+                            changeOutputDeviceComboxStatus();
+                        }
+                    });
+                    connect(port, &Port::isInputActiveChanged, this, [this](bool isActive) {
+                        if (isActive) {
+                            changeInputDeviceComboxStatus();
+                        }
+                    });
+                }
 
                 port->setId(portId);
                 port->setName(portName);
@@ -561,6 +576,20 @@ void SoundWorker::updatePlayAniIconPath()
     auto themeType = Dtk::Gui::DGuiApplicationHelper::instance()->themeType();
     auto themeTypeStr = themeType == Dtk::Gui::DGuiApplicationHelper::ColorType::DarkType ? "dark" : "light";
     m_playAniIconPath = QString("qrc:/icons/deepin/builtin/icons/%1/volume_sound_wave_ani.webp").arg(themeTypeStr);
+}
+
+void SoundWorker::changeOutputDeviceComboxStatus()
+{
+    m_model->setOutPutPortComboEnable(false);
+    m_waitOutputReceiptTimer->setInterval(m_model->currentWaitSoundReceiptTime());
+    m_waitOutputReceiptTimer->start();
+}
+
+void SoundWorker::changeInputDeviceComboxStatus()
+{
+    m_model->setInPutPortComboEnable(false);
+    m_waitInputReceiptTimer->setInterval(m_model->currentWaitSoundReceiptTime());
+    m_waitInputReceiptTimer->start();
 }
 
 void SoundWorker::setAudioServerIndex(int index)
