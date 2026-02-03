@@ -1208,11 +1208,11 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Llengua i regió</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Llengua del sistema, formats de regió</translation>
     </message>
 </context>
 <context>
@@ -1729,7 +1729,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>Device</name>
     <message>
         <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth i dispositius</translation>
     </message>
 </context>
 <context>
