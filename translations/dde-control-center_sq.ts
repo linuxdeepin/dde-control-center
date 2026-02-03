@@ -1200,13 +1200,16 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
         <source>Time and date, time zone settings</source>
         <translation>Datë dhe kohë, rregullime zone kohore</translation>
     </message>
+</context>
+<context>
+    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation>Gjuhë dhe rajon</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation>Gjuhë sistemi, formate rajonalë</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1722,8 +1725,8 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
 <context>
     <name>Device</name>
     <message>
-        <source>Bluetooth and Other Devices</source>
-        <translation>Pajisje Bluetooth dhe të Tjera</translation>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
