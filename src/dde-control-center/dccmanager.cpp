@@ -18,6 +18,7 @@
 #include <QDBusPendingCall>
 #include <QElapsedTimer>
 #include <QFileInfo>
+#include <QGuiApplication>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -26,6 +27,7 @@
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickWindow>
+#include <QScreen>
 #include <QTimer>
 #include <QTranslator>
 #include <QWindow>
@@ -112,6 +114,7 @@ void DccManager::setMainWindow(QWindow *window)
     m_window = window;
     connect(m_window, &QWindow::widthChanged, this, &DccManager::saveSize);
     connect(m_window, &QWindow::heightChanged, this, &DccManager::saveSize);
+    connect(qGuiApp, &QGuiApplication::screenAdded, this, &DccManager::handleScreenAdded);
     m_window->installEventFilter(this);
 }
 
@@ -592,10 +595,54 @@ bool DccManager::isIndicatorShown(const QString &cmd) const
 
 void DccManager::saveSize()
 {
+    // - Maximized/fullscreen will expand the window size to the screen size.
+    //   Saving that size would overwrite the "default" window size and cause the
+    //   window to appear maximized after restore.
+    if (!m_window)
+        return;
+    const auto states = m_window->windowStates();
+    if (states.testFlag(Qt::WindowMaximized) || states.testFlag(Qt::WindowFullScreen))
+        return;
+
     if (m_dconfig->isValid()) {
         m_dconfig->setValue(WidthConfig, m_window->width());
         m_dconfig->setValue(HeightConfig, m_window->height());
     }
+}
+
+void DccManager::handleScreenAdded(QScreen *screen)
+{
+    Q_UNUSED(screen)
+    if (!m_window)
+        return;
+
+    // Requirement: when HDMI re-connected, if the control center is maximized,
+    // restore it back to the default (normal) window size.
+    if (!m_window->windowStates().testFlag(Qt::WindowMaximized))
+        return;
+
+    m_window->showNormal();
+
+    QScreen *targetScreen = m_window->screen() ? m_window->screen() : qGuiApp->primaryScreen();
+    if (!targetScreen)
+        return;
+
+    QRect avail = targetScreen->availableGeometry();
+    int w = width();
+    int h = height();
+
+    // Clamp into the available area (avoid going off-screen)
+    // Keep consistent with `DccWindow.qml` minimum sizes.
+    constexpr int kMinW = 520;
+    constexpr int kMinH = 400;
+    w = qMax(kMinW, qMin(w, avail.width()));
+    h = qMax(kMinH, qMin(h, avail.height()));
+
+    m_window->resize(QSize(w, h));
+    const int x = avail.x() + (avail.width() - w) / 2;
+    const int y = avail.y() + (avail.height() - h) / 2;
+    m_window->setPosition(QPoint(x, y));
+    m_window->requestActivate();
 }
 
 void DccManager::waitShowPage(const QString &url, const QDBusMessage message)

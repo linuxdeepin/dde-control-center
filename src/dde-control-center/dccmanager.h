@@ -17,6 +17,7 @@ QT_BEGIN_NAMESPACE
 class QWindow;
 class QQmlApplicationEngine;
 class QAbstractItemModel;
+class QScreen;
 QT_END_NAMESPACE
 
 namespace dccV25 {
@@ -98,6 +99,7 @@ private:
 
 private Q_SLOTS:
     void saveSize();
+    void handleScreenAdded(QScreen *screen);
     void waitShowPage(const QString &url, const QDBusMessage message);
     void clearShowParam();
     void tryShow();
