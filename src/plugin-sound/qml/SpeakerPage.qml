@@ -39,7 +39,7 @@ DccObject {
                 Layout.leftMargin: 10
                 horizontalAlignment: Text.AlignHCenter
                 verticalAlignment: Text.AlignVCenter
-                font: DTK.fontManager.t4
+                font: DTK.fontManager.t8
                 text: qsTr("No output device for sound found")
             }
         }
