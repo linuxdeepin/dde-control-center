@@ -1,7 +1,10 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "wallpapermodel.h"
+
+#include <QFile>
+#include <QUrl>
 
 WallpaperModel::WallpaperModel(QObject *parent) : QAbstractItemModel(parent)
 {
@@ -181,7 +184,11 @@ QString WallpaperSortModel::getPicPathByUrl(const QString &url) const
     for(int i = 0; i < sourceModel()->rowCount(); i++) {
         auto cutIndex = sourceModel()->index(i, 0);
         if (url == sourceModel()->data(cutIndex, Item_Url_Role).toString()) {
-            return sourceModel()->data(cutIndex, Item_PicPath_Role).toString();
+            const QString picPath = sourceModel()->data(cutIndex, Item_PicPath_Role).toString();
+            if (QFile::exists(picPath)) {
+                return QUrl::fromLocalFile(picPath).toString();
+            }
+            return picPath;
         }
     }
     return {};
