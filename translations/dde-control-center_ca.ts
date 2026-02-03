@@ -1203,13 +1203,16 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
         <source>Time and date, time zone settings</source>
         <translation>Hora i data, configuració de la zona horària</translation>
     </message>
+</context>
+<context>
+    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation>Llengua i regió</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation>Llengua del sistema, formats de regió</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1725,8 +1728,8 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
 <context>
     <name>Device</name>
     <message>
-        <source>Bluetooth and Other Devices</source>
-        <translation>Bluetooth i altres dispositius</translation>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
