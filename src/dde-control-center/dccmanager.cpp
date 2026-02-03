@@ -22,6 +22,7 @@
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QLoggingCategory>
+#include <QLocale>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickWindow>
@@ -55,7 +56,7 @@ DccManager::DccManager(QObject *parent)
     , m_navModel(new NavigationModel(this))
     , m_searchModel(new SearchModel(this))
     , m_imageProvider(nullptr)
-    , m_sidebarWidth(180)
+    , m_sidebarWidth(-1)
     , m_showTimer(nullptr)
 {
     m_hideObjects->setName("_hide");
@@ -410,7 +411,12 @@ void DccManager::initConfig()
 
     updateModuleConfig(HideConfig);
     updateModuleConfig(DisableConfig);
-    m_sidebarWidth = m_dconfig->value("sidebarWidth", 180).toInt();
+    m_sidebarWidth = m_dconfig->value("sidebarWidth", -1).toInt();
+    if (m_sidebarWidth < 0) {
+        // 英文环境做特殊处理，加宽侧边栏
+        QLocale locale;
+        m_sidebarWidth = locale.language() == QLocale::English ? 210 : 180;
+    }
     connect(m_dconfig, &DConfig::valueChanged, this, &DccManager::updateModuleConfig);
 }
 
