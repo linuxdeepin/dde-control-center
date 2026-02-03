@@ -1197,13 +1197,16 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Time and date, time zone settings</source>
         <translation>時間日期、時區設定</translation>
     </message>
+</context>
+<context>
+    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation>語言和區域</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation>系統語言、區域格式</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1719,8 +1722,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>Device</name>
     <message>
-        <source>Bluetooth and Other Devices</source>
-        <translation>藍牙和其他裝置</translation>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
