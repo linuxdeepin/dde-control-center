@@ -1205,11 +1205,11 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Gjuhë dhe rajon</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Gjuhë sistemi, formate rajonalë</translation>
     </message>
 </context>
 <context>
@@ -1726,7 +1726,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>Device</name>
     <message>
         <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth dhe Pajisje</translation>
     </message>
 </context>
 <context>
