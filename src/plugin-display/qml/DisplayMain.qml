@@ -100,6 +100,13 @@ DccObject {
         }
         return null
     }
+    function getControlCenterScreen() {
+        var mainWindow = DccApp.mainWindow()
+        if (mainWindow && mainWindow.screen) {
+            return mainWindow.screen
+        }
+        return getQtScreen(dccData.primaryScreen)
+    }
     Connections {
         target: dccData
         function onVirtualScreensChanged() {
@@ -648,7 +655,7 @@ DccObject {
                     }
                     screen.currentResolution = currentValue
                     if (dccData.isX11) {
-                        dialogDelayTimer.showDelayed(this, getQtScreen(root.screen))
+                        dialogDelayTimer.showDelayed(this, getControlCenterScreen())
                     }
                 }
             }
@@ -734,7 +741,7 @@ DccObject {
                     }
                     screen.currentFillMode = currentValue
                     if (dccData.isX11) {
-                        dialogDelayTimer.showDelayed(this, getQtScreen(root.screen))
+                        dialogDelayTimer.showDelayed(this, getControlCenterScreen())
                     }
                 }
             }
@@ -766,7 +773,7 @@ DccObject {
                     }
                     screen.currentRate = currentValue
                     if (dccData.isX11) {
-                        dialogDelayTimer.showDelayed(this, getQtScreen(root.screen))
+                        dialogDelayTimer.showDelayed(this, getControlCenterScreen())
                     }
                 }
             }
@@ -810,7 +817,7 @@ DccObject {
                     if (screen.rotate !== currentValue) {
                         screen.rotate = currentValue
                         if (dccData.isX11) {
-                            dialogDelayTimer.showDelayed(this, getQtScreen(root.screen))
+                            dialogDelayTimer.showDelayed(this, getControlCenterScreen())
                         }
                     }
                 }
