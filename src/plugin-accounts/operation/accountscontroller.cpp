@@ -854,6 +854,16 @@ QString AccountsController::checkPassword(const QString &name, const QString &pw
     return QString();
 }
 
+QString AccountsController::checkPasswordSilently(const QString &name, const QString &pwd)
+{
+    auto error = PwqualityManager::instance()->verifyPassword(name, pwd);
+    if (error != PwqualityManager::ERROR_TYPE::PW_NO_ERR) {
+        return PwqualityManager::instance()->getErrorTips(error);
+    }
+
+    return QString();
+}
+
 QVariantMap AccountsController::checkPasswordResult(int code, const QString &msg, const QString &name, const QString &pwd)
 {
     if (code == 0)

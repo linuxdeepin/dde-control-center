@@ -346,6 +346,99 @@ ColumnLayout {
                                 } else {
                                     pwdIndicator.update(0)
                                 }
+
+                                // Realtime validation (red border only, no tips).
+                                let edit0 = pwdContainter.eidtItems[0]
+                                if (!edit0)
+                                    return
+
+                                if (text.length === 0) {
+                                    edit0.showAlert = false
+                                    edit0.alertText = ""
+                                    edit0.hasErrorBorder = false
+                                    return
+                                }
+
+                                // username match
+                                if (pwdLayout.currentName.length > 0 && text === pwdLayout.currentName) {
+                                    edit0.showAlert = true
+                                    edit0.alertText = ""
+                                    edit0.hasErrorBorder = true
+                                    return
+                                }
+
+                                let err = dccData.checkPasswordSilently(pwdLayout.currentName, text)
+                                edit0.showAlert = (err.length > 0)
+                                edit0.alertText = ""
+                                edit0.hasErrorBorder = (err.length > 0)
+                            } else if (index == 1) {
+                                // Repeat password: realtime red border when mismatch (no tips text yet)
+                                let edit0 = pwdContainter.eidtItems[0]
+                                let edit1 = pwdContainter.eidtItems[1]
+                                if (!edit0 || !edit1)
+                                    return
+
+                                if (text.length === 0) {
+                                    edit1.showAlert = false
+                                    edit1.alertText = ""
+                                    edit1.hasErrorBorder = false
+                                    return
+                                }
+
+                                if (edit0.text.length > 0 && text !== edit0.text) {
+                                    edit1.showAlert = true
+                                    edit1.alertText = ""
+                                    edit1.hasErrorBorder = true
+                                } else {
+                                    edit1.showAlert = false
+                                    edit1.alertText = ""
+                                    edit1.hasErrorBorder = false
+                                }
+                            }
+                        }
+                        onEditingFinished: {
+                            // Validate and show tips on focus-out (v20 behavior)
+                            if (index == 0) {
+                                let edit0 = pwdContainter.eidtItems[0]
+                                if (!edit0)
+                                    return
+
+                                if (edit0.text.length === 0) {
+                                    edit0.showAlertText(qsTr("Password cannot be empty"))
+                                    return
+                                }
+
+                                if (pwdLayout.currentName.length > 0 && edit0.text === pwdLayout.currentName) {
+                                    edit0.showAlertText(qsTr("The password cannot be the same as the username."))
+                                    return
+                                }
+
+                                let err = dccData.checkPasswordSilently(pwdLayout.currentName, edit0.text)
+                                if (err.length > 0) {
+                                    edit0.showAlertText(err)
+                                } else {
+                                    edit0.showAlert = false
+                                    edit0.alertText = ""
+                                    edit0.hasErrorBorder = false
+                                }
+                            } else if (index == 1) {
+                                let edit0 = pwdContainter.eidtItems[0]
+                                let edit1 = pwdContainter.eidtItems[1]
+                                if (!edit0 || !edit1)
+                                    return
+
+                                if (edit1.text.length === 0) {
+                                    edit1.showAlertText(qsTr("Password cannot be empty"))
+                                    return
+                                }
+
+                                if (edit0.text.length > 0 && edit1.text !== edit0.text) {
+                                    edit1.showAlertText(qsTr("Passwords do not match"))
+                                } else {
+                                    edit1.showAlert = false
+                                    edit1.alertText = ""
+                                    edit1.hasErrorBorder = false
+                                }
                             }
                         }
                         Component.onCompleted: {
@@ -355,6 +448,11 @@ ColumnLayout {
 
                     background: DccItemBackground {
                         separatorVisible: true
+                        focusBorderVisible: !(control
+                                             && control.contentItem
+                                             && control.contentItem.edit
+                                             && (control.contentItem.edit.hasErrorBorder
+                                                 || control.contentItem.edit.showAlert))
                     }
                 }
             }
@@ -376,6 +474,7 @@ ColumnLayout {
         property alias label: leftItem
         property alias edit: rightItem
         signal textChanged(string text)
+        signal editingFinished()
         spacing: 10
         Layout.alignment: Qt.AlignVCenter
 
@@ -396,45 +495,57 @@ ColumnLayout {
             }
         }
 
-        D.PasswordEdit {
-            id: rightItem
+        Item {
+            id: editWrapper
             Layout.preferredHeight: 30
-            topPadding: 0
-            bottomPadding: 0
-            font: D.DTK.fontManager.t7
-            canCopy: false
-            canCut: false
-            inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
             Layout.fillWidth: true
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-            verticalAlignment: TextInput.AlignVCenter
-            echoMode: echoButtonVisible ? TextInput.Password :  TextInput.Normal
-            alertDuration: 3000
-            onTextChanged: {
-                if (showAlert)
-                    showAlert = false
 
-                if (!echoButtonVisible && text.length > 14) {
-                    rightItem.text = text.substring(0, 14)
-                    playErrorSound()
-                    return
-                }
-                
-                pwdItem.textChanged(text)
-            }
+            D.PasswordEdit {
+                id: rightItem
+                anchors.fill: parent
+                property bool hasErrorBorder: false
+                // Cache the normal focus color so we can restore it.
+                property color normalHighlight: "transparent"
+                Component.onCompleted: normalHighlight = palette.highlight
+                palette.highlight: (hasErrorBorder || showAlert) ? "#FF5736" : normalHighlight
+                topPadding: 0
+                bottomPadding: 0
+                font: D.DTK.fontManager.t7
+                canCopy: false
+                canCut: false
+                inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
+                verticalAlignment: TextInput.AlignVCenter
+                echoMode: echoButtonVisible ? TextInput.Password :  TextInput.Normal
+                alertDuration: 3000
+                onTextChanged: {
+                    if (rightItem.hasErrorBorder)
+                        rightItem.hasErrorBorder = false
 
-            onEditingFinished: {
-                if (echoButtonVisible && pwdContainter.eidtItems[2] != rightItem) {
-                    if (text === pwdLayout.currentName && text.length > 0) {
-                        showAlertText(qsTr("The password cannot be the same as the username."))
+                    if (!echoButtonVisible && text.length > 14) {
+                        rightItem.text = text.substring(0, 14)
+                        playErrorSound()
+                        return
                     }
-                }
-            }
 
-            function showAlertText(text) {
-                rightItem.showAlert = false
-                rightItem.showAlert = true
-                rightItem.alertText = text
+                    pwdItem.textChanged(text)
+                }
+
+                onEditingFinished: {
+                    if (echoButtonVisible && pwdContainter.eidtItems[2] != rightItem) {
+                        if (text === pwdLayout.currentName && text.length > 0) {
+                            showAlertText(qsTr("The password cannot be the same as the username."))
+                        }
+                    }
+                    pwdItem.editingFinished()
+                }
+
+                function showAlertText(text) {
+                    rightItem.hasErrorBorder = true
+                    rightItem.showAlert = false
+                    rightItem.showAlert = true
+                    rightItem.alertText = text
+                }
             }
         }
     }
