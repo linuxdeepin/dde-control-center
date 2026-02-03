@@ -90,6 +90,8 @@ public slots:
     QString checkUsername(const QString &name);
     QString checkFullname(const QString &name);
     QString checkPassword(const QString &name, const QString &pwd);
+    // Used by UI realtime validation (no safety-page popup side effects).
+    QString checkPasswordSilently(const QString &name, const QString &pwd);
     QVariantMap checkPasswordResult(int code, const QString &msg, const QString &name, const QString &pwd);
     void showDefender();
     void playSystemSound(int soundType);
