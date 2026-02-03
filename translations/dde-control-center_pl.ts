@@ -1203,6 +1203,9 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
         <source>Time and date, time zone settings</source>
         <translation type="unfinished"/>
     </message>
+</context>
+<context>
+    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
         <translation type="unfinished"/>
@@ -1725,7 +1728,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
 <context>
     <name>Device</name>
     <message>
-        <source>Bluetooth and Other Devices</source>
+        <source>Bluetooth and Devices</source>
         <translation type="unfinished"/>
     </message>
 </context>
