@@ -308,16 +308,6 @@ ColumnLayout {
                         retainWhileLoading: true
                     }
 
-                    Rectangle {
-                        id: borderRect
-                        anchors.fill: parent
-                        visible: model.url === root.currentItem && model.url !== undefined
-                        color: "transparent"
-                        border.width: 2
-                        border.color: D.DTK.platformTheme.activeColor
-                        radius: 8
-                    }
-
                     OpacityMask {
                         anchors.fill: parent
                         anchors.margins: root.imageMargin
@@ -328,6 +318,23 @@ ColumnLayout {
                             implicitHeight: image.height
                             radius: 6
                         }
+                    }
+
+                    D.InsideBoxBorder {
+                        anchors.fill: image
+                        visible: !borderRect.visible
+                        color: Qt.rgba(0, 0, 0, 0.1)
+                        radius: 6
+                    }
+
+                    Rectangle {
+                        id: borderRect
+                        anchors.fill: parent
+                        visible: model.url !== undefined && model.url === root.currentItem
+                        color: "transparent"
+                        border.width: 2
+                        border.color: D.DTK.platformTheme.activeColor
+                        radius: 8
                     }
 
                     MouseArea {
