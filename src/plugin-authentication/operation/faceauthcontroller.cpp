@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -143,6 +143,16 @@ void FaceAuthController::updateFaceImgContent(void* const context, const DA_img 
         return;
 
     QImage im((uchar *)img->data, img->width, img->height, QImage::Format_RGB888);
+
+    QPixmap sourcePix = QPixmap::fromImage(im);
+    int sourceSize = qMin(img->width, img->height);
+    int offsetX = (img->width - sourceSize) / 2;
+    int offsetY = (img->height - sourceSize) / 2;
+
+    QPixmap croppedPix = sourcePix.copy(offsetX, offsetY, sourceSize, sourceSize)
+                                   .scaled(Faceimg_SIZE, Faceimg_SIZE, Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    
+    // 创建圆形遮罩
     QPixmap pix(Faceimg_SIZE, Faceimg_SIZE);
     pix.fill(Qt::transparent);
     QPainter painter(&pix);
@@ -150,7 +160,7 @@ void FaceAuthController::updateFaceImgContent(void* const context, const DA_img 
     QPainterPath path;
     path.addEllipse(0, 0, Faceimg_SIZE, Faceimg_SIZE);
     painter.setClipPath(path);
-    painter.drawPixmap(0, 0, Faceimg_SIZE, Faceimg_SIZE, QPixmap::fromImage(im));
+    painter.drawPixmap(0, 0, croppedPix);
 
     QBuffer buffer;
     buffer.open(QIODevice::WriteOnly);
@@ -161,4 +171,4 @@ void FaceAuthController::updateFaceImgContent(void* const context, const DA_img 
     emit controller->faceImgContentChanged();
 }
 
-} // namespace dccV25 
+} // namespace dccV25
