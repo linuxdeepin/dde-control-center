@@ -99,6 +99,9 @@ signals:
     void keyboardEnabledChanged();
 
 private:
+    // 检查并处理desktop命令，如果desktop文件存在则添加dde-am前缀
+    QString checkDesktopCmd(const QString &cmd);
+    
     uint m_repeatInterval;
     uint m_repeatDelay;
     bool m_numLock;

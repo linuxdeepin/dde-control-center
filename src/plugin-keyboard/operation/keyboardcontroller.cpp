@@ -7,6 +7,7 @@
 #include "layoutsmodel.h"
 
 #include <PolkitQt1/Authority>
+#include <QFileInfo>
 
 namespace dccV25 {
 DCC_FACTORY_CLASS(KeyboardController)
@@ -228,14 +229,28 @@ QStringList KeyboardController::formatKeys(const QString &shortcuts)
     return ShortcutModel::formatKeys(shortcuts);
 }
 
+QString KeyboardController::checkDesktopCmd(const QString &cmd)
+{
+    // Check and process desktop commands, add dde-am prefix if desktop file exists
+    if (!cmd.isEmpty() && cmd.startsWith("/") && cmd.endsWith(".desktop")) {
+        QFileInfo fileInfo(cmd);
+        if (fileInfo.exists() && fileInfo.isFile()) {
+            return "dde-am " + cmd;
+        }
+    }
+    return cmd;
+}
+
 void KeyboardController::addCustomShortcut(const QString &name, const QString &cmd, const QString &accels)
 {
-    // 添加时清理冲突快捷键
+    // Clear conflicting shortcuts when adding
     if (auto conflict = m_shortcutModel->getInfo(accels)) {
         m_worker->onDisableShortcut(conflict);
     }
 
-    m_worker->addCustomShortcut(name, cmd, accels);
+    // Check and process desktop commands, add dde-am prefix if needed
+    QString newCmd = checkDesktopCmd(cmd);
+    m_worker->addCustomShortcut(name, newCmd, accels);
 }
 
 void KeyboardController::modifyCustomShortcut(const QString &id, const QString &name, const QString &cmd, const QString &accels)
@@ -246,13 +261,13 @@ void KeyboardController::modifyCustomShortcut(const QString &id, const QString &
         return;
     }
 
-    // 修改时清理冲突快捷键
+    // Clear conflicting shortcuts when modifying
     if (auto conflict = m_shortcutModel->getInfo(accels)) {
         m_worker->onDisableShortcut(conflict);
     }
 
     shortcut->name = name;
-    shortcut->command = cmd;
+    shortcut->command = checkDesktopCmd(cmd);
     shortcut->accels = accels;
 
     m_worker->modifyCustomShortcut(shortcut);
@@ -278,7 +293,7 @@ void KeyboardController::modifyShortcut(const QString &id, const QString &accels
     }
 
     if (shortcut->accels != accels) {
-        // 修改时清理冲突快捷键
+        // Clear conflicting shortcuts when modifying
         if (auto conflict = m_shortcutModel->getInfo(accels)) {
             m_worker->onDisableShortcut(conflict);
             shortcut->accels = accels;
@@ -353,7 +368,7 @@ bool KeyboardController::isCustomShortcutNameExists(const QString &name, const Q
         
     const auto customInfos = m_shortcutModel->customInfo();
     for (const auto *info : customInfos) {
-        // 排除当前编辑的快捷键（如果是修改模式）
+        // Exclude the current editing shortcut (if in edit mode)
         if (!excludeId.isEmpty() && info->id == excludeId)
             continue;
             
@@ -379,12 +394,12 @@ bool KeyboardController::isShortcutNameExists(const QString &name, const QString
         return false;
     }
     
-    // 优先检查系统快捷键冲突
+    // Check system shortcut conflicts first
     if (isSystemShortcutNameExists(name)) {
         return true;
     }
     
-    // 然后检查自定义快捷键冲突
+    // Then check custom shortcut conflicts
     return isCustomShortcutNameExists(name, excludeId);
 }
 
