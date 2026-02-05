@@ -300,6 +300,9 @@ Item {
         rightView.replace(mainView, {
                               "dccObj": activeObj
                           }, DccApp.animationMode === DccApp.AnimationPush ? StackView.PushTransition : StackView.PopTransition)
+        if (activeObj.name !== "system") {
+            list.forceActiveFocus()
+        }
     }
     Connections {
         target: DccApp

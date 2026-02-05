@@ -21,7 +21,7 @@ D.ItemDelegate {
     implicitHeight: contentItem.implicitHeight + topPadding + bottomPadding
     padding: 0
     font: D.DTK.fontManager.t6
-    activeFocusOnTab: true
+    activeFocusOnTab: false
 
     contentItem: DccLoader {
         dccObj: model.item
