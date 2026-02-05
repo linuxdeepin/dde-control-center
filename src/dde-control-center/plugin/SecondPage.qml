@@ -300,7 +300,8 @@ Item {
         rightView.replace(mainView, {
                               "dccObj": activeObj
                           }, DccApp.animationMode === DccApp.AnimationPush ? StackView.PushTransition : StackView.PopTransition)
-        if (activeObj.name !== "system") {
+        var rootFirstItem = DccApp.root.children.length > 0 ? DccApp.root.children[0] : null
+        if (activeObj !== rootFirstItem) {
             list.forceActiveFocus()
         }
     }
