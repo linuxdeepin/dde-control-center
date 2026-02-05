@@ -271,7 +271,7 @@ void BluetoothWorker::connectDevice(const QString &deviceId, const QString adapt
 
     const BluetoothDevice *device = adapter->deviceById(deviceId);
     if (device
-        && (device->deviceType() == "audio-headset" || device->deviceType() == "autio-headphones")
+        && (device->deviceType() == "audio-headset" || device->deviceType() == "audio-headphones")
         && device->state() == BluetoothDevice::StateAvailable) {
         return;
     }
