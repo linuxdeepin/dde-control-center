@@ -1,3 +1,48 @@
+dde-control-center (6.1.72) unstable; urgency=medium
+
+  * fix: Adapt the first item in the menu
+  * fix(bluetooth): fix audio-headphones device type support
+  * fix: Fixed issue where the focus did not start from the current page
+    when entering the secondary interface
+  * fix(display): prevent unintended brightness reset to 10%
+  * fix: prevent face image stretching distortion
+  * fix: Optimise Password Change Interface
+  * fix: Default window size not restored
+  * fix(sound): font size of "No output device for sound found" is too
+    large
+  * fix: fix wallpaper path handling for non-existent files
+  * fix(display): fix screen context for x11 display dialogs
+  * fix: improve audio device combo box state management
+  * fix: adjust wallpaper selection border rendering order
+  * feat: Updated translations
+  * feat: adjust sidebar width for English locale and update device
+    module name
+  * fix(ui): fix scrollbar ghosting during page switching
+  * feat: add dock plugin sorting with custom proxy model
+  * feat: add pluginsChanged signal to reload dock tray plugins
+    dynamically
+  * fix: [Device] [Keyboard] Keyboard test text appears too large
+  * fix: No response when using arrow keys
+  * fix: improve navigation object tracking in control center
+  * fix(systeminfo): fix processorChanged signal emission and processor
+    setting location
+  * fix: Fix cursor style not updating after theme switch
+  * fix: fix window effect feature availability and combo box model
+    handling
+  * feat: add indicator display control
+  * refactor: optimize parent object lookup and code structure
+  * fix(bluetooth): fix send file button not showing due to stale state
+  * docs: update v25 dcc interface documentation
+  * fix: update fingerprint enrollment error handling and UI logic
+  * fix: Configuration switch save error
+  * fix: The black wallpaper is positioned too far forward
+  * fix: move getAppPath to background thread
+  * Fixed: Level 1 menu items unresponsive when navigating with keyboard
+    arrow keys
+  * feat: show touchpad only on laptops
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 05 Feb 2026 19:23:12 +0800
+
 dde-control-center (6.1.71) unstable; urgency=medium
 
   * i18n: Updates for project Deepin Desktop Environment (#2967)
