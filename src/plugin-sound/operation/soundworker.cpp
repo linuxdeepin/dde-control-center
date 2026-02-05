@@ -52,6 +52,13 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
 
 void SoundWorker::initConnect()
 {
+    auto refreshCards = [this] {
+        if (!m_soundDBusInter)
+            return;
+        // Trigger SoundModel::audioCardsChanged -> SoundWorker::cardsChanged to rebuild port list.
+        m_model->setAudioCards(m_soundDBusInter->cardsWithoutUnavailable());
+    };
+
     connect(m_playAnimationTime, &QTimer::timeout, this, &SoundWorker::onAniTimerTimeOut);
     connect(m_model, &SoundModel::defaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
     connect(m_model, &SoundModel::defaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
@@ -63,6 +70,33 @@ void SoundWorker::initConnect()
     connect(m_soundDBusInter, &SoundDBusProxy::MaxUIVolumeChanged, m_model, &SoundModel::setMaxUIVolume);
     connect(m_soundDBusInter, &SoundDBusProxy::IncreaseVolumeChanged, m_model, &SoundModel::setIncreaseVolume);
     connect(m_soundDBusInter, &SoundDBusProxy::CardsWithoutUnavailableChanged, m_model, &SoundModel::setAudioCards);
+    // Some backends only emit CardsChanged on port hotplug/availability updates.
+    // Treat it as a fallback to keep device list in sync.
+    connect(m_soundDBusInter, &SoundDBusProxy::CardsChanged, m_model, &SoundModel::setAudioCards);
+    // More fallbacks: hotplug may only change sink/source objects (PipeWire/PulseAudio).
+    connect(m_soundDBusInter, &SoundDBusProxy::SinksChanged, this, [refreshCards](const QList<QDBusObjectPath> &value) {
+        Q_UNUSED(value);
+        refreshCards();
+    });
+    connect(m_soundDBusInter, &SoundDBusProxy::SourcesChanged, this, [refreshCards](const QList<QDBusObjectPath> &value) {
+        Q_UNUSED(value);
+        refreshCards();
+    });
+    // Wired headset plug/unplug often changes port enabled state (not necessarily adding/removing cards).
+    connect(m_soundDBusInter, &SoundDBusProxy::PortEnabledChanged, this,
+            [this, refreshCards](uint cardId, const QString &portId, bool enabled) {
+                Port *port = m_model->findPort(portId, cardId);
+                if (!port) {
+                    // If the port isn't present yet (e.g. previously unavailable), refresh card snapshot.
+                    refreshCards();
+                    return;
+                }
+
+                port->setEnabled(enabled);
+                m_model->updatePortCombo();
+                m_model->updateSoundDeviceModel(port);
+                m_model->updateActiveComboIndex();
+            });
     connect(m_soundDBusInter, &SoundDBusProxy::ReduceNoiseChanged, m_model, &SoundModel::setReduceNoise);
     connect(m_soundDBusInter, &SoundDBusProxy::PausePlayerChanged, m_model, &SoundModel::setPausePlayer);
     connect(m_soundDBusInter, &SoundDBusProxy::BluetoothAudioModeOptsChanged, m_model, &SoundModel::setBluetoothAudioModeOpts);
@@ -70,6 +104,10 @@ void SoundWorker::initConnect()
 
     connect(m_soundDBusInter, &SoundDBusProxy::EnabledChanged, m_model, &SoundModel::setEnableSoundEffect);
     connect(m_soundDBusInter, &SoundDBusProxy::pendingCallWatcherFinished, this, &SoundWorker::getSoundEnabledMapFinished);
+
+    // Fallback: Qt multimedia device hotplug notifications (covers cases where DBus signals are missing).
+    connect(m_mediaDevices, &QMediaDevices::audioInputsChanged, this, refreshCards);
+    connect(m_mediaDevices, &QMediaDevices::audioOutputsChanged, this, refreshCards);
 
     connect(m_pingTimer, &QTimer::timeout, [this] { if (m_soundDBusInter) m_soundDBusInter->Tick(); });
     connect(m_soundDBusInter, &SoundDBusProxy::HasBatteryChanged, m_model, &SoundModel::setIsLaptop);
@@ -376,13 +414,56 @@ void SoundWorker::cardsChanged(const QString &cards)
 
         QStringList tmpPorts;
 
+        // Laptop internal cards (e.g. sof-hda-dsp) may report both speaker and headphones as available.
+        // To match UX requirement: when headphones are plugged, only show the plugged device (Headphones).
+        const auto isHeadphonesPort = [](const QJsonObject &jPort) -> bool {
+            const QString portId = jPort["Name"].toString();
+            const QString desc = jPort["Description"].toString();
+            return portId.contains("headphone", Qt::CaseInsensitive)
+                || desc.contains("headphone", Qt::CaseInsensitive)
+                || desc.contains(QStringLiteral("耳机"));
+        };
+        // Prefer "active port" as the plug state signal, because on some laptops
+        // headphone port "Available" may stay 0 (Unknown) even when plugged.
+        bool shouldFilterToHeadphonesOut = false;
+        for (const QJsonValue &pV : jPorts) {
+            const QJsonObject jPort = pV.toObject();
+            const double portAvai = jPort["Available"].toDouble();
+            const auto dir = Port::Direction(jPort["Direction"].toDouble());
+            if (dir != Port::Out || !isHeadphonesPort(jPort)) {
+                continue;
+            }
+
+            const QString portId = jPort["Name"].toString();
+
+            // Case 1: backend reports explicit availability
+            if (portAvai == 2.0) { // 2 Available
+                shouldFilterToHeadphonesOut = true;
+                break;
+            }
+
+            // Case 2: use active sink port as ground truth for "plugged"
+            if (cardId == m_activeOutputCard && portId == m_activeSinkPort) {
+                shouldFilterToHeadphonesOut = true;
+                break;
+            }
+        }
+
         for (QJsonValue pV : jPorts) {
             QJsonObject jPort = pV.toObject();
             const double portAvai = jPort["Available"].toDouble();
             if (portAvai == 2.0 || portAvai == 0.0) {  // 0 Unknown 1 Not available 2 Available
                 const QString portId = jPort["Name"].toString();
                 const QString portName = jPort["Description"].toString();
+                const auto dir = Port::Direction(jPort["Direction"].toDouble());
                 const bool isEnabled = jPort["Enabled"].toBool();
+
+                // If headphones are plugged/active on this card, hide other output ports (e.g. Speakers).
+                if (shouldFilterToHeadphonesOut) {
+                    if (dir == Port::Out && !isHeadphonesPort(jPort)) {
+                        continue;
+                    }
+                }
                 const bool isBluetooth = jPort["Bluetooth"].toBool();
 
                 Port *port = m_model->findPort(portId, cardId);
