@@ -118,10 +118,20 @@ D.SpinBox {
                 }
             }
             onTextChanged: {
-                if (text.length === 2 && focus && typingDigit) {
-                    typingDigit = false
-                    minuteInput.forceActiveFocus()
-                    minuteInput.selectAll()
+                if (focus && typingDigit) {
+                    if (text.length === 1) {
+                        var firstDigit = parseInt(text, 10)
+                        if (firstDigit >= 3) {
+                            typingDigit = false
+                            minuteInput.forceActiveFocus()
+                            minuteInput.selectAll()
+                        }
+                    }
+                    else if (text.length === 2) {
+                        typingDigit = false
+                        minuteInput.forceActiveFocus()
+                        minuteInput.selectAll()
+                    }
                 }
             }
             Keys.onRightPressed: function(event) {
