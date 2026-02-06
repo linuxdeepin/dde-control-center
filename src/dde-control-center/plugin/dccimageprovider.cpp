@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "dccimageprovider.h"
@@ -121,7 +121,7 @@ DccImageProvider::~DccImageProvider()
 
 QImage *DccImageProvider::cacheImage(const QString &id, const QSize &thumbnailSize)
 {
-    return cacheImage(id, thumbnailSize, nullptr, QSize());
+    return cacheImage(id, thumbnailSize, new CacheImageResponse(id, QSize(), this), QSize());
 }
 
 QImage *DccImageProvider::cacheImage(const QString &id, const QSize &thumbnailSize, CacheImageResponse *response, const QSize &requestedSize)
