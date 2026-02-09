@@ -71,6 +71,7 @@ DccObject {
                 onParentItemChanged: function(item) {
                     if (!item) return
                     
+                    item.activeFocusOnTab = true
                     function isSameGroup(obj) {
                         return obj && obj.toString().indexOf("DccEditorItem") >= 0
                     }

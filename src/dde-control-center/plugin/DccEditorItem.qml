@@ -29,7 +29,7 @@ D.ItemDelegate {
     checked: backgroundType & 0x08
     cascadeSelected: !checked
     font: D.DTK.fontManager.t6
-    activeFocusOnTab: true
+    activeFocusOnTab: false
 
     Keys.onUpPressed: nextItemInFocusChain(false)?.forceActiveFocus(Qt.BacktabFocusReason)
     Keys.onDownPressed: nextItemInFocusChain(true)?.forceActiveFocus(Qt.TabFocusReason)
