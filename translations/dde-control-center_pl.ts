@@ -354,15 +354,15 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Taka nazwa już istnieje</translation>
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation>Dodaj nowe %1 ...</translation>
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Nazwa użytkownika nie może być pusta</translation>
     </message>
 </context>
 <context>
@@ -498,11 +498,11 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <name>BlueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia Bluetooth, urządzenia</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -946,15 +946,15 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu rozruchu</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Zarządzaj menu rozruchu</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Zarządzanie uprawnieniami konta root</translation>
     </message>
     <message>
         <source>Developer Options</source>
