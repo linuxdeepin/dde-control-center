@@ -1992,51 +1992,51 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation type="unfinished"/>
+        <translation>Pozycja na ekranie</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"/>
+        <translation>Góra</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"/>
+        <translation>Dół</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>Lewo</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>Prawo</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished"/>
+        <translation>Status</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>Zawsze wyświetlaj</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation type="unfinished"/>
+        <translation>Zawsze ukrywaj</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation type="unfinished"/>
+        <translation>Inteligentne ukrywanie</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Wiele ekranów</translation>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation type="unfinished"/>
+        <translation>Ustaw położenie paska zadań na ekranie</translation>
     </message>
     <message>
         <source>Only on main</source>
-        <translation type="unfinished"/>
+        <translation>Tylko na głównym</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
