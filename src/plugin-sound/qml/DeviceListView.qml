@@ -42,14 +42,20 @@ Rectangle {
                 activeFocusOnTab: true
                 corners: getCornersForBackground(index, repeater.count)
                 Keys.onUpPressed: function (event) {
-                    const prev = repeater.itemAt(index - 1)
+                    var prevIndex = index - 1
+                    if (prevIndex < 0)
+                        prevIndex = repeater.count - 1
+                    const prev = repeater.itemAt(prevIndex)
                     if (prev) {
                         prev.forceActiveFocus(Qt.BacktabFocusReason)
                         event.accepted = true
                     }
                 }
                 Keys.onDownPressed: function (event) {
-                    const next = repeater.itemAt(index + 1)
+                    var nextIndex = index + 1
+                    if (nextIndex >= repeater.count)
+                        nextIndex = 0
+                    const next = repeater.itemAt(nextIndex)
                     if (next) {
                         next.forceActiveFocus(Qt.TabFocusReason)
                         event.accepted = true
