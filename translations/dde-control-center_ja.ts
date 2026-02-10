@@ -1751,39 +1751,39 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DisplayMain</name>
     <message>
         <source>100%</source>
-        <translation type="unfinished"/>
+        <translation>100%</translation>
     </message>
     <message>
         <source>125%</source>
-        <translation type="unfinished"/>
+        <translation>125%</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation type="unfinished"/>
+        <translation>150%</translation>
     </message>
     <message>
         <source>175%</source>
-        <translation type="unfinished"/>
+        <translation>175%</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation type="unfinished"/>
+        <translation>200%</translation>
     </message>
     <message>
         <source>225%</source>
-        <translation type="unfinished"/>
+        <translation>225%</translation>
     </message>
     <message>
         <source>250%</source>
-        <translation type="unfinished"/>
+        <translation>250%</translation>
     </message>
     <message>
         <source>275%</source>
-        <translation type="unfinished"/>
+        <translation>275%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation type="unfinished"/>
+        <translation>300%</translation>
     </message>
     <message>
         <source>Duplicate</source>
@@ -1915,27 +1915,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>色温度</translation>
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2 (推奨)</translation>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2</translation>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1 Hz (推奨)</translation>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation type="unfinished"/>
+        <translation>%1 Hz</translation>
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"/>
+        <translation>スケーリング</translation>
     </message>
 </context>
 <context>
