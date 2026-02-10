@@ -1942,30 +1942,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation type="unfinished"/>
+        <translation>デスクトップとタスクバー</translation>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>デスクトップの構成、タスクバーのモード、プラグインエリアの設定</translation>
     </message>
 </context>
 <context>
     <name>DockMain</name>
     <message>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>ドック</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>モード</translation>
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation type="unfinished"/>
+        <translation>クラシック</translation>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation type="unfinished"/>
+        <translation>中央</translation>
     </message>
     <message>
         <source>Dock size</source>
@@ -1973,35 +1973,35 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>小</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>大</translation>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation type="unfinished"/>
+        <translation>表示位置</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"/>
+        <translation>上</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"/>
+        <translation>下</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>左</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>右</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished"/>
+        <translation>状態</translation>
     </message>
     <message>
         <source>Keep shown</source>
