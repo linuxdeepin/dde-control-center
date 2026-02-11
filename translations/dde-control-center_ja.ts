@@ -300,14 +300,14 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     <name>Authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>生体認証</translation>
     </message>
 </context>
 <context>
     <name>AuthenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>生体認証</translation>
     </message>
     <message>
         <source>Face</source>
@@ -491,11 +491,11 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     <name>BlueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth設定、デバイス</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -939,15 +939,15 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>起動メニュー</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>起動メニューを管理</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>開発者向けroot権限管理</translation>
     </message>
     <message>
         <source>Developer Options</source>
@@ -955,7 +955,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>開発者向けデバッグオプション</translation>
     </message>
 </context>
 <context>
