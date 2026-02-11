@@ -1847,55 +1847,55 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Brightness</source>
-        <translation>明るさ</translation>
+        <translation>輝度</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>解像度</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>デスクトップのリサイズ</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>リフレッシュレート</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>回転</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>標準</translation>
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>モニターは 100% ディスプレイスケーリングのみに対応しています</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation type="unfinished"/>
+        <translation>目の保護モード</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation type="unfinished"/>
+        <translation>目の保護モードを有効にする</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>暖かい色に調節して、ディスプレイのブルーライトを軽減します</translation>
     </message>
     <message>
         <source>Time</source>
