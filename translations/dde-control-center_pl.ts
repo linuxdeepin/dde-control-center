@@ -2850,11 +2850,11 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Na baterii</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"/>
+        <translation>Ekran, wstrzymywanie i zarządzanie baterią</translation>
     </message>
 </context>
 <context>
@@ -2965,26 +2965,26 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>Privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Prywatność i bezpieczeństwo</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"/>
+        <translation>Kamera, uprawnienia folderów</translation>
     </message>
 </context>
 <context>
     <name>PrivacyMain</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>Kamera</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Wybierz aplikacje z dostępem do kamery</translation>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"/>
+        <translation>Pliki i foldery</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
