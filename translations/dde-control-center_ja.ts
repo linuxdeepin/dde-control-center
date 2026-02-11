@@ -1190,22 +1190,22 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     <name>Datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>時刻と日付</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>時刻と日付、タイムゾーン設定</translation>
     </message>
 </context>
 <context>
     <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>言語と地域</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>システム言語、地域の形式</translation>
     </message>
 </context>
 <context>
@@ -1534,38 +1534,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation type="unfinished"/>
+        <translation>デフォルトアプリケーション</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>ファイルの種類ごとにデフォルトアプリケーションを設定</translation>
     </message>
 </context>
 <context>
     <name>DefaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>ウェブページ</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation type="unfinished"/>
+        <translation>メール</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>テキスト</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>ミュージック</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>ビデオ</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation type="unfinished"/>
+        <translation>ピクチャー</translation>
     </message>
     <message>
         <source>Terminal</source>
