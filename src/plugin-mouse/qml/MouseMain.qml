@@ -36,7 +36,7 @@ DccObject {
         parentName: "MouseAndTouchpad"
         displayName: qsTr("Touchpad")
         icon: "mouse_trackpad_trackpad"
-        visible: dccData.lidIsPresent && dccData.tpadExist
+        visible: dccData.tpadExist
         weight: 200
         page: DccRightView {
             spacing: 0
