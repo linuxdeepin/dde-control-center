@@ -951,7 +951,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>開発者向けオプション</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
