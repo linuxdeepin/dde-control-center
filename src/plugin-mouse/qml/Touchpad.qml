@@ -163,6 +163,7 @@ DccObject {
             parentName: "MouseAndTouchpad/Touchpad/TouchpadGroup"
             displayName: qsTr("Disable touchpad during input")
             weight: 10
+            visible: dccData.lidIsPresent
             pageType: DccObject.Editor
 
             page: D.Switch {
