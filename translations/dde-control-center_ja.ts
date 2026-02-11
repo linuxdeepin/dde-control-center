@@ -1569,7 +1569,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished"/>
+        <translation>ターミナル</translation>
     </message>
 </context>
 <context>
