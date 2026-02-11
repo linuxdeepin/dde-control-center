@@ -249,7 +249,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>次を読みこれに同意します</translation>
     </message>
     <message>
         <source>Disclaimer</source>
