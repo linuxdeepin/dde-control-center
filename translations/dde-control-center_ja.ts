@@ -2617,11 +2617,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>メッセージプレビューを表示する</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>音を鳴らす</translation>
     </message>
 </context>
 <context>
@@ -3328,7 +3328,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>ショートカットキーを入力してください</translation>
     </message>
     <message>
         <source>Save</source>
