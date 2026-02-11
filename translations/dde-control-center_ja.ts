@@ -126,18 +126,18 @@
     <name>Accounts</name>
     <message>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>アカウント</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation type="unfinished"/>
+        <translation>アカウント管理</translation>
     </message>
 </context>
 <context>
     <name>AccountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"/>
+        <translation>その他のアカウント</translation>
     </message>
 </context>
 <context>
@@ -245,7 +245,7 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>虹彩を登録</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -343,7 +343,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>この名前はすでに存在します</translation>
     </message>
     <message>
         <source>Add a new %1 ...</source>
