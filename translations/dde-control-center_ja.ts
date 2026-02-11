@@ -1899,11 +1899,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>時間</translation>
     </message>
     <message>
         <source>All day</source>
-        <translation type="unfinished"/>
+        <translation>終日</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
