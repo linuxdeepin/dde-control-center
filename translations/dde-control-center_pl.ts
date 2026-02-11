@@ -2456,35 +2456,35 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation type="unfinished"/>
+        <translation>Rozmiar wskaźnika</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Akceleracja myszy</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>Wyłącz panel dotykowy po podłączeniu myszy</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Naturalne przewijanie</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Mały</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Średni</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Duży</translation>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"/>
+        <translation>Ogromny</translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
