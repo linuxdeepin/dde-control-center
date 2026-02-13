@@ -2445,7 +2445,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation type="unfinished"/>
+        <translation>Tamaño del puntero</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
