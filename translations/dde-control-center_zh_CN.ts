@@ -1209,7 +1209,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>系统语言、区域格式</translation>
     </message>
 </context>
 <context>
