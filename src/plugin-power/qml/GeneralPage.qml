@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Window 2.15
@@ -161,7 +161,6 @@ DccObject {
             pageType: DccObject.Editor
             page: D.Switch {
                 checked: dccData.model.sleepLock
-                enabled: !dccData.model.isNoPasswdLogin
                 onCheckedChanged: {
                     dccData.worker.setSleepLock(checked)
                 }
@@ -176,7 +175,6 @@ DccObject {
             pageType: DccObject.Editor
             page: D.Switch {
                 checked: dccData.model.screenBlackLock
-                enabled: !dccData.model.isNoPasswdLogin
                 onCheckedChanged: {
                     dccData.worker.setScreenBlackLock(checked)
                 }
