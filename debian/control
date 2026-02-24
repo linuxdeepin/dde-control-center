@@ -67,7 +67,11 @@ Description: New control center for Deepin Desktop Environment,
 
 Package: dde-control-center-dev
 Architecture: any
-Depends: dde-control-center (= ${binary:Version}), ${misc:Depends}
+Depends: 
+ dde-control-center (= ${binary:Version}),
+ qt6-declarative-dev,
+ qt6-tools-dev,
+ ${misc:Depends},
 Description: New control center for Deepin Desktop Environment - development files
  DDE Control Center is the control panel of Deepin Desktop Environment.
 
