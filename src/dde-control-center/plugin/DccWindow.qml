@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Window 2.15
@@ -11,9 +11,15 @@ import org.deepin.dcc 1.0
 
 D.ApplicationWindow {
     id: mainWindow
+    enum PageIndex {
+        LoadIndex,
+        HomeIndex,
+        SecondIndex
+    }
+
     property string appProductName: Qt.application.displayName
     property string appLicense: "GPL-3.0-or-later"
-    property real currentIndex: 1
+    property int currentIndex: DccWindow.PageIndex.LoadIndex
     property var sidebarPage: null
 
     minimumWidth: 520
@@ -84,7 +90,7 @@ D.ApplicationWindow {
             implicitWidth: 30
             hoverEnabled: enabled
             activeFocusOnTab: true
-            visible: mainWindow.currentIndex === 1
+            visible: mainWindow.currentIndex === DccWindow.PageIndex.SecondIndex
             icon {
                 name: "sidebar"
                 height: 16
@@ -115,14 +121,14 @@ D.ApplicationWindow {
         content: Item {
             anchors {
                 fill: parent
-                leftMargin: mainWindow.currentIndex === 0 ? 0 : -200
+                leftMargin: mainWindow.currentIndex === DccWindow.PageIndex.HomeIndex ? 0 : -200
             }
             SearchBar {
                 anchors {
                     horizontalCenter: parent.horizontalCenter
                     verticalCenter: parent.verticalCenter
                 }
-                visible: mainWindow.currentIndex === 0
+                visible: mainWindow.currentIndex === DccWindow.PageIndex.HomeIndex
                 model: DccApp.searchModel()
                 onClicked: function (model) {
                     DccApp.showPage(model.url)
@@ -135,7 +141,7 @@ D.ApplicationWindow {
                 implicitWidth: 30
                 x: ((mainWindow.sidebarPage && mainWindow.sidebarPage.splitterX > 110) ? mainWindow.sidebarPage.splitterX : 110) - 1
                 anchors.verticalCenter: parent.verticalCenter
-                visible: mainWindow.currentIndex === 1
+                visible: mainWindow.currentIndex === DccWindow.PageIndex.SecondIndex
                 hoverEnabled: enabled
                 activeFocusOnTab: enabled
                 enabled: DccApp.activeObject.parentName.length !== 0 && DccApp.activeObject.parentName !== "root"
@@ -169,7 +175,7 @@ D.ApplicationWindow {
                     leftMargin: 8
                     verticalCenter: parent.verticalCenter
                 }
-                visible: mainWindow.currentIndex === 1
+                visible: mainWindow.currentIndex === DccWindow.PageIndex.SecondIndex
                 model: DccApp.navModel()
                 onClicked: function (model) {
                     DccApp.showPage(model.url)
@@ -227,9 +233,18 @@ D.ApplicationWindow {
         SwipeView {
             id: stackView
             hoverEnabled: false
-            currentIndex: 1
+            currentIndex: DccWindow.PageIndex.LoadIndex
             interactive: false
             activeFocusOnTab: false
+            Item {
+                id: loadPage
+                D.DciIcon {
+                    anchors.centerIn: parent
+                    name: "control-loading"
+                    mode: D.DTK.NormalState
+                    theme: D.DTK.themeType
+                }
+            }
             HomePage {
                 id: homePage
                 visible: false
@@ -239,33 +254,33 @@ D.ApplicationWindow {
                 // visible: false
                 Component.onCompleted: mainWindow.sidebarPage = this
             }
-            Timer {
-                id: hideTimer
-                interval: 500
-                repeat: false
-                onTriggered: {
-                    homePage.contentVisible = stackView.currentIndex === 0
-                    secondPage.visible = stackView.currentIndex === 1
-                }
-            }
             Connections {
                 target: DccApp
                 function onActiveObjectChanged(activeObject) {
-                    if (stackView.currentIndex !== 0 && DccApp.root === DccApp.activeObject) {
+                    if (stackView.currentIndex !== DccWindow.PageIndex.LoadIndex && null === DccApp.activeObject) {
                         homePage.contentVisible = true
                         secondPage.visible = true
                         mainWindow.sidebarPage = null
-                        stackView.currentIndex = 0
-                        mainWindow.currentIndex = 0
-                        hideTimer.restart()
-                    } else if (stackView.currentIndex !== 1 && DccApp.root !== DccApp.activeObject) {
+                        stackView.currentIndex = DccWindow.PageIndex.LoadIndex
+                        mainWindow.currentIndex = DccWindow.PageIndex.LoadIndex
+                    } else if (stackView.currentIndex !== DccWindow.PageIndex.HomeIndex && DccApp.root === DccApp.activeObject) {
+                        homePage.contentVisible = true
+                        secondPage.visible = true
+                        mainWindow.sidebarPage = null
+                        stackView.currentIndex = DccWindow.PageIndex.HomeIndex
+                        mainWindow.currentIndex = DccWindow.PageIndex.HomeIndex
+                    } else if (stackView.currentIndex !== DccWindow.PageIndex.SecondIndex && DccApp.root !== DccApp.activeObject) {
                         homePage.contentVisible = true
                         secondPage.visible = true
                         mainWindow.sidebarPage = secondPage
-                        stackView.currentIndex = 1
-                        mainWindow.currentIndex = 1
-                        hideTimer.restart()
+                        stackView.currentIndex = DccWindow.PageIndex.SecondIndex
+                        mainWindow.currentIndex = DccWindow.PageIndex.SecondIndex
                     }
+                }
+            }
+            Component.onCompleted: {
+                if (contentItem) {
+                    contentItem.highlightMoveDuration = 0
                 }
             }
         }

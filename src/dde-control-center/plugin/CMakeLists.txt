@@ -18,7 +18,6 @@ foreach(FILE_PATH ${QML_PATHS})
 endforeach(FILE_PATH)
 
 file(GLOB RES_PATHS
-    "*.dci"
     "*.svg"
     "*.png"
     "*.jpg"
@@ -29,23 +28,30 @@ foreach(FILE_PATH ${RES_PATHS})
     list(APPEND DCCQmlPlugin_RES ${FILE_NAME})
 endforeach(FILE_PATH)
 
+file(GLOB DCI_PATHS
+    "*.dci"
+)
+
+foreach(FILE_PATH ${DCI_PATHS})
+    file(RELATIVE_PATH FILE_NAME ${CMAKE_CURRENT_SOURCE_DIR} ${FILE_PATH})
+    list(APPEND DCCDciPlugin_RES ${FILE_NAME})
+endforeach(FILE_PATH)
+
 qt_policy(SET QTP0001 NEW)
 qt_add_qml_module(${DCCQmlPlugin_Name}
     PLUGIN_TARGET ${DCCQmlPlugin_Name}
     URI org.deepin.dcc
     VERSION 1.0
     STATIC
-    QML_FILES
-        ${DCCQmlPlugin_CONTROLS}
-    SOURCES
-        ${DCCQmlPlugin_SRCS}
-    OUTPUT_DIRECTORY
-        org/deepin/dcc
+    RESOURCES ${DCCQmlPlugin_RES}
+    QML_FILES ${DCCQmlPlugin_CONTROLS}
+    SOURCES ${DCCQmlPlugin_SRCS}
+    OUTPUT_DIRECTORY org/deepin/dcc
 )
 
 qt_add_resources(${DCCQmlPlugin_Name} "dci"
     PREFIX "/dsg/built-in-icons"
-    FILES ${DCCQmlPlugin_RES}
+    FILES ${DCCDciPlugin_RES}
 )
 
 set(DCCQmlPlugin_Libraries

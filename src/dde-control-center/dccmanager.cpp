@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "dccmanager.h"
@@ -22,8 +22,8 @@
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
-#include <QLoggingCategory>
 #include <QLocale>
+#include <QLoggingCategory>
 #include <QQmlApplicationEngine>
 #include <QQmlContext>
 #include <QQuickWindow>
@@ -72,6 +72,7 @@ DccManager::DccManager(QObject *parent)
 
     initConfig();
     connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject, Qt::QueuedConnection);
+    connect(m_plugins, &PluginManager::loadAllFinished, this, &DccManager::tryShow, Qt::QueuedConnection);
     waitShowPage("system", QDBusMessage());
 }
 
@@ -233,10 +234,15 @@ void DccManager::removeObject(const QString &name)
 void DccManager::showPage(const QString &url)
 {
     if (this->calledFromDBus()) {
+        // show(); // 先查找再显示则注释掉此处
+        int i = url.indexOf('?');
+        QString cmd = i != -1 ? url.mid(i + 1) : QString();
+        if (cmd.isEmpty() || isIndicatorShown(cmd)) {
+            show();
+        }
         auto message = this->message();
         setDelayedReply(true);
         QMetaObject::invokeMethod(this, &DccManager::waitShowPage, Qt::QueuedConnection, url, message);
-        // show(); // 先查找再显示则注释掉此处
     } else {
         QMetaObject::invokeMethod(this, &DccManager::waitShowPage, Qt::QueuedConnection, url, QDBusMessage());
     }
@@ -400,8 +406,12 @@ void DccManager::cacheImage(const QString &id, const QSize &thumbnailSize)
 void DccManager::show()
 {
     QWindow *w = DccManager::mainWindow();
-    if (w->windowStates() == Qt::WindowMinimized || !w->isVisible())
+    if (!w) {
+        return;
+    }
+    if (w->windowStates() == Qt::WindowMinimized || !w->isVisible()) {
         w->showNormal();
+    }
     w->requestActivate();
 }
 
@@ -671,16 +681,13 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
             if (!m_showTimer) {
                 m_showTimer = new QTimer(this);
                 connect(m_showTimer, &QTimer::timeout, this, &DccManager::tryShow);
-                m_showTimer->start(10);
+                m_showTimer->start(50);
             }
             return;
         }
     }
     if (message.type() != QDBusMessage::InvalidMessage) {
         if (obj) {
-            if (cmd.isEmpty() || isIndicatorShown(cmd)) {
-                show();
-            }
             QDBusConnection::sessionBus().send(message.createReply());
         } else {
             QDBusConnection::sessionBus().send(message.createErrorReply(QDBusError::InvalidArgs, QString("not found url:") + url));
@@ -714,9 +721,6 @@ void DccManager::tryShow()
     if (obj) {
         showPage(obj, cmd);
         if (m_showMessage.type() != QDBusMessage::InvalidMessage) {
-            if (cmd.isEmpty()) {
-                show();
-            }
             QDBusConnection::sessionBus().send(m_showMessage.createReply());
         }
         clearShowParam();
