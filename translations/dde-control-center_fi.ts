@@ -126,11 +126,11 @@
     <name>Accounts</name>
     <message>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>Tili</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation type="unfinished"/>
+        <translation>Tilin hallinta</translation>
     </message>
 </context>
 <context>
