@@ -3916,7 +3916,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"/>
+        <translation>Malli</translation>
     </message>
 </context>
 <context>
