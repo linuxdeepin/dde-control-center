@@ -2597,27 +2597,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Näytä ilmoituksia työpöydällä tai näytä lukemattomat ilmoitusalueella</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Työpöytä</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Lukitse näyttö</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Ilmoituskeskus</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Näytä viestin esikatselu</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Toista ääni</translation>
     </message>
 </context>
 <context>
