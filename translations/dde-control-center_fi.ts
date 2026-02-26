@@ -2747,19 +2747,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PersonalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Teema</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Ulkoasu</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"/>
+        <translation>Tehosteet</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Personoi taustakuvaa ja näytönsäästäjä</translation>
     </message>
     <message>
         <source>Screensaver</source>
