@@ -2001,11 +2001,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>Oikea</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished"/>
+        <translation>Asema</translation>
     </message>
     <message>
         <source>Keep shown</source>
