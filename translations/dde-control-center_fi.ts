@@ -2009,27 +2009,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>Näkyvissä</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation type="unfinished"/>
+        <translation>Piilotettu</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation type="unfinished"/>
+        <translation>Älykäs piilotus</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Useita näyttöjä</translation>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation type="unfinished"/>
+        <translation>Aseta tehtäväpalkin paikka näytöllä</translation>
     </message>
     <message>
         <source>Only on main</source>
-        <translation type="unfinished"/>
+        <translation>Päänäytössä</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
