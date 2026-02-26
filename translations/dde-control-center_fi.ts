@@ -3398,7 +3398,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Ulostulo, sisääntulo, äänitehosteet, laitteet</translation>
     </message>
 </context>
 <context>
@@ -3427,15 +3427,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundMain</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Asetukset</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Äänitehosteet</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Äänitehosteet käyttöön/pois</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
