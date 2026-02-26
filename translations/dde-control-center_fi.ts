@@ -1791,31 +1791,31 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Kahdenna</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>Laajenna</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Oletus</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>Sovita</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Venytä</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Keskitetty</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Vain %1</translation>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
