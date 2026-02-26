@@ -1819,11 +1819,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"/>
+        <translation>Usean näytön asetuksia</translation>
     </message>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Tunnista</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
