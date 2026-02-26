@@ -3621,31 +3621,31 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Käyttökokemusohjelma</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Liity käyttökokemusohjelmaan ja voit auttaa parantamaan tätä tuotetta</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Loppukäyttäjän lisenssisopimus</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Näytä loppukäyttäjän lisenssisopimus</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Tietosuojakäytäntö</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Katso tietoja tietosuojakäytännöstä</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Ilmoitus avoimen lähdekoodin ohjelmistosta</translation>
     </message>
 </context>
 <context>
@@ -3825,7 +3825,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Kosketusnäyttö</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
