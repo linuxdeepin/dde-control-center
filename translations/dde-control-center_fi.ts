@@ -126,18 +126,18 @@
     <name>Accounts</name>
     <message>
         <source>Account</source>
-        <translation>Tili</translation>
+        <translation>Käyttäjä</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation>Tilin hallinta</translation>
+        <translation>Käyttäjän hallinta</translation>
     </message>
 </context>
 <context>
     <name>AccountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"/>
+        <translation>Muut käyttäjät</translation>
     </message>
 </context>
 <context>
