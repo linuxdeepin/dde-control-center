@@ -324,19 +324,19 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Käyttäjän tunnistaminen sormenjälkien avulla</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iiris</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"/>
+        <translation>Tunnistaminen iiriksen skannauksella</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>Käytä vain kirjaimia, numeroita ja alaviivoja, enintään 15 merkkiä</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
