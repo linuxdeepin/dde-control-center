@@ -2573,27 +2573,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Ilmoituksia ei näytetä työpöydällä ja äänet äänettömälle, mutta voit tarkastella kaikkia viestejä ilmoitusalueella.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Älä häiritse käyttöön</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Kun näyttö on lukittu</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Työpöydällä näkyvien ilmoitusten määrä</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Sovellusten ilmoitukset</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Salli ilmoitukset</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
