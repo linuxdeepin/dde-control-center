@@ -145,7 +145,7 @@ int DccManager::sidebarWidth() const
 
 void DccManager::setSidebarWidth(int width)
 {
-    if (m_sidebarWidth != width) {
+    if (width > 0 && m_sidebarWidth != width) {
         m_sidebarWidth = width;
         m_dconfig->setValue("sidebarWidth", m_sidebarWidth);
         Q_EMIT sidebarWidthChanged(m_sidebarWidth);
@@ -425,7 +425,7 @@ void DccManager::initConfig()
     updateModuleConfig(HideConfig);
     updateModuleConfig(DisableConfig);
     m_sidebarWidth = m_dconfig->value("sidebarWidth", -1).toInt();
-    if (m_sidebarWidth < 0) {
+    if (m_sidebarWidth <= 0) {
         // 英文环境做特殊处理，加宽侧边栏
         QLocale locale;
         m_sidebarWidth = locale.language() == QLocale::English ? 210 : 180;
