@@ -3609,15 +3609,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Tietoja tietokoneesta</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Versio, laitetiedot</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Katso ilmoitus avoimen lähdekoodin ohjelmistoista</translation>
     </message>
     <message>
         <source>User Experience Program</source>
