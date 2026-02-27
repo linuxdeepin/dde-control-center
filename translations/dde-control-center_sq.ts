@@ -183,7 +183,10 @@
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation>Njohja e fytyrave s’mbulon pikasje të të qenit gjallë dhe metoda e verifikimit mund të bartë rreziqe.
+Që të garantohet dhënie e suksesshme:
+1. Mbajini pjesët e fytyrës qartësisht të dukshme dhe mos i mbuloni (kapele, syze dielli, maska, etj.).
+2. Garantoni ndriçim të mjaftueshëm dhe shmangni dritë të drejtpërdrejtë diellore.</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -3802,7 +3805,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"/>
+        <translation>Çaktivizoje touchpad-in teksa shtypet</translation>
     </message>
     <message>
         <source>Tap to Click</source>
