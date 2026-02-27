@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Window 2.15
@@ -57,7 +57,10 @@ DccObject {
                     dataMap: dccData.model.linePowerScreenBlackDelayModel
                     Layout.preferredHeight: 80
                     Layout.alignment: Qt.AlignCenter
-                    Layout.margins: 10
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
+                    Layout.topMargin: 10
+                    Layout.bottomMargin: 10
                     Layout.fillWidth: true
                     slider.value: dccData.indexByValueOnMap(dataMap, dccData.model.screenBlackDelayOnPower)
                     slider.onValueChanged: {
@@ -107,7 +110,10 @@ DccObject {
                     dataMap: dccData.model.linePowerLockDelayModel
                     Layout.preferredHeight: 80
                     Layout.alignment: Qt.AlignCenter
-                    Layout.margins: 10
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
+                    Layout.topMargin: 10
+                    Layout.bottomMargin: 10
                     Layout.fillWidth: true
                     slider.value: dccData.indexByValueOnMap(dataMap, dccData.model.powerLockScreenDelay)
                     slider.onValueChanged: {
@@ -157,7 +163,10 @@ DccObject {
                     dataMap: dccData.model.linePowerSleepDelayModel
                     Layout.preferredHeight: 80
                     Layout.alignment: Qt.AlignCenter
-                    Layout.margins: 10
+                    Layout.leftMargin: 16
+                    Layout.rightMargin: 16
+                    Layout.topMargin: 10
+                    Layout.bottomMargin: 10
                     Layout.fillWidth: true
                     slider.value: dccData.indexByValueOnMap(dataMap, dccData.model.sleepDelayOnPower)
                     slider.onValueChanged: {
