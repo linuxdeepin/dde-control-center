@@ -1,3 +1,25 @@
+dde-control-center (6.1.73) unstable; urgency=medium
+
+  * fix: Fix incomplete display of processor text on the page
+  * fix: include size in image cache key to prevent collisions
+  * fix: Optimized text display position at progress bar edges
+  * feat: simplify cursor size selection logic
+  * fix: Filter out components whose focus cannot be operated
+  * fix: fix sidebar width initialization and validation
+  * feat: add loading page for control center
+  * chore: update dde-control-center-dev dependencies
+  * fix: keep sleep and screen lock switches enabled with passwordless
+    login
+  * fix: fix cache image error
+  * fix: fix touchpad visibility and disable input condition
+  * Fix: Optimize cyclic selection in the system sound effects list.
+  * fix(personalization): fix touchpad swipe and mouse drag in theme
+    selector
+  * fix(time-range): improve hour input focus behavior
+  * fix： Speaker Display Anomaly
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 27 Feb 2026 17:02:50 +0800
+
 dde-control-center (6.1.72) unstable; urgency=medium
 
   * fix: Adapt the first item in the menu
