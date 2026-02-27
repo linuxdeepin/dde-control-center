@@ -21,6 +21,10 @@ DccObject {
     FontMetrics {
         id: fm
     }
+
+    function stopEditing() {
+        languageListTiltle.isEditing = false
+    }
     // 语言列表抬头
     DccObject {
         id: languageListTiltle
@@ -111,6 +115,7 @@ DccObject {
                         implicitHeight: 40
                         icon.name: dccObj.icon
                         checkable: false
+                        activeFocusOnTab: true
 
                         Loader {
                             id: langNameLoader
@@ -314,6 +319,7 @@ DccObject {
                     text: dccData.region
                 }
                 IconLabel {
+                    id: regionIcon
                     Layout.alignment: Qt.AlignRight | Qt.AlignHCenter
                     icon.name: "arrow_ordinary_down"
                     icon.palette: DTK.makeIconPalette(regionLabel.palette)
@@ -323,6 +329,7 @@ DccObject {
             MouseArea {
                 id: mouseArea
                 anchors.fill: parent
+                focus: true
 
                 RegionsChooserWindow {
                     id: regionWndow
@@ -341,8 +348,17 @@ DccObject {
                         regionWndow.show()
                     }
 
-                    languageListTiltle.isEditing = false
+                    stopEditing()
                 }
+            }
+
+            function clicked() {
+                if (!regionWndow.isVisible()) {
+                    regionWndow.mousePosition = regionIcon.mapToGlobal(regionIcon.x - regionWndow.implicitWidth, 
+                                                                       regionIcon.y + rowlayout.implicitHeight)
+                    regionWndow.show()
+                }
+                stopEditing()
             }
         }
 
@@ -350,6 +366,7 @@ DccObject {
             if (item) {
                 item.bottomInset = 3
                 item.leftPadding = 7
+                item.activeFocusOnTab = true
             }
         }
     }
@@ -427,10 +444,12 @@ DccObject {
                     }
                 }
 
-                onClicked: {
-                    regionDialog.show()
-                    languageListTiltle.isEditing = false
-                }
+                onClicked: clicked()
+            }
+
+            function clicked() {
+                regionDialog.show()
+                stopEditing()
             }
         }
 
@@ -438,6 +457,7 @@ DccObject {
             if (item) {
                 item.topInset = 3
                 item.leftPadding = 7
+                item.activeFocusOnTab = true
             }
         }
     }

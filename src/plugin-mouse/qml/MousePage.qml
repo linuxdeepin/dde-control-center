@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.0
 import QtQuick.Controls 2.0
@@ -112,30 +112,20 @@ DccObject {
                 Layout.fillWidth: true
                 Layout.leftMargin: 10
                 opacity: enabled ? 1 : 0.4
-                property var tips: [qsTr("Small"), qsTr("Medium"), qsTr("Large"), qsTr("X-Large")]
-                property var icons: ["mouse_cursor_size_small.png", "mouse_cursor_size_medium.png", "mouse_cursor_size_big.png", "mouse_cursor_size_largest.png"]
-                property var availables: [false, false, false, false]
-                property var availableSizes: [-1, -1, -1, -1]
+                property var tips: [qsTr("Small"), qsTr("Medium"), qsTr("Large")]
+                property var icons: ["mouse_cursor_size_small.png", "mouse_cursor_size_medium.png", "mouse_cursor_size_big.png"]
+                property var availables: [false, false, false]
+                property var availableSizes: [24, 36, 48]
                 property var availableSizesModel: dccData.availableCursorSizes
 
                 onAvailableSizesModelChanged: {
-                    availableSizes = [-1, -1, -1, -1]
-                    availables = [false, false, false, false]
+                    availables = [true, false, false]
                     for (let i = 0; i < availableSizesModel.length; i++) {
                         let size = availableSizesModel[i]
-                        // 1: (0,28], 2:(28,40], 3:(40,60], 4:(60,128] 加绝对值最接近的那个
-                        if (size > 0 && size <= 28 && Math.abs(24 - size) < Math.abs(24 - availableSizes[0])) {
-                            availableSizes[0] = size
-                            availables[0] = true
-                        } else if (size > 28 && size <= 40 && Math.abs(32 - size) < Math.abs(32 - availableSizes[1])) {
-                            availableSizes[1] = size
+                        if (size > 30 && !availables[1]) {
                             availables[1] = true
-                        } else if (size > 40 && size <= 60 && Math.abs(48 - size) < Math.abs(48 - availableSizes[2])) {
-                            availableSizes[2] = size
+                        } else if (size > 42 && !availables[2]) {
                             availables[2] = true
-                        } else if (size > 60 && size <= 128 && Math.abs(72 - size) < Math.abs(72 - availableSizes[3])) {
-                            availableSizes[3] = size
-                            availables[3] = true
                         }
                     }
                 }
@@ -148,13 +138,11 @@ DccObject {
                         visible: listview.availables[index]
                         property bool checked: {
                             let cutCursorSize = dccData.cursorSize
-                            if (index === 0 && cutCursorSize > 0 && cutCursorSize <= 28) {
+                            if (index === 0 && cutCursorSize > 0 && cutCursorSize <= 30) {
                                 return true
-                            } else if (index === 1 && cutCursorSize > 28 && cutCursorSize <= 40) {
+                            } else if (index === 1 && cutCursorSize > 30 && cutCursorSize <= 42) {
                                 return true
-                            } else if (index === 2 && cutCursorSize > 40 && cutCursorSize <= 60) {
-                                return true
-                            } else if (index === 3 && cutCursorSize > 60 && cutCursorSize <= 128) {
+                            } else if (index === 2 && cutCursorSize > 42) {
                                 return true
                             }
                             return false
