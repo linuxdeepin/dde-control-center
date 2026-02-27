@@ -284,6 +284,9 @@ DccObject {
                             return
                         }
                         dccData.worker.setShutdownRepetition(3)
+                        Qt.callLater(function () {
+                            DccApp.showPage(repeatDaysEditObject)
+                        })
                     }
                 }
             }
