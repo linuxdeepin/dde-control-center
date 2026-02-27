@@ -3805,7 +3805,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation>Çaktivizoje touchpad-in teksa shtypet</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Tap to Click</source>
