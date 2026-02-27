@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 // import org.deepin.dtk 1.0 as D
 import QtQuick 2.15
@@ -356,13 +356,27 @@ DccObject {
         }
 
         DccObject {
+            id: processorObj
             name: "processor"
             weight: 100
             parentName: "nativeInfoGrp"
             pageType: DccObject.Editor
             displayName: qsTr("Processor") + ":"
+
             page: Label {
-                horizontalAlignment: Text.AlignLeft
+                id: processorLabel
+                horizontalAlignment: Text.AlignRight
+                wrapMode: Text.Wrap
+                width: processorObj.parentItem 
+                    ? Math.max(0, processorObj.parentItem.width - displayNameMetrics.width - processorObj.parentItem.leftPadding - 30) 
+                    : implicitWidth
+                
+                TextMetrics {
+                    id: displayNameMetrics
+                    text: processorObj.displayName
+                    font: processorLabel.font
+                }
+                
                 text: dccData.systemInfoMode().processor
             }
         }
