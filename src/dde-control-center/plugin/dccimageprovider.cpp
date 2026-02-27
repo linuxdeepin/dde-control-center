@@ -9,6 +9,8 @@
 namespace dccV25 {
 // 4x of 84x54 => 336x216, used as a high-res base thumbnail size
 const QSize THUMBNAIL_ICON_SIZE(336, 216);
+// Separator for cache key to include size information
+const QString CACHE_KEY_SIZE_SEPARATOR = "::SIZE::";
 
 class CacheImageResponse : public QQuickImageResponse
 {
@@ -40,14 +42,21 @@ private:
 class ImageTask : public QRunnable
 {
 public:
-    explicit ImageTask(const QString &id, const QSize &thumbnailSize, DccImageProvider *provider, CacheImageResponse *response, const QSize &requestedSize)
+    explicit ImageTask(const QString &cacheKey, const QSize &thumbnailSize, DccImageProvider *provider, CacheImageResponse *response, const QSize &requestedSize)
         : QRunnable()
-        , m_id(id)
+        , m_cacheKey(cacheKey)
         , m_size(thumbnailSize.isValid() ? thumbnailSize : THUMBNAIL_ICON_SIZE)
         , m_requestedSize(requestedSize)
         , m_provider(provider)
         , m_response(response)
     {
+        // Extract original image path from cache key
+        int sepIndex = m_cacheKey.indexOf(CACHE_KEY_SIZE_SEPARATOR);
+        if (sepIndex > 0) {
+            m_id = m_cacheKey.left(sepIndex);
+        } else {
+            m_id = m_cacheKey;
+        }
     }
 
 protected:
@@ -55,6 +64,7 @@ protected:
 
 protected:
     QString m_id;
+    QString m_cacheKey;  // Cache key including size information
     QSize m_size;
     QSize m_requestedSize;
     QPointer<DccImageProvider> m_provider;
@@ -95,7 +105,7 @@ void ImageTask::run()
 
         if (m_provider && m_response) {
             QImage *heapImage = new QImage(std::move(img));
-            if (m_provider->insert(m_id, heapImage)) {
+            if (m_provider->insert(m_cacheKey, heapImage)) {
                 // Image already at target size, no further scaling needed.
                 m_response->setImage(*heapImage, QSize());
             } else {
@@ -127,10 +137,23 @@ QImage *DccImageProvider::cacheImage(const QString &id, const QSize &thumbnailSi
 QImage *DccImageProvider::cacheImage(const QString &id, const QSize &thumbnailSize, CacheImageResponse *response, const QSize &requestedSize)
 {
     QMutexLocker<QMutex> locker(&m_mutex);
-    if (m_cache.contains(id)) {
-        return m_cache.object(id);
+
+    // Use size as part of cache key to avoid different size images interfering with each other
+    QString cacheKey = id;
+
+    // Determine the size to use for cache key
+    QSize cacheSize = requestedSize.isValid() ? requestedSize : thumbnailSize;
+    if (!cacheSize.isValid() || cacheSize.width() <= 0 || cacheSize.height() <= 0) {
+        cacheSize = THUMBNAIL_ICON_SIZE;
     }
-    m_threadPool->start(new ImageTask(id, thumbnailSize, this, response, requestedSize));
+
+    // Add size to cache key
+    cacheKey = QString("%1%2%3x%4").arg(id).arg(CACHE_KEY_SIZE_SEPARATOR).arg(cacheSize.width()).arg(cacheSize.height());
+
+    if (m_cache.contains(cacheKey)) {
+        return m_cache.object(cacheKey);
+    }
+    m_threadPool->start(new ImageTask(cacheKey, thumbnailSize, this, response, requestedSize));
     return nullptr;
 }
 
