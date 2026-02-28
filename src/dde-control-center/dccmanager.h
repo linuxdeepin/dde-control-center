@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCMANAGER_H
@@ -103,7 +103,7 @@ private Q_SLOTS:
     void waitShowPage(const QString &url, const QDBusMessage message);
     void clearShowParam();
     void tryShow();
-    void doShowPage(DccObject *obj, const QString &cmd);
+    void doShowPage(QPointer<DccObject> obj, const QString &cmd);
     void updateModuleConfig(const QString &key);
     void onVisible(bool visible);
     void onObjectAdded(DccObject *obj);

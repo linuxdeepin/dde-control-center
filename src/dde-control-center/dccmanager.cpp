@@ -250,12 +250,12 @@ void DccManager::showPage(const QString &url)
 
 void DccManager::showPage(DccObject *obj)
 {
-    QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, obj, QString());
+    QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, QPointer<DccObject>(obj), QString());
 }
 
 void DccManager::showPage(DccObject *obj, const QString &cmd)
 {
-    QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, obj, cmd);
+    QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, QPointer<DccObject>(obj), cmd);
 }
 
 void DccManager::toBack()
@@ -732,7 +732,7 @@ void DccManager::tryShow()
     }
 }
 
-void DccManager::doShowPage(DccObject *obj, const QString &cmd)
+void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
 {
     if (m_plugins->isDeleting() || !obj) {
         return;
@@ -946,10 +946,14 @@ void DccManager::onObjectRemoved(DccObject *obj)
         m_searchModel->removeSearchData(o, QString());
         objs.append(o->getChildren());
     }
+    auto it = std::find(m_triggeredObjects.begin(), m_triggeredObjects.end(), obj);
+    if (it != m_triggeredObjects.end()) {
+        m_triggeredObjects.erase(it, m_triggeredObjects.end());
+    }
     DccObject *parentObj = m_root;
     for (auto &&o : m_currentObjects) {
         if (o == obj) {
-            doShowPage(parentObj, QString());
+            doShowPage(QPointer<DccObject>(parentObj), QString());
             break;
         }
         parentObj = o;
