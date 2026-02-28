@@ -170,6 +170,13 @@ DccObject {
                                 }
 
                                 edit.keys = ""
+                                var win = DccApp.mainWindow()
+                                if (win) {
+                                    if (win.forceActiveAppearance !== undefined)
+                                        win.forceActiveAppearance = true
+                                    if (win.pendingReactivation !== undefined)
+                                        win.pendingReactivation = true
+                                }
                                 dccData.updateKey(model.id, model.type)
                                 shortcutView.editItem = edit
                                 shortcutView.conflictText = conflictText
@@ -179,12 +186,10 @@ DccObject {
                                 dialogloader.active = true
                             }
                             onRequestDeleteKeys: {
-                                console.log("onRequestDeleteKeys", model.id)
                                 dccData.deleteCustomShortcut(model.id)
                             }
 
                             function modifyShortcut(accels) {
-                                console.log("modifyShortcut", model.id, accels, model.type)
                                 if (accels.length > 0)
                                     dccData.modifyShortcut(model.id, accels, model.type)
                             }
@@ -327,18 +332,46 @@ DccObject {
                 Connections {
                     target: dccData
                     function onRequestRestore() {
+                        var win = DccApp.mainWindow()
+                        if (win) {
+                            if (win.forceActiveAppearance !== undefined)
+                                win.forceActiveAppearance = false
+                            if (win.pendingReactivation !== undefined)
+                                win.pendingReactivation = false
+                        }
                         shortcutView.restoreShortcutView()
                     }
                     function onRequestClear() {
+                        var win = DccApp.mainWindow()
+                        if (win) {
+                            if (win.forceActiveAppearance !== undefined)
+                                win.forceActiveAppearance = false
+                            if (win.pendingReactivation !== undefined)
+                                win.pendingReactivation = false
+                        }
                         shortcutView.editItem.clearShortcut()
                     }
                     function onKeyConflicted(oldAccels, newAccels) {
+                        var win = DccApp.mainWindow()
+                        if (win) {
+                            if (win.forceActiveAppearance !== undefined)
+                                win.forceActiveAppearance = false
+                            if (win.pendingReactivation !== undefined)
+                                win.pendingReactivation = false
+                        }
                         if (shortcutView.conflictText)
                             shortcutView.conflictText.visible = true
 
                         shortcutSettingsBody.conflictAccels = newAccels
                     }
                     function onKeyDone(accels) {
+                        var win = DccApp.mainWindow()
+                        if (win) {
+                            if (win.forceActiveAppearance !== undefined)
+                                win.forceActiveAppearance = false
+                            if (win.pendingReactivation !== undefined)
+                                win.pendingReactivation = false
+                        }
                         if (!shortcutView.editItem)
                             return
                         shortcutView.editItem.focus = false

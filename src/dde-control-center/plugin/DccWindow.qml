@@ -21,6 +21,10 @@ D.ApplicationWindow {
     property string appLicense: "GPL-3.0-or-later"
     property int currentIndex: DccWindow.PageIndex.LoadIndex
     property var sidebarPage: null
+    // 在全局快捷键抓取期间临时保持窗口激活外观
+    property bool forceActiveAppearance: false
+    // 本次抓取期间是否还需要尝试一次重新激活
+    property bool pendingReactivation: false
 
     minimumWidth: 520
     minimumHeight: 400
@@ -29,6 +33,16 @@ D.ApplicationWindow {
     modality: Qt.ApplicationModal
     color: "transparent"
     D.DWindow.enabled: true
+    onActiveChanged: if (!active && forceActiveAppearance && pendingReactivation) {
+        pendingReactivation = false
+        requestActivateTimer.start()
+    }
+    Timer {
+        id: requestActivateTimer
+        interval: 1
+        repeat: false
+        onTriggered: if (mainWindow.forceActiveAppearance) mainWindow.requestActivate()
+    }
 
     MouseArea {
         anchors.fill: parent
