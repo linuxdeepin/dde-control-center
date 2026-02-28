@@ -33,7 +33,7 @@ DccObject {
                 }
 
                 Label {
-                    horizontalAlignment: Text.AlignLeft
+                    Layout.alignment: Qt.AlignHCenter
                     text: dccData.systemInfoMode().systemCopyright
                     horizontalAlignment: Text.AlignHCenter
                     wrapMode: Text.Wrap
