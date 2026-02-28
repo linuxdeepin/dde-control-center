@@ -35,6 +35,9 @@ DccObject {
                 Label {
                     horizontalAlignment: Text.AlignLeft
                     text: dccData.systemInfoMode().systemCopyright
+                    horizontalAlignment: Text.AlignHCenter
+                    wrapMode: Text.Wrap
+                    Layout.preferredWidth: parent ? parent.width : implicitWidth
                 }
             }
         }
@@ -57,6 +60,9 @@ DccObject {
                 Layout.alignment: Qt.AlignHCenter
                 text: dccData.systemInfoMode().systemCopyright
                 Layout.bottomMargin: 25
+                horizontalAlignment: Text.AlignHCenter
+                wrapMode: Text.Wrap
+                Layout.preferredWidth: parent ? parent.width : implicitWidth
             }
         }
     }
