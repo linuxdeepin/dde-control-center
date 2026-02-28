@@ -93,8 +93,10 @@ D.ApplicationWindow {
             visible: mainWindow.currentIndex === DccWindow.PageIndex.SecondIndex
             icon {
                 name: "sidebar"
-                height: 16
-                width: 16
+                // Fix: multiply by devicePixelRatio to compensate division in ImageProvider
+                // See: dquickimageprovider.cpp boundingSize = requestedSize / devicePixelRatio
+                height: 16 * Screen.devicePixelRatio
+                width: 16 * Screen.devicePixelRatio
             }
             background: Rectangle {
                 property D.Palette pressedColor: D.Palette {
@@ -148,8 +150,8 @@ D.ApplicationWindow {
                 onClicked: DccApp.toBack()
                 icon {
                     name: "arrow_ordinary_left"
-                    height: 12
-                    width: 12
+                    height: 12 * Screen.devicePixelRatio
+                    width: 12 * Screen.devicePixelRatio
                 }
                 background: Rectangle {
                     property D.Palette pressedColor: D.Palette {

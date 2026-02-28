@@ -9,8 +9,8 @@ D.ActionButton {
     checked: true
     activeFocusOnTab: false
     icon {
-        width: size
-        height: size
+        width: size * Screen.devicePixelRatio
+        height: size * Screen.devicePixelRatio
         name: checked ? "item_checked" : "item_unchecked"
     }
 }
