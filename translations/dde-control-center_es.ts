@@ -513,7 +513,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Connect</source>
-        <translation>Conectado</translation>
+        <translation>Conectar</translation>
     </message>
     <message>
         <source>Send Files</source>
