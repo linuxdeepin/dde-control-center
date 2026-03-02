@@ -1,3 +1,13 @@
+dde-control-center (6.1.74) unstable; urgency=medium
+
+  * Revert "fix: Optimized text display position at progress bar edges"
+  * fix: prevent dangling pointer in page navigation
+  * fix(systeminfo): align copyright text center in systemLogo
+  * fix(systeminfo): align copyright text center and enable word wrap
+  * fix: defer showing repeat days edit page
+
+ -- zhangkun <zhangkun2@uniontech.com>  Mon, 02 Mar 2026 10:52:37 +0800
+
 dde-control-center (6.1.73) unstable; urgency=medium
 
   * fix: Fix incomplete display of processor text on the page
