@@ -69,6 +69,7 @@ DccManager::DccManager(QObject *parent)
     m_root->setCanSearch(false);
     m_currentObjects.append(m_root);
     onObjectAdded(m_root);
+    m_objMap.insert(m_root->name(), { m_root });
 
     initConfig();
     connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject, Qt::QueuedConnection);
@@ -188,6 +189,10 @@ void DccManager::addObject(DccObject *obj)
     objs.append(obj);
     while (!objs.isEmpty()) {
         DccObject *o = objs.takeFirst();
+        if (!o->name().isEmpty()) {
+            m_objMap[o->name()].append(o);
+            connect(o, &DccObject::destroyed, this, &DccManager::onDccObjectDestroyed, Qt::UniqueConnection);
+        }
         if (o->parentName().isEmpty()) {
             DccObject::Private::FromObject(m_noParentObjects)->addChild(o, false);
         } else {
@@ -386,6 +391,29 @@ QString DccManager::GetAllModule()
     return QString();
 }
 
+void DccManager::onDccObjectDestroyed()
+{
+    if (m_plugins->isDeleting()) {
+        return;
+    }
+    QObject *o = sender();
+    if (!o) {
+        return;
+    }
+    const QString &name = o->objectName();
+    if (name.isEmpty()) {
+        return;
+    }
+    auto it = m_objMap.find(name);
+    if (it == m_objMap.end()) {
+        return;
+    }
+    it->removeOne(o);
+    if (it->isEmpty()) {
+        m_objMap.erase(it);
+    }
+}
+
 QAbstractItemModel *DccManager::navModel() const
 {
     return m_navModel;
@@ -449,12 +477,20 @@ bool DccManager::contains(const QSet<QString> &urls, const DccObject *obj)
     return false;
 }
 
-// url需要在调用处保证非空
-bool DccManager::isMatch(const QString &url, const DccObject *obj)
+QStringList DccManager::splitUrl(const QString &url, QString &targetName)
+{
+    QStringList paths = url.split("/", Qt::SkipEmptyParts);
+    if (!paths.isEmpty()) {
+        targetName = paths.takeLast();
+    }
+    return paths;
+}
+
+bool DccManager::isMatchByName(const QString &url, const QString &name)
 {
     Q_ASSERT(!url.isEmpty());
 
-    QString objPath = "/" + obj->parentName() + "/" + obj->name();
+    QString objPath = "/" + name;
     int urlPos = url.size() - 1;
     int objPos = objPath.size() - 1;
     bool inWildcard = false; //  包含*
@@ -484,10 +520,16 @@ bool DccManager::isMatch(const QString &url, const DccObject *obj)
     return true;
 }
 
-bool DccManager::isEqual(const QString &url, const DccObject *obj)
+// url需要在调用处保证非空
+bool DccManager::isMatch(const QString &url, const DccObject *obj)
 {
-    QString path = "/" + url;
-    QString objPath = "/" + obj->parentName() + "/" + obj->name();
+    return isMatchByName(url, obj->parentName() + "/" + obj->name());
+}
+
+bool DccManager::isEqualByName(const QString &url, const QString &name)
+{
+    QStringView path("/" + url);
+    QStringView objPath("/" + name);
     for (auto it = path.rbegin(), itObj = objPath.rbegin(); it != path.rend() && itObj != objPath.rend(); ++it, ++itObj) {
         if (*it != *itObj) {
             return false;
@@ -496,59 +538,73 @@ bool DccManager::isEqual(const QString &url, const DccObject *obj)
     return true;
 }
 
-DccObject *DccManager::findObject(const QString &url, bool onlyRoot)
+bool DccManager::isEqual(const QString &url, const DccObject *obj)
+{
+    return isEqualByName(url, obj->parentName() + "/" + obj->name());
+}
+
+DccObject *DccManager::findObject(const QString &url)
 {
     if (!m_root || url.isEmpty()) {
         return nullptr;
     }
-    QString path = url;
-    if (path.startsWith("/")) {
-        path = path.mid(1);
+    QString targetName;
+    QStringList paths = splitUrl(url, targetName);
+    if (targetName.isEmpty()) {
+        return nullptr;
     }
-    QVector<QVector<DccObject *>> objs;
-    objs.append({ m_root });
-    if (!onlyRoot) {
-        objs.append(m_hideObjects->getChildren());
+    auto it = m_objMap.find(targetName);
+    if (it == m_objMap.end()) {
+        return nullptr;
     }
-    while (!objs.isEmpty()) {
-        QVector<DccObject *> subObjs = objs.takeFirst();
-        while (!subObjs.isEmpty()) {
-            DccObject *obj = subObjs.takeFirst();
-            if (isEqual(path, obj)) {
-                return obj;
-            }
-            subObjs.append(obj->getChildren());
+    if (paths.isEmpty()) {
+        return it.value().first();
+    }
+    QString parentPath = paths.join("/");
+    for (const auto &obj : it.value()) {
+        if (isEqualByName(parentPath, obj->parentName())) {
+            return obj;
         }
     }
     return nullptr;
 }
 
-QVector<DccObject *> DccManager::findObjects(const QString &url, bool onlyRoot, bool one)
+QVector<DccObject *> DccManager::findObjects(const QString &url, bool one)
 {
     if (!m_root || url.isEmpty()) {
         return {};
     }
-    QString path = url;
-    if (path.startsWith("/")) {
-        path = path.mid(1);
+    QString targetName;
+    QStringList paths = splitUrl(url, targetName);
+    if (targetName.isEmpty()) {
+        return {};
     }
     QVector<DccObject *> rets;
-    QVector<QVector<DccObject *>> objs;
-    objs.append({ m_root });
-    if (!onlyRoot) {
-        objs.append(m_hideObjects->getChildren());
-    }
-    while (!objs.isEmpty()) {
-        QVector<DccObject *> subObjs = objs.takeFirst();
-        while (!subObjs.isEmpty()) {
-            DccObject *obj = subObjs.takeFirst();
-            if (isMatch(path, obj)) {
-                rets.append(obj);
-                if (one) {
-                    return rets;
-                }
+    QVector<DccObject *> objs;
+    if (!targetName.contains("*")) {
+        auto it = m_objMap.find(targetName);
+        if (it == m_objMap.end()) {
+            return {};
+        }
+        objs = it.value();
+    } else {
+        targetName = "/" + targetName;
+        for (auto it = m_objMap.begin(); it != m_objMap.end(); it++) {
+            if (isMatchByName(targetName, it.key())) {
+                objs.append(it.value());
             }
-            subObjs.append(obj->getChildren());
+        }
+    }
+    if (paths.isEmpty()) {
+        return objs;
+    }
+    QString parentPath = "/" + paths.join("/");
+    for (auto &&obj : objs) {
+        if (isMatchByName(parentPath, obj->parentName())) {
+            rets.append(obj);
+            if (one) {
+                break;
+            }
         }
     }
     return rets;
@@ -671,7 +727,7 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
         int i = url.indexOf('?');
         cmd = i != -1 ? url.mid(i + 1) : QString();
         QString path = url.mid(0, i).split('/', Qt::SkipEmptyParts).join('/'); // 移除多余的/
-        auto objs = findObjects(path, true, true);
+        auto objs = findObjects(path, true);
         obj = objs.isEmpty() ? nullptr : objs.first();
         if (obj) {
             DccManager::showPage(obj, cmd);
@@ -717,7 +773,7 @@ void DccManager::tryShow()
     int i = m_showUrl.indexOf('?');
     QString cmd = i != -1 ? m_showUrl.mid(i + 1) : QString();
     QString path = m_showUrl.mid(0, i).split('/', Qt::SkipEmptyParts).join('/'); // 移除多余的/
-    DccObject *obj = findObject(path, true);
+    DccObject *obj = findObject(path);
     if (obj) {
         showPage(obj, cmd);
         if (m_showMessage.type() != QDBusMessage::InvalidMessage) {
@@ -1002,6 +1058,7 @@ void DccManager::clearData()
 
     m_window->hide();
     m_window->close();
+    m_objMap.clear();
     // doShowPage(m_root, QString());
 
 #ifdef DCC_ENABLE_MEMORY_MANAGEMENT

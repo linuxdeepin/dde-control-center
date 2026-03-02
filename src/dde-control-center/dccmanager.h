@@ -81,6 +81,7 @@ public Q_SLOTS:
     bool stop(const QString &json);
     bool action(const QString &json);
     QString GetAllModule();
+    void onDccObjectDestroyed();
 
 Q_SIGNALS:
     void activeItemChanged(QQuickItem *item, bool isIndicatorShown);
@@ -89,10 +90,13 @@ Q_SIGNALS:
 private:
     void initConfig();
     bool contains(const QSet<QString> &urls, const DccObject *obj);
+    QStringList splitUrl(const QString &url, QString &targetName);
+    bool isMatchByName(const QString &url, const QString &name);
     bool isMatch(const QString &url, const DccObject *obj);
+    bool isEqualByName(const QString &url, const QString &name);
     bool isEqual(const QString &url, const DccObject *obj);
-    DccObject *findObject(const QString &url, bool onlyRoot = false);
-    QVector<DccObject *> findObjects(const QString &url, bool onlyRoot = false, bool one = false);
+    DccObject *findObject(const QString &url);
+    QVector<DccObject *> findObjects(const QString &url, bool one = false);
     const DccObject *findParent(const DccObject *obj);
     bool eventFilter(QObject *watched, QEvent *event) override;
     bool isIndicatorShown(const QString &cmd) const;
@@ -139,6 +143,8 @@ private:
     QTimer *m_showTimer;
     QString m_showUrl;
     QDBusMessage m_showMessage;
+
+    QHash<QString, QVector<DccObject *>> m_objMap; // 映射对象名称到对象指针列表，用于快速查找
 };
 } // namespace dccV25
 #endif // DCCMANAGER_H
