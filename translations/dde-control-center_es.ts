@@ -509,7 +509,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BlueToothDeviceListView</name>
     <message>
         <source>Disconnect</source>
-        <translation>Desconectado</translation>
+        <translation>Desconectar</translation>
     </message>
     <message>
         <source>Connect</source>
