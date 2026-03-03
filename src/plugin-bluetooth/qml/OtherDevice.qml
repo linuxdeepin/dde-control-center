@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -120,8 +120,8 @@ DccObject{
                 Layout.alignment: Qt.AlignRight
                 running: model.discovering
                 visible: model.discovering
-                implicitWidth: 32
-                implicitHeight: 32                
+                implicitWidth: 20
+                implicitHeight: 20
             }
         }
 
