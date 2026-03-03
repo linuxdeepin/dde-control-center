@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -11,6 +11,7 @@ import org.deepin.dcc 1.0
 DccObject {
     id: root
     property var screen: dccData.virtualScreens[0]
+    property var activeDialogs: []
     property var scaleModelConst: [{
             "text": qsTr("100%"),
             "value": 1.0
@@ -107,12 +108,35 @@ DccObject {
         }
         return getQtScreen(dccData.primaryScreen)
     }
+    function closeInvalidDialogs() {
+        var validScreens = dccData.virtualScreens
+        var validDialogs = []
+        for (var i = 0; i < activeDialogs.length; i++) {
+            var dialog = activeDialogs[i]
+            var screenExists = false
+            for (var j = 0; j < validScreens.length; j++) {
+                if (dialog.screen === validScreens[j]) {
+                    screenExists = true
+                    break
+                }
+            }
+            if (screenExists) {
+                validDialogs.push(dialog)
+            } else {
+                // Ensure save is false so that onClosing will reset the settings
+                dialog.save = false
+                dialog.close()
+            }
+        }
+        activeDialogs = validDialogs
+    }
     Connections {
         target: dccData
         function onVirtualScreensChanged() {
             if (!dccData.virtualScreens.includes(screen)) {
                 screen = dccData.virtualScreens[0]
             }
+            closeInvalidDialogs()
         }
     }
     Component {
@@ -493,9 +517,11 @@ DccObject {
             onTriggered: {
                 // Check if parentItem is still valid and visible before creating dialog
                 if (targetScreen && parentItem && parentItem.visible) {
-                    timeoutDialog.createObject(parentItem, {
+                    var dialog = timeoutDialog.createObject(parentItem, {
                         "screen": targetScreen
-                    }).show()
+                    })
+                    dialog.show()
+                    root.activeDialogs.push(dialog)
                 }
                 // Clear references to avoid stale object reuse
                 targetScreen = null
