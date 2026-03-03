@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "searchmodel.h"
@@ -23,9 +23,11 @@ struct SearchData
     const DccObject *obj;
     const DccObject *ancestors;
     QList<int> weight;
+    unsigned int matchScore; // 匹配度，越小匹配度越高，排序越靠前
 
     explicit SearchData(const DccObject *o)
         : obj(o)
+        , matchScore(0)
     {
         ancestors = o;
         while (ancestors) {
@@ -206,6 +208,8 @@ QVariant SearchSourceModel::data(const QModelIndex &index, int role) const
         return data->sourceText();
     case SearchModel::SearchWeightRole:
         return QVariant::fromValue(data->weight);
+    case SearchModel::SearchMatchScoreRole:
+        return QVariant::fromValue(data->matchScore);
     default:
         break;
     }
@@ -225,12 +229,14 @@ bool SearchSourceModel::setData(const QModelIndex &index, const QVariant &value,
         const QString &v = value.toString();
         if (v != data->display) {
             data->display = value.toString();
-            // Q_EMIT dataChanged(index, index, { Qt::DisplayRole });
         }
         return true;
     }
     case SearchModel::SearchPlainTextRole:
         data->plainText = value.toString();
+        return true;
+    case SearchModel::SearchMatchScoreRole:
+        data->matchScore = value.toUInt();
         return true;
     default:
         break;
@@ -241,10 +247,17 @@ bool SearchSourceModel::setData(const QModelIndex &index, const QVariant &value,
 //////////////////////////////////////////////////////
 SearchModel::SearchModel(QObject *parent)
     : QSortFilterProxyModel(parent)
+    , m_timer(new QTimer(this))
 {
     setFilterRole(SearchTextRole);
-    setSortRole(SearchWeightRole);
+    setSortRole(SearchMatchScoreRole);
+    setDynamicSortFilter(false);
+    sort(0);
+
     setSourceModel(new SearchSourceModel(this));
+    connect(m_timer, &QTimer::timeout, this, &SearchModel::doSort);
+    m_timer->setSingleShot(true);
+    m_timer->setInterval(100);
 }
 
 QHash<int, QByteArray> SearchModel::roleNames() const
@@ -278,6 +291,11 @@ void SearchModel::addSearchData(DccObject *obj, const QString &text, const QStri
 void SearchModel::removeSearchData(const DccObject *obj, const QString &text)
 {
     static_cast<SearchSourceModel *>(sourceModel())->removeSearchData(obj, text);
+}
+
+void SearchModel::doSort()
+{
+    sort(0);
 }
 
 bool SearchModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
@@ -338,6 +356,21 @@ bool SearchModel::filterAcceptsRow(int source_row, const QModelIndex &source_par
             return false;
         }
     }
+    unsigned int leftCnt = 0;  // 开头未匹配字符
+    unsigned int midCnt = 0;   // 中间未匹配字符，相关度影响最大
+    unsigned int rightCnt = 0; // 末尾未匹配字符，相关度影响最小
+    if (!findIndex.isEmpty()) {
+        leftCnt = findIndex.first();
+        rightCnt = text.length() - findIndex.last() - 1;
+        for (auto it = findIndex.begin() + 1; it != findIndex.end(); ++it) {
+            midCnt = midCnt * 10 + ((*it) - (*(it - 1))) - 1;
+        }
+        if (midCnt > 0x0000FFFF) {
+            midCnt = 0x0000FFFF;
+        }
+    }
+    unsigned int matchScore = rightCnt + leftCnt * 0x00000100 + midCnt * 0x00010000;
+
     QString display;
     int i = 0;
     bool noEnd = false;
@@ -374,11 +407,24 @@ bool SearchModel::filterAcceptsRow(int source_row, const QModelIndex &source_par
     displays.takeLast();
     displays.append(text);
     sourceModel()->setData(sourceIndex, displays.join("/"), SearchPlainTextRole);
+    sourceModel()->setData(sourceIndex, matchScore, SearchMatchScoreRole);
+
     auto currentIndex = mapFromSource(sourceIndex);
     if (currentIndex.isValid()) {
         Q_EMIT const_cast<SearchModel *>(this)->dataChanged(currentIndex, currentIndex, { Qt::DisplayRole, SearchIsEndRole });
+        m_timer->start(); // 数据库更新后延时排序并防抖
     }
     return true;
+}
+
+bool SearchModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
+{
+    unsigned int left = source_left.data(SearchMatchScoreRole).toUInt();
+    unsigned int right = source_right.data(SearchMatchScoreRole).toUInt();
+    if (left == right) {
+        return source_left.data(SearchPlainTextRole).toString() < source_right.data(SearchPlainTextRole).toString();
+    }
+    return left < right;
 }
 
 } // namespace dccV25
