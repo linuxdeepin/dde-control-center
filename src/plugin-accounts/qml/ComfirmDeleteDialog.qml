@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
@@ -26,6 +26,8 @@ D.DialogWindow {
         }
         CheckBox {
             id: deleteHomeCheckbox
+            Layout.alignment: Qt.AlignHCenter
+            font: D.DTK.fontManager.t6
             checked: true // default checked
             text: qsTr("Delete account directory")
         }
@@ -33,7 +35,7 @@ D.DialogWindow {
         RowLayout {
             Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
             Layout.bottomMargin: 10
-            Layout.topMargin: 10
+            Layout.topMargin: 30
             Layout.fillWidth: true
             Button {
                 text: qsTr("Cancel")
