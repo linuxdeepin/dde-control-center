@@ -22,9 +22,6 @@ DccObject {
         id: fm
     }
 
-    function stopEditing() {
-        languageListTiltle.isEditing = false
-    }
     // 语言列表抬头
     DccObject {
         id: languageListTiltle
@@ -348,17 +345,8 @@ DccObject {
                         regionWndow.show()
                     }
 
-                    stopEditing()
+                    languageListTiltle.isEditing = false
                 }
-            }
-
-            function clicked() {
-                if (!regionWndow.isVisible()) {
-                    regionWndow.mousePosition = regionIcon.mapToGlobal(regionIcon.x - regionWndow.implicitWidth, 
-                                                                       regionIcon.y + rowlayout.implicitHeight)
-                    regionWndow.show()
-                }
-                stopEditing()
             }
         }
 
@@ -444,12 +432,10 @@ DccObject {
                     }
                 }
 
-                onClicked: clicked()
-            }
-
-            function clicked() {
-                regionDialog.show()
-                stopEditing()
+                onClicked: {
+                    regionDialog.show()
+                    languageListTiltle.isEditing = false
+                }
             }
         }
 
