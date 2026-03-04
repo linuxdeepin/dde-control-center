@@ -27,7 +27,7 @@ D.ApplicationWindow {
     visible: false
     flags: Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint
     modality: Qt.ApplicationModal
-    color: "transparent"
+    color: currentIndex === DccWindow.PageIndex.LoadIndex ? palette.window : "transparent"
     D.DWindow.enabled: true
 
     MouseArea {
@@ -247,35 +247,29 @@ D.ApplicationWindow {
             }
             HomePage {
                 id: homePage
-                visible: false
             }
             SecondPage {
                 id: secondPage
-                // visible: false
                 Component.onCompleted: mainWindow.sidebarPage = this
             }
             Connections {
                 target: DccApp
                 function onActiveObjectChanged(activeObject) {
-                    if (stackView.currentIndex !== DccWindow.PageIndex.LoadIndex && null === DccApp.activeObject) {
-                        homePage.contentVisible = true
-                        secondPage.visible = true
-                        mainWindow.sidebarPage = null
-                        stackView.currentIndex = DccWindow.PageIndex.LoadIndex
-                        mainWindow.currentIndex = DccWindow.PageIndex.LoadIndex
-                    } else if (stackView.currentIndex !== DccWindow.PageIndex.HomeIndex && DccApp.root === DccApp.activeObject) {
-                        homePage.contentVisible = true
-                        secondPage.visible = true
-                        mainWindow.sidebarPage = null
-                        stackView.currentIndex = DccWindow.PageIndex.HomeIndex
-                        mainWindow.currentIndex = DccWindow.PageIndex.HomeIndex
-                    } else if (stackView.currentIndex !== DccWindow.PageIndex.SecondIndex && DccApp.root !== DccApp.activeObject) {
-                        homePage.contentVisible = true
-                        secondPage.visible = true
-                        mainWindow.sidebarPage = secondPage
-                        stackView.currentIndex = DccWindow.PageIndex.SecondIndex
-                        mainWindow.currentIndex = DccWindow.PageIndex.SecondIndex
-                    }
+                    Qt.callLater(function () {
+                        if (stackView.currentIndex !== DccWindow.PageIndex.LoadIndex && null === DccApp.activeObject) {
+                            mainWindow.sidebarPage = null
+                            stackView.currentIndex = DccWindow.PageIndex.LoadIndex
+                            mainWindow.currentIndex = DccWindow.PageIndex.LoadIndex
+                        } else if (stackView.currentIndex !== DccWindow.PageIndex.HomeIndex && DccApp.root === DccApp.activeObject) {
+                            mainWindow.sidebarPage = null
+                            stackView.currentIndex = DccWindow.PageIndex.HomeIndex
+                            mainWindow.currentIndex = DccWindow.PageIndex.HomeIndex
+                        } else if (stackView.currentIndex !== DccWindow.PageIndex.SecondIndex && DccApp.root !== DccApp.activeObject) {
+                            mainWindow.sidebarPage = secondPage
+                            stackView.currentIndex = DccWindow.PageIndex.SecondIndex
+                            mainWindow.currentIndex = DccWindow.PageIndex.SecondIndex
+                        }
+                    })
                 }
             }
             Component.onCompleted: {
