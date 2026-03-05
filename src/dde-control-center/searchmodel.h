@@ -17,10 +17,9 @@ class SearchModel : public QSortFilterProxyModel
 public:
     explicit SearchModel(QObject *parent = nullptr);
 
-    enum DccSearchRole { SearchUrlRole = Qt::UserRole + 300, SearchPlainTextRole, SearchIsEndRole, SearchTextRole, SearchWeightRole, SearchDataRole, SearchMatchScoreRole };
+    enum DccSearchRole { SearchUrlRole = Qt::UserRole + 300, SearchPlainTextRole, SearchTextRole, SearchWeightRole, SearchDataRole, SearchMatchScoreRole };
 
     QHash<int, QByteArray> roleNames() const override;
-    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
 public Q_SLOTS:
     void addSearchData(DccObject *obj, const QString &text, const QString &url);
