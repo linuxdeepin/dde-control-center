@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QThread>
@@ -13,6 +13,7 @@
 #include <QDir>
 #include <QHash>
 #include <QtConcurrent/QtConcurrent>
+#include <algorithm>
 
 #include "wallpaperprovider.h"
 #include "operation/personalizationdbusproxy.h"
@@ -28,6 +29,27 @@ Q_LOGGING_CATEGORY(DdcPersonalizationWallpaperWorker, "dcc-personalization-wallp
 #define CHECK_RETURN_RUNNING \
     if (Q_UNLIKELY(!m_running.load(std::memory_order_acquire))) \
         return;
+
+// Solid color sort order: 从浅到深、从暖到冷 (light to dark, warm to cold)
+static int solidColorSortOrder(const QString &path)
+{
+    const QString fileName = QFileInfo(QUrl(path).toLocalFile().isEmpty() ? path : QUrl(path).toLocalFile()).baseName().toLower();
+    // Exact filename stem matching, ordered light-to-dark then warm-to-cold
+    const QList<QString> order = {
+        "mono-orange",
+        "mono-dark-red",
+        "mono-orange-red",
+        "mono-rose-red",
+        "mono-light-green",
+        "mono-blue",
+        "mono-blue-green",
+        "mono-dark-green",
+        "mono-blue-purple",
+        "mono-black"
+    };
+    int idx = order.indexOf(fileName);
+    return (idx >= 0) ? idx : order.size();
+}
 
 WallpaperProvider::WallpaperProvider(PersonalizationDBusProxy *PersonalizationDBusProxy, PersonalizationModel *model, QObject *parent) : QObject(parent)
 {
@@ -337,17 +359,12 @@ void InterfaceWorker::getSolodBackground()
         if (ptr)
             wallpapers.append(ptr);
     }
-    if (wallpapers.size() > 4) {
-        for (int i = 0; i < 4 && i < wallpapers.size(); ++i) {
-            if (wallpapers[i]->url.contains("mono-black")) {
-                WallpaperItemPtr blackItem = wallpapers.takeAt(i);
-                wallpapers.insert(4, blackItem);
-                break;
-            }
-        }
-        for (int i = 0; i < wallpapers.size(); ++i) {
-            wallpapers[i]->lastModifiedTime = wallpapers.size() - i;
-        }
+    // Sort: 从浅到深、从暖到冷 (light to dark, warm to cold)
+    std::stable_sort(wallpapers.begin(), wallpapers.end(), [](const WallpaperItemPtr &a, const WallpaperItemPtr &b) {
+        return solidColorSortOrder(a->url) < solidColorSortOrder(b->url);
+    });
+    for (int i = 0; i < wallpapers.size(); ++i) {
+        wallpapers[i]->lastModifiedTime = wallpapers.size() - i;
     }
     Q_EMIT pushBackground(wallpapers, WallpaperType::Wallpaper_Solid);
 }
