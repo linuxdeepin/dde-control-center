@@ -265,22 +265,7 @@ QHash<int, QByteArray> SearchModel::roleNames() const
     QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
     names[SearchUrlRole] = "url";
     names[SearchPlainTextRole] = "plainText";
-    names[SearchIsEndRole] = "isEnd";
     return names;
-}
-
-QVariant SearchModel::data(const QModelIndex &index, int role) const
-{
-    if (role == SearchIsEndRole) {
-        int row = index.row();
-        if (row == rowCount() - 1) {
-            return false;
-        }
-        const SearchData *curentData = QSortFilterProxyModel::data(index, SearchDataRole).value<const SearchData *>();
-        const SearchData *nextData = QSortFilterProxyModel::data(this->index(row + 1, 0), SearchDataRole).value<const SearchData *>();
-        return curentData->ancestors != nextData->ancestors;
-    }
-    return QSortFilterProxyModel::data(index, role);
 }
 
 void SearchModel::addSearchData(DccObject *obj, const QString &text, const QString &url)
@@ -411,7 +396,7 @@ bool SearchModel::filterAcceptsRow(int source_row, const QModelIndex &source_par
 
     auto currentIndex = mapFromSource(sourceIndex);
     if (currentIndex.isValid()) {
-        Q_EMIT const_cast<SearchModel *>(this)->dataChanged(currentIndex, currentIndex, { Qt::DisplayRole, SearchIsEndRole });
+        Q_EMIT const_cast<SearchModel *>(this)->dataChanged(currentIndex, currentIndex, { Qt::DisplayRole });
         m_timer->start(); // 数据库更新后延时排序并防抖
     }
     return true;
