@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -32,7 +32,7 @@ Control {
                     Qt.rgba(0, 0, 0, 0.08)
                 } else if (mouseArea.pressed) {
                     Qt.rgba(0, 0, 0, 0.10)
-                } else if (hovered) {
+                } else if (mouseArea.containsMouse) {
                     Qt.rgba(0, 0, 0, 0.05)
                 } else {
                     palette.window
