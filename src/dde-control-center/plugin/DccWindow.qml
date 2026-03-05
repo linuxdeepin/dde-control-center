@@ -81,6 +81,7 @@ D.ApplicationWindow {
         focus: true
         leftContent: D.ActionButton {
             id: sidebarButton
+            opacity: Window.window.active ? 1 : (D.DTK.themeType === D.ApplicationHelper.DarkType ? 0.6 : 0.4)
             palette.windowText: D.ColorSelector.textColor
             anchors {
                 verticalCenter: parent.verticalCenter
