@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Window 2.15
@@ -93,13 +93,15 @@ Item {
                 z: 999
                 acceptedButtons: Qt.LeftButton
                 propagateComposedEvents: true
-                onPressed: function(mouse) {
+                onPressed: function (mouse) {
                     list.forceActiveFocus()
                     mouse.accepted = false
                 }
             }
 
-            ScrollBar.vertical: ScrollBar { width: 10 }
+            ScrollBar.vertical: ScrollBar {
+                width: 10
+            }
 
             Keys.enabled: true
             Keys.onPressed: function (event) {
@@ -291,7 +293,7 @@ Item {
     }
     function updateRightView() {
         var activeObj = DccApp.activeObject
-        if (activeObj === dccObj) {
+        if (!activeObj || activeObj === dccObj) {
             return
         }
         if (activeObj.page === null) {

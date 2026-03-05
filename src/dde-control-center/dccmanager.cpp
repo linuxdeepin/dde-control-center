@@ -47,7 +47,7 @@ const QString ControlCenterGroupName = "com.deepin.dde-grand-search.group.dde-co
 DccManager::DccManager(QObject *parent)
     : DccApp(parent)
     , m_root(new DccObject())
-    , m_activeObject(m_root)
+    , m_activeObject(nullptr)
     , m_hideObjects(new DccObject(this))
     , m_noAddObjects(new DccObject(this))
     , m_noParentObjects(new DccObject(this))
@@ -74,7 +74,9 @@ DccManager::DccManager(QObject *parent)
     initConfig();
     connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject, Qt::QueuedConnection);
     connect(m_plugins, &PluginManager::loadAllFinished, this, &DccManager::tryShow, Qt::QueuedConnection);
-    waitShowPage("system", QDBusMessage());
+    m_showTimer = new QTimer(this);
+    connect(m_showTimer, &QTimer::timeout, this, &DccManager::tryShow);
+    m_showTimer->start(5000); // 防止插件卡死不显示界面
 }
 
 DccManager::~DccManager()
@@ -737,8 +739,8 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
             if (!m_showTimer) {
                 m_showTimer = new QTimer(this);
                 connect(m_showTimer, &QTimer::timeout, this, &DccManager::tryShow);
-                m_showTimer->start(50);
             }
+            m_showTimer->start(50);
             return;
         }
     }
@@ -766,6 +768,11 @@ void DccManager::clearShowParam()
 
 void DccManager::tryShow()
 {
+    if (m_showUrl.isEmpty() && !m_activeObject) {
+        clearShowParam();
+        showPage(m_root, QString());
+        return;
+    }
     if (m_showUrl.isEmpty()) {
         clearShowParam();
         return;

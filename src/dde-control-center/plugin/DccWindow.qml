@@ -144,7 +144,7 @@ D.ApplicationWindow {
                 visible: mainWindow.currentIndex === DccWindow.PageIndex.SecondIndex
                 hoverEnabled: enabled
                 activeFocusOnTab: enabled
-                enabled: DccApp.activeObject.parentName.length !== 0 && DccApp.activeObject.parentName !== "root"
+                enabled: DccApp.activeObject && DccApp.activeObject.parentName.length !== 0 && DccApp.activeObject.parentName !== "root"
                 onClicked: DccApp.toBack()
                 icon {
                     name: "arrow_ordinary_left"
