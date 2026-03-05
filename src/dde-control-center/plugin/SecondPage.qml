@@ -1,6 +1,6 @@
 // SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
-import QtQuick 2.15
+import QtQuick
 import QtQuick.Window 2.15
 import QtQuick.Controls 2.15
 import QtQuick.Layouts 1.15
@@ -87,7 +87,8 @@ Item {
             focus: true
             activeFocusOnTab: true
             currentIndex: dccObj ? dccObj.children.indexOf(dccObj.currentObject) : -1
-
+            palette: D.DTK.palette
+            opacity: Window.window.active ? 1 : (D.DTK.themeType === D.ApplicationHelper.DarkType ? 0.6 : 0.4)
             MouseArea {
                 anchors.fill: parent
                 z: 999
@@ -207,6 +208,7 @@ Item {
             normal: Qt.rgba(0.97, 0.97, 0.97, 0.95)
             normalDark: Qt.rgba(0.09, 0.09, 0.09, 0.85)
         }
+        palette: D.DTK.palette
         anchors {
             top: parent.top
             bottom: parent.bottom

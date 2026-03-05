@@ -1,6 +1,6 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
-import QtQuick 2.15
+import QtQuick
 import QtQuick.Controls 2.3
 import QtQml.Models //Delegatechoice for Qt >= 6.9
 import Qt.labs.qmlmodels //DelegateChooser
@@ -14,6 +14,7 @@ FocusScope {
     property alias model: repeater.model
     signal clicked(var model)
 
+    palette: D.DTK.palette
     function updateLayout() {
         let totalWidth = width
         let i
