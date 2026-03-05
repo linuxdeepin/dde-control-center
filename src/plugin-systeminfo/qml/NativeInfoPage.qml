@@ -305,7 +305,7 @@ DccObject {
                     text: dccData.systemInfoMode().licenseActionText
                     ColorSelector.family: Palette.CommonColor
                     implicitHeight: 30
-                    implicitWidth: 50
+                    implicitWidth: licenseActionBtnMetrics.width + 2 * (DS.Style.button.hPadding + DS.Style.control.borderWidth)
                     flat: false
                     visible: dccData.systemInfoMode().showDetail
                     onClicked: {

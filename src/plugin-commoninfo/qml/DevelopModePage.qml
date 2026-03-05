@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 // import org.deepin.dtk 1.0 as D
 import QtQuick 2.15
@@ -84,10 +84,11 @@ DccObject {
                 }
 
                 Button {
+                    id: enterBtn
                     Layout.alignment: Qt.AlignRight
                     Layout.rightMargin: 10
-                    implicitWidth: 50
-
+                    implicitHeight: 30
+                    implicitWidth: enterBtnMetrics.width + 2 * (DS.Style.button.hPadding + DS.Style.control.borderWidth)
                     visible: !(dccData.mode().developerModeState || dccData.mode().isDeveloperMode)
                     text: qsTr("Enter")
 
@@ -97,6 +98,12 @@ DccObject {
                         } else {
                             developDlg.show()
                         }
+                    }
+
+                    TextMetrics {
+                        id: enterBtnMetrics
+                        font: enterBtn.font
+                        text: enterBtn.text
                     }
                 }
 
