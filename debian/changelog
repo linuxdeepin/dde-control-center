@@ -1,3 +1,20 @@
+dde-control-center (6.1.75) unstable; urgency=medium
+
+  * fix: Optimized display for solid-color wallpapers
+  * fix(accounts): fix hover area response issue in custom avatar upload
+  * fix(ui): adapt button width to text content
+  * fix: optimize window color and page visibility handling
+  * feat: optimize object lookup performance with name-based mapping
+  * refactor: improve search relevance algorithm and sorting
+  * fix: resolve clicked function naming conflict
+  * fix(accounts): optimize delete dialog layout alignment
+  * fix(bluetooth): adjust loading animation size
+  * fix: Fixed the issue of the secondary screen being disconnected
+    during resolution changes
+  * fix: Subsystem sound options appearing empty when navigating
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 05 Mar 2026 20:48:43 +0800
+
 dde-control-center (6.1.74) unstable; urgency=medium
 
   * Revert "fix: Optimized text display position at progress bar edges"
