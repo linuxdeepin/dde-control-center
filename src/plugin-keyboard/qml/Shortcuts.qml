@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick
 import QtQuick.Controls 2.3
@@ -111,7 +111,7 @@ DccObject {
                         Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                         Layout.rightMargin: 10
                         text: shortcutSettingsBody.isEditing ? qsTr("done") : qsTr("edit")
-                        font.pointSize: 12
+                        font: D.DTK.fontManager.t8
                         background: null
                         textColor: D.Palette {
                             normal {
