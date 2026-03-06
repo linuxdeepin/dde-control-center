@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -28,6 +28,7 @@ D.DialogWindow {
 
     ColumnLayout {
         width: dialog.width - 10
+        spacing: 0
         Label {
             text: dialog.title
             font.bold: true
@@ -45,14 +46,13 @@ D.DialogWindow {
             }
             font: D.DTK.fontManager.t8
             wrapMode: Text.WordWrap
-            rightPadding: 20
+            rightPadding: 10
             leftPadding: 10
             horizontalAlignment: Text.AlignHCenter
             Layout.preferredWidth: pwdLayout.minWidth(font, text, dialog.width - 12)
             Layout.leftMargin: 0
             Layout.rightMargin: 10
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-            Layout.bottomMargin: 10
         }
 
         PasswordLayout {
