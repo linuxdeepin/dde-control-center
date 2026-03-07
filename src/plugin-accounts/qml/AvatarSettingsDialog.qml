@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -135,38 +135,38 @@ D.DialogWindow {
             ListModel {
                 id: listModel
                 ListElement {
-                    name: qsTr("Human")
+                    name: QT_TR_NOOP("Human")
                     filter: "icons/human"
                     icon: "dcc_user_human"
                     sections: "dimensional/dimensional_v2/flat"
                     checked: true
                 }
                 ListElement {
-                    name: qsTr("Animal")
+                    name: QT_TR_NOOP("Animal")
                     filter: "icons/animal"
                     icon: "dcc_user_animal"
                     sections: ""
                 }
                 ListElement {
-                    name: qsTr("Scenery")
+                    name: QT_TR_NOOP("Scenery")
                     filter: "icons/scenery"
                     icon: "dcc_user_scenery"
                     sections: ""
                 }
                 ListElement {
-                    name: qsTr("Illustration")
+                    name: QT_TR_NOOP("Illustration")
                     filter: "icons/illustration"
                     icon: "dcc_user_funny"
                     sections: ""
                 }
                 ListElement {
-                    name: qsTr("Emoji")
+                    name: QT_TR_NOOP("Emoji")
                     filter: "icons/emoji"
                     icon: "dcc_user_emoji"
                     sections: ""
                 }
                 ListElement {
-                    name: qsTr("custom")
+                    name: QT_TR_NOOP("custom")
                     filter: "icons/local"
                     icon: "dcc_user_custom"
                     sections: ""
@@ -182,7 +182,7 @@ D.DialogWindow {
                 model: listModel
                 delegate: D.ItemDelegate {
                     id: itemDelegate
-                    text: model.name
+                    text: qsTr(model.name)
                     font: D.DTK.fontManager.t6
                     hoverEnabled: true
                     icon {
