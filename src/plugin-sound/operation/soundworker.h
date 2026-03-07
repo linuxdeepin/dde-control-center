@@ -76,8 +76,6 @@ private Q_SLOTS:
     void onAniTimerTimeOut();
     void onSoundPlayingChanged();
     void updatePlayAniIconPath();
-    void changeOutputDeviceComboxStatus();
-    void changeInputDeviceComboxStatus();
 
 private:
     void initConnect();
