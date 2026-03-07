@@ -379,8 +379,7 @@ bool DccManager::action(const QString &json)
         }
     }
 
-    mainWindow()->show();
-    mainWindow()->requestActivate();
+    show();
     showPage(searchName);
     return true;
 }
