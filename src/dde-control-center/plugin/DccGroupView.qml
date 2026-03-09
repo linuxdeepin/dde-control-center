@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.15
@@ -35,8 +35,8 @@ Rectangle {
                 DelegateChoice {
                     roleValue: DccObject.Menu
                     delegate: DccMenuItem {
-                        topInset: control.isGroup ? 0 : 5
-                        bottomInset: control.isGroup ? 0 : 5
+                        topInset: control.isGroup ? 0 : 3
+                        bottomInset: control.isGroup ? 0 : 3
                         separatorVisible: control.isGroup
                         backgroundType: model.item.backgroundType | DccObject.ClickStyle
                         Layout.fillWidth: true
@@ -46,8 +46,8 @@ Rectangle {
                 DelegateChoice {
                     roleValue: DccObject.Editor
                     delegate: DccEditorItem {
-                        topInset: control.isGroup ? 0 : 5
-                        bottomInset: control.isGroup ? 0 : 5
+                        topInset: control.isGroup ? 0 : 3
+                        bottomInset: control.isGroup ? 0 : 3
                         separatorVisible: control.isGroup
                         backgroundType:model.item.backgroundType | (control.isGroup ? 1 : 0)
                         Layout.fillWidth: true
@@ -57,8 +57,8 @@ Rectangle {
                 DelegateChoice {
                     roleValue: DccObject.Item
                     delegate: DccItem {
-                        topInset: control.isGroup ? 0 : 5
-                        bottomInset: control.isGroup ? 0 : 5
+                        topInset: control.isGroup ? 0 : 3
+                        bottomInset: control.isGroup ? 0 : 3
                         separatorVisible: control.isGroup
                         backgroundType: model.item.backgroundType | (control.isGroup ? 1 : 0)
                         Layout.fillWidth: true
@@ -68,8 +68,8 @@ Rectangle {
                 DelegateChoice {
                     roleValue: DccObject.MenuEditor
                     delegate: DccMenuEditorItem {
-                        topInset: control.isGroup ? 0 : 5
-                        bottomInset: control.isGroup ? 0 : 5
+                        topInset: control.isGroup ? 0 : 3
+                        bottomInset: control.isGroup ? 0 : 3
                         separatorVisible: control.isGroup
                         backgroundType: model.item.backgroundType | DccObject.ClickStyle
                         Layout.fillWidth: true
