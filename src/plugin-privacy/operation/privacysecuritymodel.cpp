@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -233,19 +233,24 @@ void PrivacySecurityModel::updatePermission()
 bool PrivacySecurityModel::updatePermission(ApplicationItem *item)
 {
     bool sucUpdate = false;
-    sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::DocumentFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::DocumentFoldersPermission)].contains(item->appPath()));
-    sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::PictureFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::PictureFoldersPermission)].contains(item->appPath()));
-    sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::DesktopFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::DesktopFoldersPermission)].contains(item->appPath()));
-    sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::VideoFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::VideoFoldersPermission)].contains(item->appPath()));
-    sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::MusicFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::MusicFoldersPermission)].contains(item->appPath()));
-    sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::DownloadFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::DownloadFoldersPermission)].contains(item->appPath()));
-    sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::CameraPermission, !m_blacklist[premissiontoPath(ApplicationItem::CameraPermission)].contains(item->appPath()));
+    if (!item->package().isEmpty()) {
+        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::DocumentFoldersPermission, !m_blacklistByPackage[premissiontoPath(ApplicationItem::DocumentFoldersPermission)].contains(item->package()));
+        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::PictureFoldersPermission, !m_blacklistByPackage[premissiontoPath(ApplicationItem::PictureFoldersPermission)].contains(item->package()));
+        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::DesktopFoldersPermission, !m_blacklistByPackage[premissiontoPath(ApplicationItem::DesktopFoldersPermission)].contains(item->package()));
+        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::VideoFoldersPermission, !m_blacklistByPackage[premissiontoPath(ApplicationItem::VideoFoldersPermission)].contains(item->package()));
+        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::MusicFoldersPermission, !m_blacklistByPackage[premissiontoPath(ApplicationItem::MusicFoldersPermission)].contains(item->package()));
+        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::DownloadFoldersPermission, !m_blacklistByPackage[premissiontoPath(ApplicationItem::DownloadFoldersPermission)].contains(item->package()));
+        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::CameraPermission, !m_blacklistByPackage[premissiontoPath(ApplicationItem::CameraPermission)].contains(item->package()));
+    } else { // 若一个启动器没有包名，则认为它的权限由其appPath决定
+        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::DocumentFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::DocumentFoldersPermission)].contains(item->appPath()));
+        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::PictureFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::PictureFoldersPermission)].contains(item->appPath()));
+        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::DesktopFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::DesktopFoldersPermission)].contains(item->appPath()));
+        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::VideoFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::VideoFoldersPermission)].contains(item->appPath()));
+        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::MusicFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::MusicFoldersPermission)].contains(item->appPath()));
+        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::DownloadFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::DownloadFoldersPermission)].contains(item->appPath()));
+        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::CameraPermission, !m_blacklist[premissiontoPath(ApplicationItem::CameraPermission)].contains(item->appPath()));
+    }
     return sucUpdate;
-}
-
-const QSet<QString> PrivacySecurityModel::blacklist(const QString &file) const
-{
-    return m_blacklist.value(file);
 }
 
 const QString PrivacySecurityModel::premissiontoPath(int premission) const
@@ -317,12 +322,6 @@ void PrivacySecurityModel::onAppPremissionEnabledChanged(const QString &file, co
 {
     if (isPremissionEnabled(pathtoPremission(file, true))) {
         m_blacklist[file] = apps;
-        if (m_cacheBlacklist[file] != apps) {
-            m_cacheBlacklist[file] = apps;
-            Q_EMIT requestUpdateCacheBlacklist(m_cacheBlacklist);
-        }
-    } else {
-        m_blacklist[file] = m_cacheBlacklist[file];
     }
     updatePermission();
 }
@@ -340,12 +339,14 @@ void PrivacySecurityModel::onItemDataChanged()
     Q_EMIT itemDataChanged(item);
 }
 
-void PrivacySecurityModel::onCacheBlacklistChanged(const QMap<QString, QSet<QString>> &cacheBlacklist)
-{
-    m_cacheBlacklist = cacheBlacklist;
-}
 
 unsigned PrivacySecurityModel::createUniqueID()
 {
     return m_uniqueID++;
+}
+
+void PrivacySecurityModel::setBlackListByPackage(QMap<QString, QSet<QString>> blacklistByPackage)
+{
+    m_blacklistByPackage = blacklistByPackage;
+    updatePermission();
 }

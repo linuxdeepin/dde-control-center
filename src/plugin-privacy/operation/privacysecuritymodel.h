@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -67,12 +67,12 @@ public:
 
     inline unsigned lastUniqueID() const { return m_uniqueID; }
 
+    void setBlackListByPackage(QMap<QString, QSet<QString>>);
 Q_SIGNALS:
     void serviceExistsChanged(bool exists);
     void checkAuthorization(bool checking);
     void premissionEnabledChanged(int premission, bool enabled);
     void requestSetPremissionMode(int premission, int mode);
-    void requestUpdateCacheBlacklist(const QMap<QString, QSet<QString>> &cacheBlacklist);
 
     void itemAboutToBeAdded(int pos);
     void itemAdded();
@@ -87,11 +87,9 @@ public Q_SLOTS:
 protected Q_SLOTS:
     void onPremissionModeChanged(int premission, int mode);
     void emitPremissionModeChanged(int premission);
-    void onAppPremissionEnabledChanged(const QString &file, const QSet<QString> &apps);
     void onItemPermissionChanged();
     void onItemDataChanged();
-    void onCacheBlacklistChanged(const QMap<QString, QSet<QString>> &cacheBlacklist);
-
+    void onAppPremissionEnabledChanged(const QString &file, const QSet<QString> &apps);
     bool addApplictionItem(ApplicationItem *item);
     void removeApplictionItem(const QString &id);
     void dataUpdateFinished(bool updating);
@@ -104,7 +102,7 @@ private:
     unsigned m_uniqueID;                           // ApplicationItem的唯一ID，从1开始，只处理m_appItems中的项
     QMap<int, int> m_premissionMap;                // 权限总开关
     QMap<QString, QSet<QString>> m_blacklist;      // 权限列表
-    QMap<QString, QSet<QString>> m_cacheBlacklist; // 权限列表
+    QMap<QString, QSet<QString>> m_blacklistByPackage; // 黑名单 <权限，包名列表>
     bool m_updating;                               // 数据更新中
 
     friend class PrivacySecurityWorker;

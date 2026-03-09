@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -48,6 +48,7 @@ public:
     QString package() const;
     QString icon() const;
     QString sortField() const;
+    QString desktopPath() const;
 
     bool isPremissionEnabled(int premission) const;
     void setPremissionEnabled(int premission, bool enabled);
@@ -70,6 +71,7 @@ protected Q_SLOTS:
     void onExecutablePathsChanged(const QStringList &paths);
     void onIconChanged(const QString &icon);
     bool onPremissionEnabledChanged(int premission, bool enabled);
+    void onDesktopPathChanged(const QString &desktopPath);
 
     QStringList executablePaths() const;
 

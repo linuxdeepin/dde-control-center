@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -33,6 +33,28 @@ static const QString DEEPIN_WINE_TEAM = "Deepin WINE Team";
 const QString DataVersion = "1.0";
 static QList<int> s_systemPrem = { ApplicationItem::CameraPermission };
 
+static QString getDpkgArch()
+{
+    const static QString arch = []() {
+        QString arch = QSysInfo::currentCpuArchitecture();
+        QProcess pro;
+        pro.start("/usr/bin/dpkg", QStringList() << "--print-architecture");
+        pro.waitForFinished(2000);
+        if (pro.exitCode() != 0) {
+            qCWarning(DCC_PRIVACY) << "Failed to get dpkg architecture, dpkg error: " << pro.readAllStandardError().simplified() 
+                << ", fallback to QSysInfo architecture:" << arch;
+            return arch;
+        }
+        QString output = pro.readAllStandardOutput().simplified();
+        if (output.isEmpty()) {
+            qCWarning(DCC_PRIVACY) << "No architecture found for dpkg, fallback to QSysInfo architecture:" << arch;
+            return arch;
+        }
+        return output;
+    }();
+    return arch;
+}
+
 PrivacySecurityWorker::PrivacySecurityWorker(PrivacySecurityModel *appsModel, QObject *parent)
     : QObject(parent)
     , m_model(appsModel)
@@ -60,7 +82,6 @@ void PrivacySecurityWorker::init()
         initApp();
     }, Qt::BlockingQueuedConnection);
 
-    connect(m_model, &PrivacySecurityModel::requestUpdateCacheBlacklist, this, &PrivacySecurityWorker::updateCacheBlacklist);
 
     connect(m_dataProxy, &PrivacySecurityDataProxy::ModeChanged, this, &PrivacySecurityWorker::onModeChanged, Qt::QueuedConnection);
     connect(m_dataProxy, &PrivacySecurityDataProxy::EntityChanged, this, &PrivacySecurityWorker::onEntityChanged, Qt::QueuedConnection);
@@ -83,7 +104,6 @@ void PrivacySecurityWorker::init()
         m_dataProxy->getMode(folder);
         m_dataProxy->getPolicy(folder);
     }
-    m_model->onCacheBlacklistChanged(m_dataProxy->getCacheBlacklist());
 }
 
 void PrivacySecurityWorker::initApp()
@@ -199,6 +219,7 @@ void PrivacySecurityWorker::updateCheckAuthorizationing(bool checking)
 // 刷新所有状态
 void PrivacySecurityWorker::updateAllPermission()
 {
+    m_model->setBlackListByPackage(m_blacklistByPackage);
     for (auto &&it = m_blacklistByPackage.begin(); it != m_blacklistByPackage.end(); ++it) {
         QSet<QString> files;
         for (const auto &package : it.value()) {
@@ -246,6 +267,7 @@ QString PrivacySecurityWorker::getAppEntityJson(const ApplicationItem *item)
 {
     QJsonObject obj;
     QJsonObject attrs;
+    bool isPackage = !item->package().isEmpty();
     attrs.insert("bus_type", QString()); // 此处空项没有接口调用会报错
     attrs.insert("interface", QString());
     attrs.insert("methods", QJsonArray());
@@ -257,13 +279,18 @@ QString PrivacySecurityWorker::getAppEntityJson(const ApplicationItem *item)
     obj.insert("owner", QString());
     obj.insert("sensitivity", QString());
 
-    QJsonArray exes = QJsonArray::fromStringList(item->executablePaths());  // 可执行文件名
-    attrs.insert("exes", exes);
+    if (isPackage) {
+        QJsonArray exes = QJsonArray::fromStringList(item->executablePaths());
+        attrs.insert("exes", exes);
+    } else {
+        QJsonArray exes = QJsonArray::fromStringList({item->appPath()});
+        attrs.insert("exes", exes);
+    }
     obj.insert("attrs", attrs);
-    obj.insert("name", item->package()); //
+    obj.insert("name", isPackage ? item->package() : item->appPath());
     QJsonArray available_operations;
     obj.insert("available_operations", available_operations);
-    obj.insert("subtype", "package");
+    obj.insert("subtype", isPackage ? "package" : "file");
     obj.insert("version", DataVersion);
     QJsonArray tags;
     tags.append("system");
@@ -298,7 +325,7 @@ QString PrivacySecurityWorker::getObjectPolicyJson(const ApplicationItem *item, 
     objects.append(object);
 
     QJsonObject subject;
-    subject.insert("name", item->package());    // 包名
+    subject.insert("name", item->package().isEmpty() ? item->appPath() : item->package());    // 包名
     policy.insert("objects", objects);
     policy.insert("subject", subject);
     policies.append(policy);
@@ -319,12 +346,19 @@ void PrivacySecurityWorker::updateAppPath(ApplicationItem *item)
     
     (void)QtConcurrent::run([this, item, execs, itemId, itemName]() {
         QString path = getAppPath(execs);
-        QMetaObject::invokeMethod(this, [this, item, path, itemId, itemName]() {
+        QString packageName;
+        if (item->desktopPath().isEmpty()) {
+            packageName = getPackageNameByPath(path);
+        } else {
+            packageName = getPackageNameByPath(item->desktopPath());
+        }
+        QMetaObject::invokeMethod(this, [this, item, path, itemId, itemName, packageName]() {
             if (path.isEmpty()) {
                 qCInfo(DCC_PRIVACY) << "Exclude app id: " << itemId << ", name: " << itemName << "because it appPath is empty";
                 m_model->removeApplictionItem(itemId);
             } else {
                 item->onAppPathChanged(path);
+                item->onPackageChanged(packageName);
                 m_model->updatePermission(item);
                 m_model->emitAppDataChanged(item);
             }
@@ -352,6 +386,7 @@ ApplicationItem *PrivacySecurityWorker::addAppItem(int dataIndex)
     const auto &XCreatedBy = m_ddeAmModel->data(m_ddeAmModel->index(dataIndex, 0), DS_NAMESPACE::AppItemModel::XCreatedByRole).toString();
     const auto &id = m_ddeAmModel->data(m_ddeAmModel->index(dataIndex, 0), DS_NAMESPACE::AppItemModel::IdRole).toString();
     const auto &execs = m_ddeAmModel->data(m_ddeAmModel->index(dataIndex, 0), DS_NAMESPACE::AppItemModel::ExecsRole).value<QMap<QString, QString>>();
+    const auto &desktopSoucePath = m_ddeAmModel->data(m_ddeAmModel->index(dataIndex, 0), DS_NAMESPACE::AppItemModel::DesktopSourcePathRole).toString();
 
     for (const auto &app : s_excludeApp) {
         if (id.contains(app)) {
@@ -375,6 +410,7 @@ ApplicationItem *PrivacySecurityWorker::addAppItem(int dataIndex)
     appItem->onNameChanged(name);
     appItem->onIconChanged(iconName);
     appItem->onExecsChanged(execs);
+    appItem->onDesktopPathChanged(desktopSoucePath);
     if (m_model->addApplictionItem(appItem)) {
         updateAppPath(appItem);
         connect(appItem, &ApplicationItem::requestSetPremissionEnabled, this, &PrivacySecurityWorker::setAppPermissionEnable);
@@ -493,30 +529,20 @@ void PrivacySecurityWorker::setAppPermissionEnableByCheck(bool ok)
                 m_model->emitAppDataChanged(item);
                 continue;
             }
-            QSet<QString> blacklist = m_model->blacklist(file);
             QStringList executablePaths = item->executablePaths();
             if (executablePaths.isEmpty()) {
                 QString path = item->appPath();
-                if (path.isEmpty()) {
-                    path = getAppPath(item->execs());
-                    item->onAppPathChanged(path);
-                }
-                QString package;
-                executablePaths = m_dataProxy->getExecutable(path, &package);
-                item->onPackageChanged(package);
+                executablePaths = getExecutable(item->package());
                 item->onExecutablePathsChanged(executablePaths);
             }
-            if (item->package().isEmpty()) {
-                qCWarning(DCC_PRIVACY) << "get package error: path:" << item->appPath() << "app name:" << item->name();
-                item->emitDataChanged();
-                m_model->emitAppDataChanged(item);
-                continue;
-            }
 
+            // 检查是否有权限实体
             if (!m_entityMap.contains(file)) {  
                 m_dataProxy->setEntity(getEntityJson(file, premission != ApplicationItem::CameraPermission));
             }
-            if (!m_entityMap.contains(item->package())) {
+            // 检查有没有二进制或者包的实体，只有有实体之后才设置权限策略
+            if ((!item->package().isEmpty() && !m_entityMap.contains(item->package()))
+                || (item->package().isEmpty() && !m_entityMap.contains(item->appPath()))) {
                 m_dataProxy->setEntity(getAppEntityJson(item));
             }
             m_dataProxy->setMode(getSubjectModeJson(file, true));   // 设置黑名单模式, 设置客体模式
@@ -561,4 +587,64 @@ void PrivacySecurityWorker::checkAuthorizationCancel()
 void PrivacySecurityWorker::updateCacheBlacklist(const QMap<QString, QSet<QString>> &cacheBlacklist)
 {
     m_dataProxy->setCacheBlacklist(cacheBlacklist);
+}
+
+QStringList PrivacySecurityWorker::getExecutable(const QString &packageName)
+{
+    if (packageName.isEmpty()) {
+        qCWarning(DCC_PRIVACY) << "getExecutable failed: packageName is empty";
+        return {};
+    }
+    QString listFilePath = QString("/var/lib/dpkg/info/%1.list").arg(packageName);
+    if (!QFile::exists(listFilePath)) {
+        listFilePath = QString("/var/lib/dpkg/info/%1.list").arg(packageName + ":" + getDpkgArch());
+    }
+    QFile listFile(listFilePath);
+
+    if (!listFile.exists() || !listFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qCWarning(DCC_PRIVACY) << "Failed to open list file:" << listFilePath;
+        return {};
+    }
+
+    QStringList files;
+    QTextStream stream(&listFile);
+    while (!stream.atEnd()) {
+        QString filePath = stream.readLine().trimmed();
+        if (filePath.isEmpty()) {
+            continue;
+        }
+
+        QFileInfo fileInfo(filePath);
+        if (fileInfo.exists() && 
+            fileInfo.isFile() && 
+            fileInfo.isExecutable() && 
+            !QLibrary::isLibrary(filePath)) {
+            files << filePath;
+        }
+    }
+
+    listFile.close();
+    return files;
+}
+
+QString PrivacySecurityWorker::getPackageNameByPath(const QString &path)
+{
+    QProcess pro;
+    QStringList args;
+    args << "-S" << path;
+    pro.start("/usr/bin/dpkg-query", args);
+    pro.waitForFinished(2000);
+    
+    if (pro.exitCode() != 0) {
+        qCDebug(DCC_PRIVACY) << "Failed to get executable for" << path << ", dpkg-query error: " << pro.readAllStandardError().simplified();
+        return {};
+    }
+
+    QString output = pro.readAllStandardOutput().simplified();
+    if (output.isEmpty()) {
+        qCWarning(DCC_PRIVACY) << "No package found for executable:" << path;
+        return {};
+    }
+
+    return output.split('\n').first().split(':').first();
 }
