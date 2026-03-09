@@ -1,6 +1,7 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+import QtQuick
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
@@ -23,6 +24,22 @@ D.ComboBox {
         enabled: (control.enableRole && model[control.enableRole] !== undefined) ? model[control.enableRole] : true
         visible: (control.visibleRole && model[control.visibleRole] !== undefined) ? model[control.visibleRole] : true
         implicitHeight: visible ? DS.Style.control.implicitHeight(menuItem) : 0
+
+        readonly property real availableTextWidth: {
+            return contentItem.width - contentItem.leftPadding - contentItem.rightPadding
+        }
+
+        FontMetrics {
+            id: fontMetrics
+            font: menuItem.font
+        }
+
+        HoverHandler { id: hoverHandler }
+
+        D.ToolTip {
+            visible: hoverHandler.hovered && fontMetrics.advanceWidth(menuItem.text) > menuItem.availableTextWidth
+            text: menuItem.text
+        }
     }
 
     // To replace function: indexOfValue
