@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.15
@@ -14,7 +14,7 @@ D.ItemDelegate {
     property Component rightItem: null
     property real iconRadius: model.item.iconRadius ? model.item.iconRadius : 0
     property real iconSize: model.item.iconSize ? model.item.iconSize : 0
-    property real leftPaddingSize: model.item.leftPaddingSize ? model.item.leftPaddingSize : 10
+    property real leftPaddingSize: model.item.leftPaddingSize ? model.item.leftPaddingSize : 14
     property real rightItemTopMargin: 5
     property real rightItemBottomMargin: 5
 
