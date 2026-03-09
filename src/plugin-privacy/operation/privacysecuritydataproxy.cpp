@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -25,28 +25,6 @@
 const QString UsecService = "org.deepin.usec1";
 const QString UsecPath = "/org/deepin/usec1/AccessControl";
 const QString UsecInterface = "org.deepin.usec1.AccessControl";
-
-static QString getDpkgArch()
-{
-    const static QString arch = []() {
-        QString arch = QSysInfo::currentCpuArchitecture();
-        QProcess pro;
-        pro.start("/usr/bin/dpkg", QStringList() << "--print-architecture");
-        pro.waitForFinished(2000);
-        if (pro.exitCode() != 0) {
-            qCWarning(DCC_PRIVACY) << "Failed to get dpkg architecture, dpkg error: " << pro.readAllStandardError().simplified() 
-                << ", fallback to QSysInfo architecture:" << arch;
-            return arch;
-        }
-        QString output = pro.readAllStandardOutput().simplified();
-        if (output.isEmpty()) {
-            qCWarning(DCC_PRIVACY) << "No architecture found for dpkg, fallback to QSysInfo architecture:" << arch;
-            return arch;
-        }
-        return output;
-    }();
-    return arch;
-}
 
 PrivacySecurityDataProxy::PrivacySecurityDataProxy(QObject *parent)
     : QObject(parent)
@@ -223,26 +201,6 @@ bool PrivacySecurityDataProxy::existsService() const
     return m_serviceExists;
 }
 
-QMap<QString, QSet<QString>> PrivacySecurityDataProxy::getCacheBlacklist()
-{
-    QMap<QString, QSet<QString>> cacheBlacklist;
-    QString data = m_dconfig->value("permissionBlacklist").toString();
-    QJsonDocument doc = QJsonDocument::fromJson(data.toLatin1());
-    if (doc.isObject()) {
-        QJsonObject json = doc.object();
-        for (auto &&key : json.keys()) {
-            QJsonValue value = json.value(key);
-            if (value.isArray()) {
-                QJsonArray array = value.toArray();
-                for (auto &&it = array.begin(); it != array.end(); it++) {
-                    cacheBlacklist[key].insert(it->toString());
-                }
-            }
-        }
-    }
-    return cacheBlacklist;
-}
-
 void PrivacySecurityDataProxy::setCacheBlacklist(const QMap<QString, QSet<QString>> &cacheBlacklist)
 {
     QJsonObject json;
@@ -255,58 +213,6 @@ void PrivacySecurityDataProxy::setCacheBlacklist(const QMap<QString, QSet<QStrin
     }
     QJsonDocument doc(json);
     m_dconfig->setValue("permissionBlacklist", doc.toJson(QJsonDocument::Compact));
-}
-
-QStringList PrivacySecurityDataProxy::getExecutable(const QString &path, QString *package)
-{
-    QProcess pro;
-    QStringList args;
-    args << "-S" << path;
-    pro.start("/usr/bin/dpkg-query", args);
-    pro.waitForFinished(2000);
-    
-    if (pro.exitCode() != 0) {
-        qCWarning(DCC_PRIVACY) << "Failed to get executable for" << path << ", dpkg-query error: " << pro.readAllStandardError().simplified();
-        return {};
-    }
-
-    QString output = pro.readAllStandardOutput().simplified();
-    if (output.isEmpty()) {
-        qCWarning(DCC_PRIVACY) << "No package found for executable:" << path;
-        return {};
-    }
-
-    *package = output.split('\n').first().split(':').first();
-    QString listFilePath = QString("/var/lib/dpkg/info/%1.list").arg(*package);
-    if (!QFile::exists(listFilePath)) {
-        listFilePath = QString("/var/lib/dpkg/info/%1.list").arg(*package + ":" + getDpkgArch());
-    }
-    QFile listFile(listFilePath);
-
-    if (!listFile.exists() || !listFile.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qCWarning(DCC_PRIVACY) << "Failed to open list file:" << listFilePath;
-        return {};
-    }
-
-    QStringList files;
-    QTextStream stream(&listFile);
-    while (!stream.atEnd()) {
-        QString filePath = stream.readLine().trimmed();
-        if (filePath.isEmpty()) {
-            continue;
-        }
-
-        QFileInfo fileInfo(filePath);
-        if (fileInfo.exists() && 
-            fileInfo.isFile() && 
-            fileInfo.isExecutable() && 
-            !QLibrary::isLibrary(filePath)) {
-            files << filePath;
-        }
-    }
-
-    listFile.close();
-    return files;
 }
 
 void PrivacySecurityDataProxy::onGetNameOwner(const QString &)

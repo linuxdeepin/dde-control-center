@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -59,6 +59,11 @@ QString ApplicationItem::icon() const
 QString ApplicationItem::sortField() const
 {
     return m_sortField;
+}
+
+QString ApplicationItem::desktopPath() const 
+{
+    return m_desktopPath;
 }
 
 // 默认允许
@@ -157,4 +162,11 @@ bool ApplicationItem::onPremissionEnabledChanged(int premission, bool enabled)
         return true;
     }
     return false;
+}
+
+void ApplicationItem::onDesktopPathChanged(const QString &desktopPath)
+{
+    if (m_desktopPath == desktopPath)
+        return;
+    m_desktopPath = desktopPath;
 }

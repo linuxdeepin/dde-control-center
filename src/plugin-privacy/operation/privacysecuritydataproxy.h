@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -55,9 +55,6 @@ public Q_SLOTS:
     // cacheBlacklist
     QMap<QString, QSet<QString>> getCacheBlacklist();
     void setCacheBlacklist(const QMap<QString, QSet<QString>> &cacheBlacklist);
-    // appInfo
-    // 根据文件获取包中所有文件
-    QStringList getExecutable(const QString &path, QString *package);
 
 private Q_SLOTS:
     void onGetNameOwner(const QString &);
