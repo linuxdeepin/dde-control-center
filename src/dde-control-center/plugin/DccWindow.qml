@@ -80,6 +80,7 @@ D.ApplicationWindow {
         autoHideOnFullscreen: true
         focus: true
         leftContent: D.ActionButton {
+            id: sidebarButton
             palette.windowText: D.ColorSelector.textColor
             anchors {
                 verticalCenter: parent.verticalCenter
@@ -95,6 +96,11 @@ D.ApplicationWindow {
                 name: "sidebar"
                 height: 16
                 width: 16
+            }
+            Component.onCompleted: {
+                if (contentItem) {
+                    contentItem.smooth = false
+                }
             }
             background: Rectangle {
                 property D.Palette pressedColor: D.Palette {
