@@ -26,7 +26,6 @@ D.ApplicationWindow {
     minimumHeight: 400
     visible: false
     flags: Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint
-    modality: Qt.ApplicationModal
     color: "transparent"
     D.DWindow.enabled: true
     MouseArea {
@@ -65,7 +64,7 @@ D.ApplicationWindow {
                 aboutDialog: D.AboutDialog {
                     D.DWindow.enabled: true
                     productIcon: "preferences-system"
-                    modality: Qt.NonModal
+                    modality: Qt.WindowModal
                     productName: appProductName
                     websiteName: DTK.deepinWebsiteName
                     websiteLink: DTK.deepinWebsiteLink
