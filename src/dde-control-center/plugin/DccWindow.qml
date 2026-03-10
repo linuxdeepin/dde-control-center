@@ -27,9 +27,8 @@ D.ApplicationWindow {
     visible: false
     flags: Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint
     modality: Qt.ApplicationModal
-    color: currentIndex === DccWindow.PageIndex.LoadIndex ? palette.window : "transparent"
+    color: "transparent"
     D.DWindow.enabled: true
-
     MouseArea {
         anchors.fill: parent
         enabled: false
@@ -243,8 +242,9 @@ D.ApplicationWindow {
             currentIndex: DccWindow.PageIndex.LoadIndex
             interactive: false
             activeFocusOnTab: false
-            Item {
+            Rectangle {
                 id: loadPage
+                color: palette.window
                 D.DciIcon {
                     anchors.centerIn: parent
                     name: "control-loading"
