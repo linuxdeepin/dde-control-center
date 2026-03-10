@@ -815,6 +815,13 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
         Q_EMIT obj->active(cmd);
         return;
     }
+    DccObject *parent = obj;
+    while (parent && parent != m_root) {
+        parent = DccObject::Private::FromObject(parent)->getParent();
+    }
+    if (parent != m_root) {
+        return;
+    }
     QVector<DccObject *> modules;
     QVector<DccObject *> triggeredObjs;
     DccObject *triggeredObj = obj;
