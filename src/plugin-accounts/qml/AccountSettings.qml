@@ -1015,9 +1015,12 @@ DccObject {
                             Layout.fillWidth: !editLabel.readOnly
                             Layout.alignment: Qt.AlignVCenter
                             Layout.leftMargin: 14
+                            Layout.rightMargin: 2
                             implicitHeight: 36
-                            implicitWidth: Math.min(editLabel.metrics.advanceWidth(editLabel.text) + editButton.width + 20,
-                                             groupview.width - editButton.width - 30)
+                            implicitWidth: !editLabel.readOnly 
+                                        ? groupview.width
+                                        : Math.min(editLabel.metrics.advanceWidth(editLabel.text) + editButton.width + 20,
+                                                groupview.width - editButton.width - 30)
 
                             EditActionLabel {
                                 id: editLabel
@@ -1030,6 +1033,7 @@ DccObject {
                                 completeText: model.display
                                 rightPadding: editButton.width + 10
                                 placeholderText: qsTr("Group name")
+                                background: Item{}
                                 horizontalAlignment: TextInput.AlignLeft
                                 verticalAlignment: TextInput.AlignVCenter
                                 editBtn.visible: readOnly && editAble
