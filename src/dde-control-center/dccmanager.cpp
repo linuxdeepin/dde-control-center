@@ -529,9 +529,13 @@ bool DccManager::isMatch(const QString &url, const DccObject *obj)
 
 bool DccManager::isEqualByName(const QString &url, const QString &name)
 {
-    QStringView path("/" + url);
-    QStringView objPath("/" + name);
-    for (auto it = path.rbegin(), itObj = objPath.rbegin(); it != path.rend() && itObj != objPath.rend(); ++it, ++itObj) {
+    for (auto it = url.crbegin(), itObj = name.crbegin();; ++it, ++itObj) {
+        if (it == url.crend()) {
+            return itObj == name.crend() || (*itObj) == '/';
+        }
+        if (itObj == name.crend()) {
+            return (*it) == '/';
+        }
         if (*it != *itObj) {
             return false;
         }
@@ -1126,6 +1130,9 @@ void DccManager::doGetAllModule(const QDBusMessage message) const
     DccObject *root = m_root;
     QList<QPair<DccObject *, QStringList>> modules;
     for (auto &&child : root->getChildren()) {
+        modules.append({ child, { child->name(), child->displayName() } });
+    }
+    for (auto &&child : m_hideObjects->getChildren()) {
         modules.append({ child, { child->name(), child->displayName() } });
     }
 
