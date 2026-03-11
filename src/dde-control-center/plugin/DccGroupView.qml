@@ -18,6 +18,18 @@ Rectangle {
         root: dccObj
     }
 
+    // 判断当前项是否是第一个可交互的菜单项（Menu或MenuEditor类型）
+    function isFirstInteractiveItem(idx) {
+        for (var i = 0; i < idx; i++) {
+            var obj = control.model.getObject(i)
+            if (obj && (obj.pageType === DccObject.Menu || obj.pageType === DccObject.MenuEditor)) {
+                return false
+            }
+        }
+        var currentObj = control.model.getObject(idx)
+        return currentObj && (currentObj.pageType === DccObject.Menu || currentObj.pageType === DccObject.MenuEditor)
+    }
+
     objectName: "noPadding"
     color: "transparent"
     implicitHeight: layoutView.height
@@ -40,6 +52,7 @@ Rectangle {
                         separatorVisible: control.isGroup
                         backgroundType: model.item.backgroundType | DccObject.ClickStyle
                         Layout.fillWidth: true
+                        activeFocusOnTab: control.isFirstInteractiveItem(index)
                         corners: control.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
                 }
@@ -51,6 +64,7 @@ Rectangle {
                         separatorVisible: control.isGroup
                         backgroundType:model.item.backgroundType | (control.isGroup ? 1 : 0)
                         Layout.fillWidth: true
+                        activeFocusOnTab: false
                         corners: control.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
                 }
@@ -62,6 +76,7 @@ Rectangle {
                         separatorVisible: control.isGroup
                         backgroundType: model.item.backgroundType | (control.isGroup ? 1 : 0)
                         Layout.fillWidth: true
+                        activeFocusOnTab: false
                         corners: control.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
                 }
@@ -73,6 +88,7 @@ Rectangle {
                         separatorVisible: control.isGroup
                         backgroundType: model.item.backgroundType | DccObject.ClickStyle
                         Layout.fillWidth: true
+                        activeFocusOnTab: control.isFirstInteractiveItem(index)
                         corners: control.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
                     }
                 }
