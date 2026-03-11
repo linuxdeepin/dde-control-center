@@ -13,7 +13,7 @@ DccEditorItem {
     rightPadding: 10
     topPadding: topInset
     bottomPadding: bottomInset
-    activeFocusOnTab: true
+    activeFocusOnTab: false
     rightItem: RowLayout {
         spacing: 10
         DccLoader {

@@ -12,7 +12,7 @@ DccEditorItem {
     bottomInset: 5
     topPadding: topInset
     bottomPadding: bottomInset
-    activeFocusOnTab: true
+    activeFocusOnTab: false
     rightItem: D.IconLabel {
         icon {
             name: "arrow_ordinary_right"
