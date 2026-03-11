@@ -183,7 +183,8 @@ Item {
                 hoverEnabled: true
 
                 background: DccItemBackground {
-                    focusBorderVisible: false
+                    focusBorderVisible: true
+                    externalFocus: ListView.view.activeFocus && ListView.isCurrentItem
                     separatorVisible: false
                     bgMargins: 0
                     backgroundType: DccObject.Hover | DccObject.Clickable

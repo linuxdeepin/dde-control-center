@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.15
@@ -18,6 +18,7 @@ Item {
     property real radius: DS.Style.control.radius
     property real bgMargins: 3
     property bool focusBorderVisible: true
+    property bool externalFocus: false
 
     property real backgroundType: 0
     property D.Palette backgroundColor: D.Palette {
@@ -116,7 +117,8 @@ Item {
             leftMargin: bgMargins
             rightMargin: bgMargins
         }
-        active: focusBorderVisible && (control.activeFocus || control.visualFocus)
+
+        active: focusBorderVisible && (control.activeFocus || control.visualFocus || externalFocus)
         sourceComponent: D.FocusBoxBorder {
             radius: bgItem.radius
             color: control.palette.highlight
