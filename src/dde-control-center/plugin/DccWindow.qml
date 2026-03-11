@@ -26,10 +26,8 @@ D.ApplicationWindow {
     minimumHeight: 400
     visible: false
     flags: Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint
-    modality: Qt.ApplicationModal
-    color: currentIndex === DccWindow.PageIndex.LoadIndex ? palette.window : "transparent"
+    color: "transparent"
     D.DWindow.enabled: true
-
     MouseArea {
         anchors.fill: parent
         enabled: false
@@ -66,10 +64,10 @@ D.ApplicationWindow {
                 aboutDialog: D.AboutDialog {
                     D.DWindow.enabled: true
                     productIcon: "preferences-system"
-                    modality: Qt.NonModal
+                    modality: Qt.WindowModal
                     productName: appProductName
-                    websiteName: DTK.deepinWebsiteName
-                    websiteLink: DTK.deepinWebsiteLink
+                    websiteName: D.DTK.deepinWebsiteName
+                    websiteLink: D.DTK.deepinWebsiteLink
                     description: qsTr("Control Center provides the options for system settings.")
                     onClosing: destroy(10)
                 }
@@ -243,8 +241,9 @@ D.ApplicationWindow {
             currentIndex: DccWindow.PageIndex.LoadIndex
             interactive: false
             activeFocusOnTab: false
-            Item {
+            Rectangle {
                 id: loadPage
+                color: palette.window
                 D.DciIcon {
                     anchors.centerIn: parent
                     name: "control-loading"
