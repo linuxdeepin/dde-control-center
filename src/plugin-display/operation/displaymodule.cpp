@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
+
 #include "displaymodule.h"
 
 #include "WayQtUtils.h"
@@ -610,24 +611,31 @@ void DisplayModule::applyChanged()
     if (!tmpPw || d_ptrDisplayModule->m_model->displayMode() != EXTEND_MODE) {
         return;
     }
+    // Fix BUG-345219: Adjust position to keep displays adjacent when resolution changes, without reordering
+    // Sort by current x-coordinate to preserve user-adjusted order
     QList<ScreenData *> tmpListItems;
-    ScreenData *pwItem = nullptr;
     for (auto obj : virtualScreens()) {
         if (obj) {
             ScreenData *item = new ScreenData(obj);
             tmpListItems.append(item);
-            if (obj == tmpPw) {
-                pwItem = item;
-            }
         }
     }
-    if (tmpListItems.size() < 2 || !pwItem) {
+    if (tmpListItems.size() < 2) {
+        qDeleteAll(tmpListItems);
         return;
     }
-    ConcatScreen *concatScreen = new ConcatScreen(tmpListItems, pwItem);
-    concatScreen->executemultiScreenAlgo(false);
+    // Sort by x-coordinate to preserve user-adjusted order
+    std::sort(tmpListItems.begin(), tmpListItems.end(), [](const ScreenData *item1, const ScreenData *item2) {
+        return item1->rect().x() < item2->rect().x();
+    });
+    // Arrange from left to right, keeping displays adjacent
+    int currentX = 0;
+    for (auto item : tmpListItems) {
+        qreal dx = currentX - item->rect().x();
+        item->moveBy(dx, 0);
+        currentX += static_cast<int>(item->rect().width());
+    }
     d->setScreenPosition(tmpListItems);
-    delete concatScreen;
     qDeleteAll(tmpListItems);
 }
 
