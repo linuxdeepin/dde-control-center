@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SYSTEMINFOWORK_H
@@ -63,7 +63,7 @@ private:
 
 private:
     SystemInfoModel *m_model;
-    SystemInfoDBusProxy *m_systemInfDBusProxy;
+    SystemInfoDBusProxy *m_systemInfoDBusProxy;
     QProcess *m_process = nullptr;
     QString m_content;
     QString m_title;
