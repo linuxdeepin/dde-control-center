@@ -34,7 +34,7 @@ namespace DCC_NAMESPACE{
 SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
-    , m_systemInfDBusProxy(new SystemInfoDBusProxy(this))
+    , m_systemInfoDBusProxy(new SystemInfoDBusProxy(this))
     , m_process(nullptr)
     , m_content("")
     , m_title("")
@@ -47,22 +47,22 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
         "org.deepin.dde.EventLog1",
         QDBusConnection::sessionBus(), this);
 
-    connect(m_systemInfDBusProxy,
+    connect(m_systemInfoDBusProxy,
             &SystemInfoDBusProxy::StaticHostnameChanged,
             m_model,
             &SystemInfoModel::setHostName);
-    connect(m_systemInfDBusProxy,
+    connect(m_systemInfoDBusProxy,
             &SystemInfoDBusProxy::AuthorizationStateChanged,
             m_model,
             [this](const int state) {
                 m_model->setLicenseState(static_cast<ActiveState>(state));
             });
 
-    connect(m_systemInfDBusProxy,
+    connect(m_systemInfoDBusProxy,
             &SystemInfoDBusProxy::TimezoneChanged,
             this,
             &SystemInfoWork::onTimezoneChanged);
-    connect(m_systemInfDBusProxy,
+    connect(m_systemInfoDBusProxy,
             &SystemInfoDBusProxy::ShortDateFormatChanged,
             this,
             &SystemInfoWork::onShortDateFormatChanged);
@@ -89,11 +89,11 @@ SystemInfoWork::~SystemInfoWork()
 void SystemInfoWork::activate()
 {
     //获取主机名
-    m_model->setHostName(m_systemInfDBusProxy->staticHostname());
+    m_model->setHostName(m_systemInfoDBusProxy->staticHostname());
 
     m_model->setLogoPath(DSysInfo::distributionOrgLogo(DSysInfo::Distribution, DSysInfo::Normal));
     if (DSysInfo::isDeepin()) {
-        m_model->setLicenseState(static_cast<ActiveState>(m_systemInfDBusProxy->authorizationState()));
+        m_model->setLicenseState(static_cast<ActiveState>(m_systemInfoDBusProxy->authorizationState()));
         QString productName = QString("%1").arg(DSysInfo::uosSystemName());
         m_model->setProductName(productName);
         QString versionNumber = QString("%1").arg(DSysInfo::majorVersion());
@@ -120,13 +120,13 @@ void SystemInfoWork::activate()
     m_model->setKernel(QSysInfo::kernelVersion());
     // 注意：不在此处设置 processor，因为构造函数中的 updateFrequency() 已经设置了 processor
 
-    if (m_systemInfDBusProxy->memorySize() > 0) {
-        m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()), m_systemInfDBusProxy->memorySize());
+    if (m_systemInfoDBusProxy->memorySize() > 0) {
+        m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()), m_systemInfoDBusProxy->memorySize());
     } else {
         m_model->setMemory(static_cast<qulonglong>(DSysInfo::memoryTotalSize()), static_cast<qulonglong>(DSysInfo::memoryInstalledSize()));
     }
 
-    m_model->setSystemInstallationDate(getSystemInstallDate(m_systemInfDBusProxy->shortDateFormat(), m_systemInfDBusProxy->timezone()));
+    m_model->setSystemInstallationDate(getSystemInstallDate(m_systemInfoDBusProxy->shortDateFormat(), m_systemInfoDBusProxy->timezone()));
 
     // 隐私政策文本内容
     QString http = DSysInfo::productType() != DSysInfo::ProductType::Uos ? tr("https://www.deepin.org/en/agreement/privacy/") : tr("https://www.uniontech.com/agreement/privacy-en");
@@ -278,39 +278,26 @@ void SystemInfoWork::initSystemCopyright()
 
 void SystemInfoWork::updateFrequency(bool state)
 {
-    QString validFrequency = "CurrentSpeed";
-    QDBusInterface interface("com.deepin.daemon.SystemInfo",
-                             "/com/deepin/daemon/SystemInfo",
-                             "org.freedesktop.DBus.Properties",
-                             QDBusConnection::sessionBus());
+    bool useCurrentSpeed = true;
     double cpuMaxMhz = 0.0;
     if (state) {
-        validFrequency = "CPUMaxMHz";
+        useCurrentSpeed = false;
     } else {
-        QDBusMessage replyCPU = interface.call("Get", "com.deepin.daemon.SystemInfo", "CPUHardware");
-        QList<QVariant> outArgsCPU = replyCPU.arguments();
-        if (outArgsCPU.count()) {
-            QString cpuHardware = outArgsCPU.at(0).value<QDBusVariant>().variant().toString();
-            qInfo() << "Current cpu hardware:" << cpuHardware;
-            if (cpuHardware.contains("PANGU")) {
-                validFrequency = "CPUMaxMHz";
-            }
+        QString cpuHardware = m_systemInfoDBusProxy->CPUHardware();
+        qInfo() << "Current cpu hardware:" << cpuHardware;
+        if (cpuHardware.contains("PANGU")) {
+            useCurrentSpeed = false;
         }
     }
-    QDBusMessage reply = interface.call("Get", "com.deepin.daemon.SystemInfo", validFrequency);
-    QList<QVariant> outArgs = reply.arguments();
-    if (outArgs.count()) {
-        cpuMaxMhz = outArgs.at(0).value<QDBusVariant>().variant().toDouble();
+    if (useCurrentSpeed) {
+        cpuMaxMhz = static_cast<double>(m_systemInfoDBusProxy->CurrentSpeed());
+    } else {
+        cpuMaxMhz = m_systemInfoDBusProxy->CPUMaxMHz();
     }
     if (DSysInfo::cpuModelName().contains("Hz")) {
         m_model->setProcessor(DSysInfo::cpuModelName());
     } else {
-        QString processor;
-        QDBusMessage replyCpuInfo = interface.call("Get", "com.deepin.daemon.SystemInfo", "Processor");
-        QList<QVariant> outArgsCpuInfo = replyCpuInfo.arguments();
-        if (outArgsCpuInfo.count()) {
-            processor = outArgsCpuInfo.at(0).value<QDBusVariant>().variant().toString();
-        }
+        QString processor = m_systemInfoDBusProxy->Processor();
         if (processor.contains("Hz")) {
             m_model->setProcessor(processor);
         } else {
@@ -451,7 +438,7 @@ void SystemInfoWork::setUeProgram(bool enabled)
 
 void SystemInfoWork::showActivatorDialog()
 {
-    m_systemInfDBusProxy->Show();
+    m_systemInfoDBusProxy->Show();
 }
 
 void SystemInfoWork::showDetail()
@@ -461,22 +448,22 @@ void SystemInfoWork::showDetail()
 
 void SystemInfoWork::onSetHostname(const QString &hostname)
 {
-    m_systemInfDBusProxy->setStaticHostname(hostname, this, SLOT(onSetHostnameFinish()), SLOT(onSetHostnameFinish()));
+    m_systemInfoDBusProxy->setStaticHostname(hostname, this, SLOT(onSetHostnameFinish()), SLOT(onSetHostnameFinish()));
 }
 
 void SystemInfoWork::onSetHostnameFinish()
 {
-    m_model->setHostName(m_systemInfDBusProxy->staticHostname());
+    m_model->setHostName(m_systemInfoDBusProxy->staticHostname());
 }
 
 void SystemInfoWork::onTimezoneChanged(const QString)
 {
-    m_model->setSystemInstallationDate(getSystemInstallDate(m_systemInfDBusProxy->shortDateFormat(), m_systemInfDBusProxy->timezone()));
+    m_model->setSystemInstallationDate(getSystemInstallDate(m_systemInfoDBusProxy->shortDateFormat(), m_systemInfoDBusProxy->timezone()));
 }
 
 void SystemInfoWork::onShortDateFormatChanged(const int)
 {
-    m_model->setSystemInstallationDate(getSystemInstallDate(m_systemInfDBusProxy->shortDateFormat(), m_systemInfDBusProxy->timezone()));
+    m_model->setSystemInstallationDate(getSystemInstallDate(m_systemInfoDBusProxy->shortDateFormat(), m_systemInfoDBusProxy->timezone()));
 }
 
 void SystemInfoWork::onThemeTypeChanged()
@@ -517,7 +504,7 @@ void SystemInfoWork::setUeProgramEnabled(bool enabled)
 void SystemInfoWork::onLicenseAuthorizationProperty()
 {
     if (DSysInfo::isDeepin()) {
-        ActiveState newLicenseState = static_cast<ActiveState>(m_systemInfDBusProxy->authorizationState());
+        ActiveState newLicenseState = static_cast<ActiveState>(m_systemInfoDBusProxy->authorizationState());
         m_model->setLicenseState(newLicenseState);
     }
 

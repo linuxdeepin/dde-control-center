@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SYSTEMINFODBUSPROXY_H
@@ -32,10 +32,13 @@ public:
     Q_PROPERTY(int ShortDateFormat READ shortDateFormat NOTIFY ShortDateFormatChanged)
     int shortDateFormat();
 
-    // userexperience
-    void Enable(const bool value);
-    bool IsEnabled();
+    // sysinfo system
     qulonglong memorySize();
+    // sysinfo
+    QString Processor();
+    qulonglong CurrentSpeed();
+    QString CPUHardware();
+    double CPUMaxMHz();
 
 Q_SIGNALS:
     void StaticHostnameChanged(const QString &value) const;
@@ -50,8 +53,8 @@ private:
     DDBusInterface *m_hostname1Inter;
     DDBusInterface *m_licenseInfoInter;
     DDBusInterface *m_licenseActivatorInter;
-    DDBusInterface *m_userexperienceInter;
     DDBusInterface *m_systemInfo;
+    DDBusInterface *m_systemInfoSysBus;
     DDBusInterface *m_timedateInter;
     DDBusInterface *m_timeZoneInter;
 };
