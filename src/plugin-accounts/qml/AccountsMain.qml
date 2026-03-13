@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick
 import QtQuick.Controls
@@ -49,7 +49,7 @@ DccObject {
            pageType: DccObject.Item
            page: ListView {
                id: accountView
-               implicitHeight: 50 * Math.min(10, count)
+               implicitHeight: contentHeight
                implicitWidth: 400
                clip: true
                boundsBehavior: Flickable.StopAtBounds
@@ -71,8 +71,8 @@ DccObject {
                }
                delegate: D.ItemDelegate {
                    id: menuItemDelegate
-                   implicitHeight: 50
                    implicitWidth: accountView.width
+                   implicitHeight: Math.max(50, contentItem.implicitHeight + topPadding + bottomPadding)
                    property alias separatorVisible: background.separatorVisible
                    property real iconRadius: 8
                    property real iconSize: 32
