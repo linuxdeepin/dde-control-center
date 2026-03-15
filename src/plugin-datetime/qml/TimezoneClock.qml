@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick
 import QtQuick.Controls
@@ -12,8 +12,8 @@ Item {
     property bool internationalTime: true
     property bool animationEnabled: false
 
-    width: 80
-    height: 80
+    width: 24
+    height: 24
 
     Component.onCompleted: {
         tick()
@@ -51,16 +51,16 @@ Item {
         Rectangle {
             id: hourHandle
             width: background.width / 3
-            height: 4
+            height: 2
             radius: height / 2
-            x: background.x + (background.width) / 2 - 2
-            y: background.y + background.height / 2 - 2
+            x: background.x + (background.width) / 2 - 1
+            y: background.y + background.height / 2 - 1
             color: "#07c5fb"
             antialiasing: true
             transform: Rotation {
                 id: hourRotation
-                origin.x: 2
-                origin.y: 2
+                origin.x: 1
+                origin.y: 1
                 angle: (clock.hours * 30) + (clock.minutes * 0.5) - 90
                 Behavior on angle {
                     enabled: clock.animationEnabled
@@ -76,16 +76,16 @@ Item {
         Rectangle {
             id: minuteHandle
             color: "#f97676"
-            height: 4
+            height: 2
             radius: height / 2
             width: background.width * 0.4
-            x: background.x + background.width / 2 - 2
-            y: background.y + background.height / 2 - 2
+            x: background.x + background.width / 2 - 1
+            y: background.y + background.height / 2 - 1
             antialiasing: true
             transform: Rotation {
                 id: minuteRotation
-                origin.x: 2
-                origin.y: 2
+                origin.x: 1
+                origin.y: 1
                 angle: clock.minutes * 6 - 90
                 Behavior on angle {
                     enabled: clock.animationEnabled
