@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -10,7 +10,8 @@ import org.deepin.dtk.style 1.0 as DS
         
 D.DialogWindow {
     id: ddialog
-    width: 400
+    width: 360
+    height: 252
     minimumWidth: width
     minimumHeight: height
     maximumWidth: minimumWidth
@@ -98,21 +99,31 @@ D.DialogWindow {
     }
 
     ColumnLayout {
-        spacing: 10
         width: parent.width
+        anchors.fill: parent
+        spacing: 0
         Label {
             Layout.alignment: Qt.AlignHCenter
+            Layout.bottomMargin: 20
+            padding: 0
             font.family: D.DTK.fontManager.t5.family
-            font.bold: true
             font.pixelSize: D.DTK.fontManager.t5.pixelSize
             text: qsTr("Date and time setting")
         }
-        RowLayout {
-            Layout.alignment: Qt.AlignLeft
-            Layout.leftMargin: 20
+        GridLayout {
+            Layout.fillWidth: true
+            Layout.leftMargin: 6
+            Layout.rightMargin: 10
+            columns: 4
+            rowSpacing: 20
+            columnSpacing: 10
+            
             Label {
                 font: D.DTK.fontManager.t6
                 text: qsTr("Date")
+                Layout.alignment: Qt.AlignLeft
+                Layout.rightMargin: 6
+                horizontalAlignment: Text.AlignLeft
             }
             SpinboxEx {
                 id: spYear
@@ -121,6 +132,7 @@ D.DialogWindow {
                 from: 1990
                 to: 2090
                 wrap: true
+                Layout.fillWidth: true
                 value: currentDate.getFullYear()
                 onValueChanged: {
                     ddialog.updateDateMax()
@@ -143,6 +155,7 @@ D.DialogWindow {
                 from: 1
                 to: 12
                 wrap: true
+                Layout.fillWidth: true
                 value: currentDate.getMonth() + 1 //  // January gives 0
                 onValueChanged: {
                     ddialog.updateDateMax()
@@ -160,6 +173,7 @@ D.DialogWindow {
                 from: 1
                 to: 31
                 wrap: true
+                Layout.fillWidth: true
                 value: currentDate.getDate()
                 onValueChanged: {
                     dayTextInput.text = value
@@ -170,19 +184,20 @@ D.DialogWindow {
                     spinbox: spDay
                 }
             }
-        }
-        RowLayout {
-            Layout.alignment: Qt.AlignLeft
-            Layout.leftMargin: 20
+            
             Label {
                 font: D.DTK.fontManager.t6
                 text: qsTr("Time")
+                Layout.alignment: Qt.AlignLeft
+                Layout.rightMargin: 6
+                horizontalAlignment: Text.AlignLeft
             }
             SpinboxEx {
                 id: spHour
                 from: 0
                 to: 23
                 wrap: true
+                Layout.fillWidth: true
                 value: currentDate.getHours()
                 onValueChanged: {
                     hourTextInput.text = value
@@ -198,6 +213,7 @@ D.DialogWindow {
                 from: 0
                 to: 59
                 wrap: true
+                Layout.fillWidth: true
                 value: currentDate.getMinutes()
                 onValueChanged: {
                     minTextInput.text = value
@@ -211,9 +227,11 @@ D.DialogWindow {
         }
         RowLayout {
             Layout.alignment: Qt.AlignHCenter
-            spacing: 10
+            Layout.bottomMargin: 6
+            Layout.topMargin: 20
+            spacing: 6
             Button {
-                Layout.bottomMargin: 10
+                Layout.fillWidth: true
                 text: qsTr("Cancel")
                 font: D.DTK.fontManager.t6
                 onClicked: {
@@ -221,9 +239,10 @@ D.DialogWindow {
                 }
             }
             Button {
-                Layout.bottomMargin: 10
+                Layout.fillWidth: true
                 text: qsTr("Confirm")
                 font: D.DTK.fontManager.t6
+                highlighted: true
                 onClicked: {
                     let dateTime = currentDate
                     dateTime.setFullYear(spYear.value)
