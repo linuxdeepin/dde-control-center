@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -327,6 +327,8 @@ ColumnLayout {
                     implicitWidth: pwdColumnLayout.width
                     backgroundVisible: false
                     checkable: false
+                    clip: false
+                    z: (control && control.contentItem && control.contentItem.edit && control.contentItem.edit.showAlert) ? 100 : 1
                     implicitHeight: 30
                     leftPadding: pwdLayout.currentPwdVisible ? 0 : 10
                     rightPadding: 0
