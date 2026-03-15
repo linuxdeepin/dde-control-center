@@ -28,13 +28,13 @@ DccObject {
             Label {
                 id: timeLabel
                 height: contentHeight
-                Layout.leftMargin: 10
+                Layout.leftMargin: 14
                 Layout.topMargin: 10
                 leftPadding: 0
                 rightPadding: 0
                 horizontalAlignment: Text.AlignLeft
                 font {
-                    pointSize: 40
+                    pointSize: 32
                     family: webFont.font.family
                  }
                 text: ("" + dccData.currentTime).trim()
@@ -42,12 +42,12 @@ DccObject {
             Label {
                 id: dateLabel
                 height: contentHeight
-                Layout.leftMargin: 10
+                Layout.leftMargin: 18
                 leftPadding: 0
                 rightPadding: 0
                 horizontalAlignment: Text.AlignLeft
                 font {
-                    pointSize: 14
+                    pointSize: 16
                     family: webFont.font.family
                 }
                 text: dccData.currentDate
