@@ -20,7 +20,6 @@ DccObject {
         weight: 10
         pageType: DccObject.Item
         page: ColumnLayout {
-
             FontLoader {
                 id: webFont
                 source: "qrc:/builtin-font/resource/Outfit-Light.ttf"
@@ -30,6 +29,7 @@ DccObject {
                 id: timeLabel
                 height: contentHeight
                 Layout.leftMargin: 10
+                Layout.topMargin: 10
                 leftPadding: 0
                 rightPadding: 0
                 horizontalAlignment: Text.AlignLeft
