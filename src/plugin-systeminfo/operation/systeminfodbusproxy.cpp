@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -27,17 +27,13 @@ const QString LicenseActivatorInterface = QStringLiteral("com.deepin.license.act
 const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
-const QString &UserexperienceService = QStringLiteral("com.deepin.userexperience.Daemon");
-const QString &UserexperiencePath = QStringLiteral("/com/deepin/userexperience/Daemon");
-const QString &UserexperienceInterface = QStringLiteral("com.deepin.userexperience.Daemon");
+const QString &SystemInfoService = QStringLiteral("org.deepin.dde.SystemInfo1");
+const QString &SystemInfoPath = QStringLiteral("/org/deepin/dde/SystemInfo1");
+const QString &SystemInfoInterface = QStringLiteral("org.deepin.dde.SystemInfo1");
 
-const QString &SystemInfoService = QStringLiteral("com.deepin.system.SystemInfo");
-const QString &SystemInfoPath = QStringLiteral("/com/deepin/system/SystemInfo");
-const QString &SystemInfoInterface = QStringLiteral("com.deepin.system.SystemInfo");
-
-const QString &TimedateService = QStringLiteral("com.deepin.daemon.Timedate");
-const QString &TimedatePath = QStringLiteral("/com/deepin/daemon/Timedate");
-const QString &TimedateInterface = QStringLiteral("com.deepin.daemon.Timedate");
+const QString &TimedateService = QStringLiteral("org.deepin.dde.Timedate1");
+const QString &TimedatePath = QStringLiteral("/org/deepin/dde/Timedate1");
+const QString &TimedateInterface = QStringLiteral("org.deepin.dde.Timedate1");
 
 const QString &TimeZoneService = QStringLiteral("org.freedesktop.timedate1");
 const QString &TimeZonePath = QStringLiteral("/org/freedesktop/timedate1");
@@ -48,8 +44,8 @@ SystemInfoDBusProxy::SystemInfoDBusProxy(QObject *parent)
     , m_hostname1Inter(new DDBusInterface(HostnameService, HostnamePath, HostnameInterface, QDBusConnection::systemBus(), this))
     , m_licenseInfoInter(new DDBusInterface(LicenseInfoService, LicenseInfoPath, LicenseInfoInterface, QDBusConnection::systemBus(), this))
     , m_licenseActivatorInter(new DDBusInterface(LicenseActivatorService, LicenseActivatorPath, LicenseActivatorInterface, QDBusConnection::sessionBus(), this))
-    , m_userexperienceInter(new DDBusInterface(UserexperienceService, UserexperiencePath, UserexperienceInterface, QDBusConnection::sessionBus(), this))
-    , m_systemInfo(new DDBusInterface(SystemInfoService, SystemInfoPath, SystemInfoInterface, QDBusConnection::systemBus(), this))
+    , m_systemInfo(new DDBusInterface(SystemInfoService, SystemInfoPath, SystemInfoInterface, QDBusConnection::sessionBus(), this))
+    , m_systemInfoSysBus(new DDBusInterface(SystemInfoService, SystemInfoPath, SystemInfoInterface, QDBusConnection::systemBus(), this))
     , m_timedateInter(new DDBusInterface(TimedateService, TimedatePath, TimedateInterface, QDBusConnection::sessionBus(), this))
     , m_timeZoneInter(new DDBusInterface(TimeZoneService, TimeZonePath, TimeZoneInterface, QDBusConnection::systemBus(), this))
 {
@@ -101,22 +97,29 @@ int SystemInfoDBusProxy::shortDateFormat()
     return qvariant_cast<int>(m_timedateInter->property("ShortDateFormat"));
 }
 
-void SystemInfoDBusProxy::Enable(const bool value)
-{
-    m_userexperienceInter->asyncCallWithArgumentList("Enable", { value });
-}
-
-bool SystemInfoDBusProxy::IsEnabled()
-{
-    QDBusReply<bool> reply = m_userexperienceInter->call(QStringLiteral("IsEnabled"));
-    if (reply.isValid())
-        return reply.value();
-    return false;
-}
-
 qulonglong SystemInfoDBusProxy::memorySize()
 {
-    return m_systemInfo->property("MemorySize").toULongLong();
+    return  m_systemInfoSysBus->property("MemorySize").toULongLong();
+}
+
+QString SystemInfoDBusProxy::Processor()
+{
+    return m_systemInfo->property("Processor").toString();
+}
+
+qulonglong SystemInfoDBusProxy::CurrentSpeed()
+{
+    return m_systemInfo->property("CurrentSpeed").toLongLong();
+}
+
+QString SystemInfoDBusProxy::CPUHardware()
+{
+    return m_systemInfo->property("CPUHardware").toString();
+}
+
+double SystemInfoDBusProxy::CPUMaxMHz()
+{
+    return m_systemInfo->property("CPUMaxMHz").toDouble();
 }
 
 void SystemInfoDBusProxy::Show()

@@ -1,3 +1,32 @@
+dde-control-center (6.1.76) unstable; urgency=medium
+
+  * refactor: update system info DBus interface and proxy
+  * fix(display): preserve display order when adjusting resolution
+  * Fix: Abnormal behaviour in primary menu tabs
+  * fix(accounts): resolve clear button shifting during text input
+  * fix: Time display UI optimisation
+  * fix: fix module matching and listing issues
+  * fix: Optimized focus acquisition logic for secondary menus
+  * fix: add parent module validation and fix DTK reference
+  * fix(window): change about dialog to window modal mode
+  * fix: make loading page background opaque
+  * fix(plugin): set DTK palette for loaded plugin components
+  * fix(power): show tooltip for truncated text in ComboBox dropdown
+    items
+  * refactor: improve permission matching with package name fallback
+  * fix(ui): adjust padding and insets for better layout alignment
+  * fix: remove unused port combo enable properties
+  * fix: set smooth=false for sidebar button icon to prevent blur at
+    fractional scaling
+  * fix: preserve maximized window state when jumping from global search
+  * fix: fix control center initialization and navigation issues
+  * refactor: remove search result separator logic
+  * fix: Fix the translation function call issue in ListElement
+  * fix(keyboard): use DTK font manager for shortcuts edit button
+  * fix(accounts): adjust password dialog layout spacing
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 12 Mar 2026 21:31:46 +0800
+
 dde-control-center (6.1.75) unstable; urgency=medium
 
   * fix: Optimized display for solid-color wallpapers
