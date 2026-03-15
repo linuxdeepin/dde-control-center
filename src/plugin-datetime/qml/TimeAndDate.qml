@@ -584,7 +584,7 @@ DccObject {
                         visible: text !== ""
                         font: D.DTK.fontManager.t10
                         text: dccObj.description
-                        opacity: 0.5
+                        opacity: 0.6
                         elide: Text.ElideRight
                     }
                 }
