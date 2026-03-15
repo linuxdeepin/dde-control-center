@@ -327,6 +327,8 @@ ColumnLayout {
                     implicitWidth: pwdColumnLayout.width
                     backgroundVisible: false
                     checkable: false
+                    clip: false
+                    z: (control && control.contentItem && control.contentItem.edit && control.contentItem.edit.showAlert) ? 100 : 1
                     implicitHeight: 30
                     leftPadding: pwdLayout.currentPwdVisible ? 0 : 10
                     rightPadding: 0
