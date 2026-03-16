@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="ca">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="ca">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -193,7 +191,7 @@ Per garantir una entrada correcta:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat de l&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà en funció del resultat de la comparació.
@@ -240,7 +238,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat d&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà en funció del resultat de la comparació.
@@ -291,7 +289,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>L&apos;autenticació biomètrica ​​és una funció per a l&apos;autenticació de la identitat de l&apos;usuari proporcionada per UnionTech Software Technology Co., Ltd. Mitjançant l&apos;autenticació biomètrica, les dades biomètriques recollides es compararan amb les emmagatzemades al dispositiu i la identitat de l&apos;usuari es verificarà en funció del resultat de la comparació.
@@ -1210,11 +1208,11 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished">Llengua i regió</translation>
+        <translation>Llengua i regió</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished">Llengua del sistema, formats de regió</translation>
+        <translation>Llengua del sistema, formats de regió</translation>
     </message>
 </context>
 <context>
@@ -1731,7 +1729,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>Device</name>
     <message>
         <source>Bluetooth and Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Bluetooth i dispositius</translation>
     </message>
 </context>
 <context>
@@ -2776,31 +2774,31 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Colors i icones</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajusteu el color d&apos;accentuació i les icones del tema</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tipus i mida de la lletra</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"></translation>
+        <translation>Canvieu el tipus i la mida de la lletra del sistema</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"></translation>
+        <translation>Fons de pantalla</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"></translation>
+        <translation>Seleccioneu l&apos;aspecte del tema: clar, fosc o automàtic.</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"></translation>
+        <translation>Interfície i efectes, cantons arrodonits</translation>
     </message>
 </context>
 <context>
@@ -2825,38 +2823,38 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuració de l&apos;estalvi d&apos;energia, la pantalla i la suspensió</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished">Energia</translation>
+        <translation>Energia</translation>
     </message>
 </context>
 <context>
     <name>PowerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished">General</translation>
+        <translation>General</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Plans d&apos;energia, paràmetres d&apos;estalvi d&apos;energia, paràmetres del despertament, configuració de l&apos;apagada</translation>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"></translation>
+        <translation>Connectat</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"></translation>
+        <translation>Pantalla i suspensió</translation>
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"></translation>
+        <translation>Amb la bateria</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"></translation>
+        <translation>pantalla i suspensió, bateria baixa, gestió de la bateria</translation>
     </message>
 </context>
 <context>
@@ -2967,30 +2965,30 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>Privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"></translation>
+        <translation>Privadesa i seguretat</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"></translation>
+        <translation>Càmera, permisos de les carpetes</translation>
     </message>
 </context>
 <context>
     <name>PrivacyMain</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Càmera</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"></translation>
+        <translation>Trieu si l&apos;aplicació té accés a la càmera.</translation>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Fitxers i carpetes</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"></translation>
+        <translation>Trieu si l&apos;aplicació té accés a fitxers i carpetes.</translation>
     </message>
 </context>
 <context>
@@ -3407,7 +3405,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Sortida, entrada, efectes de so, dispositius</translation>
     </message>
 </context>
 <context>
@@ -3436,23 +3434,23 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>SoundMain</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Configuració</translation>
+        <translation>Configuració</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished">Efectes de so</translation>
+        <translation>Efectes de so</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"></translation>
+        <translation>Activa / desactiva els efectes de so</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Activa / desactiva els dispositius d&apos;àudio</translation>
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"></translation>
+        <translation>Gestió de dispositius</translation>
     </message>
 </context>
 <context>
@@ -3600,61 +3598,61 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>System</name>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuracions comunes</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished">Sistema</translation>
+        <translation>Sistema</translation>
     </message>
 </context>
 <context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"></translation>
+        <translation>Informació auxiliar</translation>
     </message>
 </context>
 <context>
     <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"></translation>
+        <translation>Quant a aquest ordinador</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"></translation>
+        <translation>Versió del sistema, informació del dispositiu</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"></translation>
+        <translation>Vegeu l&apos;avís del programari de codi obert</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"></translation>
+        <translation>Programa d&apos;experiència d&apos;usuari</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"></translation>
+        <translation>Uniu-vos al programa d&apos;experiència d&apos;usuari per ajudar a millorar el producte.</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"></translation>
+        <translation>Acord de llicència de l&apos;usuari final</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"></translation>
+        <translation>Vegeu l&apos;acord de llicència d&apos;usuari final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished">Política de privadesa</translation>
+        <translation>Política de privadesa</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"></translation>
+        <translation>Vegeu informació sobre la política de privadesa</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"></translation>
+        <translation>Avís de programari de codi obert</translation>
     </message>
 </context>
 <context>
@@ -3834,18 +3832,18 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>Touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Pantalla tàctil</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuració de la pantalla tàctil</translation>
     </message>
 </context>
 <context>
     <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished">Comú</translation>
+        <translation>Comú</translation>
     </message>
 </context>
 <context>
@@ -3890,42 +3888,42 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>Wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"></translation>
+        <translation>Wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuració de la tauleta tàctil</translation>
     </message>
 </context>
 <context>
     <name>WacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"></translation>
+        <translation>Wacom</translation>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode de bolígraf</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation type="unfinished"></translation>
+        <translation>Mode de ratolí</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"></translation>
+        <translation>Sensibilitat de la pressió</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished">Clar</translation>
+        <translation>Lleugera</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"></translation>
+        <translation>Intensa</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"></translation>
+        <translation>Model</translation>
     </message>
 </context>
 <context>
