@@ -12,7 +12,6 @@ Q_DECLARE_LOGGING_CATEGORY(DCC_PRIVACY)
 
 namespace Dtk {
 namespace Core {
-class DConfig;
 } // namespace Core
 } // namespace Dtk
 class QDBusPendingCallWatcher;
@@ -52,10 +51,6 @@ public Q_SLOTS:
     // FileArmor
     bool existsService() const;
 
-    // cacheBlacklist
-    QMap<QString, QSet<QString>> getCacheBlacklist();
-    void setCacheBlacklist(const QMap<QString, QSet<QString>> &cacheBlacklist);
-
 private Q_SLOTS:
     void onGetNameOwner(const QString &);
     void onDBusNameOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner);
@@ -71,7 +66,6 @@ private Q_SLOTS:
 
 private:
     bool m_serviceExists;
-    Dtk::Core::DConfig *m_dconfig;
 };
 
 #endif // PRIVACYSECURITYDATAPROXY_H

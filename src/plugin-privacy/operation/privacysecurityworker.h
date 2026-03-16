@@ -20,7 +20,6 @@ public slots:
 
     void setAppPermissionEnable(int premission, bool enabled, ApplicationItem *item);
     void checkAuthorizationCancel();
-    void updateCacheBlacklist(const QMap<QString, QSet<QString>> &cacheBlacklist);
 
 private slots:
     void updateAppPath(ApplicationItem *item);
