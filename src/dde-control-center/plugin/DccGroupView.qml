@@ -14,6 +14,7 @@ Rectangle {
     id: control
     property bool isGroup: true
     property alias spacing: layoutView.spacing
+    property int currentFocusIndex: -1  // 追踪当前焦点在可交互项中的索引
     property var model: DccModel {
         root: dccObj
     }
@@ -28,6 +29,33 @@ Rectangle {
         }
         var currentObj = control.model.getObject(idx)
         return currentObj && (currentObj.pageType === DccObject.Menu || currentObj.pageType === DccObject.MenuEditor)
+    }
+
+    function getInteractiveRepeaterIndices() {
+        var indices = []
+        for (var i = 0; i < repeater.count; i++) {
+            var obj = control.model.getObject(i)
+            if (obj && (obj.pageType === DccObject.Menu || obj.pageType === DccObject.MenuEditor))
+                indices.push(i)
+        }
+        return indices
+    }
+
+    function onMenuItemFocused(repeaterIndex) {
+        control.currentFocusIndex = getInteractiveRepeaterIndices().indexOf(repeaterIndex)
+    }
+
+    function navigateToItem(forward) {
+        var indices = getInteractiveRepeaterIndices()
+        if (indices.length === 0) return
+
+        var next = control.currentFocusIndex < 0 ? 0
+            : (forward ? control.currentFocusIndex + 1 : control.currentFocusIndex - 1)
+        if (next < 0) next = indices.length - 1
+        if (next >= indices.length) next = 0
+
+        var item = repeater.itemAt(indices[next])
+        if (item) item.forceActiveFocus(forward ? Qt.TabFocusReason : Qt.BacktabFocusReason)
     }
 
     objectName: "noPadding"
@@ -54,6 +82,9 @@ Rectangle {
                         Layout.fillWidth: true
                         activeFocusOnTab: control.isFirstInteractiveItem(index)
                         corners: control.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
+                        onActiveFocusChanged: {
+                            if (activeFocus) control.onMenuItemFocused(index)
+                        }
                     }
                 }
                 DelegateChoice {
@@ -90,6 +121,9 @@ Rectangle {
                         Layout.fillWidth: true
                         activeFocusOnTab: control.isFirstInteractiveItem(index)
                         corners: control.isGroup ? getCornersForBackground(index, repeater.count) : D.RoundRectangle.TopLeftCorner | D.RoundRectangle.TopRightCorner | D.RoundRectangle.BottomLeftCorner | D.RoundRectangle.BottomRightCorner
+                        onActiveFocusChanged: {
+                            if (activeFocus) control.onMenuItemFocused(index)
+                        }
                     }
                 }
             }

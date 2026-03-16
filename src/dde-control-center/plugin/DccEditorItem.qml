@@ -31,8 +31,24 @@ D.ItemDelegate {
     font: D.DTK.fontManager.t6
     activeFocusOnTab: false
 
-    Keys.onUpPressed: nextItemInFocusChain(false)?.forceActiveFocus(Qt.BacktabFocusReason)
-    Keys.onDownPressed: nextItemInFocusChain(true)?.forceActiveFocus(Qt.TabFocusReason)
+    Keys.onUpPressed: function(event) {
+        var p = control.parent
+        while (p && !p.navigateToItem) { p = p.parent }
+        if (p) {
+            p.navigateToItem(false)
+        } else {
+            nextItemInFocusChain(false)?.forceActiveFocus(Qt.BacktabFocusReason)
+        }
+    }
+    Keys.onDownPressed: function(event) {
+        var p = control.parent
+        while (p && !p.navigateToItem) { p = p.parent }
+        if (p) {
+            p.navigateToItem(true)
+        } else {
+            nextItemInFocusChain(true)?.forceActiveFocus(Qt.TabFocusReason)
+        }
+    }
     Keys.onReturnPressed: if (rightLoader.item) rightLoader.item.clicked()
     Keys.onEnterPressed: if (rightLoader.item) rightLoader.item.clicked()
 
