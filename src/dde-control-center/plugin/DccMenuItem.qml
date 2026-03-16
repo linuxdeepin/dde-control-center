@@ -19,8 +19,5 @@ DccEditorItem {
             palette: D.DTK.makeIconPalette(palette)
         }
     }
-    onClicked: {
-        DccApp.showPage(model.item)
-        console.log(model.item.name, model.display, model.item.icon)
-    }
+    onClicked: DccApp.showPage(model.item)
 }

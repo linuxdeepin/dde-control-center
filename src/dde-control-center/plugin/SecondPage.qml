@@ -120,6 +120,7 @@ Item {
                         dccObj.currentObject = upObj
                         DccApp.showPage(upObj)
                     }
+                    forceActiveFocus()
                     break
                 case Qt.Key_Down:
                     if (count <= 0 || !dccObj)
@@ -134,12 +135,14 @@ Item {
                         dccObj.currentObject = downObj
                         DccApp.showPage(downObj)
                     }
+                    forceActiveFocus()
                     break
                 case Qt.Key_Enter:
                 case Qt.Key_Return:
                     var obj = dccModel.getObject(currentIndex)
                     if (obj)
                         DccApp.showPage(obj)
+                    forceActiveFocus()
                     break
                 default:
                     return
@@ -157,7 +160,7 @@ Item {
                 width: parent ? parent.width : 300
                 font: D.DTK.fontManager.t6
                 activeFocusOnTab: false
-                focusPolicy: Qt.NoFocus
+                focusPolicy: Qt.ClickFocus
 
                 checked: dccObj.currentObject === model.item
                 cascadeSelected: false
