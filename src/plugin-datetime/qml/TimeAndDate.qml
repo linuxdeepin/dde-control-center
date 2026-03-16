@@ -20,7 +20,6 @@ DccObject {
         weight: 10
         pageType: DccObject.Item
         page: ColumnLayout {
-
             FontLoader {
                 id: webFont
                 source: "qrc:/builtin-font/resource/Outfit-Light.ttf"
@@ -30,6 +29,7 @@ DccObject {
                 id: timeLabel
                 height: contentHeight
                 Layout.leftMargin: 10
+                Layout.topMargin: 10
                 leftPadding: 0
                 rightPadding: 0
                 horizontalAlignment: Text.AlignLeft
@@ -592,12 +592,12 @@ DccObject {
 
             TimezoneClock {
                 id: clock
-                width: 36
-                height: 36
+                width: 24
+                height: 24
                 shift: dccObj.shift
                 anchors {
                     left: itemZoneCompItemDelegate.left
-                    leftMargin: 10
+                    leftMargin: 20
                     top: itemZoneCompItemDelegate.top
                     topMargin: (itemZoneCompItemDelegate.height - clock.height) / 2
                 }

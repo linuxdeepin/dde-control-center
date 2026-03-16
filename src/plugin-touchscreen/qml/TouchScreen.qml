@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.0
 import QtQuick.Controls 2.0
@@ -12,25 +12,33 @@ import org.deepin.dcc 1.0
 import org.deepin.dcc.touchscreen 1.0
 
 DccObject {
-    DccObject {
+    DccTitleObject {
         name: "TouchScreen"
+        weight: 10
         parentName: "touchscreen"
         displayName: qsTr("TouchScreen")
-        weight: 10
+    }
+
+    DccObject {
+        name: "TouchScreenTips"
+        parentName: "touchscreen"
         pageType: DccObject.Item
+        displayName: qsTr("Set up here when connecting the touch screen")
         page: ColumnLayout {
-            Label {
-                height: contentHeight
-                Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
+            DccLabel {
+                Layout.fillWidth: true
+                Layout.leftMargin: 12
+                font: D.DTK.fontManager.t8
                 text: dccObj.displayName
             }
-            Label {
-                height: contentHeight
-                Layout.leftMargin: 10
-                wrapMode: Text.WordWrap
-                text: qsTr("Set up here when connecting the touch screen")
-            }
+        }
+    }
+
+    DccObject {
+        parentName: "touchscreen"
+        backgroundType: DccObject.Normal
+        pageType: DccObject.Item
+        page: ColumnLayout {
             Repeater {
                 model: dccData.touchScreenMatchModel()
                 delegate: ItemDelegate{
@@ -39,8 +47,10 @@ DccObject {
                     text: model.name
                     checkable: false
                     Layout.fillWidth: true
-                    content: ComboBox{
+                    Layout.leftMargin: 8
+                    content: D.ComboBox{
                         id: combo
+                        flat: true
                         model: dccData.monitors
                         currentIndex: dccData.monitors.indexOf(touchItem.data.screenName)
                         onCurrentIndexChanged: {

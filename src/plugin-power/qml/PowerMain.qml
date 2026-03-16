@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Window 2.15
@@ -16,7 +16,7 @@ DccObject {
         icon: "general"
         weight: 10
         page: DccRightView {
-            spacing: 5
+            spacing: 0
         }
         GeneralPage {}
     }
@@ -29,7 +29,7 @@ DccObject {
         weight: 100
         visible: dccData.platformName() !== "wayland"
         page: DccRightView {
-            spacing: 5
+            spacing: 0
         }
         PowerPage {}
     }
@@ -42,7 +42,7 @@ DccObject {
         weight: 200
         visible: dccData.model.haveBettary
         page: DccRightView {
-            spacing: 5
+            spacing: 0
         }
         BatteryPage {}
     }
