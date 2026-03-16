@@ -590,7 +590,9 @@ DccObject {
             displayName: qsTr("Brightness")
             weight: 10
             pageType: DccObject.Editor
-            page: Item {}
+            onParentItemChanged: item => { if (item) item.implicitHeight = 36 }
+            page: Item {
+            }
         }
         DccRepeater {
             model: screen.screenItems
