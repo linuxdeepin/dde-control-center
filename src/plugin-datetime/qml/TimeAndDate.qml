@@ -20,7 +20,6 @@ DccObject {
         weight: 10
         pageType: DccObject.Item
         page: ColumnLayout {
-
             FontLoader {
                 id: webFont
                 source: "qrc:/builtin-font/resource/Outfit-Light.ttf"
@@ -29,12 +28,13 @@ DccObject {
             Label {
                 id: timeLabel
                 height: contentHeight
-                Layout.leftMargin: 10
+                Layout.leftMargin: 14
+                Layout.topMargin: 10
                 leftPadding: 0
                 rightPadding: 0
                 horizontalAlignment: Text.AlignLeft
                 font {
-                    pointSize: 40
+                    pointSize: 32
                     family: webFont.font.family
                  }
                 text: ("" + dccData.currentTime).trim()
@@ -42,12 +42,12 @@ DccObject {
             Label {
                 id: dateLabel
                 height: contentHeight
-                Layout.leftMargin: 10
+                Layout.leftMargin: 18
                 leftPadding: 0
                 rightPadding: 0
                 horizontalAlignment: Text.AlignLeft
                 font {
-                    pointSize: 14
+                    pointSize: 16
                     family: webFont.font.family
                 }
                 text: dccData.currentDate
@@ -584,7 +584,7 @@ DccObject {
                         visible: text !== ""
                         font: D.DTK.fontManager.t10
                         text: dccObj.description
-                        opacity: 0.5
+                        opacity: 0.6
                         elide: Text.ElideRight
                     }
                 }
@@ -592,12 +592,12 @@ DccObject {
 
             TimezoneClock {
                 id: clock
-                width: 36
-                height: 36
+                width: 24
+                height: 24
                 shift: dccObj.shift
                 anchors {
                     left: itemZoneCompItemDelegate.left
-                    leftMargin: 10
+                    leftMargin: 20
                     top: itemZoneCompItemDelegate.top
                     topMargin: (itemZoneCompItemDelegate.height - clock.height) / 2
                 }

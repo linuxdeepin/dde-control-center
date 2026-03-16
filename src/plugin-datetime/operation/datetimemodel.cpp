@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "datetimemodel.h"
@@ -333,7 +333,7 @@ QString DatetimeModel::zoneDisplayName(const QString &zoneName)
         auto zoneInfo = m_work->GetZoneInfo(zoneName);
         QString utcOffsetText = zoneInfo.getUtcOffsetText();
         QString cityName = zoneInfo.getZoneCity().isEmpty() ? zoneInfo.getZoneName() : zoneInfo.getZoneCity();
-        return QString("%1 %2").arg(utcOffsetText).arg(cityName);
+        return QString("%1 %2").arg(cityName).arg(utcOffsetText);
     }
     return QString();
 }
