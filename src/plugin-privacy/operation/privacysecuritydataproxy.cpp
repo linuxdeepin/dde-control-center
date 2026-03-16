@@ -4,8 +4,6 @@
 
 #include "privacysecuritydataproxy.h"
 
-#include <DConfig>
-
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusMetaType>
@@ -29,7 +27,6 @@ const QString UsecInterface = "org.deepin.usec1.AccessControl";
 PrivacySecurityDataProxy::PrivacySecurityDataProxy(QObject *parent)
     : QObject(parent)
     , m_serviceExists(false)
-    , m_dconfig(nullptr)
 {
     QDBusMessage message = QDBusMessage::createMethodCall("org.freedesktop.DBus", "/org/freedesktop/DBus", "org.freedesktop.DBus", "GetNameOwner");
     message << UsecService;
@@ -189,8 +186,6 @@ void PrivacySecurityDataProxy::onSetPolicyFinished(QDBusPendingCallWatcher *w)
 
 void PrivacySecurityDataProxy::init()
 {
-    m_dconfig = Dtk::Core::DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center.privacy");
-
     QDBusConnection::systemBus().connect(UsecService, UsecPath, UsecInterface, "PolicyChanged", this, SIGNAL(PolicyChanged(QString, QString)));
     QDBusConnection::systemBus().connect(UsecService, UsecPath, UsecInterface, "EntityChanged", this, SIGNAL(EntityChanged(QString, QString)));
     QDBusConnection::systemBus().connect(UsecService, UsecPath, UsecInterface, "ModeChanged", this, SIGNAL(ModeChanged(QString, QString)));
@@ -199,20 +194,6 @@ void PrivacySecurityDataProxy::init()
 bool PrivacySecurityDataProxy::existsService() const
 {
     return m_serviceExists;
-}
-
-void PrivacySecurityDataProxy::setCacheBlacklist(const QMap<QString, QSet<QString>> &cacheBlacklist)
-{
-    QJsonObject json;
-    for (auto &&it = cacheBlacklist.begin(); it != cacheBlacklist.end(); it++) {
-        QJsonArray array;
-        for (auto &&app : it.value()) {
-            array.append(app);
-        }
-        json.insert(it.key(), array);
-    }
-    QJsonDocument doc(json);
-    m_dconfig->setValue("permissionBlacklist", doc.toJson(QJsonDocument::Compact));
 }
 
 void PrivacySecurityDataProxy::onGetNameOwner(const QString &)

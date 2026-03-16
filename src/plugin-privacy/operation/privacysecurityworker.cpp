@@ -584,11 +584,6 @@ void PrivacySecurityWorker::checkAuthorizationCancel()
     }
 }
 
-void PrivacySecurityWorker::updateCacheBlacklist(const QMap<QString, QSet<QString>> &cacheBlacklist)
-{
-    m_dataProxy->setCacheBlacklist(cacheBlacklist);
-}
-
 QStringList PrivacySecurityWorker::getExecutable(const QString &packageName)
 {
     if (packageName.isEmpty()) {
