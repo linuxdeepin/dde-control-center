@@ -45,6 +45,7 @@ FocusScope {
     }
     activeFocusOnTab: repeater.count > 1
     onWidthChanged: updateLayout()
+    onVisibleChanged: updateLayout()
 
     Repeater {
         id: repeater
