@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2022 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2022 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
@@ -19,6 +19,7 @@ Control {
     property D.Palette placeholderTextColor: DS.Style.keySequenceEdit.placeholderText
     property bool showEditButtons: false
     property bool showWarnning: false
+    property int textToKeySpacing: 20// 名称文字与快捷键按钮区域的间距
     signal requestKeys
     signal requestEditKeys
     signal requestDeleteKeys
@@ -31,122 +32,23 @@ Control {
     }
 
     contentItem: RowLayout {
+        spacing: control.textToKeySpacing
+
         Label {
+            id: textLabel
             Layout.leftMargin: DS.Style.keySequenceEdit.margin
             font: D.DTK.fontManager.t6
             textFormat: Text.PlainText
             text: control.text
+            elide: Text.ElideRight
             horizontalAlignment: Qt.AlignLeft
             verticalAlignment: Qt.AlignVCenter
             Layout.fillWidth: true
-            Layout.fillHeight: true
             Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
         }
 
-        Component {
-            id: inputComponent
-            Label {
-                text: control.placeholderText
-                color: control.D.ColorSelector.placeholderTextColor
-                font: D.DTK.fontManager.t7
-                horizontalAlignment: Qt.AlignRight
-                verticalAlignment: Qt.AlignVCenter
-            }
-        }
-
-        Component {
-            id: keyComponent
-            RowLayout {
-                spacing: DS.Style.keySequenceEdit.margin
-                D.IconButton {
-                    id: warnningBtn
-                    flat: true
-                    background: null
-                    visible: showWarnning
-                    icon.name: "icon_info"
-                    icon.width: 24
-                    icon.height: 24
-                }
-
-                Repeater {
-                    model: control.keys
-                    P.KeySequenceLabel {
-                        Layout.alignment: Qt.AlignRight
-                        text: modelData
-                    }
-                }
-
-                RowLayout {
-                    spacing: 0
-                    Layout.alignment: Qt.AlignRight
-                    D.IconButton {
-                        id: editButton
-                        visible: control.showEditButtons
-                        focusPolicy: Qt.NoFocus
-                        hoverEnabled: true
-                        icon.name: "keyboard_edit"
-                        icon.width: 16
-                        icon.height: 16
-                        implicitWidth: 36
-                        implicitHeight: 36
-                        Layout.alignment: Qt.AlignVCenter
-                        background: Rectangle {
-                           anchors.fill: parent
-                           property D.Palette pressedColor: D.Palette {
-                               normal: Qt.rgba(0, 0, 0, 0.2)
-                               normalDark: Qt.rgba(1, 1, 1, 0.25)
-                           }
-                           property D.Palette hoveredColor: D.Palette {
-                               normal: Qt.rgba(0, 0, 0, 0.1)
-                               normalDark: Qt.rgba(1, 1, 1, 0.1)
-                           }
-                           radius: DS.Style.control.radius
-                           color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
-                           border {
-                               color: parent.palette.highlight
-                               width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
-                           }
-                        }
-                        onClicked: {
-                            control.requestEditKeys()
-                        }
-                    }
-                    D.IconButton {
-                        id: removeButton
-                        visible: control.showEditButtons
-                        focusPolicy: Qt.NoFocus
-                        hoverEnabled: true
-                        icon.name: "keyboard_delete"
-                        icon.width: 16
-                        icon.height: 16
-                        implicitWidth: 36
-                        implicitHeight: 36
-                        background: Rectangle {
-                           anchors.fill: parent
-                           property D.Palette pressedColor: D.Palette {
-                               normal: Qt.rgba(0, 0, 0, 0.2)
-                               normalDark: Qt.rgba(1, 1, 1, 0.25)
-                           }
-                           property D.Palette hoveredColor: D.Palette {
-                               normal: Qt.rgba(0, 0, 0, 0.1)
-                               normalDark: Qt.rgba(1, 1, 1, 0.1)
-                           }
-                           radius: DS.Style.control.radius
-                           color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
-                           border {
-                               color: parent.palette.highlight
-                               width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
-                           }
-                        }
-                        onClicked: {
-                            control.requestDeleteKeys()
-                        }
-                    }
-                }
-            }
-        }
-
         Loader {
+            id: keyLoader
             Layout.rightMargin: DS.Style.keySequenceEdit.margin
             Layout.alignment: Qt.AlignVCenter
             sourceComponent: (control.keys.length !== 0) ? keyComponent : inputComponent
@@ -158,6 +60,109 @@ Control {
                         return
                     }
                     control.requestKeys()
+                }
+            }
+        }
+    }
+
+    Component {
+        id: inputComponent
+        Label {
+            text: control.placeholderText
+            color: control.D.ColorSelector.placeholderTextColor
+            font: D.DTK.fontManager.t7
+            horizontalAlignment: Qt.AlignRight
+            verticalAlignment: Qt.AlignVCenter
+        }
+    }
+
+    Component {
+        id: keyComponent
+        RowLayout {
+            spacing: DS.Style.keySequenceEdit.margin
+            D.IconButton {
+                id: warnningBtn
+                flat: true
+                background: null
+                visible: showWarnning
+                icon.name: "icon_info"
+                icon.width: 24
+                icon.height: 24
+            }
+
+            Repeater {
+                model: control.keys
+                P.KeySequenceLabel {
+                    Layout.alignment: Qt.AlignRight
+                    text: modelData
+                }
+            }
+
+            RowLayout {
+                spacing: 0
+                Layout.alignment: Qt.AlignRight
+                D.IconButton {
+                    id: editButton
+                    visible: control.showEditButtons
+                    focusPolicy: Qt.NoFocus
+                    hoverEnabled: true
+                    icon.name: "keyboard_edit"
+                    icon.width: 16
+                    icon.height: 16
+                    implicitWidth: 36
+                    implicitHeight: 36
+                    Layout.alignment: Qt.AlignVCenter
+                    background: Rectangle {
+                       anchors.fill: parent
+                       property D.Palette pressedColor: D.Palette {
+                           normal: Qt.rgba(0, 0, 0, 0.2)
+                           normalDark: Qt.rgba(1, 1, 1, 0.25)
+                       }
+                       property D.Palette hoveredColor: D.Palette {
+                           normal: Qt.rgba(0, 0, 0, 0.1)
+                           normalDark: Qt.rgba(1, 1, 1, 0.1)
+                       }
+                       radius: DS.Style.control.radius
+                       color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                       border {
+                           color: parent.palette.highlight
+                           width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                       }
+                    }
+                    onClicked: {
+                        control.requestEditKeys()
+                    }
+                }
+                D.IconButton {
+                    id: removeButton
+                    visible: control.showEditButtons
+                    focusPolicy: Qt.NoFocus
+                    hoverEnabled: true
+                    icon.name: "keyboard_delete"
+                    icon.width: 16
+                    icon.height: 16
+                    implicitWidth: 36
+                    implicitHeight: 36
+                    background: Rectangle {
+                       anchors.fill: parent
+                       property D.Palette pressedColor: D.Palette {
+                           normal: Qt.rgba(0, 0, 0, 0.2)
+                           normalDark: Qt.rgba(1, 1, 1, 0.25)
+                       }
+                       property D.Palette hoveredColor: D.Palette {
+                           normal: Qt.rgba(0, 0, 0, 0.1)
+                           normalDark: Qt.rgba(1, 1, 1, 0.1)
+                       }
+                       radius: DS.Style.control.radius
+                       color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                       border {
+                           color: parent.palette.highlight
+                           width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                       }
+                    }
+                    onClicked: {
+                        control.requestDeleteKeys()
+                    }
                 }
             }
         }
