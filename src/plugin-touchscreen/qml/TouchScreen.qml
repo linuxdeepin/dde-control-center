@@ -48,14 +48,23 @@ DccObject {
                     checkable: false
                     Layout.fillWidth: true
                     Layout.leftMargin: 8
-                    content: D.ComboBox{
-                        id: combo
-                        flat: true
-                        model: dccData.monitors
-                        currentIndex: dccData.monitors.indexOf(touchItem.data.screenName)
-                        onCurrentIndexChanged: {
-                            if (touchItem.data.screenName !== dccData.monitors[currentIndex]) {
-                                dccData.assoiateTouch(dccData.monitors[currentIndex],touchItem.data.UUID)
+                    contentItem: RowLayout {
+                        spacing: 8
+                        DccLabel {
+                            text: touchItem.text
+                            elide: Text.ElideRight
+                            Layout.fillWidth: true
+                            Layout.fillHeight: true
+                        }
+                        D.ComboBox{
+                            id: combo
+                            flat: true
+                            model: dccData.monitors
+                            currentIndex: dccData.monitors.indexOf(touchItem.data.screenName)
+                            onCurrentIndexChanged: {
+                                if (touchItem.data.screenName !== dccData.monitors[currentIndex]) {
+                                    dccData.assoiateTouch(dccData.monitors[currentIndex],touchItem.data.UUID)
+                                }
                             }
                         }
                     }
