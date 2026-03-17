@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
@@ -51,15 +51,12 @@ Item {
     RowLayout {
         anchors.fill: parent
         
-        Item {
-            Layout.fillWidth: true
-        }
-        
         ComboBox {
             id: comboBox
             visible: item.comboModel.length > 1
             flat: true
-            implicitWidth: 220
+            Layout.fillWidth: true
+            Layout.rightMargin: 10
             model: getFilteredModel()
             currentIndex: {
                 if (!dccData || (!item.isDecimalSymbol && !item.isDigitGroupingSymbol)) {
@@ -100,8 +97,10 @@ Item {
             id: label
             visible: item.comboModel.length === 1
             text: item.comboModel[0]
+            Layout.fillWidth: true
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             Layout.rightMargin: 10
+            horizontalAlignment: Text.AlignRight
         }
     }
 }
