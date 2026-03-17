@@ -905,7 +905,7 @@ DccObject {
         name: "displayColorTemperature"
         parentName: "display"
         displayName: qsTr("Eye Comfort")
-        onParentItemChanged: item => { if (item) item.topInset = 12 }
+        onParentItemChanged: item => { if (item) { item.topInset = 12; item.leftPadding = 14 } }
         weight: 90
     }
     DccObject {
@@ -916,6 +916,7 @@ DccObject {
         weight: 100
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
+        onParentItemChanged: item => { if (item) { item.rightItemTopMargin = 6; item.rightItemBottomMargin = 6 } }
         page: Switch {
             checked: dccData.colorTemperatureEnabled
             onClicked: dccData.colorTemperatureEnabled = checked
@@ -927,6 +928,7 @@ DccObject {
         weight: 110
         visible: dccData.colorTemperatureEnabled
         pageType: DccObject.Item
+        onParentItemChanged: item => { if (item) item.topInset = 6 }
         page: DccGroupView {}
         DccObject {
             name: "time"
