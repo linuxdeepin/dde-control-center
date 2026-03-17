@@ -92,9 +92,11 @@ FocusScope {
                         Label {
                             text: "/"
                             color: parent.palette.windowText
+                            visible: background.width > DS.Style.control.padding * 2
                         }
                     }
                     background: Rectangle {
+                        id: background
                         property D.Palette backgroundColor: D.Palette {
                             normal: Qt.rgba(0, 0, 0, 0)
                             normalDark: Qt.rgba(0, 0, 0, 0)
