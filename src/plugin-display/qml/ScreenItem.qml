@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -19,6 +19,16 @@ Item {
     signal positionChanged
     signal released
     signal updatePosition
+
+    // Home screen icon responsive sizing constants
+    readonly property int homeIconMaxSize: 24
+    readonly property real homeIconSizeRatio: 0.25
+    readonly property int homeIconMinMargin: 4
+    readonly property real homeIconMarginRatio: 0.04
+
+    // Home screen icon responsive sizing
+    readonly property int homeIconSize: Math.min(homeIconMaxSize, Math.round(root.width * homeIconSizeRatio))
+    readonly property int homeIconMargin: Math.max(homeIconMinMargin, Math.round(root.width * homeIconMarginRatio))
 
     focus: true
     Repeater {
@@ -90,9 +100,9 @@ Item {
         name: "home_screen"
         anchors.bottom: parent.bottom
         anchors.right: parent.right
-        anchors.bottomMargin: root.radius + 5
-        anchors.rightMargin: root.radius + 5
-        sourceSize: Qt.size(24, 24)
+        anchors.bottomMargin: root.homeIconMargin
+        anchors.rightMargin: root.homeIconMargin
+        sourceSize: Qt.size(root.homeIconSize, root.homeIconSize)
     }
     Loader {
         x: offset
