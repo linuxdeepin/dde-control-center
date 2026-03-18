@@ -3222,7 +3222,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"/>
+        <translation>カスタムスライドショー</translation>
     </message>
     <message>
         <source>setting</source>
@@ -3262,7 +3262,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation type="unfinished"/>
+        <translation>復帰時にパスワードを必要とする</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
