@@ -9,21 +9,11 @@ import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dcc 1.0
 
 DccObject {
-    DccObject {
+    DccTitleObject {
         name: "Mouse"
         parentName: "MouseAndTouchpadMouse"
         displayName: qsTr("Mouse")
         weight: 10
-        pageType: DccObject.Item
-        page: ColumnLayout {
-            Label {
-                height: contentHeight
-                // implicitHeight: 200
-                Layout.leftMargin: 10
-                font: D.DTK.fontManager.t4
-                text: dccObj.displayName
-            }
-        }
     }
     DccObject {
         name: "PointerSpeed"
