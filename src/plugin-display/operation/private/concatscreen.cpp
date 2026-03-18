@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "concatscreen.h"
@@ -219,8 +219,6 @@ bool ConcatScreen::multiScreenSortAlgo(bool &isRestore, const bool isRebound)
 
     qreal intersectedArea = 0.0; // 相交的面积
 
-    QRectF moveItemIntersect, moveItemRect;
-
     bool g_bXYTogetherMoved = false; // 标志XY方向是否一起移动，其余情况按哪个方向离得近向哪个方向移动
 
     auto mapToSceneIntersectRect = [](ScreenData *item) {
@@ -231,33 +229,38 @@ bool ConcatScreen::multiScreenSortAlgo(bool &isRestore, const bool isRebound)
         return item->rect();
     };
 
-    moveItemIntersect = mapToSceneIntersectRect(m_movingItem);
-    moveItemRect = mapToSceneBoundingRect(m_movingItem);
+    QRectF moveItemIntersect = mapToSceneIntersectRect(m_movingItem);
+    QRectF moveItemRect = mapToSceneBoundingRect(m_movingItem);
+    QPointF moveCenter = moveItemRect.center();
     for (auto &&item : m_listItems) {
         if (m_movingItem != item) {
-            QRectF rect = moveItemIntersect.intersected(mapToSceneBoundingRect(item));
+            QRectF otherRect = mapToSceneBoundingRect(item);
+            QRectF rect = moveItemIntersect.intersected(otherRect);
             intersectedArea += rect.width() * rect.height();
-            // 移动块完全覆盖一个块 2、移动块与另外一个块十字相交时 执行自动回弹操作
-            if (moveItemRect.contains(mapToSceneBoundingRect(item))
-                || (rect.top() < moveItemIntersect.top() && rect.bottom() > moveItemIntersect.bottom() && qFuzzyCompare(rect.left(), moveItemIntersect.left()) && qFuzzyCompare(rect.right(), moveItemIntersect.right()))
-                || (rect.right() < moveItemIntersect.right() && rect.left() > moveItemIntersect.left() && qFuzzyCompare(rect.top(), moveItemIntersect.top()) && qFuzzyCompare(rect.bottom(), moveItemIntersect.bottom()))) {
+            // 移动块大部分覆盖一个块时 执行自动回弹操作
+            QPointF otherCenter = otherRect.center();
+            qreal minDistance = std::min({ moveItemRect.width(), moveItemRect.height(), otherRect.width(), otherRect.height() }) * 0.15;
+            minDistance = std::max(minDistance, 10.0);
+            qreal dx = moveCenter.x() - otherCenter.x();
+            qreal dy = moveCenter.y() - otherCenter.y();
+            if (dx * dx + dy * dy < minDistance * minDistance) {
                 lstShelterItems.append(item);
             }
 
             // 要么不相交,要相交就是要点线相交的
-            if (!mapToSceneIntersectRect(m_movingItem).intersects(mapToSceneBoundingRect(item)) && mapToSceneBoundingRect(m_movingItem).intersects(mapToSceneBoundingRect(item))) {
+            if (!mapToSceneIntersectRect(m_movingItem).intersects(otherRect) && mapToSceneBoundingRect(m_movingItem).intersects(otherRect)) {
                 isAutoAdsorption = true;
             }
             // 出现相交的情况
-            if (mapToSceneIntersectRect(m_movingItem).intersects(mapToSceneBoundingRect(item)) && mapToSceneBoundingRect(m_movingItem).intersects(mapToSceneBoundingRect(item))) {
+            if (mapToSceneIntersectRect(m_movingItem).intersects(otherRect) && mapToSceneBoundingRect(m_movingItem).intersects(otherRect)) {
                 isIntersect = true;
             }
 
             lstNoMovedItems.append(item);
         }
     }
-    // 移动块被完全包含在其他的块
-    if (qFuzzyCompare(moveItemIntersect.width() * moveItemIntersect.height(), intersectedArea)) {
+    // 移动块与其他的块有90%重叠
+    if (intersectedArea > (moveItemIntersect.width() * moveItemIntersect.height()) * 0.9) {
         qDebug() << "存在包含关系";
         lstShelterItems.append(m_movingItem);
     }
