@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.0
 import QtQuick.Controls 2.0
@@ -11,21 +11,11 @@ import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dcc 1.0
 
 DccObject {
-    DccObject {
+    DccTitleObject {
         name: "Common"
         parentName: "MouseAndTouchpadCommon"
         displayName: qsTr("General")
         weight: 10
-        pageType: DccObject.Item
-        page: ColumnLayout {
-            Label {
-                height: contentHeight
-                Layout.leftMargin: 10
-                font.pixelSize: D.DTK.fontManager.t5.pixelSize
-                font.weight: 500
-                text: dccObj.displayName
-            }
-        }
         onParentItemChanged: {
             if (parentItem) {
                 parentItem.bottomInset = 10
