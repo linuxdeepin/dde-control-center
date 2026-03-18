@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2024 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -279,7 +279,7 @@ void ShortcutModel::onParseInfo(const QString &info)
     });
     // More efficient implementation using std::find_if
     auto it = std::find_if(m_systemInfos.begin(), m_systemInfos.end(),
-        [](const ShortcutInfo* info) { return info->id == "preview-workspace"; });
+        [](const ShortcutInfo* info) { return info->id == "previewWorkspace"; });
     m_windowSwitchStateInfos.clear();
     if (it != m_systemInfos.end()) {
         int index = std::distance(m_systemInfos.begin(), it);
