@@ -51,6 +51,7 @@ Control {
             id: keyLoader
             Layout.rightMargin: DS.Style.keySequenceEdit.margin
             Layout.alignment: Qt.AlignVCenter
+            Layout.fillWidth: false
             sourceComponent: (control.keys.length !== 0) ? keyComponent : inputComponent
 
             MouseArea {
