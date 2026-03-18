@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.0
 import QtQuick.Controls 2.0
@@ -60,7 +60,7 @@ DccObject {
                 Layout.topMargin: 10
                 font: D.DTK.fontManager.t6
                 text: dccObj.displayName
-                Layout.leftMargin: 14
+                Layout.leftMargin: 20
             }
             D.TipsSlider {
                 id: scrollSlider
