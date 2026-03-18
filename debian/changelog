@@ -1,3 +1,34 @@
+dde-control-center (6.1.77) unstable; urgency=medium
+
+  * refactor: remove DConfig usage for permission blacklist
+  * fix: Fix the misalignment issue of the tablet title
+  * fix(ui): fix breadcrumb title overlap when window width is small
+  * fix(touchscreen): add tooltip for truncated display names
+  * fix(accounts): fix edit icon color too light in account fullname
+    editor
+  * Fix: Optimised the UI display of the Eye Care interface
+  * fix: update layout on Crumb visibility change
+  * fix: Custom keyboard shortcuts
+  * fix(datetime): resolve long date/time format text overflow in
+    language settings
+  * fix(display): make home screen icon responsive to screen item size
+  * Fix: Keyboard control issue in secondary menus
+  * fix: Fix brightness control height issue
+  * fix(datetime): adjust date label left margin to align with settings
+  * Revert "fix： Speaker Display Anomaly"
+  * fix(datetime): optimize timezone display and text visibility
+  * Fix: Issue with password prompt box
+  * fix(datetime): adjust timezone clock icon size to 24px
+  * fix(datetime): adjust spacing between clock and title bar
+  * refactor(datetime): optimize datetime setting dialog layout and unit
+    display
+  * fix(power): adjust spacing to 6px in power management interface
+  * fix(touchscreen): fix style issues in touchscreen settings module
+  * fix: Fixed the issue of the other users list not displaying
+    completely
+
+ -- zhangkun <zhangkun2@uniontech.com>  Wed, 18 Mar 2026 14:13:59 +0800
+
 dde-control-center (6.1.76) unstable; urgency=medium
 
   * refactor: update system info DBus interface and proxy
