@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -96,10 +96,14 @@ D.DialogWindow {
             D.ActionButton {
                 anchors {
                     right: commandEdit.right
-                    rightMargin: 5
+                    rightMargin: 10
                     verticalCenter: parent.verticalCenter
                 }
-                icon.name: "dde-file-manager"
+                icon {
+                    name: "keyboard_add_file"
+                    height: 20
+                    width: 20
+                }
                 onClicked: {
                     keyFileDialog.open();
                 }
