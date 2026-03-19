@@ -1202,11 +1202,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>語言和區域</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>系統語言、區域格式</translation>
     </message>
 </context>
 <context>
@@ -1723,7 +1723,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Device</name>
     <message>
         <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <translation>藍牙和其他設備</translation>
     </message>
 </context>
 <context>
