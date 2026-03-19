@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -60,6 +60,11 @@ DccObject {
                             themeSelectView.decrementCurrentIndex()
                         }
                         background: null
+                        Component.onCompleted: {
+                            if (contentItem) {
+                                contentItem.smooth = false
+                            }
+                        }
                     }
                     D.IconButton {
                         flat: true
@@ -73,6 +78,11 @@ DccObject {
                             themeSelectView.incrementCurrentIndex()
                         }
                         background: null
+                        Component.onCompleted: {
+                            if (contentItem) {
+                                contentItem.smooth = false
+                            }
+                        }
                     }
                 }
                 ThemeSelectView {
