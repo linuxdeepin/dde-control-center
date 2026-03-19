@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -262,7 +262,7 @@ To ensure successful entry:\n\
 
                     Timer {
                         repeat: true
-                        running: true
+                        running: loaderControl.visible
                         interval: 50
                         onTriggered: {
                             loaderControl.rotation = loaderControl.rotation + 360 / 49

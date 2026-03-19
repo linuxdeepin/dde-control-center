@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "defappworker.h"
@@ -300,7 +300,7 @@ void DefAppWorker::getManagerObjectFinished(QDBusPendingCallWatcher *call)
 
     QProcess process;
     process.start("gsettings", {"get", TerminalGSetting, "app-id"});
-    if (!process.waitForFinished()) {
+    if (!process.waitForFinished(5000)) {
         qCWarning(DdcDefaultWorker) << "Failed to get terminal app-id:" << process.errorString();
         return;
     }

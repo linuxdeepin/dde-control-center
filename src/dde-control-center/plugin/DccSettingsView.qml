@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.15
@@ -90,12 +90,13 @@ Flickable {
                 panel.item = undefined
                 stop()
             } else {
+                panel.cnt++
                 let itemY = panel.item.mapToItem(control, 0, 0).y
                 let rHeight = control.height - bottomItem.height
                 if ((itemY + panel.item.height) > rHeight) {
                     control.contentY = itemY + panel.item.height - rHeight + control.contentY
-                } else if (itemY < 0) {
-                    control.contentY = panel.item.mapToItem(groupView, 0, 0).y
+                } else if (itemY < 0 && centralItem.item) {
+                    control.contentY = panel.item.mapToItem(centralItem.item, 0, 0).y
                 }
                 if (panel.isIndicatorShown) {
                     panel.x = panel.item.mapToItem(control, 0, 0).x
@@ -104,7 +105,6 @@ Flickable {
                     panel.width = panel.item.width
                     panel.visible = panel.cnt & 1
                 }
-                panel.cnt++
             }
         }
     }
@@ -131,7 +131,7 @@ Flickable {
             let rHeight = control.height - bottomItem.height
             if ((itemY + focusItem.height) > rHeight) {
                 control.contentY = itemY + focusItem.height - rHeight + control.contentY
-            } else if (itemY < 0) {
+            } else if (itemY < 0 && centralItem.item) {
                 control.contentY = focusItem.mapToItem(centralItem.item, 0, 0).y
             }
         }

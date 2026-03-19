@@ -108,7 +108,8 @@ DccObject {
                     }
                 ]
                 slider.onValueChanged: {
-                    dccData.EraserPressureSensitive = slider.value
+                    if (dccData.EraserPressureSensitive !== slider.value)
+                        dccData.EraserPressureSensitive = slider.value
                 }
             }
         }
