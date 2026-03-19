@@ -225,7 +225,7 @@ DccObject {
             pageType: DccObject.Editor
             page: Item {
                 id: item
-                implicitHeight: addrErrorTip.visible ? 40 + addrErrorTip.height + 4 : 40
+                implicitHeight: 40
                 implicitWidth: 300
                 
                 D.LineEdit {
@@ -233,13 +233,13 @@ DccObject {
                     implicitWidth: 200
                     text: dateAndTimeSettings.customAddr
                     placeholderText: qsTr("Required")
-                    showAlert: false
+                    alertText: qsTr("The ntp server address cannot be empty")
+                    alertDuration: 3000
                     horizontalAlignment: background.visible ? TextInput.AlignLeft : TextInput.AlignRight
                     anchors{
                         rightMargin: 5
                         right: editBtn.left
-                        top: parent.top
-                        topMargin: (40 - addr.height) / 2
+                        verticalCenter: parent.verticalCenter
                     }
                     rightPadding: (!addr.readOnly && addr.text.length > 0 ? addr.clearButton.width : 5)
                     onReadOnlyChanged: {
@@ -248,28 +248,19 @@ DccObject {
                         addr.focus = !addr.readOnly
                     }
                     onTextChanged: {
-                        if (addr.text.length > 0) {
+                        if (addr.showAlert && addr.text.length > 0) {
                             addr.showAlert = false
-                            addrErrorTip.visible = false
                         }
                     }
                     Component.onCompleted: {
                         Qt.callLater( function(){ addr.forceActiveFocus() } )
                         addr.readOnly = text.length > 0
                     }
-
-                    D.AlertToolTip {
-                        id: addrErrorTip
-                        target: addr
-                        text: qsTr("The ntp server address cannot be empty")
-                        visible: false
-                        timeout: 3000
-                    }
                 }
                 D.IconButton {
                     id: editBtn
                     anchors.right: parent.right
-                    anchors.verticalCenter: addr.verticalCenter
+                    anchors.verticalCenter: parent.verticalCenter
                     hoverEnabled: true
                     background: Rectangle {
                         anchors.fill: parent
@@ -295,13 +286,12 @@ DccObject {
                     }
                     onClicked: {
                         if (addr.text.length === 0) {
+                            addr.showAlert = false
                             addr.showAlert = true
-                            addrErrorTip.visible = true
                             return
                         }
 
                         addr.showAlert = false
-                        addrErrorTip.visible = false
 
                         if (!addr.readOnly) {
                             dccData.ntpServerAddress = addr.text
