@@ -1007,7 +1007,8 @@ DccObject {
                     stepSize: 1
                     value: dccData.colorTemperature
                     onValueChanged: {
-                        dccData.colorTemperature = value
+                        if (dccData.colorTemperature !== value)
+                            dccData.colorTemperature = value
                     }
                 }
                 D.DciIcon {

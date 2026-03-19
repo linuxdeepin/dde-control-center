@@ -12,10 +12,17 @@ import org.deepin.dcc 1.0
 FocusScope {
     id: root
     property alias model: repeater.model
+    property bool layoutPending: false
     signal clicked(var model)
 
     palette: D.DTK.palette
     function updateLayout() {
+        if (layoutPending) return
+        layoutPending = true
+        Qt.callLater(doUpdateLayout)
+    }
+    function doUpdateLayout() {
+        layoutPending = false
         let totalWidth = width
         let i
         let child

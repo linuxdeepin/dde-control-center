@@ -397,7 +397,10 @@ D.DialogWindow {
 
                             userId: dialog.userId
                             currentAvatar: dialog.currentAvatar
-                            onCurrentAvatarChanged: dialog.currentAvatar = currentAvatar
+                            onCurrentAvatarChanged: {
+                                if (dialog.currentAvatar !== currentAvatar)
+                                    dialog.currentAvatar = currentAvatar
+                            }
                             onRequireFileDialog: fileDlgLoader.active = true
                         }
                     }
@@ -410,7 +413,9 @@ D.DialogWindow {
                             visible: view.count > 0 && !scrollView.isCustom
                             currentAvatar: dialog.currentAvatar
                             onCurrentAvatarChanged: {
-                                dialog.currentAvatar = currentAvatar
+                                if (dialog.currentAvatar !== currentAvatar) {
+                                    dialog.currentAvatar = currentAvatar
+                                }
                                 if (cropper.visible) {
                                     cropper.iconSource = currentAvatar
                                     cropper.imgScale = 1.0

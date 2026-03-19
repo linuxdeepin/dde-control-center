@@ -121,7 +121,8 @@ DccObject {
                     }
                 ]
                 slider.onValueChanged: {
-                    dccData.repeatDelay = slider.value
+                    if (dccData.repeatDelay !== slider.value)
+                        dccData.repeatDelay = slider.value
                 }
             }
         }
@@ -234,7 +235,8 @@ DccObject {
                                 }
                             ]
                             slider.onValueChanged: {
-                                dccData.repeatInterval = slider.value
+                                if (dccData.repeatInterval !== slider.value)
+                                    dccData.repeatInterval = slider.value
                             }
                         }
                     }

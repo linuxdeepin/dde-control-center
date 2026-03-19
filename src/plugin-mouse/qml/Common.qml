@@ -100,7 +100,8 @@ DccObject {
                     }
                 ]
                 slider.onValueChanged: {
-                    dccData.scrollSpeed = slider.value
+                    if (dccData.scrollSpeed !== slider.value)
+                        dccData.scrollSpeed = slider.value
                 }
             }
         }
@@ -170,7 +171,8 @@ DccObject {
                             }
                         ]
                         slider.onValueChanged: {
-                            dccData.doubleSpeed = slider.value
+                            if (dccData.doubleSpeed !== slider.value)
+                                dccData.doubleSpeed = slider.value
                         }
                     }
                 }

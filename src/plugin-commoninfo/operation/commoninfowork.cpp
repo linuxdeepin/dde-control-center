@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "commoninfowork.h"
@@ -803,7 +803,7 @@ static QString getDeepinImmutableWritableStatus()
     process.setProgram("/usr/bin/deepin-immutable-writable");
     process.setArguments({"status", "-j"});
     process.start();
-    process.waitForFinished();
+    process.waitForFinished(5000);
     
     if (process.exitCode() != 0) {
         qWarning() << "deepin-immutable-writable status command failed, exit code:" << process.exitCode();

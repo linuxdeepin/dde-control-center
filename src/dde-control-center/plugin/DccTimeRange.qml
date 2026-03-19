@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.15
@@ -41,19 +41,23 @@ D.SpinBox {
     }
     onHourChanged: {
         var m = value % 60
+        var newValue = hour * 60 + m
         if (stepSize === 1) {
             from = hour * 60
             to = hour * 60 + 59
         }
-        value = hour * 60 + m
+        if (value !== newValue)
+            value = newValue
     }
     onMinuteChanged: {
         var h = Math.floor(value / 60)
+        var newValue = h * 60 + minute
         if (stepSize === 60) {
             from = minute
             to = 23 * 60 + minute
         }
-        value = h * 60 + minute
+        if (value !== newValue)
+            value = newValue
     }
 
     textFromValue: function (value) {

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -176,7 +176,7 @@ D.DialogWindow {
                         from: 0
                         to: 360
                         duration: 2000
-                        running: true
+                        running: loaderControl.visible
                         loops: Animation.Infinite
                     }
                 }

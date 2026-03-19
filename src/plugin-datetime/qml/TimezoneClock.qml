@@ -30,7 +30,7 @@ Item {
     Timer {
         id: timer
         interval: 800
-        running: true
+        running: clock.visible
         repeat: true
         onTriggered: clock.tick()
     }
