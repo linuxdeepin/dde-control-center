@@ -2,6 +2,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
+import QtQuick.Controls
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
@@ -14,8 +15,9 @@ D.ComboBox {
     delegate: D.MenuItem {
         id: menuItem
         useIndicatorPadding: true
-        width: parent.width
-        text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : model[control.textRole]) : modelData
+        readonly property var safeModelData: typeof modelData !== "undefined" ? modelData : null
+        
+        text: control.textRole ? (Array.isArray(control.model) ? safeModelData[control.textRole] : model[control.textRole]) : (safeModelData !== null ? safeModelData : "")
         icon.name: (control.iconNameRole && model[control.iconNameRole] !== undefined) ? model[control.iconNameRole] : null
         highlighted: control.highlightedIndex === index
         hoverEnabled: control.hoverEnabled
@@ -36,10 +38,8 @@ D.ComboBox {
 
         HoverHandler { id: hoverHandler }
 
-        D.ToolTip {
-            visible: hoverHandler.hovered && fontMetrics.advanceWidth(menuItem.text) > menuItem.availableTextWidth
-            text: menuItem.text
-        }
+        ToolTip.visible: hoverHandler.hovered && fontMetrics.advanceWidth(menuItem.text) > menuItem.availableTextWidth
+        ToolTip.text: menuItem.text
     }
 
     // To replace function: indexOfValue

@@ -11,15 +11,16 @@ D.ComboBox {
 
     delegate: D.MenuItem {
         id: menuItem
+        readonly property var safeModelData: typeof modelData !== "undefined" ? modelData : null
         useIndicatorPadding: true
-        text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : (model[control.textRole] === undefined ? modelData[control.textRole] : model[control.textRole])) : modelData
-        icon.name: control.iconNameRole ? ((model[control.iconNameRole] !== undefined ? model[control.iconNameRole] : modelData[control.iconNameRole])) : null
+        text: control.textRole ? (Array.isArray(control.model) ? safeModelData[control.textRole] : (model[control.textRole] === undefined ? safeModelData[control.textRole] : model[control.textRole])) : (safeModelData !== null ? safeModelData : "")
+        icon.name: control.iconNameRole ? ((model[control.iconNameRole] !== undefined ? model[control.iconNameRole] : safeModelData[control.iconNameRole])) : null
         highlighted: control.highlightedIndex === index
         hoverEnabled: control.hoverEnabled
         autoExclusive: true
         checked: control.currentIndex === index
-        enabled: control.enableRole ? ((model[control.enableRole] !== undefined ? model[control.enableRole] : modelData[control.enableRole])) : true
-        visible: control.visibleRole ? ((model[control.visibleRole] !== undefined ? model[control.visibleRole] : modelData[control.visibleRole])) : true
+        enabled: control.enableRole ? ((model[control.enableRole] !== undefined ? model[control.enableRole] : safeModelData[control.enableRole])) : true
+        visible: control.visibleRole ? ((model[control.visibleRole] !== undefined ? model[control.visibleRole] : safeModelData[control.visibleRole])) : true
         implicitHeight: visible ? DS.Style.control.implicitHeight(menuItem) : 0
     }
 
