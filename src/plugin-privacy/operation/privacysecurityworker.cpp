@@ -60,12 +60,16 @@ PrivacySecurityWorker::PrivacySecurityWorker(PrivacySecurityModel *appsModel, QO
     , m_model(appsModel)
     , m_dataProxy(new PrivacySecurityDataProxy(this))
 {
+    m_dpkgThreadPool = new QThreadPool(this);
+    m_dpkgThreadPool->setMaxThreadCount(1);
     connect(m_dataProxy, &PrivacySecurityDataProxy::serviceExistsChanged, this, &PrivacySecurityWorker::serviceExistsChanged);
     init();
 }
 
 PrivacySecurityWorker::~PrivacySecurityWorker()
 {
+    m_dpkgThreadPool->waitForDone();
+
     if (!m_pathList.isEmpty())
         return;
     m_dataProxy->init();
@@ -340,30 +344,157 @@ void PrivacySecurityWorker::updateAppPath(ApplicationItem *item)
     if (!item)
         return;
 
-    auto execs = item->execs();
-    auto itemId = item->id();
-    auto itemName = item->name();
-    
-    (void)QtConcurrent::run([this, item, execs, itemId, itemName]() {
-        QString path = getAppPath(execs);
-        QString packageName;
-        if (item->desktopPath().isEmpty()) {
-            packageName = getPackageNameByPath(path);
-        } else {
-            packageName = getPackageNameByPath(item->desktopPath());
-        }
-        QMetaObject::invokeMethod(this, [this, item, path, itemId, itemName, packageName]() {
-            if (path.isEmpty()) {
-                qCInfo(DCC_PRIVACY) << "Exclude app id: " << itemId << ", name: " << itemName << "because it appPath is empty";
-                m_model->removeApplictionItem(itemId);
-            } else {
-                item->onAppPathChanged(path);
-                item->onPackageChanged(packageName);
-                m_model->updatePermission(item);
-                m_model->emitAppDataChanged(item);
+    m_pendingPathUpdates.append(item);
+
+    if (!m_batchScheduled) {
+        m_batchScheduled = true;
+        QTimer::singleShot(0, this, &PrivacySecurityWorker::processBatchPathUpdates);
+    }
+}
+
+void PrivacySecurityWorker::processBatchPathUpdates()
+{
+    m_batchScheduled = false;
+
+    if (m_pendingPathUpdates.isEmpty())
+        return;
+
+    QList<ApplicationItem *> items;
+    items.swap(m_pendingPathUpdates);
+
+    struct ItemData {
+        QString itemId;
+        QString itemName;
+        QMap<QString, QString> execs;
+        QString desktopPath;
+    };
+
+    QList<ItemData> batch;
+    batch.reserve(items.size());
+    const auto &appList = m_model->appModel()->appList();
+    for (auto *item : items) {
+        if (!appList.contains(item))
+            continue;
+        ItemData d;
+        d.itemId = item->id();
+        d.itemName = item->name();
+        d.execs = item->execs();
+        d.desktopPath = item->desktopPath();
+        batch.append(std::move(d));
+    }
+
+    if (batch.isEmpty())
+        return;
+
+    (void)QtConcurrent::run(m_dpkgThreadPool, [this, batch]() {
+        struct ProcessedItem {
+            QString itemId;
+            QString itemName;
+            QString appPath;
+            QString dpkgQueryPath;
+        };
+
+        QList<ProcessedItem> processed;
+        processed.reserve(batch.size());
+        QStringList allDpkgPaths;
+
+        for (const auto &d : batch) {
+            ProcessedItem p;
+            p.itemId = d.itemId;
+            p.itemName = d.itemName;
+            p.appPath = getAppPath(d.execs);
+            p.dpkgQueryPath = d.desktopPath.isEmpty() ? p.appPath : d.desktopPath;
+            processed.append(p);
+
+            if (!p.dpkgQueryPath.isEmpty()) {
+                allDpkgPaths.append(p.dpkgQueryPath);
             }
-        }, Qt::QueuedConnection);
+        }
+
+        QMap<QString, QString> pathToPackage;
+        if (!allDpkgPaths.isEmpty()) {
+            pathToPackage = batchGetPackageNames(allDpkgPaths);
+        }
+
+        for (const auto &p : processed) {
+            QString packageName = pathToPackage.value(p.dpkgQueryPath);
+            QMetaObject::invokeMethod(this,
+                [this, itemId = p.itemId, itemName = p.itemName,
+                 path = p.appPath, packageName]() {
+                    if (path.isEmpty()) {
+                        qCInfo(DCC_PRIVACY) << "Exclude app id: " << itemId
+                                            << ", name: " << itemName
+                                            << "because it appPath is empty";
+                        m_model->removeApplictionItem(itemId);
+                        return;
+                    }
+                    const auto &appList = m_model->appModel()->appList();
+                    auto it = std::find_if(appList.cbegin(), appList.cend(),
+                        [&itemId](ApplicationItem *app) { return app->id() == itemId; });
+                    if (it == appList.cend())
+                        return;
+                    ApplicationItem *item = *it;
+                    item->onAppPathChanged(path);
+                    item->onPackageChanged(packageName);
+                    m_model->updatePermission(item);
+                    m_model->emitAppDataChanged(item);
+                },
+                Qt::QueuedConnection);
+        }
     });
+}
+
+QMap<QString, QString> PrivacySecurityWorker::batchGetPackageNames(const QStringList &paths)
+{
+    QMap<QString, QString> result;
+    QSet<QString> uniqueSet(paths.begin(), paths.end());
+    QStringList uniquePaths(uniqueSet.begin(), uniqueSet.end());
+
+    const int chunkSize = 100;
+    for (int i = 0; i < uniquePaths.size(); i += chunkSize) {
+        QStringList chunk = uniquePaths.mid(i, chunkSize);
+
+        QProcess pro;
+        QStringList args;
+        args << "-S";
+        args.append(chunk);
+        pro.start("/usr/bin/dpkg-query", args);
+        if (!pro.waitForFinished(5000)) {
+            qCWarning(DCC_PRIVACY) << "dpkg-query batch timed out for chunk starting at index" << i
+                                   << ", killing process";
+            pro.kill();
+            pro.waitForFinished(1000);
+            continue;
+        }
+
+        // dpkg-query returns exit code 1 when any path is not found,
+        // but still prints found packages to stdout
+        QString output = pro.readAllStandardOutput();
+        const QStringList lines = output.split('\n', Qt::SkipEmptyParts);
+
+        for (const QString &line : lines) {
+            // Format: "package-name: /path/to/file"
+            // Or:     "package-name:amd64: /path/to/file"
+            int separatorIdx = line.indexOf(": /");
+            if (separatorIdx < 0)
+                continue;
+
+            QString packagePart = line.left(separatorIdx);
+            QString filePath = line.mid(separatorIdx + 2).trimmed();
+            QString packageName = packagePart.split(':').first();
+
+            if (!result.contains(filePath)) {
+                result.insert(filePath, packageName);
+            }
+        }
+
+        if (pro.exitCode() != 0) {
+            qCDebug(DCC_PRIVACY) << "dpkg-query batch: some paths not found, stderr:"
+                                 << pro.readAllStandardError().simplified();
+        }
+    }
+
+    return result;
 }
 
 ApplicationItem *PrivacySecurityWorker::addAppItem(int dataIndex)
@@ -620,26 +751,4 @@ QStringList PrivacySecurityWorker::getExecutable(const QString &packageName)
 
     listFile.close();
     return files;
-}
-
-QString PrivacySecurityWorker::getPackageNameByPath(const QString &path)
-{
-    QProcess pro;
-    QStringList args;
-    args << "-S" << path;
-    pro.start("/usr/bin/dpkg-query", args);
-    pro.waitForFinished(2000);
-    
-    if (pro.exitCode() != 0) {
-        qCDebug(DCC_PRIVACY) << "Failed to get executable for" << path << ", dpkg-query error: " << pro.readAllStandardError().simplified();
-        return {};
-    }
-
-    QString output = pro.readAllStandardOutput().simplified();
-    if (output.isEmpty()) {
-        qCWarning(DCC_PRIVACY) << "No package found for executable:" << path;
-        return {};
-    }
-
-    return output.split('\n').first().split(':').first();
 }
