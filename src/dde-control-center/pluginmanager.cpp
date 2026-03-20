@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -557,16 +557,17 @@ void PluginManager::addMainObject(PluginData *plugin)
 void PluginManager::moduleLoading()
 {
     QQmlComponent *component = qobject_cast<QQmlComponent *>(sender());
-    if (component)
-        createModule(component);
+    if (!component || component->status() == QQmlComponent::Loading)
+        return;
+    createModule(component);
 }
 
 void PluginManager::mainLoading()
 {
     QQmlComponent *component = qobject_cast<QQmlComponent *>(sender());
-    if (component) {
-        createMain(component);
-    }
+    if (!component || component->status() == QQmlComponent::Loading)
+        return;
+    createMain(component);
 }
 
 void PluginManager::onHideModuleChanged(const QSet<QString> &hideModule)
