@@ -8,6 +8,7 @@
 #include "privacysecuritydataproxy.h"
 #include "applicationitem.h"
 #include <QMutex>
+#include <QThreadPool>
 
 class PrivacySecurityWorker : public QObject {
     Q_OBJECT
@@ -53,7 +54,8 @@ private:
     void initApp();
 
     QStringList getExecutable(const QString &packageName);
-    QString getPackageNameByPath(const QString &path);
+    void processBatchPathUpdates();
+    QMap<QString, QString> batchGetPackageNames(const QStringList &paths);
 
 private:
     PrivacySecurityModel *m_model = nullptr;
@@ -67,4 +69,7 @@ private:
     QMap<QString, QSet<QString>> m_blacklistByPackage; // 黑名单 <权限，包名列表>
 
     QMutex m_appItemsMutex;
+    QList<ApplicationItem *> m_pendingPathUpdates;
+    QThreadPool *m_dpkgThreadPool = nullptr;
+    bool m_batchScheduled = false;
 };
