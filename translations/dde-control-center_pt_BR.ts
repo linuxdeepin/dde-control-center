@@ -3993,7 +3993,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation>Desdobrar</translation>
+        <translation>Exibir parcialmente</translation>
     </message>
     <message>
         <source>Set lock screen</source>
