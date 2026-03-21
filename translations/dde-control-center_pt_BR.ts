@@ -1536,7 +1536,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DefaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Navegador</translation>
     </message>
     <message>
         <source>Mail</source>
