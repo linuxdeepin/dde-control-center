@@ -3520,7 +3520,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Right</source>
-        <translation>Direita</translation>
+        <translation>Direito</translation>
     </message>
     <message>
         <source>Output</source>
