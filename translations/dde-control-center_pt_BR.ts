@@ -1426,7 +1426,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation>Tem certeza de que deseja limpar as configurações do sistema e os dados pessoais salvos na nuvem?</translation>
+        <translation>Limpar as configurações do sistema e os dados pessoais salvos na nuvem?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
