@@ -838,7 +838,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation>Excluir diretório de contas</translation>
+        <translation>Excluir diretório da conta</translation>
     </message>
     <message>
         <source>Cancel</source>
