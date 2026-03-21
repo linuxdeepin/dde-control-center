@@ -1197,7 +1197,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Idioma do sistema, formatos regionais</translation>
     </message>
 </context>
 <context>
@@ -2303,7 +2303,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Formato regional</translation>
     </message>
 </context>
 <context>
@@ -3145,7 +3145,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Formato regional</translation>
     </message>
 </context>
 <context>
