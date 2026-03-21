@@ -900,7 +900,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation>Prompt do Caps Lock</translation>
+        <translation>Indicador visual do Caps Lock: ativado/desligado</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
