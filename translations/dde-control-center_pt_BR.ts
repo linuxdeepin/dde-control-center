@@ -892,7 +892,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation>Teclado Numérico</translation>
+        <translation>Indicador visual do teclado numérico: ativado/desligado</translation>
     </message>
     <message>
         <source>test here</source>
