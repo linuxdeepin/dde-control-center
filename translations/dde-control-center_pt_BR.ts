@@ -51,7 +51,7 @@
     </message>
     <message>
         <source>Account Information</source>
-        <translation>Informações da Conta</translation>
+        <translation>Informações da conta</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation>Login rápido</translation>
     </message>
 </context>
 <context>
