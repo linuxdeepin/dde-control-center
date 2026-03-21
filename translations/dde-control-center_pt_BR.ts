@@ -3922,7 +3922,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation>Papéis de parede do sistema</translation>
+        <translation>Papel de parede do sistema</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
@@ -3986,7 +3986,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Papéis de parede do sistema</translation>
     </message>
 </context>
 <context>
