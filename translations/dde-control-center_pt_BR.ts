@@ -3516,7 +3516,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Left</source>
-        <translation>Esquerda</translation>
+        <translation>Esquerdo</translation>
     </message>
     <message>
         <source>Right</source>
