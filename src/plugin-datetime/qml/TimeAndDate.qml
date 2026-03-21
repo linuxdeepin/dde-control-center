@@ -36,8 +36,8 @@ DccObject {
                 font {
                     pointSize: 32
                     family: webFont.font.family
-                 }
-                text: ("" + dccData.currentTime).trim()
+                }
+                text: dccData.currentTime
             }
             Label {
                 id: dateLabel
@@ -51,6 +51,19 @@ DccObject {
                     family: webFont.font.family
                 }
                 text: dccData.currentDate
+            }
+            Timer {
+                interval: 500
+                running: dateTimeContent.visible
+                repeat: true
+                onTriggered: {
+                    dccData.updateCurrentTime()
+                }
+                onRunningChanged: {
+                    if (running) {
+                        dccData.updateCurrentTime()
+                    }
+                }
             }
         }
     }

@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DATETIMEMODEL_H
@@ -246,7 +246,7 @@ public Q_SLOTS:
     QStringList availableFormats(int format) const;
     int currentFormatIndex(int format) const;
     void setCurrentFormat(int format, int index);
-    QString currentDate();
+    QString currentDate() const;
     QString currentTime() const;
     QString getCustomNtpServer() const;
 
@@ -265,6 +265,8 @@ public Q_SLOTS:
     bool isChineseLocale() const;
     void applyChineseDefaults();
 
+    void updateCurrentTime();
+
 protected:
     void initModes(const QStringList &names, int indexBegin, int indexEnd, QAbstractListModel *model);
 
@@ -274,6 +276,9 @@ protected:
 private:
     // 自动冲突解决私有方法
     QString resolveDecimalSymbol(const QString &decimal, const QString &separator) const;
+    QString getCurrentTime() const;
+    QString getCurrentDate() const;
+
     bool m_ntp;
     bool m_bUse24HourType;
     QStringList m_userZoneIds;
@@ -315,6 +320,8 @@ private:
     dccV25::KeyboardModel *m_langModel = nullptr;
     QMap<QString, QString> m_langRegionsCache;
     QString m_regionName;
+    QString m_currentTime;
+    QString m_currentDate;
 };
 
 #endif // DATETIMEMODEL_H
