@@ -1276,7 +1276,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Page size</source>
-        <translation>Tamanho da página</translation>
+        <translation>Tamanho de página</translation>
     </message>
     <message>
         <source>Example</source>
@@ -3133,7 +3133,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Paper size</source>
-        <translation>Tamanho da página</translation>
+        <translation>Tamanho de página</translation>
     </message>
     <message>
         <source>Cancel</source>
