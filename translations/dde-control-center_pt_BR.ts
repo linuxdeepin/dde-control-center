@@ -864,7 +864,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation>Comum</translation>
+        <translation>Padrão</translation>
     </message>
     <message>
         <source>Repeat delay</source>
