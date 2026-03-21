@@ -2600,7 +2600,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Central de Notificações</translation>
     </message>
     <message>
         <source>Show message preview</source>
