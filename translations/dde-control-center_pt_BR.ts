@@ -834,7 +834,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation>Tem certeza de que deseja excluir esta conta?</translation>
+        <translation>Excluir esta conta?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
@@ -1336,7 +1336,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation>Tem certeza de que deseja desvincular do WeChat?</translation>
+        <translation>Desvincular o WeChat?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
