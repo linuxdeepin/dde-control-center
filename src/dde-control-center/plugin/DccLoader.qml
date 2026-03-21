@@ -7,10 +7,19 @@ Loader {
     property Item dccObjItem: null
 
     function updateDccObjItem() {
-        if (dccObj) {
+        if (dccObj && dccObjItem) {
             dccObj.parentItem = dccObjItem
         }
     }
+
+    Component.onDestruction: {
+        if (dccObj && dccObj.parentItem === dccObjItem) {
+            dccObj.parentItem = null
+        }
+        // 移除 sourceComponent = null，避免与 GC 冲突
+        // Loader 组件销毁时会自动清理其内容
+    }
+
     enabled: dccObj && dccObj.enabledToApp
     // asynchronous: true
     sourceComponent: dccObj ? dccObj.page : null

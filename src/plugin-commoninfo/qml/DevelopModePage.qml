@@ -168,7 +168,7 @@ DccObject {
                                         return
                                     }
                                     developDlg.currentStackIndex = 0;
-                                    stackView.replace(page1Component);
+                                    stackView.replace(page1Component, StackView.Immediate);
                                 }
                             }
 
@@ -182,7 +182,7 @@ DccObject {
                                     }
 
                                     developDlg.currentStackIndex = 1;
-                                    stackView.replace(page2Component);
+                                    stackView.replace(page2Component, StackView.Immediate);
                                 }
                             }
                         }

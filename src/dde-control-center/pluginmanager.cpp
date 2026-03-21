@@ -166,18 +166,20 @@ void LoadPluginTask::doLoadSo()
                     break;
                 }
                 dataObj = factory->create();
-                if (dataObj && dataObj->parent()) {
-                    dataObj->setParent(nullptr);
-                }
                 soObj = factory->dccObject();
-                if (soObj && soObj->parent()) {
-                    soObj->setParent(nullptr);
-                }
             } while (false);
         }
     } else {
         Q_EMIT m_pManager->updatePluginStatus(m_data, DataErr, "File does not exist:" + soPath);
     }
+
+    // Check if manager is being deleted before assigning objects
+    if (m_pManager->isDeleting()) {
+        if (dataObj)
+            delete dataObj;
+        return;
+    }
+
     if (dataObj) {
         m_data->data = dataObj;
     }
@@ -315,7 +317,7 @@ QThreadPool *PluginManager::threadPool()
 
 void PluginManager::loadPlugin(PluginData *plugin)
 {
-    if (isDeleting()) {
+    if (isDeleting() || !plugin) {
         return;
     }
     if (plugin->status & PluginEnd) {
@@ -350,7 +352,7 @@ void PluginManager::loadPlugin(PluginData *plugin)
 
 void PluginManager::onUpdatePluginStatus(PluginData *plugin, uint status, const QString &log)
 {
-    if (isDeleting()) {
+    if (isDeleting() || !plugin) {
         return;
     }
     uint oldStatus = plugin->status;
@@ -367,7 +369,7 @@ void PluginManager::onUpdatePluginStatus(PluginData *plugin, uint status, const 
 
 void PluginManager::loadMetaData(PluginData *plugin)
 {
-    if (isDeleting()) {
+    if (isDeleting() || !plugin) {
         return;
     }
     updatePluginType(plugin);
@@ -401,7 +403,7 @@ void PluginManager::loadMetaData(PluginData *plugin)
 
 void PluginManager::loadModule(PluginData *plugin)
 {
-    if (isDeleting()) {
+    if (isDeleting() || !plugin) {
         return;
     }
     if (!(plugin->type & T_HasMoudule)) {
@@ -429,7 +431,7 @@ void PluginManager::loadModule(PluginData *plugin)
 
 void PluginManager::loadMain(PluginData *plugin)
 {
-    if (isDeleting()) {
+    if (isDeleting() || !plugin) {
         return;
     }
     if (!(plugin->type & T_HasMain)) {
@@ -458,9 +460,14 @@ void PluginManager::loadMain(PluginData *plugin)
 void PluginManager::createModule(QQmlComponent *component)
 {
     if (isDeleting()) {
+        component->deleteLater();
         return;
     }
     PluginData *plugin = component->property("PluginData").value<PluginData *>();
+    if (!plugin) {
+        component->deleteLater();
+        return;
+    }
     Q_EMIT updatePluginStatus(plugin, ModuleCreate, "create module");
     switch (component->status()) {
     case QQmlComponent::Ready: {
@@ -490,6 +497,10 @@ void PluginManager::createMain(QQmlComponent *component)
         return;
     }
     PluginData *plugin = component->property("PluginData").value<PluginData *>();
+    if (!plugin) {
+        component->deleteLater();
+        return;
+    }
     Q_EMIT updatePluginStatus(plugin, MainObjCreate, "create main");
     switch (component->status()) {
     case QQmlComponent::Ready: {
@@ -516,7 +527,7 @@ void PluginManager::createMain(QQmlComponent *component)
 
 void PluginManager::addMainObject(PluginData *plugin)
 {
-    if (isDeleting()) {
+    if (isDeleting() || !plugin) {
         return;
     }
     Q_EMIT updatePluginStatus(plugin, MainObjAdd, "add main object");
