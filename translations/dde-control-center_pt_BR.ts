@@ -924,7 +924,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade de rolagem</translation>
     </message>
 </context>
 <context>
@@ -2452,7 +2452,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Rolagem natural</translation>
     </message>
     <message>
         <source>Small</source>
