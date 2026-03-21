@@ -912,7 +912,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation>Mão Esquerda</translation>
+        <translation>Mão esquerda</translation>
     </message>
     <message>
         <source>Enable Keyboard</source>
