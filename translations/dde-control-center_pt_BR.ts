@@ -4005,7 +4005,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>Exibir tudo - %1 itens</translation>
     </message>
     <message>
         <source>Add Picture</source>
