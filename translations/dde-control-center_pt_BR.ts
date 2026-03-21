@@ -2230,7 +2230,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation>Visuais aprimorados</translation>
+        <translation>Visual aprimorado</translation>
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
