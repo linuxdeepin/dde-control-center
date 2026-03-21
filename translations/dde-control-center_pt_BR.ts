@@ -1018,7 +1018,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation>Reinicie o dispositivo para concluir a aplicação das configurações de Proteção de Sistema Somente Leitura</translation>
     </message>
 </context>
 <context>
