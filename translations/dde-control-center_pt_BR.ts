@@ -1399,7 +1399,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation>Entrar em %1 ID</translation>
+        <translation>Entrar com %1 ID</translation>
     </message>
 </context>
 <context>
