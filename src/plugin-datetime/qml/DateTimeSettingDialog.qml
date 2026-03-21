@@ -228,7 +228,7 @@ D.DialogWindow {
             Layout.alignment: Qt.AlignHCenter
             Layout.bottomMargin: 6
             Layout.topMargin: 20
-            spacing: 6
+            spacing: 10
             Button {
                 Layout.fillWidth: true
                 text: qsTr("Cancel")
