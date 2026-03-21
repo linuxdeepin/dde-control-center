@@ -2360,7 +2360,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation>Copyright© 2011-%1 Comunidade deepin</translation>
+        <translation>Copyright© 2011-%1 deepin Community</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
@@ -2490,7 +2490,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer name</source>
-        <translation>Computador</translation>
+        <translation>Nome do computador</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
