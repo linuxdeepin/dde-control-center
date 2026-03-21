@@ -846,7 +846,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Delete</source>
-        <translation>Deletar</translation>
+        <translation>Excluir</translation>
     </message>
 </context>
 <context>
