@@ -237,16 +237,6 @@ DatetimeModel::DatetimeModel(QObject *parent)
         Q_EMIT currentFormatChanged(LongTime);
     });
 
-    QTimer *timer = new QTimer(this);
-    timer->setInterval(500);
-    connect(timer, &QTimer::timeout, this, [this](){
-        Q_EMIT currentTimeChanged();
-
-        // maybe too frequently
-        Q_EMIT currentDateChanged();
-    });
-    timer->start();
-
     qmlRegisterType<dccV25::ZoneInfoModel>("ZoneInfoModel", 1, 0, "ZoneInfoModel");
 }
 
@@ -931,7 +921,12 @@ void DatetimeModel::setCurrentFormat(int format, int index)
     Q_EMIT currentFormatChanged(format);
 }
 
-QString DatetimeModel::currentDate()
+QString DatetimeModel::currentDate() const
+{
+    return m_currentDate;
+}
+
+QString DatetimeModel::getCurrentDate() const
 {
     QLocale locale;
     if (m_regions.contains(m_langCountry)) {
@@ -947,6 +942,11 @@ QString DatetimeModel::currentDate()
 
 QString DatetimeModel::currentTime() const
 {
+    return m_currentTime;
+}
+
+QString DatetimeModel::getCurrentTime() const
+{
     QLocale locale;
     if (m_regions.contains(m_langCountry)) {
         locale = m_regions.value(m_langCountry);
@@ -956,7 +956,7 @@ QString DatetimeModel::currentTime() const
     QString timeFormat = longTimeFormat();
     // remove all occurrences of 't' and '[tttt]' or similar patterns
     timeFormat.remove(QRegularExpression("(\\[t+?\\]|t+)"));
-    return locale.toString(QTime::currentTime(), timeFormat);
+    return locale.toString(QTime::currentTime(), timeFormat).trimmed();
 }
 
 QString DatetimeModel::getCustomNtpServer() const
@@ -1614,6 +1614,20 @@ void DatetimeModel::applyChineseDefaults()
     // 当切换到中文区域时，必须重置为中文默认设置
     m_work->setDecimalSymbol(chineseDecimal);
     m_work->setDigitGroupingSymbol(chineseSeparator);
+}
+
+void DatetimeModel::updateCurrentTime()
+{
+    auto currentTime = getCurrentTime();
+    if (m_currentTime != currentTime) {
+        m_currentTime = currentTime;
+        Q_EMIT currentTimeChanged();
+    }
+    auto currentDate = getCurrentDate();
+    if (m_currentDate != currentDate) {
+        m_currentDate = currentDate;
+        Q_EMIT currentDateChanged();
+    }
 }
 
 DCC_FACTORY_CLASS(DatetimeModel)
