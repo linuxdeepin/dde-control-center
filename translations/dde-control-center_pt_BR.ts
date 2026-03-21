@@ -2826,7 +2826,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Na tomada</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
@@ -2834,7 +2834,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Na bateria</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
