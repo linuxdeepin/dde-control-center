@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.11
 import QtQuick.Controls 2.4
@@ -381,7 +381,7 @@ DccObject {
                 Switch {
                     id: verificationSwitch
 
-                    rightPadding: 7
+                    rightPadding: 13
                     bottomPadding: 5
                     checked: dccData.mode().grubEditAuthEnabled
                     onCheckedChanged: {

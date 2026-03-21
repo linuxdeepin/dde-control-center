@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -31,11 +31,16 @@ DccObject {
         onParentItemChanged: item => { if (item) item.activeFocusOnTab = false }
         page: ColumnLayout {
             Label {
+                property D.Palette textColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.9)
+                    normalDark: Qt.rgba(1, 1, 1, 0.9)
+                }
                 font.family: D.DTK.fontManager.t5.family
-                font.bold: true
                 font.pixelSize: D.DTK.fontManager.t5.pixelSize
+                font.weight: 500
                 Layout.leftMargin: 14
                 text: dccObj.displayName
+                color: D.ColorSelector.textColor
             }
             Label {
                 Layout.leftMargin: 14
