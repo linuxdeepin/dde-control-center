@@ -2553,7 +2553,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificações</translation>
     </message>
 </context>
 <context>
