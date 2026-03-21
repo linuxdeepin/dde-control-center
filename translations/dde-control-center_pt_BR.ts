@@ -3389,7 +3389,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Saída, entrada, efeitos sonoros, dispositivos</translation>
     </message>
 </context>
 <context>
@@ -3404,7 +3404,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input Devices</source>
-        <translation>Dispositivos de entrada</translation>
+        <translation>Dispositivo de entrada</translation>
     </message>
 </context>
 <context>
