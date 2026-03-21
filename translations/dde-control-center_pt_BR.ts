@@ -1309,7 +1309,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation>O Centro de Controle fornece opções para configurações do sistema.</translation>
+        <translation>As Configurações fornece todas as opções para a configuração do sistema.</translation>
     </message>
 </context>
 <context>
@@ -1372,7 +1372,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation>Para usar os recursos acima, acesse o Centro de Controle - Contas e ative as opções correspondentes</translation>
+        <translation>Para usar os recursos acima, acesse o Configurações - Contas e ative as opções correspondentes</translation>
     </message>
 </context>
 <context>
@@ -3041,7 +3041,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>QObject</name>
     <message>
         <source>Control Center</source>
-        <translation>Central de Controle</translation>
+        <translation>Configurações</translation>
     </message>
     <message>
         <source>Activated</source>
