@@ -2861,7 +2861,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation>Exibir a interface de desligamento</translation>
+        <translation>Exibir menu de energia</translation>
     </message>
     <message>
         <source>Do nothing</source>
