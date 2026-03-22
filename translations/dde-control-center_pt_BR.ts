@@ -126,7 +126,7 @@
     <name>Accounts</name>
     <message>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>Contas</translation>
     </message>
     <message>
         <source>Account manager</source>
