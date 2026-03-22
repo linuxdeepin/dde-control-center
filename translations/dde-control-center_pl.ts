@@ -2724,7 +2724,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>Personalization</name>
     <message>
         <source>Personalization</source>
-        <translation>Dostosowywanie</translation>
+        <translation>Personalizacja</translation>
     </message>
 </context>
 <context>
