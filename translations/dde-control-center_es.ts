@@ -1190,14 +1190,14 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de fecha, hora y zona horaria</translation>
     </message>
 </context>
 <context>
     <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Idioma y región</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
@@ -1496,15 +1496,15 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>Deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation type="unfinished"/>
+        <translation>Deepin ID</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>UOS ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>Servicios en la nube</translation>
     </message>
 </context>
 <context>
@@ -1530,7 +1530,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>Defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation type="unfinished"/>
+        <translation>Aplicación predeterminada</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
