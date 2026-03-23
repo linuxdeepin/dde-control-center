@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "appitemmodel.h"
@@ -26,6 +26,21 @@ void AppItemModel::setActName(const QString &name)
     if (m_actName != name) {
         m_actName = name;
     }
+}
+
+void AppItemModel::initValues(const QString &actName, const QString &softName, const QString &icon,
+                              bool allowNotify, bool notifySound, bool lockShowNotify,
+                              bool showDesktop, bool showInNotifyCenter, bool showNotifyPreview)
+{
+    m_actName = actName;
+    m_softName = softName;
+    m_icon = icon;
+    m_isAllowNotify = allowNotify;
+    m_isNotifySound = notifySound;
+    m_isLockShowNotify = lockShowNotify;
+    m_isShowDesktop = showDesktop;
+    m_isShowInNotifyCenter = showInNotifyCenter;
+    m_isShowNotifyPreview = showNotifyPreview;
 }
 
 void AppItemModel::onSettingChanged(const QString &id, const uint &item, QDBusVariant var)
