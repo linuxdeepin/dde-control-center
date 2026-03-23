@@ -10,7 +10,7 @@ import org.deepin.dtk.style 1.0 as DS
         
 D.DialogWindow {
     id: ddialog
-    width: 360
+    width: Math.max(360, gridLayout.implicitWidth)
     height: 252
     minimumWidth: width
     minimumHeight: height
@@ -110,6 +110,7 @@ D.DialogWindow {
             text: qsTr("Date and time setting")
         }
         GridLayout {
+            id: gridLayout
             Layout.fillWidth: true
             Layout.leftMargin: 6
             Layout.rightMargin: 10
