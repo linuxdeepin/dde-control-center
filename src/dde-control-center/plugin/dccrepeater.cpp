@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -21,6 +21,7 @@ public:
         , ownModel(false)
         , dataSourceIsObject(false)
         , delegateValidated(false)
+        , requestPending(false)
         , itemCount(0) {
 
     }
@@ -45,6 +46,7 @@ public:
     bool ownModel : 1;
     bool dataSourceIsObject : 1;
     bool delegateValidated : 1;
+    bool requestPending : 1;
     int itemCount = 0;
 
     QVector<QPointer<DccObject> > deletables;
@@ -276,7 +278,18 @@ void DccRepeater::regenerate()
 
     d->itemCount = count();
     d->deletables.resize(d->itemCount);
-    d->requestItems();
+    // Defer requestItems to the next event loop iteration to avoid deep synchronous
+    // recursion when regenerate() is called during component->create(). Without this,
+    // AsynchronousIfNested falls back to synchronous mode in a nested creation context,
+    // causing recursive QML object instantiation that freezes the main thread.
+    if (!d->requestPending) {
+        d->requestPending = true;
+        QMetaObject::invokeMethod(this, [this]() {
+            Q_D(DccRepeater);
+            d->requestPending = false;
+            d->requestItems();
+        }, Qt::QueuedConnection);
+    }
 }
 
 void DccRepeater::clear()
