@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick
 import QtQuick.Controls 2.0
@@ -166,18 +166,17 @@ Loader {
                                         itemsView.checkedLang = model.langKey
                                         itemsView.checkedLocale = model.localeKey
                                         let idx = 0
-                                        repeater.values[idx++].value = model.firstDay
-                                        repeater.values[idx++].value = model.shortDate
-                                        repeater.values[idx++].value = model.longDate
-                                        repeater.values[idx++].value = model.shortTime
-                                        repeater.values[idx++].value = model.longTime
-                                        repeater.values[idx++].value = model.currency
-                                        repeater.values[idx++].value = model.digit
-                                        repeater.values[idx++].value = model.paperSize
+                                        let values = repeater.values
+                                        values[idx++].value = model.firstDay
+                                        values[idx++].value = model.shortDate
+                                        values[idx++].value = model.longDate
+                                        values[idx++].value = model.shortTime
+                                        values[idx++].value = model.longTime
+                                        values[idx++].value = model.currency
+                                        values[idx++].value = model.digit
+                                        values[idx++].value = model.paperSize
 
-                                        // TODO: any better way to reset model?
-                                        repeater.model = 0
-                                        repeater.model = repeater.values
+                                        repeater.values = values
                                     }
                                 }
                             }
