@@ -17,7 +17,7 @@ D.ComboBox {
         width: parent.width
         text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : model[control.textRole]) : modelData
         icon.name: (control.iconNameRole && model[control.iconNameRole] !== undefined) ? model[control.iconNameRole] : null
-        highlighted: control.highlightedIndex === index
+        highlighted: control.isInteractingWithContent ? control.highlightedIndex === index : false
         hoverEnabled: control.hoverEnabled
         autoExclusive: true
         checked: control.currentIndex === index

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import org.deepin.dtk 1.0 as D
@@ -24,7 +24,7 @@ D.ComboBox {
         text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : (model[control.textRole] === undefined ? modelData[control.textRole] : model[control.textRole])) : modelData
         font.family: text
         icon.name: (control.iconNameRole && model[control.iconNameRole] !== undefined) ? model[control.iconNameRole] : null
-        highlighted: control.highlightedIndex === index
+        highlighted: control.isInteractingWithContent ? control.highlightedIndex === index : false
         hoverEnabled: control.hoverEnabled
         autoExclusive: true
         checked: control.currentIndex === index

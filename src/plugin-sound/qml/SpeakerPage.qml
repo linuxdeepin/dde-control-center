@@ -308,7 +308,7 @@ DccObject {
                     text: model.name
                     visible: model.isEnabled
                     icon.name: (control.iconNameRole && model[control.iconNameRole] !== undefined) ? model[control.iconNameRole] : null
-                    highlighted: control.highlightedIndex === index
+                    highlighted: control.isInteractingWithContent ? control.highlightedIndex === index : false
                     hoverEnabled: control.hoverEnabled
                     autoExclusive: true
                     checked: control.currentIndex === index
@@ -413,7 +413,7 @@ DccObject {
                     useIndicatorPadding: true
                     width: bluetoothControl.width
                     text: modelData
-                    highlighted: bluetoothControl.highlightedIndex === index
+                    highlighted: bluetoothControl.isInteractingWithContent ? bluetoothControl.highlightedIndex === index : false
                     hoverEnabled: bluetoothControl.hoverEnabled
                     autoExclusive: true
                     checked: bluetoothControl.currentIndex === index
