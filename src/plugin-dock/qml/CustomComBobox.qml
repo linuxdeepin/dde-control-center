@@ -1,6 +1,5 @@
-//SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
-//
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
 import QtQuick.Window 2.15
@@ -22,7 +21,7 @@ D.ComboBox {
         useIndicatorPadding: true
         width: control.width
         text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : model[control.textRole]) : modelData
-        highlighted: control.highlightedIndex === index
+        highlighted: control.isInteractingWithContent ? control.highlightedIndex === index : false
         hoverEnabled: control.hoverEnabled
         autoExclusive: true
         checked: control.currentIndex === index
