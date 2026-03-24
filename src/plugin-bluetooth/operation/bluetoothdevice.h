@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCC_BLUETOOTH_DEVICE_H
@@ -22,7 +22,7 @@ static const QMap<QString,QString> deviceType2Icon {
         {"input-gaming","bluetooth_other"},
         {"input-tablet","bluetooth_touchpad"},
         {"audio-card","bluetooth_pheadset"},
-        {"audio-headset","bluetooth_clang"},
+        {"audio-headset","bluetooth_pheadset"},
         {"audio-headphones","bluetooth_headset"},
         {"network-wireless","bluetooth_lan"},
         {"camera-video","bluetooth_vidicon"},
