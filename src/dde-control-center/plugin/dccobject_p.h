@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCOBJECT_P_H
@@ -48,6 +48,10 @@ public:
     DccObject *getChild(int childPos) const;
     int getChildIndex(const DccObject *child) const;
 
+    void addObject(DccObject *child);
+    void removeObject(DccObject *child);
+    void clearObject();
+
 protected:
     explicit Private(DccObject *obj);
     virtual ~Private();
@@ -71,10 +75,10 @@ protected:
     DccObject *m_parent; // 父项
     DccObject *m_currentObject;
     QVector<DccObject *> m_children; // 子项
-    QVector<DccObject *> m_objects;  // m_data中DccObject(未保证有效(delete时未处理))
+    QVector<DccObject *> m_objects;  // m_data中DccObject
     QObjectList m_data;              // data属性，为qml能加子项
     QPointer<QQmlComponent> m_page;
-    QPointer<QQuickItem> m_parentItem;  // Item父项
+    QPointer<QQuickItem> m_parentItem; // Item父项
 
     QString m_parentName;
     QString m_displayName;

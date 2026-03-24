@@ -189,6 +189,29 @@ int DccObject::Private::getChildIndex(const DccObject *child) const
     return m_children.indexOf(const_cast<DccObject *>(child));
 }
 
+void DccObject::Private::addObject(DccObject *child)
+{
+    if (child && !m_objects.contains(child)) {
+        m_objects.append(child);
+        Q_EMIT q_ptr->addObject(child);
+    }
+}
+
+void DccObject::Private::removeObject(DccObject *child)
+{
+    if (child && m_objects.removeOne(child)) {
+        Q_EMIT q_ptr->removeObject(child);
+    }
+}
+
+void DccObject::Private::clearObject()
+{
+    for (auto obj : m_objects) {
+        Q_EMIT q_ptr->removeObject(obj);
+    }
+    m_objects.clear();
+}
+
 void DccObject::Private::data_append(QQmlListProperty<QObject> *data, QObject *o)
 {
     if (!o)
@@ -198,8 +221,7 @@ void DccObject::Private::data_append(QQmlListProperty<QObject> *data, QObject *o
     o->setParent(that->q_ptr);
 
     if (DccObject *obj = qobject_cast<DccObject *>(o)) {
-        DccObject::Private *parent = reinterpret_cast<DccObject::Private *>(data->data);
-        parent->m_objects.append(obj);
+        reinterpret_cast<DccObject::Private *>(data->data)->addObject(obj);
     }
 }
 
@@ -218,8 +240,8 @@ QObject *DccObject::Private::data_at(QQmlListProperty<QObject> *data, qsizetype 
 
 void DccObject::Private::data_clear(QQmlListProperty<QObject> *data)
 {
+    reinterpret_cast<DccObject::Private *>(data->data)->clearObject();
     reinterpret_cast<DccObject::Private *>(data->data)->m_data.clear();
-    reinterpret_cast<DccObject::Private *>(data->data)->m_objects.clear();
 }
 
 ///////////////////////////////////////////////////////
