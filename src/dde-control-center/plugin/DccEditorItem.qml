@@ -49,8 +49,8 @@ D.ItemDelegate {
             nextItemInFocusChain(true)?.forceActiveFocus(Qt.TabFocusReason)
         }
     }
-    Keys.onReturnPressed: if (rightLoader.item) rightLoader.item.clicked()
-    Keys.onEnterPressed: if (rightLoader.item) rightLoader.item.clicked()
+    Keys.onReturnPressed: control.clicked()
+    Keys.onEnterPressed: control.clicked()
 
     icon {
         name: model.item.icon
