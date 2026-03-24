@@ -33,7 +33,8 @@ public:
             return;
 
         for (int i = 0; i < itemCount; i++) {
-            model->object(i, QQmlIncubator::AsynchronousIfNested);
+            if (i >= deletables.size() || !deletables.at(i))
+                model->object(i, QQmlIncubator::AsynchronousIfNested);
         }
     }
 
@@ -248,6 +249,7 @@ void DccRepeater::modelUpdated(const QQmlChangeSet &changeSet, bool reset)
         difference -= remove.count;
     }
 
+    bool needsRequest = false;
     for (const QQmlChangeSet::Change &insert : changeSet.inserts()) {
         int index = qMin(insert.index, d->deletables.size());
         if (insert.isMove()) {
@@ -259,10 +261,26 @@ void DccRepeater::modelUpdated(const QQmlChangeSet &changeSet, bool reset)
                 int modelIndex = index + i;
                 ++d->itemCount;
                 d->deletables.insert(modelIndex, nullptr);
-                d->model->object(modelIndex, QQmlIncubator::AsynchronousIfNested);
             }
+            needsRequest = true;
         }
         difference += insert.count;
+    }
+
+    // Defer object creation to the next event loop iteration, same as regenerate().
+    // Creating objects synchronously here can trigger QML GC inside a nested
+    // QQmlObjectCreator::finalize context where the JS heap contains partially-
+    // initialized objects, causing markObjects to crash on invalid pointers.
+    if (needsRequest && !d->requestPending) {
+        d->requestPending = true;
+        QMetaObject::invokeMethod(
+                this,
+                [this]() {
+                    Q_D(DccRepeater);
+                    d->requestPending = false;
+                    d->requestItems();
+                },
+                Qt::QueuedConnection);
     }
 
     if (difference != 0)
