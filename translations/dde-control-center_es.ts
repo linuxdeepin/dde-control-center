@@ -245,7 +245,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>Registrar iris</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
