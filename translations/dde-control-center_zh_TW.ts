@@ -1129,11 +1129,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation>https://www.uniontech.com/agreement/privacy-cn</translation>
+        <translation>https://www.uniontech.com/agreement/privacy-tw</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation>https://www.uniontech.com/agreement/experience-cn</translation>
+        <translation>https://www.uniontech.com/agreement/experience-tw</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>

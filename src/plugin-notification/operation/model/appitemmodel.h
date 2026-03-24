@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
@@ -59,6 +59,12 @@ public:
 
     inline QString getActName()const {return m_actName;}
     void setActName(const QString &name);
+
+    // Initialize member values directly without triggering setAppValue/D-Bus writes.
+    // Use this in constructors to avoid synchronous D-Bus calls during plugin loading.
+    void initValues(const QString &actName, const QString &softName, const QString &icon,
+                    bool allowNotify, bool notifySound, bool lockShowNotify,
+                    bool showDesktop, bool showInNotifyCenter, bool showNotifyPreview);
 
 public Q_SLOTS:
     void onSettingChanged(const QString &id, const uint &item, QDBusVariant var);

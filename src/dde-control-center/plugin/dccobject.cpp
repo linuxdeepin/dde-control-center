@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "dccobject.h"
@@ -36,7 +36,12 @@ DccObject::Private::Private(DccObject *obj)
 DccObject::Private::~Private()
 {
     if (m_page && (!m_page->parent() || m_page->parent() == q_ptr)) {
-        delete m_page;
+        // Use deleteLater() to avoid dangling QObjectWrapper references in QML's
+        // JS engine. Synchronous delete can cause crashes when GC runs during
+        // StackView page transitions and tries to mark already-freed objects.
+        if (m_page->parent() == q_ptr)
+            m_page->setParent(nullptr);
+        m_page->deleteLater();
         m_page = nullptr;
     }
     if (m_parent) {
@@ -46,7 +51,11 @@ DccObject::Private::~Private()
         DccObject *child = m_children.first();
         removeChild(0);
         if (child->parent() == q_ptr) {
-            delete child;
+            // Detach from parent to prevent ~QObject() from doing a synchronous
+            // delete, then defer destruction so QML's GC can safely process any
+            // remaining QObjectWrapper references to this child.
+            child->setParent(nullptr);
+            child->deleteLater();
         }
     }
 }

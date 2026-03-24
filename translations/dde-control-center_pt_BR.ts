@@ -51,7 +51,7 @@
     </message>
     <message>
         <source>Account Information</source>
-        <translation>Informações da Conta</translation>
+        <translation>Informações da conta</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
@@ -119,14 +119,14 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation>Login rápido</translation>
     </message>
 </context>
 <context>
     <name>Accounts</name>
     <message>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>Contas</translation>
     </message>
     <message>
         <source>Account manager</source>
@@ -834,11 +834,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation>Tem certeza de que deseja excluir esta conta?</translation>
+        <translation>Excluir esta conta?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation>Excluir diretório de contas</translation>
+        <translation>Excluir diretório da conta</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -846,7 +846,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Delete</source>
-        <translation>Deletar</translation>
+        <translation>Excluir</translation>
     </message>
 </context>
 <context>
@@ -864,7 +864,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation>Comum</translation>
+        <translation>Padrão</translation>
     </message>
     <message>
         <source>Repeat delay</source>
@@ -892,7 +892,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation>Teclado Numérico</translation>
+        <translation>Indicador visual do teclado numérico: ativado/desligado</translation>
     </message>
     <message>
         <source>test here</source>
@@ -900,7 +900,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation>Prompt do Caps Lock</translation>
+        <translation>Indicador visual do Caps Lock: ativado/desligado</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
@@ -912,7 +912,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation>Mão Esquerda</translation>
+        <translation>Modo para canhotos</translation>
     </message>
     <message>
         <source>Enable Keyboard</source>
@@ -920,11 +920,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Geral</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade de rolagem</translation>
     </message>
 </context>
 <context>
@@ -1018,7 +1018,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation>Reinicie o dispositivo para concluir a aplicação das configurações de Proteção de Sistema Somente Leitura Solid</translation>
     </message>
 </context>
 <context>
@@ -1197,7 +1197,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Idioma do sistema, formatos regionais</translation>
     </message>
 </context>
 <context>
@@ -1276,7 +1276,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Page size</source>
-        <translation>Tamanho da página</translation>
+        <translation>Tamanho de página</translation>
     </message>
     <message>
         <source>Example</source>
@@ -1309,7 +1309,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation>O Centro de Controle fornece opções para configurações do sistema.</translation>
+        <translation>As Configurações fornece todas as opções para a configuração do sistema.</translation>
     </message>
 </context>
 <context>
@@ -1336,7 +1336,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation>Tem certeza de que deseja desvincular do WeChat?</translation>
+        <translation>Desvincular o WeChat?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
@@ -1372,14 +1372,14 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation>Para usar os recursos acima, acesse o Centro de Controle - Contas e ative as opções correspondentes</translation>
+        <translation>Para usar os recursos acima, acesse o Configurações - Contas e ative as opções correspondentes</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation>Deepin</translation>
+        <translation>deepin</translation>
     </message>
     <message>
         <source>UOS</source>
@@ -1399,7 +1399,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation>Entrar em %1 ID</translation>
+        <translation>Entrar com %1 ID</translation>
     </message>
 </context>
 <context>
@@ -1426,7 +1426,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation>Tem certeza de que deseja limpar as configurações do sistema e os dados pessoais salvos na nuvem?</translation>
+        <translation>Limpar as configurações do sistema e os dados pessoais salvos na nuvem?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
@@ -1491,7 +1491,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation type="unfinished"/>
+        <translation>deepin ID</translation>
     </message>
     <message>
         <source>UOS ID</source>
@@ -1499,7 +1499,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>Serviços em nuvem</translation>
     </message>
 </context>
 <context>
@@ -1536,23 +1536,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DefaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Navegador</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation type="unfinished"/>
+        <translation>E-mail</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Texto</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Música</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Vídeo</translation>
     </message>
     <message>
         <source>Picture</source>
@@ -1560,7 +1560,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished"/>
+        <translation>Terminal</translation>
     </message>
 </context>
 <context>
@@ -1698,7 +1698,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"/>
+        <translation>Proteção de Sistema Somente Leitura Solid</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
@@ -2230,7 +2230,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation>Visuais aprimorados</translation>
+        <translation>Visual aprimorado</translation>
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
@@ -2253,7 +2253,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Configurações gerais, método de entrada, atalhos</translation>
     </message>
 </context>
 <context>
@@ -2303,7 +2303,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Formato regional</translation>
     </message>
 </context>
 <context>
@@ -2360,7 +2360,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation>Copyright© 2011-%1 Comunidade deepin</translation>
+        <translation>Copyright© 2011-%1 deepin Community</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
@@ -2452,7 +2452,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Rolagem natural</translation>
     </message>
     <message>
         <source>Small</source>
@@ -2490,7 +2490,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Computer name</source>
-        <translation>Computador</translation>
+        <translation>Nome do computador</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
@@ -2553,7 +2553,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificações</translation>
     </message>
 </context>
 <context>
@@ -2600,7 +2600,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Central de Notificações</translation>
     </message>
     <message>
         <source>Show message preview</source>
@@ -2811,14 +2811,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Energia</translation>
     </message>
 </context>
 <context>
     <name>PowerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Geral</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
@@ -2826,7 +2826,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Na tomada</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
@@ -2834,7 +2834,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Na bateria</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
@@ -2861,7 +2861,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation>Exibir a interface de desligamento</translation>
+        <translation>Exibir menu de energia</translation>
     </message>
     <message>
         <source>Do nothing</source>
@@ -2923,7 +2923,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation>Balanceia o desempenho e a duração da bateria, é ajustado automaticamente de acordo com o uso</translation>
+        <translation>Equilíbrio entre desempenho e duração da bateria, ajustado automaticamente de acordo com o uso</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
@@ -3041,7 +3041,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>QObject</name>
     <message>
         <source>Control Center</source>
-        <translation>Central de Controle</translation>
+        <translation>Configurações</translation>
     </message>
     <message>
         <source>Activated</source>
@@ -3133,7 +3133,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Paper size</source>
-        <translation>Tamanho da página</translation>
+        <translation>Tamanho de página</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3145,7 +3145,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Formato regional</translation>
     </message>
 </context>
 <context>
@@ -3389,7 +3389,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Saída, entrada, efeitos sonoros, dispositivos</translation>
     </message>
 </context>
 <context>
@@ -3404,7 +3404,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input Devices</source>
-        <translation>Dispositivos de entrada</translation>
+        <translation>Dispositivo de entrada</translation>
     </message>
 </context>
 <context>
@@ -3434,7 +3434,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation>Gerenciamento de dispositivos</translation>
     </message>
 </context>
 <context>
@@ -3516,11 +3516,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Left</source>
-        <translation>Esquerda</translation>
+        <translation>Esquerdo</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation>Direita</translation>
+        <translation>Direito</translation>
     </message>
     <message>
         <source>Output</source>
@@ -3544,11 +3544,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"/>
+        <translation>Áudio mono</translation>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"/>
+        <translation>Pausar automaticamente</translation>
     </message>
     <message>
         <source>Output Device</source>
@@ -3922,7 +3922,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation>Papéis de parede do sistema</translation>
+        <translation>Papel de parede do sistema</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
@@ -3986,14 +3986,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Papéis de parede do sistema</translation>
     </message>
 </context>
 <context>
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation>Desdobrar</translation>
+        <translation>Exibir parcialmente</translation>
     </message>
     <message>
         <source>Set lock screen</source>
@@ -4005,7 +4005,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>Exibir tudo - %1 itens</translation>
     </message>
     <message>
         <source>Add Picture</source>
@@ -4024,7 +4024,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation>Cantos das janelas arredondados</translation>
+        <translation>Cantos arredondados das janelas</translation>
     </message>
     <message>
         <source>None</source>
@@ -4040,7 +4040,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
-        <translation>Transparência ao mover as janelas</translation>
+        <translation>Efeitos de transparência ao mover janelas</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>

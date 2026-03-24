@@ -245,39 +245,39 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>Registrar iris</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>He leído y acepto los términos y condiciones</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Aviso legal</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Siguiente</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Hecho</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Reintentar registro</translation>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Iris registrado</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>No se ha podido regitrar el iris</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -296,38 +296,38 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>Authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Autenticación biométrica</translation>
     </message>
 </context>
 <context>
     <name>AuthenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Autenticación biométrica</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Cara</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
+        <translation>Se pueden ingresar hasta 5 registros faciales</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Huella dactilar</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Identificar al usuario escaneando la huella dactilar</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iris</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"/>
+        <translation>Identificar escaneando el iris</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
@@ -1190,14 +1190,14 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de fecha, hora y zona horaria</translation>
     </message>
 </context>
 <context>
     <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Idioma y región</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
@@ -1496,15 +1496,15 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>Deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation type="unfinished"/>
+        <translation>Deepin ID</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>UOS ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>Servicios en la nube</translation>
     </message>
 </context>
 <context>
@@ -1530,7 +1530,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>Defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation type="unfinished"/>
+        <translation>Aplicación predeterminada</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
