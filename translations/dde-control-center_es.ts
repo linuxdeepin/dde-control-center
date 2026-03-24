@@ -273,11 +273,11 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Iris registrado</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>No se ha podido regitrar el iris</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
