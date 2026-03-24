@@ -70,6 +70,10 @@ DccManager::DccManager(QObject *parent)
     m_currentObjects.append(m_root);
     onObjectAdded(m_root);
     m_objMap.insert(m_root->name(), { m_root });
+    QJSEngine::setObjectOwnership(m_root, QQmlEngine::CppOwnership);
+    QJSEngine::setObjectOwnership(m_hideObjects, QQmlEngine::CppOwnership);
+    QJSEngine::setObjectOwnership(m_noAddObjects, QQmlEngine::CppOwnership);
+    QJSEngine::setObjectOwnership(m_noParentObjects, QQmlEngine::CppOwnership);
 
     initConfig();
     connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject, Qt::QueuedConnection);
@@ -195,6 +199,8 @@ void DccManager::addObject(DccObject *obj)
             m_objMap[o->name()].append(o);
             connect(o, &DccObject::destroyed, this, &DccManager::onDccObjectDestroyed, Qt::UniqueConnection);
         }
+        connect(o, &DccObject::addObject, this, &DccManager::addObject);
+        connect(o, &DccObject::removeObject, this, qOverload<DccObject *>(&DccManager::removeObject));
         if (o->parentName().isEmpty()) {
             DccObject::Private::FromObject(m_noParentObjects)->addChild(o, false);
         } else {

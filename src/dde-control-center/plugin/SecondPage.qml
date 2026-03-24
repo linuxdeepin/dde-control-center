@@ -187,7 +187,7 @@ Item {
 
                 background: DccItemBackground {
                     focusBorderVisible: true
-                    externalFocus: ListView.view.activeFocus && ListView.isCurrentItem
+                    externalFocus: ListView.view && ListView.view.activeFocus && ListView.isCurrentItem
                     separatorVisible: false
                     bgMargins: 0
                     backgroundType: DccObject.Hover | DccObject.Clickable

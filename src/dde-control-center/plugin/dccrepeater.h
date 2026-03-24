@@ -1,9 +1,11 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #ifndef DCCREPEATER_H
 #define DCCREPEATER_H
+
+#include "dccobject.h"
 
 #include <private/qqmlchangeset_p.h>
 
@@ -13,7 +15,7 @@
 namespace dccV25 {
 class DccRepeaterPrivate;
 
-class DccRepeater : public QObject
+class DccRepeater : public DccObject
 {
     Q_OBJECT
     QML_ELEMENT
