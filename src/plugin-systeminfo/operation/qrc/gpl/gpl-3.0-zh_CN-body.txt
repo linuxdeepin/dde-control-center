@@ -1,4 +1,4 @@
-The notice provides license information of respective open source software contained in this operation system.
+The notice provides license information of respective open source software contained in this operating system.
 
 Open Source Software Licensed under the GPL-3.0-or-later:
 1、source package:accountsservice 23.13.9-2
