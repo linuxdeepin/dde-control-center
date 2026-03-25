@@ -398,7 +398,7 @@ void CommonInfoWork::importCertificate(QString filePath)
 
                //初始化Notify 七个参数
         QString in0(QObject::tr("dde-control-center"));
-        uint in1 = 101;
+        uint in1 = 0;
         QString in2("preferences-system");
         QString in3("");
         QString in4("");
@@ -858,7 +858,7 @@ void CommonInfoWork::onDevelopModeError(const QString &msgCode)
 {
     //初始化Notify 七个参数
     QString in0(QObject::tr("dde-control-center"));
-    uint in1 = 101;
+    uint in1 = 0;
     QString in2("preferences-system");
     QString in3("");
     QString in4("");
