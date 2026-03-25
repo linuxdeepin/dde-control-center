@@ -644,6 +644,8 @@ void PluginManager::cancelLoad()
 {
     if (m_threadPool) {
         m_threadPool->clear();
+        // 等待所有正在运行的任务完成,避免析构时的竞态条件
+        m_threadPool->waitForDone();
         for (auto &&plugin : m_plugins) {
             if (plugin->thread) {
                 qCWarning(dccLog()) << plugin->name << ": status" << QString::number(plugin->status, 16) << "thread exit timeout";
