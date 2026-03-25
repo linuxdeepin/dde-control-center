@@ -1,3 +1,42 @@
+dde-control-center (6.1.78) unstable; urgency=medium
+
+  * fix: defer object creation to prevent QML GC crash
+  * fix(commoninfo): set notification replacesId to 0 for proper display
+  * fix: update translation URLs and fix typo
+  * fix: Fix the issue where pressing Enter on an item has no effect
+  * fix: resolve highlight residue issue after mouse leaves dropdown
+    menu items
+  * fix(bluetooth): correct audio headset icon mapping
+  * fix: correct typo "operation system" to "operating system" in GPL
+    license files
+  * fix: Resolve the issue where the shortcut key for selected desktop
+    files does not work
+  * fix: fix DccRepeater memory management and object ownership
+  * i18n: Updates for project Deepin Desktop Environment (#3112)
+  * chore: update GPL-3.0 license files with complete open source
+    software list
+  * fix: prevent GC crashes during page transitions
+  * fix(datetime): resolve SpinboxEx unit text overlap in English locale
+  * refactor: optimize DConfig data synchronization to reduce DBus calls
+  * fix: prevent control center crash from recursive QML creation
+  * fix: optimize model assignment in RegionFormatDialog
+  * fix(ui): optimize UI details and unify color management
+  * refactor: optimize time plugin timer update mechanism
+  * fix: optimize package query method for privacy security module
+  * fix: change overlap detection from complete to partial coverage
+  * fix: fix potential null pointer and loading state issues
+  * fix: prevent infinite loops and improve UI responsiveness
+  * style(keyboard): update file selection button icon in shortcut
+    dialog
+  * fix(ui): fix theme switch buttons to prevent blur
+  * fix: Fix the issue of inconsistent display of title text
+  * fix(keyboard): resolve shortcut text overlap with input box on
+    window resize
+  * i18n: Updates for project Deepin Desktop Environment (#3082)
+  * fix: correct shortcut ID for preview-workspace
+
+ -- zhangkun <zhangkun2@uniontech.com>  Wed, 25 Mar 2026 17:09:29 +0800
+
 dde-control-center (6.1.77) unstable; urgency=medium
 
   * refactor: remove DConfig usage for permission blacklist
