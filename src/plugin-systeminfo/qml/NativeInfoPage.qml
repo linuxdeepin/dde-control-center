@@ -158,7 +158,7 @@ DccObject {
                             mouse.accepted = true
                         }
                     }
-                    
+
                     onVisibleChanged: {
                         if (!visible && showAlert) {
                             showAlert = false
@@ -206,6 +206,7 @@ DccObject {
                         if (hostNameEdit.text.length === 0) {
                             editBtn.visible = true
                             hostNameLabel.visible = true
+                            hostNameEdit.focus = false
                             hostNameEdit.visible = false
                             hostNameEdit.showAlert = false
                             return
@@ -221,6 +222,7 @@ DccObject {
 
                         editBtn.visible = true
                         hostNameLabel.visible = true
+                        hostNameEdit.focus = false
                         hostNameEdit.visible = false
                         hostNameEdit.showAlert = false
                         dccData.systemInfoWork().onSetHostname(hostNameEdit.text)
