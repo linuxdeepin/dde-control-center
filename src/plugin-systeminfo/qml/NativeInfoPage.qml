@@ -203,6 +203,7 @@ DccObject {
                     }
                     
                     onEditingFinished: {
+                        editBtn.forceActiveFocus()
                         if (hostNameEdit.text.length === 0) {
                             editBtn.visible = true
                             hostNameLabel.visible = true
