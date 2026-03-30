@@ -1,3 +1,12 @@
+dde-control-center (6.1.79) unstable; urgency=medium
+
+  * chore(systeminfo): remove redundant Copyright fields from license
+    files
+  * fix(systeminfo): prevent auth dialog loop by transferring focus to
+    edit button
+
+ -- zhangkun <zhangkun2@uniontech.com>  Mon, 30 Mar 2026 15:16:14 +0800
+
 dde-control-center (6.1.78) unstable; urgency=medium
 
   * fix: defer object creation to prevent QML GC crash
