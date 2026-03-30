@@ -7,16 +7,10 @@ package:
 
 accountsservice
 
-Copyright:
-accountsservice
-
 2、source package:cifs-utils 6.9.orig
 
 package:
 
-cifs-utils
-
-Copyright:
 cifs-utils
 
 3、source package:coreutils 9.1-1
@@ -25,16 +19,10 @@ package:
 
 coreutils
 
-Copyright:
-coreutils
-
 4、source package:dosfstools 4.2-1
 
 package:
 
-dosfstools
-
-Copyright:
 dosfstools
 
 5、source package:ffmpeg 7:6.0-3
@@ -43,16 +31,10 @@ package:
 
 ffmpeg
 
-Copyright:
-ffmpeg
-
 6、source package:fonts-wqy-microhei 0.2.0-beta-3.1
 
 package:
 
-fonts-wqy-microhei
-
-Copyright:
 fonts-wqy-microhei
 
 7、source package:gawk 5.0.1+dfsg.orig
@@ -61,16 +43,10 @@ package:
 
 gawk
 
-Copyright:
-gawk
-
 8、source package:gettext 0.21.1
 
 package:
 
-gettext
-
-Copyright:
 gettext
 
 9、source package:gettext-base 0.19.8.1-9_s390x
@@ -79,16 +55,10 @@ package:
 
 gettext-base
 
-Copyright:
-gettext-base
-
 10、source package:gnupg 2.2.19-3_all
 
 package:
 
-gnupg
-
-Copyright:
 gnupg
 
 11、source package:golang-gir-gobject-2.0-dev 2.2.0-1
@@ -97,16 +67,10 @@ package:
 
 golang-gir-gobject-2.0-dev
 
-Copyright:
-golang-gir-gobject-2.0-dev
-
 12、source package:gpgv 2.2.20-1~bpo9+1_s390x
 
 package:
 
-gpgv
-
-Copyright:
 gpgv
 
 13、source package:grub-common 2.06-9
@@ -115,16 +79,10 @@ package:
 
 grub-common
 
-Copyright:
-grub-common
-
 14、source package:grub2-common 2.04~rc1-3_ppc64el
 
 package:
 
-grub2-common
-
-Copyright:
 grub2-common
 
 15、source package:grub2-theme-vimix c7ab3ce
@@ -133,16 +91,10 @@ package:
 
 grub2-theme-vimix
 
-Copyright:
-grub2-theme-vimix
-
 16、source package:guvcview 2.0.2
 
 package:
 
-guvcview
-
-Copyright:
 guvcview
 
 17、source package:hello 2.9-2_kfreebsd-i386
@@ -151,16 +103,10 @@ package:
 
 hello
 
-Copyright:
-hello
-
 18、source package:libparted-dev 3.3-4_s390x
 
 package:
 
-libparted-dev
-
-Copyright:
 libparted-dev
 
 19、source package:libparted-fs-resize0 3.3-4_s390x
@@ -169,16 +115,10 @@ package:
 
 libparted-fs-resize0
 
-Copyright:
-libparted-fs-resize0
-
 20、source package:live-boot 5.0~a5-2
 
 package:
 
-live-boot
-
-Copyright:
 live-boot
 
 21、source package:live-boot-initramfs-tools 4.0.2-1_all
@@ -187,16 +127,10 @@ package:
 
 live-boot-initramfs-tools
 
-Copyright:
-live-boot-initramfs-tools
-
 22、source package:live-config 5.20190519_all
 
 package:
 
-live-config
-
-Copyright:
 live-config
 
 23、source package:live-config-systemd 5.20190519_all
@@ -205,16 +139,10 @@ package:
 
 live-config-systemd
 
-Copyright:
-live-config-systemd
-
 24、source package:onboard 1.4.1-5_s390x
 
 package:
 
-onboard
-
-Copyright:
 onboard
 
 25、source package:parted 3.6-3
@@ -223,16 +151,10 @@ package:
 
 parted
 
-Copyright:
-parted
-
 26、source package:patchelf 0.9.orig
 
 package:
 
-patchelf
-
-Copyright:
 patchelf
 
 27、source package:pkg-kde-tools 0.9.5
@@ -241,16 +163,10 @@ package:
 
 pkg-kde-tools
 
-Copyright:
-pkg-kde-tools
-
 28、source package:python3-samba 4.12.5+dfsg-3_s390x
 
 package:
 
-python3-samba
-
-Copyright:
 python3-samba
 
 29、source package:qtchooser 66.orig
@@ -259,16 +175,10 @@ package:
 
 qtchooser
 
-Copyright:
-qtchooser
-
 30、source package:qtremoteobjects v5.11.0-rc2
 
 package:
 
-qtremoteobjects
-
-Copyright:
 qtremoteobjects
 
 31、source package:redshift 1.9.1-4_s390x
@@ -277,16 +187,10 @@ package:
 
 redshift
 
-Copyright:
-redshift
-
 32、source package:rsync 3.2.7-1~bpo11+1
 
 package:
 
-rsync
-
-Copyright:
 rsync
 
 33、source package:rsyslog 8.9.0-3
@@ -295,16 +199,10 @@ package:
 
 rsyslog
 
-Copyright:
-rsyslog
-
 34、source package:samba 4.9.5+dfsg-5_mips64el
 
 package:
 
-samba
-
-Copyright:
 samba
 
 35、source package:samba-common-bin 4.9.5+dfsg-5_s390x
@@ -313,16 +211,10 @@ package:
 
 samba-common-bin
 
-Copyright:
-samba-common-bin
-
 36、source package:samba-dsdb-modules 4.9.5+dfsg-5_s390x
 
 package:
 
-samba-dsdb-modules
-
-Copyright:
 samba-dsdb-modules
 
 37、source package:samba-vfs-modules 4.9.5+dfsg-5_s390x
@@ -331,16 +223,10 @@ package:
 
 samba-vfs-modules
 
-Copyright:
-samba-vfs-modules
-
 38、source package:sed 4.9-1
 
 package:
 
-sed
-
-Copyright:
 sed
 
 39、source package:smbclient 4.9.5+dfsg-5_s390x
@@ -349,25 +235,16 @@ package:
 
 smbclient
 
-Copyright:
-smbclient
-
 40、source package:startdde 6.0.6
 
 package:
 
 startdde
 
-Copyright:
-startdde
-
 41、source package:viper v1.3.2
 
 package:
 
-viper
-
-Copyright:
 viper
 
 
@@ -378,16 +255,10 @@ package:
 
 blur-effect
 
-Copyright:
-blur-effect
-
 2、source package:distrobox 1.4.2.1-1
 
 package:
 
-distrobox
-
-Copyright:
 distrobox
 
 3、source package:libcap-ng-dev 0.7.9-2_s390x
@@ -396,16 +267,10 @@ package:
 
 libcap-ng-dev
 
-Copyright:
-libcap-ng-dev
-
 4、source package:liblightdm-qt-dev 1.26.0-5_s390x
 
 package:
 
-liblightdm-qt-dev
-
-Copyright:
 liblightdm-qt-dev
 
 5、source package:libpoppler-glib-dev 22.12.0-2
@@ -414,16 +279,10 @@ package:
 
 libpoppler-glib-dev
 
-Copyright:
-libpoppler-glib-dev
-
 6、source package:lightdm 1.9.9-1
 
 package:
 
-lightdm
-
-Copyright:
 lightdm
 
 7、source package:lightdm-gtk-greeter 2.0.8-3
@@ -432,16 +291,10 @@ package:
 
 lightdm-gtk-greeter
 
-Copyright:
-lightdm-gtk-greeter
-
 8、source package:mtools 4.0.9-1
 
 package:
 
-mtools
-
-Copyright:
 mtools
 
 9、source package:python-is-python3 8
@@ -450,16 +303,10 @@ package:
 
 python-is-python3
 
-Copyright:
-python-is-python3
-
 10、source package:tpm2-tools 5.4-1
 
 package:
 
-tpm2-tools
-
-Copyright:
 tpm2-tools
 
 
@@ -470,16 +317,10 @@ package:
 
 ColumnsPlusPlus
 
-Copyright:
-ColumnsPlusPlus
-
 2、source package:Grub-Themes a7ec0fd
 
 package:
 
-Grub-Themes
-
-Copyright:
 Grub-Themes
 
 3、source package:acl 2.3.1-3
@@ -488,16 +329,10 @@ package:
 
 acl
 
-Copyright:
-acl
-
 4、source package:adduser 3.99
 
 package:
 
-adduser
-
-Copyright:
 adduser
 
 5、source package:apt 2.7.1
@@ -506,16 +341,10 @@ package:
 
 apt
 
-Copyright:
-apt
-
 6、source package:apt-utils 2.1.7_mips64el
 
 package:
 
-apt-utils
-
-Copyright:
 apt-utils
 
 7、source package:aptitude 0.8.9-1
@@ -524,16 +353,10 @@ package:
 
 aptitude
 
-Copyright:
-aptitude
-
 8、source package:aria2 1.9.5-1
 
 package:
 
-aria2
-
-Copyright:
 aria2
 
 9、source package:arj 3.10.22.orig
@@ -542,16 +365,10 @@ package:
 
 arj
 
-Copyright:
-arj
-
 10、source package:attr 2.4.48-5_s390x
 
 package:
 
-attr
-
-Copyright:
 attr
 
 11、source package:bash-completion 20080705
@@ -560,16 +377,10 @@ package:
 
 bash-completion
 
-Copyright:
-bash-completion
-
 12、source package:bc 1.07.1-3
 
 package:
 
-bc
-
-Copyright:
 bc
 
 13、source package:bluez 5.66-1
@@ -578,16 +389,10 @@ package:
 
 bluez
 
-Copyright:
-bluez
-
 14、source package:bluez-obexd 5.52-1_s390x
 
 package:
 
-bluez-obexd
-
-Copyright:
 bluez-obexd
 
 15、source package:ca-certificates 20230311
@@ -596,16 +401,10 @@ package:
 
 ca-certificates
 
-Copyright:
-ca-certificates
-
 16、source package:cornrow v0.8.0
 
 package:
 
-cornrow
-
-Copyright:
 cornrow
 
 17、source package:cups-filters 1.9.0-2
@@ -614,16 +413,10 @@ package:
 
 cups-filters
 
-Copyright:
-cups-filters
-
 18、source package:cyberduck release-4-9-1
 
 package:
 
-cyberduck
-
-Copyright:
 cyberduck
 
 19、source package:debhelper 9.20160814
@@ -632,16 +425,10 @@ package:
 
 debhelper
 
-Copyright:
-debhelper
-
 20、source package:dh-dkms 3.0.9-1
 
 package:
 
-dh-dkms
-
-Copyright:
 dh-dkms
 
 21、source package:dh-golang 1.9
@@ -650,16 +437,10 @@ package:
 
 dh-golang
 
-Copyright:
-dh-golang
-
 22、source package:dkms 3.0.8-3
 
 package:
 
-dkms
-
-Copyright:
 dkms
 
 23、source package:dmidecode 3.5-1
@@ -668,16 +449,10 @@ package:
 
 dmidecode
 
-Copyright:
-dmidecode
-
 24、source package:dnsmasq-base 2.89-1
 
 package:
 
-dnsmasq-base
-
-Copyright:
 dnsmasq-base
 
 25、source package:dpkg 1.9.21
@@ -686,16 +461,10 @@ package:
 
 dpkg
 
-Copyright:
-dpkg
-
 26、source package:dpkg-dev 1.9.21
 
 package:
 
-dpkg-dev
-
-Copyright:
 dpkg-dev
 
 27、source package:efibootmgr 17-2
@@ -704,16 +473,10 @@ package:
 
 efibootmgr
 
-Copyright:
-efibootmgr
-
 28、source package:eject 2.35.2-7_ppc64el
 
 package:
 
-eject
-
-Copyright:
 eject
 
 29、source package:ethtool 6-0
@@ -722,16 +485,10 @@ package:
 
 ethtool
 
-Copyright:
-ethtool
-
 30、source package:exfat-fuse 1.3.0-2_armel
 
 package:
 
-exfat-fuse
-
-Copyright:
 exfat-fuse
 
 31、source package:exfatprogs 1.2.1-2
@@ -740,16 +497,10 @@ package:
 
 exfatprogs
 
-Copyright:
-exfatprogs
-
 32、source package:ffmpeg 7:6.0-3
 
 package:
 
-ffmpeg
-
-Copyright:
 ffmpeg
 
 33、source package:foomatic-db-compressed-ppds 20230107-1
@@ -758,16 +509,10 @@ package:
 
 foomatic-db-compressed-ppds
 
-Copyright:
-foomatic-db-compressed-ppds
-
 34、source package:fprintd 1.94.2-2
 
 package:
 
-fprintd
-
-Copyright:
 fprintd
 
 35、source package:geoclue-2.0 2.7.0-2
@@ -776,16 +521,10 @@ package:
 
 geoclue-2.0
 
-Copyright:
-geoclue-2.0
-
 36、source package:gnome-keyring 42.1-1
 
 package:
 
-gnome-keyring
-
-Copyright:
 gnome-keyring
 
 37、source package:hwdata 0.372-1
@@ -794,16 +533,10 @@ package:
 
 hwdata
 
-Copyright:
-hwdata
-
 38、source package:im-config 0.9
 
 package:
 
-im-config
-
-Copyright:
 im-config
 
 39、source package:imwheel 1.0.0pre12.orig
@@ -812,16 +545,10 @@ package:
 
 imwheel
 
-Copyright:
-imwheel
-
 40、source package:input-leap v2.4.0
 
 package:
 
-input-leap
-
-Copyright:
 input-leap
 
 41、source package:ipwatchd 1.3.0
@@ -830,16 +557,10 @@ package:
 
 ipwatchd
 
-Copyright:
-ipwatchd
-
 42、source package:jfsutils 1.1.8-1
 
 package:
 
-jfsutils
-
-Copyright:
 jfsutils
 
 43、source package:kbd 2.5.1-1
@@ -848,16 +569,10 @@ package:
 
 kbd
 
-Copyright:
-kbd
-
 44、source package:kscreenlocker-dev 5.8.6-2_s390x
 
 package:
 
-kscreenlocker-dev
-
-Copyright:
 kscreenlocker-dev
 
 45、source package:lcov 1.9.orig
@@ -866,16 +581,10 @@ package:
 
 lcov
 
-Copyright:
-lcov
-
 46、source package:libappstreamqt-dev 0.9.8-4_kfreebsd-i386
 
 package:
 
-libappstreamqt-dev
-
-Copyright:
 libappstreamqt-dev
 
 47、source package:libblkid-dev 2.35.2-7_mipsel
@@ -884,16 +593,10 @@ package:
 
 libblkid-dev
 
-Copyright:
-libblkid-dev
-
 48、source package:libcryptsetup-dev 2:2.4.0-1
 
 package:
 
-libcryptsetup-dev
-
-Copyright:
 libcryptsetup-dev
 
 49、source package:libddcutil-dev 0.9.8-4_s390x
@@ -902,16 +605,10 @@ package:
 
 libddcutil-dev
 
-Copyright:
-libddcutil-dev
-
 50、source package:libdpkg-dev 1.20.5_ppc64el
 
 package:
 
-libdpkg-dev
-
-Copyright:
 libdpkg-dev
 
 51、source package:libdvdnav-dev 6.1.0-1_s390x
@@ -920,16 +617,10 @@ package:
 
 libdvdnav-dev
 
-Copyright:
-libdvdnav-dev
-
 52、source package:libffmpegthumbnailer-dev 2.1.1-0.2_kfreebsd-amd64
 
 package:
 
-libffmpegthumbnailer-dev
-
-Copyright:
 libffmpegthumbnailer-dev
 
 53、source package:libffmpegthumbnailer4v5 2.1.1-0.2_kfreebsd-amd64
@@ -938,16 +629,10 @@ package:
 
 libffmpegthumbnailer4v5
 
-Copyright:
-libffmpegthumbnailer4v5
-
 54、source package:libltdl-dev 2.4.7-6
 
 package:
 
-libltdl-dev
-
-Copyright:
 libltdl-dev
 
 55、source package:libmount-dev 2.35.2-7_s390x
@@ -956,16 +641,10 @@ package:
 
 libmount-dev
 
-Copyright:
-libmount-dev
-
 56、source package:libmpv-dev 0.9.2-1+ffmpeg
 
 package:
 
-libmpv-dev
-
-Copyright:
 libmpv-dev
 
 57、source package:libmpv1 0.6.2-2_s390x
@@ -974,16 +653,10 @@ package:
 
 libmpv1
 
-Copyright:
-libmpv1
-
 58、source package:libmpv2 0.36.0+git.20230723.60a26324
 
 package:
 
-libmpv2
-
-Copyright:
 libmpv2
 
 59、source package:libnm-dev 1.6.2-3+deb9u2_s390x
@@ -992,16 +665,10 @@ package:
 
 libnm-dev
 
-Copyright:
-libnm-dev
-
 60、source package:libpam-fprintd 1.90.1-1_s390x
 
 package:
 
-libpam-fprintd
-
-Copyright:
 libpam-fprintd
 
 61、source package:libvlc-dev 3.0.9.2-1
@@ -1010,16 +677,10 @@ package:
 
 libvlc-dev
 
-Copyright:
-libvlc-dev
-
 62、source package:libvlc5 3.0.8-4_s390x
 
 package:
 
-libvlc5
-
-Copyright:
 libvlc5
 
 63、source package:libvlccore-dev 3.0.8-4_s390x
@@ -1028,16 +689,10 @@ package:
 
 libvlccore-dev
 
-Copyright:
-libvlccore-dev
-
 64、source package:libvncserver LibVNCServer-0.9.14
 
 package:
 
-libvncserver
-
-Copyright:
 libvncserver
 
 65、source package:lzop 1.04-2
@@ -1046,16 +701,10 @@ package:
 
 lzop
 
-Copyright:
-lzop
-
 66、source package:man-db 2.9.4-4
 
 package:
 
-man-db
-
-Copyright:
 man-db
 
 67、source package:net-tools 2.10-0.1
@@ -1064,16 +713,10 @@ package:
 
 net-tools
 
-Copyright:
-net-tools
-
 68、source package:network-manager 1.9.90-1
 
 package:
 
-network-manager
-
-Copyright:
 network-manager
 
 69、source package:nilfs-tools 2.2.9-1
@@ -1082,16 +725,10 @@ package:
 
 nilfs-tools
 
-Copyright:
-nilfs-tools
-
 70、source package:ntfs-3g 2017.3.23AR.5.orig
 
 package:
 
-ntfs-3g
-
-Copyright:
 ntfs-3g
 
 71、source package:packagekit 1.2.6-5
@@ -1100,16 +737,10 @@ package:
 
 packagekit
 
-Copyright:
-packagekit
-
 72、source package:pandoc 2.9.2.1-3
 
 package:
 
-pandoc
-
-Copyright:
 pandoc
 
 73、source package:pciutils 3.7.0.orig
@@ -1118,16 +749,10 @@ package:
 
 pciutils
 
-Copyright:
-pciutils
-
 74、source package:pinn 0.0
 
 package:
 
-pinn
-
-Copyright:
 pinn
 
 75、source package:pkg-config 0.29.2.orig
@@ -1136,16 +761,10 @@ package:
 
 pkg-config
 
-Copyright:
-pkg-config
-
 76、source package:pkg-kde-tools 0.9.5
 
 package:
 
-pkg-kde-tools
-
-Copyright:
 pkg-kde-tools
 
 77、source package:plymouth 22.02.122-3
@@ -1154,16 +773,10 @@ package:
 
 plymouth
 
-Copyright:
-plymouth
-
 78、source package:plymouth-label 0.9.4-3_s390x
 
 package:
 
-plymouth-label
-
-Copyright:
 plymouth-label
 
 79、source package:pppoe 3.8-3_sparc
@@ -1172,16 +785,10 @@ package:
 
 pppoe
 
-Copyright:
-pppoe
-
 80、source package:procps 3.3.9.orig
 
 package:
 
-procps
-
-Copyright:
 procps
 
 81、source package:python3-dbus 1.2.8-3_s390x
@@ -1190,16 +797,10 @@ package:
 
 python3-dbus
 
-Copyright:
-python3-dbus
-
 82、source package:python3-smbc 1.0.23-2
 
 package:
 
-python3-smbc
-
-Copyright:
 python3-smbc
 
 83、source package:rfkill 2.35.2-7_s390x
@@ -1208,16 +809,10 @@ package:
 
 rfkill
 
-Copyright:
-rfkill
-
 84、source package:rzip 2.1.orig
 
 package:
 
-rzip
-
-Copyright:
 rzip
 
 85、source package:sectpmctl 1.1.3
@@ -1226,16 +821,10 @@ package:
 
 sectpmctl
 
-Copyright:
-sectpmctl
-
 86、source package:sensible-utils 0.0.9+nmu1
 
 package:
 
-sensible-utils
-
-Copyright:
 sensible-utils
 
 87、source package:socat 2.0.0~beta9-1_ppc64el
@@ -1244,16 +833,10 @@ package:
 
 socat
 
-Copyright:
-socat
-
 88、source package:squashfs-tools 4.4-2_s390x
 
 package:
 
-squashfs-tools
-
-Copyright:
 squashfs-tools
 
 89、source package:syslinux 6.04~git20190206.bf6db5b4+dfsg1.orig
@@ -1262,16 +845,10 @@ package:
 
 syslinux
 
-Copyright:
-syslinux
-
 90、source package:syslinux-common 6.04~git20190206.bf6db5b4+dfsg1-2_all
 
 package:
 
-syslinux-common
-
-Copyright:
 syslinux-common
 
 91、source package:udisks2 2.9.4-4
@@ -1280,16 +857,10 @@ package:
 
 udisks2
 
-Copyright:
-udisks2
-
 92、source package:unace 1.2b-9
 
 package:
 
-unace
-
-Copyright:
 unace
 
 93、source package:upower 1.90.2-3
@@ -1298,16 +869,10 @@ package:
 
 upower
 
-Copyright:
-upower
-
 94、source package:usb-modeswitch 2.6.1.orig
 
 package:
 
-usb-modeswitch
-
-Copyright:
 usb-modeswitch
 
 95、source package:usbmuxd 1.1.1~git20191130.9af2b12-1_s390x
@@ -1316,16 +881,10 @@ package:
 
 usbmuxd
 
-Copyright:
-usbmuxd
-
 96、source package:usbutils 1:015-1
 
 package:
 
-usbutils
-
-Copyright:
 usbutils
 
 97、source package:user-setup 1.95
@@ -1334,16 +893,10 @@ package:
 
 user-setup
 
-Copyright:
-user-setup
-
 98、source package:uuid-dev 2.35.2-7_ppc64el
 
 package:
 
-uuid-dev
-
-Copyright:
 uuid-dev
 
 99、source package:vlc-plugin-base 3.0.8-4_s390x
@@ -1352,16 +905,10 @@ package:
 
 vlc-plugin-base
 
-Copyright:
-vlc-plugin-base
-
 100、source package:xdg-user-dirs 0.9-1
 
 package:
 
-xdg-user-dirs
-
-Copyright:
 xdg-user-dirs
 
 101、source package:xserver-xorg-input-wacom 1.2.0-1~exp1
@@ -1370,16 +917,10 @@ package:
 
 xserver-xorg-input-wacom
 
-Copyright:
-xserver-xorg-input-wacom
-
 102、source package:zssh 1.5c.debian.1-8
 
 package:
 
-zssh
-
-Copyright:
 zssh
 
 
@@ -1390,16 +931,10 @@ package:
 
 GitQlient
 
-Copyright:
-GitQlient
-
 2、source package:alsa-utils 1.2.9-1
 
 package:
 
-alsa-utils
-
-Copyright:
 alsa-utils
 
 3、source package:btrfs-progs 6.3.2-1
@@ -1408,16 +943,10 @@ package:
 
 btrfs-progs
 
-Copyright:
-btrfs-progs
-
 4、source package:checkstyle checkstyle-10.3.4
 
 package:
 
-checkstyle
-
-Copyright:
 checkstyle
 
 5、source package:dmsetup 1.02.90-2.2+deb8u1_s390x
@@ -1426,16 +955,10 @@ package:
 
 dmsetup
 
-Copyright:
-dmsetup
-
 6、source package:doxygen 1.9.4-4
 
 package:
 
-doxygen
-
-Copyright:
 doxygen
 
 7、source package:e2fsprogs 1.47.0-2
@@ -1444,16 +967,10 @@ package:
 
 e2fsprogs
 
-Copyright:
-e2fsprogs
-
 8、source package:gcc 9.2.1-4.1_mips64el
 
 package:
 
-gcc
-
-Copyright:
 gcc
 
 9、source package:genisoimage 9:1.1.11-3.4
@@ -1462,16 +979,10 @@ package:
 
 genisoimage
 
-Copyright:
-genisoimage
-
 10、source package:git 4.3.20-9
 
 package:
 
-git
-
-Copyright:
 git
 
 11、source package:grub-efi-amd64-signed 1+2.06+8.1
@@ -1480,16 +991,10 @@ package:
 
 grub-efi-amd64-signed
 
-Copyright:
-grub-efi-amd64-signed
-
 12、source package:grub-efi-arm64-signed 1+2.06+8.1
 
 package:
 
-grub-efi-arm64-signed
-
-Copyright:
 grub-efi-arm64-signed
 
 13、source package:gtk2-engines 2.20.2.orig
@@ -1498,16 +1003,10 @@ package:
 
 gtk2-engines
 
-Copyright:
-gtk2-engines
-
 14、source package:gtk2-engines-murrine 0.98.2.orig
 
 package:
 
-gtk2-engines-murrine
-
-Copyright:
 gtk2-engines-murrine
 
 15、source package:iio-sensor-proxy 3.4-2
@@ -1516,16 +1015,10 @@ package:
 
 iio-sensor-proxy
 
-Copyright:
-iio-sensor-proxy
-
 16、source package:initramfs-tools-core 0.137_all
 
 package:
 
-initramfs-tools-core
-
-Copyright:
 initramfs-tools-core
 
 17、source package:kwin v5.27.2
@@ -1534,16 +1027,10 @@ package:
 
 kwin
 
-Copyright:
-kwin
-
 18、source package:libcap-ng-dev 0.7.9-2_s390x
 
 package:
 
-libcap-ng-dev
-
-Copyright:
 libcap-ng-dev
 
 19、source package:libdjvulibre-dev 3.5.28-2
@@ -1552,16 +1039,10 @@ package:
 
 libdjvulibre-dev
 
-Copyright:
-libdjvulibre-dev
-
 20、source package:libglib2.0-dev 2.64.4-1_s390x
 
 package:
 
-libglib2.0-dev
-
-Copyright:
 libglib2.0-dev
 
 21、source package:liblightdm-qt-dev 1.26.0-5_s390x
@@ -1570,16 +1051,10 @@ package:
 
 liblightdm-qt-dev
 
-Copyright:
-liblightdm-qt-dev
-
 22、source package:libnm-qt 0.9.8.2.orig
 
 package:
 
-libnm-qt
-
-Copyright:
 libnm-qt
 
 23、source package:libpoppler-glib-dev 22.12.0-2
@@ -1588,16 +1063,10 @@ package:
 
 libpoppler-glib-dev
 
-Copyright:
-libpoppler-glib-dev
-
 24、source package:libraw-dev 0.9.1-1+deb6u1
 
 package:
 
-libraw-dev
-
-Copyright:
 libraw-dev
 
 25、source package:lightdm 1.9.9-1
@@ -1606,16 +1075,10 @@ package:
 
 lightdm
 
-Copyright:
-lightdm
-
 26、source package:lsb-base 9.20161125_all
 
 package:
 
-lsb-base
-
-Copyright:
 lsb-base
 
 27、source package:lshw 02.19.git.2021.06.19.996aaad9c7-2~bpo11+1
@@ -1624,16 +1087,10 @@ package:
 
 lshw
 
-Copyright:
-lshw
-
 28、source package:lvm2 2.03.16-1.1
 
 package:
 
-lvm2
-
-Copyright:
 lvm2
 
 29、source package:mawk 1.3.4.20230525-1~exp1
@@ -1642,16 +1099,10 @@ package:
 
 mawk
 
-Copyright:
-mawk
-
 30、source package:modemmanager 1.8.2.orig
 
 package:
 
-modemmanager
-
-Copyright:
 modemmanager
 
 31、source package:networkmanager-qt 5.54.0.orig
@@ -1660,16 +1111,10 @@ package:
 
 networkmanager-qt
 
-Copyright:
-networkmanager-qt
-
 32、source package:openprinting-ppds 20200427-1_all
 
 package:
 
-openprinting-ppds
-
-Copyright:
 openprinting-ppds
 
 33、source package:proxychains4 4.14-3_s390x
@@ -1678,16 +1123,10 @@ package:
 
 proxychains4
 
-Copyright:
-proxychains4
-
 34、source package:qt-creator tqtc/v2.6.0-rc
 
 package:
 
-qt-creator
-
-Copyright:
 qt-creator
 
 35、source package:qtciphersqliteplugin 0.6
@@ -1696,16 +1135,10 @@ package:
 
 qtciphersqliteplugin
 
-Copyright:
-qtciphersqliteplugin
-
 36、source package:qtermwidget 0.7.1.orig
 
 package:
 
-qtermwidget
-
-Copyright:
 qtermwidget
 
 37、source package:reiserfsprogs 3.x.1b-1
@@ -1714,16 +1147,10 @@ package:
 
 reiserfsprogs
 
-Copyright:
-reiserfsprogs
-
 38、source package:sane-airscan 0.99.8-2
 
 package:
 
-sane-airscan
-
-Copyright:
 sane-airscan
 
 39、source package:slirp4netns 1.2.0-1
@@ -1732,16 +1159,10 @@ package:
 
 slirp4netns
 
-Copyright:
-slirp4netns
-
 40、source package:smartmontools 7.3-1
 
 package:
 
-smartmontools
-
-Copyright:
 smartmontools
 
 41、source package:synergy-stable-builds 1.8.2-stable
@@ -1750,16 +1171,10 @@ package:
 
 synergy-stable-builds
 
-Copyright:
-synergy-stable-builds
-
 42、source package:systemd 8-2
 
 package:
 
-systemd
-
-Copyright:
 systemd
 
 43、source package:ttf-unifont 9.0.06-2_all
@@ -1768,16 +1183,10 @@ package:
 
 ttf-unifont
 
-Copyright:
-ttf-unifont
-
 44、source package:wireless-tools 30~pre9.orig
 
 package:
 
-wireless-tools
-
-Copyright:
 wireless-tools
 
 45、source package:xfonts-wqy 1.0.0~rc1-7
@@ -1786,16 +1195,10 @@ package:
 
 xfonts-wqy
 
-Copyright:
-xfonts-wqy
-
 46、source package:xfsprogs 6.3.0-1
 
 package:
 
-xfsprogs
-
-Copyright:
 xfsprogs
 
 
@@ -1806,16 +1209,10 @@ package:
 
 kdecoration
 
-Copyright:
-kdecoration
-
 2、source package:libheif-dev 1.6.1-1_s390x
 
 package:
 
-libheif-dev
-
-Copyright:
 libheif-dev
 
 3、source package:libzmq3-dev 4.3.2-2_s390x
@@ -1824,16 +1221,10 @@ package:
 
 libzmq3-dev
 
-Copyright:
-libzmq3-dev
-
 4、source package:python3-ldb 2.1.4-2_s390x
 
 package:
 
-python3-ldb
-
-Copyright:
 python3-ldb
 
 5、source package:python3-tdb 1.4.3-1_s390x
@@ -1842,16 +1233,10 @@ package:
 
 python3-tdb
 
-Copyright:
-python3-tdb
-
 6、source package:tdb-tools 1.4.3-1_s390x
 
 package:
 
-tdb-tools
-
-Copyright:
 tdb-tools
 
 
@@ -1862,16 +1247,10 @@ package:
 
 QtZeroConf
 
-Copyright:
-QtZeroConf
-
 2、source package:cryfs 0.9.9-2
 
 package:
 
-cryfs
-
-Copyright:
 cryfs
 
 3、source package:libgsettings-qt-dev 0.2-1_s390x
@@ -1880,25 +1259,16 @@ package:
 
 libgsettings-qt-dev
 
-Copyright:
-libgsettings-qt-dev
-
 4、source package:qt5integration 5.6.3
 
 package:
 
 qt5integration
 
-Copyright:
-qt5integration
-
 5、source package:qtwebengine-opensource-src 5.14.2+dfsg1.orig
 
 package:
 
-qtwebengine-opensource-src
-
-Copyright:
 qtwebengine-opensource-src
 
 
@@ -1909,16 +1279,10 @@ package:
 
 fcitx5
 
-Copyright:
-fcitx5
-
 2、source package:fcitx5-chinese-addons 5.0.9-2
 
 package:
 
-fcitx5-chinese-addons
-
-Copyright:
 fcitx5-chinese-addons
 
 3、source package:fcitx5-frontend-gtk2 5.0.9-1
@@ -1927,16 +1291,10 @@ package:
 
 fcitx5-frontend-gtk2
 
-Copyright:
-fcitx5-frontend-gtk2
-
 4、source package:fcitx5-frontend-qt5 0.0~git20200615.b6f2ef3-1_s390x
 
 package:
 
-fcitx5-frontend-qt5
-
-Copyright:
 fcitx5-frontend-qt5
 
 5、source package:fcitx5-module-xorg 0~20191021+ds1-1_s390x
@@ -1945,16 +1303,10 @@ package:
 
 fcitx5-module-xorg
 
-Copyright:
-fcitx5-module-xorg
-
 6、source package:fcitx5-modules 0~20191021+ds1-1_s390x
 
 package:
 
-fcitx5-modules
-
-Copyright:
 fcitx5-modules
 
 7、source package:fcitx5-modules-dev 5.0.23-2~exp1
@@ -1963,16 +1315,10 @@ package:
 
 fcitx5-modules-dev
 
-Copyright:
-fcitx5-modules-dev
-
 8、source package:ffmpeg 7:6.0-3
 
 package:
 
-ffmpeg
-
-Copyright:
 ffmpeg
 
 9、source package:gcr 3.8.2-4
@@ -1981,16 +1327,10 @@ package:
 
 gcr
 
-Copyright:
-gcr
-
 10、source package:iso-codes 4.9.0-1
 
 package:
 
-iso-codes
-
-Copyright:
 iso-codes
 
 11、source package:kcm-fcitx5 5.0.13-1
@@ -1999,16 +1339,10 @@ package:
 
 kcm-fcitx5
 
-Copyright:
-kcm-fcitx5
-
 12、source package:libappstreamqt-dev 0.9.8-4_kfreebsd-i386
 
 package:
 
-libappstreamqt-dev
-
-Copyright:
 libappstreamqt-dev
 
 13、source package:libavcodec-dev 4.3-3+b1_s390x
@@ -2017,16 +1351,10 @@ package:
 
 libavcodec-dev
 
-Copyright:
-libavcodec-dev
-
 14、source package:libavcodec58 4.3-3+b1_ppc64el
 
 package:
 
-libavcodec58
-
-Copyright:
 libavcodec58
 
 15、source package:libavdevice-dev 4.3-3+b1_ppc64el
@@ -2035,16 +1363,10 @@ package:
 
 libavdevice-dev
 
-Copyright:
-libavdevice-dev
-
 16、source package:libavfilter-dev 4.3-3+b1_mips64el
 
 package:
 
-libavfilter-dev
-
-Copyright:
 libavfilter-dev
 
 17、source package:libavformat-dev 4.3-3+b1_ppc64el
@@ -2053,16 +1375,10 @@ package:
 
 libavformat-dev
 
-Copyright:
-libavformat-dev
-
 18、source package:libavformat58 4.3-3+b1_i386
 
 package:
 
-libavformat58
-
-Copyright:
 libavformat58
 
 19、source package:libavutil-dev 4.3-3+b1_s390x
@@ -2071,16 +1387,10 @@ package:
 
 libavutil-dev
 
-Copyright:
-libavutil-dev
-
 20、source package:libavutil56 4.3-3+b1_s390x
 
 package:
 
-libavutil56
-
-Copyright:
 libavutil56
 
 21、source package:libblockdev-crypto2 2.24-2_mipsel
@@ -2089,16 +1399,10 @@ package:
 
 libblockdev-crypto2
 
-Copyright:
-libblockdev-crypto2
-
 22、source package:libdbusextended-qt5-dev 0.0.3-4_s390x
 
 package:
 
-libdbusextended-qt5-dev
-
-Copyright:
 libdbusextended-qt5-dev
 
 23、source package:libfcitx5-qt-dev 0.0~git20200615.b6f2ef3-1_ppc64el
@@ -2107,16 +1411,10 @@ package:
 
 libfcitx5-qt-dev
 
-Copyright:
-libfcitx5-qt-dev
-
 24、source package:libfcitx5core-dev 0~20191021+ds1-1_s390x
 
 package:
 
-libfcitx5core-dev
-
-Copyright:
 libfcitx5core-dev
 
 25、source package:libfcitx5utils-dev 0~20191021+ds1-1_s390x
@@ -2125,16 +1423,10 @@ package:
 
 libfcitx5utils-dev
 
-Copyright:
-libfcitx5utils-dev
-
 26、source package:libgxps-dev 0.3.1-1_s390x
 
 package:
 
-libgxps-dev
-
-Copyright:
 libgxps-dev
 
 27、source package:libime-bin 0.0~git20200626.2c85668-1_s390x
@@ -2143,16 +1435,10 @@ package:
 
 libime-bin
 
-Copyright:
-libime-bin
-
 28、source package:libimobiledevice-utils 1.3.0-3_s390x
 
 package:
 
-libimobiledevice-utils
-
-Copyright:
 libimobiledevice-utils
 
 29、source package:libnss-myhostname 245.6-2_s390x
@@ -2161,16 +1447,10 @@ package:
 
 libnss-myhostname
 
-Copyright:
-libnss-myhostname
-
 30、source package:libprocps-dev 3.3.16-5_s390x
 
 package:
 
-libprocps-dev
-
-Copyright:
 libprocps-dev
 
 31、source package:libpulse-dev 7.1-2~bpo8+1_s390x
@@ -2179,16 +1459,10 @@ package:
 
 libpulse-dev
 
-Copyright:
-libpulse-dev
-
 32、source package:libpulse-mainloop-glib0 9.0-5
 
 package:
 
-libpulse-mainloop-glib0
-
-Copyright:
 libpulse-mainloop-glib0
 
 33、source package:libpulse0 7.1-2~bpo8+1_s390x
@@ -2197,16 +1471,10 @@ package:
 
 libpulse0
 
-Copyright:
-libpulse0
-
 34、source package:libqrencode-dev 4.0.2-2_s390x
 
 package:
 
-libqrencode-dev
-
-Copyright:
 libqrencode-dev
 
 35、source package:libqrencode4 4.1.1-1
@@ -2215,16 +1483,10 @@ package:
 
 libqrencode4
 
-Copyright:
-libqrencode4
-
 36、source package:libsecret-1-dev 0.20.5-3
 
 package:
 
-libsecret-1-dev
-
-Copyright:
 libsecret-1-dev
 
 37、source package:libswresample-dev 4.3-3+b1_ppc64el
@@ -2233,16 +1495,10 @@ package:
 
 libswresample-dev
 
-Copyright:
-libswresample-dev
-
 38、source package:libswscale-dev 4.3-3+b1_s390x
 
 package:
 
-libswscale-dev
-
-Copyright:
 libswscale-dev
 
 39、source package:libsystemd-dev 245.6-2_i386
@@ -2251,16 +1507,10 @@ package:
 
 libsystemd-dev
 
-Copyright:
-libsystemd-dev
-
 40、source package:libsystemd0 245.6-2_s390x
 
 package:
 
-libsystemd0
-
-Copyright:
 libsystemd0
 
 41、source package:libudev-dev 245.6-2_s390x
@@ -2269,16 +1519,10 @@ package:
 
 libudev-dev
 
-Copyright:
-libudev-dev
-
 42、source package:packagekit 1.2.6-5
 
 package:
 
-packagekit
-
-Copyright:
 packagekit
 
 43、source package:pulseaudio 9.99.1-1
@@ -2287,16 +1531,10 @@ package:
 
 pulseaudio
 
-Copyright:
-pulseaudio
-
 44、source package:pulseaudio-module-bluetooth 7.1-2~bpo8+1_s390x
 
 package:
 
-pulseaudio-module-bluetooth
-
-Copyright:
 pulseaudio-module-bluetooth
 
 45、source package:pulseaudio-utils 7.1-2~bpo8+1_s390x
@@ -2305,16 +1543,10 @@ package:
 
 pulseaudio-utils
 
-Copyright:
-pulseaudio-utils
-
 46、source package:python3-gi 3.43.1-1
 
 package:
 
-python3-gi
-
-Copyright:
 python3-gi
 
 47、source package:systemd-coredump 245.6-2_mipsel
@@ -2323,16 +1555,10 @@ package:
 
 systemd-coredump
 
-Copyright:
-systemd-coredump
-
 48、source package:systemd-timesyncd 245.6-2_ppc64el
 
 package:
 
-systemd-timesyncd
-
-Copyright:
 systemd-timesyncd
 
 49、source package:udev 245.6-2_s390x
@@ -2341,16 +1567,10 @@ package:
 
 udev
 
-Copyright:
-udev
-
 50、source package:unar 1.9.1-1
 
 package:
 
-unar
-
-Copyright:
 unar
 
 
@@ -2361,16 +1581,10 @@ package:
 
 GitQlient
 
-Copyright:
-GitQlient
-
 2、source package:cgroup-tools 0.41-8.1_s390x
 
 package:
 
-cgroup-tools
-
-Copyright:
 cgroup-tools
 
 3、source package:checkstyle checkstyle-10.3.4
@@ -2379,16 +1593,10 @@ package:
 
 checkstyle
 
-Copyright:
-checkstyle
-
 4、source package:cracklib-runtime 2.9.6-3_s390x
 
 package:
 
-cracklib-runtime
-
-Copyright:
 cracklib-runtime
 
 5、source package:dialog 1.3-20230209-1
@@ -2397,16 +1605,10 @@ package:
 
 dialog
 
-Copyright:
-dialog
-
 6、source package:dmsetup 1.02.90-2.2+deb8u1_s390x
 
 package:
 
-dmsetup
-
-Copyright:
 dmsetup
 
 7、source package:gettext-base 0.19.8.1-9_s390x
@@ -2415,16 +1617,10 @@ package:
 
 gettext-base
 
-Copyright:
-gettext-base
-
 8、source package:gstreamer1.0-libav 1.9.90-1
 
 package:
 
-gstreamer1.0-libav
-
-Copyright:
 gstreamer1.0-libav
 
 9、source package:gstreamer1.0-plugins-base 1.4.4-2_kfreebsd-i386
@@ -2433,16 +1629,10 @@ package:
 
 gstreamer1.0-plugins-base
 
-Copyright:
-gstreamer1.0-plugins-base
-
 10、source package:gstreamer1.0-plugins-good 1.4.4-2_kfreebsd-i386
 
 package:
 
-gstreamer1.0-plugins-good
-
-Copyright:
 gstreamer1.0-plugins-good
 
 11、source package:gstreamer1.0-plugins-ugly 1.9.90-1
@@ -2451,16 +1641,10 @@ package:
 
 gstreamer1.0-plugins-ugly
 
-Copyright:
-gstreamer1.0-plugins-ugly
-
 12、source package:gstreamer1.0-pulseaudio 1.4.4-2_kfreebsd-i386
 
 package:
 
-gstreamer1.0-pulseaudio
-
-Copyright:
 gstreamer1.0-pulseaudio
 
 13、source package:gstreamer1.0-x 1.4.4-2_kfreebsd-i386
@@ -2469,16 +1653,10 @@ package:
 
 gstreamer1.0-x
 
-Copyright:
-gstreamer1.0-x
-
 14、source package:gtk2-engines 2.20.2.orig
 
 package:
 
-gtk2-engines
-
-Copyright:
 gtk2-engines
 
 15、source package:gtk2-engines-murrine 0.98.2.orig
@@ -2487,16 +1665,10 @@ package:
 
 gtk2-engines-murrine
 
-Copyright:
-gtk2-engines-murrine
-
 16、source package:gtk2-engines-pixbuf 2.8.9-2
 
 package:
 
-gtk2-engines-pixbuf
-
-Copyright:
 gtk2-engines-pixbuf
 
 17、source package:kmod 9-3_sparc
@@ -2505,16 +1677,10 @@ package:
 
 kmod
 
-Copyright:
-kmod
-
 18、source package:libcairo2-dev 1.16.0-4_s390x
 
 package:
 
-libcairo2-dev
-
-Copyright:
 libcairo2-dev
 
 19、source package:libcap-ng-dev 0.7.9-2_s390x
@@ -2523,16 +1689,10 @@ package:
 
 libcap-ng-dev
 
-Copyright:
-libcap-ng-dev
-
 20、source package:libcrack2-dev 2.9.6-5
 
 package:
 
-libcrack2-dev
-
-Copyright:
 libcrack2-dev
 
 21、source package:libfprint 20110418git-2
@@ -2541,16 +1701,10 @@ package:
 
 libfprint
 
-Copyright:
-libfprint
-
 22、source package:libfprint-2-2 1.90.1-2_s390x
 
 package:
 
-libfprint-2-2
-
-Copyright:
 libfprint-2-2
 
 23、source package:libfprint0 1.0-1_s390x
@@ -2559,16 +1713,10 @@ package:
 
 libfprint0
 
-Copyright:
-libfprint0
-
 24、source package:libglib2.0-dev 2.64.4-1_s390x
 
 package:
 
-libglib2.0-dev
-
-Copyright:
 libglib2.0-dev
 
 25、source package:libgstreamer-plugins-base1.0-0 1.4.4-2_kfreebsd-i386
@@ -2577,16 +1725,10 @@ package:
 
 libgstreamer-plugins-base1.0-0
 
-Copyright:
-libgstreamer-plugins-base1.0-0
-
 26、source package:libgstreamer-plugins-base1.0-dev 1.4.4-2_kfreebsd-i386
 
 package:
 
-libgstreamer-plugins-base1.0-dev
-
-Copyright:
 libgstreamer-plugins-base1.0-dev
 
 27、source package:libgstreamer1.0-0 1.4.4-2_kfreebsd-i386
@@ -2595,16 +1737,10 @@ package:
 
 libgstreamer1.0-0
 
-Copyright:
-libgstreamer1.0-0
-
 28、source package:libgstreamer1.0-dev 1.4.4-2_kfreebsd-i386
 
 package:
 
-libgstreamer1.0-dev
-
-Copyright:
 libgstreamer1.0-dev
 
 29、source package:libgtk-3-dev 3.4.2-7+deb7u1_sparc
@@ -2613,16 +1749,10 @@ package:
 
 libgtk-3-dev
 
-Copyright:
-libgtk-3-dev
-
 30、source package:liblog4cpp5-dev 1.1.3-3_s390x
 
 package:
 
-liblog4cpp5-dev
-
-Copyright:
 liblog4cpp5-dev
 
 31、source package:liblog4cpp5v5 1.1.3-3_ppc64el
@@ -2631,16 +1761,10 @@ package:
 
 liblog4cpp5v5
 
-Copyright:
-liblog4cpp5v5
-
 32、source package:libnm-qt 0.9.8.2.orig
 
 package:
 
-libnm-qt
-
-Copyright:
 libnm-qt
 
 33、source package:libnotify-bin 0.7.9-1_s390x
@@ -2649,16 +1773,10 @@ package:
 
 libnotify-bin
 
-Copyright:
-libnotify-bin
-
 34、source package:libraw-dev 0.9.1-1+deb6u1
 
 package:
 
-libraw-dev
-
-Copyright:
 libraw-dev
 
 35、source package:librsvg2-dev 2.9.5-6
@@ -2667,16 +1785,10 @@ package:
 
 librsvg2-dev
 
-Copyright:
-librsvg2-dev
-
 36、source package:libsdl1.2debian 1.2.15-5_sparc
 
 package:
 
-libsdl1.2debian
-
-Copyright:
 libsdl1.2debian
 
 37、source package:libseccomp-dev 2.4.3-1_s390x
@@ -2685,16 +1797,10 @@ package:
 
 libseccomp-dev
 
-Copyright:
-libseccomp-dev
-
 38、source package:libtag1-dev 1.9.1-2~bpo70+1_sparc
 
 package:
 
-libtag1-dev
-
-Copyright:
 libtag1-dev
 
 39、source package:libusb-1.0-0-dev 1.0.23-2_s390x
@@ -2703,16 +1809,10 @@ package:
 
 libusb-1.0-0-dev
 
-Copyright:
-libusb-1.0-0-dev
-
 40、source package:modemmanager 1.8.2.orig
 
 package:
 
-modemmanager
-
-Copyright:
 modemmanager
 
 41、source package:networkmanager-qt 5.54.0.orig
@@ -2721,16 +1821,10 @@ package:
 
 networkmanager-qt
 
-Copyright:
-networkmanager-qt
-
 42、source package:p7zip 9.20.1~dfsg.1-5
 
 package:
 
-p7zip
-
-Copyright:
 p7zip
 
 43、source package:p7zip-full 9.20.1~dfsg.1-4.1_kfreebsd-i386
@@ -2739,16 +1833,10 @@ package:
 
 p7zip-full
 
-Copyright:
-p7zip-full
-
 44、source package:qrencode 4.0.2.orig
 
 package:
 
-qrencode
-
-Copyright:
 qrencode
 
 45、source package:qt-creator tqtc/v2.6.0-rc
@@ -2757,25 +1845,16 @@ package:
 
 qt-creator
 
-Copyright:
-qt-creator
-
 46、source package:qtciphersqliteplugin 0.6
 
 package:
 
 qtciphersqliteplugin
 
-Copyright:
-qtciphersqliteplugin
-
 47、source package:smartmontools 7.3-1
 
 package:
 
-smartmontools
-
-Copyright:
 smartmontools
 
 
@@ -2786,16 +1865,10 @@ package:
 
 libqt5core5a
 
-Copyright:
-libqt5core5a
-
 2、source package:libqt5opengl5-dev 5.7.1+dfsg-3+deb9u2_s390x
 
 package:
 
-libqt5opengl5-dev
-
-Copyright:
 libqt5opengl5-dev
 
 3、source package:libqt5sql5-sqlite 5.7.1+dfsg-3+deb9u2_s390x
@@ -2804,16 +1877,10 @@ package:
 
 libqt5sql5-sqlite
 
-Copyright:
-libqt5sql5-sqlite
-
 4、source package:libqt5svg5-dev 5.7.1~20161021-2+b2_s390x
 
 package:
 
-libqt5svg5-dev
-
-Copyright:
 libqt5svg5-dev
 
 5、source package:libqt5x11extras5-dev 5.9.2-1
@@ -2822,16 +1889,10 @@ package:
 
 libqt5x11extras5-dev
 
-Copyright:
-libqt5x11extras5-dev
-
 6、source package:libqt6multimedia6 6.4.2-6
 
 package:
 
-libqt6multimedia6
-
-Copyright:
 libqt6multimedia6
 
 7、source package:libqt6opengl6 6.4.2+dfsg~rc1-3+alpha.1
@@ -2840,16 +1901,10 @@ package:
 
 libqt6opengl6
 
-Copyright:
-libqt6opengl6
-
 8、source package:qml-module-qt-labs-platform 5.9.2-2_kfreebsd-amd64
 
 package:
 
-qml-module-qt-labs-platform
-
-Copyright:
 qml-module-qt-labs-platform
 
 9、source package:qml-module-qtquick-controls2 5.9.2-2_kfreebsd-amd64
@@ -2858,16 +1913,10 @@ package:
 
 qml-module-qtquick-controls2
 
-Copyright:
-qml-module-qtquick-controls2
-
 10、source package:qml-module-qtquick-dialogs 5.7.1~20161021-2_s390x
 
 package:
 
-qml-module-qtquick-dialogs
-
-Copyright:
 qml-module-qtquick-dialogs
 
 11、source package:qml-module-qtquick-templates2 5.9.2-2_kfreebsd-amd64
@@ -2876,16 +1925,10 @@ package:
 
 qml-module-qtquick-templates2
 
-Copyright:
-qml-module-qtquick-templates2
-
 12、source package:qt5-qmake 5.7.1+dfsg-3+deb9u2_s390x
 
 package:
 
-qt5-qmake
-
-Copyright:
 qt5-qmake
 
 13、source package:qt6-svg-dev 6.4.2~rc1-3
@@ -2894,16 +1937,10 @@ package:
 
 qt6-svg-dev
 
-Copyright:
-qt6-svg-dev
-
 14、source package:qt6-wayland 6.4.2~rc1-2
 
 package:
 
-qt6-wayland
-
-Copyright:
 qt6-wayland
 
 15、source package:qtbase5-dev 5.7.1+dfsg-3+deb9u2_s390x
@@ -2912,16 +1949,10 @@ package:
 
 qtbase5-dev
 
-Copyright:
-qtbase5-dev
-
 16、source package:qtbase5-private-dev 5.7.1+dfsg-3+deb9u2_s390x
 
 package:
 
-qtbase5-private-dev
-
-Copyright:
 qtbase5-private-dev
 
 17、source package:qtmultimedia5-dev 5.7.1~20161021-2_s390x
@@ -2930,16 +1961,10 @@ package:
 
 qtmultimedia5-dev
 
-Copyright:
-qtmultimedia5-dev
-
 18、source package:qtquickcontrols2-5-dev 5.9.2-2_kfreebsd-amd64
 
 package:
 
-qtquickcontrols2-5-dev
-
-Copyright:
 qtquickcontrols2-5-dev
 
 
@@ -2950,16 +1975,10 @@ package:
 
 qml-module-qtqml-models2
 
-Copyright:
-qml-module-qtqml-models2
-
 2、source package:qml-module-qtquick-layouts 5.7.1-2+b2_s390x
 
 package:
 
-qml-module-qtquick-layouts
-
-Copyright:
 qml-module-qtquick-layouts
 
 3、source package:qml-module-qtquick2 5.7.1-2+b2_s390x
@@ -2968,16 +1987,10 @@ package:
 
 qml-module-qtquick2
 
-Copyright:
-qml-module-qtquick2
-
 4、source package:qtdeclarative5-dev 5.7.1-2+b2_s390x
 
 package:
 
-qtdeclarative5-dev
-
-Copyright:
 qtdeclarative5-dev
 
 
@@ -2988,16 +2001,10 @@ package:
 
 AndroidProject-Kotlin
 
-Copyright:
-AndroidProject-Kotlin
-
 2、source package:JSONStream 1.3.5
 
 package:
 
-JSONStream
-
-Copyright:
 JSONStream
 
 3、source package:acorn-node 1.8.2
@@ -3006,16 +2013,10 @@ package:
 
 acorn-node
 
-Copyright:
-acorn-node
-
 4、source package:android-pdfium a56ccce4
 
 package:
 
-android-pdfium
-
-Copyright:
 android-pdfium
 
 5、source package:androidsvg 1.4
@@ -3024,16 +2025,10 @@ package:
 
 androidsvg
 
-Copyright:
-androidsvg
-
 6、source package:atob 2.1.2
 
 package:
 
-atob
-
-Copyright:
 atob
 
 7、source package:aws-sign2 0.7.0
@@ -3042,16 +2037,10 @@ package:
 
 aws-sign2
 
-Copyright:
-aws-sign2
-
 8、source package:caseless 0.12.0
 
 package:
 
-caseless
-
-Copyright:
 caseless
 
 9、source package:cilium 1.14.3
@@ -3060,16 +2049,10 @@ package:
 
 cilium
 
-Copyright:
-cilium
-
 10、source package:circleindicator 2.1.6
 
 package:
 
-circleindicator
-
-Copyright:
 circleindicator
 
 11、source package:cobra v0.0.3
@@ -3078,16 +2061,10 @@ package:
 
 cobra
 
-Copyright:
-cobra
-
 12、source package:compiler 4.12.0
 
 package:
 
-compiler
-
-Copyright:
 compiler
 
 13、source package:concurrent 1.0.0
@@ -3096,16 +2073,10 @@ package:
 
 concurrent
 
-Copyright:
-concurrent
-
 14、source package:coost v3.0.0
 
 package:
 
-coost
-
-Copyright:
 coost
 
 15、source package:core 1.7.0
@@ -3114,16 +2085,10 @@ package:
 
 core
 
-Copyright:
-core
-
 16、source package:cppdap 87f8b4a
 
 package:
 
-cppdap
-
-Copyright:
 cppdap
 
 17、source package:crypto v0.23.0
@@ -3132,16 +2097,10 @@ package:
 
 crypto
 
-Copyright:
-crypto
-
 18、source package:dash-ast 1.0.0
 
 package:
 
-dash-ast
-
-Copyright:
 dash-ast
 
 19、source package:diff-match-patch 1.0.5
@@ -3150,16 +2109,10 @@ package:
 
 diff-match-patch
 
-Copyright:
-diff-match-patch
-
 20、source package:dompurify 2.4.1
 
 package:
 
-dompurify
-
-Copyright:
 dompurify
 
 21、source package:external/github.com/google/benchmark v1.4.1
@@ -3168,16 +2121,10 @@ package:
 
 external/github.com/google/benchmark
 
-Copyright:
-external/github.com/google/benchmark
-
 22、source package:ffmpeg 7:6.0-3
 
 package:
 
-ffmpeg
-
-Copyright:
 ffmpeg
 
 23、source package:fonts-noto-color-emoji 2.038-1
@@ -3186,16 +2133,10 @@ package:
 
 fonts-noto-color-emoji
 
-Copyright:
-fonts-noto-color-emoji
-
 24、source package:forever-agent 0.6.1
 
 package:
 
-forever-agent
-
-Copyright:
 forever-agent
 
 25、source package:get-assigned-identifiers 1.2.0
@@ -3204,16 +2145,10 @@ package:
 
 get-assigned-identifiers
 
-Copyright:
-get-assigned-identifiers
-
 26、source package:git 4.3.20-9
 
 package:
 
-git
-
-Copyright:
 git
 
 27、source package:glide 4.12.0
@@ -3222,16 +2157,10 @@ package:
 
 glide
 
-Copyright:
-glide
-
 28、source package:gofuzz v1.0.0
 
 package:
 
-gofuzz
-
-Copyright:
 gofuzz
 
 29、source package:golang-github-golang-groupcache-dev 0.0~git20200121.8c9f03a-2
@@ -3240,16 +2169,10 @@ package:
 
 golang-github-golang-groupcache-dev
 
-Copyright:
-golang-github-golang-groupcache-dev
-
 30、source package:golang-gopkg-yaml.v2-dev 2.4.0-3
 
 package:
 
-golang-gopkg-yaml.v2-dev
-
-Copyright:
 golang-gopkg-yaml.v2-dev
 
 31、source package:golang-gopkg-yaml.v3-dev 3.0.1-3
@@ -3258,16 +2181,10 @@ package:
 
 golang-gopkg-yaml.v3-dev
 
-Copyright:
-golang-gopkg-yaml.v3-dev
-
 32、source package:gradle 7.4.2
 
 package:
 
-gradle
-
-Copyright:
 gradle
 
 33、source package:gson 2.10.1
@@ -3276,16 +2193,10 @@ package:
 
 gson
 
-Copyright:
-gson
-
 34、source package:imgbrd-grabber v6.0.2
 
 package:
 
-imgbrd-grabber
-
-Copyright:
 imgbrd-grabber
 
 35、source package:infratask_scheduler v0.1.0
@@ -3294,16 +2205,10 @@ package:
 
 infratask_scheduler
 
-Copyright:
-infratask_scheduler
-
 36、source package:junit 1.1.5
 
 package:
 
-junit
-
-Copyright:
 junit
 
 37、source package:kata-containers CC-0.7.0
@@ -3312,16 +2217,10 @@ package:
 
 kata-containers
 
-Copyright:
-kata-containers
-
 38、source package:kotlin-gradle-plugin
 
 package:
 
-kotlin-gradle-plugin
-
-Copyright:
 kotlin-gradle-plugin
 
 39、source package:kotlin-stdlib-jdk7
@@ -3330,16 +2229,10 @@ package:
 
 kotlin-stdlib-jdk7
 
-Copyright:
-kotlin-stdlib-jdk7
-
 40、source package:kotlinx-serialization-json 1.5.1
 
 package:
 
-kotlinx-serialization-json
-
-Copyright:
 kotlinx-serialization-json
 
 41、source package:libcups2-dev 2.3~rc1-1_s390x
@@ -3348,16 +2241,10 @@ package:
 
 libcups2-dev
 
-Copyright:
-libcups2-dev
-
 42、source package:libcupsimage2 2.3~rc1-1_s390x
 
 package:
 
-libcupsimage2
-
-Copyright:
 libcupsimage2
 
 43、source package:libpoppler-cpp-dev 0.85.0-1_s390x
@@ -3366,16 +2253,10 @@ package:
 
 libpoppler-cpp-dev
 
-Copyright:
-libpoppler-cpp-dev
-
 44、source package:libpoppler-cpp0v5 0.85.0-1_s390x
 
 package:
 
-libpoppler-cpp0v5
-
-Copyright:
 libpoppler-cpp0v5
 
 45、source package:libssl-dev 3.0.0~~alpha4-1_s390x
@@ -3384,16 +2265,10 @@ package:
 
 libssl-dev
 
-Copyright:
-libssl-dev
-
 46、source package:libssl3 3.0.0~~alpha4-1_s390x
 
 package:
 
-libssl3
-
-Copyright:
 libssl3
 
 47、source package:libwebrtc-bin 86.4240.20.0
@@ -3402,16 +2277,10 @@ package:
 
 libwebrtc-bin
 
-Copyright:
-libwebrtc-bin
-
 48、source package:libxerces-c-dev 3.2.3+debian-1_s390x
 
 package:
 
-libxerces-c-dev
-
-Copyright:
 libxerces-c-dev
 
 49、source package:lottie 4.1.0
@@ -3420,16 +2289,10 @@ package:
 
 lottie
 
-Copyright:
-lottie
-
 50、source package:ms365 v2.0.5
 
 package:
 
-ms365
-
-Copyright:
 ms365
 
 51、source package:oauth-sign 0.9.0
@@ -3438,16 +2301,10 @@ package:
 
 oauth-sign
 
-Copyright:
-oauth-sign
-
 52、source package:okhttp 3.12.13
 
 package:
 
-okhttp
-
-Copyright:
 okhttp
 
 53、source package:podman 1.6.4+dfsg1-4_armel
@@ -3456,16 +2313,10 @@ package:
 
 podman
 
-Copyright:
-podman
-
 54、source package:preference 1.2.1
 
 package:
 
-preference
-
-Copyright:
 preference
 
 55、source package:request 2.88.0
@@ -3474,16 +2325,10 @@ package:
 
 request
 
-Copyright:
-request
-
 56、source package:rsyslog 8.9.0-3
 
 package:
 
-rsyslog
-
-Copyright:
 rsyslog
 
 57、source package:sass 1.55.0
@@ -3492,16 +2337,10 @@ package:
 
 sass
 
-Copyright:
-sass
-
 58、source package:spdx-correct 3.1.1
 
 package:
 
-spdx-correct
-
-Copyright:
 spdx-correct
 
 59、source package:sse v0.1.0
@@ -3510,16 +2349,10 @@ package:
 
 sse
 
-Copyright:
-sse
-
 60、source package:sync v0.10.0
 
 package:
 
-sync
-
-Copyright:
 sync
 
 61、source package:through 2.3.8
@@ -3528,16 +2361,10 @@ package:
 
 through
 
-Copyright:
-through
-
 62、source package:timber 4.7.1
 
 package:
 
-timber
-
-Copyright:
 timber
 
 63、source package:tinyrpc 2130294
@@ -3546,16 +2373,10 @@ package:
 
 tinyrpc
 
-Copyright:
-tinyrpc
-
 64、source package:tools_oat 373f560
 
 package:
 
-tools_oat
-
-Copyright:
 tools_oat
 
 65、source package:true-case-path 1.0.3
@@ -3564,16 +2385,10 @@ package:
 
 true-case-path
 
-Copyright:
-true-case-path
-
 66、source package:tunnel-agent 0.6.0
 
 package:
 
-tunnel-agent
-
-Copyright:
 tunnel-agent
 
 67、source package:typescript 4.8.4
@@ -3582,16 +2397,10 @@ package:
 
 typescript
 
-Copyright:
-typescript
-
 68、source package:undeclared-identifiers 1.1.3
 
 package:
 
-undeclared-identifiers
-
-Copyright:
 undeclared-identifiers
 
 69、source package:validate-npm-package-license 3.0.4
@@ -3600,16 +2409,10 @@ package:
 
 validate-npm-package-license
 
-Copyright:
-validate-npm-package-license
-
 70、source package:vimspector 2938438041
 
 package:
 
-vimspector
-
-Copyright:
 vimspector
 
 
@@ -3620,16 +2423,10 @@ package:
 
 @antfu/utils
 
-Copyright:
-@antfu/utils
-
 2、source package:@babel/runtime 7.6.0
 
 package:
 
-@babel/runtime
-
-Copyright:
 @babel/runtime
 
 3、source package:@babel/standalone 7.20.15
@@ -3638,16 +2435,10 @@ package:
 
 @babel/standalone
 
-Copyright:
-@babel/standalone
-
 4、source package:@ctrl/tinycolor 3.4.1
 
 package:
 
-@ctrl/tinycolor
-
-Copyright:
 @ctrl/tinycolor
 
 5、source package:@element-plus/icons-vue 2.0.9
@@ -3656,16 +2447,10 @@ package:
 
 @element-plus/icons-vue
 
-Copyright:
-@element-plus/icons-vue
-
 6、source package:@esbuild/android-arm 0.15.9
 
 package:
 
-@esbuild/android-arm
-
-Copyright:
 @esbuild/android-arm
 
 7、source package:@esbuild/linux-loong64 0.15.9
@@ -3674,16 +2459,10 @@ package:
 
 @esbuild/linux-loong64
 
-Copyright:
-@esbuild/linux-loong64
-
 8、source package:@floating-ui/core 1.0.1
 
 package:
 
-@floating-ui/core
-
-Copyright:
 @floating-ui/core
 
 9、source package:@floating-ui/dom 1.0.2
@@ -3692,16 +2471,10 @@ package:
 
 @floating-ui/dom
 
-Copyright:
-@floating-ui/dom
-
 10、source package:@jridgewell/gen-mapping 0.3.2
 
 package:
 
-@jridgewell/gen-mapping
-
-Copyright:
 @jridgewell/gen-mapping
 
 11、source package:@jridgewell/resolve-uri 3.1.0
@@ -3710,16 +2483,10 @@ package:
 
 @jridgewell/resolve-uri
 
-Copyright:
-@jridgewell/resolve-uri
-
 12、source package:@jridgewell/set-array 1.1.2
 
 package:
 
-@jridgewell/set-array
-
-Copyright:
 @jridgewell/set-array
 
 13、source package:@jridgewell/source-map 0.3.2
@@ -3728,16 +2495,10 @@ package:
 
 @jridgewell/source-map
 
-Copyright:
-@jridgewell/source-map
-
 14、source package:@jridgewell/sourcemap-codec 1.4.14
 
 package:
 
-@jridgewell/sourcemap-codec
-
-Copyright:
 @jridgewell/sourcemap-codec
 
 15、source package:@jridgewell/trace-mapping 0.3.16
@@ -3746,16 +2507,10 @@ package:
 
 @jridgewell/trace-mapping
 
-Copyright:
-@jridgewell/trace-mapping
-
 16、source package:@nodelib/fs.scandir 2.1.5
 
 package:
 
-@nodelib/fs.scandir
-
-Copyright:
 @nodelib/fs.scandir
 
 17、source package:@nodelib/fs.stat 2.0.5
@@ -3764,16 +2519,10 @@ package:
 
 @nodelib/fs.stat
 
-Copyright:
-@nodelib/fs.stat
-
 18、source package:@nodelib/fs.walk 1.2.8
 
 package:
 
-@nodelib/fs.walk
-
-Copyright:
 @nodelib/fs.walk
 
 19、source package:@popperjs/core 2.11.7
@@ -3782,16 +2531,10 @@ package:
 
 @popperjs/core
 
-Copyright:
-@popperjs/core
-
 20、source package:@rollup/pluginutils 5.1.0
 
 package:
 
-@rollup/pluginutils
-
-Copyright:
 @rollup/pluginutils
 
 21、source package:@smake/co 1.0.1
@@ -3800,16 +2543,10 @@ package:
 
 @smake/co
 
-Copyright:
-@smake/co
-
 22、source package:@types/estree 1.0.5
 
 package:
 
-@types/estree
-
-Copyright:
 @types/estree
 
 23、source package:@types/json-schema 7.0.6
@@ -3818,16 +2555,10 @@ package:
 
 @types/json-schema
 
-Copyright:
-@types/json-schema
-
 24、source package:@types/lodash 4.14.185
 
 package:
 
-@types/lodash
-
-Copyright:
 @types/lodash
 
 25、source package:@types/lodash-es 4.17.6
@@ -3836,16 +2567,10 @@ package:
 
 @types/lodash-es
 
-Copyright:
-@types/lodash-es
-
 26、source package:@types/node 14.14.6
 
 package:
 
-@types/node
-
-Copyright:
 @types/node
 
 27、source package:@types/web-bluetooth 0.0.15
@@ -3854,16 +2579,10 @@ package:
 
 @types/web-bluetooth
 
-Copyright:
-@types/web-bluetooth
-
 28、source package:@vitejs/plugin-legacy 2.3.1
 
 package:
 
-@vitejs/plugin-legacy
-
-Copyright:
 @vitejs/plugin-legacy
 
 29、source package:@vitejs/plugin-vue 3.1.0
@@ -3872,16 +2591,10 @@ package:
 
 @vitejs/plugin-vue
 
-Copyright:
-@vitejs/plugin-vue
-
 30、source package:@vue/devtools-api 6.4.1
 
 package:
 
-@vue/devtools-api
-
-Copyright:
 @vue/devtools-api
 
 31、source package:@vueuse/core 9.3.0
@@ -3890,16 +2603,10 @@ package:
 
 @vueuse/core
 
-Copyright:
-@vueuse/core
-
 32、source package:@vueuse/metadata 9.3.0
 
 package:
 
-@vueuse/metadata
-
-Copyright:
 @vueuse/metadata
 
 33、source package:@vueuse/shared 9.3.0
@@ -3908,16 +2615,10 @@ package:
 
 @vueuse/shared
 
-Copyright:
-@vueuse/shared
-
 34、source package:CppLogging 1.0.1.0
 
 package:
 
-CppLogging
-
-Copyright:
 CppLogging
 
 35、source package:abbrev 1.1.1
@@ -3926,16 +2627,10 @@ package:
 
 abbrev
 
-Copyright:
-abbrev
-
 36、source package:acorn 7.0.0
 
 package:
 
-acorn
-
-Copyright:
 acorn
 
 37、source package:acorn-dynamic-import 2.0.2
@@ -3944,16 +2639,10 @@ package:
 
 acorn-dynamic-import
 
-Copyright:
-acorn-dynamic-import
-
 38、source package:acorn-node 1.8.2
 
 package:
 
-acorn-node
-
-Copyright:
 acorn-node
 
 39、source package:acorn-walk 7.0.0
@@ -3962,16 +2651,10 @@ package:
 
 acorn-walk
 
-Copyright:
-acorn-walk
-
 40、source package:add-px-to-style 1.0.0
 
 package:
 
-add-px-to-style
-
-Copyright:
 add-px-to-style
 
 41、source package:ajv 6.12.6
@@ -3980,16 +2663,10 @@ package:
 
 ajv
 
-Copyright:
-ajv
-
 42、source package:ajv-keywords 3.5.2
 
 package:
 
-ajv-keywords
-
-Copyright:
 ajv-keywords
 
 43、source package:align-text 0.1.4
@@ -3998,16 +2675,10 @@ package:
 
 align-text
 
-Copyright:
-align-text
-
 44、source package:amdefine 1.0.1
 
 package:
 
-amdefine
-
-Copyright:
 amdefine
 
 45、source package:ansi-gray 0.1.1
@@ -4016,16 +2687,10 @@ package:
 
 ansi-gray
 
-Copyright:
-ansi-gray
-
 46、source package:ansi-regex 3.0.0
 
 package:
 
-ansi-regex
-
-Copyright:
 ansi-regex
 
 47、source package:ansi-styles 2.2.1
@@ -4034,16 +2699,10 @@ package:
 
 ansi-styles
 
-Copyright:
-ansi-styles
-
 48、source package:ansi-wrap 0.1.0
 
 package:
 
-ansi-wrap
-
-Copyright:
 ansi-wrap
 
 49、source package:anyks-lm 2.1.5
@@ -4052,16 +2711,10 @@ package:
 
 anyks-lm
 
-Copyright:
-anyks-lm
-
 50、source package:apt 2.7.1
 
 package:
 
-apt
-
-Copyright:
 apt
 
 51、source package:archy 1.0.0
@@ -4070,16 +2723,10 @@ package:
 
 archy
 
-Copyright:
-archy
-
 52、source package:arr-diff 4.0.0
 
 package:
 
-arr-diff
-
-Copyright:
 arr-diff
 
 53、source package:arr-flatten 1.1.0
@@ -4088,16 +2735,10 @@ package:
 
 arr-flatten
 
-Copyright:
-arr-flatten
-
 54、source package:arr-union 3.1.0
 
 package:
 
-arr-union
-
-Copyright:
 arr-union
 
 55、source package:array-differ 1.0.0
@@ -4106,16 +2747,10 @@ package:
 
 array-differ
 
-Copyright:
-array-differ
-
 56、source package:array-each 1.0.1
 
 package:
 
-array-each
-
-Copyright:
 array-each
 
 57、source package:array-find-index 1.0.2
@@ -4124,16 +2759,10 @@ package:
 
 array-find-index
 
-Copyright:
-array-find-index
-
 58、source package:array-slice 1.1.0
 
 package:
 
-array-slice
-
-Copyright:
 array-slice
 
 59、source package:array-uniq 1.0.3
@@ -4142,16 +2771,10 @@ package:
 
 array-uniq
 
-Copyright:
-array-uniq
-
 60、source package:array-unique 0.3.2
 
 package:
 
-array-unique
-
-Copyright:
 array-unique
 
 61、source package:asn1 0.2.4
@@ -4160,16 +2783,10 @@ package:
 
 asn1
 
-Copyright:
-asn1
-
 62、source package:asn1.js 5.4.1
 
 package:
 
-asn1.js
-
-Copyright:
 asn1.js
 
 63、source package:assert 1.5.0
@@ -4178,16 +2795,10 @@ package:
 
 assert
 
-Copyright:
-assert
-
 64、source package:assert-plus 1.0.0
 
 package:
 
-assert-plus
-
-Copyright:
 assert-plus
 
 65、source package:assign-symbols 1.0.0
@@ -4196,16 +2807,10 @@ package:
 
 assign-symbols
 
-Copyright:
-assign-symbols
-
 66、source package:async 2.6.3
 
 package:
 
-async
-
-Copyright:
 async
 
 67、source package:async-each 1.0.3
@@ -4214,16 +2819,10 @@ package:
 
 async-each
 
-Copyright:
-async-each
-
 68、source package:async-foreach 0.1.3
 
 package:
 
-async-foreach
-
-Copyright:
 async-foreach
 
 69、source package:async-validator 4.2.5
@@ -4232,16 +2831,10 @@ package:
 
 async-validator
 
-Copyright:
-async-validator
-
 70、source package:asynckit 0.4.0
 
 package:
 
-asynckit
-
-Copyright:
 asynckit
 
 71、source package:atob 2.1.2
@@ -4250,16 +2843,10 @@ package:
 
 atob
 
-Copyright:
-atob
-
 72、source package:aws4 1.8.0
 
 package:
 
-aws4
-
-Copyright:
 aws4
 
 73、source package:babel-code-frame 6.26.0
@@ -4268,16 +2855,10 @@ package:
 
 babel-code-frame
 
-Copyright:
-babel-code-frame
-
 74、source package:babel-core 6.26.3
 
 package:
 
-babel-core
-
-Copyright:
 babel-core
 
 75、source package:babel-generator 6.26.1
@@ -4286,16 +2867,10 @@ package:
 
 babel-generator
 
-Copyright:
-babel-generator
-
 76、source package:babel-helper-builder-binary-assignment-operator-visitor 6.24.1
 
 package:
 
-babel-helper-builder-binary-assignment-operator-visitor
-
-Copyright:
 babel-helper-builder-binary-assignment-operator-visitor
 
 77、source package:babel-helper-builder-react-jsx 6.26.0
@@ -4304,16 +2879,10 @@ package:
 
 babel-helper-builder-react-jsx
 
-Copyright:
-babel-helper-builder-react-jsx
-
 78、source package:babel-helper-call-delegate 6.24.1
 
 package:
 
-babel-helper-call-delegate
-
-Copyright:
 babel-helper-call-delegate
 
 79、source package:babel-helper-define-map 6.26.0
@@ -4322,16 +2891,10 @@ package:
 
 babel-helper-define-map
 
-Copyright:
-babel-helper-define-map
-
 80、source package:babel-helper-explode-assignable-expression 6.24.1
 
 package:
 
-babel-helper-explode-assignable-expression
-
-Copyright:
 babel-helper-explode-assignable-expression
 
 81、source package:babel-helper-function-name 6.24.1
@@ -4340,16 +2903,10 @@ package:
 
 babel-helper-function-name
 
-Copyright:
-babel-helper-function-name
-
 82、source package:babel-helper-get-function-arity 6.24.1
 
 package:
 
-babel-helper-get-function-arity
-
-Copyright:
 babel-helper-get-function-arity
 
 83、source package:babel-helper-hoist-variables 6.24.1
@@ -4358,16 +2915,10 @@ package:
 
 babel-helper-hoist-variables
 
-Copyright:
-babel-helper-hoist-variables
-
 84、source package:babel-helper-optimise-call-expression 6.24.1
 
 package:
 
-babel-helper-optimise-call-expression
-
-Copyright:
 babel-helper-optimise-call-expression
 
 85、source package:babel-helper-regex 6.26.0
@@ -4376,16 +2927,10 @@ package:
 
 babel-helper-regex
 
-Copyright:
-babel-helper-regex
-
 86、source package:babel-helper-remap-async-to-generator 6.24.1
 
 package:
 
-babel-helper-remap-async-to-generator
-
-Copyright:
 babel-helper-remap-async-to-generator
 
 87、source package:babel-helper-replace-supers 6.24.1
@@ -4394,16 +2939,10 @@ package:
 
 babel-helper-replace-supers
 
-Copyright:
-babel-helper-replace-supers
-
 88、source package:babel-helpers 6.24.1
 
 package:
 
-babel-helpers
-
-Copyright:
 babel-helpers
 
 89、source package:babel-messages 6.23.0
@@ -4412,16 +2951,10 @@ package:
 
 babel-messages
 
-Copyright:
-babel-messages
-
 90、source package:babel-plugin-check-es2015-constants 6.22.0
 
 package:
 
-babel-plugin-check-es2015-constants
-
-Copyright:
 babel-plugin-check-es2015-constants
 
 91、source package:babel-plugin-syntax-async-functions 6.13.0
@@ -4430,16 +2963,10 @@ package:
 
 babel-plugin-syntax-async-functions
 
-Copyright:
-babel-plugin-syntax-async-functions
-
 92、source package:babel-plugin-syntax-exponentiation-operator 6.13.0
 
 package:
 
-babel-plugin-syntax-exponentiation-operator
-
-Copyright:
 babel-plugin-syntax-exponentiation-operator
 
 93、source package:babel-plugin-syntax-flow 6.18.0
@@ -4448,16 +2975,10 @@ package:
 
 babel-plugin-syntax-flow
 
-Copyright:
-babel-plugin-syntax-flow
-
 94、source package:babel-plugin-syntax-jsx 6.18.0
 
 package:
 
-babel-plugin-syntax-jsx
-
-Copyright:
 babel-plugin-syntax-jsx
 
 95、source package:babel-plugin-syntax-trailing-function-commas 6.22.0
@@ -4466,16 +2987,10 @@ package:
 
 babel-plugin-syntax-trailing-function-commas
 
-Copyright:
-babel-plugin-syntax-trailing-function-commas
-
 96、source package:babel-plugin-transform-async-to-generator 6.24.1
 
 package:
 
-babel-plugin-transform-async-to-generator
-
-Copyright:
 babel-plugin-transform-async-to-generator
 
 97、source package:babel-plugin-transform-es2015-arrow-functions 6.22.0
@@ -4484,16 +2999,10 @@ package:
 
 babel-plugin-transform-es2015-arrow-functions
 
-Copyright:
-babel-plugin-transform-es2015-arrow-functions
-
 98、source package:babel-plugin-transform-es2015-block-scoped-functions 6.22.0
 
 package:
 
-babel-plugin-transform-es2015-block-scoped-functions
-
-Copyright:
 babel-plugin-transform-es2015-block-scoped-functions
 
 99、source package:babel-plugin-transform-es2015-block-scoping 6.26.0
@@ -4502,16 +3011,10 @@ package:
 
 babel-plugin-transform-es2015-block-scoping
 
-Copyright:
-babel-plugin-transform-es2015-block-scoping
-
 100、source package:babel-plugin-transform-es2015-classes 6.24.1
 
 package:
 
-babel-plugin-transform-es2015-classes
-
-Copyright:
 babel-plugin-transform-es2015-classes
 
 101、source package:babel-plugin-transform-es2015-computed-properties 6.24.1
@@ -4520,16 +3023,10 @@ package:
 
 babel-plugin-transform-es2015-computed-properties
 
-Copyright:
-babel-plugin-transform-es2015-computed-properties
-
 102、source package:babel-plugin-transform-es2015-destructuring 6.23.0
 
 package:
 
-babel-plugin-transform-es2015-destructuring
-
-Copyright:
 babel-plugin-transform-es2015-destructuring
 
 103、source package:babel-plugin-transform-es2015-duplicate-keys 6.24.1
@@ -4538,16 +3035,10 @@ package:
 
 babel-plugin-transform-es2015-duplicate-keys
 
-Copyright:
-babel-plugin-transform-es2015-duplicate-keys
-
 104、source package:babel-plugin-transform-es2015-for-of 6.23.0
 
 package:
 
-babel-plugin-transform-es2015-for-of
-
-Copyright:
 babel-plugin-transform-es2015-for-of
 
 105、source package:babel-plugin-transform-es2015-function-name 6.24.1
@@ -4556,16 +3047,10 @@ package:
 
 babel-plugin-transform-es2015-function-name
 
-Copyright:
-babel-plugin-transform-es2015-function-name
-
 106、source package:babel-plugin-transform-es2015-literals 6.22.0
 
 package:
 
-babel-plugin-transform-es2015-literals
-
-Copyright:
 babel-plugin-transform-es2015-literals
 
 107、source package:babel-plugin-transform-es2015-modules-amd 6.24.1
@@ -4574,16 +3059,10 @@ package:
 
 babel-plugin-transform-es2015-modules-amd
 
-Copyright:
-babel-plugin-transform-es2015-modules-amd
-
 108、source package:babel-plugin-transform-es2015-modules-commonjs 6.26.2
 
 package:
 
-babel-plugin-transform-es2015-modules-commonjs
-
-Copyright:
 babel-plugin-transform-es2015-modules-commonjs
 
 109、source package:babel-plugin-transform-es2015-modules-systemjs 6.24.1
@@ -4592,16 +3071,10 @@ package:
 
 babel-plugin-transform-es2015-modules-systemjs
 
-Copyright:
-babel-plugin-transform-es2015-modules-systemjs
-
 110、source package:babel-plugin-transform-es2015-modules-umd 6.24.1
 
 package:
 
-babel-plugin-transform-es2015-modules-umd
-
-Copyright:
 babel-plugin-transform-es2015-modules-umd
 
 111、source package:babel-plugin-transform-es2015-object-super 6.24.1
@@ -4610,16 +3083,10 @@ package:
 
 babel-plugin-transform-es2015-object-super
 
-Copyright:
-babel-plugin-transform-es2015-object-super
-
 112、source package:babel-plugin-transform-es2015-parameters 6.24.1
 
 package:
 
-babel-plugin-transform-es2015-parameters
-
-Copyright:
 babel-plugin-transform-es2015-parameters
 
 113、source package:babel-plugin-transform-es2015-shorthand-properties 6.24.1
@@ -4628,16 +3095,10 @@ package:
 
 babel-plugin-transform-es2015-shorthand-properties
 
-Copyright:
-babel-plugin-transform-es2015-shorthand-properties
-
 114、source package:babel-plugin-transform-es2015-spread 6.22.0
 
 package:
 
-babel-plugin-transform-es2015-spread
-
-Copyright:
 babel-plugin-transform-es2015-spread
 
 115、source package:babel-plugin-transform-es2015-sticky-regex 6.24.1
@@ -4646,16 +3107,10 @@ package:
 
 babel-plugin-transform-es2015-sticky-regex
 
-Copyright:
-babel-plugin-transform-es2015-sticky-regex
-
 116、source package:babel-plugin-transform-es2015-template-literals 6.22.0
 
 package:
 
-babel-plugin-transform-es2015-template-literals
-
-Copyright:
 babel-plugin-transform-es2015-template-literals
 
 117、source package:babel-plugin-transform-es2015-typeof-symbol 6.23.0
@@ -4664,16 +3119,10 @@ package:
 
 babel-plugin-transform-es2015-typeof-symbol
 
-Copyright:
-babel-plugin-transform-es2015-typeof-symbol
-
 118、source package:babel-plugin-transform-es2015-unicode-regex 6.24.1
 
 package:
 
-babel-plugin-transform-es2015-unicode-regex
-
-Copyright:
 babel-plugin-transform-es2015-unicode-regex
 
 119、source package:babel-plugin-transform-exponentiation-operator 6.24.1
@@ -4682,16 +3131,10 @@ package:
 
 babel-plugin-transform-exponentiation-operator
 
-Copyright:
-babel-plugin-transform-exponentiation-operator
-
 120、source package:babel-plugin-transform-flow-strip-types 6.22.0
 
 package:
 
-babel-plugin-transform-flow-strip-types
-
-Copyright:
 babel-plugin-transform-flow-strip-types
 
 121、source package:babel-plugin-transform-react-display-name 6.25.0
@@ -4700,16 +3143,10 @@ package:
 
 babel-plugin-transform-react-display-name
 
-Copyright:
-babel-plugin-transform-react-display-name
-
 122、source package:babel-plugin-transform-react-jsx 6.24.1
 
 package:
 
-babel-plugin-transform-react-jsx
-
-Copyright:
 babel-plugin-transform-react-jsx
 
 123、source package:babel-plugin-transform-react-jsx-self 6.22.0
@@ -4718,16 +3155,10 @@ package:
 
 babel-plugin-transform-react-jsx-self
 
-Copyright:
-babel-plugin-transform-react-jsx-self
-
 124、source package:babel-plugin-transform-react-jsx-source 6.22.0
 
 package:
 
-babel-plugin-transform-react-jsx-source
-
-Copyright:
 babel-plugin-transform-react-jsx-source
 
 125、source package:babel-plugin-transform-regenerator 6.26.0
@@ -4736,16 +3167,10 @@ package:
 
 babel-plugin-transform-regenerator
 
-Copyright:
-babel-plugin-transform-regenerator
-
 126、source package:babel-plugin-transform-strict-mode 6.24.1
 
 package:
 
-babel-plugin-transform-strict-mode
-
-Copyright:
 babel-plugin-transform-strict-mode
 
 127、source package:babel-polyfill 6.26.0
@@ -4754,16 +3179,10 @@ package:
 
 babel-polyfill
 
-Copyright:
-babel-polyfill
-
 128、source package:babel-preset-env 1.7.0
 
 package:
 
-babel-preset-env
-
-Copyright:
 babel-preset-env
 
 129、source package:babel-preset-flow 6.23.0
@@ -4772,16 +3191,10 @@ package:
 
 babel-preset-flow
 
-Copyright:
-babel-preset-flow
-
 130、source package:babel-preset-react 6.24.1
 
 package:
 
-babel-preset-react
-
-Copyright:
 babel-preset-react
 
 131、source package:babel-register 6.26.0
@@ -4790,16 +3203,10 @@ package:
 
 babel-register
 
-Copyright:
-babel-register
-
 132、source package:babel-runtime 6.26.0
 
 package:
 
-babel-runtime
-
-Copyright:
 babel-runtime
 
 133、source package:babel-template 6.26.0
@@ -4808,16 +3215,10 @@ package:
 
 babel-template
 
-Copyright:
-babel-template
-
 134、source package:babel-traverse 6.26.0
 
 package:
 
-babel-traverse
-
-Copyright:
 babel-traverse
 
 135、source package:babel-types 6.26.0
@@ -4826,16 +3227,10 @@ package:
 
 babel-types
 
-Copyright:
-babel-types
-
 136、source package:babelify 8.0.0
 
 package:
 
-babelify
-
-Copyright:
 babelify
 
 137、source package:babylon 6.18.0
@@ -4844,16 +3239,10 @@ package:
 
 babylon
 
-Copyright:
-babylon
-
 138、source package:balanced-match 1.0.2
 
 package:
 
-balanced-match
-
-Copyright:
 balanced-match
 
 139、source package:base 0.11.2
@@ -4862,16 +3251,10 @@ package:
 
 base
 
-Copyright:
-base
-
 140、source package:base64-js 1.3.1
 
 package:
 
-base64-js
-
-Copyright:
 base64-js
 
 141、source package:beeper 1.1.1
@@ -4880,16 +3263,10 @@ package:
 
 beeper
 
-Copyright:
-beeper
-
 142、source package:big.js 5.2.2
 
 package:
 
-big.js
-
-Copyright:
 big.js
 
 143、source package:binary-extensions 2.2.0
@@ -4898,16 +3275,10 @@ package:
 
 binary-extensions
 
-Copyright:
-binary-extensions
-
 144、source package:bl 1.2.2
 
 package:
 
-bl
-
-Copyright:
 bl
 
 145、source package:bn.js 5.1.3
@@ -4916,16 +3287,10 @@ package:
 
 bn.js
 
-Copyright:
-bn.js
-
 146、source package:brace-expansion 2.0.1
 
 package:
 
-brace-expansion
-
-Copyright:
 brace-expansion
 
 147、source package:braces 3.0.2
@@ -4934,16 +3299,10 @@ package:
 
 braces
 
-Copyright:
-braces
-
 148、source package:brorand 1.1.0
 
 package:
 
-brorand
-
-Copyright:
 brorand
 
 149、source package:browser-pack 6.1.0
@@ -4952,16 +3311,10 @@ package:
 
 browser-pack
 
-Copyright:
-browser-pack
-
 150、source package:browser-resolve 1.11.3
 
 package:
 
-browser-resolve
-
-Copyright:
 browser-resolve
 
 151、source package:browserify 14.5.0
@@ -4970,16 +3323,10 @@ package:
 
 browserify
 
-Copyright:
-browserify
-
 152、source package:browserify-aes 1.2.0
 
 package:
 
-browserify-aes
-
-Copyright:
 browserify-aes
 
 153、source package:browserify-cipher 1.0.1
@@ -4988,16 +3335,10 @@ package:
 
 browserify-cipher
 
-Copyright:
-browserify-cipher
-
 154、source package:browserify-des 1.0.2
 
 package:
 
-browserify-des
-
-Copyright:
 browserify-des
 
 155、source package:browserify-rsa 4.0.1
@@ -5006,16 +3347,10 @@ package:
 
 browserify-rsa
 
-Copyright:
-browserify-rsa
-
 156、source package:browserify-zlib 0.2.0
 
 package:
 
-browserify-zlib
-
-Copyright:
 browserify-zlib
 
 157、source package:browserslist 3.2.8
@@ -5024,16 +3359,10 @@ package:
 
 browserslist
 
-Copyright:
-browserslist
-
 158、source package:buffer 5.4.2
 
 package:
 
-buffer
-
-Copyright:
 buffer
 
 159、source package:buffer-from 1.1.2
@@ -5042,16 +3371,10 @@ package:
 
 buffer-from
 
-Copyright:
-buffer-from
-
 160、source package:buffer-xor 1.0.3
 
 package:
 
-buffer-xor
-
-Copyright:
 buffer-xor
 
 161、source package:builtin-status-codes 3.0.0
@@ -5060,16 +3383,10 @@ package:
 
 builtin-status-codes
 
-Copyright:
-builtin-status-codes
-
 162、source package:cache-base 1.0.1
 
 package:
 
-cache-base
-
-Copyright:
 cache-base
 
 163、source package:cached-path-relative 1.0.2
@@ -5078,16 +3395,10 @@ package:
 
 cached-path-relative
 
-Copyright:
-cached-path-relative
-
 164、source package:camelcase 4.1.0
 
 package:
 
-camelcase
-
-Copyright:
 camelcase
 
 165、source package:camelcase-keys 2.1.0
@@ -5096,16 +3407,10 @@ package:
 
 camelcase-keys
 
-Copyright:
-camelcase-keys
-
 166、source package:center-align 0.1.3
 
 package:
 
-center-align
-
-Copyright:
 center-align
 
 167、source package:chalk 1.1.3
@@ -5114,16 +3419,10 @@ package:
 
 chalk
 
-Copyright:
-chalk
-
 168、source package:cheerio 1.0.0-rc.3
 
 package:
 
-cheerio
-
-Copyright:
 cheerio
 
 169、source package:chokidar 3.4.3
@@ -5132,16 +3431,10 @@ package:
 
 chokidar
 
-Copyright:
-chokidar
-
 170、source package:cipher-base 1.0.4
 
 package:
 
-cipher-base
-
-Copyright:
 cipher-base
 
 171、source package:class-utils 0.3.6
@@ -5150,16 +3443,10 @@ package:
 
 class-utils
 
-Copyright:
-class-utils
-
 172、source package:clone 2.1.2
 
 package:
 
-clone
-
-Copyright:
 clone
 
 173、source package:clone-buffer 1.0.0
@@ -5168,16 +3455,10 @@ package:
 
 clone-buffer
 
-Copyright:
-clone-buffer
-
 174、source package:clone-stats 1.0.0
 
 package:
 
-clone-stats
-
-Copyright:
 clone-stats
 
 175、source package:cloneable-readable 1.1.3
@@ -5186,16 +3467,10 @@ package:
 
 cloneable-readable
 
-Copyright:
-cloneable-readable
-
 176、source package:code-point-at 1.1.0
 
 package:
 
-code-point-at
-
-Copyright:
 code-point-at
 
 177、source package:collection-visit 1.0.0
@@ -5204,16 +3479,10 @@ package:
 
 collection-visit
 
-Copyright:
-collection-visit
-
 178、source package:combine-source-map 0.8.0
 
 package:
 
-combine-source-map
-
-Copyright:
 combine-source-map
 
 179、source package:combined-stream 1.0.8
@@ -5222,16 +3491,10 @@ package:
 
 combined-stream
 
-Copyright:
-combined-stream
-
 180、source package:commander 2.20.3
 
 package:
 
-commander
-
-Copyright:
 commander
 
 181、source package:component-emitter 1.3.0
@@ -5240,16 +3503,10 @@ package:
 
 component-emitter
 
-Copyright:
-component-emitter
-
 182、source package:compute-scroll-into-view 1.0.11
 
 package:
 
-compute-scroll-into-view
-
-Copyright:
 compute-scroll-into-view
 
 183、source package:concat-map 0.0.1
@@ -5258,16 +3515,10 @@ package:
 
 concat-map
 
-Copyright:
-concat-map
-
 184、source package:concat-stream 1.6.2
 
 package:
 
-concat-stream
-
-Copyright:
 concat-stream
 
 185、source package:console-browserify 1.2.0
@@ -5276,16 +3527,10 @@ package:
 
 console-browserify
 
-Copyright:
-console-browserify
-
 186、source package:constants-browserify 1.0.0
 
 package:
 
-constants-browserify
-
-Copyright:
 constants-browserify
 
 187、source package:convert-source-map 1.6.0
@@ -5294,16 +3539,10 @@ package:
 
 convert-source-map
 
-Copyright:
-convert-source-map
-
 188、source package:cookiecutter-golang d372aa0
 
 package:
 
-cookiecutter-golang
-
-Copyright:
 cookiecutter-golang
 
 189、source package:coost v3.0.0
@@ -5312,16 +3551,10 @@ package:
 
 coost
 
-Copyright:
-coost
-
 190、source package:copy-descriptor 0.1.1
 
 package:
 
-copy-descriptor
-
-Copyright:
 copy-descriptor
 
 191、source package:core-js 3.27.2
@@ -5330,16 +3563,10 @@ package:
 
 core-js
 
-Copyright:
-core-js
-
 192、source package:core-util-is 1.0.2
 
 package:
 
-core-util-is
-
-Copyright:
 core-util-is
 
 193、source package:create-ecdh 4.0.4
@@ -5348,16 +3575,10 @@ package:
 
 create-ecdh
 
-Copyright:
-create-ecdh
-
 194、source package:create-hash 1.2.0
 
 package:
 
-create-hash
-
-Copyright:
 create-hash
 
 195、source package:create-hmac 1.1.7
@@ -5366,16 +3587,10 @@ package:
 
 create-hmac
 
-Copyright:
-create-hmac
-
 196、source package:crelt 1.0.6
 
 package:
 
-crelt
-
-Copyright:
 crelt
 
 197、source package:cross-spawn 5.1.0
@@ -5384,16 +3599,10 @@ package:
 
 cross-spawn
 
-Copyright:
-cross-spawn
-
 198、source package:crypto-browserify 3.12.0
 
 package:
 
-crypto-browserify
-
-Copyright:
 crypto-browserify
 
 199、source package:currently-unhandled 0.4.1
@@ -5402,16 +3611,10 @@ package:
 
 currently-unhandled
 
-Copyright:
-currently-unhandled
-
 200、source package:dashdash 1.14.1
 
 package:
 
-dashdash
-
-Copyright:
 dashdash
 
 201、source package:date-now 0.1.4
@@ -5420,16 +3623,10 @@ package:
 
 date-now
 
-Copyright:
-date-now
-
 202、source package:dateformat 2.2.0
 
 package:
 
-dateformat
-
-Copyright:
 dateformat
 
 203、source package:dayjs 1.11.5
@@ -5438,16 +3635,10 @@ package:
 
 dayjs
 
-Copyright:
-dayjs
-
 204、source package:debug 4.3.4
 
 package:
 
-debug
-
-Copyright:
 debug
 
 205、source package:decamelize 1.2.0
@@ -5456,16 +3647,10 @@ package:
 
 decamelize
 
-Copyright:
-decamelize
-
 206、source package:decode-uri-component 0.2.0
 
 package:
 
-decode-uri-component
-
-Copyright:
 decode-uri-component
 
 207、source package:defaults 1.0.3
@@ -5474,16 +3659,10 @@ package:
 
 defaults
 
-Copyright:
-defaults
-
 208、source package:define-property 2.0.2
 
 package:
 
-define-property
-
-Copyright:
 define-property
 
 209、source package:defined 1.0.0
@@ -5492,16 +3671,10 @@ package:
 
 defined
 
-Copyright:
-defined
-
 210、source package:delayed-stream 1.0.0
 
 package:
 
-delayed-stream
-
-Copyright:
 delayed-stream
 
 211、source package:delegates 1.0.0
@@ -5510,16 +3683,10 @@ package:
 
 delegates
 
-Copyright:
-delegates
-
 212、source package:deprecated 0.0.1
 
 package:
 
-deprecated
-
-Copyright:
 deprecated
 
 213、source package:deps-sort 2.0.0
@@ -5528,16 +3695,10 @@ package:
 
 deps-sort
 
-Copyright:
-deps-sort
-
 214、source package:des.js 1.0.1
 
 package:
 
-des.js
-
-Copyright:
 des.js
 
 215、source package:detect-file 1.0.0
@@ -5546,16 +3707,10 @@ package:
 
 detect-file
 
-Copyright:
-detect-file
-
 216、source package:detect-indent 4.0.0
 
 package:
 
-detect-indent
-
-Copyright:
 detect-indent
 
 217、source package:detective 4.7.1
@@ -5564,16 +3719,10 @@ package:
 
 detective
 
-Copyright:
-detective
-
 218、source package:diffie-hellman 5.0.3
 
 package:
 
-diffie-hellman
-
-Copyright:
 diffie-hellman
 
 219、source package:dom-css 2.1.0
@@ -5582,16 +3731,10 @@ package:
 
 dom-css
 
-Copyright:
-dom-css
-
 220、source package:dom-serializer 0.1.1
 
 package:
 
-dom-serializer
-
-Copyright:
 dom-serializer
 
 221、source package:domain-browser 1.2.0
@@ -5600,16 +3743,10 @@ package:
 
 domain-browser
 
-Copyright:
-domain-browser
-
 222、source package:ecc-jsbn 0.1.2
 
 package:
 
-ecc-jsbn
-
-Copyright:
 ecc-jsbn
 
 223、source package:element-plus 2.2.17
@@ -5618,16 +3755,10 @@ package:
 
 element-plus
 
-Copyright:
-element-plus
-
 224、source package:elliptic 6.5.3
 
 package:
 
-elliptic
-
-Copyright:
 elliptic
 
 225、source package:emojis-list 3.0.0
@@ -5636,16 +3767,10 @@ package:
 
 emojis-list
 
-Copyright:
-emojis-list
-
 226、source package:end-of-stream 0.1.5
 
 package:
 
-end-of-stream
-
-Copyright:
 end-of-stream
 
 227、source package:enhanced-resolve 3.4.1
@@ -5654,16 +3779,10 @@ package:
 
 enhanced-resolve
 
-Copyright:
-enhanced-resolve
-
 228、source package:errno 0.1.7
 
 package:
 
-errno
-
-Copyright:
 errno
 
 229、source package:error-ex 1.3.2
@@ -5672,16 +3791,10 @@ package:
 
 error-ex
 
-Copyright:
-error-ex
-
 230、source package:es6-iterator 2.0.3
 
 package:
 
-es6-iterator
-
-Copyright:
 es6-iterator
 
 231、source package:es6-map 0.1.5
@@ -5690,16 +3803,10 @@ package:
 
 es6-map
 
-Copyright:
-es6-map
-
 232、source package:es6-set 0.1.5
 
 package:
 
-es6-set
-
-Copyright:
 es6-set
 
 233、source package:es6-symbol 3.1.1
@@ -5708,16 +3815,10 @@ package:
 
 es6-symbol
 
-Copyright:
-es6-symbol
-
 234、source package:esbuild 0.15.9
 
 package:
 
-esbuild
-
-Copyright:
 esbuild
 
 235、source package:esbuild-android-64 0.15.9
@@ -5726,16 +3827,10 @@ package:
 
 esbuild-android-64
 
-Copyright:
-esbuild-android-64
-
 236、source package:esbuild-android-arm64 0.15.9
 
 package:
 
-esbuild-android-arm64
-
-Copyright:
 esbuild-android-arm64
 
 237、source package:esbuild-darwin-64 0.15.9
@@ -5744,16 +3839,10 @@ package:
 
 esbuild-darwin-64
 
-Copyright:
-esbuild-darwin-64
-
 238、source package:esbuild-darwin-arm64 0.15.9
 
 package:
 
-esbuild-darwin-arm64
-
-Copyright:
 esbuild-darwin-arm64
 
 239、source package:esbuild-freebsd-64 0.15.9
@@ -5762,16 +3851,10 @@ package:
 
 esbuild-freebsd-64
 
-Copyright:
-esbuild-freebsd-64
-
 240、source package:esbuild-freebsd-arm64 0.15.9
 
 package:
 
-esbuild-freebsd-arm64
-
-Copyright:
 esbuild-freebsd-arm64
 
 241、source package:esbuild-linux-32 0.15.9
@@ -5780,16 +3863,10 @@ package:
 
 esbuild-linux-32
 
-Copyright:
-esbuild-linux-32
-
 242、source package:esbuild-linux-64 0.15.9
 
 package:
 
-esbuild-linux-64
-
-Copyright:
 esbuild-linux-64
 
 243、source package:esbuild-linux-arm 0.15.9
@@ -5798,16 +3875,10 @@ package:
 
 esbuild-linux-arm
 
-Copyright:
-esbuild-linux-arm
-
 244、source package:esbuild-linux-arm64 0.15.9
 
 package:
 
-esbuild-linux-arm64
-
-Copyright:
 esbuild-linux-arm64
 
 245、source package:esbuild-linux-mips64le 0.15.9
@@ -5816,16 +3887,10 @@ package:
 
 esbuild-linux-mips64le
 
-Copyright:
-esbuild-linux-mips64le
-
 246、source package:esbuild-linux-ppc64le 0.15.9
 
 package:
 
-esbuild-linux-ppc64le
-
-Copyright:
 esbuild-linux-ppc64le
 
 247、source package:esbuild-linux-riscv64 0.15.9
@@ -5834,16 +3899,10 @@ package:
 
 esbuild-linux-riscv64
 
-Copyright:
-esbuild-linux-riscv64
-
 248、source package:esbuild-linux-s390x 0.15.9
 
 package:
 
-esbuild-linux-s390x
-
-Copyright:
 esbuild-linux-s390x
 
 249、source package:esbuild-netbsd-64 0.15.9
@@ -5852,16 +3911,10 @@ package:
 
 esbuild-netbsd-64
 
-Copyright:
-esbuild-netbsd-64
-
 250、source package:esbuild-openbsd-64 0.15.9
 
 package:
 
-esbuild-openbsd-64
-
-Copyright:
 esbuild-openbsd-64
 
 251、source package:esbuild-sunos-64 0.15.9
@@ -5870,16 +3923,10 @@ package:
 
 esbuild-sunos-64
 
-Copyright:
-esbuild-sunos-64
-
 252、source package:esbuild-windows-32 0.15.9
 
 package:
 
-esbuild-windows-32
-
-Copyright:
 esbuild-windows-32
 
 253、source package:esbuild-windows-64 0.15.9
@@ -5888,16 +3935,10 @@ package:
 
 esbuild-windows-64
 
-Copyright:
-esbuild-windows-64
-
 254、source package:esbuild-windows-arm64 0.15.9
 
 package:
 
-esbuild-windows-arm64
-
-Copyright:
 esbuild-windows-arm64
 
 255、source package:escape-html 1.0.3
@@ -5906,16 +3947,10 @@ package:
 
 escape-html
 
-Copyright:
-escape-html
-
 256、source package:escape-string-regexp 5.0.0
 
 package:
 
-escape-string-regexp
-
-Copyright:
 escape-string-regexp
 
 257、source package:estree-walker 2.0.2
@@ -5924,16 +3959,10 @@ package:
 
 estree-walker
 
-Copyright:
-estree-walker
-
 258、source package:event-emitter 0.3.5
 
 package:
 
-event-emitter
-
-Copyright:
 event-emitter
 
 259、source package:events 3.2.0
@@ -5942,16 +3971,10 @@ package:
 
 events
 
-Copyright:
-events
-
 260、source package:evp_bytestokey 1.0.3
 
 package:
 
-evp_bytestokey
-
-Copyright:
 evp_bytestokey
 
 261、source package:execa 0.7.0
@@ -5960,16 +3983,10 @@ package:
 
 execa
 
-Copyright:
-execa
-
 262、source package:expand-brackets 2.1.4
 
 package:
 
-expand-brackets
-
-Copyright:
 expand-brackets
 
 263、source package:expand-tilde 2.0.2
@@ -5978,16 +3995,10 @@ package:
 
 expand-tilde
 
-Copyright:
-expand-tilde
-
 264、source package:expose-loader 1.0.1
 
 package:
 
-expose-loader
-
-Copyright:
 expose-loader
 
 265、source package:extend 3.0.2
@@ -5996,16 +4007,10 @@ package:
 
 extend
 
-Copyright:
-extend
-
 266、source package:extend-shallow 3.0.2
 
 package:
 
-extend-shallow
-
-Copyright:
 extend-shallow
 
 267、source package:extglob 2.0.4
@@ -6014,16 +4019,10 @@ package:
 
 extglob
 
-Copyright:
-extglob
-
 268、source package:extsprintf 1.3.0
 
 package:
 
-extsprintf
-
-Copyright:
 extsprintf
 
 269、source package:fancy-log 1.3.3
@@ -6032,16 +4031,10 @@ package:
 
 fancy-log
 
-Copyright:
-fancy-log
-
 270、source package:fast-deep-equal 3.1.3
 
 package:
 
-fast-deep-equal
-
-Copyright:
 fast-deep-equal
 
 271、source package:fast-glob 3.2.12
@@ -6050,16 +4043,10 @@ package:
 
 fast-glob
 
-Copyright:
-fast-glob
-
 272、source package:fast-json-stable-stringify 2.1.0
 
 package:
 
-fast-json-stable-stringify
-
-Copyright:
 fast-json-stable-stringify
 
 273、source package:ffmpeg 7:6.0-3
@@ -6068,16 +4055,10 @@ package:
 
 ffmpeg
 
-Copyright:
-ffmpeg
-
 274、source package:fill-range 7.0.1
 
 package:
 
-fill-range
-
-Copyright:
 fill-range
 
 275、source package:find-index 0.1.1
@@ -6086,16 +4067,10 @@ package:
 
 find-index
 
-Copyright:
-find-index
-
 276、source package:find-up 2.1.0
 
 package:
 
-find-up
-
-Copyright:
 find-up
 
 277、source package:findup-sync 2.0.0
@@ -6104,16 +4079,10 @@ package:
 
 findup-sync
 
-Copyright:
-findup-sync
-
 278、source package:fined 1.2.0
 
 package:
 
-fined
-
-Copyright:
 fined
 
 279、source package:first-chunk-stream 1.0.0
@@ -6122,16 +4091,10 @@ package:
 
 first-chunk-stream
 
-Copyright:
-first-chunk-stream
-
 280、source package:flagged-respawn 1.0.1
 
 package:
 
-flagged-respawn
-
-Copyright:
 flagged-respawn
 
 281、source package:for-in 1.0.2
@@ -6140,16 +4103,10 @@ package:
 
 for-in
 
-Copyright:
-for-in
-
 282、source package:for-own 1.0.0
 
 package:
 
-for-own
-
-Copyright:
 for-own
 
 283、source package:form-data 2.3.3
@@ -6158,16 +4115,10 @@ package:
 
 form-data
 
-Copyright:
-form-data
-
 284、source package:fragment-cache 0.2.1
 
 package:
 
-fragment-cache
-
-Copyright:
 fragment-cache
 
 285、source package:fs.realpath 1.0.0
@@ -6176,16 +4127,10 @@ package:
 
 fs.realpath
 
-Copyright:
-fs.realpath
-
 286、source package:fsevents 2.3.2
 
 package:
 
-fsevents
-
-Copyright:
 fsevents
 
 287、source package:function-bind 1.1.1
@@ -6194,16 +4139,10 @@ package:
 
 function-bind
 
-Copyright:
-function-bind
-
 288、source package:gaze 1.1.3
 
 package:
 
-gaze
-
-Copyright:
 gaze
 
 289、source package:get-stdin 4.0.1
@@ -6212,16 +4151,10 @@ package:
 
 get-stdin
 
-Copyright:
-get-stdin
-
 290、source package:get-stream 3.0.0
 
 package:
 
-get-stream
-
-Copyright:
 get-stream
 
 291、source package:get-value 2.0.6
@@ -6230,16 +4163,10 @@ package:
 
 get-value
 
-Copyright:
-get-value
-
 292、source package:getpass 0.1.7
 
 package:
 
-getpass
-
-Copyright:
 getpass
 
 293、source package:gg v1.3.0
@@ -6248,16 +4175,10 @@ package:
 
 gg
 
-Copyright:
-gg
-
 294、source package:gin v1.5.0
 
 package:
 
-gin
-
-Copyright:
 gin
 
 295、source package:git 4.3.20-9
@@ -6266,16 +4187,10 @@ package:
 
 git
 
-Copyright:
-git
-
 296、source package:gitea v1.19.3
 
 package:
 
-gitea
-
-Copyright:
 gitea
 
 297、source package:glob-stream 3.1.18
@@ -6284,16 +4199,10 @@ package:
 
 glob-stream
 
-Copyright:
-glob-stream
-
 298、source package:glob-watcher 0.0.6
 
 package:
 
-glob-watcher
-
-Copyright:
 glob-watcher
 
 299、source package:glob2base 0.0.12
@@ -6302,16 +4211,10 @@ package:
 
 glob2base
 
-Copyright:
-glob2base
-
 300、source package:global-modules 1.0.0
 
 package:
 
-global-modules
-
-Copyright:
 global-modules
 
 301、source package:global-prefix 1.0.2
@@ -6320,16 +4223,10 @@ package:
 
 global-prefix
 
-Copyright:
-global-prefix
-
 302、source package:globals 9.18.0
 
 package:
 
-globals
-
-Copyright:
 globals
 
 303、source package:globule 1.2.1
@@ -6338,16 +4235,10 @@ package:
 
 globule
 
-Copyright:
-globule
-
 304、source package:glogg 1.0.2
 
 package:
 
-glogg
-
-Copyright:
 glogg
 
 305、source package:go v1.1.7
@@ -6356,16 +4247,10 @@ package:
 
 go
 
-Copyright:
-go
-
 306、source package:go-isatty v0.0.9
 
 package:
 
-go-isatty
-
-Copyright:
 go-isatty
 
 307、source package:go-pinyin v0.19.0
@@ -6374,16 +4259,10 @@ package:
 
 go-pinyin
 
-Copyright:
-go-pinyin
-
 308、source package:go-wav v0.3.2
 
 package:
 
-go-wav
-
-Copyright:
 go-wav
 
 309、source package:go-windows-terminal-sequences v1.0.1
@@ -6392,16 +4271,10 @@ package:
 
 go-windows-terminal-sequences
 
-Copyright:
-go-windows-terminal-sequences
-
 310、source package:goconvey v1.8.1
 
 package:
 
-goconvey
-
-Copyright:
 goconvey
 
 311、source package:golang-github-gosexy-gettext-dev 0~git20130221-2.1_all
@@ -6410,16 +4283,10 @@ package:
 
 golang-github-gosexy-gettext-dev
 
-Copyright:
-golang-github-gosexy-gettext-dev
-
 312、source package:gstreamer1.0-fluendo-mp3 0.10.32.debian-1_s390x
 
 package:
 
-gstreamer1.0-fluendo-mp3
-
-Copyright:
 gstreamer1.0-fluendo-mp3
 
 313、source package:gstreamer1.0-plugins-base 1.4.4-2_kfreebsd-i386
@@ -6428,16 +4295,10 @@ package:
 
 gstreamer1.0-plugins-base
 
-Copyright:
-gstreamer1.0-plugins-base
-
 314、source package:gstreamer1.0-plugins-good 1.4.4-2_kfreebsd-i386
 
 package:
 
-gstreamer1.0-plugins-good
-
-Copyright:
 gstreamer1.0-plugins-good
 
 315、source package:gstreamer1.0-plugins-ugly 1.9.90-1
@@ -6446,16 +4307,10 @@ package:
 
 gstreamer1.0-plugins-ugly
 
-Copyright:
-gstreamer1.0-plugins-ugly
-
 316、source package:gstreamer1.0-pulseaudio 1.4.4-2_kfreebsd-i386
 
 package:
 
-gstreamer1.0-pulseaudio
-
-Copyright:
 gstreamer1.0-pulseaudio
 
 317、source package:gstreamer1.0-x 1.4.4-2_kfreebsd-i386
@@ -6464,16 +4319,10 @@ package:
 
 gstreamer1.0-x
 
-Copyright:
-gstreamer1.0-x
-
 318、source package:gulp 3.9.1
 
 package:
 
-gulp
-
-Copyright:
 gulp
 
 319、source package:gulp-concat 2.6.1
@@ -6482,16 +4331,10 @@ package:
 
 gulp-concat
 
-Copyright:
-gulp-concat
-
 320、source package:gulp-rename 1.4.0
 
 package:
 
-gulp-rename
-
-Copyright:
 gulp-rename
 
 321、source package:gulp-sass 3.2.1
@@ -6500,16 +4343,10 @@ package:
 
 gulp-sass
 
-Copyright:
-gulp-sass
-
 322、source package:gulp-util 3.0.8
 
 package:
 
-gulp-util
-
-Copyright:
 gulp-util
 
 323、source package:gulplog 1.0.0
@@ -6518,16 +4355,10 @@ package:
 
 gulplog
 
-Copyright:
-gulplog
-
 324、source package:har-validator 5.1.3
 
 package:
 
-har-validator
-
-Copyright:
 har-validator
 
 325、source package:has 1.0.3
@@ -6536,16 +4367,10 @@ package:
 
 has
 
-Copyright:
-has
-
 326、source package:has-ansi 2.0.0
 
 package:
 
-has-ansi
-
-Copyright:
 has-ansi
 
 327、source package:has-flag 2.0.0
@@ -6554,16 +4379,10 @@ package:
 
 has-flag
 
-Copyright:
-has-flag
-
 328、source package:has-gulplog 0.1.0
 
 package:
 
-has-gulplog
-
-Copyright:
 has-gulplog
 
 329、source package:has-value 1.0.0
@@ -6572,16 +4391,10 @@ package:
 
 has-value
 
-Copyright:
-has-value
-
 330、source package:has-values 1.0.0
 
 package:
 
-has-values
-
-Copyright:
 has-values
 
 331、source package:hash-base 3.1.0
@@ -6590,16 +4403,10 @@ package:
 
 hash-base
 
-Copyright:
-hash-base
-
 332、source package:hash.js 1.1.7
 
 package:
 
-hash.js
-
-Copyright:
 hash.js
 
 333、source package:history 4.9.0
@@ -6608,16 +4415,10 @@ package:
 
 history
 
-Copyright:
-history
-
 334、source package:hmac-drbg 1.0.1
 
 package:
 
-hmac-drbg
-
-Copyright:
 hmac-drbg
 
 335、source package:home-or-tmp 2.0.0
@@ -6626,16 +4427,10 @@ package:
 
 home-or-tmp
 
-Copyright:
-home-or-tmp
-
 336、source package:homedir-polyfill 1.0.3
 
 package:
 
-homedir-polyfill
-
-Copyright:
 homedir-polyfill
 
 337、source package:htmlescape 1.1.1
@@ -6644,16 +4439,10 @@ package:
 
 htmlescape
 
-Copyright:
-htmlescape
-
 338、source package:htmlparser2 3.10.1
 
 package:
 
-htmlparser2
-
-Copyright:
 htmlparser2
 
 339、source package:http-signature 1.2.0
@@ -6662,16 +4451,10 @@ package:
 
 http-signature
 
-Copyright:
-http-signature
-
 340、source package:https-browserify 1.0.0
 
 package:
 
-https-browserify
-
-Copyright:
 https-browserify
 
 341、source package:image v0.10.0
@@ -6680,16 +4463,10 @@ package:
 
 image
 
-Copyright:
-image
-
 342、source package:immutable 4.1.0
 
 package:
 
-immutable
-
-Copyright:
 immutable
 
 343、source package:indent-string 2.1.0
@@ -6698,16 +4475,10 @@ package:
 
 indent-string
 
-Copyright:
-indent-string
-
 344、source package:indexof 0.0.1
 
 package:
 
-indexof
-
-Copyright:
 indexof
 
 345、source package:inline-source-map 0.6.2
@@ -6716,16 +4487,10 @@ package:
 
 inline-source-map
 
-Copyright:
-inline-source-map
-
 346、source package:insert-module-globals 7.2.0
 
 package:
 
-insert-module-globals
-
-Copyright:
 insert-module-globals
 
 347、source package:interpret 1.4.0
@@ -6734,16 +4499,10 @@ package:
 
 interpret
 
-Copyright:
-interpret
-
 348、source package:invariant 2.2.4
 
 package:
 
-invariant
-
-Copyright:
 invariant
 
 349、source package:invert-kv 1.0.0
@@ -6752,16 +4511,10 @@ package:
 
 invert-kv
 
-Copyright:
-invert-kv
-
 350、source package:is-absolute 1.0.0
 
 package:
 
-is-absolute
-
-Copyright:
 is-absolute
 
 351、source package:is-accessor-descriptor 1.0.0
@@ -6770,16 +4523,10 @@ package:
 
 is-accessor-descriptor
 
-Copyright:
-is-accessor-descriptor
-
 352、source package:is-arrayish 0.2.1
 
 package:
 
-is-arrayish
-
-Copyright:
 is-arrayish
 
 353、source package:is-binary-path 2.1.0
@@ -6788,16 +4535,10 @@ package:
 
 is-binary-path
 
-Copyright:
-is-binary-path
-
 354、source package:is-buffer 1.1.6
 
 package:
 
-is-buffer
-
-Copyright:
 is-buffer
 
 355、source package:is-core-module 2.10.0
@@ -6806,16 +4547,10 @@ package:
 
 is-core-module
 
-Copyright:
-is-core-module
-
 356、source package:is-data-descriptor 1.0.0
 
 package:
 
-is-data-descriptor
-
-Copyright:
 is-data-descriptor
 
 357、source package:is-descriptor 1.0.2
@@ -6824,16 +4559,10 @@ package:
 
 is-descriptor
 
-Copyright:
-is-descriptor
-
 358、source package:is-extendable 1.0.1
 
 package:
 
-is-extendable
-
-Copyright:
 is-extendable
 
 359、source package:is-extglob 2.1.1
@@ -6842,16 +4571,10 @@ package:
 
 is-extglob
 
-Copyright:
-is-extglob
-
 360、source package:is-finite 1.0.2
 
 package:
 
-is-finite
-
-Copyright:
 is-finite
 
 361、source package:is-fullwidth-code-point 2.0.0
@@ -6860,16 +4583,10 @@ package:
 
 is-fullwidth-code-point
 
-Copyright:
-is-fullwidth-code-point
-
 362、source package:is-glob 4.0.3
 
 package:
 
-is-glob
-
-Copyright:
 is-glob
 
 363、source package:is-number 7.0.0
@@ -6878,16 +4595,10 @@ package:
 
 is-number
 
-Copyright:
-is-number
-
 364、source package:is-plain-object 2.0.4
 
 package:
 
-is-plain-object
-
-Copyright:
 is-plain-object
 
 365、source package:is-relative 1.0.0
@@ -6896,16 +4607,10 @@ package:
 
 is-relative
 
-Copyright:
-is-relative
-
 366、source package:is-stream 1.1.0
 
 package:
 
-is-stream
-
-Copyright:
 is-stream
 
 367、source package:is-typedarray 1.0.0
@@ -6914,16 +4619,10 @@ package:
 
 is-typedarray
 
-Copyright:
-is-typedarray
-
 368、source package:is-unc-path 1.0.0
 
 package:
 
-is-unc-path
-
-Copyright:
 is-unc-path
 
 369、source package:is-utf8 0.2.1
@@ -6932,16 +4631,10 @@ package:
 
 is-utf8
 
-Copyright:
-is-utf8
-
 370、source package:is-windows 1.0.2
 
 package:
 
-is-windows
-
-Copyright:
 is-windows
 
 371、source package:isarray 1.0.0
@@ -6950,16 +4643,10 @@ package:
 
 isarray
 
-Copyright:
-isarray
-
 372、source package:isobject 3.0.1
 
 package:
 
-isobject
-
-Copyright:
 isobject
 
 373、source package:isstream 0.1.2
@@ -6968,16 +4655,10 @@ package:
 
 isstream
 
-Copyright:
-isstream
-
 374、source package:java_fpe_test 0.1.2
 
 package:
 
-java_fpe_test
-
-Copyright:
 java_fpe_test
 
 375、source package:jq 1.6-2.1
@@ -6986,16 +4667,10 @@ package:
 
 jq
 
-Copyright:
-jq
-
 376、source package:jquery 3.6.1
 
 package:
 
-jquery
-
-Copyright:
 jquery
 
 377、source package:js 0.1.0
@@ -7004,16 +4679,10 @@ package:
 
 js
 
-Copyright:
-js
-
 378、source package:js-tokens 3.0.2
 
 package:
 
-js-tokens
-
-Copyright:
 js-tokens
 
 379、source package:jsbn 0.1.1
@@ -7022,16 +4691,10 @@ package:
 
 jsbn
 
-Copyright:
-jsbn
-
 380、source package:jsesc 1.3.0
 
 package:
 
-jsesc
-
-Copyright:
 jsesc
 
 381、source package:json v3.7.0
@@ -7040,16 +4703,10 @@ package:
 
 json
 
-Copyright:
-json
-
 382、source package:json-loader 0.5.7
 
 package:
 
-json-loader
-
-Copyright:
 json-loader
 
 383、source package:json-schema-traverse 0.4.1
@@ -7058,16 +4715,10 @@ package:
 
 json-schema-traverse
 
-Copyright:
-json-schema-traverse
-
 384、source package:json-stable-stringify 0.0.1
 
 package:
 
-json-stable-stringify
-
-Copyright:
 json-stable-stringify
 
 385、source package:json5 2.1.3
@@ -7076,16 +4727,10 @@ package:
 
 json5
 
-Copyright:
-json5
-
 386、source package:jsonc-parser 3.2.0
 
 package:
 
-jsonc-parser
-
-Copyright:
 jsonc-parser
 
 387、source package:jsonparse 1.3.1
@@ -7094,16 +4739,10 @@ package:
 
 jsonparse
 
-Copyright:
-jsonparse
-
 388、source package:jsprim 1.4.1
 
 package:
 
-jsprim
-
-Copyright:
 jsprim
 
 389、source package:jwt-cpp v0.5.0
@@ -7112,16 +4751,10 @@ package:
 
 jwt-cpp
 
-Copyright:
-jwt-cpp
-
 390、source package:keypress 0.1.0
 
 package:
 
-keypress
-
-Copyright:
 keypress
 
 391、source package:kind-of 6.0.3
@@ -7130,16 +4763,10 @@ package:
 
 kind-of
 
-Copyright:
-kind-of
-
 392、source package:labeled-stream-splicer 2.0.2
 
 package:
 
-labeled-stream-splicer
-
-Copyright:
 labeled-stream-splicer
 
 393、source package:lazy-cache 1.0.4
@@ -7148,16 +4775,10 @@ package:
 
 lazy-cache
 
-Copyright:
-lazy-cache
-
 394、source package:lcid 1.0.0
 
 package:
 
-lcid
-
-Copyright:
 lcid
 
 395、source package:libappimage-dev 0.1.9+dfsg-1_s390x
@@ -7166,16 +4787,10 @@ package:
 
 libappimage-dev
 
-Copyright:
-libappimage-dev
-
 396、source package:libboost-dev 1.71.0.3_s390x
 
 package:
 
-libboost-dev
-
-Copyright:
 libboost-dev
 
 397、source package:libboost-filesystem-dev 1.71.0.3_s390x
@@ -7184,16 +4799,10 @@ package:
 
 libboost-filesystem-dev
 
-Copyright:
-libboost-filesystem-dev
-
 398、source package:libboost-serialization-dev 1.71.0.3_s390x
 
 package:
 
-libboost-serialization-dev
-
-Copyright:
 libboost-serialization-dev
 
 399、source package:libboost-system-dev 1.71.0.3_s390x
@@ -7202,16 +4811,10 @@ package:
 
 libboost-system-dev
 
-Copyright:
-libboost-system-dev
-
 400、source package:libdrm-dev 2.4.99-1_s390x
 
 package:
 
-libdrm-dev
-
-Copyright:
 libdrm-dev
 
 401、source package:libegl1-mesa-dev 8.0.5-4+deb7u2_sparc
@@ -7220,16 +4823,10 @@ package:
 
 libegl1-mesa-dev
 
-Copyright:
-libegl1-mesa-dev
-
 402、source package:libgbm-dev 8.0.5-4+deb7u2_sparc
 
 package:
 
-libgbm-dev
-
-Copyright:
 libgbm-dev
 
 403、source package:libglib2.0-dev 2.64.4-1_s390x
@@ -7238,16 +4835,10 @@ package:
 
 libglib2.0-dev
 
-Copyright:
-libglib2.0-dev
-
 404、source package:libgstreamer-plugins-base1.0-0 1.4.4-2_kfreebsd-i386
 
 package:
 
-libgstreamer-plugins-base1.0-0
-
-Copyright:
 libgstreamer-plugins-base1.0-0
 
 405、source package:libgstreamer-plugins-base1.0-dev 1.4.4-2_kfreebsd-i386
@@ -7256,16 +4847,10 @@ package:
 
 libgstreamer-plugins-base1.0-dev
 
-Copyright:
-libgstreamer-plugins-base1.0-dev
-
 406、source package:libjson-c3 0.12.1-1.3_s390x
 
 package:
 
-libjson-c3
-
-Copyright:
 libjson-c3
 
 407、source package:libjson-rpc-cpp v1.4.1
@@ -7274,16 +4859,10 @@ package:
 
 libjson-rpc-cpp
 
-Copyright:
-libjson-rpc-cpp
-
 408、source package:liblcms2-dev 2.9-4_s390x
 
 package:
 
-liblcms2-dev
-
-Copyright:
 liblcms2-dev
 
 409、source package:libportaudio2 19.6.0-1_s390x
@@ -7292,16 +4871,10 @@ package:
 
 libportaudio2
 
-Copyright:
-libportaudio2
-
 410、source package:libx11-dev 2:1.8.4-2+deb12u1
 
 package:
 
-libx11-dev
-
-Copyright:
 libx11-dev
 
 411、source package:libx11-xcb-dev 1.6.9-2_s390x
@@ -7310,16 +4883,10 @@ package:
 
 libx11-xcb-dev
 
-Copyright:
-libx11-xcb-dev
-
 412、source package:libxcb-composite0-dev 1.8.1-2+deb7u1_sparc
 
 package:
 
-libxcb-composite0-dev
-
-Copyright:
 libxcb-composite0-dev
 
 413、source package:libxcb-cursor-dev 0.1.1-4_s390x
@@ -7328,16 +4895,10 @@ package:
 
 libxcb-cursor-dev
 
-Copyright:
-libxcb-cursor-dev
-
 414、source package:libxcb-damage0-dev 1.8.1-2+deb7u1_sparc
 
 package:
 
-libxcb-damage0-dev
-
-Copyright:
 libxcb-damage0-dev
 
 415、source package:libxcb-ewmh-dev 0.4.1-1_s390x
@@ -7346,16 +4907,10 @@ package:
 
 libxcb-ewmh-dev
 
-Copyright:
-libxcb-ewmh-dev
-
 416、source package:libxcb-image0-dev 0.4.0-1_s390x
 
 package:
 
-libxcb-image0-dev
-
-Copyright:
 libxcb-image0-dev
 
 417、source package:libxcb-keysyms1-dev 0.4.0-1_s390x
@@ -7364,16 +4919,10 @@ package:
 
 libxcb-keysyms1-dev
 
-Copyright:
-libxcb-keysyms1-dev
-
 418、source package:libxcb-randr0-dev 1.8.1-2+deb7u1_sparc
 
 package:
 
-libxcb-randr0-dev
-
-Copyright:
 libxcb-randr0-dev
 
 419、source package:libxcb-record0-dev 1.8.1-2+deb7u1_sparc
@@ -7382,16 +4931,10 @@ package:
 
 libxcb-record0-dev
 
-Copyright:
-libxcb-record0-dev
-
 420、source package:libxcb-render-util0-dev 0.3.9-1_s390x
 
 package:
 
-libxcb-render-util0-dev
-
-Copyright:
 libxcb-render-util0-dev
 
 421、source package:libxcb-render0-dev 1.8.1-2+deb7u1_sparc
@@ -7400,16 +4943,10 @@ package:
 
 libxcb-render0-dev
 
-Copyright:
-libxcb-render0-dev
-
 422、source package:libxcb-res0-dev 1.8.1-2+deb7u1_sparc
 
 package:
 
-libxcb-res0-dev
-
-Copyright:
 libxcb-res0-dev
 
 423、source package:libxcb-shape0-dev 1.8.1-2+deb7u1_sparc
@@ -7418,16 +4955,10 @@ package:
 
 libxcb-shape0-dev
 
-Copyright:
-libxcb-shape0-dev
-
 424、source package:libxcb-sync-dev 1.14-2_s390x
 
 package:
 
-libxcb-sync-dev
-
-Copyright:
 libxcb-sync-dev
 
 425、source package:libxcb-util0 0.3.8-3_s390x
@@ -7436,16 +4967,10 @@ package:
 
 libxcb-util0
 
-Copyright:
-libxcb-util0
-
 426、source package:libxcb-util0-dev 0.3.8-3_s390x
 
 package:
 
-libxcb-util0-dev
-
-Copyright:
 libxcb-util0-dev
 
 427、source package:libxcb-util1 0.4.0-1
@@ -7454,16 +4979,10 @@ package:
 
 libxcb-util1
 
-Copyright:
-libxcb-util1
-
 428、source package:libxcb-xfixes0-dev 1.8.1-2+deb7u1_sparc
 
 package:
 
-libxcb-xfixes0-dev
-
-Copyright:
 libxcb-xfixes0-dev
 
 429、source package:libxcb-xinerama0-dev 1.8.1-2+deb7u1_sparc
@@ -7472,16 +4991,10 @@ package:
 
 libxcb-xinerama0-dev
 
-Copyright:
-libxcb-xinerama0-dev
-
 430、source package:libxcb-xinput-dev 1.14-2_s390x
 
 package:
 
-libxcb-xinput-dev
-
-Copyright:
 libxcb-xinput-dev
 
 431、source package:libxcb-xkb-dev 1.14-2_s390x
@@ -7490,16 +5003,10 @@ package:
 
 libxcb-xkb-dev
 
-Copyright:
-libxcb-xkb-dev
-
 432、source package:libxcb-xtest0-dev 1.8.1-2+deb7u1_sparc
 
 package:
 
-libxcb-xtest0-dev
-
-Copyright:
 libxcb-xtest0-dev
 
 433、source package:libxcb1-dev 1.8.1-2+deb7u1_sparc
@@ -7508,16 +5015,10 @@ package:
 
 libxcb1-dev
 
-Copyright:
-libxcb1-dev
-
 434、source package:libxext-dev 1.3.3-1_s390x
 
 package:
 
-libxext-dev
-
-Copyright:
 libxext-dev
 
 435、source package:libxfixes-dev 5.0.3-2_s390x
@@ -7526,16 +5027,10 @@ package:
 
 libxfixes-dev
 
-Copyright:
-libxfixes-dev
-
 436、source package:libxinerama-dev 2:1.1.4-3
 
 package:
 
-libxinerama-dev
-
-Copyright:
 libxinerama-dev
 
 437、source package:libxkbcommon-dev 0.9.1-1_s390x
@@ -7544,16 +5039,10 @@ package:
 
 libxkbcommon-dev
 
-Copyright:
-libxkbcommon-dev
-
 438、source package:libxkbcommon-x11-dev 0.9.1-1_s390x
 
 package:
 
-libxkbcommon-x11-dev
-
-Copyright:
 libxkbcommon-x11-dev
 
 439、source package:libxss-dev 1.2.3-1_s390x
@@ -7562,16 +5051,10 @@ package:
 
 libxss-dev
 
-Copyright:
-libxss-dev
-
 440、source package:libxss1 1.2.3-1_s390x
 
 package:
 
-libxss1
-
-Copyright:
 libxss1
 
 441、source package:libxtst-dev 1.2.3-1_s390x
@@ -7580,16 +5063,10 @@ package:
 
 libxtst-dev
 
-Copyright:
-libxtst-dev
-
 442、source package:liftoff 2.5.0
 
 package:
 
-liftoff
-
-Copyright:
 liftoff
 
 443、source package:load-json-file 2.0.0
@@ -7598,16 +5075,10 @@ package:
 
 load-json-file
 
-Copyright:
-load-json-file
-
 444、source package:loader-runner 2.4.0
 
 package:
 
-loader-runner
-
-Copyright:
 loader-runner
 
 445、source package:loader-utils 2.0.0
@@ -7616,16 +5087,10 @@ package:
 
 loader-utils
 
-Copyright:
-loader-utils
-
 446、source package:local-pkg 0.4.3
 
 package:
 
-local-pkg
-
-Copyright:
 local-pkg
 
 447、source package:locales v0.12.1
@@ -7634,16 +5099,10 @@ package:
 
 locales
 
-Copyright:
-locales
-
 448、source package:locate-path 2.0.0
 
 package:
 
-locate-path
-
-Copyright:
 locate-path
 
 449、source package:lodash 4.17.21
@@ -7652,16 +5111,10 @@ package:
 
 lodash
 
-Copyright:
-lodash
-
 450、source package:lodash-es 4.17.21
 
 package:
 
-lodash-es
-
-Copyright:
 lodash-es
 
 451、source package:lodash-unified 1.0.2
@@ -7670,16 +5123,10 @@ package:
 
 lodash-unified
 
-Copyright:
-lodash-unified
-
 452、source package:lodash._basecopy 3.0.1
 
 package:
 
-lodash._basecopy
-
-Copyright:
 lodash._basecopy
 
 453、source package:lodash._basetostring 3.0.1
@@ -7688,16 +5135,10 @@ package:
 
 lodash._basetostring
 
-Copyright:
-lodash._basetostring
-
 454、source package:lodash._basevalues 3.0.0
 
 package:
 
-lodash._basevalues
-
-Copyright:
 lodash._basevalues
 
 455、source package:lodash._getnative 3.9.1
@@ -7706,16 +5147,10 @@ package:
 
 lodash._getnative
 
-Copyright:
-lodash._getnative
-
 456、source package:lodash._isiterateecall 3.0.9
 
 package:
 
-lodash._isiterateecall
-
-Copyright:
 lodash._isiterateecall
 
 457、source package:lodash._reescape 3.0.0
@@ -7724,16 +5159,10 @@ package:
 
 lodash._reescape
 
-Copyright:
-lodash._reescape
-
 458、source package:lodash._reevaluate 3.0.0
 
 package:
 
-lodash._reevaluate
-
-Copyright:
 lodash._reevaluate
 
 459、source package:lodash._reinterpolate 3.0.0
@@ -7742,16 +5171,10 @@ package:
 
 lodash._reinterpolate
 
-Copyright:
-lodash._reinterpolate
-
 460、source package:lodash._root 3.0.1
 
 package:
 
-lodash._root
-
-Copyright:
 lodash._root
 
 461、source package:lodash.clonedeep 4.5.0
@@ -7760,16 +5183,10 @@ package:
 
 lodash.clonedeep
 
-Copyright:
-lodash.clonedeep
-
 462、source package:lodash.escape 3.2.0
 
 package:
 
-lodash.escape
-
-Copyright:
 lodash.escape
 
 463、source package:lodash.isarguments 3.1.0
@@ -7778,16 +5195,10 @@ package:
 
 lodash.isarguments
 
-Copyright:
-lodash.isarguments
-
 464、source package:lodash.isarray 3.0.4
 
 package:
 
-lodash.isarray
-
-Copyright:
 lodash.isarray
 
 465、source package:lodash.keys 3.1.2
@@ -7796,16 +5207,10 @@ package:
 
 lodash.keys
 
-Copyright:
-lodash.keys
-
 466、source package:lodash.memoize 3.0.4
 
 package:
 
-lodash.memoize
-
-Copyright:
 lodash.memoize
 
 467、source package:lodash.restparam 3.6.1
@@ -7814,16 +5219,10 @@ package:
 
 lodash.restparam
 
-Copyright:
-lodash.restparam
-
 468、source package:lodash.template 3.6.2
 
 package:
 
-lodash.template
-
-Copyright:
 lodash.template
 
 469、source package:lodash.templatesettings 3.1.1
@@ -7832,16 +5231,10 @@ package:
 
 lodash.templatesettings
 
-Copyright:
-lodash.templatesettings
-
 470、source package:logrus v1.9.3
 
 package:
 
-logrus
-
-Copyright:
 logrus
 
 471、source package:longest 1.0.1
@@ -7850,16 +5243,10 @@ package:
 
 longest
 
-Copyright:
-longest
-
 472、source package:loose-envify 1.4.0
 
 package:
 
-loose-envify
-
-Copyright:
 loose-envify
 
 473、source package:loud-rejection 1.6.0
@@ -7868,16 +5255,10 @@ package:
 
 loud-rejection
 
-Copyright:
-loud-rejection
-
 474、source package:magic-string 0.27.0
 
 package:
 
-magic-string
-
-Copyright:
 magic-string
 
 475、source package:make-iterator 1.0.1
@@ -7886,16 +5267,10 @@ package:
 
 make-iterator
 
-Copyright:
-make-iterator
-
 476、source package:map-cache 0.2.2
 
 package:
 
-map-cache
-
-Copyright:
 map-cache
 
 477、source package:map-obj 1.0.1
@@ -7904,16 +5279,10 @@ package:
 
 map-obj
 
-Copyright:
-map-obj
-
 478、source package:map-visit 1.0.0
 
 package:
 
-map-visit
-
-Copyright:
 map-visit
 
 479、source package:marked 1.2.3
@@ -7922,16 +5291,10 @@ package:
 
 marked
 
-Copyright:
-marked
-
 480、source package:md5.js 1.3.5
 
 package:
 
-md5.js
-
-Copyright:
 md5.js
 
 481、source package:mem 1.1.0
@@ -7940,16 +5303,10 @@ package:
 
 mem
 
-Copyright:
-mem
-
 482、source package:memoize-one 6.0.0
 
 package:
 
-memoize-one
-
-Copyright:
 memoize-one
 
 483、source package:memory-fs 0.4.1
@@ -7958,16 +5315,10 @@ package:
 
 memory-fs
 
-Copyright:
-memory-fs
-
 484、source package:meow 3.7.0
 
 package:
 
-meow
-
-Copyright:
 meow
 
 485、source package:merge2 1.4.1
@@ -7976,16 +5327,10 @@ package:
 
 merge2
 
-Copyright:
-merge2
-
 486、source package:mesa-utils 9.0.0-1
 
 package:
 
-mesa-utils
-
-Copyright:
 mesa-utils
 
 487、source package:mesa-va-drivers 20.1.2-1_armel
@@ -7994,16 +5339,10 @@ package:
 
 mesa-va-drivers
 
-Copyright:
-mesa-va-drivers
-
 488、source package:mesa-vdpau-drivers 20.1.2-1_mipsel
 
 package:
 
-mesa-vdpau-drivers
-
-Copyright:
 mesa-vdpau-drivers
 
 489、source package:mesa-vulkan-drivers 20.1.2-1_mips64el
@@ -8012,16 +5351,10 @@ package:
 
 mesa-vulkan-drivers
 
-Copyright:
-mesa-vulkan-drivers
-
 490、source package:micromatch 3.1.10
 
 package:
 
-micromatch
-
-Copyright:
 micromatch
 
 491、source package:miller-rabin 4.0.1
@@ -8030,16 +5363,10 @@ package:
 
 miller-rabin
 
-Copyright:
-miller-rabin
-
 492、source package:mime-db 1.40.0
 
 package:
 
-mime-db
-
-Copyright:
 mime-db
 
 493、source package:mime-types 2.1.24
@@ -8048,16 +5375,10 @@ package:
 
 mime-types
 
-Copyright:
-mime-types
-
 494、source package:mimic-fn 1.2.0
 
 package:
 
-mimic-fn
-
-Copyright:
 mimic-fn
 
 495、source package:minimalistic-crypto-utils 1.0.1
@@ -8066,16 +5387,10 @@ package:
 
 minimalistic-crypto-utils
 
-Copyright:
-minimalistic-crypto-utils
-
 496、source package:minimatch 0.2.14
 
 package:
 
-minimatch
-
-Copyright:
 minimatch
 
 497、source package:minimist 1.2.5
@@ -8084,16 +5399,10 @@ package:
 
 minimist
 
-Copyright:
-minimist
-
 498、source package:mitt 3.0.0
 
 package:
 
-mitt
-
-Copyright:
 mitt
 
 499、source package:mixin-deep 1.3.2
@@ -8102,16 +5411,10 @@ package:
 
 mixin-deep
 
-Copyright:
-mixin-deep
-
 500、source package:mkdirp 0.5.5
 
 package:
 
-mkdirp
-
-Copyright:
 mkdirp
 
 501、source package:mlly 1.4.2
@@ -8120,16 +5423,10 @@ package:
 
 mlly
 
-Copyright:
-mlly
-
 502、source package:module-deps 4.1.1
 
 package:
 
-module-deps
-
-Copyright:
 module-deps
 
 503、source package:moment 2.29.4
@@ -8138,16 +5435,10 @@ package:
 
 moment
 
-Copyright:
-moment
-
 504、source package:mqt.qfr 1.10.0
 
 package:
 
-mqt.qfr
-
-Copyright:
 mqt.qfr
 
 505、source package:ms 2.1.2
@@ -8156,16 +5447,10 @@ package:
 
 ms
 
-Copyright:
-ms
-
 506、source package:multipipe 0.1.2
 
 package:
 
-multipipe
-
-Copyright:
 multipipe
 
 507、source package:nan 2.14.0
@@ -8174,16 +5459,10 @@ package:
 
 nan
 
-Copyright:
-nan
-
 508、source package:nanomatch 1.2.13
 
 package:
 
-nanomatch
-
-Copyright:
 nanomatch
 
 509、source package:native v1.1.0
@@ -8192,16 +5471,10 @@ package:
 
 native
 
-Copyright:
-native
-
 510、source package:ncurses-base 6.2-1_all
 
 package:
 
-ncurses-base
-
-Copyright:
 ncurses-base
 
 511、source package:neo-async 2.6.2
@@ -8210,16 +5483,10 @@ package:
 
 neo-async
 
-Copyright:
-neo-async
-
 512、source package:netlink v1.7.2
 
 package:
 
-netlink
-
-Copyright:
 netlink
 
 513、source package:next-tick 1.0.0
@@ -8228,16 +5495,10 @@ package:
 
 next-tick
 
-Copyright:
-next-tick
-
 514、source package:nlohmann_json nlohmann_json-3.7.3
 
 package:
 
-nlohmann_json
-
-Copyright:
 nlohmann_json
 
 515、source package:node 8.16.1
@@ -8246,16 +5507,10 @@ package:
 
 node
 
-Copyright:
-node
-
 516、source package:node-gyp 3.8.0
 
 package:
 
-node-gyp
-
-Copyright:
 node-gyp
 
 517、source package:node-libs-browser 2.2.1
@@ -8264,16 +5519,10 @@ package:
 
 node-libs-browser
 
-Copyright:
-node-libs-browser
-
 518、source package:node-sass 4.12.0
 
 package:
 
-node-sass
-
-Copyright:
 node-sass
 
 519、source package:normalize-path 3.0.0
@@ -8282,16 +5531,10 @@ package:
 
 normalize-path
 
-Copyright:
-normalize-path
-
 520、source package:npm-run-path 2.0.2
 
 package:
 
-npm-run-path
-
-Copyright:
 npm-run-path
 
 521、source package:number-is-nan 1.0.1
@@ -8300,16 +5543,10 @@ package:
 
 number-is-nan
 
-Copyright:
-number-is-nan
-
 522、source package:object-assign 4.1.1
 
 package:
 
-object-assign
-
-Copyright:
 object-assign
 
 523、source package:object-copy 0.1.0
@@ -8318,16 +5555,10 @@ package:
 
 object-copy
 
-Copyright:
-object-copy
-
 524、source package:object-visit 1.0.1
 
 package:
 
-object-visit
-
-Copyright:
 object-visit
 
 525、source package:object.defaults 1.1.0
@@ -8336,16 +5567,10 @@ package:
 
 object.defaults
 
-Copyright:
-object.defaults
-
 526、source package:object.map 1.0.1
 
 package:
 
-object.map
-
-Copyright:
 object.map
 
 527、source package:object.pick 1.3.0
@@ -8354,16 +5579,10 @@ package:
 
 object.pick
 
-Copyright:
-object.pick
-
 528、source package:objx v0.5.2
 
 package:
 
-objx
-
-Copyright:
 objx
 
 529、source package:orchestrator 0.3.8
@@ -8372,16 +5591,10 @@ package:
 
 orchestrator
 
-Copyright:
-orchestrator
-
 530、source package:ordered-read-streams 0.1.0
 
 package:
 
-ordered-read-streams
-
-Copyright:
 ordered-read-streams
 
 531、source package:os-browserify 0.3.0
@@ -8390,16 +5603,10 @@ package:
 
 os-browserify
 
-Copyright:
-os-browserify
-
 532、source package:os-config 0.2.3
 
 package:
 
-os-config
-
-Copyright:
 os-config
 
 533、source package:os-homedir 1.0.2
@@ -8408,16 +5615,10 @@ package:
 
 os-homedir
 
-Copyright:
-os-homedir
-
 534、source package:os-locale 2.1.0
 
 package:
 
-os-locale
-
-Copyright:
 os-locale
 
 535、source package:os-tmpdir 1.0.2
@@ -8426,16 +5627,10 @@ package:
 
 os-tmpdir
 
-Copyright:
-os-tmpdir
-
 536、source package:p-finally 1.0.0
 
 package:
 
-p-finally
-
-Copyright:
 p-finally
 
 537、source package:p-limit 1.3.0
@@ -8444,16 +5639,10 @@ package:
 
 p-limit
 
-Copyright:
-p-limit
-
 538、source package:p-locate 2.0.0
 
 package:
 
-p-locate
-
-Copyright:
 p-locate
 
 539、source package:p-try 1.0.0
@@ -8462,16 +5651,10 @@ package:
 
 p-try
 
-Copyright:
-p-try
-
 540、source package:pako 1.0.11
 
 package:
 
-pako
-
-Copyright:
 pako
 
 541、source package:parents 1.0.1
@@ -8480,16 +5663,10 @@ package:
 
 parents
 
-Copyright:
-parents
-
 542、source package:parse-filepath 1.0.2
 
 package:
 
-parse-filepath
-
-Copyright:
 parse-filepath
 
 543、source package:parse-json 2.2.0
@@ -8498,16 +5675,10 @@ package:
 
 parse-json
 
-Copyright:
-parse-json
-
 544、source package:parse-node-version 1.0.1
 
 package:
 
-parse-node-version
-
-Copyright:
 parse-node-version
 
 545、source package:parse-passwd 1.0.0
@@ -8516,16 +5687,10 @@ package:
 
 parse-passwd
 
-Copyright:
-parse-passwd
-
 546、source package:parse5 3.0.3
 
 package:
 
-parse5
-
-Copyright:
 parse5
 
 547、source package:pascalcase 0.1.1
@@ -8534,16 +5699,10 @@ package:
 
 pascalcase
 
-Copyright:
-pascalcase
-
 548、source package:path-browserify 0.0.1
 
 package:
 
-path-browserify
-
-Copyright:
 path-browserify
 
 549、source package:path-dirname 1.0.2
@@ -8552,16 +5711,10 @@ package:
 
 path-dirname
 
-Copyright:
-path-dirname
-
 550、source package:path-exists 3.0.0
 
 package:
 
-path-exists
-
-Copyright:
 path-exists
 
 551、source package:path-is-absolute 1.0.1
@@ -8570,16 +5723,10 @@ package:
 
 path-is-absolute
 
-Copyright:
-path-is-absolute
-
 552、source package:path-key 2.0.1
 
 package:
 
-path-key
-
-Copyright:
 path-key
 
 553、source package:path-parse 1.0.7
@@ -8588,16 +5735,10 @@ package:
 
 path-parse
 
-Copyright:
-path-parse
-
 554、source package:path-platform 0.11.15
 
 package:
 
-path-platform
-
-Copyright:
 path-platform
 
 555、source package:path-root 0.1.1
@@ -8606,16 +5747,10 @@ package:
 
 path-root
 
-Copyright:
-path-root
-
 556、source package:path-root-regex 0.1.2
 
 package:
 
-path-root-regex
-
-Copyright:
 path-root-regex
 
 557、source package:path-to-regexp 1.7.0
@@ -8624,16 +5759,10 @@ package:
 
 path-to-regexp
 
-Copyright:
-path-to-regexp
-
 558、source package:path-type 2.0.0
 
 package:
 
-path-type
-
-Copyright:
 path-type
 
 559、source package:pathe 1.1.1
@@ -8642,16 +5771,10 @@ package:
 
 pathe
 
-Copyright:
-pathe
-
 560、source package:pbkdf2 3.1.1
 
 package:
 
-pbkdf2
-
-Copyright:
 pbkdf2
 
 561、source package:performance-now 2.1.0
@@ -8660,16 +5783,10 @@ package:
 
 performance-now
 
-Copyright:
-performance-now
-
 562、source package:picomatch 2.3.1
 
 package:
 
-picomatch
-
-Copyright:
 picomatch
 
 563、source package:pify 2.3.0
@@ -8678,16 +5795,10 @@ package:
 
 pify
 
-Copyright:
-pify
-
 564、source package:pinia 2.0.22
 
 package:
 
-pinia
-
-Copyright:
 pinia
 
 565、source package:pinkie 2.0.4
@@ -8696,16 +5807,10 @@ package:
 
 pinkie
 
-Copyright:
-pinkie
-
 566、source package:pinkie-promise 2.0.1
 
 package:
 
-pinkie-promise
-
-Copyright:
 pinkie-promise
 
 567、source package:pipewire-pulse 0.3.71
@@ -8714,16 +5819,10 @@ package:
 
 pipewire-pulse
 
-Copyright:
-pipewire-pulse
-
 568、source package:pkg-types 1.0.3
 
 package:
 
-pkg-types
-
-Copyright:
 pkg-types
 
 569、source package:platform/external/fmtlib upstream-master
@@ -8732,16 +5831,10 @@ package:
 
 platform/external/fmtlib
 
-Copyright:
-platform/external/fmtlib
-
 570、source package:portaudio19-dev 19.6.0-1_s390x
 
 package:
 
-portaudio19-dev
-
-Copyright:
 portaudio19-dev
 
 571、source package:posix-character-classes 0.1.1
@@ -8750,16 +5843,10 @@ package:
 
 posix-character-classes
 
-Copyright:
-posix-character-classes
-
 572、source package:prefix-style 2.0.1
 
 package:
 
-prefix-style
-
-Copyright:
 prefix-style
 
 573、source package:pretty v0.2.1
@@ -8768,16 +5855,10 @@ package:
 
 pretty
 
-Copyright:
-pretty
-
 574、source package:pretty-hrtime 1.0.3
 
 package:
 
-pretty-hrtime
-
-Copyright:
 pretty-hrtime
 
 575、source package:private 0.1.8
@@ -8786,16 +5867,10 @@ package:
 
 private
 
-Copyright:
-private
-
 576、source package:process 0.11.10
 
 package:
 
-process
-
-Copyright:
 process
 
 577、source package:process-nextick-args 2.0.1
@@ -8804,16 +5879,10 @@ package:
 
 process-nextick-args
 
-Copyright:
-process-nextick-args
-
 578、source package:promxy v0.0.81
 
 package:
 
-promxy
-
-Copyright:
 promxy
 
 579、source package:prop-types 15.7.2
@@ -8822,16 +5891,10 @@ package:
 
 prop-types
 
-Copyright:
-prop-types
-
 580、source package:prr 1.0.1
 
 package:
 
-prr
-
-Copyright:
 prr
 
 581、source package:psl 1.4.0
@@ -8840,16 +5903,10 @@ package:
 
 psl
 
-Copyright:
-psl
-
 582、source package:public-encrypt 4.0.3
 
 package:
 
-public-encrypt
-
-Copyright:
 public-encrypt
 
 583、source package:punycode 2.1.1
@@ -8858,16 +5915,10 @@ package:
 
 punycode
 
-Copyright:
-punycode
-
 584、source package:python3 3.8.2-3_s390x
 
 package:
 
-python3
-
-Copyright:
 python3
 
 585、source package:python3-dbus 1.2.8-3_s390x
@@ -8876,16 +5927,10 @@ package:
 
 python3-dbus
 
-Copyright:
-python3-dbus
-
 586、source package:querystring 0.2.0
 
 package:
 
-querystring
-
-Copyright:
 querystring
 
 587、source package:querystring-es3 0.2.1
@@ -8894,16 +5939,10 @@ package:
 
 querystring-es3
 
-Copyright:
-querystring-es3
-
 588、source package:queue-microtask 1.2.3
 
 package:
 
-queue-microtask
-
-Copyright:
 queue-microtask
 
 589、source package:raf 3.4.1
@@ -8912,16 +5951,10 @@ package:
 
 raf
 
-Copyright:
-raf
-
 590、source package:randombytes 2.1.0
 
 package:
 
-randombytes
-
-Copyright:
 randombytes
 
 591、source package:randomfill 1.0.4
@@ -8930,16 +5963,10 @@ package:
 
 randomfill
 
-Copyright:
-randomfill
-
 592、source package:react 16.9.0
 
 package:
 
-react
-
-Copyright:
 react
 
 593、source package:react-custom-scrollbars 4.2.1
@@ -8948,16 +5975,10 @@ package:
 
 react-custom-scrollbars
 
-Copyright:
-react-custom-scrollbars
-
 594、source package:react-dom 16.9.0
 
 package:
 
-react-dom
-
-Copyright:
 react-dom
 
 595、source package:react-is 16.9.0
@@ -8966,16 +5987,10 @@ package:
 
 react-is
 
-Copyright:
-react-is
-
 596、source package:react-router 4.3.1
 
 package:
 
-react-router
-
-Copyright:
 react-router
 
 597、source package:react-router-dom 4.3.1
@@ -8984,16 +5999,10 @@ package:
 
 react-router-dom
 
-Copyright:
-react-router-dom
-
 598、source package:read-only-stream 2.0.0
 
 package:
 
-read-only-stream
-
-Copyright:
 read-only-stream
 
 599、source package:read-pkg 2.0.0
@@ -9002,16 +6011,10 @@ package:
 
 read-pkg
 
-Copyright:
-read-pkg
-
 600、source package:read-pkg-up 2.0.0
 
 package:
 
-read-pkg-up
-
-Copyright:
 read-pkg-up
 
 601、source package:readable-stream 3.6.0
@@ -9020,16 +6023,10 @@ package:
 
 readable-stream
 
-Copyright:
-readable-stream
-
 602、source package:readdirp 3.6.0
 
 package:
 
-readdirp
-
-Copyright:
 readdirp
 
 603、source package:rechoir 0.6.2
@@ -9038,16 +6035,10 @@ package:
 
 rechoir
 
-Copyright:
-rechoir
-
 604、source package:redent 1.0.0
 
 package:
 
-redent
-
-Copyright:
 redent
 
 605、source package:regenerate 1.4.0
@@ -9056,16 +6047,10 @@ package:
 
 regenerate
 
-Copyright:
-regenerate
-
 606、source package:regenerator-runtime 0.13.3
 
 package:
 
-regenerator-runtime
-
-Copyright:
 regenerator-runtime
 
 607、source package:regex-not 1.0.2
@@ -9074,16 +6059,10 @@ package:
 
 regex-not
 
-Copyright:
-regex-not
-
 608、source package:regexpu-core 2.0.0
 
 package:
 
-regexpu-core
-
-Copyright:
 regexpu-core
 
 609、source package:regjsgen 0.2.0
@@ -9092,16 +6071,10 @@ package:
 
 regjsgen
 
-Copyright:
-regjsgen
-
 610、source package:repeat-element 1.1.3
 
 package:
 
-repeat-element
-
-Copyright:
 repeat-element
 
 611、source package:repeat-string 1.6.1
@@ -9110,16 +6083,10 @@ package:
 
 repeat-string
 
-Copyright:
-repeat-string
-
 612、source package:repeating 2.0.1
 
 package:
 
-repeating
-
-Copyright:
 repeating
 
 613、source package:replace-ext 1.0.0
@@ -9128,16 +6095,10 @@ package:
 
 replace-ext
 
-Copyright:
-replace-ext
-
 614、source package:require-directory 2.1.1
 
 package:
 
-require-directory
-
-Copyright:
 require-directory
 
 615、source package:resolve 1.22.1
@@ -9146,16 +6107,10 @@ package:
 
 resolve
 
-Copyright:
-resolve
-
 616、source package:resolve-dir 1.0.1
 
 package:
 
-resolve-dir
-
-Copyright:
 resolve-dir
 
 617、source package:resolve-pathname 2.2.0
@@ -9164,16 +6119,10 @@ package:
 
 resolve-pathname
 
-Copyright:
-resolve-pathname
-
 618、source package:resolve-url 0.2.1
 
 package:
 
-resolve-url
-
-Copyright:
 resolve-url
 
 619、source package:ret 0.1.15
@@ -9182,16 +6131,10 @@ package:
 
 ret
 
-Copyright:
-ret
-
 620、source package:reusify 1.0.4
 
 package:
 
-reusify
-
-Copyright:
 reusify
 
 621、source package:right-align 0.1.3
@@ -9200,16 +6143,10 @@ package:
 
 right-align
 
-Copyright:
-right-align
-
 622、source package:ripemd160 2.0.2
 
 package:
 
-ripemd160
-
-Copyright:
 ripemd160
 
 623、source package:rollup 2.79.1
@@ -9218,16 +6155,10 @@ package:
 
 rollup
 
-Copyright:
-rollup
-
 624、source package:run-parallel 1.2.0
 
 package:
 
-run-parallel
-
-Copyright:
 run-parallel
 
 625、source package:safe-buffer 5.2.1
@@ -9236,16 +6167,10 @@ package:
 
 safe-buffer
 
-Copyright:
-safe-buffer
-
 626、source package:safe-regex 1.1.0
 
 package:
 
-safe-regex
-
-Copyright:
 safe-regex
 
 627、source package:safer-buffer 2.1.2
@@ -9254,16 +6179,10 @@ package:
 
 safer-buffer
 
-Copyright:
-safer-buffer
-
 628、source package:sass 1.55.0
 
 package:
 
-sass
-
-Copyright:
 sass
 
 629、source package:sass-graph 2.2.4
@@ -9272,16 +6191,10 @@ package:
 
 sass-graph
 
-Copyright:
-sass-graph
-
 630、source package:scheduler 0.15.0
 
 package:
 
-scheduler
-
-Copyright:
 scheduler
 
 631、source package:schema-utils 3.0.0
@@ -9290,16 +6203,10 @@ package:
 
 schema-utils
 
-Copyright:
-schema-utils
-
 632、source package:scroll-into-view-if-needed 2.2.20
 
 package:
 
-scroll-into-view-if-needed
-
-Copyright:
 scroll-into-view-if-needed
 
 633、source package:scss-tokenizer 0.2.3
@@ -9308,16 +6215,10 @@ package:
 
 scss-tokenizer
 
-Copyright:
-scss-tokenizer
-
 634、source package:scule 1.1.1
 
 package:
 
-scule
-
-Copyright:
 scule
 
 635、source package:sequencify 0.0.7
@@ -9326,16 +6227,10 @@ package:
 
 sequencify
 
-Copyright:
-sequencify
-
 636、source package:set-value 2.0.1
 
 package:
 
-set-value
-
-Copyright:
 set-value
 
 637、source package:setimmediate 1.0.5
@@ -9344,16 +6239,10 @@ package:
 
 setimmediate
 
-Copyright:
-setimmediate
-
 638、source package:sha.js 2.4.11
 
 package:
 
-sha.js
-
-Copyright:
 sha.js
 
 639、source package:shadered v1.5.3
@@ -9362,16 +6251,10 @@ package:
 
 shadered
 
-Copyright:
-shadered
-
 640、source package:shasum 1.0.2
 
 package:
 
-shasum
-
-Copyright:
 shasum
 
 641、source package:shebang-command 1.2.0
@@ -9380,16 +6263,10 @@ package:
 
 shebang-command
 
-Copyright:
-shebang-command
-
 642、source package:shebang-regex 1.0.0
 
 package:
 
-shebang-regex
-
-Copyright:
 shebang-regex
 
 643、source package:shell-quote 1.7.2
@@ -9398,16 +6275,10 @@ package:
 
 shell-quote
 
-Copyright:
-shell-quote
-
 644、source package:simple-concat 1.0.0
 
 package:
 
-simple-concat
-
-Copyright:
 simple-concat
 
 645、source package:slash 1.0.0
@@ -9416,16 +6287,10 @@ package:
 
 slash
 
-Copyright:
-slash
-
 646、source package:slirp4netns 1.2.0-1
 
 package:
 
-slirp4netns
-
-Copyright:
 slirp4netns
 
 647、source package:smooth-scroll-into-view-if-needed 1.1.23
@@ -9434,16 +6299,10 @@ package:
 
 smooth-scroll-into-view-if-needed
 
-Copyright:
-smooth-scroll-into-view-if-needed
-
 648、source package:snapdragon 0.8.2
 
 package:
 
-snapdragon
-
-Copyright:
 snapdragon
 
 649、source package:snapdragon-node 2.1.1
@@ -9452,16 +6311,10 @@ package:
 
 snapdragon-node
 
-Copyright:
-snapdragon-node
-
 650、source package:snapdragon-util 3.0.1
 
 package:
 
-snapdragon-util
-
-Copyright:
 snapdragon-util
 
 651、source package:source-list-map 2.0.1
@@ -9470,16 +6323,10 @@ package:
 
 source-list-map
 
-Copyright:
-source-list-map
-
 652、source package:source-map-resolve 0.5.3
 
 package:
 
-source-map-resolve
-
-Copyright:
 source-map-resolve
 
 653、source package:source-map-support 0.5.21
@@ -9488,16 +6335,10 @@ package:
 
 source-map-support
 
-Copyright:
-source-map-support
-
 654、source package:source-map-url 0.4.0
 
 package:
 
-source-map-url
-
-Copyright:
 source-map-url
 
 655、source package:sourcemap-codec 1.4.8
@@ -9506,16 +6347,10 @@ package:
 
 sourcemap-codec
 
-Copyright:
-sourcemap-codec
-
 656、source package:sparkles 1.0.1
 
 package:
 
-sparkles
-
-Copyright:
 sparkles
 
 657、source package:spdx-expression-parse 3.0.1
@@ -9524,16 +6359,10 @@ package:
 
 spdx-expression-parse
 
-Copyright:
-spdx-expression-parse
-
 658、source package:split-string 3.1.0
 
 package:
 
-split-string
-
-Copyright:
 split-string
 
 659、source package:sqlclosecheck v0.5.0
@@ -9542,16 +6371,10 @@ package:
 
 sqlclosecheck
 
-Copyright:
-sqlclosecheck
-
 660、source package:sse v0.1.0
 
 package:
 
-sse
-
-Copyright:
 sse
 
 661、source package:sshpk 1.16.1
@@ -9560,16 +6383,10 @@ package:
 
 sshpk
 
-Copyright:
-sshpk
-
 662、source package:static-extend 0.1.2
 
 package:
 
-static-extend
-
-Copyright:
 static-extend
 
 663、source package:stdout-stream 1.4.1
@@ -9578,16 +6395,10 @@ package:
 
 stdout-stream
 
-Copyright:
-stdout-stream
-
 664、source package:stream-browserify 2.0.2
 
 package:
 
-stream-browserify
-
-Copyright:
 stream-browserify
 
 665、source package:stream-combiner2 1.1.1
@@ -9596,16 +6407,10 @@ package:
 
 stream-combiner2
 
-Copyright:
-stream-combiner2
-
 666、source package:stream-consume 0.1.1
 
 package:
 
-stream-consume
-
-Copyright:
 stream-consume
 
 667、source package:stream-http 2.8.3
@@ -9614,16 +6419,10 @@ package:
 
 stream-http
 
-Copyright:
-stream-http
-
 668、source package:stream-splicer 2.0.1
 
 package:
 
-stream-splicer
-
-Copyright:
 stream-splicer
 
 669、source package:string-width 2.1.1
@@ -9632,16 +6431,10 @@ package:
 
 string-width
 
-Copyright:
-string-width
-
 670、source package:string_decoder 1.3.0
 
 package:
 
-string_decoder
-
-Copyright:
 string_decoder
 
 671、source package:strip-ansi 4.0.0
@@ -9650,16 +6443,10 @@ package:
 
 strip-ansi
 
-Copyright:
-strip-ansi
-
 672、source package:strip-bom 3.0.0
 
 package:
 
-strip-bom
-
-Copyright:
 strip-bom
 
 673、source package:strip-eof 1.0.0
@@ -9668,16 +6455,10 @@ package:
 
 strip-eof
 
-Copyright:
-strip-eof
-
 674、source package:strip-indent 1.0.1
 
 package:
 
-strip-indent
-
-Copyright:
 strip-indent
 
 675、source package:strip-literal 1.3.0
@@ -9686,16 +6467,10 @@ package:
 
 strip-literal
 
-Copyright:
-strip-literal
-
 676、source package:subarg 1.0.0
 
 package:
 
-subarg
-
-Copyright:
 subarg
 
 677、source package:sudo 1.9.8p2-1~exp1
@@ -9704,16 +6479,10 @@ package:
 
 sudo
 
-Copyright:
-sudo
-
 678、source package:supports-color 4.5.0
 
 package:
 
-supports-color
-
-Copyright:
 supports-color
 
 679、source package:supports-preserve-symlinks-flag 1.0.0
@@ -9722,16 +6491,10 @@ package:
 
 supports-preserve-symlinks-flag
 
-Copyright:
-supports-preserve-symlinks-flag
-
 680、source package:syntax-error 1.4.0
 
 package:
 
-syntax-error
-
-Copyright:
 syntax-error
 
 681、source package:sys v0.5.0
@@ -9740,16 +6503,10 @@ package:
 
 sys
 
-Copyright:
-sys
-
 682、source package:systemjs 6.13.0
 
 package:
 
-systemjs
-
-Copyright:
 systemjs
 
 683、source package:tapable 0.2.9
@@ -9758,16 +6515,10 @@ package:
 
 tapable
 
-Copyright:
-tapable
-
 684、source package:testify v1.9.0
 
 package:
 
-testify
-
-Copyright:
 testify
 
 685、source package:text v0.1.0
@@ -9776,16 +6527,10 @@ package:
 
 text
 
-Copyright:
-text
-
 686、source package:through2 2.0.5
 
 package:
 
-through2
-
-Copyright:
 through2
 
 687、source package:tildify 1.2.0
@@ -9794,16 +6539,10 @@ package:
 
 tildify
 
-Copyright:
-tildify
-
 688、source package:time-stamp 1.1.0
 
 package:
 
-time-stamp
-
-Copyright:
 time-stamp
 
 689、source package:timers-browserify 2.0.12
@@ -9812,16 +6551,10 @@ package:
 
 timers-browserify
 
-Copyright:
-timers-browserify
-
 690、source package:tiny-invariant 1.0.6
 
 package:
 
-tiny-invariant
-
-Copyright:
 tiny-invariant
 
 691、source package:tiny-warning 1.0.3
@@ -9830,16 +6563,10 @@ package:
 
 tiny-warning
 
-Copyright:
-tiny-warning
-
 692、source package:tinyaes 1.0.4rc1
 
 package:
 
-tinyaes
-
-Copyright:
 tinyaes
 
 693、source package:tlp 1.5.0-1~bpo11+1
@@ -9848,16 +6575,10 @@ package:
 
 tlp
 
-Copyright:
-tlp
-
 694、source package:to-arraybuffer 1.0.1
 
 package:
 
-to-arraybuffer
-
-Copyright:
 to-arraybuffer
 
 695、source package:to-camel-case 1.0.0
@@ -9866,16 +6587,10 @@ package:
 
 to-camel-case
 
-Copyright:
-to-camel-case
-
 696、source package:to-fast-properties 1.0.3
 
 package:
 
-to-fast-properties
-
-Copyright:
 to-fast-properties
 
 697、source package:to-no-case 1.0.2
@@ -9884,16 +6599,10 @@ package:
 
 to-no-case
 
-Copyright:
-to-no-case
-
 698、source package:to-object-path 0.3.0
 
 package:
 
-to-object-path
-
-Copyright:
 to-object-path
 
 699、source package:to-regex 3.0.2
@@ -9902,16 +6611,10 @@ package:
 
 to-regex
 
-Copyright:
-to-regex
-
 700、source package:to-regex-range 5.0.1
 
 package:
 
-to-regex-range
-
-Copyright:
 to-regex-range
 
 701、source package:to-space-case 1.0.0
@@ -9920,16 +6623,10 @@ package:
 
 to-space-case
 
-Copyright:
-to-space-case
-
 702、source package:toml v1.3.2
 
 package:
 
-toml
-
-Copyright:
 toml
 
 703、source package:tools v0.6.0
@@ -9938,16 +6635,10 @@ package:
 
 tools
 
-Copyright:
-tools
-
 704、source package:tortellini 4f6795a
 
 package:
 
-tortellini
-
-Copyright:
 tortellini
 
 705、source package:trim-newlines 1.0.0
@@ -9956,16 +6647,10 @@ package:
 
 trim-newlines
 
-Copyright:
-trim-newlines
-
 706、source package:trim-right 1.0.1
 
 package:
 
-trim-right
-
-Copyright:
 trim-right
 
 707、source package:tty-browserify 0.0.1
@@ -9974,16 +6659,10 @@ package:
 
 tty-browserify
 
-Copyright:
-tty-browserify
-
 708、source package:typedarray 0.0.6
 
 package:
 
-typedarray
-
-Copyright:
 typedarray
 
 709、source package:uglify-to-browserify 1.0.2
@@ -9992,16 +6671,10 @@ package:
 
 uglify-to-browserify
 
-Copyright:
-uglify-to-browserify
-
 710、source package:uglifyjs-webpack-plugin 0.4.6
 
 package:
 
-uglifyjs-webpack-plugin
-
-Copyright:
 uglifyjs-webpack-plugin
 
 711、source package:umd 3.0.3
@@ -10010,16 +6683,10 @@ package:
 
 umd
 
-Copyright:
-umd
-
 712、source package:unc-path-regex 0.1.2
 
 package:
 
-unc-path-regex
-
-Copyright:
 unc-path-regex
 
 713、source package:unimport 1.3.0
@@ -10028,16 +6695,10 @@ package:
 
 unimport
 
-Copyright:
-unimport
-
 714、source package:union-value 1.0.1
 
 package:
 
-union-value
-
-Copyright:
 union-value
 
 715、source package:unique-stream 1.0.0
@@ -10046,16 +6707,10 @@ package:
 
 unique-stream
 
-Copyright:
-unique-stream
-
 716、source package:universal-translator v0.16.0
 
 package:
 
-universal-translator
-
-Copyright:
 universal-translator
 
 717、source package:unplugin-auto-import 0.11.5
@@ -10064,16 +6719,10 @@ package:
 
 unplugin-auto-import
 
-Copyright:
-unplugin-auto-import
-
 718、source package:unplugin-vue-components 0.22.12
 
 package:
 
-unplugin-vue-components
-
-Copyright:
 unplugin-vue-components
 
 719、source package:unset-value 1.0.0
@@ -10082,16 +6731,10 @@ package:
 
 unset-value
 
-Copyright:
-unset-value
-
 720、source package:upath 1.2.0
 
 package:
 
-upath
-
-Copyright:
 upath
 
 721、source package:urix 0.1.0
@@ -10100,16 +6743,10 @@ package:
 
 urix
 
-Copyright:
-urix
-
 722、source package:url 0.11.0
 
 package:
 
-url
-
-Copyright:
 url
 
 723、source package:use 3.1.1
@@ -10118,16 +6755,10 @@ package:
 
 use
 
-Copyright:
-use
-
 724、source package:user-home 1.1.1
 
 package:
 
-user-home
-
-Copyright:
 user-home
 
 725、source package:util 0.11.1
@@ -10136,16 +6767,10 @@ package:
 
 util
 
-Copyright:
-util
-
 726、source package:util-deprecate 1.0.2
 
 package:
 
-util-deprecate
-
-Copyright:
 util-deprecate
 
 727、source package:uuid 3.3.3
@@ -10154,16 +6779,10 @@ package:
 
 uuid
 
-Copyright:
-uuid
-
 728、source package:v-drag 3.0.9
 
 package:
 
-v-drag
-
-Copyright:
 v-drag
 
 729、source package:v8flags 2.1.1
@@ -10172,16 +6791,10 @@ package:
 
 v8flags
 
-Copyright:
-v8flags
-
 730、source package:value-equal 0.4.0
 
 package:
 
-value-equal
-
-Copyright:
 value-equal
 
 731、source package:verror 1.10.0
@@ -10190,16 +6803,10 @@ package:
 
 verror
 
-Copyright:
-verror
-
 732、source package:vinyl 2.2.0
 
 package:
 
-vinyl
-
-Copyright:
 vinyl
 
 733、source package:vinyl-buffer 1.0.1
@@ -10208,16 +6815,10 @@ package:
 
 vinyl-buffer
 
-Copyright:
-vinyl-buffer
-
 734、source package:vinyl-fs 0.3.14
 
 package:
 
-vinyl-fs
-
-Copyright:
 vinyl-fs
 
 735、source package:vinyl-source-stream 2.0.0
@@ -10226,16 +6827,10 @@ package:
 
 vinyl-source-stream
 
-Copyright:
-vinyl-source-stream
-
 736、source package:vm-browserify 1.1.2
 
 package:
 
-vm-browserify
-
-Copyright:
 vm-browserify
 
 737、source package:vue-codemirror 6.1.1
@@ -10244,16 +6839,10 @@ package:
 
 vue-codemirror
 
-Copyright:
-vue-codemirror
-
 738、source package:vue-demi 0.13.11
 
 package:
 
-vue-demi
-
-Copyright:
 vue-demi
 
 739、source package:vue-router 4.1.5
@@ -10262,16 +6851,10 @@ package:
 
 vue-router
 
-Copyright:
-vue-router
-
 740、source package:w3c-keyname 2.2.8
 
 package:
 
-w3c-keyname
-
-Copyright:
 w3c-keyname
 
 741、source package:warning 4.0.3
@@ -10280,16 +6863,10 @@ package:
 
 warning
 
-Copyright:
-warning
-
 742、source package:watchpack 1.7.4
 
 package:
 
-watchpack
-
-Copyright:
 watchpack
 
 743、source package:watchpack-chokidar2 2.0.0
@@ -10298,16 +6875,10 @@ package:
 
 watchpack-chokidar2
 
-Copyright:
-watchpack-chokidar2
-
 744、source package:webpack 3.12.0
 
 package:
 
-webpack
-
-Copyright:
 webpack
 
 745、source package:webpack-sources 3.2.3
@@ -10316,16 +6887,10 @@ package:
 
 webpack-sources
 
-Copyright:
-webpack-sources
-
 746、source package:webpack-virtual-modules 0.6.1
 
 package:
 
-webpack-virtual-modules
-
-Copyright:
 webpack-virtual-modules
 
 747、source package:window-size 0.1.0
@@ -10334,16 +6899,10 @@ package:
 
 window-size
 
-Copyright:
-window-size
-
 748、source package:wireplumber 0.4.9-1
 
 package:
 
-wireplumber
-
-Copyright:
 wireplumber
 
 749、source package:wordwrap 0.0.2
@@ -10352,16 +6911,10 @@ package:
 
 wordwrap
 
-Copyright:
-wordwrap
-
 750、source package:wrap-ansi 2.1.0
 
 package:
 
-wrap-ansi
-
-Copyright:
 wrap-ansi
 
 751、source package:x11-utils 7.7~1_sparc
@@ -10370,16 +6923,10 @@ package:
 
 x11-utils
 
-Copyright:
-x11-utils
-
 752、source package:x11-xserver-utils 7.7~3_sparc
 
 package:
 
-x11-xserver-utils
-
-Copyright:
 x11-xserver-utils
 
 753、source package:x11proto-record-dev 2020.1-1_all
@@ -10388,16 +6935,10 @@ package:
 
 x11proto-record-dev
 
-Copyright:
-x11proto-record-dev
-
 754、source package:x11proto-xext-dev 7.3.0-1_all
 
 package:
 
-x11proto-xext-dev
-
-Copyright:
 x11proto-xext-dev
 
 755、source package:xcb-proto 1.7.1.orig
@@ -10406,16 +6947,10 @@ package:
 
 xcb-proto
 
-Copyright:
-xcb-proto
-
 756、source package:xdg-utils 1.1.3-4.1
 
 package:
 
-xdg-utils
-
-Copyright:
 xdg-utils
 
 757、source package:xkb-data 2.5.1-3_all
@@ -10424,16 +6959,10 @@ package:
 
 xkb-data
 
-Copyright:
-xkb-data
-
 758、source package:xserver-xorg-core 1.20.8-2_s390x
 
 package:
 
-xserver-xorg-core
-
-Copyright:
 xserver-xorg-core
 
 759、source package:xserver-xorg-input-all 7.7+7_s390x
@@ -10442,16 +6971,10 @@ package:
 
 xserver-xorg-input-all
 
-Copyright:
-xserver-xorg-input-all
-
 760、source package:xserver-xorg-video-all 7.7+7_s390x
 
 package:
 
-xserver-xorg-video-all
-
-Copyright:
 xserver-xorg-video-all
 
 761、source package:xtend 4.0.2
@@ -10460,25 +6983,16 @@ package:
 
 xtend
 
-Copyright:
-xtend
-
 762、source package:xwayland 2:23.1.1-1
 
 package:
 
 xwayland
 
-Copyright:
-xwayland
-
 763、source package:yargs 8.0.2
 
 package:
 
-yargs
-
-Copyright:
 yargs
 
 
@@ -10489,16 +7003,10 @@ package:
 
 golang-github-adrg-xdg-dev
 
-Copyright:
-golang-github-adrg-xdg-dev
-
 2、source package:golang-github-disintegration-imaging-dev 1.6.2-2
 
 package:
 
-golang-github-disintegration-imaging-dev
-
-Copyright:
 golang-github-disintegration-imaging-dev
 
 3、source package:golang-github-smartystreets-goconvey-dev 1.6.4+dfsg-1_all
@@ -10507,16 +7015,10 @@ package:
 
 golang-github-smartystreets-goconvey-dev
 
-Copyright:
-golang-github-smartystreets-goconvey-dev
-
 4、source package:golang-github-stretchr-testify-dev 1.8.0-1~bpo11+1
 
 package:
 
-golang-github-stretchr-testify-dev
-
-Copyright:
 golang-github-stretchr-testify-dev
 
 5、source package:golang-github-teambition-rrule-go-dev 1.8.1-1
@@ -10525,16 +7027,10 @@ package:
 
 golang-github-teambition-rrule-go-dev
 
-Copyright:
-golang-github-teambition-rrule-go-dev
-
 6、source package:golang-gopkg-alecthomas-kingpin.v2-dev 2.2.6-4
 
 package:
 
-golang-gopkg-alecthomas-kingpin.v2-dev
-
-Copyright:
 golang-gopkg-alecthomas-kingpin.v2-dev
 
 7、source package:intel-media-va-driver-non-free 23.2.3+ds1-1
@@ -10543,16 +7039,10 @@ package:
 
 intel-media-va-driver-non-free
 
-Copyright:
-intel-media-va-driver-non-free
-
 8、source package:libepoxy-dev 1.5.9-2
 
 package:
 
-libepoxy-dev
-
-Copyright:
 libepoxy-dev
 
 9、source package:libiniparser-dev 4.1-4_s390x
@@ -10561,16 +7051,10 @@ package:
 
 libiniparser-dev
 
-Copyright:
-libiniparser-dev
-
 10、source package:libinput-dev 1.6.3-1_s390x
 
 package:
 
-libinput-dev
-
-Copyright:
 libinput-dev
 
 11、source package:libjson-c-dev 0.16-2
@@ -10579,16 +7063,10 @@ package:
 
 libjson-c-dev
 
-Copyright:
-libjson-c-dev
-
 12、source package:libmtdev-dev 1.1.6-1_s390x
 
 package:
 
-libmtdev-dev
-
-Copyright:
 libmtdev-dev
 
 13、source package:libsass-dev 3.6.4-4~exp_s390x
@@ -10597,16 +7075,10 @@ package:
 
 libsass-dev
 
-Copyright:
-libsass-dev
-
 14、source package:libspdlog-dev 1:1.3.1-1
 
 package:
 
-libspdlog-dev
-
-Copyright:
 libspdlog-dev
 
 15、source package:libutf8proc-dev 2.7.0-4
@@ -10615,16 +7087,10 @@ package:
 
 libutf8proc-dev
 
-Copyright:
-libutf8proc-dev
-
 16、source package:libva-dev 2.8.0-1_s390x
 
 package:
 
-libva-dev
-
-Copyright:
 libva-dev
 
 17、source package:nlohmann-json3-dev 3.9.1-1
@@ -10633,16 +7099,10 @@ package:
 
 nlohmann-json3-dev
 
-Copyright:
-nlohmann-json3-dev
-
 18、source package:rapidjson-dev 1.1.0-1
 
 package:
 
-rapidjson-dev
-
-Copyright:
 rapidjson-dev
 
 19、source package:va-driver-all 2.8.0-1_s390x
@@ -10651,16 +7111,10 @@ package:
 
 va-driver-all
 
-Copyright:
-va-driver-all
-
 20、source package:wayland-protocols 1.9-1
 
 package:
 
-wayland-protocols
-
-Copyright:
 wayland-protocols
 
 
@@ -10671,16 +7125,10 @@ package:
 
 DocxFactory
 
-Copyright:
-DocxFactory
-
 2、source package:alsa-topology-conf 1.2.5.1-2
 
 package:
 
-alsa-topology-conf
-
-Copyright:
 alsa-topology-conf
 
 3、source package:alsa-ucm-conf 1.2.9-1
@@ -10689,16 +7137,10 @@ package:
 
 alsa-ucm-conf
 
-Copyright:
-alsa-ucm-conf
-
 4、source package:amdefine 1.0.1
 
 package:
 
-amdefine
-
-Copyright:
 amdefine
 
 5、source package:android-pdfium a56ccce4
@@ -10707,16 +7149,10 @@ package:
 
 android-pdfium
 
-Copyright:
-android-pdfium
-
 6、source package:apt 2.7.1
 
 package:
 
-apt
-
-Copyright:
 apt
 
 7、source package:bcrypt-pbkdf 1.0.2
@@ -10725,16 +7161,10 @@ package:
 
 bcrypt-pbkdf
 
-Copyright:
-bcrypt-pbkdf
-
 8、source package:browserify 14.5.0
 
 package:
 
-browserify
-
-Copyright:
 browserify
 
 9、source package:charenc 0.0.2
@@ -10743,16 +7173,10 @@ package:
 
 charenc
 
-Copyright:
-charenc
-
 10、source package:chromium 87.0.4280.88-0.4
 
 package:
 
-chromium
-
-Copyright:
 chromium
 
 11、source package:cmake v3.27.0-rc5
@@ -10761,16 +7185,10 @@ package:
 
 cmake
 
-Copyright:
-cmake
-
 12、source package:coost v3.0.0
 
 package:
 
-coost
-
-Copyright:
 coost
 
 13、source package:crypt 0.0.2
@@ -10779,16 +7197,10 @@ package:
 
 crypt
 
-Copyright:
-crypt
-
 14、source package:crypto v0.13.0
 
 package:
 
-crypto
-
-Copyright:
 crypto
 
 15、source package:css-select 1.2.0
@@ -10797,16 +7209,10 @@ package:
 
 css-select
 
-Copyright:
-css-select
-
 16、source package:css-what 2.1.3
 
 package:
 
-css-what
-
-Copyright:
 css-what
 
 17、source package:dns v1.1.52
@@ -10815,16 +7221,10 @@ package:
 
 dns
 
-Copyright:
-dns
-
 18、source package:dnsutils 970203-0.1
 
 package:
 
-dnsutils
-
-Copyright:
 dnsutils
 
 19、source package:duplexer2 0.1.4
@@ -10833,16 +7233,10 @@ package:
 
 duplexer2
 
-Copyright:
-duplexer2
-
 20、source package:entities 1.1.2
 
 package:
 
-entities
-
-Copyright:
 entities
 
 21、source package:errwrap v1.5.0
@@ -10851,16 +7245,10 @@ package:
 
 errwrap
 
-Copyright:
-errwrap
-
 22、source package:external/github.com/protocolbuffers/protobuf v3.7.0-rc.3
 
 package:
 
-external/github.com/protocolbuffers/protobuf
-
-Copyright:
 external/github.com/protocolbuffers/protobuf
 
 23、source package:extra-cmake-modules 5.98.0-2
@@ -10869,16 +7257,10 @@ package:
 
 extra-cmake-modules
 
-Copyright:
-extra-cmake-modules
-
 24、source package:ffmpeg 7:6.0-3
 
 package:
 
-ffmpeg
-
-Copyright:
 ffmpeg
 
 25、source package:fsnotify v1.6.0
@@ -10887,16 +7269,10 @@ package:
 
 fsnotify
 
-Copyright:
-fsnotify
-
 26、source package:go-cmp v0.6.0
 
 package:
 
-go-cmp
-
-Copyright:
 go-cmp
 
 27、source package:golang 2:1.7~5~bpo8+1
@@ -10905,16 +7281,10 @@ package:
 
 golang
 
-Copyright:
-golang
-
 28、source package:golang-any 1.7~5~bpo8+1_s390x
 
 package:
 
-golang-any
-
-Copyright:
 golang-any
 
 29、source package:golang-github-fsnotify-fsnotify-dev 1.6.0-1
@@ -10923,16 +7293,10 @@ package:
 
 golang-github-fsnotify-fsnotify-dev
 
-Copyright:
-golang-github-fsnotify-fsnotify-dev
-
 30、source package:golang-github-miekg-dns-dev 1.1.50-2
 
 package:
 
-golang-github-miekg-dns-dev
-
-Copyright:
 golang-github-miekg-dns-dev
 
 31、source package:golang-github-rickb777-date-dev 1.20.1-1
@@ -10941,16 +7305,10 @@ package:
 
 golang-github-rickb777-date-dev
 
-Copyright:
-golang-github-rickb777-date-dev
-
 32、source package:golang-go 1.7~5~bpo8+1_ppc64el
 
 package:
 
-golang-go
-
-Copyright:
 golang-go
 
 33、source package:golang-golang-x-sys-dev 0.3.0-1+hurd.1
@@ -10959,16 +7317,10 @@ package:
 
 golang-golang-x-sys-dev
 
-Copyright:
-golang-golang-x-sys-dev
-
 34、source package:golang-golang-x-xerrors-dev 0.0~git20191204.9bdfabe-1~bpo10+1
 
 package:
 
-golang-golang-x-xerrors-dev
-
-Copyright:
 golang-golang-x-xerrors-dev
 
 35、source package:golang-google-protobuf-dev 1.28.1-3
@@ -10977,16 +7329,10 @@ package:
 
 golang-google-protobuf-dev
 
-Copyright:
-golang-google-protobuf-dev
-
 36、source package:gstreamer1.0-plugins-base 1.4.4-2_kfreebsd-i386
 
 package:
 
-gstreamer1.0-plugins-base
-
-Copyright:
 gstreamer1.0-plugins-base
 
 37、source package:gstreamer1.0-plugins-good 1.4.4-2_kfreebsd-i386
@@ -10995,16 +7341,10 @@ package:
 
 gstreamer1.0-plugins-good
 
-Copyright:
-gstreamer1.0-plugins-good
-
 38、source package:gstreamer1.0-pulseaudio 1.4.4-2_kfreebsd-i386
 
 package:
 
-gstreamer1.0-pulseaudio
-
-Copyright:
 gstreamer1.0-pulseaudio
 
 39、source package:gstreamer1.0-x 1.4.4-2_kfreebsd-i386
@@ -11013,16 +7353,10 @@ package:
 
 gstreamer1.0-x
 
-Copyright:
-gstreamer1.0-x
-
 40、source package:hoist-non-react-statics 2.5.5
 
 package:
 
-hoist-non-react-statics
-
-Copyright:
 hoist-non-react-statics
 
 41、source package:ieee754 1.2.1
@@ -11031,16 +7365,10 @@ package:
 
 ieee754
 
-Copyright:
-ieee754
-
 42、source package:init 1.65~exp2
 
 package:
 
-init
-
-Copyright:
 init
 
 43、source package:iputils-ping 20190709-3_s390x
@@ -11049,16 +7377,10 @@ package:
 
 iputils-ping
 
-Copyright:
-iputils-ping
-
 44、source package:js-base64 2.5.1
 
 package:
 
-js-base64
-
-Copyright:
 js-base64
 
 45、source package:json-schema 0.2.3
@@ -11067,16 +7389,10 @@ package:
 
 json-schema
 
-Copyright:
-json-schema
-
 46、source package:libcli11-dev 2.1.2+ds-1
 
 package:
 
-libcli11-dev
-
-Copyright:
 libcli11-dev
 
 47、source package:libgmock-dev 1.9.0.20190831-3
@@ -11085,16 +7401,10 @@ package:
 
 libgmock-dev
 
-Copyright:
-libgmock-dev
-
 48、source package:libgoogle-glog-dev 0.4.0-1_s390x
 
 package:
 
-libgoogle-glog-dev
-
-Copyright:
 libgoogle-glog-dev
 
 49、source package:libgstreamer-plugins-base1.0-0 1.4.4-2_kfreebsd-i386
@@ -11103,16 +7413,10 @@ package:
 
 libgstreamer-plugins-base1.0-0
 
-Copyright:
-libgstreamer-plugins-base1.0-0
-
 50、source package:libgstreamer-plugins-base1.0-dev 1.4.4-2_kfreebsd-i386
 
 package:
 
-libgstreamer-plugins-base1.0-dev
-
-Copyright:
 libgstreamer-plugins-base1.0-dev
 
 51、source package:libgtest-dev 1.9.0.20190831-1_s390x
@@ -11121,16 +7425,10 @@ package:
 
 libgtest-dev
 
-Copyright:
-libgtest-dev
-
 52、source package:libjpeg-dev 2.0.5-1_all
 
 package:
 
-libjpeg-dev
-
-Copyright:
 libjpeg-dev
 
 53、source package:libnl-3-dev 3.4.0-1~bpo9+1_s390x
@@ -11139,16 +7437,10 @@ package:
 
 libnl-3-dev
 
-Copyright:
-libnl-3-dev
-
 54、source package:libnl-genl-3-dev 3.4.0-1~bpo9+1_s390x
 
 package:
 
-libnl-genl-3-dev
-
-Copyright:
 libnl-genl-3-dev
 
 55、source package:libnl-route-3-dev 3.4.0-1~bpo9+1_s390x
@@ -11157,16 +7449,10 @@ package:
 
 libnl-route-3-dev
 
-Copyright:
-libnl-route-3-dev
-
 56、source package:libpcap-dev 1.9.1-4~bpo10+1_s390x
 
 package:
 
-libpcap-dev
-
-Copyright:
 libpcap-dev
 
 57、source package:libtirpc-common 1.2.6-1_all
@@ -11175,16 +7461,10 @@ package:
 
 libtirpc-common
 
-Copyright:
-libtirpc-common
-
 58、source package:libxlsxwriter RELEASE_1.0.0
 
 package:
 
-libxlsxwriter
-
-Copyright:
 libxlsxwriter
 
 59、source package:locales 2.31-0experimental0_all
@@ -11193,16 +7473,10 @@ package:
 
 locales
 
-Copyright:
-locales
-
 60、source package:lxqt-build-tools 0.8.0-1
 
 package:
 
-lxqt-build-tools
-
-Copyright:
 lxqt-build-tools
 
 61、source package:marked 1.2.3
@@ -11211,16 +7485,10 @@ package:
 
 marked
 
-Copyright:
-marked
-
 62、source package:md5 2.2.1
 
 package:
 
-md5
-
-Copyright:
 md5
 
 63、source package:mmkv-static 1.2.10
@@ -11229,16 +7497,10 @@ package:
 
 mmkv-static
 
-Copyright:
-mmkv-static
-
 64、source package:mod v0.8.0
 
 package:
 
-mod
-
-Copyright:
 mod
 
 65、source package:mount 2.9g-6
@@ -11247,16 +7509,10 @@ package:
 
 mount
 
-Copyright:
-mount
-
 66、source package:net v0.15.0
 
 package:
 
-net
-
-Copyright:
 net
 
 67、source package:node 8.16.1
@@ -11265,16 +7521,10 @@ package:
 
 node
 
-Copyright:
-node
-
 68、source package:normalize-wheel-es 1.2.0
 
 package:
 
-normalize-wheel-es
-
-Copyright:
 normalize-wheel-es
 
 69、source package:nth-check 1.0.2
@@ -11283,16 +7533,10 @@ package:
 
 nth-check
 
-Copyright:
-nth-check
-
 70、source package:onboard 1.4.1-5_s390x
 
 package:
 
-onboard
-
-Copyright:
 onboard
 
 71、source package:passwd 980403-0.3
@@ -11301,16 +7545,10 @@ package:
 
 passwd
 
-Copyright:
-passwd
-
 72、source package:pflag v1.0.5
 
 package:
 
-pflag
-
-Copyright:
 pflag
 
 73、source package:protobuf v1.3.2
@@ -11319,16 +7557,10 @@ package:
 
 protobuf
 
-Copyright:
-protobuf
-
 74、source package:python3-click 8.1.6-1
 
 package:
 
-python3-click
-
-Copyright:
 python3-click
 
 75、source package:qml-module-qtgraphicaleffects 5.7.1~20161021-3_s390x
@@ -11337,16 +7569,10 @@ package:
 
 qml-module-qtgraphicaleffects
 
-Copyright:
-qml-module-qtgraphicaleffects
-
 76、source package:qs 6.5.2
 
 package:
 
-qs
-
-Copyright:
 qs
 
 77、source package:qtermwidget 0.14.1
@@ -11355,16 +7581,10 @@ package:
 
 qtermwidget
 
-Copyright:
-qtermwidget
-
 78、source package:regenerator-transform 0.10.1
 
 package:
 
-regenerator-transform
-
-Copyright:
 regenerator-transform
 
 79、source package:regjsparser 0.1.5
@@ -11373,16 +7593,10 @@ package:
 
 regjsparser
 
-Copyright:
-regjsparser
-
 80、source package:sass 1.55.0
 
 package:
 
-sass
-
-Copyright:
 sass
 
 81、source package:sha.js 2.4.11
@@ -11391,16 +7605,10 @@ package:
 
 sha.js
 
-Copyright:
-sha.js
-
 82、source package:source-map 0.6.1
 
 package:
 
-source-map
-
-Copyright:
 source-map
 
 83、source package:spdx-license-ids 3.0.6
@@ -11409,16 +7617,10 @@ package:
 
 spdx-license-ids
 
-Copyright:
-spdx-license-ids
-
 84、source package:sys v0.6.0
 
 package:
 
-sys
-
-Copyright:
 sys
 
 85、source package:syscall_intercept 4b3a3b5
@@ -11427,16 +7629,10 @@ package:
 
 syscall_intercept
 
-Copyright:
-syscall_intercept
-
 86、source package:term v0.13.0
 
 package:
 
-term
-
-Copyright:
 term
 
 87、source package:terser 5.15.1
@@ -11445,16 +7641,10 @@ package:
 
 terser
 
-Copyright:
-terser
-
 88、source package:text v0.13.0
 
 package:
 
-text
-
-Copyright:
 text
 
 89、source package:tough-cookie 2.4.3
@@ -11463,16 +7653,10 @@ package:
 
 tough-cookie
 
-Copyright:
-tough-cookie
-
 90、source package:uglify-js 2.8.29
 
 package:
 
-uglify-js
-
-Copyright:
 uglify-js
 
 91、source package:util-linux 2.5-12
@@ -11481,16 +7665,10 @@ package:
 
 util-linux
 
-Copyright:
-util-linux
-
 92、source package:uuid v1.3.0
 
 package:
 
-uuid
-
-Copyright:
 uuid
 
 93、source package:wpasupplicant 2.9.0-12_s390x
@@ -11499,16 +7677,10 @@ package:
 
 wpasupplicant
 
-Copyright:
-wpasupplicant
-
 94、source package:xdotool 3.20160805.1-4_s390x
 
 package:
 
-xdotool
-
-Copyright:
 xdotool
 
 95、source package:xserver-xorg-core 1.20.8-2_s390x
@@ -11517,25 +7689,16 @@ package:
 
 xserver-xorg-core
 
-Copyright:
-xserver-xorg-core
-
 96、source package:xsettingsd 1.0.2-1
 
 package:
 
 xsettingsd
 
-Copyright:
-xsettingsd
-
 97、source package:xwayland 2:23.1.1-1
 
 package:
 
-xwayland
-
-Copyright:
 xwayland
 
 
@@ -11546,16 +7709,10 @@ package:
 
 DocxFactory
 
-Copyright:
-DocxFactory
-
 2、source package:block-stream 0.0.9
 
 package:
 
-block-stream
-
-Copyright:
 block-stream
 
 3、source package:coost v3.0.0
@@ -11564,16 +7721,10 @@ package:
 
 coost
 
-Copyright:
-coost
-
 4、source package:domelementtype 1.3.1
 
 package:
 
-domelementtype
-
-Copyright:
 domelementtype
 
 5、source package:domhandler 2.4.2
@@ -11582,16 +7733,10 @@ package:
 
 domhandler
 
-Copyright:
-domhandler
-
 6、source package:domutils 1.5.1
 
 package:
 
-domutils
-
-Copyright:
 domutils
 
 7、source package:doxyqml 0.3.0-1.1.debian
@@ -11600,16 +7745,10 @@ package:
 
 doxyqml
 
-Copyright:
-doxyqml
-
 8、source package:escope 3.6.0
 
 package:
 
-escope
-
-Copyright:
 escope
 
 9、source package:esrecurse 4.3.0
@@ -11618,16 +7757,10 @@ package:
 
 esrecurse
 
-Copyright:
-esrecurse
-
 10、source package:estraverse 5.2.0
 
 package:
 
-estraverse
-
-Copyright:
 estraverse
 
 11、source package:esutils 2.0.3
@@ -11636,16 +7769,10 @@ package:
 
 esutils
 
-Copyright:
-esutils
-
 12、source package:ffmpeg 7:6.0-3
 
 package:
 
-ffmpeg
-
-Copyright:
 ffmpeg
 
 13、source package:glob 3.1.21
@@ -11654,16 +7781,10 @@ package:
 
 glob
 
-Copyright:
-glob
-
 14、source package:golang-dbus-dev 5.1.0-1~bpo11+1
 
 package:
 
-golang-dbus-dev
-
-Copyright:
 golang-dbus-dev
 
 15、source package:golang-github-msteinert-pam-dev 1.1.0-1
@@ -11672,16 +7793,10 @@ package:
 
 golang-github-msteinert-pam-dev
 
-Copyright:
-golang-github-msteinert-pam-dev
-
 16、source package:golang-gopkg-check.v1-dev 0.0+git20200902.038fdea-1
 
 package:
 
-golang-gopkg-check.v1-dev
-
-Copyright:
 golang-gopkg-check.v1-dev
 
 17、source package:graceful-fs 1.2.3
@@ -11690,16 +7805,10 @@ package:
 
 graceful-fs
 
-Copyright:
-graceful-fs
-
 18、source package:libarchive-dev 3.4.0-2~bpo9+1_amd64
 
 package:
 
-libarchive-dev
-
-Copyright:
 libarchive-dev
 
 19、source package:libtag1-dev 1.9.1-2~bpo70+1_sparc
@@ -11708,16 +7817,10 @@ package:
 
 libtag1-dev
 
-Copyright:
-libtag1-dev
-
 20、source package:libtss2-dev 2.4.0-1_s390x
 
 package:
 
-libtss2-dev
-
-Copyright:
 libtss2-dev
 
 21、source package:libtss2-tcti-tabrmd0 3.0.0-1
@@ -11726,16 +7829,10 @@ package:
 
 libtss2-tcti-tabrmd0
 
-Copyright:
-libtss2-tcti-tabrmd0
-
 22、source package:libxlsxwriter RELEASE_1.0.0
 
 package:
 
-libxlsxwriter
-
-Copyright:
 libxlsxwriter
 
 23、source package:normalize-package-data 2.5.0
@@ -11744,16 +7841,10 @@ package:
 
 normalize-package-data
 
-Copyright:
-normalize-package-data
-
 24、source package:sdparm 1.12-1
 
 package:
 
-sdparm
-
-Copyright:
 sdparm
 
 25、source package:shim-signed 1.39~1+deb11u1
@@ -11762,16 +7853,10 @@ package:
 
 shim-signed
 
-Copyright:
-shim-signed
-
 26、source package:shim-unsigned 15+1533136590.3beb971-9_i386
 
 package:
 
-shim-unsigned
-
-Copyright:
 shim-unsigned
 
 27、source package:smartmontools 7.3-1
@@ -11780,16 +7865,10 @@ package:
 
 smartmontools
 
-Copyright:
-smartmontools
-
 28、source package:tpm2-abrmd 3.0.0-1
 
 package:
 
-tpm2-abrmd
-
-Copyright:
 tpm2-abrmd
 
 29、source package:tt v1.0.1
@@ -11798,25 +7877,16 @@ package:
 
 tt
 
-Copyright:
-tt
-
 30、source package:uri-js 4.4.0
 
 package:
 
 uri-js
 
-Copyright:
-uri-js
-
 31、source package:usb-modeswitch 2.6.1.orig
 
 package:
 
-usb-modeswitch
-
-Copyright:
 usb-modeswitch
 
 
@@ -11827,16 +7897,10 @@ package:
 
 browser-desktop
 
-Copyright:
-browser-desktop
-
 2、source package:dompurify 2.4.1
 
 package:
 
-dompurify
-
-Copyright:
 dompurify
 
 3、source package:libjwt-dev 1.9.0-4_mips64el
@@ -11845,16 +7909,10 @@ package:
 
 libjwt-dev
 
-Copyright:
-libjwt-dev
-
 4、source package:libxlsxwriter RELEASE_1.0.0
 
 package:
 
-libxlsxwriter
-
-Copyright:
 libxlsxwriter
 
 
@@ -11865,16 +7923,10 @@ package:
 
 libcairo2-dev
 
-Copyright:
-libcairo2-dev
-
 2、source package:libchardet 1.0.3
 
 package:
 
-libchardet
-
-Copyright:
 libchardet
 
 3、source package:libpam-gnome-keyring 3.4.1-5_sparc
@@ -11883,16 +7935,10 @@ package:
 
 libpam-gnome-keyring
 
-Copyright:
-libpam-gnome-keyring
-
 4、source package:libtag1-dev 1.9.1-2~bpo70+1_sparc
 
 package:
 
-libtag1-dev
-
-Copyright:
 libtag1-dev
 
 
@@ -11903,18 +7949,12 @@ package:
 
 python3-dbus
 
-Copyright:
-python3-dbus
-
 
 Open Source Software Licensed under the AGPL-1.0-only:
 1、source package:spdx-license-ids 3.0.6
 
 package:
 
-spdx-license-ids
-
-Copyright:
 spdx-license-ids
 
 
@@ -11925,16 +7965,10 @@ package:
 
 nging
 
-Copyright:
-nging
-
 2、source package:sobjectizer 1.2.3
 
 package:
 
-sobjectizer
-
-Copyright:
 sobjectizer
 
 
@@ -11945,18 +7979,12 @@ package:
 
 liblucene++-dev
 
-Copyright:
-liblucene++-dev
-
 
 Open Source Software Licensed under the Apache-2.0-with-GPL2-LGPL2-Exception:
 1、source package:cups 2.4.2-3+deb12u1
 
 package:
 
-cups
-
-Copyright:
 cups
 
 
@@ -11967,16 +7995,10 @@ package:
 
 libfile-mimeinfo-perl
 
-Copyright:
-libfile-mimeinfo-perl
-
 2、source package:perl-openssl-defaults 7
 
 package:
 
-perl-openssl-defaults
-
-Copyright:
 perl-openssl-defaults
 
 
@@ -11987,9 +8009,6 @@ package:
 
 node
 
-Copyright:
-node
-
 
 Open Source Software Licensed under the BSD:
 1、source package:compiler 4.12.0
@@ -11998,16 +8017,10 @@ package:
 
 compiler
 
-Copyright:
-compiler
-
 2、source package:ffmpeg 7:6.0-3
 
 package:
 
-ffmpeg
-
-Copyright:
 ffmpeg
 
 3、source package:glide 4.12.0
@@ -12016,16 +8029,10 @@ package:
 
 glide
 
-Copyright:
-glide
-
 4、source package:libnet-dev 1.2-rc3
 
 package:
 
-libnet-dev
-
-Copyright:
 libnet-dev
 
 5、source package:libvncserver LibVNCServer-0.9.14
@@ -12034,16 +8041,10 @@ package:
 
 libvncserver
 
-Copyright:
-libvncserver
-
 6、source package:libxlsxwriter RELEASE_1.0.0
 
 package:
 
-libxlsxwriter
-
-Copyright:
 libxlsxwriter
 
 7、source package:node 8.16.1
@@ -12052,25 +8053,16 @@ package:
 
 node
 
-Copyright:
-node
-
 8、source package:smartmontools 7.3-1
 
 package:
 
 smartmontools
 
-Copyright:
-smartmontools
-
 9、source package:zip 3.0-9
 
 package:
 
-zip
-
-Copyright:
 zip
 
 
@@ -12081,18 +8073,12 @@ package:
 
 ffmpeg
 
-Copyright:
-ffmpeg
-
 
 Open Source Software Licensed under the BSD-3-clause:
 1、source package:tpm2-tools 5.4-1
 
 package:
 
-tpm2-tools
-
-Copyright:
 tpm2-tools
 
 
@@ -12103,16 +8089,10 @@ package:
 
 libcap-dev
 
-Copyright:
-libcap-dev
-
 2、source package:libcap2-bin 2.36-1_s390x
 
 package:
 
-libcap2-bin
-
-Copyright:
 libcap2-bin
 
 
@@ -12123,18 +8103,12 @@ package:
 
 unalz
 
-Copyright:
-unalz
-
 
 Open Source Software Licensed under the BSD-Source-Code:
 1、source package:iputils-ping 20190709-3_s390x
 
 package:
 
-iputils-ping
-
-Copyright:
 iputils-ping
 
 
@@ -12145,18 +8119,12 @@ package:
 
 ffmpeg
 
-Copyright:
-ffmpeg
-
 
 Open Source Software Licensed under the Bitstream-Vera:
 1、source package:fontconfig 2.9.0.orig
 
 package:
 
-fontconfig
-
-Copyright:
 fontconfig
 
 
@@ -12167,16 +8135,10 @@ package:
 
 libzip-dev
 
-Copyright:
-libzip-dev
-
 2、source package:libzip4 1.6.1-3_s390x
 
 package:
 
-libzip4
-
-Copyright:
 libzip4
 
 
@@ -12187,18 +8149,12 @@ package:
 
 spdx-exceptions
 
-Copyright:
-spdx-exceptions
-
 
 Open Source Software Licensed under the CC-BY-4.0:
 1、source package:caniuse-lite 1.0.30000989
 
 package:
 
-caniuse-lite
-
-Copyright:
 caniuse-lite
 
 
@@ -12209,18 +8165,12 @@ package:
 
 glob
 
-Copyright:
-glob
-
 
 Open Source Software Licensed under the CC0-1.0:
 1、source package:spdx-license-ids 3.0.6
 
 package:
 
-spdx-license-ids
-
-Copyright:
 spdx-license-ids
 
 
@@ -12231,9 +8181,6 @@ package:
 
 libraw-dev
 
-Copyright:
-libraw-dev
-
 
 Open Source Software Licensed under the CPL-1.0:
 1、source package:graphviz 2.8-3+etch1
@@ -12242,16 +8189,10 @@ package:
 
 graphviz
 
-Copyright:
-graphviz
-
 2、source package:junit 4.11
 
 package:
 
-junit
-
-Copyright:
 junit
 
 
@@ -12262,16 +8203,10 @@ package:
 
 aspectjrt
 
-Copyright:
-aspectjrt
-
 2、source package:junit 4.13.2
 
 package:
 
-junit
-
-Copyright:
 junit
 
 
@@ -12282,16 +8217,10 @@ package:
 
 freetype
 
-Copyright:
-freetype
-
 2、source package:libfreetype-dev 2.13.0+dfsg-1
 
 package:
 
-libfreetype-dev
-
-Copyright:
 libfreetype-dev
 
 
@@ -12302,16 +8231,10 @@ package:
 
 ttf-unifont
 
-Copyright:
-ttf-unifont
-
 2、source package:xfonts-wqy 1.0.0~rc1-7
 
 package:
 
-xfonts-wqy
-
-Copyright:
 xfonts-wqy
 
 
@@ -12322,18 +8245,12 @@ package:
 
 kdevelop
 
-Copyright:
-kdevelop
-
 
 Open Source Software Licensed under the GPL+ and GPLv2+ and MIT and Redistributable no modification permitted:
 1、source package:linux-firmware 20230824
 
 package:
 
-linux-firmware
-
-Copyright:
 linux-firmware
 
 
@@ -12344,18 +8261,12 @@ package:
 
 ipheth-utils
 
-Copyright:
-ipheth-utils
-
 
 Open Source Software Licensed under the GPL-2 with Font embedding exception and M+ FONTS License:
 1、source package:fonts-wqy-zenhei 0.9.45-8
 
 package:
 
-fonts-wqy-zenhei
-
-Copyright:
 fonts-wqy-zenhei
 
 
@@ -12366,18 +8277,12 @@ package:
 
 barrier
 
-Copyright:
-barrier
-
 
 Open Source Software Licensed under the GPL-2+ and LGPL-2+:
 1、source package:xdg-desktop-portal-gtk 1.8.0-1~bpo10+1
 
 package:
 
-xdg-desktop-portal-gtk
-
-Copyright:
 xdg-desktop-portal-gtk
 
 
@@ -12388,16 +8293,10 @@ package:
 
 dbus
 
-Copyright:
-dbus
-
 2、source package:dbus-user-session 1.13.8-1_s390x
 
 package:
 
-dbus-user-session
-
-Copyright:
 dbus-user-session
 
 3、source package:dbus-x11 1.8.22-0+deb8u1_s390x
@@ -12406,16 +8305,10 @@ package:
 
 dbus-x11
 
-Copyright:
-dbus-x11
-
 4、source package:libdbus-1-dev 1.8.22-0+deb8u1_s390x
 
 package:
 
-libdbus-1-dev
-
-Copyright:
 libdbus-1-dev
 
 
@@ -12426,18 +8319,12 @@ package:
 
 libfreetype6-dev
 
-Copyright:
-libfreetype6-dev
-
 
 Open Source Software Licensed under the GPL-2+ or LGPL-2.1 or LGPL-3.0:
 1、source package:libquazip5-dev 0.7.6-6_s390x
 
 package:
 
-libquazip5-dev
-
-Copyright:
 libquazip5-dev
 
 
@@ -12448,25 +8335,16 @@ package:
 
 cryptsetup
 
-Copyright:
-cryptsetup
-
 2、source package:cryptsetup-initramfs 2.3.1-1_all
 
 package:
 
 cryptsetup-initramfs
 
-Copyright:
-cryptsetup-initramfs
-
 3、source package:libcryptsetup12 2.3.1-1_s390x
 
 package:
 
-libcryptsetup12
-
-Copyright:
 libcryptsetup12
 
 
@@ -12477,25 +8355,16 @@ package:
 
 remmina
 
-Copyright:
-remmina
-
 2、source package:remmina-plugin-rdp 1.4.7+dfsg-1_s390x
 
 package:
 
 remmina-plugin-rdp
 
-Copyright:
-remmina-plugin-rdp
-
 3、source package:remmina-plugin-vnc 1.4.7+dfsg-1_s390x
 
 package:
 
-remmina-plugin-vnc
-
-Copyright:
 remmina-plugin-vnc
 
 
@@ -12506,18 +8375,12 @@ package:
 
 libsane-dev
 
-Copyright:
-libsane-dev
-
 
 Open Source Software Licensed under the GPL-2.0 or GPL-3.0 or FIPL-1.0:
 1、source package:libfreeimage-dev 3.18.0+ds2-3_s390x
 
 package:
 
-libfreeimage-dev
-
-Copyright:
 libfreeimage-dev
 
 
@@ -12528,9 +8391,6 @@ package:
 
 fcitx5-frontend-gtk3
 
-Copyright:
-fcitx5-frontend-gtk3
-
 
 Open Source Software Licensed under the GPL-3 with Qt-1.0 exception:
 1、source package:qttools5-dev 5.9.2-4_kfreebsd-i386
@@ -12539,25 +8399,16 @@ package:
 
 qttools5-dev
 
-Copyright:
-qttools5-dev
-
 2、source package:qttools5-dev-tools 5.9.2-4_kfreebsd-i386
 
 package:
 
 qttools5-dev-tools
 
-Copyright:
-qttools5-dev-tools
-
 3、source package:qttranslations5-l10n 5.9.2-1
 
 package:
 
-qttranslations5-l10n
-
-Copyright:
 qttranslations5-l10n
 
 
@@ -12568,18 +8419,12 @@ package:
 
 less
 
-Copyright:
-less
-
 
 Open Source Software Licensed under the GPL-3+ with OpenSSL exception:
 1、source package:libdmr-dev 5.7.6.147-1
 
 package:
 
-libdmr-dev
-
-Copyright:
 libdmr-dev
 
 
@@ -12590,16 +8435,10 @@ package:
 
 libqt5webchannel5-dev
 
-Copyright:
-libqt5webchannel5-dev
-
 2、source package:qml-module-qtwebchannel 5.9.2-3
 
 package:
 
-qml-module-qtwebchannel
-
-Copyright:
 qml-module-qtwebchannel
 
 
@@ -12610,18 +8449,12 @@ package:
 
 command-not-found
 
-Copyright:
-command-not-found
-
 
 Open Source Software Licensed under the Hylafax:
 1、source package:libtiff-dev 4.1.0+git191117-2~deb10u1_s390x
 
 package:
 
-libtiff-dev
-
-Copyright:
 libtiff-dev
 
 
@@ -12632,16 +8465,10 @@ package:
 
 node
 
-Copyright:
-node
-
 2、source package:x11-xserver-utils 7.7~3_sparc
 
 package:
 
-x11-xserver-utils
-
-Copyright:
 x11-xserver-utils
 
 3、source package:xkb-data 2.5.1-3_all
@@ -12650,25 +8477,16 @@ package:
 
 xkb-data
 
-Copyright:
-xkb-data
-
 4、source package:xserver-xorg-core 1.20.8-2_s390x
 
 package:
 
 xserver-xorg-core
 
-Copyright:
-xserver-xorg-core
-
 5、source package:xwayland 2:23.1.1-1
 
 package:
 
-xwayland
-
-Copyright:
 xwayland
 
 
@@ -12679,16 +8497,10 @@ package:
 
 abbrev
 
-Copyright:
-abbrev
-
 2、source package:anymatch 3.1.2
 
 package:
 
-anymatch
-
-Copyright:
 anymatch
 
 3、source package:aproba 1.2.0
@@ -12697,16 +8509,10 @@ package:
 
 aproba
 
-Copyright:
-aproba
-
 4、source package:are-we-there-yet 1.1.5
 
 package:
 
-are-we-there-yet
-
-Copyright:
 are-we-there-yet
 
 5、source package:boolbase 1.0.0
@@ -12715,16 +8521,10 @@ package:
 
 boolbase
 
-Copyright:
-boolbase
-
 6、source package:browserify-sign 4.2.1
 
 package:
 
-browserify-sign
-
-Copyright:
 browserify-sign
 
 7、source package:cliui 4.1.0
@@ -12733,16 +8533,10 @@ package:
 
 cliui
 
-Copyright:
-cliui
-
 8、source package:color-support 1.1.3
 
 package:
 
-color-support
-
-Copyright:
 color-support
 
 9、source package:concat-with-sourcemaps 1.1.0
@@ -12751,16 +8545,10 @@ package:
 
 concat-with-sourcemaps
 
-Copyright:
-concat-with-sourcemaps
-
 10、source package:console-control-strings 1.1.0
 
 package:
 
-console-control-strings
-
-Copyright:
 console-control-strings
 
 11、source package:crda 4.14+git20191112.9856751.orig
@@ -12769,16 +8557,10 @@ package:
 
 crda
 
-Copyright:
-crda
-
 12、source package:d 1.0.1
 
 package:
 
-d
-
-Copyright:
 d
 
 13、source package:distro-info-data 0.9~bpo60+1
@@ -12787,16 +8569,10 @@ package:
 
 distro-info-data
 
-Copyright:
-distro-info-data
-
 14、source package:electron-to-chromium 1.3.254
 
 package:
 
-electron-to-chromium
-
-Copyright:
 electron-to-chromium
 
 15、source package:es5-ext 0.10.53
@@ -12805,16 +8581,10 @@ package:
 
 es5-ext
 
-Copyright:
-es5-ext
-
 16、source package:es6-symbol 3.1.3
 
 package:
 
-es6-symbol
-
-Copyright:
 es6-symbol
 
 17、source package:es6-weak-map 2.0.3
@@ -12823,16 +8593,10 @@ package:
 
 es6-weak-map
 
-Copyright:
-es6-weak-map
-
 18、source package:ext 1.4.0
 
 package:
 
-ext
-
-Copyright:
 ext
 
 19、source package:fastq 1.13.0
@@ -12841,16 +8605,10 @@ package:
 
 fastq
 
-Copyright:
-fastq
-
 20、source package:ffmpeg 7:6.0-3
 
 package:
 
-ffmpeg
-
-Copyright:
 ffmpeg
 
 21、source package:fs 0.0.1-security
@@ -12859,16 +8617,10 @@ package:
 
 fs
 
-Copyright:
-fs
-
 22、source package:fs.realpath 1.0.0
 
 package:
 
-fs.realpath
-
-Copyright:
 fs.realpath
 
 23、source package:fstream 1.0.12
@@ -12877,16 +8629,10 @@ package:
 
 fstream
 
-Copyright:
-fstream
-
 24、source package:gauge 2.7.4
 
 package:
 
-gauge
-
-Copyright:
 gauge
 
 25、source package:get-caller-file 1.0.3
@@ -12895,16 +8641,10 @@ package:
 
 get-caller-file
 
-Copyright:
-get-caller-file
-
 26、source package:glob 7.1.4
 
 package:
 
-glob
-
-Copyright:
 glob
 
 27、source package:glob-parent 5.1.2
@@ -12913,16 +8653,10 @@ package:
 
 glob-parent
 
-Copyright:
-glob-parent
-
 28、source package:go-spew v1.1.1
 
 package:
 
-go-spew
-
-Copyright:
 go-spew
 
 29、source package:go-wav v0.3.2
@@ -12931,16 +8665,10 @@ package:
 
 go-wav
 
-Copyright:
-go-wav
-
 30、source package:golang-github-nfnt-resize-dev 0.0~git20180221.83c6a99-2_all
 
 package:
 
-golang-github-nfnt-resize-dev
-
-Copyright:
 golang-github-nfnt-resize-dev
 
 31、source package:graceful-fs 4.2.4
@@ -12949,16 +8677,10 @@ package:
 
 graceful-fs
 
-Copyright:
-graceful-fs
-
 32、source package:har-schema 2.0.0
 
 package:
 
-har-schema
-
-Copyright:
 har-schema
 
 33、source package:has-unicode 2.0.1
@@ -12967,16 +8689,10 @@ package:
 
 has-unicode
 
-Copyright:
-has-unicode
-
 34、source package:hosted-git-info 2.8.8
 
 package:
 
-hosted-git-info
-
-Copyright:
 hosted-git-info
 
 35、source package:in-publish 2.0.0
@@ -12985,16 +8701,10 @@ package:
 
 in-publish
 
-Copyright:
-in-publish
-
 36、source package:inflight 1.0.6
 
 package:
 
-inflight
-
-Copyright:
 inflight
 
 37、source package:inherits 2.0.4
@@ -13003,16 +8713,10 @@ package:
 
 inherits
 
-Copyright:
-inherits
-
 38、source package:ini 1.3.5
 
 package:
 
-ini
-
-Copyright:
 ini
 
 39、source package:isexe 2.0.0
@@ -13021,16 +8725,10 @@ package:
 
 isexe
 
-Copyright:
-isexe
-
 40、source package:json-stringify-safe 5.0.1
 
 package:
 
-json-stringify-safe
-
-Copyright:
 json-stringify-safe
 
 41、source package:lru-cache 4.1.5
@@ -13039,16 +8737,10 @@ package:
 
 lru-cache
 
-Copyright:
-lru-cache
-
 42、source package:minimalistic-assert 1.0.1
 
 package:
 
-minimalistic-assert
-
-Copyright:
 minimalistic-assert
 
 43、source package:minimatch 5.1.6
@@ -13057,16 +8749,10 @@ package:
 
 minimatch
 
-Copyright:
-minimatch
-
 44、source package:natives 1.1.6
 
 package:
 
-natives
-
-Copyright:
 natives
 
 45、source package:node 8.16.1
@@ -13075,16 +8761,10 @@ package:
 
 node
 
-Copyright:
-node
-
 46、source package:node-bin-setup 1.0.6
 
 package:
 
-node-bin-setup
-
-Copyright:
 node-bin-setup
 
 47、source package:nopt 3.0.6
@@ -13093,16 +8773,10 @@ package:
 
 nopt
 
-Copyright:
-nopt
-
 48、source package:npmlog 4.1.2
 
 package:
 
-npmlog
-
-Copyright:
 npmlog
 
 49、source package:once 1.4.0
@@ -13111,16 +8785,10 @@ package:
 
 once
 
-Copyright:
-once
-
 50、source package:osenv 0.1.5
 
 package:
 
-osenv
-
-Copyright:
 osenv
 
 51、source package:parse-asn1 5.1.6
@@ -13129,16 +8797,10 @@ package:
 
 parse-asn1
 
-Copyright:
-parse-asn1
-
 52、source package:pkgconf 1.8.1-2
 
 package:
 
-pkgconf
-
-Copyright:
 pkgconf
 
 53、source package:pseudomap 1.0.2
@@ -13147,16 +8809,10 @@ package:
 
 pseudomap
 
-Copyright:
-pseudomap
-
 54、source package:python3-dnspython 2.4.0~rc1-1
 
 package:
 
-python3-dnspython
-
-Copyright:
 python3-dnspython
 
 55、source package:remove-trailing-separator 1.1.0
@@ -13165,16 +8821,10 @@ package:
 
 remove-trailing-separator
 
-Copyright:
-remove-trailing-separator
-
 56、source package:require-main-filename 1.0.1
 
 package:
 
-require-main-filename
-
-Copyright:
 require-main-filename
 
 57、source package:rimraf 2.7.1
@@ -13183,16 +8833,10 @@ package:
 
 rimraf
 
-Copyright:
-rimraf
-
 58、source package:rollup 2.79.1
 
 package:
 
-rollup
-
-Copyright:
 rollup
 
 59、source package:semver 5.7.1
@@ -13201,16 +8845,10 @@ package:
 
 semver
 
-Copyright:
-semver
-
 60、source package:set-blocking 2.0.0
 
 package:
 
-set-blocking
-
-Copyright:
 set-blocking
 
 61、source package:sigmund 1.0.1
@@ -13219,16 +8857,10 @@ package:
 
 sigmund
 
-Copyright:
-sigmund
-
 62、source package:signal-exit 3.0.3
 
 package:
 
-signal-exit
-
-Copyright:
 signal-exit
 
 63、source package:tar 2.2.2
@@ -13237,16 +8869,10 @@ package:
 
 tar
 
-Copyright:
-tar
-
 64、source package:type 2.1.0
 
 package:
 
-type
-
-Copyright:
 type
 
 65、source package:vinyl-sourcemaps-apply 0.2.1
@@ -13255,16 +8881,10 @@ package:
 
 vinyl-sourcemaps-apply
 
-Copyright:
-vinyl-sourcemaps-apply
-
 66、source package:which 1.3.1
 
 package:
 
-which
-
-Copyright:
 which
 
 67、source package:which-module 2.0.0
@@ -13273,16 +8893,10 @@ package:
 
 which-module
 
-Copyright:
-which-module
-
 68、source package:wide-align 1.1.3
 
 package:
 
-wide-align
-
-Copyright:
 wide-align
 
 69、source package:wrappy 1.0.2
@@ -13291,16 +8905,10 @@ package:
 
 wrappy
 
-Copyright:
-wrappy
-
 70、source package:y18n 3.2.1
 
 package:
 
-y18n
-
-Copyright:
 y18n
 
 71、source package:yallist 2.1.2
@@ -13309,16 +8917,10 @@ package:
 
 yallist
 
-Copyright:
-yallist
-
 72、source package:yargs-parser 8.1.0
 
 package:
 
-yargs-parser
-
-Copyright:
 yargs-parser
 
 
@@ -13329,18 +8931,12 @@ package:
 
 DocxFactory
 
-Copyright:
-DocxFactory
-
 
 Open Source Software Licensed under the Info-ZIP:
 1、source package:unzip 6.0.orig
 
 package:
 
-unzip
-
-Copyright:
 unzip
 
 
@@ -13351,16 +8947,10 @@ package:
 
 ffmpeg
 
-Copyright:
-ffmpeg
-
 2、source package:libatspi2.0-dev 2.5.3-2_sparc
 
 package:
 
-libatspi2.0-dev
-
-Copyright:
 libatspi2.0-dev
 
 3、source package:liblightdm-qt-dev 1.26.0-5_s390x
@@ -13369,16 +8959,10 @@ package:
 
 liblightdm-qt-dev
 
-Copyright:
-liblightdm-qt-dev
-
 4、source package:lightdm 1.9.9-1
 
 package:
 
-lightdm
-
-Copyright:
 lightdm
 
 5、source package:slirp4netns 1.2.0-1
@@ -13387,16 +8971,10 @@ package:
 
 slirp4netns
 
-Copyright:
-slirp4netns
-
 6、source package:smartmontools 7.3-1
 
 package:
 
-smartmontools
-
-Copyright:
 smartmontools
 
 
@@ -13407,18 +8985,12 @@ package:
 
 ostree
 
-Copyright:
-ostree
-
 
 Open Source Software Licensed under the LGPL-2+ and LGPL-2.1+ and FSFULLR and CC0-1.0 and Janik-permissive and Iconv-PD and Mingw-PD and Old-GLib-Tests-permissive:
 1、source package:libglib2.0-bin 2.76.4-1
 
 package:
 
-libglib2.0-bin
-
-Copyright:
 libglib2.0-bin
 
 
@@ -13429,9 +9001,6 @@ package:
 
 policykit-1
 
-Copyright:
-policykit-1
-
 
 Open Source Software Licensed under the LGPL-2.0-or-later:
 1、source package:bubblewrap 0~git160513-2
@@ -13440,16 +9009,10 @@ package:
 
 bubblewrap
 
-Copyright:
-bubblewrap
-
 2、source package:gvfs-backends 1.44.1-1_s390x
 
 package:
 
-gvfs-backends
-
-Copyright:
 gvfs-backends
 
 3、source package:gvfs-bin 1.44.1-1_s390x
@@ -13458,16 +9021,10 @@ package:
 
 gvfs-bin
 
-Copyright:
-gvfs-bin
-
 4、source package:gvfs-fuse 1.44.1-1_s390x
 
 package:
 
-gvfs-fuse
-
-Copyright:
 gvfs-fuse
 
 5、source package:kcalcore 5:5.85.0-2
@@ -13476,16 +9033,10 @@ package:
 
 kcalcore
 
-Copyright:
-kcalcore
-
 6、source package:kdeclarative 5.100.0-1
 
 package:
 
-kdeclarative
-
-Copyright:
 kdeclarative
 
 7、source package:libasound2-dev 1.2.2-2.3_ppc64el
@@ -13494,16 +9045,10 @@ package:
 
 libasound2-dev
 
-Copyright:
-libasound2-dev
-
 8、source package:libgdk-pixbuf2.0-0 2.40.2-3
 
 package:
 
-libgdk-pixbuf2.0-0
-
-Copyright:
 libgdk-pixbuf2.0-0
 
 9、source package:libgdk-pixbuf2.0-dev 2.40.0+dfsg-5_s390x
@@ -13512,16 +9057,10 @@ package:
 
 libgdk-pixbuf2.0-dev
 
-Copyright:
-libgdk-pixbuf2.0-dev
-
 10、source package:libkf5itemviews-dev 5.70.0-1_s390x
 
 package:
 
-libkf5itemviews-dev
-
-Copyright:
 libkf5itemviews-dev
 
 11、source package:libkf5widgetsaddons-dev 5.70.0-1_s390x
@@ -13530,16 +9069,10 @@ package:
 
 libkf5widgetsaddons-dev
 
-Copyright:
-libkf5widgetsaddons-dev
-
 12、source package:libmtp-runtime 1.1.9-3~bpo8+1
 
 package:
 
-libmtp-runtime
-
-Copyright:
 libmtp-runtime
 
 13、source package:libpolkit-agent-1-dev 0.116-2_s390x
@@ -13548,16 +9081,10 @@ package:
 
 libpolkit-agent-1-dev
 
-Copyright:
-libpolkit-agent-1-dev
-
 14、source package:libpolkit-qt5-1-dev 0.112.0-7_s390x
 
 package:
 
-libpolkit-qt5-1-dev
-
-Copyright:
 libpolkit-qt5-1-dev
 
 15、source package:librsvg2-bin 2.48.7-1_ppc64el
@@ -13566,25 +9093,16 @@ package:
 
 librsvg2-bin
 
-Copyright:
-librsvg2-bin
-
 16、source package:platform/external/e2fsprogs lollipop-dev
 
 package:
 
 platform/external/e2fsprogs
 
-Copyright:
-platform/external/e2fsprogs
-
 17、source package:xdg-desktop-portal 1.8.1-1~bpo10+1
 
 package:
 
-xdg-desktop-portal
-
-Copyright:
 xdg-desktop-portal
 
 
@@ -13595,18 +9113,12 @@ package:
 
 libical-dev
 
-Copyright:
-libical-dev
-
 
 Open Source Software Licensed under the LGPL-3 or GPL-2-or-3 with KDE Exception:
 1、source package:qml6-module-qtwebchannel 6.4.2~rc1-3
 
 package:
 
-qml6-module-qtwebchannel
-
-Copyright:
 qml6-module-qtwebchannel
 
 
@@ -13617,16 +9129,10 @@ package:
 
 qml-module-qtwebengine
 
-Copyright:
-qml-module-qtwebengine
-
 2、source package:qtwebengine5-dev 5.7.1+dfsg-6.1_mipsel
 
 package:
 
-qtwebengine5-dev
-
-Copyright:
 qtwebengine5-dev
 
 
@@ -13637,9 +9143,6 @@ package:
 
 libqt6svg6
 
-Copyright:
-libqt6svg6
-
 
 Open Source Software Licensed under the Libpng:
 1、source package:libpng-dev 1.6.37-2_s390x
@@ -13648,16 +9151,10 @@ package:
 
 libpng-dev
 
-Copyright:
-libpng-dev
-
 2、source package:libsdl2-dev 2.0.9+dfsg1-1_s390x
 
 package:
 
-libsdl2-dev
-
-Copyright:
 libsdl2-dev
 
 
@@ -13668,18 +9165,12 @@ package:
 
 pinn
 
-Copyright:
-pinn
-
 
 Open Source Software Licensed under the MITNFA:
 1、source package:through2 0.6.5
 
 package:
 
-through2
-
-Copyright:
 through2
 
 
@@ -13690,16 +9181,10 @@ package:
 
 libchardet-dev
 
-Copyright:
-libchardet-dev
-
 2、source package:libchardet1 1.0.4-1_s390x
 
 package:
 
-libchardet1
-
-Copyright:
 libchardet1
 
 3、source package:libuchardet-dev 0.0.7-1_s390x
@@ -13708,16 +9193,10 @@ package:
 
 libuchardet-dev
 
-Copyright:
-libuchardet-dev
-
 4、source package:libuchardet0 0.0.7-1_s390x
 
 package:
 
-libuchardet0
-
-Copyright:
 libuchardet0
 
 
@@ -13728,18 +9207,12 @@ package:
 
 node
 
-Copyright:
-node
-
 
 Open Source Software Licensed under the Net-SNMP:
 1、source package:sudo 1.9.8p2-1~exp1
 
 package:
 
-sudo
-
-Copyright:
 sudo
 
 
@@ -13750,16 +9223,10 @@ package:
 
 fonts-intel-one-mono
 
-Copyright:
-fonts-intel-one-mono
-
 2、source package:fonts-lohit-deva 2.95.4.orig
 
 package:
 
-fonts-lohit-deva
-
-Copyright:
 fonts-lohit-deva
 
 3、source package:fonts-noto 20201225-1
@@ -13768,16 +9235,10 @@ package:
 
 fonts-noto
 
-Copyright:
-fonts-noto
-
 4、source package:fonts-noto-mono 20200323-1_all
 
 package:
 
-fonts-noto-mono
-
-Copyright:
 fonts-noto-mono
 
 
@@ -13788,16 +9249,10 @@ package:
 
 libssl1.1
 
-Copyright:
-libssl1.1
-
 2、source package:node 8.16.1
 
 package:
 
-node
-
-Copyright:
 node
 
 
@@ -13808,9 +9263,6 @@ package:
 
 xz-utils
 
-Copyright:
-xz-utils
-
 
 Open Source Software Licensed under the Public Domain:
 1、source package:debianutils 5.8-1
@@ -13819,16 +9271,10 @@ package:
 
 debianutils
 
-Copyright:
-debianutils
-
 2、source package:ffmpeg 7:6.0-3
 
 package:
 
-ffmpeg
-
-Copyright:
 ffmpeg
 
 3、source package:grub-efi-amd64-signed 1+2.06+8.1
@@ -13837,16 +9283,10 @@ package:
 
 grub-efi-amd64-signed
 
-Copyright:
-grub-efi-amd64-signed
-
 4、source package:grub-efi-arm64-signed 1+2.06+8.1
 
 package:
 
-grub-efi-arm64-signed
-
-Copyright:
 grub-efi-arm64-signed
 
 5、source package:jsonify 0.0.0
@@ -13855,16 +9295,10 @@ package:
 
 jsonify
 
-Copyright:
-jsonify
-
 6、source package:libatspi2.0-dev 2.5.3-2_sparc
 
 package:
 
-libatspi2.0-dev
-
-Copyright:
 libatspi2.0-dev
 
 7、source package:libsqlite3-0 3.8.7.1-1_kfreebsd-i386
@@ -13873,16 +9307,10 @@ package:
 
 libsqlite3-0
 
-Copyright:
-libsqlite3-0
-
 8、source package:libsqlite3-dev 3.8.7.1-1_kfreebsd-i386
 
 package:
 
-libsqlite3-dev
-
-Copyright:
 libsqlite3-dev
 
 9、source package:sqlite3 3.9.2-1
@@ -13891,16 +9319,10 @@ package:
 
 sqlite3
 
-Copyright:
-sqlite3
-
 10、source package:tzdata 2023c-7
 
 package:
 
-tzdata
-
-Copyright:
 tzdata
 
 
@@ -13911,18 +9333,12 @@ package:
 
 python3
 
-Copyright:
-python3
-
 
 Open Source Software Licensed under the Qt-GPL-exception-1.0:
 1、source package:qtremoteobjects v5.11.0-rc2
 
 package:
 
-qtremoteobjects
-
-Copyright:
 qtremoteobjects
 
 
@@ -13933,9 +9349,6 @@ package:
 
 iputils-ping
 
-Copyright:
-iputils-ping
-
 
 Open Source Software Licensed under the SGI-B-1.1:
 1、source package:xserver-xorg-core 1.20.8-2_s390x
@@ -13944,16 +9357,10 @@ package:
 
 xserver-xorg-core
 
-Copyright:
-xserver-xorg-core
-
 2、source package:xwayland 2:23.1.1-1
 
 package:
 
-xwayland
-
-Copyright:
 xwayland
 
 
@@ -13964,16 +9371,10 @@ package:
 
 libegl1-mesa-dev
 
-Copyright:
-libegl1-mesa-dev
-
 2、source package:libgbm-dev 8.0.5-4+deb7u2_sparc
 
 package:
 
-libgbm-dev
-
-Copyright:
 libgbm-dev
 
 3、source package:xserver-xorg-core 1.20.8-2_s390x
@@ -13982,16 +9383,10 @@ package:
 
 xserver-xorg-core
 
-Copyright:
-xserver-xorg-core
-
 4、source package:xwayland 2:23.1.1-1
 
 package:
 
-xwayland
-
-Copyright:
 xwayland
 
 
@@ -14002,18 +9397,12 @@ package:
 
 fonts-noto-cjk
 
-Copyright:
-fonts-noto-cjk
-
 
 Open Source Software Licensed under the SSLeay:
 1、source package:libssl1.1 1.1.1~~pre9-1
 
 package:
 
-libssl1.1
-
-Copyright:
 libssl1.1
 
 
@@ -14024,9 +9413,6 @@ package:
 
 go-difflib
 
-Copyright:
-go-difflib
-
 
 Open Source Software Licensed under the The Bugly Software License Version 1.0:
 1、source package:crashreport 3.4.4
@@ -14035,16 +9421,10 @@ package:
 
 crashreport
 
-Copyright:
-crashreport
-
 2、source package:nativecrashreport 3.9.2
 
 package:
 
-nativecrashreport
-
-Copyright:
 nativecrashreport
 
 
@@ -14055,18 +9435,12 @@ package:
 
 DocxFactory
 
-Copyright:
-DocxFactory
-
 
 Open Source Software Licensed under the Unicode-DFS-2016:
 1、source package:node 8.16.1
 
 package:
 
-node
-
-Copyright:
 node
 
 
@@ -14077,9 +9451,6 @@ package:
 
 node
 
-Copyright:
-node
-
 
 Open Source Software Licensed under the Unlicense:
 1、source package:ncompress 4.2.4.6.orig
@@ -14088,25 +9459,16 @@ package:
 
 ncompress
 
-Copyright:
-ncompress
-
 2、source package:tortellini 4f6795a
 
 package:
 
 tortellini
 
-Copyright:
-tortellini
-
 3、source package:tweetnacl 0.14.5
 
 package:
 
-tweetnacl
-
-Copyright:
 tweetnacl
 
 
@@ -14117,9 +9479,6 @@ package:
 
 vim
 
-Copyright:
-vim
-
 
 Open Source Software Licensed under the X11:
 1、source package:libwayland-dev 1.6.0-2_s390x
@@ -14128,16 +9487,10 @@ package:
 
 libwayland-dev
 
-Copyright:
-libwayland-dev
-
 2、source package:libxcb-image0-dev 0.4.0-1_s390x
 
 package:
 
-libxcb-image0-dev
-
-Copyright:
 libxcb-image0-dev
 
 3、source package:libxcb-keysyms1-dev 0.4.0-1_s390x
@@ -14146,16 +9499,10 @@ package:
 
 libxcb-keysyms1-dev
 
-Copyright:
-libxcb-keysyms1-dev
-
 4、source package:libyaml-cpp-dev 0.6.3-9_s390x
 
 package:
 
-libyaml-cpp-dev
-
-Copyright:
 libyaml-cpp-dev
 
 5、source package:ncurses-base 6.2-1_all
@@ -14164,16 +9511,10 @@ package:
 
 ncurses-base
 
-Copyright:
-ncurses-base
-
 6、source package:wordwrap 0.0.2
 
 package:
 
-wordwrap
-
-Copyright:
 wordwrap
 
 
@@ -14184,9 +9525,6 @@ package:
 
 onboard
 
-Copyright:
-onboard
-
 
 Open Source Software Licensed under the Zlib:
 1、source package:avfs 1.1.4-2
@@ -14195,16 +9533,10 @@ package:
 
 avfs
 
-Copyright:
-avfs
-
 2、source package:ffmpeg 7:6.0-3
 
 package:
 
-ffmpeg
-
-Copyright:
 ffmpeg
 
 3、source package:libminizip-dev 1.1-8_hurd-i386
@@ -14213,16 +9545,10 @@ package:
 
 libminizip-dev
 
-Copyright:
-libminizip-dev
-
 4、source package:libsdl2-dev 2.0.9+dfsg1-1_s390x
 
 package:
 
-libsdl2-dev
-
-Copyright:
 libsdl2-dev
 
 5、source package:libxlsxwriter RELEASE_1.0.0
@@ -14231,16 +9557,10 @@ package:
 
 libxlsxwriter
 
-Copyright:
-libxlsxwriter
-
 6、source package:node 8.16.1
 
 package:
 
-node
-
-Copyright:
 node
 
 7、source package:pako 1.0.11
@@ -14249,16 +9569,10 @@ package:
 
 pako
 
-Copyright:
-pako
-
 8、source package:pigz 2.6-1
 
 package:
 
-pigz
-
-Copyright:
 pigz
 
 9、source package:unalz 0.65-9
@@ -14267,25 +9581,16 @@ package:
 
 unalz
 
-Copyright:
-unalz
-
 10、source package:zlib1g 1.2.8.dfsg-5_s390x
 
 package:
 
 zlib1g
 
-Copyright:
-zlib1g
-
 11、source package:zlib1g-dev 1:1.2.3.3.dfsg-1
 
 package:
 
-zlib1g-dev
-
-Copyright:
 zlib1g-dev
 
 
@@ -14296,9 +9601,6 @@ package:
 
 crda
 
-Copyright:
-crda
-
 
 Open Source Software Licensed under the cryptsetup-OpenSSL-exception:
 1、source package:aria2 1.9.5-1
@@ -14307,16 +9609,10 @@ package:
 
 aria2
 
-Copyright:
-aria2
-
 2、source package:libcryptsetup-dev 2:2.4.0-1
 
 package:
 
-libcryptsetup-dev
-
-Copyright:
 libcryptsetup-dev
 
 
@@ -14327,16 +9623,10 @@ package:
 
 curl
 
-Copyright:
-curl
-
 2、source package:libcurl4-openssl-dev 7.68.0-1_s390x
 
 package:
 
-libcurl4-openssl-dev
-
-Copyright:
 libcurl4-openssl-dev
 
 
@@ -14347,9 +9637,6 @@ package:
 
 hdparm
 
-Copyright:
-hdparm
-
 
 Open Source Software Licensed under the nolicense:
 1、source package:FreeBSD-Electron v9.0.3
@@ -14358,16 +9645,10 @@ package:
 
 FreeBSD-Electron
 
-Copyright:
-FreeBSD-Electron
-
 2、source package:LTSLAM 94d7e0f
 
 package:
 
-LTSLAM
-
-Copyright:
 LTSLAM
 
 3、source package:TSFileEditor 0.2.1
@@ -14376,16 +9657,10 @@ package:
 
 TSFileEditor
 
-Copyright:
-TSFileEditor
-
 4、source package:asio asio-1-29-0
 
 package:
 
-asio
-
-Copyright:
 asio
 
 5、source package:chromium-source-tarball 59.0.3071.57
@@ -14394,16 +9669,10 @@ package:
 
 chromium-source-tarball
 
-Copyright:
-chromium-source-tarball
-
 6、source package:geek-navigation 5a521f2
 
 package:
 
-geek-navigation
-
-Copyright:
 geek-navigation
 
 7、source package:gentoo 202
@@ -14412,16 +9681,10 @@ package:
 
 gentoo
 
-Copyright:
-gentoo
-
 8、source package:go-urn v1.1.0
 
 package:
 
-go-urn
-
-Copyright:
 go-urn
 
 9、source package:imaging v1.6.2
@@ -14430,16 +9693,10 @@ package:
 
 imaging
 
-Copyright:
-imaging
-
 10、source package:kcrash 5.103.0-1
 
 package:
 
-kcrash
-
-Copyright:
 kcrash
 
 11、source package:ncnn_paddleocr 9c054d3
@@ -14448,16 +9705,10 @@ package:
 
 ncnn_paddleocr
 
-Copyright:
-ncnn_paddleocr
-
 12、source package:plasma-workspace v5.25.90
 
 package:
 
-plasma-workspace
-
-Copyright:
 plasma-workspace
 
 13、source package:platform/external/qt emu-29.0-release
@@ -14466,16 +9717,10 @@ package:
 
 platform/external/qt
 
-Copyright:
-platform/external/qt
-
 14、source package:qtbase v6.5.1
 
 package:
 
-qtbase
-
-Copyright:
 qtbase
 
 15、source package:qtxlsxwriter v0.3.0
@@ -14484,16 +9729,10 @@ package:
 
 qtxlsxwriter
 
-Copyright:
-qtxlsxwriter
-
 16、source package:scriptcommunicator_serial-terminal Release_06_02
 
 package:
 
-scriptcommunicator_serial-terminal
-
-Copyright:
 scriptcommunicator_serial-terminal
 
 17、source package:socket v0.4.1
@@ -14502,16 +9741,10 @@ package:
 
 socket
 
-Copyright:
-socket
-
 18、source package:strace v4.14
 
 package:
 
-strace
-
-Copyright:
 strace
 
 19、source package:v5 v5.1.0
@@ -14520,16 +9753,10 @@ package:
 
 v5
 
-Copyright:
-v5
-
 20、source package:wlr-protocols d278d20
 
 package:
 
-wlr-protocols
-
-Copyright:
 wlr-protocols
 
 
