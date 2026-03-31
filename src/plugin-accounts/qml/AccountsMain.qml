@@ -17,22 +17,13 @@ DccObject {
     }
 
     // 其他账户
-    DccObject {
+    DccTitleObject {
         id: otherAcountsTitle
         name: "otherAcountsTitle"
         parentName: "accounts"
         displayName: qsTr("Other accounts")
+        canSearch: settings.canSearch
         weight: 58
-        pageType: DccObject.Item
-        page: Label {
-            leftPadding: 5
-            text: dccObj.displayName
-            font {
-                pointSize: 13
-                bold: true
-            }
-        }
-        onParentItemChanged: item => { if (item) item.topPadding = 10 }
     }
 
     DccObject {

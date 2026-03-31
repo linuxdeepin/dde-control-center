@@ -63,6 +63,7 @@ D.ItemDelegate {
         Layout.fillHeight: true
 
         D.IconLabel {
+            visible: model.item.icon && model.item.icon.length > 0
             spacing: control.spacing
             mirrored: control.mirrored
             display: control.display
