@@ -80,6 +80,7 @@ struct PluginData
     DccObject *mainObj;
     DccObject *soObj;
     QObject *data;
+    DccFactory *factory;
     QThread *thread;
     uint status;
 
@@ -91,6 +92,7 @@ struct PluginData
         , mainObj(nullptr)
         , soObj(nullptr)
         , data(nullptr)
+        , factory(nullptr)
         , thread(nullptr)
         , status(PluginBegin)
     {
@@ -133,7 +135,6 @@ void LoadPluginTask::doLoadSo()
     QElapsedTimer timer;
     timer.start();
     QObject *dataObj = nullptr;
-    DccObject *soObj = nullptr;
     if (QFile::exists(soPath)) {
         if (m_pManager->isDeleting()) {
             return;
@@ -169,10 +170,7 @@ void LoadPluginTask::doLoadSo()
                 if (dataObj && dataObj->parent()) {
                     dataObj->setParent(nullptr);
                 }
-                soObj = factory->dccObject();
-                if (soObj && soObj->parent()) {
-                    soObj->setParent(nullptr);
-                }
+                m_data->factory = factory;
             } while (false);
         }
     } else {
@@ -181,16 +179,11 @@ void LoadPluginTask::doLoadSo()
     if (dataObj) {
         m_data->data = dataObj;
     }
-    if (soObj) {
-        m_data->soObj = soObj;
-    }
     if (m_data->data) {
         m_data->data->moveToThread(m_pManager->thread());
-        m_data->data->setParent(m_pManager->parent());
     }
-    if (m_data->soObj) {
-        m_data->soObj->moveToThread(m_pManager->thread());
-        m_data->soObj->setParent(m_pManager->parent());
+    if (m_data->factory) {
+        m_data->factory->moveToThread(m_pManager->thread());
     }
     Q_EMIT m_pManager->updatePluginStatus(m_data, DataEnd, ": load plugin finished. elapsed time :" + QString::number(timer.elapsed()));
 }
@@ -327,6 +320,20 @@ void PluginManager::loadPlugin(PluginData *plugin)
         addMainObject(plugin);
         Q_EMIT updatePluginStatus(plugin, PluginEnd, QString());
     } else if ((plugin->status & (DataEnd | MainObjLoad)) == DataEnd) {
+        if (plugin->data) {
+            plugin->data->setParent(this);
+            QJSEngine::setObjectOwnership(plugin->data, QQmlEngine::CppOwnership);
+        }
+        if (plugin->factory) {
+            plugin->factory->setProperty(QML_ENGINE_PROPERTY, QVariant::fromValue(m_manager->engine()));
+            QObject *obj = plugin->factory->dccObject();
+            DccObject *soObj = dynamic_cast<DccObject *>(obj);
+            if (soObj) {
+                plugin->soObj = soObj;
+            } else if (obj) {
+                obj->deleteLater();
+            }
+        }
         loadMain(plugin);
     } else if ((plugin->status & (ModuleEnd | DataBegin)) == ModuleEnd) {
         if (plugin->module) {
@@ -371,7 +378,7 @@ void PluginManager::loadMetaData(PluginData *plugin)
         return;
     }
     updatePluginType(plugin);
-    if (m_manager->hideModule().contains(plugin->name)) {
+    if (DccManager::containsByName(m_manager->hideModule(), plugin->name)) {
         // 跳过隐藏的模块,需要动态加载回来
         Q_EMIT updatePluginStatus(plugin, PluginEnd | MetaDataEnd, QString());
         return;
@@ -498,9 +505,11 @@ void PluginManager::createMain(QQmlComponent *component)
         QObject *object = component->create(context);
         component->deleteLater();
         if (!object) {
+            context->deleteLater();
             Q_EMIT updatePluginStatus(plugin, MainObjErr | MainObjEnd, " component create main object is null:" + component->errorString());
             return;
         }
+        context->setParent(object);
         object->setParent(plugin->module ? plugin->module : m_rootModule);
         plugin->mainObj = qobject_cast<DccObject *>(object);
         Q_EMIT updatePluginStatus(plugin, MainObjEnd, ": create main finished");

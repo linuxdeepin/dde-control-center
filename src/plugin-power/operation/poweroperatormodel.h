@@ -1,10 +1,9 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef POWEROPERATORMODEL_H
 #define POWEROPERATORMODEL_H
 
-#include <QtQml/qqml.h>
 #include <QAbstractListModel>
 
 enum PowerOperatorType{
@@ -29,7 +28,6 @@ struct PowerOperator
 class PowerOperatorModel : public QAbstractListModel
 {
     Q_OBJECT
-    QML_NAMED_ELEMENT(PowerOperatorModel)
 public:
 
     enum PowerOperatorRole 

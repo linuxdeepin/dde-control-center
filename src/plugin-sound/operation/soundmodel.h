@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCC_SOUND_SOUNDMODEL_H
@@ -9,7 +9,6 @@
 #include <QObject>
 #include <QMap>
 #include <QDBusObjectPath>
-#include <QtQml/qqml.h>
 
 #include "soundeffectsmodel.h"
 #include "soundDeviceModel.h"
@@ -59,8 +58,6 @@ class SoundModel : public QObject
     Q_PROPERTY(bool speakerOn READ speakerOn NOTIFY speakerOnChanged FINAL)
     Q_PROPERTY(bool microphoneOn READ microphoneOn NOTIFY microphoneOnChanged FINAL)
 
-    QML_NAMED_ELEMENT(SoundModel)
-    QML_SINGLETON
 public:
     explicit SoundModel(QObject *parent = 0);
     ~SoundModel();

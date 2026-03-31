@@ -468,20 +468,25 @@ void DccManager::initConfig()
     connect(m_dconfig, &DConfig::valueChanged, this, &DccManager::updateModuleConfig);
 }
 
-bool DccManager::contains(const QSet<QString> &urls, const DccObject *obj)
+bool DccManager::containsByName(const QSet<QString> &urls, const QString &name)
 {
     for (auto &&url : urls) {
         if (url.contains("*")) {
-            if (isMatch(url, obj)) {
+            if (isMatchByName(url, name)) {
                 return true;
             }
         } else {
-            if (isEqual(url, obj)) {
+            if (isEqualByName(url, name)) {
                 return true;
             }
         }
     }
     return false;
+}
+
+bool DccManager::contains(const QSet<QString> &urls, const DccObject *obj)
+{
+    return containsByName(urls, obj->parentName() + "/" + obj->name());
 }
 
 QStringList DccManager::splitUrl(const QString &url, QString &targetName)
