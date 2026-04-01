@@ -252,18 +252,24 @@ Loader {
                                 ColumnLayout {
                                     Layout.leftMargin: 8
                                     Layout.fillWidth: true
+                                    Layout.minimumWidth: implicitWidth
                                     Layout.alignment: Qt.AlignVCenter
                                     spacing: 0
                                     DccLabel {
                                         Layout.fillWidth: true
+                                        Layout.minimumWidth: implicitWidth
                                         text: repeater.getName(index)
                                     }
                                 }
                                 Control {
+                                    Layout.fillWidth: true
                                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                                     Layout.rightMargin: 10
-                                    contentItem:  Label {
+                                    contentItem: Label {
+                                        width: parent.width
+                                        horizontalAlignment: Text.AlignRight
                                         text: repeater.getValue(index)
+                                        elide: Text.ElideRight
                                     }
                                 }
                             }
