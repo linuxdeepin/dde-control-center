@@ -594,13 +594,13 @@ void PluginManager::addMainObject(PluginData *plugin)
     } else {
         Q_EMIT updatePluginStatus(plugin, MainObjErr, "The plugin isn't main DccObject");
     }
-    Q_EMIT updatePluginStatus(plugin, MainObjEnd | PluginEnd, "add main object finished");
     if (plugin->mainObj) {
         Q_EMIT addObject(plugin->mainObj);
     }
     if (plugin->soObj) {
         Q_EMIT addObject(plugin->soObj);
     }
+    Q_EMIT updatePluginStatus(plugin, MainObjEnd | PluginEnd, "add main object finished");
 }
 
 void PluginManager::moduleLoading()
