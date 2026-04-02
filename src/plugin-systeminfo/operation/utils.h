@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef UTILS_H
@@ -173,7 +173,14 @@ struct LicenseSearchInfo
 
 inline LicenseSearchInfo isEndUserAgreementExist()
 {
-    auto pathIfExists = [](const QString &pattern, const QString &type) -> QString {
+    auto pathIfExists = [](const QString &pattern, const QString &type = "") -> QString {
+        if (type.isEmpty()) {
+            const QString mdPath = getLicensePath(pattern, "md");
+            if (QFile::exists(mdPath))
+                return mdPath;
+            const QString txtPath = getLicensePath(pattern, "txt");
+            return QFile::exists(txtPath) ? txtPath : QString();
+        }
         const QString p = getLicensePath(pattern, type);
         return QFile::exists(p) ? p : QString();
     };
@@ -198,7 +205,7 @@ inline LicenseSearchInfo isEndUserAgreementExist()
     } else if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosMilitary) {
         candidate = pathIfExists(militaryEnduserAgreement, "txt");
     } else {
-        candidate = pathIfExists(professionalEnduserAgreement_new, "txt");
+        candidate = pathIfExists(professionalEnduserAgreement_new);
         if (candidate.isEmpty())
             candidate = pathIfExists(professionalEnduserAgreement_old, "txt");
     }

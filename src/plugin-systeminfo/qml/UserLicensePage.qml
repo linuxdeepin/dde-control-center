@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 // import org.deepin.dtk 1.0 as D
 import QtQuick 2.15
@@ -22,6 +22,12 @@ DccObject {
         font: DTK.fontManager.t6
         text: dccData.systemInfoMode().userLicense
         wrapMode: Text.WordWrap
+        textFormat: Text.MarkdownText
+        onLinkActivated: (link) => Qt.openUrlExternally(link)
+
+        HoverHandler {
+            cursorShape: parent.hoveredLink ? Qt.PointingHandCursor : Qt.ArrowCursor
+        }
     }
 }
 
