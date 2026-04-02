@@ -81,7 +81,7 @@ public Q_SLOTS:
     bool stop(const QString &json);
     bool action(const QString &json);
     QString GetAllModule();
-    void onDccObjectDestroyed();
+    void onDccObjectDestroyed(DccObject *obj);
 
 Q_SIGNALS:
     void activeItemChanged(QQuickItem *item, bool isIndicatorShown);

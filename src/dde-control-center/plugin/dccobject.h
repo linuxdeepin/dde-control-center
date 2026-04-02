@@ -167,6 +167,7 @@ Q_SIGNALS:
 
     void addObject(DccObject *obj);
     void removeObject(DccObject *obj);
+    void objectDestroyed(DccObject *obj);
 
 protected:
     DccObject::Private *p_ptr;

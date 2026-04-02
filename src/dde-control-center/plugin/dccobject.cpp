@@ -194,6 +194,10 @@ void DccObject::Private::addObject(DccObject *child)
 {
     if (child && !m_objects.contains(child)) {
         m_objects.append(child);
+        connect(child, &DccObject::objectDestroyed, q_ptr, [this](DccObject *obj) {
+            m_objects.removeOne(obj);
+            Q_EMIT q_ptr->removeObject(obj);
+        });
         Q_EMIT q_ptr->addObject(child);
     }
 }
@@ -254,6 +258,7 @@ DccObject::DccObject(QObject *parent)
 
 DccObject::~DccObject()
 {
+    Q_EMIT objectDestroyed(this);
     delete p_ptr;
 }
 
@@ -497,9 +502,7 @@ const QVector<DccObject *> &DccObject::getChildren() const
     return p_ptr->getChildren();
 }
 
-void DccObject::classBegin()
-{
-}
+void DccObject::classBegin() { }
 
 void DccObject::componentComplete()
 {

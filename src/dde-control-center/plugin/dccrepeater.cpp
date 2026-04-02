@@ -185,8 +185,16 @@ void DccRepeater::createdItem(int index, QObject *item)
 {
     DccObject *dccObj = qmlobject_cast<DccObject *>(item);
     if (dccObj) {
-        dccObj->setParent(this);
-        p_ptr->addObject(dccObj);
+        DccObject *targetParent = this;
+        for (QObject *pQObj = this; pQObj; pQObj = pQObj->parent()) {
+            DccObject *pObj = qmlobject_cast<DccObject *>(pQObj);
+            if (pObj && !pObj->name().isEmpty()) {
+                targetParent = pObj;
+                break;
+            }
+        }
+        dccObj->setParent(targetParent);
+        DccObject::Private::FromObject(targetParent)->addObject(dccObj);
         Q_EMIT objAdded(index, item);
     }
 }
