@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -22,8 +22,40 @@ D.DialogWindow {
     icon: "preferences-system"
     modality: Qt.WindowModal
     title: qsTr("Create a new account")
-
+    color: "transparent"
     signal accepted()
+
+    header: D.DialogTitleBar {
+        icon.name: dialog.icon
+    }
+
+    Rectangle {
+        // 覆盖整个窗口，包括 DialogWindow 的边距
+        x: -DS.Style.dialogWindow.contentHMargin
+        y: -DS.Style.dialogWindow.titleBarHeight
+        width: dialog.width + DS.Style.dialogWindow.contentHMargin * 2
+        height: dialog.height + DS.Style.dialogWindow.titleBarHeight
+        color: "transparent"
+        parent: dialog.contentItem
+        z: -1
+        D.StyledBehindWindowBlur {
+            anchors.fill: parent
+            blendColor: {
+                if (valid) {
+                    return DS.Style.control.selectColor(
+                        dialog ? dialog.palette.window : undefined,
+                        Qt.rgba(1, 1, 1, 0.8),
+                        Qt.rgba(0.06, 0.06, 0.06, 0.8)
+                    )
+                }
+                return DS.Style.control.selectColor(
+                    undefined,
+                    DS.Style.behindWindowBlur.lightNoBlurColor,
+                    DS.Style.behindWindowBlur.darkNoBlurColor
+                )
+            }
+        }
+    }
 
     ColumnLayout {
         id: mainLayout
