@@ -240,6 +240,7 @@ DccObject {
                 id: item
                 implicitHeight: 40
                 implicitWidth: 300
+                
                 D.LineEdit {
                     id: addr
                     implicitWidth: 200
@@ -298,6 +299,7 @@ DccObject {
                     }
                     onClicked: {
                         if (addr.text.length === 0) {
+                            addr.showAlert = false
                             addr.showAlert = true
                             return
                         }
