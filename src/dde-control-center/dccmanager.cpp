@@ -197,7 +197,7 @@ void DccManager::addObject(DccObject *obj)
         DccObject *o = objs.takeFirst();
         if (!o->name().isEmpty()) {
             m_objMap[o->name()].append(o);
-            connect(o, &DccObject::destroyed, this, &DccManager::onDccObjectDestroyed, Qt::UniqueConnection);
+            connect(o, &DccObject::objectDestroyed, this, &DccManager::onDccObjectDestroyed, Qt::UniqueConnection);
         }
         connect(o, &DccObject::addObject, this, &DccManager::addObject);
         connect(o, &DccObject::removeObject, this, qOverload<DccObject *>(&DccManager::removeObject));
@@ -398,16 +398,12 @@ QString DccManager::GetAllModule()
     return QString();
 }
 
-void DccManager::onDccObjectDestroyed()
+void DccManager::onDccObjectDestroyed(DccObject *obj)
 {
     if (m_plugins->isDeleting()) {
         return;
     }
-    QObject *o = sender();
-    if (!o) {
-        return;
-    }
-    const QString &name = o->objectName();
+    const QString &name = obj->name();
     if (name.isEmpty()) {
         return;
     }
@@ -415,7 +411,7 @@ void DccManager::onDccObjectDestroyed()
     if (it == m_objMap.end()) {
         return;
     }
-    it->removeOne(o);
+    it->removeOne(obj);
     if (it->isEmpty()) {
         m_objMap.erase(it);
     }
