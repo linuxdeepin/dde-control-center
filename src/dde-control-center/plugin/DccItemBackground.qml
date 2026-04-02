@@ -19,6 +19,7 @@ Item {
     property real bgMargins: 3
     property bool focusBorderVisible: true
     property bool externalFocus: false
+    property bool isKeyboardNavigating: false
 
     property real backgroundType: 0
     property D.Palette backgroundColor: D.Palette {
@@ -118,7 +119,7 @@ Item {
             rightMargin: bgMargins
         }
 
-        active: focusBorderVisible && (control.activeFocus || control.visualFocus || externalFocus)
+        active: focusBorderVisible && (control.visualFocus || externalFocus || isKeyboardNavigating)
         sourceComponent: D.FocusBoxBorder {
             radius: bgItem.radius
             color: control.palette.highlight
