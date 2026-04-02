@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "downloadurl.h"
@@ -49,9 +49,6 @@ void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePat
 
     request.setUrl(QUrl(url));
     request.setAttribute(QNetworkRequest::RedirectPolicyAttribute, QNetworkRequest::NoLessSafeRedirectPolicy);
-    QSslConfiguration config = QSslConfiguration::defaultConfiguration();
-    config.setPeerVerifyMode(QSslSocket::VerifyNone);
-    request.setSslConfiguration(config);
 
     QNetworkReply *pReply = manager.get(request);
     connect(pReply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
@@ -67,6 +64,7 @@ void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePat
             file.open(QIODevice::WriteOnly);
             if (!file.isOpen()) {
                 m_isReady = true;
+                delete pReply;
                 return;
             }
 
