@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
@@ -8,7 +8,6 @@
 #include <QStringList>
 #include <QVector>
 
-class QPluginLoader;
 class QQmlComponent;
 class QThreadPool;
 
@@ -42,6 +41,7 @@ Q_SIGNALS:
 private:
     bool compareVersion(const QString &targetVersion, const QString &baseVersion);
     bool updatePluginType(PluginData *plugin);
+    bool preparePluginFactory(PluginData *plugin);
     QThreadPool *threadPool();
 
 private Q_SLOTS:
