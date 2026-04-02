@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "soundmodel.h"
@@ -13,8 +13,8 @@
 
 Q_LOGGING_CATEGORY(DdcSoundModel, "dcc-sound-model")
 
-const static Dtk::Core::DSysInfo::UosType UosType = Dtk::Core::DSysInfo::uosType();
-const static bool IsServerSystem = (Dtk::Core::DSysInfo::UosServer == UosType); //是否是服务器版
+// const static Dtk::Core::DSysInfo::UosType UosType = Dtk::Core::DSysInfo::uosType();
+// const static bool IsServerSystem = (Dtk::Core::DSysInfo::UosServer == UosType); //是否是服务器版
 
 static const QMap<DDesktopServices::SystemSoundEffect, QString> SOUND_EFFECT_MAP{
     { DDesktopServices::SystemSoundEffect::SSE_Notifications, "message" },
@@ -97,11 +97,10 @@ SoundModel::SoundModel(QObject *parent)
         { tr("Error"), DDesktopServices::SSE_Error },
     };
 
-    if (IsServerSystem) {
+    if (Dtk::Core::DSysInfo::UosServer == Dtk::Core::DSysInfo::uosType()) {
         m_soundEffectMapBattery.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
         m_soundEffectMapPower.removeOne({ tr("Wake up"), DDesktopServices::SSE_WakeUp });
     }
-    qmlRegisterType<SoundDeviceModel>("SoundDeviceModel", 1, 0, "SoundDeviceModel");
 }
 
 SoundModel::~SoundModel()

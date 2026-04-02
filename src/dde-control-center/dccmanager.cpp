@@ -76,7 +76,7 @@ DccManager::DccManager(QObject *parent)
     QJSEngine::setObjectOwnership(m_noParentObjects, QQmlEngine::CppOwnership);
 
     initConfig();
-    connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject, Qt::QueuedConnection);
+    connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject);
     connect(m_plugins, &PluginManager::loadAllFinished, this, &DccManager::tryShow, Qt::QueuedConnection);
     m_showTimer = new QTimer(this);
     connect(m_showTimer, &QTimer::timeout, this, &DccManager::tryShow);
@@ -191,10 +191,12 @@ void DccManager::addObject(DccObject *obj)
 {
     if (!obj)
         return;
+    qWarning()<<__LINE__<<__FUNCTION__<<obj;
     QVector<DccObject *> objs;
     objs.append(obj);
     while (!objs.isEmpty()) {
         DccObject *o = objs.takeFirst();
+        qWarning()<<__LINE__<<__FUNCTION__<<(void*)o;
         if (!o->name().isEmpty()) {
             m_objMap[o->name()].append(o);
             connect(o, &DccObject::destroyed, this, &DccManager::onDccObjectDestroyed, Qt::UniqueConnection);
@@ -468,20 +470,25 @@ void DccManager::initConfig()
     connect(m_dconfig, &DConfig::valueChanged, this, &DccManager::updateModuleConfig);
 }
 
-bool DccManager::contains(const QSet<QString> &urls, const DccObject *obj)
+bool DccManager::containsByName(const QSet<QString> &urls, const QString &name)
 {
     for (auto &&url : urls) {
         if (url.contains("*")) {
-            if (isMatch(url, obj)) {
+            if (isMatchByName(url, name)) {
                 return true;
             }
         } else {
-            if (isEqual(url, obj)) {
+            if (isEqualByName(url, name)) {
                 return true;
             }
         }
     }
     return false;
+}
+
+bool DccManager::contains(const QSet<QString> &urls, const DccObject *obj)
+{
+    return containsByName(urls, obj->parentName() + "/" + obj->name());
 }
 
 QStringList DccManager::splitUrl(const QString &url, QString &targetName)
@@ -777,7 +784,7 @@ void DccManager::clearShowParam()
 
 void DccManager::tryShow()
 {
-    if (m_showUrl.isEmpty() && !m_activeObject) {
+    if (m_showUrl.isEmpty() && m_showTimer) {
         clearShowParam();
         showPage(m_root, QString());
         return;
@@ -801,6 +808,9 @@ void DccManager::tryShow()
             QDBusConnection::sessionBus().send(m_showMessage.createErrorReply(QDBusError::InvalidArgs, QString("not found url:") + m_showUrl));
         }
         clearShowParam();
+        if (!m_activeObject) {
+            showPage(m_root, QString());
+        }
     }
 }
 

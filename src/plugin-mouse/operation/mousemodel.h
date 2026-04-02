@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef MOUSEMODEL_H
@@ -10,7 +10,6 @@
 #include <QDBusArgument>
 #include <QDebug>
 #include <QObject>
-#include <QQmlEngine>
 #include <DGuiApplicationHelper>
 
 namespace DCC_NAMESPACE {

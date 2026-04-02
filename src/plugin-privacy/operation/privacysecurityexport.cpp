@@ -1,10 +1,11 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "privacysecurityexport.h"
-#include "dccfactory.h"
+
 #include "applicationitem.h"
+#include "dccfactory.h"
 #include "privacysecuritymodel.h"
 #include "privacysecurityworker.h"
 
@@ -19,10 +20,8 @@ PrivacySecurityExport::PrivacySecurityExport(QObject *parent)
     , m_woker(new PrivacySecurityWorker(m_privacyModel, this))
 {
     m_appsModel = m_privacyModel->appModel();
-
-    qmlRegisterType<ApplicationItem>("org.deepin.dcc.privacy", 1, 0, "ApplicationItem");
 }
 
-DCC_FACTORY_CLASS(PrivacySecurityExport)
+DCC_FACTORY_CLASS(PrivacySecurityExport, qmlRegisterType<ApplicationItem>("org.deepin.dcc.privacy", 1, 0, "ApplicationItem"))
 
 #include "privacysecurityexport.moc"
