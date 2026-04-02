@@ -84,6 +84,7 @@ Item {
             topMargin: 6
             bottomMargin: 10
             clip: true
+            spacing: 4
             focus: true
             activeFocusOnTab: true
             currentIndex: dccObj ? dccObj.children.indexOf(dccObj.currentObject) : -1
