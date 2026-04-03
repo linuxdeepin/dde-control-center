@@ -237,7 +237,6 @@ DatetimeModel::DatetimeModel(QObject *parent)
         Q_EMIT currentFormatChanged(LongTime);
     });
 
-    qmlRegisterType<dccV25::ZoneInfoModel>("ZoneInfoModel", 1, 0, "ZoneInfoModel");
 }
 
 DatetimeModel::~DatetimeModel()
@@ -1631,5 +1630,8 @@ void DatetimeModel::updateCurrentTime()
 }
 
 DCC_FACTORY_CLASS(DatetimeModel)
+DCC_FACTORY_INITIALIZED([] {
+    qmlRegisterType<dccV25::ZoneInfoModel>("ZoneInfoModel", 1, 0, "ZoneInfoModel");
+})
 
 #include "datetimemodel.moc"

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "soundInteraction.h"
@@ -6,6 +6,7 @@
 #include "dccfactory.h"
 
 #include <QDebug>
+#include <QtQml/qqml.h>
 
 using namespace  dccV25;
 
@@ -15,9 +16,6 @@ soundInteraction::soundInteraction(QObject *parent)
     , m_soundWork(new SoundWorker(m_soundModel,this))
 {
     m_soundWork->activate();
-
-    qmlRegisterType<SoundWorker>("dcc", 1, 0, "SoundWorker");
-    qmlRegisterType<SoundModel>("dcc", 1, 0, "SoundModel");
 }
 
 soundInteraction::~soundInteraction()
@@ -51,5 +49,10 @@ void soundInteraction::setSinkVolume(double value)
 }
 
 DCC_FACTORY_CLASS(soundInteraction)
+DCC_FACTORY_INITIALIZED([] {
+    qmlRegisterType<SoundWorker>("dcc", 1, 0, "SoundWorker");
+    qmlRegisterType<SoundModel>("dcc", 1, 0, "SoundModel");
+    qmlRegisterType<SoundDeviceModel>("SoundDeviceModel", 1, 0, "SoundDeviceModel");
+})
 
 #include "soundInteraction.moc"

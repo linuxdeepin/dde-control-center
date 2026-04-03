@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -13,9 +13,6 @@ BluetoothInteraction::BluetoothInteraction(QObject *parent)
     , m_work(new BluetoothWorker(m_model, this))
 {
     m_work->activate();
-
-    qmlRegisterType<BluetoothWorker>("dcc", 1, 0, "BluetoothWorker");
-    qmlRegisterType<BluetoothModel>("dcc", 1, 0, "BluetoothModel");
 }
 
 BluetoothModel *BluetoothInteraction::model() const
@@ -40,5 +37,9 @@ void BluetoothInteraction::setWork(BluetoothWorker *newWork)
 
 
 DCC_FACTORY_CLASS(BluetoothInteraction)
+DCC_FACTORY_INITIALIZED([] {
+    qmlRegisterType<BluetoothWorker>("dcc", 1, 0, "BluetoothWorker");
+    qmlRegisterType<BluetoothModel>("dcc", 1, 0, "BluetoothModel");
+})
 
 #include "bluetoothinteraction.moc"

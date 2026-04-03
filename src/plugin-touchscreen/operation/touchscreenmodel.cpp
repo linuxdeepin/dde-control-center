@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "touchscreenmodel.h"
@@ -17,7 +17,6 @@ TouchScreenModel::TouchScreenModel(QObject *parent)
     , DCC_INIT_PRIVATE(TouchScreenModel)
     , m_touchScreenMatchModel(new TouchScreenMatchModel(this))
 {
-    qmlRegisterType<TouchScreenMatchModel>("org.deepin.dcc.touchscreen", 1, 0, "TouchScreenMatchModel");
 }
 
 TouchScreenModel::~TouchScreenModel()
@@ -93,4 +92,7 @@ void TouchScreenModelPrivate::assoiateTouchNotify()
 }
 
 DCC_FACTORY_CLASS(TouchScreenModel)
+DCC_FACTORY_INITIALIZED([] {
+    qmlRegisterType<TouchScreenMatchModel>("org.deepin.dcc.touchscreen", 1, 0, "TouchScreenMatchModel");
+})
 #include "touchscreenmodel.moc"

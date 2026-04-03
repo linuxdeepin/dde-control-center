@@ -321,6 +321,14 @@ bool PluginManager::preparePluginFactory(PluginData *plugin)
     }
 
     plugin->factory = factory;
+
+    // 调用 DccFactoryV2::initialized() 如果插件实现了该接口
+    DccFactoryV2 *factoryV2 = dynamic_cast<DccFactoryV2 *>(factory);
+    if (factoryV2) {
+        qCDebug(dccLog()) << plugin->name << ": calling DccFactoryV2::initialized()";
+        factoryV2->initialized();
+    }
+
     return true;
 }
 

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -31,6 +31,9 @@ DCORE_USE_NAMESPACE
 namespace dccV25 {
 
 DCC_FACTORY_CLASS(AccountsController)
+DCC_FACTORY_INITIALIZED([] {
+    qmlRegisterType<CreationResult>("AccountsController", 1, 0, "CreationResult");
+})
 
 static bool isUserGroupName(int gid, const QString &name)
 {
@@ -45,8 +48,6 @@ static bool isUserGroupName(int gid, const QString &name)
 AccountsController::AccountsController(QObject *parent)
     : QObject{ parent }
 {
-    qmlRegisterType<CreationResult>("AccountsController", 1, 0, "CreationResult");
-    
     m_model = new UserModel(this);
     m_worker = new AccountsWorker(m_model, this);
 
