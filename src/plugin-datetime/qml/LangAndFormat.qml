@@ -18,10 +18,8 @@ DccObject {
     // 正在locale-gen
     property int localeStateGenLocale: 1 << 2
 
-    property Palette textColor: Palette {
-        normal: Qt.rgba(0, 0, 0, 0.9)
-        normalDark: Qt.rgba(1, 1, 1, 0.9)
-    }
+    property color textColor: DTK.themeType === ApplicationHelper.LightType ?
+        Qt.rgba(0, 0, 0, 0.9) : Qt.rgba(1, 1, 1, 0.9)
 
     FontMetrics {
         id: fm
