@@ -59,6 +59,8 @@ public:
 
 DisplayModulePrivate::DisplayModulePrivate(DisplayModule *parent)
     : q_ptr(parent)
+    , m_model(nullptr)
+    , m_worker(nullptr)
     , m_primary(nullptr)
     , m_maxGlobalScale(1.0)
 {

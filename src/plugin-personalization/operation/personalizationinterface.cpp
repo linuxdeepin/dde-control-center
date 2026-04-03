@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -142,14 +142,11 @@ PersonalizationInterface::PersonalizationInterface(QObject *parent)
 , m_pickerId(QUuid::createUuid().toString())
 , m_pickerAvailable(false)
 {
-    qmlRegisterType<PersonalizationExport>("org.deepin.dcc.personalization", 1, 0, "PersonalizationData");
     if (Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform)) {
         m_work = new TreeLandWorker(m_model, this);
     } else {
         m_work = new X11Worker(m_model, this);
     }
-
-    qmlRegisterType<PersonalizationExport>("org.deepin.dcc.personalization", 1, 0, "PersonalizationExport");
 
     m_globalThemeViewModel->setThemeModel(m_model->getGlobalThemeModel());
     m_iconThemeViewModel->setThemeModel(m_model->getIconModel());
@@ -314,6 +311,8 @@ void PersonalizationInterface::onPickerColorPicked(const QString &uuid, const QS
     }
 }
 
-DCC_FACTORY_CLASS(PersonalizationInterface)
+DCC_FACTORY_CLASS(PersonalizationInterface,\
+                  qmlRegisterType<PersonalizationExport>("org.deepin.dcc.personalization", 1, 0, "PersonalizationData"),\
+                  qmlRegisterType<PersonalizationExport>("org.deepin.dcc.personalization", 1, 0, "PersonalizationExport"))
 
 #include "personalizationinterface.moc"

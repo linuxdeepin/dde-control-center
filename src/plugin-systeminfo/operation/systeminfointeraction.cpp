@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "systeminfointeraction.h"
@@ -14,9 +14,6 @@ SystemInfoInteraction::SystemInfoInteraction(QObject *parent)
     , m_systemInfoWork(nullptr)
     , m_systemInfoMode(nullptr)
 {
-    qmlRegisterType<SystemInfoWork>("org.deepin.dcc.systemInfo", 1, 0, "SystemInfoWork");
-    qmlRegisterType<SystemInfoModel>("org.deepin.dcc.systemInfo", 1, 0, "SystemInfoModel");
-
     m_systemInfoMode = new SystemInfoModel(this);
     m_systemInfoWork = new SystemInfoWork(m_systemInfoMode, this);
 
@@ -44,7 +41,8 @@ void SystemInfoInteraction::setSystemInfoMode(SystemInfoModel *newSystemInfoMode
     m_systemInfoMode = newSystemInfoMode;
 }
 
-DCC_FACTORY_CLASS(SystemInfoInteraction)
-
+DCC_FACTORY_CLASS(SystemInfoInteraction,\
+                  qmlRegisterType<SystemInfoWork>("org.deepin.dcc.systemInfo", 1, 0, "SystemInfoWork"),\
+                  qmlRegisterType<SystemInfoModel>("org.deepin.dcc.systemInfo", 1, 0, "SystemInfoModel"))
 
 #include "systeminfointeraction.moc"

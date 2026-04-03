@@ -59,6 +59,13 @@ public:
 
     inline const QSet<QString> &hideModule() const { return m_hideModule; }
 
+    static bool isMatchByName(const QString &url, const QString &name);
+    static bool isMatch(const QString &url, const DccObject *obj);
+    static bool isEqualByName(const QString &url, const QString &name);
+    static bool isEqual(const QString &url, const DccObject *obj);
+    static bool containsByName(const QSet<QString> &urls, const QString &name);
+    static bool contains(const QSet<QString> &urls, const DccObject *obj);
+
 public Q_SLOTS:
     DccObject *object(const QString &name) override;
     void addObject(DccObject *obj) override;
@@ -89,12 +96,7 @@ Q_SIGNALS:
 
 private:
     void initConfig();
-    bool contains(const QSet<QString> &urls, const DccObject *obj);
     QStringList splitUrl(const QString &url, QString &targetName);
-    bool isMatchByName(const QString &url, const QString &name);
-    bool isMatch(const QString &url, const DccObject *obj);
-    bool isEqualByName(const QString &url, const QString &name);
-    bool isEqual(const QString &url, const DccObject *obj);
     DccObject *findObject(const QString &url);
     QVector<DccObject *> findObjects(const QString &url, bool one = false);
     const DccObject *findParent(const DccObject *obj);

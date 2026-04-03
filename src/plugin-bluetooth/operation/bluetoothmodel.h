@@ -1,11 +1,10 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCC_BLUETOOTH_BLUETOOTHMODEL_H
 #define DCC_BLUETOOTH_BLUETOOTHMODEL_H
 
 #include <QObject>
-#include <QtQmlIntegration/qqmlintegration.h>
 
 #include "bluetoothadapter.h"
 #include "bluetoothadaptersmodel.h"
@@ -18,8 +17,6 @@ class BluetoothModel : public QObject
     Q_PROPERTY(bool airplaneEnable READ airplaneEnable NOTIFY airplaneEnableChanged FINAL)
     Q_PROPERTY(bool showBluetooth READ showBluetooth NOTIFY showBluetoothChanged FINAL)
 
-    QML_NAMED_ELEMENT(BluetoothModel)
-    QML_SINGLETON
 public:
     explicit BluetoothModel(QObject *parent = nullptr);
 

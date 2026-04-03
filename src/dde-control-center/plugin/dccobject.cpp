@@ -11,7 +11,7 @@
 #include <QQuickItem>
 #include <QQuickWindow>
 #include <QTimer>
-
+#include <QThread>
 namespace dccV25 {
 static Q_LOGGING_CATEGORY(dccLog, "dde.dcc.object");
 
@@ -30,11 +30,16 @@ DccObject::Private::Private(DccObject *obj)
     , m_currentObject(nullptr)
     , m_page(nullptr)
     , m_parentItem(nullptr)
+    , m_pParent(nullptr)
 {
 }
 
 DccObject::Private::~Private()
 {
+    if(m_pParent){
+        m_pParent->removeObject(q_ptr);
+    }
+    clearObject();
     if (m_page && (!m_page->parent() || m_page->parent() == q_ptr)) {
         // Use deleteLater() to avoid dangling QObjectWrapper references in QML's
         // JS engine. Synchronous delete can cause crashes when GC runs during
@@ -46,6 +51,7 @@ DccObject::Private::~Private()
     }
     if (m_parent) {
         m_parent->p_ptr->removeChild(q_ptr);
+        // m_parent->removeObject(q_ptr);
     }
     while (!m_children.isEmpty()) {
         DccObject *child = m_children.first();
@@ -55,6 +61,10 @@ DccObject::Private::~Private()
             // delete, then defer destruction so QML's GC can safely process any
             // remaining QObjectWrapper references to this child.
             child->setParent(nullptr);
+            // if(child->p_ptr->m_pParent){
+            //     child->p_ptr->m_pParent->removeObject(child);
+            //     // child->p_ptr->m_pParent = nullptr;
+            // }
             child->deleteLater();
         }
     }
@@ -193,13 +203,16 @@ void DccObject::Private::addObject(DccObject *child)
 {
     if (child && !m_objects.contains(child)) {
         m_objects.append(child);
+        child->p_ptr->m_pParent=this;
         Q_EMIT q_ptr->addObject(child);
     }
 }
 
 void DccObject::Private::removeObject(DccObject *child)
 {
-    if (child && m_objects.removeOne(child)) {
+    if (child ) {
+        child->p_ptr->m_pParent=nullptr;
+        m_objects.removeOne(child);
         Q_EMIT q_ptr->removeObject(child);
     }
 }
@@ -207,6 +220,7 @@ void DccObject::Private::removeObject(DccObject *child)
 void DccObject::Private::clearObject()
 {
     for (auto obj : m_objects) {
+        obj->p_ptr->m_pParent=nullptr;
         Q_EMIT q_ptr->removeObject(obj);
     }
     m_objects.clear();
@@ -249,10 +263,12 @@ DccObject::DccObject(QObject *parent)
     : QObject(parent)
     , p_ptr(new DccObject::Private(this))
 {
+    qWarning()<<__LINE__<<__FUNCTION__<<"===== ===="<<this<<QThread::currentThread();
 }
 
 DccObject::~DccObject()
 {
+    qWarning()<<__LINE__<<__FUNCTION__<<"===== ~~~ ===="<<this<<name()<<QThread::currentThread();
     delete p_ptr;
 }
 
