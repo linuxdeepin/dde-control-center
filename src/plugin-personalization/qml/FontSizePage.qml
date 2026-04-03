@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Window 2.15
@@ -28,10 +28,36 @@ DccObject {
             D.TipsSlider {
                 id: fontSizeSlider
                 readonly property var fontSizeModel: [11, 12, 13, 14, 15, 16, 18, 20]
+
+                property real leftTextWidth: 0
+                property real rightTextWidth: 0
+                property real dynamicLeftMargin: Math.max(16, leftTextWidth / 2 + 5)
+                property real dynamicRightMargin: Math.max(16, rightTextWidth / 2 + 5)
+
                 Layout.preferredHeight: 90
                 Layout.alignment: Qt.AlignCenter
-                Layout.margins: 10
+                Layout.leftMargin: dynamicLeftMargin
+                Layout.rightMargin: dynamicRightMargin
+                Layout.topMargin: 10
+                Layout.bottomMargin: 10
                 Layout.fillWidth: true
+
+                TextMetrics {
+                    id: fontSizeLeftTextMetrics
+                    font: fontSizeSlider.slider.font
+                    text: String(fontSizeSlider.fontSizeModel[0])
+                    Component.onCompleted: {
+                        fontSizeSlider.leftTextWidth = width
+                    }
+                }
+                TextMetrics {
+                    id: fontSizeRightTextMetrics
+                    font: fontSizeSlider.slider.font
+                    text: String(fontSizeSlider.fontSizeModel[fontSizeSlider.fontSizeModel.length - 1])
+                    Component.onCompleted: {
+                        fontSizeSlider.rightTextWidth = width
+                    }
+                }
                 tickDirection: D.TipsSlider.TickDirection.Back
                 slider.handleType: Slider.HandleType.ArrowBottom
                 slider.from: 0
