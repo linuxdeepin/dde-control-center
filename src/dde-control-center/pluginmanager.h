@@ -34,6 +34,7 @@ public Q_SLOTS:
 Q_SIGNALS:
     void addObject(DccObject *obj);
     void loadAllFinished();
+    void modulePhaseFinished();
 
     void pluginEndStatusChanged(PluginData *plugin);
     void updatePluginStatus(PluginData *plugin, uint status, const QString &log);
@@ -42,12 +43,14 @@ private:
     bool compareVersion(const QString &targetVersion, const QString &baseVersion);
     bool updatePluginType(PluginData *plugin);
     bool preparePluginFactory(PluginData *plugin);
+    bool allModulesFinished() const;
     QThreadPool *threadPool();
 
 private Q_SLOTS:
     void loadPlugin(PluginData *plugin);
     void loadMetaData(PluginData *plugin);
     void loadModule(PluginData *plugin);
+    void loadPluginData(PluginData *plugin);
     void loadMain(PluginData *plugin);
     void createModule(QQmlComponent *component);
     void createMain(QQmlComponent *component);
@@ -56,6 +59,7 @@ private Q_SLOTS:
     void moduleLoading();
     void mainLoading();
 
+    void onModulePhaseFinished();
     void onHideModuleChanged(const QSet<QString> &hideModule);
     void onVisibleToAppChanged(bool visibleToApp);
     void onUpdatePluginStatus(PluginData *plugin, uint status, const QString &log);
@@ -66,6 +70,7 @@ private:
     DccObject *m_rootModule;       // root module from MainWindow
     QThreadPool *m_threadPool;
     bool m_isDeleting;
+    bool m_modulePhaseFinished;
     QQmlEngine *m_engine;
 };
 

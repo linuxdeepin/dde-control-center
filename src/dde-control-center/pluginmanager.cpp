@@ -174,10 +174,12 @@ PluginManager::PluginManager(DccManager *parent)
     , m_rootModule(nullptr)
     , m_threadPool(nullptr)
     , m_isDeleting(false)
+    , m_modulePhaseFinished(false)
 {
     qRegisterMetaType<PluginData>("PluginData");
     connect(this, &PluginManager::pluginEndStatusChanged, this, &PluginManager::loadPlugin);
     connect(this, &PluginManager::updatePluginStatus, this, &PluginManager::onUpdatePluginStatus);
+    connect(this, &PluginManager::modulePhaseFinished, this, &PluginManager::onModulePhaseFinished);
     connect(m_manager, &DccManager::hideModuleChanged, this, &PluginManager::onHideModuleChanged);
 }
 
@@ -322,6 +324,18 @@ bool PluginManager::preparePluginFactory(PluginData *plugin)
     return true;
 }
 
+bool PluginManager::allModulesFinished() const
+{
+    for (auto &&plugin : m_plugins) {
+        uint status = plugin->status;
+        bool moduleFinished = (status & ModuleEnd) || (status & ModuleErr) || (status & PluginEnd);
+        if (!moduleFinished) {
+            return false;
+        }
+    }
+    return !m_plugins.isEmpty();
+}
+
 QThreadPool *PluginManager::threadPool()
 {
     if (!m_threadPool) {
@@ -346,16 +360,12 @@ void PluginManager::loadPlugin(PluginData *plugin)
     } else if ((plugin->status & (DataEnd | MainObjLoad)) == DataEnd) {
         loadMain(plugin);
     } else if ((plugin->status & (ModuleEnd | DataBegin)) == ModuleEnd) {
-        if (plugin->module) {
-            disconnect(plugin->module, nullptr, this, nullptr);
-            if (plugin->module->isVisibleToApp()) {
-                threadPool()->start(new LoadPluginTask(plugin, this));
-            } else {
-                connect(plugin->module, &DccObject::visibleToAppChanged, this, &PluginManager::onVisibleToAppChanged);
-                Q_EMIT updatePluginStatus(plugin, PluginEnd, QString());
-            }
-        } else {
-            threadPool()->start(new LoadPluginTask(plugin, this));
+        if (!m_modulePhaseFinished && allModulesFinished()) {
+            Q_EMIT modulePhaseFinished();
+            return;
+        }
+        if (m_modulePhaseFinished) {
+            loadPluginData(plugin);
         }
     } else if ((plugin->status & (MetaDataEnd | ModuleLoad)) == MetaDataEnd) {
         if (!preparePluginFactory(plugin)) {
@@ -445,6 +455,24 @@ void PluginManager::loadModule(PluginData *plugin)
         Q_EMIT updatePluginStatus(plugin, ModuleLoad, ": load module " + typeName);
         component->loadFromModule(plugin->name, typeName, QQmlComponent::Asynchronous);
     } break;
+    }
+}
+
+void PluginManager::loadPluginData(PluginData *plugin)
+{
+    if (isDeleting()) {
+        return;
+    }
+    if (plugin->module) {
+        disconnect(plugin->module, nullptr, this, nullptr);
+        if (plugin->module->isVisibleToApp()) {
+            threadPool()->start(new LoadPluginTask(plugin, this));
+        } else {
+            connect(plugin->module, &DccObject::visibleToAppChanged, this, &PluginManager::onVisibleToAppChanged);
+            Q_EMIT updatePluginStatus(plugin, PluginEnd, QString());
+        }
+    } else {
+        threadPool()->start(new LoadPluginTask(plugin, this));
     }
 }
 
@@ -589,6 +617,19 @@ void PluginManager::mainLoading()
     if (!component || component->status() == QQmlComponent::Loading)
         return;
     createMain(component);
+}
+
+void PluginManager::onModulePhaseFinished()
+{
+    if (isDeleting()) {
+        return;
+    }
+    m_modulePhaseFinished = true;
+    for (auto &&plugin : m_plugins) {
+        if (plugin->status & ModuleEnd) {
+            loadPlugin(plugin);
+        }
+    }
 }
 
 void PluginManager::onHideModuleChanged(const QSet<QString> &hideModule)
