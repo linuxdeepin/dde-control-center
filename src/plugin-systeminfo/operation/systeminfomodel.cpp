@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "systeminfomodel.h"
@@ -102,6 +102,9 @@ void SystemInfoModel::setHostName(const QString &hostName)
 void SystemInfoModel::setEndUserAgreementPath(const QString &path)
 {
     m_endUserAgreementTextPath = path;
+    bool isMarkdown = path.endsWith(".md", Qt::CaseInsensitive);
+    m_userLicenseFormat = isMarkdown ? Qt::MarkdownText : Qt::PlainText;
+    Q_EMIT userLicenseFormatChanged();
 }
 
 QString SystemInfoModel::graphicsPlatform() const

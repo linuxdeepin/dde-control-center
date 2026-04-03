@@ -22,7 +22,7 @@ DccObject {
         font: DTK.fontManager.t6
         text: dccData.systemInfoMode().userLicense
         wrapMode: Text.WordWrap
-        textFormat: Text.MarkdownText
+        textFormat: dccData.systemInfoMode().userLicenseFormat === Qt.MarkdownText ? Text.MarkdownText : Text.PlainText
         onLinkActivated: (link) => Qt.openUrlExternally(link)
 
         HoverHandler {

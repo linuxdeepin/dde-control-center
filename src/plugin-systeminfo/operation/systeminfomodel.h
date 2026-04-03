@@ -1,16 +1,15 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SYSTEMINFOMODEL_H
 #define SYSTEMINFOMODEL_H
 
-#include "qcolor.h"
+#include <QObject>
+#include <QColor>
+#include <optional>
 
 #include <dsysinfo.h>
 
-#include <QObject>
-
-#include <optional>
 
 using namespace Dtk::Core;
 
@@ -36,6 +35,7 @@ class SystemInfoModel : public QObject
     Q_PROPERTY(QString gnuLinceseTitle READ gnuLinceseTitle NOTIFY gnuLinceseTitleChanged FINAL)
     Q_PROPERTY(QString gnuLinceseContent READ gnuLinceseContent NOTIFY gnuLinceseContentChanged FINAL)
     Q_PROPERTY(QString userLicense READ userLicense NOTIFY userLicenseChanged FINAL)
+    Q_PROPERTY(Qt::TextFormat userLicenseFormat READ userLicenseFormat NOTIFY userLicenseFormatChanged FINAL)
     Q_PROPERTY(QString userExperienceProgramText READ userExperienceProgramText NOTIFY userExperienceProgramTextChanged FINAL)
     Q_PROPERTY(bool joinUeProgram READ joinUeProgram NOTIFY joinUeProgramChanged FINAL)
 
@@ -69,6 +69,7 @@ public:
     QString hostName() const { return  m_hostName;}
 
     inline std::optional<QString> endUserAgreementPath() const { return m_endUserAgreementTextPath; }
+    inline Qt::TextFormat userLicenseFormat() const { return m_userLicenseFormat; }
     inline ActiveState licenseState() const { return m_licenseState; }
 
     QString privacyPolicy() const;
@@ -137,6 +138,7 @@ Q_SIGNALS:
     void gnuLinceseContentChanged();
 
     void userLicenseChanged();
+    void userLicenseFormatChanged();
 
     void userExperienceProgramTextChanged();
 
@@ -183,6 +185,7 @@ private:
     QString m_kernel;
     QString m_hostName;
     std::optional<QString> m_endUserAgreementTextPath;
+    Qt::TextFormat m_userLicenseFormat = Qt::PlainText;
     DCC_NAMESPACE::ActiveState m_licenseState;
 
     // 隐私协议
