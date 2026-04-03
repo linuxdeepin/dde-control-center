@@ -76,7 +76,7 @@ DccManager::DccManager(QObject *parent)
     QJSEngine::setObjectOwnership(m_noParentObjects, QQmlEngine::CppOwnership);
 
     initConfig();
-    connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject, Qt::QueuedConnection);
+    connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject);
     connect(m_plugins, &PluginManager::loadAllFinished, this, &DccManager::tryShow, Qt::QueuedConnection);
     m_showTimer = new QTimer(this);
     connect(m_showTimer, &QTimer::timeout, this, &DccManager::tryShow);
@@ -777,7 +777,7 @@ void DccManager::clearShowParam()
 
 void DccManager::tryShow()
 {
-    if (m_showUrl.isEmpty() && !m_activeObject) {
+    if (m_showUrl.isEmpty() && m_showTimer) {
         clearShowParam();
         showPage(m_root, QString());
         return;
@@ -801,6 +801,9 @@ void DccManager::tryShow()
             QDBusConnection::sessionBus().send(m_showMessage.createErrorReply(QDBusError::InvalidArgs, QString("not found url:") + m_showUrl));
         }
         clearShowParam();
+        if (!m_activeObject) {
+            showPage(m_root, QString());
+        }
     }
 }
 
