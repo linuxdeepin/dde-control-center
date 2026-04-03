@@ -70,6 +70,7 @@ protected:
     quint8 m_pageType;
     quint16 m_weight;
     quint32 m_flags;
+    bool m_componentComplete;
 
     DccObject *q_ptr;    // q指针
     DccObject *m_parent; // 父项
