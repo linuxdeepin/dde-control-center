@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
@@ -15,6 +15,9 @@ class QProcess;
 class CommonInfoProxy;
 
 class CommonInfoModel;
+namespace Dtk::Core {
+    class DConfig;
+}
 
 struct DebugArg {
     QString module;
@@ -63,6 +66,7 @@ public Q_SLOTS:
     void resetEditAuthEnabled();
     void setReadOnlyProtectionEnabled(bool enabled);
     bool showReadOnlyProtection() const;
+    void onDTKConfigChanged(const QString& key);
 
 Q_SIGNALS:
     void settingScaling(bool);
@@ -86,6 +90,7 @@ private:
     QDBusInterface *m_inter;
     QString m_tmpBackgroundPath;
     QString m_immutableWritableStatus;
+    Dtk::Core::DConfig *m_dtkConfig = nullptr;
 };
 
 
