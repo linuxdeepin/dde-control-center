@@ -166,18 +166,22 @@ void LoadPluginTask::doLoadSo()
                     break;
                 }
                 dataObj = factory->create();
-                if (dataObj && dataObj->parent()) {
-                    dataObj->setParent(nullptr);
-                }
                 soObj = factory->dccObject();
-                if (soObj && soObj->parent()) {
-                    soObj->setParent(nullptr);
-                }
             } while (false);
         }
     } else {
         Q_EMIT m_pManager->updatePluginStatus(m_data, DataErr, "File does not exist:" + soPath);
     }
+
+    // Check if manager is being deleted before assigning objects
+    if (m_pManager->isDeleting()) {
+        if (dataObj)
+            delete dataObj;
+        if (soObj)
+            delete soObj;
+        return;
+    }
+
     if (dataObj) {
         m_data->data = dataObj;
     }
@@ -410,7 +414,7 @@ void PluginManager::loadModule(PluginData *plugin)
     }
     QQmlComponent *component = new QQmlComponent(m_manager->engine(), m_manager->engine());
     component->setProperty("PluginData", QVariant::fromValue(plugin));
-    connect(component, &QQmlComponent::statusChanged, this, &PluginManager::moduleLoading);
+    connect(component, &QQmlComponent::statusChanged, this, &PluginManager::moduleLoading, Qt::QueuedConnection);
     switch (plugin->version()) {
     case T_V1_0: {
         const QString qmlPath = plugin->path + "/" + plugin->name + ".qml";
@@ -438,7 +442,8 @@ void PluginManager::loadMain(PluginData *plugin)
     }
     QQmlComponent *component = new QQmlComponent(m_manager->engine(), m_manager->engine());
     component->setProperty("PluginData", QVariant::fromValue(plugin));
-    connect(component, &QQmlComponent::statusChanged, this, &PluginManager::mainLoading);
+    // 使用 Qt::QueuedConnection 确保槽函数在主线程执行，避免多线程竞态条件
+    connect(component, &QQmlComponent::statusChanged, this, &PluginManager::mainLoading, Qt::QueuedConnection);
     switch (plugin->version()) {
     case T_V1_0: {
         const QString qmlPath = plugin->path + "/" + ((plugin->type & T_ShortMain) ? "main.qml" : plugin->name + "Main.qml");
@@ -458,6 +463,7 @@ void PluginManager::loadMain(PluginData *plugin)
 void PluginManager::createModule(QQmlComponent *component)
 {
     if (isDeleting()) {
+        component->deleteLater();
         return;
     }
     PluginData *plugin = component->property("PluginData").value<PluginData *>();
@@ -559,6 +565,8 @@ void PluginManager::moduleLoading()
     QQmlComponent *component = qobject_cast<QQmlComponent *>(sender());
     if (!component || component->status() == QQmlComponent::Loading)
         return;
+    // 断开信号连接，防止重复触发
+    disconnect(component, &QQmlComponent::statusChanged, this, &PluginManager::moduleLoading);
     createModule(component);
 }
 
@@ -567,6 +575,8 @@ void PluginManager::mainLoading()
     QQmlComponent *component = qobject_cast<QQmlComponent *>(sender());
     if (!component || component->status() == QQmlComponent::Loading)
         return;
+    // 断开信号连接，防止重复触发
+    disconnect(component, &QQmlComponent::statusChanged, this, &PluginManager::mainLoading);
     createMain(component);
 }
 

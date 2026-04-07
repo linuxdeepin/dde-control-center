@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick
 
@@ -7,10 +7,17 @@ Loader {
     property Item dccObjItem: null
 
     function updateDccObjItem() {
-        if (dccObj) {
+        if (dccObj && dccObjItem) {
             dccObj.parentItem = dccObjItem
         }
     }
+
+    Component.onDestruction: {
+        if (dccObj && dccObj.parentItem === dccObjItem) {
+            dccObj.parentItem = null
+        }
+    }
+
     enabled: dccObj && dccObj.enabledToApp
     // asynchronous: true
     sourceComponent: dccObj ? dccObj.page : null

@@ -838,6 +838,8 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
     if (triggeredObj->pageType() == DccObject::MenuEditor && !triggeredObj->getChildren().isEmpty()) {
         triggeredObj = triggeredObj->getChildren().first();
     }
+
+    m_batchUpdating = true;
     DccObject *tmpObj = triggeredObj;
     tmpObj->setCurrentObject(nullptr);
     tmpObj->active(QString());
@@ -851,6 +853,7 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
         tmpObj = tmpObjParent;
     }
     if (!tmpObj) {
+        m_batchUpdating = false;
         return;
     }
     modules.append(tmpObj);
@@ -882,6 +885,8 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
     // 更新当前对象
     m_currentObjects = modules;
     m_triggeredObjects = triggeredObjs;
+    m_batchUpdating = false;
+
     Q_EMIT triggeredObjectsChanged(m_triggeredObjects);
     if (auto *lastObj = m_currentObjects.last(); lastObj != m_activeObject) {
         m_activeObject = lastObj;

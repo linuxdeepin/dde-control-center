@@ -6,6 +6,8 @@
 #include "dccapp.h"
 #include "dccobject.h"
 
+#include <atomic>
+
 #include <DConfig>
 #include <DSysInfo>
 
@@ -51,6 +53,8 @@ public:
     inline const QVector<DccObject *> &currentObjects() const override { return m_currentObjects; }
 
     inline const QVector<DccObject *> &triggeredObjects() const override { return m_triggeredObjects; }
+
+    inline bool isBatchUpdating() const { return m_batchUpdating; }
 
     Q_INVOKABLE DccApp::UosEdition uosEdition() const;
     Q_INVOKABLE Dtk::Core::DSysInfo::ProductType productType() const;
@@ -145,6 +149,7 @@ private:
     QDBusMessage m_showMessage;
 
     QHash<QString, QVector<DccObject *>> m_objMap; // 映射对象名称到对象指针列表，用于快速查找
+    std::atomic<bool> m_batchUpdating{false};  // 批量更新标志，防止 GC 崩溃，支持线程安全访问
 };
 } // namespace dccV25
 #endif // DCCMANAGER_H
