@@ -68,7 +68,6 @@ private:
     DccManager *m_manager;
     QList<PluginData *> m_plugins; // cache for other plugin
     DccObject *m_rootModule;       // root module from MainWindow
-    QThreadPool *m_threadPool;
     bool m_isDeleting;
     bool m_modulePhaseFinished;
     QQmlEngine *m_engine;

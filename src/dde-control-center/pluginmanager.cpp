@@ -19,6 +19,7 @@
 #include <QQmlComponent>
 #include <QQmlContext>
 #include <QQmlFile>
+#include <QQmlIncubator>
 #include <QRunnable>
 #include <QSet>
 #include <QSettings>
@@ -101,6 +102,93 @@ struct PluginData
     inline uint version() { return type & T_V_MASK; }
 };
 
+static void doLoadSo(PluginData *plugin, PluginManager *pManager)
+{
+    const QString soPath = plugin->path + "/" + plugin->name + ".so";
+    QElapsedTimer timer;
+    timer.start();
+    if (QFile::exists(soPath)) {
+        if (pManager->isDeleting()) {
+            return;
+        }
+        QPluginLoader loader(soPath);
+        Q_EMIT pManager->updatePluginStatus(plugin, DataLoad, QString());
+        loader.load();
+        if (pManager->isDeleting()) {
+            return;
+        }
+        if (!loader.isLoaded()) {
+            Q_EMIT pManager->updatePluginStatus(plugin, DataErr, "Load the plugin failed." + loader.errorString());
+        } else {
+            const auto &meta = loader.metaData();
+            do {
+                const auto iid = meta["IID"].toString();
+                if (iid.isEmpty() || iid != QString(qobject_interface_iid<DccFactory *>())) {
+                    Q_EMIT pManager->updatePluginStatus(plugin, DataErr, "Error iid:" + iid);
+                    break;
+                }
+
+                if (!loader.instance()) {
+                    Q_EMIT pManager->updatePluginStatus(plugin, DataErr, "instance() failed." + loader.errorString());
+                    break;
+                }
+                DccFactory *factory = qobject_cast<DccFactory *>(loader.instance());
+                if (!factory) {
+                    Q_EMIT pManager->updatePluginStatus(plugin, DataErr, "The plugin isn't a DccFactory." + soPath);
+                    loader.unload();
+                    break;
+                }
+                plugin->factory = factory;
+            } while (false);
+        }
+    }
+    Q_EMIT pManager->updatePluginStatus(plugin, DataLoad, ": Load the plugin. elapsed time :" + QString::number(timer.elapsed()));
+}
+
+static void doCreateDccObject(PluginData *plugin, PluginManager * /*pManager*/)
+{
+    if (plugin->factory) {
+        QObject *obj = plugin->factory->dccObject();
+        DccObject *soObj = dynamic_cast<DccObject *>(obj);
+        if (soObj) {
+            plugin->soObj = soObj;
+        } else if (obj) {
+            obj->deleteLater();
+        }
+    }
+}
+
+static void doCreateData(PluginData *plugin, PluginManager *pManager)
+{
+    Q_EMIT pManager->updatePluginStatus(plugin, DataBegin, "create data begin");
+    QElapsedTimer timer;
+    timer.start();
+    QObject *dataObj = nullptr;
+    if (pManager->isDeleting()) {
+        return;
+    }
+    if (!plugin->factory) {
+        Q_EMIT pManager->updatePluginStatus(plugin, DataEnd, ": create data skipped");
+        return;
+    } else {
+        Q_EMIT pManager->updatePluginStatus(plugin, DataLoad, QString());
+        dataObj = plugin->factory->create();
+        if (dataObj && dataObj->parent()) {
+            dataObj->setParent(nullptr);
+        }
+    }
+    if (dataObj) {
+        plugin->data = dataObj;
+    }
+    if (plugin->data) {
+        plugin->data->moveToThread(pManager->thread());
+    }
+    if (plugin->factory) {
+        plugin->factory->moveToThread(pManager->thread());
+    }
+    Q_EMIT pManager->updatePluginStatus(plugin, DataEnd, ": create data finished. elapsed time :" + QString::number(timer.elapsed()));
+}
+
 class LoadPluginTask : public QRunnable
 {
 public:
@@ -123,56 +211,67 @@ protected:
 void LoadPluginTask::run()
 {
     m_data->thread = QThread::currentThread();
-    createData();
+    doCreateData(m_data, m_pManager);
     m_data->thread = nullptr;
 }
 
-void LoadPluginTask::createData()
+class DccIncubator : public QQmlIncubator
 {
-    Q_EMIT m_pManager->updatePluginStatus(m_data, DataBegin, "create data begin");
-    QElapsedTimer timer;
-    timer.start();
-    QObject *dataObj = nullptr;
-    DccObject *soObj = nullptr;
-    if (m_pManager->isDeleting()) {
-        return;
+public:
+    DccIncubator(PluginManager *pManager, PluginData *data, QQmlComponent *component, QQmlContext *context)
+        : QQmlIncubator(Asynchronous)
+        , m_pManager(pManager)
+        , m_data(data)
+        , m_component(component)
+        , m_context(context)
+    {
     }
-    if (!m_data->factory) {
-        Q_EMIT m_pManager->updatePluginStatus(m_data, DataEnd, ": create data skipped");
-        return;
-    } else {
-        Q_EMIT m_pManager->updatePluginStatus(m_data, DataLoad, QString());
-        dataObj = m_data->factory->create();
-        if (dataObj && dataObj->parent()) {
-            dataObj->setParent(nullptr);
+
+protected:
+    // 当对象孵化（创建）完成时调用
+    void setInitialState(QObject *object) override
+    {
+        // 这里可以做一些初始化设置，但通常建议在 statusChanged 中处理
+        QQmlIncubator::setInitialState(object);
+    }
+
+    void statusChanged(Status status) override
+    {
+        switch (status) {
+        case Ready: {
+            QObject *obj = object();
+            if (obj) {
+                m_context->setParent(obj);
+                obj->setParent(m_data->module ? m_data->module : nullptr);
+                m_data->mainObj = qobject_cast<DccObject *>(obj);
+                Q_EMIT m_pManager->updatePluginStatus(m_data, MainObjEnd, ": create main finished");
+            } else {
+                m_context->deleteLater();
+                Q_EMIT m_pManager->updatePluginStatus(m_data, MainObjErr | MainObjEnd, " component create main object is null:" + m_component->errorString());
+            }
+        } break;
+        case Error: {
+            Q_EMIT m_pManager->updatePluginStatus(m_data, MainObjErr | MainObjEnd, " component create main object error:" + m_component->errorString());
+        } break;
+        default:
+            return;
+            break;
         }
-        soObj = m_data->factory->dccObject();
-        if (soObj && soObj->parent()) {
-            soObj->setParent(nullptr);
-        }
+        m_component->deleteLater();
+        delete this;
     }
-    if (dataObj) {
-        m_data->data = dataObj;
-    }
-    if (soObj) {
-        m_data->soObj = soObj;
-    }
-    if (m_data->data) {
-        m_data->data->moveToThread(m_pManager->thread());
-        m_data->data->setParent(m_pManager->parent());
-    }
-    if (m_data->soObj) {
-        m_data->soObj->moveToThread(m_pManager->thread());
-        m_data->soObj->setParent(m_pManager->parent());
-    }
-    Q_EMIT m_pManager->updatePluginStatus(m_data, DataEnd, ": create data finished. elapsed time :" + QString::number(timer.elapsed()));
-}
+
+private:
+    PluginManager *m_pManager;
+    PluginData *m_data;
+    QQmlComponent *m_component;
+    QQmlContext *m_context;
+};
 
 PluginManager::PluginManager(DccManager *parent)
     : QObject(parent)
     , m_manager(parent)
     , m_rootModule(nullptr)
-    , m_threadPool(nullptr)
     , m_isDeleting(false)
     , m_modulePhaseFinished(false)
 {
@@ -338,10 +437,7 @@ bool PluginManager::allModulesFinished() const
 
 QThreadPool *PluginManager::threadPool()
 {
-    if (!m_threadPool) {
-        m_threadPool = new QThreadPool(this);
-    }
-    return m_threadPool;
+    return QThreadPool::globalInstance();
 }
 
 void PluginManager::loadPlugin(PluginData *plugin)
@@ -358,14 +454,26 @@ void PluginManager::loadPlugin(PluginData *plugin)
         addMainObject(plugin);
         Q_EMIT updatePluginStatus(plugin, PluginEnd, QString());
     } else if ((plugin->status & (DataEnd | MainObjLoad)) == DataEnd) {
+        if (plugin->data) {
+            plugin->data->setParent(this);
+            QJSEngine::setObjectOwnership(plugin->data, QQmlEngine::CppOwnership);
+        }
         loadMain(plugin);
     } else if ((plugin->status & (ModuleEnd | DataBegin)) == ModuleEnd) {
-        if (!m_modulePhaseFinished && allModulesFinished()) {
-            Q_EMIT modulePhaseFinished();
-            return;
-        }
-        if (m_modulePhaseFinished) {
-            loadPluginData(plugin);
+        if (plugin->module) {
+            disconnect(plugin->module, nullptr, this, nullptr);
+            if (plugin->module->isVisibleToApp()) {
+                doLoadSo(plugin, this);
+                doCreateDccObject(plugin, this);
+                threadPool()->start(new LoadPluginTask(plugin, this));
+            } else {
+                connect(plugin->module, &DccObject::visibleToAppChanged, this, &PluginManager::onVisibleToAppChanged);
+                Q_EMIT updatePluginStatus(plugin, PluginEnd, QString());
+            }
+        } else {
+            doLoadSo(plugin, this);
+            doCreateDccObject(plugin, this);
+            threadPool()->start(new LoadPluginTask(plugin, this));
         }
     } else if ((plugin->status & (MetaDataEnd | ModuleLoad)) == MetaDataEnd) {
         if (!preparePluginFactory(plugin)) {
@@ -402,7 +510,7 @@ void PluginManager::loadMetaData(PluginData *plugin)
         return;
     }
     updatePluginType(plugin);
-    if (m_manager->hideModule().contains(plugin->name)) {
+    if (DccManager::containsByName(m_manager->hideModule(), plugin->name)) {
         // 跳过隐藏的模块,需要动态加载回来
         Q_EMIT updatePluginStatus(plugin, PluginEnd | MetaDataEnd, QString());
         return;
@@ -542,17 +650,10 @@ void PluginManager::createMain(QQmlComponent *component)
     Q_EMIT updatePluginStatus(plugin, MainObjCreate, "create main");
     switch (component->status()) {
     case QQmlComponent::Ready: {
-        QQmlContext *context = new QQmlContext(component->engine());
+        QQmlContext *context = new QQmlContext(component->engine(), component->engine());
         context->setContextProperties({ { "dccData", QVariant::fromValue(plugin->data) }, { "dccModule", QVariant::fromValue(plugin->module) } });
-        QObject *object = component->create(context);
-        component->deleteLater();
-        if (!object) {
-            Q_EMIT updatePluginStatus(plugin, MainObjErr | MainObjEnd, " component create main object is null:" + component->errorString());
-            return;
-        }
-        object->setParent(plugin->module ? plugin->module : m_rootModule);
-        plugin->mainObj = qobject_cast<DccObject *>(object);
-        Q_EMIT updatePluginStatus(plugin, MainObjEnd, ": create main finished");
+        DccIncubator *incubator = new DccIncubator(this, plugin, component, context);
+        component->create(*incubator, context, nullptr);
     } break;
     case QQmlComponent::Error: {
         Q_EMIT updatePluginStatus(plugin, MainObjErr | MainObjEnd, " component create main object error:" + component->errorString());
@@ -594,13 +695,13 @@ void PluginManager::addMainObject(PluginData *plugin)
     } else {
         Q_EMIT updatePluginStatus(plugin, MainObjErr, "The plugin isn't main DccObject");
     }
-    Q_EMIT updatePluginStatus(plugin, MainObjEnd | PluginEnd, "add main object finished");
     if (plugin->mainObj) {
         Q_EMIT addObject(plugin->mainObj);
     }
     if (plugin->soObj) {
         Q_EMIT addObject(plugin->soObj);
     }
+    Q_EMIT updatePluginStatus(plugin, MainObjEnd | PluginEnd, "add main object finished");
 }
 
 void PluginManager::moduleLoading()
@@ -702,23 +803,7 @@ void PluginManager::loadModules(DccObject *root, bool async, const QStringList &
     }
 }
 
-void PluginManager::cancelLoad()
-{
-    if (m_threadPool) {
-        m_threadPool->clear();
-        // 等待所有正在运行的任务完成,避免析构时的竞态条件
-        m_threadPool->waitForDone();
-        for (auto &&plugin : m_plugins) {
-            if (plugin->thread) {
-                qCWarning(dccLog()) << plugin->name << ": status" << QString::number(plugin->status, 16) << "thread exit timeout";
-            }
-        }
-        qCWarning(dccLog()) << "delete threadPool";
-        delete m_threadPool;
-        qCWarning(dccLog()) << "delete threadPool finish";
-        m_threadPool = nullptr;
-    }
-}
+void PluginManager::cancelLoad() { }
 
 bool PluginManager::loadFinished() const
 {

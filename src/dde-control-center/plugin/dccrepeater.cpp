@@ -34,7 +34,7 @@ public:
 
         for (int i = 0; i < itemCount; i++) {
             if (i >= deletables.size() || !deletables.at(i))
-                model->object(i, QQmlIncubator::AsynchronousIfNested);
+                model->object(i, QQmlIncubator::Asynchronous);
         }
     }
 
@@ -185,6 +185,8 @@ void DccRepeater::createdItem(int index, QObject *item)
 {
     DccObject *dccObj = qmlobject_cast<DccObject *>(item);
     if (dccObj) {
+        Q_D(const DccRepeater);
+        d->model->object(index);
         dccObj->setParent(this);
         p_ptr->addObject(dccObj);
         Q_EMIT objAdded(index, item);

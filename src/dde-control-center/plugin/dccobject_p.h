@@ -80,6 +80,7 @@ protected:
     QObjectList m_data;              // data属性，为qml能加子项
     QPointer<QQmlComponent> m_page;
     QPointer<QQuickItem> m_parentItem; // Item父项
+    DccObject::Private *m_pParent;     // m_objects对应的父项 private parent
 
     QString m_parentName;
     QString m_displayName;

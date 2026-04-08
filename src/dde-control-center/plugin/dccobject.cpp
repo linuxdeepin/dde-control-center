@@ -31,26 +31,24 @@ DccObject::Private::Private(DccObject *obj)
     , m_currentObject(nullptr)
     , m_page(nullptr)
     , m_parentItem(nullptr)
+    , m_pParent(nullptr)
 {
 }
 
 DccObject::Private::~Private()
 {
-    if (m_page && (!m_page->parent() || m_page->parent() == q_ptr)) {
-        // Use deleteLater() to avoid dangling QObjectWrapper references in QML's
-        // JS engine. Synchronous delete can cause crashes when GC runs during
-        // StackView page transitions and tries to mark already-freed objects.
-        if (m_page->parent() == q_ptr)
-            m_page->setParent(nullptr);
-        m_page->deleteLater();
-        m_page = nullptr;
+    if (m_pParent) {
+        m_pParent->removeObject(q_ptr);
     }
+    clearObject();
+    m_page = nullptr;
     if (m_parent) {
         m_parent->p_ptr->removeChild(q_ptr);
     }
+
     while (!m_children.isEmpty()) {
-        DccObject *child = m_children.first();
-        removeChild(0);
+        DccObject *child = m_children.last();
+        removeChild(m_children.size() - 1);
         if (child->parent() == q_ptr) {
             // Detach from parent to prevent ~QObject() from doing a synchronous
             // delete, then defer destruction so QML's GC can safely process any
@@ -194,13 +192,16 @@ void DccObject::Private::addObject(DccObject *child)
 {
     if (child && !m_objects.contains(child)) {
         m_objects.append(child);
+        child->p_ptr->m_pParent = this;
         Q_EMIT q_ptr->addObject(child);
     }
 }
 
 void DccObject::Private::removeObject(DccObject *child)
 {
-    if (child && m_objects.removeOne(child)) {
+    if (child) {
+        child->p_ptr->m_pParent = nullptr;
+        m_objects.removeOne(child);
         Q_EMIT q_ptr->removeObject(child);
     }
 }
@@ -208,6 +209,7 @@ void DccObject::Private::removeObject(DccObject *child)
 void DccObject::Private::clearObject()
 {
     for (auto obj : m_objects) {
+        obj->p_ptr->m_pParent = nullptr;
         Q_EMIT q_ptr->removeObject(obj);
     }
     m_objects.clear();
@@ -497,9 +499,7 @@ const QVector<DccObject *> &DccObject::getChildren() const
     return p_ptr->getChildren();
 }
 
-void DccObject::classBegin()
-{
-}
+void DccObject::classBegin() { }
 
 void DccObject::componentComplete()
 {
