@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SOUNDWORKER_H
@@ -12,7 +12,6 @@
 
 #include <DDesktopServices>
 #include "qdbusconnectioninterface.h"
-#include <QtQml/qqml.h>
 #include <QTimer>
 #include <QSoundEffect>
 #include <QMediaDevices>
@@ -21,8 +20,6 @@ class SoundWorker : public QObject
 {
     Q_OBJECT
 
-    QML_NAMED_ELEMENT(SoundWorker)
-    QML_SINGLETON
 public:
     explicit SoundWorker(SoundModel *model, QObject * parent = 0);
 

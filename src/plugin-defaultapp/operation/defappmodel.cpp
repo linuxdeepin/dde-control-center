@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "defappmodel.h"
@@ -13,7 +13,6 @@
 DefAppModel::DefAppModel(QObject *parent)
     : QObject(parent)
 {
-    qmlRegisterType<CategoryModel>("org.deepin.dcc.defApp", 1, 0, "CategoryModel");
     for (int i = 0; i < Count; i++) {
         m_categoryModel[i] = new CategoryModel(new Category(this));
     }
@@ -48,6 +47,6 @@ DefAppModel::~DefAppModel()
     }
 }
 
-DCC_FACTORY_CLASS(DefAppModel)
+DCC_FACTORY_CLASS(DefAppModel, qmlRegisterType<CategoryModel>("org.deepin.dcc.defApp", 1, 0, "CategoryModel"))
 
 #include "defappmodel.moc"

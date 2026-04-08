@@ -536,7 +536,7 @@ ApplicationItem *PrivacySecurityWorker::addAppItem(int dataIndex)
         return nullptr;
     }
 
-    ApplicationItem *appItem = new ApplicationItem();
+    ApplicationItem *appItem = new ApplicationItem(m_model);
     appItem->onIdChanged(id);
     appItem->onNameChanged(name);
     appItem->onIconChanged(iconName);

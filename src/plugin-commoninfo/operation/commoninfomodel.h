@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
@@ -6,16 +6,12 @@
 #include "grubanimationmodel.h"
 #include "grubmenulistmodel.h"
 
-#include <QtQml/qqml.h>
 #include <QObject>
 #include <QPixmap>
 
 class CommonInfoModel : public QObject
 {
     Q_OBJECT
-
-    QML_NAMED_ELEMENT(CommonInfoModel)
-    QML_SINGLETON
 
     Q_PROPERTY(bool bootDelay READ bootDelay NOTIFY bootDelayChanged FINAL)
     Q_PROPERTY(bool themeEnabled READ themeEnabled NOTIFY themeEnabledChanged FINAL)
