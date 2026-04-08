@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "commoninfomodel.h"
@@ -163,6 +163,18 @@ bool CommonInfoModel::isDeveloperMode() const
 bool CommonInfoModel::readOnlyProtectionEnabled() const
 {
     return m_readOnlyProtectionEnabled;
+}
+
+void CommonInfoModel::setBootWallpaperEnabled(bool bootWallpaperEnabled)
+{
+    m_bootWallpaperEnabled = bootWallpaperEnabled;
+
+    Q_EMIT bootWallpaperEnabledChanged();
+}
+
+bool CommonInfoModel::bootWallpaperEnabled() const
+{
+    return m_bootWallpaperEnabled;
 }
 
 void CommonInfoModel::setIsDeveloperMode(bool newIsDeveloperMode)
