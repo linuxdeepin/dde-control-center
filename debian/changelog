@@ -1,3 +1,29 @@
+dde-control-center (6.1.81) unstable; urgency=medium
+
+  * feat: improve DccRepeater parent object assignment
+  * fix: dconfig controls whether the username is displayed in the
+    verification password pop-up window
+  * fix: fix control center plugin loading and page display logic
+  * fix: Optimize the typesetting layout of open-source software
+    declarations
+  * fix: defer icon source resolution until component completion
+  * fix: synchronize plugin data phase loading
+  * refactor: move plugin factory preparation before module loading
+  * refactor: remove mutex lock and use async processing for image
+    provider
+  * fix: improve keyboard navigation focus management and rename
+    property
+  * fix(sound): fix Bluetooth audio mode detection and switching logic
+  * fix: DConfig controls whether the boot menu item area supports
+    editing the wallpaper
+  * fix: Modify the background transparency of the account creation
+    screen
+  * fix: correct text color property type and logic
+  * fix(datetime): fix layout overlap in RegionFormatDialog
+  * fix(ui): optimize layout and visibility control for list items
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 09 Apr 2026 20:27:22 +0800
+
 dde-control-center (6.1.80) unstable; urgency=medium
 
   * fix: add support for markdown format in user license
