@@ -167,14 +167,30 @@ bool CommonInfoModel::readOnlyProtectionEnabled() const
 
 void CommonInfoModel::setBootWallpaperEnabled(bool bootWallpaperEnabled)
 {
-    m_bootWallpaperEnabled = bootWallpaperEnabled;
-
-    Q_EMIT bootWallpaperEnabledChanged();
+    if (m_bootWallpaperEnabled != bootWallpaperEnabled)
+    {
+        m_bootWallpaperEnabled = bootWallpaperEnabled;
+        Q_EMIT bootWallpaperEnabledChanged();
+    }
 }
 
 bool CommonInfoModel::bootWallpaperEnabled() const
 {
     return m_bootWallpaperEnabled;
+}
+
+void CommonInfoModel::setBootGrubUserNameVisible(bool bootGrubUserNameVisible)
+{
+    if (m_bootGrubUserNameVisible != bootGrubUserNameVisible)
+    {
+        m_bootGrubUserNameVisible = bootGrubUserNameVisible;
+        Q_EMIT bootGrubUserNameVisibleChanged();
+    }
+}
+
+bool CommonInfoModel::bootGrubUserNameVisible() const
+{
+    return m_bootGrubUserNameVisible;
 }
 
 void CommonInfoModel::setIsDeveloperMode(bool newIsDeveloperMode)

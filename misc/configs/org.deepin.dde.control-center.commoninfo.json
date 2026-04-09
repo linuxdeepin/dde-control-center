@@ -23,6 +23,17 @@
             "description[zh_CN]": "\"启动菜单\"grub背景图片可否编辑",
             "permissions": "readwrite",
             "visibility": "public"
+        },
+        "bootGrubUserNameVisible": {
+            "value": true,
+            "serial": 0,
+            "flags": [],
+            "name": "boot grub userName visible",
+            "name[zh_CN]": "显示用户名",
+            "description": "Whether to show the username in the verification password pop-up window of \"Startup Menu Verification\"",
+            "description[zh_CN]": "是否在\"启动菜单验证\"的验证密码弹窗中显示用户名",
+            "permissions": "readwrite",
+            "visibility": "public"
         }
     }
 }

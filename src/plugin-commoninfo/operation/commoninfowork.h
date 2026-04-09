@@ -41,6 +41,7 @@ public:
     void initGrubAnimationModel();
     void initGrubMenuListModel();
     void initDebugLogLevel();
+    void initDtkConfig();
 
     Q_INVOKABLE QString verifyPassword(QString text);
     Q_INVOKABLE void jumpToSecurityCenter();
