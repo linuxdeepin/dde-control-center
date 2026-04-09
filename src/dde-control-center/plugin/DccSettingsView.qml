@@ -15,6 +15,7 @@ Flickable {
     property bool scrollBarVisible: false
 
     contentHeight: centralItem.height + bottomItem.height - (bottomItem.height > 0 ? bottomItem.anchors.topMargin : 0)
+    clip: true
     ScrollBar.vertical: ScrollBar {
         id: vbar
         width: 10
@@ -34,22 +35,15 @@ Flickable {
         id: footer
         DccRowView {}
     }
-    Item {
-        y: control.contentY
-        height: control.height - bottomItem.height
-        width: parent.width
-        clip: true
-        DccLoader {
-            id: centralItem
-            y: -control.contentY
-            focus: true
-            dccObjItem: parent
-            anchors {
-                left: parent.left
-                right: parent.right
-                leftMargin: control.margin
-                rightMargin: control.margin
-            }
+    DccLoader {
+        id: centralItem
+        focus: true
+        dccObjItem: control
+        anchors {
+            left: parent.left
+            right: parent.right
+            leftMargin: control.margin
+            rightMargin: control.margin
         }
     }
     DccLoader {
