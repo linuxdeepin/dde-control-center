@@ -451,6 +451,7 @@ DccObject {
                             font: DTK.fontManager.t6
                             text: qsTr("User Name :")
                             Layout.preferredWidth: 50
+                            visible: dccData.mode().bootGrubUserNameVisible
                         }
 
                         LineEdit {
@@ -460,6 +461,7 @@ DccObject {
                             enabled: false
                             clearButton.visible: true
                             Layout.preferredWidth: parent.width
+                            visible: dccData.mode().bootGrubUserNameVisible
                         }
 
                         Label {
