@@ -41,6 +41,7 @@ std::mutex SCALE_SETTING_GUARD;
 static const QString PlyMouthConf = QStringLiteral("/etc/plymouth/plymouthd.conf");
 static const QString kTmpGrubBgDir = QStringLiteral("/tmp/dcc-grub-backgrounds");
 
+constexpr const char* const BOOT_WALLPAPER_ENABLED = "bootWallpaperEnabled";
 
 const QString &GRUB_EDIT_AUTH_ACCOUNT("root");
 
@@ -165,6 +166,9 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
                                  "/com/deepin/sync/Helper",
                                  "com.deepin.sync.Helper",
                                  QDBusConnection::systemBus(), this))
+    , m_dtkConfig(Dtk::Core::DConfig::create("org.deepin.dde.control-center", 
+                                             "org.deepin.dde.control-center.commoninfo", 
+                                             QString(), this))
 {
     //注册类型
     qRegisterMetaType<DebugArg>("DebugArg");
@@ -225,6 +229,9 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     });
 
     connect(m_commonInfoProxy, &CommonInfoProxy::DeveloperModeChanged, m_commomModel, &CommonInfoModel::setIsDeveloperMode);
+
+    connect(m_dtkConfig, &Dtk::Core::DConfig::valueChanged, this, &CommonInfoWork::onDTKConfigChanged);
+    onDTKConfigChanged(BOOT_WALLPAPER_ENABLED);
 }
 
 CommonInfoWork::~CommonInfoWork()
@@ -537,6 +544,21 @@ bool CommonInfoWork::showReadOnlyProtection() const
 
     qCDebug(DccCommonInfoWork) << "showReadOnlyProtection:" << ret;
     return ret;
+}
+
+void CommonInfoWork::onDTKConfigChanged(const QString& key)
+{
+    if (!m_dtkConfig || !m_dtkConfig->isValid())
+    {
+        qCWarning(DccCommonInfoWork) << "Invalid CommonInfo DConfig.";
+        return;
+    }
+
+    if (key == BOOT_WALLPAPER_ENABLED && m_commomModel)
+    {
+        bool bootWallpaperEnabled = m_dtkConfig->value(key).toBool();
+        m_commomModel->setBootWallpaperEnabled(bootWallpaperEnabled);
+    }
 }
 
 void CommonInfoWork::setBootDelay(bool value)

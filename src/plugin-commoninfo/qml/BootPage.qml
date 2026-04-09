@@ -50,6 +50,7 @@ DccObject {
             DropArea {
                 anchors.fill: parent
                 keys: ["text/uri-list"]
+                enabled: dccData.mode().bootWallpaperEnabled
 
                 onDropped: (drop) => {
                     if (drop.hasUrls) {
