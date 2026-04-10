@@ -2454,35 +2454,35 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Прискорення миші</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>Вимикати сенсорну панель, якщо з&apos;єднано мишу</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Природне гортання</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Малий</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Середній</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Великий</translation>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"/>
+        <translation>Надвеликий</translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Для деяких програм доведеться вийти з системи або перезапустити її, щоб це набуло чинності</translation>
     </message>
 </context>
 <context>
@@ -2559,11 +2559,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation type="unfinished"/>
+        <translation>Режим «Не турбувати», сповіщення програм</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Сповіщення</translation>
     </message>
 </context>
 <context>
