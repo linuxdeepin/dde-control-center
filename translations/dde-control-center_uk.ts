@@ -4354,7 +4354,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Має бути включено принаймні %1 типів малих літер, великі літери, цифри та символи, а сам пароль не повинен збігатися із назвою облікового запису користувача.</translation>
     </message>
 </context>
 <context>
