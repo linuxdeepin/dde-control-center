@@ -2574,27 +2574,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Сповіщення програм не буде показано на стільниці, а звуковий супровід буде вимкнено, але ви зможете бачити повідомлення у центрі сповіщень.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Увімкнути «Не турбувати»</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Якщо екран заблоковано</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Кількість сповіщень, які буде показано на стільниці</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Сповіщення програм</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Дозволити сповіщення</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
