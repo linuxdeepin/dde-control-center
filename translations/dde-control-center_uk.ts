@@ -1202,11 +1202,11 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Мова і регіон</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Мова системи, формат регіону</translation>
     </message>
 </context>
 <context>
@@ -1501,11 +1501,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation type="unfinished"/>
+        <translation>Ідентифікатор Deepin</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>Ідентифікатор UOS</translation>
     </message>
     <message>
         <source>Cloud services</source>
