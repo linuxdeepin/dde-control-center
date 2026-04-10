@@ -948,15 +948,15 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Керування правами доступу root для розробника</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Параметри для розробників</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Діагностичні параметри для розробників</translation>
     </message>
 </context>
 <context>
@@ -1191,11 +1191,11 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <name>Datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Час і дата</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Час і дата, параметри часового поясу</translation>
     </message>
 </context>
 <context>
