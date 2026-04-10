@@ -2570,7 +2570,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"/>
+        <translation>Параметри режиму «Не турбувати»</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
