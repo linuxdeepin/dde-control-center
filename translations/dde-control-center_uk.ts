@@ -2752,47 +2752,47 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Вигляд</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"/>
+        <translation>Ефект вікон</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Персоналізація фонового зображення і зберігача екрана</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Зберігач екрана</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Кольори і піктограми</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Скоригувати кольори акценту та піктограми теми</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Шрифт і розмір шрифту</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Змінити загальносистемний шрифт і його розмір</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Зображення тла</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Виберіть світлий, темний або автоматичний режим вигляду теми</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Інтерфейс і ефекти, заокруглені краї</translation>
     </message>
 </context>
 <context>
@@ -2817,7 +2817,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Параметри заощадження енергії, екрана та призупинення роботи</translation>
     </message>
     <message>
         <source>Power</source>
