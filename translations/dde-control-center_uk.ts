@@ -496,7 +496,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -940,11 +940,11 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Меню завантаження</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Керування меню завантаження</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
