@@ -1225,11 +1225,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation>比本地早了 %1 小時</translation>
+        <translation>早 %1 小時</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation>比本地晚了 %1 小時</translation>
+        <translation>晚 %1 小時</translation>
     </message>
     <message>
         <source>Space</source>
