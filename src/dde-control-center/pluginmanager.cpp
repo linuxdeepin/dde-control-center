@@ -151,6 +151,13 @@ void LoadPluginTask::createData()
             soObj->setParent(nullptr);
         }
     }
+    if (m_pManager->isDeleting()) {
+        if (dataObj)
+            delete dataObj;
+        if (soObj)
+            delete soObj;
+        return;
+    }
     if (dataObj) {
         m_data->data = dataObj;
     }
@@ -507,6 +514,7 @@ void PluginManager::loadMain(PluginData *plugin)
 void PluginManager::createModule(QQmlComponent *component)
 {
     if (isDeleting()) {
+        component->deleteLater();
         return;
     }
     PluginData *plugin = component->property("PluginData").value<PluginData *>();
@@ -536,6 +544,7 @@ void PluginManager::createModule(QQmlComponent *component)
 void PluginManager::createMain(QQmlComponent *component)
 {
     if (isDeleting()) {
+        component->deleteLater();
         return;
     }
     PluginData *plugin = component->property("PluginData").value<PluginData *>();

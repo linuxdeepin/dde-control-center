@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "dccobject.h"
 
+#include "dccapp.h"
 #include "dccobject_p.h"
 
 #include <QLoggingCategory>
@@ -45,7 +46,7 @@ DccObject::Private::~Private()
         m_page->deleteLater();
         m_page = nullptr;
     }
-    if (m_parent) {
+    if (m_parent && m_parent->p_ptr) {
         m_parent->p_ptr->removeChild(q_ptr);
     }
     while (!m_children.isEmpty()) {
@@ -177,7 +178,7 @@ const QVector<DccObject *> &DccObject::Private::getChildren() const
 
 int DccObject::Private::getIndex() const
 {
-    return m_parent ? m_parent->p_ptr->getChildren().indexOf(q_ptr) : -1;
+    return (m_parent && m_parent->p_ptr) ? m_parent->p_ptr->getChildren().indexOf(q_ptr) : -1;
 }
 
 DccObject *DccObject::Private::getChild(int childPos) const
@@ -295,7 +296,7 @@ void DccObject::setWeight(quint32 weight)
 {
     if (p_ptr->m_weight != weight) {
         p_ptr->m_weight = weight;
-        if (p_ptr->m_parent) {
+        if (p_ptr->m_parent && p_ptr->m_parent->p_ptr) {
             p_ptr->m_parent->p_ptr->updatePos(this);
         }
         Q_EMIT weightChanged(p_ptr->m_weight);
@@ -442,11 +443,16 @@ DccObject *DccObject::currentObject()
 void DccObject::setCurrentObject(DccObject *obj)
 {
     if (p_ptr->m_currentObject != obj) {
-        if (p_ptr->m_currentObject) {
-            Q_EMIT p_ptr->m_currentObject->deactive();
-        }
+        DccObject *oldObject = p_ptr->m_currentObject;
         p_ptr->m_currentObject = obj;
-        Q_EMIT currentObjectChanged(p_ptr->m_currentObject);
+
+        DccApp *app = DccApp::instance();
+        if (!app || !app->isBatchUpdating()) {
+            if (oldObject) {
+                Q_EMIT oldObject->deactive();
+            }
+            Q_EMIT currentObjectChanged(p_ptr->m_currentObject);
+        }
     }
 }
 

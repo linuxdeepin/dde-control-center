@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCAPP_H
@@ -61,6 +61,8 @@ public:
     virtual int sidebarWidth() const;
     virtual void setSidebarWidth(int width);
     virtual void setAnimationMode(AnimationMode mode);
+
+    virtual bool isBatchUpdating() const { return false; }
 
 public Q_SLOTS:
     virtual DccObject *object(const QString &name);
