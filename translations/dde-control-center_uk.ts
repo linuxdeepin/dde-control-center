@@ -2598,27 +2598,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Показ сповіщення на стільниці або показ кількості непрочитаних повідомлень у центрі сповіщень</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Стільниця</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Блокування екрана</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Центр сповіщень</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Показати попередній перегляд повідомлення</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Відтворити звук</translation>
     </message>
 </context>
 <context>
@@ -2748,7 +2748,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PersonalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Тема</translation>
     </message>
     <message>
         <source>Appearance</source>
