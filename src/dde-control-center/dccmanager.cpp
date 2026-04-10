@@ -122,6 +122,7 @@ void DccManager::setMainWindow(QWindow *window)
     m_window = window;
     connect(m_window, &QWindow::widthChanged, this, &DccManager::saveSize);
     connect(m_window, &QWindow::heightChanged, this, &DccManager::saveSize);
+    connect(m_window, &QWindow::windowStateChanged, this, &DccManager::saveSize);
     connect(qGuiApp, &QGuiApplication::screenAdded, this, &DccManager::handleScreenAdded);
     m_window->installEventFilter(this);
 }
@@ -136,13 +137,13 @@ void DccManager::loadModules(bool async, const QStringList &dirs)
 int DccManager::width() const
 {
     auto w = m_dconfig->value(WidthConfig).toInt();
-    return w > 520 ? w : 780;
+    return w >= 520 ? w : 780;
 }
 
 int DccManager::height() const
 {
     auto h = m_dconfig->value(HeightConfig).toInt();
-    return h > 400 ? h : 530;
+    return h >= 400 ? h : 530;
 }
 
 int DccManager::sidebarWidth() const
@@ -440,6 +441,7 @@ void DccManager::show()
     if (!w) {
         return;
     }
+
     if (w->windowStates() == Qt::WindowMinimized || !w->isVisible()) {
         w->showNormal();
     }
@@ -668,19 +670,25 @@ bool DccManager::isIndicatorShown(const QString &cmd) const
 
 void DccManager::saveSize()
 {
-    // - Maximized/fullscreen will expand the window size to the screen size.
-    //   Saving that size would overwrite the "default" window size and cause the
-    //   window to appear maximized after restore.
     if (!m_window)
         return;
-    const auto states = m_window->windowStates();
-    if (states.testFlag(Qt::WindowMaximized) || states.testFlag(Qt::WindowFullScreen))
+    if (!m_dconfig->isValid())
         return;
 
-    if (m_dconfig->isValid()) {
-        m_dconfig->setValue(WidthConfig, m_window->width());
-        m_dconfig->setValue(HeightConfig, m_window->height());
-    }
+    const auto states = m_window->windowStates();
+    const bool isMaximized = states.testFlag(Qt::WindowMaximized) || states.testFlag(Qt::WindowFullScreen);
+    const bool visible = m_window->isVisible();
+
+    // Only save normal size when visible and not maximized.
+    // During maximization, widthChanged/heightChanged may fire with screen
+    // dimensions before windowStateChanged updates the state.
+    // On some platforms (e.g. Wayland), hiding a window may reset its state,
+    // so we must not save the reset dimensions either.
+    if (!visible || isMaximized)
+        return;
+
+    m_dconfig->setValue(WidthConfig, m_window->width());
+    m_dconfig->setValue(HeightConfig, m_window->height());
 }
 
 void DccManager::handleScreenAdded(QScreen *screen)
