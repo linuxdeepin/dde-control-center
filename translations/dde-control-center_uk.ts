@@ -1978,7 +1978,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Малий</translation>
     </message>
     <message>
         <source>Large</source>
@@ -2848,7 +2848,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"/>
+        <translation>екран і призупинення, низький рівень заряду акумулятора, керування акумулятором</translation>
     </message>
 </context>
 <context>
