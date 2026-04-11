@@ -54,10 +54,34 @@ DccObject {
                 CustomTipsSlider {
                     id: offMonitorSlider
                     dataMap: dccData.model.batteryScreenBlackDelayModel
-                    Layout.preferredHeight: 80
+
+                    property real leftTextWidth: 0
+                    property real rightTextWidth: 0
+                    property real dynamicLeftMargin: Math.max(16, leftTextWidth / 2 + 5)
+                    property real dynamicRightMargin: Math.max(16, rightTextWidth / 2 + 5)
+
+                    Layout.preferredHeight: 90
                     Layout.alignment: Qt.AlignCenter
-                    Layout.margins: 10
+                    Layout.leftMargin: dynamicLeftMargin
+                    Layout.rightMargin: dynamicRightMargin
+                    Layout.topMargin: 10
+                    Layout.bottomMargin: 10
                     Layout.fillWidth: true
+
+                    TextMetrics {
+                        font: offMonitorSlider.slider.font
+                        text: offMonitorSlider.dataMap[0].text
+                        Component.onCompleted: {
+                            offMonitorSlider.leftTextWidth = width
+                        }
+                    }
+                    TextMetrics {
+                        font: offMonitorSlider.slider.font
+                        text: offMonitorSlider.dataMap[offMonitorSlider.dataMap.length - 1].text
+                        Component.onCompleted: {
+                            offMonitorSlider.rightTextWidth = width
+                        }
+                    }
                     slider.value: dccData.indexByValueOnMap(dataMap, dccData.model.screenBlackDelayOnBattery)
                     slider.onValueChanged: {
                         dccData.worker.setScreenBlackDelayOnBattery(dataMap[slider.value].value)
@@ -104,10 +128,34 @@ DccObject {
                 CustomTipsSlider {
                     id: lockScreenSlider
                     dataMap: dccData.model.batteryLockDelayModel
-                    Layout.preferredHeight: 80
+
+                    property real leftTextWidth: 0
+                    property real rightTextWidth: 0
+                    property real dynamicLeftMargin: Math.max(16, leftTextWidth / 2 + 5)
+                    property real dynamicRightMargin: Math.max(16, rightTextWidth / 2 + 5)
+
+                    Layout.preferredHeight: 90
                     Layout.alignment: Qt.AlignCenter
-                    Layout.margins: 10
+                    Layout.leftMargin: dynamicLeftMargin
+                    Layout.rightMargin: dynamicRightMargin
+                    Layout.topMargin: 10
+                    Layout.bottomMargin: 10
                     Layout.fillWidth: true
+
+                    TextMetrics {
+                        font: lockScreenSlider.slider.font
+                        text: lockScreenSlider.dataMap[0].text
+                        Component.onCompleted: {
+                            lockScreenSlider.leftTextWidth = width
+                        }
+                    }
+                    TextMetrics {
+                        font: lockScreenSlider.slider.font
+                        text: lockScreenSlider.dataMap[lockScreenSlider.dataMap.length - 1].text
+                        Component.onCompleted: {
+                            lockScreenSlider.rightTextWidth = width
+                        }
+                    }
                     slider.value: dccData.indexByValueOnMap(dataMap, dccData.model.batteryLockScreenDelay)
                     slider.onValueChanged: {
                         dccData.worker.setLockScreenDelayOnBattery(dataMap[slider.value].value)
@@ -154,10 +202,34 @@ DccObject {
                 CustomTipsSlider {
                     id: suspendsSlider
                     dataMap: dccData.model.batterySleepDelayModel
-                    Layout.preferredHeight: 80
+
+                    property real leftTextWidth: 0
+                    property real rightTextWidth: 0
+                    property real dynamicLeftMargin: Math.max(16, leftTextWidth / 2 + 5)
+                    property real dynamicRightMargin: Math.max(16, rightTextWidth / 2 + 5)
+
+                    Layout.preferredHeight: 90
                     Layout.alignment: Qt.AlignCenter
-                    Layout.margins: 10
+                    Layout.leftMargin: dynamicLeftMargin
+                    Layout.rightMargin: dynamicRightMargin
+                    Layout.topMargin: 10
+                    Layout.bottomMargin: 10
                     Layout.fillWidth: true
+
+                    TextMetrics {
+                        font: suspendsSlider.slider.font
+                        text: suspendsSlider.dataMap[0].text
+                        Component.onCompleted: {
+                            suspendsSlider.leftTextWidth = width
+                        }
+                    }
+                    TextMetrics {
+                        font: suspendsSlider.slider.font
+                        text: suspendsSlider.dataMap[suspendsSlider.dataMap.length - 1].text
+                        Component.onCompleted: {
+                            suspendsSlider.rightTextWidth = width
+                        }
+                    }
                     slider.value: dccData.indexByValueOnMap(dataMap, dccData.model.sleepDelayOnBattery)
                     slider.onValueChanged: {
                         dccData.worker.setSleepDelayOnBattery(dataMap[slider.value].value)
