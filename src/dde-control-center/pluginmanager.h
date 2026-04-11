@@ -3,8 +3,11 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
+#include "dccobject.h"
+
 #include <QObject>
 #include <QQmlContext>
+#include <QQmlIncubator>
 #include <QStringList>
 #include <QVector>
 
@@ -15,6 +18,7 @@ namespace dccV25 {
 class DccObject;
 class DccManager;
 struct PluginData;
+class DccIncubator;
 
 class PluginManager : public QObject
 {
@@ -56,6 +60,9 @@ private Q_SLOTS:
     void createMain(QQmlComponent *component);
     void addMainObject(PluginData *plugin);
 
+    void incubatorStatusChangedModule(QQmlIncubator::Status status, DccIncubator *incubator);
+    void incubatorStatusChangedMain(QQmlIncubator::Status status, DccIncubator *incubator);
+
     void moduleLoading();
     void mainLoading();
 
@@ -66,8 +73,8 @@ private Q_SLOTS:
 
 private:
     DccManager *m_manager;
-    QList<PluginData *> m_plugins; // cache for other plugin
-    DccObject *m_rootModule;       // root module from MainWindow
+    QList<PluginData *> m_plugins;    // cache for other plugin
+    QPointer<DccObject> m_rootModule; // root module from MainWindow
     QThreadPool *m_threadPool;
     bool m_isDeleting;
     bool m_modulePhaseFinished;
