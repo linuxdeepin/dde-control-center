@@ -2847,7 +2847,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>On Battery</source>
-        <translation>バッテリー時</translation>
+        <translation>バッテリー駆動時</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
