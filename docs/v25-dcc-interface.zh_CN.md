@@ -19,10 +19,10 @@
 7.  插件支持多语言，支持多语言切换
 8.  插件显示禁用支持统一配置。配置修改立即生效
 ## V25控制中心插件安装路径必要说明
-1.  V25控制中心插件安装路径为`${CMAKE_INSTALL_LIBDIR}/dde-control-center/plugins_v1.0`
+1.  V25控制中心插件安装路径为`${CMAKE_INSTALL_LIBDIR}/dde-control-center/plugins_v1.1`
 2.  该路径下插件以单个文件夹形式存在，文件夹名为插件名，文件夹内为插件文件,假设插件名为example，则插件文件夹内容为：
 ```bash
-${CMAKE_INSTALL_LIBDIR}/dde-control-center/plugins_v1.0/example/
+${CMAKE_INSTALL_LIBDIR}/dde-control-center/plugins_v1.1/example/
 ├── qmldir
 ├── libexample_qml.so
 └── example.so
@@ -43,13 +43,14 @@ ${CMAKE_INSTALL_LIBDIR}/dde-control-center/plugins_v1.0/example/
 5.  将example.so导出的对象设置为dccData,加载ExampleMain.qml。此时，ExampleMain.qml中可以使用dccData.xxx()调用example.so导出的函数
 6.  加载完成，将DccObject对象插入到模块树中
 ## V25控制中心插件开发必要说明
-1.  控制中心有一个option,可以用来加载一个文件夹下的插件，比如一般插件会放置到`build`文件夹下，这时候可以`dde-control-center --spec ./lib/plugins_v1.0`来加载单独一个插件进行调试。另外提醒，调试时候不要使用asan，因为没有使用asan的控制中心无法加载使用了asan编译的插件
+1.  控制中心有一个option,可以用来加载一个文件夹下的插件，比如一般插件会放置到`build`文件夹下，这时候可以`dde-control-center --spec ./lib/plugins_v1.1/`来加载单独一个插件进行调试。另外提醒，调试时候不要使用asan，因为没有使用asan的控制中心无法加载使用了asan编译的插件
 2.  控制中心插件加载是在线程中，但最终会将插件对象移到主线程。所以example.so构造函数中创建的对象需要在example.so导出类的树结构中(即子对象的父对象或祖先对象是example.so导出类)，否则不会被移动到主线程，导致其中信号槽线程等不到，无法正常使用。
 3.  example.so导出类是唯一的，插件中不建议使用单例，可在example.so导出类中创建一个单例对象
 ## V25控制中心开发接口说明
 控制中心导出的qml类有：
 ### 关键类
 #### DccObject
+控制中心的树形结构的数据节点，可表示界面的一个菜单项或功能项。
 | 属性名称 | 说明 | 备注 |
 |---|---|---|
 | name | 名称 | 作为唯一id使用，结合父项的name组成url,用于定位跳转、配置隐藏禁用等，由字符、数字组成，不建议有符号空格，不可有‘/’(url分隔符，会影响解析) |
@@ -64,6 +65,7 @@ ${CMAKE_INSTALL_LIBDIR}/dde-control-center/plugins_v1.0/example/
 | visibleToApp | 可见 | 只读，包含配置与visible的结果，与控件显示关联 |
 | enabledToApp | 启用 | 只读，包含配置与enabled的结果，与控件状态关联 |
 | canSearch | 可搜索 | 默认true |
+| children | 子对象 | 只读，获取子控件列表 |
 | backgroundType | 背景样式 | 默认AutoBg |
 | pageType | 界面类型 | Menu、Editor、Item等，影响page显示方式，取值范围：0-255 |
 | page | 界面控件 |  |
@@ -73,7 +75,8 @@ ${CMAKE_INSTALL_LIBDIR}/dde-control-center/plugins_v1.0/example/
 |---|---|---|
 | active | 激活 | backgroundType为Clickable时，点击控件出发，参数为空。DBus的ShowPage方法出发，如:ShowPage("aa/bb?param=1")，则aa/bb项会收到active("param=1")信号 |
 | deactive | 停用 | 页面退出时触发 |
-#### DccApp 全局单例
+#### DccApp
+全局单例，管理控制中心的整个模块树
 | 函数 | 说明 | 备注 |
 |---|---|---|
 | root | 根结点 | 属性 |
@@ -91,17 +94,72 @@ ${CMAKE_INSTALL_LIBDIR}/dde-control-center/plugins_v1.0/example/
 | root | 根结点 |  |
 #### DccRepeater
 使用提供的model实例化多个基于DccObject的对象，并添加到父项中，与Repeater类似
+| 属性 | 说明 | 备注 |
+|---|---|---|
+| model | 数据源 | 对象的数据源，为QVariant类型，支持多种数据类型 |
+| delegate | 模板 | 用于生成对象的模板，为model中的每一项数据生成一个DccObject对象 |
+| count | model生成对象的数量 | 只读 |
+
+| 信号 | 说明 | 备注 |
+|---|---|---|
+| objAdded | 添加DccObject对象 | model实例化新对象时触发 |
+| objRemoved | 移除DccObject对象 | model移除对象时触发 |
+
 #### DccDBusInterface
 与DBus交互的类，支持属性、信号、方法
+| 属性 | 说明 | 备注 |
+|---|---|---|
+| service | 服务名 | D-Bus 服务的唯一标识符 |
+| path | 路径 | D-Bus 服务的对象路径 |
+| inter | 接口名 | D-Bus 服务的对象接口 |
+| connection | 总线类型 | SystemBus系统总线/SessionBus会话总线 |
+| suffix | 属性前缀 | 为动态属性添加前缀，避免与QML保留字冲突 |
+
+| 函数 | 说明 | 备注 |
+|---|---|---|
+| callWithCallback | 异步调用 D-Bus 方法，并通过JS回调处理结果 |  |
+
 ### 界面类
+#### DccLoader
+用于加载DccObject的page控件的加载器，继承自Qt Quick的Loader。
+| 属性 | 说明 | 备注 |
+|---|---|---|
+| dccObj | 要加载的DccObject | var |
+| dccObjItem | 控件父项 | Item |
 #### DccGroupView
-一个组样式的控件
+一个组样式的控件，根据子项DccObject的pageType进行渲染，并将所有子项放在一个组容器中。可通过 DccRepeater 批量创建子项。
+| 属性 | 说明 | 备注 |
+|---|---|---|
+| isGroup | 是否显示组样式，默认为true | 值为true：子项无间距，显示分隔线；值为false：子项有间距，无分隔线 |
 #### DccRightView
-控制中心右侧样式控件，Menu类型的DccObject未指定page时，会自动使用该控件
+控制中心右侧样式控件，用于展示菜单项的子页面内容，支持滚动、拖动。Menu类型的DccObject未指定page时，page会自动使用该控件
+#### DccRowView
+横向排列子项的行布局容器，通过DccLoader加载子项的page控件，将子项水平排列
 #### DccSettingsView
-与DccRightView类似，但可以显示一个下方悬浮区域，需要其对应的DccObject有两个子项
+与DccRightView类似，但可以显示一个下方悬浮区域。需要其对应的DccObject有两个子项，一个为主内容区域，未指定page时默认使用DccGroupView，一个为下方悬浮区域，未指定page时默认使用DccRowView
+#### DccSettingsObject
+封装了DccSettingsView所需结构的DccObject模板，预创建了所需的两个子项
+| 属性 | 说明 | 备注 |
+|---|---|---|
+| bodyUrl | 子项body的 URL | 用于向body中添加子项 |
+| footerUrl | 子项footer的 URL | 用于向footer中添加子项 |
 #### DccItemBackground
 处理控件背景的控件，在DccRightView中用到
+#### DccCheckIcon
+显示勾选图标的控件，用于显示和切换选中状态
+#### DccLabel
+支持自动省略和悬浮提示的Label
+#### DccTitleObject
+包含标题和描述的分组标题控件
+#### SearchBar
+搜索框控件，支持搜索、搜索结果弹窗显示和键盘导航
+#### DccTimeRange
+选择或编辑时间范围的控件，显示格式为"时:分"
+| 属性 | 说明 | 备注 |
+|---|---|---|
+| hour | 时 |  |
+| minute | 分 |  |
+
 ## 代码示例：
 ### 代码文件夹结构
 假设插件名为example，代码文件夹内容为：
@@ -211,6 +269,10 @@ public Q_SLOTS:
 Q_SIGNALS:
     void nameChanged(const QString &name);
     void calcTypeChanged(int calcType);
+
+private:
+    QString m_name;
+    int m_calcType;
 };
 ```
 ### pluginexample.cpp
