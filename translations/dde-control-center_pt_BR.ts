@@ -1143,7 +1143,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Estamos plenamente cientes da importância das suas informações pessoais para você. Por isso, temos uma Política de Privacidade que abrange como coletamos, usamos, compartilhamos, transferimos, divulgamos publicamente e armazenamos suas informações.&lt;/p&gt;&lt;p&gt;Você pode &lt;a href=&quot;%1&quot;&gt;clicar aqui&lt;/a&gt; para visualizar nossa política de privacidade mais recente e/ou consultá-la online acessando&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Leia atentamente e compreenda totalmente nossas práticas de privacidade do cliente. Se tiver dúvidas, entre em contato conosco em: %2.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
@@ -1193,7 +1193,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     <name>Datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Data e hora</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
@@ -1506,7 +1506,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>UOS ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
