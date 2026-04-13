@@ -448,31 +448,31 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Auto suspend</source>
-        <translation type="unfinished"/>
+        <translation>Automatische Bereitschaft</translation>
     </message>
     <message>
         <source>Auto Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>Automatischer Ruhezustand</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Schwellenwert für niedrigen Akkustand</translation>
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"/>
+        <translation>Akkuverwaltung</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation type="unfinished"/>
+        <translation>Verbleibende Nutzungs- und Ladezeit anzeigen</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation type="unfinished"/>
+        <translation>Maximale Kapazität</translation>
     </message>
     <message>
         <source>Low battery level</source>
-        <translation type="unfinished"/>
+        <translation>Niedrige Akkuladung</translation>
     </message>
     <message>
         <source>Disable</source>
