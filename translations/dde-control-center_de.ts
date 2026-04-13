@@ -606,11 +606,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>User Name :</source>
-        <translation type="unfinished"/>
+        <translation>Benutzername:</translation>
     </message>
     <message>
         <source>root</source>
-        <translation type="unfinished"/>
+        <translation>root</translation>
     </message>
     <message>
         <source>New Password :</source>
