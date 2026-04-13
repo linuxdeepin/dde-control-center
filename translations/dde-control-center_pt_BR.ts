@@ -354,7 +354,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar um novo %1 ...</translation>
     </message>
     <message>
         <source>The name cannot be empty</source>
