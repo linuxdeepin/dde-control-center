@@ -130,21 +130,21 @@
     </message>
     <message>
         <source>Account manager</source>
-        <translation>Kontoverwaltung</translation>
+        <translation>Kontoverwalter</translation>
     </message>
 </context>
 <context>
     <name>AccountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"/>
+        <translation>Andere Konten</translation>
     </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation type="unfinished"/>
+        <translation>Gesicht erfassen</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
