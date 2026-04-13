@@ -823,30 +823,30 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>Zeigerthema</translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation type="unfinished"/>
+        <translation>Zeigerthema anpassen</translation>
     </message>
 </context>
 <context>
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"/>
+        <translation>Sind Sie sicher, dass Sie dieses Konto löschen möchten?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>Kontoverzeichnis löschen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Löschen</translation>
     </message>
 </context>
 <context>
