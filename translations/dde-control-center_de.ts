@@ -807,7 +807,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation type="unfinished"/>
+        <translation>Akzentfarbe</translation>
     </message>
     <message>
         <source>Icon Settings</source>
@@ -815,11 +815,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>Symbolthema</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation type="unfinished"/>
+        <translation>Symbolthema anpassen</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
