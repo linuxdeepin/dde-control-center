@@ -2048,97 +2048,97 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"/>
+        <translation>Erlaube u.g. Apps den Zugriff auf diese Dateien und Ordner:</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"/>
+        <translation>Dokumente</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished"/>
+        <translation>Bilder</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation type="unfinished"/>
+        <translation>Videos</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Musik</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>Heruntergeladenes</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation type="unfinished"/>
+        <translation>Ordner</translation>
     </message>
 </context>
 <context>
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Größe</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>Standardzeichensatz</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Festbreiten-Zeichensatz</translation>
     </message>
 </context>
 <context>
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation type="unfinished"/>
+        <translation>Energiepläne</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>Energiespar-Einstellungen</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"/>
+        <translation>Automatisches Energiesparen bei niedrigem Akkustand</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Wert für niedrigen Akkustand</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>Automatisches Energiesparen bei Akkubetrieb</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Aufwacheinstellungen</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Passwort ist erforderlich zum Aufwecken des Computers</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Passwort ist erforderlich zum Aufwecken des Monitors</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation type="unfinished"/>
+        <translation>Herunterfahr-Einstellungen</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation type="unfinished"/>
+        <translation>Herunterfahren gemäß Zeitplan</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Zeit</translation>
     </message>
     <message>
         <source>Repeat</source>
