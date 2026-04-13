@@ -1220,15 +1220,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 Stunden später als lokal</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished"/>
+        <translation>Raum</translation>
     </message>
     <message>
         <source>Week</source>
-        <translation type="unfinished"/>
+        <translation>Woche</translation>
     </message>
     <message>
         <source>First day of week</source>
