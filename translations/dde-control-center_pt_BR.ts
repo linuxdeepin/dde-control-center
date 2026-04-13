@@ -322,7 +322,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Impressão digital</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
