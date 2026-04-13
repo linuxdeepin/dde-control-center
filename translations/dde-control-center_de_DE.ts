@@ -2189,7 +2189,7 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation>Vier-Finger hoch</translation>
+        <translation>Vier-Finger rauf</translation>
     </message>
     <message>
         <source>Four-finger down</source>
@@ -2197,45 +2197,45 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Vier-Finger links</translation>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Vier-Finger rechts</translation>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Vier-Finger antippen</translation>
     </message>
 </context>
 <context>
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation type="unfinished"/>
+        <translation>,</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
 </context>
 <context>
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation type="unfinished"/>
+        <translation>Höchste Leistung</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation type="unfinished"/>
+        <translation>Ausgewogen</translation>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation type="unfinished"/>
+        <translation>Schönste Optik</translation>
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Abschalten aller Nutzeroberflächen- und Fenstereffekte für ein effizientes System</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
