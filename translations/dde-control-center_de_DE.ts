@@ -672,87 +672,87 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Fingerprint4</source>
-        <translation type="unfinished"/>
+        <translation>Fingerabdruck-4</translation>
     </message>
     <message>
         <source>Fingerprint5</source>
-        <translation type="unfinished"/>
+        <translation>Fingerabdruck-5</translation>
     </message>
     <message>
         <source>Fingerprint6</source>
-        <translation type="unfinished"/>
+        <translation>Fingerabdruck-6</translation>
     </message>
     <message>
         <source>Fingerprint7</source>
-        <translation type="unfinished"/>
+        <translation>Fingerabdruck-7</translation>
     </message>
     <message>
         <source>Fingerprint8</source>
-        <translation type="unfinished"/>
+        <translation>Fingerabdruck-8</translation>
     </message>
     <message>
         <source>Fingerprint9</source>
-        <translation type="unfinished"/>
+        <translation>Fingerabdruck-9</translation>
     </message>
     <message>
         <source>Fingerprint10</source>
-        <translation type="unfinished"/>
+        <translation>Fingerabdruck-10</translation>
     </message>
     <message>
         <source>Scan failed</source>
-        <translation type="unfinished"/>
+        <translation>Scan fehlgeschlagen</translation>
     </message>
     <message>
         <source>The fingerprint already exists</source>
-        <translation type="unfinished"/>
+        <translation>Der Fingerabdruck ist schon vorhanden</translation>
     </message>
     <message>
         <source>Please scan other fingers</source>
-        <translation type="unfinished"/>
+        <translation>Bitte scannen Sie andere Finger</translation>
     </message>
     <message>
         <source>Unknown error</source>
-        <translation type="unfinished"/>
+        <translation>Unbekannter Fehler</translation>
     </message>
     <message>
         <source>Scan suspended</source>
-        <translation type="unfinished"/>
+        <translation>Scan abgebrochen</translation>
     </message>
     <message>
         <source>Cannot recognize</source>
-        <translation type="unfinished"/>
+        <translation>Konnte nicht erkannt werden</translation>
     </message>
     <message>
         <source>Moved too fast</source>
-        <translation type="unfinished"/>
+        <translation>Zu schnell bewegt</translation>
     </message>
     <message>
         <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation type="unfinished"/>
+        <translation>Finger zu schnell bewegt, bitte nicht entfernen bis dies angezeigt wird</translation>
     </message>
     <message>
         <source>Unclear fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Uneindeutiger Fngerabdruck</translation>
     </message>
     <message>
         <source>Clean your finger or adjust the finger position, and try again</source>
-        <translation type="unfinished"/>
+        <translation>Säubern Sie Ihren Finger oder richten seine Position neu aus, und versuchen es erneut</translation>
     </message>
     <message>
         <source>Already scanned</source>
-        <translation type="unfinished"/>
+        <translation>Bereits gescannt</translation>
     </message>
     <message>
         <source>Adjust the finger position to scan your fingerprint fully</source>
-        <translation type="unfinished"/>
+        <translation>Richten Sie die Fingerposition neu aus, damit der Abdruck vollümfänglich gescannt werden kann.</translation>
     </message>
     <message>
         <source>Finger moved too fast. Please do not lift until prompted</source>
-        <translation type="unfinished"/>
+        <translation>Finger zu schnell bewegt, bitte nicht entfernen bis dies angezeigt wird</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Finger entfernen und erneut auflegen</translation>
     </message>
     <message>
         <source>Position your face inside the frame</source>
