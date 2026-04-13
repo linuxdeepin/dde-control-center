@@ -11,7 +11,13 @@ import org.deepin.dcc 1.0
 DccObject {
     id: root
     property var screen: dccData.virtualScreens[0]
+    property string lastScreenName: ""
     property var activeDialogs: []
+    Component.onCompleted: {
+        if (screen && screen.name) {
+            lastScreenName = screen.name
+        }
+    }
     property var scaleModelConst: [{
             "text": qsTr("100%"),
             "value": 1.0
@@ -94,13 +100,19 @@ DccObject {
         return model.length - 1
     }
     function getQtScreen(screen) {
-        for (var s of Qt.application.screens) {
-            if (s.virtualX === screen.x && s.virtualY === screen.y && (Math.abs(s.width * s.devicePixelRatio - screen.currentResolution.width) < 1) && (Math.abs(s.height * s.devicePixelRatio - screen.currentResolution.height) < 1)) {
-                return s
-            }
+    for (var s of Qt.application.screens) {
+        var isRotated = (screen.rotate === 2 || screen.rotate === 8)
+        var targetW = isRotated ? screen.currentResolution.height : screen.currentResolution.width
+        var targetH = isRotated ? screen.currentResolution.width : screen.currentResolution.height
+
+        if (s.virtualX === screen.x && s.virtualY === screen.y
+            && Math.abs(s.width * s.devicePixelRatio - targetW) < 1
+            && Math.abs(s.height * s.devicePixelRatio - targetH) < 1) {
+            return s
         }
-        return null
     }
+    return null
+}
     function getControlCenterScreen() {
         var mainWindow = DccApp.mainWindow()
         if (mainWindow && mainWindow.screen) {
@@ -133,8 +145,18 @@ DccObject {
     Connections {
         target: dccData
         function onVirtualScreensChanged() {
-            if (!dccData.virtualScreens.includes(screen)) {
-                screen = dccData.virtualScreens[0]
+            var found = false
+            if (lastScreenName !== "") {
+                for (var i = 0; i < dccData.virtualScreens.length; i++) {
+                    if (dccData.virtualScreens[i].name === lastScreenName) {
+                        root.screen = dccData.virtualScreens[i]
+                        found = true
+                        break
+                    }
+                }
+            }
+            if (!found) {
+                root.screen = dccData.virtualScreens[0]
             }
             closeInvalidDialogs()
         }
@@ -222,10 +244,10 @@ DccObject {
                     delegate: ScreenItem {
                         z: selected ? 2 : 1
                         screen: model.modelData
+                        selected: root.screen === screen && screen.rotate !== undefined
                         translationX: monitorsGround.translationX
                         translationY: monitorsGround.translationY
                         scale: monitorsGround.scale
-                        selected: root.screen === screen
                         onPressed: monitorRepeater.pressedItem(this)
                         onPositionChanged: monitorRepeater.positionChangedItem(this)
                         onReleased: monitorRepeater.releasedItem(this)
@@ -243,6 +265,7 @@ DccObject {
                     function pressedItem(item) {
                         hasMove = false
                         root.screen = item.screen
+                        root.lastScreenName = item.screen.name
                         if (dccData.isX11) {
                             indicator.createObject(this, {
                                                        "screen": getQtScreen(item.screen)
@@ -535,6 +558,7 @@ DccObject {
             onScreenClicked: function (screen) {
                 if (screen && screen !== root.screen) {
                     root.screen = screen
+                    root.lastScreenName = screen.name  // 用户主动选择时更新 lastScreenName
                     if (dccData.isX11) {
                         indicator.createObject(this, {
                                                    "screen": getQtScreen(root.screen)
