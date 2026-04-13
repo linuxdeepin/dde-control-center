@@ -532,15 +532,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Bearbeiten</translation>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation type="unfinished"/>
+        <translation>Anderen Bluetooth-Geräten das Auffinden dieses Geräts erlauben</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"/>
+        <translation>Um die Bluetoothfunktion zu verwenden, bitte ausschalten</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
