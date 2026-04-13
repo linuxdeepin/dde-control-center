@@ -509,72 +509,72 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Connect</source>
-        <translation type="unfinished"/>
+        <translation>Verbinden</translation>
     </message>
     <message>
         <source>Send Files</source>
-        <translation type="unfinished"/>
+        <translation>Dateien senden</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Umbenennen</translation>
     </message>
     <message>
         <source>Remove Device</source>
-        <translation type="unfinished"/>
+        <translation>Gerät entfernen</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"/>
+        <translation>Datei auswählen</translation>
     </message>
 </context>
 <context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Ändern</translation>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation type="unfinished"/>
+        <translation>Anderen Bluetoothgeräten erlauben dieses Gerät zu finden</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"/>
+        <translation>um Bluetooth-Funktion zu verwenden, bitte abschalten</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation type="unfinished"/>
+        <translation>Flugmodus</translation>
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>Bluetoothname darf nicht mehr als 64 Zeichen enthalten</translation>
     </message>
 </context>
 <context>
     <name>BluetoothDeviceModel</name>
     <message>
         <source>Connected</source>
-        <translation type="unfinished"/>
+        <translation>Verbunden</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation type="unfinished"/>
+        <translation>Nicht verbunden</translation>
     </message>
 </context>
 <context>
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Hochstart-Einstellungen</translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"/>
+        <translation>Sie können das Menü anklicken, um die voreingestellten Start-Applikationen zu ändern, oder das Bild zum Fenster schieben, um das Hintergrundbild zu ändern.</translation>
     </message>
     <message>
         <source>grub start delay</source>
-        <translation type="unfinished"/>
+        <translation>GRUB-Startverzögerung</translation>
     </message>
     <message>
         <source>theme</source>
