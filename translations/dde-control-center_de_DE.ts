@@ -954,67 +954,67 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation type="unfinished"/>
+        <translation>Große Größe</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation type="unfinished"/>
+        <translation>Kleine Größe</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Root-Zugang konnte nicht erhalten werden</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Bitte zuerst auf ihre UOS-ID anmelden</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>PC-Informationen können nicht abgerufen werden</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>Keine Netzwerkverbindung</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Zertifikat konnte nicht geladen werden, Rootzugang wurde nicht erhalten</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Signatur-Verifikation fehlgeschlagen, Rootzugang wurde nicht erhalten</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Zustimmen und dem User Experience-Programm beitreten</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>Entwicklermodus-Haftungsausschluß</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Zustimmen und Root-Zugang beantragen</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"/>
+        <translation>Boot-Animation wird eingerichtet, bitte warten</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"/>
+        <translation>Einrichten der Boot-Animation beendet</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"/>
+        <translation>Die Einstellungen werden nach einem Neustart des Systems wirksam</translation>
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation>Jetzt neustarten</translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation>Ablehnen</translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
@@ -1025,34 +1025,34 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ConfirmManager</name>
     <message>
         <source>Password must contain numbers and letters</source>
-        <translation type="unfinished"/>
+        <translation>Das Passwort muss aus Ziffern und Buchstaben bestehen</translation>
     </message>
     <message>
         <source>Password must be between 8 and 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>Das Passwort muss zwischen 8 und 64 Zeichen lang sein</translation>
     </message>
 </context>
 <context>
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation type="unfinished"/>
+        <translation>Neues Konto erstellen</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Kontotyp</translation>
     </message>
     <message>
         <source>UserName</source>
-        <translation type="unfinished"/>
+        <translation>Benutzername</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Erforderlich</translation>
     </message>
     <message>
         <source>FullName</source>
-        <translation type="unfinished"/>
+        <translation>Langname</translation>
     </message>
     <message>
         <source>Optional</source>
