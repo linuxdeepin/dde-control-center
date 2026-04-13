@@ -756,93 +756,93 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Position your face inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>Gesicht innerhalb des Rahmens ausrichten</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Gesicht wurde erfasst.</translation>
     </message>
     <message>
         <source>Position a human face please</source>
-        <translation type="unfinished"/>
+        <translation>Bitte ein menschliches Gesicht herzeigen</translation>
     </message>
     <message>
         <source>Keep away from the camera</source>
-        <translation type="unfinished"/>
+        <translation>Weiter weg von der Kamera</translation>
     </message>
     <message>
         <source>Get closer to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Näher hin zur Kamera</translation>
     </message>
     <message>
         <source>Do not position multiple faces inside the frame</source>
-        <translation type="unfinished"/>
+        <translation>Nicht mehrere Gesichter innerhalb des Rahmens ausrichten</translation>
     </message>
     <message>
         <source>Make sure the camera lens is clean</source>
-        <translation type="unfinished"/>
+        <translation>Kameralinse sollte sauber sein</translation>
     </message>
     <message>
         <source>Do not enroll in dark, bright or backlit environments</source>
-        <translation type="unfinished"/>
+        <translation>Nicht in zu dunklen, zu hellen oder im Gegenlicht aufnehmen</translation>
     </message>
     <message>
         <source>Keep your face uncovered</source>
-        <translation type="unfinished"/>
+        <translation>Gesicht unbedeckt lassen</translation>
     </message>
     <message>
         <source>Scan timed out</source>
-        <translation type="unfinished"/>
+        <translation>Zeitüberschreitung beim Scan</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>Kamera ist belegt!</translation>
     </message>
 </context>
 <context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation type="unfinished"/>
+        <translation>Akzentfarbe</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>Icon-Einstellungen</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>Icon-Design</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation type="unfinished"/>
+        <translation>Bestimmen Sie das Design-Thema-Icon</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>Cursor-Design:</translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation type="unfinished"/>
+        <translation>Wählen Sie ihren Designthema-Cursor</translation>
     </message>
 </context>
 <context>
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"/>
+        <translation>Sind Sie sicher, dass Sie dieses Konto löschen wollen?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>Das Kontenverzeichnis löschen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Delete</source>
