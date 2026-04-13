@@ -172,11 +172,11 @@
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Erfassung wiederholen</translation>
     </message>
     <message>
         <source>Face recognition does not support liveness detection, and the verification method may carry risks.
@@ -206,7 +206,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation type="unfinished"/>
+        <translation>Finger erfassen</translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
