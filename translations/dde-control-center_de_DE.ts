@@ -1683,19 +1683,19 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Sie sind jetzt im Entwicklermodus</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. gehen Sie bitte zu %1 um das Offline-Zertifikat herunterzuladen</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>Diese Eigenschaft ist aktuell nicht verfügbar, bitte aktivieren Sie zuerst das System.</translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
