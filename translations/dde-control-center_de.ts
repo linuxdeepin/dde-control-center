@@ -582,7 +582,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"/>
+        <translation>Nach Anschalten des Design-Themas sehen Sie den Hintergrund beim Computerstart</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
