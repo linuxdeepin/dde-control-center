@@ -285,33 +285,33 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation>Bitte schauen Sie auf das Gerät und stellen sicher, dass beide Augen innerhalb des Erfassungsbereiches liegen</translation>
     </message>
 </context>
 <context>
     <name>Authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Biometrische Authentifizierung</translation>
     </message>
 </context>
 <context>
     <name>AuthenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Biometrische Authentifizierung</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Gesicht</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
+        <translation>Bis zu 5 Gesichtsabbildern können eingegeben werden</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Fingerabdruck</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
