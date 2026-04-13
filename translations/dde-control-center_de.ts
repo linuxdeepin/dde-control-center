@@ -3,11 +3,11 @@
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>bearbeiten</translation>
     </message>
     <message>
         <source>Add new user</source>
-        <translation type="unfinished"/>
+        <translation>Neuen Benutzer hinzufügen</translation>
     </message>
     <message>
         <source>Set fullname</source>
