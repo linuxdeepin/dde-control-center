@@ -566,7 +566,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Start-Einstellungen</translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
@@ -574,11 +574,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>grub start delay</source>
-        <translation type="unfinished"/>
+        <translation>GRUB-Startverzögerung</translation>
     </message>
     <message>
         <source>theme</source>
-        <translation type="unfinished"/>
+        <translation>Design</translation>
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
