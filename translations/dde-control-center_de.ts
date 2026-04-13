@@ -11,7 +11,7 @@
     </message>
     <message>
         <source>Set fullname</source>
-        <translation type="unfinished"/>
+        <translation>Vollen Namen eingeben</translation>
     </message>
     <message>
         <source>Login settings</source>
