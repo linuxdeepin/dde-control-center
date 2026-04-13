@@ -339,7 +339,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Dieser Name existiert bereits</translation>
     </message>
     <message>
         <source>Add a new %1 ...</source>
