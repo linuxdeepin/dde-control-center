@@ -1891,77 +1891,77 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>All day</source>
-        <translation type="unfinished"/>
+        <translation>Ganzer Tag</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"/>
+        <translation>Sonnenuntergang bis -Aufgang</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"/>
+        <translation>Benutzerdefinierte Zeit</translation>
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>von</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>bis</translation>
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Farbtemperatur</translation>
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2 (Empfohlen)</translation>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2</translation>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1Hz (Empfohlen)</translation>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation type="unfinished"/>
+        <translation>%1Hz</translation>
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Skalieren</translation>
     </message>
 </context>
 <context>
     <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch und Aufgabenleiste</translation>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch, Aufgabenleiste, PlugIn-Tableau -Einstellungen</translation>
     </message>
 </context>
 <context>
     <name>DockMain</name>
     <message>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>Dock</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modus</translation>
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation type="unfinished"/>
+        <translation>Klassischer Modus</translation>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation type="unfinished"/>
+        <translation>Zentrierter Modus</translation>
     </message>
     <message>
         <source>Dock size</source>
