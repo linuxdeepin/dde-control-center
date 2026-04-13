@@ -2364,7 +2364,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
-        <translation>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</translation>
+        <translation>Copyright© 2019-%1 UnionTech Software Technology Ltda.</translation>
     </message>
 </context>
 <context>
