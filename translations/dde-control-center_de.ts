@@ -369,19 +369,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Human</source>
-        <translation type="unfinished"/>
+        <translation>Mensch</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation>Tier</translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"/>
+        <translation>Szenisch</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>Zeichnung</translation>
     </message>
     <message>
         <source>Emoji</source>
