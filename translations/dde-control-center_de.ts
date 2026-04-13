@@ -95,42 +95,42 @@
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Rückgängig</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Rückgängig</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"/>
+        <translation>Ausschneiden</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>Kopieren</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"/>
+        <translation>Einfügen</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Alles auswählen</translation>
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation>Schnelle Anmeldung</translation>
     </message>
 </context>
 <context>
     <name>Accounts</name>
     <message>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>Konto</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation type="unfinished"/>
+        <translation>Kontoverwaltung</translation>
     </message>
 </context>
 <context>
