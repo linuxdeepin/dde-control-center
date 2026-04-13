@@ -1799,95 +1799,95 @@ Melde Dich bei %1-ID an, um personalisierte Dienste für Browser, AppStore, Supp
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Dehnen</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Zentrieren</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Nur bei %1</translation>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"/>
+        <translation>Optionen für mehrere Bildschirme</translation>
     </message>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Identifizieren</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirmneuausrichtung wird in %1s nach den Änderungen vorgenommen</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modus</translation>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Hauptbildschirm</translation>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"/>
+        <translation>Anzeige und Belegung</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Helligkeit</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Auflösung</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtischgröße einstellen</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>Wiederholrate</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Drehung</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Standard</translation>
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Der Monitor unterstützt nur 100% Anzeigeskalierung</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation type="unfinished"/>
+        <translation>Augenschonend</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation type="unfinished"/>
+        <translation>Augenschonen anschalten</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirmanzeige an wärmere Farben angleichen und Blautöne reduzieren</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Zeit</translation>
     </message>
     <message>
         <source>All day</source>
