@@ -946,11 +946,11 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Gerenciar menu de inicialização</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Gerenciamento de permissões de root para desenvolvedores</translation>
     </message>
     <message>
         <source>Developer Options</source>
