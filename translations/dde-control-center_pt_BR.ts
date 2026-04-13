@@ -276,7 +276,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Íris cadastrada</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
