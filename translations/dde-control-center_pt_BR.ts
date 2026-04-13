@@ -358,7 +358,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>O nome não pode estar vazio</translation>
     </message>
 </context>
 <context>
@@ -494,11 +494,11 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     <name>BlueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de Bluetooth, dispositivos</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -942,7 +942,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu de inicialização</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
