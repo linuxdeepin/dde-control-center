@@ -544,11 +544,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation type="unfinished"/>
+        <translation>Flugzeugmodus</translation>
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>Bluetoothnamen dürfen nicht mehr als 64 Zeichen haben</translation>
     </message>
 </context>
 <context>
