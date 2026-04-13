@@ -130,14 +130,14 @@
     </message>
     <message>
         <source>Account manager</source>
-        <translation type="unfinished"/>
+        <translation>Gerenciador de contas</translation>
     </message>
 </context>
 <context>
     <name>AccountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"/>
+        <translation>Outras contas</translation>
     </message>
 </context>
 <context>
