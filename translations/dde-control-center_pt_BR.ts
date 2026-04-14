@@ -1540,7 +1540,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>Definir o aplicativo padrão para abrir diferentes tipos de arquivos</translation>
     </message>
 </context>
 <context>
