@@ -1717,14 +1717,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation>Ativar a proteção bloqueia os diretórios do sistema e garante maior estabilidade.</translation>
     </message>
 </context>
 <context>
     <name>Device</name>
     <message>
         <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth e dispositivos</translation>
     </message>
 </context>
 <context>
