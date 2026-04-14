@@ -326,11 +326,11 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Empreinte digitale</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Identification de l&apos;identité de l&apos;utilisateur par le biais de la lecture des empreintes digitales</translation>
     </message>
     <message>
         <source>Iris</source>
