@@ -1909,7 +1909,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"/>
+        <translation>Horário personalizado</translation>
     </message>
     <message>
         <source>from</source>
