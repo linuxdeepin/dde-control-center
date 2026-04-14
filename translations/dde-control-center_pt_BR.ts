@@ -2023,7 +2023,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Várias telas</translation>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
