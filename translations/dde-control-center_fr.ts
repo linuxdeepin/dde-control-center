@@ -354,15 +354,15 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Ce nom existe déjà</translation>
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation>Ajouter un nouveau %1 ...</translation>
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Le nom ne peut pas être vide.</translation>
     </message>
 </context>
 <context>
@@ -498,11 +498,11 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     <name>BlueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"/>
+        <translation>Paramètres Bluetooth, appareils</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -946,7 +946,7 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu de démarrage</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
