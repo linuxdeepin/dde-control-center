@@ -1805,15 +1805,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Fit</source>
-        <translation>Ajustar</translation>
+        <translation>Preencher</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Esticar</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Centralizar</translation>
     </message>
     <message>
         <source>Only on %1</source>
