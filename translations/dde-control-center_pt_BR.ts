@@ -1817,7 +1817,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Apenas em %1</translation>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
