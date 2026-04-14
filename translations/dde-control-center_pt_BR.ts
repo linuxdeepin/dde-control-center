@@ -1941,14 +1941,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Escala</translation>
     </message>
 </context>
 <context>
     <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation type="unfinished"/>
+        <translation>Área de trabalho e barra de tarefas</translation>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
