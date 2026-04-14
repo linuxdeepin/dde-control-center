@@ -1901,11 +1901,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>All day</source>
-        <translation type="unfinished"/>
+        <translation>Dia inteiro</translation>
     </message>
     <message>
         <source>Sunset to Sunrise</source>
-        <translation type="unfinished"/>
+        <translation>Pôr do sol ao nascer do sol</translation>
     </message>
     <message>
         <source>Custom Time</source>
