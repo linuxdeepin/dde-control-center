@@ -1567,7 +1567,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Picture</source>
-        <translation type="unfinished"/>
+        <translation>Visualizador de imagem</translation>
     </message>
     <message>
         <source>Terminal</source>
@@ -1693,7 +1693,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Você entrou no modo desenvolvedor</translation>
     </message>
     <message>
         <source>OK</source>
