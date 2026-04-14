@@ -126,7 +126,7 @@
     <name>Accounts</name>
     <message>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>Compte</translation>
     </message>
     <message>
         <source>Account manager</source>
@@ -2825,11 +2825,11 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Paramètres d&apos;économie d&apos;énergie, écran et mise en veille</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Alimentation</translation>
     </message>
 </context>
 <context>
@@ -2840,7 +2840,7 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Plans de puissance, paramètres d&apos;économie d&apos;énergie, paramètres de réveil, paramètres de fermeture</translation>
     </message>
     <message>
         <source>Plugged In</source>
