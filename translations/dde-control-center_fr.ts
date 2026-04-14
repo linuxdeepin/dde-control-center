@@ -130,14 +130,14 @@
     </message>
     <message>
         <source>Account manager</source>
-        <translation type="unfinished"/>
+        <translation>Gestionnaire de compte</translation>
     </message>
 </context>
 <context>
     <name>AccountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"/>
+        <translation>Autres comptes</translation>
     </message>
 </context>
 <context>
@@ -307,18 +307,18 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     <name>Authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Authentification biométrique</translation>
     </message>
 </context>
 <context>
     <name>AuthenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Authentification biométrique</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Visage</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
