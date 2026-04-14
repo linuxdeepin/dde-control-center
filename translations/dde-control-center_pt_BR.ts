@@ -1705,7 +1705,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>O recurso não está disponível no momento. Ative o sistema primeiro.</translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
