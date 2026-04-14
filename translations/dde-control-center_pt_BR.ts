@@ -1829,7 +1829,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>O rearranjo das telas será aplicado em %1s após as alterações</translation>
     </message>
     <message>
         <source>Mode</source>
