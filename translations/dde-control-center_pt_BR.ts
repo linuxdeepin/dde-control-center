@@ -1952,14 +1952,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>Organização da área de trabalho, modo da barra de tarefas, configurações da área de plugins</translation>
     </message>
 </context>
 <context>
     <name>DockMain</name>
     <message>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>Fixar no dock</translation>
     </message>
     <message>
         <source>Mode</source>
