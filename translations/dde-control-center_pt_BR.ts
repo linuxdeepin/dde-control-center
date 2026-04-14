@@ -1893,11 +1893,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>Ajusta a exibição da tela para cores mais quentes, reduzindo a luz azul</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Formato de hora</translation>
     </message>
     <message>
         <source>All day</source>
