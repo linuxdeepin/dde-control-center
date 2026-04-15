@@ -152,7 +152,7 @@ DccObject {
             pageType: DccObject.Editor
             visible: !dccData.model().audioMono &&
                 (!dccData.model().showBluetoothMode ||
-                !dccData.model().outPutPortCombo[dccData.model().outPutPortComboIndex].toLowerCase().startsWith("handsfree"))
+                !dccData.model().currentBluetoothAudioMode.toLowerCase().startsWith("headset-head"))
             page: RowLayout {
                 Label {
                     Layout.alignment: Qt.AlignVCenter
@@ -446,10 +446,13 @@ DccObject {
                 }
                 
                 Component.onCompleted: { isInitialized = true }
-                
-                onCurrentIndexChanged: {
+
+                onActivated: {
                     if (isInitialized && currentIndex >= 0 && currentIndex < count) {
-                        dccData.worker().setBluetoothMode(valueAt(currentIndex))
+                        var value = valueAt(currentIndex)
+                        if (value !== dccData.model().currentBluetoothAudioMode) {
+                            dccData.worker().setBluetoothMode(value)
+                        }
                     }
                 }
             }

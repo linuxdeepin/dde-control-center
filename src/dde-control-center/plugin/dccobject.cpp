@@ -25,6 +25,7 @@ DccObject::Private::Private(DccObject *obj)
     , m_pageType(Menu)
     , m_weight(-1)
     , m_flags(0)
+    , m_componentComplete(false)
     , q_ptr(obj)
     , m_parent(nullptr)
     , m_currentObject(nullptr)
@@ -193,6 +194,10 @@ void DccObject::Private::addObject(DccObject *child)
 {
     if (child && !m_objects.contains(child)) {
         m_objects.append(child);
+        connect(child, &DccObject::objectDestroyed, q_ptr, [this](DccObject *obj) {
+            m_objects.removeOne(obj);
+            Q_EMIT q_ptr->removeObject(obj);
+        });
         Q_EMIT q_ptr->addObject(child);
     }
 }
@@ -253,6 +258,7 @@ DccObject::DccObject(QObject *parent)
 
 DccObject::~DccObject()
 {
+    Q_EMIT objectDestroyed(this);
     delete p_ptr;
 }
 
@@ -331,15 +337,23 @@ void DccObject::setIcon(const QString &icon)
 {
     if (p_ptr->m_icon != icon) {
         p_ptr->m_icon = icon;
-        if (!icon.isEmpty()) {
-            QQmlContext *context = qmlContext(this);
-            p_ptr->m_iconSource = context ? context->resolvedUrl(icon) : icon;
-        } else {
-            p_ptr->m_iconSource.clear();
-        }
         Q_EMIT iconChanged(p_ptr->m_icon);
-        Q_EMIT iconSourceChanged(p_ptr->m_iconSource);
+        // 只在组件完成后才解析 URL
+        if (p_ptr->m_componentComplete) {
+            updateIconSource();
+        }
     }
+}
+
+void DccObject::updateIconSource()
+{
+    if (!p_ptr->m_icon.isEmpty()) {
+        QQmlContext *context = qmlContext(this);
+        p_ptr->m_iconSource = context ? context->resolvedUrl(p_ptr->m_icon) : p_ptr->m_icon;
+    } else {
+        p_ptr->m_iconSource.clear();
+    }
+    Q_EMIT iconSourceChanged(p_ptr->m_iconSource);
 }
 
 QUrl DccObject::iconSource() const
@@ -486,6 +500,16 @@ QQmlListProperty<QObject> DccObject::data()
 const QVector<DccObject *> &DccObject::getChildren() const
 {
     return p_ptr->getChildren();
+}
+
+void DccObject::classBegin() { }
+
+void DccObject::componentComplete()
+{
+    p_ptr->m_componentComplete = true;
+    if (!p_ptr->m_icon.isEmpty()) {
+        updateIconSource();
+    }
 }
 
 } // namespace dccV25

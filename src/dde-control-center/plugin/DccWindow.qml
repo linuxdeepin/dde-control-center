@@ -250,12 +250,15 @@ D.ApplicationWindow {
                     mode: D.DTK.NormalState
                     theme: D.DTK.themeType
                 }
+                visible: stackView.currentIndex === DccWindow.PageIndex.LoadIndex
             }
             HomePage {
                 id: homePage
+                visible: stackView.currentIndex === DccWindow.PageIndex.HomeIndex
             }
             SecondPage {
                 id: secondPage
+                visible: stackView.currentIndex === DccWindow.PageIndex.SecondIndex
                 Component.onCompleted: mainWindow.sidebarPage = this
             }
             Connections {

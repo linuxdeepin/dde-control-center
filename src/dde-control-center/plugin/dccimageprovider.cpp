@@ -3,8 +3,10 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "dccimageprovider.h"
 
-#include <QMutexLocker>
 #include <QMetaObject>
+#include <QThread>
+#include <QThreadPool>
+#include <QUrl>
 
 namespace dccV25 {
 // 4x of 84x54 => 336x216, used as a high-res base thumbnail size
@@ -12,160 +14,192 @@ const QSize THUMBNAIL_ICON_SIZE(336, 216);
 // Separator for cache key to include size information
 const QString CACHE_KEY_SIZE_SEPARATOR = "::SIZE::";
 
+static QSize resolveSize(const QSize &size)
+{
+    return (size.isValid() && size.width() > 0 && size.height() > 0)
+               ? size
+               : THUMBNAIL_ICON_SIZE;
+}
+
+// ---------------------------------------------------------------------------
+// CacheImageResponse – pure QML response container, no loading logic.
+// ---------------------------------------------------------------------------
 class CacheImageResponse : public QQuickImageResponse
 {
+    Q_OBJECT
 public:
-    CacheImageResponse(const QString &id, const QSize &requestedSize, DccImageProvider *provider)
-        : QQuickImageResponse()
-    {
-        QImage *img = provider->cacheImage(id, requestedSize, this, requestedSize);
-        if (img) {
-            // Image is already scaled to the proper size, no need to rescale here.
-            setImage(*img, QSize());
-        }
-    }
+    CacheImageResponse() = default;
 
-    QQuickTextureFactory *textureFactory() const override { return QQuickTextureFactory::textureFactoryForImage(m_image); }
+    void setImage(const QImage &image) { m_image = image; }
+    void emitFinished() { Q_EMIT finished(); }
 
-    void setImage(const QImage &image, const QSize &requestedSize)
+    QQuickTextureFactory *textureFactory() const override
     {
-        QMetaObject::invokeMethod(this, [this, image, requestedSize]() {
-            m_image = requestedSize.isValid() ? image.scaled(requestedSize) : image;
-            Q_EMIT finished();
-        }, Qt::QueuedConnection);
+        return QQuickTextureFactory::textureFactoryForImage(m_image);
     }
 
 private:
     QImage m_image;
 };
 
-class ImageTask : public QRunnable
+// ---------------------------------------------------------------------------
+// ImageTask – async image loader, runs on thread pool.
+// ---------------------------------------------------------------------------
+class ImageTask : public QObject, public QRunnable
 {
+    Q_OBJECT
+
+Q_SIGNALS:
+    void imageLoaded(const QString &cacheKey, const QImage &image);
+
 public:
-    explicit ImageTask(const QString &cacheKey, const QSize &thumbnailSize, DccImageProvider *provider, CacheImageResponse *response, const QSize &requestedSize)
-        : QRunnable()
-        , m_cacheKey(cacheKey)
-        , m_size(thumbnailSize.isValid() ? thumbnailSize : THUMBNAIL_ICON_SIZE)
+    ImageTask(const QString &id, const QSize &requestedSize, const QString &cacheKey)
+        : m_id(id)
         , m_requestedSize(requestedSize)
-        , m_provider(provider)
-        , m_response(response)
+        , m_cacheKey(cacheKey)
     {
-        // Extract original image path from cache key
-        int sepIndex = m_cacheKey.indexOf(CACHE_KEY_SIZE_SEPARATOR);
-        if (sepIndex > 0) {
-            m_id = m_cacheKey.left(sepIndex);
-        } else {
-            m_id = m_cacheKey;
-        }
+        setAutoDelete(false);
     }
 
-protected:
-    void run() override;
+    void run() override
+    {
+        QUrl url(m_id);
+        const QString scheme = url.scheme().toLower();
+        QString path;
+        if (scheme == "qrc")
+            path = ":" + url.path();
+        else if (scheme == "file" || url.isLocalFile())
+            path = url.toLocalFile();
+        else
+            path = url.toString();
 
-protected:
+        QImage img;
+        if (!img.load(path)) {
+            Q_EMIT imageLoaded(m_cacheKey, QImage());
+            return;
+        }
+
+        img = img.scaled(m_requestedSize, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+        if (img.width() > m_requestedSize.width() || img.height() > m_requestedSize.height()) {
+            const QRect dest(QPoint(0, 0), m_requestedSize);
+            const QRect src(img.rect().center() - dest.center(), m_requestedSize);
+            img = img.copy(src);
+        }
+
+        Q_EMIT imageLoaded(m_cacheKey, img);
+    }
+
+private:
     QString m_id;
-    QString m_cacheKey;  // Cache key including size information
-    QSize m_size;
     QSize m_requestedSize;
-    QPointer<DccImageProvider> m_provider;
-    QPointer<CacheImageResponse> m_response;
+    QString m_cacheKey;
 };
 
-void ImageTask::run()
-{
-    QImage originalImage;
-    QUrl url(m_id);
-    QString scheme = url.scheme().toLower();
-
-    QString path;
-    if (scheme == "qrc") {
-        path = ":" + url.path();
-    }
-    else if (scheme == "file" || url.isLocalFile()) {
-        path = url.toLocalFile();
-    }
-    else {
-        path = url.toString();
-    }
-
-    if (originalImage.load(path)) {
-        QSize targetSize = m_requestedSize.isValid() ? m_requestedSize : m_size;
-        if (!targetSize.isValid()) {
-            targetSize = THUMBNAIL_ICON_SIZE;
-        }
-
-        QImage img = originalImage.scaled(targetSize,
-                                          Qt::KeepAspectRatioByExpanding,
-                                          Qt::SmoothTransformation);
-        if (img.width() > targetSize.width() || img.height() > targetSize.height()) {
-            const QRect r(QPoint(0, 0), targetSize);
-            const QRect srcRect(img.rect().center() - r.center(), targetSize);
-            img = img.copy(srcRect);
-        }
-
-        if (m_provider && m_response) {
-            QImage *heapImage = new QImage(std::move(img));
-            if (m_provider->insert(m_cacheKey, heapImage)) {
-                // Image already at target size, no further scaling needed.
-                m_response->setImage(*heapImage, QSize());
-            } else {
-                delete heapImage;
-            }
-        }
-    }
-}
+// ---------------------------------------------------------------------------
+// DccImageProvider
+// ---------------------------------------------------------------------------
 
 DccImageProvider::DccImageProvider()
     : QQuickAsyncImageProvider()
     , m_cache(80)
-    , m_threadPool(new QThreadPool(this))
 {
 }
 
 DccImageProvider::~DccImageProvider()
 {
-    if (m_threadPool) {
-        m_threadPool->waitForDone();
-    }
 }
 
-QImage *DccImageProvider::cacheImage(const QString &id, const QSize &thumbnailSize)
+// static
+QString DccImageProvider::makeCacheKey(const QString &id, const QSize &size)
 {
-    return cacheImage(id, thumbnailSize, new CacheImageResponse(id, QSize(), this), QSize());
+    const QSize s = resolveSize(size);
+    return QString("%1%2%3x%4").arg(id, CACHE_KEY_SIZE_SEPARATOR).arg(s.width()).arg(s.height());
 }
 
-QImage *DccImageProvider::cacheImage(const QString &id, const QSize &thumbnailSize, CacheImageResponse *response, const QSize &requestedSize)
+void DccImageProvider::submitTask(const QString &id, const QSize &resolvedSize,
+                                  const QString &cacheKey, CacheImageResponse *response)
 {
-    QMutexLocker<QMutex> locker(&m_mutex);
+    Q_ASSERT(thread() == QThread::currentThread());
 
-    // Use size as part of cache key to avoid different size images interfering with each other
-    QString cacheKey = id;
-
-    // Determine the size to use for cache key
-    QSize cacheSize = requestedSize.isValid() ? requestedSize : thumbnailSize;
-    if (!cacheSize.isValid() || cacheSize.width() <= 0 || cacheSize.height() <= 0) {
-        cacheSize = THUMBNAIL_ICON_SIZE;
+    if (m_pendingResponses.contains(cacheKey)) {
+        // Task already in flight – just register this response for notification
+        if (response)
+            m_pendingResponses.insert(cacheKey, response);
+        return;
     }
 
-    // Add size to cache key
-    cacheKey = QString("%1%2%3x%4").arg(id).arg(CACHE_KEY_SIZE_SEPARATOR).arg(cacheSize.width()).arg(cacheSize.height());
+    // Insert the response pointer, or an empty QPointer as an in-flight marker.
+    m_pendingResponses.insert(cacheKey, QPointer<CacheImageResponse>(response));
 
-    if (m_cache.contains(cacheKey)) {
-        return m_cache.object(cacheKey);
-    }
-    m_threadPool->start(new ImageTask(cacheKey, thumbnailSize, this, response, requestedSize));
-    return nullptr;
+    auto task = new ImageTask(id, resolvedSize, cacheKey);
+    connect(task, &ImageTask::imageLoaded, this, &DccImageProvider::onImageLoaded, Qt::QueuedConnection);
+    connect(task, &ImageTask::imageLoaded, task, &QObject::deleteLater, Qt::QueuedConnection);
+    QThreadPool::globalInstance()->start(task);
+}
+
+void DccImageProvider::cacheImage(const QString &id, const QSize &thumbnailSize)
+{
+    const QString cacheKey = makeCacheKey(id, thumbnailSize);
+    const QSize resolved = resolveSize(thumbnailSize);
+
+    const auto work = [this, id, resolved, cacheKey]() {
+        if (m_cache.object(cacheKey))
+            return;
+        submitTask(id, resolved, cacheKey, nullptr);
+    };
+
+    QMetaObject::invokeMethod(this, work);
 }
 
 QQuickImageResponse *DccImageProvider::requestImageResponse(const QString &id, const QSize &requestedSize)
 {
-    return new CacheImageResponse(id, requestedSize, this);
+    const QString cacheKey = makeCacheKey(id, requestedSize);
+    const QSize resolved = resolveSize(requestedSize);
+    auto response = new CacheImageResponse();
+    response->moveToThread(thread());
+    QPointer<CacheImageResponse> guardedResponse(response);
+
+    const auto work = [this, guardedResponse, id, resolved, cacheKey]() {
+        if (!guardedResponse)
+            return;
+
+        if (const QImage *cached = m_cache.object(cacheKey)) {
+            // Cache hit: set image and emit finished asynchronously on the provider thread.
+            guardedResponse->setImage(*cached);
+            guardedResponse->emitFinished();
+        } else {
+            // Cache miss: submit a loading task. The response will be notified when loading is done.
+            submitTask(id, resolved, cacheKey, guardedResponse);
+        }
+    };
+
+    QMetaObject::invokeMethod(this, work);
+
+    return response;
 }
 
-bool DccImageProvider::insert(const QString &id, QImage *img)
+void DccImageProvider::onImageLoaded(const QString &cacheKey, const QImage &image)
 {
-    QMutexLocker<QMutex> locker(&m_mutex);
-    return m_cache.insert(id, img);
+    Q_ASSERT(thread() == QThread::currentThread());
+
+    if (!image.isNull())
+        m_cache.insert(cacheKey, new QImage(image));
+
+    if (!m_pendingResponses.contains(cacheKey))
+        return;
+
+    const auto responses = m_pendingResponses.values(cacheKey);
+    m_pendingResponses.remove(cacheKey);
+
+    for (const auto &resp : responses) {
+        if (resp) {
+            if (!image.isNull())
+                resp->setImage(image);
+            resp->emitFinished();
+        }
+    }
 }
 
 } // namespace dccV25
+
+#include "dccimageprovider.moc"

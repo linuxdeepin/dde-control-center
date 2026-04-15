@@ -15,6 +15,7 @@ Item {
     property real oldX: 180 // 用于调整宽度时，自动调整侧边栏宽度
     property real oldSplitterX: 180 // 记录上次位置，用于恢复
     property alias splitterX: splitter.x
+    property bool isKeyboardNavigating: false // 标记是否正在键盘导航
 
     function updateSidebarWidth(sidebarWidth) {
         if (!rightView.empty) {
@@ -117,6 +118,7 @@ Item {
                         upIdx--
                     var upObj = dccModel.getObject(upIdx)
                     if (upObj) {
+                        root.isKeyboardNavigating = true
                         dccObj.currentObject = upObj
                         DccApp.showPage(upObj)
                     }
@@ -132,6 +134,7 @@ Item {
                         downIdx++
                     var downObj = dccModel.getObject(downIdx)
                     if (downObj) {
+                        root.isKeyboardNavigating = true
                         dccObj.currentObject = downObj
                         DccApp.showPage(downObj)
                     }
@@ -162,6 +165,8 @@ Item {
                 activeFocusOnTab: false
                 focusPolicy: Qt.ClickFocus
 
+                property bool isKeyboardNavigating: false
+
                 checked: dccObj.currentObject === model.item
                 cascadeSelected: false
 
@@ -170,6 +175,18 @@ Item {
                     source: model.item.iconSource
                     width: 24
                     height: 24
+                }
+
+                onActiveFocusChanged: {
+                    if (activeFocus) {
+                        // 通过键盘导航获得焦点时设置标记
+                        if (root.isKeyboardNavigating) {
+                            isKeyboardNavigating = true
+                        }
+                    } else {
+                        // 失去焦点时重置标记
+                        isKeyboardNavigating = false
+                    }
                 }
                 contentFlow: true
                 content: RowLayout {
@@ -187,6 +204,7 @@ Item {
 
                 background: DccItemBackground {
                     focusBorderVisible: true
+                    isKeyboardNavigating: parent.isKeyboardNavigating
                     externalFocus: ListView.view && ListView.view.activeFocus && ListView.isCurrentItem
                     separatorVisible: false
                     bgMargins: 0
@@ -201,6 +219,8 @@ Item {
                     }
                 }
                 onClicked: {
+                    // 鼠标点击时重置键盘导航标记
+                    isKeyboardNavigating = false
                     list.forceActiveFocus()
                     DccApp.showPage(model.item)
                 }
@@ -224,9 +244,17 @@ Item {
             id: rightView
             clip: true
             hoverEnabled: true
+            focus: true
+            activeFocusOnTab: true
             anchors {
                 fill: parent
                 topMargin: 50
+            }
+            onCurrentItemChanged: {
+                if (currentItem && !root.isKeyboardNavigating) {
+                    rightView.forceActiveFocus()
+                }
+                root.isKeyboardNavigating = false
             }
         }
     }
@@ -308,10 +336,6 @@ Item {
         rightView.replace(mainView, {
                               "dccObj": activeObj
                           }, DccApp.animationMode === DccApp.AnimationPush ? StackView.PushTransition : StackView.PopTransition)
-        var rootFirstItem = DccApp.root.children.length > 0 ? DccApp.root.children[0] : null
-        if (activeObj !== rootFirstItem) {
-            list.forceActiveFocus()
-        }
     }
     Connections {
         target: DccApp

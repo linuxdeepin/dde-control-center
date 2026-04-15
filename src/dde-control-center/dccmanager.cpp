@@ -76,7 +76,7 @@ DccManager::DccManager(QObject *parent)
     QJSEngine::setObjectOwnership(m_noParentObjects, QQmlEngine::CppOwnership);
 
     initConfig();
-    connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject, Qt::QueuedConnection);
+    connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject);
     connect(m_plugins, &PluginManager::loadAllFinished, this, &DccManager::tryShow, Qt::QueuedConnection);
     m_showTimer = new QTimer(this);
     connect(m_showTimer, &QTimer::timeout, this, &DccManager::tryShow);
@@ -197,7 +197,7 @@ void DccManager::addObject(DccObject *obj)
         DccObject *o = objs.takeFirst();
         if (!o->name().isEmpty()) {
             m_objMap[o->name()].append(o);
-            connect(o, &DccObject::destroyed, this, &DccManager::onDccObjectDestroyed, Qt::UniqueConnection);
+            connect(o, &DccObject::objectDestroyed, this, &DccManager::onDccObjectDestroyed, Qt::UniqueConnection);
         }
         connect(o, &DccObject::addObject, this, &DccManager::addObject);
         connect(o, &DccObject::removeObject, this, qOverload<DccObject *>(&DccManager::removeObject));
@@ -398,16 +398,12 @@ QString DccManager::GetAllModule()
     return QString();
 }
 
-void DccManager::onDccObjectDestroyed()
+void DccManager::onDccObjectDestroyed(DccObject *obj)
 {
     if (m_plugins->isDeleting()) {
         return;
     }
-    QObject *o = sender();
-    if (!o) {
-        return;
-    }
-    const QString &name = o->objectName();
+    const QString &name = obj->name();
     if (name.isEmpty()) {
         return;
     }
@@ -415,7 +411,7 @@ void DccManager::onDccObjectDestroyed()
     if (it == m_objMap.end()) {
         return;
     }
-    it->removeOne(o);
+    it->removeOne(obj);
     if (it->isEmpty()) {
         m_objMap.erase(it);
     }
@@ -777,7 +773,7 @@ void DccManager::clearShowParam()
 
 void DccManager::tryShow()
 {
-    if (m_showUrl.isEmpty() && !m_activeObject) {
+    if (m_showUrl.isEmpty() && m_showTimer) {
         clearShowParam();
         showPage(m_root, QString());
         return;
@@ -801,6 +797,9 @@ void DccManager::tryShow()
             QDBusConnection::sessionBus().send(m_showMessage.createErrorReply(QDBusError::InvalidArgs, QString("not found url:") + m_showUrl));
         }
         clearShowParam();
+        if (!m_activeObject) {
+            showPage(m_root, QString());
+        }
     }
 }
 
@@ -1098,9 +1097,9 @@ void DccManager::clearData()
 
     qCDebug(dccLog()) << "delete clearData hide:" << m_hideObjects->getChildren().size() << "noAdd:" << m_noAddObjects->getChildren().size() << "noParent" << m_noParentObjects->getChildren().size();
     QVector<DccObject *> deleteObjects;
-    deleteObjects.append(m_hideObjects);
-    deleteObjects.append(m_noAddObjects);
     deleteObjects.append(m_noParentObjects);
+    deleteObjects.append(m_noAddObjects);
+    deleteObjects.append(m_hideObjects);
     while (!deleteObjects.isEmpty()) {
         auto obj = deleteObjects.takeFirst();
         QVector<DccObject *> children = obj->getChildren();

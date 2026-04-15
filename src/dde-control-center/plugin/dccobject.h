@@ -7,12 +7,15 @@
 #include <QObject>
 #include <QQmlComponent>
 #include <QQmlListProperty>
+#include <QQmlParserStatus>
 #include <QQuickItem>
 
 namespace dccV25 {
-class DccObject : public QObject
+class DccModel;
+class DccObject : public QObject, public QQmlParserStatus
 {
     Q_OBJECT
+    Q_INTERFACES(QQmlParserStatus)
     QML_ELEMENT
 public:
     Q_PROPERTY(QString name READ name WRITE setName NOTIFY nameChanged)
@@ -118,6 +121,11 @@ public:
     QQmlListProperty<QObject> data();
     const QVector<DccObject *> &getChildren() const;
 
+    // QQmlParserStatus interface
+    void classBegin() override;
+    void componentComplete() override;
+
+
     class Private;
 
 Q_SIGNALS:
@@ -159,9 +167,13 @@ Q_SIGNALS:
 
     void addObject(DccObject *obj);
     void removeObject(DccObject *obj);
+    void objectDestroyed(DccObject *obj);
 
 protected:
     DccObject::Private *p_ptr;
+
+private:
+    void updateIconSource();
 };
 } // namespace dccV25
 #endif // DCCOBJECT_H
