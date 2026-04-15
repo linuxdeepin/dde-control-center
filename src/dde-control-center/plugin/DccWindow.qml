@@ -28,6 +28,12 @@ D.ApplicationWindow {
     flags: Qt.Window | Qt.WindowCloseButtonHint | Qt.WindowTitleHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint
     color: "transparent"
     D.DWindow.enabled: true
+    onClosing: {
+        Qt.callLater(function () {
+            console.info("DccWindow closed")
+            Qt.quit()
+        })
+    }
     MouseArea {
         anchors.fill: parent
         enabled: false

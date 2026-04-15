@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "controlcenterdbusadaptor.h"
@@ -91,6 +91,7 @@ int main(int argc, char *argv[])
 #else
     app->setApplicationVersion("6.0");
 #endif
+    app->setQuitOnLastWindowClosed(false);
 
     refreshQmlCache(app->applicationVersion());
 
@@ -172,6 +173,10 @@ int main(int argc, char *argv[])
     dccV25::DccManager *dccManager = new dccV25::DccManager(app);
     dccManager->init();
     QQmlApplicationEngine *engine = dccManager->engine();
+    // connect quit signal to qApp->exit, to make sure the app can quit when the main window is closed
+    QObject::connect(engine, &QQmlApplicationEngine::quit, app, [] {
+        qApp->exit();
+    });
     engine->loadFromModule("org.deepin.dcc", "DccWindow");
     QList<QObject *> objs = engine->rootObjects();
     for (auto &&obj : objs) {
