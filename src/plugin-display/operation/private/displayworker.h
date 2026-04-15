@@ -44,6 +44,8 @@ public:
 
     void active();
 
+    DisplayDBusProxy *dbusProxy() const { return m_displayInter; }
+
 public Q_SLOTS:
     void saveChanges();
     void switchMode(const int mode, const QString &name);
@@ -74,7 +76,6 @@ public Q_SLOTS:
 private Q_SLOTS:
     void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
     void onMonitorsBrightnessChanged(const BrightnessMap &brightness);
-    void onGetScaleFinished(QDBusPendingCallWatcher *w);
     void onGetScreenScalesFinished(QDBusPendingCallWatcher *w);
 
     // for wlroots-based compositors

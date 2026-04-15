@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DISPLAYMODULE_P_H
@@ -26,7 +26,6 @@ public:
     void updateMonitorList();
     void updatePrimary();
     void updateDisplayMode();
-    void updateMaxGlobalScale();
     DccScreen *primary() const;
     QString displayMode() const;
     void setScreenPosition(QList<ScreenData *> screensData);
@@ -39,7 +38,6 @@ public:
     QList<DccScreen *> m_virtualScreens;
     DccScreen *m_primary;
     QString m_displayMode;
-    qreal m_maxGlobalScale;
 
     Q_DECLARE_PUBLIC(DisplayModule)
 };

@@ -61,6 +61,9 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
         connect(m_displayInter, &DisplayDBusProxy::CustomColorTempTimePeriodChanged, model, &DisplayModel::setCustomColorTempTimePeriod);
         connect(m_displayInter, static_cast<void (DisplayDBusProxy::*)(const QString &) const>(&DisplayDBusProxy::PrimaryChanged), model, &DisplayModel::setPrimary);
 
+        // ScreenScale 信号连接
+        connect(m_displayInter, &DisplayDBusProxy::ScreenScaleFactorChanged, model, &DisplayModel::setUIScale);
+
         //display redSfit/autoLight
         connect(m_displayInter, &DisplayDBusProxy::HasAmbientLightSensorChanged, m_model, &DisplayModel::autoLightAdjustVaildChanged);
         connect(m_timer, &QTimer::timeout, this, [this] {
@@ -79,14 +82,14 @@ DisplayWorker::~DisplayWorker()
 void DisplayWorker::active()
 {
     if (!WQt::Utils::isTreeland()) {
-        //    m_model->setAllowEnableMultiScaleRatio(
-        //        valueByQSettings<bool>(DCC_CONFIG_FILES,
-        //                               "Display",
-        //                               "AllowEnableMultiScaleRatio",
-        //                               false));
+        double scaleFactor = m_displayInter->screenScaleFactor();
+        if (scaleFactor <= 0) {
+            scaleFactor = 1.0;
+        }
+        m_model->setUIScale(scaleFactor);
 
-        QDBusPendingCallWatcher *scalewatcher = new QDBusPendingCallWatcher(m_displayInter->GetScaleFactor());
-        connect(scalewatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScaleFinished);
+        m_displayInter->availableScales();
+        m_displayInter->recommendedScale();
 
         QDBusPendingCallWatcher *screenscaleswatcher = new QDBusPendingCallWatcher(m_displayInter->GetScreenScaleFactors());
         connect(screenscaleswatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScreenScalesFinished);
@@ -253,15 +256,6 @@ void DisplayWorker::onMonitorsBrightnessChanged(const BrightnessMap &brightness)
     for (auto it = m_monitors.begin(); it != m_monitors.end(); ++it) {
         it.key()->setBrightness(brightness[it.key()->name()]);
     }
-}
-
-void DisplayWorker::onGetScaleFinished(QDBusPendingCallWatcher *w)
-{
-    QDBusPendingReply<double> reply = w->reply();
-
-    m_model->setUIScale(reply);
-
-    w->deleteLater();
 }
 
 void DisplayWorker::onGetScreenScalesFinished(QDBusPendingCallWatcher *w)
@@ -604,14 +598,9 @@ void DisplayWorker::setUiScale(const double value)
             m_model->setUIScale(rv);
         });
     } else {
-        QDBusPendingCall call = m_displayInter->SetScaleFactor(rv);
-
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-        watcher->waitForFinished();
-        if (!watcher->isError()) {
-            m_model->setUIScale(rv);
-        }
-        watcher->deleteLater();
+        // 通过 ScreenScale 设置缩放（作为唯一事实来源，会同步到 XSettings）
+        m_displayInter->SetScreenScaleFactor(rv);
+        m_model->setUIScale(rv);
     }
 }
 
@@ -644,7 +633,6 @@ void DisplayWorker::setIndividualScaling(Monitor *m, const double scaling)
         m_displayInter->SetScreenScaleFactors(scalemap);
     }
 }
-
 
 void DisplayWorker::monitorAdded(const QString &path)
 {
