@@ -1915,7 +1915,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation type="unfinished"/>
+        <translation>Temperatura del color</translation>
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
@@ -1953,7 +1953,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>DockMain</name>
     <message>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>Muelle</translation>
     </message>
     <message>
         <source>Mode</source>
