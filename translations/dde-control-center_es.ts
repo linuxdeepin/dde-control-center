@@ -1887,7 +1887,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
-        <translation type="unfinished"/>
+        <translation>Configura la pantalla para mostrar colores más cálidos, reduciendo la luz azúl</translation>
     </message>
     <message>
         <source>Time</source>
@@ -1907,7 +1907,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>Desde</translation>
     </message>
     <message>
         <source>to</source>
