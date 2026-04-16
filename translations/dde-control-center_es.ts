@@ -2033,7 +2033,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation type="unfinished"/>
+        <translation>Área de complementos</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
