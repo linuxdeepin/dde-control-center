@@ -1993,35 +1993,35 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>Izquierda</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>Derecha</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished"/>
+        <translation>Estado</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>Mantener visible</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation type="unfinished"/>
+        <translation>Mantener oculto</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation type="unfinished"/>
+        <translation>Ocultado inteligente</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Múltiples pantallas</translation>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation type="unfinished"/>
+        <translation>Establecer posición de la barra de tareas en la pantalla</translation>
     </message>
     <message>
         <source>Only on main</source>
