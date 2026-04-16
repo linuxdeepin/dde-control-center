@@ -1942,7 +1942,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation type="unfinished"/>
+        <translation>Escritorio y barra de tareas</translation>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
@@ -1957,7 +1957,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Classic Mode</source>
@@ -1973,7 +1973,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Pequeño</translation>
     </message>
     <message>
         <source>Large</source>
