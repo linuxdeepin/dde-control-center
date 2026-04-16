@@ -58,7 +58,10 @@ static QString getDescription(const ZoneInfo &zoneInfo)
         description = DatetimeModel::tr("%1 hours later than local").arg(QString::number(-timeDelta, 'f', decimalNumber));
     }
 
-    return QString("%1, %2").arg(dateLiteral).arg(description);
+    QDateTime targetTime = localTime.addSecs(static_cast<qint64>(timeDelta * 3600));
+    QString timeText = targetTime.toString("HH:mm");
+
+    return QString("%1, %2, %3").arg(dateLiteral).arg(description).arg(timeText);
 }
 
 static QString getDisplayText(const ZoneInfo &zoneInfo)
@@ -340,6 +343,19 @@ QAbstractListModel *DatetimeModel::userTimezoneModel()
         auto indexBegin = m_userTimezoneModel->index(0);
         auto indexEnd = m_userTimezoneModel->index(m_userTimeZones.count() - 1);
         Q_EMIT m_userTimezoneModel->dataChanged(indexBegin, indexEnd);
+    });
+    connect(this, &DatetimeModel::currentTimeChanged, m_userTimezoneModel, [this]() {
+        static int lastMinute = -1;
+        int curMinute = QTime::currentTime().minute();
+        if (curMinute == lastMinute)
+            return;
+        lastMinute = curMinute;
+
+        if (!m_userTimeZones.isEmpty()) {
+            auto indexBegin = m_userTimezoneModel->index(0);
+            auto indexEnd = m_userTimezoneModel->index(m_userTimeZones.count() - 1);
+            Q_EMIT m_userTimezoneModel->dataChanged(indexBegin, indexEnd);
+        }
     });
 
     return m_userTimezoneModel;
