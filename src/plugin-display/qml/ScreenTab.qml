@@ -17,7 +17,11 @@ Item {
         Repeater {
             id: repeater
             delegate: Rectangle {
-                property bool isSelect: model.modelData === screen
+                property bool isSelect: {
+                    var modelName = model.modelData ? model.modelData.name : "null"
+                    var screenName = screen ? screen.name : "null"
+                    return model.modelData && screen ? model.modelData.name === screen.name : false
+                }
                 property alias hovered: mouseArea.containsMouse
                 implicitWidth: nameLabel.implicitWidth + 20
                 implicitHeight: 30
