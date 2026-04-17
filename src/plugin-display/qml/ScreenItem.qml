@@ -111,6 +111,7 @@ Item {
         width: root.width - offset
         height: root.height - offset
         active: root.selected
+        visible: root.selected
         sourceComponent: Rectangle {
             anchors.fill: parent
             radius: root.radius + 1
@@ -120,6 +121,7 @@ Item {
             smooth: true
         }
     }
+
     MouseArea {
         z: 2
         anchors.fill: parent
