@@ -4130,7 +4130,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>Taiwanin kiina</translation>
     </message>
 </context>
 <context>
