@@ -15,11 +15,11 @@
     </message>
     <message>
         <source>Login settings</source>
-        <translation>Login-Einstellungen</translation>
+        <translation>Anmelde-Einstellungen</translation>
     </message>
     <message>
         <source>Login without password</source>
-        <translation>Login ohne Passwort</translation>
+        <translation>Anmeldung ohne Passwort</translation>
     </message>
     <message>
         <source>Delete current account</source>
@@ -47,7 +47,7 @@
     </message>
     <message>
         <source>Auto login</source>
-        <translation>Auto-LogIn</translation>
+        <translation>Auto-Anmeldung</translation>
     </message>
     <message>
         <source>Account Information</source>
@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Schnellanmeldung, Auto-Anmeldung, Anmeldung ohne Passwort</translation>
     </message>
     <message>
         <source>Undo</source>
@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation>Schnelle Anmeldung</translation>
+        <translation>Schnell-Anmeldung</translation>
     </message>
 </context>
 <context>
