@@ -1724,7 +1724,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation>Habilite la protección para bloquear los directorios del sistema y garantizar una estabilidad óptima.</translation>
+        <translation>Habilite la protección de bloqueo de los directorios del sistema para garantizar una estabilidad óptima.</translation>
     </message>
 </context>
 <context>
@@ -1844,11 +1844,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla principal</translation>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"/>
+        <translation>Visualización y diseño</translation>
     </message>
     <message>
         <source>Brightness</source>
