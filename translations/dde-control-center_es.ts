@@ -3337,7 +3337,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Guardar</translation>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
@@ -3436,11 +3436,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>SoundMain</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Efectos de sonido</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
@@ -3562,11 +3562,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"/>
+        <translation>Audio mono</translation>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"/>
+        <translation>Pausa automática</translation>
     </message>
     <message>
         <source>Output Device</source>
@@ -3618,7 +3618,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Acerca del equipo</translation>
     </message>
     <message>
         <source>System version, device information</source>
