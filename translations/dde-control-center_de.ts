@@ -1356,7 +1356,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"/>
+        <translation>WeChat Scan Code Anmelde-System</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
@@ -1476,7 +1476,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation type="unfinished"/>
+        <translation>Das Tageslimit für Anmeldefehler ist erreicht. Sie können das Passwort zurücksetzen und es erneut versuchen.</translation>
     </message>
     <message>
         <source>Operation Successful</source>
