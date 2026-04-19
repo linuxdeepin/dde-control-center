@@ -1461,14 +1461,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>Der Spitzname muss 1 bis 32 Zeichen lang sein</translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"/>
+        <translation>Passwort-Verschlüsselung fehlgeschlagen</translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
