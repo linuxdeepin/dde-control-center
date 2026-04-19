@@ -1056,19 +1056,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Optional</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Create account</source>
-        <translation type="unfinished"/>
+        <translation>Konto erstellen</translation>
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Benutzernamen dürfen nicht mehr als 32 Zeichen haben</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
