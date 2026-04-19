@@ -15,23 +15,23 @@
     </message>
     <message>
         <source>Login settings</source>
-        <translation type="unfinished"/>
+        <translation>Login-Einstellungen</translation>
     </message>
     <message>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Login ohne Passwort</translation>
     </message>
     <message>
         <source>Delete current account</source>
-        <translation type="unfinished"/>
+        <translation>Aktuelles Konto löschen</translation>
     </message>
     <message>
         <source>Group setting</source>
-        <translation type="unfinished"/>
+        <translation>Gruppen-Einstellungen</translation>
     </message>
     <message>
         <source>Account groups</source>
-        <translation type="unfinished"/>
+        <translation>Konto-Gruppen</translation>
     </message>
     <message>
         <source>done</source>
