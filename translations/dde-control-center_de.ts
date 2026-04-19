@@ -800,7 +800,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>Kamera belegt!</translation>
     </message>
 </context>
 <context>
@@ -811,7 +811,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>Symbol-Einstellungen</translation>
     </message>
     <message>
         <source>Icon Theme</source>
@@ -853,11 +853,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation type="unfinished"/>
+        <translation>Gehe zu Einstellungen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
 </context>
 <context>
