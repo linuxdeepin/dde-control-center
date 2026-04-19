@@ -1035,7 +1035,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation>Reinicie el dispositivo para aplicar la configuración de protección de solo lectura del sistema.</translation>
     </message>
 </context>
 <context>
@@ -1104,11 +1104,11 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation>Pequeño</translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation>grande</translation>
     </message>
 </context>
 <context>
