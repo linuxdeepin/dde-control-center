@@ -586,7 +586,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation>Bootmenü-Verifizierung</translation>
+        <translation>Systemstartmenü-Verifizierung</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
@@ -598,11 +598,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation>Bootmenü-Verifizierungs-Passwort ändern</translation>
+        <translation>Systemstartmenü-Verifizierungs-Passwort ändern</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation>Stellen Sie das Bootmenü-Authentifizierungs-Passwort ein</translation>
+        <translation>Stellen Sie das Systemstartmenü-Authentifizierungs-Passwort ein</translation>
     </message>
     <message>
         <source>User Name :</source>
@@ -998,7 +998,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"/>
+        <translation>Bitte warten Sie eine Minute, die neue Systemstartmenü-Animation wird eingerichtet</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
