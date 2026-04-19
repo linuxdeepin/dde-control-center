@@ -1484,33 +1484,33 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>Der Spitzname darf nur einmal täglich geändert werden</translation>
     </message>
 </context>
 <context>
     <name>Deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation type="unfinished"/>
+        <translation>deepin-ID</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>UOS-ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>Clouddienste</translation>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation type="unfinished"/>
+        <translation>Festland-China</translation>
     </message>
     <message>
         <source>Other regions</source>
-        <translation type="unfinished"/>
+        <translation>Andere Regionen</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
