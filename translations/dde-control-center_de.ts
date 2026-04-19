@@ -1614,7 +1614,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>UOS-ID-Anmeldung</translation>
     </message>
     <message>
         <source>Offline</source>
@@ -2329,7 +2329,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation type="unfinished"/>
+        <translation>Anmeldemethode</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
@@ -3849,7 +3849,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"/>
+        <translation>Diese Aktion ist heikel, bitte geben Sie zuerst das Anmeldepasswort ein</translation>
     </message>
     <message>
         <source>8-64 characters</source>
@@ -3970,7 +3970,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>login</source>
-        <translation type="unfinished"/>
+        <translation>Anmeldung</translation>
     </message>
     <message>
         <source>wake up</source>
