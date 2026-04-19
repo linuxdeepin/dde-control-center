@@ -294,11 +294,15 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>La autenticación biométrica es una función de verificación de identidad de usuario proporcionada por UnionTech Software Technology Co., Ltd. Mediante la autenticación biométrica, los datos biométricos recopilados se comparan con los almacenados en el dispositivo, y la identidad del usuario se verifica en función del resultado de la comparación.
+
+Tenga en cuenta que UnionTech Software Technology Co., Ltd. no recopilará ni accederá a su información biométrica, la cual se almacenará en su dispositivo. Active la autenticación biométrica únicamente en su dispositivo personal y utilice su propia información biométrica para las operaciones relacionadas. Desactive o elimine de inmediato la información biométrica de otras personas en dicho dispositivo; de lo contrario, usted asumirá los riesgos derivados.
+
+UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la seguridad, precisión y estabilidad de la autenticación biométrica. Sin embargo, debido a factores ambientales, de equipo, técnicos y otros, así como al control de riesgos, no se garantiza que la autenticación biométrica sea exitosa de forma permanente. Por lo tanto, no utilice la autenticación biométrica como único método para iniciar sesión en UOS. Si tiene alguna pregunta o sugerencia al utilizar la autenticación biométrica, puede enviar sus comentarios a través de &quot;Servicio y soporte&quot; en el UOS.</translation>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, mantenga la vista fija en el dispositivo y asegúrese de que ambos ojos estén dentro del área de recolección.</translation>
     </message>
 </context>
 <context>
@@ -340,7 +344,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>Use solo letras, números y guión bajo, y no más de 15 caracteres</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
