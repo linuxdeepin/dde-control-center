@@ -55,27 +55,27 @@
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"/>
+        <translation>Kontoname, Voller Kontoname und Kontotyp</translation>
     </message>
     <message>
         <source>Account name</source>
-        <translation type="unfinished"/>
+        <translation>Konto Name</translation>
     </message>
     <message>
         <source>Account fullname</source>
-        <translation type="unfinished"/>
+        <translation>Voller Kontoname</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Kontotyp</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Der Name ist zu lang</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Gruppennamen sollten nicht mehr als 32 Zeichen enthalten</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
