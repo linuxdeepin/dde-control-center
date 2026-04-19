@@ -1820,7 +1820,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Centro</translation>
     </message>
     <message>
         <source>Only on %1</source>
