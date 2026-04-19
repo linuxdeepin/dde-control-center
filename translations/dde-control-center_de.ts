@@ -1472,7 +1472,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation type="unfinished"/>
+        <translation>Falsches Passwort, noch %1 Chancen</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
@@ -1480,7 +1480,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation type="unfinished"/>
+        <translation>Ausführung erfolgreich</translation>
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
