@@ -594,11 +594,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Change Password</source>
-        <translation>Passwort</translation>
+        <translation>Passwort ändern</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation type="unfinished"/>
+        <translation>Bootmenü-Verifizierungs-Passwort ändern</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
