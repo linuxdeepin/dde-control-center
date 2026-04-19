@@ -1002,7 +1002,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"/>
+        <translation>Einrichten der Systemstartmenü-Animation abgeschlossen.</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
