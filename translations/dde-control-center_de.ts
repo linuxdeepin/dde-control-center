@@ -210,7 +210,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation>Bitte legen Sie den Finger mittig auf den Fingerabdrucksensor und bewegen ihn von oben nach unte. Danach entfernen Sie den Finger bitte</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -586,7 +586,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation type="unfinished"/>
+        <translation>Bootmenü-Verifizierung</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
