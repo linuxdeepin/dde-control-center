@@ -900,15 +900,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"/>
+        <translation>Festelltasten-Hinweis</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
-        <translation type="unfinished"/>
+        <translation>Doppelklick-Tempo</translation>
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation type="unfinished"/>
+        <translation>Doppelklick-Test</translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
