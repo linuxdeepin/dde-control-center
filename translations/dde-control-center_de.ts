@@ -1072,11 +1072,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>Benutzername darf nur Buchstaben, Zahlen sowie - und _ enthalten</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Voll-Namen dürfen nicht mehr als 32 Zeichen haben</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
