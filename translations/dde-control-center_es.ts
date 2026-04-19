@@ -1712,7 +1712,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>La función no está disponible en este momento, active su sistema primero</translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
