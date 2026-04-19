@@ -2756,15 +2756,15 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>PersonalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Apariencia</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"/>
+        <translation>Efectos de ventana</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
@@ -2800,7 +2800,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste efectos y esquinas de ventana</translation>
     </message>
 </context>
 <context>
@@ -2825,18 +2825,18 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de energía, pantalla y suspención</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Energía</translation>
     </message>
 </context>
 <context>
     <name>PowerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
