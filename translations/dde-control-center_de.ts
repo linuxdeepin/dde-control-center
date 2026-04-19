@@ -1006,15 +1006,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"/>
+        <translation>Die Einstellungen werden nach einem Systemneustart angewendet</translation>
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation>Jetzt neustarten</translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation>Ablehnen</translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
@@ -1025,18 +1025,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ConfirmManager</name>
     <message>
         <source>Password must contain numbers and letters</source>
-        <translation type="unfinished"/>
+        <translation>Passwort muss Zahlen und Buchstaben enthalten</translation>
     </message>
     <message>
         <source>Password must be between 8 and 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>Passwort muss zwischen 8 und 64 Zeichen lang sein</translation>
     </message>
 </context>
 <context>
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation type="unfinished"/>
+        <translation>Neues Konto erstellen</translation>
     </message>
     <message>
         <source>Account type</source>
