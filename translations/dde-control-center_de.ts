@@ -912,15 +912,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation type="unfinished"/>
+        <translation>Linke-Hand-Modus</translation>
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Tastatur anschalten</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
