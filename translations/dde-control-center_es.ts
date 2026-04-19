@@ -1708,7 +1708,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. Por favor, diríjase a %1 para descargar el certificado sin conexión.</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
@@ -1836,11 +1836,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>La reorganización de la pantalla tendrá efecto en %1s después de los cambios</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Main Screen</source>
