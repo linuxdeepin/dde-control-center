@@ -646,14 +646,14 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"/>
+        <translation>Größe der Logo-Animation in der Startsequenz einstellen</translation>
     </message>
 </context>
 <context>
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Folgenden Programmen die Verwendung der Kamera erlauben:</translation>
     </message>
 </context>
 <context>
