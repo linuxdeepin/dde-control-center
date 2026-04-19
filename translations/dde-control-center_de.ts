@@ -1364,7 +1364,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Passwort mit %1-ID zurücksetzen</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
@@ -1379,18 +1379,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation type="unfinished"/>
+        <translation>deepin</translation>
     </message>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Cloud-Synchronisierung</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
