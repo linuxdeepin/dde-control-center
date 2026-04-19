@@ -1525,11 +1525,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation type="unfinished"/>
+        <translation>Standard-Programm</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>Standard-Programme für verschiedene Datei-Typen einstellen</translation>
     </message>
 </context>
 <context>
