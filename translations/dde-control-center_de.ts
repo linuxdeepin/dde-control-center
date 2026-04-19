@@ -638,11 +638,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Sure</source>
-        <translation type="unfinished"/>
+        <translation>Sicher</translation>
     </message>
     <message>
         <source>Start animation</source>
-        <translation type="unfinished"/>
+        <translation>Startanimation</translation>
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
