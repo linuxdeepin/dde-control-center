@@ -602,7 +602,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"/>
+        <translation>Stellen Sie das Bootmenü-Authentifizierungs-Passwort ein</translation>
     </message>
     <message>
         <source>User Name :</source>
@@ -614,11 +614,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>New Password :</source>
-        <translation type="unfinished"/>
+        <translation>Neues Passwort:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Erforderlich</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
