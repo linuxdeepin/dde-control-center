@@ -2054,7 +2054,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear el muelle</translation>
     </message>
     <message>
         <source>Combine application icons</source>
