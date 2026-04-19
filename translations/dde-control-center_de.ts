@@ -1248,19 +1248,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Lange Zeitform</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Währungssymbol</translation>
     </message>
     <message>
         <source>Positive currency</source>
-        <translation type="unfinished"/>
+        <translation>Positiv-Währungsformat</translation>
     </message>
     <message>
         <source>Negative currency</source>
-        <translation type="unfinished"/>
+        <translation>Negativ-Währungsformat</translation>
     </message>
     <message>
         <source>Decimal symbol</source>
