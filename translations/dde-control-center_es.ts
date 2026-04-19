@@ -2194,7 +2194,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Tres dedos a la izquierda</translation>
     </message>
     <message>
         <source>Three-finger right</source>
@@ -2271,7 +2271,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes generales, método de entrada, atajos</translation>
     </message>
 </context>
 <context>
