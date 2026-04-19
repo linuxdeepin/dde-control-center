@@ -956,7 +956,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation>Configurar los permisos root para desarrolladores</translation>
+        <translation>Configuración de permisos root para desarrolladores</translation>
     </message>
     <message>
         <source>Developer Options</source>
