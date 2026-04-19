@@ -2186,11 +2186,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Tres dedos hacia arriba</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Tres dedos hacia abajo</translation>
     </message>
     <message>
         <source>Three-finger left</source>
