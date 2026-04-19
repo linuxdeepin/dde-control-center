@@ -1149,7 +1149,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Somos plenamente conscientes de la importancia que tiene su información personal para usted. Por ello, contamos con una Política de Privacidad que describe cómo recopilamos, usamos, compartimos, transferimos, divulgamos públicamente y almacenamos su información.&lt;/p&gt; &lt;p&gt;Puede hacer &lt;a href=&quot;%1&quot;&gt;clic aquí &lt;/a&gt;para ver nuestra política de privacidad más reciente o consultarla en línea visitando&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Lea atentamente y comprenda completamente nuestras prácticas en materia de privacidad del cliente. Si tiene alguna pregunta, póngase en contacto con nosotros en: %2.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
@@ -1199,7 +1199,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <name>Datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Fecha y hora</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
@@ -1214,7 +1214,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Idioma del sistema, formato regional</translation>
     </message>
 </context>
 <context>
