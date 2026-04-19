@@ -1098,7 +1098,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation type="unfinished"/>
+        <translation>Sie haben noch keinen Avatar hochgeladen. Um ein Bild hochzuladen klicken Sie entweder oder ziehen Sie ein Bild per Drag&amp;Drop herüber.</translation>
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
