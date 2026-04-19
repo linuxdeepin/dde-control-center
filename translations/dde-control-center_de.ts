@@ -83,11 +83,11 @@
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>Verwenden Sie nur Buchstaben, Zahlen, Unterstrich und Striche, beginnen SIe mit einem Buchstaben</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation>Dieser Gruppenname wurde schon verwendet</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
