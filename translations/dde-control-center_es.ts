@@ -1712,7 +1712,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation>La función no está disponible en este momento, active su sistema primero</translation>
+        <translation>Esta función no está disponible; actívela primero en el sistema.</translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
@@ -1724,7 +1724,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation>Esta función no está disponible actualmente; actívela primero en su sistema.</translation>
+        <translation>Habilite la protección para bloquear los directorios del sistema y garantizar una estabilidad óptima.</translation>
     </message>
 </context>
 <context>
@@ -1757,7 +1757,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation type="unfinished"/>
+        <translation>Brillo, resolución, escalado</translation>
     </message>
 </context>
 <context>
@@ -1824,11 +1824,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Solo mostrada en %1</translation>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de pantalla múltiple</translation>
     </message>
     <message>
         <source>Identify</source>
