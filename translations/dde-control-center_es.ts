@@ -1724,7 +1724,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation>Esta función no está disponible actualmente; actívela primero en su sistema.</translation>
     </message>
 </context>
 <context>
