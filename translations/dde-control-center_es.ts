@@ -2058,7 +2058,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation>Unificar iconos de las aplicaciones</translation>
+        <translation>Agrupar iconos de las aplicaciones</translation>
     </message>
 </context>
 <context>
