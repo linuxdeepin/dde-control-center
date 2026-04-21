@@ -3329,11 +3329,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Modificar acceso directo personalizado</translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Introduzca una tecla de acceso directo.</translation>
     </message>
     <message>
         <source>Save</source>
