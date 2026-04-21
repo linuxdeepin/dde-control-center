@@ -4362,7 +4362,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Al menos incluya caracteres como %1 entre letras minúsculas, mayúsculas, números y símbolos, y la contraseña no puede ser igual al nombre de usuario.</translation>
     </message>
 </context>
 <context>
