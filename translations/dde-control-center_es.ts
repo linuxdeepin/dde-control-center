@@ -3622,11 +3622,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Versión del sistema e información del hardware</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Declaración del software de código abierto</translation>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -3634,15 +3634,15 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Unase al programa de experiencia de usuario para ayudar a mejorar este producto</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Acuerdo de licencia de usuario final</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Muestra el acuerdo de licencia de usuario final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
