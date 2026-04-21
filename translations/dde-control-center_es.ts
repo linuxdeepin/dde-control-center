@@ -4269,15 +4269,15 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation>Levante su dedo y colóquelo en el sensor nuevamente</translation>
+        <translation>Levante su dedo y hágalo nuevamente</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Escaneo suspendido</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Escaneé los bordes de su huella dactilar</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
