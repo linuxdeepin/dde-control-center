@@ -2267,7 +2267,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>Keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Teclado</translation>
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
@@ -2278,7 +2278,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>KeyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
 </context>
 <context>
@@ -2321,7 +2321,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Formato regional</translation>
     </message>
 </context>
 <context>
@@ -2420,7 +2420,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes generales, ratón, panel táctil</translation>
     </message>
 </context>
 <context>
