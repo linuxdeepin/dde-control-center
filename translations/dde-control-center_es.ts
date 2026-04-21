@@ -2696,7 +2696,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña no puede ser igual al nombre de usuario.</translation>
     </message>
 </context>
 <context>
