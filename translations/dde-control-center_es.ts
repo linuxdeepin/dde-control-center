@@ -2990,7 +2990,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"/>
+        <translation>Selecione cuáles aplicaciones pueden acceder a sus archivos y carpetas</translation>
     </message>
 </context>
 <context>
