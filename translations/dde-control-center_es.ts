@@ -1932,7 +1932,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2 (Recomendado)</translation>
     </message>
     <message>
         <source>%1x%2</source>
@@ -1940,7 +1940,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1Hz (Recomendado)</translation>
     </message>
     <message>
         <source>%1Hz</source>
@@ -2050,7 +2050,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione los iconos que aparecerán en el muelle</translation>
     </message>
     <message>
         <source>Lock the Dock</source>
