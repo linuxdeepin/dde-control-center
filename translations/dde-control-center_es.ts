@@ -2586,7 +2586,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Activar no molestar</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
