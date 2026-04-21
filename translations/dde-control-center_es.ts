@@ -2478,7 +2478,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Medium</source>
-        <translation>Medianas</translation>
+        <translation>Mediano</translation>
     </message>
     <message>
         <source>Large</source>
@@ -2486,7 +2486,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"/>
+        <translation>Extra grande</translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
