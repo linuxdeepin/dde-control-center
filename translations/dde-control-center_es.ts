@@ -2582,7 +2582,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Las notificaciones de las aplicaciones no se mostrarán en el escritorio y los sonidos estarán silenciados, pero podrás ver todos los mensajes en el centro de notificaciones.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
@@ -2590,7 +2590,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Cuando la pantalla está bloqueada</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
@@ -2598,7 +2598,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificaciones de las aplicaciones</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
