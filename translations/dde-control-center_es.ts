@@ -4277,26 +4277,26 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation>Escaneé los bordes de su huella dactilar</translation>
+        <translation>Escaneé su huella dactilar</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Coloque su huella dactilar en el sensor</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste la posición para escanear su huella dactilar</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Huella dactilar añadida</translation>
     </message>
 </context>
 <context>
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iris</translation>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
