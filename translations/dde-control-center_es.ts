@@ -2788,15 +2788,15 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Cambie la fuente y el tamaño de fuente del sistema</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fondo de pantalla</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione tema claro, oscuro o automático</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
@@ -2840,7 +2840,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Planes de energía y ajustes de energía, encendido y apagado</translation>
     </message>
     <message>
         <source>Plugged In</source>
@@ -2848,7 +2848,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla y suspención</translation>
     </message>
     <message>
         <source>On Battery</source>
