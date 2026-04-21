@@ -3452,7 +3452,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation>Gestión de dispositivos</translation>
     </message>
 </context>
 <context>
@@ -3600,18 +3600,18 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>System</name>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes generales</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
 </context>
 <context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Información adicional</translation>
     </message>
 </context>
 <context>
