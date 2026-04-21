@@ -1157,7 +1157,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Al unirte al Programa de Experiencia del Usuario, nos otorga y autoriza a recopilar y utilizar la información de tu dispositivo, sistema y aplicaciones. Si rechazas la recopilación y el uso de dicha información, no te unas. Para obtener más detalles sobre el Programa de Experiencia del Usuario, visita</translation>
+        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Al unirte al Programa de Experiencia del Usuario, nos otorga y autoriza a recopilar y utilizar la información de tu dispositivo, sistema y aplicaciones. Si rechazas la recopilación y el uso de dicha información, no te unas. Para obtener más detalles sobre el Programa de Experiencia del Usuario, visita&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -2745,7 +2745,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation>El servicio de verificación no está disponible.</translation>
+        <translation>El servicio de selección no está disponible.</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
