@@ -3345,7 +3345,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>Haz clic en Agregar para que esta tecla de acceso directo sea efectiva.</translation>
     </message>
 </context>
 <context>
@@ -3396,7 +3396,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Introduzca una tecla de acceso directo.</translation>
     </message>
 </context>
 <context>
@@ -3407,7 +3407,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Entradas y salidas de audio, efectos de sonido y dispositivos de audio</translation>
     </message>
 </context>
 <context>
@@ -3444,7 +3444,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Activar y desactivar efectos de sonido</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
