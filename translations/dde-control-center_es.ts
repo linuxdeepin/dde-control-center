@@ -2606,7 +2606,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Las notificaciones se mostrarán en el escritorio o en mensajes sin leer en el centro de notificaciones</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -2618,15 +2618,15 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Centro de notificaciones</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar vista previa del mensaje</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Reproducir un sonido</translation>
     </message>
 </context>
 <context>
