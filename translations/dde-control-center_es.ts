@@ -3329,7 +3329,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation>Modificar acceso directo personalizado</translation>
+        <translation>Modificar el acceso directo personalizado</translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
@@ -3341,7 +3341,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>Haz clic en Guardar para que esta tecla de acceso directo sea efectiva.</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
