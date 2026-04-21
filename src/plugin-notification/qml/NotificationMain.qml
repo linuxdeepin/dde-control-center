@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.0
 import QtQuick.Controls 2.0
@@ -118,11 +118,104 @@ DccObject {
         }
     }
 
-    DccTitleObject {
+    DccObject {
+        id: appNotifyTitle
         name: "appNotify"
         parentName: "notification"
         displayName: qsTr("App Notifications")
         weight: 40
+        pageType: DccObject.Item
+
+        property bool searchVisible: false
+
+        page: RowLayout {
+            Timer {
+                id: searchTimer
+                interval: 100
+                onTriggered: {
+                    if (searchEdit.text.length > 0) {
+                        dccData.appListModel().setFilterFixedString(searchEdit.text);
+                    } else {
+                        dccData.appListModel().setFilterWildcard("");
+                    }
+                }
+            }
+            spacing: 6
+            D.Label {
+                property D.Palette textColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.9)
+                    normalDark: Qt.rgba(1, 1, 1, 0.9)
+                }
+                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                Layout.leftMargin: 12
+                text: dccObj.displayName
+                font: DccUtils.copyFont(D.DTK.fontManager.t5, {
+                                            "weight": 500
+                                        })
+                color: D.ColorSelector.textColor
+            }
+            Item { Layout.fillWidth: true }
+
+            D.SearchEdit {
+                id: searchEdit
+                visible: appNotifyTitle.searchVisible
+                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                Layout.rightMargin: 0
+                implicitWidth: 200
+                implicitHeight: 32
+                onTextChanged: {
+                    searchTimer.start()
+                }
+                onActiveFocusChanged: {
+                    if (!activeFocus && text.length === 0) {
+                        appNotifyTitle.searchVisible = false
+                    }
+                }
+                Component.onCompleted: {
+                    dccData.appListModel().setFilterWildcard("");
+                }
+            }
+
+            D.IconButton {
+                id: searchButton
+                visible: !appNotifyTitle.searchVisible
+                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                Layout.rightMargin: 0
+                icon.name: "dcc-search"
+                icon.width: 16
+                icon.height: 16
+                implicitWidth: 32
+                implicitHeight: 32
+                background: Rectangle {
+                    property D.Palette pressedColor: D.Palette {
+                        normal: Qt.rgba(0, 0, 0, 0.2)
+                        normalDark: Qt.rgba(1, 1, 1, 0.25)
+                    }
+                    property D.Palette hoveredColor: D.Palette {
+                        normal: Qt.rgba(0, 0, 0, 0.1)
+                        normalDark: Qt.rgba(1, 1, 1, 0.1)
+                    }
+                    radius: DS.Style.control.radius
+                    color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                    border {
+                        color: parent.palette.highlight
+                        width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                    }
+                }
+                onClicked: {
+                    appNotifyTitle.searchVisible = true
+                    searchEdit.forceActiveFocus()
+                }
+            }
+        }
+
+        onParentItemChanged: item => {
+            if (item) {
+                item.bottomPadding = 2
+                item.topPadding = 6
+                item.rightPadding = 0
+            }
+        }
     }
 
     DccObject {
@@ -278,3 +371,4 @@ DccObject {
         }
     }
 }
+

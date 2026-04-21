@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "appslistmodel.h"
@@ -9,6 +9,7 @@ using namespace DCC_NAMESPACE;
 AppsListModel::AppsListModel(QObject *parent)
     : QSortFilterProxyModel{ parent }
 {
+    setFilterCaseSensitivity(Qt::CaseInsensitive);
 }
 
 bool AppsListModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
@@ -38,4 +39,19 @@ bool AppsListModel::lessThan(const QModelIndex &source_left, const QModelIndex &
             return l_start == ld_start;
         }
     }
+}
+
+bool AppsListModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
+{
+    if (!sourceModel())
+        return true;
+
+    if (filterRegularExpression().pattern().isEmpty())
+        return true;
+
+    QModelIndex appNameIndex = sourceModel()->index(source_row, 0, source_parent);
+    QString appName = sourceModel()->data(appNameIndex, AppNameRole).toString();
+    QString transliterated = sourceModel()->data(appNameIndex, TransliteratedRole).toString();
+
+    return appName.contains(filterRegularExpression()) || transliterated.contains(filterRegularExpression());
 }
