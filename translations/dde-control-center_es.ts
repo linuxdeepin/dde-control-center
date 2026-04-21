@@ -4234,11 +4234,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Huella facial</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Cara</translation>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
