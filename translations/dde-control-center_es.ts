@@ -2594,7 +2594,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Número de notificaciones mostradas en el escritorio</translation>
     </message>
     <message>
         <source>App Notifications</source>
@@ -2602,7 +2602,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Permitir notificaciones</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
@@ -2614,7 +2614,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear pantalla</translation>
     </message>
     <message>
         <source>Notification Center</source>
