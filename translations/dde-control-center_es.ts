@@ -4023,7 +4023,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar todo - %1 elementos</translation>
     </message>
     <message>
         <source>Add Picture</source>
@@ -4242,18 +4242,18 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Usar su cara para desbloquear el dispositivo y hacer ajustes más tarde</translation>
     </message>
 </context>
 <context>
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Huella dactilar</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Coloque su dedo</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
