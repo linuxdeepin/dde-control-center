@@ -3108,7 +3108,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
+        <translation>%1 (%2)</translation>
     </message>
 </context>
 <context>
@@ -3325,7 +3325,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
+        <translation>El nombre del acceso directo ya está en uso. Elija un nombre diferente.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
