@@ -2749,7 +2749,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation>Formato de color no válido: %1</translation>
     </message>
 </context>
 <context>
