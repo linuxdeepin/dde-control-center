@@ -3444,11 +3444,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation>Activar y desactivar efectos de sonido</translation>
+        <translation>Activar/desactivar efectos de sonido</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Activar/desactivar dispositivos de audio</translation>
     </message>
     <message>
         <source>Devices Management</source>
