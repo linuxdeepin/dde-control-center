@@ -2964,14 +2964,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"/>
+        <translation>Câmera, permissões de pasta</translation>
     </message>
 </context>
 <context>
     <name>PrivacyMain</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>Câmera</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
