@@ -2615,7 +2615,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Exibir prévia da mensagem</translation>
     </message>
     <message>
         <source>Play a sound</source>
