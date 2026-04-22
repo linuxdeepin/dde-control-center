@@ -2195,7 +2195,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Toque com três dedos</translation>
     </message>
     <message>
         <source>Four-finger up</source>
