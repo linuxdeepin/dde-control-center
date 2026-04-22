@@ -2583,7 +2583,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Quando a tela estiver bloqueada</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
