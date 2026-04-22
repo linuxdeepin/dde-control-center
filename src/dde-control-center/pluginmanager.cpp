@@ -440,22 +440,21 @@ void PluginManager::loadModule(PluginData *plugin)
         return;
     }
     QQmlComponent *component = new QQmlComponent(m_manager->engine(), m_manager->engine());
-    component->setProperty("PluginData", QVariant::fromValue(plugin));
-    connect(component, &QQmlComponent::statusChanged, this, &PluginManager::moduleLoading);
     switch (plugin->version()) {
     case T_V1_0: {
         const QString qmlPath = plugin->path + "/" + plugin->name + ".qml";
         Q_EMIT updatePluginStatus(plugin, ModuleLoad, ": load module " + qmlPath);
-        component->loadUrl(qmlPath, QQmlComponent::Asynchronous);
+        component->loadUrl(qmlPath);
     } break;
     case T_V1_1:
     default: {
         QString typeName = plugin->name;
         typeName[0] = typeName[0].toUpper();
         Q_EMIT updatePluginStatus(plugin, ModuleLoad, ": load module " + typeName);
-        component->loadFromModule(plugin->name, typeName, QQmlComponent::Asynchronous);
+        component->loadFromModule(plugin->name, typeName);
     } break;
     }
+    createModule(component, plugin);
 }
 
 void PluginManager::loadPluginData(PluginData *plugin)
@@ -486,30 +485,28 @@ void PluginManager::loadMain(PluginData *plugin)
         return;
     }
     QQmlComponent *component = new QQmlComponent(m_manager->engine(), m_manager->engine());
-    component->setProperty("PluginData", QVariant::fromValue(plugin));
-    connect(component, &QQmlComponent::statusChanged, this, &PluginManager::mainLoading);
     switch (plugin->version()) {
     case T_V1_0: {
         const QString qmlPath = plugin->path + "/" + ((plugin->type & T_ShortMain) ? "main.qml" : plugin->name + "Main.qml");
         Q_EMIT updatePluginStatus(plugin, MainObjLoad, ": load Main " + qmlPath);
-        component->loadUrl(qmlPath, QQmlComponent::Asynchronous);
+        component->loadUrl(qmlPath);
     } break;
     case T_V1_1:
     default: {
         QString typeName = plugin->name + "Main";
         typeName[0] = typeName[0].toUpper();
         Q_EMIT updatePluginStatus(plugin, MainObjLoad, ": load Main " + typeName);
-        component->loadFromModule(plugin->name, typeName, QQmlComponent::Asynchronous);
+        component->loadFromModule(plugin->name, typeName);
     } break;
     }
+    createMain(component, plugin);
 }
 
-void PluginManager::createModule(QQmlComponent *component)
+void PluginManager::createModule(QQmlComponent *component, PluginData *plugin)
 {
     if (isDeleting()) {
         return;
     }
-    PluginData *plugin = component->property("PluginData").value<PluginData *>();
     Q_EMIT updatePluginStatus(plugin, ModuleCreate, "create module");
     switch (component->status()) {
     case QQmlComponent::Ready: {
@@ -533,12 +530,11 @@ void PluginManager::createModule(QQmlComponent *component)
     }
 }
 
-void PluginManager::createMain(QQmlComponent *component)
+void PluginManager::createMain(QQmlComponent *component, PluginData *plugin)
 {
     if (isDeleting()) {
         return;
     }
-    PluginData *plugin = component->property("PluginData").value<PluginData *>();
     Q_EMIT updatePluginStatus(plugin, MainObjCreate, "create main");
     switch (component->status()) {
     case QQmlComponent::Ready: {
@@ -547,9 +543,11 @@ void PluginManager::createMain(QQmlComponent *component)
         QObject *object = component->create(context);
         component->deleteLater();
         if (!object) {
+            delete context;
             Q_EMIT updatePluginStatus(plugin, MainObjErr | MainObjEnd, " component create main object is null:" + component->errorString());
             return;
         }
+        context->setParent(object);
         object->setParent(plugin->module ? plugin->module : m_rootModule);
         plugin->mainObj = qobject_cast<DccObject *>(object);
         Q_EMIT updatePluginStatus(plugin, MainObjEnd, ": create main finished");
@@ -601,22 +599,6 @@ void PluginManager::addMainObject(PluginData *plugin)
         Q_EMIT addObject(plugin->soObj);
     }
     Q_EMIT updatePluginStatus(plugin, MainObjEnd | PluginEnd, "add main object finished");
-}
-
-void PluginManager::moduleLoading()
-{
-    QQmlComponent *component = qobject_cast<QQmlComponent *>(sender());
-    if (!component || component->status() == QQmlComponent::Loading)
-        return;
-    createModule(component);
-}
-
-void PluginManager::mainLoading()
-{
-    QQmlComponent *component = qobject_cast<QQmlComponent *>(sender());
-    if (!component || component->status() == QQmlComponent::Loading)
-        return;
-    createMain(component);
 }
 
 void PluginManager::onModulePhaseFinished()
