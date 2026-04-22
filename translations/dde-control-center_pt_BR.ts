@@ -2773,11 +2773,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Ajustar a cor de destaque e os ícones do tema</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Fonte e tamanho da fonte</translation>
     </message>
     <message>
         <source>Change system font and size</source>
