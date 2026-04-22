@@ -2833,7 +2833,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Planos de energia, configurações de economia de energia, configurações de despertar, configurações de desligamento</translation>
     </message>
     <message>
         <source>Plugged In</source>
