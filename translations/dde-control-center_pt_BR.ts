@@ -2975,7 +2975,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Escolha se o aplicativo tem acesso à câmera</translation>
     </message>
     <message>
         <source>Files and Folders</source>
