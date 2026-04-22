@@ -52,12 +52,9 @@ private Q_SLOTS:
     void loadModule(PluginData *plugin);
     void loadPluginData(PluginData *plugin);
     void loadMain(PluginData *plugin);
-    void createModule(QQmlComponent *component);
-    void createMain(QQmlComponent *component);
+    void createModule(QQmlComponent *component, PluginData *plugin);
+    void createMain(QQmlComponent *component, PluginData *plugin);
     void addMainObject(PluginData *plugin);
-
-    void moduleLoading();
-    void mainLoading();
 
     void onModulePhaseFinished();
     void onHideModuleChanged(const QSet<QString> &hideModule);
