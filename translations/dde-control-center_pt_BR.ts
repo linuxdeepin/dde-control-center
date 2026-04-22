@@ -2619,7 +2619,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Reproduzir som</translation>
     </message>
 </context>
 <context>
@@ -2689,7 +2689,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>A senha não pode ser igual ao nome de usuário</translation>
     </message>
 </context>
 <context>
