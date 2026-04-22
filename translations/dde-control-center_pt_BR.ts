@@ -4278,7 +4278,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste a posição para escanear as bordas da sua impressão digital</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
