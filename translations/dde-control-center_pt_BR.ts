@@ -4266,7 +4266,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Escaneamento suspenso</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
