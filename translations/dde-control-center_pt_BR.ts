@@ -2793,7 +2793,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Interface e efeitos, cantos arredondados</translation>
     </message>
 </context>
 <context>
@@ -2818,7 +2818,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de economia de energia, tela e suspensão</translation>
     </message>
     <message>
         <source>Power</source>
