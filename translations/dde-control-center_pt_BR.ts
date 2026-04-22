@@ -2781,15 +2781,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Alterar a fonte e o tamanho do sistema</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Papel de parede</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar aparência do tema claro escuro ou automático</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
