@@ -2031,15 +2031,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Only on main</source>
-        <translation type="unfinished"/>
+        <translation>Apenas na principal</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation type="unfinished"/>
+        <translation>Na tela onde está o cursor</translation>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation type="unfinished"/>
+        <translation>Área de plugins</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
