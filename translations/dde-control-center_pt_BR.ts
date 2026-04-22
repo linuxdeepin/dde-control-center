@@ -2769,7 +2769,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Cores e ícones</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
