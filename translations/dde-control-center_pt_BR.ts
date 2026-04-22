@@ -2841,7 +2841,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Tela e suspensão</translation>
     </message>
     <message>
         <source>On Battery</source>
@@ -2849,7 +2849,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"/>
+        <translation>Tela e suspensão, bateria fraca e gerenciamento de bateria</translation>
     </message>
 </context>
 <context>
@@ -2960,7 +2960,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Privacidade e segurança</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
