@@ -2043,7 +2043,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Selecione quais ícones aparecem no Dock</translation>
     </message>
     <message>
         <source>Lock the Dock</source>
