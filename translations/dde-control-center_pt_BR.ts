@@ -2027,7 +2027,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation type="unfinished"/>
+        <translation>Definir a posição da barra de tarefas na tela</translation>
     </message>
     <message>
         <source>Only on main</source>
