@@ -2599,15 +2599,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Exibir notificações na área de trabalho ou mostrar mensagens não lidas na central de notificações</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Área de Trabalho</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Tela de bloqueio</translation>
     </message>
     <message>
         <source>Notification Center</source>
