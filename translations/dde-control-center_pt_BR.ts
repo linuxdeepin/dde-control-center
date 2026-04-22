@@ -2187,11 +2187,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar três dedos para a esquerda</translation>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar três dedos para a direita</translation>
     </message>
     <message>
         <source>Three-finger tap</source>
