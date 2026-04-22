@@ -2560,7 +2560,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation type="unfinished"/>
+        <translation>Modo não perturbe, notificações de aplicativos</translation>
     </message>
     <message>
         <source>Notification</source>
@@ -2571,7 +2571,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações do Não Perturbe</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
