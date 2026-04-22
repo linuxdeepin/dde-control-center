@@ -4262,7 +4262,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Levante o dedo e repita o processo</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
