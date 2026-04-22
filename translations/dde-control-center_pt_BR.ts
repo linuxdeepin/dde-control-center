@@ -2451,15 +2451,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho do ponteiro</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Aceleração do mouse</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>Desativar o touchpad quando um mouse estiver conectado</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -2467,11 +2467,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Pequeno</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Médio</translation>
     </message>
     <message>
         <source>Large</source>
