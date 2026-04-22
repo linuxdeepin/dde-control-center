@@ -2575,11 +2575,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>As notificações de aplicativos não serão exibidas na área de trabalho e os sons serão silenciados mas você pode ver todas as mensagens na central de notificações.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Ativar Não Perturbe</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
