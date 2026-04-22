@@ -2199,19 +2199,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar quatro dedos para cima</translation>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar quatro dedos para baixo</translation>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar quatro dedos para a esquerda</translation>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar quatro dedos para a direita</translation>
     </message>
     <message>
         <source>Four-finger tap</source>
