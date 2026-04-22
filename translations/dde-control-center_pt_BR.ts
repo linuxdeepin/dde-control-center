@@ -2979,7 +2979,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"/>
+        <translation>Arquivos e pastas</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
