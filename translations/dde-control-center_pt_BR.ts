@@ -2051,7 +2051,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"/>
+        <translation>Agrupar ícones de aplicativos</translation>
     </message>
 </context>
 <context>
@@ -2179,11 +2179,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar três dedos para cima</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar três dedos para baixo</translation>
     </message>
     <message>
         <source>Three-finger left</source>
