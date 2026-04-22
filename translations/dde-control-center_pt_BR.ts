@@ -4355,7 +4355,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Inclua pelo menos %1 tipos entre letras minúsculas, letras maiúsculas, números e símbolos e a senha não pode ser igual ao nome de usuário</translation>
     </message>
 </context>
 <context>
