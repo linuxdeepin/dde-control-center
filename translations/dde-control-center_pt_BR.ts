@@ -4270,7 +4270,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Escaneie as bordas da sua impressão digital</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
