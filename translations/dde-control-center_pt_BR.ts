@@ -4254,11 +4254,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Levante o dedo</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Levante o dedo e posicione-o novamente no sensor</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
