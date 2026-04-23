@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "dccimageprovider.h"
 
+#include <QImageReader>
 #include <QMetaObject>
 #include <QThread>
 #include <QThreadPool>
@@ -73,13 +74,25 @@ public:
         else
             path = url.toString();
 
-        QImage img;
-        if (!img.load(path)) {
+        QImageReader reader(path);
+        if (!reader.canRead()) {
             Q_EMIT imageLoaded(m_cacheKey, QImage());
             return;
         }
 
-        img = img.scaled(m_requestedSize, Qt::KeepAspectRatioByExpanding, Qt::SmoothTransformation);
+        const QSize nativeSize = reader.size();
+        if (nativeSize.isValid() && m_requestedSize.isValid()) {
+            QSize scaledSize = nativeSize.scaled(m_requestedSize, Qt::KeepAspectRatioByExpanding);
+            scaledSize = scaledSize.boundedTo(nativeSize);
+            reader.setScaledSize(scaledSize);
+        }
+
+        QImage img;
+        if (!reader.read(&img)) {
+            Q_EMIT imageLoaded(m_cacheKey, QImage());
+            return;
+        }
+
         if (img.width() > m_requestedSize.width() || img.height() > m_requestedSize.height()) {
             const QRect dest(QPoint(0, 0), m_requestedSize);
             const QRect src(img.rect().center() - dest.center(), m_requestedSize);

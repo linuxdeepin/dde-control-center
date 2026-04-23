@@ -76,7 +76,8 @@ DccObject {
                     Image {
                         id: image
                         anchors.fill: parent
-                        source: dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
+                        source: "image://DccImage/" + dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
+                        sourceSize: Qt.size(197, 110)
                         mipmap: true
                         visible: false
                         fillMode: Image.PreserveAspectCrop
