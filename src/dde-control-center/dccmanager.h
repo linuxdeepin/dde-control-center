@@ -118,6 +118,7 @@ private Q_SLOTS:
     void clearData();
     void waitLoadFinished() const;
     void doGetAllModule(const QDBusMessage message) const;
+    void onPageStayTimeout();
 
 private:
     DccObject *m_root;
@@ -145,6 +146,11 @@ private:
     QDBusMessage m_showMessage;
 
     QHash<QString, QVector<DccObject *>> m_objMap; // 映射对象名称到对象指针列表，用于快速查找
+
+#ifdef HAVE_DDE_API_EVENTLOGGER
+    QTimer *m_pageStayTimer;
+    QStringList m_lastPageTags;
+#endif
 };
 } // namespace dccV25
 #endif // DCCMANAGER_H
