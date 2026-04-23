@@ -32,6 +32,13 @@
 #include <QTranslator>
 #include <QWindow>
 
+#ifdef HAVE_DDE_API_EVENTLOGGER
+#include <dde-api/eventlogger.hpp>
+
+// Event ID for control center page stay (10-digit number)
+constexpr qint64 EVENT_LOGGER_CONTROL_CENTER_STAY = 1000600012;
+#endif
+
 DCORE_USE_NAMESPACE
 
 namespace dccV25 {
@@ -60,6 +67,9 @@ DccManager::DccManager(QObject *parent)
     , m_imageProvider(nullptr)
     , m_sidebarWidth(-1)
     , m_showTimer(nullptr)
+#ifdef HAVE_DDE_API_EVENTLOGGER
+    , m_pageStayTimer(nullptr)
+#endif
 {
     m_hideObjects->setName("_hide");
     m_noAddObjects->setName("_noAdd");
@@ -74,6 +84,16 @@ DccManager::DccManager(QObject *parent)
     QJSEngine::setObjectOwnership(m_hideObjects, QQmlEngine::CppOwnership);
     QJSEngine::setObjectOwnership(m_noAddObjects, QQmlEngine::CppOwnership);
     QJSEngine::setObjectOwnership(m_noParentObjects, QQmlEngine::CppOwnership);
+
+#ifdef HAVE_DDE_API_EVENTLOGGER
+    DDE_EventLogger::EventLogger::instance().init("org.deepin.dde.control-center", false);
+    qCInfo(dccLog) << "EventLogger initialized";
+
+    m_pageStayTimer = new QTimer(this);
+    m_pageStayTimer->setSingleShot(true);
+    m_pageStayTimer->setInterval(2000); // 2 seconds
+    connect(m_pageStayTimer, &QTimer::timeout, this, &DccManager::onPageStayTimeout);
+#endif
 
     initConfig();
     connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject);
@@ -899,6 +919,21 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
     m_navModel->setNavigationObject(m_currentObjects);
     qCInfo(dccLog) << "trigger object:" << triggeredObj->name() << " active object:" << m_activeObject->name() << " parent:" << (void *)triggeredObj->parentItem();
 
+#ifdef HAVE_DDE_API_EVENTLOGGER
+    // Reset and start page stay timer when page changes
+    if (m_pageStayTimer) {
+        m_pageStayTimer->stop();
+        // Build page tags directly from current objects
+        m_lastPageTags.clear();
+        for (auto *obj : m_currentObjects) {
+            if (obj != m_root) {
+                m_lastPageTags.append(obj->name());
+            }
+        }
+        m_pageStayTimer->start();
+    }
+#endif
+
     // 触发父项变更
     if (auto *parentItem = triggeredObj->parentItem(); !(triggeredObj->pageType() & DccObject::Menu) && parentItem) {
         Q_EMIT activeItemChanged(parentItem, indicatorShown);
@@ -1166,6 +1201,32 @@ void DccManager::doGetAllModule(const QDBusMessage message) const
     doc.setArray(arr);
     QString json = doc.toJson(QJsonDocument::Compact);
     QDBusConnection::sessionBus().send(message.createReply(json));
+}
+
+void DccManager::onPageStayTimeout()
+{
+#ifdef HAVE_DDE_API_EVENTLOGGER
+    qCInfo(dccLog) << "onPageStayTimeout triggered, m_lastPageTags:" << m_lastPageTags;
+    if (m_lastPageTags.isEmpty()) {
+        qCWarning(dccLog) << "onPageStayTimeout: m_lastPageTags is empty, skipping log";
+        return;
+    }
+
+    // Build the tag list as JSON array string
+    QJsonArray tagArray;
+    for (const auto &tag : m_lastPageTags) {
+        tagArray.append(tag);
+    }
+    QJsonDocument doc;
+    doc.setArray(tagArray);
+    QString tagJson = doc.toJson(QJsonDocument::Compact);
+
+    // Log page tag event with format: {"control_center_tag": ["display", "displayMultipleDisplays"]}
+    DDE_EventLogger::EventLogger::instance().writeEventLog(
+        EVENT_LOGGER_CONTROL_CENTER_STAY, "control_center_tag", "control_center_tag", tagJson);
+
+    qCInfo(dccLog) << "EventLogger: page stay - tags:" << tagJson;
+#endif
 }
 
 } // namespace dccV25

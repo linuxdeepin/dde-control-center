@@ -69,6 +69,10 @@ target_link_libraries(${Control_Center_Name} PRIVATE
     ${Control_Center_Libraries}
 )
 
+if (HAVE_DDE_API_EVENTLOGGER)
+    target_compile_definitions(${Control_Center_Name} PRIVATE HAVE_DDE_API_EVENTLOGGER)
+endif()
+
 file(GLOB_RECURSE DCC_Translation_QML_FILES ${DCC_PROJECT_ROOT_DIR}/qml/*.qml ${DCC_PROJECT_ROOT_DIR}/src/*.qml)
 file(GLOB_RECURSE DCC_Translation_SOURCE_FILES ${DCC_PROJECT_ROOT_DIR}/src/*.cpp ${DCC_PROJECT_ROOT_DIR}/src/*.h)
 dcc_handle_plugin_translation(NAME ${Control_Center_Name} SOURCE_DIR ${DCC_PROJECT_ROOT_DIR} QML_FILES ${DCC_Translation_QML_FILES} SOURCE_FILES ${DCC_Translation_SOURCE_FILES})
