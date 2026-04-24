@@ -37,7 +37,7 @@ Build-Depends:
  libssl-dev,
  libdde-shell-dev(>= 1.99.20),
  libdpkg-dev,
- dde-api-dev(>>6.0.38)
+ dde-api-dev (>> 6.0.39)
 Standards-Version: 4.5.0
 Homepage: https://github.com/linuxdeepin/dde-control-center
 
