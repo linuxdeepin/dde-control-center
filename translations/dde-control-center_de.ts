@@ -15,83 +15,83 @@
     </message>
     <message>
         <source>Login settings</source>
-        <translation type="unfinished"/>
+        <translation>Anmelde-Einstellungen</translation>
     </message>
     <message>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Anmeldung ohne Passwort</translation>
     </message>
     <message>
         <source>Delete current account</source>
-        <translation type="unfinished"/>
+        <translation>Aktuelles Konto löschen</translation>
     </message>
     <message>
         <source>Group setting</source>
-        <translation type="unfinished"/>
+        <translation>Gruppen-Einstellungen</translation>
     </message>
     <message>
         <source>Account groups</source>
-        <translation type="unfinished"/>
+        <translation>Konto-Gruppen</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>fertig</translation>
     </message>
     <message>
         <source>Group name</source>
-        <translation type="unfinished"/>
+        <translation>Gruppenname</translation>
     </message>
     <message>
         <source>Add group</source>
-        <translation type="unfinished"/>
+        <translation>Gruppe hinzufügen</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished"/>
+        <translation>Auto-Anmeldung</translation>
     </message>
     <message>
         <source>Account Information</source>
-        <translation type="unfinished"/>
+        <translation>Konto-Informationen</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"/>
+        <translation>Kontoname, Voller Kontoname und Kontotyp</translation>
     </message>
     <message>
         <source>Account name</source>
-        <translation type="unfinished"/>
+        <translation>Konto Name</translation>
     </message>
     <message>
         <source>Account fullname</source>
-        <translation type="unfinished"/>
+        <translation>Voller Kontoname</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Kontotyp</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Der Name ist zu lang</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Gruppennamen sollten nicht mehr als 32 Zeichen enthalten</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Gruppennamen dürfen nicht bloß Zahlen enthalten</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>Verwenden Sie nur Buchstaben, Zahlen, Unterstrich und Striche, beginnen SIe mit einem Buchstaben</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation>Dieser Gruppenname wurde schon verwendet</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>Schnellanmeldung, Auto-Anmeldung, Anmeldung ohne Passwort</translation>
     </message>
     <message>
         <source>Undo</source>
@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation>Schnelle Anmeldung</translation>
+        <translation>Schnell-Anmeldung</translation>
     </message>
 </context>
 <context>
@@ -210,7 +210,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation>Bitte legen Sie den Finger mittig auf den Fingerabdrucksensor und bewegen ihn von oben nach unte. Danach entfernen Sie den Finger bitte</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -586,7 +586,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation type="unfinished"/>
+        <translation>Systemstartmenü-Verifizierung</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
@@ -594,15 +594,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort ändern</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation type="unfinished"/>
+        <translation>Systemstartmenü-Verifizierungs-Passwort ändern</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"/>
+        <translation>Stellen Sie das Systemstartmenü-Authentifizierungs-Passwort ein</translation>
     </message>
     <message>
         <source>User Name :</source>
@@ -614,46 +614,46 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>New Password :</source>
-        <translation type="unfinished"/>
+        <translation>Neues Passwort:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Erforderlich</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Passwort darf nicht leer sein</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Passwörter stimmen nicht überein</translation>
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation type="unfinished"/>
+        <translation>Passwort wiederholen:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Sure</source>
-        <translation type="unfinished"/>
+        <translation>Sicher</translation>
     </message>
     <message>
         <source>Start animation</source>
-        <translation type="unfinished"/>
+        <translation>Startanimation</translation>
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"/>
+        <translation>Größe der Logo-Animation in der Startsequenz einstellen</translation>
     </message>
 </context>
 <context>
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Folgenden Programmen die Verwendung der Kamera erlauben:</translation>
     </message>
 </context>
 <context>
@@ -800,7 +800,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>Kamera belegt!</translation>
     </message>
 </context>
 <context>
@@ -811,7 +811,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>Symbol-Einstellungen</translation>
     </message>
     <message>
         <source>Icon Theme</source>
@@ -853,89 +853,89 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation type="unfinished"/>
+        <translation>Gehe zu Einstellungen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
 </context>
 <context>
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation type="unfinished"/>
+        <translation>Wiederholungsverzögerung</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>Kurz</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Lang</translation>
     </message>
     <message>
         <source>Repeat rate</source>
-        <translation type="unfinished"/>
+        <translation>Wiederhol-Rate</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Langsam</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Schnell</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>Zahlenfeld</translation>
     </message>
     <message>
         <source>test here</source>
-        <translation type="unfinished"/>
+        <translation>hier testen</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"/>
+        <translation>Festelltasten-Hinweis</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
-        <translation type="unfinished"/>
+        <translation>Doppelklick-Tempo</translation>
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation type="unfinished"/>
+        <translation>Doppelklick-Test</translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation type="unfinished"/>
+        <translation>Linke-Hand-Modus</translation>
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Tastatur anschalten</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Bildlaufgeschwindigkeit</translation>
     </message>
 </context>
 <context>
     <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Systemstartmenü</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Verwalten Sie Ihr Systemstartmenü</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
@@ -998,23 +998,23 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"/>
+        <translation>Bitte warten Sie eine Minute, die neue Systemstartmenü-Animation wird eingerichtet</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"/>
+        <translation>Einrichten der Systemstartmenü-Animation abgeschlossen.</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"/>
+        <translation>Die Einstellungen werden nach einem Systemneustart angewendet</translation>
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation>Jetzt neustarten</translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation>Ablehnen</translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
@@ -1025,102 +1025,102 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>ConfirmManager</name>
     <message>
         <source>Password must contain numbers and letters</source>
-        <translation type="unfinished"/>
+        <translation>Passwort muss Zahlen und Buchstaben enthalten</translation>
     </message>
     <message>
         <source>Password must be between 8 and 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>Passwort muss zwischen 8 und 64 Zeichen lang sein</translation>
     </message>
 </context>
 <context>
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation type="unfinished"/>
+        <translation>Neues Konto erstellen</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Kontotyp</translation>
     </message>
     <message>
         <source>UserName</source>
-        <translation type="unfinished"/>
+        <translation>Benutzername</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Erforderlich</translation>
     </message>
     <message>
         <source>FullName</source>
-        <translation type="unfinished"/>
+        <translation>Vollständiger Name:</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Optional</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Create account</source>
-        <translation type="unfinished"/>
+        <translation>Konto erstellen</translation>
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Benutzernamen dürfen nicht mehr als 32 Zeichen haben</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>Benutzername darf nur Buchstaben, Zahlen sowie - und _ enthalten</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Voll-Namen dürfen nicht mehr als 32 Zeichen haben</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation>Voll-Namen dürfen keine Punkte enthalten</translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation>klein</translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation>groß</translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation type="unfinished"/>
+        <translation>Sie haben noch keinen Avatar hochgeladen. Um ein Bild hochzuladen klicken Sie entweder oder ziehen Sie ein Bild per Drag&amp;Drop herüber.</translation>
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation>Der hochgeladene Dateityp ist falsch, bitte mit richtigem hochladen</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation type="unfinished"/>
+        <translation>verfügbar</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoWork</name>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
@@ -1128,7 +1128,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Zustimmen und am Benutzererfahrungsprogramm teilnehmen</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
@@ -1147,140 +1147,140 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation type="unfinished"/>
+        <translation>Datums- und Zeiteinstellungen</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Datum</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Jahr</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Monat</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Tag</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Zeit</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Bestätigen</translation>
     </message>
 </context>
 <context>
     <name>Datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Zeit und Datum</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Datum und Zeit, Zeitzoneneinstellungen</translation>
     </message>
 </context>
 <context>
     <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Sprache und Region</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Systemsprache und Regionalforate</translation>
     </message>
 </context>
 <context>
     <name>DatetimeModel</name>
     <message>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>Morgen</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Gestern</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Heute</translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 Stunden früher als lokal</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 Stunden später als lokal</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished"/>
+        <translation>Leerzeichen</translation>
     </message>
     <message>
         <source>Week</source>
-        <translation type="unfinished"/>
+        <translation>Woche</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>Erster Tag der Woche</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Kurzes Datum</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Langform-Datum</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Kurze Zeitform</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Lange Zeitform</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Währungssymbol</translation>
     </message>
     <message>
         <source>Positive currency</source>
-        <translation type="unfinished"/>
+        <translation>Positiv-Währungsformat</translation>
     </message>
     <message>
         <source>Negative currency</source>
-        <translation type="unfinished"/>
+        <translation>Negativ-Währungsformat</translation>
     </message>
     <message>
         <source>Decimal symbol</source>
-        <translation type="unfinished"/>
+        <translation>Dezimalzeichen</translation>
     </message>
     <message>
         <source>Digit grouping symbol</source>
-        <translation type="unfinished"/>
+        <translation>Zifferngruppierungszeichen</translation>
     </message>
     <message>
         <source>Digit grouping</source>
-        <translation type="unfinished"/>
+        <translation>Zifferngruppierung</translation>
     </message>
     <message>
         <source>Page size</source>
-        <translation type="unfinished"/>
+        <translation>Seitengröße</translation>
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Beispiel</translation>
     </message>
 </context>
 <context>
@@ -1298,25 +1298,25 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DccColorDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Speichern</translation>
     </message>
 </context>
 <context>
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"/>
+        <translation>Das Kontrollzentrum stellt Möglichkeiten zur Systemeinstellung zur Verfügung.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation type="unfinished"/>
+        <translation>WeChat verknüpfen</translation>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
@@ -1356,7 +1356,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"/>
+        <translation>WeChat Scan Code Anmelde-System</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
@@ -1364,7 +1364,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Passwort mit %1-ID zurücksetzen</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
@@ -1379,18 +1379,18 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation type="unfinished"/>
+        <translation>deepin</translation>
     </message>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Cloud-Synchronisierung</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
@@ -1399,30 +1399,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Bei %1-ID anmelden</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>Automatische Synchronisierung</translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"/>
+        <translation>Systemeinstellungen und persönliche Daten sicher in der Cloud speichern und sie geräteübergreifend synchron halten</translation>
     </message>
     <message>
         <source>System Settings</source>
-        <translation type="unfinished"/>
+        <translation>Systemeinstellungen</translation>
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"/>
+        <translation>Letzte Synchronisierung: %1</translation>
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation type="unfinished"/>
+        <translation>Cloud-Daten löschen</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
@@ -1434,83 +1434,83 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>Löschen</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation type="unfinished"/>
+        <translation>Synchronisierungsdienst</translation>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation type="unfinished"/>
+        <translation>Konto &amp; Sicherheit</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Abmelden</translation>
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"/>
+        <translation>Gehe zu Web-Einstellungen</translation>
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>Der Spitzname muss 1 bis 32 Zeichen lang sein</translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"/>
+        <translation>Passwort-Verschlüsselung fehlgeschlagen</translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation type="unfinished"/>
+        <translation>Falsches Passwort, noch %1 Chancen</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation type="unfinished"/>
+        <translation>Das Tageslimit für Anmeldefehler ist erreicht. Sie können das Passwort zurücksetzen und es erneut versuchen.</translation>
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation type="unfinished"/>
+        <translation>Ausführung erfolgreich</translation>
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>Der Spitzname darf nur einmal täglich geändert werden</translation>
     </message>
 </context>
 <context>
     <name>Deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation type="unfinished"/>
+        <translation>deepin-ID</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>UOS-ID</translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>Clouddienste</translation>
     </message>
 </context>
 <context>
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation type="unfinished"/>
+        <translation>Festland-China</translation>
     </message>
     <message>
         <source>Other regions</source>
-        <translation type="unfinished"/>
+        <translation>Andere Regionen</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
@@ -1525,76 +1525,76 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation type="unfinished"/>
+        <translation>Standard-Programm</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>Standard-Programme für verschiedene Datei-Typen einstellen</translation>
     </message>
 </context>
 <context>
     <name>DefaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Webseiten</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation type="unfinished"/>
+        <translation>E-Mail</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Text</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Musik</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Video</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation type="unfinished"/>
+        <translation>Bilder</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished"/>
+        <translation>Terminal</translation>
     </message>
 </context>
 <context>
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation type="unfinished"/>
+        <translation>Bitte wählen Sie das Standard-Programm aus für &apos;%1&apos;</translation>
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"/>
+        <translation>hinzufügen</translation>
     </message>
     <message>
         <source>Open Desktop file</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch-Datei öffnen</translation>
     </message>
     <message>
         <source>Apps (*.desktop)</source>
-        <translation type="unfinished"/>
+        <translation>Apps (*.desktop)</translation>
     </message>
     <message>
         <source>All files (*)</source>
-        <translation type="unfinished"/>
+        <translation>Alle Dateien (*)</translation>
     </message>
 </context>
 <context>
     <name>DevelopModePage</name>
     <message>
         <source>Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Root-Zugang</translation>
     </message>
     <message>
         <source>Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Rootzugang anfordern</translation>
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
@@ -1602,31 +1602,31 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Allowed</source>
-        <translation type="unfinished"/>
+        <translation>Erlaubt</translation>
     </message>
     <message>
         <source>Enter</source>
-        <translation type="unfinished"/>
+        <translation>Eingeben</translation>
     </message>
     <message>
         <source>Online</source>
-        <translation type="unfinished"/>
+        <translation>Online</translation>
     </message>
     <message>
         <source>Login UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>UOS-ID-Anmeldung</translation>
     </message>
     <message>
         <source>Offline</source>
-        <translation type="unfinished"/>
+        <translation>Offline</translation>
     </message>
     <message>
         <source>Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>Zertifikat importieren</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"/>
+        <translation>Datei auswählen</translation>
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
@@ -1638,19 +1638,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation type="unfinished"/>
+        <translation>1. PC-Infos übertragen</translation>
     </message>
     <message>
         <source>Export</source>
-        <translation type="unfinished"/>
+        <translation>Übertragen</translation>
     </message>
     <message>
         <source>3.Import Certificate</source>
-        <translation type="unfinished"/>
+        <translation>3. Zertifikat einspielen</translation>
     </message>
     <message>
         <source>Development and debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Entwickler- und Debug-Optionen</translation>
     </message>
     <message>
         <source>System logging level</source>
@@ -1662,11 +1662,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"/>
+        <translation>Aus</translation>
     </message>
     <message>
         <source>Debug</source>
-        <translation type="unfinished"/>
+        <translation>Debug</translation>
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
@@ -1682,15 +1682,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Sie sind nun im Entwickler-Modus</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>O.K.</translation>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. Gehen Sie bitte zu %1 um ein Offline-Zertifikat herunterzuladen</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
@@ -1698,7 +1698,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"/>
+        <translation>Nur-Lese-Schutz für Stabiles System</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
@@ -2329,7 +2329,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>LoginMethod</name>
     <message>
         <source>Login method</source>
-        <translation type="unfinished"/>
+        <translation>Anmeldemethode</translation>
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
@@ -3849,7 +3849,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
-        <translation type="unfinished"/>
+        <translation>Diese Aktion ist heikel, bitte geben Sie zuerst das Anmeldepasswort ein</translation>
     </message>
     <message>
         <source>8-64 characters</source>
@@ -3970,7 +3970,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>login</source>
-        <translation type="unfinished"/>
+        <translation>Anmeldung</translation>
     </message>
     <message>
         <source>wake up</source>

@@ -2027,31 +2027,31 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation type="unfinished"/>
+        <translation>Definir a posição da barra de tarefas na tela</translation>
     </message>
     <message>
         <source>Only on main</source>
-        <translation type="unfinished"/>
+        <translation>Apenas na principal</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation type="unfinished"/>
+        <translation>Na tela onde está o cursor</translation>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation type="unfinished"/>
+        <translation>Área de plugins</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Selecione quais ícones aparecem no dock</translation>
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear dock</translation>
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"/>
+        <translation>Agrupar ícones de aplicativos</translation>
     </message>
 </context>
 <context>
@@ -2179,43 +2179,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar três dedos para cima</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar três dedos para baixo</translation>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar três dedos para a esquerda</translation>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar três dedos para a direita</translation>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Toque com três dedos</translation>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar quatro dedos para cima</translation>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar quatro dedos para baixo</translation>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar quatro dedos para a esquerda</translation>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Deslizar quatro dedos para a direita</translation>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Toque com quatro dedos</translation>
     </message>
 </context>
 <context>
@@ -2260,7 +2260,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Teclado</translation>
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
@@ -2271,7 +2271,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>KeyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Comum</translation>
     </message>
 </context>
 <context>
@@ -2413,53 +2413,53 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Comum, Mouse, Touchpad</translation>
     </message>
 </context>
 <context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Comum</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Mouse</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Touchpad</translation>
     </message>
 </context>
 <context>
     <name>MousePage</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Mouse</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade do ponteiro</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lento</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rápido</translation>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho do ponteiro</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Aceleração do mouse</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>Desativar o touchpad quando um mouse estiver conectado</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -2467,23 +2467,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Pequeno</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Médio</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Grande</translation>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"/>
+        <translation>Extra grande</translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Alguns aplicativos exigem sair da sessão ou reiniciar o sistema para que as alterações tenham efeito</translation>
     </message>
 </context>
 <context>
@@ -2560,7 +2560,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation type="unfinished"/>
+        <translation>Modo não perturbe, notificações de aplicativos</translation>
     </message>
     <message>
         <source>Notification</source>
@@ -2571,43 +2571,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações do Não Perturbe</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>As notificações de aplicativos não serão exibidas na área de trabalho e os sons serão silenciados mas você pode ver todas as mensagens na central de notificações.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Ativar Não Perturbe</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Quando a tela estiver bloqueada</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Número de notificações exibidas na área de trabalho</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificações de aplicativos</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Permitir notificações</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Exibir notificações na área de trabalho ou mostrar mensagens não lidas na central de notificações</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Área de Trabalho</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Tela de bloqueio</translation>
     </message>
     <message>
         <source>Notification Center</source>
@@ -2615,11 +2615,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Exibir prévia da mensagem</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Reproduzir som</translation>
     </message>
 </context>
 <context>
@@ -2689,7 +2689,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>A senha não pode ser igual ao nome de usuário</translation>
     </message>
 </context>
 <context>
@@ -2738,62 +2738,62 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation>O serviço de seleção não está disponível</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation>Formato de cor inválido %1</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Aparência</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"/>
+        <translation>Efeitos visuais</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Personalize seu papel de parede e protetor de tela</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Protetor de tela</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Cores e ícones</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Ajustar a cor de destaque e os ícones do tema</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Fonte e tamanho da fonte</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Alterar a fonte e o tamanho do sistema</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Papel de parede</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar o tema claro, escuro ou automático</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Interface e efeitos, cantos arredondados</translation>
     </message>
 </context>
 <context>
@@ -2818,7 +2818,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Configurações de economia de energia, tela e suspensão</translation>
     </message>
     <message>
         <source>Power</source>
@@ -2833,7 +2833,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Planos de energia, configurações de economia de energia, configurações de despertar, configurações de desligamento</translation>
     </message>
     <message>
         <source>Plugged In</source>
@@ -2841,7 +2841,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Tela e suspensão</translation>
     </message>
     <message>
         <source>On Battery</source>
@@ -2849,7 +2849,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"/>
+        <translation>Tela e suspensão, bateria fraca e gerenciamento de bateria</translation>
     </message>
 </context>
 <context>
@@ -2960,30 +2960,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Privacidade e segurança</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"/>
+        <translation>Câmera, permissões de pasta</translation>
     </message>
 </context>
 <context>
     <name>PrivacyMain</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>Câmera</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Escolha se o aplicativo tem acesso à câmera</translation>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"/>
+        <translation>Arquivos e pastas</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"/>
+        <translation>Escolha se o aplicativo tem acesso a arquivos e pastas</translation>
     </message>
 </context>
 <context>
@@ -3389,7 +3389,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Insira um novo atalho de teclado</translation>
     </message>
 </context>
 <context>
@@ -3429,19 +3429,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundMain</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Efeitos sonoros</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Ativar/desativar efeitos sonoros</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Ativar/desativar dispositivos de áudio</translation>
     </message>
     <message>
         <source>Devices Management</source>
@@ -3593,61 +3593,61 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>System</name>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Configurações comuns</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
 </context>
 <context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Informações auxiliares</translation>
     </message>
 </context>
 <context>
     <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Sobre este computador</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Versão do sistema, informações do dispositivo</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Exibir aviso de software de código aberto</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Programa de experiência do usuário</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Participar do programa de experiência do usuário para ajudar a melhorar o produto</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Contrato de licença de usuário final</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Exibir contrato de licença de usuário final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Política de privacidade</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Exibir informações sobre a política de privacidade</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Aviso de software de código aberto</translation>
     </message>
 </context>
 <context>
@@ -3820,25 +3820,25 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gestos</translation>
     </message>
 </context>
 <context>
     <name>Touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Touchscreen</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Configurando touchscreen</translation>
     </message>
 </context>
 <context>
     <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Comum</translation>
     </message>
 </context>
 <context>
@@ -3883,42 +3883,42 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"/>
+        <translation>Configurando Wacom</translation>
     </message>
 </context>
 <context>
     <name>WacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom</translation>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo de caneta</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo de mouse</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Sensibilidade à pressão</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Claro</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Forte</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"/>
+        <translation>Modelo</translation>
     </message>
 </context>
 <context>
@@ -4020,7 +4020,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar imagem</translation>
     </message>
 </context>
 <context>
@@ -4132,7 +4132,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>Min Nan Chinês</translation>
     </message>
 </context>
 <context>
@@ -4227,73 +4227,73 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Biometria facial</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Rosto</translation>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Use seu rosto para desbloquear o dispositivo e configurar depois</translation>
     </message>
 </context>
 <context>
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Impressão digital</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Posicione seu dedo</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Posicione o dedo firmemente no sensor até ser solicitado a levantá-lo</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Levante o dedo</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Levante o dedo e posicione-o novamente no sensor</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Levante o dedo e repita o processo</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Escaneamento suspenso</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Escaneie as bordas da sua impressão digital</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Posicione as bordas da sua impressão digital no sensor</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste a posição para escanear as bordas da sua impressão digital</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Impressão digital adicionada</translation>
     </message>
 </context>
 <context>
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Íris</translation>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Use sua íris para desbloquear o dispositivo e configurar depois</translation>
     </message>
 </context>
 <context>
@@ -4355,7 +4355,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Inclua pelo menos %1 tipos entre letras minúsculas, letras maiúsculas, números e símbolos e a senha não pode ser igual ao nome de usuário</translation>
     </message>
 </context>
 <context>

@@ -183,7 +183,12 @@
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation>El reconocimiento facial no detecta la vitalidad de la persona, y este método de verificación puede conllevar riesgos.
+
+Para garantizar el acceso:
+1. Mantenga sus rasgos faciales claramente visibles y no los cubra (con sombreros, gafas de sol, mascarillas, etc.).
+
+2. Asegúrese de tener suficiente iluminación y evite la luz solar directa.</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -191,7 +196,11 @@ To ensure successful entry:
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>La autenticación biométrica es una función de verificación de identidad de usuario proporcionada por UnionTech Software Technology Co., Ltd. Mediante la autenticación biométrica, los datos biométricos recopilados se comparan con los almacenados en el dispositivo, y la identidad del usuario se verifica en función del resultado de la comparación.
+
+Tenga en cuenta que UnionTech Software Technology Co., Ltd. no recopilará ni accederá a su información biométrica, la cual se almacenará en su dispositivo. Active la autenticación biométrica únicamente en su dispositivo personal y utilice su propia información biométrica para las operaciones relacionadas. Desactive o elimine de inmediato la información biométrica de otras personas en dicho dispositivo; de lo contrario, usted asumirá los riesgos derivados.
+
+UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la seguridad, precisión y estabilidad de la autenticación biométrica. Sin embargo, debido a factores ambientales, de equipo, técnicos y otros, así como al control de riesgos, no se garantiza que la autenticación biométrica sea exitosa de forma permanente. Por lo tanto, no utilice la autenticación biométrica como único método para iniciar sesión en UOS. Si tiene alguna pregunta o sugerencia al utilizar la autenticación biométrica, puede enviar sus comentarios a través de &quot;Servicio y soporte&quot; en el UOS.</translation>
     </message>
 </context>
 <context>
@@ -285,11 +294,15 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>La autenticación biométrica es una función de verificación de identidad de usuario proporcionada por UnionTech Software Technology Co., Ltd. Mediante la autenticación biométrica, los datos biométricos recopilados se comparan con los almacenados en el dispositivo, y la identidad del usuario se verifica en función del resultado de la comparación.
+
+Tenga en cuenta que UnionTech Software Technology Co., Ltd. no recopilará ni accederá a su información biométrica, la cual se almacenará en su dispositivo. Active la autenticación biométrica únicamente en su dispositivo personal y utilice su propia información biométrica para las operaciones relacionadas. Desactive o elimine de inmediato la información biométrica de otras personas en dicho dispositivo; de lo contrario, usted asumirá los riesgos derivados.
+
+UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la seguridad, precisión y estabilidad de la autenticación biométrica. Sin embargo, debido a factores ambientales, de equipo, técnicos y otros, así como al control de riesgos, no se garantiza que la autenticación biométrica sea exitosa de forma permanente. Por lo tanto, no utilice la autenticación biométrica como único método para iniciar sesión en UOS. Si tiene alguna pregunta o sugerencia al utilizar la autenticación biométrica, puede enviar sus comentarios a través de &quot;Servicio y soporte&quot; en el UOS.</translation>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, mantenga la vista fija en el dispositivo y asegúrese de que ambos ojos estén dentro del área de recolección.</translation>
     </message>
 </context>
 <context>
@@ -331,27 +344,27 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>Use solo letras, números y guión bajo, y no más de 15 caracteres</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation type="unfinished"/>
+        <translation>Utilice solo letras, números y guion bajo</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>No más de 15 caracteres</translation>
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>El nombre ya existe</translation>
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation>Añadir %1 ...</translation>
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>El nombre no puede estar vacío.</translation>
     </message>
 </context>
 <context>
@@ -487,11 +500,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BlueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de Bluetooth, dispositivos</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -924,34 +937,34 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidad de desplazamiento</translation>
     </message>
 </context>
 <context>
     <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menú de arranque</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Configurar el menú de arranque</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Configuración de permisos root para desarrolladores</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Opciones para desarrolladores</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Opciones de depuración para desarrolladores</translation>
     </message>
 </context>
 <context>
@@ -1014,15 +1027,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation>Reinicar ahora</translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation>Rechazar</translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation>Reinicie el dispositivo para aplicar la configuración de protección de solo lectura del sistema.</translation>
     </message>
 </context>
 <context>
@@ -1091,11 +1104,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation>Pequeño</translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation>grande</translation>
     </message>
 </context>
 <context>
@@ -1136,15 +1149,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;Somos plenamente conscientes de la importancia que tiene su información personal para usted. Por ello, contamos con una Política de Privacidad que describe cómo recopilamos, usamos, compartimos, transferimos, divulgamos públicamente y almacenamos su información.&lt;/p&gt; &lt;p&gt;Puede hacer &lt;a href=&quot;%1&quot;&gt;clic aquí &lt;/a&gt;para ver nuestra política de privacidad más reciente o consultarla en línea visitando&lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Lea atentamente y comprenda completamente nuestras prácticas en materia de privacidad del cliente. Si tiene alguna pregunta, póngase en contacto con nosotros en: %2.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Al unirte al Programa de Experiencia de Usuario, nos autoriza a recopilar y utilizar la información de tu dispositivo, sistema y aplicaciones. Si rechazas la recopilación y el uso de dicha información, no te unas al Programa de Experiencia de Usuario. Para más detalles, consulta la Política de Privacidad de Deepin. (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Al unirte al Programa de Experiencia del Usuario, nos otorga y autoriza a recopilar y utilizar la información de tu dispositivo, sistema y aplicaciones. Si rechazas la recopilación y el uso de dicha información, no te unas. Para obtener más detalles sobre el Programa de Experiencia del Usuario, visita&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -1186,7 +1199,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>Datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Fecha y hora</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
@@ -1201,7 +1214,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Idioma del sistema, formato regional</translation>
     </message>
 </context>
 <context>
@@ -1534,38 +1547,38 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>Establecer la aplicación predeterminada para abrir varios tipos de archivos</translation>
     </message>
 </context>
 <context>
     <name>DefaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Página web</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation type="unfinished"/>
+        <translation>Correo</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Texto</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Música</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Vídeo</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation type="unfinished"/>
+        <translation>Imagen</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished"/>
+        <translation>Terminal </translation>
     </message>
 </context>
 <context>
@@ -1687,38 +1700,38 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Ha entrado en el modo desarrollador.</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>Aceptar</translation>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2. Por favor, diríjase a %1 para descargar el certificado sin conexión.</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>Esta función no está disponible; actívela primero en el sistema.</translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"/>
+        <translation>Protección de solo lectura del sistema</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"/>
+        <translation>Deshabilitar la protección desbloquea los directorios del sistema. Esta acción conlleva un alto riesgo de daños al sistema.</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation>Habilite la protección de bloqueo de los directorios del sistema para garantizar una estabilidad óptima.</translation>
     </message>
 </context>
 <context>
     <name>Device</name>
     <message>
         <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivos y Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -1744,146 +1757,146 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation type="unfinished"/>
+        <translation>Brillo, resolución, escalado</translation>
     </message>
 </context>
 <context>
     <name>DisplayMain</name>
     <message>
         <source>100%</source>
-        <translation type="unfinished"/>
+        <translation>100%</translation>
     </message>
     <message>
         <source>125%</source>
-        <translation type="unfinished"/>
+        <translation>125%</translation>
     </message>
     <message>
         <source>150%</source>
-        <translation type="unfinished"/>
+        <translation>150%</translation>
     </message>
     <message>
         <source>175%</source>
-        <translation type="unfinished"/>
+        <translation>175%</translation>
     </message>
     <message>
         <source>200%</source>
-        <translation type="unfinished"/>
+        <translation>200%</translation>
     </message>
     <message>
         <source>225%</source>
-        <translation type="unfinished"/>
+        <translation>225%</translation>
     </message>
     <message>
         <source>250%</source>
-        <translation type="unfinished"/>
+        <translation>250%</translation>
     </message>
     <message>
         <source>275%</source>
-        <translation type="unfinished"/>
+        <translation>275%</translation>
     </message>
     <message>
         <source>300%</source>
-        <translation type="unfinished"/>
+        <translation>300%</translation>
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Duplicada</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>Extendida</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Por defecto</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>Ajustar</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Estirar</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Centro</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Solo mostrada en %1</translation>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de pantalla múltiple</translation>
     </message>
     <message>
         <source>Identify</source>
-        <translation type="unfinished"/>
+        <translation>Identificar</translation>
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation type="unfinished"/>
+        <translation>La reorganización de la pantalla tendrá efecto en %1s después de los cambios</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Main Screen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla principal</translation>
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"/>
+        <translation>Visualización y diseño</translation>
     </message>
     <message>
         <source>Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Brillo</translation>
     </message>
     <message>
         <source>Resolution</source>
-        <translation type="unfinished"/>
+        <translation>Resolución</translation>
     </message>
     <message>
         <source>Resize Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar el tamaño del escritorio</translation>
     </message>
     <message>
         <source>Refresh Rate</source>
-        <translation type="unfinished"/>
+        <translation>Tasa de refresco</translation>
     </message>
     <message>
         <source>Rotation</source>
-        <translation type="unfinished"/>
+        <translation>Rotación</translation>
     </message>
     <message>
         <source>Standard</source>
-        <translation type="unfinished"/>
+        <translation>Estándar</translation>
     </message>
     <message>
         <source>90°</source>
-        <translation type="unfinished"/>
+        <translation>90°</translation>
     </message>
     <message>
         <source>180°</source>
-        <translation type="unfinished"/>
+        <translation>180°</translation>
     </message>
     <message>
         <source>270°</source>
-        <translation type="unfinished"/>
+        <translation>270°</translation>
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation type="unfinished"/>
+        <translation>Este monitor solo soporta escalado del 100%</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation type="unfinished"/>
+        <translation>Descanso visual</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation type="unfinished"/>
+        <translation>Activar descanso visual</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
@@ -1919,15 +1932,15 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2 (Recomendado)</translation>
     </message>
     <message>
         <source>%1x%2</source>
-        <translation type="unfinished"/>
+        <translation>%1x%2</translation>
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation type="unfinished"/>
+        <translation>%1Hz (Recomendado)</translation>
     </message>
     <message>
         <source>%1Hz</source>
@@ -2037,15 +2050,15 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione los iconos que aparecerán en el muelle</translation>
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear el muelle</translation>
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"/>
+        <translation>Agrupar iconos de las aplicaciones</translation>
     </message>
 </context>
 <context>
@@ -2173,43 +2186,43 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Tres dedos hacia arriba</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Tres dedos hacia abajo</translation>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Tres dedos a la izquierda</translation>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Tres dedos a la derecha</translation>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Toque con tres dedos</translation>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Cuatro dedos hacia arriba</translation>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Cuatro dedos hacia abajo</translation>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Cuatro dedos a la izquierda</translation>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Cuatro dedos a la derecha</translation>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Toque con cuatro dedos</translation>
     </message>
 </context>
 <context>
@@ -2254,18 +2267,18 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>Keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Teclado</translation>
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes generales, método de entrada, atajos</translation>
     </message>
 </context>
 <context>
     <name>KeyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
 </context>
 <context>
@@ -2308,7 +2321,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Formato regional</translation>
     </message>
 </context>
 <context>
@@ -2407,41 +2420,41 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes generales, ratón, panel táctil</translation>
     </message>
 </context>
 <context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Ratón</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Panel táctil</translation>
     </message>
 </context>
 <context>
     <name>MousePage</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Ratón</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidad del puntero</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lento</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rápido</translation>
     </message>
     <message>
         <source>Pointer Size</source>
@@ -2449,35 +2462,35 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Acceleración del ratón</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>Desactivar el panel táctil cuando el ratón está conectado</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Desplazamiento natural</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Pequeño</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Mediano</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Grande</translation>
     </message>
     <message>
         <source>X-Large</source>
-        <translation type="unfinished"/>
+        <translation>Extra grande</translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Algunas aplicaciones requieren cerrar sesión o reiniciar el sistema para que surja efecto.</translation>
     </message>
 </context>
 <context>
@@ -2554,66 +2567,66 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation type="unfinished"/>
+        <translation>Modo no molestar, notificaciones de aplicaciones</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificaciones</translation>
     </message>
 </context>
 <context>
     <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de no molestar</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>Las notificaciones de las aplicaciones no se mostrarán en el escritorio y los sonidos estarán silenciados, pero podrás ver todos los mensajes en el centro de notificaciones.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Activar no molestar</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Cuando la pantalla está bloqueada</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Número de notificaciones mostradas en el escritorio</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Notificaciones de las aplicaciones</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Permitir notificaciones</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Las notificaciones se mostrarán en el escritorio o en mensajes sin leer en el centro de notificaciones</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Escritorio</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear pantalla</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Centro de notificaciones</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar vista previa del mensaje</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Reproducir un sonido</translation>
     </message>
 </context>
 <context>
@@ -2683,7 +2696,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>La contraseña no puede ser igual al nombre de usuario.</translation>
     </message>
 </context>
 <context>
@@ -2732,62 +2745,62 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation>El servicio de selección no está disponible.</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation>Formato de color no válido: %1</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Apariencia</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"/>
+        <translation>Efectos de ventana</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Personalice el fondo de pantalla y salvapantallas</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Salvapantallas</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Colores e iconos</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Ajustar el color de acento y los iconos del tema</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Fuente y tamaño de fuente</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Cambie la fuente y el tamaño de fuente del sistema</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fondo de pantalla</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Seleccione tema claro, oscuro o automático</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste efectos y esquinas de ventana</translation>
     </message>
 </context>
 <context>
@@ -2812,38 +2825,38 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de energía, pantalla y suspención</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Energía</translation>
     </message>
 </context>
 <context>
     <name>PowerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Planes de energía y ajustes de energía, encendido y apagado</translation>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Conectado</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla y suspención</translation>
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Con batería</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla, suspensión, batería baja y ajustes de la batería</translation>
     </message>
 </context>
 <context>
@@ -2954,30 +2967,30 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>Privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Privacidad y seguridad</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"/>
+        <translation>Cámara, permisos de carpetas</translation>
     </message>
 </context>
 <context>
     <name>PrivacyMain</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>Cámara</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Selecione cuáles aplicaciones pueden acceder a la cámara</translation>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"/>
+        <translation>Archivos y carpetas</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"/>
+        <translation>Selecione cuáles aplicaciones pueden acceder a sus archivos y carpetas</translation>
     </message>
 </context>
 <context>
@@ -3095,7 +3108,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
+        <translation>%1 (%2)</translation>
     </message>
 </context>
 <context>
@@ -3150,7 +3163,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Formato regional</translation>
     </message>
 </context>
 <context>
@@ -3312,27 +3325,27 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
+        <translation>El nombre del acceso directo ya está en uso. Elija un nombre diferente.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Modificar el acceso directo personalizado</translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Introduzca una tecla de acceso directo.</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Guardar</translation>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>Haz clic en Guardar para que esta tecla de acceso directo sea efectiva.</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>Haz clic en Agregar para que esta tecla de acceso directo sea efectiva.</translation>
     </message>
 </context>
 <context>
@@ -3383,7 +3396,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Introduzca una tecla de acceso directo.</translation>
     </message>
 </context>
 <context>
@@ -3394,7 +3407,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Entradas y salidas de audio, efectos de sonido y dispositivos de audio</translation>
     </message>
 </context>
 <context>
@@ -3423,23 +3436,23 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>SoundMain</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Efectos de sonido</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Activar/desactivar efectos de sonido</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Activar/desactivar dispositivos de audio</translation>
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation>Gestión de dispositivos</translation>
     </message>
 </context>
 <context>
@@ -3549,11 +3562,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"/>
+        <translation>Audio mono</translation>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"/>
+        <translation>Pausa automática</translation>
     </message>
     <message>
         <source>Output Device</source>
@@ -3587,61 +3600,61 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>System</name>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes generales</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
 </context>
 <context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Información adicional</translation>
     </message>
 </context>
 <context>
     <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Acerca del equipo</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Versión del sistema e información del hardware</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Declaración del software de código abierto</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Experiencia de usuario</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Unase al programa de experiencia de usuario para ayudar a mejorar este producto</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Acuerdo de licencia de usuario final</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Muestra el acuerdo de licencia de usuario final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Política de privacidad</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Muestra información sobre la política de seguridad</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Declaración de software de código abierto</translation>
     </message>
 </context>
 <context>
@@ -3699,7 +3712,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Añadir</translation>
     </message>
 </context>
 <context>
@@ -3814,25 +3827,25 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gestos</translation>
     </message>
 </context>
 <context>
     <name>Touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla táctil</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de pantalla táctil</translation>
     </message>
 </context>
 <context>
     <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>General</translation>
     </message>
 </context>
 <context>
@@ -3877,42 +3890,42 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>Wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"/>
+        <translation>Ajustes de Wacom</translation>
     </message>
 </context>
 <context>
     <name>WacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom</translation>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo lápiz</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo ratón</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Sensibilidad de la presión</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Claro</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Intensa</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"/>
+        <translation>Modelo</translation>
     </message>
 </context>
 <context>
@@ -3991,7 +4004,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Fondos de pantalla del sistema</translation>
     </message>
 </context>
 <context>
@@ -4010,11 +4023,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar todo - %1 elementos</translation>
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"/>
+        <translation>Agregar imagen</translation>
     </message>
 </context>
 <context>
@@ -4126,7 +4139,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>Min Nan Chino</translation>
     </message>
 </context>
 <context>
@@ -4221,73 +4234,73 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Huella facial</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Cara</translation>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Usar su cara para desbloquear el dispositivo y hacer ajustes más tarde</translation>
     </message>
 </context>
 <context>
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Huella dactilar</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Coloque su dedo</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Coloque su dedo firmemente en el sensor hasta que le pida que lo levante</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Suelte su dedo</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Levante su dedo y colóquelo en el sensor nuevamente</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Levante su dedo y hágalo nuevamente</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Escaneo suspendido</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Escaneé su huella dactilar</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Coloque su huella dactilar en el sensor</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste la posición para escanear su huella dactilar</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Huella dactilar añadida</translation>
     </message>
 </context>
 <context>
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iris</translation>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Usa tu iris para desbloquear el dispositivo y realizar ajustes posteriormente.</translation>
     </message>
 </context>
 <context>
@@ -4349,7 +4362,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Al menos incluya caracteres como %1 entre letras minúsculas, mayúsculas, números y símbolos, y la contraseña no puede ser igual al nombre de usuario.</translation>
     </message>
 </context>
 <context>
