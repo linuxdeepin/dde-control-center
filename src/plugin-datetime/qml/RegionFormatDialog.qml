@@ -112,8 +112,7 @@ Loader {
 
                             Component.onCompleted: {
                             if (currentIndex >= 0 && currentIndex < count) {
-                                let delegateHeight = 40;
-                                contentY = currentIndex * delegateHeight;
+                                positionViewAtIndex(currentIndex, ListView.Contain);
 
                                 Qt.callLater(function() {
                                     if (currentItem && currentItem.model) {
