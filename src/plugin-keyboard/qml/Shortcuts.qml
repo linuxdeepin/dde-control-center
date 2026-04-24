@@ -163,6 +163,13 @@ DccObject {
                             showEditButtons: shortcutSettingsBody.isEditing && model.isCustom
                             showWarnning: model.accels.length > 0 && shortcutSettingsBody.conflictAccels === model.accels
 
+                            Connections{
+                                target: model
+                                function onKeySequenceChanged() {
+                                    edit.keys= model.keySequence
+                                }
+                            }
+
                             onRequestKeys: {
                                 if (shortcutView.editItem) {
                                     shortcutView.editItem.restore()

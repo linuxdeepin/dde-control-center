@@ -116,32 +116,32 @@ ShortcutModel::~ShortcutModel()
     m_searchList.clear();
 }
 
-QList<ShortcutInfo *> ShortcutModel::systemInfo() const
+const QList<ShortcutInfo *>& ShortcutModel::systemInfo() const
 {
     return m_systemInfos;
 }
 
-QList<ShortcutInfo *> ShortcutModel::windowInfo() const
+const QList<ShortcutInfo *>& ShortcutModel::windowInfo() const
 {
     return m_windowInfos;
 }
 
-QList<ShortcutInfo *> ShortcutModel::workspaceInfo() const
+const QList<ShortcutInfo *>& ShortcutModel::workspaceInfo() const
 {
     return m_workspaceInfos;
 }
 
-QList<ShortcutInfo *> ShortcutModel::assistiveToolsInfo() const
+const QList<ShortcutInfo *>& ShortcutModel::assistiveToolsInfo() const
 {
     return m_assistiveToolsInfos;
 }
 
-QList<ShortcutInfo *> ShortcutModel::customInfo() const
+const QList<ShortcutInfo *>& ShortcutModel::customInfo() const
 {
     return m_customInfos;
 }
 
-QList<ShortcutInfo *> ShortcutModel::infos() const
+const QList<ShortcutInfo *>& ShortcutModel::infos() const
 {
     return m_infos;
 }
@@ -412,7 +412,76 @@ void ShortcutModel::onWindowSwitchChanged(bool value)
      }
 
      return newList;
- }
+}
+
+int ShortcutModel::indexOfShortcut(ShortcutInfo *info)
+{
+    if (!info)
+        return -1;
+
+    int row = 0;
+    const QList<ShortcutInfo *> *targetList = nullptr;
+    do
+    {
+        static const QString sectionSystem = tr("System");
+        static const QString sectionWindow = tr("Window");
+        static const QString sectionWorkspace = tr("Workspace");
+        static const QString sectionAssistiveTools = tr("AssistiveTools");
+        static const QString sectionCustom = tr("Custom");
+        const QString &section = info->sectionName;
+
+        const auto& systemInfoList = systemInfo();
+        if (section == sectionSystem)
+        {
+            targetList = &systemInfoList;
+            break;
+        }
+        row += systemInfoList.size();
+
+        const auto& windowInfoList = windowInfo();
+        if (section == sectionWindow)
+        {
+            targetList = &windowInfoList;
+            break;
+        }
+        row += windowInfoList.size();
+
+        const auto& workspaceInfoList = workspaceInfo();
+        if (section == sectionWorkspace)
+        {
+            targetList = &workspaceInfoList;
+            break;
+        }
+        row += workspaceInfoList.size();
+
+        const auto& assistiveToolsInfoList = assistiveToolsInfo();
+        if (section == sectionAssistiveTools)
+        {
+            targetList = &assistiveToolsInfoList;
+            break;
+        }
+        row += assistiveToolsInfoList.size();
+
+        const auto& customInfoList = customInfo();
+        if (section == sectionCustom)
+        {
+            targetList = &customInfoList;
+            break;
+        }
+    } while (false);
+    
+    if (!targetList)
+        return -1;
+
+    int idx = targetList->indexOf(info);
+    if (idx >= 0)
+    {
+        row += idx;
+        return row;
+    }
+
+    return -1;
+}
 
 ShortcutInfo *ShortcutModel::currentInfo() const
 {
@@ -597,6 +666,19 @@ void ShortcutListModel::reset()
 {
     beginResetModel();
     endResetModel();
+}
+
+void ShortcutListModel::onUpdateShortcut(ShortcutInfo *info)
+{
+    if (!m_model || !info)
+        return;
+
+    int row = m_model->indexOfShortcut(info);
+    if (row >= 0)
+    {
+        QModelIndex modelIndex = index(row);
+        Q_EMIT dataChanged(modelIndex, modelIndex, {Qt::DisplayRole, KeySequenceRole});
+    }
 }
 
 int ShortcutListModel::rowCount(const QModelIndex &) const

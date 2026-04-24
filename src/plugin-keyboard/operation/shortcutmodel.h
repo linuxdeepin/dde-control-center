@@ -59,12 +59,12 @@ public:
         AssistiveTools,
     };
 
-    QList<ShortcutInfo *> systemInfo() const;
-    QList<ShortcutInfo *> windowInfo() const;
-    QList<ShortcutInfo *> workspaceInfo() const;
-    QList<ShortcutInfo *> assistiveToolsInfo() const;
-    QList<ShortcutInfo *> customInfo() const;
-    QList<ShortcutInfo *> infos() const;
+    const QList<ShortcutInfo *>& systemInfo() const;
+    const QList<ShortcutInfo *>& windowInfo() const;
+    const QList<ShortcutInfo *>& workspaceInfo() const;
+    const QList<ShortcutInfo *>& assistiveToolsInfo() const;
+    const QList<ShortcutInfo *>& customInfo() const;
+    const QList<ShortcutInfo *>& infos() const;
 
     inline int count()
     {
@@ -94,6 +94,8 @@ public:
     bool containsSystemShortcutName(const QString &name) const;
 
     static QStringList formatKeys(const QString &shortcut);
+    int indexOfShortcut(ShortcutInfo *info);
+
 Q_SIGNALS:
     void listChanged(QList<ShortcutInfo *>, InfoType);
     void addCustomInfo(ShortcutInfo *info);
@@ -131,6 +133,7 @@ private:
 
 class ShortcutListModel : public QAbstractListModel
 {
+    Q_OBJECT
 public:
     explicit ShortcutListModel(QObject *parent = nullptr);
 
@@ -150,11 +153,13 @@ public:
     void setSouceModel(ShortcutModel *model);
     ShortcutModel *souceModel();
 
-    void reset();
-
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
     QHash<int, QByteArray> roleNames() const override;
+
+public Q_SLOTS:
+    void reset();
+    void onUpdateShortcut(ShortcutInfo *info);
 
 private:
     ShortcutModel *m_model = nullptr;
