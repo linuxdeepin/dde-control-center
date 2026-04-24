@@ -1,11 +1,13 @@
-// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "displaydbusproxy.h"
 
+#include <QDBusArgument>
 #include <QDBusInterface>
 #include <QDBusMetaType>
 #include <QDBusPendingReply>
+#include <QDebug>
 
 const static QString DisplayService = "org.deepin.dde.Display1";
 const static QString DisplayPath = "/org/deepin/dde/Display1";
@@ -18,6 +20,10 @@ const static QString AppearanceInterface = "org.deepin.dde.Appearance1";
 const static QString PowerService = "org.deepin.dde.Power1";
 const static QString PowerPath = "/org/deepin/dde/Power1";
 const static QString PowerInterface = "org.deepin.dde.Power1";
+
+const static QString ScreenScaleService = "org.deepin.dde.ScreenScale1";
+const static QString ScreenScalePath = "/org/deepin/dde/ScreenScale1";
+const static QString ScreenScaleInterface = "org.deepin.dde.ScreenScale1";
 
 DisplayDBusProxy::DisplayDBusProxy(QObject *parent)
     : QObject(parent)
@@ -39,7 +45,30 @@ void DisplayDBusProxy::init()
     m_dBusDisplayInter = new DDBusInterface(DisplayService, DisplayPath, DisplayInterface, QDBusConnection::sessionBus(), this);
     m_dBusAppearanceInter = new DDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
     m_dBusPowerInter = new DDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
+    m_dBusScreenScaleInter = new DDBusInterface(ScreenScaleService, ScreenScalePath, ScreenScaleInterface, QDBusConnection::sessionBus(), this);
     QDBusConnection::sessionBus().connect("com.deepin.wm", "/com/deepin/wm", "com.deepin.wm", "WorkspaceSwitched", this, SIGNAL(WorkspaceSwitched(int, int)));
+
+    // 连接 ScreenScale 属性变化信号
+    QDBusConnection::sessionBus().connect(ScreenScaleService, ScreenScalePath, "org.freedesktop.DBus.Properties",
+        "PropertiesChanged", this, SLOT(onScreenScalePropertiesChanged(QString, QVariantMap, QStringList)));
+}
+
+void DisplayDBusProxy::onScreenScalePropertiesChanged(const QString &interface, const QVariantMap &changedProperties, const QStringList &invalidatedProperties)
+{
+    Q_UNUSED(invalidatedProperties)
+    if (interface != ScreenScaleInterface) {
+        return;
+    }
+
+    if (changedProperties.contains("ScaleFactor")) {
+        Q_EMIT ScreenScaleFactorChanged(changedProperties.value("ScaleFactor").toDouble());
+    }
+    if (changedProperties.contains("AvailableScales")) {
+        Q_EMIT AvailableScalesChanged();
+    }
+    if (changedProperties.contains("RecommendedScale")) {
+        Q_EMIT RecommendedScaleChanged();
+    }
 }
 
 // power
@@ -345,4 +374,52 @@ QDBusReply<bool> DisplayDBusProxy::CanSetBrightnessSync(const QString &name)
 QDBusReply<bool> DisplayDBusProxy::SupportSetColorTemperatureSync()
 {
     return m_dBusDisplayInter->call("SupportSetColorTemperature");
+}
+
+double DisplayDBusProxy::screenScaleFactor() const
+{
+    QVariant value = m_dBusScreenScaleInter->property("ScaleFactor");
+    if (value.isValid() && value.canConvert<double>()) {
+        return value.toDouble();
+    }
+    return 1.0;
+}
+
+double DisplayDBusProxy::recommendedScale() const
+{
+    QVariant value = m_dBusScreenScaleInter->property("RecommendedScale");
+    if (value.isValid() && value.canConvert<double>()) {
+        return value.toDouble();
+    }
+    return 1.0;
+}
+
+QList<double> DisplayDBusProxy::availableScales() const
+{
+    QVariant value = m_dBusScreenScaleInter->property("AvailableScales");
+    if (value.isValid()) {
+        if (value.canConvert<QList<double>>()) {
+            return qvariant_cast<QList<double>>(value);
+        }
+        if (value.userType() == QMetaType::type("QDBusArgument")) {
+            QDBusArgument arg = qvariant_cast<QDBusArgument>(value);
+            QList<double> result;
+            arg.beginArray();
+            while (!arg.atEnd()) {
+                double d;
+                arg >> d;
+                result.append(d);
+            }
+            arg.endArray();
+            return result;
+        }
+    }
+    return {};
+}
+
+QDBusPendingReply<> DisplayDBusProxy::SetScreenScaleFactor(double factor)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(factor);
+    return m_dBusScreenScaleInter->asyncCallWithArgumentList(QStringLiteral("SetScaleFactor"), argumentList);
 }

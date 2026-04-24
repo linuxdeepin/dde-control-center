@@ -77,9 +77,21 @@ DccObject {
     }
     function getScaleModel(maxScale, scale) {
         var scaleModel = []
-        for (let scaleItem of scaleModelConst) {
-            if (scaleItem.value <= maxScale) {
-                scaleModel.push(scaleItem)
+        var availableScales = dccData.availableScales
+
+        if (availableScales && availableScales.length > 0) {
+            for (let scaleValue of availableScales) {
+                let percent = Math.round(scaleValue * 100)
+                scaleModel.push({
+                    "text": qsTr("%1%").arg(percent),
+                    "value": scaleValue
+                })
+            }
+        } else {
+            for (let scaleItem of scaleModelConst) {
+                if (scaleItem.value <= maxScale) {
+                    scaleModel.push(scaleItem)
+                }
             }
         }
         return scaleModel

@@ -52,6 +52,7 @@ Depends:
  qml6-module-qtquick-effects,
  libdtk6declarative(>> 6.7.36),
  netselect,
+ dde-services(>> 1.0.22),
 Recommends: uos-license-content,
 Conflicts: dde-control-center-dock
 Replaces: dde-control-center-dock

@@ -9,6 +9,7 @@
 #include "dccscreen.h"
 #include "private/concatscreen.h"
 #include "private/dccscreen_p.h"
+#include "private/displaydbusproxy.h"
 #include "private/displaymodel.h"
 #include "private/displaymodule_p.h"
 #include "private/displayworker.h"
@@ -60,7 +61,6 @@ public:
 DisplayModulePrivate::DisplayModulePrivate(DisplayModule *parent)
     : q_ptr(parent)
     , m_primary(nullptr)
-    , m_maxGlobalScale(1.0)
 {
     QMetaObject::invokeMethod(
             q_ptr,
@@ -89,6 +89,13 @@ void DisplayModulePrivate::init()
     q_ptr->connect(m_model, &DisplayModel::colorTemperatureChanged, q_ptr, &DisplayModule::colorTemperatureChanged);
     q_ptr->connect(m_model, &DisplayModel::customColorTempTimePeriodChanged, q_ptr, &DisplayModule::customColorTempTimePeriodChanged);
     q_ptr->connect(m_model, &DisplayModel::adjustCCTmodeChanged, q_ptr, &DisplayModule::colorTemperatureModeChanged);
+
+    // 直接连接 DBusProxy 的缩放信号
+    auto dbusProxy = m_worker->dbusProxy();
+    q_ptr->connect(dbusProxy, &DisplayDBusProxy::AvailableScalesChanged, q_ptr, &DisplayModule::availableScalesChanged);
+    q_ptr->connect(dbusProxy, &DisplayDBusProxy::AvailableScalesChanged, q_ptr, &DisplayModule::maxGlobalScaleChanged);
+    q_ptr->connect(dbusProxy, &DisplayDBusProxy::RecommendedScaleChanged, q_ptr, &DisplayModule::recommendedScaleChanged);
+
     updateMonitorList();
     updatePrimary();
     updateDisplayMode();
@@ -179,9 +186,6 @@ void DisplayModulePrivate::updateMonitorList()
     auto updateVirtualScreensFun = [this]() {
         updateVirtualScreens();
     };
-    auto updateMaxGlobalScaleFun = [this]() {
-        updateMaxGlobalScale();
-    };
     for (auto monitor : addMonitorList) {
         changed = true;
         m_screens << DccScreenPrivate::New({ monitor }, m_worker, q_ptr);
@@ -193,15 +197,12 @@ void DisplayModulePrivate::updateMonitorList()
         q_ptr->connect(monitor, &Monitor::enableChanged, q_ptr, [this]() {
             updateDisplayMode();
         });
-        q_ptr->connect(monitor, &Monitor::currentModeChanged, q_ptr, updateMaxGlobalScaleFun);
-        q_ptr->connect(monitor, &Monitor::enableChanged, q_ptr, updateMaxGlobalScaleFun);
     }
     if (changed) {
         std::sort(m_screens.begin(), m_screens.end(), [](const DccScreen *screen1, const DccScreen *screen2) {
             return screen1->name() < screen2->name();
         });
         updateVirtualScreens();
-        updateMaxGlobalScale();
         updateDisplayMode();
         Q_EMIT q_ptr->screensChanged();
     }
@@ -246,31 +247,6 @@ void DisplayModulePrivate::updateDisplayMode()
     if (displayMode != m_displayMode) {
         m_displayMode = displayMode;
         Q_EMIT q_ptr->displayModeChanged();
-    }
-}
-
-void DisplayModulePrivate::updateMaxGlobalScale()
-{
-    qreal maxScale = 3.0;
-    for (auto monitor : m_model->monitorList()) {
-        if (!monitor->enable()) {
-            continue;
-        }
-        auto tmode = monitor->currentMode();
-        if (tmode.width() == 0 || tmode.height() == 0) {
-            maxScale = 1.0;
-            break;
-        }
-        qreal maxWScale = tmode.width() / MinScreenWidth;
-        qreal maxHScale = tmode.height() / MinScreenHeight;
-        maxScale = std::min(maxScale, std::min(maxWScale, maxHScale));
-    }
-    if (maxScale < 1.0) {
-        maxScale = 1.0;
-    }
-    if (m_maxGlobalScale != maxScale) {
-        m_maxGlobalScale = maxScale;
-        Q_EMIT q_ptr->maxGlobalScaleChanged();
     }
 }
 
@@ -385,7 +361,20 @@ void DisplayModule::setGlobalScale(qreal scale)
 qreal DisplayModule::maxGlobalScale() const
 {
     Q_D(const DisplayModule);
-    return d->m_maxGlobalScale;
+    auto scales = d->m_worker->dbusProxy()->availableScales();
+    return scales.isEmpty() ? 1.0 : scales.last();
+}
+
+QList<qreal> DisplayModule::availableScales() const
+{
+    Q_D(const DisplayModule);
+    return d->m_worker->dbusProxy()->availableScales();
+}
+
+qreal DisplayModule::recommendedScale() const
+{
+    Q_D(const DisplayModule);
+    return d->m_worker->dbusProxy()->recommendedScale();
 }
 
 bool DisplayModule::colorTemperatureEnabled() const

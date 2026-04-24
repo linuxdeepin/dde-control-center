@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DISPLAYDBUSPROXY_H
@@ -25,6 +25,12 @@ class DisplayDBusProxy : public QObject
     Q_OBJECT
 public:
     explicit DisplayDBusProxy(QObject *parent = nullptr);
+
+    // ScreenScale interface
+    double screenScaleFactor() const;
+    double recommendedScale() const;
+    QList<double> availableScales() const;
+    QDBusPendingReply<> SetScreenScaleFactor(double factor);
     Q_PROPERTY(BrightnessMap Brightness READ brightness NOTIFY BrightnessChanged)
     BrightnessMap brightness();
 
@@ -94,6 +100,9 @@ public:
 private:
     void init();
 
+private Q_SLOTS:
+    void onScreenScalePropertiesChanged(const QString &interface, const QVariantMap &changedProperties, const QStringList &invalidatedProperties);
+
 public Q_SLOTS: // METHODS
     // Display
     QDBusPendingReply<> ApplyChanges();
@@ -128,7 +137,11 @@ public Q_SLOTS: // METHODS
     QString GetConfig();
     void SetConfig(QString cfgStr);
 
-Q_SIGNALS: // SIGNALS
+    Q_SIGNALS: // SIGNALS
+    // ScreenScale signals
+    void ScreenScaleFactorChanged(double value) const;
+    void AvailableScalesChanged() const;
+    void RecommendedScaleChanged() const;
     // begin property changed signals
     void BrightnessChanged(BrightnessMap value) const;
     void ColorTemperatureEnabledChanged(bool value) const;
@@ -160,6 +173,7 @@ private:
     Dtk::Core::DDBusInterface *m_dBusSystemDisplayInter;
     Dtk::Core::DDBusInterface *m_dBusAppearanceInter;
     Dtk::Core::DDBusInterface *m_dBusPowerInter;
+    Dtk::Core::DDBusInterface *m_dBusScreenScaleInter;
 };
 
 #endif // DISPLAYDBUSPROXY_H
