@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
@@ -267,24 +267,34 @@ DccObject {
                         Item {
                             Layout.fillWidth: true
                         }
-                        D.ToolButton {
+                        D.ActionButton {
                             id: editButton
                             visible: hoverHandler.hovered
                             icon.name: "dcc_edit"
                             background: Rectangle {
-                                color: "transparent"
+                                radius: DS.Style.control.radius
+                                color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                                border {
+                                    color: parent.palette.highlight
+                                    width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                                }
                             }
                             onClicked: {
                                 textInputItem.readOnly = false;
                                 textInputItem.focus = true;
                             }
                         }
-                        D.ToolButton {
+                        D.ActionButton {
                             id: deleteButton
                             visible: hoverHandler.hovered
                             icon.name: "dcc_delete"
                             background: Rectangle {
-                                color: "transparent"
+                                radius: DS.Style.control.radius
+                                color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                                border {
+                                    color: parent.palette.highlight
+                                    width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                                }
                             }
                             onClicked: {
                                 layout.requestDelete(modelData);
