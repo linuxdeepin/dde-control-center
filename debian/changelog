@@ -1,3 +1,10 @@
+dde-control-center (6.1.83) unstable; urgency=medium
+
+  * build: add dde-api-dev build dependency
+  * i18n: Updates for project Deepin Desktop Environment (#3179)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 24 Apr 2026 13:18:28 +0800
+
 dde-control-center (6.1.82) unstable; urgency=medium
 
   * feat: add event logger integration for control center
