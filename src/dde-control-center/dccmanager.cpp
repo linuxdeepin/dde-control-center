@@ -1212,20 +1212,17 @@ void DccManager::onPageStayTimeout()
         return;
     }
 
-    // Build the tag list as JSON array string
     QJsonArray tagArray;
     for (const auto &tag : m_lastPageTags) {
         tagArray.append(tag);
     }
-    QJsonDocument doc;
-    doc.setArray(tagArray);
-    QString tagJson = doc.toJson(QJsonDocument::Compact);
 
-    // Log page tag event with format: {"control_center_tag": ["display", "displayMultipleDisplays"]}
     DDE_EventLogger::EventLogger::instance().writeEventLog(
-        EVENT_LOGGER_CONTROL_CENTER_STAY, "control_center_tag", "control_center_tag", tagJson);
+        DDE_EventLogger::EventLoggerData(EVENT_LOGGER_CONTROL_CENTER_STAY, "control_center_config", {
+            {"control_center_tag", tagArray}
+        }));
 
-    qCInfo(dccLog) << "EventLogger: page stay - tags:" << tagJson;
+    qCInfo(dccLog) << "EventLogger: page stay - tags:" << QJsonDocument(tagArray).toJson(QJsonDocument::Compact);
 #endif
 }
 
