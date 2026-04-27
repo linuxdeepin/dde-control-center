@@ -75,9 +75,6 @@ void KeyboardWorker::resetAll() {
             qDebug() << Q_FUNC_INFO << reply->error();
         }
 
-        // reset 之后主动更新快捷键。。。
-        refreshShortcut();
-
         // Reset completed, restore flag and emit signal
         m_isResetting = false;
         Q_EMIT onResetFinished();
