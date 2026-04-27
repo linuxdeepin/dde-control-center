@@ -412,7 +412,28 @@ void ShortcutModel::onWindowSwitchChanged(bool value)
      }
 
      return newList;
- }
+}
+
+int ShortcutModel::indexOfShortcut(ShortcutInfo *info)
+{
+    if (!info)
+        return -1;
+
+    const QList<ShortcutInfo*> *lists[] = {
+        &m_systemInfos, &m_windowInfos, &m_workspaceInfos,
+        &m_assistiveToolsInfos, &m_customInfos
+    };
+
+    int row = 0;
+    for (const auto *list : lists) {
+        const int idx = list->indexOf(info);
+        if (idx >= 0)
+            return row + idx;
+        row += list->size();
+    }
+
+    return -1;
+}
 
 ShortcutInfo *ShortcutModel::currentInfo() const
 {
@@ -597,6 +618,19 @@ void ShortcutListModel::reset()
 {
     beginResetModel();
     endResetModel();
+}
+
+void ShortcutListModel::onUpdateShortcut(ShortcutInfo *info)
+{
+    if (!m_model || !info)
+        return;
+
+    int row = m_model->indexOfShortcut(info);
+    if (row >= 0)
+    {
+        QModelIndex modelIndex = index(row);
+        Q_EMIT dataChanged(modelIndex, modelIndex, {Qt::DisplayRole, KeySequenceRole});
+    }
 }
 
 int ShortcutListModel::rowCount(const QModelIndex &) const

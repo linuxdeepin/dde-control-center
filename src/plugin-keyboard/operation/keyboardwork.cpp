@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -74,9 +74,6 @@ void KeyboardWorker::resetAll() {
         if (reply->isError()) {
             qDebug() << Q_FUNC_INFO << reply->error();
         }
-
-        // reset 之后主动更新快捷键。。。
-        refreshShortcut();
 
         // Reset completed, restore flag and emit signal
         m_isResetting = false;
