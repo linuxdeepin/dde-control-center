@@ -264,11 +264,10 @@ Loader {
                                     Layout.fillWidth: true
                                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                                     Layout.rightMargin: 10
-                                    contentItem: Label {
+                                    contentItem: DccLabel {
                                         width: parent.width
                                         horizontalAlignment: Text.AlignRight
                                         text: repeater.getValue(index)
-                                        elide: Text.ElideRight
                                     }
                                 }
                             }
