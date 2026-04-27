@@ -12,6 +12,7 @@
 
 namespace dccV25 {
 class DccModel;
+
 class DccObject : public QObject, public QQmlParserStatus
 {
     Q_OBJECT
@@ -125,8 +126,10 @@ public:
     void classBegin() override;
     void componentComplete() override;
 
-
     class Private;
+
+protected:
+    bool isComponentComplete() const;
 
 Q_SIGNALS:
     // 激活信号

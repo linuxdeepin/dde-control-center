@@ -642,8 +642,11 @@ QVector<DccObject *> DccManager::findObjects(const QString &url, bool one)
 const DccObject *DccManager::findParent(const DccObject *obj)
 {
     const QString &path = obj->parentName();
-    const DccObject *p = obj;
+    const DccObject *p = DccObject::Private::FromObject(obj)->getRecommendedParent();
     const QObject *op = obj;
+    if (p && !p->name().isEmpty() && isEqual(path, p)) {
+        return p;
+    }
     while (op) {
         op = op->parent();
         p = qobject_cast<const DccObject *>(op);
@@ -1128,35 +1131,23 @@ void DccManager::clearData()
 
 #ifdef DCC_ENABLE_MEMORY_MANAGEMENT
     // TODO: delete m_engine会有概率崩溃
-    if (m_window) {
-        delete m_window;
-    }
+    m_window = nullptr;
     qCDebug(dccLog()) << "delete root begin";
     DccObject *root = m_root;
     m_root = nullptr;
     Q_EMIT rootChanged(m_root);
-    delete root;
     qCDebug(dccLog()) << "delete root end";
 
     qCDebug(dccLog()) << "delete clearData hide:" << m_hideObjects->getChildren().size() << "noAdd:" << m_noAddObjects->getChildren().size() << "noParent" << m_noParentObjects->getChildren().size();
-    QVector<DccObject *> deleteObjects;
-    deleteObjects.append(m_noParentObjects);
-    deleteObjects.append(m_noAddObjects);
-    deleteObjects.append(m_hideObjects);
-    while (!deleteObjects.isEmpty()) {
-        auto obj = deleteObjects.takeFirst();
-        QVector<DccObject *> children = obj->getChildren();
-        while (!children.isEmpty()) {
-            delete children.first();
-            children = obj->getChildren();
-        }
-        delete obj;
-    }
+    delete m_noParentObjects;
+    delete m_noAddObjects;
+    delete m_hideObjects;
     qCDebug(dccLog()) << "delete dccobject";
     qCDebug(dccLog()) << "delete QmlEngine";
     delete m_engine;
     qCDebug(dccLog()) << "clear QmlEngine";
     m_engine = nullptr;
+    delete root;
 #endif
 }
 

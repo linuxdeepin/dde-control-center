@@ -11,6 +11,7 @@
 
 #include <QtQml>
 
+// 参考QQuickRepeater实现，非必须不修改
 namespace dccV25 {
 
 class DccRepeaterPrivate
@@ -22,9 +23,14 @@ public:
         , ownModel(false)
         , dataSourceIsObject(false)
         , delegateValidated(false)
-        , requestPending(false)
         , itemCount(0)
     {
+    }
+
+    ~DccRepeaterPrivate()
+    {
+        if (ownModel)
+            delete model;
     }
 
     void requestItems()
@@ -33,8 +39,9 @@ public:
             return;
 
         for (int i = 0; i < itemCount; i++) {
-            if (i >= deletables.size() || !deletables.at(i))
-                model->object(i, QQmlIncubator::AsynchronousIfNested);
+            QObject *object = model->object(i, QQmlIncubator::AsynchronousIfNested);
+            if (object)
+                model->release(object);
         }
     }
 
@@ -46,7 +53,6 @@ public:
     bool ownModel : 1;
     bool dataSourceIsObject : 1;
     bool delegateValidated : 1;
-    bool requestPending : 1;
     int itemCount = 0;
 
     QVector<QPointer<DccObject> > deletables;
@@ -62,7 +68,14 @@ DccRepeater::DccRepeater(QObject *parent)
 
 DccRepeater::~DccRepeater()
 {
-    clear();
+    Q_D(DccRepeater);
+    if (d->model) {
+        // clang-format off
+        qmlobject_disconnect(d->model, QQmlInstanceModel, SIGNAL(modelUpdated(QQmlChangeSet,bool)), this, DccRepeater, SLOT(modelUpdated(QQmlChangeSet,bool)));
+        qmlobject_disconnect(d->model, QQmlInstanceModel, SIGNAL(createdItem(int,QObject*)), this, DccRepeater, SLOT(createdItem(int,QObject*)));
+        qmlobject_disconnect(d->model, QQmlInstanceModel, SIGNAL(initItem(int,QObject*)), this, DccRepeater, SLOT(initItem(int,QObject*)));
+        // clang-format on
+    }
 }
 
 QVariant DccRepeater::model() const
@@ -88,9 +101,11 @@ void DccRepeater::setModel(const QVariant &m)
 
     clear();
     if (d->model) {
+        // clang-format off
         qmlobject_disconnect(d->model, QQmlInstanceModel, SIGNAL(modelUpdated(QQmlChangeSet,bool)), this, DccRepeater, SLOT(modelUpdated(QQmlChangeSet,bool)));
         qmlobject_disconnect(d->model, QQmlInstanceModel, SIGNAL(createdItem(int,QObject*)), this, DccRepeater, SLOT(createdItem(int,QObject*)));
         qmlobject_disconnect(d->model, QQmlInstanceModel, SIGNAL(initItem(int,QObject*)), this, DccRepeater, SLOT(initItem(int,QObject*)));
+        // clang-format on
     }
     d->dataSource = model;
     QObject *object = qvariant_cast<QObject *>(model);
@@ -105,18 +120,21 @@ void DccRepeater::setModel(const QVariant &m)
         d->model = vim;
     } else {
         if (!d->ownModel) {
-            d->model = new QQmlDelegateModel(qmlContext(this), this);
+            d->model = new QQmlDelegateModel(qmlContext(this));
             d->ownModel = true;
-            // if (isComponentComplete())
-            static_cast<QQmlDelegateModel *>(d->model.data())->componentComplete();
+            if (isComponentComplete())
+                static_cast<QQmlDelegateModel *>(d->model.data())->componentComplete();
         }
-        if (QQmlDelegateModel *dataModel = qobject_cast<QQmlDelegateModel *>(d->model))
+        if (QQmlDelegateModel *dataModel = qobject_cast<QQmlDelegateModel *>(d->model)) {
             dataModel->setModel(model);
+        }
     }
     if (d->model) {
+        // clang-format off
         qmlobject_connect(d->model, QQmlInstanceModel, SIGNAL(modelUpdated(QQmlChangeSet,bool)), this, DccRepeater, SLOT(modelUpdated(QQmlChangeSet,bool)));
         qmlobject_connect(d->model, QQmlInstanceModel, SIGNAL(createdItem(int,QObject*)), this, DccRepeater, SLOT(createdItem(int,QObject*)));
         qmlobject_connect(d->model, QQmlInstanceModel, SIGNAL(initItem(int,QObject*)), this, DccRepeater, SLOT(initItem(int,QObject*)));
+        // clang-format on
         regenerate();
     }
     Q_EMIT modelChanged();
@@ -142,22 +160,8 @@ void DccRepeater::setDelegate(QQmlComponent *delegate)
             return;
 
     if (!d->ownModel) {
-        clear();
-        if (d->model) {
-            qmlobject_disconnect(d->model, QQmlInstanceModel, SIGNAL(modelUpdated(QQmlChangeSet,bool)), this, DccRepeater, SLOT(modelUpdated(QQmlChangeSet,bool)));
-            qmlobject_disconnect(d->model, QQmlInstanceModel, SIGNAL(createdItem(int,QObject*)), this, DccRepeater, SLOT(createdItem(int,QObject*)));
-            qmlobject_disconnect(d->model, QQmlInstanceModel, SIGNAL(initItem(int,QObject*)), this, DccRepeater, SLOT(initItem(int,QObject*)));
-        }
-
-        QQmlDelegateModel *dataModel = new QQmlDelegateModel(qmlContext(this), this);
-        dataModel->setModel(d->dataSource);
-        d->model = dataModel;
+        d->model = new QQmlDelegateModel(qmlContext(this));
         d->ownModel = true;
-        dataModel->componentComplete();
-
-        qmlobject_connect(d->model, QQmlInstanceModel, SIGNAL(modelUpdated(QQmlChangeSet,bool)), this, DccRepeater, SLOT(modelUpdated(QQmlChangeSet,bool)));
-        qmlobject_connect(d->model, QQmlInstanceModel, SIGNAL(createdItem(int,QObject*)), this, DccRepeater, SLOT(createdItem(int,QObject*)));
-        qmlobject_connect(d->model, QQmlInstanceModel, SIGNAL(initItem(int,QObject*)), this, DccRepeater, SLOT(initItem(int,QObject*)));
     }
 
     if (QQmlDelegateModel *dataModel = qobject_cast<QQmlDelegateModel *>(d->model)) {
@@ -181,30 +185,102 @@ void DccRepeater::resetModel()
     modelUpdated(QQmlChangeSet(), true);
 }
 
-void DccRepeater::createdItem(int index, QObject *item)
+DccObject *DccRepeater::objectAt(int index) const
 {
-    DccObject *dccObj = qmlobject_cast<DccObject *>(item);
-    if (dccObj) {
-        DccObject *targetParent = this;
-        for (QObject *pQObj = this; pQObj; pQObj = pQObj->parent()) {
-            DccObject *pObj = qmlobject_cast<DccObject *>(pQObj);
-            if (pObj && !pObj->name().isEmpty()) {
-                targetParent = pObj;
-                break;
+    Q_D(const DccRepeater);
+    if (index >= 0 && index < d->deletables.size())
+        return d->deletables[index];
+    return nullptr;
+}
+
+void DccRepeater::componentComplete()
+{
+    Q_D(DccRepeater);
+    if (d->model && d->ownModel)
+        static_cast<QQmlDelegateModel *>(d->model.data())->componentComplete();
+    DccObject::componentComplete();
+    regenerate();
+    if (d->model && d->model->count())
+        Q_EMIT countChanged();
+}
+
+bool DccRepeater::event(QEvent *event)
+{
+    if (event->type() == QEvent::ParentChange && parent()) {
+        regenerate();
+    }
+    return DccObject::event(event);
+}
+
+void DccRepeater::clear()
+{
+    Q_D(DccRepeater);
+    bool complete = isComponentComplete();
+
+    if (d->model) {
+        for (int i = d->deletables.size() - 1; i >= 0; --i) {
+            if (DccObject *obj = d->deletables.at(i)) {
+                if (complete) {
+                    // reomve from dccApp
+                    DccObject::Private::FromObject(obj)->removeObjectFromParent();
+                    Q_EMIT objRemoved(i, obj);
+                }
+                d->model->release(obj);
             }
         }
-        dccObj->setParent(targetParent);
-        DccObject::Private::FromObject(targetParent)->addObject(dccObj);
-        Q_EMIT objAdded(index, item);
+        for (DccObject *obj : std::as_const(d->deletables)) {
+            if (obj)
+                obj->setParent(nullptr);
+        }
     }
+    d->deletables.clear();
+    d->itemCount = 0;
+}
+
+void DccRepeater::regenerate()
+{
+    Q_D(DccRepeater);
+    if (!isComponentComplete()) {
+        return;
+    }
+    clear();
+
+    if (!d->model || !d->model->count() || !d->model->isValid() || !parent() || !isComponentComplete())
+        return;
+
+    d->itemCount = count();
+    d->deletables.resize(d->itemCount);
+    d->requestItems();
+}
+
+void DccRepeater::createdItem(int index, QObject *)
+{
+    Q_D(DccRepeater);
+    QObject *object = d->model->object(index, QQmlIncubator::AsynchronousIfNested);
+
+    DccObject *dccObj = qmlobject_cast<DccObject *>(object);
+    DccObject *targetParent = this;
+    for (QObject *pQObj = this; pQObj; pQObj = pQObj->parent()) {
+        DccObject *pObj = qmlobject_cast<DccObject *>(pQObj);
+        if (pObj && !pObj->name().isEmpty()) {
+            targetParent = pObj;
+            break;
+        }
+    }
+    DccObject::Private::FromObject(targetParent)->addObject(dccObj);
+
+    Q_EMIT objAdded(index, object);
 }
 
 void DccRepeater::initItem(int index, QObject *object)
 {
     Q_D(DccRepeater);
-    if (index >= d->deletables.size())
+    if (index >= d->deletables.size()) {
+        // this can happen when Package is used
+        // calling regenerate does too much work, all we need is to call resize
+        // so that d->deletables[index] = item below works
         d->deletables.resize(d->model->count() + 1);
-
+    }
     DccObject *dccObj = qmlobject_cast<DccObject *>(object);
     if (!d->deletables.at(index)) {
         if (!dccObj) {
@@ -219,13 +295,16 @@ void DccRepeater::initItem(int index, QObject *object)
             return;
         }
         d->deletables[index] = dccObj;
+        dccObj->setParent(this);
     }
 }
 
 void DccRepeater::modelUpdated(const QQmlChangeSet &changeSet, bool reset)
 {
     Q_D(DccRepeater);
-
+    if (!isComponentComplete()) {
+        return;
+    }
     if (reset) {
         regenerate();
         if (changeSet.difference() != 0)
@@ -247,9 +326,9 @@ void DccRepeater::modelUpdated(const QQmlChangeSet &changeSet, bool reset)
                 d->deletables.remove(index);
                 Q_EMIT objRemoved(index, item);
                 if (item) {
-                    p_ptr->removeObject(item);
+                    DccObject::Private::FromObject(item)->removeObjectFromParent();
                     d->model->release(item);
-                    // item->setParentItem(nullptr);
+                    item->setParent(nullptr);
                 }
                 --d->itemCount;
             }
@@ -257,7 +336,6 @@ void DccRepeater::modelUpdated(const QQmlChangeSet &changeSet, bool reset)
         difference -= remove.count;
     }
 
-    bool needsRequest = false;
     for (const QQmlChangeSet::Change &insert : changeSet.inserts()) {
         int index = qMin(insert.index, d->deletables.size());
         if (insert.isMove()) {
@@ -269,74 +347,16 @@ void DccRepeater::modelUpdated(const QQmlChangeSet &changeSet, bool reset)
                 int modelIndex = index + i;
                 ++d->itemCount;
                 d->deletables.insert(modelIndex, nullptr);
+                QObject *object = d->model->object(modelIndex, QQmlIncubator::AsynchronousIfNested);
+                if (object)
+                    d->model->release(object);
             }
-            needsRequest = true;
         }
         difference += insert.count;
     }
 
-    // Defer object creation to the next event loop iteration, same as regenerate().
-    // Creating objects synchronously here can trigger QML GC inside a nested
-    // QQmlObjectCreator::finalize context where the JS heap contains partially-
-    // initialized objects, causing markObjects to crash on invalid pointers.
-    if (needsRequest && !d->requestPending) {
-        d->requestPending = true;
-        QMetaObject::invokeMethod(
-                this,
-                [this]() {
-                    Q_D(DccRepeater);
-                    d->requestPending = false;
-                    d->requestItems();
-                },
-                Qt::QueuedConnection);
-    }
-
     if (difference != 0)
         Q_EMIT countChanged();
-}
-
-void DccRepeater::regenerate()
-{
-    Q_D(DccRepeater);
-    clear();
-
-    if (!d->model || !d->model->count() || !d->model->isValid() || !parent() /* || !isComponentComplete()*/)
-        return;
-
-    d->itemCount = count();
-    d->deletables.resize(d->itemCount);
-    // Defer requestItems to the next event loop iteration to avoid deep synchronous
-    // recursion when regenerate() is called during component->create(). Without this,
-    // AsynchronousIfNested falls back to synchronous mode in a nested creation context,
-    // causing recursive QML object instantiation that freezes the main thread.
-    if (!d->requestPending) {
-        d->requestPending = true;
-        QMetaObject::invokeMethod(
-                this,
-                [this]() {
-                    Q_D(DccRepeater);
-                    d->requestPending = false;
-                    d->requestItems();
-                },
-                Qt::QueuedConnection);
-    }
-}
-
-void DccRepeater::clear()
-{
-    Q_D(DccRepeater);
-    if (d->model) {
-        for (int i = d->deletables.size() - 1; i >= 0; --i) {
-            if (DccObject *obj = d->deletables.at(i)) {
-                // reomve from dccApp
-                p_ptr->removeObject(obj);
-                Q_EMIT objRemoved(i, obj);
-                d->model->release(obj);
-            }
-        }
-    }
-    d->deletables.clear();
-    d->itemCount = 0;
 }
 
 } // namespace dccV25

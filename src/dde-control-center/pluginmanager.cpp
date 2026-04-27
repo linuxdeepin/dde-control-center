@@ -159,11 +159,9 @@ void LoadPluginTask::createData()
     }
     if (m_data->data) {
         m_data->data->moveToThread(m_pManager->thread());
-        m_data->data->setParent(m_pManager->parent());
     }
     if (m_data->soObj) {
         m_data->soObj->moveToThread(m_pManager->thread());
-        m_data->soObj->setParent(m_pManager->parent());
     }
     Q_EMIT m_pManager->updatePluginStatus(m_data, DataEnd, ": create data finished. elapsed time :" + QString::number(timer.elapsed()));
 }
@@ -358,6 +356,12 @@ void PluginManager::loadPlugin(PluginData *plugin)
         addMainObject(plugin);
         Q_EMIT updatePluginStatus(plugin, PluginEnd, QString());
     } else if ((plugin->status & (DataEnd | MainObjLoad)) == DataEnd) {
+        if (plugin->data) {
+            plugin->data->setParent(this);
+        }
+        if (plugin->soObj) {
+            plugin->soObj->setParent(this);
+        }
         loadMain(plugin);
     } else if ((plugin->status & (ModuleEnd | DataBegin)) == ModuleEnd) {
         if (!m_modulePhaseFinished && allModulesFinished()) {

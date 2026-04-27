@@ -11,6 +11,7 @@
 
 #include <QObject>
 #include <QQmlComponent>
+class QQmlChangeSet;
 
 namespace dccV25 {
 class DccRepeaterPrivate;
@@ -18,12 +19,12 @@ class DccRepeaterPrivate;
 class DccRepeater : public DccObject
 {
     Q_OBJECT
-    QML_ELEMENT
-public:
     Q_PROPERTY(QVariant model READ model WRITE setModel NOTIFY modelChanged FINAL)
     Q_PROPERTY(QQmlComponent *delegate READ delegate WRITE setDelegate NOTIFY delegateChanged FINAL)
     Q_PROPERTY(int count READ count NOTIFY countChanged FINAL)
+    QML_ELEMENT
 
+public:
     explicit DccRepeater(QObject *parent = nullptr);
     ~DccRepeater() override;
 
@@ -36,6 +37,7 @@ public:
     int count() const;
 
     Q_INVOKABLE void resetModel();
+    Q_INVOKABLE DccObject *objectAt(int index) const;
 
 Q_SIGNALS:
     void modelChanged();
@@ -45,14 +47,16 @@ Q_SIGNALS:
     void objAdded(int index, QObject *obj);
     void objRemoved(int index, QObject *obj);
 
+protected:
+    void clear();
+    void regenerate();
+    void componentComplete() override;
+    bool event(QEvent *event) override;
+
 private Q_SLOTS:
     void createdItem(int index, QObject *item);
     void initItem(int index, QObject *item);
     void modelUpdated(const QQmlChangeSet &changeSet, bool reset);
-
-protected:
-    void regenerate();
-    void clear();
 
 private:
     QScopedPointer<DccRepeaterPrivate> d_ptr;

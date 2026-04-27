@@ -25,9 +25,10 @@ DccObject::Private::Private(DccObject *obj)
     , m_pageType(Menu)
     , m_weight(-1)
     , m_flags(0)
-    , m_componentComplete(false)
+    , m_componentComplete(true)
     , q_ptr(obj)
     , m_parent(nullptr)
+    , m_recommendedParent(nullptr)
     , m_currentObject(nullptr)
     , m_page(nullptr)
     , m_parentItem(nullptr)
@@ -36,28 +37,12 @@ DccObject::Private::Private(DccObject *obj)
 
 DccObject::Private::~Private()
 {
-    if (m_page && (!m_page->parent() || m_page->parent() == q_ptr)) {
-        // Use deleteLater() to avoid dangling QObjectWrapper references in QML's
-        // JS engine. Synchronous delete can cause crashes when GC runs during
-        // StackView page transitions and tries to mark already-freed objects.
-        if (m_page->parent() == q_ptr)
-            m_page->setParent(nullptr);
-        m_page->deleteLater();
-        m_page = nullptr;
-    }
+    q_ptr->setPage(nullptr);
     if (m_parent) {
         m_parent->p_ptr->removeChild(q_ptr);
     }
     while (!m_children.isEmpty()) {
-        DccObject *child = m_children.first();
-        removeChild(0);
-        if (child->parent() == q_ptr) {
-            // Detach from parent to prevent ~QObject() from doing a synchronous
-            // delete, then defer destruction so QML's GC can safely process any
-            // remaining QObjectWrapper references to this child.
-            child->setParent(nullptr);
-            child->deleteLater();
-        }
+        removeChild(m_children.size() - 1);
     }
 }
 
@@ -115,7 +100,7 @@ bool DccObject::Private::addChild(DccObject *child, bool updateParent)
     m_children.insert(m_children.cbegin() + index, child);
     DccObject::Private::FromObject(child)->SetParent(q_ptr);
     if (updateParent) {
-        child->setParent(q_ptr);
+        DccObject::Private::FromObject(child)->SetRecommendedParent(q_ptr);
     }
     Q_EMIT q_ptr->childAdded(child);
     Q_EMIT q_ptr->childrenChanged(m_children);
@@ -194,8 +179,9 @@ void DccObject::Private::addObject(DccObject *child)
 {
     if (child && !m_objects.contains(child)) {
         m_objects.append(child);
+        DccObject::Private::FromObject(child)->SetRecommendedParent(q_ptr);
         connect(child, &DccObject::objectDestroyed, q_ptr, [this](DccObject *obj) {
-            m_objects.removeOne(obj);
+            m_objects.removeAll(obj);
             Q_EMIT q_ptr->removeObject(obj);
         });
         Q_EMIT q_ptr->addObject(child);
@@ -204,14 +190,24 @@ void DccObject::Private::addObject(DccObject *child)
 
 void DccObject::Private::removeObject(DccObject *child)
 {
-    if (child && m_objects.removeOne(child)) {
+    if (child) {
+        DccObject::Private::FromObject(child)->SetRecommendedParent(nullptr);
+        m_objects.removeAll(child);
         Q_EMIT q_ptr->removeObject(child);
+    }
+}
+
+void DccObject::Private::removeObjectFromParent()
+{
+    if (m_recommendedParent) {
+        m_recommendedParent->removeObject(q_ptr);
     }
 }
 
 void DccObject::Private::clearObject()
 {
     for (auto obj : m_objects) {
+        DccObject::Private::FromObject(obj)->SetRecommendedParent(nullptr);
         Q_EMIT q_ptr->removeObject(obj);
     }
     m_objects.clear();
@@ -485,9 +481,6 @@ void DccObject::setPage(QQmlComponent *page)
 {
     if (p_ptr->m_page.get() != page) {
         p_ptr->m_page = page;
-        if (p_ptr->m_page && !p_ptr->m_page->parent()) {
-            p_ptr->m_page->setParent(this);
-        }
         Q_EMIT pageChanged(p_ptr->m_page.get());
     }
 }
@@ -502,7 +495,10 @@ const QVector<DccObject *> &DccObject::getChildren() const
     return p_ptr->getChildren();
 }
 
-void DccObject::classBegin() { }
+void DccObject::classBegin()
+{
+    p_ptr->m_componentComplete = false;
+}
 
 void DccObject::componentComplete()
 {
@@ -510,6 +506,11 @@ void DccObject::componentComplete()
     if (!p_ptr->m_icon.isEmpty()) {
         updateIconSource();
     }
+}
+
+bool DccObject::isComponentComplete() const
+{
+    return p_ptr->m_componentComplete;
 }
 
 } // namespace dccV25
