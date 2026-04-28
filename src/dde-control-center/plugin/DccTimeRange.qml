@@ -17,6 +17,7 @@ D.SpinBox {
     signal timeChanged
 
     Layout.maximumWidth: 110
+    rightPadding: control.down.indicator.width
     
     Timer {
         id: valueChangeTimer
@@ -88,6 +89,8 @@ D.SpinBox {
         TextInput {
             id: hourInput
             property bool typingDigit: false
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             Layout.preferredWidth: 20
             Layout.alignment: Qt.AlignHCenter
             text: control.formatText(Math.floor(value / 60))
@@ -95,9 +98,8 @@ D.SpinBox {
             color: control.palette.text
             selectionColor: control.palette.highlight
             selectedTextColor: control.palette.highlightedText
-            horizontalAlignment: Qt.AlignLeft
+            horizontalAlignment: Qt.AlignHCenter
             verticalAlignment: Qt.AlignVCenter
-            leftPadding: DS.Style.spinBox.spacing
             readOnly: !control.editable
             validator: RegularExpressionValidator {
                 regularExpression: /^(?:[0-1]?[0-9]|2[0-3])$/
@@ -154,22 +156,22 @@ D.SpinBox {
             text: ":"
             font: control.font
             color: control.palette.text
-            horizontalAlignment: Qt.AlignLeft
+            horizontalAlignment: Qt.AlignHCenter
             verticalAlignment: Qt.AlignVCenter
-            leftPadding: DS.Style.spinBox.spacing
         }
         TextInput {
             id: minuteInput
-            Layout.alignment: Qt.AlignHCenter
+            Layout.fillWidth: true
+            Layout.fillHeight: true
             Layout.preferredWidth: 20
+            Layout.alignment: Qt.AlignHCenter
             text: control.formatText(Math.floor(value % 60))
             font: control.font
             color: control.palette.text
             selectionColor: control.palette.highlight
             selectedTextColor: control.palette.highlightedText
-            horizontalAlignment: Qt.AlignLeft
+            horizontalAlignment: Qt.AlignHCenter
             verticalAlignment: Qt.AlignVCenter
-            leftPadding: DS.Style.spinBox.spacing
             readOnly: !control.editable
             validator: RegularExpressionValidator {
                 regularExpression: /^(?:[0-5]?[0-9])$/
