@@ -298,9 +298,14 @@ DccObject {
             parentName: "power/general/shutdownGroup"
             visible: (dccData.model.scheduledShutdownState && dccData.model.shutdownRepetition === 3)
             weight: 4
-            pageType: DccObject.Editor
+            pageType: DccObject.Item
             page: RowLayout {
-                Label {
+                DccLabel {
+                    Layout.fillWidth: true
+                    Layout.preferredHeight: 40
+                    Layout.leftMargin: 14
+                    horizontalAlignment: Text.AlignRight
+                    verticalAlignment: Text.AlignVCenter
                     text: {
                         var str = ""
                         var days = dccData.model.customShutdownWeekDays
@@ -314,6 +319,7 @@ DccObject {
                     }
                 }
                 D.ToolButton {
+                    Layout.rightMargin: 8
                     icon.name: "action_edit"
                     icon.width: 12
                     icon.height: 12
