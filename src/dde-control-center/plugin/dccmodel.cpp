@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "dccmodel.h"
@@ -10,7 +10,6 @@
 #include <QLoggingCategory>
 
 namespace dccV25 {
-// static Q_LOGGING_CATEGORY(dccLog, "dde.dcc.model");
 
 enum DccModelRole {
     DccItemRole = Qt::UserRole + 300,
@@ -99,7 +98,6 @@ QModelIndex DccModel::index(const DccObject *object)
 
 QModelIndex DccModel::index(int row, int column, const QModelIndex &parentIndex) const
 {
-    // qWarning() << __FUNCTION__ << __LINE__ << row << column << parentIndex;
     if (row < 0 || row >= m_root->getChildren().size()) {
         return QModelIndex();
     }
@@ -143,7 +141,6 @@ int DccModel::rowCount(const QModelIndex &) const
 
 int DccModel::columnCount(const QModelIndex &parent) const
 {
-    // qCWarning(dccLog) << __FUNCTION__ << __LINE__;
     if (!parent.isValid())
         return 0;
 
@@ -152,7 +149,6 @@ int DccModel::columnCount(const QModelIndex &parent) const
 
 QVariant DccModel::data(const QModelIndex &index, int role) const
 {
-    // qCWarning(dccLog) << __FUNCTION__ << index << role;
     if (!index.isValid())
         return QVariant();
     DccObject *item = static_cast<DccObject *>(index.internalPointer());

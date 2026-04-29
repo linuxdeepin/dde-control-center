@@ -13,7 +13,7 @@
 #include <QTimer>
 
 namespace dccV25 {
-static Q_LOGGING_CATEGORY(dccLog, "dde.dcc.object");
+Q_LOGGING_CATEGORY(dccLog, "dde.dcc.main");
 
 DccObject::Private *DccObject::Private::FromObject(const DccObject *obj)
 {

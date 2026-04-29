@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "navigationmodel.h"
@@ -8,7 +8,6 @@
 #include <QLoggingCategory>
 
 namespace dccV25 {
-// static Q_LOGGING_CATEGORY(dccLog, "dde.dcc.NavigationModel");
 
 enum NavType {
     Separator,

@@ -8,25 +8,31 @@
 #include <QStringList>
 #include <QVector>
 
+#include <atomic>
+
 class QQmlComponent;
 class QThreadPool;
 
 namespace dccV25 {
 class DccObject;
 class DccManager;
-struct PluginData;
+class DccPluginLoader;
 
-class PluginManager : public QObject
+class DccPluginManager : public QObject
 {
     Q_OBJECT
 public:
-    explicit PluginManager(DccManager *parent);
-    ~PluginManager();
+    explicit DccPluginManager(DccManager *parent);
+    ~DccPluginManager();
     void loadModules(DccObject *root, bool async, const QStringList &dirs, QQmlEngine *engine);
     bool loadFinished() const;
     void beginDelete();
 
-    inline bool isDeleting() const { return m_isDeleting; }
+    QQmlEngine *engine();
+    DccObject *rootModule();
+    bool hidden(const QString &name);
+
+    inline bool isDeleting() const { return m_isDeleting.load(); }
 
 public Q_SLOTS:
     void cancelLoad();
@@ -34,40 +40,23 @@ public Q_SLOTS:
 Q_SIGNALS:
     void addObject(DccObject *obj);
     void loadAllFinished();
-    void modulePhaseFinished();
-
-    void pluginEndStatusChanged(PluginData *plugin);
-    void updatePluginStatus(PluginData *plugin, uint status, const QString &log);
 
 private:
-    bool compareVersion(const QString &targetVersion, const QString &baseVersion);
-    bool updatePluginType(PluginData *plugin);
-    bool preparePluginFactory(PluginData *plugin);
-    bool allModulesFinished() const;
     QThreadPool *threadPool();
 
 private Q_SLOTS:
-    void loadPlugin(PluginData *plugin);
-    void loadMetaData(PluginData *plugin);
-    void loadModule(PluginData *plugin);
-    void loadPluginData(PluginData *plugin);
-    void loadMain(PluginData *plugin);
-    void createModule(QQmlComponent *component, PluginData *plugin);
-    void createMain(QQmlComponent *component, PluginData *plugin);
-    void addMainObject(PluginData *plugin);
+    void loadPlugin(DccPluginLoader *loader);
 
-    void onModulePhaseFinished();
+private Q_SLOTS:
+    void onPluginStatusChanged(DccPluginLoader *loader, uint status);
     void onHideModuleChanged(const QSet<QString> &hideModule);
-    void onVisibleToAppChanged(bool visibleToApp);
-    void onUpdatePluginStatus(PluginData *plugin, uint status, const QString &log);
 
 private:
     DccManager *m_manager;
-    QList<PluginData *> m_plugins; // cache for other plugin
-    DccObject *m_rootModule;       // root module from MainWindow
+    QList<DccPluginLoader *> m_plugins; // cache for other plugin
+    DccObject *m_rootModule;            // root module from MainWindow
     QThreadPool *m_threadPool;
-    bool m_isDeleting;
-    bool m_modulePhaseFinished;
+    std::atomic<bool> m_isDeleting;
     QQmlEngine *m_engine;
 };
 

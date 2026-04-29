@@ -6,7 +6,9 @@
 
 #include "dccobject.h"
 
+#include <QLoggingCategory>
 #include <QVector>
+
 #define DCC_HIDDEN 0x80000000
 #define DCC_DISABLED 0x40000000
 #define DCC_CONFIG_HIDDEN 0x20000000
@@ -24,6 +26,8 @@
 #define DCC_CANSEARCH 0x04000000 // 不参与搜索
 
 namespace dccV25 {
+Q_DECLARE_LOGGING_CATEGORY(dccLog);
+
 class DccObject::Private
 {
 public:

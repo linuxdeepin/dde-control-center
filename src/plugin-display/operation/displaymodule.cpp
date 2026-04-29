@@ -62,18 +62,13 @@ DisplayModulePrivate::DisplayModulePrivate(DisplayModule *parent)
     , m_primary(nullptr)
     , m_maxGlobalScale(1.0)
 {
-    QMetaObject::invokeMethod(
-            q_ptr,
-            [this]() {
-                init();
-            },
-            Qt::QueuedConnection);
+    m_model = new DisplayModel(q_ptr);
+    m_worker = new DisplayWorker(m_model, q_ptr);
+    init();
 }
 
 void DisplayModulePrivate::init()
 {
-    m_model = new DisplayModel(q_ptr);
-    m_worker = new DisplayWorker(m_model, q_ptr);
     m_worker->active();
     q_ptr->connect(m_model, &DisplayModel::monitorListChanged, [this]() {
         updateMonitorList();

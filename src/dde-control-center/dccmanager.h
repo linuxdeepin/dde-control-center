@@ -23,7 +23,7 @@ QT_END_NAMESPACE
 namespace dccV25 {
 class NavigationModel;
 class SearchModel;
-class PluginManager;
+class DccPluginManager;
 class DccImageProvider;
 
 class DccManager : public DccApp, protected QDBusContext
@@ -135,7 +135,7 @@ private:
     QVector<DccObject *> m_currentObjects;   // 当前显示的页面路径，从根页面到当前页面
     QVector<DccObject *> m_triggeredObjects; // 用户交互触发的对象路径，从根菜单到当前子控件
 
-    PluginManager *m_plugins;
+    DccPluginManager *m_plugins;
     QPointer<QWindow> m_window;
     Dtk::Core::DConfig *m_dconfig;
     QSet<QString> m_hideModule;

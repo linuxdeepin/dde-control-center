@@ -42,7 +42,6 @@ constexpr qint64 EVENT_LOGGER_CONTROL_CENTER_STAY = 1000600012;
 DCORE_USE_NAMESPACE
 
 namespace dccV25 {
-static Q_LOGGING_CATEGORY(dccLog, "dde.dcc.manager");
 
 const QString WidthConfig = QStringLiteral("width");
 const QString HeightConfig = QStringLiteral("height");
@@ -58,7 +57,7 @@ DccManager::DccManager(QObject *parent)
     , m_hideObjects(new DccObject(this))
     , m_noAddObjects(new DccObject(this))
     , m_noParentObjects(new DccObject(this))
-    , m_plugins(new PluginManager(this))
+    , m_plugins(new DccPluginManager(this))
     , m_window(nullptr)
     , m_dconfig(DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center", QString(), this))
     , m_engine(nullptr)
@@ -96,8 +95,8 @@ DccManager::DccManager(QObject *parent)
 #endif
 
     initConfig();
-    connect(m_plugins, &PluginManager::addObject, this, &DccManager::addObject);
-    connect(m_plugins, &PluginManager::loadAllFinished, this, &DccManager::handleShowReady, Qt::QueuedConnection);
+    connect(m_plugins, &DccPluginManager::addObject, this, &DccManager::addObject);
+    connect(m_plugins, &DccPluginManager::loadAllFinished, this, &DccManager::handleShowReady, Qt::QueuedConnection);
     m_showTimer = new QTimer(this);
     m_showTimer->setInterval(60);
     m_showTimer->setSingleShot(true);
@@ -379,7 +378,7 @@ QString DccManager::searchProxy(const QString &json) const
             setDelayedReply(true);
             QObject::connect(
                     m_plugins,
-                    &PluginManager::loadAllFinished,
+                    &DccPluginManager::loadAllFinished,
                     this,
                     [this, json, message]() {
                         const auto &ret = this->search(json);
@@ -1165,11 +1164,9 @@ void DccManager::clearData()
 #ifdef DCC_ENABLE_MEMORY_MANAGEMENT
     // TODO: delete m_engine会有概率崩溃
     m_window = nullptr;
-    qCDebug(dccLog()) << "delete root begin";
     DccObject *root = m_root;
     m_root = nullptr;
     Q_EMIT rootChanged(m_root);
-    qCDebug(dccLog()) << "delete root end";
 
     qCDebug(dccLog()) << "delete clearData hide:" << m_hideObjects->getChildren().size() << "noAdd:" << m_noAddObjects->getChildren().size() << "noParent" << m_noParentObjects->getChildren().size();
     delete m_noParentObjects;
@@ -1180,7 +1177,9 @@ void DccManager::clearData()
     delete m_engine;
     qCDebug(dccLog()) << "clear QmlEngine";
     m_engine = nullptr;
+    qCDebug(dccLog()) << "delete root begin";
     delete root;
+    qCDebug(dccLog()) << "delete root end";
 #endif
 }
 
@@ -1190,7 +1189,7 @@ void DccManager::waitLoadFinished() const
         QEventLoop loop;
         QTimer timer;
         connect(&timer, &QTimer::timeout, &loop, &QEventLoop::quit);
-        connect(m_plugins, &PluginManager::loadAllFinished, &loop, &QEventLoop::quit);
+        connect(m_plugins, &DccPluginManager::loadAllFinished, &loop, &QEventLoop::quit);
         timer.start(5000);
         loop.exec();
     }
