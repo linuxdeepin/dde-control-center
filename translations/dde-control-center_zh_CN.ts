@@ -1187,7 +1187,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Confirm</source>
-        <translation>确认</translation>
+        <translation>确定</translation>
     </message>
 </context>
 <context>
