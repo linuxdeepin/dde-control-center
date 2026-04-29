@@ -154,10 +154,19 @@ DccObject{
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: BlueToothDeviceListView {
+            id: deviceListView
             showMoreBtn: false
             showConnectStatus: false
             showPowerStatus: false
-            deviceModel: model.otherDevice
+
+            Timer {
+                interval: 300
+                repeat: false
+                running: true
+                onTriggered: {
+                    deviceListView.deviceModel = model.otherDevice
+                }
+            }
 
             onClicked: function (index, checked) {
             }

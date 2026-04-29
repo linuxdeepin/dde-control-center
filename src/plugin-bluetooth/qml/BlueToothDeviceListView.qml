@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -54,7 +54,7 @@ Rectangle {
 
                 content: Rectangle {
                     width: parent.width
-                    implicitHeight: Math.max(50, status.implicitHeight + 10)
+                    implicitHeight: Math.max(50, deviceRow.statusItem.implicitHeight + 10)
                     color: "transparent"
                     MouseArea {
                         anchors.fill: parent
@@ -68,14 +68,15 @@ Rectangle {
                     }
 
                     RowLayout {
+                        id: deviceRow
+                        property alias statusItem: status
                         width: parent.width
                         anchors.fill: parent
-                        Layout.fillWidth: true
-                        Layout.fillHeight: true
 
                         ColumnLayout {
                             id: status
                             Layout.fillHeight: true
+                            Layout.fillWidth: true
                             spacing: 0
                             Layout.leftMargin: 10
                             implicitHeight: Math.max(myDeviceName.implicitHeight, loader.implicitHeight) + 10
@@ -131,32 +132,40 @@ Rectangle {
                             }
                         }
 
-                        D.LineEdit {
-                            id: nameEdit
-                            visible: false
-                            text: model.name
+                        Loader {
+                            id: nameEditLoader
+                            active: false
+                            visible: active
                             Layout.fillWidth: true
                             Layout.fillHeight: true
                             Layout.topMargin: 10
                             Layout.bottomMargin: 10
 
-                            onEditingFinished: {
-                                nameEdit.visible = false
-                                status.visible = true
-                                itemCtl.hoverEnabled = true
+                            sourceComponent: D.LineEdit {
+                                id: nameEdit
+                                text: model.name
 
-                                console.log("set device name ", model.id, nameEdit.text)
-                                dccData.work().setDeviceAlias(model.id, nameEdit.text)
+                                onEditingFinished: {
+                                    nameEditLoader.active = false
+                                    deviceRow.statusItem.visible = true
+                                    itemCtl.hoverEnabled = true
 
-                            }
-                            onVisibleChanged: {
-                                if (visible) {
-                                    text = model.name
+                                    console.log("set device name ", model.id, nameEdit.text)
+                                    dccData.work().setDeviceAlias(model.id, nameEdit.text)
                                 }
-                            }
-                            Keys.onPressed: function(event) {
-                                if (event.key === Qt.Key_Return) {
-                                    nameEdit.forceActiveFocus(false); // 结束编辑
+                                onVisibleChanged: {
+                                    if (visible) {
+                                        text = model.name
+                                    }
+                                }
+                                Keys.onPressed: function(event) {
+                                    if (event.key === Qt.Key_Return) {
+                                        nameEdit.forceActiveFocus(false); // 结束编辑
+                                    }
+                                }
+                                Component.onCompleted: {
+                                    nameEdit.forceActiveFocus(true)
+                                    nameEdit.selectAll()
                                 }
                             }
                         }
@@ -193,135 +202,131 @@ Rectangle {
                                 }
                             }
 
-                            D.ActionButton {
-                                id: moreBtn
-                                palette.windowText: D.ColorSelector.textColor
-                                visible: showMoreBtn
+                            Loader {
+                                active: showMoreBtn
+                                visible: active
                                 Layout.alignment: Qt.AlignRight
-                                icon.name: "bluetooth_option"
-                                icon.width: 16
-                                icon.height: 16
 
-                                implicitHeight: 30
-                                implicitWidth: 30
+                                sourceComponent: D.ActionButton {
+                                    id: moreBtn
+                                    palette.windowText: D.ColorSelector.textColor
+                                    icon.name: "bluetooth_option"
+                                    icon.width: 16
+                                    icon.height: 16
+                                    implicitHeight: 30
+                                    implicitWidth: 30
+                                    flat: !hovered
 
-                                flat: !hovered
+                                    property bool menuShown: false
 
-                                property bool menuShown: false
-
-                                background: Rectangle {
-                                    property D.Palette pressedColor: D.Palette {
-                                        normal: Qt.rgba(0, 0, 0, 0.2)
-                                        normalDark: Qt.rgba(1, 1, 1, 0.25)
+                                    background: Rectangle {
+                                        property D.Palette pressedColor: D.Palette {
+                                            normal: Qt.rgba(0, 0, 0, 0.2)
+                                            normalDark: Qt.rgba(1, 1, 1, 0.25)
+                                        }
+                                        property D.Palette hoveredColor: D.Palette {
+                                            normal: Qt.rgba(0, 0, 0, 0.1)
+                                            normalDark: Qt.rgba(1, 1, 1, 0.1)
+                                        }
+                                        radius: DS.Style.control.radius
+                                        color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                                        border {
+                                            color: parent.palette.highlight
+                                            width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                                        }
                                     }
-                                    property D.Palette hoveredColor: D.Palette {
-                                        normal: Qt.rgba(0, 0, 0, 0.1)
-                                        normalDark: Qt.rgba(1, 1, 1, 0.1)
-                                    }
-                                    radius: DS.Style.control.radius
-                                    color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
-                                    border {
-                                        color: parent.palette.highlight
-                                        width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
-                                    }
-                                }
 
-                                D.Menu {
-                                    id: contextMenu
-                                    implicitWidth: 150
+                                    D.Menu {
+                                        id: contextMenu
+                                        implicitWidth: 150
 
-                                    D.MenuItem {
-                                        id: connectDev
-                                        padding: 0
-                                        text: model.connectStatus === 2 ? qsTr("Disconnect") : qsTr("Connect")
-                                        enabled: model.connectStatus === 2 || model.connectStatus === 0
-                                        onTriggered: {
-                                            if (model.connectStatus === 2) {
-                                                dccData.work().disconnectDevice(model.id)
-                                            } else {
-                                                dccData.work().connectDevice(model.id, model.adapterId)
+                                        D.MenuItem {
+                                            id: connectDev
+                                            padding: 0
+                                            text: model.connectStatus === 2 ? qsTr("Disconnect") : qsTr("Connect")
+                                            enabled: model.connectStatus === 2 || model.connectStatus === 0
+                                            onTriggered: {
+                                                if (model.connectStatus === 2) {
+                                                    dccData.work().disconnectDevice(model.id)
+                                                } else {
+                                                    dccData.work().connectDevice(model.id, model.adapterId)
+                                                }
+                                            }
+                                        }
+                                        D.MenuItem {
+                                            id: sendFile
+                                            padding: 0
+                                            text: qsTr("Send Files")
+                                            visible: itemCtl.showSendFile
+                                            height : sendFile.visible ? implicitHeight : 0
+                                            topPadding: sendFile.visible ? undefined : 0
+                                            bottomPadding: sendFile.visible ? undefined : 0
+
+                                            onTriggered: {
+                                                fileDlg.open()
+                                            }
+
+                                        }
+
+                                        D.MenuItem {
+                                            id: rename
+                                            text: qsTr("Rename")
+                                            padding: 0
+                                            onTriggered: {
+                                                nameEditLoader.active = true
+                                                deviceRow.statusItem.visible = false
+                                                itemCtl.hoverEnabled = false
+                                            }
+                                        }
+
+                                        D.MenuSeparator {
+                                        }
+
+                                        D.MenuItem {
+                                            id: removeDev
+                                            text: qsTr("Remove Device")
+                                            enabled: model.connectStatus === 2 || model.connectStatus === 0
+                                            padding: 0
+                                            onTriggered: {
+                                                dccData.work().ignoreDevice(model.id, model.adapterId)
                                             }
                                         }
                                     }
-                                    D.MenuItem {
-                                        id: sendFile
-                                        padding: 0
-                                        text: qsTr("Send Files")
-                                        visible: itemCtl.showSendFile
-                                        height : sendFile.visible ? implicitHeight : 0
-                                        topPadding: sendFile.visible ? undefined : 0
-                                        bottomPadding: sendFile.visible ? undefined : 0
 
-                                        onTriggered: {
-                                            fileDlg.open()
-                                        }
-
-                                    }
-
-                                    D.MenuItem {
-                                        id: rename
-                                        text: qsTr("Rename")
-                                        padding: 0
-                                        onTriggered: {
-                                            nameEdit.visible = true
-
-                                            status.visible = false
-                                            itemCtl.hoverEnabled = false
-
-                                            nameEdit.forceActiveFocus(true)
-                                            nameEdit.selectAll()
+                                    FileDialog {
+                                        id: fileDlg
+                                        title: qsTr("Select file")
+                                        fileMode: FileDialog.OpenFiles
+                                        folder: StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
+                                        onAccepted: {
+                                            console.log(" Select file : ", fileDlg.files)
+                                            dccData.work().showBluetoothTransDialog(model.address, fileDlg.files)
                                         }
                                     }
 
-                                    D.MenuSeparator {
-                                    }
-
-                                    D.MenuItem {
-                                        id: removeDev
-                                        text: qsTr("Remove Device")
-                                        enabled: model.connectStatus === 2 || model.connectStatus === 0
-                                        padding: 0
-                                        onTriggered: {
-                                            dccData.work().ignoreDevice(model.id, model.adapterId)
+                                    MouseArea {
+                                        anchors.fill: parent
+                                        hoverEnabled: true
+                                        onEntered: {
+                                            moreBtn.menuShown = contextMenu.visible
                                         }
-                                    }
-                                }
-
-                                FileDialog {
-                                    id: fileDlg
-                                    title: qsTr("Select file")
-                                    fileMode: FileDialog.OpenFiles
-                                    folder: StandardPaths.writableLocation(StandardPaths.DocumentsLocation)
-                                    onAccepted: {
-                                        console.log(" Select file : ", fileDlg.files)
-                                        dccData.work().showBluetoothTransDialog(model.address, fileDlg.files)
-
-                                    }
-                                }
-
-                                MouseArea {
-                                    anchors.fill: parent
-                                    hoverEnabled: true
-                                    onEntered: {
-                                        moreBtn.menuShown = contextMenu.visible
-                                    }
-                                    onClicked: {
-                                        console.log(" contextMenu 单击事件 ");
-                                        if (moreBtn.menuShown) {
-                                            moreBtn.menuShown = false
-                                            return
+                                        onClicked: {
+                                            console.log(" contextMenu 单击事件 ");
+                                            if (moreBtn.menuShown) {
+                                                moreBtn.menuShown = false
+                                                return
+                                            }
+                                            // 在点击位置下方显示菜单
+                                            // 获取按钮的全局位置，确保菜单在按钮的正下方显示
+                                            var buttonGlobalX = moreBtn.x + moreBtn.width / 2 - contextMenu.width
+                                            var buttonGlobalY = moreBtn.y + moreBtn.height + 5
+                                            contextMenu.popup(buttonGlobalX, buttonGlobalY)
+                                            moreBtn.menuShown = true
                                         }
-                                        // 在点击位置下方显示菜单
-                                        // 获取按钮的全局位置，确保菜单在按钮的正下方显示
-                                        var buttonGlobalX = moreBtn.x + moreBtn.width / 2 - contextMenu.width
-                                        var buttonGlobalY = moreBtn.y + moreBtn.height + 5
-                                        contextMenu.popup(buttonGlobalX, buttonGlobalY)
-                                        moreBtn.menuShown = true
                                     }
                                 }
                             }
                         }
-
                     }
                 }
             }
