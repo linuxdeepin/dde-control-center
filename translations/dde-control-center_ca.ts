@@ -1706,7 +1706,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation>2. Si us plau, aneu a %1 per descarregar el certificat fora de línia.</translation>
+        <translation>2. Si us plau, aneu a %1 per baixar el certificat fora de línia.</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
@@ -2838,7 +2838,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>Plans d&apos;energia, paràmetres d&apos;estalvi d&apos;energia, paràmetres del despertament, configuració de l&apos;apagada</translation>
+        <translation>Plans d&apos;energia, paràmetres d&apos;estalvi d&apos;energia, paràmetres del despertament, configuració de l&apos;aturada</translation>
     </message>
     <message>
         <source>Plugged In</source>
