@@ -1187,7 +1187,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Confirm</source>
-        <translation>确定</translation>
+        <translation>确认</translation>
     </message>
 </context>
 <context>
@@ -1611,7 +1611,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>After entering the developer mode, you can obtain root permissions, but it may also damage the system integrity, so please use it with caution.</source>
-        <translation>可获得root使用权限，但同时也可能导致系统完教性遭到破坏，请谨慎使用。</translation>
+        <translation>可获得root使用权限，但同时也可能导致系统完整性遭到破坏，请谨慎使用。</translation>
     </message>
     <message>
         <source>Allowed</source>
