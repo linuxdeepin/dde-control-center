@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "personalizationworker.h"
@@ -692,24 +692,17 @@ void PersonalizationWorker::setCursorTheme(const QString &id)
     }
 }
 
-void PersonalizationWorker::setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option)
-{
-    if (option == PersonalizationExport::Option_Desktop) {
-        setBackgroundForMonitor(screen, url, isDark);
-    } else if (option == PersonalizationExport::Option_Lock) {
-        setLockBackForMonitor(screen, url, isDark);
-    } else if (option == PersonalizationExport::Option_All) {
-        setBackgroundForMonitor(screen, url, isDark);
-        setLockBackForMonitor(screen, url, isDark);
-    }
-}
-
-void PersonalizationWorker::setBackgroundForMonitor(const QString &, const QString &, bool )
+void PersonalizationWorker::setWallpaperForMonitor(const QString &, const QString &, bool , PersonalizationExport::WallpaperSetOption, PersonalizationExport::WallpaperType)
 {
 
 }
 
-void PersonalizationWorker::setLockBackForMonitor(const QString &, const QString &, bool)
+void PersonalizationWorker::setBackgroundForMonitor(const QString &, const QString &, bool, PersonalizationExport::WallpaperType type)
+{
+
+}
+
+void PersonalizationWorker::setLockBackForMonitor(const QString &, const QString &, bool, PersonalizationExport::WallpaperType type)
 {
 
 }

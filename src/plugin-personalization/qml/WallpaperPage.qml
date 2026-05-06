@@ -254,7 +254,12 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: WallpaperSelectView {
-            // model: dccData.model.wallpaperModel
+            model: dccData.model.liveWallpaperModel
+            currentItem: dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
+            enableContextMenu: false
+            onWallpaperSelected: (url, isDark, option) => {
+                                    dccData.worker.setWallpaperForMonitor(dccData.model.currentSelectScreen, url, isDark, option, PersonalizationExport.Type_Video)
+                                 }
         }
     }
 
@@ -262,7 +267,7 @@ DccObject {
         name: "solidColor"
         parentName: "personalization/wallpaper"
         displayName: qsTr("Solid color wallpaper")
-        weight: 600
+        weight: 700
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: WallpaperSelectView {

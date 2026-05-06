@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef PERSONALIZATIONWORKER_H
@@ -67,9 +67,9 @@ public Q_SLOTS:
     virtual void setAppearanceTheme(const QString &id, bool keepAuto = false);
     virtual void setIconTheme(const QString &id);
     virtual void setCursorTheme(const QString &id);
-    virtual void setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option);
-    virtual void setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark);
-    virtual void setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark);
+    virtual void setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperType type = PersonalizationExport::Type_Image);
+    virtual void setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type = PersonalizationExport::Type_Image);
+    virtual void setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type = PersonalizationExport::Type_Image);
 
 signals:
     void personalizationChanged(const QString &propertyName, const QString &value);

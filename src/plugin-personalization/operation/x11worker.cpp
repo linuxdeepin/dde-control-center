@@ -3,7 +3,9 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "x11worker.h"
+#include "operation/personalizationexport.hpp"
 #include "operation/personalizationworker.h"
+#include "operation/wallpaperprovider.h"
 
 #include <QLoggingCategory>
 #include <QTimer>
@@ -126,8 +128,12 @@ void X11Worker::setMiniEffect(int effect)
     }
 }
 
-void X11Worker::setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option)
+void X11Worker::setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperType type)
 {
+    if (type != PersonalizationExport::Type_Image) {
+        return;
+    }
+
     if (checkWallpaperLockStatus()) {
         return;
     }
@@ -142,7 +148,7 @@ void X11Worker::setWallpaperForMonitor(const QString &screen, const QString &url
     }
 }
 
-void X11Worker::setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark)
+void X11Worker::setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type)
 {
     Q_UNUSED(isDark)
     qCDebug(DdcPersonnalizationX11Worker) << "setMonitorBackground " << screenName << url;
@@ -152,7 +158,7 @@ void X11Worker::setBackgroundForMonitor(const QString &screenName, const QString
     m_personalizationDBusProxy->SetCurrentWorkspaceBackgroundForMonitor(url, screenName);
 }
 
-void X11Worker::setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark)
+void X11Worker::setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type)
 {
     Q_UNUSED(isDark)
     qCDebug(DdcPersonnalizationX11Worker) << "setGreeterBackground " << screenName << url;

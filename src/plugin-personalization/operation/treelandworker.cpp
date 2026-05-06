@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -12,14 +12,17 @@
 #include <QLoggingCategory>
 #include <QDebug>
 #include <QDir>
-#include "utils.hpp"
+#include <QScreen>
 
+#include "utils.hpp"
+#include <qpa/qplatformnativeinterface.h>
 #include <private/qguiapplication_p.h>
 #include <private/qwaylandintegration_p.h>
 #include <private/qwaylandwindow_p.h>
 #include "treelandworker.h"
 #include "operation/personalizationworker.h"
 #include "operation/model/thememodel.h"
+#include "operation/personalizationexport.hpp"
 
 #define TYPEWALLPAPER           "wallpaper"
 #define TYPEGREETERBACKGROUND   "greeterbackground"
@@ -41,27 +44,41 @@ TreeLandWorker::TreeLandWorker(PersonalizationModel *model, QObject *parent)
 
 }
 
+TreeLandWorker::~TreeLandWorker()
+{
+#ifdef Enable_Treeland
+    qDeleteAll(m_wallpaperContexts);
+    m_wallpaperContexts.clear();
+    
+    qDeleteAll(m_wallpapers);
+    m_wallpapers.clear();
+    
+    qDeleteAll(m_lockWallpapers);
+    m_lockWallpapers.clear();
+#endif
+}
+
 #ifdef Enable_Treeland
 
-void TreeLandWorker::setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option)
+void TreeLandWorker::setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperType type)
 {
     if (checkWallpaperLockStatus()) {
         return;
     }
 
     if (option == PersonalizationExport::Option_Desktop) {
-        setBackgroundForMonitor(screen, url, isDark);
+        setBackgroundForMonitor(screen, url, isDark, type);
     } else if (option == PersonalizationExport::Option_Lock) {
-        setLockBackForMonitor(screen, url, isDark);
+        setLockBackForMonitor(screen, url, isDark, type);
     } else if (option == PersonalizationExport::Option_All) {
-        setBackgroundForMonitor(screen, url, isDark);
-        setLockBackForMonitor(screen, url, isDark);
+        setBackgroundForMonitor(screen, url, isDark, type);
+        setLockBackForMonitor(screen, url, isDark, type);
     }
 }
 
-void TreeLandWorker::setBackgroundForMonitor(const QString &monitorName, const QString &url, bool isDark)
+void TreeLandWorker::setBackgroundForMonitor(const QString &monitorName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type)
 {
-    setWallpaper(monitorName, url, isDark, PersonalizationWallpaperContext::options_background);
+    setWallpaper(monitorName, url, isDark, WallpaperContext::wallpaper_role_desktop, type);
 }
 
 QString TreeLandWorker::getBackgroundForMonitor(const QString &monitorName)
@@ -72,9 +89,9 @@ QString TreeLandWorker::getBackgroundForMonitor(const QString &monitorName)
     return QString();
 }
 
-void TreeLandWorker::setLockBackForMonitor(const QString &monitorName, const QString &url, bool isDark)
+void TreeLandWorker::setLockBackForMonitor(const QString &monitorName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type)
 {
-    setWallpaper(monitorName, url, isDark, PersonalizationWallpaperContext::options_lockscreen);
+    setWallpaper(monitorName, url, isDark, WallpaperContext::wallpaper_role_lockscreen, type);
 }
 
 QString TreeLandWorker::getLockBackForMonitor(const QString &monitorName)
@@ -241,14 +258,6 @@ void TreeLandWorker::onWallpaperUrlsChanged()
 
 void TreeLandWorker::init()
 {
-    if (m_wallpaperContext.isNull()) {
-        m_wallpaperContext.reset(new PersonalizationWallpaperContext(m_personalizationManager->get_wallpaper_context()));
-        connect(m_wallpaperContext.get(),
-            &PersonalizationWallpaperContext::metadataChanged,
-            this,
-            &TreeLandWorker::wallpaperMetaDataChanged);
-        m_wallpaperContext->get_metadata();
-    }
     if (m_appearanceContext.isNull()) { 
         m_appearanceContext.reset(new PersonalizationAppearanceContext(m_personalizationManager->get_appearance_context(), this->m_model));
     }
@@ -260,44 +269,72 @@ void TreeLandWorker::init()
     }
 }
 
-void TreeLandWorker::wallpaperMetaDataChanged(const QString &data)
+void TreeLandWorker::initWallpaperContext()
 {
-    QJsonDocument json_doc = QJsonDocument::fromJson(data.toLocal8Bit());
-
-    if (!json_doc.isNull()) {
-        QJsonObject json = json_doc.object();
-
-        for (auto it = json.begin(); it != json.end(); ++it) {
-            QJsonObject context = it.value().toObject();
-            if (context.isEmpty())
-                continue;
-
-            WallpaperMetaData *wallpaper = nullptr;
-            if (m_wallpapers.contains(it.key())) {
-                wallpaper = m_wallpapers.value(it.key());
-            } else {
-                wallpaper = new WallpaperMetaData();
-                m_wallpapers.insert(it.key(), wallpaper);
-            }
-            wallpaper->isDark = context["isDark"].toBool();
-            wallpaper->url = context["url"].toString();
-            wallpaper->monitorName = context["monitorName"].toString();
-        }
+    auto screens = qApp->screens();
+    for (auto screen : screens) {
+        getOrCreateWallpaperContext(screen->name());
     }
-
-    onWallpaperUrlsChanged();
 }
 
-void TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url, bool isDark, uint32_t option)
+WallpaperContext *TreeLandWorker::getOrCreateWallpaperContext(const QString &monitorName)
 {
-    qCDebug(DdcPersonnalizationTreelandWorker) << "setWallpaper:" << monitorName << "url:" << url << "isDark:" << isDark << "option:" << option;
+    if (m_wallpaperContexts.contains(monitorName)) {
+        return m_wallpaperContexts.value(monitorName);
+    }
+
+    auto *native = QGuiApplication::platformNativeInterface();
+    auto screens = qApp->screens();
+    for (auto screen : screens) {
+        if (screen->name() == monitorName) {
+            struct wl_output *output = reinterpret_cast<wl_output *>(
+                native->nativeResourceForScreen("output", screen));
+            
+            if (output) {
+                auto *wallpaperObj = m_wallpaperManager->get_treeland_wallpaper(output, nullptr);
+                if (wallpaperObj) {
+                    auto *ctx = new WallpaperContext(wallpaperObj);
+                    m_wallpaperContexts.insert(monitorName, ctx);
+                    
+                    connect(ctx, &WallpaperContext::wallpaperChanged, this, 
+                        [this, monitorName](WallpaperContext::wallpaper_role role, WallpaperContext::wallpaper_source_type type, const QString &fileSource) {
+                            qCDebug(DdcPersonnalizationTreelandWorker) << "Wallpaper changed for" << monitorName << "role:" << role << "source:" << fileSource;
+                            
+                            if (role == WallpaperContext::wallpaper_role_desktop) {
+                                if (!m_wallpapers.contains(monitorName)) {
+                                    m_wallpapers.insert(monitorName, new WallpaperMetaData);
+                                }
+                                auto *meta = m_wallpapers.value(monitorName);
+                                meta->url = isURI(fileSource) ? fileSource : enCodeURI(fileSource, "file://");
+                                meta->monitorName = monitorName;
+                                onWallpaperUrlsChanged();
+                            } else if (role == WallpaperContext::wallpaper_role_lockscreen) {
+                                if (!m_lockWallpapers.contains(monitorName)) {
+                                    m_lockWallpapers.insert(monitorName, new WallpaperMetaData);
+                                }
+                                auto *meta = m_lockWallpapers.value(monitorName);
+                                meta->url = fileSource;
+                                meta->monitorName = monitorName;
+                            }
+                        });
+                    
+                    return ctx;
+                }
+            }
+            break;
+        }
+    }
+    
+    return nullptr;
+}
+
+void TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url, bool isDark, uint32_t role, uint32_t type)
+{
+    qCDebug(DdcPersonnalizationTreelandWorker) << "setWallpaper:" << monitorName << "url:" << url << "isDark:" << isDark << "role:" << role << "type:" << type;
 
     if (checkWallpaperLockStatus()) {
         return;
     }
-
-    if (!m_wallpaperContext)
-        return;
 
     QString dest;
     if (QFile::exists(url)) {
@@ -310,56 +347,34 @@ void TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url
     if (dest.isEmpty())
         return;
 
-    QFile file(dest);
-    if (file.open(QIODevice::ReadOnly)) {
+    // Update wallpaper metadata
+    if (!m_wallpapers.contains(monitorName)) {
+        m_wallpapers.insert(monitorName, new WallpaperMetaData);
+    }
 
-        QMap<QString, WallpaperMetaData *> wallpapers;
+    auto meta_data = m_wallpapers.value(monitorName);
 
-        if (option == PersonalizationWallpaperContext::options_background) {
-            wallpapers = m_wallpapers;
+    if (meta_data != nullptr) {
+        meta_data->isDark = isDark;
+        meta_data->url = url;
+        meta_data->monitorName = monitorName;
+    }
+
+    if (m_wallpaperManager && m_wallpaperManager->isActive()) {
+        qCDebug(DdcPersonnalizationTreelandWorker) << "Using new wallpaper manager protocol";
+
+        auto *wallpaperCtx = getOrCreateWallpaperContext(monitorName);
+        if (wallpaperCtx) {
+            if (type == WallpaperContext::wallpaper_source_type_video) {
+                qCDebug(DdcPersonnalizationTreelandWorker) << "Setting video wallpaper:" << dest;
+                wallpaperCtx->setVideoSource(dest, static_cast<WallpaperContext::wallpaper_role>(role));
+            } else {
+                qCDebug(DdcPersonnalizationTreelandWorker) << "Setting image wallpaper:" << dest;
+                wallpaperCtx->setImageSource(dest, static_cast<WallpaperContext::wallpaper_role>(role));
+            }
         } else {
-            wallpapers = m_lockWallpapers;
+            qCWarning(DdcPersonnalizationTreelandWorker) << "Failed to get wallpaper context for:" << monitorName;
         }
-
-        if (!m_wallpapers.contains(monitorName)) {
-            m_wallpapers.insert(monitorName, new WallpaperMetaData);
-        }
-
-        auto meta_data = m_wallpapers.value(monitorName);
-
-        if (meta_data != nullptr) {
-            meta_data->isDark = isDark;
-            meta_data->url = url;
-            meta_data->monitorName = monitorName;
-
-            m_wallpaperContext->set_on(PersonalizationWallpaperContext::options(option));
-            m_wallpaperContext->set_isdark(isDark);
-
-            QMapIterator<QString, WallpaperMetaData *> it(m_wallpapers);
-
-            QJsonObject json;
-            while (it.hasNext()) {
-                it.next();
-                QJsonObject content;
-                content.insert("isDark", it.value()->isDark);
-                content.insert("url", it.value()->url);
-                content.insert("monitorName", it.value()->monitorName);
-
-                json[it.key()] = content;
-            }
-
-            QJsonDocument json_doc(json);
-
-            m_wallpaperContext->set_fd(file.handle(), json_doc.toJson(QJsonDocument::Compact));
-            m_wallpaperContext->set_output(monitorName);
-            m_wallpaperContext->commit();
-
-            if (option == PersonalizationWallpaperContext::options_background) {
-                onWallpaperUrlsChanged();
-            }
-        }
-
-        file.close();
     }
 }
 
@@ -456,7 +471,8 @@ void TreeLandWorker::doSetByType(const QString &type, const QString &value)
     if (type == TYPEWALLPAPER) {
         auto screens = qApp->screens();
         for (const auto screen : screens) {
-            setWallpaper(screen->name(), value, false, PersonalizationWallpaperContext::options_background);
+            // FIXME(mhduiy): only set image, only set to desktop
+            setWallpaper(screen->name(), value, false, WallpaperContext::wallpaper_role_desktop, WallpaperContext::wallpaper_source_type_image);
         }
     } else if(type == TYPEICON) {
         setIconTheme(value);
@@ -487,6 +503,17 @@ void TreeLandWorker::active()
         connect(m_personalizationManager.get(), &PersonalizationManager::activeChanged, this, [this]() {
             if (m_personalizationManager->isActive()) {
                 init();
+            } else {
+                // clear();
+            }
+        });
+    }
+
+    if (m_wallpaperManager.isNull()) {
+        m_wallpaperManager.reset(new WallpaperManager(this));
+        connect(m_wallpaperManager.get(), &WallpaperManager::activeChanged, this, [this]() {
+            if (m_wallpaperManager->isActive()) {
+                initWallpaperContext();
             } else {
                 // clear();
             }
@@ -640,6 +667,91 @@ void PersonalizationFontContext::treeland_personalization_font_context_v1_monosp
 void PersonalizationFontContext::treeland_personalization_font_context_v1_font_size(uint32_t)
 {
 
+}
+
+WallpaperManager::WallpaperManager(QObject *parent)
+    : QWaylandClientExtensionTemplate<WallpaperManager>(1)
+{
+    if (QGuiApplication::platformName() == QLatin1String("wayland")) {
+        QtWaylandClient::QWaylandIntegration *waylandIntegration = static_cast<QtWaylandClient::QWaylandIntegration *>(QGuiApplicationPrivate::platformIntegration());
+        if (!waylandIntegration) {
+            qWarning() << "waylandIntegration is nullptr!!!";
+            return;
+        }
+        m_waylandDisplay = waylandIntegration->display();
+        if (!m_waylandDisplay) {
+            qWarning() << "waylandDisplay is nullptr!!!";
+            return;
+        }
+
+        addListener();
+    }
+    setParent(parent);
+}
+
+void WallpaperManager::addListener()
+{
+    if (!m_waylandDisplay) {
+        qWarning() << "waylandDisplay is nullptr!, skip addListener";
+        return;
+    }
+    m_waylandDisplay->addRegistryListener(&handleListenerGlobal, this);
+}
+
+void WallpaperManager::removeListener()
+{
+    if (!m_waylandDisplay) {
+        qWarning() << "waylandDisplay is nullptr!, skip removeListener";
+        return;
+    }
+    m_waylandDisplay->removeListener(&handleListenerGlobal, this);
+}
+
+void WallpaperManager::handleListenerGlobal(void *data, wl_registry *registry, uint32_t id, const QString &interface, uint32_t version)
+{
+    if (interface == treeland_wallpaper_manager_v1_interface.name) {
+        WallpaperManager *manager = static_cast<WallpaperManager *>(data);
+        if (!manager) {
+            qWarning() << "WallpaperManager is nullptr!!!";
+            return;
+        }
+
+        manager->init(registry, id, version);
+    }
+}
+
+// WallpaperContext implementation
+WallpaperContext::WallpaperContext(struct ::treeland_wallpaper_v1 *context)
+    : QWaylandClientExtensionTemplate<WallpaperContext>(1)
+    , QtWayland::treeland_wallpaper_v1(context)
+{
+
+}
+
+void WallpaperContext::setImageSource(const QString &filePath, wallpaper_role role)
+{
+    qCDebug(DdcPersonnalizationTreelandWorker) << "setImageSource:" << filePath << "role:" << role;
+    Q_EMIT wallpaperChanged(role, WallpaperContext::wallpaper_source_type_image, filePath);
+    set_image_source(filePath, static_cast<uint32_t>(role));
+}
+
+void WallpaperContext::setVideoSource(const QString &filePath, wallpaper_role role)
+{
+    qCDebug(DdcPersonnalizationTreelandWorker) << "setVideoSource:" << filePath << "role:" << role;
+    Q_EMIT wallpaperChanged(role, WallpaperContext::wallpaper_source_type_video, filePath);
+    set_video_source(filePath, static_cast<uint32_t>(role));
+}
+
+void WallpaperContext::treeland_wallpaper_v1_changed(uint32_t role, uint32_t source_type, const QString &file_source)
+{
+    qCDebug(DdcPersonnalizationTreelandWorker) << "wallpaper changed:" << file_source << "role:" << role << "type:" << source_type;
+    Q_EMIT wallpaperChanged(static_cast<wallpaper_role>(role), static_cast<wallpaper_source_type>(source_type), file_source);
+}
+
+void WallpaperContext::treeland_wallpaper_v1_failed(const QString &file_source, uint32_t error)
+{
+    qCWarning(DdcPersonnalizationTreelandWorker) << "wallpaper failed:" << file_source << "error:" << error;
+    Q_EMIT wallpaperFailed(file_source, error);
 }
 
 #endif

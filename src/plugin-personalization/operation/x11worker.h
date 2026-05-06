@@ -1,9 +1,10 @@
-//SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
 #pragma once
 
+#include "operation/personalizationexport.hpp"
 #include "operation/personalizationworker.h"
 
 class X11Worker : public PersonalizationWorker
@@ -18,9 +19,9 @@ public Q_SLOTS:
     void setWindowEffect(int value) override;
     void setMovedWindowOpacity(bool value) override;
     void setMiniEffect(int effect) override;
-    virtual void setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option) override;
-    void setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark) override;
-    void setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark) override;
+    virtual void setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperType type) override;
+    void setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type = PersonalizationExport::Type_Image) override;
+    void setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type = PersonalizationExport::Type_Image) override;
 
 private Q_SLOTS:
     void onMiniEffectChanged(bool value);

@@ -12,6 +12,7 @@
 #include <QUrl>
 #include <QDir>
 #include <QHash>
+#include <QProcess>
 #include <QtConcurrent/QtConcurrent>
 #include <algorithm>
 
@@ -23,6 +24,7 @@ Q_LOGGING_CATEGORY(DdcPersonalizationWallpaperWorker, "dcc-personalization-wallp
 
 #define SYS_WALLPAPER_DIR "/usr/share/wallpapers/deepin"
 #define SYS_SOLIDE_WALLPAPER_DIR "/usr/share/wallpapers/deepin-solidwallpapers"
+#define SYS_LIVE_WALLPAPER_DIR "/usr/share/wallpapers/live-wallpapers"
 #define CUSTOM_SOLIDE_WALLPAPER_DIR "/var/cache/wallpapers/custom-solidwallpapers"
 #define CUSTOM_WALLPAPER_DIR "/var/cache/wallpapers/custom-wallpapers"
 
@@ -112,6 +114,10 @@ void WallpaperProvider::setWallpaper(const QList<WallpaperItemPtr> &items, Wallp
             m_wallpaperList[WallpaperType::Wallpaper_Solid] = items;
             m_model->getSolidWallpaperModel()->resetData(items);
             break;
+        case WallpaperType::Wallpaper_Live:
+            m_wallpaperList[WallpaperType::Wallpaper_Live] = items;
+            m_model->getLiveWallpaperModel()->resetData(items);
+            break;
         default:
             break;
     }
@@ -133,6 +139,10 @@ void WallpaperProvider::pushWallpaper(WallpaperItemPtr item, WallpaperType type)
         case WallpaperType::Wallpaper_Solid:
             m_wallpaperList[WallpaperType::Wallpaper_Solid].append(item);
             m_model->getSolidWallpaperModel()->appendItem(item);
+            break;
+        case WallpaperType::Wallpaper_Live:
+            m_wallpaperList[WallpaperType::Wallpaper_Live].append(item);
+            m_model->getLiveWallpaperModel()->appendItem(item);
             break;
         default:
             break;
@@ -277,6 +287,7 @@ void InterfaceWorker::startListBackground(WallpaperType type)
             getCustomBackground();
             getSysBackground();
             getSolodBackground();
+            getLiveBackground();
             break;
         case WallpaperType::Wallpaper_Sys:
             getSysBackground();
@@ -286,6 +297,9 @@ void InterfaceWorker::startListBackground(WallpaperType type)
             break;
         case WallpaperType::Wallpaper_Solid:
             getSolodBackground();
+            break;
+        case WallpaperType::Wallpaper_Live:
+            getLiveBackground();
             break;
         default:
             break;
@@ -387,4 +401,44 @@ QStringList InterfaceWorker::fetchWallpaper(const QString &dir)
     }
 
     return walls;
+}
+
+void InterfaceWorker::getLiveBackground()
+{
+    CHECK_RETURN_RUNNING
+    QList<WallpaperItemPtr> wallpapers;
+    
+    QDir dir(SYS_LIVE_WALLPAPER_DIR);
+    if (!dir.exists()) {
+        qCWarning(DdcPersonalizationWallpaperWorker) << "Live wallpaper dir not exists:" << SYS_LIVE_WALLPAPER_DIR;
+        Q_EMIT pushBackground(wallpapers, WallpaperType::Wallpaper_Live);
+        return;
+    }
+
+    QStringList nameFilters;
+    nameFilters << "*.mp4" << "*.MP4" << "*.mov" << "*.MOV" << "*.avi" << "*.AVI";
+    QFileInfoList fileInfoList = dir.entryInfoList(nameFilters, QDir::Files);
+    
+    for (const auto &fileInfo : fileInfoList) {
+        CHECK_RETURN_RUNNING
+        
+        QString videoPath = fileInfo.absoluteFilePath();
+        QUrl url = QUrl::fromLocalFile(videoPath);
+        
+        WallpaperItemPtr ptr(new WallpaperItem{
+            url.toString(),
+            url.toString(),
+            url.toString(),
+            false,
+            fileInfo.lastModified().toMSecsSinceEpoch(),
+            false,
+            false
+        });
+        
+        if (ptr)
+            wallpapers.append(ptr);
+    }
+    
+    qCDebug(DdcPersonalizationWallpaperWorker) << "Found" << wallpapers.size() << "live wallpapers";
+    Q_EMIT pushBackground(wallpapers, WallpaperType::Wallpaper_Live);
 }

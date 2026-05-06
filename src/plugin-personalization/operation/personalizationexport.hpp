@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -31,4 +31,11 @@ public:
     };
 
     Q_ENUM(ModuleType)
+
+    enum WallpaperType {
+        Type_Image,
+        Type_Video
+    };
+
+    Q_ENUM(WallpaperType)
 };

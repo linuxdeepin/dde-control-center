@@ -28,6 +28,7 @@ add_library(${LIB_NAME} MODULE
 if (Enable_TreelandSupport)
 qt6_generate_wayland_protocol_client_sources(${LIB_NAME} FILES
     ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-personalization-manager-v1.xml
+    ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-wallpaper-manager-unstable-v1.xml
 )
 
 target_compile_definitions(${LIB_NAME} PRIVATE Enable_Treeland)

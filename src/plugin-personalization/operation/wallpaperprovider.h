@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 
@@ -18,6 +18,7 @@ enum WallpaperType{
     Wallpaper_Sys,
     Wallpaper_Custom,
     Wallpaper_Solid,
+    Wallpaper_Live,
     Wallpaper_Unknown
 };
 
@@ -31,6 +32,7 @@ public:
     void getSysBackground();
     void getCustomBackground();
     void getSolodBackground();
+    void getLiveBackground();
     QStringList fetchWallpaper(const QString &dir);
 
 signals:

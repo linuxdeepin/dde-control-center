@@ -50,6 +50,7 @@ class PersonalizationModel : public QObject
     Q_PROPERTY(WallpaperSortModel *customWallpaperModel MEMBER m_customWallpaperSortModel CONSTANT)
     Q_PROPERTY(WallpaperSortModel *sysWallpaperModel MEMBER m_sysWallpaperSortModel CONSTANT)
     Q_PROPERTY(WallpaperSortModel *solidWallpaperModel MEMBER m_solidWallpaperSortModel CONSTANT)
+    Q_PROPERTY(WallpaperSortModel *liveWallpaperModel MEMBER m_liveWallpaperSortModel CONSTANT)
 
     Q_PROPERTY(WallpaperSortModel *screenSaverModel MEMBER m_screenSaverSortModel CONSTANT)
     Q_PROPERTY(WallpaperSortModel *picScreenSaverModel MEMBER m_picScreenSaverSortModel CONSTANT)
@@ -68,6 +69,7 @@ public:
     inline WallpaperModel *getCustomWallpaperModel() const { return m_customWallpaperModel; }
     inline WallpaperModel *getSysWallpaperModel() const { return m_sysWallpaperModel; }
     inline WallpaperModel *getSolidWallpaperModel() const { return m_solidWallpaperModel; }
+    inline WallpaperModel *getLiveWallpaperModel() const { return m_liveWallpaperModel; }
     inline WallpaperModel *getScreenSaverModel() const { return m_screenSaverModel; }
     inline WallpaperModel *getPicScreenSaverModel() const { return m_picScreenSaverModel; }
 
@@ -176,12 +178,14 @@ private:
     WallpaperSortModel *m_customWallpaperSortModel;
     WallpaperSortModel *m_sysWallpaperSortModel;
     WallpaperSortModel *m_solidWallpaperSortModel;
+    WallpaperSortModel *m_liveWallpaperSortModel;
     WallpaperSortModel *m_screenSaverSortModel;
     WallpaperSortModel *m_picScreenSaverSortModel;
 
     WallpaperModel *m_customWallpaperModel;
     WallpaperModel *m_sysWallpaperModel;
     WallpaperModel *m_solidWallpaperModel;
+    WallpaperModel *m_liveWallpaperModel;
     WallpaperModel *m_screenSaverModel;
     WallpaperModel *m_picScreenSaverModel;
 

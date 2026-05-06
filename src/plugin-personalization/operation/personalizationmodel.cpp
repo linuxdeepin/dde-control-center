@@ -21,18 +21,21 @@ PersonalizationModel::PersonalizationModel(QObject *parent)
     m_customWallpaperSortModel = new WallpaperSortModel(this);
     m_sysWallpaperSortModel = new WallpaperSortModel(this);
     m_solidWallpaperSortModel = new WallpaperSortModel(this);
+    m_liveWallpaperSortModel = new WallpaperSortModel(this);
     m_screenSaverSortModel = new WallpaperSortModel(this);
     m_picScreenSaverSortModel = new WallpaperSortModel(this);
 
     m_customWallpaperModel = new WallpaperModel(this);
     m_sysWallpaperModel = new WallpaperModel(this);
     m_solidWallpaperModel = new WallpaperModel(this);
+    m_liveWallpaperModel = new WallpaperModel(this);
     m_screenSaverModel = new WallpaperModel(this);
     m_picScreenSaverModel = new WallpaperModel(this);
 
     m_customWallpaperSortModel->setSourceModel(m_customWallpaperModel);
     m_sysWallpaperSortModel->setSourceModel(m_sysWallpaperModel);
     m_solidWallpaperSortModel->setSourceModel(m_solidWallpaperModel);
+    m_liveWallpaperSortModel->setSourceModel(m_liveWallpaperModel);
     m_screenSaverSortModel->setSourceModel(m_screenSaverModel);
     m_picScreenSaverSortModel->setSourceModel(m_picScreenSaverModel);
     m_miniEffect = 0;
@@ -148,6 +151,7 @@ void PersonalizationModel::setWallpaperMap(const QVariantMap &map)
     if (m_wallpaperMap == map)
         return;
     m_wallpaperMap = map;
+    Q_EMIT wallpaperMapChanged(map);
 }
 
 void PersonalizationModel::setWallpaperSlideShowMap(const QVariantMap &map)
