@@ -315,8 +315,15 @@ DccObject {
                                     MouseArea {
                                         anchors.fill: parent
                                         onClicked: {
-                                            edit.modifyShortcut(shortcutSettingsBody.conflictAccels)
+                                            var newAccels = shortcutSettingsBody.conflictAccels
+                                            edit.modifyShortcut(newAccels)
                                             shortcutSettingsBody.conflictAccels = ""
+
+                                            // Fix: hide conflict warning and reset edit state after replacing
+                                            edit.keys = dccData.formatKeys(newAccels)
+                                            conflictText.visible = false
+                                            shortcutView.editItem = null
+                                            shortcutView.conflictText = null
                                         }
                                     }
                                 }
