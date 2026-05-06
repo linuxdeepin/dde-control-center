@@ -34,6 +34,14 @@ DccObject {
         ScrollBar.vertical: viewScrollbar
     }
 
+    Connections {
+        target: shortcutSettingsView
+        function onDeactive() {
+            shortcutSettingsBody.conflictAccels = ""
+            shortcutSettingsBody.isEditing = false
+        }
+    }
+
     DccObject {
         id: shortcutSettingsBody
         property bool isEditing: false
