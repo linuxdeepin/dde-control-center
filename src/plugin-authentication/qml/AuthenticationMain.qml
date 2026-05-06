@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
@@ -267,24 +267,58 @@ DccObject {
                         Item {
                             Layout.fillWidth: true
                         }
-                        D.ToolButton {
+                        D.ActionButton {
                             id: editButton
                             visible: hoverHandler.hovered
+                            implicitWidth: 30
+                            implicitHeight: 30
                             icon.name: "dcc_edit"
+                            icon.width: DS.Style.edit.actionIconSize
+                            icon.height: DS.Style.edit.actionIconSize
                             background: Rectangle {
-                                color: "transparent"
+                                property D.Palette pressedColor: D.Palette {
+                                    normal: Qt.rgba(0, 0, 0, 0.2)
+                                    normalDark: Qt.rgba(1, 1, 1, 0.25)
+                                }
+                                property D.Palette hoveredColor: D.Palette {
+                                    normal: Qt.rgba(0, 0, 0, 0.1)
+                                    normalDark: Qt.rgba(1, 1, 1, 0.1)
+                                }
+                                radius: DS.Style.control.radius
+                                color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                                border {
+                                    color: parent.palette.highlight
+                                    width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                                }
                             }
                             onClicked: {
                                 textInputItem.readOnly = false;
                                 textInputItem.focus = true;
                             }
                         }
-                        D.ToolButton {
+                        D.ActionButton {
                             id: deleteButton
                             visible: hoverHandler.hovered
+                            implicitWidth: 30
+                            implicitHeight: 30
                             icon.name: "dcc_delete"
+                            icon.width: DS.Style.edit.actionIconSize
+                            icon.height: DS.Style.edit.actionIconSize
                             background: Rectangle {
-                                color: "transparent"
+                                property D.Palette pressedColor: D.Palette {
+                                    normal: Qt.rgba(0, 0, 0, 0.2)
+                                    normalDark: Qt.rgba(1, 1, 1, 0.25)
+                                }
+                                property D.Palette hoveredColor: D.Palette {
+                                    normal: Qt.rgba(0, 0, 0, 0.1)
+                                    normalDark: Qt.rgba(1, 1, 1, 0.1)
+                                }
+                                radius: DS.Style.control.radius
+                                color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                                border {
+                                    color: parent.palette.highlight
+                                    width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                                }
                             }
                             onClicked: {
                                 layout.requestDelete(modelData);
