@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "appssourcemodel.h"
@@ -27,6 +27,7 @@ QHash<int, QByteArray> AppsSourceModel::roleNames() const
     names[ShowNotificationCenterRole] = "ShowNotificationCenter";
     names[LockScreenShowNotificationRole] = "LockScreenShowNotification";
     names[TransliteratedRole] = "Transliterated";
+    names[FirstLetterRole] = "FirstLetter";
     return names;
 }
 
@@ -89,6 +90,11 @@ QVariant AppsSourceModel::data(const QModelIndex &index, int role) const
         if (firstChar.isDigit()) return QString("#%1").arg(transliterated);
         else if (!firstChar.isLetter()) return QString("&%1").arg(transliterated);
         return transliterated;
+    }
+    case FirstLetterRole: {
+        const auto decodedFirstLetters = Dtk::Core::firstLetters(index.data(AppNameRole).toString(), Dtk::Core::TS_NoneTone);
+        if (decodedFirstLetters.isEmpty()) return QString();
+        return decodedFirstLetters.join(QString()).toLower();
     }
     default:
         break;

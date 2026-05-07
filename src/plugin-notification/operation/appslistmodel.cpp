@@ -52,6 +52,7 @@ bool AppsListModel::filterAcceptsRow(int source_row, const QModelIndex &source_p
     QModelIndex appNameIndex = sourceModel()->index(source_row, 0, source_parent);
     QString appName = sourceModel()->data(appNameIndex, AppNameRole).toString();
     QString transliterated = sourceModel()->data(appNameIndex, TransliteratedRole).toString();
+    QString firstLetter = sourceModel()->data(appNameIndex, FirstLetterRole).toString();
 
-    return appName.contains(filterRegularExpression()) || transliterated.contains(filterRegularExpression());
+    return appName.contains(filterRegularExpression()) || transliterated.contains(filterRegularExpression()) || firstLetter.contains(filterRegularExpression());
 }
