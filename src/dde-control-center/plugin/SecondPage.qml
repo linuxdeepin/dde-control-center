@@ -245,7 +245,7 @@ Item {
             clip: true
             hoverEnabled: true
             focus: true
-            activeFocusOnTab: true
+            activeFocusOnTab: false
             anchors {
                 fill: parent
                 topMargin: 50
