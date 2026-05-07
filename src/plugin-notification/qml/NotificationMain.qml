@@ -129,6 +129,11 @@ DccObject {
         property bool searchVisible: false
 
         page: RowLayout {
+
+            Component.onDestruction:   {
+                appNotifyTitle.searchVisible = false
+            }
+
             Timer {
                 id: searchTimer
                 interval: 100
