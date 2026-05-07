@@ -112,7 +112,7 @@ DccObject {
                     active: dccData.mode().needShowModalDialog
                     sourceComponent: Window {
                         id: modalDialog
-                        flags: Qt.Window
+                        flags: Qt.Tool | Qt.FramelessWindowHint
                         modality: Qt.ApplicationModal
                         color: "transparent"
                         opacity: 0.0
