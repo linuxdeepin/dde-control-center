@@ -156,7 +156,7 @@ DccObject {
                     Slider {
                         id: slider
                         anchors.fill: parent
-                        handleType: -2
+                        handleType: Slider.HandleType.NoArrowType
                         highlightedPassedGroove: true
                         value: dccData.model().microphoneFeedback
                     }
