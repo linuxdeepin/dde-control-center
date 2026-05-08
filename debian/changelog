@@ -1,3 +1,32 @@
+dde-control-center (6.1.84) unstable; urgency=medium
+
+  * refactor: split PluginManager into DccPluginLoader and
+    DccPluginManager
+  * fix: adjust path calculation for handle alignment
+  * fix: add first letter search support for apps list
+  * fix: reset search state on notification page destruction
+  * fix: Fix extra taskbar icons when opening developer mode disclaimer
+  * fix: adjust the editing button style for "Biometric Authentication"
+  * feat(wallpaper): adapt new wallpaper protocol and support live
+    wallpaper
+  * fix: clear conflict UI after shortcut edit
+  * fix: clear shortcut editing state on deactive
+  * i18n: Updates for project Deepin Desktop Environment (#3200)
+  * feat: add cmake find_package support and auto-init for EventLogger 为
+    EventLogger 添加 cmake find_package 支持和自动初始化
+  * fix: adjust the layout of the custom Repeat time control
+  * fix: Optimize the issue of slow entry into the Bluetooth interface
+  * fix: fix activeTimers crash in control center
+  * fix: adjust the click area for Time Range Control
+  * fix: fix the issue of slow default recovery of system shortcut keys
+  * refactor: optimize DccObject parent management and simplify memory
+    handling
+  * fix: add tooltips to automatically elided text
+  * fix: Make the selected region visible when entering the Regional
+    format pop-up window.
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 08 May 2026 15:45:13 +0800
+
 dde-control-center (6.1.83) unstable; urgency=medium
 
   * build: add dde-api-dev build dependency
