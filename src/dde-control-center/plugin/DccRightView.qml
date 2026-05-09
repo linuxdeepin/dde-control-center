@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.15
@@ -14,14 +14,9 @@ Flickable {
     property bool scrollBarVisible: false
 
     contentHeight: groupView.height
-    ScrollBar.vertical: ScrollBar {
-        id: vbar
-        width: 10
-        opacity: control.scrollBarVisible ? 1 : 0
-        Behavior on opacity {
-            NumberAnimation { duration: 150 }
-        }
-    }
+
+    ScrollBar.vertical: ScrollBar { }
+
     DccGroupView {
         id: groupView
         isGroup: false

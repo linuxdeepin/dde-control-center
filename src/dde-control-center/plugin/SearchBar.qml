@@ -136,7 +136,7 @@ Rectangle {
                     backgroundType: DccObject.Hover
                 }
             }
-            ScrollBar.vertical: ScrollBar {}
+            ScrollBar.vertical: ScrollBar { }
         }
         enter: Transition {
             NumberAnimation {

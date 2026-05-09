@@ -307,15 +307,13 @@ D.DialogWindow {
                 clip: true
                 contentHeight: layout.childrenRect.height
                 contentWidth: width
+
                 ScrollBar.vertical: ScrollBar {
-                    id: verticalBar
                     parent: scrollView
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
-                    x: parent.width - width - 5
-                    width: 10
-                    policy: ScrollBar.AsNeeded
-                    visible: true
+                    anchors.right: parent.right
+                    anchors.rightMargin: 2
                 }
 
                 ColumnLayout {

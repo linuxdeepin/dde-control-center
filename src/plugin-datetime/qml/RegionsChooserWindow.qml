@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick
 import QtQuick.Controls 2.0
@@ -131,19 +131,19 @@ Loader {
                         id: regionGroup
                     }
 
-                view.delegate: MenuItem {
-                    id: menuItem
-                    implicitWidth: itemsView.width
-                    implicitHeight: 30
-                    text: model.display
-                    checkable: true
-                    checked: text === loader.currentText
-                    hoverEnabled: true
-                    highlighted: hovered
-                    autoExclusive: true
-                    ButtonGroup.group: regionGroup
-                    useIndicatorPadding: true
-                    font: DTK.fontManager.t6
+                    view.delegate: MenuItem {
+                        id: menuItem
+                        implicitWidth: itemsView.width
+                        implicitHeight: 30
+                        text: model.display
+                        checkable: true
+                        checked: text === loader.currentText
+                        hoverEnabled: true
+                        highlighted: hovered
+                        autoExclusive: true
+                        ButtonGroup.group: regionGroup
+                        useIndicatorPadding: true
+                        font: DTK.fontManager.t6
 
                         onCheckedChanged: {
                             if (checked && loader.currentText !== model.display) {
@@ -168,12 +168,6 @@ Loader {
                     anchors.bottom: parent.bottom
                     anchors.right: parent.right
                     anchors.rightMargin: -6
-                    width: 10
-                    orientation: Qt.Vertical
-
-                    position: itemsView.view.visibleArea.yPosition
-                    size: itemsView.view.visibleArea.heightRatio
-                    active: hovered || pressed || itemsView.view.moving || itemsView.view.flicking
                 }
             }
         }

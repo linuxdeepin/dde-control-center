@@ -99,7 +99,7 @@ Loader {
                             model: regionFormatLoader.viewModel
                             currentIndex: regionFormatLoader.currentIndex
                             clip: true
-                            ScrollBar.vertical: scrollBar
+                            ScrollBar.vertical: ScrollBar { }
 
                             layer.enabled: true
                             layer.effect: MultiEffect {
@@ -179,20 +179,6 @@ Loader {
                                     }
                                 }
                             }
-                        }
-
-                        ScrollBar {
-                            id: scrollBar
-                            anchors.top: parent.top
-                            anchors.bottom: parent.bottom
-                            anchors.right: parent.right
-                            anchors.rightMargin: -width
-                            width: 10
-                            orientation: Qt.Vertical
-
-                            position: itemsView.visibleArea.yPosition
-                            size: itemsView.visibleArea.heightRatio
-                            active: hovered || pressed || itemsView.moving || itemsView.flicking
                         }
                     }
                 }

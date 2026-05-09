@@ -15,14 +15,9 @@ Flickable {
     property bool scrollBarVisible: false
 
     contentHeight: centralItem.height + bottomItem.height - (bottomItem.height > 0 ? bottomItem.anchors.topMargin : 0)
-    ScrollBar.vertical: ScrollBar {
-        id: vbar
-        width: 10
-        opacity: control.scrollBarVisible ? 1 : 0
-        Behavior on opacity {
-            NumberAnimation { duration: 150 }
-        }
-    }
+    
+    ScrollBar.vertical: ScrollBar { }
+
     Component {
         id: groupView
         DccGroupView {

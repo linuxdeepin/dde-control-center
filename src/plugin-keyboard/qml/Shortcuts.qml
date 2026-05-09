@@ -16,9 +16,7 @@ DccObject {
     icon: "keyboard_fn"
     weight: parent.weight // 300
     property int searchEditWidth: 600
-    property var viewScrollbar: ScrollBar {
-        width: 10
-    }
+    property var viewScrollbar: ScrollBar { }
 
     PropertyAnimation {
         id: scrollbarAnimation

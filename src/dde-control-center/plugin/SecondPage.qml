@@ -101,9 +101,7 @@ Item {
                 }
             }
 
-            ScrollBar.vertical: ScrollBar {
-                width: 10
-            }
+            ScrollBar.vertical: ScrollBar { }
 
             Keys.enabled: true
             Keys.onPressed: function (event) {

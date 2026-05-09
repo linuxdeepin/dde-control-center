@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
@@ -284,12 +284,6 @@ Loader {
                     anchors.bottom: parent.bottom
                     anchors.right: parent.right
                     anchors.rightMargin: -6
-                    implicitWidth: 10
-                    orientation: Qt.Vertical
-
-                    position: listView.visibleArea.yPosition
-                    size: listView.visibleArea.heightRatio
-                    active: hovered || pressed || listView.moving || listView.flicking
                 }
             }
 

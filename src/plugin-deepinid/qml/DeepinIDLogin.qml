@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -22,9 +22,8 @@ DccObject {
         Layout.fillWidth: true
         Layout.fillHeight: true
         contentHeight: groupView.height
-        ScrollBar.vertical: ScrollBar {
-            width: 10
-        }
+
+        ScrollBar.vertical: ScrollBar { }
 
         DccGroupView {
             id: groupView

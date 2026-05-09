@@ -857,9 +857,7 @@ DccObject {
                     right: parent ? parent.right : undefined
                 }
 
-                ScrollBar.vertical: ScrollBar {
-                    width: 10
-                }
+                ScrollBar.vertical: ScrollBar { }
 
                 header: Item {
                     implicitHeight: 50

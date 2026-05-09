@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -195,12 +195,6 @@ Loader {
                     anchors.bottom: parent.bottom
                     anchors.right: parent.right
                     anchors.rightMargin: -6  // Position outside the ListView area
-                    width: 10
-                    orientation: Qt.Vertical
-
-                    position: itemsView.visibleArea.yPosition
-                    size: itemsView.visibleArea.heightRatio
-                    active: hovered || pressed || itemsView.moving || itemsView.flicking
                 }
             }
 
