@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
@@ -344,7 +344,7 @@ ColumnLayout {
                         onClicked: function(mouse) {
                             if (mouse.button === Qt.LeftButton) {
                                 wallpaperItem.requestSetWallpaper(PersonalizationExport.Option_All)
-                            } else if (mouse.button === Qt.RightButton && root.enableContextMenu && !DccApp.isTreeland()) {
+                            } else if (mouse.button === Qt.RightButton && root.enableContextMenu) {
                                 contextMenu.x = mouse.x
                                 contextMenu.y = mouse.y
                                 contextMenu.open()
