@@ -3839,15 +3839,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>UeProgramLicenseDialog</name>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>同意并加入用户体验计划</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>取 消</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>确 认</translation>
     </message>
 </context>
 <context>
