@@ -3741,7 +3741,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>時區：</translation>
     </message>
     <message>
         <source>Nearest City:</source>
@@ -3836,15 +3836,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>UeProgramLicenseDialog</name>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>同意並加入用户體驗計劃</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>取 消</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>確 認</translation>
     </message>
 </context>
 <context>
