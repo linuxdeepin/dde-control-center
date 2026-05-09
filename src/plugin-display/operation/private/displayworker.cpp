@@ -554,7 +554,15 @@ void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
     }
 }
 
-void DisplayWorker::setMonitorPosition(QHash<Monitor *, QPair<int, int>> monitorPosition)
+void DisplayWorker::updateMonitorPosition(const QHash<Monitor *, QPair<int, int>> &monitorPosition)
+{
+    for (auto it(monitorPosition.cbegin()); it != monitorPosition.cend(); ++it) {
+        it.key()->setX(it.value().first);
+        it.key()->setY(it.value().second);
+    }
+}
+
+void DisplayWorker::setMonitorPosition(const QHash<Monitor *, QPair<int, int>> monitorPosition)
 {
     if (WQt::Utils::isTreeland()) {
         auto *opCfg = m_reg->outputManager()->createConfiguration();

@@ -62,6 +62,7 @@ DisplayModulePrivate::DisplayModulePrivate(DisplayModule *parent)
     , m_primary(nullptr)
     , m_maxGlobalScale(1.0)
 {
+    qRegisterMetaType<QHash<Monitor *, QPair<int, int>>>("QHash<Monitor *, QPair<int, int>>");
     m_model = new DisplayModel(q_ptr);
     m_worker = new DisplayWorker(m_model, q_ptr);
     init();
@@ -137,6 +138,9 @@ void DisplayModulePrivate::updateVirtualScreens()
         q_ptr->connect(screen, &DccScreen::rotateChanged, q_ptr, &DisplayModule::applyChanged, Qt::QueuedConnection);
         q_ptr->connect(screen, &DccScreen::currentModeChanged, q_ptr, &DisplayModule::applyChanged, Qt::QueuedConnection);
         q_ptr->connect(screen, &DccScreen::wallpaperChanged, q_ptr, &DisplayModule::wallpaperChanged);
+        q_ptr->connect(screen, &DccScreen::scaleChanged, q_ptr, [this, screen]() {
+            updateScale(screen);
+        });
         m_virtualScreens << screen;
     }
     if (changed) {
@@ -279,9 +283,13 @@ QString DisplayModulePrivate::displayMode() const
     return m_displayMode;
 }
 
-void DisplayModulePrivate::setScreenPosition(QList<ScreenData *> screensData)
+void DisplayModulePrivate::setScreenPosition(const QList<ScreenData *> &screensData)
 {
-    qRegisterMetaType<QHash<Monitor *, QPair<int, int>>>("QHash<Monitor *, QPair<int, int>>");
+    m_worker->setMonitorPosition(buildMonitorPosition(screensData));
+}
+
+QHash<Monitor *, QPair<int, int>> DisplayModulePrivate::buildMonitorPosition(const QList<ScreenData *> &screensData)
+{
     QHash<Monitor *, QPair<int, int>> monitorPosition;
     int lstX = 1000000, lstY = 1000000;
     for (auto item : screensData) {
@@ -303,7 +311,40 @@ void DisplayModulePrivate::setScreenPosition(QList<ScreenData *> screensData)
     for (auto it = monitorPosition.cbegin(); it != monitorPosition.cend(); ++it) {
         qDebug() << "applySettings 处理之后:" << it.key()->name() << it.value() << it.key()->w() << it.key()->h();
     }
-    m_worker->setMonitorPosition(monitorPosition);
+    return monitorPosition;
+}
+
+void DisplayModulePrivate::updateScale(DccScreen *item)
+{
+    if (!item || m_model->displayMode() != EXTEND_MODE) {
+        return;
+    }
+    QList<ScreenData *> tmpListItems;
+    ScreenData *pwItem = nullptr;
+    for (auto obj : m_virtualScreens) {
+        if (obj) {
+            ScreenData *tmpItem = new ScreenData(obj);
+            tmpListItems.append(tmpItem);
+            if (obj == item) {
+                pwItem = tmpItem;
+            }
+        }
+    }
+    if (tmpListItems.size() < 2 || !pwItem) {
+        qDeleteAll(tmpListItems);
+        return;
+    }
+    ConcatScreen *concatScreen = new ConcatScreen(tmpListItems, pwItem);
+    concatScreen->executemultiScreenAlgo(true);
+    delete concatScreen;
+
+    auto monitorPosition = buildMonitorPosition(tmpListItems);
+    m_worker->updateMonitorPosition(monitorPosition);
+    qDeleteAll(tmpListItems);
+    // 设置过快会导致treeland崩溃
+    QTimer::singleShot(300, q_ptr, [this, monitorPosition] {
+        m_worker->setMonitorPosition(monitorPosition);
+    });
 }
 
 DisplayModule::DisplayModule(QObject *parent)
@@ -572,6 +613,7 @@ void DisplayModule::executemultiScreenAlgo(QList<QObject *> listItems, QObject *
         }
     }
     if (tmpListItems.size() < 2 || !pwItem) {
+        qDeleteAll(tmpListItems);
         return;
     }
     ConcatScreen *concatScreen = new ConcatScreen(tmpListItems, pwItem);

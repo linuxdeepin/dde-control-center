@@ -59,7 +59,8 @@ public Q_SLOTS:
 #endif
     void setMonitorResolution(Monitor *mon, const int mode);
     void setMonitorBrightness(Monitor *mon, const double brightness);
-    void setMonitorPosition(QHash<Monitor *, QPair<int, int>> monitorPosition);
+    void updateMonitorPosition(const QHash<Monitor *, QPair<int, int>> &monitorPosition);
+    void setMonitorPosition(const QHash<Monitor *, QPair<int, int> > monitorPosition);
     void setUiScale(const double value);
     void setIndividualScaling(Monitor *m, const double scaling);
     void setTouchScreenAssociation(const QString &monitor, const QString &touchscreenUUID);

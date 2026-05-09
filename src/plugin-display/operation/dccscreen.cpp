@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "dccscreen.h"
@@ -123,6 +123,9 @@ void DccScreenPrivate::setMonitors(QList<Monitor *> monitors)
     q_ptr->connect(monitor(), &Monitor::currentModeChanged, q_ptr, &DccScreen::currentModeChanged);
     q_ptr->connect(monitor(), &Monitor::enableChanged, q_ptr, &DccScreen::enableChanged);
     q_ptr->connect(monitor(), &Monitor::rotateChanged, q_ptr, &DccScreen::rotateChanged);
+    q_ptr->connect(monitor(), &Monitor::scaleChanged, q_ptr, &DccScreen::scaleChanged);
+    q_ptr->connect(monitor(), &Monitor::scaleChanged, q_ptr, &DccScreen::widthChanged);
+    q_ptr->connect(monitor(), &Monitor::scaleChanged, q_ptr, &DccScreen::heightChanged);
     q_ptr->connect(monitor(), &Monitor::xChanged, q_ptr, &DccScreen::xChanged);
     q_ptr->connect(monitor(), &Monitor::yChanged, q_ptr, &DccScreen::yChanged);
     q_ptr->connect(monitor(), &Monitor::wChanged, q_ptr, &DccScreen::widthChanged);

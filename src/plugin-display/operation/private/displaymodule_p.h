@@ -1,16 +1,19 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DISPLAYMODULE_P_H
 #define DISPLAYMODULE_P_H
 
+#include <QHash>
 #include <QObject>
+#include <QPair>
 
 namespace dccV25 {
 class DisplayWorker;
 class DisplayModel;
 class DisplayModule;
 class DccScreen;
+class Monitor;
 class ScreenData;
 
 class DisplayModulePrivate
@@ -29,7 +32,9 @@ public:
     void updateMaxGlobalScale();
     DccScreen *primary() const;
     QString displayMode() const;
-    void setScreenPosition(QList<ScreenData *> screensData);
+    void setScreenPosition(const QList<ScreenData *> &screensData);
+    void updateScale(DccScreen *item);
+    QHash<Monitor *, QPair<int, int>> buildMonitorPosition(const QList<ScreenData *> &screensData);
 
 public:
     DisplayModule *q_ptr;
