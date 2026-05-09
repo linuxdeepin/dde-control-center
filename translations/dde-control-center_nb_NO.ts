@@ -1125,10 +1125,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2466,10 +2462,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>X-Large</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3829,6 +3821,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UeProgramLicenseDialog</name>
+    <message>
+        <source>Agree and Join User Experience Program</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -37,6 +37,7 @@ class SystemInfoModel : public QObject
     Q_PROPERTY(QString userLicense READ userLicense NOTIFY userLicenseChanged FINAL)
     Q_PROPERTY(Qt::TextFormat userLicenseFormat READ userLicenseFormat NOTIFY userLicenseFormatChanged FINAL)
     Q_PROPERTY(QString userExperienceProgramText READ userExperienceProgramText NOTIFY userExperienceProgramTextChanged FINAL)
+    Q_PROPERTY(QString ueProgramLicenseContent READ ueProgramLicenseContent NOTIFY ueProgramLicenseContentChanged FINAL)
     Q_PROPERTY(bool joinUeProgram READ joinUeProgram NOTIFY joinUeProgramChanged FINAL)
 
     Q_PROPERTY(QString productName READ productName NOTIFY productNameChanged FINAL)
@@ -86,6 +87,9 @@ public:
 
     QString userExperienceProgramText() const;
     void setUserExperienceProgramText(const QString &newUserExperienceProgramText);
+
+    QString ueProgramLicenseContent() const;
+    void setUeProgramLicenseContent(const QString &content);
 
     bool joinUeProgram() const;
     void setJoinUeProgram(bool newJoinUeProgram);
@@ -142,6 +146,8 @@ Q_SIGNALS:
 
     void userExperienceProgramTextChanged();
 
+    void ueProgramLicenseContentChanged();
+
     void joinUeProgramChanged(const bool enable) const;
 
     void systemCopyrightChanged();
@@ -197,6 +203,7 @@ private:
     QString m_userLicense;
     // 用户体验计划文本
     QString m_userExperienceProgramText;
+    QString m_ueProgramLicenseContent;
     bool m_joinUeProgram;
 
     QString m_systemCopyright;

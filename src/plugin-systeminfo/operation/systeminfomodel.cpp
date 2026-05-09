@@ -275,6 +275,19 @@ void SystemInfoModel::setUserExperienceProgramText(const QString &newUserExperie
     Q_EMIT userExperienceProgramTextChanged();
 }
 
+QString SystemInfoModel::ueProgramLicenseContent() const
+{
+    return m_ueProgramLicenseContent;
+}
+
+void SystemInfoModel::setUeProgramLicenseContent(const QString &content)
+{
+    if (m_ueProgramLicenseContent == content)
+        return;
+    m_ueProgramLicenseContent = content;
+    Q_EMIT ueProgramLicenseContentChanged();
+}
+
 QString SystemInfoModel::userLicense() const
 {
     return m_userLicense;

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 // import org.deepin.dtk 1.0 as D
 import QtQuick 2.15
@@ -31,24 +31,31 @@ DccObject {
                 }
             }
 
-            Window {
-                id: modalDialog
-                visible: false
-                flags: Qt.Window
-                modality: Qt.ApplicationModal
-                color: "transparent"
-                D.DWindow.enabled: true
-                opacity: 0.0
+            Loader {
+                id: licenseLoader
+                active: false
+                sourceComponent: UeProgramLicenseDialog {
+                    onClosing: function (close) {
+                        dccData.systemInfoWork().cancelUeProgram()
+                        licenseLoader.active = false
+                    }
+                }
+                onLoaded: function () {
+                    var parentWin = Window.window
+                    if (parentWin) {
+                        licenseLoader.item.transientParent = parentWin
+                    }
+                    licenseLoader.item.show()
+                }
             }
 
             Connections {
                 target: dccData
                 function onRequestUeProgram(visible) {
-
                     if (visible) {
-                        modalDialog.show()
+                        licenseLoader.active = true
                     } else {
-                        modalDialog.close()
+                        licenseLoader.active = false
                     }
                 }
             }

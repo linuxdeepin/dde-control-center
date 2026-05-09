@@ -35,8 +35,6 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
     , m_systemInfoDBusProxy(new SystemInfoDBusProxy(this))
-    , m_process(nullptr)
-    , m_content("")
     , m_title("")
     , m_dBusUeProgram(nullptr)
 {
@@ -78,12 +76,6 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
 
 SystemInfoWork::~SystemInfoWork()
 {
-    if (m_process) {
-        //如果控制中心被强制关闭，需要用kill来杀掉没有被关闭的窗口
-        kill(static_cast<__pid_t>(m_process->processId()), 15);
-        m_process->deleteLater();
-        m_process = nullptr;
-    }
 }
 
 void SystemInfoWork::activate()
@@ -381,49 +373,16 @@ void SystemInfoWork::setUeProgram(bool enabled)
     QDateTime current_date_time = QDateTime::currentDateTime();
     QString current_date = current_date_time.toString("yyyy-MM-dd hh:mm::ss.zzz");
     if (enabled && (isUeProgramEnabled() != enabled)) {
+        qInfo() << "User opened experience project switch";
+        QString contentPath = getUserExpContent();
+        QString content;
+        QFile file(contentPath);
+        if (file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            content = QString::fromUtf8(file.readAll());
+            file.close();
+        }
+        m_model->setUeProgramLicenseContent(content);
         Q_EMIT requestUeProgram(true);
-        qInfo() << "Suser opened experience project switch";
-        // 打开license-dialog必要的三个参数:标题、license文件路径、checkBtn的Text
-        QString allowContent(tr("Agree and Join User Experience Program"));
-
-               // license路径
-        m_content = getUserExpContent();
-
-        m_process = new QProcess(this);
-
-        auto pathType = "-c";
-        const QStringList &sl {
-            "zh_CN",
-            "zh_HK",
-            "zh_TW",
-            "ug_CN", // 维语
-            "bo_CN" // 藏语
-        };
-        if (!sl.contains(QLocale::system().name()))
-            pathType = "-e";
-            
-        auto themeType = Dtk::Gui::DGuiApplicationHelper::instance()->themeType();
-        QString theme = themeType == Dtk::Gui::DGuiApplicationHelper::DarkType ? "dark" : "light";
-        
-        m_process->start("dde-license-dialog",
-                         QStringList() << "-t" << m_title << pathType << m_content << "-a" << allowContent << "-p" << theme << "-i" << "preferences-system");
-        qDebug()<<" Deliver content QStringList() = "<<"dde-license-dialog"
-                                                     << "-t" << m_title << pathType << m_content << "-a" << allowContent << "-p" << theme << "-i" << "preferences-system";
-        connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, [=](int result) {
-            if (96 == result) {
-                if (!m_model->joinUeProgram()) {
-                    m_model->setJoinUeProgram(enabled);
-                    qInfo() << QString("On %1, users open the switch to join the user experience program!").arg(current_date);
-                }
-                setUeProgramEnabled(enabled);
-            } else {
-                m_model->setJoinUeProgram(isUeProgramEnabled());
-                qInfo() << QString("On %1, users cancel the switch to join the user experience program!").arg(current_date);
-            }
-            Q_EMIT requestUeProgram(false);
-            m_process->deleteLater();
-            m_process = nullptr;
-        });
     } else {
         if (isUeProgramEnabled() != enabled) {
             setUeProgramEnabled(enabled);
@@ -434,6 +393,27 @@ void SystemInfoWork::setUeProgram(bool enabled)
             qDebug() << QString("On %1, users cancel the switch to join the user experience program!").arg(current_date);
         }
     }
+}
+
+void SystemInfoWork::agreeUeProgram()
+{
+    QDateTime current_date_time = QDateTime::currentDateTime();
+    QString current_date = current_date_time.toString("yyyy-MM-dd hh:mm::ss.zzz");
+    if (!m_model->joinUeProgram()) {
+        m_model->setJoinUeProgram(true);
+        qInfo() << QString("On %1, users open the switch to join the user experience program!").arg(current_date);
+    }
+    setUeProgramEnabled(true);
+    Q_EMIT requestUeProgram(false);
+}
+
+void SystemInfoWork::cancelUeProgram()
+{
+    QDateTime current_date_time = QDateTime::currentDateTime();
+    QString current_date = current_date_time.toString("yyyy-MM-dd hh:mm::ss.zzz");
+    m_model->setJoinUeProgram(isUeProgramEnabled());
+    qInfo() << QString("On %1, users cancel the switch to join the user experience program!").arg(current_date);
+    Q_EMIT requestUeProgram(false);
 }
 
 void SystemInfoWork::showActivatorDialog()

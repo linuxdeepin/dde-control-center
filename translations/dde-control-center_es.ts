@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="es">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="es">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -193,7 +195,7 @@ Para garantizar el acceso:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>La autenticación biométrica es una función de verificación de identidad de usuario proporcionada por UnionTech Software Technology Co., Ltd. Mediante la autenticación biométrica, los datos biométricos recopilados se comparan con los almacenados en el dispositivo, y la identidad del usuario se verifica en función del resultado de la comparación.
@@ -240,7 +242,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>La autenticación biométrica es una función de autenticación de identidad de usuario proporcionada por UnionTech Software Technology Co., Ltd. Mediante la autenticación biométrica, los datos biométricos recopilados se compararán con los almacenados en el dispositivo y la identidad del usuario se verificará con base en el resultado de la comparación.
@@ -291,7 +293,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>La autenticación biométrica es una función de verificación de identidad de usuario proporcionada por UnionTech Software Technology Co., Ltd. Mediante la autenticación biométrica, los datos biométricos recopilados se comparan con los almacenados en el dispositivo, y la identidad del usuario se verifica en función del resultado de la comparación.
@@ -1142,10 +1144,6 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
         <translation>https://www.uniontech.com/agreement/experience-en</translation>
-    </message>
-    <message>
-        <source>Agree and Join User Experience Program</source>
-        <translation>Aceptar y unirse al programa de experiencia de usuario</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
@@ -2483,10 +2481,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Large</source>
         <translation>Grande</translation>
-    </message>
-    <message>
-        <source>X-Large</source>
-        <translation>Extra grande</translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
@@ -3846,6 +3840,21 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Common</source>
         <translation>General</translation>
+    </message>
+</context>
+<context>
+    <name>UeProgramLicenseDialog</name>
+    <message>
+        <source>Agree and Join User Experience Program</source>
+        <translation type="unfinished">Aceptar y unirse al programa de experiencia de usuario</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">Cancelar</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished">Confirmar</translation>
     </message>
 </context>
 <context>

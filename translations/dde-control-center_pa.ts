@@ -1129,10 +1129,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
         <translation type="unfinished"></translation>
     </message>
@@ -2466,10 +2462,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>X-Large</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3829,6 +3821,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UeProgramLicenseDialog</name>
+    <message>
+        <source>Agree and Join User Experience Program</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished">ਰੱਦ ਕਰੋ</translation>
+    </message>
+    <message>
+        <source>Confirm</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

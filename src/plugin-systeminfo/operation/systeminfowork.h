@@ -4,8 +4,6 @@
 #ifndef SYSTEMINFOWORK_H
 #define SYSTEMINFOWORK_H
 
-#include <qprocess.h>
-
 #include <QDBusInterface>
 #include <QDBusMessage>
 #include <QObject>
@@ -36,6 +34,8 @@ public:
     QString getSystemInstallDate(int shortDateFormat, QString timezone);
 
     Q_INVOKABLE void setUeProgram(bool enabled);
+    Q_INVOKABLE void agreeUeProgram();
+    Q_INVOKABLE void cancelUeProgram();
     Q_INVOKABLE void showActivatorDialog();
     Q_INVOKABLE void showDetail();
     Q_INVOKABLE void copyTextToClipboard(const QString &text); // Add new invokable method
@@ -64,8 +64,6 @@ private:
 private:
     SystemInfoModel *m_model;
     SystemInfoDBusProxy *m_systemInfoDBusProxy;
-    QProcess *m_process = nullptr;
-    QString m_content;
     QString m_title;
     QDBusInterface *m_dBusUeProgram; // for user experience program
 
