@@ -1027,7 +1027,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>Restart now</source>
-        <translation>Reinicar ahora</translation>
+        <translation>Reiniciar ahora</translation>
     </message>
     <message>
         <source>Dismiss</source>
