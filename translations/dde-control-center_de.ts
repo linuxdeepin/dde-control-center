@@ -954,19 +954,19 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation type="unfinished"/>
+        <translation>Große Größe</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation type="unfinished"/>
+        <translation>Kleine Größe</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Konnte keinen Root-Zugang erhalten</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Bitte melden Sie sich zuerst mit Ihrer Union ID an</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
