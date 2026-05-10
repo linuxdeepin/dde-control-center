@@ -1332,7 +1332,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"/>
+        <translation>SInd Sie sicher, dass Sie von WeChat entkoppeln wollen?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
@@ -1340,7 +1340,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"/>
+        <translation>Lassen Sie mich darüber nachdenken.</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
