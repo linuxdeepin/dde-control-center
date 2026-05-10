@@ -590,7 +590,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation type="unfinished"/>
+        <translation>Nach dem Öffnen benötigen Sie zum Menü-Bearbeiten ein Passwort</translation>
     </message>
     <message>
         <source>Change Password</source>
