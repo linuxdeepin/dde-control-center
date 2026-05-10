@@ -970,31 +970,31 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>Kann Ihre PC-Informationen nicht lesen</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>Keine Netzwerkverbindung</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Laden von Zertifikaten fehlgeschlagen, kein root-Zugang möglich</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Signaturprüfung fehlgeschlagen, kein root-Zugang möglich</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Zustimmen und am Benutzererfahrungsprogramm teilnehmen</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>Der Haftungsausschluss für den Entwicklermodus</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Zustimmen und root-Zugang anfordern</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
