@@ -1320,15 +1320,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Unlinked</source>
-        <translation>Entbunden</translation>
+        <translation>Nicht-verknüpft</translation>
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"/>
+        <translation>Entkoppeln</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"/>
+        <translation>Verknüpfung</translation>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
