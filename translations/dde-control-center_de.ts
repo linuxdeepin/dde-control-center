@@ -1798,15 +1798,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Mitte</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Nur auf %1</translation>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
-        <translation type="unfinished"/>
+        <translation>Einstellungen mehrerer Bildschirme</translation>
     </message>
     <message>
         <source>Identify</source>
