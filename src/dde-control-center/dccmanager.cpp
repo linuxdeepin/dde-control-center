@@ -36,7 +36,7 @@
 #include <dde-api/eventlogger.hpp>
 
 // Event ID for control center page stay (10-digit number)
-constexpr qint64 EVENT_LOGGER_CONTROL_CENTER_STAY = 1000600012;
+constexpr qint64 EVENT_LOGGER_CONTROL_CENTER_STAY = 1000610008;
 #endif
 
 DCORE_USE_NAMESPACE
