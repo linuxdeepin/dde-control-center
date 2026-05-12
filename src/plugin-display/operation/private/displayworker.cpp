@@ -85,10 +85,10 @@ void DisplayWorker::active()
         //                               "AllowEnableMultiScaleRatio",
         //                               false));
 
-        QDBusPendingCallWatcher *scalewatcher = new QDBusPendingCallWatcher(m_displayInter->GetScaleFactor());
+        QDBusPendingCallWatcher *scalewatcher = new QDBusPendingCallWatcher(m_displayInter->GetScaleFactor(), this);
         connect(scalewatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScaleFinished);
 
-        QDBusPendingCallWatcher *screenscaleswatcher = new QDBusPendingCallWatcher(m_displayInter->GetScreenScaleFactors());
+        QDBusPendingCallWatcher *screenscaleswatcher = new QDBusPendingCallWatcher(m_displayInter->GetScreenScaleFactors(), this);
         connect(screenscaleswatcher, &QDBusPendingCallWatcher::finished, this, &DisplayWorker::onGetScreenScalesFinished);
 
         onMonitorsBrightnessChanged(m_displayInter->brightness());
