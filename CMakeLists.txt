@@ -135,11 +135,11 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
 endif()
 
 add_definitions(-DTRANSLATE_READ_DIR="${DCC_TRANSLATE_READ_DIR}")
-# 插件安装目录
-set(DCC_PLUGINS_INSTALL_DIR ${DCC_DEBUG_LIBDIR}/${DCC_PLUGINS_DIR} CACHE STRING "Install dir for dde-control-center plugins")
-# 插件读取目录
+# 插件安装目录 (始终安装到系统目录)
+set(DCC_PLUGINS_INSTALL_DIR ${DCC_INSTALL_DIR}/${DCC_PLUGINS_DIR} CACHE STRING "Install dir for dde-control-center plugins")
+# 插件读取目录 (Debug模式读取构建目录, Release模式读取系统目录)
 set(MODULE_READ_DIR "${DCC_DEBUG_LIBDIR}" CACHE STRING "Dir to find dde-control-center modules")
-set(PLUGINS_READ_DIR "${DCC_PLUGINS_INSTALL_DIR}" CACHE STRING "Dir to find dde-control-center plugins")
+set(PLUGINS_READ_DIR "${DCC_DEBUG_LIBDIR}/${DCC_PLUGINS_DIR}" CACHE STRING "Dir to find dde-control-center plugins")
 
 GNUInstallDirs_get_absolute_install_dir(
     MODULE_READ_FULL_DIR
