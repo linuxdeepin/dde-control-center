@@ -5,6 +5,8 @@
 #include "dccpluginloader.h"
 
 #include "dccfactory.h"
+#include "dccfactoryadapter.h"
+#include "dccfactoryold.h"
 #include "dccmanager.h"
 #include "dccobject.h"
 #include "dccobject_p.h"
@@ -82,7 +84,7 @@ QObject *DccPluginLoader::data() const
     return m_data;
 }
 
-DccFactory *DccPluginLoader::factory() const
+DccFactory_20 *DccPluginLoader::factory() const
 {
     return m_factory;
 }
@@ -285,13 +287,6 @@ void DccPluginLoader::loadData()
 
     const auto &meta = loader.metaData();
     const auto iid = meta["IID"].toString();
-    if (iid.isEmpty() || iid != QString(qobject_interface_iid<DccFactory *>())) {
-        setLog("prepare factory iid error:" + iid);
-        transitionStatus(DataErr);
-        loader.unload();
-        return;
-    }
-
     QObject *instance = loader.instance();
     if (!instance) {
         setLog("prepare factory instance failed:" + loader.errorString());
@@ -300,15 +295,25 @@ void DccPluginLoader::loadData()
         return;
     }
 
-    DccFactory *factory = qobject_cast<DccFactory *>(instance);
-    if (!factory) {
-        setLog("prepare factory cast failed.");
-        transitionStatus(DataErr);
-        loader.unload();
+    // 优先尝试新版工厂 (v2.0)
+    DccFactory_20 *factory20 = qobject_cast<DccFactory_20 *>(instance);
+    if (factory20) {
+        m_factory = factory20;
         return;
     }
 
-    m_factory = factory;
+    // 尝试旧版工厂 (v1.0)，使用适配器包装
+    DccFactory *factory10 = qobject_cast<DccFactory *>(instance);
+    if (factory10) {
+        setLog("using adapter for old factory");
+        m_factory = new DccFactoryAdapter(factory10, this);
+        return;
+    }
+
+    // 未知 IID
+    setLog("prepare factory iid error, unknown iid:" + iid);
+    transitionStatus(DataErr);
+    loader.unload();
 }
 
 void DccPluginLoader::createData()

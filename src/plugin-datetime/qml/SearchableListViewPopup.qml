@@ -16,7 +16,7 @@ Popup {
     popupType: Popup.Window
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
 
-    PopupHandle.enableBlurWindow: true
+    // PopupHandle.enableBlurWindow: true
 
     property int maxVisibleItems: 10
     property int highlightedIndex: 0

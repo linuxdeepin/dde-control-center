@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DEFAPPMODEL_H
@@ -30,6 +30,13 @@ public:
         Terminal,
         Count,
     };
+    // from DccFactory
+    static void registerType();
+    void active();
+    const QVariantMap get(const QVariantMap &param);
+    const QVariantMap set(const QVariantMap &param);
+Q_SIGNALS:
+    void propertiesChanged(const QVariantMap &properties);
 
 public Q_SLOTS:
 
