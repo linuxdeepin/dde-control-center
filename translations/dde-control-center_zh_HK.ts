@@ -1938,6 +1938,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Scaling</source>
         <translation>縮放</translation>
     </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation>自動調節亮度</translation>
+    </message>
 </context>
 <context>
     <name>Dock</name>
