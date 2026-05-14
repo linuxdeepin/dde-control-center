@@ -1941,6 +1941,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Scaling</source>
         <translation>缩放</translation>
     </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation>自动调节亮度</translation>
+    </message>
 </context>
 <context>
     <name>Dock</name>
