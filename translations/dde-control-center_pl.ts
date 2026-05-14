@@ -1944,6 +1944,10 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
         <source>Scaling</source>
         <translation>Skalowanie</translation>
     </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Dock</name>
