@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DISPLAYMODEL_H
@@ -65,6 +65,15 @@ public:
     inline bool isAudtoLightAdjust() const { return m_isAutoLightAdjust; }
     void setAutoLightAdjust(bool);
 
+    inline bool autoBacklightSupported() const { return m_autoBacklightSupported; }
+    void setAutoBacklightSupported(bool supported);
+
+    inline bool autoBacklightEnabled() const { return m_autoBacklightEnabled; }
+    void setAutoBacklightEnabled(bool enabled);
+
+    inline QString builtinMonitorName() const { return m_builtinMonitorName; }
+    void setBuiltinMonitorName(const QString &name);
+
     inline BrightnessMap brightnessMap() const { return m_brightnessMap; }
     void setBrightnessMap(const BrightnessMap &brightnessMap);
 
@@ -107,6 +116,10 @@ Q_SIGNALS:
     void redshiftVaildChanged(const bool isvalid) const;
     void autoLightAdjustSettingChanged(bool setting) const;
     void autoLightAdjustVaildChanged(bool isvalid) const;
+    void autoBacklightSupportedChanged(bool supported) const;
+    void autoBacklightEnabledChanged(bool enabled) const;
+    void builtinMonitorNameChanged(const QString &name) const;
+    void requestSetAutoBacklightEnable(bool enabled) const;
     void touchscreenListChanged() const;
     void touchscreenMapChanged() const;
     void maxBacklightBrightnessChanged(uint value);
@@ -150,6 +163,9 @@ private:
     bool m_RefreshRateEnable {false};
     bool m_isAutoLightAdjust {false};
     bool m_AutoLightAdjustIsValid {false};
+    bool m_autoBacklightSupported {false};
+    bool m_autoBacklightEnabled {false};
+    QString m_builtinMonitorName;
     bool m_allowEnableMultiScaleRatio;
     bool m_resolutionRefreshEnable;
     bool m_brightnessEnable;

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DISPLAYDBUSPROXY_H
@@ -88,6 +88,14 @@ public:
     Q_PROPERTY(bool HasAmbientLightSensor READ hasAmbientLightSensor NOTIFY HasAmbientLightSensorChanged)
     bool hasAmbientLightSensor();
 
+    // auto brightness
+    Q_PROPERTY(bool AutoBrightnessSupported READ autoBrightnessSupported NOTIFY AutoBrightnessSupportedChanged)
+    bool autoBrightnessSupported();
+
+    Q_PROPERTY(bool AutoBrightnessEnabled READ autoBrightnessEnabled WRITE setAutoBrightnessEnabled NOTIFY AutoBrightnessEnabledChanged)
+    bool autoBrightnessEnabled();
+    void setAutoBrightnessEnabled(bool enabled);
+
     Q_PROPERTY(QString WallpaperURls READ wallpaperURls NOTIFY WallpaperURlsChanged FINAL)
     QString wallpaperURls() const;
 
@@ -113,6 +121,8 @@ public Q_SLOTS: // METHODS
     QDBusPendingReply<> SetBrightness(const QString &in0, double in1);
     QDBusPendingReply<> SetColorTemperature(int in0);
     QDBusPendingReply<> SetCustomColorTempTimePeriod(const QString &in0);
+    QDBusPendingReply<> SetAutoBrightnessEnabled(bool in0);
+    QString GetBuiltinMonitorName();
     QDBusPendingReply<> SetMethodAdjustCCT(int in0);
     QDBusPendingReply<> SetPrimary(const QString &in0);
     QDBusPendingReply<> SwitchMode(uchar in0, const QString &in1);
@@ -152,6 +162,10 @@ Q_SIGNALS: // SIGNALS
     // power
     void AmbientLightAdjustBrightnessChanged(bool value) const;
     void HasAmbientLightSensorChanged(bool value) const;
+
+    // auto brightness
+    void AutoBrightnessSupportedChanged(bool value) const;
+    void AutoBrightnessEnabledChanged(bool value) const;
     void WallpaperURlsChanged(const QString &value) const;
     void WorkspaceSwitched(int oldIndex,int newIndex);
 

@@ -108,6 +108,9 @@ void DisplayWorker::active()
         m_model->setmaxBacklightBrightness(m_displayInter->maxBacklightBrightness());
         m_model->setAutoLightAdjustIsValid(m_displayInter->hasAmbientLightSensor());
 
+        // 初始化自动亮度
+        initAutoBacklight();
+
         bool isRedshiftValid = true;
         QDBusReply<bool> reply = m_displayInter->SupportSetColorTemperatureSync();
         if (QDBusError::NoError == reply.error().type())
@@ -960,6 +963,45 @@ void DisplayWorker::updateControl()
 void DisplayWorker::setAmbientLightAdjustBrightness(bool able)
 {
     m_displayInter->setAmbientLightAdjustBrightness(able);
+}
+
+void DisplayWorker::initAutoBacklight()
+{
+    if (!m_displayInter)
+        return;
+
+    // 读取自动亮度支持状态
+    bool supported = m_displayInter->autoBrightnessSupported();
+    m_model->setAutoBacklightSupported(supported);
+
+    // 读取自动亮度启用状态
+    bool enabled = m_displayInter->autoBrightnessEnabled();
+    m_model->setAutoBacklightEnabled(enabled);
+
+    // 获取内置屏幕名称
+    QString builtinName = m_displayInter->GetBuiltinMonitorName();
+    if (!builtinName.isEmpty()) {
+        m_model->setBuiltinMonitorName(builtinName);
+    }
+
+    // 连接信号
+    connect(m_displayInter, &DisplayDBusProxy::AutoBrightnessSupportedChanged, m_model, &DisplayModel::setAutoBacklightSupported);
+    connect(m_displayInter, &DisplayDBusProxy::AutoBrightnessEnabledChanged, m_model, &DisplayModel::setAutoBacklightEnabled);
+    connect(m_model, &DisplayModel::requestSetAutoBacklightEnable, this, &DisplayWorker::setAutoBacklightEnabled);
+}
+
+void DisplayWorker::setAutoBacklightEnabled(const bool value)
+{
+    if (!m_displayInter)
+        return;
+
+    QDBusPendingReply<> reply = m_displayInter->SetAutoBrightnessEnabled(value);
+    reply.waitForFinished();
+    if (reply.isError()) {
+        qCWarning(DdcDisplayWorker) << "Set auto brightness enabled failed, error: " << reply.error().message();
+    } else {
+        qCInfo(DdcDisplayWorker) << "Set `AutoBrightnessEnabled`, value: " << value;
+    }
 }
 
 void DisplayWorker::setTouchScreenAssociation(const QString &monitor, const QString &touchscreenUUID)

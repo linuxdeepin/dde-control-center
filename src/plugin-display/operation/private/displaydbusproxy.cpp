@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "displaydbusproxy.h"
@@ -56,6 +56,22 @@ void DisplayDBusProxy::setAmbientLightAdjustBrightness(bool value)
 bool DisplayDBusProxy::hasAmbientLightSensor()
 {
     return qvariant_cast<bool>(m_dBusPowerInter->property("HasAmbientLightSensor"));
+}
+
+// auto brightness
+bool DisplayDBusProxy::autoBrightnessSupported()
+{
+    return qvariant_cast<bool>(m_dBusDisplayInter->property("AutoBrightnessSupported"));
+}
+
+bool DisplayDBusProxy::autoBrightnessEnabled()
+{
+    return qvariant_cast<bool>(m_dBusDisplayInter->property("AutoBrightnessEnabled"));
+}
+
+void DisplayDBusProxy::setAutoBrightnessEnabled(bool enabled)
+{
+    m_dBusDisplayInter->setProperty("AutoBrightnessEnabled", enabled);
 }
 
 QString DisplayDBusProxy::wallpaperURls() const
@@ -307,6 +323,22 @@ QDBusPendingReply<> DisplayDBusProxy::SetColorTemperature(int in0)
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
     return m_dBusDisplayInter->asyncCallWithArgumentList(QStringLiteral("SetColorTemperature"), argumentList);
+}
+
+QDBusPendingReply<> DisplayDBusProxy::SetAutoBrightnessEnabled(bool in0)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(in0);
+    return m_dBusDisplayInter->asyncCallWithArgumentList(QStringLiteral("SetAutoBrightnessEnabled"), argumentList);
+}
+
+QString DisplayDBusProxy::GetBuiltinMonitorName()
+{
+    QDBusMessage reply = m_dBusDisplayInter->call(QStringLiteral("GetBuiltinMonitor"));
+    if (reply.type() == QDBusMessage::ReplyMessage && reply.arguments().size() > 0) {
+        return reply.arguments().at(0).toString();
+    }
+    return QString();
 }
 
 QDBusPendingReply<> DisplayDBusProxy::SetCustomColorTempTimePeriod(const QString &in0)
