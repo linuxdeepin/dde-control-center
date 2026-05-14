@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #ifndef WALLPAPERMODEL_H
@@ -8,6 +8,31 @@
 #include <QAbstractItemModel>
 #include <QPixmap>
 
+namespace WallpaperEnums {
+Q_NAMESPACE
+
+enum WallpaperType {
+    Wallpaper_all = 0,
+    Wallpaper_Sys,
+    Wallpaper_Custom,
+    Wallpaper_Solid,
+    Wallpaper_Live,
+    Wallpaper_Unknown
+};
+Q_ENUM_NS(WallpaperType)
+
+enum WallpaperInstallStatus {
+    Download_Installed = 0,
+    Download_Downloading = 1,
+    Download_Installing = 2,
+    Download_NotInstalled = 3,
+};
+Q_ENUM_NS(WallpaperInstallStatus)
+
+} // namespace WallpaperEnums
+
+using namespace WallpaperEnums;
+
 struct WallpaperItem {
     QString url;
     QString picPath;
@@ -16,6 +41,10 @@ struct WallpaperItem {
     qint64 lastModifiedTime;
     bool configurable;
     bool selected;
+    QString packageName;
+    WallpaperInstallStatus installStatus;
+    double installProgress;
+    WallpaperType type;
 };
 
 enum ItemTypeRole {
@@ -26,6 +55,10 @@ enum ItemTypeRole {
     Item_lastModifiedTime_Role,
     Item_configurable_Role,
     Item_Selected_Role,
+    Item_PackageName_Role,
+    Item_InstallStatus_Role,
+    Item_InstallProgress_Role,
+    Item_WallpaperTypeRole,
 };
 
 typedef QSharedPointer<WallpaperItem> WallpaperItemPtr;
@@ -114,6 +147,7 @@ public:
     QModelIndex itemIndex(WallpaperItemPtr item) const;
     void resetData(const QList<WallpaperItemPtr> &list);
     void updateSelected(const QStringList &selectedLists);
+    void updateItemData(const WallpaperItemPtr wallpaperItem, const QVector<int> &roles);
 protected:
     QHash<int, QByteArray> roleNames() const override;
 private:

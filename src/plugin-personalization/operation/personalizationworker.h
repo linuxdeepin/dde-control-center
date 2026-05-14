@@ -4,6 +4,7 @@
 #ifndef PERSONALIZATIONWORKER_H
 #define PERSONALIZATIONWORKER_H
 
+#include "operation/model/wallpapermodel.h"
 #include "operation/personalizationexport.hpp"
 #include "operation/screensaverprovider.h"
 #include "operation/wallpaperprovider.h"
@@ -38,6 +39,7 @@ public Q_SLOTS:
     void setScrollBarPolicy(int policy);
     void setCompactDisplay(bool value);
     void goDownloadTheme();
+    inline bool wallpaperIsValid(WallpaperItemPtr wallpaper) { return !wallpaper.isNull(); }
 
     // 设置给Appearance分别在深色和浅色下的活动色
     void setActiveColors(const QString &activeColors);
@@ -52,6 +54,8 @@ public Q_SLOTS:
     void setScreenSaverIdleTime(int value);
     void setCurrentScreenSaverPicMode(const QString &mode);
     void requestScreenSaverConfig(const QString &name);
+    void requestInstallWallpaper(const QString &id, WallpaperType type);
+    void setWallpaperForMonitor(const QString &screenName, WallpaperItemPtr wallpaper, PersonalizationExport::WallpaperSetOption option);
 
     virtual void setDefaultByType(const QString &type, const QString &value);
     virtual void setDefault(const QJsonObject &value);
@@ -67,9 +71,9 @@ public Q_SLOTS:
     virtual void setAppearanceTheme(const QString &id, bool keepAuto = false);
     virtual void setIconTheme(const QString &id);
     virtual void setCursorTheme(const QString &id);
-    virtual void setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperType type = PersonalizationExport::Type_Image);
-    virtual void setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type = PersonalizationExport::Type_Image);
-    virtual void setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type = PersonalizationExport::Type_Image);
+    virtual void setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image);
+    virtual void setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image);
+    virtual void setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image);
 
 signals:
     void personalizationChanged(const QString &propertyName, const QString &value);

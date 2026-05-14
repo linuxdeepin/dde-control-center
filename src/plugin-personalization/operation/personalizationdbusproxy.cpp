@@ -38,6 +38,10 @@ const QString PowerService = QStringLiteral("org.deepin.dde.Power1");
 const QString PowerPath = QStringLiteral("/org/deepin/dde/Power1");
 const QString PowerInterface = QStringLiteral("org.deepin.dde.Power1");
 
+const static QString LastoreManagerService = QStringLiteral("org.deepin.dde.Lastore1");
+const static QString LastoreManagerPath = QStringLiteral("/org/deepin/dde/Lastore1");
+const static QString LastoreManagerInterface = QStringLiteral("org.deepin.dde.Lastore1.Manager");
+
 const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
 const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
 
@@ -50,6 +54,7 @@ PersonalizationDBusProxy::PersonalizationDBusProxy(QObject *parent)
     m_DaemonInter = new DDBusInterface(DaemonService, DaemonPath, DaemonInterface, QDBusConnection::systemBus(), this);
     m_wallpaperSlideshowInter = new DDBusInterface(WallpaperSlideshowService, WallpaperSlideshowPath, WallpaperSlideshowInterface, QDBusConnection::sessionBus(), this);
     m_powerInter = new DDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
+    m_lastoreManagerInter = new DDBusInterface(LastoreManagerService, LastoreManagerPath, LastoreManagerInterface, QDBusConnection::systemBus(), this);
     if (!DGuiApplicationHelper::testAttribute(DGuiApplicationHelper::IsWaylandPlatform)) {
         m_WMInter = new DDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this);
         m_EffectsInter = new DDBusInterface(EffectsService, EffectsPath, EffectsInterface, QDBusConnection::sessionBus(), this);
@@ -497,4 +502,26 @@ void PersonalizationDBusProxy::setActiveColors(const QString &activeColors)
 bool PersonalizationDBusProxy::OnBattery()
 {
     return qvariant_cast<bool>(m_powerInter->property("OnBattery"));
+}
+
+// Lastore Manager
+QList<QDBusObjectPath> PersonalizationDBusProxy::jobList()
+{
+    return qvariant_cast<QList<QDBusObjectPath>>(m_lastoreManagerInter->property("JobList"));
+}
+
+QDBusPendingReply<QDBusObjectPath> PersonalizationDBusProxy::InstallPackage(const QString &jobname,
+                                                                   const QString &packages)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(jobname) << QVariant::fromValue(packages);
+    return m_lastoreManagerInter->asyncCallWithArgumentList(QStringLiteral("InstallPackage"),
+                                                     argumentList);
+}
+
+void PersonalizationDBusProxy::CleanJob(const QString &in0)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(in0);
+    m_lastoreManagerInter->asyncCallWithArgumentList(QStringLiteral("CleanJob"), argumentList);
 }

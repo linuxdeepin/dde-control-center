@@ -306,7 +306,45 @@ ColumnLayout {
                         fillMode: Image.PreserveAspectCrop
                         asynchronous: true
                         retainWhileLoading: true
+
+                        Item {
+                            id: liveWallpaperInditor
+                            visible: model.type === WallpaperEnums.Wallpaper_Live
+                            anchors.fill: parent
+
+                            DownloadIndicator {
+                                anchors.left: parent.left
+                                anchors.bottom: parent.bottom
+                                anchors.leftMargin: 5
+                                anchors.bottomMargin: 5
+                                implicitWidth: 14
+                                implicitHeight: 14
+                                progress: model.installProgress
+                                opacity: model.installStatus === WallpaperEnums.Download_Installing ? 1.0 : 0
+                                scale: model.installStatus === WallpaperEnums.Download_Installing ? 1.0 : 0.1
+                            }
+
+                            D.DciIcon {
+                                anchors.left: parent.left
+                                anchors.bottom: parent.bottom
+                                anchors.leftMargin: 5
+                                anchors.bottomMargin: 5
+                                sourceSize: Qt.size(18, 18)
+                                name: "wallpaper_download"
+                                visible: model.installStatus === WallpaperEnums.Download_NotInstalled
+                            }
+
+                            D.DciIcon {
+                                anchors.right: parent.right
+                                anchors.bottom: parent.bottom
+                                anchors.rightMargin: 5
+                                anchors.bottomMargin: 5
+                                sourceSize: Qt.size(18, 18)
+                                name: "video_wallpaper"
+                            }
+                        }
                     }
+
 
                     OpacityMask {
                         anchors.fill: parent
@@ -343,7 +381,11 @@ ColumnLayout {
                         acceptedButtons: Qt.LeftButton | Qt.RightButton
                         onClicked: function(mouse) {
                             if (mouse.button === Qt.LeftButton) {
-                                wallpaperItem.requestSetWallpaper(PersonalizationExport.Option_All)
+                                if (model.installStatus === WallpaperEnums.Download_Installed) {
+                                    wallpaperItem.requestSetWallpaper(PersonalizationExport.Option_All)
+                                } else if (model.installStatus === WallpaperEnums.Download_NotInstalled) {
+                                    dccData.worker.requestInstallWallpaper(model.url, WallpaperEnums.Wallpaper_Live)
+                                }
                             } else if (mouse.button === Qt.RightButton && root.enableContextMenu) {
                                 contextMenu.x = mouse.x
                                 contextMenu.y = mouse.y

@@ -121,6 +121,13 @@ public:
     // power
     bool OnBattery();
 
+    // lastore manager
+    Q_PROPERTY(QList<QDBusObjectPath> JobList READ jobList NOTIFY JobListChanged)
+    QList<QDBusObjectPath> jobList();
+
+    QDBusPendingReply<QDBusObjectPath> InstallPackage(const QString &jobname, const QString &packages);
+    void CleanJob(const QString &jobId);
+
 signals:
     // Appearance
     void Changed(const QString &in0, const QString &in1);
@@ -163,6 +170,9 @@ signals:
     // power
     void OnBatteryChanged(bool value);
 
+    // lastore manager
+    void JobListChanged(const QList<QDBusObjectPath> &value) const;
+
 public slots:
     // Appearance
     QString List(const QString &ty);
@@ -189,6 +199,7 @@ private:
     Dtk::Core::DDBusInterface *m_screenSaverInter = nullptr;
     Dtk::Core::DDBusInterface *m_wallpaperSlideshowInter = nullptr;
     Dtk::Core::DDBusInterface *m_powerInter = nullptr;
+    Dtk::Core::DDBusInterface *m_lastoreManagerInter;
 };
 
 #endif // PERSONALIZATIONDBUSPROXY_H

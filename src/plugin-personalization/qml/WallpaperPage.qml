@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
+
 import QtQuick
 import QtQuick.Window
 import QtQuick.Controls
@@ -73,16 +74,11 @@ DccObject {
                     implicitWidth: 197
                     implicitHeight: 110
 
-                    Image {
+                    WallpaperPreviewItem {
                         id: image
                         anchors.fill: parent
-                        source: "image://DccImage/" + dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
-                        sourceSize: Qt.size(197, 110)
-                        mipmap: true
+                        sourcePath: dccData.model.wantToSetWallpaper ? dccData.model.wantToSetWallpaperThumbnail : dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
                         visible: false
-                        fillMode: Image.PreserveAspectCrop
-                        asynchronous: true
-                        retainWhileLoading: true
                     }
 
                     OpacityMask {
@@ -126,6 +122,8 @@ DccObject {
                         return qsTr("System Wallpaper")
                     } else if (dccData.model.solidWallpaperModel.hasWallpaper(cutUrl)) {
                         return qsTr("Solid color wallpaper")
+                    } else if (dccData.model.liveWallpaperModel.hasWallpaper(cutUrl)) {
+                        return qsTr("Live Wallpaper")
                     } else {
                         return qsTr("Customizable wallpapers")
                     }
@@ -136,6 +134,15 @@ DccObject {
                 onParentItemChanged: {
                     if (parentItem)
                         parentItem.implicitHeight = 36
+                }
+
+                page: RowLayout {
+                    DownloadIndicator {
+                        Layout.preferredWidth: 14
+                        Layout.preferredHeight: 14
+                        progress: dccData.model.wantToSetWallpaperProgress
+                        visible: dccData.model.wantToSetWallpaperStatus === WallpaperEnums.Download_Installing
+                    }
                 }
             }
             DccObject {
@@ -248,11 +255,11 @@ DccObject {
     DccObject {
         name: "liveWallpaper"
         parentName: "personalization/wallpaper"
-        visible: false
         displayName: qsTr("Live Wallpaper")
         weight: 600
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
+        visible: DccApp.isTreeland()
         page: WallpaperSelectView {
             model: dccData.model.liveWallpaperModel
             currentItem: dccData.model.wallpaperMap[dccData.model.currentSelectScreen]

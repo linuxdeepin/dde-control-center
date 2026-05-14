@@ -45,11 +45,11 @@ public:
     ~TreeLandWorker();
 
 #ifdef Enable_Treeland
-    void setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperType type) override;
-    void setBackgroundForMonitor(const QString &monitorName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type = PersonalizationExport::Type_Image) override;
+    void setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperSetType type) override;
+    void setBackgroundForMonitor(const QString &monitorName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image) override;
     QString getBackgroundForMonitor(const QString &monitorName);
 
-    void setLockBackForMonitor(const QString &monitorName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type = PersonalizationExport::Type_Image) override;
+    void setLockBackForMonitor(const QString &monitorName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image) override;
     QString getLockBackForMonitor(const QString &monitorName);
 
     void setDefault(const QJsonObject &value) override;

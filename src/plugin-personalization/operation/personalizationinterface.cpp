@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -9,6 +9,7 @@
 #include "operation/x11worker.h"
 #include "dccfactory.h"
 #include "model/thememodel.h"
+#include "model/wallpapermodel.h"
 #include "utils.hpp"
 
 #include <QIcon>
@@ -149,6 +150,7 @@ PersonalizationInterface::PersonalizationInterface(QObject *parent)
         m_work = new X11Worker(m_model, this);
     }
 
+    qmlRegisterUncreatableMetaObject(WallpaperEnums::staticMetaObject, "org.deepin.dcc.personalization", 1, 0, "WallpaperEnums", "WallpaperEnums namespace");
     qmlRegisterType<PersonalizationExport>("org.deepin.dcc.personalization", 1, 0, "PersonalizationExport");
 
     m_globalThemeViewModel->setThemeModel(m_model->getGlobalThemeModel());

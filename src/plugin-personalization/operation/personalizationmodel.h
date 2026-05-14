@@ -5,7 +5,9 @@
 #define PERSONALIZATIONMODEL_H
 
 #include <QObject>
-#include <QDebug>
+#include "model/wallpapermodel.h"
+
+using namespace WallpaperEnums;
 
 class ThemeModel;
 class FontModel;
@@ -54,6 +56,11 @@ class PersonalizationModel : public QObject
 
     Q_PROPERTY(WallpaperSortModel *screenSaverModel MEMBER m_screenSaverSortModel CONSTANT)
     Q_PROPERTY(WallpaperSortModel *picScreenSaverModel MEMBER m_picScreenSaverSortModel CONSTANT)
+
+    Q_PROPERTY(double wantToSetWallpaperProgress WRITE setWantToSetWallpaperProgress READ wantToSetWallpaperProgress NOTIFY wantToSetWallpaperChanged)
+    Q_PROPERTY(WallpaperInstallStatus wantToSetWallpaperStatus WRITE setWantToSetWallpaperStatus READ wantToSetWallpaperStatus NOTIFY wantToSetWallpaperChanged)
+    Q_PROPERTY(QString wantToSetWallpaperThumbnail WRITE setWantToSetWallpaperThumbnail READ wantToSetWallpaperThumbnail NOTIFY wantToSetWallpaperChanged)
+    Q_PROPERTY(bool wantToSetWallpaper WRITE setWantToSetWallpaper READ wantToSetWallpaper NOTIFY wantToSetWallpaperChanged)
 
 public:
     explicit PersonalizationModel(QObject *parent = nullptr);
@@ -139,6 +146,18 @@ public:
     inline QStringList supportEffects() const { return m_supportEffects; }
     void setSupportEffects(const QStringList &value);
 
+    inline double wantToSetWallpaperProgress() const { return m_wantToSetWallpaperProgress; }
+    void setWantToSetWallpaperProgress(double value);
+
+    inline WallpaperInstallStatus wantToSetWallpaperStatus() const { return m_wantToSetWallpaperStatus; }
+    void setWantToSetWallpaperStatus(WallpaperInstallStatus status);
+
+    inline QString wantToSetWallpaperThumbnail() const { return m_wantToSetWallpaperThumbnail; }
+    void setWantToSetWallpaperThumbnail(const QString &value);
+
+    inline bool wantToSetWallpaper() const { return m_wantToSetWallpaper; }
+    void setWantToSetWallpaper(bool value);
+
 Q_SIGNALS:
     void wmChanged(const bool is3d);
     void opacityChanged(double opacity);
@@ -166,6 +185,7 @@ Q_SIGNALS:
     void onBatteryChanged(bool value);
     void miniEffectChanged(bool value);
     void supportEffectsChanged(const QStringList &value);
+    void wantToSetWallpaperChanged();
 private:
     ThemeModel *m_windowModel;
     ThemeModel *m_iconModel;
@@ -213,5 +233,9 @@ private:
     QString m_currentScreenSaverPicMode;
     bool m_onBattery;
     QStringList m_supportEffects;
+    double m_wantToSetWallpaperProgress;
+    WallpaperInstallStatus m_wantToSetWallpaperStatus;
+    QString m_wantToSetWallpaperThumbnail;
+    bool m_wantToSetWallpaper;
 };
 #endif // PERSONALIZATIONMODEL_H

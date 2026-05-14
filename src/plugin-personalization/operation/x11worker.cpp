@@ -5,7 +5,6 @@
 #include "x11worker.h"
 #include "operation/personalizationexport.hpp"
 #include "operation/personalizationworker.h"
-#include "operation/wallpaperprovider.h"
 
 #include <QLoggingCategory>
 #include <QTimer>
@@ -128,7 +127,7 @@ void X11Worker::setMiniEffect(int effect)
     }
 }
 
-void X11Worker::setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperType type)
+void X11Worker::setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperSetType type)
 {
     if (type != PersonalizationExport::Type_Image) {
         return;
@@ -148,9 +147,10 @@ void X11Worker::setWallpaperForMonitor(const QString &screen, const QString &url
     }
 }
 
-void X11Worker::setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type)
+void X11Worker::setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type)
 {
     Q_UNUSED(isDark)
+    Q_UNUSED(type)
     qCDebug(DdcPersonnalizationX11Worker) << "setMonitorBackground " << screenName << url;
     if (screenName.isEmpty() || url.isEmpty())
         return;
@@ -158,9 +158,10 @@ void X11Worker::setBackgroundForMonitor(const QString &screenName, const QString
     m_personalizationDBusProxy->SetCurrentWorkspaceBackgroundForMonitor(url, screenName);
 }
 
-void X11Worker::setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type)
+void X11Worker::setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type)
 {
     Q_UNUSED(isDark)
+    Q_UNUSED(type)
     qCDebug(DdcPersonnalizationX11Worker) << "setGreeterBackground " << screenName << url;
     if (screenName.isEmpty() || url.isEmpty())
         return;
