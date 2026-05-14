@@ -1944,6 +1944,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>Scaling</source>
         <translation>Ripërmasim</translation>
     </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Dock</name>
