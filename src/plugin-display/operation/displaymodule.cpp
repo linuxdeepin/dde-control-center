@@ -85,6 +85,9 @@ void DisplayModulePrivate::init()
     q_ptr->connect(m_model, &DisplayModel::colorTemperatureChanged, q_ptr, &DisplayModule::colorTemperatureChanged);
     q_ptr->connect(m_model, &DisplayModel::customColorTempTimePeriodChanged, q_ptr, &DisplayModule::customColorTempTimePeriodChanged);
     q_ptr->connect(m_model, &DisplayModel::adjustCCTmodeChanged, q_ptr, &DisplayModule::colorTemperatureModeChanged);
+    q_ptr->connect(m_model, &DisplayModel::autoBacklightSupportedChanged, q_ptr, &DisplayModule::autoBacklightSupportedChanged);
+    q_ptr->connect(m_model, &DisplayModel::autoBacklightEnabledChanged, q_ptr, &DisplayModule::autoBacklightEnabledChanged);
+    q_ptr->connect(m_model, &DisplayModel::builtinMonitorNameChanged, q_ptr, &DisplayModule::builtinMonitorNameChanged);
     updateMonitorList();
     updatePrimary();
     updateDisplayMode();
@@ -553,6 +556,32 @@ void DisplayModule::setCustomColorTempTimePeriod(const QString &timePeriod)
 
     Q_D(DisplayModule);
     d->m_worker->setCustomColorTempTimePeriod(startTime.toString(DEFAULT_TIME_FORMAT) + "-" + endTime.toString(DEFAULT_TIME_FORMAT));
+}
+
+bool DisplayModule::autoBacklightSupported() const
+{
+    Q_D(const DisplayModule);
+    return d->m_model->autoBacklightSupported();
+}
+
+bool DisplayModule::autoBacklightEnabled() const
+{
+    Q_D(const DisplayModule);
+    return d->m_model->autoBacklightEnabled();
+}
+
+void DisplayModule::setAutoBacklightEnabled(bool enabled)
+{
+    Q_D(DisplayModule);
+    if (autoBacklightEnabled() != enabled) {
+        Q_EMIT d->m_model->requestSetAutoBacklightEnable(enabled);
+    }
+}
+
+QString DisplayModule::builtinMonitorName() const
+{
+    Q_D(const DisplayModule);
+    return d->m_model->builtinMonitorName();
 }
 
 void DisplayModule::saveChanges()

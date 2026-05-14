@@ -67,6 +67,7 @@ public Q_SLOTS:
     void setMonitorResolutionBySize(Monitor *mon, const int width, const int height);
     void setAmbientLightAdjustBrightness(bool);
     void setCurrentFillMode(Monitor *mon, const QString fillMode);
+    void setAutoBacklightEnabled(const bool value);
 
     void backupConfig();
     void clearBackup();
@@ -99,6 +100,7 @@ private:
     void wlOutputRemoved(WQt::Output *output);
 
     void updateControl();
+    void initAutoBacklight();
 
 Q_SIGNALS:
     void requestUpdateModeList();

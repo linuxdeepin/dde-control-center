@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DISPLAYMODULE_H
@@ -27,6 +27,9 @@ class DisplayModule : public QObject
     Q_PROPERTY(int colorTemperatureMode READ colorTemperatureMode WRITE setColorTemperatureMode NOTIFY colorTemperatureModeChanged FINAL)
     Q_PROPERTY(int colorTemperature READ colorTemperature WRITE setColorTemperature NOTIFY colorTemperatureChanged FINAL)
     Q_PROPERTY(QString customColorTempTimePeriod READ customColorTempTimePeriod WRITE setCustomColorTempTimePeriod NOTIFY customColorTempTimePeriodChanged FINAL)
+    Q_PROPERTY(bool autoBacklightSupported READ autoBacklightSupported NOTIFY autoBacklightSupportedChanged FINAL)
+    Q_PROPERTY(bool autoBacklightEnabled READ autoBacklightEnabled WRITE setAutoBacklightEnabled NOTIFY autoBacklightEnabledChanged FINAL)
+    Q_PROPERTY(QString builtinMonitorName READ builtinMonitorName NOTIFY builtinMonitorNameChanged FINAL)
 public:
     explicit DisplayModule(QObject *parent = nullptr);
     ~DisplayModule() override;
@@ -51,6 +54,10 @@ public:
     void setColorTemperature(int pos);
     QString customColorTempTimePeriod() const;
     void setCustomColorTempTimePeriod(const QString &timePeriod);
+    bool autoBacklightSupported() const;
+    bool autoBacklightEnabled() const;
+    void setAutoBacklightEnabled(bool enabled);
+    QString builtinMonitorName() const;
 
 public Q_SLOTS:
     void saveChanges();
@@ -75,6 +82,9 @@ Q_SIGNALS:
     void colorTemperatureChanged();
     void customColorTempTimePeriodChanged();
     void wallpaperChanged();
+    void autoBacklightSupportedChanged();
+    void autoBacklightEnabledChanged();
+    void builtinMonitorNameChanged();
 
 private:
     QScopedPointer<DisplayModulePrivate> d_ptrDisplayModule;

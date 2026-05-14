@@ -577,6 +577,7 @@ DccObject {
         }
     }
     DccObject {
+        id: brightnessGroup
         name: "brightnessGroup"
         parentName: "display"
         displayName: qsTr("Brightness")
@@ -584,27 +585,41 @@ DccObject {
         visible: screen.screenItems.length > 1
         pageType: DccObject.Item
         page: DccGroupView {}
-        DccObject {
-            name: "brightness"
-            parentName: "display/brightnessGroup"
-            displayName: qsTr("Brightness")
-            weight: 10
-            pageType: DccObject.Editor
-            onParentItemChanged: item => { if (item) item.implicitHeight = 36 }
-            page: Item {
+
+        function getBuiltinScreenIndex() {
+            for (var i = 0; i < screen.screenItems.length; i++) {
+                if (screen.screenItems[i].name === dccData.builtinMonitorName) {
+                    return i;
+                }
             }
+            return -1;
         }
+
         DccRepeater {
             model: screen.screenItems
             delegate: DccObject {
                 name: "brightness" + index
                 parentName: "display/brightnessGroup"
-                weight: 20 + index
+                weight: 200 + index * 5
                 displayName: screen.screenItems[index].name
                 pageType: DccObject.Editor
                 page: BrightnessComponent {
                     screenItem: screen.screenItems[index]
                 }
+            }
+        }
+        DccObject {
+            name: "autoBrightness"
+            parentName: "display/brightnessGroup"
+            displayName: qsTr("Auto Brightness")
+            weight: 200 + brightnessGroup.getBuiltinScreenIndex() * 5 + 1
+            visible: dccData.autoBacklightSupported && brightnessGroup.getBuiltinScreenIndex() >= 0
+            backgroundType: DccObject.Normal
+            pageType: DccObject.Editor
+            onParentItemChanged: item => { if (item) { item.rightItemTopMargin = 6; item.rightItemBottomMargin = 6 } }
+            page: Switch {
+                checked: dccData.autoBacklightEnabled
+                onClicked: dccData.autoBacklightEnabled = checked
             }
         }
     }
@@ -624,6 +639,20 @@ DccObject {
             pageType: DccObject.Editor
             page: BrightnessComponent {
                 screenItem: screen.screenItems[0]
+            }
+        }
+        DccObject {
+            name: "autoBrightness"
+            parentName: "display/screenGroup"
+            displayName: qsTr("Auto Brightness")
+            weight: 15
+            visible: dccData.autoBacklightSupported && screen.screenItems.length === 1 && screen.screenItems[0].name === dccData.builtinMonitorName
+            backgroundType: DccObject.Normal
+            pageType: DccObject.Editor
+            onParentItemChanged: item => { if (item) { item.rightItemTopMargin = 6; item.rightItemBottomMargin = 6 } }
+            page: Switch {
+                checked: dccData.autoBacklightEnabled
+                onClicked: dccData.autoBacklightEnabled = checked
             }
         }
 

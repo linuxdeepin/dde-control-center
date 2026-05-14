@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -156,6 +156,30 @@ void DisplayModel::setAutoLightAdjust(bool ala)
     m_isAutoLightAdjust = ala;
 
     Q_EMIT autoLightAdjustSettingChanged(m_isAutoLightAdjust);
+}
+
+void DisplayModel::setAutoBacklightSupported(bool supported)
+{
+    if (m_autoBacklightSupported == supported)
+        return;
+    m_autoBacklightSupported = supported;
+    Q_EMIT autoBacklightSupportedChanged(supported);
+}
+
+void DisplayModel::setAutoBacklightEnabled(bool enabled)
+{
+    if (m_autoBacklightEnabled == enabled)
+        return;
+    m_autoBacklightEnabled = enabled;
+    Q_EMIT autoBacklightEnabledChanged(enabled);
+}
+
+void DisplayModel::setBuiltinMonitorName(const QString &name)
+{
+    if (m_builtinMonitorName == name)
+        return;
+    m_builtinMonitorName = name;
+    Q_EMIT builtinMonitorNameChanged(name);
 }
 
 bool DisplayModel::redshiftIsValid() const
