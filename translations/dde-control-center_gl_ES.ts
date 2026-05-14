@@ -1933,6 +1933,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <source>Scaling</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Dock</name>
