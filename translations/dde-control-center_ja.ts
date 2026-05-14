@@ -1941,6 +1941,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Scaling</source>
         <translation>スケーリング</translation>
     </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Dock</name>
