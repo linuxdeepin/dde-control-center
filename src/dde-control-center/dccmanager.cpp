@@ -961,7 +961,7 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
         // Build page tags directly from current objects
         m_lastPageTags.clear();
         for (auto *obj : m_currentObjects) {
-            if (obj != m_root) {
+            if (!obj->displayName().isEmpty()) {
                 m_lastPageTags.append(obj->name());
             }
         }
