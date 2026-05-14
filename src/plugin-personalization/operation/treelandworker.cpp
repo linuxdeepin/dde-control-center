@@ -60,7 +60,7 @@ TreeLandWorker::~TreeLandWorker()
 
 #ifdef Enable_Treeland
 
-void TreeLandWorker::setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperType type)
+void TreeLandWorker::setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperSetType type)
 {
     if (checkWallpaperLockStatus()) {
         return;
@@ -76,7 +76,7 @@ void TreeLandWorker::setWallpaperForMonitor(const QString &screen, const QString
     }
 }
 
-void TreeLandWorker::setBackgroundForMonitor(const QString &monitorName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type)
+void TreeLandWorker::setBackgroundForMonitor(const QString &monitorName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type)
 {
     setWallpaper(monitorName, url, isDark, WallpaperContext::wallpaper_role_desktop, type);
 }
@@ -89,7 +89,7 @@ QString TreeLandWorker::getBackgroundForMonitor(const QString &monitorName)
     return QString();
 }
 
-void TreeLandWorker::setLockBackForMonitor(const QString &monitorName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type)
+void TreeLandWorker::setLockBackForMonitor(const QString &monitorName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type)
 {
     setWallpaper(monitorName, url, isDark, WallpaperContext::wallpaper_role_lockscreen, type);
 }

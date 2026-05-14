@@ -47,5 +47,7 @@
         <file>icons/wallpaper_add.dci</file>
         <file>icons/wallpaper_addcolor.dci</file>
         <file>icons/wallpaper_add_bg.dci</file>
+        <file>icons/video_wallpaper.dci</file>
+        <file>icons/wallpaper_download.dci</file>
     </qresource>
 </RCC>

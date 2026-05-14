@@ -7,16 +7,23 @@
 #include <QPainter>
 #include <QJsonDocument>
 #include <QJsonArray>
+#include <QJsonObject>
+#include <QJsonParseError>
 #include <QImage>
 #include <QLoggingCategory>
 #include <QUrl>
 #include <QDir>
 #include <QHash>
 #include <QProcess>
+#include <QCryptographicHash>
+#include <QStandardPaths>
+#include <QPointer>
 #include <QtConcurrent/QtConcurrent>
 #include <algorithm>
+#include <optional>
 
 #include "wallpaperprovider.h"
+#include "operation/model/wallpapermodel.h"
 #include "operation/personalizationdbusproxy.h"
 #include "utils.hpp"
 
@@ -24,9 +31,13 @@ Q_LOGGING_CATEGORY(DdcPersonalizationWallpaperWorker, "dcc-personalization-wallp
 
 #define SYS_WALLPAPER_DIR "/usr/share/wallpapers/deepin"
 #define SYS_SOLIDE_WALLPAPER_DIR "/usr/share/wallpapers/deepin-solidwallpapers"
-#define SYS_LIVE_WALLPAPER_DIR "/usr/share/wallpapers/live-wallpapers"
+#define SYS_LIVE_WALLPAPER_DIR "/usr/share/wallpapers/deepin-livewallpapers"
 #define CUSTOM_SOLIDE_WALLPAPER_DIR "/var/cache/wallpapers/custom-solidwallpapers"
 #define CUSTOM_WALLPAPER_DIR "/var/cache/wallpapers/custom-wallpapers"
+
+// job name: dcc-wallpaper|<WallpaperType>
+#define SPLIT_SYMBOL "|"
+#define LASTORE_BASE_FLAG "dcc-wallpaper"
 
 #define CHECK_RETURN_RUNNING \
     if (Q_UNLIKELY(!m_running.load(std::memory_order_acquire))) \
@@ -66,8 +77,10 @@ WallpaperProvider::WallpaperProvider(PersonalizationDBusProxy *PersonalizationDB
     connect(m_worker, &InterfaceWorker::pushBackground, this, &WallpaperProvider::setWallpaper, Qt::QueuedConnection);
     connect(m_worker, &InterfaceWorker::pushOneBackground, this, &WallpaperProvider::pushWallpaper, Qt::QueuedConnection);
     connect(m_worker, &InterfaceWorker::listFinished, this, &WallpaperProvider::fetchFinish);
+    connect(m_worker, &InterfaceWorker::videoThumbnailReady, this, &WallpaperProvider::onVideoThumbnailReady, Qt::QueuedConnection);
 
     connect(m_personalizationProxy, &PersonalizationDBusProxy::WallpaperChanged, this, &WallpaperProvider::onWallpaperChangedFromDaemon);
+    connect(m_personalizationProxy, &PersonalizationDBusProxy::JobListChanged, this, &WallpaperProvider::onJobListChanged);
 }
 
 WallpaperProvider::~WallpaperProvider()
@@ -86,7 +99,7 @@ WallpaperProvider::~WallpaperProvider()
 
 void WallpaperProvider::fetchData(WallpaperType type)
 {
-
+    onJobListChanged(m_personalizationProxy->jobList());
     QMetaObject::invokeMethod(m_worker, "startListBackground", Qt::QueuedConnection, Q_ARG(WallpaperType, type));
 }
 
@@ -243,7 +256,6 @@ void WallpaperProvider::onWallpaperChangedFromDaemon(const QString &user, uint m
 
 WallpaperItemPtr InterfaceWorker::createItem(const QString &path, bool del, WallpaperType type)
 {
-    Q_UNUSED(type)
     if (path.isEmpty())
         return {};
 
@@ -260,7 +272,8 @@ WallpaperItemPtr InterfaceWorker::createItem(const QString &path, bool del, Wall
     const QString &thumbnail = url.toString();
     
     auto ptr =  WallpaperItemPtr(new WallpaperItem{url.toString(), url.toString()
-        , thumbnail, del, fileInfo.lastModified().toMSecsSinceEpoch(), false, false});
+        , thumbnail, del, fileInfo.lastModified().toMSecsSinceEpoch(), false, false
+        , "", Download_Installed, 1, type});
 
     return ptr;
 }
@@ -407,7 +420,7 @@ void InterfaceWorker::getLiveBackground()
 {
     CHECK_RETURN_RUNNING
     QList<WallpaperItemPtr> wallpapers;
-    
+
     QDir dir(SYS_LIVE_WALLPAPER_DIR);
     if (!dir.exists()) {
         qCWarning(DdcPersonalizationWallpaperWorker) << "Live wallpaper dir not exists:" << SYS_LIVE_WALLPAPER_DIR;
@@ -415,30 +428,341 @@ void InterfaceWorker::getLiveBackground()
         return;
     }
 
-    QStringList nameFilters;
-    nameFilters << "*.mp4" << "*.MP4" << "*.mov" << "*.MOV" << "*.avi" << "*.AVI";
-    QFileInfoList fileInfoList = dir.entryInfoList(nameFilters, QDir::Files);
-    
-    for (const auto &fileInfo : fileInfoList) {
+    QFile metaFile(dir.absoluteFilePath("metadata.json"));
+    if (!metaFile.exists()) {
+        qCWarning(DdcPersonalizationWallpaperWorker) << "metadata.json not found, fallback to scan mp4 files";
+        QStringList nameFilters;
+        nameFilters << "*.mp4" << "*.MP4" << "*.mov" << "*.MOV" << "*.avi" << "*.AVI";
+        QFileInfoList fileInfoList = dir.entryInfoList(nameFilters, QDir::Files);
+
+        for (const auto &fileInfo : fileInfoList) {
+            CHECK_RETURN_RUNNING
+            QString videoPath = fileInfo.absoluteFilePath();
+            QUrl url = QUrl::fromLocalFile(videoPath);
+            QString cacheDir = thumbnailCacheDir();
+            QDir().mkpath(cacheDir);
+            QString cacheName = QString(QCryptographicHash::hash(videoPath.toUtf8(), QCryptographicHash::Md5).toHex()) + ".png";
+            QString cachePath = cacheDir + "/" + cacheName;
+            QString thumbnail = QFile::exists(cachePath) ? cachePath : videoPath;
+
+            WallpaperItemPtr ptr(new WallpaperItem{
+                url.toString(), url.toString(), QUrl::fromLocalFile(thumbnail).toString(),
+                false, fileInfo.lastModified().toMSecsSinceEpoch(), false, false,
+                "", Download_Installed, 1, Wallpaper_Live
+            });
+            if (ptr) {
+                if (!QFile::exists(cachePath))
+                    generateVideoThumbnail(videoPath, cachePath, url.toString());
+                wallpapers.append(ptr);
+            }
+        }
+        Q_EMIT pushBackground(wallpapers, WallpaperType::Wallpaper_Live);
+        return;
+    }
+
+    if (!metaFile.open(QIODevice::ReadOnly)) {
+        qCWarning(DdcPersonalizationWallpaperWorker) << "Failed to open metadata.json";
+        Q_EMIT pushBackground(wallpapers, WallpaperType::Wallpaper_Live);
+        return;
+    }
+
+    QJsonParseError parseErr;
+    QJsonDocument doc = QJsonDocument::fromJson(metaFile.readAll(), &parseErr);
+    metaFile.close();
+    if (parseErr.error != QJsonParseError::NoError || !doc.isArray()) {
+        qCWarning(DdcPersonalizationWallpaperWorker) << "metadata.json parse error:" << parseErr.errorString();
+        Q_EMIT pushBackground(wallpapers, WallpaperType::Wallpaper_Live);
+        return;
+    }
+
+    QString cacheDir = thumbnailCacheDir();
+    QDir().mkpath(cacheDir);
+
+    QJsonArray entries = doc.array();
+    for (const auto &entry : entries) {
         CHECK_RETURN_RUNNING
-        
-        QString videoPath = fileInfo.absoluteFilePath();
-        QUrl url = QUrl::fromLocalFile(videoPath);
-        
+        QJsonObject obj = entry.toObject();
+        QString id = obj.value("id").toString();
+        QString thumbnailRel = obj.value("thumbnail").toString();
+        QString pathRel = obj.value("path").toString();
+        QString packageName = obj.value("packageName").toString();
+
+        if (id.isEmpty() || pathRel.isEmpty())
+            continue;
+
+        QString videoAbsPath = dir.absoluteFilePath(pathRel);
+        QUrl url = QUrl::fromLocalFile(videoAbsPath);
+        bool videoExists = QFile::exists(videoAbsPath);
+
+        QString thumbnailPath;
+        bool needGenerate = false;
+        if (!thumbnailRel.isEmpty()) {
+            QString thumbAbsPath = dir.absoluteFilePath(thumbnailRel);
+            if (QFile::exists(thumbAbsPath)) {
+                thumbnailPath = thumbAbsPath;
+            } else {
+                needGenerate = true;
+            }
+        } else {
+            needGenerate = true;
+        }
+
+        if (needGenerate && videoExists) {
+            QString cacheName = QString(QCryptographicHash::hash(videoAbsPath.toUtf8(), QCryptographicHash::Md5).toHex()) + ".png";
+            QString cachePath = cacheDir + "/" + cacheName;
+            if (QFile::exists(cachePath)) {
+                thumbnailPath = cachePath;
+                needGenerate = false;
+            } else {
+                thumbnailPath = cachePath;
+            }
+        }
+
+        WallpaperInstallStatus status = videoExists ? Download_Installed : Download_NotInstalled;
+
         WallpaperItemPtr ptr(new WallpaperItem{
             url.toString(),
             url.toString(),
-            url.toString(),
-            false,
-            fileInfo.lastModified().toMSecsSinceEpoch(),
-            false,
-            false
+            thumbnailPath.isEmpty() ? url.toString() : QUrl::fromLocalFile(thumbnailPath).toString(),
+            false, 0, false, false,
+            packageName, status, videoExists ? 1.0 : 0, Wallpaper_Live
         });
-        
-        if (ptr)
+
+        if (ptr) {
             wallpapers.append(ptr);
+            if (needGenerate && videoExists)
+                generateVideoThumbnail(videoAbsPath, thumbnailPath, id);
+        }
     }
-    
-    qCDebug(DdcPersonalizationWallpaperWorker) << "Found" << wallpapers.size() << "live wallpapers";
+
+    qCDebug(DdcPersonalizationWallpaperWorker) << "Found" << wallpapers.size() << "live wallpapers from metadata";
     Q_EMIT pushBackground(wallpapers, WallpaperType::Wallpaper_Live);
+}
+
+QString InterfaceWorker::thumbnailCacheDir()
+{
+    return QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/live-wallpaper-thumbnails";
+}
+
+void InterfaceWorker::generateVideoThumbnail(const QString &videoPath, const QString &cachePath, const QString &id)
+{
+    QPointer<InterfaceWorker> guard(this);
+    (void)QtConcurrent::run([guard, videoPath, cachePath, id]() {
+        if (!guard)
+            return;
+
+        if (!guard->m_running.load(std::memory_order_acquire))
+            return;
+
+        QProcess ffmpeg;
+        ffmpeg.setProgram("/usr/bin/ffmpeg");
+        ffmpeg.setArguments({"-i", videoPath, "-ss", "00:00:01", "-vframes", "1",
+                             "-vf", "scale=480:-1", "-update", "1", "-y", cachePath});
+        ffmpeg.start();
+        ffmpeg.waitForFinished(5000);
+
+        if (!guard)
+            return;
+
+        if (ffmpeg.exitCode() == 0 && QFile::exists(cachePath)) {
+            Q_EMIT guard->videoThumbnailReady(id, cachePath);
+        }
+    });
+}
+
+void WallpaperProvider::installWallpaper(const QString &itemId, WallpaperType type)
+{
+    qCWarning(DdcPersonalizationWallpaperWorker) << "download live wallpaper requested:" << itemId << type;
+
+    auto wallpaper = findWallpaperItem(itemId, type);
+    if (wallpaper.has_value() && !wallpaper.value()->packageName.isEmpty()) {
+        wallpaper.value()->installStatus = Download_Installing;
+        wallpaper.value()->installProgress = 0;
+        auto model = getModel(type);
+        if (!model) {
+            qCWarning(DdcPersonalizationWallpaperWorker()) << "get model error";
+            return;
+        }
+        model->updateItemData(wallpaper.value(), {
+            Item_InstallStatus_Role, Item_InstallProgress_Role
+        });
+
+        const QString jobName = QString(LASTORE_BASE_FLAG) + SPLIT_SYMBOL + QString::number(static_cast<int>(type));
+
+        auto call = m_personalizationProxy->InstallPackage(jobName, wallpaper.value()->packageName);
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+        connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, call, wallpaper, watcher, model] {
+            if (call.isError()) {
+                wallpaper.value()->installStatus = WallpaperEnums::Download_NotInstalled;
+                wallpaper.value()->installProgress = 0;
+                model->updateItemData(wallpaper.value(), {
+                    Item_InstallStatus_Role, Item_InstallProgress_Role
+                });
+                qCWarning(DdcPersonalizationWallpaperWorker) << "install job create error: " << call.error();
+            } else {
+                setWantToSetWallpaper(wallpaper.value());
+                emit wantToSetWallpaperStatusChanged(m_wantToSetWallpaper->installStatus);
+                emit wantToSetWallpaperProgressChanged(m_wantToSetWallpaper->installProgress);
+            }
+            watcher->deleteLater();
+        });
+    }
+}
+
+void WallpaperProvider::onVideoThumbnailReady(const QString &id, const QString &thumbnailPath)
+{
+    auto wallpaper = findWallpaperItem(id, Wallpaper_Live);
+    if (wallpaper.has_value()) {
+        qCDebug(DdcPersonalizationWallpaperWorker) << "thumbnail ready for" << id << thumbnailPath;
+        wallpaper.value()->thumbnail = QUrl::fromLocalFile(thumbnailPath).toString();
+        m_model->getLiveWallpaperModel()->updateItemData(wallpaper.value(), {Item_Thumbnail_Role});
+    }
+}
+
+void WallpaperProvider::onJobListChanged(const QList<QDBusObjectPath> &value)
+{
+    QList<QString> ClearList = m_jobInterMap.keys();
+    auto findWallpaper = [this](JobInter &job) -> std::optional<WallpaperItemPtr>{
+        bool ok = false;
+        auto type = job.name().split(SPLIT_SYMBOL).value(1).toInt(&ok);
+        if (ok) {
+            for (auto wallpaperItem : m_wallpaperList.value(static_cast<WallpaperType>(type))) {
+                if (wallpaperItem->packageName == job.packages().value(0)) {
+                    return wallpaperItem;
+                }
+            }
+        }
+
+        return std::nullopt;
+    };
+
+    for (const auto &job : value) {
+        const QString &jobPath = job.path();
+        JobInter jobInter(jobPath, this);
+        if (!jobInter.isValid()) {
+            qCWarning(DdcPersonalizationWallpaperWorker) << "Job is invalid";
+            continue;   
+        }
+
+        // id maybe scrapped
+        const QString &id = jobInter.id();
+        qCInfo(DdcPersonalizationWallpaperWorker) << "Job id : " << id;
+        static const QRegularExpression installRe("^\\d*install$");
+        if (installRe.match(id).hasMatch() && jobInter.name().startsWith("dcc-wallpaper")) {
+            if (jobInter.status() == "failed") {
+                m_personalizationProxy->CleanJob(jobInter.id());
+            }
+            if (m_jobInterMap.contains(jobPath)) {
+                ClearList.removeAll(jobPath);
+            } else {
+                if(auto wallpaper = findWallpaper(jobInter); wallpaper.has_value()) {
+                    createInstallJob(jobPath, wallpaper.value());
+                }
+            }
+        }
+    }
+
+    for (const auto &job : ClearList) {
+        qCInfo(DdcPersonalizationWallpaperWorker()) << "changed delete job" << job;
+        m_jobInterMap.value(job)->deleteLater();
+        m_jobInterMap.remove(job);
+    }
+}
+
+void WallpaperProvider::createInstallJob(const QString &jobPath, WallpaperItemPtr wallpaperItem)
+{
+    qCInfo(DdcPersonalizationWallpaperWorker) << "create job" << jobPath;
+    if (jobPath.isEmpty()) {
+        return;
+    }
+
+    auto job = new JobInter(jobPath, this);
+    auto value = job->progress();
+    auto status = job->status();
+    auto model = getModel(wallpaperItem->type);
+    if (!model) {
+        qCWarning(DdcPersonalizationWallpaperWorker()) << "can not find model: " << wallpaperItem->url;
+        return;
+    }
+    m_jobInterMap.insert(jobPath, job);
+    wallpaperItem->installProgress = value;
+    if (status == "succeed" || status == "end") {
+        wallpaperItem->installStatus = WallpaperEnums::Download_Installed;
+    } else {
+        wallpaperItem->installStatus = WallpaperEnums::Download_Installing;
+    }
+
+    model->updateItemData(wallpaperItem, {Item_InstallProgress_Role, Item_InstallStatus_Role});
+
+    connect(job, &JobInter::ProgressChanged, this, [wallpaperItem, this, model](double value){
+        wallpaperItem->installProgress = value;
+        model->updateItemData(wallpaperItem, {Item_InstallProgress_Role});
+        if (m_wantToSetWallpaper == wallpaperItem) {
+            emit wantToSetWallpaperProgressChanged(wallpaperItem->installProgress);
+        }
+    });
+
+    connect(job, &JobInter::StatusChanged, this, [job, wallpaperItem, this](QString status){
+        auto model = getModel(wallpaperItem->type);
+        if (!model) {
+            qCWarning(DdcPersonalizationWallpaperWorker()) << "get model error";
+            return;
+        }
+        if (status == "succeed") {
+            wallpaperItem->installStatus = WallpaperEnums::Download_Installed;
+        } else if (status == "failed"){
+            wallpaperItem->installStatus = WallpaperEnums::Download_NotInstalled;
+            m_personalizationProxy->CleanJob(job->id());
+            qCWarning(DdcPersonalizationWallpaperWorker()) << "download wallpaper error, wallpaper: " << job->packages() << job->description();
+        } else if (status != "end"){
+            wallpaperItem->installStatus = WallpaperEnums::Download_Installing;
+        }
+
+        if (m_wantToSetWallpaper == wallpaperItem) {
+            emit wantToSetWallpaperStatusChanged(wallpaperItem->installStatus);
+        }
+
+        model->updateItemData(wallpaperItem, {Item_InstallStatus_Role});
+    });
+}
+
+void WallpaperProvider::setWantToSetWallpaper(WallpaperItemPtr wallpaper)
+{
+    if (wallpaper != m_wantToSetWallpaper) {
+        m_wantToSetWallpaper = wallpaper;
+        emit m_model->wantToSetWallpaperChanged();
+        emit wantToSetWallpaperChanged(wallpaper);
+    }
+}
+
+std::optional<WallpaperItemPtr> WallpaperProvider::findWallpaperItem(const QString &url, WallpaperType type)
+{
+    const auto it = m_wallpaperList.find(type);
+    if (it == m_wallpaperList.end()) {
+        return std::nullopt;
+    }
+
+    for (const auto &wallpaperItem : it.value()) {
+        if (wallpaperItem && wallpaperItem->url == url) {
+            return wallpaperItem;
+        }
+    }
+
+    return std::nullopt;
+}
+
+WallpaperModel *WallpaperProvider::getModel(WallpaperType type) const
+{
+    switch (type) {
+        case WallpaperEnums::Wallpaper_Sys:
+            return m_model->getSysWallpaperModel();
+        case WallpaperEnums::Wallpaper_Solid:
+            return m_model->getSolidWallpaperModel();
+        case WallpaperEnums::Wallpaper_Live:
+            return m_model->getLiveWallpaperModel();
+        case WallpaperEnums::Wallpaper_Custom:
+            return m_model->getCustomWallpaperModel();
+        default:
+            return nullptr;
+    }
 }

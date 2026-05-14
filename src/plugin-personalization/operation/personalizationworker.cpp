@@ -2,6 +2,7 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "personalizationworker.h"
+#include "operation/model/wallpapermodel.h"
 #include "operation/personalizationexport.hpp"
 #include "operation/screensaverprovider.h"
 #include "operation/wallpaperprovider.h"
@@ -97,6 +98,25 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
 
     connect(m_personalizationConfig, &DConfig::valueChanged, this, &PersonalizationWorker::onPersonalizationConfigChanged);
     connect(m_dtkConfig, &DConfig::valueChanged, this, &PersonalizationWorker::onDTKConfigChanged);
+
+    connect(m_wallpaperWorker, &WallpaperProvider::wantToSetWallpaperProgressChanged, this, [this](){
+        auto progress = m_wallpaperWorker->wantToSetWallpaper().isNull() ? 100 : m_wallpaperWorker->wantToSetWallpaper()->installProgress;
+        m_model->setWantToSetWallpaperProgress(progress);
+    });
+
+    connect(m_wallpaperWorker, &WallpaperProvider::wantToSetWallpaperStatusChanged, this, [this](){
+        auto wallpaper = m_wallpaperWorker->wantToSetWallpaper();
+        auto status = wallpaper.isNull() ? WallpaperInstallStatus::Download_Installed : wallpaper->installStatus;
+        m_model->setWantToSetWallpaperStatus(status);
+        if (!m_wallpaperWorker->wantToSetWallpaper().isNull() && status == WallpaperInstallStatus::Download_Installed) {
+            setWallpaperForMonitor(m_model->getCurrentSelectScreen(), wallpaper, PersonalizationExport::Option_All);
+        }
+    });
+
+    connect(m_wallpaperWorker, &WallpaperProvider::wantToSetWallpaperChanged, this, [this](WallpaperItemPtr wallpaper){
+        m_model->setWantToSetWallpaper(!wallpaper.isNull());
+        m_model->setWantToSetWallpaperThumbnail(wallpaper.isNull() ? "" : wallpaper->thumbnail);
+    });
 
     m_themeModels["gtk"] = windowTheme;
     m_themeModels["icon"] = iconTheme;
@@ -558,6 +578,11 @@ void PersonalizationWorker::requestScreenSaverConfig(const QString &name)
     m_personalizationDBusProxy->requestScreenSaverConfig(name);
 }
 
+void PersonalizationWorker::requestInstallWallpaper(const QString &id, WallpaperType type)
+{
+    m_wallpaperWorker->installWallpaper(id, type);
+}
+
 void PersonalizationWorker::startScreenSaverPreview()
 {
     m_personalizationDBusProxy->preview(m_model->getCurrentScreenSaver());
@@ -692,17 +717,32 @@ void PersonalizationWorker::setCursorTheme(const QString &id)
     }
 }
 
-void PersonalizationWorker::setWallpaperForMonitor(const QString &, const QString &, bool , PersonalizationExport::WallpaperSetOption, PersonalizationExport::WallpaperType)
+void PersonalizationWorker::setWallpaperForMonitor(const QString &screenName, WallpaperItemPtr wallpaper, PersonalizationExport::WallpaperSetOption option)
+{
+    if (wallpaper.isNull()) {
+        return;
+    }
+    m_wallpaperWorker->setWantToSetWallpaper(nullptr);
+    PersonalizationExport::WallpaperSetType setType;
+    if (wallpaper->type == WallpaperEnums::Wallpaper_Live) {
+        setType = PersonalizationExport::WallpaperSetType::Type_Video;
+    } else {
+        setType = PersonalizationExport::WallpaperSetType::Type_Image;
+    }
+    setWallpaperForMonitor(screenName, wallpaper->url, false, option, setType);
+}
+
+void PersonalizationWorker::setWallpaperForMonitor(const QString &, const QString &, bool , PersonalizationExport::WallpaperSetOption, PersonalizationExport::WallpaperSetType)
 {
 
 }
 
-void PersonalizationWorker::setBackgroundForMonitor(const QString &, const QString &, bool, PersonalizationExport::WallpaperType type)
+void PersonalizationWorker::setBackgroundForMonitor(const QString &, const QString &, bool, PersonalizationExport::WallpaperSetType type)
 {
 
 }
 
-void PersonalizationWorker::setLockBackForMonitor(const QString &, const QString &, bool, PersonalizationExport::WallpaperType type)
+void PersonalizationWorker::setLockBackForMonitor(const QString &, const QString &, bool, PersonalizationExport::WallpaperSetType type)
 {
 
 }

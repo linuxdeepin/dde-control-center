@@ -52,7 +52,8 @@ Depends:
  qml6-module-qtquick-effects,
  libdtk6declarative(>> 6.7.40),
  netselect,
- dde-daemon (>> 6.1.88)
+ dde-daemon (>> 6.1.88),
+ ffmpeg,
 Recommends: uos-license-content,
 Conflicts: dde-control-center-dock
 Replaces: dde-control-center-dock

@@ -19,9 +19,9 @@ public Q_SLOTS:
     void setWindowEffect(int value) override;
     void setMovedWindowOpacity(bool value) override;
     void setMiniEffect(int effect) override;
-    virtual void setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperType type) override;
-    void setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type = PersonalizationExport::Type_Image) override;
-    void setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperType type = PersonalizationExport::Type_Image) override;
+    virtual void setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image) override;
+    void setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image) override;
+    void setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image) override;
 
 private Q_SLOTS:
     void onMiniEffectChanged(bool value);

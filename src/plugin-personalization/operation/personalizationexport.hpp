@@ -32,10 +32,10 @@ public:
 
     Q_ENUM(ModuleType)
 
-    enum WallpaperType {
+    enum WallpaperSetType {
         Type_Image,
         Type_Video
     };
 
-    Q_ENUM(WallpaperType)
+    Q_ENUM(WallpaperSetType)
 };

@@ -68,6 +68,18 @@ QVariant WallpaperModel::data(const QModelIndex &index, int role) const
     case Item_Selected_Role:
         ret = node->selected;
         break;
+    case Item_PackageName_Role:
+        ret = node->packageName;
+        break;
+    case Item_InstallStatus_Role:
+        ret = node->installStatus;
+        break;
+    case Item_InstallProgress_Role:
+        ret = node->installProgress;
+        break;
+    case Item_WallpaperTypeRole:
+        ret = node->type;
+        break;
     default:
         break;
     }
@@ -179,6 +191,16 @@ void WallpaperModel::updateSelected(const QStringList &selectedLists)
     }
 }
 
+void WallpaperModel::updateItemData(const WallpaperItemPtr wallpaperItem, const QVector<int> &roles)
+{
+    for (int i = 0; i < rowCount(); ++i) {
+        if (items.at(i) == wallpaperItem) {
+            Q_EMIT dataChanged(index(i, 0), index(i, 0), roles);
+            return;
+        }
+    }
+}
+
 QString WallpaperSortModel::getPicPathByUrl(const QString &url) const
 {
     for(int i = 0; i < sourceModel()->rowCount(); i++) {
@@ -209,11 +231,15 @@ QHash<int, QByteArray> WallpaperModel::roleNames() const
 {
     QHash<int, QByteArray> roles = QAbstractItemModel::roleNames();;
     roles[Item_Url_Role] = "url";
-    roles[Item_Thumbnail_Role] = "picPath";
+    roles[Item_PicPath_Role] = "picPath";
     roles[Item_Thumbnail_Role] = "thumbnail";
     roles[Item_deleteAble_Role] = "deleteAble";
     roles[Item_lastModifiedTime_Role] = "lastModifiedTime";
     roles[Item_configurable_Role] = "configurable";
     roles[Item_Selected_Role] = "selected";
+    roles[Item_PackageName_Role] = "packageName";
+    roles[Item_InstallStatus_Role] = "installStatus";
+    roles[Item_InstallProgress_Role] = "installProgress";
+    roles[Item_WallpaperTypeRole] = "type";
     return roles;
 }
