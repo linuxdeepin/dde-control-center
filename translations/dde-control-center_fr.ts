@@ -1946,6 +1946,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <source>Scaling</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Dock</name>
