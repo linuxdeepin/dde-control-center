@@ -1946,6 +1946,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>Scaling</source>
         <translation>Escalado</translation>
     </message>
+    <message>
+        <source>Auto Brightness</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Dock</name>
