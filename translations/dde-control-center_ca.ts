@@ -1946,7 +1946,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Brillantor automàtica</translation>
     </message>
 </context>
 <context>
