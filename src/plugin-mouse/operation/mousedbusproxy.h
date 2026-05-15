@@ -1,11 +1,12 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef MOUSEDBUSPROXY_H
 #define MOUSEDBUSPROXY_H
 
-#include "mouseworker.h"
+#include "gesturedata.h"
 
+#include <QDBusArgument>
 #include <QDBusMessage>
 #include <QDBusPendingCallWatcher>
 #include <QObject>
@@ -17,11 +18,36 @@ class MouseDBusProxy : public QObject
 {
     Q_OBJECT
 public:
-    explicit MouseDBusProxy(MouseWorker *worker, QObject *parent = nullptr);
+    explicit MouseDBusProxy(QObject *parent = nullptr);
     void deactive();
     void init();
 
     void parseGesturesData(const QDBusArgument &argument);
+
+Q_SIGNALS:
+    void mouseExistChanged(bool exist);
+    void tpadExistChanged(bool exist);
+    void tpadEnabledChanged(bool enabled);
+    void redPointExistChanged(bool exist);
+    void leftHandStateChanged(bool state);
+    void mouseNaturalScrollStateChanged(bool state);
+    void touchNaturalScrollStateChanged(bool state);
+    void disTypingChanged(bool state);
+    void disTouchPadChanged(bool state);
+    void tapClickChanged(bool state);
+    void douClickChanged(int value);
+    void mouseMotionAccelerationChanged(double value);
+    void accelProfileChanged(bool state);
+    void touchpadMotionAccelerationChanged(double value);
+    void trackPointMotionAccelerationChanged(double value);
+    void palmDetectChanged(bool palmDetect);
+    void palmMinWidthChanged(int palmMinWidth);
+    void palmMinzChanged(int palmMinz);
+    void scrollSpeedChanged(uint speed);
+    void gestureDataChanged(const GestureData &data);
+    void cursorSizeChanged(int cursorSize);
+    void availableCursorSizesChanged(QList<int> sizes);
+    void lidIsPresentChanged(bool lidIsPresent);
 
 public Q_SLOTS:
     void active();
@@ -68,7 +94,6 @@ public Q_SLOTS:
     void onGetGestureAvaiableActionsFinished(QDBusPendingCallWatcher *w);
 
 private:
-    MouseWorker  *m_worker;
     QDBusInterface *m_dbusMouseProperties;
     QDBusInterface *m_dbusTouchPadProperties;
     QDBusInterface *m_dbusTrackPointProperties;

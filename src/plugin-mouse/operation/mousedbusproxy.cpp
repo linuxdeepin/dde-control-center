@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "mousedbusproxy.h"
@@ -36,9 +36,19 @@ const QString PowerService = QStringLiteral("org.deepin.dde.Power1");
 const QString PowerPath = QStringLiteral("/org/deepin/dde/Power1");
 const QString PowerInterface = QStringLiteral("org.deepin.dde.Power1");
 
-MouseDBusProxy::MouseDBusProxy(MouseWorker *worker, QObject *parent)
+MouseDBusProxy::MouseDBusProxy(QObject *parent)
     : QObject(parent)
-    , m_worker(worker)
+    , m_dbusMouseProperties(nullptr)
+    , m_dbusTouchPadProperties(nullptr)
+    , m_dbusTrackPointProperties(nullptr)
+    , m_dbusDevicesProperties(nullptr)
+    , m_dbusGestureProperties(nullptr)
+    , m_dbusMouse(nullptr)
+    , m_dbusTouchPad(nullptr)
+    , m_dbusTrackPoint(nullptr)
+    , m_dbusDevices(nullptr)
+    , m_dbusGesture(nullptr)
+    , m_appearance(nullptr)
 {
     init();
 }
@@ -54,13 +64,13 @@ void MouseDBusProxy::active()
     bool adaptiveAccelProfile = m_dbusMouseProperties->call("Get", MouseInterface, "AdaptiveAccelProfile").arguments().at(0).value<QDBusVariant>().variant().toBool();
     double motionAcceleration = m_dbusMouseProperties->call("Get", MouseInterface, "MotionAcceleration").arguments().at(0).value<QDBusVariant>().variant().toDouble();
 
-    m_worker->setMouseExist(exist);
-    m_worker->setLeftHandState(leftHanded);
-    m_worker->setMouseNaturalScrollState(naturalScroll);
-    m_worker->setDouClick(doubleClick);
-    m_worker->setDisTouchPad(disableTpad);
-    m_worker->setAccelProfile(adaptiveAccelProfile);
-    m_worker->setMouseMotionAcceleration(motionAcceleration);
+    Q_EMIT mouseExistChanged(exist);
+    Q_EMIT leftHandStateChanged(leftHanded);
+    Q_EMIT mouseNaturalScrollStateChanged(naturalScroll);
+    Q_EMIT douClickChanged(doubleClick);
+    Q_EMIT disTouchPadChanged(disableTpad);
+    Q_EMIT accelProfileChanged(adaptiveAccelProfile);
+    Q_EMIT mouseMotionAccelerationChanged(motionAcceleration);
 
     // initial touchpad settings
     motionAcceleration = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "MotionAcceleration").arguments().at(0).value<QDBusVariant>().variant().toDouble();
@@ -73,38 +83,36 @@ void MouseDBusProxy::active()
     int palmMinWidth = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "PalmMinWidth").arguments().at(0).value<QDBusVariant>().variant().toInt();
     bool palmMinZ = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "PalmMinZ").arguments().at(0).value<QDBusVariant>().variant().toBool();
 
-    m_worker->setTouchpadMotionAcceleration(motionAcceleration);
-    m_worker->setTpadEnabled(touchpadEnabled);
-    m_worker->setTapClick(tapClick);
-    m_worker->setTpadExist(exist);
-    m_worker->setTouchNaturalScrollState(naturalScroll);
-    m_worker->setDisTyping(disableIfTyping);
-    m_worker->setPalmDetect(palmDetect);
-    m_worker->setPalmMinWidth(palmMinWidth);
-    m_worker->setPalmMinz(palmMinZ);
+    Q_EMIT touchpadMotionAccelerationChanged(motionAcceleration);
+    Q_EMIT tpadEnabledChanged(touchpadEnabled);
+    Q_EMIT tapClickChanged(tapClick);
+    Q_EMIT tpadExistChanged(exist);
+    Q_EMIT touchNaturalScrollStateChanged(naturalScroll);
+    Q_EMIT disTypingChanged(disableIfTyping);
+    Q_EMIT palmDetectChanged(palmDetect);
+    Q_EMIT palmMinWidthChanged(palmMinWidth);
+    Q_EMIT palmMinzChanged(palmMinZ);
 
-    // initial redpoint settings
     motionAcceleration = m_dbusTrackPointProperties->call("Get", TrackpointInterface, "MotionAcceleration").arguments().at(0).value<QDBusVariant>().variant().toDouble();
     exist = m_dbusTouchPadProperties->call("Get", TrackpointInterface, "Exist").arguments().at(0).value<QDBusVariant>().variant().toBool();
 
-    m_worker->setTrackPointMotionAcceleration(motionAcceleration);
-    m_worker->setRedPointExist(exist);
+    Q_EMIT trackPointMotionAccelerationChanged(motionAcceleration);
+    Q_EMIT redPointExistChanged(exist);
 
     // initial device properties
     uint wheelSpeed  = m_dbusDevicesProperties->call("Get", InputDevicesInterface, "WheelSpeed").arguments().at(0).value<QDBusVariant>().variant().toUInt();
-
-    m_worker->setScrollSpeed(wheelSpeed);
+    Q_EMIT scrollSpeedChanged(wheelSpeed);
 
     // initial lid is present
     bool lidIsPresent = getLidIsPresent();
-    m_worker->setLidIsPresent(lidIsPresent);
+    Q_EMIT lidIsPresentChanged(lidIsPresent);
 
     QVariant gestureInfos = m_dbusGestureProperties->call("Get", GestureInterface, "Infos").arguments().at(0).value<QDBusVariant>().variant();
     parseGesturesData(qvariant_cast<QDBusArgument>(gestureInfos));
 
     listCursor();
     auto cursorSize = m_appearance->property("CursorSize").toInt();
-    m_worker->setCursorSize(cursorSize);
+    Q_EMIT cursorSizeChanged(cursorSize);
 }
 
 void MouseDBusProxy::deactive()
@@ -205,57 +213,6 @@ void MouseDBusProxy::init()
                                        GesturePath,
                                        GestureInterface,
                                        QDBusConnection::sessionBus());
-
-    // set Mouse settings from dde-control-center
-    connect(m_worker,
-            &MouseWorker::requestSetLeftHandState,
-            this,
-            &MouseDBusProxy::setLeftHandState);
-    connect(m_worker,
-            &MouseWorker::requestSetMouseNaturalScrollState,
-            this,
-            &MouseDBusProxy::setMouseNaturalScrollState);
-    connect(m_worker, &MouseWorker::requestSetDouClick, this, &MouseDBusProxy::setDouClick);
-    connect(m_worker,
-            &MouseWorker::requestSetDisTouchPad,
-            this,
-            &MouseDBusProxy::setDisableTouchPadWhenMouseExist);
-    connect(m_worker, &MouseWorker::requestSetAccelProfile, this, &MouseDBusProxy::setAccelProfile);
-    connect(m_worker,
-            &MouseWorker::requestSetMouseMotionAcceleration,
-            this,
-            &MouseDBusProxy::setMouseMotionAcceleration);
-
-    // set Touchpad settings from dde-control-center
-    connect(m_worker,
-            &MouseWorker::requestSetTouchNaturalScrollState,
-            this,
-            &MouseDBusProxy::setTouchNaturalScrollState);
-    connect(m_worker, &MouseWorker::requestSetDisTyping, this, &MouseDBusProxy::setDisTyping);
-    connect(m_worker,
-            &MouseWorker::requestSetTouchpadMotionAcceleration,
-            this,
-            &MouseDBusProxy::setTouchpadMotionAcceleration);
-    connect(m_worker, &MouseWorker::requestSetTapClick, this, &MouseDBusProxy::setTapClick);
-    connect(m_worker, &MouseWorker::requestSetPalmDetect, this, &MouseDBusProxy::setPalmDetect);
-    connect(m_worker, &MouseWorker::requestSetPalmMinWidth, this, &MouseDBusProxy::setPalmMinWidth);
-    connect(m_worker, &MouseWorker::requestSetPalmMinz, this, &MouseDBusProxy::setPalmMinz);
-
-    // set Redpoint settings from dde-control-center
-    connect(m_worker,
-            &MouseWorker::requestSetTrackPointMotionAcceleration,
-            this,
-            &MouseDBusProxy::setTrackPointMotionAcceleration);
-
-    // set Device properties from dde-control-center
-    connect(m_worker, &MouseWorker::requestSetScrollSpeed, this, &MouseDBusProxy::setScrollSpeed);
-    connect(m_worker,
-            &MouseWorker::requestSetTouchpadEnabled,
-            this,
-            &MouseDBusProxy::setTouchpadEnabled);
-
-    connect(m_worker, &MouseWorker::requestSetGesture, this, &MouseDBusProxy::setGesture);
-    connect(m_worker, &MouseWorker::requestSetCursorSize, this, &MouseDBusProxy::setCursorSize);
 }
 
 void MouseDBusProxy::parseGesturesData(const QDBusArgument &argument)
@@ -418,19 +375,19 @@ void MouseDBusProxy::onMousePathPropertiesChanged(QDBusMessage msg)
         QStringList keys = changedProps.keys();
         for (int i = 0; i < keys.size(); i++) {
             if (keys.at(i) == "Exist") {
-                m_worker->setMouseExist(changedProps.value(keys.at(i)).toBool());
+                Q_EMIT mouseExistChanged(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "LeftHanded") {
-                m_worker->setLeftHandState(changedProps.value(keys.at(i)).toBool());
+                Q_EMIT leftHandStateChanged(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "NaturalScroll") {
-                m_worker->setMouseNaturalScrollState(changedProps.value(keys.at(i)).toBool());
+                Q_EMIT mouseNaturalScrollStateChanged(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "DoubleClick") {
-                m_worker->setDouClick(changedProps.value(keys.at(i)).toInt());
+                Q_EMIT douClickChanged(changedProps.value(keys.at(i)).toInt());
             } else if(keys.at(i) == "DisableTpad") {
-                m_worker->setDisTouchPad(changedProps.value(keys.at(i)).toBool());
+                Q_EMIT disTouchPadChanged(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "AdaptiveAccelProfile") {
-                m_worker->setAccelProfile(changedProps.value(keys.at(i)).toBool());
+                Q_EMIT accelProfileChanged(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "MotionAcceleration") {
-                m_worker->setMouseMotionAcceleration(changedProps.value(keys.at(i)).toDouble());
+                Q_EMIT mouseMotionAccelerationChanged(changedProps.value(keys.at(i)).toDouble());
             }
         }
     }
@@ -448,25 +405,25 @@ void MouseDBusProxy::onTouchpadPathPropertiesChanged(QDBusMessage msg)
         QStringList keys = changedProps.keys();
         for (int i = 0; i < keys.size(); i++) {
             if (keys.at(i) == "Exist") {
-                m_worker->setTpadExist(changedProps.value(keys.at(i)).toBool());
+                Q_EMIT tpadExistChanged(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "TPadEnable") {
-                m_worker->setTpadEnabled(changedProps.value(keys.at(i)).toBool());
+                Q_EMIT tpadEnabledChanged(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "NaturalScroll") {
-                m_worker->setTouchNaturalScrollState(changedProps.value(keys.at(i)).toBool());
+                Q_EMIT touchNaturalScrollStateChanged(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "DisableIfTyping") {
-                m_worker->setDisTyping(changedProps.value(keys.at(i)).toBool());
+                Q_EMIT disTypingChanged(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "DoubleClick") {
-                m_worker->setDouClick(changedProps.value(keys.at(i)).toInt());
+                Q_EMIT douClickChanged(changedProps.value(keys.at(i)).toInt());
             } else if(keys.at(i) == "MotionAcceleration") {
-                m_worker->setTouchpadMotionAcceleration(changedProps.value(keys.at(i)).toDouble());
+                Q_EMIT touchpadMotionAccelerationChanged(changedProps.value(keys.at(i)).toDouble());
             } else if(keys.at(i) == "TapClick") {
-                m_worker->setTapClick(changedProps.value(keys.at(i)).toBool());
+                Q_EMIT tapClickChanged(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "PalmDetect") {
-                m_worker->setPalmDetect(changedProps.value(keys.at(i)).toBool());
+                Q_EMIT palmDetectChanged(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "PalmMinWidth") {
-                m_worker->setPalmMinWidth(changedProps.value(keys.at(i)).toInt());
+                Q_EMIT palmMinWidthChanged(changedProps.value(keys.at(i)).toInt());
             } else if(keys.at(i) == "PalmMinZ") {
-                m_worker->setPalmMinz(changedProps.value(keys.at(i)).toInt());
+                Q_EMIT palmMinzChanged(changedProps.value(keys.at(i)).toInt());
             }
         }
     }
@@ -484,9 +441,9 @@ void MouseDBusProxy::onTrackpointPathPropertiesChanged(QDBusMessage msg)
         QStringList keys = changedProps.keys();
         for (int i = 0; i < keys.size(); i++) {
             if (keys.at(i) == "Exist") {
-                m_worker->setRedPointExist(changedProps.value(keys.at(i)).toBool());
+                Q_EMIT redPointExistChanged(changedProps.value(keys.at(i)).toBool());
             } else if(keys.at(i) == "MotionAcceleration") {
-                m_worker->setTrackPointMotionAcceleration(changedProps.value(keys.at(i)).toDouble());
+                Q_EMIT trackPointMotionAccelerationChanged(changedProps.value(keys.at(i)).toDouble());
             }
         }
     }
@@ -504,7 +461,7 @@ void MouseDBusProxy::onInputDevicesPathPropertiesChanged(QDBusMessage msg)
         QStringList keys = changedProps.keys();
         for (int i = 0; i < keys.size(); i++) {
             if (keys.at(i) == "WheelSpeed") {
-                m_worker->setScrollSpeed(changedProps.value(keys.at(i)).toUInt());
+                Q_EMIT scrollSpeedChanged(changedProps.value(keys.at(i)).toUInt());
             }
         }
     }
@@ -541,7 +498,7 @@ void MouseDBusProxy::onAppearancePropertiesChanged(QDBusMessage msg)
         for (int i = 0; i < keys.size(); i++) {
             if (keys.at(i) == "CursorSize") {
                 int cursorSize = changedProps.value(keys.at(i)).toInt();
-                m_worker->setCursorSize(cursorSize);
+                Q_EMIT cursorSizeChanged(cursorSize);
             } else if (keys.at(i) == "CursorTheme") {
                 listCursor();
             }
@@ -581,8 +538,7 @@ void MouseDBusProxy::onGetGestureAvaiableActionsFinished(QDBusPendingCallWatcher
         }
     }
 
-    m_worker->setGestureData(data);
-    m_worker->initFingerGestures();
+    Q_EMIT gestureDataChanged(data);
     w->deleteLater();
 }
 
@@ -608,7 +564,7 @@ void MouseDBusProxy::listCursor()
                         for (const auto &size : availableSizesValue) {
                             availableSizes.append(size.toInt(-1));
                         }
-                        m_worker->setAvailableCursorSizes(availableSizes);
+                        Q_EMIT availableCursorSizesChanged(availableSizes);
                         break;
                     }
                 }
