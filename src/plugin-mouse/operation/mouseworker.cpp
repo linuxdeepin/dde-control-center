@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "mouseworker.h"
@@ -11,13 +11,79 @@ const QString Service = "org.deepin.dde.InputDevices1";
 MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
+    , m_mouseProxy(new MouseDBusProxy(this))
     , m_treelandWorker(new TreeLandWorker(this))
 {
-    MouseDBusProxy *proxy = new MouseDBusProxy(this, this);
-    QMetaObject::invokeMethod(proxy, "active", Qt::QueuedConnection);
+    bindProxySignals();
+    bindRequestSignals();
+    QMetaObject::invokeMethod(m_mouseProxy, "active", Qt::QueuedConnection);
 #ifdef Enable_Treeland
     m_treelandWorker->active();
 #endif
+}
+
+void MouseWorker::active()
+{
+}
+
+void MouseWorker::deactive()
+{
+}
+
+void MouseWorker::init()
+{
+}
+
+void MouseWorker::bindProxySignals()
+{
+    connect(m_mouseProxy, &MouseDBusProxy::mouseExistChanged, this, &MouseWorker::setMouseExist);
+    connect(m_mouseProxy, &MouseDBusProxy::tpadExistChanged, this, &MouseWorker::setTpadExist);
+    connect(m_mouseProxy, &MouseDBusProxy::tpadEnabledChanged, this, &MouseWorker::setTpadEnabled);
+    connect(m_mouseProxy, &MouseDBusProxy::leftHandStateChanged, this, &MouseWorker::setLeftHandState);
+    connect(m_mouseProxy, &MouseDBusProxy::mouseNaturalScrollStateChanged, this, &MouseWorker::setMouseNaturalScrollState);
+    connect(m_mouseProxy, &MouseDBusProxy::touchNaturalScrollStateChanged, this, &MouseWorker::setTouchNaturalScrollState);
+    connect(m_mouseProxy, &MouseDBusProxy::disTypingChanged, this, &MouseWorker::setDisTyping);
+    connect(m_mouseProxy, &MouseDBusProxy::disTouchPadChanged, this, &MouseWorker::setDisTouchPad);
+    connect(m_mouseProxy, &MouseDBusProxy::tapClickChanged, this, &MouseWorker::setTapClick);
+    connect(m_mouseProxy, &MouseDBusProxy::douClickChanged, this, &MouseWorker::setDouClick);
+    connect(m_mouseProxy, &MouseDBusProxy::mouseMotionAccelerationChanged, this, &MouseWorker::setMouseMotionAcceleration);
+    connect(m_mouseProxy, &MouseDBusProxy::accelProfileChanged, this, &MouseWorker::setAccelProfile);
+    connect(m_mouseProxy, &MouseDBusProxy::touchpadMotionAccelerationChanged, this, &MouseWorker::setTouchpadMotionAcceleration);
+    connect(m_mouseProxy, &MouseDBusProxy::redPointExistChanged, this, &MouseWorker::setRedPointExist);
+    connect(m_mouseProxy, &MouseDBusProxy::trackPointMotionAccelerationChanged, this, &MouseWorker::setTrackPointMotionAcceleration);
+    connect(m_mouseProxy, &MouseDBusProxy::palmDetectChanged, this, &MouseWorker::setPalmDetect);
+    connect(m_mouseProxy, &MouseDBusProxy::palmMinWidthChanged, this, &MouseWorker::setPalmMinWidth);
+    connect(m_mouseProxy, &MouseDBusProxy::palmMinzChanged, this, &MouseWorker::setPalmMinz);
+    connect(m_mouseProxy, &MouseDBusProxy::scrollSpeedChanged, this, &MouseWorker::setScrollSpeed);
+    connect(m_mouseProxy, &MouseDBusProxy::gestureDataChanged, this, [this](const GestureData &data) {
+        setGestureData(data);
+        initFingerGestures();
+    });
+    connect(m_mouseProxy, &MouseDBusProxy::cursorSizeChanged, this, &MouseWorker::setCursorSize);
+    connect(m_mouseProxy, &MouseDBusProxy::availableCursorSizesChanged, this, &MouseWorker::setAvailableCursorSizes);
+    connect(m_mouseProxy, &MouseDBusProxy::lidIsPresentChanged, this, &MouseWorker::setLidIsPresent);
+}
+
+void MouseWorker::bindRequestSignals()
+{
+    connect(this, &MouseWorker::requestSetPalmDetect, m_mouseProxy, &MouseDBusProxy::setPalmDetect);
+    connect(this, &MouseWorker::requestSetPalmMinWidth, m_mouseProxy, &MouseDBusProxy::setPalmMinWidth);
+    connect(this, &MouseWorker::requestSetPalmMinz, m_mouseProxy, &MouseDBusProxy::setPalmMinz);
+    connect(this, &MouseWorker::requestSetDouClick, m_mouseProxy, &MouseDBusProxy::setDouClick);
+    connect(this, &MouseWorker::requestSetScrollSpeed, m_mouseProxy, &MouseDBusProxy::setScrollSpeed);
+    connect(this, &MouseWorker::requestSetLeftHandState, m_mouseProxy, &MouseDBusProxy::setLeftHandState);
+    connect(this, &MouseWorker::requestSetMouseNaturalScrollState, m_mouseProxy, &MouseDBusProxy::setMouseNaturalScrollState);
+    connect(this, &MouseWorker::requestSetTouchNaturalScrollState, m_mouseProxy, &MouseDBusProxy::setTouchNaturalScrollState);
+    connect(this, &MouseWorker::requestSetDisTyping, m_mouseProxy, &MouseDBusProxy::setDisTyping);
+    connect(this, &MouseWorker::requestSetDisTouchPad, m_mouseProxy, &MouseDBusProxy::setDisableTouchPadWhenMouseExist);
+    connect(this, &MouseWorker::requestSetTapClick, m_mouseProxy, &MouseDBusProxy::setTapClick);
+    connect(this, &MouseWorker::requestSetMouseMotionAcceleration, m_mouseProxy, &MouseDBusProxy::setMouseMotionAcceleration);
+    connect(this, &MouseWorker::requestSetAccelProfile, m_mouseProxy, &MouseDBusProxy::setAccelProfile);
+    connect(this, &MouseWorker::requestSetTouchpadMotionAcceleration, m_mouseProxy, &MouseDBusProxy::setTouchpadMotionAcceleration);
+    connect(this, &MouseWorker::requestSetTrackPointMotionAcceleration, m_mouseProxy, &MouseDBusProxy::setTrackPointMotionAcceleration);
+    connect(this, &MouseWorker::requestSetTouchpadEnabled, m_mouseProxy, &MouseDBusProxy::setTouchpadEnabled);
+    connect(this, &MouseWorker::requestSetGesture, m_mouseProxy, &MouseDBusProxy::setGesture);
+    connect(this, &MouseWorker::requestSetCursorSize, m_mouseProxy, &MouseDBusProxy::setCursorSize);
 }
 
 void MouseWorker::initFingerGestures()

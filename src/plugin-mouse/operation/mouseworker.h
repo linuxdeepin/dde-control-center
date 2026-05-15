@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef MOUSEWORKER_H
@@ -11,6 +11,7 @@
 
 using namespace DCC_MOUSE;
 namespace DCC_NAMESPACE {
+class MouseDBusProxy;
 class MouseWorker : public QObject
 {
     Q_OBJECT
@@ -86,6 +87,9 @@ Q_SIGNALS:
     void requestSetCursorSize(const int cursorSize);
 
 private:
+    void bindProxySignals();
+    void bindRequestSignals();
+
     int converToDouble(int value);
     int converToDoubleModel(int value);
     double converToMotionAcceleration(int value);
@@ -93,6 +97,7 @@ private:
 
 private:
     MouseModel *m_model;
+    MouseDBusProxy *m_mouseProxy;
     TreeLandWorker *m_treelandWorker;
 };
 }
