@@ -1946,7 +1946,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Ndriçim i Automatizuar</translation>
     </message>
 </context>
 <context>
