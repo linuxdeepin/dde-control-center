@@ -1,3 +1,23 @@
+dde-control-center (6.1.86) unstable; urgency=medium
+
+  * feat(wallpaper): add live wallpaper download and install support
+  * i18n: Updates for project Deepin Desktop Environment (#3235)
+  * feat: 更新翻译
+  * feat: add auto brightness toggle
+  * fix: filter nodes with empty displayName in event logger page tags
+  * fix: persist display scale after logout and re-login
+  * fix: set plugin install dir to system path in debug build
+  * fix: update event logger ID for control center page stay
+  * fix(display): adjust layout on scale change in extend mode
+  * fix: normalize space symbol checks
+  * i18n: Updates for project Deepin Desktop Environment (#3222)
+  * fix: align scrollbar appearance with DTK style
+  * i18n: Updates for project Deepin Desktop Environment (#3220)
+  * fix(wallpaper): enable per-screen wallpaper setting for treeland
+  * fix: replace external license dialog with embedded dialog for user experience program
+
+ -- zhangkun <zhangkun2@uniontech.com>  Sat, 16 May 2026 15:44:10 +0800
+
 dde-control-center (6.1.85) unstable; urgency=medium
 
   * fix: Fix Tab key cycling in control center settings pages
