@@ -1941,7 +1941,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Brilho automático</translation>
     </message>
 </context>
 <context>
