@@ -161,7 +161,7 @@ void DccManager::loadModules(bool async, const QStringList &dirs)
 int DccManager::width() const
 {
     auto w = m_dconfig->value(WidthConfig).toInt();
-    return w >= 520 ? w : 780;
+    return w > 630 ? w : 630;
 }
 
 int DccManager::height() const
