@@ -3655,7 +3655,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation>Więcej tapet</translation>
+        <translation>Więcej motywów</translation>
     </message>
 </context>
 <context>
