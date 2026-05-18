@@ -15,7 +15,6 @@ import org.deepin.dcc.account.biometric 1.0
 D.DialogWindow {
     id: dialog
     width: 360
-    height: 500
     minimumWidth: width
     maximumWidth: minimumWidth
     modality: Qt.WindowModal
@@ -47,13 +46,6 @@ D.DialogWindow {
             ColumnLayout {
                 height: ListView.view.implicitHeight
                 width: ListView.view.implicitWidth
-
-                Label {
-                    Layout.fillWidth: true
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    text: dialog.title
-                }
 
                 Item {
                     Layout.preferredHeight: 50
@@ -117,7 +109,7 @@ D.DialogWindow {
                 D.RecommandButton {
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
-                    Layout.bottomMargin: 0
+                    Layout.bottomMargin: DS.Style.dialogWindow.contentHMargin
                     Layout.leftMargin: 0
                     Layout.rightMargin: 0
                     Layout.fillWidth: true
@@ -135,11 +127,6 @@ D.DialogWindow {
                 height: ListView.view.implicitHeight
                 width: ListView.view.implicitWidth
                 spacing: 0
-
-                Label {
-                    text: dialog.title
-                    Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-                }
 
                 Item {
                     Layout.preferredHeight: 40
@@ -205,13 +192,6 @@ D.DialogWindow {
                 height: ListView.view.implicitHeight
                 width: ListView.view.implicitWidth
 
-                Label {
-                    Layout.fillWidth: true
-                    horizontalAlignment: Text.AlignHCenter
-                    verticalAlignment: Text.AlignVCenter
-                    text: dialog.title
-                }
-
                 Item {
                     Layout.preferredHeight: 50
                 }
@@ -255,7 +235,7 @@ D.DialogWindow {
                     visible: dccData.irisController.addStage === CharaMangerModel.Success
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
-                    Layout.bottomMargin: 0
+                    Layout.bottomMargin: DS.Style.dialogWindow.contentHMargin
                     Layout.leftMargin: 0
                     Layout.rightMargin: 0
 
@@ -274,7 +254,7 @@ D.DialogWindow {
                     visible: dccData.irisController.addStage === CharaMangerModel.Fail
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
-                    Layout.bottomMargin: 0
+                    Layout.bottomMargin: DS.Style.dialogWindow.contentHMargin
                     Layout.leftMargin: 0
                     Layout.rightMargin: 0
 

@@ -25,10 +25,6 @@ D.DialogWindow {
     color: "transparent"
     signal accepted()
 
-    header: D.DialogTitleBar {
-        icon.name: dialog.icon
-    }
-
     Rectangle {
         // 覆盖整个窗口，包括 DialogWindow 的边距
         x: -DS.Style.dialogWindow.contentHMargin
@@ -131,14 +127,6 @@ D.DialogWindow {
             }
         }
         
-        Label {
-            text: dialog.title
-            font.bold: true
-            Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-            Layout.bottomMargin: 20
-            font.pixelSize: accountTypeLabel.font.pixelSize
-        }
-
         RowLayout {
             implicitHeight: 30
             Layout.alignment: Qt.AlignTop | Qt.AlignHCenter

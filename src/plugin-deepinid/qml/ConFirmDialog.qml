@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -28,15 +28,6 @@ D.DialogWindow {
 
     ColumnLayout {
         width: parent.width
-        Label {
-            id: titleLable
-            Layout.fillWidth: true
-            font: D.DTK.fontManager.t5
-            text: dialog.title
-            horizontalAlignment: Text.AlignHCenter
-            verticalAlignment: Text.AlignVCenter
-            wrapMode: Text.WordWrap
-        }
 
         Label {
             id: messageLable
