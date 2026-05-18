@@ -2705,7 +2705,7 @@ Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation>Hasło musi zawierać co najmniej 8 znaków i kombinację co najmniej 3 typów: małe litery, duże litery, liczby i symbole.</translation>
+        <translation>Hasło musi posiadać minimum 8 znaków oraz zawierać znaki z przynajmniej 3 grup: małe litery, duże litery, cyfry i symbole.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
