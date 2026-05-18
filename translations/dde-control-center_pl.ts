@@ -1407,7 +1407,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
         <translation>Zarządzaj swoim %1 ID i synchronizuj dane użytkownika pomiędzy urządzeniami.
-Zaloguj się do %1 ID, aby uzyskać usługi i funkcje Przeglądarki, sklepu App Store i wiele więcej dostosowane do Twoich potrzeb.</translation>
+Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App Store i wiele więcej dostosowane do Twoich potrzeb.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
