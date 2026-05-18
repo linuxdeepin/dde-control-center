@@ -30,14 +30,6 @@ D.DialogWindow {
         width: dialog.width - 10
         spacing: 0
         Label {
-            text: dialog.title
-            font.bold: true
-            Layout.leftMargin: 0
-            Layout.rightMargin: 20
-            font.pixelSize: cancelButton.font.pixelSize
-            Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
-        }
-        Label {
             text: {
                 if (dialog.isCurrent())
                     return qsTr("Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.")
