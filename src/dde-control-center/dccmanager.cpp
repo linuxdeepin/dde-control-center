@@ -472,6 +472,18 @@ void DccManager::show()
     w->requestActivate();
 }
 
+void DccManager::toggle()
+{
+    QWindow *w = DccManager::mainWindow();
+    if (!w) {
+        return;
+    }
+
+    w->setVisible(!w->isVisible());
+    if (w->isVisible())
+        w->requestActivate();
+}
+
 void DccManager::initConfig()
 {
     if (!m_dconfig->isValid()) {

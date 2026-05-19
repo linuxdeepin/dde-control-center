@@ -7,6 +7,7 @@
 #include <DDBusSender>
 #include <DIconTheme>
 #include <DLog>
+#include <DGuiApplicationHelper>
 
 #include <QCommandLineOption>
 #include <QCommandLineParser>
@@ -119,27 +120,27 @@ int main(int argc, char *argv[])
     parser.addOption(pluginDir);
     parser.process(*app);
 
-    QString reqPage = parser.value(pageOption);
-    const QString &reqModule = parser.value(moduleOption);
-    if (!reqModule.isEmpty()) {
-        reqPage = reqModule + "/" + reqPage;
-    }
+    auto parseReqPage = [&]() -> QString {
+         QString reqPage = parser.value(pageOption);
+         const QString &reqModule = parser.value(moduleOption);
+         if (!reqModule.isEmpty()) {
+             reqPage = reqModule + "/" + reqPage;
+         }
+         return reqPage;
+    };
+    QString reqPage = parseReqPage();
+
     const QStringList &refPluginDirs = parser.values(pluginDir);
+
+    if (!DGuiApplicationHelper::setSingleInstance("org.deepin.dde.control-center")) {
+        qDebug() << "dde-control-center is already running, pid:" << qApp->applicationPid();
+        return -1;
+    }
 
     QDBusConnection conn = QDBusConnection::sessionBus();
     if (!conn.registerService(DccDBusService)) {
         qDebug() << "dbus service already registered!"
                  << "pid is:" << qApp->applicationPid();
-        if (parser.isSet(toggleOption)) {
-            DDBusSender().service(DccDBusService).interface(DccDBusInterface).path(DccDBusPath).method("Toggle").call();
-        }
-
-        if (!reqPage.isEmpty()) {
-            DDBusSender().service(DccDBusService).interface(DccDBusInterface).path(DccDBusPath).method("ShowPage").arg(reqPage).call();
-        } else if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
-            DDBusSender().service(DccDBusService).interface(DccDBusInterface).path(DccDBusPath).method("Show").call();
-        }
-
         return -1;
     }
 
@@ -190,6 +191,23 @@ int main(int argc, char *argv[])
         qWarning() << "Failed to create window";
         return 1;
     }
+
+    // 监听 DTK 单例信号：当有新实例尝试启动时，在原进程内直接解析其参数并响应.
+    QObject::connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::newProcessInstance,
+                     [&](qint64 pid, const QStringList &arguments) {
+        qDebug() << "new instance started, pid:" << pid << "arguments:" << arguments;
+        parser.parse(arguments);
+
+        QString page = parseReqPage();
+
+        if (parser.isSet(toggleOption)) {
+            dccManager->toggle();
+        } else if (!page.isEmpty()) {
+            dccManager->showPage(page);
+        } else if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
+            dccManager->show();
+        }
+    });
 
     dccV25::ControlCenterDBusAdaptor *adaptor = new dccV25::ControlCenterDBusAdaptor(dccManager);
     dccV25::DBusControlCenterGrandSearchService *grandSearchadAptor = new dccV25::DBusControlCenterGrandSearchService(dccManager);

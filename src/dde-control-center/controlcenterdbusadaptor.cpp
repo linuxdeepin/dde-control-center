@@ -93,10 +93,7 @@ void ControlCenterDBusAdaptor::ShowPage(const QString &url)
 
 void ControlCenterDBusAdaptor::Toggle()
 {
-    QWindow *w = parent()->mainWindow();
-    w->setVisible(!w->isVisible());
-    if (w->isVisible())
-        w->requestActivate();
+    parent()->toggle();
 }
 
 QString ControlCenterDBusAdaptor::GetAllModule()

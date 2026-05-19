@@ -74,6 +74,7 @@ public Q_SLOTS:
     void cacheImage(const QString &id, const QSize &thumbnailSize = QSize());
 
     void show();
+    void toggle();
     void showHelp();
     // DBus Search
     QString search(const QString &json) const;
