@@ -404,6 +404,16 @@ void PrivacySecurityWorker::processBatchPathUpdates()
             p.itemName = d.itemName;
             p.appPath = getAppPath(d.execs);
             p.dpkgQueryPath = d.desktopPath.isEmpty() ? p.appPath : d.desktopPath;
+            if (!p.dpkgQueryPath.isEmpty()) {
+                QFileInfo info(p.dpkgQueryPath);
+                if (info.isSymLink()) {
+                    QString target = info.symLinkTarget();
+                    qCInfo(DCC_PRIVACY) << "dpkg query path is a symlink for app"
+                                           << d.itemName << ", original:" << p.dpkgQueryPath
+                                           << ", resolved:" << target;
+                    p.dpkgQueryPath = target;
+                }
+            }
             processed.append(p);
 
             if (!p.dpkgQueryPath.isEmpty()) {
