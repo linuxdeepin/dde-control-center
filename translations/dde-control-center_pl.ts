@@ -1948,6 +1948,10 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
         <source>Auto Brightness</source>
         <translation>Automatyczna jasność</translation>
     </message>
+    <message>
+        <source>Concat Screen</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Dock</name>
