@@ -1950,7 +1950,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Concat Screen</source>
-        <translation type="unfinished"/>
+        <translation>Pantalla de concatenació</translation>
     </message>
 </context>
 <context>
