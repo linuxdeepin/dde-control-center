@@ -1,3 +1,20 @@
+dde-control-center (6.1.87) unstable; urgency=medium
+
+  * feat(display): add translation for "Concat Screen" in
+    zh_CN/zh_HK/zh_TW
+  * feat(display): add multi-monitor concat screen support
+  * refactor: decouple MouseDBusProxy from MouseWorker using signal-slot
+    pattern
+  * feat: use DTK single instance and fix window activation under
+    Wayland
+  * fix(privacy): resolve symlink before dpkg-query for correct package
+    resolution
+  * fix: remove redundant dialog titles
+  * fix: restore sidebar display after window minimization
+  * fix: resolve visibility and focus issues in control center
+
+ -- zhangkun <zhangkun2@uniontech.com>  Wed, 20 May 2026 16:43:24 +0800
+
 dde-control-center (6.1.86) unstable; urgency=medium
 
   * feat(wallpaper): add live wallpaper download and install support
