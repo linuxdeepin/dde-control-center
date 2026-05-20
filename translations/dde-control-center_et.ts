@@ -1937,6 +1937,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <source>Auto Brightness</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Concat Screen</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Dock</name>
