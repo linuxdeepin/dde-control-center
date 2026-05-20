@@ -1943,6 +1943,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Auto Brightness</source>
         <translation>Brilho automático</translation>
     </message>
+    <message>
+        <source>Concat Screen</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Dock</name>
