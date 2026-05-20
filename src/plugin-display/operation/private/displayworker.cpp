@@ -22,6 +22,7 @@ Q_LOGGING_CATEGORY(DdcDisplayWorker, "dcc-display-worker")
 
 
 const QString DisplayInterface("org.deepin.dde.Display1");
+constexpr const char * const CONCAT_SCREEN_NAME = "DDE-CONCAT-SCREEN";
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>)
 using namespace dccV25;
@@ -1038,4 +1039,59 @@ void DisplayWorker::setMonitorResolutionBySize(Monitor *mon, const int width, co
         });
         watcher->waitForFinished();
     }
+}
+
+void DisplayWorker::mergeToConcatScreen(const QStringList &outputs)
+{
+    if (WQt::Utils::isTreeland()) {
+        return;
+    }
+
+    if (outputs.size() < 2) {
+        return;
+    }
+        
+    QString outputsStr = outputs.join(",");
+    qCDebug(DdcDisplayWorker) << "[ConcatScreen] mergeToConcatScreen: xrandr --setmonitor" << CONCAT_SCREEN_NAME << "auto" << outputsStr;
+    QProcess p;
+    p.start("xrandr", {"--setmonitor", CONCAT_SCREEN_NAME, "auto", outputsStr});
+    p.waitForFinished(5000);
+    if (p.exitCode() != 0) {
+        qCWarning(DdcDisplayWorker) << "[ConcatScreen] mergeToConcatScreen failed:" << p.readAllStandardError();
+        return;
+    }
+    m_model->setIsConcatScreenMode(true);
+}
+
+void DisplayWorker::resetConcatScreenMode()
+{
+    if (WQt::Utils::isTreeland()) {
+        return;
+    }
+
+    QProcess p;
+    p.start("xrandr", {"--delmonitor", CONCAT_SCREEN_NAME});
+    p.waitForFinished(5000);
+    if (p.exitCode() != 0) {
+        qCWarning(DdcDisplayWorker) << "[ConcatScreen] delmonitor failed:" << p.readAllStandardError();
+        return;
+    }
+
+    m_model->setIsConcatScreenMode(false);
+}
+
+void DisplayWorker::updateConcatScreenMode()
+{
+    if (WQt::Utils::isTreeland()) {
+        return;
+    }
+
+    QProcess p;
+    p.start("xrandr", {"--listmonitors"});
+    p.waitForFinished(3000);
+    if (p.exitCode() != 0) {
+        qCWarning(DdcDisplayWorker) << "[ConcatScreen] listmonitors failed:" << p.readAllStandardError();
+    }
+    QByteArray output = p.readAllStandardOutput();
+    m_model->setIsConcatScreenMode(output.contains(CONCAT_SCREEN_NAME));
 }

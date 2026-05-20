@@ -69,6 +69,10 @@ public Q_SLOTS:
     void setCurrentFillMode(Monitor *mon, const QString fillMode);
     void setAutoBacklightEnabled(const bool value);
 
+    void mergeToConcatScreen(const QStringList &outputs);
+    void resetConcatScreenMode();
+    void updateConcatScreenMode();
+
     void backupConfig();
     void clearBackup();
     void resetBackup();

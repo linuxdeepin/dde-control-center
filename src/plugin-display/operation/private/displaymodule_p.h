@@ -30,7 +30,12 @@ public:
     void updatePrimary();
     void updateDisplayMode();
     void updateMaxGlobalScale();
+    void updateScreensFormRect();
+    void mergeToConcatScreen();
+    void resetConcatScreenMode();
+    void updateConcatScreenMode();
     DccScreen *primary() const;
+    QList<DccScreen *> enabledScreens() const;
     QString displayMode() const;
     void setScreenPosition(const QList<ScreenData *> &screensData);
     void updateScale(DccScreen *item);
@@ -45,6 +50,7 @@ public:
     DccScreen *m_primary;
     QString m_displayMode;
     qreal m_maxGlobalScale;
+    bool m_screensFormRect;
 
     Q_DECLARE_PUBLIC(DisplayModule)
 };
