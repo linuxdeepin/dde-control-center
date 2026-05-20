@@ -1950,6 +1950,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>Auto Brightness</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Concat Screen</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Dock</name>
