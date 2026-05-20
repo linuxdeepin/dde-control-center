@@ -1937,6 +1937,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <source>Auto Brightness</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Concat Screen</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Dock</name>
