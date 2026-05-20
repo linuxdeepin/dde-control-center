@@ -287,3 +287,12 @@ void DisplayModel::setmodeChanging(bool changing)
 {
     m_monitorModeChanging = changing;
 }
+
+void DisplayModel::setIsConcatScreenMode(bool enabled)
+{
+    if (m_isConcatScreenMode == enabled) {
+        return;
+    }
+    m_isConcatScreenMode = enabled;
+    Q_EMIT concatScreenModeChanged(m_isConcatScreenMode);
+}

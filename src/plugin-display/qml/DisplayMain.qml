@@ -12,6 +12,8 @@ DccObject {
     id: root
     property var screen: dccData.virtualScreens[0]
     property var activeDialogs: []
+    property bool screensFormRect: dccData.screensFormRect
+    property bool isExtendMode: dccData.displayMode === "EXTEND"
     property var scaleModelConst: [{
             "text": qsTr("100%"),
             "value": 1.0
@@ -188,7 +190,7 @@ DccObject {
             name: "monitorsGround"
             parentName: "monitorControl"
             weight: 10
-            enabled: dccData.virtualScreens.length > 1
+            enabled: dccData.virtualScreens.length > 1 && !(root.isExtendMode && dccData.isConcatScreenMode)
             Component.onCompleted: cacheImage()
             pageType: DccObject.Item
             onParentItemChanged: item => { if (item) { item.topInset = 0; item.bottomInset = 0 } }
@@ -482,6 +484,25 @@ DccObject {
                 }
             }
         }
+        DccObject {
+            name: "mergeToConcatScreen"
+            parentName: "display/displayMultipleDisplays"
+            displayName: qsTr("Concat Screen")
+            weight: 40
+            visible: root.isExtendMode && dccData.isX11 && dccData.screens.length > 1
+            pageType: DccObject.Editor
+            page: Switch {
+                checked: dccData.isConcatScreenMode
+                enabled: root.screensFormRect || dccData.isConcatScreenMode
+                onCheckedChanged: {
+                    if (checked) {
+                        dccData.mergeToConcatScreen()
+                    } else {
+                        dccData.resetConcatScreenMode()
+                    }
+                }
+            }
+        }
     }
     DccTitleObject {
         name: "screenTitle"
@@ -665,6 +686,7 @@ DccObject {
             page: ComboBox {
                 id: resolutionComboBox
                 flat: true
+                enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
                 model: root.getResolutionModel(screen.resolutionList, screen.bestResolution)
                 textRole: "text"
                 valueRole: "value"
@@ -809,6 +831,7 @@ DccObject {
             pageType: DccObject.Editor
             page: ComboBox {
                 flat: true
+                enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
                 textRole: "text"
                 valueRole: "value"
                 model: root.getRateModel(screen.rateList, screen.bestRate)
@@ -842,6 +865,7 @@ DccObject {
             pageType: DccObject.Editor
             page: ComboBox {
                 flat: true
+                enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
                 textRole: "text"
                 valueRole: "value"
                 model: [{
@@ -888,6 +912,7 @@ DccObject {
             pageType: DccObject.Editor
             page: ComboBox {
                 flat: true
+                enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
                 textRole: "text"
                 valueRole: "value"
                 model: dccData.isX11 ? root.getScaleModel(dccData.maxGlobalScale, dccData.globalScale) : root.getScaleModel(screen.maxScale, screen.scale)
@@ -918,6 +943,7 @@ DccObject {
         onParentItemChanged: item => { if (item) item.topInset = 6 }
         page: ComboBox {
             flat: true
+            enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
             textRole: "text"
             valueRole: "value"
             model: root.getScaleModel(dccData.maxGlobalScale, dccData.globalScale)

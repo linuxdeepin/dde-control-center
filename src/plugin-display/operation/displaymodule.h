@@ -30,6 +30,8 @@ class DisplayModule : public QObject
     Q_PROPERTY(bool autoBacklightSupported READ autoBacklightSupported NOTIFY autoBacklightSupportedChanged FINAL)
     Q_PROPERTY(bool autoBacklightEnabled READ autoBacklightEnabled WRITE setAutoBacklightEnabled NOTIFY autoBacklightEnabledChanged FINAL)
     Q_PROPERTY(QString builtinMonitorName READ builtinMonitorName NOTIFY builtinMonitorNameChanged FINAL)
+    Q_PROPERTY(bool screensFormRect READ screensFormRect NOTIFY screensFormRectChanged FINAL)
+    Q_PROPERTY(bool isConcatScreenMode READ isConcatScreenMode NOTIFY isConcatScreenModeChanged FINAL)
 public:
     explicit DisplayModule(QObject *parent = nullptr);
     ~DisplayModule() override;
@@ -58,6 +60,8 @@ public:
     bool autoBacklightEnabled() const;
     void setAutoBacklightEnabled(bool enabled);
     QString builtinMonitorName() const;
+    bool screensFormRect() const;
+    bool isConcatScreenMode() const;
 
 public Q_SLOTS:
     void saveChanges();
@@ -67,6 +71,8 @@ public Q_SLOTS:
     void executemultiScreenAlgo(QList<QObject *> listItems, QObject *pw, qreal scale);
     void applySettings(QList<QObject *> listItems, qreal scale);
     void applyChanged(); // 修改分辨率、方向时，要重新处理下拼接
+    Q_INVOKABLE void mergeToConcatScreen();
+    Q_INVOKABLE void resetConcatScreenMode();
 
 Q_SIGNALS:
     void virtualScreensChanged();
@@ -85,6 +91,8 @@ Q_SIGNALS:
     void autoBacklightSupportedChanged();
     void autoBacklightEnabledChanged();
     void builtinMonitorNameChanged();
+    void screensFormRectChanged();
+    void isConcatScreenModeChanged();
 
 private:
     QScopedPointer<DisplayModulePrivate> d_ptrDisplayModule;

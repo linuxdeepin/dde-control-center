@@ -103,6 +103,9 @@ public:
     inline bool monitorModeChanging() const { return m_monitorModeChanging; }
     void setmodeChanging(bool changing);
 
+    inline bool isConcatScreenMode() const { return m_isConcatScreenMode; }
+    void setIsConcatScreenMode(bool enabled);
+
 Q_SIGNALS:
     void screenHeightChanged(const int h) const;
     void screenWidthChanged(const int w) const;
@@ -133,6 +136,7 @@ Q_SIGNALS:
     void sharedDevicesChanged(bool on) const;
     void filesStoragePathChanged(const QString& path) const;
     void customColorTempTimePeriodChanged(const QString& timePeriod);
+    void concatScreenModeChanged(bool enabled);
 
 private Q_SLOTS:
     void setScreenHeight(const int h);
@@ -175,6 +179,7 @@ private:
     uint m_maxBacklightBrightness {0};
     bool m_allSupportFillModes;
     bool m_monitorModeChanging; // 配置修改中,仅控制中心修改时才处理自动拼接
+    bool m_isConcatScreenMode { false };
 };
 }
 

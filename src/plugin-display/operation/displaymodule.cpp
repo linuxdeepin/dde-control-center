@@ -61,6 +61,7 @@ DisplayModulePrivate::DisplayModulePrivate(DisplayModule *parent)
     : q_ptr(parent)
     , m_primary(nullptr)
     , m_maxGlobalScale(1.0)
+    , m_screensFormRect(false)
 {
     qRegisterMetaType<QHash<Monitor *, QPair<int, int>>>("QHash<Monitor *, QPair<int, int>>");
     m_model = new DisplayModel(q_ptr);
@@ -88,9 +89,11 @@ void DisplayModulePrivate::init()
     q_ptr->connect(m_model, &DisplayModel::autoBacklightSupportedChanged, q_ptr, &DisplayModule::autoBacklightSupportedChanged);
     q_ptr->connect(m_model, &DisplayModel::autoBacklightEnabledChanged, q_ptr, &DisplayModule::autoBacklightEnabledChanged);
     q_ptr->connect(m_model, &DisplayModel::builtinMonitorNameChanged, q_ptr, &DisplayModule::builtinMonitorNameChanged);
+    q_ptr->connect(m_model, &DisplayModel::concatScreenModeChanged, q_ptr, &DisplayModule::isConcatScreenModeChanged);
     updateMonitorList();
     updatePrimary();
     updateDisplayMode();
+    updateConcatScreenMode();
 }
 
 void DisplayModulePrivate::updateVirtualScreens()
@@ -160,10 +163,14 @@ void DisplayModulePrivate::updateVirtualScreens()
         updatePrimary();
         Q_EMIT q_ptr->virtualScreensChanged();
     }
+    updateScreensFormRect();
 }
 
 void DisplayModulePrivate::updateMonitorList()
 {
+    if (m_model->isConcatScreenMode()) {
+        resetConcatScreenMode();
+    }
     bool changed = false;
     QList<Monitor *> addMonitorList = m_model->monitorList();
     for (auto it = m_screens.cbegin(); it != m_screens.cend();) {
@@ -205,6 +212,7 @@ void DisplayModulePrivate::updateMonitorList()
         updateVirtualScreens();
         updateMaxGlobalScale();
         updateDisplayMode();
+        updateConcatScreenMode();
         Q_EMIT q_ptr->screensChanged();
     }
 }
@@ -249,6 +257,7 @@ void DisplayModulePrivate::updateDisplayMode()
         m_displayMode = displayMode;
         Q_EMIT q_ptr->displayModeChanged();
     }
+    updateScreensFormRect();
 }
 
 void DisplayModulePrivate::updateMaxGlobalScale()
@@ -276,9 +285,62 @@ void DisplayModulePrivate::updateMaxGlobalScale()
     }
 }
 
+void DisplayModulePrivate::updateScreensFormRect()
+{
+    QList<DccScreen *> screens = enabledScreens();
+    bool isRect = false;
+    if (screens.size() >= 2) {
+        QList<QRectF> rects;
+        for (auto s : screens) {
+            rects << QRectF(s->x(), s->y(), s->width(), s->height());
+        }
+        QRectF bounding = rects[0];
+        qreal totalArea = rects[0].width() * rects[0].height();
+        for (int i = 1; i < rects.size(); ++i) {
+            bounding = bounding.united(rects[i]);
+            totalArea += rects[i].width() * rects[i].height();
+        }
+        isRect = qFuzzyCompare(bounding.width() * bounding.height(), totalArea);
+    }
+    if (m_screensFormRect != isRect) {
+        m_screensFormRect = isRect;
+        Q_EMIT q_ptr->screensFormRectChanged();
+    }
+}
+
+void DisplayModulePrivate::updateConcatScreenMode()
+{
+    m_worker->updateConcatScreenMode();
+}
+
+void DisplayModulePrivate::mergeToConcatScreen()
+{
+    QStringList outputs;
+    for (auto s : enabledScreens()) {
+        outputs << s->name();
+    }
+    m_worker->mergeToConcatScreen(outputs);
+}
+
+void DisplayModulePrivate::resetConcatScreenMode()
+{
+    m_worker->resetConcatScreenMode();
+}
+
 DccScreen *DisplayModulePrivate::primary() const
 {
     return m_primary;
+}
+
+QList<DccScreen *> DisplayModulePrivate::enabledScreens() const
+{
+    QList<DccScreen *> result;
+    for (auto s : m_screens) {
+        if (s->enable()) {
+            result << s;
+        }
+    }
+    return result;
 }
 
 QString DisplayModulePrivate::displayMode() const
@@ -401,6 +463,9 @@ void DisplayModule::setDisplayMode(const QString &mode)
         name = mode;
     }
     Q_D(DisplayModule);
+    if (d->m_model->isConcatScreenMode() && modeType != EXTEND_MODE) {
+        d->resetConcatScreenMode();
+    }
     d->m_worker->switchMode(modeType, name);
 }
 
@@ -582,6 +647,30 @@ QString DisplayModule::builtinMonitorName() const
 {
     Q_D(const DisplayModule);
     return d->m_model->builtinMonitorName();
+}
+
+bool DisplayModule::screensFormRect() const
+{
+    Q_D(const DisplayModule);
+    return d->m_screensFormRect;
+}
+
+bool DisplayModule::isConcatScreenMode() const
+{
+    Q_D(const DisplayModule);
+    return d->m_model->isConcatScreenMode();
+}
+
+void DisplayModule::mergeToConcatScreen()
+{
+    Q_D(DisplayModule);
+    d->mergeToConcatScreen();
+}
+
+void DisplayModule::resetConcatScreenMode()
+{
+    Q_D(DisplayModule);
+    d->resetConcatScreenMode();
 }
 
 void DisplayModule::saveChanges()
