@@ -1940,11 +1940,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Автоматична яскравість</translation>
     </message>
     <message>
         <source>Concat Screen</source>
-        <translation type="unfinished"/>
+        <translation>Поєднання екрана</translation>
     </message>
 </context>
 <context>
@@ -3844,15 +3844,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>UeProgramLicenseDialog</name>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Погодитися та приєднатися до програми досвіду користувачів</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Скасувати</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>ПІдтвердити</translation>
     </message>
 </context>
 <context>
