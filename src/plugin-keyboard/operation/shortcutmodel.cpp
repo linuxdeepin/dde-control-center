@@ -629,7 +629,7 @@ void ShortcutListModel::onUpdateShortcut(ShortcutInfo *info)
     if (row >= 0)
     {
         QModelIndex modelIndex = index(row);
-        Q_EMIT dataChanged(modelIndex, modelIndex, {Qt::DisplayRole, KeySequenceRole});
+        Q_EMIT dataChanged(modelIndex, modelIndex, {Qt::DisplayRole, KeySequenceRole, AccelsRole});
     }
 }
 
