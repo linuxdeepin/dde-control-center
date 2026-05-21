@@ -1950,7 +1950,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Concat Screen</source>
-        <translation type="unfinished"/>
+        <translation>Wiele ekranów</translation>
     </message>
 </context>
 <context>
