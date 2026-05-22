@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Layouts 1.15
@@ -44,15 +44,6 @@ D.DialogWindow {
             }
         }
         width: parent.width
-        Label {
-            Layout.fillWidth: true
-            Layout.leftMargin: 50
-            Layout.rightMargin: 50
-            text: title
-            font.bold: true
-            wrapMode: Text.WordWrap
-            horizontalAlignment: Text.AlignHCenter
-        }
         Label {
             Layout.fillWidth: true
             Layout.leftMargin: 50
