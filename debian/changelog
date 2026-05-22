@@ -1,3 +1,13 @@
+dde-control-center (6.1.88) unstable; urgency=medium
+
+  * feat(display): add help icon with tooltip for concat screen
+  * fix(display): disable primary screen switch and screen identify in
+    concat screen mode
+  * fix: remove duplicate title label in timeout dialog
+  * fix: update model accels role after shortcut data changes
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 22 May 2026 21:30:24 +0800
+
 dde-control-center (6.1.87) unstable; urgency=medium
 
   * feat(display): add translation for "Concat Screen" in
