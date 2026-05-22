@@ -1949,7 +1949,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Drag the display layout first to form a rectangle. If a rectangular layout is not possible, set all displays to the same resolution first.</source>
-        <translation type="unfinished"/>
+        <translation>Organize as telas em formato de um retângulo. Se isso não for possível, defina a mesma resolução para todas as telas.</translation>
     </message>
 </context>
 <context>
