@@ -342,6 +342,7 @@ DccObject {
             displayName: qsTr("Identify")
             weight: 20
             visible: dccData.virtualScreens.length > 1 || (dccData.virtualScreens.length === 1 && dccData.virtualScreens[0].screenItems.length > 1)
+            enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
             pageType: DccObject.Item
             onParentItemChanged: item => { if (item) item.topInset = 6 }
             page: Item {
@@ -465,6 +466,7 @@ DccObject {
             visible: dccData.virtualScreens.length > 1
             page: ComboBox {
                 flat: true
+                enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
                 textRole: "name"
                 model: dccData.virtualScreens
                 function indexOfScreen(primary) {
