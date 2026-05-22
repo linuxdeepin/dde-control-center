@@ -1952,6 +1952,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>Concat Screen</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Drag the display layout first to form a rectangle. If a rectangular layout is not possible, set all displays to the same resolution first.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Dock</name>
