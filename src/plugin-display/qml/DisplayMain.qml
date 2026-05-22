@@ -492,15 +492,56 @@ DccObject {
             displayName: qsTr("Concat Screen")
             weight: 40
             visible: root.isExtendMode && dccData.isX11 && dccData.screens.length > 1
-            pageType: DccObject.Editor
-            page: Switch {
-                checked: dccData.isConcatScreenMode
-                enabled: root.screensFormRect || dccData.isConcatScreenMode
-                onCheckedChanged: {
-                    if (checked) {
-                        dccData.mergeToConcatScreen()
-                    } else {
-                        dccData.resetConcatScreenMode()
+            pageType: DccObject.Item
+            page: Item {
+                implicitHeight: 40
+                RowLayout {
+                    anchors.fill: parent
+                    anchors.leftMargin: 14
+                    anchors.rightMargin:14
+
+                    D.Label {
+                        text: dccObj.displayName
+                        Layout.rightMargin: 4
+                    }
+                    D.Button {
+                        id: helpBtn
+                        flat: true
+                        implicitWidth: 16
+                        implicitHeight: 16
+                        icon {
+                            name: "help"
+                            width: 16
+                            height: 16
+                        }
+                        hoverEnabled: false
+                        background: Item {}
+                        ToolTip {
+                            x: 0
+                            implicitWidth: 400
+                            visible: helpBtn.checked
+                            contentItem: D.Label {
+                                text: qsTr("Drag the display layout first to form a rectangle. If a rectangular layout is not possible, set all displays to the same resolution first.")
+                                wrapMode: Text.Wrap
+                                padding: 8
+                            }
+                        }
+                        onClicked: checked = !checked
+                        onActiveFocusChanged: if (!activeFocus) checked = false
+                    }
+                    Item {
+                        Layout.fillWidth: true
+                    }
+                    Switch {
+                        checked: dccData.isConcatScreenMode
+                        enabled: root.screensFormRect || dccData.isConcatScreenMode
+                        onCheckedChanged: {
+                            if (checked) {
+                                dccData.mergeToConcatScreen()
+                            } else {
+                                dccData.resetConcatScreenMode()
+                            }
+                        }
                     }
                 }
             }
