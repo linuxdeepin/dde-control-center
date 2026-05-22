@@ -5,6 +5,7 @@
         <file>actions/dcc_break_32px.svg</file>
         <file>actions/dcc_brightnesslow_32px.svg</file>
         <file>actions/dcc_brightnesshigh_32px.svg</file>
+        <file>actions/help_16px.svg</file>
     </qresource>
     <qresource prefix="/display">
         <file>icons/dark/icons/dark/Center.svg</file>
