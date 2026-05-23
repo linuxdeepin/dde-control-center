@@ -141,126 +141,116 @@ DccObject {
                             }
                         }
 
-                        Rectangle {
-                            id: textInputBackground
-                            property D.Palette alertBackgroundColor: DS.Style.edit.alertBackground
+                        D.LineEdit {
+                            id: nameEditor
+                            property int maxLength: 15
                             Layout.leftMargin: 10
-                            Layout.preferredHeight: DS.Style.itemDelegate.height
+                            Layout.minimumWidth: contentWidth + leftPadding + rightPadding
                             Layout.maximumWidth: 200
-                            Layout.minimumWidth: textInputItem.contentWidth + 16
-                            radius: 4
-                            color: alert.visible ? D.ColorSelector.alertBackgroundColor : "transparent"
+                            implicitHeight: DS.Style.itemDelegate.height
+                            horizontalAlignment: TextInput.AlignLeft
+                            text: modelData
+                            readOnly: true
+                            clearButton.active: false
 
-                            TextInput {
-                                id: textInputItem
-                                property int maxLength: 15
-                                anchors.fill: parent
-                                anchors.leftMargin: 8
-                                anchors.rightMargin: 8
-                                text: modelData
-                                verticalAlignment: Text.AlignVCenter
-                                horizontalAlignment: Text.AlignLeft
-                                focus: false
-                                wrapMode: Text.NoWrap
-                                readOnly: true
-                                focusPolicy: Qt.NoFocus
-                                color: palette.text
-                                clip: true
-                                selectByMouse: true
-
-                                onTextEdited: {
-                                    // 实时检测：过滤非法字符并限制长度
-                                    var filteredText = text;
-                                    // 过滤非法字符（只允许字母、数字、中文、下划线）
-                                    filteredText = filteredText.replace(/[^A-Za-z0-9\u4e00-\u9fa5_]/g, "");
-                                    
-                                    // 检查是否超长
-                                    if (filteredText.length > maxLength) {
-                                        alert.show(qsTr("No more than 15 characters"));
-                                        filteredText = filteredText.slice(0, maxLength);
-                                    }
-                                    
-                                    if (text !== filteredText) {
-                                        text = filteredText;
-                                    }
-                                }
-
-                                onEditingFinished: {
-                                    if (!checkInputInvalid()) {
-                                        text = modelData;
-                                        textInputItem.text = Qt.binding(function() { 
-                                            return modelData
-                                        })
-                                        return;
-                                    }
-                                    focus = false;
-                                    if (modelData !== textInputItem.text) {
-                                        layout.requestRename(modelData, text);
-                                    }
-                                    textInputItem.text = Qt.binding(function() { 
-                                        return modelData
-                                    })
-                                }
-                                onFocusChanged: {
-                                    if (!focus)
-                                        readOnly = true;
-                                }
-                                Keys.onEnterPressed: {
-                                    focus = false;
-                                }
-                                Keys.onReturnPressed: {
-                                    focus = false;
-                                }
-
-                                function checkInputInvalid() {
-                                    var reg = /^[A-Za-z0-9\u4e00-\u9fa5_]+$/;
-                                    var isValid = text.length === 0 || reg.test(textInputItem.text);
-                                    var isOverLength = textInputItem.text.length > maxLength;
-                                    var isEmpty = textInputItem.text.length === 0;
-                                    
-                                    var nameList = [];
-                                    switch (itemRep.authType) {
-                                    case CharaMangerModel.Type_Face:
-                                        nameList = dccData.model.facesList;
-                                        break;
-                                    case CharaMangerModel.Type_Finger:
-                                        nameList = dccData.model.thumbsList;
-                                        break;
-                                    case CharaMangerModel.Type_Iris:
-                                        nameList = dccData.model.irisList;
-                                        break;
-                                    }
-                                    
-                                    var isDuplicate = nameList.includes(textInputItem.text) && 
-                                                      textInputItem.text !== modelData;
-
-                                    if (isEmpty) {
-                                        alert.show(qsTr("The name cannot be empty"));
-                                    } else if (!isValid && isOverLength) {
-                                        alert.show(qsTr("Use letters, numbers and underscores only, and no more than 15 characters"));
-                                    } else if (!isValid) {
-                                        alert.show(qsTr("Use letters, numbers and underscores only"));
-                                    } else if (isOverLength) {
-                                        alert.show(qsTr("No more than 15 characters"));
-                                    } else if (isDuplicate) {
-                                        alert.show(qsTr("This name already exists"));
-                                    } else {
-                                        return true;
-                                    }
-                                    return false;
+                            background: D.EditPanel {
+                                id: nameEditPanel
+                                control: nameEditor
+                                showBorder: false
+                                alertDuration: 3000
+                                backgroundColor: D.Palette {
+                                    normal: Qt.rgba(1, 1, 1, 0)
+                                    normalDark: Qt.rgba(1, 1, 1, 0)
                                 }
                             }
-                        }
 
-                        D.AlertToolTip {
-                            id: alert
-                            target: layout
-                            timeout: 3000
-                            visible: false
+                            onTextEdited: {
+                                if (nameEditPanel.showAlert) {
+                                    nameEditPanel.showAlert = false
+                                }
+                                // 实时检测：过滤非法字符并限制长度
+                                var filteredText = text;
+                                // 过滤非法字符（只允许字母、数字、中文、下划线）
+                                filteredText = filteredText.replace(/[^A-Za-z0-9\u4e00-\u9fa5_]/g, "");
 
-                            function show(msg) {
-                                text = msg;
-                                visible = true;                                
+                                // 检查是否超长
+                                if (filteredText.length > maxLength) {
+                                    nameEditPanel.showAlert = true
+                                    nameEditPanel.alertText = qsTr("No more than 15 characters")
+                                    filteredText = filteredText.slice(0, maxLength);
+                                }
+
+                                if (text !== filteredText) {
+                                    text = filteredText;
+                                }
+                            }
+
+                            onEditingFinished: {
+                                if (readOnly) {
+                                    return
+                                }
+
+                                if (nameEditPanel.showAlert) {
+                                    nameEditPanel.showAlert = false
+                                }
+
+                                if (!checkInputInvalid()) {
+                                    text = modelData;
+                                    nameEditor.text = Qt.binding(function() {
+                                        return modelData
+                                    })
+                                    return;
+                                }
+                                readOnly = true;
+                                if (modelData !== nameEditor.text) {
+                                    layout.requestRename(modelData, nameEditor.text);
+                                }
+                                nameEditor.text = Qt.binding(function() {
+                                    return modelData
+                                })
+                            }
+
+                            function checkInputInvalid() {
+                                var reg = /^[A-Za-z0-9\u4e00-\u9fa5_]+$/;
+                                var isValid = text.length === 0 || reg.test(nameEditor.text);
+                                var isOverLength = nameEditor.text.length > maxLength;
+                                var isEmpty = nameEditor.text.length === 0;
+
+                                var nameList = [];
+                                switch (itemRep.authType) {
+                                case CharaMangerModel.Type_Face:
+                                    nameList = dccData.model.facesList;
+                                    break;
+                                case CharaMangerModel.Type_Finger:
+                                    nameList = dccData.model.thumbsList;
+                                    break;
+                                case CharaMangerModel.Type_Iris:
+                                    nameList = dccData.model.irisList;
+                                    break;
+                                }
+
+                                var isDuplicate = nameList.includes(nameEditor.text) &&
+                                                  nameEditor.text !== modelData;
+
+                                if (isEmpty) {
+                                    nameEditPanel.showAlert = true
+                                    nameEditPanel.alertText = qsTr("The name cannot be empty")
+                                } else if (!isValid && isOverLength) {
+                                    nameEditPanel.showAlert = true
+                                    nameEditPanel.alertText = qsTr("Use letters, numbers and underscores only, and no more than 15 characters")
+                                } else if (!isValid) {
+                                    nameEditPanel.showAlert = true
+                                    nameEditPanel.alertText = qsTr("Use letters, numbers and underscores only")
+                                } else if (isOverLength) {
+                                    nameEditPanel.showAlert = true
+                                    nameEditPanel.alertText = qsTr("No more than 15 characters")
+                                } else if (isDuplicate) {
+                                    nameEditPanel.showAlert = true
+                                    nameEditPanel.alertText = qsTr("This name already exists")
+                                } else {
+                                    return true;
+                                }
+                                return false;
                             }
                         }
 
@@ -292,8 +282,8 @@ DccObject {
                                 }
                             }
                             onClicked: {
-                                textInputItem.readOnly = false;
-                                textInputItem.focus = true;
+                                nameEditor.readOnly = false;
+                                nameEditor.forceActiveFocus();
                             }
                         }
                         D.ActionButton {
