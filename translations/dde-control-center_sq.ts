@@ -1954,7 +1954,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Drag the display layout first to form a rectangle. If a rectangular layout is not possible, set all displays to the same resolution first.</source>
-        <translation type="unfinished"/>
+        <translation>Tërhiqni së pari skemën e ekranit që të formoni një drejtkëndësh. Nëse s’është e mundshme një skemë drejtkëndëshi, së pari vërini krejt ekranet nën të njëjtën qartësi.</translation>
     </message>
 </context>
 <context>
