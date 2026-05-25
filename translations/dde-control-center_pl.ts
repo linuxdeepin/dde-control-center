@@ -1954,7 +1954,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Drag the display layout first to form a rectangle. If a rectangular layout is not possible, set all displays to the same resolution first.</source>
-        <translation type="unfinished"/>
+        <translation>Spróbuj najpierw utworzyć prostokąt z ekranów. Jeśli nie jest to możliwe, ustaw na wszystkich taką samą rozdzielczość.</translation>
     </message>
 </context>
 <context>
