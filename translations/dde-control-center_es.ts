@@ -3856,7 +3856,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>UeProgramLicenseDialog</name>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Aceptar y unirse al programa de experiencia de usuario</translation>
     </message>
     <message>
         <source>Cancel</source>
