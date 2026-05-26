@@ -1948,7 +1948,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Brillo automático</translation>
     </message>
     <message>
         <source>Concat Screen</source>
