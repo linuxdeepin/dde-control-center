@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "sounddbusproxy.h"
@@ -188,7 +188,10 @@ void SoundDBusProxy::setSinkDevicePath(const QString &path)
 
 bool SoundDBusProxy::muteSink()
 {
-    return qvariant_cast<bool>(m_defaultSink->property("MuteSink"));
+    if (m_defaultSink) {
+        return qvariant_cast<bool>(m_defaultSink->property("MuteSink"));
+    }
+    return false;
 }
 
 void SoundDBusProxy::SetMuteSink(bool in0)
@@ -202,12 +205,18 @@ void SoundDBusProxy::SetMuteSink(bool in0)
 
 double SoundDBusProxy::balanceSink()
 {
-    return qvariant_cast<double>(m_defaultSink->property("BalanceSink"));
+    if (m_defaultSink) {
+        return qvariant_cast<double>(m_defaultSink->property("BalanceSink"));
+    }
+    return 0.0;
 }
 
 double SoundDBusProxy::baseVolumeSink()
 {
-     return qvariant_cast<double>(m_defaultSink->property("BaseVolumeSink"));
+    if (m_defaultSink) {
+        return qvariant_cast<double>(m_defaultSink->property("BaseVolumeSink"));
+    }
+    return 0.0;
 }
 
 void SoundDBusProxy::SetBalanceSink(double in0, bool in1)
@@ -221,7 +230,10 @@ void SoundDBusProxy::SetBalanceSink(double in0, bool in1)
 
 double SoundDBusProxy::volumeSink()
 {
-    return qvariant_cast<double>(m_defaultSink->property("VolumeSink"));
+    if (m_defaultSink) {
+        return qvariant_cast<double>(m_defaultSink->property("VolumeSink"));
+    }
+    return 0.0;
 }
 
 void SoundDBusProxy::SetVolumeSink(double in0, bool in1)
@@ -237,12 +249,18 @@ void SoundDBusProxy::SetVolumeSink(double in0, bool in1)
 
 AudioPort SoundDBusProxy::activePortSink()
 {
-    return qvariant_cast<AudioPort>(m_defaultSink->property("ActivePortSink"));
+    if (m_defaultSink) {
+        return qvariant_cast<AudioPort>(m_defaultSink->property("ActivePortSink"));
+    }
+    return AudioPort();
 }
 
 uint SoundDBusProxy::cardSink()
 {
-    return qvariant_cast<uint>(m_defaultSink->property("CardSink"));
+    if (m_defaultSink) {
+        return qvariant_cast<uint>(m_defaultSink->property("CardSink"));
+    }
+    return 0;
 }
 
 void SoundDBusProxy::setSourceDevicePath(const QString &path)
@@ -266,12 +284,18 @@ void SoundDBusProxy::SetSourceMute(bool in0)
 
 double SoundDBusProxy::volumeSource()
 {
-    return qvariant_cast<double>(m_defaultSource->property("VolumeSource"));
+    if (m_defaultSource) {
+        return qvariant_cast<double>(m_defaultSource->property("VolumeSource"));
+    }
+    return 0.0;
 }
 
 AudioPort SoundDBusProxy::activePortSource()
 {
-    return qvariant_cast<AudioPort>(m_defaultSource->property("ActivePortSource"));
+    if (m_defaultSource) {
+        return qvariant_cast<AudioPort>(m_defaultSource->property("ActivePortSource"));
+    }
+    return AudioPort();
 }
 
 void SoundDBusProxy::SetSourceVolume(double in0, bool in1)
@@ -285,13 +309,19 @@ void SoundDBusProxy::SetSourceVolume(double in0, bool in1)
 
 uint SoundDBusProxy::cardSource()
 {
-    return qvariant_cast<uint>(m_defaultSource->property("CardSource"));
+    if (m_defaultSource) {
+        return qvariant_cast<uint>(m_defaultSource->property("CardSource"));
+    }
+    return 0;
 }
 
 QDBusObjectPath SoundDBusProxy::GetMeter()
 {
-    QList<QVariant> argumentList;
-    return QDBusPendingReply<QDBusObjectPath>(m_defaultSource->asyncCallWithArgumentList(QStringLiteral("GetMeter"), argumentList));
+    if (m_defaultSource) {
+        QList<QVariant> argumentList;
+        return QDBusPendingReply<QDBusObjectPath>(m_defaultSource->asyncCallWithArgumentList(QStringLiteral("GetMeter"), argumentList));
+    }
+    return QDBusObjectPath();
 }
 
 void SoundDBusProxy::setMeterDevicePath(const QString &path)
@@ -305,7 +335,10 @@ void SoundDBusProxy::setMeterDevicePath(const QString &path)
 
 double SoundDBusProxy::volumeMeter()
 {
-    return qvariant_cast<double>(m_sourceMeter->property("VolumeMeter"));
+    if (m_sourceMeter) {
+        return qvariant_cast<double>(m_sourceMeter->property("VolumeMeter"));
+    }
+    return 0.0;
 }
 
 void SoundDBusProxy::Tick()
@@ -333,7 +366,10 @@ QList<QDBusObjectPath> SoundDBusProxy::sources()
 
 bool SoundDBusProxy::muteSource()
 {
-    return qvariant_cast<bool>(m_defaultSource->property("MuteSource"));
+    if (m_defaultSource) {
+        return qvariant_cast<bool>(m_defaultSource->property("MuteSource"));
+    }
+    return false;
 }
 
 bool SoundDBusProxy::audioMono()
