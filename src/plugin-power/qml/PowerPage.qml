@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Window 2.15
@@ -13,7 +13,6 @@ DccObject {
         name: "screenAndSuspendTitle"
         parentName: "power/onPower"
         displayName: qsTr("Screen and Suspend")
-        visible: dccData.platformName() !== "wayland"
         weight: 10
     }
 
@@ -22,7 +21,6 @@ DccObject {
         parentName: "power/onPower"
         weight: 100
         pageType: DccObject.Item
-        visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
 
         DccObject {
@@ -73,7 +71,6 @@ DccObject {
         parentName: "power/onPower"
         weight: 200
         pageType: DccObject.Item
-        visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
 
         DccObject {
@@ -123,7 +120,7 @@ DccObject {
         parentName: "power/onPower"
         weight: 300
         pageType: DccObject.Item
-        visible: dccData.platformName() !== "wayland" && !dccData.model.isVirtualEnvironment && dccData.model.canSuspend
+        visible: !dccData.model.isVirtualEnvironment && dccData.model.canSuspend
         page: DccGroupView {}
 
         DccObject {
@@ -200,7 +197,6 @@ DccObject {
             displayName: qsTr("When the power button is pressed")
             weight: 2
             pageType: DccObject.Editor
-            visible: dccData.platformName() !== "wayland"
             page: CustomComboBox {
                 textRole: "text"
                 enableRole: "enable"

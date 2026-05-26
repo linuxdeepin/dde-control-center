@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Window 2.15
@@ -13,7 +13,6 @@ DccObject {
         name: "screenAndSuspendTitle"
         parentName: "power/onBattery"
         displayName: qsTr("Screen and Suspend")
-        visible: dccData.platformName() !== "wayland"
         weight: 10
     }
 
@@ -22,7 +21,6 @@ DccObject {
         parentName: "power/onBattery"
         weight: 100
         pageType: DccObject.Item
-        visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
 
         DccObject {
@@ -72,7 +70,6 @@ DccObject {
         parentName: "power/onBattery"
         weight: 200
         pageType: DccObject.Item
-        visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
 
         DccObject {
@@ -122,7 +119,7 @@ DccObject {
         parentName: "power/onBattery"
         weight: 300
         pageType: DccObject.Item
-        visible: dccData.platformName() !== "wayland" && !dccData.model.isVirtualEnvironment && dccData.model.canSuspend
+        visible: !dccData.model.isVirtualEnvironment && dccData.model.canSuspend
         page: DccGroupView {}
 
         DccObject {
@@ -172,7 +169,6 @@ DccObject {
         parentName: "power/onBattery"
         weight: 400
         pageType: DccObject.Item
-        visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
 
         DccObject {
@@ -265,7 +261,7 @@ DccObject {
         parentName: "power/onBattery"
         weight: 700
         pageType: DccObject.Item
-        visible: dccData.platformName() !== "wayland" && (dccData.model.canSuspend || dccData.model.canHibernate)
+        visible: dccData.model.canSuspend || dccData.model.canHibernate
         page: DccGroupView {}
 
         DccObject {

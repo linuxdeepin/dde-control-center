@@ -14,7 +14,6 @@ DccObject {
         parentName: "power/general"
         displayName: qsTr("Power Plans")
         weight: 10
-        visible: dccData.platformName() !== "wayland"
     }
 
     DccObject {
@@ -22,7 +21,6 @@ DccObject {
         parentName: "power/general"
         weight: 100
         pageType: DccObject.Item
-        visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
         PowerPlansListview {}
     }
@@ -32,7 +30,6 @@ DccObject {
         parentName: "power/general"
         displayName: qsTr("Power Saving Settings")
         weight: 200
-        visible: dccData.platformName() !== "wayland"
     }
 
     DccObject {
@@ -40,7 +37,6 @@ DccObject {
         parentName: "power/general"
         weight: 300
         pageType: DccObject.Item
-        visible: dccData.platformName() !== "wayland"
         page: DccGroupView {}
 
         DccObject {
@@ -83,7 +79,7 @@ DccObject {
         displayName: qsTr("Auto power saving on battery")
         weight: 400
         backgroundType: DccObject.Normal
-        visible: dccData.model.haveBettary && dccData.platformName() !== "wayland"
+        visible: dccData.model.haveBettary
         pageType: DccObject.Editor
         page: D.Switch {
             checked: dccData.model.autoPowerSaveMode
@@ -98,7 +94,6 @@ DccObject {
         parentName: "power/general"
         displayName: qsTr("Decrease screen brightness on power saver")
         weight: 450
-        visible: dccData.platformName() !== "wayland"
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: ColumnLayout {
