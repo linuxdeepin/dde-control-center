@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCQUICKDBUSINTERFACE_P_H
@@ -72,6 +72,10 @@ public:
     BusType m_connectionType;
     QDBusConnection m_connection;
     QVariantMap m_propertyMap; // DBus属性值
+    QList<QPair<DccDBusSignalCallback *, QString>> m_signalCallbacks;
+    bool m_propertyConnected = false;
+    bool m_completed = false;
+    bool m_enabled = true;
 
     friend class DccQuickDBusCallback;
 };

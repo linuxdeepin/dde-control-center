@@ -423,6 +423,26 @@ void DccQuickDBusInterface::setSuffix(const QString &suffix)
     }
 }
 
+bool DccQuickDBusInterface::isEnabled() const
+{
+    return p_ptr->m_enabled;
+}
+
+void DccQuickDBusInterface::setEnabled(bool enabled)
+{
+    if (p_ptr->m_enabled == enabled)
+        return;
+    p_ptr->m_enabled = enabled;
+    if (p_ptr->m_completed) {
+        if (p_ptr->m_enabled) {
+            connectToDBus();
+        } else {
+            disconnectFromDBus();
+        }
+    }
+    Q_EMIT enabledChanged(p_ptr->m_enabled);
+}
+
 bool DccQuickDBusInterface::callWithCallback(const QString &method, const QList<QVariant> &args, const QJSValue member, const QJSValue errorSlot)
 {
     DccQuickDBusCallback *callback = new DccQuickDBusCallback(member, errorSlot, this);
@@ -445,7 +465,7 @@ void DccQuickDBusInterface::classBegin() { }
 
 void DccQuickDBusInterface::componentComplete()
 {
-    static const QStringList ReservedPropertyNames{ "service", "path", "inter", "connection", "suffix" };
+    static const QStringList ReservedPropertyNames{ "service", "path", "inter", "connection", "suffix", "enabled" };
     const QMetaObject *mo = this->metaObject();
     const int count = mo->propertyCount();
     for (int i = mo->propertyOffset(); i < count; ++i) {
@@ -457,12 +477,24 @@ void DccQuickDBusInterface::componentComplete()
             }
         }
     }
+
+    p_ptr->m_completed = true;
+
+    if (p_ptr->m_enabled)
+        connectToDBus();
+}
+
+void DccQuickDBusInterface::connectToDBus()
+{
+    const QMetaObject *mo = this->metaObject();
     const int mcount = mo->methodCount();
     for (int i = mo->methodOffset(); i < mcount; ++i) {
         const QMetaMethod &m = mo->method(i);
         if (m.methodType() == 2 && m.name().startsWith("on")) {
+            const QString signalName = m.name().mid(2);
             DccDBusSignalCallback *callback = new DccDBusSignalCallback(m, this);
-            p_ptr->m_connection.connect(p_ptr->m_service, p_ptr->m_path, p_ptr->m_interface, m.name().mid(2), callback, SLOT(returnMethod(QDBusMessage)));
+            p_ptr->m_connection.connect(p_ptr->m_service, p_ptr->m_path, p_ptr->m_interface, signalName, callback, SLOT(returnMethod(QDBusMessage)));
+            p_ptr->m_signalCallbacks.append({ callback, signalName });
         }
     }
     if (!p_ptr->m_mapProperties.isEmpty()) {
@@ -475,6 +507,30 @@ void DccQuickDBusInterface::componentComplete()
                                     QString(),
                                     p_ptr,
                                     SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
+        p_ptr->m_propertyConnected = true;
+    }
+}
+
+void DccQuickDBusInterface::disconnectFromDBus()
+{
+    for (const auto &[callback, signalName] : std::as_const(p_ptr->m_signalCallbacks)) {
+        p_ptr->m_connection.disconnect(p_ptr->m_service,
+                                       p_ptr->m_path,
+                                       p_ptr->m_interface,
+                                       signalName,
+                                       callback,
+                                       SLOT(returnMethod(QDBusMessage)));
+    }
+    p_ptr->m_signalCallbacks.clear();
+
+    if (p_ptr->m_propertyConnected) {
+        p_ptr->m_connection.disconnect(p_ptr->m_service,
+                                       p_ptr->m_path,
+                                       PropertiesInterface,
+                                       PropertiesChanged,
+                                       p_ptr,
+                                       SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
+        p_ptr->m_propertyConnected = false;
     }
 }
 
