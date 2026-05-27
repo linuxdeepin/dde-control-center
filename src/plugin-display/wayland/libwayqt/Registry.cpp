@@ -2,18 +2,23 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-#include "treeland-output-management-client-protocol.h"
 #include "wayland-client-protocol.h"
-#include "wlr-output-management-unstable-v1-client-protocol.h"
 
 #include "Output.h"
 #include "OutputManager.h"
 #include "Registry.h"
 #include "TreeLandOutputManager.h"
+#include "VirtualOutputManager.h"
+#include "WallpaperManager.h"
 
 #include <QCoreApplication>
 #include <QDebug>
+#include <QLoggingCategory>
 #include <QThread>
+
+#include "WayQtLogging.h"
+
+Q_LOGGING_CATEGORY(DccWayQt, "dcc-wayqt")
 
 /* Convenience functions */
 void WQt::Registry::globalAnnounce(
@@ -25,11 +30,7 @@ void WQt::Registry::globalAnnounce(
 
 void WQt::Registry::globalRemove(void *data, struct wl_registry *, uint32_t name)
 {
-    // who cares :D
-    // but we will call WQt::Registry::handleRemove just for the heck of it
-
     auto r = reinterpret_cast<WQt::Registry *>(data);
-
     r->handleRemove(name);
 }
 
@@ -47,14 +48,14 @@ WQt::Registry::Registry(wl_display *wlDisplay, QObject *parent)
     if (wl_proxy_get_listener((wl_proxy *)mObj) != &mRegListener) {
         wl_registry_add_listener(mObj, &mRegListener, this);
     }
-
+    qCDebug(DccWayQt) << "Registry created" << mWlDisplay << mObj;
     wl_display_roundtrip(mWlDisplay);
 }
 
 WQt::Registry::~Registry()
 {
     wl_registry_destroy(mObj);
-
+    qCDebug(DccWayQt) << "Registry destroyed";
     wl_seat_destroy(mWlSeat);
     wl_shm_destroy(mWlShm);
 
@@ -62,13 +63,10 @@ WQt::Registry::~Registry()
         delete op;
     }
 
-    if (mOutputMgr != nullptr) {
-        delete mOutputMgr;
-    }
-
-    if (mTreeLandOutputMgr != nullptr) {
-        delete mTreeLandOutputMgr;
-    }
+    delete mOutputMgr;
+    delete mTreeLandOutputMgr;
+    delete mVirtualOutputMgr;
+    delete mWallpaperMgr;
 }
 
 void WQt::Registry::setup()
@@ -77,15 +75,15 @@ void WQt::Registry::setup()
         mIsSetup = true;
 
         for (WQt::Registry::ErrorType et : pendingErrors) {
-            emit errorOccured(et);
+            Q_EMIT errorOccured(et);
         }
 
         for (WQt::Registry::Interface iface : pendingInterfaces) {
-            emit interfaceRegistered(iface);
+            Q_EMIT interfaceRegistered(iface);
         }
 
         for (WQt::Output *op : pendingOutputs) {
-            emit outputAdded(op);
+            Q_EMIT outputAdded(op);
         }
     }
 }
@@ -130,11 +128,18 @@ WQt::TreeLandOutputManager *WQt::Registry::treeLandOutputManager()
     return mTreeLandOutputMgr;
 }
 
+WQt::VirtualOutputManager *WQt::Registry::virtualOutputManager()
+{
+    return mVirtualOutputMgr;
+}
+
+WQt::WallpaperManager *WQt::Registry::wallpaperManager()
+{
+    return mWallpaperMgr;
+}
+
 void WQt::Registry::handleAnnounce(uint32_t name, const char *interface, uint32_t version)
 {
-    /**
-     * We really don't care about wl_seat version right now.
-     */
     if (strcmp(interface, wl_seat_interface.name) == 0) {
         mWlSeat = (wl_seat *)wl_registry_bind(mObj, name, &wl_seat_interface, version);
 
@@ -143,9 +148,6 @@ void WQt::Registry::handleAnnounce(uint32_t name, const char *interface, uint32_
         }
     }
 
-    /**
-     * We really don't care about wl_shm version right now.
-     */
     if (strcmp(interface, wl_shm_interface.name) == 0) {
         mWlShm = (wl_shm *)wl_registry_bind(mObj, name, &wl_shm_interface, version);
 
@@ -159,59 +161,80 @@ void WQt::Registry::handleAnnounce(uint32_t name, const char *interface, uint32_
         }
     }
 
-    /**
-     * We really don't care about wl_output version right now.
-     */
     if (strcmp(interface, wl_output_interface.name) == 0) {
         wl_output *op = (wl_output *)wl_registry_bind(mObj, name, &wl_output_interface, version);
-
+        qCInfo(DccWayQt) << "wl_output added:" << op << "name:" << name << "version:" << version << "total:" << mOutputs.size();
         if (op) {
-            auto outputObj = new WQt::Output(op);
+            auto outputObj = new WQt::Output(op, this);
             mOutputs[name] = outputObj;
             emitOutput(outputObj, true);
         }
     }
 
-    /**
-     * We've implemented version 2.
-     * And wlroots 0.15.0 has version 2 available.
-     */
     else if (strcmp(interface, zwlr_output_manager_v1_interface.name) == 0) {
-        mWlrOutputMgr = (zwlr_output_manager_v1 *)
-                wl_registry_bind(mObj, name, &zwlr_output_manager_v1_interface, 2);
-
-        if (!mWlrOutputMgr) {
-            emitError(WQt::Registry::EmptyOutputManager);
-        }
-
-        else {
-            mOutputMgr = new WQt::OutputManager(mWlrOutputMgr);
-
-            mRegisteredInterfaces << OutputManagerInterface;
-            emitInterface(OutputManagerInterface, true);
+        qCDebug(DccWayQt) << "zwlr_output_manager_v1 announced:" << name << version << "thread:" << QThread::currentThread();
+        if (!mOutputMgr) {
+            mOutputMgr = new WQt::OutputManager(this);
+            qCDebug(DccWayQt) << "OutputManager created, active:" << mOutputMgr->isActive() << "thread:" << QThread::currentThread();
+            connect(mOutputMgr, &WQt::OutputManager::activeChanged, this, [this]() {
+                if (!mOutputMgr->isActive()) {
+                    emitError(WQt::Registry::EmptyOutputManager);
+                } else {
+                    mRegisteredInterfaces << OutputManagerInterface;
+                    emitInterface(OutputManagerInterface, true);
+                }
+            });
         }
     }
 
     else if (strcmp(interface, treeland_output_manager_v1_interface.name) == 0) {
-        m_treeland_output_mgr = (treeland_output_manager_v1 *)
-                wl_registry_bind(mObj, name, &treeland_output_manager_v1_interface, 2);
-        if (!m_treeland_output_mgr) {
-            emitError(WQt::Registry::EmptyTreeLandOuputManager);
-        } else {
-            mTreeLandOutputMgr = new WQt::TreeLandOutputManager(m_treeland_output_mgr);
+        if (!mTreeLandOutputMgr) {
+            mTreeLandOutputMgr = new WQt::TreeLandOutputManager(this);
 
-            mRegisteredInterfaces << TreeLandOutputManagerInterface;
-            emitInterface(TreeLandOutputManagerInterface, true);
+            connect(mTreeLandOutputMgr, &WQt::TreeLandOutputManager::activeChanged, this, [this]() {
+                if (!mTreeLandOutputMgr->isActive()) {
+                    emitError(WQt::Registry::EmptyTreeLandOuputManager);
+                } else {
+                    mRegisteredInterfaces << TreeLandOutputManagerInterface;
+                    emitInterface(TreeLandOutputManagerInterface, true);
+                }
+            });
+        }
+    }
+
+    else if (strcmp(interface, treeland_virtual_output_manager_v1_interface.name) == 0) {
+        if (!mVirtualOutputMgr) {
+            mVirtualOutputMgr = new WQt::VirtualOutputManager(this);
+
+            connect(mVirtualOutputMgr, &WQt::VirtualOutputManager::activeChanged, this, [this]() {
+                if (!mVirtualOutputMgr->isActive()) {
+                    emitError(WQt::Registry::EmptyVirtualOutputManager);
+                } else {
+                    mRegisteredInterfaces << VirtualOutputManagerInterface;
+                    emitInterface(VirtualOutputManagerInterface, true);
+                }
+            });
+        }
+    }
+
+    else if (strcmp(interface, treeland_wallpaper_manager_v1_interface.name) == 0) {
+        if (!mWallpaperMgr) {
+            mWallpaperMgr = new WQt::WallpaperManager(this);
+
+            connect(mWallpaperMgr, &WQt::WallpaperManager::activeChanged, this, [this]() {
+                if (!mWallpaperMgr->isActive()) {
+                    emitError(WQt::Registry::EmptyWallpaperManager);
+                } else {
+                    mRegisteredInterfaces << WallpaperManagerInterface;
+                    emitInterface(WallpaperManagerInterface, true);
+                }
+            });
         }
     }
 }
 
 void WQt::Registry::handleRemove(uint32_t name)
 {
-    /**
-     * While we do not care about most of the handleRemove,
-     * we need to worry about the wl_output * objects.
-     */
     if (mOutputs.keys().contains(name)) {
         WQt::Output *output = mOutputs.take(name);
         emitOutput(output, false);
@@ -220,8 +243,9 @@ void WQt::Registry::handleRemove(uint32_t name)
 
 void WQt::Registry::emitError(ErrorType et)
 {
+    qCWarning(DccWayQt) << "Registry error:" << et;
     if (mIsSetup) {
-        emit errorOccured(et);
+        Q_EMIT errorOccured(et);
     }
 
     else {
@@ -233,11 +257,11 @@ void WQt::Registry::emitOutput(WQt::Output *op, bool added)
 {
     if (mIsSetup) {
         if (added) {
-            emit outputAdded(op);
+            Q_EMIT outputAdded(op);
         }
 
         else {
-            emit outputRemoved(op);
+            Q_EMIT outputRemoved(op);
         }
     }
 
@@ -256,11 +280,11 @@ void WQt::Registry::emitInterface(WQt::Registry::Interface iface, bool added)
 {
     if (mIsSetup) {
         if (added) {
-            emit interfaceRegistered(iface);
+            Q_EMIT interfaceRegistered(iface);
         }
 
         else {
-            emit interfaceDeregistered(iface);
+            Q_EMIT interfaceDeregistered(iface);
         }
     }
 

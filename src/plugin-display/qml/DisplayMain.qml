@@ -413,7 +413,7 @@ DccObject {
             parentName: "display/displayMultipleDisplays"
             displayName: qsTr("Mode")
             weight: 10
-            visible: dccData.screens.length > 1 && dccData.isX11
+            visible: dccData.screens.length > 1
             pageType: DccObject.Editor
             page: D.ComboBox {
                 ListModel {
@@ -904,7 +904,6 @@ DccObject {
             parentName: "display/screenGroup"
             displayName: qsTr("Rotation") // 方向
             weight: 50
-            visible: dccData.isX11
             pageType: DccObject.Editor
             page: ComboBox {
                 flat: true

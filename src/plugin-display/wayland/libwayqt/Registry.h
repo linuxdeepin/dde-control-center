@@ -12,14 +12,8 @@ struct wl_display;
 struct wl_seat;
 struct wl_shm;
 struct wl_output;
-// struct wl_compositor;
 
 struct wl_registry_listener;
-
-struct xdg_wm_base;
-struct zwlr_output_manager_v1;
-struct zwlr_gamma_control_manager_v1;
-struct treeland_output_manager_v1;
 
 namespace WQt {
 class Registry;
@@ -28,6 +22,8 @@ class XdgShell;
 class Output;
 class OutputManager;
 class TreeLandOutputManager;
+class VirtualOutputManager;
+class WallpaperManager;
 } // namespace WQt
 
 class WQt::Registry : public QObject
@@ -36,26 +32,30 @@ class WQt::Registry : public QObject
 
 public:
     enum ErrorType {
-        EmptyShm,
+        EmptyShm, //
         EmptyIdle,
         EmptySeat,
         EmptyXdgWmBase,
         EmptyCompositor,
         EmptyOutputManager,
-        EmptyTreeLandOuputManager
+        EmptyTreeLandOuputManager,
+        EmptyVirtualOutputManager,
+        EmptyWallpaperManager
     };
 
     Q_ENUM(ErrorType);
 
     enum Interface {
-        ShmInterface,
+        ShmInterface, //
         IdleInterface,
         SeatInterface,
         WlrIdleInterface,
         XdgWmBaseInterface,
         CompositorInterface,
         OutputManagerInterface,
-        TreeLandOutputManagerInterface
+        TreeLandOutputManagerInterface,
+        VirtualOutputManagerInterface,
+        WallpaperManagerInterface
     };
 
     Q_ENUM(Interface);
@@ -76,62 +76,39 @@ public:
     /** List the already registered interfaces */
     QList<uint32_t> registeredInterfaces();
 
-    /* Ready to use Wayland Classes */
-
     /**
-     * XdgShell - Xdg Shell protocol implementation
-     */
-    WQt::XdgShell *xdgShell();
-
-    /**
-     * OutputManager - Output Management protocol implementation
+     * OutputManager - auto-bound via QWaylandClientExtensionTemplate
      */
     WQt::OutputManager *outputManager();
 
     /**
-     * TreeLandOutputManager - Primary Output Manager
+     * TreeLandOutputManager - auto-bound via QWaylandClientExtensionTemplate
      */
     WQt::TreeLandOutputManager *treeLandOutputManager();
 
+    /**
+     * VirtualOutputManager - auto-bound via QWaylandClientExtensionTemplate
+     */
+    WQt::VirtualOutputManager *virtualOutputManager();
+
+    WQt::WallpaperManager *wallpaperManager();
+
 private:
-    /** Raw C pointer to this class */
     wl_registry *mObj = nullptr;
-
-    /** wl_display object */
     wl_display *mWlDisplay = nullptr;
-
-    /** wl_seat object */
     wl_seat *mWlSeat = nullptr;
-
-    /** wl_shm object */
     wl_shm *mWlShm = nullptr;
 
-    /** Connected outputs */
     QHash<uint32_t, WQt::Output *> mOutputs;
-
-    /** List of registered interfaces */
     QList<uint32_t> mRegisteredInterfaces;
 
-    /**
-     * Output Manager Objects
-     */
-    zwlr_output_manager_v1 *mWlrOutputMgr = nullptr;
     WQt::OutputManager *mOutputMgr = nullptr;
-
-    /**
-     * Gamma Control Objects
-     */
-    zwlr_gamma_control_manager_v1 *mWlrGammaCtrl = nullptr;
-
-    treeland_output_manager_v1 *m_treeland_output_mgr = nullptr;
     WQt::TreeLandOutputManager *mTreeLandOutputMgr = nullptr;
+    WQt::VirtualOutputManager *mVirtualOutputMgr = nullptr;
+    WQt::WallpaperManager *mWallpaperMgr = nullptr;
 
     static const wl_registry_listener mRegListener;
-    static void globalAnnounce(void *data,
-                               wl_registry *registry,
-                               uint32_t name,
-                               const char *interface,
-                               uint32_t version);
+    static void globalAnnounce(void *data, wl_registry *registry, uint32_t name, const char *interface, uint32_t version);
     static void globalRemove(void *data, wl_registry *registry, uint32_t name);
 
     void handleAnnounce(uint32_t name, const char *interface, uint32_t version);
@@ -141,25 +118,13 @@ private:
     QList<WQt::Output *> pendingOutputs;
     QList<WQt::Registry::Interface> pendingInterfaces;
 
-    /** Flag to ensure setup() is called only once. */
     bool mIsSetup = false;
 
-    /** emit errorOccured or store it in pending */
     void emitError(ErrorType);
-
-    /**
-     * emit output added/removed or store in pending.
-     * bool indicates the state: true => added, false => removed.
-     */
     void emitOutput(WQt::Output *, bool);
-
-    /**
-     * emit iInterface registered/deregistered, or store in pending.
-     * bool indicates the state: true => registered, false => deregistered.
-     */
     void emitInterface(WQt::Registry::Interface, bool);
 
-signals:
+Q_SIGNALS:
     void errorOccured(ErrorType et);
 
     void outputAdded(WQt::Output *);

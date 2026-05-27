@@ -100,6 +100,9 @@ public:
     inline bool allSupportFillModes() const { return m_allSupportFillModes; }
     void checkAllSupportFillModes();
 
+    inline QMap<QString, QStringList> virtualOutput() const { return m_virtualOutput; }
+    void setVirtualOutput(const QMap<QString, QStringList> &virtualOutput);
+
     inline bool monitorModeChanging() const { return m_monitorModeChanging; }
     void setmodeChanging(bool changing);
 
@@ -137,6 +140,7 @@ Q_SIGNALS:
     void filesStoragePathChanged(const QString& path) const;
     void customColorTempTimePeriodChanged(const QString& timePeriod);
     void concatScreenModeChanged(bool enabled);
+    void virtualOutputChanged(const QMap<QString, QStringList> &virtualOutput);
 
 private Q_SLOTS:
     void setScreenHeight(const int h);
@@ -180,6 +184,7 @@ private:
     bool m_allSupportFillModes;
     bool m_monitorModeChanging; // 配置修改中,仅控制中心修改时才处理自动拼接
     bool m_isConcatScreenMode { false };
+    QMap<QString, QStringList> m_virtualOutput; // 虚拟输出组
 };
 }
 

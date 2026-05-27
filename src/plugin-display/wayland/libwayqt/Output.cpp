@@ -2,20 +2,25 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+#include "Output.h"
+
+#include "WayQtLogging.h"
 #include "wayland-client-protocol.h"
 
-#include "Output.h"
 #include <wayland-client.h>
 
 #include <QCoreApplication>
 #include <QDebug>
 #include <QImage>
+#include <QLoggingCategory>
 #include <QObject>
 #include <QThread>
 
-WQt::Output::Output(wl_output *op)
+WQt::Output::Output(wl_output *op, QObject *parent)
+    : QObject(parent)
 {
     mObj = op;
+    qCDebug(DccWayQt) << "Output created" << op;
 
     wl_output_add_listener(mObj, &mListener, this);
 }
@@ -85,16 +90,7 @@ wl_output *WQt::Output::get()
     return mObj;
 }
 
-void WQt::Output::handleGeometryEvent(void *data,
-                                      struct wl_output *,
-                                      int32_t x,
-                                      int32_t y,
-                                      int32_t w,
-                                      int32_t h,
-                                      int32_t e,
-                                      const char *f,
-                                      const char *g,
-                                      int32_t t)
+void WQt::Output::handleGeometryEvent(void *data, struct wl_output *, int32_t x, int32_t y, int32_t w, int32_t h, int32_t e, const char *f, const char *g, int32_t t)
 {
     Output *output = reinterpret_cast<WQt::Output *>(data);
 
@@ -106,12 +102,7 @@ void WQt::Output::handleGeometryEvent(void *data,
     output->mTransform = t;
 }
 
-void WQt::Output::handleModeEvent(void *data,
-                                  struct wl_output *,
-                                  uint32_t current,
-                                  int32_t xres,
-                                  int32_t yres,
-                                  int32_t refresh)
+void WQt::Output::handleModeEvent(void *data, struct wl_output *, uint32_t current, int32_t xres, int32_t yres, int32_t refresh)
 {
     Output *output = reinterpret_cast<WQt::Output *>(data);
 
@@ -125,6 +116,7 @@ void WQt::Output::handleDone(void *data, struct wl_output *)
     Output *output = reinterpret_cast<WQt::Output *>(data);
 
     output->mDone = true;
+    qCDebug(DccWayQt) << "Output done:" << output->mName;
     Q_EMIT output->done();
 }
 
@@ -150,6 +142,5 @@ void WQt::Output::handleDescriptionEvent(void *data, struct wl_output *, const c
 }
 
 const wl_output_listener WQt::Output::mListener = {
-    handleGeometryEvent, handleModeEvent, handleDone,
-    handleScale,         handleNameEvent, handleDescriptionEvent,
+    handleGeometryEvent, handleModeEvent, handleDone, handleScale, handleNameEvent, handleDescriptionEvent,
 };

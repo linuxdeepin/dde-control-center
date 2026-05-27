@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "monitor.h"
@@ -87,11 +87,6 @@ void Monitor::setScale(const double scale)
     m_scale = scale;
 
     Q_EMIT scaleChanged(m_scale);
-}
-
-void Monitor::setPrimary(const QString &primaryName)
-{
-    m_primary = primaryName;
 }
 
 void Monitor::setRotate(const quint16 rotate)

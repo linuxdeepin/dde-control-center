@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef MONITOR_H
@@ -38,7 +38,6 @@ public:
     inline int mmWidth() const { return m_mmWidth; }
     inline int mmHeight() const { return m_mmHeight; }
     inline double scale() const { return m_scale; }
-    inline bool isPrimary() const { return m_primary == m_name; }
     inline quint16 rotate() const { return m_rotate; }
     inline double brightness() const { return m_brightness; }
     inline const QRect rect() const { return QRect(m_x, m_y, m_w, m_h); }
@@ -104,7 +103,6 @@ private Q_SLOTS:
     void setMmWidth(const uint mmWidth);
     void setMmHeight(const uint mmHeight);
     void setScale(const double scale);
-    void setPrimary(const QString &primaryName);
     void setRotate(const quint16 rotate);
     void setBrightness(const double brightness);
     void setName(const QString &name);
@@ -137,7 +135,6 @@ private:
     QString m_manufacturer;
     QString m_model;
     QString m_path;
-    QString m_primary;
     Resolution m_currentMode;
     QList<quint16> m_rotateList;
     QList<Resolution> m_modeList;
