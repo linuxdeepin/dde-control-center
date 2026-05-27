@@ -6,6 +6,7 @@
 
 #include <QObject>
 #include "model/wallpapermodel.h"
+#include "model/thememodel.h"
 
 using namespace WallpaperEnums;
 
@@ -48,6 +49,13 @@ class PersonalizationModel : public QObject
 
     Q_PROPERTY(ThemeModel *iconModel MEMBER m_iconModel CONSTANT)
     Q_PROPERTY(ThemeModel *cursorModel MEMBER m_mouseModel CONSTANT)
+
+    Q_PROPERTY(ThemeViewModel *globalThemeViewModel MEMBER m_globalThemeViewModel CONSTANT)
+    Q_PROPERTY(ThemeViewModel *iconThemeViewModel MEMBER m_iconThemeViewModel CONSTANT)
+    Q_PROPERTY(ThemeViewModel *cursorThemeViewModel MEMBER m_cursorThemeViewModel CONSTANT)
+
+    Q_PROPERTY(QVariantList appearanceSwitchModel MEMBER m_appearanceSwitchModel NOTIFY appearanceSwitchModelChanged)
+    Q_PROPERTY(QString currentAppearance MEMBER m_currentAppearance NOTIFY currentAppearanceChanged)
 
     Q_PROPERTY(WallpaperSortModel *customWallpaperModel MEMBER m_customWallpaperSortModel CONSTANT)
     Q_PROPERTY(WallpaperSortModel *sysWallpaperModel MEMBER m_sysWallpaperSortModel CONSTANT)
@@ -158,6 +166,11 @@ public:
     inline bool wantToSetWallpaper() const { return m_wantToSetWallpaper; }
     void setWantToSetWallpaper(bool value);
 
+    QString getCurrentAppearance() const { return m_currentAppearance; };
+    void setCurrentAppearance(const QString &appearance);
+
+    void setAppearanceSwitchModel(const QVariantList &model);
+
 Q_SIGNALS:
     void wmChanged(const bool is3d);
     void opacityChanged(double opacity);
@@ -186,6 +199,9 @@ Q_SIGNALS:
     void miniEffectChanged(bool value);
     void supportEffectsChanged(const QStringList &value);
     void wantToSetWallpaperChanged();
+    void currentAppearanceChanged(const QString &appearance);
+    void appearanceSwitchModelChanged(const QVariantList &model);
+
 private:
     ThemeModel *m_windowModel;
     ThemeModel *m_iconModel;
@@ -237,5 +253,10 @@ private:
     WallpaperInstallStatus m_wantToSetWallpaperStatus;
     QString m_wantToSetWallpaperThumbnail;
     bool m_wantToSetWallpaper;
+    ThemeViewModel *m_globalThemeViewModel;
+    ThemeViewModel *m_iconThemeViewModel;
+    ThemeViewModel *m_cursorThemeViewModel;
+    QVariantList m_appearanceSwitchModel;
+    QString m_currentAppearance;
 };
 #endif // PERSONALIZATIONMODEL_H

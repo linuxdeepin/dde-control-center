@@ -171,6 +171,8 @@ void PersonalizationWorker::active()
     m_model->setScrollBarPolicyConfig(scrollbarConfig);
     QString compactDisplayConfig = m_personalizationConfig->value(COMPACT_MODE_DISPLAY_KEY).toString();
     m_model->setCompactDisplayConfig(compactDisplayConfig);
+
+    initAppearanceSwitchModel();
 }
 
 void PersonalizationWorker::deactive()
@@ -746,14 +748,47 @@ void PersonalizationWorker::setWallpaperForMonitor(const QString &, const QStrin
 
 }
 
-void PersonalizationWorker::setBackgroundForMonitor(const QString &, const QString &, bool, PersonalizationExport::WallpaperSetType type)
+void PersonalizationWorker::setBackgroundForMonitor(const QString &, const QString &, bool, PersonalizationExport::WallpaperSetType)
 {
 
 }
 
-void PersonalizationWorker::setLockBackForMonitor(const QString &, const QString &, bool, PersonalizationExport::WallpaperSetType type)
+void PersonalizationWorker::setLockBackForMonitor(const QString &, const QString &, bool, PersonalizationExport::WallpaperSetType)
 {
 
+}
+
+void PersonalizationWorker::initAppearanceSwitchModel()
+{
+    ThemeModel *globalTheme = m_model->getGlobalThemeModel();
+
+    auto updateDefault = [this]() {
+        ThemeModel *globalTheme = m_model->getGlobalThemeModel();
+        if (!globalTheme) {
+            return;
+        }
+
+        QString mode;
+        QString themeId = getGlobalThemeId(globalTheme->getDefault(), mode);
+        QVariantList appearanceSwitchModel;
+        appearanceSwitchModel.clear();
+        appearanceSwitchModel.append(QVariantMap{{"text", tr("Light")}, {"value", ".light"}});
+        const QJsonObject &json = globalTheme->getList().value(themeId);
+        if (json.isEmpty())
+            return;
+        if (json["hasDark"].toBool()) {
+            appearanceSwitchModel.append(QVariantMap{{"text", tr("Auto")}, {"value", ""}});
+            appearanceSwitchModel.append(QVariantMap{{"text", tr("Dark")}, {"value", ".dark"}});
+        }
+        m_model->setAppearanceSwitchModel(appearanceSwitchModel);
+        m_model->setCurrentAppearance(mode);
+    };
+
+    updateDefault();
+
+    connect(globalTheme, &ThemeModel::defaultChanged, updateDefault);
+    connect(globalTheme, &ThemeModel::itemAdded, updateDefault);
+    connect(globalTheme, &ThemeModel::itemRemoved, updateDefault);
 }
 
 PersonalizationWatcher::PersonalizationWatcher(PersonalizationWorker *work)

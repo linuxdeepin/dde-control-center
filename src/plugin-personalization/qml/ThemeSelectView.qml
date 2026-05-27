@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Window 2.15
@@ -25,7 +25,7 @@ FocusScope {
 
     property int focusedThemeIndex: 0
     // 记录上次的模型数量，用于判断是否真正需要重置焦点
-    property int lastModelCount: dccData.globalThemeModel ? dccData.globalThemeModel.rowCount() : 0
+    property int lastModelCount: dccData.model.globalThemeViewModel ? dccData.model.globalThemeViewModel.rowCount() : 0
     property bool hadLostFocus: false
 
     onActiveFocusChanged: {
@@ -51,7 +51,7 @@ FocusScope {
 
     Keys.onRightPressed: {
         // +1 for "More Wallpapers"
-        var totalCount = dccData.globalThemeModel.rowCount() + 1
+        var totalCount = dccData.model.globalThemeViewModel.rowCount() + 1
         if (focusedThemeIndex < totalCount - 1) {
             focusedThemeIndex++
             var pageIndex = Math.floor(focusedThemeIndex / (listview.gridMaxColumns * listview.gridMaxRows))
@@ -68,7 +68,7 @@ FocusScope {
     }
 
     Keys.onDownPressed: {
-        var totalCount = dccData.globalThemeModel.rowCount() + 1
+        var totalCount = dccData.model.globalThemeViewModel.rowCount() + 1
         if (focusedThemeIndex + listview.gridMaxColumns < totalCount) {
             focusedThemeIndex += listview.gridMaxColumns
         }
@@ -78,13 +78,13 @@ FocusScope {
     Keys.onEnterPressed: activateCurrentItem()
     Keys.onSpacePressed: activateCurrentItem()
 
-    // IdRole value from ThemeVieweModel::UserDataRole (Qt::UserRole + 0x101 = 0x201)
+    // IdRole value from ThemeViewModel::UserDataRole (Qt::UserRole + 0x101 = 0x201)
     readonly property int themeIdRole: 0x201
 
     function activateCurrentItem() {
-        var totalThemes = dccData.globalThemeModel.rowCount()
+        var totalThemes = dccData.model.globalThemeViewModel.rowCount()
         if (focusedThemeIndex < totalThemes) {
-            var themeId = dccData.globalThemeModel.data(dccData.globalThemeModel.index(focusedThemeIndex, 0), themeIdRole)
+            var themeId = dccData.model.globalThemeViewModel.data(dccData.model.globalThemeViewModel.index(focusedThemeIndex, 0), themeIdRole)
             listview.selectTheme = themeId
             dccData.worker.setGlobalTheme(themeId)
         } else {
@@ -119,7 +119,7 @@ FocusScope {
             property int gridMaxRows: 2
 
             property string selectTheme: ""
-            model: Math.ceil((dccData.globalThemeModel.rowCount()  + 1) / (2 * gridMaxColumns))
+            model: Math.ceil((dccData.model.globalThemeViewModel.rowCount()  + 1) / (2 * gridMaxColumns))
             spacing: 0
             clip: true
             orientation: ListView.Horizontal
@@ -132,9 +132,9 @@ FocusScope {
             highlightMoveVelocity: -1
 
             Connections {
-                target: dccData.globalThemeModel
+                target: dccData.model.globalThemeViewModel
                 function onModelReset() {
-                    var newCount = dccData.globalThemeModel.rowCount()
+                    var newCount = dccData.model.globalThemeViewModel.rowCount()
                     // 只有当模型数量真正发生变化时才重置焦点
                     if (newCount !== root.lastModelCount) {
                         listview.selectTheme = ""
@@ -149,7 +149,7 @@ FocusScope {
                 height: listview.height
                 D.SortFilterModel {
                     id: sortedModel
-                    model: dccData.globalThemeModel
+                    model: dccData.model.globalThemeViewModel
                     property int pageIndex: index
                     property int maxCount: listview.gridMaxColumns * listview.gridMaxRows
                     lessThan: function(left, right) {
@@ -244,7 +244,7 @@ FocusScope {
                         Layout.fillWidth: true
                         visible: index === listview.model - 1
                         color: "transparent"
-                        property int itemGlobalIndex: dccData.globalThemeModel.rowCount()
+                        property int itemGlobalIndex: dccData.model.globalThemeViewModel.rowCount()
                         property bool isFocused: root.activeFocus && root.focusedThemeIndex === itemGlobalIndex
 
                         ColumnLayout {

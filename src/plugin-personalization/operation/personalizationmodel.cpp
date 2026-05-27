@@ -44,6 +44,14 @@ PersonalizationModel::PersonalizationModel(QObject *parent)
     m_wantToSetWallpaperProgress = 0.0;
     m_wantToSetWallpaperStatus = WallpaperInstallStatus::Download_Installed;
     m_wantToSetWallpaper = false;
+
+    m_globalThemeViewModel = new ThemeViewModel(this);
+    m_iconThemeViewModel = new ThemeViewModel(this);
+    m_cursorThemeViewModel = new ThemeViewModel(this);
+
+    m_globalThemeViewModel->setThemeModel(m_globalThemeModel);
+    m_iconThemeViewModel->setThemeModel(m_iconModel);
+    m_cursorThemeViewModel->setThemeModel(m_mouseModel);
 }
 
 PersonalizationModel::~PersonalizationModel()
@@ -278,4 +286,19 @@ void PersonalizationModel::setWantToSetWallpaper(bool value)
 
     m_wantToSetWallpaper = value;
     Q_EMIT wantToSetWallpaperChanged();
+}
+
+void PersonalizationModel::setCurrentAppearance(const QString &appearance)
+{
+    if (m_currentAppearance == appearance)
+        return;
+
+    m_currentAppearance = appearance;
+    Q_EMIT currentAppearanceChanged(appearance);
+}
+
+void PersonalizationModel::setAppearanceSwitchModel(const QVariantList &model)
+{
+    m_appearanceSwitchModel = model;
+    Q_EMIT appearanceSwitchModelChanged(model);
 }
