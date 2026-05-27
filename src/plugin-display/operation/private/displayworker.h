@@ -5,6 +5,7 @@
 #define DISPLAYWORKER_H
 
 #include "Registry.h"
+#include "VirtualOutputManager.h"
 #include "displaydbusproxy.h"
 #include "monitor.h"
 
@@ -29,8 +30,8 @@ namespace WQt {
     class Output;
     class Registry;
     class OutputHead;
+    class ColorControl;
 }
-struct treeland_output_color_control_v1;
 
 namespace dccV25 {
 class DisplayModel;
@@ -89,8 +90,13 @@ private Q_SLOTS:
     void onWlMonitorListChanged();
     void updateWallpaper();
     void updateMonitorWallpaper(Monitor *mon);
+    void updateWallpaperFromWayland();
+    void onOutputWallpaperReady(WQt::Output *output);
+    void onWallpaperChanged(WQt::Output *output, const QString &fileSource, uint32_t sourceType, uint32_t role);
+    void updateVirtualOutputs();
 
-    void onBrightnessChanged(const treeland_output_color_control_v1 *colorControl, double brightness);
+    void onBrightnessChanged(WQt::ColorControl *colorControl, double brightness);
+    void initTreeland();
 
 private:
     void monitorAdded(const QString &path);
@@ -117,7 +123,7 @@ private:
     // for wlroots-based compositors
     WQt::Registry *m_reg { nullptr };
     QMap<Monitor *, WQt::OutputHead *> m_wl_monitors;
-    QMap<Monitor *, treeland_output_color_control_v1 *> m_control_monitors;
+    QMap<Monitor *, WQt::ColorControl *> m_control_monitors;
 #if GAMMA_SUPPORT
     QMap<Monitor *, DFL::GammaEffects *> *m_wl_gammaEffects;
     QMap<Monitor *, DFL::GammaEffectsConfig *> *m_wl_gammaConfig;

@@ -296,3 +296,12 @@ void DisplayModel::setIsConcatScreenMode(bool enabled)
     m_isConcatScreenMode = enabled;
     Q_EMIT concatScreenModeChanged(m_isConcatScreenMode);
 }
+
+void DisplayModel::setVirtualOutput(const QMap<QString, QStringList> &virtualOutput)
+{
+    if (m_virtualOutput == virtualOutput)
+        return;
+
+    m_virtualOutput = virtualOutput;
+    Q_EMIT virtualOutputChanged(m_virtualOutput);
+}

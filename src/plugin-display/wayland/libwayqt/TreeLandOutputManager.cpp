@@ -1,86 +1,89 @@
-// SPDX-FileCopyrightText: 2018 - 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "TreeLandOutputManager.h"
 
-#include "treeland-output-management-client-protocol.h"
+#include "WayQtLogging.h"
 
 #include <wayland-client.h>
 
-#include <QCoreApplication>
 #include <QDebug>
-#include <QObject>
-#include <QThread>
+#include <QLoggingCategory>
 
-WQt::TreeLandOutputManager::TreeLandOutputManager(treeland_output_manager_v1 *opMgr)
+// ── WQt::ColorControl ──────────────────────────────────────────────
+
+WQt::ColorControl::ColorControl(::treeland_output_color_control_v1 *obj, QObject *parent)
+    : QWaylandClientExtensionTemplate<WQt::ColorControl>(1)
+    , QtWayland::treeland_output_color_control_v1(obj)
 {
-    mObj = opMgr;
-    treeland_output_manager_v1_add_listener(mObj, &mListener, this);
+    setParent(parent);
+}
+
+WQt::ColorControl::~ColorControl()
+{
+    QtWayland::treeland_output_color_control_v1::destroy();
+}
+
+void WQt::ColorControl::setBrightness(double brightness)
+{
+    qCDebug(DccWayQt) << "ColorControl::setBrightness" << brightness;
+    QtWayland::treeland_output_color_control_v1::set_brightness(wl_fixed_from_double(brightness));
+    commit();
+}
+
+void WQt::ColorControl::setColorTemperature(uint32_t temperature)
+{
+    qCDebug(DccWayQt) << "ColorControl::setColorTemperature" << temperature;
+    QtWayland::treeland_output_color_control_v1::set_color_temperature(temperature);
+    commit();
+}
+
+void WQt::ColorControl::treeland_output_color_control_v1_result(uint32_t success)
+{
+    Q_EMIT result(success);
+}
+
+void WQt::ColorControl::treeland_output_color_control_v1_color_temperature(uint32_t temperature)
+{
+    Q_EMIT colorTemperatureChanged(temperature);
+}
+
+void WQt::ColorControl::treeland_output_color_control_v1_brightness(int32_t brightness)
+{
+    Q_EMIT brightnessChanged(wl_fixed_to_double(brightness));
+}
+
+// ── WQt::TreeLandOutputManager ─────────────────────────────────────
+
+WQt::TreeLandOutputManager::TreeLandOutputManager(QObject *parent)
+    : QWaylandClientExtensionTemplate<WQt::TreeLandOutputManager>(2)
+{
+    setParent(parent);
 }
 
 WQt::TreeLandOutputManager::~TreeLandOutputManager()
 {
-    treeland_output_manager_v1_destroy(mObj);
+    QtWayland::treeland_output_manager_v1::destroy();
 }
 
 void WQt::TreeLandOutputManager::setPrimaryOutput(const char *name)
 {
-    treeland_output_manager_v1_set_primary_output(mObj, name);
+    qCDebug(DccWayQt) << "TreeLandOutputManager::setPrimaryOutput" << name;
+    QtWayland::treeland_output_manager_v1::set_primary_output(name);
 }
 
-treeland_output_color_control_v1 *WQt::TreeLandOutputManager::getColorControl(struct wl_output *output)
+WQt::ColorControl *WQt::TreeLandOutputManager::getColorControl(struct wl_output *output)
 {
-    auto colorControl = treeland_output_manager_v1_get_color_control(mObj, output);
-    if (colorControl) {
-        treeland_output_color_control_v1_add_listener(colorControl, &mColorControlListener, this);
-    }
-    return colorControl;
+    auto *colorControl = get_color_control(output);
+    if (!colorControl)
+        return nullptr;
+    return new WQt::ColorControl(colorControl, this);
 }
 
-void WQt::TreeLandOutputManager::setBrightness(treeland_output_color_control_v1 *control, const double brightness)
+void WQt::TreeLandOutputManager::treeland_output_manager_v1_primary_output(const QString &output_name)
 {
-    if (control) {
-        treeland_output_color_control_v1_set_brightness(control, wl_fixed_from_double(brightness));
-        treeland_output_color_control_v1_commit(control);
-    }
+    qCDebug(DccWayQt) << "TreeLandOutputManager::primary output changed" << output_name;
+    mPrimaryOutput = output_name;
+    Q_EMIT primaryOutputChanged(output_name);
 }
-
-void WQt::TreeLandOutputManager::destroyColorControl(treeland_output_color_control_v1 *treeland_output_color_control_v1)
-{
-    treeland_output_color_control_v1_destroy(treeland_output_color_control_v1);
-}
-
-void WQt::TreeLandOutputManager::handlePrimaryOutput(void *data, struct treeland_output_manager_v1 *treeland_output_manager_v1, const char *output_name)
-{
-    Q_UNUSED(treeland_output_manager_v1)
-    WQt::TreeLandOutputManager *manager = reinterpret_cast<WQt::TreeLandOutputManager *>(data);
-    manager->mPrimaryOutput = QString::fromLocal8Bit(output_name);
-    emit manager->primaryOutputChanged(output_name);
-}
-
-void WQt::TreeLandOutputManager::handleResult(void *data, treeland_output_color_control_v1 *treeland_output_color_control_v1, uint32_t success)
-{
-    // TODO: handleResult
-}
-
-void WQt::TreeLandOutputManager::handleColorTemperature(void *data, treeland_output_color_control_v1 *treeland_output_color_control_v1, uint32_t temperature)
-{
-    WQt::TreeLandOutputManager *manager = reinterpret_cast<WQt::TreeLandOutputManager *>(data);
-    emit manager->colorTemperatureChanged(treeland_output_color_control_v1, temperature);
-}
-
-void WQt::TreeLandOutputManager::handleBrightness(void *data, struct treeland_output_color_control_v1 *treeland_output_color_control_v1, wl_fixed_t brightness)
-{
-    WQt::TreeLandOutputManager *manager = reinterpret_cast<WQt::TreeLandOutputManager *>(data);
-    double brightnessValue = wl_fixed_to_double(brightness);
-    emit manager->brightnessChanged(treeland_output_color_control_v1, brightnessValue);
-}
-
-const treeland_output_manager_v1_listener WQt::TreeLandOutputManager::mListener = { handlePrimaryOutput };
-
-const treeland_output_color_control_v1_listener WQt::TreeLandOutputManager::mColorControlListener = {
-    handleResult,  // result
-    handleColorTemperature,  // color_temperature
-    handleBrightness
-};

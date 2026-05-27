@@ -19,8 +19,7 @@ wl_display *WQt::Wayland::display()
         return nullptr;
     }
 
-    struct wl_display *display =
-            reinterpret_cast<wl_display *>(native->nativeResourceForIntegration("display"));
+    struct wl_display *display = reinterpret_cast<wl_display *>(native->nativeResourceForIntegration("display"));
 
     return display;
 }
@@ -33,8 +32,7 @@ wl_compositor *WQt::Wayland::compositor()
         return nullptr;
     }
 
-    struct wl_compositor *display =
-            reinterpret_cast<wl_compositor *>(native->nativeResourceForIntegration("compositor"));
+    struct wl_compositor *display = reinterpret_cast<wl_compositor *>(native->nativeResourceForIntegration("compositor"));
 
     return display;
 }
@@ -47,8 +45,7 @@ wl_seat *WQt::Wayland::seat()
         return nullptr;
     }
 
-    struct wl_seat *display =
-            reinterpret_cast<wl_seat *>(native->nativeResourceForIntegration("wl_seat"));
+    struct wl_seat *display = reinterpret_cast<wl_seat *>(native->nativeResourceForIntegration("wl_seat"));
 
     return display;
 }
@@ -61,8 +58,7 @@ wl_pointer *WQt::Wayland::pointer()
         return nullptr;
     }
 
-    struct wl_pointer *display =
-            reinterpret_cast<wl_pointer *>(native->nativeResourceForIntegration("wl_pointer"));
+    struct wl_pointer *display = reinterpret_cast<wl_pointer *>(native->nativeResourceForIntegration("wl_pointer"));
 
     return display;
 }
@@ -75,8 +71,7 @@ wl_keyboard *WQt::Wayland::keyboard()
         return nullptr;
     }
 
-    struct wl_keyboard *display =
-            reinterpret_cast<wl_keyboard *>(native->nativeResourceForIntegration("wl_keyboard"));
+    struct wl_keyboard *display = reinterpret_cast<wl_keyboard *>(native->nativeResourceForIntegration("wl_keyboard"));
 
     return display;
 }
@@ -89,8 +84,7 @@ wl_touch *WQt::Wayland::touch()
         return nullptr;
     }
 
-    struct wl_touch *display =
-            reinterpret_cast<wl_touch *>(native->nativeResourceForIntegration("wl_touch"));
+    struct wl_touch *display = reinterpret_cast<wl_touch *>(native->nativeResourceForIntegration("wl_touch"));
 
     return display;
 }
@@ -113,8 +107,7 @@ wl_output *WQt::Utils::wlOutputFromQScreen(QScreen *screen)
         return nullptr;
     }
 
-    struct wl_output *output =
-            reinterpret_cast<wl_output *>(native->nativeResourceForScreen("output", screen));
+    struct wl_output *output = reinterpret_cast<wl_output *>(native->nativeResourceForScreen("output", screen));
 
     return output;
 }
@@ -128,8 +121,7 @@ wl_surface *WQt::Utils::wlSurfaceFromQWindow(QWindow *window)
         return nullptr;
     }
 
-    struct wl_surface *surface =
-            reinterpret_cast<wl_surface *>(native->nativeResourceForWindow("surface", window));
+    struct wl_surface *surface = reinterpret_cast<wl_surface *>(native->nativeResourceForWindow("surface", window));
 
     return surface;
 }

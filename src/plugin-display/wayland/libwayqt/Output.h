@@ -50,7 +50,7 @@ public:
         bool current = false;
     } OutputMode;
 
-    Output(wl_output *);
+    Output(wl_output *, QObject *parent = nullptr);
     ~Output();
 
     QString name();
@@ -73,16 +73,7 @@ Q_SIGNALS:
     void done();
 
 private:
-    static void handleGeometryEvent(void *,
-                                    struct wl_output *,
-                                    int32_t,
-                                    int32_t,
-                                    int32_t,
-                                    int32_t,
-                                    int32_t,
-                                    const char *,
-                                    const char *,
-                                    int32_t);
+    static void handleGeometryEvent(void *, struct wl_output *, int32_t, int32_t, int32_t, int32_t, int32_t, const char *, const char *, int32_t);
     static void handleModeEvent(void *, struct wl_output *, uint32_t, int32_t, int32_t, int32_t);
     static void handleDone(void *, struct wl_output *);
     static void handleScale(void *, struct wl_output *, int32_t);

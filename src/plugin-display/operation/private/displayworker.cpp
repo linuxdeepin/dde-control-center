@@ -1,28 +1,28 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "displayworker.h"
+
 #include "displaymodel.h"
 
+#include <Output.h>
+#include <OutputManager.h>
+#include <Registry.h>
+#include <TreeLandOutputManager.h>
+#include <WallpaperManager.h>
+#include <WayQtUtils.h>
 #include <dconfig.h>
 
-#include <QDebug>
 #include <QDateTime>
+#include <QDebug>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QLoggingCategory>
 
-#include <Registry.h>
-#include <WayQtUtils.h>
-#include <OutputManager.h>
-#include <Output.h>
-#include <TreeLandOutputManager.h>
-
 Q_LOGGING_CATEGORY(DdcDisplayWorker, "dcc-display-worker")
 
-
 const QString DisplayInterface("org.deepin.dde.Display1");
-constexpr const char * const CONCAT_SCREEN_NAME = "DDE-CONCAT-SCREEN";
+constexpr const char *const CONCAT_SCREEN_NAME = "DDE-CONCAT-SCREEN";
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>)
 using namespace dccV25;
@@ -34,6 +34,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     , m_updateScale(false)
     , m_timer(new QTimer(this))
     , m_dconfig(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.control-center", QStringLiteral("org.deepin.dde.control-center.display"), QString(), this))
+    , m_reg(nullptr)
 {
     // NOTE: what will it be used?
     Q_UNUSED(isSync)
@@ -41,9 +42,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     m_timer->setInterval(200);
 
     if (WQt::Utils::isTreeland()) {
-        m_reg = new WQt::Registry(WQt::Wayland::display(), this);
-        connect(m_reg, &WQt::Registry::interfaceRegistered, this, &DisplayWorker::onInterfaceRegistered);
-        m_reg->setup();
+        QMetaObject::invokeMethod(this, "initTreeland", Qt::QueuedConnection);
     } else {
         connect(m_displayInter, &DisplayDBusProxy::WallpaperURlsChanged, this, &DisplayWorker::updateWallpaper);
         connect(m_displayInter, &DisplayDBusProxy::WorkspaceSwitched, this, &DisplayWorker::updateWallpaper);
@@ -62,7 +61,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
         connect(m_displayInter, &DisplayDBusProxy::CustomColorTempTimePeriodChanged, model, &DisplayModel::setCustomColorTempTimePeriod);
         connect(m_displayInter, static_cast<void (DisplayDBusProxy::*)(const QString &) const>(&DisplayDBusProxy::PrimaryChanged), model, &DisplayModel::setPrimary);
 
-        //display redSfit/autoLight
+        // display redSfit/autoLight
         connect(m_displayInter, &DisplayDBusProxy::HasAmbientLightSensorChanged, m_model, &DisplayModel::autoLightAdjustVaildChanged);
         connect(m_timer, &QTimer::timeout, this, [this] {
             m_displayInter->ApplyChanges().waitForFinished();
@@ -75,6 +74,14 @@ DisplayWorker::~DisplayWorker()
 {
     qDeleteAll(m_monitors.keys());
     qDeleteAll(m_monitors.values());
+}
+
+void DisplayWorker::initTreeland()
+{
+    // treeland协议需要在主线程中初始化
+    m_reg = new WQt::Registry(WQt::Wayland::display(), this);
+    connect(m_reg, &WQt::Registry::interfaceRegistered, this, &DisplayWorker::onInterfaceRegistered);
+    m_reg->setup();
 }
 
 void DisplayWorker::active()
@@ -139,45 +146,69 @@ void DisplayWorker::saveChanges()
 void DisplayWorker::switchMode(const int mode, const QString &name)
 {
     if (WQt::Utils::isTreeland()) {
-        auto *opCfg = m_reg->outputManager()->createConfiguration();
-        m_model->setDisplayMode(mode);
-        int posX = 0;
+        auto *voMgr = m_reg->virtualOutputManager();
 
-        for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
-            switch (mode) {
-            case MERGE_MODE: {
-                auto *cfgHead = opCfg->enableHead(it.value());
-                cfgHead->setPosition({0, 0});
-                break;
-            }
-            case EXTEND_MODE: {
-                auto *cfgHead = opCfg->enableHead(it.value());
-                cfgHead->setPosition({posX, 0});
-                posX += it.key()->w();
-                break;
-            }
-            case SINGLE_MODE: {
-                if (it.key()->name() == name) {
-                    auto *cfgHead = opCfg->enableHead(it.value());
-                    WQt::OutputMode *preferMode = nullptr;
-                    for (auto *mode: it.value()->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
-                        preferMode = mode;
-                        if (mode->isPreferred())
-                            break;
-                    }
-                    cfgHead->setMode(preferMode);
-                    cfgHead->setPosition({0, 0});
-                } else {
-                    opCfg->disableHead(it.value());
-                }
-                break;
-            }
-            default:
-                break;
+        // 销毁所有已有的虚拟输出
+        if (voMgr) {
+            for (const auto &name : voMgr->virtualOutputs().keys()) {
+                voMgr->destroyVirtualOutput(name);
             }
         }
 
-        opCfg->apply();
+        if (mode == MERGE_MODE) {
+            if (voMgr) {
+                QStringList outputNames;
+                for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
+                    if (it.key()->name() == m_model->primary()) {
+                        outputNames.prepend(it.key()->name());
+                    } else {
+                        outputNames.append(it.key()->name());
+                    }
+                }
+                if (outputNames.size() >= 2) {
+                    voMgr->createVirtualOutput("ddeScreenGroup", outputNames);
+                    QMap<QString, QStringList> voMap;
+                    voMap.insert("ddeScreenGroup", outputNames);
+                    m_model->setVirtualOutput(voMap);
+                }
+            }
+            m_model->setDisplayMode(mode);
+        } else {
+            auto *opCfg = m_reg->outputManager()->createConfiguration();
+            m_model->setDisplayMode(mode);
+            int posX = 0;
+
+            for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
+                switch (mode) {
+                case EXTEND_MODE: {
+                    auto *cfgHead = opCfg->enableHead(it.value());
+                    cfgHead->setPosition({ posX, 0 });
+                    posX += it.key()->w();
+                    break;
+                }
+                case SINGLE_MODE: {
+                    if (it.key()->name() == name) {
+                        auto *cfgHead = opCfg->enableHead(it.value());
+                        WQt::OutputMode *preferMode = nullptr;
+                        for (auto *mode : it.value()->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
+                            preferMode = mode;
+                            if (mode->isPreferred())
+                                break;
+                        }
+                        cfgHead->setMode(preferMode);
+                        cfgHead->setPosition({ 0, 0 });
+                    } else {
+                        opCfg->disableHead(it.value());
+                    }
+                    break;
+                }
+                default:
+                    break;
+                }
+            }
+
+            opCfg->apply();
+        }
     } else {
         m_displayInter->SwitchMode(static_cast<uchar>(mode), name).waitForFinished();
     }
@@ -238,7 +269,69 @@ void DisplayWorker::updateMonitorWallpaper(Monitor *mon)
     mon->setWallpaper(m_displayInter->GetCurrentWorkspaceBackgroundForMonitor(mon->name()));
 }
 
-void DisplayWorker::onBrightnessChanged(const treeland_output_color_control_v1 *colorControl, double brightness)
+void DisplayWorker::updateWallpaperFromWayland()
+{
+    auto *wpMgr = m_reg->wallpaperManager();
+    if (!wpMgr || !wpMgr->isActive())
+        return;
+
+    for (auto *output : m_reg->waylandOutputs()) {
+        auto *wp = wpMgr->getWallpaper(output->get());
+        if (!wp)
+            continue;
+        connect(wp, &WQt::Wallpaper::changed, this, [this, output](const QString &fileSource, uint32_t sourceType, uint32_t role) {
+            Q_UNUSED(sourceType);
+            Q_UNUSED(role);
+            for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
+                if (it.key()->name() == output->name()) {
+                    it.key()->setWallpaper(fileSource);
+                    break;
+                }
+            }
+        });
+    }
+}
+
+void DisplayWorker::onOutputWallpaperReady(WQt::Output *output)
+{
+    auto *wpMgr = m_reg->wallpaperManager();
+    if (!wpMgr || !wpMgr->isActive())
+        return;
+
+    auto *wp = wpMgr->getWallpaper(output->get());
+    if (wp) {
+        connect(wp, &WQt::Wallpaper::changed, this, [this, output, wp]() {
+            onWallpaperChanged(output, wp->fileSource(), wp->sourceType(), 0);
+        });
+    }
+}
+
+void DisplayWorker::onWallpaperChanged(WQt::Output *output, const QString &fileSource, uint32_t sourceType, uint32_t role)
+{
+    Q_UNUSED(sourceType);
+    Q_UNUSED(role);
+    for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
+        if (it.key()->name() == output->name()) {
+            it.key()->setWallpaper(fileSource);
+            break;
+        }
+    }
+}
+
+void DisplayWorker::updateVirtualOutputs()
+{
+    auto *voMgr = m_reg->virtualOutputManager();
+    if (!voMgr)
+        return;
+
+    QMap<QString, QStringList> virtualOutputMap;
+    for (auto it = voMgr->virtualOutputs().cbegin(); it != voMgr->virtualOutputs().cend(); ++it) {
+        virtualOutputMap.insert(it.key(), it.value()->outputs());
+    }
+    m_model->setVirtualOutput(virtualOutputMap);
+}
+
+void DisplayWorker::onBrightnessChanged(WQt::ColorControl *colorControl, double brightness)
 {
     brightness = qBound(0.0, brightness / 100.0, 1.0);
     for (auto it(m_control_monitors.cbegin()); it != m_control_monitors.cend(); ++it) {
@@ -275,9 +368,7 @@ void DisplayWorker::onGetScreenScalesFinished(QDBusPendingCallWatcher *w)
 
     for (auto &m : m_model->monitorList()) {
         if (rmap.find(m->name()) != rmap.end()) {
-            m->setScale(rmap.value(m->name()) < 1.0
-                            ? m_model->uiScale()
-                            : rmap.value(m->name()));
+            m->setScale(rmap.value(m->name()) < 1.0 ? m_model->uiScale() : rmap.value(m->name()));
         }
     }
 
@@ -290,12 +381,45 @@ void DisplayWorker::onInterfaceRegistered(WQt::Registry::Interface interface)
     case WQt::Registry::OutputManagerInterface: {
         auto *opMgr = m_reg->outputManager();
         if (!opMgr) {
-            qCFatal(DdcDisplayWorker) << "Unable to start the output manager";
+            qCCritical(DdcDisplayWorker) << "Unable to start the output manager";
+        } else {
+            connect(opMgr, &WQt::OutputManager::done, this, &DisplayWorker::onWlOutputManagerDone);
         }
-        connect(opMgr, &WQt::OutputManager::done, this, &DisplayWorker::onWlOutputManagerDone);
     } break;
     case WQt::Registry::TreeLandOutputManagerInterface: {
-        connect(m_reg->treeLandOutputManager(), &WQt::TreeLandOutputManager::brightnessChanged, this, &DisplayWorker::onBrightnessChanged);
+        updateControl();
+    } break;
+    case WQt::Registry::VirtualOutputManagerInterface: {
+        auto *virtOpMgr = m_reg->virtualOutputManager();
+        if (!virtOpMgr) {
+            qCCritical(DdcDisplayWorker) << "Unable to start the virtual output manager";
+        } else {
+            virtOpMgr->getVirtualOutputList();
+            connect(virtOpMgr, &WQt::VirtualOutputManager::virtualOutputList, this, [this, virtOpMgr](const QStringList &names) {
+                if (names.isEmpty()) {
+                    m_model->setDisplayMode(EXTEND_MODE);
+                } else {
+                    m_model->setDisplayMode(MERGE_MODE);
+                }
+                for (const auto &name : names) {
+                    auto *vo = virtOpMgr->virtualOutputs().value(name);
+                    if (vo) {
+                        connect(vo, &WQt::VirtualOutput::outputsChanged, this, [this]() {
+                            updateVirtualOutputs();
+                        });
+                    }
+                }
+                updateVirtualOutputs();
+            });
+        }
+    } break;
+    case WQt::Registry::WallpaperManagerInterface: {
+        auto *wpMgr = m_reg->wallpaperManager();
+        if (!wpMgr) {
+            qCCritical(DdcDisplayWorker) << "Unable to start the wallpaper manager";
+        } else {
+            updateWallpaperFromWayland();
+        }
     } break;
     default:
         break;
@@ -308,10 +432,12 @@ void DisplayWorker::onWlOutputManagerDone()
 
     m_model->setDisplayMode(EXTEND_MODE); // TODO: use dconfig
     auto *treelandOpMgr = m_reg->treeLandOutputManager();
-    m_model->setPrimary(treelandOpMgr->mPrimaryOutput);
-    connect(treelandOpMgr, &WQt::TreeLandOutputManager::primaryOutputChanged, this, [this](){
-        m_model->setPrimary(m_reg->treeLandOutputManager()->mPrimaryOutput);
-    });
+    if (treelandOpMgr) {
+        m_model->setPrimary(treelandOpMgr->mPrimaryOutput);
+        connect(treelandOpMgr, &WQt::TreeLandOutputManager::primaryOutputChanged, this, [this]() {
+            m_model->setPrimary(m_reg->treeLandOutputManager()->mPrimaryOutput);
+        });
+    }
 
     m_model->setResolutionRefreshEnable(true);
     m_model->setBrightnessEnable(false); // TODO: support gamma effects
@@ -319,7 +445,8 @@ void DisplayWorker::onWlOutputManagerDone()
 
 #ifndef DCC_DISABLE_ROTATE
 
-constexpr static int wlRotate2dcc(int wlRotate) {
+constexpr static int wlRotate2dcc(int wlRotate)
+{
     switch (wlRotate) {
     case WL_OUTPUT_TRANSFORM_NORMAL:
         return 1;
@@ -335,7 +462,8 @@ constexpr static int wlRotate2dcc(int wlRotate) {
     }
 }
 
-constexpr static int dccRotate2wl(int dccRotate) {
+constexpr static int dccRotate2wl(int dccRotate)
+{
     switch (dccRotate) {
     case 1:
         return WL_OUTPUT_TRANSFORM_NORMAL;
@@ -383,7 +511,9 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 void DisplayWorker::setPrimary(const QString &name)
 {
     if (WQt::Utils::isTreeland()) {
-        m_reg->treeLandOutputManager()->setPrimaryOutput(name.toStdString().c_str());;
+        auto *treelandOpMgr = m_reg->treeLandOutputManager();
+        if (treelandOpMgr)
+            treelandOpMgr->setPrimaryOutput(name.toStdString().c_str());
     } else {
         m_displayInter->SetPrimary(name);
     }
@@ -399,7 +529,7 @@ void DisplayWorker::setMonitorEnable(Monitor *monitor, const bool enable)
                 if (enable) {
                     auto *cfgHead = opCfg->enableHead(it.value());
                     WQt::OutputMode *preferMode = nullptr;
-                    for (auto *mode: it.value()->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
+                    for (auto *mode : it.value()->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
                         preferMode = mode;
                         if (mode->isPreferred())
                             break;
@@ -460,7 +590,7 @@ void DisplayWorker::setCustomColorTempTimePeriod(const QString &timePeriod)
     m_displayInter->SetCustomColorTempTimePeriod(timePeriod);
 }
 
-void DisplayWorker::setCurrentFillMode(Monitor *mon,const QString fillMode)
+void DisplayWorker::setCurrentFillMode(Monitor *mon, const QString fillMode)
 {
     if (WQt::Utils::isTreeland()) {
         // TODO: support treeland
@@ -483,15 +613,15 @@ void DisplayWorker::clearBackup()
 
 void DisplayWorker::resetBackup()
 {
-    //TODO: can't use in treeland
+    // TODO: can't use in treeland
     if (!m_displayConfig.isEmpty()) {
 
         QJsonDocument doc = QJsonDocument::fromJson(m_displayConfig.toLatin1());
         QJsonObject jsonObj = doc.object();
 
         QDateTime time = QDateTime::currentDateTime();
-        int offset = time.offsetFromUtc()/60;
-        bool negative = offset <0;
+        int offset = time.offsetFromUtc() / 60;
+        bool negative = offset < 0;
         if (negative)
             offset = -offset;
 
@@ -519,10 +649,8 @@ void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
             }
             auto *cfgHead = opCfg->enableHead(it.value());
             if (it.key() == mon) {
-                for (auto *mode: it.value()->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
-                    if (mode->size().width() == res.value().width()
-                        && mode->size().height() == res.value().height()
-                        && qFuzzyCompare(mode->refreshRate()*0.001, res.value().rate())) {
+                for (auto *mode : it.value()->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
+                    if (mode->size().width() == res.value().width() && mode->size().height() == res.value().height() && qFuzzyCompare(mode->refreshRate() * 0.001, res.value().rate())) {
                         cfgHead->setMode(mode);
                         break;
                     }
@@ -548,7 +676,7 @@ void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
 #else
         for (auto it(m_control_monitors.cbegin()); it != m_control_monitors.cend(); ++it) {
             if (it.key() == mon) {
-                m_reg->treeLandOutputManager()->setBrightness(it.value(), brightness * 100.0);
+                it.value()->setBrightness(brightness * 100.0);
                 break;
             }
         }
@@ -657,7 +785,6 @@ void DisplayWorker::setIndividualScaling(Monitor *m, const double scaling)
     }
 }
 
-
 void DisplayWorker::monitorAdded(const QString &path)
 {
     MonitorDBusProxy *inter = new MonitorDBusProxy(path, this);
@@ -695,7 +822,6 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorDBusProxy::CurrentRotateModeChanged, mon, &Monitor::setCurrentRotateMode);
     connect(inter, &MonitorDBusProxy::AvailableFillModesChanged, mon, &Monitor::setAvailableFillModes);
     connect(inter, &MonitorDBusProxy::CurrentFillModeChanged, mon, &Monitor::setCurrentFillMode);
-    connect(m_displayInter, static_cast<void (DisplayDBusProxy::*)(const QString &) const>(&DisplayDBusProxy::PrimaryChanged), mon, &Monitor::setPrimary);
     connect(this, &DisplayWorker::requestUpdateModeList, this, [=] {
         mon->setModeList(inter->modes());
     });
@@ -728,7 +854,6 @@ void DisplayWorker::monitorAdded(const QString &path)
         }
     }
     mon->setRotateList(inter->rotations());
-    mon->setPrimary(m_displayInter->primary());
     mon->setMmWidth(inter->mmWidth());
     mon->setMmHeight(inter->mmHeight());
 
@@ -760,9 +885,14 @@ void DisplayWorker::monitorRemoved(const QString &path)
     monitor->deleteLater();
 }
 
-static inline Resolution createResolutionFromMode(WQt::OutputMode *mode) {
+static inline Resolution createResolutionFromMode(WQt::OutputMode *mode)
+{
     static int idcount = 0;
     Resolution res;
+    if (!mode) {
+        res.m_id = 0;
+        return res;
+    }
     res.m_id = ++idcount;
     res.m_width = mode->size().width();
     res.m_height = mode->size().height();
@@ -791,7 +921,7 @@ void DisplayWorker::wlMonitorAdded(WQt::OutputHead *head)
         }
         case WQt::OutputHead::Modes: {
             ResolutionList resolutionList;
-            for (auto *mode: head->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
+            for (auto *mode : head->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
                 Resolution res = createResolutionFromMode(mode);
                 resolutionList << res;
                 if (mode->isPreferred()) {
@@ -847,11 +977,11 @@ void DisplayWorker::wlMonitorAdded(WQt::OutputHead *head)
     mon->setX(head->property(WQt::OutputHead::Position).toPoint().x());
     mon->setY(head->property(WQt::OutputHead::Position).toPoint().y());
 
-    mon->setRotateList({1, 2, 4, 8});
+    mon->setRotateList({ 1, 2, 4, 8 });
     mon->setRotate(wlRotate2dcc(head->property(WQt::OutputHead::Transform).toInt()));
 
     ResolutionList resolutionList;
-    for (auto *mode: head->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
+    for (auto *mode : head->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
         Resolution res = createResolutionFromMode(mode);
         resolutionList << res;
         if (mode->isPreferred()) {
@@ -859,11 +989,12 @@ void DisplayWorker::wlMonitorAdded(WQt::OutputHead *head)
         }
     }
     mon->setModeList(resolutionList);
-
     Resolution currentRes = createResolutionFromMode(head->property(WQt::OutputHead::CurrentMode).value<WQt::OutputMode *>());
-    mon->setCurrentMode(currentRes);
-    mon->setW(currentRes.width());
-    mon->setH(currentRes.height());
+    if (currentRes.id() != 0) { // 0 is invalid
+        mon->setCurrentMode(currentRes);
+        mon->setW(currentRes.width());
+        mon->setH(currentRes.height());
+    }
 
     if (m_model->isRefreshRateEnable() == false) {
         for (auto resolutionModel : mon->modeList()) {
@@ -872,15 +1003,14 @@ void DisplayWorker::wlMonitorAdded(WQt::OutputHead *head)
             }
         }
     }
-    mon->setPrimary(m_reg->treeLandOutputManager()->mPrimaryOutput);
 
     auto physicalSize = head->property(WQt::OutputHead::PhysicalSize).toSize();
     mon->setMmWidth(physicalSize.width());
     mon->setMmHeight(physicalSize.height());
 
-
     m_model->monitorAdded(mon);
     m_wl_monitors.insert(mon, head);
+    updateControl();
 
 #if GAMMA_SUPPORT
     auto *gammaMgr = m_reg->gammaControlManager();
@@ -894,8 +1024,8 @@ void DisplayWorker::wlMonitorAdded(WQt::OutputHead *head)
     effectsConfig->temperature = 6500;
     effectsConfig->latitude = 0; // How to get
     effectsConfig->longitude = 0;
-    effectsConfig->sunrise = QTime( 6, 30, 0 );
-    effectsConfig->sunset = QTime( 18, 30, 0 );
+    effectsConfig->sunrise = QTime(6, 30, 0);
+    effectsConfig->sunset = QTime(18, 30, 0);
     effectsConfig->whitepoint = { 0, 0, 0 };
 
     // gammaEffect->setConfiguration(config);
@@ -919,14 +1049,14 @@ void DisplayWorker::wlMonitorRemoved(WQt::OutputHead *head)
     m_model->monitorRemoved(monitor);
 
 #if GAMMA_SUPPORT
-    //delete m_wl_gammaConfig[monitor];
-    //delete m_wl_gammaEffects[monitor];
+    // delete m_wl_gammaConfig[monitor];
+    // delete m_wl_gammaEffects[monitor];
 #endif
     head->deleteLater();
 
     m_wl_monitors.remove(monitor);
     if (m_control_monitors.contains(monitor)) {
-        m_reg->treeLandOutputManager()->destroyColorControl(m_control_monitors.value(monitor));
+        delete m_control_monitors.value(monitor);
         m_control_monitors.remove(monitor);
     }
 
@@ -936,6 +1066,9 @@ void DisplayWorker::wlMonitorRemoved(WQt::OutputHead *head)
 void DisplayWorker::wlOutputAdded(WQt::Output *output)
 {
     connect(output, &WQt::Output::done, this, &DisplayWorker::updateControl);
+    connect(output, &WQt::Output::done, this, [this, output]() {
+        onOutputWallpaperReady(output);
+    });
 }
 
 void DisplayWorker::wlOutputRemoved(WQt::Output *output)
@@ -946,12 +1079,21 @@ void DisplayWorker::wlOutputRemoved(WQt::Output *output)
 
 void DisplayWorker::updateControl()
 {
+    auto *treelandOpMgr = m_reg->treeLandOutputManager();
+    if (!treelandOpMgr) {
+        return;
+    }
     for (auto output : m_reg->waylandOutputs()) {
         if (output->isReady()) {
             for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
                 if (it.key()->name() == output->name()) {
                     if (!m_control_monitors.contains(it.key())) {
-                        auto control = m_reg->treeLandOutputManager()->getColorControl(output->get());
+                        auto control = treelandOpMgr->getColorControl(output->get());
+                        if (control) {
+                            connect(control, &WQt::ColorControl::brightnessChanged, this, [this, control](double brightness) {
+                                onBrightnessChanged(control, brightness);
+                            });
+                        }
                         m_control_monitors.insert(it.key(), control);
                     }
                     break;
@@ -1022,7 +1164,7 @@ void DisplayWorker::setMonitorResolutionBySize(Monitor *mon, const int width, co
             }
             auto *cfgHead = opCfg->enableHead(it.value());
             if (it.key() == mon)
-                cfgHead->setCustomMode({width, height}, mon->currentMode().rate());
+                cfgHead->setCustomMode({ width, height }, mon->currentMode().rate());
         }
         opCfg->apply();
     } else {
@@ -1050,11 +1192,11 @@ void DisplayWorker::mergeToConcatScreen(const QStringList &outputs)
     if (outputs.size() < 2) {
         return;
     }
-        
+
     QString outputsStr = outputs.join(",");
     qCDebug(DdcDisplayWorker) << "[ConcatScreen] mergeToConcatScreen: xrandr --setmonitor" << CONCAT_SCREEN_NAME << "auto" << outputsStr;
     QProcess p;
-    p.start("xrandr", {"--setmonitor", CONCAT_SCREEN_NAME, "auto", outputsStr});
+    p.start("xrandr", { "--setmonitor", CONCAT_SCREEN_NAME, "auto", outputsStr });
     p.waitForFinished(5000);
     if (p.exitCode() != 0) {
         qCWarning(DdcDisplayWorker) << "[ConcatScreen] mergeToConcatScreen failed:" << p.readAllStandardError();
@@ -1070,7 +1212,7 @@ void DisplayWorker::resetConcatScreenMode()
     }
 
     QProcess p;
-    p.start("xrandr", {"--delmonitor", CONCAT_SCREEN_NAME});
+    p.start("xrandr", { "--delmonitor", CONCAT_SCREEN_NAME });
     p.waitForFinished(5000);
     if (p.exitCode() != 0) {
         qCWarning(DdcDisplayWorker) << "[ConcatScreen] delmonitor failed:" << p.readAllStandardError();
@@ -1087,7 +1229,7 @@ void DisplayWorker::updateConcatScreenMode()
     }
 
     QProcess p;
-    p.start("xrandr", {"--listmonitors"});
+    p.start("xrandr", { "--listmonitors" });
     p.waitForFinished(3000);
     if (p.exitCode() != 0) {
         qCWarning(DdcDisplayWorker) << "[ConcatScreen] listmonitors failed:" << p.readAllStandardError();

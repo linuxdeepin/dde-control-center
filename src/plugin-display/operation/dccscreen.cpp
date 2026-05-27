@@ -140,11 +140,6 @@ void DccScreenPrivate::setMonitors(QList<Monitor *> monitors)
 
 Monitor *DccScreenPrivate::monitor()
 {
-    for (auto mon : m_monitors) {
-        if (mon->isPrimary()) {
-            return mon;
-        }
-    }
     return m_monitors.first();
 }
 
@@ -180,7 +175,9 @@ void DccScreenPrivate::setMode(QSize resolution, double rate)
 void DccScreenPrivate::setRotate(uint rotate)
 {
     m_worker->backupConfig();
-    m_worker->setMonitorRotate(monitor(), rotate);
+    for (auto monitor : m_monitors) {
+        m_worker->setMonitorRotate(monitor, rotate);
+    }
     m_worker->applyChanges();
 }
 

@@ -1,6 +1,6 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 #include "resolution.h"
 
 #include <QDebug>
@@ -13,16 +13,16 @@ void registerResolutionMetaType()
 
 QDebug operator<<(QDebug debug, const Resolution &resolution)
 {
-    debug << QString("Resolution(%1, %2, %3, %4)").arg(resolution.m_id)
-                                                    .arg(resolution.m_width)
-                                                    .arg(resolution.m_height)
-                                                    .arg(resolution.m_rate);
+    debug << QString("Resolution(%1, %2, %3, %4)").arg(resolution.m_id).arg(resolution.m_width).arg(resolution.m_height).arg(resolution.m_rate);
 
     return debug;
 }
 
 Resolution::Resolution()
-    : m_rate(0.0)
+    : m_id(0)
+    , m_width(0)
+    , m_height(0)
+    , m_rate(0.0)
 {
 }
 

@@ -4,13 +4,14 @@
 
 #include "OutputManager.h"
 
-#include "wlr-output-management-unstable-v1-client-protocol.h"
+#include "WayQtLogging.h"
 
 #include <wayland-client.h>
 
 #include <QCoreApplication>
 #include <QDebug>
 #include <QImage>
+#include <QLoggingCategory>
 #include <QObject>
 #include <QThread>
 #include <QVariant>
@@ -21,16 +22,13 @@
  * Obtain a pointer to this object from Wayland Registry
  */
 
-WQt::OutputManager::OutputManager(zwlr_output_manager_v1 *opMgr)
+WQt::OutputManager::OutputManager(QObject *parent)
+    : QWaylandClientExtensionTemplate<WQt::OutputManager>(2)
 {
-    mObj = opMgr;
-    zwlr_output_manager_v1_add_listener(mObj, &mListener, this);
+    setParent(parent);
 }
 
-WQt::OutputManager::~OutputManager()
-{
-    zwlr_output_manager_v1_destroy(mObj);
-}
+WQt::OutputManager::~OutputManager() { }
 
 QList<WQt::OutputHead *> WQt::OutputManager::heads()
 {
@@ -39,57 +37,47 @@ QList<WQt::OutputHead *> WQt::OutputManager::heads()
 
 WQt::OutputConfiguration *WQt::OutputManager::createConfiguration()
 {
-    return new WQt::OutputConfiguration(zwlr_output_manager_v1_create_configuration(mObj, mSerial));
+    qCDebug(DccWayQt) << "OutputManager::createConfiguration serial:" << mSerial;
+    return new WQt::OutputConfiguration(QtWayland::zwlr_output_manager_v1::create_configuration(mSerial), this);
 }
 
 void WQt::OutputManager::stop()
 {
-    zwlr_output_manager_v1_stop(mObj);
+    qCDebug(DccWayQt) << "OutputManager::stop";
+    QtWayland::zwlr_output_manager_v1::stop();
 }
 
-zwlr_output_manager_v1 *WQt::OutputManager::get()
+::zwlr_output_manager_v1 *WQt::OutputManager::get()
 {
-    return mObj;
+    return object();
 }
 
-void WQt::OutputManager::handleHead(void *data, zwlr_output_manager_v1 *, zwlr_output_head_v1 *head)
+void WQt::OutputManager::zwlr_output_manager_v1_head(zwlr_output_head_v1 *id)
 {
-    WQt::OutputManager *mgr = reinterpret_cast<WQt::OutputManager *>(data);
+    WQt::OutputHead *opHead = new WQt::OutputHead(id, this);
 
-    WQt::OutputHead *opHead = new WQt::OutputHead(head);
-
-    mgr->mHeads << opHead;
-
+    mHeads << opHead;
+    qCInfo(DccWayQt) << "OutputHead added:" << opHead << "total:" << mHeads.count();
     connect(opHead, &WQt::OutputHead::finished, [=]() {
-        mgr->mHeads.removeAll(opHead);
+        mHeads.removeAll(opHead);
     });
 
-    emit mgr->headAttached(opHead);
+    Q_EMIT headAttached(opHead);
 }
 
-void WQt::OutputManager::handleDone(void *data, zwlr_output_manager_v1 *, uint32_t serial)
+void WQt::OutputManager::zwlr_output_manager_v1_done(uint32_t serial)
 {
-    WQt::OutputManager *mgr = reinterpret_cast<WQt::OutputManager *>(data);
+    mSerial = serial;
+    mIsDone = true;
+    qCDebug(DccWayQt) << "OutputManager::done serial:" << serial;
 
-    mgr->mSerial = serial;
-    mgr->mIsDone = true;
-
-    emit mgr->done();
+    Q_EMIT done();
 }
 
-void WQt::OutputManager::handleFinished(void *data, zwlr_output_manager_v1 *)
+void WQt::OutputManager::zwlr_output_manager_v1_finished()
 {
-    WQt::OutputManager *mgr = reinterpret_cast<WQt::OutputManager *>(data);
-
-    zwlr_output_manager_v1_destroy(mgr->mObj);
-    mgr->mObj = nullptr;
+    qCDebug(DccWayQt) << "OutputManager::finished";
 }
-
-const struct zwlr_output_manager_v1_listener WQt::OutputManager::mListener = {
-    handleHead,
-    handleDone,
-    handleFinished,
-};
 
 /**
  * Output Head
@@ -97,12 +85,16 @@ const struct zwlr_output_manager_v1_listener WQt::OutputManager::mListener = {
  * or via OutputManager::heads() function;
  */
 
-WQt::OutputHead::OutputHead() { }
-
-WQt::OutputHead::OutputHead(zwlr_output_head_v1 *head)
+WQt::OutputHead::OutputHead(QObject *parent)
+    : QObject(parent)
 {
-    mObj = head;
-    zwlr_output_head_v1_add_listener(mObj, &mListener, this);
+}
+
+WQt::OutputHead::OutputHead(zwlr_output_head_v1 *head, QObject *parent)
+    : QObject(parent)
+    , mObj(head)
+{
+    setupListeners();
 }
 
 WQt::OutputHead::OutputHead(const WQt::OutputHead &otherHead)
@@ -117,7 +109,8 @@ WQt::OutputHead::OutputHead(const WQt::OutputHead &otherHead)
 
 WQt::OutputHead::~OutputHead()
 {
-    zwlr_output_head_v1_destroy(mObj);
+    if (mObj)
+        zwlr_output_head_v1_destroy(mObj);
 }
 
 QVariant WQt::OutputHead::property(WQt::OutputHead::Property prop)
@@ -140,144 +133,126 @@ zwlr_output_head_v1 *WQt::OutputHead::get()
     return mObj;
 }
 
+void WQt::OutputHead::setupListeners()
+{
+    static const zwlr_output_head_v1_listener listener = {
+        &WQt::OutputHead::handleName,      &WQt::OutputHead::handleDescription, &WQt::OutputHead::handlePhysicalSize, &WQt::OutputHead::handleMode, &WQt::OutputHead::handleEnabled, &WQt::OutputHead::handleCurrentMode,  &WQt::OutputHead::handlePosition,
+        &WQt::OutputHead::handleTransform, &WQt::OutputHead::handleScale,       &WQt::OutputHead::handleFinished,     &WQt::OutputHead::handleMake, &WQt::OutputHead::handleModel,   &WQt::OutputHead::handleSerialNumber, &WQt::OutputHead::handleAdaptiveSync,
+    };
+    zwlr_output_head_v1_add_listener(mObj, &listener, this);
+}
+
 void WQt::OutputHead::handleName(void *data, zwlr_output_head_v1 *, const char *name)
 {
-    WQt::OutputHead *opHead = reinterpret_cast<WQt::OutputHead *>(data);
-
-    opHead->mPropsMap[WQt::OutputHead::Name] = name;
-
-    emit opHead->changed(WQt::OutputHead::Name);
+    auto *opHead = reinterpret_cast<WQt::OutputHead *>(data);
+    opHead->mPropsMap[WQt::OutputHead::Name] = QString::fromUtf8(name);
+    Q_EMIT opHead->changed(WQt::OutputHead::Name);
 }
 
 void WQt::OutputHead::handleDescription(void *data, zwlr_output_head_v1 *, const char *descr)
 {
-    WQt::OutputHead *opHead = reinterpret_cast<WQt::OutputHead *>(data);
-
-    opHead->mPropsMap[WQt::OutputHead::Description] = descr;
-
-    emit opHead->changed(WQt::OutputHead::Description);
+    auto *opHead = reinterpret_cast<WQt::OutputHead *>(data);
+    opHead->mPropsMap[WQt::OutputHead::Description] = QString::fromUtf8(descr);
+    Q_EMIT opHead->changed(WQt::OutputHead::Description);
 }
 
-void WQt::OutputHead::handlePhysicalSize(void *data,
-                                         zwlr_output_head_v1 *,
-                                         int32_t width,
-                                         int32_t height)
+void WQt::OutputHead::handlePhysicalSize(void *data, zwlr_output_head_v1 *, int32_t width, int32_t height)
 {
-    WQt::OutputHead *opHead = reinterpret_cast<WQt::OutputHead *>(data);
-
+    auto *opHead = reinterpret_cast<WQt::OutputHead *>(data);
     opHead->mPropsMap[WQt::OutputHead::PhysicalSize] = QSize(width, height);
-
-    emit opHead->changed(WQt::OutputHead::PhysicalSize);
+    Q_EMIT opHead->changed(WQt::OutputHead::PhysicalSize);
 }
 
 void WQt::OutputHead::handleMode(void *data, zwlr_output_head_v1 *, zwlr_output_mode_v1 *mode)
 {
-    WQt::OutputHead *opHead = reinterpret_cast<WQt::OutputHead *>(data);
+    auto *opHead = reinterpret_cast<WQt::OutputHead *>(data);
 
     if (opHead->mPropsMap.contains(WQt::OutputHead::Modes)) {
-        opHead->mPropsMap[WQt::OutputHead::Modes] =
-                QVariant::fromValue<QList<WQt::OutputMode *>>(QList<WQt::OutputMode *>());
+        opHead->mPropsMap[WQt::OutputHead::Modes] = QVariant::fromValue<QList<WQt::OutputMode *>>(QList<WQt::OutputMode *>());
     }
 
-    WQt::OutputMode *opMode = new WQt::OutputMode(mode);
+    WQt::OutputMode *opMode = new WQt::OutputMode(mode, opHead);
 
     connect(opMode, &WQt::OutputMode::finished, [=]() {
         opHead->mModes.removeAll(opMode);
     });
     opHead->mModes << opMode;
 
-    emit opHead->changed(WQt::OutputHead::Modes);
+    Q_EMIT opHead->changed(WQt::OutputHead::Modes);
 }
 
 void WQt::OutputHead::handleEnabled(void *data, zwlr_output_head_v1 *, int32_t yes)
 {
-    WQt::OutputHead *opHead = reinterpret_cast<WQt::OutputHead *>(data);
-
+    auto *opHead = reinterpret_cast<WQt::OutputHead *>(data);
     opHead->mPropsMap[WQt::OutputHead::Enabled] = (bool)yes;
-
-    emit opHead->changed(WQt::OutputHead::Enabled);
+    Q_EMIT opHead->changed(WQt::OutputHead::Enabled);
 }
 
-void WQt::OutputHead::handleCurrentMode(void *data,
-                                        zwlr_output_head_v1 *,
-                                        zwlr_output_mode_v1 *curMode)
+void WQt::OutputHead::handleCurrentMode(void *data, zwlr_output_head_v1 *, zwlr_output_mode_v1 *curMode)
 {
-    WQt::OutputHead *opHead = reinterpret_cast<WQt::OutputHead *>(data);
+    auto *opHead = reinterpret_cast<WQt::OutputHead *>(data);
 
     for (auto *mode : opHead->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
         if (mode->get() == curMode)
             opHead->mCurrentMode = mode;
     }
 
-    emit opHead->changed(WQt::OutputHead::CurrentMode);
+    Q_EMIT opHead->changed(WQt::OutputHead::CurrentMode);
 }
 
 void WQt::OutputHead::handlePosition(void *data, zwlr_output_head_v1 *, int32_t x, int32_t y)
 {
-    WQt::OutputHead *opHead = reinterpret_cast<WQt::OutputHead *>(data);
-
+    auto *opHead = reinterpret_cast<WQt::OutputHead *>(data);
     opHead->mPropsMap[WQt::OutputHead::Position] = QPoint(x, y);
-
-    emit opHead->changed(WQt::OutputHead::Position);
+    Q_EMIT opHead->changed(WQt::OutputHead::Position);
 }
 
 void WQt::OutputHead::handleTransform(void *data, zwlr_output_head_v1 *, int32_t transform)
 {
-    WQt::OutputHead *opHead = reinterpret_cast<WQt::OutputHead *>(data);
-
+    auto *opHead = reinterpret_cast<WQt::OutputHead *>(data);
     opHead->mPropsMap[WQt::OutputHead::Transform] = transform;
-
-    emit opHead->changed(WQt::OutputHead::Transform);
+    Q_EMIT opHead->changed(WQt::OutputHead::Transform);
 }
 
 void WQt::OutputHead::handleScale(void *data, zwlr_output_head_v1 *, wl_fixed_t scale)
 {
-    WQt::OutputHead *opHead = reinterpret_cast<WQt::OutputHead *>(data);
-
+    auto *opHead = reinterpret_cast<WQt::OutputHead *>(data);
     opHead->mPropsMap[WQt::OutputHead::Scale] = wl_fixed_to_double(scale);
-
-    emit opHead->changed(WQt::OutputHead::Scale);
+    Q_EMIT opHead->changed(WQt::OutputHead::Scale);
 }
 
 void WQt::OutputHead::handleFinished(void *data, zwlr_output_head_v1 *)
 {
-    WQt::OutputHead *opHead = reinterpret_cast<WQt::OutputHead *>(data);
-
-    emit opHead->finished();
+    auto *opHead = reinterpret_cast<WQt::OutputHead *>(data);
+    Q_EMIT opHead->finished();
 }
 
 void WQt::OutputHead::handleMake(void *data, zwlr_output_head_v1 *, const char *make)
 {
-    WQt::OutputHead *opHead = reinterpret_cast<WQt::OutputHead *>(data);
-
-    opHead->mPropsMap[WQt::OutputHead::Make] = make;
-
-    emit opHead->changed(WQt::OutputHead::Make);
+    auto *opHead = reinterpret_cast<WQt::OutputHead *>(data);
+    opHead->mPropsMap[WQt::OutputHead::Make] = QString::fromUtf8(make);
+    Q_EMIT opHead->changed(WQt::OutputHead::Make);
 }
 
 void WQt::OutputHead::handleModel(void *data, zwlr_output_head_v1 *, const char *model)
 {
-    WQt::OutputHead *opHead = reinterpret_cast<WQt::OutputHead *>(data);
-
-    opHead->mPropsMap[WQt::OutputHead::Model] = model;
-
-    emit opHead->changed(WQt::OutputHead::Model);
+    auto *opHead = reinterpret_cast<WQt::OutputHead *>(data);
+    opHead->mPropsMap[WQt::OutputHead::Model] = QString::fromUtf8(model);
+    Q_EMIT opHead->changed(WQt::OutputHead::Model);
 }
 
 void WQt::OutputHead::handleSerialNumber(void *data, zwlr_output_head_v1 *, const char *serialNo)
 {
-    WQt::OutputHead *opHead = reinterpret_cast<WQt::OutputHead *>(data);
-
-    opHead->mPropsMap[WQt::OutputHead::SerialNumber] = serialNo;
-
-    emit opHead->changed(WQt::OutputHead::SerialNumber);
+    auto *opHead = reinterpret_cast<WQt::OutputHead *>(data);
+    opHead->mPropsMap[WQt::OutputHead::SerialNumber] = QString::fromUtf8(serialNo);
+    Q_EMIT opHead->changed(WQt::OutputHead::SerialNumber);
 }
 
-const struct zwlr_output_head_v1_listener WQt::OutputHead::mListener = {
-    handleName,        handleDescription, handlePhysicalSize, handleMode,  handleEnabled,
-    handleCurrentMode, handlePosition,    handleTransform,    handleScale, handleFinished,
-    handleMake,        handleModel,       handleSerialNumber,
-};
+void WQt::OutputHead::handleAdaptiveSync(void *data, zwlr_output_head_v1 *, uint32_t state)
+{
+    Q_UNUSED(data)
+    Q_UNUSED(state)
+}
 
 /**
  * Output Mode
@@ -286,12 +261,16 @@ const struct zwlr_output_head_v1_listener WQt::OutputHead::mListener = {
  * or from OutputHead::property( CurrentMode )
  */
 
-WQt::OutputMode::OutputMode() { }
-
-WQt::OutputMode::OutputMode(zwlr_output_mode_v1 *mode)
+WQt::OutputMode::OutputMode(QObject *parent)
+    : QObject(parent)
 {
-    mObj = mode;
-    zwlr_output_mode_v1_add_listener(mObj, &mListener, this);
+}
+
+WQt::OutputMode::OutputMode(zwlr_output_mode_v1 *mode, QObject *parent)
+    : QObject(parent)
+    , mObj(mode)
+{
+    setupListeners();
 }
 
 WQt::OutputMode::OutputMode(const WQt::OutputMode &otherMode)
@@ -306,7 +285,8 @@ WQt::OutputMode::OutputMode(const WQt::OutputMode &otherMode)
 
 WQt::OutputMode::~OutputMode()
 {
-    zwlr_output_mode_v1_destroy(mObj);
+    if (mObj)
+        zwlr_output_mode_v1_destroy(mObj);
 }
 
 QSize WQt::OutputMode::size()
@@ -329,46 +309,43 @@ zwlr_output_mode_v1 *WQt::OutputMode::get()
     return mObj;
 }
 
+void WQt::OutputMode::setupListeners()
+{
+    static const zwlr_output_mode_v1_listener listener = {
+        &WQt::OutputMode::handleSize,
+        &WQt::OutputMode::handleRefreshRate,
+        &WQt::OutputMode::handlePreferred,
+        &WQt::OutputMode::handleFinished,
+    };
+    zwlr_output_mode_v1_add_listener(mObj, &listener, this);
+}
+
 void WQt::OutputMode::handleSize(void *data, zwlr_output_mode_v1 *, int32_t width, int32_t height)
 {
-    WQt::OutputMode *opMode = reinterpret_cast<WQt::OutputMode *>(data);
-
+    auto *opMode = reinterpret_cast<WQt::OutputMode *>(data);
     opMode->mSize = QSize(width, height);
-
-    emit opMode->sizeChanged(opMode->mSize);
+    Q_EMIT opMode->sizeChanged(opMode->mSize);
 }
 
 void WQt::OutputMode::handleRefreshRate(void *data, zwlr_output_mode_v1 *, int32_t refreshRate)
 {
-    WQt::OutputMode *opMode = reinterpret_cast<WQt::OutputMode *>(data);
-
+    auto *opMode = reinterpret_cast<WQt::OutputMode *>(data);
     opMode->mRefreshRate = refreshRate;
-
-    emit opMode->refreshRateChanged(refreshRate);
+    Q_EMIT opMode->refreshRateChanged(refreshRate);
 }
 
 void WQt::OutputMode::handlePreferred(void *data, zwlr_output_mode_v1 *)
 {
-    WQt::OutputMode *opMode = reinterpret_cast<WQt::OutputMode *>(data);
-
+    auto *opMode = reinterpret_cast<WQt::OutputMode *>(data);
     opMode->mIsPreferred = true;
-
-    emit opMode->setAsPreferred();
+    Q_EMIT opMode->setAsPreferred();
 }
 
 void WQt::OutputMode::handleFinished(void *data, zwlr_output_mode_v1 *)
 {
-    WQt::OutputMode *opMode = reinterpret_cast<WQt::OutputMode *>(data);
-
-    emit opMode->finished();
+    auto *opMode = reinterpret_cast<WQt::OutputMode *>(data);
+    Q_EMIT opMode->finished();
 }
-
-const struct zwlr_output_mode_v1_listener WQt::OutputMode::mListener = {
-    handleSize,
-    handleRefreshRate,
-    handlePreferred,
-    handleFinished,
-};
 
 /**
  * Output Configuration
@@ -376,70 +353,58 @@ const struct zwlr_output_mode_v1_listener WQt::OutputMode::mListener = {
  * Obtained from OutputManager::createConfiguration()
  */
 
-WQt::OutputConfiguration::OutputConfiguration(zwlr_output_configuration_v1 *config)
+WQt::OutputConfiguration::OutputConfiguration(struct ::zwlr_output_configuration_v1 *config, QObject *parent)
+    : QObject(parent)
+    , QtWayland::zwlr_output_configuration_v1(config)
 {
-    mObj = config;
-    zwlr_output_configuration_v1_add_listener(mObj, &mListener, this);
 }
 
 WQt::OutputConfiguration::~OutputConfiguration()
 {
-    zwlr_output_configuration_v1_destroy(mObj);
+    QtWayland::zwlr_output_configuration_v1::destroy();
 }
 
 WQt::OutputConfigurationHead *WQt::OutputConfiguration::enableHead(WQt::OutputHead *head)
 {
-    return new WQt::OutputConfigurationHead(
-            zwlr_output_configuration_v1_enable_head(mObj, head->get()));
+    qCDebug(DccWayQt) << "OutputConfiguration::enableHead";
+    return new WQt::OutputConfigurationHead(QtWayland::zwlr_output_configuration_v1::enable_head(head->get()), this);
 }
 
 void WQt::OutputConfiguration::disableHead(WQt::OutputHead *head)
 {
-    zwlr_output_configuration_v1_disable_head(mObj, head->get());
+    qCDebug(DccWayQt) << "OutputConfiguration::disableHead";
+    QtWayland::zwlr_output_configuration_v1::disable_head(head->get());
 }
 
 void WQt::OutputConfiguration::apply()
 {
-    zwlr_output_configuration_v1_apply(mObj);
+    qCDebug(DccWayQt) << "OutputConfiguration::apply";
+    QtWayland::zwlr_output_configuration_v1::apply();
 }
 
 void WQt::OutputConfiguration::test()
 {
-    zwlr_output_configuration_v1_test(mObj);
+    qCDebug(DccWayQt) << "OutputConfiguration::test";
+    QtWayland::zwlr_output_configuration_v1::test();
 }
 
-void WQt::OutputConfiguration::handleSucceeded(void *data, zwlr_output_configuration_v1 *)
+void WQt::OutputConfiguration::zwlr_output_configuration_v1_succeeded()
 {
-    WQt::OutputConfiguration *config = reinterpret_cast<WQt::OutputConfiguration *>(data);
-
-    emit config->succeeded();
-
-    zwlr_output_configuration_v1_destroy(config->mObj);
+    qCDebug(DccWayQt) << "OutputConfiguration::succeeded";
+    Q_EMIT succeeded();
 }
 
-void WQt::OutputConfiguration::handleFailed(void *data, zwlr_output_configuration_v1 *)
+void WQt::OutputConfiguration::zwlr_output_configuration_v1_failed()
 {
-    WQt::OutputConfiguration *config = reinterpret_cast<WQt::OutputConfiguration *>(data);
-
-    emit config->failed();
-
-    zwlr_output_configuration_v1_destroy(config->mObj);
+    qCWarning(DccWayQt) << "OutputConfiguration::failed";
+    Q_EMIT failed();
 }
 
-void WQt::OutputConfiguration::handleCanceled(void *data, zwlr_output_configuration_v1 *)
+void WQt::OutputConfiguration::zwlr_output_configuration_v1_cancelled()
 {
-    WQt::OutputConfiguration *config = reinterpret_cast<WQt::OutputConfiguration *>(data);
-
-    emit config->canceled();
-
-    zwlr_output_configuration_v1_destroy(config->mObj); // need?
+    qCDebug(DccWayQt) << "OutputConfiguration::cancelled";
+    Q_EMIT canceled();
 }
-
-const struct zwlr_output_configuration_v1_listener WQt::OutputConfiguration::mListener = {
-    handleSucceeded,
-    handleFailed,
-    handleCanceled,
-};
 
 /**
  * Output Configuration Head
@@ -447,37 +412,44 @@ const struct zwlr_output_configuration_v1_listener WQt::OutputConfiguration::mLi
  * Obtained from OutputConfiguration::enableHead()
  */
 
-WQt::OutputConfigurationHead::OutputConfigurationHead(zwlr_output_configuration_head_v1 *configHead)
+WQt::OutputConfigurationHead::OutputConfigurationHead(zwlr_output_configuration_head_v1 *configHead, QObject *parent)
+    : QObject(parent)
+    , mObj(configHead)
 {
-    mObj = configHead;
 }
 
 WQt::OutputConfigurationHead::~OutputConfigurationHead()
 {
-    zwlr_output_configuration_head_v1_destroy(mObj);
+    if (mObj)
+        zwlr_output_configuration_head_v1_destroy(mObj);
 }
 
 void WQt::OutputConfigurationHead::setMode(WQt::OutputMode *mode)
 {
+    qCDebug(DccWayQt) << "OutputConfigurationHead::setMode" << mode->size() << mode->refreshRate();
     zwlr_output_configuration_head_v1_set_mode(mObj, mode->get());
 }
 
 void WQt::OutputConfigurationHead::setCustomMode(QSize size, int32_t refresh)
 {
+    qCDebug(DccWayQt) << "OutputConfigurationHead::setCustomMode" << size << refresh;
     zwlr_output_configuration_head_v1_set_custom_mode(mObj, size.width(), size.height(), refresh);
 }
 
 void WQt::OutputConfigurationHead::setPosition(QPoint pos)
 {
+    qCDebug(DccWayQt) << "OutputConfigurationHead::setPosition" << pos;
     zwlr_output_configuration_head_v1_set_position(mObj, pos.x(), pos.y());
 }
 
 void WQt::OutputConfigurationHead::setTransform(int32_t transform)
 {
+    qCDebug(DccWayQt) << "OutputConfigurationHead::setTransform" << transform;
     zwlr_output_configuration_head_v1_set_transform(mObj, transform);
 }
 
 void WQt::OutputConfigurationHead::setScale(qreal scale)
 {
+    qCDebug(DccWayQt) << "OutputConfigurationHead::setScale" << scale;
     zwlr_output_configuration_head_v1_set_scale(mObj, wl_fixed_from_double(scale));
 }

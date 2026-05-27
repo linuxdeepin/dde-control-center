@@ -25,38 +25,6 @@
 namespace dccV25 {
 static const QString DEFAULT_TIME_FORMAT = "hh:mm";
 
-class Rect : public QRect
-{
-public:
-    using QRect::QRect;
-
-    bool operator<(const Rect &r) const
-    {
-        if (x() < r.x()) {
-            return true;
-        }
-        if (x() > r.x()) {
-            return false;
-        }
-        if (y() < r.y()) {
-            return true;
-        }
-        if (y() > r.y()) {
-            return false;
-        }
-        if (width() < r.width()) {
-            return true;
-        }
-        if (width() > r.width()) {
-            return false;
-        }
-        if (height() < r.height()) {
-            return true;
-        }
-        return false;
-    }
-};
-
 DisplayModulePrivate::DisplayModulePrivate(DisplayModule *parent)
     : q_ptr(parent)
     , m_primary(nullptr)
@@ -82,6 +50,9 @@ void DisplayModulePrivate::init()
         updateVirtualScreens();
         updateDisplayMode();
     });
+    q_ptr->connect(m_model, &DisplayModel::virtualOutputChanged, q_ptr, [this]() {
+        updateVirtualScreens();
+    });
     q_ptr->connect(m_model, &DisplayModel::colorTemperatureEnabledChanged, q_ptr, &DisplayModule::colorTemperatureEnabledChanged);
     q_ptr->connect(m_model, &DisplayModel::colorTemperatureChanged, q_ptr, &DisplayModule::colorTemperatureChanged);
     q_ptr->connect(m_model, &DisplayModel::customColorTempTimePeriodChanged, q_ptr, &DisplayModule::customColorTempTimePeriodChanged);
@@ -99,38 +70,78 @@ void DisplayModulePrivate::init()
 void DisplayModulePrivate::updateVirtualScreens()
 {
     bool changed = false;
-    QMap<Rect, QList<Monitor *>> addScreenMap;
-    for (auto srcScreen : m_screens) {
-        if (!srcScreen->enable()) {
-            continue;
+    const auto virtualOutputs = m_model->virtualOutput();
+    QMap<QString, QList<Monitor *>> addScreenMap;
+
+    if (!virtualOutputs.isEmpty()) {
+        QMap<QString, Monitor *> nameToMonitor;
+        for (auto srcScreen : m_screens) {
+            if (!srcScreen->enable())
+                continue;
+            DccScreenPrivate *screenPrivate = DccScreenPrivate::Private(srcScreen);
+            for (auto *mon : screenPrivate->monitors())
+                nameToMonitor.insert(mon->name(), mon);
         }
-        DccScreenPrivate *screenPrivate = DccScreenPrivate::Private(srcScreen);
-        Rect rect(QPoint(srcScreen->x(), srcScreen->y()), srcScreen->currentResolution());
-        if (addScreenMap.contains(rect)) {
-            addScreenMap[rect].append(screenPrivate->monitors());
-        } else {
-            addScreenMap.insert(rect, screenPrivate->monitors());
+
+        QSet<Monitor *> grouped;
+        for (auto it = virtualOutputs.constBegin(); it != virtualOutputs.constEnd(); ++it) {
+            QList<Monitor *> groupMonitors;
+            const auto &outputNames = it.value();
+            for (const auto &monName : outputNames) {
+                if (nameToMonitor.contains(monName)) {
+                    groupMonitors << nameToMonitor.value(monName);
+                    grouped.insert(nameToMonitor.value(monName));
+                }
+            }
+            if (!groupMonitors.isEmpty())
+                addScreenMap.insert(it.key(), groupMonitors);
+        }
+
+        for (auto srcScreen : m_screens) {
+            if (!srcScreen->enable())
+                continue;
+            DccScreenPrivate *screenPrivate = DccScreenPrivate::Private(srcScreen);
+            for (auto *mon : screenPrivate->monitors()) {
+                if (!grouped.contains(mon)) {
+                    addScreenMap.insert(mon->name(), { mon });
+                }
+            }
+        }
+    } else {
+        for (auto srcScreen : m_screens) {
+            if (!srcScreen->enable())
+                continue;
+            DccScreenPrivate *screenPrivate = DccScreenPrivate::Private(srcScreen);
+            QRect rect(QPoint(srcScreen->x(), srcScreen->y()), srcScreen->currentResolution());
+            QString key = QStringLiteral("%1,%2,%3,%4").arg(rect.x()).arg(rect.y()).arg(rect.width()).arg(rect.height());
+            if (addScreenMap.contains(key)) {
+                addScreenMap[key].append(screenPrivate->monitors());
+            } else {
+                addScreenMap.insert(key, screenPrivate->monitors());
+            }
         }
     }
     for (auto it = m_virtualScreens.cbegin(); it != m_virtualScreens.cend();) {
         DccScreenPrivate *screenPrivate = DccScreenPrivate::Private(*it);
-        Rect rect(QPoint((*it)->x(), (*it)->y()), (*it)->currentResolution());
-        bool isSame = addScreenMap.contains(rect);
-        if (isSame) {
-            auto monitors = addScreenMap[rect];
-            auto screenMonitors = screenPrivate->monitors();
-            isSame = monitors.size() == screenMonitors.size();
-            if (isSame) {
-                for (auto monitor : monitors) {
-                    if (!screenMonitors.contains(monitor)) {
-                        isSame = false;
-                        break;
-                    }
+        auto screenMonitors = screenPrivate->monitors();
+        QString matchedKey;
+        for (auto mapIt = addScreenMap.constBegin(); mapIt != addScreenMap.constEnd(); ++mapIt) {
+            if (mapIt.value().size() != screenMonitors.size())
+                continue;
+            bool isSame = true;
+            for (auto monitor : mapIt.value()) {
+                if (!screenMonitors.contains(monitor)) {
+                    isSame = false;
+                    break;
                 }
             }
+            if (isSame) {
+                matchedKey = mapIt.key();
+                break;
+            }
         }
-        if (isSame) {
-            addScreenMap.remove(rect);
+        if (!matchedKey.isEmpty()) {
+            addScreenMap.remove(matchedKey);
             it++;
         } else {
             changed = true;
