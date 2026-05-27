@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef THEMEMODEL_H
@@ -8,6 +8,41 @@
 #include <QMap>
 #include <QJsonObject>
 #include <QDebug>
+#include <QAbstractItemModel>
+
+class ThemeModel;
+class ThemeViewModel : public QAbstractItemModel
+{
+public:
+    enum UserDataRole {
+        IdRole = Qt::UserRole + 0x101,
+        NameRole,
+        PicRole
+    };
+    explicit ThemeViewModel(QObject *parent = nullptr);
+    ~ThemeViewModel() { }
+
+    void setThemeModel(ThemeModel *model);
+    // Basic functionality:
+    QModelIndex index(int row, int column, const QModelIndex &parent = QModelIndex()) const override;
+    QModelIndex parent(const QModelIndex &index) const override;
+
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
+
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+
+protected:
+    QHash<int, QByteArray> roleNames() const override;
+
+private:
+    void updateData();
+
+private:
+    ThemeModel *m_themeModel;
+    QStringList m_keys;
+};
+
 
 class ThemeModel : public QObject
 {

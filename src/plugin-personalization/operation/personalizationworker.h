@@ -109,6 +109,7 @@ private:
     void refreshActiveColor(const QString &color);
     void onPersonalizationConfigChanged(const QString &key);
     void onDTKConfigChanged(const QString &key);
+    void initAppearanceSwitchModel();
 
     template<typename T>
     T toSliderValue(std::vector<T> list, T value);

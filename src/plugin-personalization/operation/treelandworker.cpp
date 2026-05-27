@@ -256,6 +256,12 @@ void TreeLandWorker::onWallpaperUrlsChanged()
     }
 }
 
+void TreeLandWorker::onWindowThemeTypeChanged(uint32_t type)
+{
+    qCDebug(DdcPersonnalizationTreelandWorker) << "Window theme type changed:" << type;
+    m_appearanceTheme = static_cast<PersonalizationAppearanceContext::theme_type>(type);
+}
+
 void TreeLandWorker::init()
 {
     if (m_appearanceContext.isNull()) { 
@@ -267,6 +273,8 @@ void TreeLandWorker::init()
     if (m_fontContext.isNull()) {
         m_fontContext.reset(new PersonalizationFontContext(m_personalizationManager->get_font_context(), this->m_model));
     }
+
+    connect(m_appearanceContext.get(), &PersonalizationAppearanceContext::windowThemeTypeChanged, this, &TreeLandWorker::onWindowThemeTypeChanged);
 }
 
 void TreeLandWorker::initWallpaperContext()
@@ -297,7 +305,7 @@ WallpaperContext *TreeLandWorker::getOrCreateWallpaperContext(const QString &mon
                     m_wallpaperContexts.insert(monitorName, ctx);
                     
                     connect(ctx, &WallpaperContext::wallpaperChanged, this, 
-                        [this, monitorName](WallpaperContext::wallpaper_role role, WallpaperContext::wallpaper_source_type type, const QString &fileSource) {
+                        [this, monitorName](WallpaperContext::wallpaper_role role, WallpaperContext::wallpaper_source_type, const QString &fileSource) {
                             qCDebug(DdcPersonnalizationTreelandWorker) << "Wallpaper changed for" << monitorName << "role:" << role << "source:" << fileSource;
                             
                             if (role == WallpaperContext::wallpaper_role_desktop) {
@@ -617,9 +625,25 @@ void PersonalizationAppearanceContext::treeland_personalization_appearance_conte
     // m_model->setOpacity(opacity / 100.0);
 }
 
-void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_window_theme_type(uint32_t)
+void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_window_theme_type(uint32_t themeType)
 {
-    // Using the value of the appearance module, this is an invalid value
+    Q_EMIT windowThemeTypeChanged(themeType);
+
+    switch (themeType) {
+    case PersonalizationAppearanceContext::theme_type::theme_type_light:
+        m_model->setCurrentAppearance(".light");
+        break;
+    case PersonalizationAppearanceContext::theme_type::theme_type_dark:
+        m_model->setCurrentAppearance(".dark");
+        break;
+    case PersonalizationAppearanceContext::theme_type::theme_type_auto:
+        m_model->setCurrentAppearance("");
+        break;
+    default:
+        qCWarning(DdcPersonnalizationTreelandWorker) << "Current theme type: unknown";
+        m_model->setCurrentAppearance("");
+        break;
+    }
 }
 
 void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_window_titlebar_height(uint32_t height)

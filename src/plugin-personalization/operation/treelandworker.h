@@ -93,6 +93,7 @@ public:
 
 public slots:
     void onWallpaperUrlsChanged() override;
+    void onWindowThemeTypeChanged(uint32_t type);
 
 signals:
     void wallpaperChanged();
@@ -166,6 +167,9 @@ protected:
     void treeland_personalization_appearance_context_v1_window_opacity(uint32_t opacity) override;
     void treeland_personalization_appearance_context_v1_window_theme_type(uint32_t type) override;
     void treeland_personalization_appearance_context_v1_window_titlebar_height(uint32_t height) override;
+signals:
+    void windowThemeTypeChanged(uint32_t type);
+
 private:
     PersonalizationModel *m_model;
 };

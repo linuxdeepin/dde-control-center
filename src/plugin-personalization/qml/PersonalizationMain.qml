@@ -105,10 +105,10 @@ DccObject {
             page: D.ComboBox {
                 flat: true
                 textRole: "text"
-                model: dccData.appearanceSwitchModel
+                model: dccData.model.appearanceSwitchModel
                 currentIndex: {
                     for (var i = 0; i < model.length; ++i) {
-                        if (model[i].value === dccData.currentAppearance) {
+                        if (model[i].value === dccData.model.currentAppearance) {
                             return i;
                         }
                     }
@@ -117,7 +117,7 @@ DccObject {
 
                 enabled: model.length > 1
                 onCurrentIndexChanged: {
-                    if (dccData.currentAppearance !== model[currentIndex].value) {
+                    if (dccData.model.currentAppearance !== model[currentIndex].value) {
                         dccData.worker.setAppearanceTheme(model[currentIndex].value)
                     }
                 }
