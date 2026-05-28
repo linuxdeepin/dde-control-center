@@ -166,6 +166,7 @@ DccObject {
                 name: "automaticWallpaper"
                 parentName: "personalization/wallpaper/wallpaperStatusGroup/wallpaperSetGroup"
                 displayName: qsTr("Automatic wallpaper change")
+                visible: !DccApp.isTreeland()
                 weight: 200
                 pageType: DccObject.Editor
                 page: CustomComboBox {

@@ -328,6 +328,10 @@ void PersonalizationWorker::onBatteryScreenSaverTimeoutChanged(int value)
 
 void PersonalizationWorker::onWallpaperSlideShowChanged()
 {
+    if (Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform)) {
+        return;
+    }
+
     QVariantMap wallpaperSlideShowMap;
     QStringList screenNameList;
     for (const auto screen : qApp->screens()) {
@@ -565,6 +569,11 @@ void PersonalizationWorker::setScreenSaver(const QString &value)
 
 void PersonalizationWorker::setWallpaperSlideShow(const QString &monitorName, const QString &sliderShow)
 {
+    if (Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform)) {
+        qCWarning(DdcPersonalWorker) << "Wallpaper slideshow is not supported in Treeland currently.";
+        return;
+    }
+
     m_personalizationDBusProxy->setWallpaperSlideShow(monitorName, sliderShow);
 }
 
