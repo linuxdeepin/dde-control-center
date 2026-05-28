@@ -52,6 +52,7 @@ public:
 
     void grabScreen();
     bool checkAvaliable(const QString& key);
+    QString lookupConflictingShortcut(const QString &key);
     void delShortcut(ShortcutInfo *info);
 
     void setRepeatDelay(uint value);
@@ -68,6 +69,12 @@ public:
     void deactive();
     bool keyOccupy(const QStringList &list);
     void onRefreshKBLayout();
+
+    // Single source of truth for the session type, shared with KeyboardController
+    // so the controller's capture-manager guard can't diverge from the proxy
+    // that decides which D-Bus API to use. Delegates to the env-based detection
+    // (XDG_SESSION_TYPE / WAYLAND_DISPLAY) in KeyboardDBusProxy.
+    bool isWayland() const { return m_keyboardDBusProxy->isWayland(); }
 
 Q_SIGNALS:
     void KeyEvent(bool in0, const QString &in1);
@@ -87,6 +94,8 @@ public Q_SLOTS:
     void addUserLayout(const QString& value);
     void delUserLayout(const QString& value);
     void onRequestShortcut(QDBusPendingCallWatcher* watch);
+    void onAllShortcutsReady(const QString &info);
+    void onModifyHotkeysFinished(QDBusPendingCallWatcher *watch);
     void onAdded(const QString&in0, int in1);
     void onDisableShortcut(ShortcutInfo* info);
     void onAddedFinished(QDBusPendingCallWatcher *watch);
@@ -109,6 +118,7 @@ public Q_SLOTS:
     void cleanShortcutSlef(const QString &id, const int type, const QString &shortcut);
     void setNewCustomShortcut(const QString &id, const QString &name, const QString &command, const QString &accles);
     void onConflictShortcutCleanFinished(QDBusPendingCallWatcher *watch);
+    void onLookupConflictForShortcutFinished(QDBusPendingCallWatcher *watch);
     void onShortcutCleanFinished(QDBusPendingCallWatcher *watch);
     void onCustomConflictCleanFinished(QDBusPendingCallWatcher *w);
 
@@ -120,6 +130,7 @@ private:
     uint converToModelDelay(uint value);
     int converToDBusInterval(int value);
     uint converToModelInterval(uint value);
+    void parseShortcutListJson(const QString &info);
 
 private:
     QList<MetaData> m_datas;

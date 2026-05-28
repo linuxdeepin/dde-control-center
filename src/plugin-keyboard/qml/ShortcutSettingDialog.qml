@@ -137,9 +137,12 @@ D.DialogWindow {
                 else
                     return DS.Style.keySequenceEdit.background;
             }
+            // Wayland: ask Treeland to forward the next combo (capture protocol).
+            // No-op on X11; local Keys.onPressed handles capture there.
             onRequestKeys: {
                 keys = [];
                 dccData.updateKey(ddialog.keyId, 1);
+                dccData.beginWaylandKeyCapture(edit, ddialog.keyId, 1);
             }
         }
 
@@ -221,6 +224,14 @@ D.DialogWindow {
             function onKeyEvent(accels) {
                 edit.showAlertColor = false;
                 edit.keys = dccData.formatKeys(accels);
+            }
+            function onWaylandKeyCaptureFailed(id, type, reason) {
+                // Restrict to this dialog's own capture — id may be empty
+                // when wrapping a new custom shortcut.
+                if (id !== ddialog.keyId)
+                    return;
+                // Same recovery as a server-side requestRestore.
+                onRequestRestore();
             }
         }
     }

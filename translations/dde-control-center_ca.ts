@@ -2430,6 +2430,49 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
 </context>
 <context>
+    <name>MouseDBusProxy</name>
+    <message>
+        <source>Maximize window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Multitasking view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation type="unfinished">Inhabilita</translation>
+    </message>
+    <message>
+        <source>Switch to previous workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch to next workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide multitasking view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toggle multitasking view</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
@@ -2734,18 +2777,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
 <context>
     <name>PersonalizationInterface</name>
     <message>
-        <source>Light</source>
-        <translation>Clar</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation>Automàtic</translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation>Fosc</translation>
-    </message>
-    <message>
         <source>Picker service is not available</source>
         <translation>El servei del selector no està disponible.</translation>
     </message>
@@ -2810,6 +2841,18 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Custom</source>
         <translation>Personalitzat</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished">Automàtic</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">Fosc</translation>
     </message>
 </context>
 <context>
@@ -4407,6 +4450,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>None</source>
         <translation>Cap</translation>
+    </message>
+    <message>
+        <source>App</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

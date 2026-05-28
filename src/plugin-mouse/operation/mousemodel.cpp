@@ -301,6 +301,7 @@ void MouseModel::updateGesturesData(const GestureData &gestureData)
     } else {
         GestureData *data = new GestureData(this);
         data->setActionType(gestureData.actionType());
+        data->setGestureId(gestureData.gestureId());
         data->setDirection(gestureData.direction());
         data->setActionName(gestureData.actionName());
         data->setFingersNum(gestureData.fingersNum());
@@ -338,7 +339,8 @@ void MouseModel::setGestures(int fingerNum, int index, QString actionName)
             return;
 
         updateFigerAniPath(actionName, data);
-        Q_EMIT m_worker->requestSetGesture(data->actionType(),
+        const QString gestureName = data->gestureId().isEmpty() ? data->actionType() : data->gestureId();
+        Q_EMIT m_worker->requestSetGesture(gestureName,
                                            data->direction(),
                                            data->fingersNum(),
                                            actionName);
