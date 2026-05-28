@@ -519,6 +519,15 @@ void TreeLandWorker::active()
             }
         });
     }
+
+    connect(qApp, &QGuiApplication::screenRemoved, this, [this](QScreen *screen) {
+        const QString &name = screen->name();
+        qCDebug(DdcPersonnalizationTreelandWorker) << "Screen removed, cleaning up wallpaper contexts for:" << name;
+        delete m_wallpaperContexts.take(name);
+        delete m_wallpapers.take(name);
+        delete m_lockWallpapers.take(name);
+    });
+
     PersonalizationWorker::active();
 }
 
@@ -750,7 +759,19 @@ void WallpaperContext::treeland_wallpaper_v1_changed(uint32_t role, uint32_t sou
 
 void WallpaperContext::treeland_wallpaper_v1_failed(const QString &file_source, uint32_t error)
 {
-    qCWarning(DdcPersonnalizationTreelandWorker) << "wallpaper failed:" << file_source << "error:" << error;
+    const char *errorDesc = "unknown error";
+    switch (error) {
+    case error_already_used:
+        errorDesc = "source already configured";
+        break;
+    case error_invalid_source:
+        errorDesc = "source is invalid, unsupported, or could not be processed";
+        break;
+    case error_permission_denied:
+        errorDesc = "permission denied, check file permissions";
+        break;
+    }
+    qCWarning(DdcPersonnalizationTreelandWorker) << "wallpaper failed:" << file_source << "-" << errorDesc;
     Q_EMIT wallpaperFailed(file_source, error);
 }
 
