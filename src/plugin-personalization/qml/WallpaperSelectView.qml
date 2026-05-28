@@ -401,13 +401,21 @@ ColumnLayout {
                         anchors.rightMargin: - width / 2 + root.imageMargin + 2
                         hoverEnabled: true
                         z: 999
+                        // replace visible with opacity for animation
+                        opacity: ((control.hovered || hovered) && model.deleteAble && !model.selected) ? 1 : 0
+                        visible: opacity > 0
+                        Behavior on opacity {
+                            NumberAnimation {
+                                duration: 300
+                                easing.type: Easing.OutExpo
+                            }
+                        }
                         contentItem: D.ActionButton {
                             icon.name: "close"
                             implicitWidth: 20
                             implicitHeight: 20
                             icon.width: 14
                             icon.height: 14
-                            visible: (control.hovered || parent.hovered) && model.deleteAble && !model.selected
                             background: D.BoxPanel {
                                 radius: width / 2
                                 enableBoxShadow: true
@@ -440,13 +448,6 @@ ColumnLayout {
                             }
                             onClicked: {
                                 root.wallpaperDeleteClicked(model.url)
-                            }
-                            scale: visible ? 1 : 0
-                            Behavior on scale {
-                                NumberAnimation {
-                                    duration: 300
-                                    easing.type: Easing.OutExpo
-                                }
                             }
                         }
                     }
