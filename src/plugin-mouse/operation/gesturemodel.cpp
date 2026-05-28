@@ -28,6 +28,7 @@ void GestureModel::updateGestureData(const GestureData &data)
 {
     for (int i = 0; i < m_gestures.size(); i++) {
         if (data.direction() == m_gestures[i]->direction() && data.fingersNum() == m_gestures[i]->fingersNum()) {
+            m_gestures[i]->setGestureId(data.gestureId());
             m_gestures[i]->setActionName(data.actionName());
             QModelIndex modelIndex = createIndex(i, 0);
             emit dataChanged(modelIndex, modelIndex, {});

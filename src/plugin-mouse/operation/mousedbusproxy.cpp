@@ -6,6 +6,7 @@
 
 #include <DGuiApplicationHelper>
 
+#include <QCoreApplication>
 #include <QJsonArray>
 #include <QDBusArgument>
 #include <QDBusConnection>
@@ -13,10 +14,67 @@
 #include <QDBusPendingCall>
 #include <QDBusPendingCallWatcher>
 #include <QDBusReply>
+#include <QDBusMetaType>
 #include <QJsonDocument>
 #include <QJsonObject>
 
 using namespace DCC_NAMESPACE;
+
+// New API GestureInfo struct (dde-services)
+struct GestureInfoNew {
+    QString id;
+    QString displayName;
+    int category;
+    int gestureType;     // 1=Swipe, 2=Hold
+    int fingerCount;
+    int direction;       // 0=None, 1=Down, 2=Left, 3=Up, 4=Right
+    int triggerType;
+    QStringList triggerValue;
+    QString localLanguageName;
+};
+Q_DECLARE_METATYPE(GestureInfoNew)
+Q_DECLARE_METATYPE(QList<GestureInfoNew>)
+
+inline QDBusArgument &operator<<(QDBusArgument &argument, const GestureInfoNew &info) {
+    argument.beginStructure();
+    argument << info.id << info.displayName << info.category
+             << info.gestureType << info.fingerCount << info.direction
+             << info.triggerType << info.triggerValue << info.localLanguageName;
+    argument.endStructure();
+    return argument;
+}
+
+inline const QDBusArgument &operator>>(const QDBusArgument &argument, GestureInfoNew &info) {
+    argument.beginStructure();
+    argument >> info.id >> info.displayName >> info.category
+             >> info.gestureType >> info.fingerCount >> info.direction
+             >> info.triggerType >> info.triggerValue >> info.localLanguageName;
+    argument.endStructure();
+    return argument;
+}
+
+// Map new API direction int to old API direction string
+static QString directionIntToString(int dir) {
+    switch (dir) {
+    case 1: return QStringLiteral("down");
+    case 2: return QStringLiteral("left");
+    case 3: return QStringLiteral("up");
+    case 4: return QStringLiteral("right");
+    case 0: return QStringLiteral("none");
+    }
+    qWarning() << "Wayland Unexpected gesture direction value:" << dir;
+    return QStringLiteral("none");
+}
+
+// Map new API gestureType to old API actionType string
+static QString gestureTypeToString(int type) {
+    switch (type) {
+    case 1: return QStringLiteral("swipe");
+    case 2: return QStringLiteral("tap");
+    }
+    qWarning() << "Wayland Unexpected gesture type value:" << type;
+    return QStringLiteral("swipe"); // safe fallback
+}
 
 const QString Service = "org.deepin.dde.InputDevices1";
 const QString MousePath = "/org/deepin/dde/InputDevice1/Mouse";
@@ -51,15 +109,25 @@ MouseDBusProxy::MouseDBusProxy(QObject *parent)
     , m_dbusDevices(nullptr)
     , m_dbusGesture(nullptr)
     , m_appearance(nullptr)
-    , m_isTreelandSession(DTK_GUI_NAMESPACE::DGuiApplicationHelper::testAttribute(
-               DTK_GUI_NAMESPACE::DGuiApplicationHelper::IsWaylandPlatform))
+    , m_isWayland((qgetenv("XDG_SESSION_TYPE").toLower() == QLatin1String("wayland"))
+                  || !qgetenv("WAYLAND_DISPLAY").isEmpty())
 {
+    qRegisterMetaType<GestureInfoNew>("GestureInfoNew");
+    qDBusRegisterMetaType<GestureInfoNew>();
+    qRegisterMetaType<QList<GestureInfoNew>>("QList<GestureInfoNew>");
+    qDBusRegisterMetaType<QList<GestureInfoNew>>();
+
     init();
+}
+
+bool MouseDBusProxy::isWayland() const
+{
+    return m_isWayland;
 }
 
 void MouseDBusProxy::active()
 {
-    if (!m_isTreelandSession) {
+    if (!m_isWayland) {
         // initial mouse settingss
         bool exist = m_dbusMouseProperties->call("Get", MouseInterface, "Exist").arguments().at(0).value<QDBusVariant>().variant().toBool();
         bool leftHanded = m_dbusMouseProperties->call("Get", MouseInterface, "LeftHanded").arguments().at(0).value<QDBusVariant>().variant().toBool();
@@ -116,12 +184,24 @@ void MouseDBusProxy::active()
     bool lidIsPresent = getLidIsPresent();
     Q_EMIT lidIsPresentChanged(lidIsPresent);
 
-    QVariant gestureInfos = m_dbusGestureProperties->call("Get", GestureInterface, "Infos").arguments().at(0).value<QDBusVariant>().variant();
-    parseGesturesData(qvariant_cast<QDBusArgument>(gestureInfos));
+    if (isWayland()) {
+        refreshGestures();
+    } else {
+        QVariant gestureInfos = m_dbusGestureProperties->call("Get", GestureInterface, "Infos").arguments().at(0).value<QDBusVariant>().variant();
+        parseGesturesData(qvariant_cast<QDBusArgument>(gestureInfos));
+    }
 
     listCursor();
     auto cursorSize = m_appearance->property("CursorSize").toInt();
     Q_EMIT cursorSizeChanged(cursorSize);
+}
+
+void MouseDBusProxy::refreshGestures()
+{
+    QDBusPendingCall call = m_dbusGesture->asyncCall(QStringLiteral("ListAllGestures"));
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished,
+            this, &MouseDBusProxy::onListAllGesturesNewFinished);
 }
 
 void MouseDBusProxy::deactive()
@@ -131,7 +211,7 @@ void MouseDBusProxy::deactive()
 void MouseDBusProxy::init()
 {
     // 监控dbus上的属性改变信号
-    if (!m_isTreelandSession) {
+    if (!m_isWayland) {
         QDBusConnection::sessionBus().connect(Service,
                                               MousePath,
                                               PropertiesInterface,
@@ -163,6 +243,23 @@ void MouseDBusProxy::init()
                                           "sa{sv}as",
                                           this,
                                           SLOT(onGesturePropertiesChanged(QDBusMessage)));
+    if (!isWayland()) {
+        QDBusConnection::sessionBus().connect(GestureService,
+                                              GesturePath,
+                                              PropertiesInterface,
+                                              "PropertiesChanged",
+                                              "sa{sv}as",
+                                              this,
+                                              SLOT(onGesturePropertiesChanged(QDBusMessage)));
+    } else {
+        // Wayland: listen to GestureInfosChanged signal from new API
+        QDBusConnection::sessionBus().connect(GestureService,
+                                              GesturePath,
+                                              GestureInterface,
+                                              "GestureInfosChanged",
+                                              this,
+                                              SLOT(refreshGestures()));
+    }
 
     QDBusConnection::sessionBus().connect(AppearanceService,
                                           AppearancePath,
@@ -171,7 +268,7 @@ void MouseDBusProxy::init()
                                           "sa{sv}as",
                                           this,
                                           SLOT(onAppearancePropertiesChanged(QDBusMessage)));
-    if (!m_isTreelandSession) {
+    if (!m_isWayland) {
         QDBusConnection::sessionBus().connect(Service,
                                               InputDevicesPath,
                                               PropertiesInterface,
@@ -374,7 +471,14 @@ void MouseDBusProxy::setScrollSpeed(uint speed)
 
 void MouseDBusProxy::setGesture(const QString& name, const QString& direction, int fingers, const QString& action)
 {
-    m_dbusGesture->asyncCallWithArgumentList("SetGesture", { name, direction, fingers, action });
+    if (isWayland()) {
+        // New API: ModifyGesture(id, action)
+        Q_UNUSED(direction);
+        Q_UNUSED(fingers);
+        m_dbusGesture->asyncCallWithArgumentList("ModifyGesture", { name, QStringList{action} });
+    } else {
+        m_dbusGesture->asyncCallWithArgumentList("SetGesture", { name, direction, fingers, action });
+    }
 }
 
 void MouseDBusProxy::onMousePathPropertiesChanged(QDBusMessage msg)
@@ -420,7 +524,7 @@ void MouseDBusProxy::onTouchpadPathPropertiesChanged(QDBusMessage msg)
         for (int i = 0; i < keys.size(); i++) {
             const QString &key = keys.at(i);
 
-            if (m_isTreelandSession) {
+            if (m_isWayland) {
                 if (key == "PalmDetect") {
                     Q_EMIT palmDetectChanged(changedProps.value(key).toBool());
                 } else if (key == "PalmMinWidth") {
@@ -510,6 +614,79 @@ void MouseDBusProxy::onGesturePropertiesChanged(QDBusMessage msg)
             }
         }
     }
+}
+
+namespace {
+struct GestureActionItem {
+    QString value;     // Treeland action enum as string ("11" etc.), or "Disable" sentinel
+    const char *trKey; // Source string for QCoreApplication::translate("MouseDBusProxy", ...)
+};
+
+static const QList<GestureActionItem> kThreeFingerActions = {
+    {"11",       QT_TRANSLATE_NOOP("MouseDBusProxy", "Maximize window")},
+    {"12",       QT_TRANSLATE_NOOP("MouseDBusProxy", "Restore window")},
+    {"10",       QT_TRANSLATE_NOOP("MouseDBusProxy", "Show desktop")},
+    {"20",       QT_TRANSLATE_NOOP("MouseDBusProxy", "Lock screen")},
+    {"16",       QT_TRANSLATE_NOOP("MouseDBusProxy", "Multitasking view")},
+    {"Disable",  QT_TRANSLATE_NOOP("MouseDBusProxy", "Disable")},
+};
+
+static const QList<GestureActionItem> kFourFingerActions = {
+    {"8",        QT_TRANSLATE_NOOP("MouseDBusProxy", "Switch to previous workspace")},
+    {"9",        QT_TRANSLATE_NOOP("MouseDBusProxy", "Switch to next workspace")},
+    {"16",       QT_TRANSLATE_NOOP("MouseDBusProxy", "Multitasking view")},
+    {"17",       QT_TRANSLATE_NOOP("MouseDBusProxy", "Hide multitasking view")},
+    {"18",       QT_TRANSLATE_NOOP("MouseDBusProxy", "Toggle multitasking view")},
+    {"10",       QT_TRANSLATE_NOOP("MouseDBusProxy", "Show desktop")},
+    {"Disable",  QT_TRANSLATE_NOOP("MouseDBusProxy", "Disable")},
+};
+}  // namespace
+
+static void fillGestureData(GestureData *data, const GestureInfoNew &info)
+{
+    data->setActionType(gestureTypeToString(info.gestureType));
+    data->setGestureId(info.id);
+    data->setDirection(directionIntToString(info.direction));
+    data->setFingersNum(info.fingerCount);
+    // Empty triggerValue (corner case) is treated as Disable so the UI auto-selects it.
+    data->setActionName(info.triggerValue.isEmpty() ? QStringLiteral("Disable") : info.triggerValue.first());
+}
+
+// Translate an action table once into (value, localized-description) pairs.
+// Hoisted out of the per-gesture loop so the ~6 translate() calls per table run
+// once per refresh instead of once per gesture.
+static QList<QPair<QString, QString>> buildTranslatedActions(const QList<GestureActionItem> &table)
+{
+    QList<QPair<QString, QString>> out;
+    out.reserve(table.size());
+    for (const auto &item : table)
+        out.append({ item.value, QCoreApplication::translate("MouseDBusProxy", item.trKey) });
+    return out;
+}
+
+void MouseDBusProxy::onListAllGesturesNewFinished(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QList<GestureInfoNew>> reply = *w;
+    if (!reply.isError()) {
+        // The server re-emits GestureInfosChanged after every ModifyGesture
+        // (including the UI's own edits), so this handler re-lists the full set
+        // on each change. That full re-list is inherent to the signal design and
+        // left as-is; only the redundant per-gesture re-translation of the two
+        // action tables is hoisted out — build them once and reuse.
+        const QList<QPair<QString, QString>> threeFingerActions = buildTranslatedActions(kThreeFingerActions);
+        const QList<QPair<QString, QString>> fourFingerActions = buildTranslatedActions(kFourFingerActions);
+        for (const auto &info : reply.value()) {
+            GestureData data;
+            fillGestureData(&data, info);
+            const auto &actions = (info.fingerCount == 3) ? threeFingerActions : fourFingerActions;
+            for (const auto &pair : actions)
+                data.addActiosPair(pair);
+            Q_EMIT gestureDataChanged(data);
+        }
+    } else {
+        qWarning() << "Wayland ListAllGestures failed:" << reply.error();
+    }
+    w->deleteLater();
 }
 
 void MouseDBusProxy::onAppearancePropertiesChanged(QDBusMessage msg)

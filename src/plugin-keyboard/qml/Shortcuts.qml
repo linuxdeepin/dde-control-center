@@ -176,6 +176,13 @@ DccObject {
                                 }
                             }
 
+                            // On Wayland the compositor swallows key events
+                            // for already-registered global shortcuts, so we
+                            // ask Treeland (via capture_next_shortcut) to
+                            // forward the next combo here. On X11 the local
+                            // Keys.onPressed in KeySequenceDisplay handles
+                            // capture as before — beginWaylandKeyCapture
+                            // is a no-op there.
                             onRequestKeys: {
                                 if (shortcutView.editItem) {
                                     shortcutView.editItem.restore()
@@ -187,6 +194,7 @@ DccObject {
                                 shortcutView.editItem = edit
                                 shortcutView.conflictText = conflictText
                                 shortcutSettingsBody.isEditing = false
+                                dccData.beginWaylandKeyCapture(edit, model.id, model.type)
                             }
                             onRequestEditKeys: {
                                 dialogloader.active = true
@@ -377,6 +385,17 @@ DccObject {
 
                         shortcutView.editItem.focus = false
                         shortcutView.editItem.keys = dccData.formatKeys(accels)
+                    }
+                    function onWaylandKeyCaptureFailed(id, type, reason) {
+                        // not_active (3) / interrupted (4) / busy (1) / aborted (2).
+                        // Skip if nothing is being edited here — the dialog
+                        // path has its own handler and a stale event from a
+                        // session we've already cancelled (see disconnect in
+                        // beginWaylandKeyCapture) shouldn't tear down a fresh
+                        // edit.
+                        if (!shortcutView.editItem)
+                            return
+                        shortcutView.restoreShortcutView()
                     }
                 }
             }

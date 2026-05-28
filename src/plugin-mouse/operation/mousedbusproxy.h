@@ -93,7 +93,13 @@ public Q_SLOTS:
 
     void onGetGestureAvaiableActionsFinished(QDBusPendingCallWatcher *w);
 
+    // New API adapters (Wayland)
+    void refreshGestures();
+    void onListAllGesturesNewFinished(QDBusPendingCallWatcher *w);
+
 private:
+    bool isWayland() const;
+
     QDBusInterface *m_dbusMouseProperties;
     QDBusInterface *m_dbusTouchPadProperties;
     QDBusInterface *m_dbusTrackPointProperties;
@@ -106,7 +112,7 @@ private:
     QDBusInterface *m_dbusDevices;
     QDBusInterface *m_dbusGesture;
     QDBusInterface *m_appearance;
-    bool m_isTreelandSession = false;
+    const bool m_isWayland;
 };
 }
 

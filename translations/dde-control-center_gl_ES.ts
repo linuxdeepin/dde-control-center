@@ -2419,6 +2419,49 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     </message>
 </context>
 <context>
+    <name>MouseDBusProxy</name>
+    <message>
+        <source>Maximize window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Multitasking view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation type="unfinished">Desactivar</translation>
+    </message>
+    <message>
+        <source>Switch to previous workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch to next workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide multitasking view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toggle multitasking view</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
@@ -2723,18 +2766,6 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
 <context>
     <name>PersonalizationInterface</name>
     <message>
-        <source>Light</source>
-        <translation>Claro</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation>Auto</translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation>Escur@</translation>
-    </message>
-    <message>
         <source>Picker service is not available</source>
         <translation type="unfinished"/>
     </message>
@@ -2799,6 +2830,18 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <message>
         <source>Custom</source>
         <translation>Personalizado</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished">Claro</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished">Auto</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">Escur@</translation>
     </message>
 </context>
 <context>
@@ -4420,6 +4463,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <message>
         <source>None</source>
         <translation>Ningún</translation>
+    </message>
+    <message>
+        <source>App</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

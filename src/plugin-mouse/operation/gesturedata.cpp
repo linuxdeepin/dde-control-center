@@ -16,6 +16,19 @@ void GestureData::setActionType(const QString &newActionType)
     emit actionTypeChanged();
 }
 
+QString GestureData::gestureId() const
+{
+    return m_gestureId;
+}
+
+void GestureData::setGestureId(const QString &newGestureId)
+{
+    if (m_gestureId == newGestureId)
+        return;
+    m_gestureId = newGestureId;
+    emit gestureIdChanged();
+}
+
 QString GestureData::direction() const
 {
     return m_direction;
