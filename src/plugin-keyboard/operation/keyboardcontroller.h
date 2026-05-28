@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -9,9 +9,15 @@
 #include "keyboardwork.h"
 
 #include <QObject>
+#include <QPointer>
 #include <QSortFilterProxyModel>
 
+class QQuickItem;
+
 namespace dccV25 {
+
+class TreelandShortcutCaptureManager;
+class TreelandShortcutCaptureSession;
 
 class KeyboardController : public QObject
 {
@@ -63,6 +69,18 @@ public Q_SLOTS:
 
     void updateKey(const QString &id, const int &type);
     QStringList formatKeys(const QString &shortcuts);
+    Q_INVOKABLE QString keyEventToAccels(int key, int modifiers);
+    // Wayland entry point: capture is local (no SelectKeystroke). Performs
+    // the same conflict-check / emit pattern as the X11 KeyEvent lambda,
+    // but queries the server (LookupConflictShortcut) as the source of truth.
+    Q_INVOKABLE void submitWaylandKeystroke(const QString &id, int type, const QString &accels);
+
+    // Wayland edit entry: ask Treeland to forward the next shortcut input to
+    // this client (bypassing the dispatch-to-action path that swallowed keys
+    // before). On terminal event emits waylandKeyCaptureFinished or
+    // waylandKeyCaptureFailed. Requires the QML item to live in a focused
+    // window — the compositor validates that before starting capture.
+    Q_INVOKABLE void beginWaylandKeyCapture(QQuickItem *item, const QString &id, int type);
 
     void addCustomShortcut(const QString &name, const QString &cmd, const QString &accels);
     void modifyCustomShortcut(const QString &id, const QString &name, const QString &cmd, const QString &accels);
@@ -95,6 +113,9 @@ signals:
     void keyDone(const QString &accels);
     void keyEvent(const QString &accels);
 
+    void waylandKeyCaptureFinished(const QString &id, int type, const QString &accels);
+    void waylandKeyCaptureFailed(const QString &id, int type, int reason);
+
     void conflictTextChanged();
     void keyboardEnabledChanged();
 
@@ -112,6 +133,8 @@ private:
     QSortFilterProxyModel *m_layoutSearchModel = nullptr;
     QSortFilterProxyModel *m_shortcutSearchModel = nullptr;
     QString m_conflictText;
+    TreelandShortcutCaptureManager *m_captureManager = nullptr;
+    QPointer<TreelandShortcutCaptureSession> m_activeCapture;
 };
 
 }

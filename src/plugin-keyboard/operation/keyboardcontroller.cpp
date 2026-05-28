@@ -5,9 +5,14 @@
 #include "keyboardcontroller.h"
 #include "dccfactory.h"
 #include "layoutsmodel.h"
+#include "treelandshortcutcapture.h"
 
 #include <PolkitQt1/Authority>
 #include <QFileInfo>
+#include <QGuiApplication>
+#include <QKeySequence>
+#include <QQuickItem>
+#include <QQuickWindow>
 
 namespace dccV25 {
 DCC_FACTORY_CLASS(KeyboardController)
@@ -19,6 +24,13 @@ KeyboardController::KeyboardController(QObject *parent)
     m_worker = new KeyboardWorker(m_model, this);
     m_shortcutModel = new ShortcutModel(this);
     m_worker->setShortcutModel(m_shortcutModel);
+
+    // Construct the Wayland capture manager eagerly so the global is bound
+    // before the user can click an edit row — otherwise the first
+    // captureNext() loses the bind race and silently fails.
+    if (QGuiApplication::platformName() == QLatin1String("wayland")) {
+        m_captureManager = new TreelandShortcutCaptureManager(this);
+    }
 
     connect(m_model, &KeyboardModel::repeatIntervalChanged, this, &KeyboardController::repeatIntervalChanged);
     connect(m_model, &KeyboardModel::repeatDelayChanged, this, &KeyboardController::repeatDelayChanged);
@@ -229,6 +241,11 @@ QStringList KeyboardController::formatKeys(const QString &shortcuts)
     return ShortcutModel::formatKeys(shortcuts);
 }
 
+QString KeyboardController::keyEventToAccels(int key, int modifiers)
+{
+    return QKeySequence(key | modifiers).toString(QKeySequence::PortableText);
+}
+
 QString KeyboardController::checkDesktopCmd(const QString &cmd)
 {
     // Check and process desktop commands, add dde-am prefix if desktop file exists
@@ -296,8 +313,12 @@ void KeyboardController::modifyShortcut(const QString &id, const QString &accels
         // Clear conflicting shortcuts when modifying
         if (auto conflict = m_shortcutModel->getInfo(accels)) {
             m_worker->onDisableShortcut(conflict);
-            shortcut->accels = accels;
         }
+        // Always update the target's accels so downstream modifyShortcutEditAux
+        // operates on the new value. The previous "only on conflict" placement
+        // left a stale accels when there was no conflict (e.g. Wayland path
+        // where the keyEvent lambda's pre-update doesn't run).
+        shortcut->accels = accels;
     }
 
     m_worker->modifyShortcutEdit(shortcut);
@@ -401,6 +422,126 @@ bool KeyboardController::isShortcutNameExists(const QString &name, const QString
     
     // Then check custom shortcut conflicts
     return isCustomShortcutNameExists(name, excludeId);
+}
+
+// Convert a Qt PortableText accel string ("Ctrl+Alt+T", "Meta+P") to the
+// X11/XKB form used internally by the shortcut model and the legacy wire
+// format ("<Control><Alt>T", "<Super>P"). Only handles modifier+key combos —
+// modifiable shortcuts are conventional combos, not media keys.
+static QString qtAccelToXkb(const QString &accel)
+{
+    if (accel.isEmpty())
+        return accel;
+    const QStringList parts = accel.split('+', Qt::SkipEmptyParts);
+    if (parts.size() <= 1)
+        return accel; // standalone key, no modifiers
+    QString out;
+    for (int i = 0; i < parts.size() - 1; ++i) {
+        const QString &p = parts.at(i);
+        if (p == QLatin1String("Ctrl") || p == QLatin1String("Control"))
+            out += QStringLiteral("<Control>");
+        else if (p == QLatin1String("Shift"))
+            out += QStringLiteral("<Shift>");
+        else if (p == QLatin1String("Alt"))
+            out += QStringLiteral("<Alt>");
+        else if (p == QLatin1String("Meta") || p == QLatin1String("Super"))
+            out += QStringLiteral("<Super>");
+        else
+            out += QLatin1Char('<') + p + QLatin1Char('>');
+    }
+    out += parts.last();
+    return out;
+}
+
+void KeyboardController::beginWaylandKeyCapture(QQuickItem *item, const QString &id, int type)
+{
+    // Silent no-op on non-Wayland — the X11 path captures via QML Keys.onPressed.
+    if (QGuiApplication::platformName() != QLatin1String("wayland")) {
+        return;
+    }
+    if (!item) {
+        Q_EMIT waylandKeyCaptureFailed(id, type, 0);
+        return;
+    }
+    QQuickWindow *window = item->window();
+    if (!window) {
+        Q_EMIT waylandKeyCaptureFailed(id, type, 0);
+        return;
+    }
+
+    if (!m_captureManager) {
+        // Cold path: KeyboardController was constructed before the platform
+        // resolved to wayland (shouldn't happen normally). Build lazily.
+        m_captureManager = new TreelandShortcutCaptureManager(this);
+    }
+
+    if (m_activeCapture) {
+        // The user is restarting edit. Disconnect first so any wayland event
+        // still in flight for the old session cannot land in this controller
+        // and modify the wrong row; then schedule the session for delete
+        // (its destructor cancels the wayland capture).
+        disconnect(m_activeCapture, nullptr, this, nullptr);
+        m_activeCapture->deleteLater();
+        m_activeCapture.clear();
+    }
+
+    TreelandShortcutCaptureSession *session = m_captureManager->captureNext(window);
+    if (!session) {
+        Q_EMIT waylandKeyCaptureFailed(id, type, 0);
+        return;
+    }
+    m_activeCapture = session;
+
+    connect(session, &TreelandShortcutCaptureSession::captured, this,
+            [this, id, type](const QString &key) {
+                submitWaylandKeystroke(id, type, key);
+                Q_EMIT waylandKeyCaptureFinished(id, type, key);
+            });
+    connect(session, &TreelandShortcutCaptureSession::failed, this,
+            [this, id, type](uint32_t reason) {
+                Q_EMIT waylandKeyCaptureFailed(id, type, static_cast<int>(reason));
+            });
+}
+
+void KeyboardController::submitWaylandKeystroke(const QString &id, int type, const QString &accels)
+{
+    if (accels.isEmpty()) {
+        Q_EMIT requestRestore();
+        return;
+    }
+    if (accels == QLatin1String("Backspace")
+        || accels == QLatin1String("Delete")
+        || accels == QLatin1String("Del")) {
+        Q_EMIT requestClear();
+        return;
+    }
+
+    ShortcutInfo *current = m_shortcutModel->findInfoIf([&](ShortcutInfo *info) {
+        return info->id == id && info->type == type;
+    });
+    if (current)
+        m_shortcutModel->setCurrentInfo(current);
+
+    const QString xkb = qtAccelToXkb(accels);
+
+    ShortcutInfo *conflict = m_shortcutModel->getInfo(xkb);
+
+    if (conflict) {
+        // Self-conflict (user pressed the same combo already bound to this row)
+        if (conflict == current && conflict->accels == xkb) {
+            Q_EMIT requestRestore();
+            return;
+        }
+        auto conflictName = QString("<font color=\"red\">%1</font>").arg(conflict->name.toHtmlEscaped());
+        const QString text = KeyboardController::tr("This shortcut conflicts with [%1]").arg(conflictName);
+        setConflictText(text);
+        Q_EMIT keyConflicted(current ? current->accels : QString(), xkb);
+        return;
+    }
+
+    if (current)
+        current->accels = xkb;
+    Q_EMIT keyDone(xkb);
 }
 
 }

@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef GESTUREDATA_H
@@ -10,6 +10,7 @@ class GestureData : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString actionType READ actionType WRITE setActionType NOTIFY actionTypeChanged FINAL)
+    Q_PROPERTY(QString gestureId READ gestureId WRITE setGestureId NOTIFY gestureIdChanged FINAL)
     Q_PROPERTY(QString direction READ direction WRITE setDirection NOTIFY directionChanged FINAL)
     Q_PROPERTY(int fingersNum READ fingersNum WRITE setFingersNum NOTIFY fingersNumChanged FINAL)
     Q_PROPERTY(QString actionName READ actionName WRITE setActionName NOTIFY actionNameChanged FINAL)
@@ -19,6 +20,9 @@ public:
 
     QString actionType() const;
     void setActionType(const QString &newActionType);
+
+    QString gestureId() const;
+    void setGestureId(const QString &newGestureId);
 
     QString direction() const;
     void setDirection(const QString &newDirection);
@@ -46,6 +50,8 @@ signals:
 
     void actionTypeChanged();
 
+    void gestureIdChanged();
+
     void directionChanged();
 
     void fingersNumChanged();
@@ -54,6 +60,7 @@ signals:
 
 private:
     QString m_actionType;
+    QString m_gestureId;
     QString m_direction;
     int m_fingersNum;
     QString m_actionName;

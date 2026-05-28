@@ -42,6 +42,13 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
 {
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::compositingEnabledChanged, this, &KeyboardWorker::onGetWindowWM);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::Added, this, &KeyboardWorker::onAdded);
+    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::AllShortcutsReady, this, &KeyboardWorker::onAllShortcutsReady);
+    // Wayland GetShortcut results arrive on this signal; route them
+    // directly to the model so they never re-enter onShortcutChanged.
+    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::shortcutQueried, this, [this](const QString &json) {
+        if (m_shortcutModel)
+            m_shortcutModel->onKeyBindingChanged(json);
+    });
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::Deleted, this, &KeyboardWorker::removed);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::UserLayoutListChanged, this, &KeyboardWorker::onUserLayout);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::CurrentLayoutChanged, this, &KeyboardWorker::onCurrentLayout);
@@ -95,6 +102,11 @@ void KeyboardWorker::setShortcutModel(ShortcutModel *model)
 
 void KeyboardWorker::refreshShortcut()
 {
+    if (m_keyboardDBusProxy->isWayland()) {
+        // Wayland: result is delivered asynchronously via AllShortcutsReady signal.
+        m_keyboardDBusProxy->ListAllShortcuts();
+        return;
+    }
     QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keyboardDBusProxy->ListAllShortcuts(), this);
     connect(result, SIGNAL(finished(QDBusPendingCallWatcher*)), this,
             SLOT(onRequestShortcut(QDBusPendingCallWatcher*)));
@@ -295,6 +307,11 @@ bool KeyboardWorker::checkAvaliable(const QString &key)
    return value.isEmpty();
 }
 
+QString KeyboardWorker::lookupConflictingShortcut(const QString &key)
+{
+    return m_keyboardDBusProxy->LookupConflictingShortcut(key);
+}
+
 void KeyboardWorker::delShortcut(ShortcutInfo* info)
 {
     m_keyboardDBusProxy->DeleteCustomShortcut(info->id);
@@ -382,12 +399,22 @@ void KeyboardWorker::onRequestShortcut(QDBusPendingCallWatcher *watch)
     QDBusPendingReply<QString> reply = *watch;
     if(reply.isError())
     {
+        qWarning() << "ListAllShortcuts failed:" << reply.error();
         watch->deleteLater();
         return;
     }
 
-    QString info = reply.value();
+    parseShortcutListJson(reply.value());
+    watch->deleteLater();
+}
 
+void KeyboardWorker::onAllShortcutsReady(const QString &info)
+{
+    parseShortcutListJson(info);
+}
+
+void KeyboardWorker::parseShortcutListJson(const QString &info)
+{
     QMap<QStringList,int> map;
     QJsonArray array = QJsonDocument::fromJson(info.toStdString().c_str()).array();
     Q_FOREACH(QJsonValue value, array) {
@@ -427,7 +454,6 @@ void KeyboardWorker::onRequestShortcut(QDBusPendingCallWatcher *watch)
     m_model->setAllShortcut(map);
     if (m_shortcutModel)
         m_shortcutModel->onParseInfo(info);
-    watch->deleteLater();
 }
 
 void KeyboardWorker::onAdded(const QString &in0, int in1)
@@ -703,7 +729,24 @@ void KeyboardWorker::cleanShortcutSlef(const QString &id, const int type, const 
 {
     QString key = makeShortcutKey(id, type);
     m_replacingShortcuts.insert(key);
-    
+
+    // Wayland: ModifyHotkeys is atomic (unregister + register in one
+    // transaction). Sending a preceding Disable would queue a second commit
+    // before the first finishes, which the compositor's protocol forbids and
+    // makes commitAndWait time out for both. Use callModifyHotkeys
+    // (QDBusPendingReply<bool>) so we can detect server-side failures
+    // (commit timeout, conflict, registerKey failure) and re-query the
+    // current state to keep the UI in sync.
+    if (m_keyboardDBusProxy->isWayland()) {
+        QDBusPendingReply<bool> reply = m_keyboardDBusProxy->callModifyHotkeys(id, QStringList{shortcut});
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+        watcher->setProperty("id", id);
+        watcher->setProperty("type", type);
+        connect(watcher, &QDBusPendingCallWatcher::finished,
+                this, &KeyboardWorker::onModifyHotkeysFinished);
+        return;
+    }
+
     QDBusPendingCall call = m_keyboardDBusProxy->ClearShortcutKeystrokes(id, type);
 
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
@@ -739,6 +782,30 @@ void KeyboardWorker::onConflictShortcutCleanFinished(QDBusPendingCallWatcher *wa
         QString key = makeShortcutKey(id, type);
         m_replacingShortcuts.remove(key);
     }
+
+    watch->deleteLater();
+}
+
+void KeyboardWorker::onModifyHotkeysFinished(QDBusPendingCallWatcher *watch)
+{
+    QDBusPendingReply<bool> reply = *watch;
+    const QString id = watch->property("id").toString();
+    const int type = watch->property("type").toInt();
+    const QString key = makeShortcutKey(id, type);
+
+    const bool success = (!reply.isError() && reply.value());
+    if (!success) {
+        qWarning() << "ModifyHotkeys failed for" << id
+                   << (reply.isError() ? reply.error().message() : QStringLiteral("server returned false"));
+        m_replacingShortcuts.remove(key);
+        // Re-query the server. On commit-timeout the in-memory state was
+        // rolled back by dde-services, so the response carries the real
+        // (old) hotkeys and onKeyBindingChanged will revert the UI.
+        onShortcutChanged(id, type);
+    }
+    // On success the server emits ShortcutChanged, whose handler chain
+    // (onShortcutChanged → Query → onGetShortcutFinished →
+    //  onKeyBindingChanged) will update the model. No extra work needed here.
 
     watch->deleteLater();
 }

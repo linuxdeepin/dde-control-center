@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -63,6 +63,33 @@ public:
 typedef QList<LocaleInfo> LocaleList;
 namespace dccV25 {
 class DCCDBusInterface;
+}
+
+// New API ShortcutInfo struct (dde-services)
+struct ShortcutInfoNew {
+    QString id;
+    QString displayName;
+    int category;
+    QStringList hotkeys;
+    QString localLanguageName;
+};
+Q_DECLARE_METATYPE(ShortcutInfoNew)
+Q_DECLARE_METATYPE(QList<ShortcutInfoNew>)
+
+inline QDBusArgument &operator<<(QDBusArgument &argument, const ShortcutInfoNew &info) {
+    argument.beginStructure();
+    argument << info.id << info.displayName << info.category
+             << info.hotkeys << info.localLanguageName;
+    argument.endStructure();
+    return argument;
+}
+
+inline const QDBusArgument &operator>>(const QDBusArgument &argument, ShortcutInfoNew &info) {
+    argument.beginStructure();
+    argument >> info.id >> info.displayName >> info.category
+             >> info.hotkeys >> info.localLanguageName;
+    argument.endStructure();
+    return argument;
 }
 
 class KeyboardDBusProxy : public QObject
@@ -152,6 +179,10 @@ signals:
     void Changed(const QString &in0, int in1);
     void Deleted(const QString &in0, int in1);
     void KeyEvent(bool in0, const QString &in1);
+    // Wayland new-API bridge: full shortcut list converted to old JSON format.
+    void AllShortcutsReady(const QString &json);
+    // Wayland: result of a GetShortcut query, already converted to old JSON.
+    void shortcutQueried(const QString &json);
 
     //wm
     void compositingEnabledChanged(bool enabled);
@@ -165,6 +196,9 @@ public slots:
     QString LookupConflictingShortcut(const QString &in0);
     QDBusPendingReply<> ClearShortcutKeystrokes(const QString &in0, int in1);
     QDBusPendingReply<> AddShortcutKeystroke(const QString &in0, int in1, const QString &in2);
+    // Wayland: direct ModifyHotkeys (returns bool success), so the caller
+    // can detect commit failures and roll back the UI.
+    QDBusPendingReply<bool> callModifyHotkeys(const QString &id, const QStringList &hotkeys);
     QDBusPendingReply<> AddCustomShortcut(const QString &in0, const QString &in1, const QString &in2);
     QDBusPendingReply<> ModifyCustomShortcut(const QString &in0, const QString &in1, const QString &in2, const QString &in3);
     QDBusPendingReply<> DeleteCustomShortcut(const QString &in0);
@@ -189,14 +223,32 @@ public slots:
 
 private slots:
     void onLangSelectorStartServiceProcessFinished(QDBusPendingCallWatcher *w);
+    // New API -> Old API adapters (Wayland)
+    void onListAllShortcutsNewFinished(QDBusPendingCallWatcher *w);
+    void onGetShortcutNewFinished(QDBusPendingCallWatcher *w);
+    void onSearchShortcutsNewFinished(QDBusPendingCallWatcher *w);
+    // Bridge: new dde-services D-Bus signals (ShortcutChanged/ShortcutRemoved)
+    // are named differently from the legacy Changed/Deleted, so auto-wiring
+    // by QDBusAbstractInterface misses them. Subscribe explicitly and forward.
+    void onNewShortcutChanged(const QString &id, const ShortcutInfoNew &info);
+    void onNewShortcutRemoved(const QString &id);
+
 private:
     void init();
 
+public:
+    bool isWayland() const;
+
 private:
+    // Convert new ShortcutInfo list to old JSON format
+    QString convertShortcutListToJson(const QList<ShortcutInfoNew> &list) const;
+    QString convertShortcutToJson(const ShortcutInfoNew &info) const;
+
     DDBusInterface *m_dBusLangSelectorInter;
     DDBusInterface *m_dBusKeyboardInter;
     DDBusInterface *m_dBusKeybingdingInter;
     DDBusInterface *m_dBusWMInter;
+    const bool m_isWayland;
 };
 
 Q_DECLARE_METATYPE(KeyboardLayoutList)

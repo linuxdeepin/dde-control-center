@@ -111,6 +111,7 @@ ShortcutModel::~ShortcutModel()
     m_systemInfos.clear();
     m_windowInfos.clear();
     m_workspaceInfos.clear();
+    m_appInfos.clear();
     m_customInfos.clear();
     qDeleteAll(m_searchList);
     m_searchList.clear();
@@ -134,6 +135,11 @@ QList<ShortcutInfo *> ShortcutModel::workspaceInfo() const
 QList<ShortcutInfo *> ShortcutModel::assistiveToolsInfo() const
 {
     return m_assistiveToolsInfos;
+}
+
+QList<ShortcutInfo *> ShortcutModel::appInfo() const
+{
+    return m_appInfos;
 }
 
 QList<ShortcutInfo *> ShortcutModel::customInfo() const
@@ -173,6 +179,7 @@ ShortcutInfo *ShortcutModel::shortcutAt(int index, int *corners)
     CHECK_INDEX_DCC(m_windowInfos)
     CHECK_INDEX_DCC(m_workspaceInfos)
     CHECK_INDEX_DCC(m_assistiveToolsInfos)
+    CHECK_INDEX_DCC(m_appInfos)
     CHECK_INDEX_DCC(m_customInfos)
 
     return nullptr;
@@ -222,6 +229,7 @@ void ShortcutModel::onParseInfo(const QString &info)
     m_windowInfos.clear();
     m_workspaceInfos.clear();
     m_assistiveToolsInfos.clear();
+    m_appInfos.clear();
     m_customInfos.clear();
     
     // 清理系统快捷键名称缓存，因为数据即将更新
@@ -246,6 +254,28 @@ void ShortcutModel::onParseInfo(const QString &info)
 
         m_infos << info;
 
+        // Wayland: use Section field from new API (avoids hardcoded ID lists)
+        QString section = obj["Section"].toString();
+        if (!section.isEmpty()) {
+            if (section == QLatin1String("System")) {
+                info->sectionName = tr("System");
+                m_systemInfos << info;
+                continue;
+            }
+            if (section == QLatin1String("App")) {
+                info->sectionName = tr("App");
+                m_appInfos << info;
+                continue;
+            }
+            if (section == QLatin1String("Custom")) {
+                info->sectionName = tr("Custom");
+                m_customInfos << info;
+                continue;
+            }
+            qWarning() << "Unknown shortcut section:" << section << "id=" << info->id;
+        }
+
+        // X11: old ID-based categorization
         if (type != MEDIAKEY) {
             if (systemShortKeys.contains(info->id)) {
                 info->sectionName = tr("System");
@@ -323,6 +353,7 @@ void ShortcutModel::onParseInfo(const QString &info)
     Q_EMIT listChanged(m_windowInfos, InfoType::Window);
     Q_EMIT listChanged(m_workspaceInfos, InfoType::Workspace);
     Q_EMIT listChanged(m_assistiveToolsInfos, InfoType::AssistiveTools);
+    Q_EMIT listChanged(m_appInfos, InfoType::App);
     Q_EMIT listChanged(m_customInfos, InfoType::Custom);
 }
 
@@ -399,6 +430,11 @@ void ShortcutModel::onWindowSwitchChanged(bool value)
      QString accels = shortcut;
      accels = accels.replace("<", "");
      accels = accels.replace(">", "-");
+     // Wayland keystroke capture produces Qt PortableText ("Ctrl+Alt+T",
+     // "Meta+P") instead of the X11 XKB form. Normalize both so the split
+     // below produces one chip per token.
+     accels = accels.replace("+", "-");
+     accels = accels.replace("Meta", "Super");
      accels = accels.replace("_L", "");
      accels = accels.replace("_R", "");
      accels = accels.replace("Control", "Ctrl");
@@ -421,7 +457,7 @@ int ShortcutModel::indexOfShortcut(ShortcutInfo *info)
 
     const QList<ShortcutInfo*> *lists[] = {
         &m_systemInfos, &m_windowInfos, &m_workspaceInfos,
-        &m_assistiveToolsInfos, &m_customInfos
+        &m_assistiveToolsInfos, &m_appInfos, &m_customInfos
     };
 
     int row = 0;

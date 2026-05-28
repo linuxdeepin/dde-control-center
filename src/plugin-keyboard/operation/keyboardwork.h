@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -47,6 +47,7 @@ public:
 
     void grabScreen();
     bool checkAvaliable(const QString& key);
+    QString lookupConflictingShortcut(const QString &key);
     void delShortcut(ShortcutInfo *info);
 
     void setRepeatDelay(uint value);
@@ -80,6 +81,8 @@ public Q_SLOTS:
     void addUserLayout(const QString& value);
     void delUserLayout(const QString& value);
     void onRequestShortcut(QDBusPendingCallWatcher* watch);
+    void onAllShortcutsReady(const QString &info);
+    void onModifyHotkeysFinished(QDBusPendingCallWatcher *watch);
     void onAdded(const QString&in0, int in1);
     void onDisableShortcut(ShortcutInfo* info);
     void onAddedFinished(QDBusPendingCallWatcher *watch);
@@ -111,6 +114,7 @@ private:
     uint converToModelDelay(uint value);
     int converToDBusInterval(int value);
     uint converToModelInterval(uint value);
+    void parseShortcutListJson(const QString &info);
 
 private:
     QList<MetaData> m_datas;

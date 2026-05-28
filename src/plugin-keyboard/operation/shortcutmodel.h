@@ -57,19 +57,21 @@ public:
         Window,
         Workspace,
         AssistiveTools,
+        App, // Wayland-only (new D-Bus API)
     };
 
     QList<ShortcutInfo *> systemInfo() const;
     QList<ShortcutInfo *> windowInfo() const;
     QList<ShortcutInfo *> workspaceInfo() const;
     QList<ShortcutInfo *> assistiveToolsInfo() const;
+    QList<ShortcutInfo *> appInfo() const;
     QList<ShortcutInfo *> customInfo() const;
     QList<ShortcutInfo *> infos() const;
 
     inline int count()
     {
         int c = m_systemInfos.count() + m_windowInfos.count() + m_workspaceInfos.count()
-                + m_assistiveToolsInfos.count() + m_customInfos.count();
+                + m_assistiveToolsInfos.count() + m_appInfos.count() + m_customInfos.count();
         return c;
     }
 
@@ -120,6 +122,7 @@ private:
     QList<ShortcutInfo *> m_windowInfos;
     QList<ShortcutInfo *> m_workspaceInfos;
     QList<ShortcutInfo *> m_assistiveToolsInfos;
+    QList<ShortcutInfo *> m_appInfos;
     QList<ShortcutInfo *> m_customInfos;
     QList<ShortcutInfo *> m_searchList;
     QList<ShortcutInfo *> m_windowSwitchStateInfos;

@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "mousemodel.h"
@@ -286,6 +286,7 @@ void MouseModel::updateGesturesData(const GestureData &gestureData)
     } else {
         GestureData *data = new GestureData(this);
         data->setActionType(gestureData.actionType());
+        data->setGestureId(gestureData.gestureId());
         data->setDirection(gestureData.direction());
         data->setActionName(gestureData.actionName());
         data->setFingersNum(gestureData.fingersNum());
@@ -322,7 +323,8 @@ void MouseModel::setGestures(int fingerNum, int index, QString actionName)
             return;
 
         updateFigerAniPath(actionName, data);
-        Q_EMIT m_worker->requestSetGesture(data->actionType(),
+        const QString gestureName = data->gestureId().isEmpty() ? data->actionType() : data->gestureId();
+        Q_EMIT m_worker->requestSetGesture(gestureName,
                                            data->direction(),
                                            data->fingersNum(),
                                            actionName);

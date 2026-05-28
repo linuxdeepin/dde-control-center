@@ -2430,6 +2430,49 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
+    <name>MouseDBusProxy</name>
+    <message>
+        <source>Maximize window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Restore window</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Show desktop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Lock screen</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Multitasking view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation type="unfinished">Wyłącz</translation>
+    </message>
+    <message>
+        <source>Switch to previous workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Switch to next workspace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hide multitasking view</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Toggle multitasking view</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
@@ -2734,18 +2777,6 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
 <context>
     <name>PersonalizationInterface</name>
     <message>
-        <source>Light</source>
-        <translation>Jasny</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation>Automatycznie</translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation>Ciemny</translation>
-    </message>
-    <message>
         <source>Picker service is not available</source>
         <translation>Usługa suplikanta nie jest dostępna</translation>
     </message>
@@ -2810,6 +2841,18 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>Custom</source>
         <translation>Własne</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished">Automatycznie</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">Ciemny</translation>
     </message>
 </context>
 <context>
@@ -4407,6 +4450,10 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>None</source>
         <translation>Brak</translation>
+    </message>
+    <message>
+        <source>App</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

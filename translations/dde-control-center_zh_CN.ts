@@ -2427,6 +2427,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>MouseDBusProxy</name>
+    <message>
+        <source>Maximize window</source>
+        <translation>最大化窗口</translation>
+    </message>
+    <message>
+        <source>Restore window</source>
+        <translation>还原窗口</translation>
+    </message>
+    <message>
+        <source>Show desktop</source>
+        <translation>显示桌面</translation>
+    </message>
+    <message>
+        <source>Lock screen</source>
+        <translation>锁定屏幕</translation>
+    </message>
+    <message>
+        <source>Multitasking view</source>
+        <translation>显示多任务视图</translation>
+    </message>
+    <message>
+        <source>Hide multitasking view</source>
+        <translation>隐藏多任务视图</translation>
+    </message>
+    <message>
+        <source>Toggle multitasking view</source>
+        <translation>切换多任务视图</translation>
+    </message>
+    <message>
+        <source>Switch to previous workspace</source>
+        <translation>切换到上一工作区</translation>
+    </message>
+    <message>
+        <source>Switch to next workspace</source>
+        <translation>切换到下一工作区</translation>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation>禁用</translation>
+    </message>
+</context>
+<context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
@@ -2731,18 +2774,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>PersonalizationInterface</name>
     <message>
-        <source>Light</source>
-        <translation>浅色</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation>自动</translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation>深色</translation>
-    </message>
-    <message>
         <source>Picker service is not available</source>
         <translation type="unfinished"/>
     </message>
@@ -2807,6 +2838,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Custom</source>
         <translation>自定义</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished">自动</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished">深色</translation>
     </message>
 </context>
 <context>
@@ -4400,6 +4443,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Custom</source>
         <translation>自定义</translation>
+    </message>
+    <message>
+        <source>App</source>
+        <translation>应用</translation>
     </message>
     <message>
         <source>None</source>
