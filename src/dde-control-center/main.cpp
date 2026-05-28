@@ -204,6 +204,7 @@ int main(int argc, char *argv[])
             dccManager->toggle();
         } else if (!page.isEmpty()) {
             dccManager->showPage(page);
+            dccManager->show();
         } else if (parser.isSet(showOption) && !parser.isSet(dbusOption)) {
             dccManager->show();
         }
