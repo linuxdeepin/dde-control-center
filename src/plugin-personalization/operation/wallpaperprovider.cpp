@@ -14,7 +14,7 @@
 #include <QUrl>
 #include <QDir>
 #include <QHash>
-#include <QProcess>
+#include <libffmpegthumbnailer/videothumbnailer.h>
 #include <QCryptographicHash>
 #include <QStandardPaths>
 #include <QPointer>
@@ -554,17 +554,25 @@ void InterfaceWorker::generateVideoThumbnail(const QString &videoPath, const QSt
         if (!guard->m_running.load(std::memory_order_acquire))
             return;
 
-        QProcess ffmpeg;
-        ffmpeg.setProgram("/usr/bin/ffmpeg");
-        ffmpeg.setArguments({"-i", videoPath, "-ss", "00:00:01", "-vframes", "1",
-                             "-vf", "scale=480:-1", "-update", "1", "-y", cachePath});
-        ffmpeg.start();
-        ffmpeg.waitForFinished(5000);
+        ffmpegthumbnailer::VideoThumbnailer thumbnailer(480, false, true, 8, false);
+        thumbnailer.setThumbnailSize(480, -1);
+        thumbnailer.setSeekTime("00:00:01");
+
+        try {
+            thumbnailer.generateThumbnail(videoPath.toStdString(), Png, cachePath.toStdString());
+        } catch (const std::exception &e) {
+            if (!guard)
+                return;
+            qCWarning(DdcPersonalizationWallpaperWorker)
+                << "Failed to generate video thumbnail:" << e.what()
+                << "video:" << videoPath;
+            return;
+        }
 
         if (!guard)
             return;
 
-        if (ffmpeg.exitCode() == 0 && QFile::exists(cachePath)) {
+        if (QFile::exists(cachePath)) {
             Q_EMIT guard->videoThumbnailReady(id, cachePath);
         }
     });

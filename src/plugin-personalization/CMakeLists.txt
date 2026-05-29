@@ -1,6 +1,9 @@
 cmake_minimum_required(VERSION 3.18)
 set(LIB_NAME personalization)
 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(FFMPEGTHUMBNAILER REQUIRED IMPORTED_TARGET libffmpegthumbnailer)
+
 find_package(Qt6 REQUIRED COMPONENTS WaylandClient)
 if(Qt6_VERSION VERSION_GREATER_EQUAL 6.10)
   find_package(Qt6 COMPONENTS WaylandClientPrivate REQUIRED)
@@ -41,6 +44,7 @@ set(Personalization_Libraries
     ${QT_NS}::DBus
     ${QT_NS}::Qml
     ${QT_NS}::WaylandClientPrivate
+    PkgConfig::FFMPEGTHUMBNAILER
 )
 
 target_include_directories(${LIB_NAME} PUBLIC
