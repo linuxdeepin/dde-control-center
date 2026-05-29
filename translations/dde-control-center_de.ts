@@ -1720,7 +1720,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Cancel</source>
-        <translation>Beenden</translation>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Agree</source>
