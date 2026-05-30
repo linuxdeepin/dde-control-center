@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -74,6 +74,9 @@ public Q_SLOTS:
     
     // 检查自定义快捷键名称是否已存在（排除指定ID）
     bool isCustomShortcutNameExists(const QString &name, const QString &excludeId = QString());
+
+    /** 刷新键盘 settings） */
+    Q_INVOKABLE void refreshKeyboard();
     
     // 检查系统快捷键名称是否已存在
     bool isSystemShortcutNameExists(const QString &name);

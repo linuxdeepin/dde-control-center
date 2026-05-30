@@ -5,6 +5,9 @@ if (BUILD_PLUGIN)
         "operation/*.cpp"
         "operation/qrc/keyboard.qrc"
     )
+    if (NOT Enable_TreelandSupport)
+        list(FILTER keyboard_SRCS EXCLUDE REGEX ".*/operation/keyboardwaylandproxy\\.(h|cpp)$")
+    endif()
     file(GLOB_RECURSE keyboard_qml_SRCS
         "qml/*.qml"
     )

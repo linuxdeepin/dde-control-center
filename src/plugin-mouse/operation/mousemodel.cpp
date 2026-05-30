@@ -57,7 +57,8 @@ void MouseModel::setLeftHandState(const bool state)
 
     m_leftHandState = state;
 
-    QMetaObject::invokeMethod(m_worker,"onLeftHandStateChanged", Qt::QueuedConnection, Q_ARG(bool, m_leftHandState));
+    if (!m_syncingFromBackend)
+        QMetaObject::invokeMethod(m_worker,"onLeftHandStateChanged", Qt::QueuedConnection, Q_ARG(bool, m_leftHandState));
     Q_EMIT leftHandStateChanged(state);
 }
 
@@ -68,7 +69,8 @@ void MouseModel::setDisIfTyping(const bool state)
 
     m_disIfTyping = state;
 
-    QMetaObject::invokeMethod(m_worker,"onDisTypingChanged", Qt::QueuedConnection, Q_ARG(bool, m_disIfTyping));
+    if (!m_syncingFromBackend)
+        QMetaObject::invokeMethod(m_worker,"onDisTypingChanged", Qt::QueuedConnection, Q_ARG(bool, m_disIfTyping));
     Q_EMIT disIfTypingStateChanged(state);
 }
 
@@ -109,7 +111,8 @@ void MouseModel::setDoubleSpeed(int doubleSpeed)
 
     m_doubleSpeed = doubleSpeed;
 
-    QMetaObject::invokeMethod(m_worker,"onDouClickChanged", Qt::QueuedConnection, Q_ARG(int, m_doubleSpeed));
+    if (!m_syncingFromBackend)
+        QMetaObject::invokeMethod(m_worker,"onDouClickChanged", Qt::QueuedConnection, Q_ARG(int, m_doubleSpeed));
     Q_EMIT doubleSpeedChanged(doubleSpeed);
 }
 
@@ -120,7 +123,8 @@ void MouseModel::setMouseNaturalScroll(bool mouseNaturalScroll)
 
     m_mouseNaturalScroll = mouseNaturalScroll;
 
-    QMetaObject::invokeMethod(m_worker,"onMouseNaturalScrollStateChanged", Qt::QueuedConnection, Q_ARG(bool, m_mouseNaturalScroll));
+    if (!m_syncingFromBackend)
+        QMetaObject::invokeMethod(m_worker,"onMouseNaturalScrollStateChanged", Qt::QueuedConnection, Q_ARG(bool, m_mouseNaturalScroll));
     Q_EMIT mouseNaturalScrollChanged(mouseNaturalScroll);
 }
 
@@ -131,7 +135,8 @@ void MouseModel::setTpadNaturalScroll(bool tpadNaturalScroll)
 
     m_tpadNaturalScroll = tpadNaturalScroll;
 
-    QMetaObject::invokeMethod(m_worker,"onTouchNaturalScrollStateChanged", Qt::QueuedConnection, Q_ARG(bool, m_tpadNaturalScroll));
+    if (!m_syncingFromBackend)
+        QMetaObject::invokeMethod(m_worker,"onTouchNaturalScrollStateChanged", Qt::QueuedConnection, Q_ARG(bool, m_tpadNaturalScroll));
     Q_EMIT tpadNaturalScrollChanged(tpadNaturalScroll);
 }
 
@@ -142,7 +147,8 @@ void MouseModel::setMouseMoveSpeed(int mouseMoveSpeed)
 
     m_mouseMoveSpeed = mouseMoveSpeed;
 
-    QMetaObject::invokeMethod(m_worker,"onMouseMotionAccelerationChanged", Qt::QueuedConnection, Q_ARG(int, m_mouseMoveSpeed));
+    if (!m_syncingFromBackend)
+        QMetaObject::invokeMethod(m_worker,"onMouseMotionAccelerationChanged", Qt::QueuedConnection, Q_ARG(int, m_mouseMoveSpeed));
     Q_EMIT mouseMoveSpeedChanged(mouseMoveSpeed);
 }
 
@@ -153,7 +159,8 @@ void MouseModel::setTpadMoveSpeed(int tpadMoveSpeed)
 
     m_tpadMoveSpeed = tpadMoveSpeed;
 
-    QMetaObject::invokeMethod(m_worker,"onTouchpadMotionAccelerationChanged", Qt::QueuedConnection, Q_ARG(int, m_tpadMoveSpeed));
+    if (!m_syncingFromBackend)
+        QMetaObject::invokeMethod(m_worker,"onTouchpadMotionAccelerationChanged", Qt::QueuedConnection, Q_ARG(int, m_tpadMoveSpeed));
     Q_EMIT tpadMoveSpeedChanged(tpadMoveSpeed);
 }
 
@@ -164,7 +171,8 @@ void MouseModel::setAccelProfile(bool useAdaptiveProfile)
 
     m_accelProfile = useAdaptiveProfile;
 
-    QMetaObject::invokeMethod(m_worker,"onAccelProfileChanged", Qt::QueuedConnection, Q_ARG(bool, m_accelProfile));
+    if (!m_syncingFromBackend)
+        QMetaObject::invokeMethod(m_worker,"onAccelProfileChanged", Qt::QueuedConnection, Q_ARG(bool, m_accelProfile));
     Q_EMIT accelProfileChanged(useAdaptiveProfile);
 }
 
@@ -175,7 +183,8 @@ void MouseModel::setDisTpad(bool disTpad)
 
     m_disTpad = disTpad;
 
-    QMetaObject::invokeMethod(m_worker,"onDisTouchPadChanged", Qt::QueuedConnection, Q_ARG(bool, m_disTpad));
+    if (!m_syncingFromBackend)
+        QMetaObject::invokeMethod(m_worker,"onDisTouchPadChanged", Qt::QueuedConnection, Q_ARG(bool, m_disTpad));
     Q_EMIT disTpadChanged(disTpad);
 }
 
@@ -226,7 +235,8 @@ void MouseModel::setTapClick(bool tapClick)
 
     m_tapClick = tapClick;
 
-    QMetaObject::invokeMethod(m_worker,"onTapClick", Qt::QueuedConnection, Q_ARG(bool, m_tapClick));
+    if (!m_syncingFromBackend)
+        QMetaObject::invokeMethod(m_worker,"onTapClick", Qt::QueuedConnection, Q_ARG(bool, m_tapClick));
     Q_EMIT tapClickChanged(tapClick);
 }
 
@@ -237,7 +247,8 @@ void MouseModel::setTapEnabled(bool tabEnabled)
 
     m_touchpadEnabled = tabEnabled;
 
-    QMetaObject::invokeMethod(m_worker,"onTouchpadEnabledChanged", Qt::QueuedConnection, Q_ARG(bool, m_touchpadEnabled));
+    if (!m_syncingFromBackend)
+        QMetaObject::invokeMethod(m_worker,"onTouchpadEnabledChanged", Qt::QueuedConnection, Q_ARG(bool, m_touchpadEnabled));
     Q_EMIT tapEnabledChanged(tabEnabled);
 }
 
@@ -248,10 +259,12 @@ void MouseModel::setScrollSpeed(int speed)
 
     m_scrollSpeed = speed;
 
-    QMetaObject::invokeMethod(m_worker,
-                              "onScrollSpeedChanged",
-                              Qt::QueuedConnection,
-                              Q_ARG(int, m_scrollSpeed));
+    if (!m_syncingFromBackend) {
+        QMetaObject::invokeMethod(m_worker,
+                                  "onScrollSpeedChanged",
+                                  Qt::QueuedConnection,
+                                  Q_ARG(int, m_scrollSpeed));
+    }
     Q_EMIT scrollSpeedChanged(speed);
 }
 
@@ -262,10 +275,12 @@ void MouseModel::setCursorSize(int cursorSize)
 
     m_cursorSize = cursorSize;
 
-    QMetaObject::invokeMethod(m_worker,
-                              "onCursorSizeChanged",
-                              Qt::QueuedConnection,
-                              Q_ARG(int, m_cursorSize));
+    if (!m_syncingFromBackend) {
+        QMetaObject::invokeMethod(m_worker,
+                                  "onCursorSizeChanged",
+                                  Qt::QueuedConnection,
+                                  Q_ARG(int, m_cursorSize));
+    }
     Q_EMIT cursorSizeChanged(cursorSize);
 }
 
@@ -439,6 +454,13 @@ void MouseModel::setLidIsPresent(bool lidIsPresent)
 
     m_lidIsPresent = lidIsPresent;
     Q_EMIT lidIsPresentChanged(lidIsPresent);
+}
+
+void MouseModel::refreshMouse()
+{
+    if (m_worker) {
+        m_worker->refreshMouse();
+    }
 }
 
 DCC_FACTORY_CLASS(MouseModel)

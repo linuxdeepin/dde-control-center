@@ -2,13 +2,14 @@
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
-
 #include "keyboardwork.h"
 
 #include "dcclocale.h"
+#include <DGuiApplicationHelper>
 
 #include <QTimer>
 #include <QDebug>
+#include <QLoggingCategory>
 #include <QLocale>
 #include <QCollator>
 #include <QCoreApplication>
@@ -25,6 +26,8 @@ using namespace DTK_NAMESPACE::Core;
 using namespace dccV25;
 bool caseInsensitiveLessThan(const MetaData &s1, const MetaData &s2);
 
+Q_LOGGING_CATEGORY(lcKeyboardWorker, "dde.dcc.keyboard.worker")
+
 const QMap<QString, QString> &ModelKeycode = {{"minus", "-"}, {"equal", "="}, {"backslash", "\\"}, {"question", "?/"}, {"exclam", "1"}, {"numbersign", "3"},
     {"semicolon", ";"}, {"apostrophe", "'"}, {"less", ",<"}, {"period", ">."}, {"slash", "?/"}, {"parenleft", "9"}, {"bracketleft", "["},
     {"parenright", "0"}, {"bracketright", "]"}, {"quotedbl", "'"}, {"space", " "}, {"dollar", "$"}, {"plus", "+"}, {"asterisk", "*"},
@@ -38,25 +41,52 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
     , m_model(model)
     , m_keyboardDBusProxy(new KeyboardDBusProxy(this))
     , m_translatorLanguage(nullptr)
-    , m_inputDevCfg(DConfig::create("org.deepin.dde.daemon", "org.deepin.dde.daemon.inputdevices", QString(), this))
+    , m_inputDevCfg(nullptr)
+    , m_isTreelandSession(Dtk::Gui::DGuiApplicationHelper::testAttribute(
+               Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform))
 {
+    qCDebug(lcKeyboardWorker) << "KeyboardWorker: session type =" << (m_isTreelandSession ? "Treeland/Wayland" : "X11/DBus");
+#ifdef ENABLE_TREELAND_INPUT_MANAGER
+    if (m_isTreelandSession) {
+        m_waylandProxy = new DCC_NAMESPACE::KeyboardWaylandProxy(this);
+        qCDebug(lcKeyboardWorker) << "KeyboardWorker: KeyboardWaylandProxy created for treeland session";
+        // treeland 下由 waylandProxy 上报键盘重复参数、NumLock 和 keyboardAvailable 状态
+        connect(m_waylandProxy, &DCC_NAMESPACE::KeyboardWaylandProxy::RepeatDelayChanged,
+                this, &KeyboardWorker::setModelRepeatDelay);
+        connect(m_waylandProxy, &DCC_NAMESPACE::KeyboardWaylandProxy::RepeatIntervalChanged,
+                this, &KeyboardWorker::setModelRepeatInterval);
+        connect(m_waylandProxy, &DCC_NAMESPACE::KeyboardWaylandProxy::NumLockStateChanged,
+                m_model, &KeyboardModel::setNumLock);
+        connect(m_waylandProxy, &DCC_NAMESPACE::KeyboardWaylandProxy::KeyboardAvailableChanged,
+                m_model, &KeyboardModel::setKeyboardEnabled);
+        m_deviceProxy = m_waylandProxy;
+    } else
+#endif
+    {
+        m_inputDevCfg = DConfig::create("org.deepin.dde.daemon", "org.deepin.dde.daemon.inputdevices", QString(), this);
+        connect(m_keyboardDBusProxy, &KeyboardDBusProxy::NumLockStateChanged, m_model, &KeyboardModel::setNumLock);
+        connect(m_keyboardDBusProxy, &KeyboardDBusProxy::RepeatDelayChanged, this, &KeyboardWorker::setModelRepeatDelay);
+        connect(m_keyboardDBusProxy, &KeyboardDBusProxy::RepeatIntervalChanged, this, &KeyboardWorker::setModelRepeatInterval);
+        m_deviceProxy = m_keyboardDBusProxy;
+    }
+
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::compositingEnabledChanged, this, &KeyboardWorker::onGetWindowWM);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::Added, this, &KeyboardWorker::onAdded);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::Deleted, this, &KeyboardWorker::removed);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::UserLayoutListChanged, this, &KeyboardWorker::onUserLayout);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::CurrentLayoutChanged, this, &KeyboardWorker::onCurrentLayout);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::CapslockToggleChanged, m_model, &KeyboardModel::setCapsLock);
-    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::NumLockStateChanged, m_model, &KeyboardModel::setNumLock);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::langSelectorServiceStartFinished, this, [=] {
         QTimer::singleShot(100, this, &KeyboardWorker::onLangSelectorServiceFinished);
     });
-    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::RepeatDelayChanged, this, &KeyboardWorker::setModelRepeatDelay);
-    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::RepeatIntervalChanged, this, &KeyboardWorker::setModelRepeatInterval);
 
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::Changed, this, &KeyboardWorker::onShortcutChanged);
 
     m_model->setLangChangedState(m_keyboardDBusProxy->localeState());
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::LocaleStateChanged, m_model, &KeyboardModel::setLangChangedState);
+
+    if (!m_isTreelandSession)
+        initKeyboardEnabledSync();
 }
 
 void KeyboardWorker::resetAll() {
@@ -111,6 +141,9 @@ void KeyboardWorker::refreshLang()
 
 void KeyboardWorker::windowSwitch()
 {
+    if (m_isTreelandSession) {
+        return;
+    }
     QDBusInterface licenseInfo("com.deepin.wm",
                                "/com/deepin/wm",
                                "com.deepin.wm",
@@ -126,10 +159,14 @@ void KeyboardWorker::windowSwitch()
 
 void KeyboardWorker::active()
 {
+    qCDebug(lcKeyboardWorker) << "KeyboardWorker::active()";
     m_keyboardDBusProxy->blockSignals(false);
 
-    setModelRepeatDelay(m_keyboardDBusProxy->repeatDelay());
-    setModelRepeatInterval(m_keyboardDBusProxy->repeatInterval());
+    m_deviceProxy->active();
+    setModelRepeatDelay(m_deviceProxy->repeatDelay());
+    setModelRepeatInterval(m_deviceProxy->repeatInterval());
+    qCDebug(lcKeyboardWorker) << "initial repeatDelay=" << m_deviceProxy->repeatDelay()
+                              << "repeatInterval=" << m_deviceProxy->repeatInterval();
 
     m_metaDatas.clear();
     m_letters.clear();
@@ -138,27 +175,36 @@ void KeyboardWorker::active()
     Q_EMIT onLettersChanged(m_letters);
 
     m_model->setCapsLock(m_keyboardDBusProxy->capslockToggle());
-    m_model->setNumLock(m_keyboardDBusProxy->numLockState());
+    m_model->setNumLock(m_deviceProxy->numLockState());
 
     onRefreshKBLayout();
     refreshLang();
     windowSwitch();
     refreshShortcut();
-    if (m_inputDevCfg->isValid()) {
-        QMetaObject::invokeMethod(m_model, "setKeyboardEnabled", Qt::DirectConnection, Q_ARG(bool, m_inputDevCfg->value("keyboardEnabled", true).toBool()));
-        connect(m_inputDevCfg, &DConfig::valueChanged, this, [=](QString key) {
-            if (key == "keyboardEnabled") {
-                QMetaObject::invokeMethod(m_model, "setKeyboardEnabled", Qt::DirectConnection, Q_ARG(bool, m_inputDevCfg->value(key).toBool()));
-            }
-        });
-    } else {
-        qWarning() << QString("DConfig is invalide, name:[%1], subpath[%2].").arg(m_inputDevCfg->name(), m_inputDevCfg->subpath());
+#ifdef ENABLE_TREELAND_INPUT_MANAGER
+    if (m_waylandProxy) {
+        m_model->setKeyboardEnabled(m_waylandProxy->keyboardAvailable());
+    } else
+#endif
+    {
+        syncKeyboardEnabled();
     }
 }
 
 void KeyboardWorker::deactive()
 {
     m_keyboardDBusProxy->blockSignals(true);
+}
+
+void KeyboardWorker::refreshKeyboard()
+{
+#ifdef ENABLE_TREELAND_INPUT_MANAGER
+    if (m_waylandProxy) {
+        qCDebug(lcKeyboardWorker) << "KeyboardWorker::refreshKeyboard() via wayland proxy";
+        m_waylandProxy->refreshKeyboard();
+        return;
+    }
+#endif
 }
 
 bool KeyboardWorker::keyOccupy(const QStringList &list)
@@ -304,12 +350,16 @@ void KeyboardWorker::delShortcut(ShortcutInfo* info)
 
 void KeyboardWorker::setRepeatDelay(uint value)
 {
-    m_keyboardDBusProxy->setRepeatDelay(converToDBusDelay(value));
+    qCDebug(lcKeyboardWorker) << "setRepeatDelay: slider=" << value
+                              << "-> dbus=" << converToDBusDelay(value);
+    m_deviceProxy->setRepeatDelay(converToDBusDelay(value));
 }
 
 void KeyboardWorker::setRepeatInterval(uint value)
 {
-    m_keyboardDBusProxy->setRepeatInterval(static_cast<uint>(converToDBusInterval(value)));
+    qCDebug(lcKeyboardWorker) << "setRepeatInterval: slider=" << value
+                              << "-> dbus=" << converToDBusInterval(value);
+    m_deviceProxy->setRepeatInterval(static_cast<uint>(converToDBusInterval(value)));
 }
 
 void KeyboardWorker::setModelRepeatDelay(uint value)
@@ -324,19 +374,67 @@ void KeyboardWorker::setModelRepeatInterval(uint value)
 
 void KeyboardWorker::setNumLock(bool value)
 {
-    m_keyboardDBusProxy->SetNumLockState(value);
+    qCDebug(lcKeyboardWorker) << "setNumLock:" << value;
+    m_deviceProxy->setNumLockState(value ? 1 : 0);
 }
 
 void KeyboardWorker::setCapsLock(bool value)
 {
+    qCDebug(lcKeyboardWorker) << "setCapsLock:" << value;
     m_keyboardDBusProxy->setCapslockToggle(value);
 }
 
 void KeyboardWorker::setKeyboardEnabled(bool value)
 {
-    if (m_inputDevCfg->isValid()) {
-        m_inputDevCfg->setValue("keyboardEnabled", value);
+    if (!m_inputDevCfg) {
+        if (m_isTreelandSession) {
+            m_model->setKeyboardEnabled(value);
+            return;
+        }
+        qWarning() << "DConfig is null.";
+        return;
     }
+    if (!m_inputDevCfg->isValid()) {
+        qWarning() << QString("DConfig is invalide, name:[%1], subpath[%2].").arg(m_inputDevCfg->name(), m_inputDevCfg->subpath());
+        return;
+    }
+
+    // 先同步 model，保证 Wayland 下界面状态立即更新；后续仍由 DConfig 变更信号做一致性回写。
+    m_model->setKeyboardEnabled(value);
+    m_inputDevCfg->setValue("keyboardEnabled", value);
+    syncKeyboardEnabled();
+}
+
+void KeyboardWorker::initKeyboardEnabledSync()
+{
+    if (!m_inputDevCfg) {
+        qWarning() << "DConfig is null.";
+        return;
+    }
+    if (!m_inputDevCfg->isValid()) {
+        qWarning() << QString("DConfig is invalide, name:[%1], subpath[%2].").arg(m_inputDevCfg->name(), m_inputDevCfg->subpath());
+        return;
+    }
+
+    connect(m_inputDevCfg, &DConfig::valueChanged, this, [this](const QString &key) {
+        if (key == "keyboardEnabled")
+            syncKeyboardEnabled();
+    });
+}
+
+void KeyboardWorker::syncKeyboardEnabled()
+{
+    if (!m_inputDevCfg) {
+        qWarning() << "DConfig is null.";
+        return;
+    }
+    if (!m_inputDevCfg->isValid()) {
+        qWarning() << QString("DConfig is invalide, name:[%1], subpath[%2].").arg(m_inputDevCfg->name(), m_inputDevCfg->subpath());
+        return;
+    }
+
+    QMetaObject::invokeMethod(m_model, "setKeyboardEnabled", Qt::DirectConnection,
+                              Q_ARG(bool, m_inputDevCfg->value("keyboardEnabled", true).toBool()));
 }
 
 void KeyboardWorker::addUserLayout(const QString &value)

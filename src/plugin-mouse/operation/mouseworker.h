@@ -9,6 +9,10 @@
 
 #include <QObject>
 
+#ifdef ENABLE_TREELAND_INPUT_MANAGER
+#include "mousewaylandproxy.h"
+#endif
+
 using namespace DCC_MOUSE;
 namespace DCC_NAMESPACE {
 class MouseDBusProxy;
@@ -22,6 +26,9 @@ public:
     void init();
 
     void initFingerGestures();
+
+    /** 刷新鼠标/触摸板 */
+    void refreshMouse();
 
 public Q_SLOTS:
     void setMouseExist(bool exist);
@@ -97,8 +104,12 @@ private:
 
 private:
     MouseModel *m_model;
+    bool m_isTreelandSession = false;
     MouseDBusProxy *m_mouseProxy;
     TreeLandWorker *m_treelandWorker;
+#ifdef ENABLE_TREELAND_INPUT_MANAGER
+    MouseWaylandProxy *m_waylandProxy = nullptr;
+#endif
 };
 }
 

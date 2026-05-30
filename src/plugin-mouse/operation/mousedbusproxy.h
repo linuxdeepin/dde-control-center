@@ -106,6 +106,7 @@ private:
     QDBusInterface *m_dbusDevices;
     QDBusInterface *m_dbusGesture;
     QDBusInterface *m_appearance;
+    bool m_isTreelandSession = false;
 };
 }
 

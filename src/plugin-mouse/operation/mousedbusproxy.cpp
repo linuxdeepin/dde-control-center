@@ -4,6 +4,8 @@
 #include "mousedbusproxy.h"
 #include "gesturedata.h"
 
+#include <DGuiApplicationHelper>
+
 #include <QJsonArray>
 #include <QDBusArgument>
 #include <QDBusConnection>
@@ -49,59 +51,66 @@ MouseDBusProxy::MouseDBusProxy(QObject *parent)
     , m_dbusDevices(nullptr)
     , m_dbusGesture(nullptr)
     , m_appearance(nullptr)
+    , m_isTreelandSession(DTK_GUI_NAMESPACE::DGuiApplicationHelper::testAttribute(
+               DTK_GUI_NAMESPACE::DGuiApplicationHelper::IsWaylandPlatform))
 {
     init();
 }
 
 void MouseDBusProxy::active()
 {
-    // initial mouse settingss
-    bool exist = m_dbusMouseProperties->call("Get", MouseInterface, "Exist").arguments().at(0).value<QDBusVariant>().variant().toBool();
-    bool leftHanded = m_dbusMouseProperties->call("Get", MouseInterface, "LeftHanded").arguments().at(0).value<QDBusVariant>().variant().toBool();
-    bool naturalScroll = m_dbusMouseProperties->call("Get", MouseInterface, "NaturalScroll").arguments().at(0).value<QDBusVariant>().variant().toBool();
-    int doubleClick = m_dbusMouseProperties->call("Get", MouseInterface, "DoubleClick").arguments().at(0).value<QDBusVariant>().variant().toInt();
-    bool disableTpad = m_dbusMouseProperties->call("Get", MouseInterface, "DisableTpad").arguments().at(0).value<QDBusVariant>().variant().toBool();
-    bool adaptiveAccelProfile = m_dbusMouseProperties->call("Get", MouseInterface, "AdaptiveAccelProfile").arguments().at(0).value<QDBusVariant>().variant().toBool();
-    double motionAcceleration = m_dbusMouseProperties->call("Get", MouseInterface, "MotionAcceleration").arguments().at(0).value<QDBusVariant>().variant().toDouble();
+    if (!m_isTreelandSession) {
+        // initial mouse settingss
+        bool exist = m_dbusMouseProperties->call("Get", MouseInterface, "Exist").arguments().at(0).value<QDBusVariant>().variant().toBool();
+        bool leftHanded = m_dbusMouseProperties->call("Get", MouseInterface, "LeftHanded").arguments().at(0).value<QDBusVariant>().variant().toBool();
+        bool naturalScroll = m_dbusMouseProperties->call("Get", MouseInterface, "NaturalScroll").arguments().at(0).value<QDBusVariant>().variant().toBool();
+        int doubleClick = m_dbusMouseProperties->call("Get", MouseInterface, "DoubleClick").arguments().at(0).value<QDBusVariant>().variant().toInt();
+        bool disableTpad = m_dbusMouseProperties->call("Get", MouseInterface, "DisableTpad").arguments().at(0).value<QDBusVariant>().variant().toBool();
+        bool adaptiveAccelProfile = m_dbusMouseProperties->call("Get", MouseInterface, "AdaptiveAccelProfile").arguments().at(0).value<QDBusVariant>().variant().toBool();
+        double motionAcceleration = m_dbusMouseProperties->call("Get", MouseInterface, "MotionAcceleration").arguments().at(0).value<QDBusVariant>().variant().toDouble();
 
-    Q_EMIT mouseExistChanged(exist);
-    Q_EMIT leftHandStateChanged(leftHanded);
-    Q_EMIT mouseNaturalScrollStateChanged(naturalScroll);
-    Q_EMIT douClickChanged(doubleClick);
-    Q_EMIT disTouchPadChanged(disableTpad);
-    Q_EMIT accelProfileChanged(adaptiveAccelProfile);
-    Q_EMIT mouseMotionAccelerationChanged(motionAcceleration);
+        Q_EMIT mouseExistChanged(exist);
+        Q_EMIT leftHandStateChanged(leftHanded);
+        Q_EMIT mouseNaturalScrollStateChanged(naturalScroll);
+        Q_EMIT douClickChanged(doubleClick);
+        Q_EMIT disTouchPadChanged(disableTpad);
+        Q_EMIT accelProfileChanged(adaptiveAccelProfile);
+        Q_EMIT mouseMotionAccelerationChanged(motionAcceleration);
 
-    // initial touchpad settings
-    motionAcceleration = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "MotionAcceleration").arguments().at(0).value<QDBusVariant>().variant().toDouble();
-    bool tapClick = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "TapClick").arguments().at(0).value<QDBusVariant>().variant().toBool();
-    exist = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "Exist").arguments().at(0).value<QDBusVariant>().variant().toBool();
-    bool touchpadEnabled = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "TPadEnable").arguments().at(0).value<QDBusVariant>().variant().toBool();
-    naturalScroll = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "NaturalScroll").arguments().at(0).value<QDBusVariant>().variant().toBool();
-    bool disableIfTyping = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "DisableIfTyping").arguments().at(0).value<QDBusVariant>().variant().toBool();
+        // initial touchpad settings
+        motionAcceleration = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "MotionAcceleration").arguments().at(0).value<QDBusVariant>().variant().toDouble();
+        bool tapClick = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "TapClick").arguments().at(0).value<QDBusVariant>().variant().toBool();
+        exist = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "Exist").arguments().at(0).value<QDBusVariant>().variant().toBool();
+        bool touchpadEnabled = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "TPadEnable").arguments().at(0).value<QDBusVariant>().variant().toBool();
+        naturalScroll = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "NaturalScroll").arguments().at(0).value<QDBusVariant>().variant().toBool();
+        bool disableIfTyping = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "DisableIfTyping").arguments().at(0).value<QDBusVariant>().variant().toBool();
+
+        Q_EMIT touchpadMotionAccelerationChanged(motionAcceleration);
+        Q_EMIT tpadEnabledChanged(touchpadEnabled);
+        Q_EMIT tapClickChanged(tapClick);
+        Q_EMIT tpadExistChanged(exist);
+        Q_EMIT touchNaturalScrollStateChanged(naturalScroll);
+        Q_EMIT disTypingChanged(disableIfTyping);
+
+        // initial device properties
+        uint wheelSpeed  = m_dbusDevicesProperties->call("Get", InputDevicesInterface, "WheelSpeed").arguments().at(0).value<QDBusVariant>().variant().toUInt();
+        Q_EMIT scrollSpeedChanged(wheelSpeed);
+    }
+
+    // common settings (X11/treeland 都会使用)
     bool palmDetect = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "PalmDetect").arguments().at(0).value<QDBusVariant>().variant().toInt();
     int palmMinWidth = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "PalmMinWidth").arguments().at(0).value<QDBusVariant>().variant().toInt();
     bool palmMinZ = m_dbusTouchPadProperties->call("Get", TouchpadInterface, "PalmMinZ").arguments().at(0).value<QDBusVariant>().variant().toBool();
 
-    Q_EMIT touchpadMotionAccelerationChanged(motionAcceleration);
-    Q_EMIT tpadEnabledChanged(touchpadEnabled);
-    Q_EMIT tapClickChanged(tapClick);
-    Q_EMIT tpadExistChanged(exist);
-    Q_EMIT touchNaturalScrollStateChanged(naturalScroll);
-    Q_EMIT disTypingChanged(disableIfTyping);
     Q_EMIT palmDetectChanged(palmDetect);
     Q_EMIT palmMinWidthChanged(palmMinWidth);
     Q_EMIT palmMinzChanged(palmMinZ);
 
-    motionAcceleration = m_dbusTrackPointProperties->call("Get", TrackpointInterface, "MotionAcceleration").arguments().at(0).value<QDBusVariant>().variant().toDouble();
-    exist = m_dbusTouchPadProperties->call("Get", TrackpointInterface, "Exist").arguments().at(0).value<QDBusVariant>().variant().toBool();
+    double motionAcceleration = m_dbusTrackPointProperties->call("Get", TrackpointInterface, "MotionAcceleration").arguments().at(0).value<QDBusVariant>().variant().toDouble();
+    bool exist = m_dbusTouchPadProperties->call("Get", TrackpointInterface, "Exist").arguments().at(0).value<QDBusVariant>().variant().toBool();
 
     Q_EMIT trackPointMotionAccelerationChanged(motionAcceleration);
     Q_EMIT redPointExistChanged(exist);
-
-    // initial device properties
-    uint wheelSpeed  = m_dbusDevicesProperties->call("Get", InputDevicesInterface, "WheelSpeed").arguments().at(0).value<QDBusVariant>().variant().toUInt();
-    Q_EMIT scrollSpeedChanged(wheelSpeed);
 
     // initial lid is present
     bool lidIsPresent = getLidIsPresent();
@@ -122,14 +131,15 @@ void MouseDBusProxy::deactive()
 void MouseDBusProxy::init()
 {
     // 监控dbus上的属性改变信号
-    QDBusConnection::sessionBus().connect(Service,
-                                          MousePath,
-                                          PropertiesInterface,
-                                          "PropertiesChanged",
-                                          "sa{sv}as",
-                                          this,
-                                          SLOT(onMousePathPropertiesChanged(QDBusMessage)));
-
+    if (!m_isTreelandSession) {
+        QDBusConnection::sessionBus().connect(Service,
+                                              MousePath,
+                                              PropertiesInterface,
+                                              "PropertiesChanged",
+                                              "sa{sv}as",
+                                              this,
+                                              SLOT(onMousePathPropertiesChanged(QDBusMessage)));
+    }
     QDBusConnection::sessionBus().connect(Service,
                                           TouchpadPath,
                                           PropertiesInterface,
@@ -146,13 +156,6 @@ void MouseDBusProxy::init()
                                           this,
                                           SLOT(onTrackpointPathPropertiesChanged(QDBusMessage)));
 
-    QDBusConnection::sessionBus().connect(Service,
-                                          InputDevicesPath,
-                                          PropertiesInterface,
-                                          "PropertiesChanged",
-                                          "sa{sv}as",
-                                          this,
-                                          SLOT(onInputDevicesPathPropertiesChanged(QDBusMessage)));
     QDBusConnection::sessionBus().connect(GestureService,
                                           GesturePath,
                                           PropertiesInterface,
@@ -168,6 +171,15 @@ void MouseDBusProxy::init()
                                           "sa{sv}as",
                                           this,
                                           SLOT(onAppearancePropertiesChanged(QDBusMessage)));
+    if (!m_isTreelandSession) {
+        QDBusConnection::sessionBus().connect(Service,
+                                              InputDevicesPath,
+                                              PropertiesInterface,
+                                              "PropertiesChanged",
+                                              "sa{sv}as",
+                                              this,
+                                              SLOT(onInputDevicesPathPropertiesChanged(QDBusMessage)));
+    }
 
     // 初始化dbus接口
     m_dbusMouseProperties = new QDBusInterface(Service,
@@ -406,26 +418,39 @@ void MouseDBusProxy::onTouchpadPathPropertiesChanged(QDBusMessage msg)
         QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
         QStringList keys = changedProps.keys();
         for (int i = 0; i < keys.size(); i++) {
-            if (keys.at(i) == "Exist") {
-                Q_EMIT tpadExistChanged(changedProps.value(keys.at(i)).toBool());
-            } else if(keys.at(i) == "TPadEnable") {
-                Q_EMIT tpadEnabledChanged(changedProps.value(keys.at(i)).toBool());
-            } else if(keys.at(i) == "NaturalScroll") {
-                Q_EMIT touchNaturalScrollStateChanged(changedProps.value(keys.at(i)).toBool());
-            } else if(keys.at(i) == "DisableIfTyping") {
-                Q_EMIT disTypingChanged(changedProps.value(keys.at(i)).toBool());
-            } else if(keys.at(i) == "DoubleClick") {
-                Q_EMIT douClickChanged(changedProps.value(keys.at(i)).toInt());
-            } else if(keys.at(i) == "MotionAcceleration") {
-                Q_EMIT touchpadMotionAccelerationChanged(changedProps.value(keys.at(i)).toDouble());
-            } else if(keys.at(i) == "TapClick") {
-                Q_EMIT tapClickChanged(changedProps.value(keys.at(i)).toBool());
-            } else if(keys.at(i) == "PalmDetect") {
-                Q_EMIT palmDetectChanged(changedProps.value(keys.at(i)).toBool());
-            } else if(keys.at(i) == "PalmMinWidth") {
-                Q_EMIT palmMinWidthChanged(changedProps.value(keys.at(i)).toInt());
-            } else if(keys.at(i) == "PalmMinZ") {
-                Q_EMIT palmMinzChanged(changedProps.value(keys.at(i)).toInt());
+            const QString &key = keys.at(i);
+
+            if (m_isTreelandSession) {
+                if (key == "PalmDetect") {
+                    Q_EMIT palmDetectChanged(changedProps.value(key).toBool());
+                } else if (key == "PalmMinWidth") {
+                    Q_EMIT palmMinWidthChanged(changedProps.value(key).toInt());
+                } else if (key == "PalmMinZ") {
+                    Q_EMIT palmMinzChanged(changedProps.value(key).toInt());
+                }
+                continue;
+            }
+
+            if (key == "PalmDetect") {
+                Q_EMIT palmDetectChanged(changedProps.value(key).toBool());
+            } else if (key == "PalmMinWidth") {
+                Q_EMIT palmMinWidthChanged(changedProps.value(key).toInt());
+            } else if (key == "PalmMinZ") {
+                Q_EMIT palmMinzChanged(changedProps.value(key).toInt());
+            } else if (key == "Exist") {
+                Q_EMIT tpadExistChanged(changedProps.value(key).toBool());
+            } else if (key == "TPadEnable") {
+                Q_EMIT tpadEnabledChanged(changedProps.value(key).toBool());
+            } else if (key == "NaturalScroll") {
+                Q_EMIT touchNaturalScrollStateChanged(changedProps.value(key).toBool());
+            } else if (key == "DisableIfTyping") {
+                Q_EMIT disTypingChanged(changedProps.value(key).toBool());
+            } else if (key == "DoubleClick") {
+                Q_EMIT douClickChanged(changedProps.value(key).toInt());
+            } else if (key == "MotionAcceleration") {
+                Q_EMIT touchpadMotionAccelerationChanged(changedProps.value(key).toDouble());
+            } else if (key == "TapClick") {
+                Q_EMIT tapClickChanged(changedProps.value(key).toBool());
             }
         }
     }

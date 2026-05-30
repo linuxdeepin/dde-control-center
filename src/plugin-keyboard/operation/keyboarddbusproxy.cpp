@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -119,7 +119,7 @@ void KeyboardDBusProxy::setLayoutScope(int value)
 }
 
 
-uint KeyboardDBusProxy::repeatDelay()
+uint KeyboardDBusProxy::repeatDelay() const
 {
     return qvariant_cast<uint>(m_dBusKeyboardInter->property("RepeatDelay"));
 }
@@ -141,7 +141,7 @@ void KeyboardDBusProxy::setRepeatEnabled(bool value)
 }
 
 
-uint KeyboardDBusProxy::repeatInterval()
+uint KeyboardDBusProxy::repeatInterval() const
 {
     return qvariant_cast<uint>(m_dBusKeyboardInter->property("RepeatInterval"));
 }
@@ -180,9 +180,14 @@ QStringList KeyboardDBusProxy::locales()
 }
 
 //Keybinding
-int KeyboardDBusProxy::numLockState()
+int KeyboardDBusProxy::numLockState() const
 {
     return qvariant_cast<int>(m_dBusKeybingdingInter->property("NumLockState"));
+}
+
+void KeyboardDBusProxy::setNumLockState(int value)
+{
+    SetNumLockState(value != 0);
 }
 
 uint KeyboardDBusProxy::shortcutSwitchLayout()
