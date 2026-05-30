@@ -403,6 +403,13 @@ bool KeyboardController::isShortcutNameExists(const QString &name, const QString
     return isCustomShortcutNameExists(name, excludeId);
 }
 
+void KeyboardController::refreshKeyboard()
+{
+    if (m_worker) {
+        m_worker->refreshKeyboard();
+    }
+}
+
 }
 
 #include "keyboardcontroller.moc"

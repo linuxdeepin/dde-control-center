@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -9,6 +9,11 @@
 #include "shortcutmodel.h"
 #include "keyboardmodel.h"
 #include "keyboarddbusproxy.h"
+#include "ikeyboarddeviceproxy.h"
+
+#ifdef ENABLE_TREELAND_INPUT_MANAGER
+#include "keyboardwaylandproxy.h"
+#endif
 
 #include <DConfig>
 
@@ -58,6 +63,8 @@ public:
     void setCapsLock(bool value);
     void setKeyboardEnabled(bool value);
     Q_INVOKABLE void active();
+
+    void refreshKeyboard();
     void deactive();
     bool keyOccupy(const QStringList &list);
     void onRefreshKBLayout();
@@ -107,6 +114,8 @@ public Q_SLOTS:
 
 private:
     static QString makeShortcutKey(const QString &id, int type);
+    void initKeyboardEnabledSync();
+    void syncKeyboardEnabled();
     uint converToDBusDelay(uint value);
     uint converToModelDelay(uint value);
     int converToDBusInterval(int value);
@@ -126,6 +135,11 @@ private:
     bool m_isResetting = false; // Flag to prevent duplicate reset calls
     QMap<QString, qint64> m_shortcutQueryTime; // 记录每个快捷键最后一次 Query 的时间戳
     QSet<QString> m_replacingShortcuts; // 记录正在替换的快捷键，用于屏蔽中间状态的UI更新
+    bool m_isTreelandSession = false;
+#ifdef ENABLE_TREELAND_INPUT_MANAGER
+    DCC_NAMESPACE::KeyboardWaylandProxy *m_waylandProxy = nullptr;
+#endif
+    DCC_NAMESPACE::IKeyboardDeviceProxy *m_deviceProxy = nullptr; ///< 当前会话的键盘设备代理（构造时注入）
 };
 }
 #endif // KEYBOARDWORK_H

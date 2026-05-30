@@ -1,9 +1,11 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
 #ifndef KEYBOARDDBUSPROXY_H
 #define KEYBOARDDBUSPROXY_H
+
+#include "ikeyboarddeviceproxy.h"
 
 #include <DDBusInterface>
 
@@ -65,11 +67,12 @@ namespace dccV25 {
 class DCCDBusInterface;
 }
 
-class KeyboardDBusProxy : public QObject
+class KeyboardDBusProxy : public QObject, public DCC_NAMESPACE::IKeyboardDeviceProxy
 {
     Q_OBJECT
 public:
     explicit KeyboardDBusProxy(QObject *parent = nullptr);
+    void active() override {}
 
     //Keyboard
     Q_PROPERTY(bool CapslockToggle READ capslockToggle WRITE setCapslockToggle NOTIFY CapslockToggleChanged)
@@ -89,7 +92,7 @@ public:
     void setLayoutScope(int value);
 
     Q_PROPERTY(uint RepeatDelay READ repeatDelay WRITE setRepeatDelay NOTIFY RepeatDelayChanged)
-    uint repeatDelay();
+    uint repeatDelay() const override;
     void setRepeatDelay(uint value);
 
     Q_PROPERTY(bool RepeatEnabled READ repeatEnabled WRITE setRepeatEnabled NOTIFY RepeatEnabledChanged)
@@ -97,7 +100,7 @@ public:
     void setRepeatEnabled(bool value);
 
     Q_PROPERTY(uint RepeatInterval READ repeatInterval WRITE setRepeatInterval NOTIFY RepeatIntervalChanged)
-    uint repeatInterval();
+    uint repeatInterval() const override;
     void setRepeatInterval(uint value);
 
     Q_PROPERTY(QStringList UserLayoutList READ userLayoutList NOTIFY UserLayoutListChanged)
@@ -118,7 +121,8 @@ public:
 
     //Keybinding
     Q_PROPERTY(int NumLockState READ numLockState NOTIFY NumLockStateChanged)
-    int numLockState();
+    int numLockState() const override;
+    void setNumLockState(int value) override;
 
     Q_PROPERTY(uint ShortcutSwitchLayout READ shortcutSwitchLayout WRITE setShortcutSwitchLayout NOTIFY ShortcutSwitchLayoutChanged)
     uint shortcutSwitchLayout();

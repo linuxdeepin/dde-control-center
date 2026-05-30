@@ -1,4 +1,4 @@
-# SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+# SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -24,3 +24,39 @@ target_link_libraries(dcc-shared-utils PRIVATE
     ICU::uc
     ${QT_NS}::Core
 )
+
+# Treeland input manager (wraps treeland_input_manager_v1 Wayland protocol)
+if (Enable_TreelandSupport)
+    find_package(TreelandProtocols REQUIRED)
+    find_package(${QT_NS} REQUIRED COMPONENTS WaylandClient)
+    if(${QT_NS}_VERSION VERSION_GREATER_EQUAL 6.10)
+        find_package(${QT_NS} COMPONENTS WaylandClientPrivate REQUIRED)
+    endif()
+
+    qt6_generate_wayland_protocol_client_sources(dcc-shared-utils
+        FILES
+            ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-input-manager-unstable-v1.xml
+    )
+
+    target_include_directories(dcc-shared-utils PUBLIC
+        ${CMAKE_CURRENT_BINARY_DIR}
+    )
+
+    target_sources(dcc-shared-utils PRIVATE
+        treelandinputmanager.h
+        treelandinputmanager.cpp
+    )
+
+    if(${QT_NS}_VERSION VERSION_GREATER_EQUAL 6.10)
+        target_link_libraries(dcc-shared-utils PUBLIC
+            ${QT_NS}::WaylandClient
+            ${QT_NS}::WaylandClientPrivate
+        )
+    else()
+        target_link_libraries(dcc-shared-utils PUBLIC
+            ${QT_NS}::WaylandClient
+        )
+    endif()
+
+    target_compile_definitions(dcc-shared-utils PUBLIC ENABLE_TREELAND_INPUT_MANAGER)
+endif()

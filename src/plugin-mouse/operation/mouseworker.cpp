@@ -4,18 +4,46 @@
 #include "mouseworker.h"
 
 #include "mousedbusproxy.h"
+#ifdef ENABLE_TREELAND_INPUT_MANAGER
+#include "mousewaylandproxy.h"
+#endif
+
+#include <array>
+#include <cmath>
+#include <QLoggingCategory>
 
 using namespace DCC_NAMESPACE;
 const QString Service = "org.deepin.dde.InputDevices1";
 
+Q_LOGGING_CATEGORY(lcMouseWorker, "dde.dcc.mouse.worker")
+
+namespace {
+constexpr std::array<double, 7> kMotionAccelerationLevels { 3.2, 2.3, 1.6, 1.0, 0.6, 0.3, 0.2 };
+}
+
 MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
     : QObject(parent)
     , m_model(model)
+    , m_isTreelandSession(Dtk::Gui::DGuiApplicationHelper::testAttribute(
+               Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform))
     , m_mouseProxy(new MouseDBusProxy(this))
     , m_treelandWorker(new TreeLandWorker(this))
 {
+    qCDebug(lcMouseWorker) << "MouseWorker: session type =" << (m_isTreelandSession ? "Treeland/Wayland" : "X11/DBus");
+#ifdef ENABLE_TREELAND_INPUT_MANAGER
+    if (m_isTreelandSession) {
+        m_waylandProxy = new MouseWaylandProxy(this);
+        qCDebug(lcMouseWorker) << "MouseWorker: MouseWaylandProxy created for treeland session";
+    }
+#endif
     bindProxySignals();
     bindRequestSignals();
+#ifdef ENABLE_TREELAND_INPUT_MANAGER
+    if (m_isTreelandSession) {
+        qCDebug(lcMouseWorker) << "MouseWorker: activating Wayland proxy";
+        m_waylandProxy->active();
+    }
+#endif
     QMetaObject::invokeMethod(m_mouseProxy, "active", Qt::QueuedConnection);
 #ifdef Enable_Treeland
     m_treelandWorker->active();
@@ -34,27 +62,71 @@ void MouseWorker::init()
 {
 }
 
+void MouseWorker::refreshMouse()
+{
+#ifdef ENABLE_TREELAND_INPUT_MANAGER
+    if (m_waylandProxy) {
+        qCDebug(lcMouseWorker) << "MouseWorker::refreshMouse()";
+        m_waylandProxy->refreshMouse();
+    }
+#endif
+}
+
 void MouseWorker::bindProxySignals()
 {
-    connect(m_mouseProxy, &MouseDBusProxy::mouseExistChanged, this, &MouseWorker::setMouseExist);
-    connect(m_mouseProxy, &MouseDBusProxy::tpadExistChanged, this, &MouseWorker::setTpadExist);
-    connect(m_mouseProxy, &MouseDBusProxy::tpadEnabledChanged, this, &MouseWorker::setTpadEnabled);
-    connect(m_mouseProxy, &MouseDBusProxy::leftHandStateChanged, this, &MouseWorker::setLeftHandState);
-    connect(m_mouseProxy, &MouseDBusProxy::mouseNaturalScrollStateChanged, this, &MouseWorker::setMouseNaturalScrollState);
-    connect(m_mouseProxy, &MouseDBusProxy::touchNaturalScrollStateChanged, this, &MouseWorker::setTouchNaturalScrollState);
-    connect(m_mouseProxy, &MouseDBusProxy::disTypingChanged, this, &MouseWorker::setDisTyping);
-    connect(m_mouseProxy, &MouseDBusProxy::disTouchPadChanged, this, &MouseWorker::setDisTouchPad);
-    connect(m_mouseProxy, &MouseDBusProxy::tapClickChanged, this, &MouseWorker::setTapClick);
-    connect(m_mouseProxy, &MouseDBusProxy::douClickChanged, this, &MouseWorker::setDouClick);
-    connect(m_mouseProxy, &MouseDBusProxy::mouseMotionAccelerationChanged, this, &MouseWorker::setMouseMotionAcceleration);
-    connect(m_mouseProxy, &MouseDBusProxy::accelProfileChanged, this, &MouseWorker::setAccelProfile);
-    connect(m_mouseProxy, &MouseDBusProxy::touchpadMotionAccelerationChanged, this, &MouseWorker::setTouchpadMotionAcceleration);
+    // 设备存在状态：treeland 下由 waylandProxy 上报，DBus 侧跳过
+    if (!m_isTreelandSession) {
+        connect(m_mouseProxy, &MouseDBusProxy::mouseExistChanged, this, &MouseWorker::setMouseExist);
+        connect(m_mouseProxy, &MouseDBusProxy::tpadExistChanged, this, &MouseWorker::setTpadExist);
+        connect(m_mouseProxy, &MouseDBusProxy::tpadEnabledChanged, this, &MouseWorker::setTpadEnabled);
+        connect(m_mouseProxy, &MouseDBusProxy::leftHandStateChanged, this, &MouseWorker::setLeftHandState);
+        connect(m_mouseProxy, &MouseDBusProxy::mouseNaturalScrollStateChanged, this, &MouseWorker::setMouseNaturalScrollState);
+        connect(m_mouseProxy, &MouseDBusProxy::touchNaturalScrollStateChanged, this, &MouseWorker::setTouchNaturalScrollState);
+        connect(m_mouseProxy, &MouseDBusProxy::disTypingChanged, this, &MouseWorker::setDisTyping);
+        connect(m_mouseProxy, &MouseDBusProxy::tapClickChanged, this, &MouseWorker::setTapClick);
+        connect(m_mouseProxy, &MouseDBusProxy::douClickChanged, this, &MouseWorker::setDouClick);
+        connect(m_mouseProxy, &MouseDBusProxy::mouseMotionAccelerationChanged, this, &MouseWorker::setMouseMotionAcceleration);
+        connect(m_mouseProxy, &MouseDBusProxy::accelProfileChanged, this, &MouseWorker::setAccelProfile);
+        connect(m_mouseProxy, &MouseDBusProxy::touchpadMotionAccelerationChanged, this, &MouseWorker::setTouchpadMotionAcceleration);
+        connect(m_mouseProxy, &MouseDBusProxy::scrollSpeedChanged, this, &MouseWorker::setScrollSpeed);
+    }
+    #ifdef ENABLE_TREELAND_INPUT_MANAGER
+        if (m_waylandProxy) {
+        connect(m_waylandProxy, &MouseWaylandProxy::mouseExistChanged,
+            this, &MouseWorker::setMouseExist);
+        connect(m_waylandProxy, &MouseWaylandProxy::tpadExistChanged,
+            this, &MouseWorker::setTpadExist);
+        connect(m_waylandProxy, &MouseWaylandProxy::tpadEnabledChanged,
+            this, &MouseWorker::setTpadEnabled);
+        connect(m_waylandProxy, &MouseWaylandProxy::disTouchPadChanged,
+            this, &MouseWorker::setDisTouchPad);
+        connect(m_waylandProxy, &MouseWaylandProxy::leftHandStateChanged,
+            this, &MouseWorker::setLeftHandState);
+        connect(m_waylandProxy, &MouseWaylandProxy::mouseNaturalScrollStateChanged,
+            this, &MouseWorker::setMouseNaturalScrollState);
+        connect(m_waylandProxy, &MouseWaylandProxy::touchNaturalScrollStateChanged,
+            this, &MouseWorker::setTouchNaturalScrollState);
+        connect(m_waylandProxy, &MouseWaylandProxy::disTypingChanged,
+            this, &MouseWorker::setDisTyping);
+        connect(m_waylandProxy, &MouseWaylandProxy::tapClickChanged,
+            this, &MouseWorker::setTapClick);
+        connect(m_waylandProxy, &MouseWaylandProxy::mouseMotionAccelerationChanged,
+            this, &MouseWorker::setMouseMotionAcceleration);
+        connect(m_waylandProxy, &MouseWaylandProxy::accelProfileChanged,
+            this, &MouseWorker::setAccelProfile);
+        connect(m_waylandProxy, &MouseWaylandProxy::touchpadMotionAccelerationChanged,
+            this, &MouseWorker::setTouchpadMotionAcceleration);
+        connect(m_waylandProxy, &MouseWaylandProxy::scrollSpeedChanged,
+            this, &MouseWorker::setScrollSpeed);
+        }
+    #endif
+    if (!m_isTreelandSession)
+        connect(m_mouseProxy, &MouseDBusProxy::disTouchPadChanged, this, &MouseWorker::setDisTouchPad);
     connect(m_mouseProxy, &MouseDBusProxy::redPointExistChanged, this, &MouseWorker::setRedPointExist);
     connect(m_mouseProxy, &MouseDBusProxy::trackPointMotionAccelerationChanged, this, &MouseWorker::setTrackPointMotionAcceleration);
     connect(m_mouseProxy, &MouseDBusProxy::palmDetectChanged, this, &MouseWorker::setPalmDetect);
     connect(m_mouseProxy, &MouseDBusProxy::palmMinWidthChanged, this, &MouseWorker::setPalmMinWidth);
     connect(m_mouseProxy, &MouseDBusProxy::palmMinzChanged, this, &MouseWorker::setPalmMinz);
-    connect(m_mouseProxy, &MouseDBusProxy::scrollSpeedChanged, this, &MouseWorker::setScrollSpeed);
     connect(m_mouseProxy, &MouseDBusProxy::gestureDataChanged, this, [this](const GestureData &data) {
         setGestureData(data);
         initFingerGestures();
@@ -69,21 +141,50 @@ void MouseWorker::bindRequestSignals()
     connect(this, &MouseWorker::requestSetPalmDetect, m_mouseProxy, &MouseDBusProxy::setPalmDetect);
     connect(this, &MouseWorker::requestSetPalmMinWidth, m_mouseProxy, &MouseDBusProxy::setPalmMinWidth);
     connect(this, &MouseWorker::requestSetPalmMinz, m_mouseProxy, &MouseDBusProxy::setPalmMinz);
-    connect(this, &MouseWorker::requestSetDouClick, m_mouseProxy, &MouseDBusProxy::setDouClick);
-    connect(this, &MouseWorker::requestSetScrollSpeed, m_mouseProxy, &MouseDBusProxy::setScrollSpeed);
-    connect(this, &MouseWorker::requestSetLeftHandState, m_mouseProxy, &MouseDBusProxy::setLeftHandState);
-    connect(this, &MouseWorker::requestSetMouseNaturalScrollState, m_mouseProxy, &MouseDBusProxy::setMouseNaturalScrollState);
-    connect(this, &MouseWorker::requestSetTouchNaturalScrollState, m_mouseProxy, &MouseDBusProxy::setTouchNaturalScrollState);
-    connect(this, &MouseWorker::requestSetDisTyping, m_mouseProxy, &MouseDBusProxy::setDisTyping);
-    connect(this, &MouseWorker::requestSetDisTouchPad, m_mouseProxy, &MouseDBusProxy::setDisableTouchPadWhenMouseExist);
-    connect(this, &MouseWorker::requestSetTapClick, m_mouseProxy, &MouseDBusProxy::setTapClick);
-    connect(this, &MouseWorker::requestSetMouseMotionAcceleration, m_mouseProxy, &MouseDBusProxy::setMouseMotionAcceleration);
-    connect(this, &MouseWorker::requestSetAccelProfile, m_mouseProxy, &MouseDBusProxy::setAccelProfile);
-    connect(this, &MouseWorker::requestSetTouchpadMotionAcceleration, m_mouseProxy, &MouseDBusProxy::setTouchpadMotionAcceleration);
     connect(this, &MouseWorker::requestSetTrackPointMotionAcceleration, m_mouseProxy, &MouseDBusProxy::setTrackPointMotionAcceleration);
-    connect(this, &MouseWorker::requestSetTouchpadEnabled, m_mouseProxy, &MouseDBusProxy::setTouchpadEnabled);
     connect(this, &MouseWorker::requestSetGesture, m_mouseProxy, &MouseDBusProxy::setGesture);
     connect(this, &MouseWorker::requestSetCursorSize, m_mouseProxy, &MouseDBusProxy::setCursorSize);
+    // treeland 下由 MouseWaylandProxy 处理的写请求，X11 下走 DBus
+    if (!m_isTreelandSession) {
+        connect(this, &MouseWorker::requestSetDouClick, m_mouseProxy, &MouseDBusProxy::setDouClick);
+        connect(this, &MouseWorker::requestSetScrollSpeed, m_mouseProxy, &MouseDBusProxy::setScrollSpeed);
+        connect(this, &MouseWorker::requestSetLeftHandState, m_mouseProxy, &MouseDBusProxy::setLeftHandState);
+        connect(this, &MouseWorker::requestSetMouseNaturalScrollState, m_mouseProxy, &MouseDBusProxy::setMouseNaturalScrollState);
+        connect(this, &MouseWorker::requestSetTouchNaturalScrollState, m_mouseProxy, &MouseDBusProxy::setTouchNaturalScrollState);
+        connect(this, &MouseWorker::requestSetDisTyping, m_mouseProxy, &MouseDBusProxy::setDisTyping);
+        connect(this, &MouseWorker::requestSetDisTouchPad, m_mouseProxy, &MouseDBusProxy::setDisableTouchPadWhenMouseExist);
+        connect(this, &MouseWorker::requestSetTapClick, m_mouseProxy, &MouseDBusProxy::setTapClick);
+        connect(this, &MouseWorker::requestSetMouseMotionAcceleration, m_mouseProxy, &MouseDBusProxy::setMouseMotionAcceleration);
+        connect(this, &MouseWorker::requestSetAccelProfile, m_mouseProxy, &MouseDBusProxy::setAccelProfile);
+        connect(this, &MouseWorker::requestSetTouchpadMotionAcceleration, m_mouseProxy, &MouseDBusProxy::setTouchpadMotionAcceleration);
+        connect(this, &MouseWorker::requestSetTouchpadEnabled, m_mouseProxy, &MouseDBusProxy::setTouchpadEnabled);
+    }
+#ifdef ENABLE_TREELAND_INPUT_MANAGER
+    if (m_waylandProxy) {
+        connect(this, &MouseWorker::requestSetLeftHandState,
+                m_waylandProxy, &MouseWaylandProxy::setLeftHandState);
+        connect(this, &MouseWorker::requestSetMouseNaturalScrollState,
+                m_waylandProxy, &MouseWaylandProxy::setMouseNaturalScrollState);
+        connect(this, &MouseWorker::requestSetTouchNaturalScrollState,
+                m_waylandProxy, &MouseWaylandProxy::setTouchNaturalScrollState);
+        connect(this, &MouseWorker::requestSetDisTyping,
+                m_waylandProxy, &MouseWaylandProxy::setDisTyping);
+        connect(this, &MouseWorker::requestSetDisTouchPad,
+                m_waylandProxy, &MouseWaylandProxy::setDisableTouchPadWhenMouseExist);
+        connect(this, &MouseWorker::requestSetTapClick,
+                m_waylandProxy, &MouseWaylandProxy::setTapClick);
+        connect(this, &MouseWorker::requestSetMouseMotionAcceleration,
+                m_waylandProxy, &MouseWaylandProxy::setMouseMotionAcceleration);
+        connect(this, &MouseWorker::requestSetAccelProfile,
+                m_waylandProxy, &MouseWaylandProxy::setAccelProfile);
+        connect(this, &MouseWorker::requestSetTouchpadMotionAcceleration,
+                m_waylandProxy, &MouseWaylandProxy::setTouchpadMotionAcceleration);
+        connect(this, &MouseWorker::requestSetScrollSpeed,
+                m_waylandProxy, &MouseWaylandProxy::setScrollSpeed);
+        connect(this, &MouseWorker::requestSetTouchpadEnabled,
+                m_waylandProxy, &MouseWaylandProxy::setTouchpadEnabled);
+    }
+#endif
 }
 
 void MouseWorker::initFingerGestures()
@@ -103,7 +204,9 @@ void MouseWorker::setTpadExist(bool exist)
 
 void MouseWorker::setTpadEnabled(bool enabled)
 {
+    m_model->m_syncingFromBackend = true;
     m_model->setTapEnabled(enabled);
+    m_model->m_syncingFromBackend = false;
 }
 
 void MouseWorker::setRedPointExist(bool exist)
@@ -113,52 +216,72 @@ void MouseWorker::setRedPointExist(bool exist)
 
 void MouseWorker::setLeftHandState(const bool state)
 {
+    m_model->m_syncingFromBackend = true;
     m_model->setLeftHandState(state);
+    m_model->m_syncingFromBackend = false;
 }
 
 void MouseWorker::setMouseNaturalScrollState(const bool state)
 {
+    m_model->m_syncingFromBackend = true;
     m_model->setMouseNaturalScroll(state);
+    m_model->m_syncingFromBackend = false;
 }
 
 void MouseWorker::setTouchNaturalScrollState(const bool state)
 {
+    m_model->m_syncingFromBackend = true;
     m_model->setTpadNaturalScroll(state);
+    m_model->m_syncingFromBackend = false;
 }
 
 void MouseWorker::setDisTyping(const bool state)
 {
+    m_model->m_syncingFromBackend = true;
     m_model->setDisIfTyping(state);
+    m_model->m_syncingFromBackend = false;
 }
 
 void MouseWorker::setDisTouchPad(const bool state)
 {
+    m_model->m_syncingFromBackend = true;
     m_model->setDisTpad(state);
+    m_model->m_syncingFromBackend = false;
 }
 
 void MouseWorker::setTapClick(const bool state)
 {
+    m_model->m_syncingFromBackend = true;
     m_model->setTapClick(state);
+    m_model->m_syncingFromBackend = false;
 }
 
 void MouseWorker::setDouClick(const int &value)
 {
+    m_model->m_syncingFromBackend = true;
     m_model->setDoubleSpeed(converToDoubleModel(value));
+    m_model->m_syncingFromBackend = false;
 }
 
 void MouseWorker::setMouseMotionAcceleration(const double &value)
 {
+    m_model->m_syncingFromBackend = true;
     m_model->setMouseMoveSpeed(converToModelMotionAcceleration(value));
+    m_model->m_syncingFromBackend = false;
 }
 
 void MouseWorker::setAccelProfile(const bool state)
 {
+    m_model->m_syncingFromBackend = true;
     m_model->setAccelProfile(state);
+    m_model->m_syncingFromBackend = false;
 }
 
 void MouseWorker::setTouchpadMotionAcceleration(const double &value)
 {
+    m_model->m_syncingFromBackend = true;
     m_model->setTpadMoveSpeed(converToModelMotionAcceleration(value));
+    m_model->m_syncingFromBackend = false;
 }
 
 void MouseWorker::setTrackPointMotionAcceleration(const double &value)
@@ -183,7 +306,9 @@ void MouseWorker::setPalmMinz(int palmMinz)
 
 void MouseWorker::setScrollSpeed(uint speed)
 {
+    m_model->m_syncingFromBackend = true;
     m_model->setScrollSpeed(speed);
+    m_model->m_syncingFromBackend = false;
 }
 
 void MouseWorker::setGestureData(const GestureData &data)
@@ -193,7 +318,9 @@ void MouseWorker::setGestureData(const GestureData &data)
 
 void MouseWorker::setCursorSize(const int cursorSize)
 {
+    m_model->m_syncingFromBackend = true;
     m_model->setCursorSize(cursorSize);
+    m_model->m_syncingFromBackend = false;
 }
 
 void MouseWorker::setAvailableCursorSizes(QList<int> sizes)
@@ -309,43 +436,24 @@ int MouseWorker::converToDoubleModel(int value)
 //conver slider value to real value
 double MouseWorker::converToMotionAcceleration(int value)
 {
-    switch (value) {
-    case 0:
-        return 3.2;
-    case 1:
-        return 2.3;
-    case 2:
-        return 1.6;
-    case 3:
+    if (value < 0 || value >= static_cast<int>(kMotionAccelerationLevels.size()))
         return 1.0;
-    case 4:
-        return 0.6;
-    case 5:
-        return 0.3;
-    case 6:
-        return 0.2;
-    default:
-        return 1.0;
-    }
+
+    return kMotionAccelerationLevels[static_cast<size_t>(value)];
 }
 //conver real value to slider value
 int MouseWorker::converToModelMotionAcceleration(double value)
 {
-    if (value <= 0.2) {
-        return 6;
-    } else if (value <= 0.3) {
-        return 5;
-    } else if (value <= 0.6) {
-        return 4;
-    } else if (value <= 1.0) {
-        return 3;
-    } else if (value <= 1.6) {
-        return 2;
-    } else if (value <= 2.3) {
-        return 1;
-    } else if (value <= 3.2) {
-        return 0;
-    } else {
-        return 3;
+    int nearestIndex = 3;
+    double nearestDistance = std::abs(value - kMotionAccelerationLevels[nearestIndex]);
+
+    for (size_t i = 0; i < kMotionAccelerationLevels.size(); ++i) {
+        const double distance = std::abs(value - kMotionAccelerationLevels[i]);
+        if (distance < nearestDistance) {
+            nearestDistance = distance;
+            nearestIndex = static_cast<int>(i);
+        }
     }
+
+    return nearestIndex;
 }

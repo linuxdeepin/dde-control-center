@@ -7,13 +7,16 @@ if (BUILD_PLUGIN)
     endif()
 
     if (Enable_TreelandSupport)
-    find_package(TreelandProtocols REQUIRED)
+        find_package(TreelandProtocols REQUIRED)
     endif()
 
     file(GLOB_RECURSE mouse_SRCS
         "operation/*.cpp"
         "operation/qrc/mouse.qrc"
     )
+    if (NOT Enable_TreelandSupport)
+        list(FILTER mouse_SRCS EXCLUDE REGEX ".*/operation/mousewaylandproxy\\.cpp$")
+    endif()
     file(GLOB_RECURSE mouse_qml_SRCS
         "qml/*.qml"
     )
@@ -39,6 +42,7 @@ if (BUILD_PLUGIN)
         ${QT_NS}::DBus
         ${QT_NS}::Qml
         ${QT_NS}::WaylandClientPrivate
+        dcc-shared-utils
         # PkgConfig::QGSettings
     )
     target_include_directories(${Mouse_Name} PUBLIC

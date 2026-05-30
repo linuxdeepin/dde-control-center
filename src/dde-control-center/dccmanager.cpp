@@ -954,9 +954,10 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
     setAnimationMode(animationMode);
 
     // 更新当前对象
+    const bool currentObjectsUpdated = (m_currentObjects != modules);
+    const bool triggeredObjectsUpdated = (m_triggeredObjects != triggeredObjs);
     m_currentObjects = modules;
     m_triggeredObjects = triggeredObjs;
-    Q_EMIT triggeredObjectsChanged(m_triggeredObjects);
     if (auto *lastObj = m_currentObjects.last(); lastObj != m_activeObject) {
         m_activeObject = lastObj;
         Q_EMIT activeObjectChanged(m_activeObject);
@@ -985,6 +986,11 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
     if (auto *parentItem = triggeredObj->parentItem(); !(triggeredObj->pageType() & DccObject::Menu) && parentItem) {
         Q_EMIT activeItemChanged(parentItem, indicatorShown);
     }
+
+    if (currentObjectsUpdated)
+        Q_EMIT currentObjectsChanged(m_currentObjects);
+    if (triggeredObjectsUpdated)
+        Q_EMIT triggeredObjectsChanged(m_triggeredObjects);
 }
 
 QSet<QString> findAddItems(QSet<QString> *oldSet, QSet<QString> *newSet)

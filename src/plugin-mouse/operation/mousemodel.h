@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef MOUSEMODEL_H
@@ -117,6 +117,8 @@ public:
     Q_INVOKABLE void setGestures(int fingerNum, int index, QString actionName);
     Q_INVOKABLE void updateFigerGestureAni(int fingerNum, int index, QString acitonDec);
 
+    Q_INVOKABLE void refreshMouse();
+
     QString getGestureFingerAniPath() const;
     void setGestureFingerAniPath(const QString &newGestureFingerAniPath);
 
@@ -163,6 +165,7 @@ Q_SIGNALS:
     void themeTypeChanged();
 
 private:
+    bool m_syncingFromBackend = false;
     bool m_leftHandState;
     bool m_disIfTyping;
     bool m_tpadExist;

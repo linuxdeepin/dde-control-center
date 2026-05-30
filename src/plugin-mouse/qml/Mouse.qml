@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 import org.deepin.dcc 1.0
@@ -15,6 +15,4 @@ DccObject {
     page: DccRightView {
         spacing: -4
     }
-
-    visible: !DccApp.isTreeland()
 }
