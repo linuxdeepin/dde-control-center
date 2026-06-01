@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -166,8 +166,16 @@ void GestureModel::addGestureData(GestureData *data)
         return;
     }
 
-    beginInsertRows(QModelIndex(), rowCount(), rowCount());
-    m_gestures.append(data);
+    int insertPos = m_gestures.size();
+    for (int i = 0; i < m_gestures.size(); ++i) {
+        if (m_gestures[i]->sequence() > data->sequence()) {
+            insertPos = i;
+            break;
+        }
+    }
+
+    beginInsertRows(QModelIndex(), insertPos, insertPos);
+    m_gestures.insert(insertPos, data);
     endInsertRows();
 }
 

@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "mousemodel.h"
@@ -289,6 +289,7 @@ void MouseModel::updateGesturesData(const GestureData &gestureData)
         data->setDirection(gestureData.direction());
         data->setActionName(gestureData.actionName());
         data->setFingersNum(gestureData.fingersNum());
+        data->setSequence(gestureData.sequence());
         data->setActionMaps(gestureData.actionMaps());
         gestureModel->addGestureData(data);
     }
