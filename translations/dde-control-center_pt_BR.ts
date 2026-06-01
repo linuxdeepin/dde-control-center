@@ -3484,7 +3484,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Enviar ícone do Lançador para a Área de Trabalho</translation>
+        <translation>Enviar ícone do Launcher para a Área de Trabalho</translation>
     </message>
     <message>
         <source>Empty Trash</source>
