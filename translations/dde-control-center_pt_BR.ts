@@ -2579,7 +2579,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>As notificações de aplicativos não serão exibidas na área de trabalho e os sons serão silenciados mas você pode ver todas as mensagens na central de notificações.</translation>
+        <translation>As notificações de aplicativos não serão exibidas na área de trabalho e os sons serão silenciados mas você pode ver todas as mensagens nas notificações.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
@@ -2603,7 +2603,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>Exibir notificações na área de trabalho ou mostrar mensagens não lidas na central de notificações</translation>
+        <translation>Exibir notificações na área de trabalho ou mostrar mensagens não lidas nas notificações</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -2615,7 +2615,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Notification Center</source>
-        <translation>Central de Notificações</translation>
+        <translation>Notificações</translation>
     </message>
     <message>
         <source>Show message preview</source>
