@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "gesturedata.h"
@@ -53,6 +53,19 @@ void GestureData::setActionName(const QString &newActionName)
         return;
     m_actionName = newActionName;
     emit actionNameChanged();
+}
+
+int GestureData::sequence() const
+{
+    return m_sequence;
+}
+
+void GestureData::setSequence(int newSequence)
+{
+    if (m_sequence == newSequence)
+        return;
+    m_sequence = newSequence;
+    emit sequenceChanged();
 }
 
 QStringList GestureData::actionNameList() const

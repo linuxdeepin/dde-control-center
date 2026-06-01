@@ -219,6 +219,7 @@ void MouseDBusProxy::parseGesturesData(const QDBusArgument &argument)
 {
     // 开始解析数组
     argument.beginArray();
+    int seq = 0;
     while (!argument.atEnd()) {
 
         QString actionType, direction, actionName;
@@ -238,6 +239,7 @@ void MouseDBusProxy::parseGesturesData(const QDBusArgument &argument)
         data.insert("direction", direction);
         data.insert("actionName", actionName);
         data.insert("fingerNum", fingerNum);
+        data.insert("sequence", seq++);
 
         QDBusPendingReply<QString> reply = m_dbusGesture->asyncCall("GetGestureAvaiableActions", actionType, fingerNum);
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
@@ -515,6 +517,7 @@ void MouseDBusProxy::onGetGestureAvaiableActionsFinished(QDBusPendingCallWatcher
     data.setDirection(dbusData.value("direction").toString());
     data.setActionName(dbusData.value("actionName").toString());
     data.setFingersNum(dbusData.value("fingerNum").toInt());
+    data.setSequence(dbusData.value("sequence", -1).toInt());
     QDBusPendingReply<QString> reply = *w;
     if (!reply.isError()) {
         QString actions = reply.value();
