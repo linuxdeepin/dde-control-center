@@ -30,7 +30,7 @@ inline const static QString homeEnduserAgreement_old =
         "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Home/"
         "End-User-License-Agreement-Home-CN-%1.%2";
 inline const static QString militaryEnduserAgreement =
-        "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Military-%1.%2";
+        "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Military-CN-%1.%2";
 inline const static QString professionalEnduserAgreement_new =
         "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Professional-CN-%1.%2";
 inline const static QString professionalEnduserAgreement_old =
@@ -188,30 +188,30 @@ inline LicenseSearchInfo isEndUserAgreementExist()
     QString candidate;
 
     if (DSysInfo::uosType() == DSysInfo::UosType::UosServer) {
-        candidate = pathIfExists(serverEnduserAgreement_new, "txt");
+        candidate = pathIfExists(serverEnduserAgreement_new);
         if (candidate.isEmpty())
-            candidate = pathIfExists(serverEnduserAgreement_old, "txt");
+            candidate = pathIfExists(serverEnduserAgreement_old);
     } else if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosHome) {
-        candidate = pathIfExists(homeEnduserAgreement_new, "txt");
+        candidate = pathIfExists(homeEnduserAgreement_new);
         if (candidate.isEmpty())
-            candidate = pathIfExists(homeEnduserAgreement_old, "txt");
+            candidate = pathIfExists(homeEnduserAgreement_old);
     } else if (DSysInfo::isCommunityEdition()) {
         candidate = pathIfExists(
             "/usr/share/deepin-deepinid-client/privacy/End-User-License-Agreement-Community/"
             "End-User-License-Agreement-CN-%1.%2",
             "txt");
     } else if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosEducation) {
-        candidate = pathIfExists(educationEnduserAgreement, "txt");
+        candidate = pathIfExists(educationEnduserAgreement);
     } else if (DSysInfo::uosEditionType() == DSysInfo::UosEdition::UosMilitary) {
-        candidate = pathIfExists(militaryEnduserAgreement, "txt");
+        candidate = pathIfExists(militaryEnduserAgreement);
     } else {
         candidate = pathIfExists(professionalEnduserAgreement_new);
         if (candidate.isEmpty())
-            candidate = pathIfExists(professionalEnduserAgreement_old, "txt");
+            candidate = pathIfExists(professionalEnduserAgreement_old);
     }
 
     if (candidate.isEmpty())
-        candidate = pathIfExists(oldAgreement, "txt");
+        candidate = pathIfExists(oldAgreement);
 
     if (!candidate.isEmpty())
         return { true, candidate };
