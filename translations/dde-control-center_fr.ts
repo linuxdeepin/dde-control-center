@@ -2432,6 +2432,49 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
 </context>
 <context>
+    <name>MouseDBusProxy</name>
+    <message>
+        <source>Maximize window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Restore window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show desktop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multitasking view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch to previous workspace</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch to next workspace</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hide multitasking view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Toggle multitasking view</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
@@ -2736,18 +2779,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
 <context>
     <name>PersonalizationInterface</name>
     <message>
-        <source>Light</source>
-        <translation>Clair</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation>Automatique</translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation>Sombre</translation>
-    </message>
-    <message>
         <source>Picker service is not available</source>
         <translation>Le service de ramassage n&apos;est pas disponible.</translation>
     </message>
@@ -2812,6 +2843,18 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>Custom</source>
         <translation>Personnalisé</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4409,6 +4452,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>None</source>
         <translation>Aucun</translation>
+    </message>
+    <message>
+        <source>App</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
