@@ -1947,7 +1947,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Drag the display layout first to form a rectangle. If a rectangular layout is not possible, set all displays to the same resolution first.</source>
-        <translation type="unfinished"/>
+        <translation>Vedä ensin näytöt suorakulmioon. Jos asettelu ei ole mahdollinen, aseta ensin kaikki näytöt samaan resoluutioon.</translation>
     </message>
 </context>
 <context>
@@ -2426,19 +2426,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>MouseDBusProxy</name>
     <message>
         <source>Maximize window</source>
-        <translation type="unfinished"/>
+        <translation>Maksimoi ikkuna</translation>
     </message>
     <message>
         <source>Restore window</source>
-        <translation type="unfinished"/>
+        <translation>Palauta ikkuna</translation>
     </message>
     <message>
         <source>Show desktop</source>
-        <translation type="unfinished"/>
+        <translation>Näytä työpöytä</translation>
     </message>
     <message>
         <source>Lock screen</source>
-        <translation type="unfinished"/>
+        <translation>Lukitse näyttö</translation>
     </message>
     <message>
         <source>Multitasking view</source>
