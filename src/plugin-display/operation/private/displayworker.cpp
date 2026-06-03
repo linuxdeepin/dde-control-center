@@ -15,14 +15,17 @@
 
 #include <QDateTime>
 #include <QDebug>
+#include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QLoggingCategory>
+#include <QXmlStreamReader>
 
 Q_LOGGING_CATEGORY(DdcDisplayWorker, "dcc-display-worker")
 
 const QString DisplayInterface("org.deepin.dde.Display1");
 constexpr const char *const CONCAT_SCREEN_NAME = "DDE-CONCAT-SCREEN";
+static const QString EyeProtectionConfig = "/usr/share/dde-wloutput-daemon/eyeprotection.xml";
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>)
 using namespace dccV25;
@@ -31,15 +34,23 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     : QObject(parent)
     , m_model(model)
     , m_displayInter(new DisplayDBusProxy(this))
+    , m_reg(nullptr)
     , m_updateScale(false)
     , m_timer(new QTimer(this))
     , m_dconfig(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.control-center", QStringLiteral("org.deepin.dde.control-center.display"), QString(), this))
-    , m_reg(nullptr)
+    , m_displayDConf(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.daemon", QStringLiteral("org.deepin.Display"), QString(), this))
+    , m_tcMaxValue(6500)
+    , m_tcMinValue(2000)
+    , m_defaultMode(3500)
 {
     // NOTE: what will it be used?
     Q_UNUSED(isSync)
     m_timer->setSingleShot(true);
     m_timer->setInterval(200);
+    initCTMData();
+    if (m_displayDConf && m_displayDConf->keyList().contains("defaultTemperatureManual")){
+        m_defaultMode = m_displayDConf->value("defaultTemperatureManual").toInt();
+    }
 
     if (WQt::Utils::isTreeland()) {
         QMetaObject::invokeMethod(this, "initTreeland", Qt::QueuedConnection);
@@ -57,7 +68,9 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
         connect(m_displayInter, &DisplayDBusProxy::MaxBacklightBrightnessChanged, model, &DisplayModel::setmaxBacklightBrightness);
         connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureEnabledChanged, model, &DisplayModel::setColorTemperatureEnabled);
         connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureModeChanged, model, &DisplayModel::setAdjustCCTmode);
-        connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureManualChanged, model, &DisplayModel::setColorTemperature);
+        connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureManualChanged, this, [this](int kelvin) {
+            m_model->setColorTemperature(toColorTempPos(kelvin));
+        });
         connect(m_displayInter, &DisplayDBusProxy::CustomColorTempTimePeriodChanged, model, &DisplayModel::setCustomColorTempTimePeriod);
         connect(m_displayInter, static_cast<void (DisplayDBusProxy::*)(const QString &) const>(&DisplayDBusProxy::PrimaryChanged), model, &DisplayModel::setPrimary);
 
@@ -111,7 +124,7 @@ void DisplayWorker::active()
         m_model->setScreenWidth(m_displayInter->screenWidth());
         m_model->setAdjustCCTmode(m_displayInter->colorTemperatureMode());
         m_model->setColorTemperatureEnabled(m_displayInter->colorTemperatureEnabled());
-        m_model->setColorTemperature(m_displayInter->colorTemperatureManual());
+        m_model->setColorTemperature(toColorTempPos(m_displayInter->colorTemperatureManual()));
         m_model->setCustomColorTempTimePeriod(m_displayInter->customColorTempTimePeriod());
         m_model->setmaxBacklightBrightness(m_displayInter->maxBacklightBrightness());
         m_model->setAutoLightAdjustIsValid(m_displayInter->hasAmbientLightSensor());
@@ -379,6 +392,13 @@ void DisplayWorker::onInterfaceRegistered(WQt::Registry::Interface interface)
 {
     switch (interface) {
     case WQt::Registry::OutputManagerInterface: {
+        m_model->setResolutionRefreshEnable(true);
+        m_model->setBrightnessEnable(false);
+
+        m_model->setColorTemperatureEnabled(true);
+        m_model->setAdjustCCTmode(0);
+        m_model->setColorTemperature(toColorTempPos(m_defaultMode));
+        m_model->setRedshiftIsValid(true);
         auto *opMgr = m_reg->outputManager();
         if (!opMgr) {
             qCCritical(DdcDisplayWorker) << "Unable to start the output manager";
@@ -438,11 +458,66 @@ void DisplayWorker::onWlOutputManagerDone()
             m_model->setPrimary(m_reg->treeLandOutputManager()->mPrimaryOutput);
         });
     }
-
-    m_model->setResolutionRefreshEnable(true);
-    m_model->setBrightnessEnable(false); // TODO: support gamma effects
 }
 
+uint32_t DisplayWorker::toColorTemp(int pos)
+{
+    int kelvin = pos > 50 ? (m_defaultMode - (m_defaultMode - m_tcMinValue) * (pos - 50) * 0.02) : (m_defaultMode + (m_tcMaxValue - m_defaultMode) * (50 - pos) * 0.02);
+    if (kelvin < 1000)
+        kelvin = 1000;
+    else if (kelvin > 20000)
+        kelvin = 20000;
+    return static_cast<uint32_t>(kelvin);
+}
+
+int DisplayWorker::toColorTempPos(uint32_t temperature)
+{
+    int kelvin = static_cast<int>(temperature);
+    if ((m_tcMaxValue <= m_defaultMode && kelvin >= m_defaultMode ) || (m_defaultMode <= m_tcMinValue && kelvin <= m_defaultMode)) {
+        qCWarning(DdcDisplayWorker) << "Invalid color temperature range, returning mid-point";
+        return 50;
+    }
+    int pos = kelvin >= m_defaultMode ? (m_tcMaxValue - kelvin) * 50.0 / (m_tcMaxValue - m_defaultMode) : 50 + (m_defaultMode - kelvin) * 50.0 / (m_defaultMode - m_tcMinValue);
+    if (pos < 0) {
+        pos = 0;
+    } else if (pos > 100) {
+        pos = 100;
+    }
+    return pos;
+}
+void DisplayWorker::initCTMData()
+{
+    QFile file(EyeProtectionConfig);
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        qCWarning(DdcDisplayWorker) << "Config file is not exist: " << EyeProtectionConfig;
+        return;
+    }
+    QXmlStreamReader xml(&file);
+    QVector<int> val;
+    while (!xml.atEnd() && !xml.hasError()) {
+        QXmlStreamReader::TokenType token = xml.readNext();
+        if (token == QXmlStreamReader::StartElement) {
+            // 获取PanelCCT和RgbGammaLut的值
+            if (xml.name() == "param") {
+                QString paramName = xml.attributes().value("name").toString();
+                QString paramValue = xml.readElementText();
+                if (paramName == "PanelCCT") {
+                    val.push_back(paramValue.toInt());
+                }
+            }
+        }
+    }
+    // 关闭文件
+    file.close();
+    if (val.isEmpty()) {
+        qCWarning(DdcDisplayWorker) << "No PanelCCT param found in config:" << EyeProtectionConfig;
+        return;
+    }
+    std::sort(val.begin(), val.end());
+    m_tcMinValue = val.first();
+    m_tcMaxValue = val.last();
+    m_defaultMode = 4500;
+}
 #ifndef DCC_DISABLE_ROTATE
 
 constexpr static int wlRotate2dcc(int wlRotate)
@@ -563,26 +638,38 @@ void DisplayWorker::applyChanges()
 
 void DisplayWorker::setColorTemperatureEnabled(bool enabled)
 {
-    m_displayInter->setColorTemperatureEnabled(enabled);
+    if (WQt::Utils::isTreeland()) {
+        uint32_t temp = enabled ? toColorTemp(m_model->colorTemperature()) : toColorTemp(m_defaultMode);
+        for (auto it(m_control_monitors.cbegin()); it != m_control_monitors.cend(); ++it) {
+            if (it.value())
+                it.value()->setColorTemperature(temp);
+        }
+    } else {
+        m_displayInter->setColorTemperatureEnabled(enabled);
+    }
 }
 
-void DisplayWorker::setColorTemperature(int value)
+void DisplayWorker::setColorTemperature(int pos)
 {
     if (WQt::Utils::isTreeland()) {
-#if GAMMA_SUPPORT
-        auto *gammaEffect = m_wl_gammaEffects->value(mon);
-        auto *gammaConfig = m_wl_gammaConfig->value(mon);
-        gammaConfig->temperature = value;
-        gammaEffect->setConfiguration(*gammaConfig);
-#endif
+        uint32_t temp = toColorTemp(pos);
+        for (auto it(m_control_monitors.cbegin()); it != m_control_monitors.cend(); ++it) {
+            if (it.value()) {
+                it.value()->setColorTemperature(temp);
+            }
+        }
     } else {
-        m_displayInter->SetColorTemperature(value).waitForFinished();
+        m_displayInter->SetColorTemperature(toColorTemp(pos)).waitForFinished();
     }
 }
 
 void DisplayWorker::SetMethodAdjustCCT(int mode)
 {
-    m_displayInter->SetMethodAdjustCCT(mode);
+    if (WQt::Utils::isTreeland()) {
+        qCDebug(DdcDisplayWorker) << "==treeland==" << "SetMethodAdjustCCT:" << mode;
+    } else {
+        m_displayInter->SetMethodAdjustCCT(mode);
+    }
 }
 
 void DisplayWorker::setCustomColorTempTimePeriod(const QString &timePeriod)
@@ -1092,6 +1179,9 @@ void DisplayWorker::updateControl()
                         if (control) {
                             connect(control, &WQt::ColorControl::brightnessChanged, this, [this, control](double brightness) {
                                 onBrightnessChanged(control, brightness);
+                            });
+                            connect(control, &WQt::ColorControl::colorTemperatureChanged, this, [this](uint32_t temperature) {
+                                m_model->setColorTemperature(toColorTempPos(temperature));
                             });
                         }
                         m_control_monitors.insert(it.key(), control);

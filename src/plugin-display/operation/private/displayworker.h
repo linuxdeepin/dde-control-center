@@ -52,7 +52,7 @@ public Q_SLOTS:
     void setMonitorEnable(Monitor *monitor, const bool enable);
     void applyChanges();
     void setColorTemperatureEnabled(bool enabled);
-    void setColorTemperature(int value);
+    void setColorTemperature(int pos);
     void SetMethodAdjustCCT(int mode);
     void setCustomColorTempTimePeriod(const QString &timePeriod);
 #ifndef DCC_DISABLE_ROTATE
@@ -112,6 +112,11 @@ private:
     void updateControl();
     void initAutoBacklight();
 
+    uint32_t toColorTemp(int pos);
+    int toColorTempPos(uint32_t kelvin);
+    // task 264375
+    void initCTMData();
+
 Q_SIGNALS:
     void requestUpdateModeList();
 
@@ -134,6 +139,11 @@ private:
     QTimer *m_timer;
     DTK_CORE_NAMESPACE::DConfig *m_dconfig;
     QString m_displayConfig;
+
+    DTK_CORE_NAMESPACE::DConfig *m_displayDConf;
+    int m_tcMaxValue;
+    int m_tcMinValue;
+    int m_defaultMode;
 };
 }
 
