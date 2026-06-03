@@ -2428,15 +2428,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>MouseDBusProxy</name>
     <message>
         <source>Maximize window</source>
-        <translation type="unfinished"/>
+        <translation>Maximizar janela</translation>
     </message>
     <message>
         <source>Restore window</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar janela</translation>
     </message>
     <message>
         <source>Show desktop</source>
-        <translation type="unfinished"/>
+        <translation>Exibir área de trabalho</translation>
     </message>
     <message>
         <source>Lock screen</source>
