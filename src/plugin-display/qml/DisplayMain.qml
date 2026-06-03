@@ -498,7 +498,7 @@ DccObject {
                 RowLayout {
                     anchors.fill: parent
                     anchors.leftMargin: 14
-                    anchors.rightMargin:14
+                    anchors.rightMargin: 14
 
                     D.Label {
                         text: dccObj.displayName
@@ -653,10 +653,10 @@ DccObject {
         function getBuiltinScreenIndex() {
             for (var i = 0; i < screen.screenItems.length; i++) {
                 if (screen.screenItems[i].name === dccData.builtinMonitorName) {
-                    return i;
+                    return i
                 }
             }
-            return -1;
+            return -1
         }
 
         DccRepeater {
@@ -1011,6 +1011,7 @@ DccObject {
         displayName: qsTr("Enable eye comfort")
         description: qsTr("Adjust screen display to warmer colors, reducing screen blue light")
         weight: 100
+        visible: dccData.isX11
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         onParentItemChanged: item => { if (item) { item.rightItemTopMargin = 6; item.rightItemBottomMargin = 6 } }
@@ -1023,7 +1024,7 @@ DccObject {
         name: "eyeComfortGroup"
         parentName: "display"
         weight: 110
-        visible: dccData.colorTemperatureEnabled
+        // visible: dccData.colorTemperatureEnabled
         pageType: DccObject.Item
         onParentItemChanged: item => { if (item) { item.rightItemTopMargin = 6; item.rightItemBottomMargin = 6 } }
         page: DccGroupView {}
@@ -1032,6 +1033,7 @@ DccObject {
             parentName: "display/eyeComfortGroup"
             displayName: qsTr("Time")
             weight: 10
+            visible: dccData.colorTemperatureEnabled && dccData.isX11
             pageType: DccObject.Editor
             page: ComboBox {
                 flat: true
@@ -1044,7 +1046,7 @@ DccObject {
             name: "timeFrame"
             parentName: "display/eyeComfortGroup"
             weight: 20
-            visible: dccData.colorTemperatureMode === 2
+            visible: dccData.colorTemperatureMode === 2 && dccData.colorTemperatureEnabled
             pageType: DccObject.Editor
             page: RowLayout {
                 Label {
@@ -1082,12 +1084,13 @@ DccObject {
             parentName: "display/eyeComfortGroup"
             displayName: qsTr("Color Temperature")
             weight: 30
+            visible: dccData.colorTemperatureEnabled
             pageType: DccObject.Editor
             page: RowLayout {
                 property var screenItem
                 Label {
                     Layout.alignment: Qt.AlignVCenter
-                    text: Math.round(colorTemperatureSlider.value) + "%"
+                    text: colorTemperatureSlider.value + "%"
                     font: D.DTK.fontManager.t10
                     opacity: 0.5
                 }

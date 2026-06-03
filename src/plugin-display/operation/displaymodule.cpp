@@ -549,22 +549,14 @@ void DisplayModule::setColorTemperatureMode(int mode)
 int DisplayModule::colorTemperature() const
 {
     Q_D(const DisplayModule);
-    int kelvin = d->m_model->colorTemperature();
-
-    if (kelvin >= 6500)
-        return 50 - (kelvin - 6500) / 300;
-    else if (kelvin < 6500 && kelvin >= 1000)
-        return 50 - (kelvin - 6500) / 100;
-    else
-        return 0;
+    return d->m_model->colorTemperature();
 }
 
 void DisplayModule::setColorTemperature(int pos)
 {
-    int kelvin = pos > 50 ? (6500 - (pos - 50) * 100) : (6500 + (50 - pos) * 300);
     Q_D(DisplayModule);
-    if (d->m_model->colorTemperature() != kelvin) {
-        d->m_worker->setColorTemperature(kelvin);
+    if (d->m_model->colorTemperature() != pos) {
+        d->m_worker->setColorTemperature(pos);
     }
 }
 
