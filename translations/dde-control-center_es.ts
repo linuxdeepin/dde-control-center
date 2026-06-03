@@ -2432,6 +2432,49 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
 </context>
 <context>
+    <name>MouseDBusProxy</name>
+    <message>
+        <source>Maximize window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Restore window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show desktop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multitasking view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch to previous workspace</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch to next workspace</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hide multitasking view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Toggle multitasking view</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
@@ -2736,18 +2779,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
 <context>
     <name>PersonalizationInterface</name>
     <message>
-        <source>Light</source>
-        <translation>Claro</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation>Automático</translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation>Oscuro</translation>
-    </message>
-    <message>
         <source>Picker service is not available</source>
         <translation>El servicio de selección no está disponible.</translation>
     </message>
@@ -2812,6 +2843,18 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Custom</source>
         <translation>Personalizar</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4409,6 +4452,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>None</source>
         <translation>Ninguno</translation>
+    </message>
+    <message>
+        <source>App</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
