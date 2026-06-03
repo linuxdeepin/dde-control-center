@@ -1939,7 +1939,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Auto Brightness</source>
-        <translation>Automaattinen kirkkaus</translation>
+        <translation>Autom. kirkkaus</translation>
     </message>
     <message>
         <source>Concat Screen</source>
