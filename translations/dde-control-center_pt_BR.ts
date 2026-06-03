@@ -2444,11 +2444,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>Exibir multitarefas</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"/>
+        <translation>Desativar</translation>
     </message>
     <message>
         <source>Switch to previous workspace</source>
