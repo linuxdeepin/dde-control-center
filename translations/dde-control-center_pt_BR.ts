@@ -2440,7 +2440,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock screen</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear tela</translation>
     </message>
     <message>
         <source>Multitasking view</source>
