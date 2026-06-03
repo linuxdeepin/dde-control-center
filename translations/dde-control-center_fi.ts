@@ -2454,11 +2454,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Switch to next workspace</source>
-        <translation type="unfinished"/>
+        <translation>Siirry seuraavaan työtilaan</translation>
     </message>
     <message>
         <source>Hide multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>Piilota työtilat näkymä</translation>
     </message>
     <message>
         <source>Toggle multitasking view</source>
