@@ -2452,11 +2452,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Switch to previous workspace</source>
-        <translation type="unfinished"/>
+        <translation>Alternar para a área de trabalho anterior</translation>
     </message>
     <message>
         <source>Switch to next workspace</source>
-        <translation type="unfinished"/>
+        <translation>Alternar para a próxima área de trabalho</translation>
     </message>
     <message>
         <source>Hide multitasking view</source>
