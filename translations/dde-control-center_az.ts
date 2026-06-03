@@ -2424,6 +2424,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>MouseDBusProxy</name>
+    <message>
+        <source>Maximize window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Restore window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show desktop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multitasking view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch to previous workspace</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch to next workspace</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hide multitasking view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Toggle multitasking view</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
@@ -2728,18 +2771,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>PersonalizationInterface</name>
     <message>
-        <source>Light</source>
-        <translation>ضوء</translation>
-    </message>
-    <message>
-        <source>Auto</source>
-        <translation>אוטומטי</translation>
-    </message>
-    <message>
-        <source>Dark</source>
-        <translation>ظلام</translation>
-    </message>
-    <message>
         <source>Picker service is not available</source>
         <translation type="unfinished"/>
     </message>
@@ -2804,6 +2835,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Custom</source>
         <translation>مخصص</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4401,6 +4444,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>لا يوجد</translation>
+    </message>
+    <message>
+        <source>App</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
