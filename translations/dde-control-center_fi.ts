@@ -2462,7 +2462,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Toggle multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>Vaihda työtilat näkymä</translation>
     </message>
 </context>
 <context>
@@ -2837,15 +2837,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Vaalea</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Autom.</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>Tumma</translation>
     </message>
 </context>
 <context>
@@ -4446,7 +4446,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished"/>
+        <translation>Sovellus</translation>
     </message>
 </context>
 </TS>
