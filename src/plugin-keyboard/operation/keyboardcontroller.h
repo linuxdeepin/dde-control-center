@@ -82,6 +82,11 @@ public Q_SLOTS:
     // window — the compositor validates that before starting capture.
     Q_INVOKABLE void beginWaylandKeyCapture(QQuickItem *item, const QString &id, int type);
 
+    // Cancel an in-progress Wayland capture session.  Safe to call when
+    // no capture is active (no-op).  QML should call this when the user
+    // clicks Replace or Cancel so the compositor stops forwarding keys.
+    Q_INVOKABLE void endWaylandKeyCapture();
+
     void addCustomShortcut(const QString &name, const QString &cmd, const QString &accels);
     void modifyCustomShortcut(const QString &id, const QString &name, const QString &cmd, const QString &accels);
     void modifyShortcut(const QString &id, const QString &accels, const int &type);

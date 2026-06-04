@@ -418,6 +418,13 @@ QDBusPendingReply<bool> KeyboardDBusProxy::callModifyHotkeys(const QString &id, 
     return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("ModifyHotkeys"), argumentList);
 }
 
+QDBusPendingReply<bool> KeyboardDBusProxy::callReplaceHotkey(const QString &targetId, const QString &newHotkey, const QString &conflictId)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(targetId) << QVariant::fromValue(newHotkey) << QVariant::fromValue(conflictId);
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("ReplaceHotkey"), argumentList);
+}
+
 QDBusPendingReply<> KeyboardDBusProxy::AddShortcutKeystroke(const QString &in0, int in1, const QString &in2)
 {
     QList<QVariant> argumentList;

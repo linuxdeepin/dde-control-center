@@ -223,6 +223,7 @@ DccObject {
                             }
 
                             function restore() {
+                                dccData.endWaylandKeyCapture()
                                 edit.keys = model.keySequence
                                 conflictText.visible = false
 
@@ -236,6 +237,7 @@ DccObject {
                                 active: false
                                 sourceComponent: ShortcutSettingDialog {
                                     onClosing: {
+                                        dccData.endWaylandKeyCapture()
                                         dialogloader.active = false
 
                                         conflictText.visible = false
@@ -322,6 +324,7 @@ DccObject {
                                         anchors.fill: parent
                                         onClicked: {
                                             var newAccels = shortcutSettingsBody.conflictAccels
+                                            dccData.endWaylandKeyCapture()
                                             edit.modifyShortcut(newAccels)
                                             shortcutSettingsBody.conflictAccels = ""
 
