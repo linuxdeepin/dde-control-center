@@ -2461,15 +2461,15 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Switch to next workspace</source>
-        <translation type="unfinished"/>
+        <translation>Canvia a l&apos;espai de treball següent</translation>
     </message>
     <message>
         <source>Hide multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>Amaga la vista de multitasca</translation>
     </message>
     <message>
         <source>Toggle multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>Commuta la vista de multitasca</translation>
     </message>
 </context>
 <context>
