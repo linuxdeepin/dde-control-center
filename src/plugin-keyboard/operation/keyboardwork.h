@@ -96,6 +96,7 @@ public Q_SLOTS:
     void onRequestShortcut(QDBusPendingCallWatcher* watch);
     void onAllShortcutsReady(const QString &info);
     void onModifyHotkeysFinished(QDBusPendingCallWatcher *watch);
+    void onReplaceHotkeyFinished(QDBusPendingCallWatcher *watch);
     void onAdded(const QString&in0, int in1);
     void onDisableShortcut(ShortcutInfo* info);
     void onAddedFinished(QDBusPendingCallWatcher *watch);

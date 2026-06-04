@@ -926,6 +926,9 @@ void KeyboardWorker::onConflictShortcutCleanFinished(QDBusPendingCallWatcher *wa
             m_keyboardDBusProxy->AddShortcutKeystroke(id, type, shortcut);
         }
     } else {
+        // X11 path only — onDisableShortcut's blocking waitForFinished
+        // already handled failure inline.  Just clean up the flicker guard.
+        qWarning() << "Disable failed for conflicting shortcut:" << watch->error().message();
         const QString &id = watch->property("id").toString();
         const int type = watch->property("type").toInt();
         QString key = makeShortcutKey(id, type);
@@ -945,17 +948,17 @@ void KeyboardWorker::onLookupConflictForShortcutFinished(QDBusPendingCallWatcher
 
     const ShortcutInfoNew conflict = reply.isError() ? ShortcutInfoNew() : reply.value();
     if (!reply.isError() && !conflict.id.isEmpty()) {
+        // Wayland: use ReplaceHotkey to remove the conflicting hotkey from
+        // the conflict shortcut and assign it to the target in one commit.
         const QString targetKey = makeShortcutKey(id, type);
         m_replacingShortcuts.insert(targetKey);
 
-        QDBusPendingCall call = m_keyboardDBusProxy->ClearShortcutKeystrokes(conflict.id, 0);
-        QDBusPendingCallWatcher *cleanWatcher = new QDBusPendingCallWatcher(call, this);
-        cleanWatcher->setProperty("id", id);
-        cleanWatcher->setProperty("type", type);
-        cleanWatcher->setProperty("shortcut", shortcut);
-        cleanWatcher->setProperty("clean", !isKPDelete);
-        connect(cleanWatcher, &QDBusPendingCallWatcher::finished,
-                this, &KeyboardWorker::onConflictShortcutCleanFinished);
+        QDBusPendingReply<bool> replaceReply = m_keyboardDBusProxy->callReplaceHotkey(id, shortcut, conflict.id);
+        QDBusPendingCallWatcher *replaceWatcher = new QDBusPendingCallWatcher(replaceReply, this);
+        replaceWatcher->setProperty("id", id);
+        replaceWatcher->setProperty("type", type);
+        connect(replaceWatcher, &QDBusPendingCallWatcher::finished,
+                this, &KeyboardWorker::onReplaceHotkeyFinished);
     } else {
         if (reply.isError()) {
             qWarning() << "LookupConflictShortcut failed:" << reply.error();
@@ -995,6 +998,28 @@ void KeyboardWorker::onModifyHotkeysFinished(QDBusPendingCallWatcher *watch)
     }
     // On success the server emits ShortcutChanged, which the proxy forwards via
     // shortcutQueried → onKeyBindingChanged to update the model. No extra work here.
+
+    watch->deleteLater();
+}
+
+void KeyboardWorker::onReplaceHotkeyFinished(QDBusPendingCallWatcher *watch)
+{
+    QDBusPendingReply<bool> reply = *watch;
+    const QString id = watch->property("id").toString();
+    const int type = watch->property("type").toInt();
+    const QString key = makeShortcutKey(id, type);
+
+    m_replacingShortcuts.remove(key);
+
+    const bool success = (!reply.isError() && reply.value());
+    if (!success) {
+        qWarning() << "ReplaceHotkey failed for" << id
+                   << (reply.isError() ? reply.error().message() : QStringLiteral("server returned false"));
+        // Re-query to restore the UI to the server's actual state.
+        onShortcutChanged(id, type);
+    }
+    // On success the server emits two ShortcutChanged signals (one per
+    // shortcut), which the proxy forwards to update both model rows.
 
     watch->deleteLater();
 }

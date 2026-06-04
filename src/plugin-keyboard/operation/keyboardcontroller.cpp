@@ -563,6 +563,18 @@ void KeyboardController::beginWaylandKeyCapture(QQuickItem *item, const QString 
             });
 }
 
+void KeyboardController::endWaylandKeyCapture()
+{
+    if (!m_activeCapture)
+        return;
+
+    // Disconnect first so any pending wayland event cannot deliver a
+    // captured() signal after we've already moved on (Replace / Cancel).
+    disconnect(m_activeCapture, nullptr, this, nullptr);
+    m_activeCapture->deleteLater();
+    m_activeCapture.clear();
+}
+
 void KeyboardController::submitWaylandKeystroke(const QString &id, int type, const QString &accels)
 {
     if (accels.isEmpty()) {
