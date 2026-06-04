@@ -2433,15 +2433,15 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>MouseDBusProxy</name>
     <message>
         <source>Maximize window</source>
-        <translation type="unfinished"/>
+        <translation>Minimitza la finestra</translation>
     </message>
     <message>
         <source>Restore window</source>
-        <translation type="unfinished"/>
+        <translation>Restaura la finestra</translation>
     </message>
     <message>
         <source>Show desktop</source>
-        <translation type="unfinished"/>
+        <translation>Mostra l&apos;escriptori</translation>
     </message>
     <message>
         <source>Lock screen</source>
