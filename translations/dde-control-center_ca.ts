@@ -2844,15 +2844,15 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Clara</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Automàtica</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>Fosca</translation>
     </message>
 </context>
 <context>
@@ -4453,7 +4453,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished"/>
+        <translation>Aplicació</translation>
     </message>
 </context>
 </TS>
