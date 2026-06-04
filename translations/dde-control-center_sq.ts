@@ -2469,7 +2469,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Toggle multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>Shfaq/Fshih pamjen shumëpunëshe</translation>
     </message>
 </context>
 <context>
@@ -2844,15 +2844,15 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>E çelët</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Automatike</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>E errët</translation>
     </message>
 </context>
 <context>
@@ -4453,7 +4453,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished"/>
+        <translation>Aplikacion</translation>
     </message>
 </context>
 </TS>
