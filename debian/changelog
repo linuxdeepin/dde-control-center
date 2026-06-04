@@ -1,3 +1,37 @@
+dde-control-center (6.1.90) unstable; urgency=medium
+
+  * feat: adapt color temperature for Treeland
+  * fix: add null pointer checks for D-Bus proxy member variables
+  * feat: adapt keyboard shortcuts and mouse gestures for Wayland
+  * fix: ensure control center displays when showing specific page
+  * feat: set control-center as singleton application
+  * feat: add Treeland Wayland input device support for keyboard and
+    mouse settings
+  * fix: restore DccQuickRepeater to prevent timer warning on quit
+  * fix(systeminfo): fix EULA path and remove hardcoded extension
+  * refactor(datetime): replace hand-rolled Window popup with DTK Popup
+  * fix(touchpad): fix gesture display order inconsistent on first
+    launch
+  * i18n: Updates for project Deepin Desktop Environment (#3268)
+  * feat(display): add virtual output protocol for clone mode
+  * refactor(personalization): move theme models from interface to model
+  * fix(authentication): fix background persisting and buttons
+    misalignment after cancel rename
+  * fix(treeland-worker): bind wallpaper context lifecycle to screen and
+    improve error logging
+  * fix(power): remove Wayland visibility restrictions on power settings
+  * refactor(personalization): use libffmpegthumbnailer for video
+    thumbnails
+  * fix(wallpaper): replace visibility/scale with opacity animation for
+    delete button
+  * fix(personalization): hide automatic wallpaper option in Treeland
+    environment
+  * fix: prevent hang when canceling plugin loading
+  * feat(dccquickdbusinterface): add enabled property to control D-Bus
+    connection
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 04 Jun 2026 19:44:13 +0800
+
 dde-control-center (6.1.89) unstable; urgency=medium
 
   * Release 6.1.89
