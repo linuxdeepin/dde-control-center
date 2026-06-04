@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: GPL-3.0-or-later
 
 add_library(dcc-shared-utils OBJECT)
+set_target_properties(dcc-shared-utils PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 find_package(ICU COMPONENTS i18n uc)
 
