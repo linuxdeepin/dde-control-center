@@ -45,6 +45,7 @@ void KeyboardWaylandProxy::connectKeyboardSettings(TreelandKeyboardSettings *kbd
 {
     if (!kbd || m_keyboardSettings == kbd)
         return;
+    disconnectKeyboardSettings();
     m_keyboardSettings = kbd;
     qCDebug(lcKeyboardWaylandProxy) << "Connecting to TreelandKeyboardSettings";
 
