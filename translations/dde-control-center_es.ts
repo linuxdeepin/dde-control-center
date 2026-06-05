@@ -2459,15 +2459,15 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Switch to previous workspace</source>
-        <translation type="unfinished"/>
+        <translation>Cambiar al espacio de trabajo anterior</translation>
     </message>
     <message>
         <source>Switch to next workspace</source>
-        <translation type="unfinished"/>
+        <translation>Volver al espacio de trabajo siguiente</translation>
     </message>
     <message>
         <source>Hide multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>Ocultar la vista multitarea</translation>
     </message>
     <message>
         <source>Toggle multitasking view</source>
