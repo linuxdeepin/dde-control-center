@@ -2854,7 +2854,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>Oscuro</translation>
     </message>
 </context>
 <context>
@@ -4455,7 +4455,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished"/>
+        <translation>Aplicación</translation>
     </message>
 </context>
 </TS>
