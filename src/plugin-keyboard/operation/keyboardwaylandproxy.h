@@ -7,6 +7,7 @@
 #include "treelandinputmanager.h"
 
 #include <QObject>
+#include <QPointer>
 
 namespace DCC_NAMESPACE {
 
@@ -74,7 +75,7 @@ private:
     static int   intervalToRate(uint intervalValue);
 
     TreelandInputManager *m_inputManager = nullptr;
-    TreelandKeyboardSettings *m_keyboardSettings = nullptr;
+    QPointer<TreelandKeyboardSettings> m_keyboardSettings;
 };
 
 } // namespace DCC_NAMESPACE

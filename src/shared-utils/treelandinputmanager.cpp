@@ -891,8 +891,6 @@ TreelandInputManager::TreelandInputManager(QObject *parent)
         const bool available = isActive();
         qCDebug(lcTreelandInput) << "treeland_input_manager_v1 active changed:" << available;
         Q_EMIT availableChanged(available);
-        if (available)
-            return;
 
         const bool hadMouse = d->mouseAvail;
         const bool hadTouchpad = d->touchpadAvail;
@@ -904,12 +902,20 @@ TreelandInputManager::TreelandInputManager(QObject *parent)
         d->releaseMouseSettings();
         d->releaseTouchpadSettings();
         d->releaseKeyboardSettings();
-        if (hadMouse)
-            Q_EMIT mouseAvailableChanged(false);
-        if (hadTouchpad)
-            Q_EMIT touchpadAvailableChanged(false);
-        if (hadKeyboard)
-            Q_EMIT keyboardAvailableChanged(false);
+
+        if (available) {
+            // Re-initialize after compositor restart
+            d->initialized = false;
+            d->shutDown = false;
+            d->initialize();
+        } else {
+            if (hadMouse)
+                Q_EMIT mouseAvailableChanged(false);
+            if (hadTouchpad)
+                Q_EMIT touchpadAvailableChanged(false);
+            if (hadKeyboard)
+                Q_EMIT keyboardAvailableChanged(false);
+        }
     });
 
     qCDebug(lcTreelandInput) << "Treeland input manager initializing";

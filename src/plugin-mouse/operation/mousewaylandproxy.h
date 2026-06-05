@@ -4,6 +4,7 @@
 #pragma once
 
 #include <QObject>
+#include <QPointer>
 
 namespace DCC_NAMESPACE {
 
@@ -96,8 +97,8 @@ private:
     static uint32_t stateToProfile(bool state);
 
     TreelandInputManager *m_inputManager = nullptr;
-    TreelandMouseSettings *m_connectedMouseSettings = nullptr;
-    TreelandTouchpadSettings *m_connectedTouchpadSettings = nullptr;
+    QPointer<TreelandMouseSettings> m_connectedMouseSettings;
+    QPointer<TreelandTouchpadSettings> m_connectedTouchpadSettings;
     bool m_leftHandedInitialized = false;
     bool m_leftHanded = false;
     bool m_mouseNaturalScrollInitialized = false;
