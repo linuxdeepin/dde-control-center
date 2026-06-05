@@ -33,6 +33,8 @@ DccObject {
             pageType: DccObject.Item
             page: RowLayout {
                 Item {
+                    id: screenSaverItem
+                    property bool showPreviewButton: false
                     implicitWidth: 197
                     implicitHeight: 108
 
@@ -81,7 +83,7 @@ DccObject {
                             return previewFm.advanceWidth(text) + leftPadding + rightPadding
                         }
                         implicitHeight: 24
-                        visible: hoverHandler.hovered
+                        visible: hoverHandler.hovered || screenSaverItem.showPreviewButton
                         text: qsTr("preview")
                         FontMetrics {
                             id: previewFm
@@ -139,6 +141,11 @@ DccObject {
 
                     HoverHandler {
                         id: hoverHandler
+                    }
+                    
+                    TapHandler {
+                        acceptedDevices: PointerDevice.TouchScreen
+                        onTapped: screenSaverItem.showPreviewButton = !screenSaverItem.showPreviewButton
                     }
                 }
             }

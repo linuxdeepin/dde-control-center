@@ -112,6 +112,7 @@ DccObject {
                     weight: 30 + index
                     page: RowLayout {
                         id: layout
+                        property bool showActions: false
 
                         function requestRename(id, newName) {
                             switch (itemRep.authType) {
@@ -259,7 +260,7 @@ DccObject {
                         }
                         D.ActionButton {
                             id: editButton
-                            visible: hoverHandler.hovered
+                            visible: hoverHandler.hovered || layout.showActions
                             implicitWidth: 30
                             implicitHeight: 30
                             icon.name: "dcc_edit"
@@ -288,7 +289,7 @@ DccObject {
                         }
                         D.ActionButton {
                             id: deleteButton
-                            visible: hoverHandler.hovered
+                            visible: hoverHandler.hovered || layout.showActions
                             implicitWidth: 30
                             implicitHeight: 30
                             icon.name: "dcc_delete"
@@ -317,6 +318,12 @@ DccObject {
 
                         HoverHandler {
                             id: hoverHandler
+                        }
+                        
+                        TapHandler {
+                            id: touchHandler
+                            acceptedDevices: PointerDevice.TouchScreen
+                            onTapped: layout.showActions = !layout.showActions
                         }
                     }
                 }
