@@ -2433,43 +2433,43 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>MouseDBusProxy</name>
     <message>
         <source>Maximize window</source>
-        <translation type="unfinished"></translation>
+        <translation>Minimitza la finestra</translation>
     </message>
     <message>
         <source>Restore window</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaura la finestra</translation>
     </message>
     <message>
         <source>Show desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Mostra l&apos;escriptori</translation>
     </message>
     <message>
         <source>Lock screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloca la pantalla</translation>
     </message>
     <message>
         <source>Multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation>Vista de multitasca</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished">Inhabilita</translation>
+        <translation>Inhabilita</translation>
     </message>
     <message>
         <source>Switch to previous workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Canvia a l&apos;espai de treball anterior</translation>
     </message>
     <message>
         <source>Switch to next workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Canvia a l&apos;espai de treball següent</translation>
     </message>
     <message>
         <source>Hide multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation>Amaga la vista de multitasca</translation>
     </message>
     <message>
         <source>Toggle multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation>Commuta la vista de multitasca</translation>
     </message>
 </context>
 <context>
@@ -2844,15 +2844,15 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Clara</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">Automàtic</translation>
+        <translation>Automàtica</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">Fosc</translation>
+        <translation>Fosca</translation>
     </message>
 </context>
 <context>
@@ -4453,7 +4453,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplicació</translation>
     </message>
 </context>
 </TS>
