@@ -2422,43 +2422,43 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <name>MouseDBusProxy</name>
     <message>
         <source>Maximize window</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Restore window</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Show desktop</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Lock screen</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished">Pikaühendamise vältimine</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Switch to previous workspace</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Switch to next workspace</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Hide multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Toggle multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2833,15 +2833,15 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished">Lumine</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">Automaatne</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">Tumeline</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4442,7 +4442,7 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

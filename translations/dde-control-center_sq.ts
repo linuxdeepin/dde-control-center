@@ -2433,43 +2433,43 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>MouseDBusProxy</name>
     <message>
         <source>Maximize window</source>
-        <translation type="unfinished"></translation>
+        <translation>Maksimizo dritaren</translation>
     </message>
     <message>
         <source>Restore window</source>
-        <translation type="unfinished"></translation>
+        <translation>Riktheje dritaren</translation>
     </message>
     <message>
         <source>Show desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Shfaqe desktopin</translation>
     </message>
     <message>
         <source>Lock screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Kyçe ekranin</translation>
     </message>
     <message>
         <source>Multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation>Pamje shumëpunëshe</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished">Çaktivizoje</translation>
+        <translation>Çaktivizoje</translation>
     </message>
     <message>
         <source>Switch to previous workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalo te hapësira e mëparshme e punës</translation>
     </message>
     <message>
         <source>Switch to next workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Kalo te hapësira pasuese e punës</translation>
     </message>
     <message>
         <source>Hide multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation>Fshihe pamjen shumëpunëshe</translation>
     </message>
     <message>
         <source>Toggle multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation>Shfaq/Fshih pamjen shumëpunëshe</translation>
     </message>
 </context>
 <context>
@@ -2844,15 +2844,15 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>E çelët</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">Auto</translation>
+        <translation>Automatike</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">E errët</translation>
+        <translation>E errët</translation>
     </message>
 </context>
 <context>
@@ -4453,7 +4453,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplikacion</translation>
     </message>
 </context>
 </TS>

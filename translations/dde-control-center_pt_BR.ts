@@ -2428,43 +2428,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>MouseDBusProxy</name>
     <message>
         <source>Maximize window</source>
-        <translation type="unfinished"></translation>
+        <translation>Maximizar janela</translation>
     </message>
     <message>
         <source>Restore window</source>
-        <translation type="unfinished"></translation>
+        <translation>Restaurar janela</translation>
     </message>
     <message>
         <source>Show desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir área de trabalho</translation>
     </message>
     <message>
         <source>Lock screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Bloquear tela</translation>
     </message>
     <message>
         <source>Multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation>Exibir multitarefas</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished">Desativar</translation>
+        <translation>Desativar</translation>
     </message>
     <message>
         <source>Switch to previous workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternar para a área de trabalho anterior</translation>
     </message>
     <message>
         <source>Switch to next workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternar para a próxima área de trabalho</translation>
     </message>
     <message>
         <source>Hide multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation>Ocultar multitarefas</translation>
     </message>
     <message>
         <source>Toggle multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation>Alternar multitarefas</translation>
     </message>
 </context>
 <context>
@@ -2622,7 +2622,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation>As notificações de aplicativos não serão exibidas na área de trabalho e os sons serão silenciados mas você pode ver todas as mensagens na central de notificações.</translation>
+        <translation>As notificações de aplicativos não serão exibidas na área de trabalho e os sons serão silenciados mas você pode ver todas as mensagens nas notificações.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
@@ -2646,7 +2646,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>Exibir notificações na área de trabalho ou mostrar mensagens não lidas na central de notificações</translation>
+        <translation>Exibir notificações na área de trabalho ou mostrar mensagens não lidas nas notificações</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -2658,7 +2658,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Notification Center</source>
-        <translation>Central de Notificações</translation>
+        <translation>Notificações</translation>
     </message>
     <message>
         <source>Show message preview</source>
@@ -2839,15 +2839,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Claro</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">Automático</translation>
+        <translation>Automático</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">Tema escuro</translation>
+        <translation>Escuro</translation>
     </message>
 </context>
 <context>
@@ -3527,7 +3527,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Enviar ícone do Lançador para a Área de Trabalho</translation>
+        <translation>Enviar ícone do Launcher para a Área de Trabalho</translation>
     </message>
     <message>
         <source>Empty Trash</source>
@@ -4448,7 +4448,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished"></translation>
+        <translation>Aplicativo</translation>
     </message>
 </context>
 </TS>

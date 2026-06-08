@@ -1939,7 +1939,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Auto Brightness</source>
-        <translation>Automaattinen kirkkaus</translation>
+        <translation>Autom. kirkkaus</translation>
     </message>
     <message>
         <source>Concat Screen</source>
@@ -1947,7 +1947,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Drag the display layout first to form a rectangle. If a rectangular layout is not possible, set all displays to the same resolution first.</source>
-        <translation type="unfinished"/>
+        <translation>Vedä ensin näytöt suorakulmioon. Jos asettelu ei ole mahdollinen, aseta ensin kaikki näytöt samaan resoluutioon.</translation>
     </message>
 </context>
 <context>
@@ -2426,43 +2426,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>MouseDBusProxy</name>
     <message>
         <source>Maximize window</source>
-        <translation type="unfinished"></translation>
+        <translation>Maksimoi ikkuna</translation>
     </message>
     <message>
         <source>Restore window</source>
-        <translation type="unfinished"></translation>
+        <translation>Palauta ikkuna</translation>
     </message>
     <message>
         <source>Show desktop</source>
-        <translation type="unfinished"></translation>
+        <translation>Näytä työpöytä</translation>
     </message>
     <message>
         <source>Lock screen</source>
-        <translation type="unfinished"></translation>
+        <translation>Lukitse näyttö</translation>
     </message>
     <message>
         <source>Multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation>Työtilan ikkunat</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished">Pois</translation>
+        <translation>Pois</translation>
     </message>
     <message>
         <source>Switch to previous workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Siirry edelliseen työtilaan</translation>
     </message>
     <message>
         <source>Switch to next workspace</source>
-        <translation type="unfinished"></translation>
+        <translation>Siirry seuraavaan työtilaan</translation>
     </message>
     <message>
         <source>Hide multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation>Piilota työtilat näkymä</translation>
     </message>
     <message>
         <source>Toggle multitasking view</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaihda työtilat näkymä</translation>
     </message>
 </context>
 <context>
@@ -2837,15 +2837,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"></translation>
+        <translation>Vaalea</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished">Autom.</translation>
+        <translation>Autom.</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished">Tumma</translation>
+        <translation>Tumma</translation>
     </message>
 </context>
 <context>
@@ -4446,7 +4446,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished"></translation>
+        <translation>Sovellus</translation>
     </message>
 </context>
 </TS>
