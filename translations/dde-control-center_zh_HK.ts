@@ -2427,43 +2427,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>MouseDBusProxy</name>
     <message>
         <source>Maximize window</source>
-        <translation type="unfinished"/>
+        <translation>最大化窗口</translation>
     </message>
     <message>
         <source>Restore window</source>
-        <translation type="unfinished"/>
+        <translation>還原窗口</translation>
     </message>
     <message>
         <source>Show desktop</source>
-        <translation type="unfinished"/>
+        <translation>顯示桌面</translation>
     </message>
     <message>
         <source>Lock screen</source>
-        <translation type="unfinished"/>
+        <translation>鎖定屏幕</translation>
     </message>
     <message>
         <source>Multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>顯示多任務視圖</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"/>
+        <translation>禁用</translation>
     </message>
     <message>
         <source>Switch to previous workspace</source>
-        <translation type="unfinished"/>
+        <translation>切換到上一工作區</translation>
     </message>
     <message>
         <source>Switch to next workspace</source>
-        <translation type="unfinished"/>
+        <translation>切換到下一工作區</translation>
     </message>
     <message>
         <source>Hide multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>隱藏多任務視圖</translation>
     </message>
     <message>
         <source>Toggle multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>切換多任務視圖</translation>
     </message>
 </context>
 <context>
@@ -2838,15 +2838,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>淺色</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>自動</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>深色</translation>
     </message>
 </context>
 <context>
@@ -4447,7 +4447,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished"/>
+        <translation>應用</translation>
     </message>
 </context>
 </TS>
