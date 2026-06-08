@@ -2841,15 +2841,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>浅色</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>自动</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>深色</translation>
     </message>
 </context>
 <context>
