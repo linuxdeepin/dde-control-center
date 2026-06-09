@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "controlcenterdbusadaptor.h"
 #include "dccmanager.h"
+#include "securityloaderhelper.h"
 
 #include <DDBusSender>
 #include <DIconTheme>
@@ -96,6 +97,12 @@ int main(int argc, char *argv[])
 
     refreshQmlCache(app->applicationVersion());
 
+    DLogManager::setLogFormat("%{time}{yy-MM-ddTHH:mm:ss.zzz} [%{type}] [%{category}] <%{function}:%{line}> %{message}");
+
+    DLogManager::registerJournalAppender();
+    DLogManager::registerConsoleAppender();
+    DLogManager::registerFileAppender();    
+
     // take care of command line options
     QCommandLineOption showOption(QStringList() << "s" << "show", "show control center(hide for default).");
     QCommandLineOption toggleOption(QStringList() << "t" << "toggle", "toggle control center visible.");
@@ -105,6 +112,8 @@ int main(int argc, char *argv[])
     QCommandLineOption showTime(QStringList() << "z" << "time", "show control center exe time."); // 新增time参数自动测试启动速度
     QCommandLineOption loggingModuleOption(QStringList() << "l" << "logging-module", "Only output logs for the specified module", "loggingModule");
     QCommandLineOption pluginDir("spec", "load plugins from specialdir", "plugindir");
+    QCommandLineOption fd1Opt("fd1", "fd1 from security loader", "fd1");
+    QCommandLineOption fd2Opt("fd2", "fd2 from security loader", "fd2");
 
     QCommandLineParser parser;
     parser.setApplicationDescription("DDE Control Center");
@@ -118,7 +127,14 @@ int main(int argc, char *argv[])
     parser.addOption(showTime);
     parser.addOption(loggingModuleOption);
     parser.addOption(pluginDir);
+    parser.addOption(fd1Opt);
+    parser.addOption(fd2Opt);
     parser.process(*app);
+
+    int fd1 = -1, fd2 = -1;
+    if (parser.isSet(fd1Opt)) fd1 = parser.value(fd1Opt).toInt();
+    if (parser.isSet(fd2Opt)) fd2 = parser.value(fd2Opt).toInt();
+    SecurityLoaderHelper::instance().doSecurityLoader(fd1, fd2);
 
     auto parseReqPage = [&]() -> QString {
          QString reqPage = parser.value(pageOption);
@@ -149,12 +165,6 @@ int main(int argc, char *argv[])
         if (!rules.isEmpty())
             QLoggingCategory::setFilterRules(rules);
     }
-
-    DLogManager::setLogFormat("%{time}{yy-MM-ddTHH:mm:ss.zzz} [%{type}] [%{category}] <%{function}:%{line}> %{message}");
-
-    DLogManager::registerJournalAppender();
-    DLogManager::registerConsoleAppender();
-    DLogManager::registerFileAppender();
 
     auto dirs = QStandardPaths::standardLocations(QStandardPaths::GenericDataLocation);
     QStringList fallbacks = QIcon::fallbackSearchPaths();

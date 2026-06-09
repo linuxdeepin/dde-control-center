@@ -1,4 +1,5 @@
 usr/bin/
+usr/libexec/deepin
 usr/lib/*/*.so*
 usr/lib/*/dde-control-center/
 usr/share
