@@ -298,6 +298,10 @@ Loader {
         }
     }
     onLoaded: {
+        var parentWin = Window.window
+        if (parentWin) {
+            item.transientParent = parentWin
+        }
         item.show()
     }
 }
