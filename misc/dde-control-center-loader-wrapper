@@ -1,0 +1,29 @@
+#!/bin/bash
+# dde-control-center wrapper for deepin-security-loader
+# Launches control center through security loader to get authorization
+# for calling protected system services without polkit popup.
+
+REAL_BINARY="/usr/libexec/deepin/dde-control-center"
+LOADER="/usr/bin/deepin-security-loader"
+LOADER_EXEC="/usr/bin/deepin-security-loader-exec"
+
+# Log to systemd journal with tag "dde-control-center"
+log_to_journal() {
+    logger -t dde-control-center -p user.info "$1"
+}
+
+# Log startup
+log_to_journal "dde-control-center launched with args: $*"
+
+# Check if loader is available and has proper capabilities
+if [ -x "$LOADER" ] && [ -x "$LOADER_EXEC" ]; then
+    if getcap "$LOADER_EXEC" 2>/dev/null | grep -q cap_setgid; then
+        # Launch via loader with authorization groups
+        log_to_journal "Using deepin-security-loader with authorization groups"
+        exec "$LOADER" --group deepin-daemon -- "$REAL_BINARY" "$@"
+    fi
+fi
+
+# Fallback: direct launch without loader (no polkit-free authorization)
+log_to_journal "Fallback: launching directly without security loader"
+exec "$REAL_BINARY" "$@"

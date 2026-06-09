@@ -77,8 +77,19 @@ endif()
 file(GLOB_RECURSE DCC_Translation_QML_FILES ${DCC_PROJECT_ROOT_DIR}/qml/*.qml ${DCC_PROJECT_ROOT_DIR}/src/*.qml)
 file(GLOB_RECURSE DCC_Translation_SOURCE_FILES ${DCC_PROJECT_ROOT_DIR}/src/*.cpp ${DCC_PROJECT_ROOT_DIR}/src/*.h)
 dcc_handle_plugin_translation(NAME ${Control_Center_Name} SOURCE_DIR ${DCC_PROJECT_ROOT_DIR} QML_FILES ${DCC_Translation_QML_FILES} SOURCE_FILES ${DCC_Translation_SOURCE_FILES})
-# bin
-install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_BINDIR})
+# bin → libexec (launched via wrapper through security loader)
+install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_LIBEXECDIR}/deepin)
+
+# Copy wrapper to build dir for local testing (install phase renames it to dde-control-center)
+configure_file("${DCC_PROJECT_ROOT_DIR}/misc/dde-control-center-loader-wrapper"
+               "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/dde-control-center-loader-wrapper"
+               COPYONLY)
+
+# wrapper script (installed as /usr/bin/dde-control-center, replaces original binary)
+install(PROGRAMS "${DCC_PROJECT_ROOT_DIR}/misc/dde-control-center-loader-wrapper"
+    DESTINATION ${CMAKE_INSTALL_BINDIR}
+    RENAME dde-control-center
+    PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
 #----------------------------install config------------------------------
 #desktop
 install(FILES ${DCC_PROJECT_ROOT_DIR}/misc/org.deepin.dde.control-center.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
