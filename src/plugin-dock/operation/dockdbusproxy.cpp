@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -145,7 +145,7 @@ bool DockDBusProxy::showRecent()
 
 void DockDBusProxy::resizeDock(int offset, bool dragging)
 {
-    m_dockInter->call(QDBus::CallMode::Block, QStringLiteral("resizeDock"), QVariant::fromValue(offset), QVariant::fromValue(dragging));
+    m_dockInter->asyncCall(QStringLiteral("resizeDock"), QVariant::fromValue(offset), QVariant::fromValue(dragging));
 }
 
 QDBusPendingReply<QStringList> DockDBusProxy::GetLoadedPlugins()
