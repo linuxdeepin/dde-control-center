@@ -678,6 +678,67 @@ void DisplayModule::resetBackup()
     d->m_worker->resetBackup();
 }
 
+const QVariantMap DisplayModule::get(const QVariantMap &param)
+{
+    QVariantMap result;
+    for (auto it = param.constBegin(); it != param.constEnd(); ++it) {
+        const QString &key = it.key();
+        const QVariant &value = it.value();
+        Q_UNUSED(value);
+
+        if (key == "displayMode") {
+            result[key] = displayMode();
+        } else if (key == "globalScale") {
+            result[key] = globalScale();
+        } else if (key == "maxGlobalScale") {
+            result[key] = maxGlobalScale();
+        } else if (key == "colorTemperatureEnabled") {
+            result[key] = colorTemperatureEnabled();
+        } else if (key == "colorTemperatureMode") {
+            result[key] = colorTemperatureMode();
+        } else if (key == "colorTemperature") {
+            result[key] = colorTemperature();
+        } else if (key == "autoBacklightEnabled") {
+            result[key] = autoBacklightEnabled();
+        } else if (key == "isX11") {
+            result[key] = isX11();
+        }
+    }
+    return result;
+}
+
+const QVariantMap DisplayModule::set(const QVariantMap &param)
+{
+    QVariantMap errors;
+    for (auto it = param.constBegin(); it != param.constEnd(); ++it) {
+        const QString &key = it.key();
+        const QVariant &value = it.value();
+
+        if (key == "displayMode") {
+            setDisplayMode(value.toString());
+        } else if (key == "globalScale") {
+            setGlobalScale(value.toReal());
+        } else if (key == "colorTemperatureEnabled") {
+            setColorTemperatureEnabled(value.toBool());
+        } else if (key == "colorTemperatureMode") {
+            setColorTemperatureMode(value.toInt());
+        } else if (key == "colorTemperature") {
+            setColorTemperature(value.toInt());
+        } else if (key == "autoBacklightEnabled") {
+            setAutoBacklightEnabled(value.toBool());
+        } else {
+            errors[key] = QString("unsupported property: %1").arg(key);
+        }
+    }
+    return errors;  // 空表示成功
+}
+
+void DisplayModule::active()
+{
+    Q_D(DisplayModule);
+    d->init();
+}
+
 void DisplayModule::adsorptionScreen(QList<QObject *> listItems, QObject *pw, qreal scale)
 {
     QQuickItem *tmpPw = dynamic_cast<QQuickItem *>(pw);
@@ -787,7 +848,7 @@ void DisplayModule::applyChanged()
     qDeleteAll(tmpListItems);
 }
 
-DCC_FACTORY_CLASS(DisplayModule)
+DCC_FULL_FACTORY_CLASS(DisplayModule)
 
 } // namespace dccV25
 

@@ -81,6 +81,8 @@ public Q_SLOTS:
     QString searchProxy(const QString &json) const;
     bool stop(const QString &json);
     bool action(const QString &json);
+    QVariantMap get(const QString &module, const QVariantMap &param);
+    QVariantMap set(const QString &module, const QVariantMap &param);
     QString GetAllModule();
     void onDccObjectDestroyed(DccObject *obj);
 
