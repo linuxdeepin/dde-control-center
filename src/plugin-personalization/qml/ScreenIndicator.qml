@@ -1,51 +1,51 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
-
 import QtQuick 2.15
+
+import org.deepin.ds 1.0 as DS
 import org.deepin.dcc 1.0
 
-Window {
+Loader {
     id: root
-    flags: Qt.CoverWindow | Qt.WindowStaysOnTopHint | Qt.SplashScreen | Qt.FramelessWindowHint | Qt.X11BypassWindowManagerHint
-    color: "#2ca7f8"
-    x: screen.virtualX
-    y: screen.virtualY
-    width: screen.width
-    height: 10
-    onClosing: destroy(10)
+    property var screen: null
+    signal closed
+    active: screen !== null
     Timer {
         interval: 1000
-        running: root.visible
-        onTriggered: root.close()
+        running: root.active
+        onTriggered: root.closed()
     }
-    Window {
-        flags: Qt.CoverWindow | Qt.WindowStaysOnTopHint | Qt.SplashScreen | Qt.FramelessWindowHint | Qt.X11BypassWindowManagerHint
-        visible: root.visible
-        color: root.color
+
+    component IndicatorBorder: Window {
         screen: root.screen
-        x: screen.virtualX
-        y: screen.virtualY + screen.height - 10
-        width: screen.width
+        color: "#2ca7f8"
+
+        flags: Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint
+        DS.DLayerShellWindow.layer: DS.DLayerShellWindow.LayerOverlay
+        DS.DLayerShellWindow.exclusionZone: -1
+        Component.onCompleted: show()
         height: 10
-    }
-    Window {
-        flags: Qt.CoverWindow | Qt.WindowStaysOnTopHint | Qt.SplashScreen | Qt.FramelessWindowHint | Qt.X11BypassWindowManagerHint
-        visible: root.visible
-        color: root.color
-        screen: root.screen
-        x: screen.virtualX
-        y: screen.virtualY
         width: 10
-        height: screen.height
     }
-    Window {
-        flags: Qt.CoverWindow | Qt.WindowStaysOnTopHint | Qt.SplashScreen | Qt.FramelessWindowHint | Qt.X11BypassWindowManagerHint
-        visible: root.visible
-        color: root.color
-        screen: root.screen
-        x: screen.virtualX + screen.width - 10
-        y: screen.virtualY
-        width: 10
-        height: screen.height
+
+    sourceComponent: IndicatorBorder {
+        DS.DLayerShellWindow.anchors: DS.DLayerShellWindow.AnchorTop
+                                      | DS.DLayerShellWindow.AnchorLeft
+                                      | DS.DLayerShellWindow.AnchorRight
+        IndicatorBorder {
+            DS.DLayerShellWindow.anchors: DS.DLayerShellWindow.AnchorBottom
+                                          | DS.DLayerShellWindow.AnchorLeft
+                                          | DS.DLayerShellWindow.AnchorRight
+        }
+        IndicatorBorder {
+            DS.DLayerShellWindow.anchors: DS.DLayerShellWindow.AnchorLeft
+                                          | DS.DLayerShellWindow.AnchorTop
+                                          | DS.DLayerShellWindow.AnchorBottom
+        }
+        IndicatorBorder {
+            DS.DLayerShellWindow.anchors: DS.DLayerShellWindow.AnchorRight
+                                          | DS.DLayerShellWindow.AnchorTop
+                                          | DS.DLayerShellWindow.AnchorBottom
+        }
     }
 }

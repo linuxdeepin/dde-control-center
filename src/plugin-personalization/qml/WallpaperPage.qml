@@ -29,22 +29,19 @@ DccObject {
         visible: dccData.model.screens.length > 1
         page: ScreenTab {
             id: screemTab
+            property var indicatorScreen: null
             model: dccData.model.screens
             screen: dccData.model.currentSelectScreen
             onScreenChanged: {
                 if (screen !== dccData.model.currentSelectScreen) {
                     dccData.model.currentSelectScreen = screen
-                    if (true) {
-                        indicator.createObject(this, {
-                                                "screen": getQtScreen(screemTab.screen)
-                                            }).show()
-                    }
+                    indicatorScreen = null
+                    indicatorScreen = getQtScreen(screemTab.screen)
                 }
             }
-
-            Component {
-                id: indicator
-                ScreenIndicator {}
+            ScreenIndicator{
+                screen: screemTab.indicatorScreen
+                onClosed: screemTab.indicatorScreen = null
             }
 
             function getQtScreen(screenName) {

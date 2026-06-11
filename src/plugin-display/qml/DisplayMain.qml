@@ -14,6 +14,7 @@ DccObject {
     property var activeDialogs: []
     property bool screensFormRect: dccData.screensFormRect
     property bool isExtendMode: dccData.displayMode === "EXTEND"
+    property var indicatorScreen: null // 用于显示屏幕边框指示器的属性
     property var scaleModelConst: [{
             "text": qsTr("100%"),
             "value": 1.0
@@ -141,14 +142,6 @@ DccObject {
             closeInvalidDialogs()
         }
     }
-    Component {
-        id: indicator
-        ScreenIndicator {}
-    }
-    Component {
-        id: recognize
-        ScreenRecognize {}
-    }
     DccTitleObject {
         name: "multipleDisplays"
         parentName: "display"
@@ -245,11 +238,9 @@ DccObject {
                     function pressedItem(item) {
                         hasMove = false
                         root.screen = item.screen
-                        if (dccData.isX11) {
-                            indicator.createObject(this, {
-                                                       "screen": getQtScreen(item.screen)
-                                                   }).show()
-                        }
+                        // 使用 indicatorScreen 属性统一显示边框指示器
+                        root.indicatorScreen = null
+                        root.indicatorScreen = getQtScreen(item.screen)
                     }
                     function positionChangedItem(item) {
                         monitorControl.effective = false
@@ -359,42 +350,37 @@ DccObject {
                 }
                 D.Button {
                     id: identifyBut
-                    property var recognizes: []
+                    property bool identifyActive: false
                     implicitHeight: 24
                     implicitWidth: 72
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
                     anchors.rightMargin: 7
                     text: dccObj.displayName
-                    function closeWindow() {
-                        recognizeTimer.stop()
-                        for (var obj of identifyBut.recognizes) {
-                            obj.close()
-                        }
-                        identifyBut.recognizes = []
-                    }
                     Timer {
                         id: recognizeTimer
                         repeat: false
                         interval: 5000
-                        onTriggered: identifyBut.closeWindow()
+                        onTriggered: identifyBut.identifyActive = false
                     }
                     onClicked: {
-                        // if (!dccData.isX11) {
-                        //     return
-                        // }
-                        identifyBut.closeWindow()
-                        for (var i = 0; i < dccData.virtualScreens.length; i++) {
-                            var item = dccData.virtualScreens[i]
-                            var obj = recognize.createObject(this, {
-                                                                 "screen": getQtScreen(item),
-                                                                 "name": item.name
-                                                             })
-                            obj.show()
-                            obj.escPressed.connect(identifyBut.closeWindow)
-                            recognizes.push(obj)
-                        }
+                        identifyBut.identifyActive = true
                         recognizeTimer.restart()
+                    }
+                    // 使用 Repeater + Loader 创建多个 ScreenRecognize 窗口
+                    Repeater {
+                        id: recognizeRepeater
+                        model: identifyBut.identifyActive ? dccData.virtualScreens : []
+                        Loader {
+                            sourceComponent: ScreenRecognize {
+                                onEscPressed: identifyBut.identifyActive = false
+                            }
+                            onLoaded: {
+                                item.screen = getQtScreen(modelData)
+                                item.name = modelData.name
+                                item.show()
+                            }
+                        }
                     }
                 }
             }
@@ -595,13 +581,15 @@ DccObject {
             onScreenClicked: function (screen) {
                 if (screen && screen !== root.screen) {
                     root.screen = screen
-                    if (dccData.isX11) {
-                        indicator.createObject(this, {
-                                                   "screen": getQtScreen(root.screen)
-                                               }).show()
-                    }
+                    // 设置 indicatorScreen 属性显示边框指示器
+                    root.indicatorScreen = null
+                    root.indicatorScreen = getQtScreen(root.screen)
                 }
             }
+        }
+        ScreenIndicator{
+            screen: root.indicatorScreen
+            onClosed: root.indicatorScreen = null
         }
     }
     component BrightnessComponent: RowLayout {
