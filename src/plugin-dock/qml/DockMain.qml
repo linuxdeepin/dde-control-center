@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -155,12 +155,20 @@ DccObject {
                     implicitHeight: 24
                     highlightedPassedGroove: true
                     stepSize: 1
-                    value: dccData.dockInter.DisplayMode === 2 ? dccData.dockInter.WindowSizeFashion : dccData.dockInter.WindowSizeEfficient 
+                    value: {
+                        if (balanceSlider.pressed) {
+                            return balanceSlider.value
+                        }
+
+                        return dccData.dockInter.DisplayMode === 2 ? dccData.dockInter.WindowSizeFashion : dccData.dockInter.WindowSizeEfficient
+                    } 
                     from: 37
                     to: 100
 
                     onValueChanged: {
-                        dccData.dockInter.resizeDock(value, true)
+                        if (pressed) {
+                            dccData.dockInter.resizeDock(value, true)
+                        }
                     }
 
                     onPressedChanged: {
