@@ -536,11 +536,7 @@ DccObject {
                         checked: dccData.isConcatScreenMode
                         enabled: root.screensFormRect || dccData.isConcatScreenMode
                         onCheckedChanged: {
-                            if (checked) {
-                                dccData.mergeToConcatScreen()
-                            } else {
-                                dccData.resetConcatScreenMode()
-                            }
+                            dccData.setConcatScreenMode(checked)
                         }
                     }
                 }

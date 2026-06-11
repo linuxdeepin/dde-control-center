@@ -71,8 +71,7 @@ public Q_SLOTS:
     void executemultiScreenAlgo(QList<QObject *> listItems, QObject *pw, qreal scale);
     void applySettings(QList<QObject *> listItems, qreal scale);
     void applyChanged(); // 修改分辨率、方向时，要重新处理下拼接
-    Q_INVOKABLE void mergeToConcatScreen();
-    Q_INVOKABLE void resetConcatScreenMode();
+    Q_INVOKABLE void setConcatScreenMode(bool enable);
 
 Q_SIGNALS:
     void virtualScreensChanged();

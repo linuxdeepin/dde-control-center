@@ -99,6 +99,10 @@ public:
     Q_PROPERTY(QString WallpaperURls READ wallpaperURls NOTIFY WallpaperURlsChanged FINAL)
     QString wallpaperURls() const;
 
+    // concat screen
+    Q_PROPERTY(bool ConcatScreenEnabled READ isConcatScreenEnabled NOTIFY ConcatScreenChanged FINAL)
+    bool isConcatScreenEnabled();
+
 private:
     void init();
 
@@ -126,6 +130,7 @@ public Q_SLOTS: // METHODS
     QDBusPendingReply<> SetMethodAdjustCCT(int in0);
     QDBusPendingReply<> SetPrimary(const QString &in0);
     QDBusPendingReply<> SwitchMode(uchar in0, const QString &in1);
+    QDBusPendingReply<> SetConcatScreen(bool enable);
     QDBusReply<bool> CanSetBrightnessSync(const QString &name);
     QDBusReply<bool> SupportSetColorTemperatureSync();
     // Appearance
@@ -168,6 +173,9 @@ Q_SIGNALS: // SIGNALS
     void AutoBrightnessEnabledChanged(bool value) const;
     void WallpaperURlsChanged(const QString &value) const;
     void WorkspaceSwitched(int oldIndex,int newIndex);
+
+    // concat screen
+    void ConcatScreenChanged(bool value) const;
 
 private:
     Dtk::Core::DDBusInterface *m_dBusDisplayInter;

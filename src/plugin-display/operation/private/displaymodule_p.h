@@ -31,8 +31,7 @@ public:
     void updateDisplayMode();
     void updateMaxGlobalScale();
     void updateScreensFormRect();
-    void mergeToConcatScreen();
-    void resetConcatScreenMode();
+    void setConcatScreenMode(bool enable);
     void updateConcatScreenMode();
     DccScreen *primary() const;
     QList<DccScreen *> enabledScreens() const;
