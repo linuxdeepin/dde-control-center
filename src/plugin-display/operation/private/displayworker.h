@@ -13,7 +13,6 @@
 
 #include <QObject>
 #include <QTimer>
-#include <QProcess>
 
 #define GAMMA_SUPPORT false
 /*
@@ -70,8 +69,7 @@ public Q_SLOTS:
     void setCurrentFillMode(Monitor *mon, const QString fillMode);
     void setAutoBacklightEnabled(const bool value);
 
-    void mergeToConcatScreen(const QStringList &outputs);
-    void resetConcatScreenMode();
+    void setConcatScreenMode(bool enable);
     void updateConcatScreenMode();
 
     void backupConfig();

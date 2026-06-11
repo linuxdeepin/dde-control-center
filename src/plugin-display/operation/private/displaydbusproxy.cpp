@@ -130,6 +130,11 @@ bool DisplayDBusProxy::hasChanged()
     return qvariant_cast<bool>(m_dBusDisplayInter->property("HasChanged"));
 }
 
+bool DisplayDBusProxy::isConcatScreenEnabled()
+{
+    return qvariant_cast<bool>(m_dBusDisplayInter->property("ConcatScreenEnabled"));
+}
+
 uint DisplayDBusProxy::maxBacklightBrightness()
 {
     return qvariant_cast<uint>(m_dBusDisplayInter->property("MaxBacklightBrightness"));
@@ -360,6 +365,13 @@ QDBusPendingReply<> DisplayDBusProxy::SetPrimary(const QString &in0)
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
     return m_dBusDisplayInter->asyncCallWithArgumentList(QStringLiteral("SetPrimary"), argumentList);
+}
+
+QDBusPendingReply<> DisplayDBusProxy::SetConcatScreen(bool enable)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(enable);
+    return m_dBusDisplayInter->asyncCallWithArgumentList(QStringLiteral("SetConcatScreen"), argumentList);
 }
 
 QDBusPendingReply<> DisplayDBusProxy::SwitchMode(uchar in0, const QString &in1)

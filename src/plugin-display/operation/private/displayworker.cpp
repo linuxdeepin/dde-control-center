@@ -14,6 +14,7 @@
 #include <dconfig.h>
 
 #include <QDateTime>
+#include <QDBusPendingCallWatcher>
 #include <QDebug>
 #include <QFile>
 #include <QJsonDocument>
@@ -24,7 +25,6 @@
 Q_LOGGING_CATEGORY(DdcDisplayWorker, "dcc-display-worker")
 
 const QString DisplayInterface("org.deepin.dde.Display1");
-constexpr const char *const CONCAT_SCREEN_NAME = "DDE-CONCAT-SCREEN";
 static const QString EyeProtectionConfig = "/usr/share/dde-wloutput-daemon/eyeprotection.xml";
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>)
@@ -73,6 +73,9 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
         });
         connect(m_displayInter, &DisplayDBusProxy::CustomColorTempTimePeriodChanged, model, &DisplayModel::setCustomColorTempTimePeriod);
         connect(m_displayInter, static_cast<void (DisplayDBusProxy::*)(const QString &) const>(&DisplayDBusProxy::PrimaryChanged), model, &DisplayModel::setPrimary);
+
+        // concat screen
+        connect(m_displayInter, &DisplayDBusProxy::ConcatScreenChanged, model, &DisplayModel::setIsConcatScreenMode);
 
         // display redSfit/autoLight
         connect(m_displayInter, &DisplayDBusProxy::HasAmbientLightSensorChanged, m_model, &DisplayModel::autoLightAdjustVaildChanged);
@@ -1273,43 +1276,25 @@ void DisplayWorker::setMonitorResolutionBySize(Monitor *mon, const int width, co
     }
 }
 
-void DisplayWorker::mergeToConcatScreen(const QStringList &outputs)
+void DisplayWorker::setConcatScreenMode(bool enable)
 {
     if (WQt::Utils::isTreeland()) {
         return;
     }
 
-    if (outputs.size() < 2) {
-        return;
-    }
-
-    QString outputsStr = outputs.join(",");
-    qCDebug(DdcDisplayWorker) << "[ConcatScreen] mergeToConcatScreen: xrandr --setmonitor" << CONCAT_SCREEN_NAME << "auto" << outputsStr;
-    QProcess p;
-    p.start("xrandr", { "--setmonitor", CONCAT_SCREEN_NAME, "auto", outputsStr });
-    p.waitForFinished(5000);
-    if (p.exitCode() != 0) {
-        qCWarning(DdcDisplayWorker) << "[ConcatScreen] mergeToConcatScreen failed:" << p.readAllStandardError();
-        return;
-    }
-    m_model->setIsConcatScreenMode(true);
-}
-
-void DisplayWorker::resetConcatScreenMode()
-{
-    if (WQt::Utils::isTreeland()) {
-        return;
-    }
-
-    QProcess p;
-    p.start("xrandr", { "--delmonitor", CONCAT_SCREEN_NAME });
-    p.waitForFinished(5000);
-    if (p.exitCode() != 0) {
-        qCWarning(DdcDisplayWorker) << "[ConcatScreen] delmonitor failed:" << p.readAllStandardError();
-        return;
-    }
-
-    m_model->setIsConcatScreenMode(false);
+    qCDebug(DdcDisplayWorker) << "[ConcatScreen] setConcatScreenMode" << enable;
+    QDBusPendingReply<> reply = m_displayInter->SetConcatScreen(enable);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, enable](QDBusPendingCallWatcher *w) {
+        QDBusPendingReply<> r = *w;
+        if (r.isError()) {
+            qCWarning(DdcDisplayWorker) << "[ConcatScreen] setConcatScreenMode failed:" << r.error().message();
+            m_model->setIsConcatScreenMode(m_displayInter->isConcatScreenEnabled());
+        } else {
+            m_model->setIsConcatScreenMode(enable);
+        }
+        w->deleteLater();
+    });
 }
 
 void DisplayWorker::updateConcatScreenMode()
@@ -1318,12 +1303,6 @@ void DisplayWorker::updateConcatScreenMode()
         return;
     }
 
-    QProcess p;
-    p.start("xrandr", { "--listmonitors" });
-    p.waitForFinished(3000);
-    if (p.exitCode() != 0) {
-        qCWarning(DdcDisplayWorker) << "[ConcatScreen] listmonitors failed:" << p.readAllStandardError();
-    }
-    QByteArray output = p.readAllStandardOutput();
-    m_model->setIsConcatScreenMode(output.contains(CONCAT_SCREEN_NAME));
+    qCDebug(DdcDisplayWorker) << "[ConcatScreen] updateConcatScreenMode via DBus property";
+    m_model->setIsConcatScreenMode(m_displayInter->isConcatScreenEnabled());
 }

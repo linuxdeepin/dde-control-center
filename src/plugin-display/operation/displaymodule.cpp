@@ -179,9 +179,6 @@ void DisplayModulePrivate::updateVirtualScreens()
 
 void DisplayModulePrivate::updateMonitorList()
 {
-    if (m_model->isConcatScreenMode()) {
-        resetConcatScreenMode();
-    }
     bool changed = false;
     QList<Monitor *> addMonitorList = m_model->monitorList();
     for (auto it = m_screens.cbegin(); it != m_screens.cend();) {
@@ -264,6 +261,12 @@ void DisplayModulePrivate::updateDisplayMode()
     default:
         break;
     }
+    // 非扩展模式时确保本地模型退出拼接（兼容快捷键等非控制中心触发的模式切换）
+    if (m_model->displayMode() != EXTEND_MODE && m_model->isConcatScreenMode()) {
+        m_model->setIsConcatScreenMode(false);
+        m_worker->setConcatScreenMode(false);
+    }
+
     if (displayMode != m_displayMode) {
         m_displayMode = displayMode;
         Q_EMIT q_ptr->displayModeChanged();
@@ -324,18 +327,9 @@ void DisplayModulePrivate::updateConcatScreenMode()
     m_worker->updateConcatScreenMode();
 }
 
-void DisplayModulePrivate::mergeToConcatScreen()
+void DisplayModulePrivate::setConcatScreenMode(bool enable)
 {
-    QStringList outputs;
-    for (auto s : enabledScreens()) {
-        outputs << s->name();
-    }
-    m_worker->mergeToConcatScreen(outputs);
-}
-
-void DisplayModulePrivate::resetConcatScreenMode()
-{
-    m_worker->resetConcatScreenMode();
+    m_worker->setConcatScreenMode(enable);
 }
 
 DccScreen *DisplayModulePrivate::primary() const
@@ -474,8 +468,10 @@ void DisplayModule::setDisplayMode(const QString &mode)
         name = mode;
     }
     Q_D(DisplayModule);
+
     if (d->m_model->isConcatScreenMode() && modeType != EXTEND_MODE) {
-        d->resetConcatScreenMode();
+        d->m_model->setIsConcatScreenMode(false);
+        d->m_worker->setConcatScreenMode(false);
     }
     d->m_worker->switchMode(modeType, name);
 }
@@ -664,16 +660,10 @@ bool DisplayModule::isConcatScreenMode() const
     return d->m_model->isConcatScreenMode();
 }
 
-void DisplayModule::mergeToConcatScreen()
+void DisplayModule::setConcatScreenMode(bool enable)
 {
     Q_D(DisplayModule);
-    d->mergeToConcatScreen();
-}
-
-void DisplayModule::resetConcatScreenMode()
-{
-    Q_D(DisplayModule);
-    d->resetConcatScreenMode();
+    d->setConcatScreenMode(enable);
 }
 
 void DisplayModule::saveChanges()
