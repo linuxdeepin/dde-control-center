@@ -42,13 +42,36 @@ DccObject {
             D.TipsSlider {
                 id: scrollSlider
                 readonly property var tips: [("1"), ("2"), ("3"), ("4"), ("5"), ("6"), ("7"), ("8"), ("9"), ("10")]
+
+                property real leftTextWidth: 0
+                property real rightTextWidth: 0
+                property real dynamicLeftMargin: Math.max(16, leftTextWidth / 2 + 5)
+                property real dynamicRightMargin: Math.max(16, rightTextWidth / 2 + 5)
+
+                Layout.preferredHeight: 90
                 Layout.alignment: Qt.AlignCenter
-                Layout.leftMargin: 10
-                Layout.rightMargin: 10
-                Layout.topMargin: 2
+                Layout.leftMargin: dynamicLeftMargin
+                Layout.rightMargin: dynamicRightMargin
+                Layout.topMargin: 10
                 Layout.bottomMargin: 10
                 Layout.fillWidth: true
-                slider.height: 30
+
+                TextMetrics {
+                    id: scrollLeftTextMetrics
+                    font: scrollSlider.slider.font
+                    text: scrollSlider.tips[0]
+                    Component.onCompleted: {
+                        scrollSlider.leftTextWidth = width
+                    }
+                }
+                TextMetrics {
+                    id: scrollRightTextMetrics
+                    font: scrollSlider.slider.font
+                    text: scrollSlider.tips[scrollSlider.tips.length - 1]
+                    Component.onCompleted: {
+                        scrollSlider.rightTextWidth = width
+                    }
+                }
                 tickDirection: D.TipsSlider.TickDirection.Back
                 slider.handleType: Slider.HandleType.ArrowBottom
                 slider.value: dccData.scrollSpeed
@@ -131,13 +154,36 @@ DccObject {
                     D.TipsSlider {
                         id: doubleClickSlider
                         readonly property var tips: [qsTr("Slow"), (""), (""), (""), (""), (""), qsTr("Fast")]
+
+                        property real leftTextWidth: 0
+                        property real rightTextWidth: 0
+                        property real dynamicLeftMargin: Math.max(16, leftTextWidth / 2 + 5)
+                        property real dynamicRightMargin: Math.max(16, rightTextWidth / 2 + 5)
+
+                        Layout.preferredHeight: 90
                         Layout.alignment: Qt.AlignCenter
-                        Layout.leftMargin: 10
-                        Layout.rightMargin: 10
-                        Layout.topMargin: 2
+                        Layout.leftMargin: dynamicLeftMargin
+                        Layout.rightMargin: dynamicRightMargin
+                        Layout.topMargin: 10
                         Layout.bottomMargin: 10
                         Layout.fillWidth: true
-                        slider.height: 30
+
+                        TextMetrics {
+                            id: doubleClickLeftTextMetrics
+                            font: doubleClickSlider.slider.font
+                            text: doubleClickSlider.tips[0]
+                            Component.onCompleted: {
+                                doubleClickSlider.leftTextWidth = width
+                            }
+                        }
+                        TextMetrics {
+                            id: doubleClickRightTextMetrics
+                            font: doubleClickSlider.slider.font
+                            text: doubleClickSlider.tips[doubleClickSlider.tips.length - 1]
+                            Component.onCompleted: {
+                                doubleClickSlider.rightTextWidth = width
+                            }
+                        }
                         tickDirection: D.TipsSlider.TickDirection.Back
                         slider.handleType: Slider.HandleType.ArrowBottom
                         slider.value: dccData.doubleSpeed
