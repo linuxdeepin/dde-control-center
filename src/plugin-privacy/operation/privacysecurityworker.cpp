@@ -31,7 +31,15 @@ static const QString DESKTOP_ENTRY_ICON_KEY = "Desktop Entry";
 static const QString DEEPIN_WINE_TEAM = "Deepin WINE Team";
 
 const QString DataVersion = "1.0";
-static QList<int> s_systemPrem = { ApplicationItem::CameraPermission };
+static QList<int> s_systemPrem = {
+    ApplicationItem::CameraPermission,
+    ApplicationItem::DocumentFoldersPermission,
+    ApplicationItem::PictureFoldersPermission,
+    ApplicationItem::DesktopFoldersPermission,
+    ApplicationItem::VideoFoldersPermission,
+    ApplicationItem::MusicFoldersPermission,
+    ApplicationItem::DownloadFoldersPermission,
+};
 
 static QString getDpkgArch()
 {
