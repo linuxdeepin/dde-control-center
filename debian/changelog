@@ -1,3 +1,15 @@
+dde-control-center (6.1.92) unstable; urgency=medium
+
+  * fix(display): migrate concat screen management to daemon
+  * fix(dock): keep dock size slider responsive
+  * fix: request authorization for folder privacy permissions
+  * fix: fix region format dialog showing behind parent window
+  * i18n: Updates for project Deepin Desktop Environment (#3284)
+  * fix: add tap support for hover-only buttons
+  * fix: handle treeland restart crash and prevent double connections
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 11 Jun 2026 21:45:06 +0800
+
 dde-control-center (6.1.91) unstable; urgency=medium
 
   * fix: enable PIC for shared-utils on aarch64
