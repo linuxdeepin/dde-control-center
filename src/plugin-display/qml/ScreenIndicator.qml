@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 
@@ -6,7 +6,7 @@ import org.deepin.dcc 1.0
 
 Window {
     id: root
-    flags: Qt.CoverWindow | Qt.WindowStaysOnTopHint | Qt.SplashScreen | Qt.FramelessWindowHint | Qt.X11BypassWindowManagerHint
+    flags: Qt.WindowStaysOnTopHint | Qt.Tool | Qt.X11BypassWindowManagerHint
     color: "#2ca7f8"
     x: screen.virtualX
     y: screen.virtualY
@@ -19,7 +19,7 @@ Window {
         onTriggered: root.close()
     }
     Window {
-        flags: Qt.CoverWindow | Qt.WindowStaysOnTopHint | Qt.SplashScreen | Qt.FramelessWindowHint | Qt.X11BypassWindowManagerHint
+        flags: Qt.WindowStaysOnTopHint | Qt.Tool | Qt.X11BypassWindowManagerHint
         visible: root.visible
         color: root.color
         screen: root.screen
@@ -29,7 +29,7 @@ Window {
         height: 10
     }
     Window {
-        flags: Qt.CoverWindow | Qt.WindowStaysOnTopHint | Qt.SplashScreen | Qt.FramelessWindowHint | Qt.X11BypassWindowManagerHint
+        flags: Qt.WindowStaysOnTopHint | Qt.Tool | Qt.X11BypassWindowManagerHint
         visible: root.visible
         color: root.color
         screen: root.screen
@@ -39,7 +39,7 @@ Window {
         height: screen.height
     }
     Window {
-        flags: Qt.CoverWindow | Qt.WindowStaysOnTopHint | Qt.SplashScreen | Qt.FramelessWindowHint | Qt.X11BypassWindowManagerHint
+        flags: Qt.WindowStaysOnTopHint | Qt.Tool | Qt.X11BypassWindowManagerHint
         visible: root.visible
         color: root.color
         screen: root.screen
