@@ -245,11 +245,9 @@ DccObject {
                     function pressedItem(item) {
                         hasMove = false
                         root.screen = item.screen
-                        if (dccData.isX11) {
-                            indicator.createObject(this, {
-                                                       "screen": getQtScreen(item.screen)
-                                                   }).show()
-                        }
+                        indicator.createObject(this, {
+                                                   "screen": getQtScreen(item.screen)
+                                               }).show()
                     }
                     function positionChangedItem(item) {
                         monitorControl.effective = false
@@ -599,11 +597,9 @@ DccObject {
             onScreenClicked: function (screen) {
                 if (screen && screen !== root.screen) {
                     root.screen = screen
-                    if (dccData.isX11) {
-                        indicator.createObject(this, {
-                                                   "screen": getQtScreen(root.screen)
-                                               }).show()
-                    }
+                    indicator.createObject(this, {
+                                               "screen": getQtScreen(root.screen)
+                                           }).show()
                 }
             }
         }
