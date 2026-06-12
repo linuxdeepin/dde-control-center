@@ -1,8 +1,9 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
 import org.deepin.dtk 1.0 as D
+import org.deepin.ds 1.0 as DS
 import org.deepin.dcc 1.0
 
 Window {
@@ -12,18 +13,25 @@ Window {
 
     flags: Qt.CoverWindow | Qt.WindowStaysOnTopHint | Qt.SplashScreen | Qt.FramelessWindowHint | Qt.X11BypassWindowManagerHint
     D.DWindow.enabled: true
-    x: screen.virtualX + (screen.width - width) * 0.5
-    y: screen.virtualY + screen.height - height - 220
-    width: control.implicitWidth + 44
-    height: control.implicitHeight + 24
+    color: root.palette.window
+    // 使用 DLayerShellWindow 定位窗口：X轴居中，Y轴锚定底部偏上1/4处
+    DS.DLayerShellWindow.anchors: DS.DLayerShellWindow.AnchorBottom
+    DS.DLayerShellWindow.layer: DS.DLayerShellWindow.LayerOverlay
+    DS.DLayerShellWindow.bottomMargin: Math.max(0, screen.height * 0.25 - height * 0.5)
+
+    width: control.implicitWidth
+    height: control.implicitHeight
     minimumWidth: 200
     onClosing: destroy(10)
     Text {
         id: control
-        anchors.centerIn: parent
+        leftPadding: 22
+        topPadding: 12
+        rightPadding: leftPadding
+        bottomPadding: topPadding
         text: root.name
         font: D.DTK.fontManager.t4
-        color: control.palette.brightText
+        color: root.palette.brightText
     }
     Shortcut {
         sequence: "Esc"
