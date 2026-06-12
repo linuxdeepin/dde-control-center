@@ -629,21 +629,9 @@ void PersonalizationAppearanceContext::treeland_personalization_appearance_conte
 {
     Q_EMIT windowThemeTypeChanged(themeType);
 
-    switch (themeType) {
-    case PersonalizationAppearanceContext::theme_type::theme_type_light:
-        m_model->setCurrentAppearance(".light");
-        break;
-    case PersonalizationAppearanceContext::theme_type::theme_type_dark:
-        m_model->setCurrentAppearance(".dark");
-        break;
-    case PersonalizationAppearanceContext::theme_type::theme_type_auto:
-        m_model->setCurrentAppearance("");
-        break;
-    default:
-        qCWarning(DdcPersonnalizationTreelandWorker) << "Current theme type: unknown";
-        m_model->setCurrentAppearance("");
-        break;
-    }
+    // 设置给Treeland的深浅色属性是系统实际生效的深浅色，当控制中心设置为自动时，此时系统的深浅色会动态的变更
+    // 如果直接把treeland的属性设置到model中，会导致控制中心选项中的自动显示为深色或者浅色，这不符合预期。
+    // 现在使用 dde-appearance 保存的GlobalTheme属性来作为控制中心深浅色的数据来源，该数据在自动时数据保持不变
 }
 
 void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_window_titlebar_height(uint32_t height)
