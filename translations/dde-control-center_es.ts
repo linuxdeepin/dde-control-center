@@ -4089,7 +4089,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Add Picture</source>
-        <translation>Agregar imagen</translation>
+        <translation>Añadir imagen</translation>
     </message>
 </context>
 <context>
