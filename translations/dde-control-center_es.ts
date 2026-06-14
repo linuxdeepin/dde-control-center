@@ -1652,7 +1652,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation>1.Exportar información del PC</translation>
+        <translation>1.Exportar información del equipo</translation>
     </message>
     <message>
         <source>Export</source>
