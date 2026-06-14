@@ -3388,11 +3388,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation>Haz clic en Guardar para que esta tecla de acceso directo sea efectiva.</translation>
+        <translation>Haga clic en Guardar para que esta tecla de acceso directo sea efectiva.</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation>Haz clic en Agregar para que esta tecla de acceso directo sea efectiva.</translation>
+        <translation>Haga clic en Añadir para que esta tecla de acceso directo sea efectiva.</translation>
     </message>
 </context>
 <context>
