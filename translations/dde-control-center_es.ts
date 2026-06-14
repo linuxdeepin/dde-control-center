@@ -3314,7 +3314,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation>Se requiere contraseña para la recuperación</translation>
+        <translation>Se requiere contraseña al reactivar</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
