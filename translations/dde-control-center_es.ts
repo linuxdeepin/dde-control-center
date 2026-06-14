@@ -4362,7 +4362,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation>Usa tu iris para desbloquear el dispositivo y realizar ajustes posteriormente.</translation>
+        <translation>Use su iris para desbloquear el dispositivo y realizar ajustes posteriormente.</translation>
     </message>
 </context>
 <context>
