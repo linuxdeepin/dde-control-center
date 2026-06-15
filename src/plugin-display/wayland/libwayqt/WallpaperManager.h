@@ -58,6 +58,7 @@ public:
     ~WallpaperManager() override;
 
     WQt::Wallpaper *getWallpaper(wl_output *output);
+    void removeWallpaper(wl_output *output);
 
 private:
     QMap<void *, WQt::Wallpaper *> mWallpapers;
