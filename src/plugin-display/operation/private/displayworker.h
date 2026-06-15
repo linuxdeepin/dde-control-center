@@ -90,7 +90,7 @@ private Q_SLOTS:
     void updateMonitorWallpaper(Monitor *mon);
     void updateWallpaperFromWayland();
     void onOutputWallpaperReady(WQt::Output *output);
-    void onWallpaperChanged(WQt::Output *output, const QString &fileSource, uint32_t sourceType, uint32_t role);
+    void onWallpaperChanged(const QString &fileSource, uint32_t sourceType, uint32_t role);
     void updateVirtualOutputs();
 
     void onBrightnessChanged(WQt::ColorControl *colorControl, double brightness);

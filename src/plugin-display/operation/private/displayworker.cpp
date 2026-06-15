@@ -292,42 +292,49 @@ void DisplayWorker::updateWallpaperFromWayland()
         return;
 
     for (auto *output : m_reg->waylandOutputs()) {
+        if (!output || !output->get())
+            continue;
+
         auto *wp = wpMgr->getWallpaper(output->get());
         if (!wp)
             continue;
-        connect(wp, &WQt::Wallpaper::changed, this, [this, output](const QString &fileSource, uint32_t sourceType, uint32_t role) {
-            Q_UNUSED(sourceType);
-            Q_UNUSED(role);
-            for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
-                if (it.key()->name() == output->name()) {
-                    it.key()->setWallpaper(fileSource);
-                    break;
-                }
-            }
-        });
+        connect(wp, &WQt::Wallpaper::changed, this, &DisplayWorker::onWallpaperChanged, Qt::UniqueConnection);
     }
 }
 
 void DisplayWorker::onOutputWallpaperReady(WQt::Output *output)
 {
     auto *wpMgr = m_reg->wallpaperManager();
-    if (!wpMgr || !wpMgr->isActive())
+    if (!output || !output->get() || !wpMgr || !wpMgr->isActive())
         return;
 
     auto *wp = wpMgr->getWallpaper(output->get());
     if (wp) {
-        connect(wp, &WQt::Wallpaper::changed, this, [this, output, wp]() {
-            onWallpaperChanged(output, wp->fileSource(), wp->sourceType(), 0);
-        });
+        connect(wp, &WQt::Wallpaper::changed, this, &DisplayWorker::onWallpaperChanged, Qt::UniqueConnection);
     }
 }
 
-void DisplayWorker::onWallpaperChanged(WQt::Output *output, const QString &fileSource, uint32_t sourceType, uint32_t role)
+void DisplayWorker::onWallpaperChanged(const QString &fileSource, uint32_t sourceType, uint32_t role)
 {
     Q_UNUSED(sourceType);
     Q_UNUSED(role);
+    auto *wp = qobject_cast<WQt::Wallpaper *>(sender());
+    if (!wp || !wp->output() || !m_reg)
+        return;
+
+    QString outputName;
+    for (auto *output : m_reg->waylandOutputs()) {
+        if (output && output->get() == wp->output()) {
+            outputName = output->name();
+            break;
+        }
+    }
+
+    if (outputName.isEmpty())
+        return;
+
     for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
-        if (it.key()->name() == output->name()) {
+        if (it.key()->name() == outputName) {
             it.key()->setWallpaper(fileSource);
             break;
         }
@@ -1155,6 +1162,9 @@ void DisplayWorker::wlMonitorRemoved(WQt::OutputHead *head)
 
 void DisplayWorker::wlOutputAdded(WQt::Output *output)
 {
+    if (!output)
+        return;
+
     connect(output, &WQt::Output::done, this, &DisplayWorker::updateControl);
     connect(output, &WQt::Output::done, this, [this, output]() {
         onOutputWallpaperReady(output);
@@ -1163,8 +1173,9 @@ void DisplayWorker::wlOutputAdded(WQt::Output *output)
 
 void DisplayWorker::wlOutputRemoved(WQt::Output *output)
 {
-    Q_UNUSED(output);
-    // TODO:
+    auto *wpMgr = m_reg ? m_reg->wallpaperManager() : nullptr;
+    if (output && wpMgr)
+        wpMgr->removeWallpaper(output->get());
 }
 
 void DisplayWorker::updateControl()

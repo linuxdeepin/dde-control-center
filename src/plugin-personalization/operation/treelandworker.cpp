@@ -355,17 +355,23 @@ void TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url
     if (dest.isEmpty())
         return;
 
-    // Update wallpaper metadata
-    if (!m_wallpapers.contains(monitorName)) {
-        m_wallpapers.insert(monitorName, new WallpaperMetaData);
-    }
+    auto updateWallpaperMetaData = [monitorName, url, isDark](QMap<QString, WallpaperMetaData *> &wallpapers) {
+        if (!wallpapers.contains(monitorName)) {
+            wallpapers.insert(monitorName, new WallpaperMetaData);
+        }
 
-    auto meta_data = m_wallpapers.value(monitorName);
+        auto *metaData = wallpapers.value(monitorName);
+        if (metaData) {
+            metaData->isDark = isDark;
+            metaData->url = url;
+            metaData->monitorName = monitorName;
+        }
+    };
 
-    if (meta_data != nullptr) {
-        meta_data->isDark = isDark;
-        meta_data->url = url;
-        meta_data->monitorName = monitorName;
+    if (role == WallpaperContext::wallpaper_role_desktop) {
+        updateWallpaperMetaData(m_wallpapers);
+    } else if (role == WallpaperContext::wallpaper_role_lockscreen) {
+        updateWallpaperMetaData(m_lockWallpapers);
     }
 
     if (m_wallpaperManager && m_wallpaperManager->isActive()) {
@@ -534,6 +540,15 @@ void TreeLandWorker::active()
         delete m_wallpaperContexts.take(name);
         delete m_wallpapers.take(name);
         delete m_lockWallpapers.take(name);
+    });
+
+    connect(qApp, &QGuiApplication::screenAdded, this, [this](QScreen *screen) {
+        if (!screen || !m_wallpaperManager || !m_wallpaperManager->isActive()) {
+            return;
+        }
+
+        qCDebug(DdcPersonnalizationTreelandWorker) << "Screen added, initializing wallpaper context for:" << screen->name();
+        getOrCreateWallpaperContext(screen->name());
     });
 
     PersonalizationWorker::active();

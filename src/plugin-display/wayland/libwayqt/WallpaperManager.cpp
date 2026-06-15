@@ -76,6 +76,10 @@ WQt::WallpaperManager::~WallpaperManager()
 
 WQt::Wallpaper *WQt::WallpaperManager::getWallpaper(wl_output *output)
 {
+    if (!output) {
+        return nullptr;
+    }
+
     void *key = reinterpret_cast<void *>(output);
     if (mWallpapers.contains(key)) {
         return mWallpapers.value(key);
@@ -92,4 +96,20 @@ WQt::Wallpaper *WQt::WallpaperManager::getWallpaper(wl_output *output)
     });
     mWallpapers.insert(key, wallpaper);
     return wallpaper;
+}
+
+void WQt::WallpaperManager::removeWallpaper(wl_output *output)
+{
+    if (!output) {
+        return;
+    }
+
+    void *key = reinterpret_cast<void *>(output);
+    auto *wallpaper = mWallpapers.take(key);
+    if (!wallpaper) {
+        return;
+    }
+
+    disconnect(wallpaper, &QObject::destroyed, this, nullptr);
+    wallpaper->deleteLater();
 }

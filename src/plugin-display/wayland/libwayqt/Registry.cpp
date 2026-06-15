@@ -238,6 +238,7 @@ void WQt::Registry::handleRemove(uint32_t name)
     if (mOutputs.keys().contains(name)) {
         WQt::Output *output = mOutputs.take(name);
         emitOutput(output, false);
+        output->deleteLater();
     }
 }
 
