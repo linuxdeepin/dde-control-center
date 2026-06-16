@@ -24,7 +24,6 @@
 
 class PersonalizationManager;
 class PersonalizationAppearanceContext;
-class PersonalizationWallpaperContext;
 class PersonalizationCursorContext;
 class PersonalizationFontContext;
 class WallpaperManager;
@@ -172,20 +171,6 @@ signals:
 
 private:
     PersonalizationModel *m_model;
-};
-
-class PersonalizationWallpaperContext : public QWaylandClientExtensionTemplate<PersonalizationWallpaperContext>,
-                                        public QtWayland::treeland_personalization_wallpaper_context_v1
-{
-    Q_OBJECT
-public:
-    explicit PersonalizationWallpaperContext(struct ::treeland_personalization_wallpaper_context_v1 *context);
-
-Q_SIGNALS:
-    void metadataChanged(const QString &meta);
-
-protected:
-    void treeland_personalization_wallpaper_context_v1_metadata(const QString &metadata) override;
 };
 
 class PersonalizationCursorContext : public QWaylandClientExtensionTemplate<PersonalizationCursorContext>,

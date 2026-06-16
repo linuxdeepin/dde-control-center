@@ -654,19 +654,6 @@ void PersonalizationAppearanceContext::treeland_personalization_appearance_conte
     m_model->setTitleBarHeight(height);
 }
 
-PersonalizationWallpaperContext::PersonalizationWallpaperContext(struct ::treeland_personalization_wallpaper_context_v1 *context)
-    : QWaylandClientExtensionTemplate<PersonalizationWallpaperContext>(1)
-    , QtWayland::treeland_personalization_wallpaper_context_v1(context)
-{
-
-}
-
-void PersonalizationWallpaperContext::treeland_personalization_wallpaper_context_v1_metadata(
-    const QString &metadata)
-{
-    Q_EMIT metadataChanged(metadata);
-}
-
 PersonalizationCursorContext::PersonalizationCursorContext(struct ::treeland_personalization_cursor_context_v1 *context, PersonalizationModel *model)
     : QWaylandClientExtensionTemplate<PersonalizationCursorContext>(1)
     , QtWayland::treeland_personalization_cursor_context_v1(context)
