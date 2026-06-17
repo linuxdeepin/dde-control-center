@@ -509,14 +509,18 @@ ColumnLayout {
                 property bool hasErrorBorder: false
                 // Cache the normal focus color so we can restore it.
                 property color normalHighlight: "transparent"
-                Component.onCompleted: normalHighlight = palette.highlight
-                palette.highlight: (hasErrorBorder || showAlert) ? "#FF5736" : normalHighlight
+                Component.onCompleted: {
+                    normalHighlight = palette.highlight
+                    palette.highlight = Qt.binding(function() {
+                        return ((hasErrorBorder || showAlert) ? "#FF5736" : normalHighlight)
+                    })
+                }
                 topPadding: 0
                 bottomPadding: 0
                 font: D.DTK.fontManager.t7
                 canCopy: false
                 canCut: false
-                inputMethodHints: Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase
+                inputMethodHints: echoButtonVisible ? (Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase) : Qt.ImhNone
                 verticalAlignment: TextInput.AlignVCenter
                 echoMode: echoButtonVisible ? TextInput.Password :  TextInput.Normal
                 alertDuration: 3000
