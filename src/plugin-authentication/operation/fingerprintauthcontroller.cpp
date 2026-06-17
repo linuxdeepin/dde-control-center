@@ -161,6 +161,7 @@ void FingerprintAuthController::onFingerEnrollFailed(const QString &title, const
     setAddStage(CharaMangerModel::Fail);
     emit fingerTipsChanged();
     stopEnroll();
+    m_worker->releaseFingerClaim(m_model->userName());
 }
 
 void FingerprintAuthController::onFingerEnrollCompleted()
@@ -169,6 +170,7 @@ void FingerprintAuthController::onFingerEnrollCompleted()
     setAddStage(CharaMangerModel::Success);
     emit enrollCompleted();
     stopEnroll();
+    m_worker->releaseFingerClaim(m_model->userName());
 }
 
 void FingerprintAuthController::onFingerEnrollDisconnected()
@@ -178,6 +180,7 @@ void FingerprintAuthController::onFingerEnrollDisconnected()
     setAddStage(CharaMangerModel::Fail);
     emit fingerTipsChanged();
     stopEnroll();
+    m_worker->releaseFingerClaim(m_model->userName());
 }
 
 void FingerprintAuthController::onFingerLiftTimerTimeout()

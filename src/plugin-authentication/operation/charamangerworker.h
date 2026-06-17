@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -79,6 +79,7 @@ public Q_SLOTS:
     void tryEnroll(const QString &name, const QString &thumb);
     void refreshFingerEnrollList(const QString &id);
     void stopFingerEnroll(const QString& userName);
+    void releaseFingerClaim(const QString& userName);
     void deleteFingerItem(const QString& userName, const QString& finger);
     void renameFingerItem(const QString& userName, const QString& finger, const QString& newName);
     void onDefaultDeviceChanged(const QString &device);
