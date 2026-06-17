@@ -796,7 +796,7 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
 {
     qCInfo(dccLog()) << "show page:" << url;
     clearShowParam();
-    m_showFallbackTimer->stop();
+
     if (m_plugins->isDeleting()) {
         return;
     }
@@ -882,7 +882,6 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
     if (m_plugins->isDeleting() || !obj) {
         return;
     }
-    m_showFallbackTimer->stop();
     qCInfo(dccLog) << "ShowPage:" << obj << " have cmd:" << !cmd.isEmpty();
     // 禁用首页
     if (obj == m_root) {
@@ -991,6 +990,8 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
         Q_EMIT currentObjectsChanged(m_currentObjects);
     if (triggeredObjectsUpdated)
         Q_EMIT triggeredObjectsChanged(m_triggeredObjects);
+
+    m_showFallbackTimer->stop();
 }
 
 QSet<QString> findAddItems(QSet<QString> *oldSet, QSet<QString> *newSet)
