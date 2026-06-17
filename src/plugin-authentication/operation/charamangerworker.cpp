@@ -377,6 +377,10 @@ void CharaMangerWorker::stopFingerEnroll(const QString &userName)
 {
     qDebug() << "stopEnroll";
     m_charaMangerInter->StopEnroll();
+}
+
+void CharaMangerWorker::releaseFingerClaim(const QString &userName)
+{
     auto callClaim = m_charaMangerInter->Claim(userName, false);
     callClaim.waitForFinished();
     if (callClaim.isError()) {
