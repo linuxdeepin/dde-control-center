@@ -1,3 +1,13 @@
+dde-control-center (6.1.95) unstable; urgency=medium
+
+  * fix: fingerprint enrollment dialog becomes unresponsive after losing
+    focus
+  * fix(personalization): remove all files filter from wallpaper dialog
+  * fix: move fallback timer stop to after page show completes
+  * fix(accounts): fix password field binding and input hints
+
+ -- zhangkun <zhangkun2@uniontech.com>  Wed, 17 Jun 2026 16:28:20 +0800
+
 dde-control-center (6.1.94) unstable; urgency=medium
 
   * fix: set max width for DccLabel tooltip
