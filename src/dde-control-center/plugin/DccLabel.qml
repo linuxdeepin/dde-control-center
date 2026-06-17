@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.15
@@ -15,6 +15,7 @@ Label {
         text: control.text
         delay: 500
         timeout: 3000
+        implicitWidth: Math.min(control.implicitWidth + 10, 400)
     }
     // 使用Attached方式退出时会崩溃
     // ToolTip.visible: width < implicitWidth && hovered
