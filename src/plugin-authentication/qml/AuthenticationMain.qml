@@ -146,9 +146,11 @@ DccObject {
                             id: nameEditor
                             property int maxLength: 15
                             Layout.leftMargin: 10
-                            Layout.minimumWidth: contentWidth + leftPadding + rightPadding
-                            Layout.maximumWidth: 200
-                            implicitHeight: DS.Style.itemDelegate.height
+                            Layout.rightMargin: 10
+                            Layout.fillWidth: true
+                            implicitHeight: 30
+                            Layout.topMargin: 5
+                            Layout.bottomMargin: 5
                             horizontalAlignment: TextInput.AlignLeft
                             text: modelData
                             readOnly: true
@@ -157,7 +159,7 @@ DccObject {
                             background: D.EditPanel {
                                 id: nameEditPanel
                                 control: nameEditor
-                                showBorder: false
+                                showBorder: nameEditor.activeFocus && !nameEditor.readOnly
                                 alertDuration: 3000
                                 backgroundColor: D.Palette {
                                     normal: Qt.rgba(1, 1, 1, 0)
@@ -255,9 +257,6 @@ DccObject {
                             }
                         }
 
-                        Item {
-                            Layout.fillWidth: true
-                        }
                         D.ActionButton {
                             id: editButton
                             visible: hoverHandler.hovered || layout.showActions
