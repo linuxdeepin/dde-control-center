@@ -1,5 +1,5 @@
 [Desktop Entry]
-Categories=Application;System;Settings
+Categories=Application;System;Settings;
 Comment=Deepin Desktop Environment Control Center
 Exec=/usr/bin/dde-control-center --show %f
 GenericName=Control Center
