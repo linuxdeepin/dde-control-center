@@ -186,7 +186,7 @@ DccObject {
                 visible: !appNotifyTitle.searchVisible
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 Layout.rightMargin: 0
-                icon.name: "dcc-search"
+                icon.name: "dcc_search"
                 icon.width: 16
                 icon.height: 16
                 implicitWidth: 32
