@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "datetimeworker.h"
@@ -175,7 +175,15 @@ void DatetimeWorker::setTimezone(const QString &timezone)
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, timezone, isNeedUpdateProp](QDBusPendingCallWatcher *w) {
         QDBusPendingReply<> reply = *w;
         if (reply.isError()) {
-            qCWarning(DdcDateTimeWorkder) << "SetTimezone failed:" << reply.error().message();
+            qCWarning(DdcDateTimeWorkder) << "SetTimezone failed:" << reply.error().message()
+                                        << "timezone:" << timezone;
+
+            ZoneInfo actualZoneInfo = GetZoneInfo(m_timedateInter->timezone());
+            if (!actualZoneInfo.getZoneName().isEmpty()) {
+                m_model->setCurrentUseTimeZone(actualZoneInfo);
+                Q_EMIT m_model->currentSystemTimeZoneChanged(actualZoneInfo);
+            }
+            w->deleteLater();
             return;
         }
 
