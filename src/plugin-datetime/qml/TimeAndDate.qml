@@ -457,6 +457,7 @@ DccObject {
                                 onCheckedChanged: {
                                     if (checked && model.zoneId != systemTimezoneItem.saveZoneId) {
                                         let zoneId = model.zoneId
+                                        systemTimezoneItem.saveZoneId = zoneId
                                         dccData.setSystemTimeZone(zoneId)
                                         timezoneWindow.close()
                                     }
