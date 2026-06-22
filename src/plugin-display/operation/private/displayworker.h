@@ -108,6 +108,7 @@ private:
     void wlOutputRemoved(WQt::Output *output);
 
     void updateControl();
+    void updateTreelandDisplayMode();
     void initAutoBacklight();
 
     uint32_t toColorTemp(int pos);
