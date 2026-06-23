@@ -35,7 +35,6 @@ Q_OBJECT
 public:
     struct WallpaperMetaData
     {
-        bool isDark;
         QString url;
         QString monitorName;
     };
@@ -44,11 +43,11 @@ public:
     ~TreeLandWorker();
 
 #ifdef Enable_Treeland
-    void setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperSetType type) override;
-    void setBackgroundForMonitor(const QString &monitorName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image) override;
+    void setWallpaperForMonitor(const QString &screen, const QString &url, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperSetType type) override;
+    void setBackgroundForMonitor(const QString &monitorName, const QString &url, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image) override;
     QString getBackgroundForMonitor(const QString &monitorName);
 
-    void setLockBackForMonitor(const QString &monitorName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image) override;
+    void setLockBackForMonitor(const QString &monitorName, const QString &url, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image) override;
     QString getLockBackForMonitor(const QString &monitorName);
 
     void setDefault(const QJsonObject &value) override;
@@ -102,7 +101,7 @@ signals:
 
 private:
     WallpaperContext *getOrCreateWallpaperContext(const QString &monitorName);
-    void setWallpaper(const QString &monitorName, const QString &url, bool isDark, uint32_t role, uint32_t type);
+    void setWallpaper(const QString &monitorName, const QString &url, uint32_t role, uint32_t type);
     void handleGlobalTheme(const QString &themeId);
     void applyGlobalTheme(KeyFile &theme, const QString &themeName, const QString &defaultTheme, const QString &themePath);
     void doSetByType(const QString &type, const QString &value);
