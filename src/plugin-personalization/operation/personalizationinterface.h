@@ -9,14 +9,12 @@
 
 #include "personalizationworker.h"
 #include "personalizationmodel.h"
-#include "imagehelper.h"
 
 class PersonalizationInterface : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(PersonalizationModel *model MEMBER m_model CONSTANT)
     Q_PROPERTY(PersonalizationWorker *worker MEMBER m_work CONSTANT)
-    Q_PROPERTY(ImageHelper *imageHelper MEMBER m_imageHelper CONSTANT)
     Q_PROPERTY(bool pickerAvailable READ isPickerAvailable CONSTANT)
 
 public:
@@ -40,7 +38,6 @@ signals:
 private:
     PersonalizationModel *m_model;
     PersonalizationWorker *m_work;
-    ImageHelper *m_imageHelper;
     QString m_pickerId;
     bool m_pickerAvailable;
 };

@@ -214,8 +214,8 @@ DccObject {
             onFirstItemClicked: {
                 customWallpaperFileDialog.open()
             }
-            onWallpaperSelected: (url, isDark, option) => {
-                                    dccData.worker.setWallpaperForMonitor(dccData.model.currentSelectScreen, url, isDark, option)
+            onWallpaperSelected: (url, option) => {
+                                    dccData.worker.setWallpaperForMonitor(dccData.model.currentSelectScreen, url, option)
                                  }
             
             onWallpaperDeleteClicked: (url) => {
@@ -244,8 +244,8 @@ DccObject {
         page: WallpaperSelectView {
             model: dccData.model.sysWallpaperModel
             currentItem: dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
-            onWallpaperSelected: (url, isDark, option) => {
-                                    dccData.worker.setWallpaperForMonitor(dccData.model.currentSelectScreen, url, isDark, option)
+            onWallpaperSelected: (url, option) => {
+                                    dccData.worker.setWallpaperForMonitor(dccData.model.currentSelectScreen, url, option)
                                  }
         }
     }
@@ -262,8 +262,8 @@ DccObject {
             model: dccData.model.liveWallpaperModel
             currentItem: dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
             enableContextMenu: false
-            onWallpaperSelected: (url, isDark, option) => {
-                                    dccData.worker.setWallpaperForMonitor(dccData.model.currentSelectScreen, url, isDark, option, PersonalizationExport.Type_Video)
+            onWallpaperSelected: (url, option) => {
+                                    dccData.worker.setWallpaperForMonitor(dccData.model.currentSelectScreen, url, option, PersonalizationExport.Type_Video)
                                  }
         }
     }
@@ -279,8 +279,8 @@ DccObject {
             firstItemImgSource: "wallpaper_addcolor"
             model: dccData.model.solidWallpaperModel
             currentItem: dccData.model.wallpaperMap[dccData.model.currentSelectScreen]
-            onWallpaperSelected: (url, isDark, option) => {
-                                    dccData.worker.setWallpaperForMonitor(dccData.model.currentSelectScreen, url, isDark, option)
+            onWallpaperSelected: (url, option) => {
+                                    dccData.worker.setWallpaperForMonitor(dccData.model.currentSelectScreen, url, option)
                                  }
             onFirstItemClicked: {
                 colorDialog.open()

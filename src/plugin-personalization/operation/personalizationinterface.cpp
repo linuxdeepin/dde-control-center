@@ -3,7 +3,6 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "personalizationinterface.h"
-#include "operation/imagehelper.h"
 #include "operation/personalizationexport.hpp"
 #include "operation/treelandworker.h"
 #include "operation/x11worker.h"
@@ -28,7 +27,6 @@
 PersonalizationInterface::PersonalizationInterface(QObject *parent) 
 : QObject(parent)
 , m_model(new PersonalizationModel(this))
-, m_imageHelper(new ImageHelper(this))
 , m_pickerId(QUuid::createUuid().toString())
 , m_pickerAvailable(false)
 {
@@ -112,12 +110,12 @@ void PersonalizationInterface::handleCmdParam(PersonalizationExport::ModuleType 
             return;
         }
         if (type == "lock") {
-            m_work->setLockBackForMonitor(monitor, url, true);
+            m_work->setLockBackForMonitor(monitor, url);
         } else if (type == "desktop") {
-            m_work->setBackgroundForMonitor(monitor, url, true);
+            m_work->setBackgroundForMonitor(monitor, url);
         } else if (type.isEmpty()) {
-            m_work->setLockBackForMonitor(monitor, url, true);
-            m_work->setBackgroundForMonitor(monitor, url, true);
+            m_work->setLockBackForMonitor(monitor, url);
+            m_work->setBackgroundForMonitor(monitor, url);
         }
     }
 }

@@ -262,7 +262,7 @@ DccObject {
             model: dccData.model.picScreenSaverModel
             currentItem: dccData.model.currentScreenSaverPicMode
             enableContextMenu: false
-            onWallpaperSelected: (url, isDark, isLock) => {
+            onWallpaperSelected: (url, isLock) => {
                                     // 防止调用两次
                                     if (isLock) {
                                         dccData.worker.setCurrentScreenSaverPicMode(url)
@@ -283,7 +283,7 @@ DccObject {
             model: dccData.model.screenSaverModel
             currentItem: dccData.model.currentScreenSaver
             enableContextMenu: false
-            onWallpaperSelected: (url, isDark, isLock) => {
+            onWallpaperSelected: (url, isLock) => {
                                     // 防止调用两次
                                     if (isLock) {
                                         dccData.worker.setScreenSaver(url)

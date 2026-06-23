@@ -528,7 +528,7 @@ void PersonalizationWorker::addCustomWallpaper(const QString &url)
     } else {
         lastHashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), url);
     }
-    setWallpaperForMonitor(m_model->getCurrentSelectScreen(), lastHashPath, false, PersonalizationExport::Option_All);
+    setWallpaperForMonitor(m_model->getCurrentSelectScreen(), lastHashPath, PersonalizationExport::Option_All);
 }
 
 void PersonalizationWorker::addSolidWallpaper(const QColor &color)
@@ -550,7 +550,7 @@ void PersonalizationWorker::addSolidWallpaper(const QColor &color)
 
     //set to dde, and prefix solid:: to tell dde this is a solid color wallpaper.
     const QString &hashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), SOLID_PREFIX + file.fileName());
-    setWallpaperForMonitor(m_model->getCurrentSelectScreen(), hashPath, false, PersonalizationExport::Option_All);
+    setWallpaperForMonitor(m_model->getCurrentSelectScreen(), hashPath, PersonalizationExport::Option_All);
 }
 
 void PersonalizationWorker::deleteWallpaper(const QString &str)
@@ -740,20 +740,20 @@ void PersonalizationWorker::setWallpaperForMonitor(const QString &screenName, Wa
     } else {
         setType = PersonalizationExport::WallpaperSetType::Type_Image;
     }
-    setWallpaperForMonitor(screenName, wallpaper->url, false, option, setType);
+    setWallpaperForMonitor(screenName, wallpaper->url, option, setType);
 }
 
-void PersonalizationWorker::setWallpaperForMonitor(const QString &, const QString &, bool , PersonalizationExport::WallpaperSetOption, PersonalizationExport::WallpaperSetType)
+void PersonalizationWorker::setWallpaperForMonitor(const QString &, const QString &, PersonalizationExport::WallpaperSetOption, PersonalizationExport::WallpaperSetType)
 {
 
 }
 
-void PersonalizationWorker::setBackgroundForMonitor(const QString &, const QString &, bool, PersonalizationExport::WallpaperSetType)
+void PersonalizationWorker::setBackgroundForMonitor(const QString &, const QString &, PersonalizationExport::WallpaperSetType)
 {
 
 }
 
-void PersonalizationWorker::setLockBackForMonitor(const QString &, const QString &, bool, PersonalizationExport::WallpaperSetType)
+void PersonalizationWorker::setLockBackForMonitor(const QString &, const QString &, PersonalizationExport::WallpaperSetType)
 {
 
 }

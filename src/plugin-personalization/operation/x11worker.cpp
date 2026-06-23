@@ -127,7 +127,7 @@ void X11Worker::setMiniEffect(int effect)
     }
 }
 
-void X11Worker::setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperSetType type)
+void X11Worker::setWallpaperForMonitor(const QString &screen, const QString &url, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperSetType type)
 {
     if (type != PersonalizationExport::Type_Image) {
         return;
@@ -138,18 +138,17 @@ void X11Worker::setWallpaperForMonitor(const QString &screen, const QString &url
     }
 
     if (option == PersonalizationExport::Option_Desktop) {
-        setBackgroundForMonitor(screen, url, isDark);
+        setBackgroundForMonitor(screen, url);
     } else if (option == PersonalizationExport::Option_Lock) {
-        setLockBackForMonitor(screen, url, isDark);
+        setLockBackForMonitor(screen, url);
     } else if (option == PersonalizationExport::Option_All) {
-        setBackgroundForMonitor(screen, url, isDark);
-        setLockBackForMonitor(screen, url, isDark);
+        setBackgroundForMonitor(screen, url);
+        setLockBackForMonitor(screen, url);
     }
 }
 
-void X11Worker::setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type)
+void X11Worker::setBackgroundForMonitor(const QString &screenName, const QString &url, PersonalizationExport::WallpaperSetType type)
 {
-    Q_UNUSED(isDark)
     Q_UNUSED(type)
     qCDebug(DdcPersonnalizationX11Worker) << "setMonitorBackground " << screenName << url;
     if (screenName.isEmpty() || url.isEmpty())
@@ -158,9 +157,8 @@ void X11Worker::setBackgroundForMonitor(const QString &screenName, const QString
     m_personalizationDBusProxy->SetCurrentWorkspaceBackgroundForMonitor(url, screenName);
 }
 
-void X11Worker::setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type)
+void X11Worker::setLockBackForMonitor(const QString &screenName, const QString &url, PersonalizationExport::WallpaperSetType type)
 {
-    Q_UNUSED(isDark)
     Q_UNUSED(type)
     qCDebug(DdcPersonnalizationX11Worker) << "setGreeterBackground " << screenName << url;
     if (screenName.isEmpty() || url.isEmpty())

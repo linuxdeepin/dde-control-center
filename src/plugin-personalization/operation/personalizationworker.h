@@ -71,9 +71,9 @@ public Q_SLOTS:
     virtual void setAppearanceTheme(const QString &id, bool keepAuto = false);
     virtual void setIconTheme(const QString &id);
     virtual void setCursorTheme(const QString &id);
-    virtual void setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image);
-    virtual void setBackgroundForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image);
-    virtual void setLockBackForMonitor(const QString &screenName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image);
+    virtual void setWallpaperForMonitor(const QString &screen, const QString &url, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image);
+    virtual void setBackgroundForMonitor(const QString &screenName, const QString &url, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image);
+    virtual void setLockBackForMonitor(const QString &screenName, const QString &url, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image);
 
 signals:
     void personalizationChanged(const QString &propertyName, const QString &value);

@@ -41,7 +41,7 @@ ColumnLayout {
     property string firstItemTopIconName: ""
     property bool enableContextMenu: true
 
-    signal wallpaperSelected(var url, bool isDark, var option)
+    signal wallpaperSelected(var url, var option)
     signal firstItemClicked()
     signal wallpaperDeleteClicked(var url)
 
@@ -277,21 +277,7 @@ ColumnLayout {
                 contentItem: Item {
                     id: wallpaperItem
                     function requestSetWallpaper(option) {
-                        img2x2.grabToImage(function(result) {
-                            const isDarkType = dccData.imageHelper.isDarkType(result.image)
-                            root.wallpaperSelected(model.url, isDarkType, option)
-                        }, Qt.size(2, 2))
-                    }
-
-                    Image {
-                        id: img2x2
-                        property bool isDarktype: true
-                        anchors.centerIn : parent
-                        width: 2
-                        height: 2
-                        source: "image://DccImage/" + model.thumbnail
-                        fillMode: Image.Stretch
-                        asynchronous: true
+                        root.wallpaperSelected(model.url, option)
                     }
 
                     Image {

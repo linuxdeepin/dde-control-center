@@ -60,25 +60,25 @@ TreeLandWorker::~TreeLandWorker()
 
 #ifdef Enable_Treeland
 
-void TreeLandWorker::setWallpaperForMonitor(const QString &screen, const QString &url, bool isDark, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperSetType type)
+void TreeLandWorker::setWallpaperForMonitor(const QString &screen, const QString &url, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperSetType type)
 {
     if (checkWallpaperLockStatus()) {
         return;
     }
 
     if (option == PersonalizationExport::Option_Desktop) {
-        setBackgroundForMonitor(screen, url, isDark, type);
+        setBackgroundForMonitor(screen, url, type);
     } else if (option == PersonalizationExport::Option_Lock) {
-        setLockBackForMonitor(screen, url, isDark, type);
+        setLockBackForMonitor(screen, url, type);
     } else if (option == PersonalizationExport::Option_All) {
-        setBackgroundForMonitor(screen, url, isDark, type);
-        setLockBackForMonitor(screen, url, isDark, type);
+        setBackgroundForMonitor(screen, url, type);
+        setLockBackForMonitor(screen, url, type);
     }
 }
 
-void TreeLandWorker::setBackgroundForMonitor(const QString &monitorName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type)
+void TreeLandWorker::setBackgroundForMonitor(const QString &monitorName, const QString &url, PersonalizationExport::WallpaperSetType type)
 {
-    setWallpaper(monitorName, url, isDark, WallpaperContext::wallpaper_role_desktop, type);
+    setWallpaper(monitorName, url, WallpaperContext::wallpaper_role_desktop, type);
 }
 
 QString TreeLandWorker::getBackgroundForMonitor(const QString &monitorName)
@@ -89,9 +89,9 @@ QString TreeLandWorker::getBackgroundForMonitor(const QString &monitorName)
     return QString();
 }
 
-void TreeLandWorker::setLockBackForMonitor(const QString &monitorName, const QString &url, bool isDark, PersonalizationExport::WallpaperSetType type)
+void TreeLandWorker::setLockBackForMonitor(const QString &monitorName, const QString &url, PersonalizationExport::WallpaperSetType type)
 {
-    setWallpaper(monitorName, url, isDark, WallpaperContext::wallpaper_role_lockscreen, type);
+    setWallpaper(monitorName, url, WallpaperContext::wallpaper_role_lockscreen, type);
 }
 
 QString TreeLandWorker::getLockBackForMonitor(const QString &monitorName)
@@ -336,9 +336,9 @@ WallpaperContext *TreeLandWorker::getOrCreateWallpaperContext(const QString &mon
     return nullptr;
 }
 
-void TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url, bool isDark, uint32_t role, uint32_t type)
+void TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url, uint32_t role, uint32_t type)
 {
-    qCDebug(DdcPersonnalizationTreelandWorker) << "setWallpaper:" << monitorName << "url:" << url << "isDark:" << isDark << "role:" << role << "type:" << type;
+    qCDebug(DdcPersonnalizationTreelandWorker) << "setWallpaper:" << monitorName << "url:" << url << "role:" << role << "type:" << type;
 
     if (checkWallpaperLockStatus()) {
         return;
@@ -355,14 +355,13 @@ void TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url
     if (dest.isEmpty())
         return;
 
-    auto updateWallpaperMetaData = [monitorName, url, isDark](QMap<QString, WallpaperMetaData *> &wallpapers) {
+    auto updateWallpaperMetaData = [monitorName, url](QMap<QString, WallpaperMetaData *> &wallpapers) {
         if (!wallpapers.contains(monitorName)) {
             wallpapers.insert(monitorName, new WallpaperMetaData);
         }
 
         auto *metaData = wallpapers.value(monitorName);
         if (metaData) {
-            metaData->isDark = isDark;
             metaData->url = url;
             metaData->monitorName = monitorName;
         }
@@ -486,7 +485,7 @@ void TreeLandWorker::doSetByType(const QString &type, const QString &value)
         auto screens = qApp->screens();
         for (const auto screen : screens) {
             // FIXME(mhduiy): only set image, only set to desktop
-            setWallpaper(screen->name(), value, false, WallpaperContext::wallpaper_role_desktop, WallpaperContext::wallpaper_source_type_image);
+            setWallpaper(screen->name(), value, WallpaperContext::wallpaper_role_desktop, WallpaperContext::wallpaper_source_type_image);
         }
     } else if(type == TYPEICON) {
         setIconTheme(value);
