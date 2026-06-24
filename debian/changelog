@@ -1,3 +1,17 @@
+dde-control-center (6.1.96) unstable; urgency=medium
+
+  * fix(personalization): remove unreliable 2x2 image for wallpaper dark
+    type detection
+  * chore: Sync by
+    https://github.com/linuxdeepin/.github/commit/88706fa723e3771211cb07
+    81d3d97fd4a6cd2a68
+  * fix(notification): use bundled search icon instead of dde-grand-
+    search
+  * fix(desktop): add trailing semicolon to Categories field
+  * fix(authentication): improve name editor layout and add focus border
+
+ -- zhangkun <zhangkun2@uniontech.com>  Wed, 24 Jun 2026 15:35:35 +0800
+
 dde-control-center (6.1.95) unstable; urgency=medium
 
   * fix: fingerprint enrollment dialog becomes unresponsive after losing
