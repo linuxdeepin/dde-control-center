@@ -263,6 +263,14 @@ uint SoundDBusProxy::cardSink()
     return 0;
 }
 
+QString SoundDBusProxy::nameSink()
+{
+    if (m_defaultSink) {
+        return qvariant_cast<QString>(m_defaultSink->property("NameSink"));
+    }
+    return QString();
+}
+
 void SoundDBusProxy::setSourceDevicePath(const QString &path)
 {
     if (m_defaultSource) {

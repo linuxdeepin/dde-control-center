@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SOUNDDBUSPROXY_H
@@ -111,6 +111,7 @@ public:
     double volumeSink();
     Q_PROPERTY(AudioPort ActivePortSink READ activePortSink NOTIFY ActivePortSinkChanged)
     AudioPort activePortSink();
+    QString nameSink();
     // Source
     Q_PROPERTY(bool MuteSource READ muteSource NOTIFY MuteSourceChanged)
     bool muteSource();

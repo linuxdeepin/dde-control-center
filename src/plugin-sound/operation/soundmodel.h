@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCC_SOUND_SOUNDMODEL_H
@@ -216,6 +216,10 @@ public:
     bool showInputBluetoothMode() const;
     void setShowInputBluetoothMode(bool newShowInputBluetoothMode);
 
+    // 防抖：Mode切换期间阻止Output Device列表更新
+    void setDebounceOutputDeviceList(bool debounce);
+    bool debounceOutputDeviceList() const { return m_debounceOutputDeviceList; }
+
 private:
 
 
@@ -281,6 +285,8 @@ Q_SIGNALS:
 
     void showInputBluetoothModeChanged();
 
+    void debounceOutputDeviceListChanged();
+
 private:
     QString m_audioServer;     // 当前使用音频框架
     bool m_audioServerStatus{true};  // 设置音频时的状态
@@ -339,6 +345,7 @@ private:
     bool m_audioMono;
     bool m_showBluetoothMode;
     bool m_showInputBluetoothMode;
+    bool m_debounceOutputDeviceList{false};
 };
 
 #endif // DCC_SOUND_SOUNDMODEL_H
