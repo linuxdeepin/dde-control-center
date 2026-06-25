@@ -151,6 +151,7 @@ void X11Worker::setBackgroundForMonitor(const QString &screenName, const QString
 {
     Q_UNUSED(type)
     qCDebug(DdcPersonnalizationX11Worker) << "setMonitorBackground " << screenName << url;
+    m_wallpaperWorker->setWantToSetWallpaper(nullptr);
     if (screenName.isEmpty() || url.isEmpty())
         return;
 

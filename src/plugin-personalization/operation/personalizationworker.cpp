@@ -733,7 +733,6 @@ void PersonalizationWorker::setWallpaperForMonitor(const QString &screenName, Wa
     if (wallpaper.isNull()) {
         return;
     }
-    m_wallpaperWorker->setWantToSetWallpaper(nullptr);
     PersonalizationExport::WallpaperSetType setType;
     if (wallpaper->type == WallpaperEnums::Wallpaper_Live) {
         setType = PersonalizationExport::WallpaperSetType::Type_Video;
