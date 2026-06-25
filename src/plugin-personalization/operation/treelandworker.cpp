@@ -78,6 +78,7 @@ void TreeLandWorker::setWallpaperForMonitor(const QString &screen, const QString
 
 void TreeLandWorker::setBackgroundForMonitor(const QString &monitorName, const QString &url, PersonalizationExport::WallpaperSetType type)
 {
+    m_wallpaperWorker->setWantToSetWallpaper(nullptr);
     setWallpaper(monitorName, url, WallpaperContext::wallpaper_role_desktop, type);
 }
 

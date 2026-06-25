@@ -117,9 +117,9 @@ private:
 protected:
     PersonalizationModel *m_model;
     PersonalizationDBusProxy *m_personalizationDBusProxy;
+    WallpaperProvider *m_wallpaperWorker = nullptr;
 
 private:
-    WallpaperProvider *m_wallpaperWorker = nullptr;
     ScreensaverProvider *m_screenSaverProvider = nullptr;
     Dtk::Core::DConfig *m_personalizationConfig = nullptr;
     Dtk::Core::DConfig *m_dtkConfig = nullptr;
