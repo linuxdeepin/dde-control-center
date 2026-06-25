@@ -138,7 +138,7 @@ DccObject {
                         Layout.preferredWidth: 14
                         Layout.preferredHeight: 14
                         progress: dccData.model.wantToSetWallpaperProgress
-                        visible: dccData.model.wantToSetWallpaperStatus === WallpaperEnums.Download_Installing
+                        visible: dccData.model.wantToSetWallpaper && dccData.model.wantToSetWallpaperStatus === WallpaperEnums.Download_Installing
                     }
                 }
             }
