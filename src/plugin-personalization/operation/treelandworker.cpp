@@ -19,6 +19,7 @@
 #include <private/qguiapplication_p.h>
 #include <private/qwaylandintegration_p.h>
 #include <private/qwaylandwindow_p.h>
+#include <qurl.h>
 #include "treelandworker.h"
 #include "operation/personalizationworker.h"
 #include "operation/model/thememodel.h"
@@ -345,11 +346,22 @@ void TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url
     }
 
     QString dest;
+    QUrl destUrl;
+
     if (QFile::exists(url)) {
         dest = url;
+        destUrl = QUrl::fromLocalFile(url);
     } else {
-        QUrl destUrl(url);
+        destUrl = QUrl::fromUserInput(url);
         dest = destUrl.toLocalFile();
+    }
+
+    if (type == WallpaperContext::wallpaper_source_type_image && Q_LIKELY(m_wallpaperWorker)) {
+        if (m_wallpaperWorker->findWallpaperItem(dest, WallpaperEnums::Wallpaper_all) == std::nullopt) {
+            qInfo(DdcPersonnalizationTreelandWorker) << "cannot find wallpaper item for url:" << dest << ", adding as custom wallpaper.";
+            dest = addCustomWallpaper(destUrl.toString(), false);
+            qInfo(DdcPersonnalizationTreelandWorker) << "added custom wallpaper, new path:" << dest;
+        }
     }
 
     if (dest.isEmpty())
