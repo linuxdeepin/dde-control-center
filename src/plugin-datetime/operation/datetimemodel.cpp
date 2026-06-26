@@ -74,14 +74,10 @@ static QString getDisplayText(const ZoneInfo &zoneInfo)
 
 static QStringList timeZoneList(const installer::ZoneInfoList &zoneInfoList, QMap<QString, QString> &cache)
 {
-    using namespace installer;
-    if (g_totalZones.empty())
-        g_totalZones =  GetZoneInfoList();
-
     const QString locale = QLocale::system().name();
     QStringList timezoneList;
     for (const auto& info : zoneInfoList) {
-        auto localzone = GetLocalTimezoneName(info.timezone, locale);
+        auto localzone = installer::GetLocalTimezoneName(info.timezone, locale);
 
         if (!cache.contains(localzone)) {
             // "上海": "Asia/Shanghai"
@@ -291,11 +287,10 @@ void DatetimeModel::setDateTime(const QDateTime &dateTime)
 QStringList DatetimeModel::zones(int x, int y, int map_width, int map_height)
 {
     using namespace installer;
-    if (g_totalZones.empty())
-        g_totalZones =  GetZoneInfoList();
+    const auto &zoneList = getTotalZones();
 
     const double kDistanceThreshold = 64.0;
-    auto zonelist = GetNearestZones(g_totalZones, kDistanceThreshold, x, y, map_width, map_height);
+    auto zonelist = GetNearestZones(zoneList, kDistanceThreshold, x, y, map_width, map_height);
 
     return timeZoneList(zonelist, m_timezoneCache);
 }
@@ -303,43 +298,55 @@ QStringList DatetimeModel::zones(int x, int y, int map_width, int map_height)
 QPoint DatetimeModel::zonePosition(const QString &timezone, int map_width, int map_height)
 {
     using namespace installer;
-    if (g_totalZones.empty())
-        g_totalZones =  GetZoneInfoList();
+    const auto &zoneList = getTotalZones();
 
     auto enZone = m_timezoneCache.value(timezone, timezone);
 
-    int index = GetZoneInfoByZone(g_totalZones, enZone);
+    int index = GetZoneInfoByZone(zoneList, enZone);
     if (index < 0)
         return QPoint();
 
-    auto currentZone = g_totalZones.at(index);
+    auto currentZone = zoneList.at(index);
 
     const int x = int(ConvertLongitudeToX(currentZone.longitude) * map_width);
     const int y = int(ConvertLatitudeToY(currentZone.latitude) * map_height);
     return QPoint(x, y);
 }
 
-QStringList DatetimeModel::zoneIdList()
+const installer::ZoneInfoList &DatetimeModel::getTotalZones() const
 {
     using namespace installer;
+    // Lazy-initialize the static cache on first access. Modifying g_totalZones
+    // does not affect the observable state of this DatetimeModel instance.
     if (g_totalZones.empty())
-        g_totalZones =  GetZoneInfoList();
+        g_totalZones = GetZoneInfoList();
+    return g_totalZones;
+}
 
+QStringList DatetimeModel::zoneIdList()
+{
+    const auto &zones = getTotalZones();
     QStringList list;
-    for (const auto& info : g_totalZones) {
+    list.reserve(zones.size());
+    for (const auto& info : zones) {
         list << info.timezone;
     }
-
     return list;
 }
 
 QString DatetimeModel::zoneDisplayName(const QString &zoneName)
 {
+    auto it = m_zoneDisplayNameCache.constFind(zoneName);
+    if (it != m_zoneDisplayNameCache.constEnd())
+        return it.value();
+
     if (m_work) {
         auto zoneInfo = m_work->GetZoneInfo(zoneName);
         QString utcOffsetText = zoneInfo.getUtcOffsetText();
         QString cityName = zoneInfo.getZoneCity().isEmpty() ? zoneInfo.getZoneName() : zoneInfo.getZoneCity();
-        return QString("%1 %2").arg(cityName).arg(utcOffsetText);
+        const QString displayName = QString("%1 %2").arg(cityName).arg(utcOffsetText);
+        m_zoneDisplayNameCache.insert(zoneName, displayName);
+        return displayName;
     }
     return QString();
 }
@@ -1255,14 +1262,12 @@ QString DatetimeModel::timeZoneDispalyName() const
 
 int DatetimeModel::currentTimeZoneIndex() const
 {
-    using namespace installer;
-    if (g_totalZones.empty())
-        g_totalZones =  GetZoneInfoList();
+    const auto &zoneList = getTotalZones();
 
     int index = -1;
     const QString &zoneName = m_currentSystemTimeZone.getZoneName();
-    for (int i = 0; i < g_totalZones.size(); ++i) {
-        const auto &zoneInfo = g_totalZones.value(i);
+    for (int i = 0; i < zoneList.size(); ++i) {
+        const auto &zoneInfo = zoneList.at(i);
         if (zoneName == zoneInfo.timezone) {
             index = i;
             break;

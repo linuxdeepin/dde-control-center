@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -88,27 +88,25 @@ ZoneInfoModel::~ZoneInfoModel()
 
 int ZoneInfoModel::rowCount(const QModelIndex &) const
 {
-    DatetimeModel *sourceMode = dynamic_cast<DatetimeModel *>(parent());
+    DatetimeModel *sourceMode = qobject_cast<DatetimeModel *>(parent());
     if (!sourceMode)
         return 0;
 
-    auto list = sourceMode->zoneIdList();
-
-    return list.size();
+    return sourceMode->getTotalZones().size();
 }
 
 QVariant ZoneInfoModel::data(const QModelIndex &index, int role) const
 {
-    DatetimeModel *sourceMode = dynamic_cast<DatetimeModel *>(parent());
+    DatetimeModel *sourceMode = qobject_cast<DatetimeModel *>(parent());
     if (!sourceMode)
         return QVariant();
 
-    auto list = sourceMode->zoneIdList();
+    const auto &list = sourceMode->getTotalZones();
 
     if (!index.isValid() || index.row() >= list.size())
         return QVariant();
 
-    const QString &zoneId = list.value(index.row());   // "Asia/Shanghai"
+    const QString &zoneId = list.at(index.row()).timezone;   // "Asia/Shanghai"
     const QString &zoneDisplay = sourceMode->zoneDisplayName(zoneId); // (UTC+08:00)上海
 
     switch (role) {
