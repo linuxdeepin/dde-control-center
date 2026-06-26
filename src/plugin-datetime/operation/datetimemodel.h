@@ -11,6 +11,7 @@
 #include "zoneinfo.h"
 #include "regionproxy.h"
 #include "zoneinfomodel.h"
+#include "timezoneMap/timezone.h"
 
 class DatetimeWorker;
 namespace dccV25 {
@@ -215,6 +216,7 @@ public Q_SLOTS:
     void setDateTime(const QDateTime &dateTime);
     QStringList zones(int x, int y, int map_width, int map_height);
     QPoint zonePosition(const QString &timezone, int map_width, int map_height);
+    const installer::ZoneInfoList &getTotalZones() const;
     QStringList zoneIdList();
     QString zoneDisplayName(const QString &zoneName);
     QAbstractListModel *userTimezoneModel();
@@ -308,6 +310,7 @@ private:
     QString m_paperFormat;
     RegionFormat m_regionFormat;
     QMap<QString, QString> m_timezoneCache;
+    QMap<QString, QString> m_zoneDisplayNameCache;
     DatetimeWorker *m_work = nullptr;
     dccV25::UserTimezoneModel *m_userTimezoneModel = nullptr;
     QSortFilterProxyModel *m_zoneSearchModel = nullptr;
