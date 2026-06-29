@@ -11,9 +11,8 @@ Window {
     property string name: "screen"
     signal escPressed
 
-    flags: Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint
-    D.DWindow.enabled: true
-    color: D.DTK.palette.window
+    flags: Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint | Qt.Tool
+
     // 使用 DLayerShellWindow 定位窗口：X轴居中，Y轴锚定底部偏上1/4处
     DS.DLayerShellWindow.anchors: DS.DLayerShellWindow.AnchorBottom
     DS.DLayerShellWindow.layer: DS.DLayerShellWindow.LayerOverlay
@@ -22,6 +21,13 @@ Window {
     width: control.implicitWidth
     height: control.implicitHeight
     onClosing: destroy(10)
+
+    Rectangle {
+        anchors.fill: parent
+        radius: D.DTK.platformTheme.windowRadius(8)
+        color: D.DTK.palette.window
+    }
+
     Text {
         id: control
         leftPadding: 22
