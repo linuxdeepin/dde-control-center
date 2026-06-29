@@ -51,23 +51,17 @@ KeyboardDBusProxy::KeyboardDBusProxy(QObject *parent)
     qRegisterMetaType<QList<ShortcutInfoNew>>("QList<ShortcutInfoNew>");
     qDBusRegisterMetaType<QList<ShortcutInfoNew>>();
 
+    qRegisterMetaType<CategoryInfoNew>("CategoryInfoNew");
+    qDBusRegisterMetaType<CategoryInfoNew>();
+    qRegisterMetaType<QList<CategoryInfoNew>>("QList<CategoryInfoNew>");
+    qDBusRegisterMetaType<QList<CategoryInfoNew>>();
+
     init();
 }
 
 bool KeyboardDBusProxy::isWayland() const
 {
     return m_isWayland;
-}
-
-// Map new API category to section name (Wayland 3-category: System/App/Custom)
-static QString categoryToSection(int category)
-{
-    switch (category) {
-    case 1: return QStringLiteral("System");
-    case 2: return QStringLiteral("App");
-    case 3: return QStringLiteral("Custom");
-    default: return QString();
-    }
 }
 
 // Convert a single ShortcutInfo to old-API JSON object
@@ -80,12 +74,15 @@ static QJsonObject shortcutInfoToJsonObject(const ShortcutInfoNew &info)
     // dde-services already emits hotkeys in X11/XKB form ("<Control><Alt>T",
     // "XF86AudioMute"), so we just forward the first one to Accels.
     obj["Accels"] = QJsonArray{info.hotkeys.isEmpty() ? QString() : info.hotkeys.first()};
-    // Type: 0=System, 1=Custom (old API). App(category==2) must map to 0,
-    // otherwise IsCustomRole would mark App shortcuts as editable.
-    obj["Type"] = (info.category == 3) ? 1 : 0;
+    // Type is now driven by the explicit isCustom flag from dde-services
+    // (was derived from category==3). 0=System, 1=Custom.
+    obj["Type"] = info.isCustom ? 1 : 0;
     obj["Exec"] = QString();
-    // New API section: overrides old hardcoded ID-based categorization
-    obj["Section"] = categoryToSection(info.category);
+    // Section carries the stable logical category key (for grouping/ordering
+    // and Custom detection); SectionName carries the already-resolved display
+    // text for direct rendering — dcc no longer translates categories.
+    obj["Section"] = info.category;
+    obj["SectionName"] = info.localLanguageCategory;
     return obj;
 }
 
@@ -321,6 +318,33 @@ QDBusPendingReply<QString> KeyboardDBusProxy::ListAllShortcuts()
     // Old API
     return QDBusPendingReply<QString>(
         m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("ListAllShortcuts"), argumentList));
+}
+
+// Wayland: fetch category metadata (key/displayName/order/isCustom) so the
+// model can group, order, and identify the Custom group without hardcoding
+// any category strings.
+QDBusPendingReply<> KeyboardDBusProxy::ListCategories()
+{
+    QList<QVariant> argumentList;
+    if (isWayland()) {
+        QDBusPendingCall call = m_dBusKeybingdingInter->asyncCallWithArgumentList(
+            QStringLiteral("ListCategories"), argumentList);
+        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+        connect(watcher, &QDBusPendingCallWatcher::finished,
+                this, &KeyboardDBusProxy::onListCategoriesFinished);
+    }
+    return QDBusPendingReply<>();
+}
+
+void KeyboardDBusProxy::onListCategoriesFinished(QDBusPendingCallWatcher *w)
+{
+    QDBusPendingReply<QList<CategoryInfoNew>> reply = *w;
+    if (!reply.isError()) {
+        Q_EMIT categoriesReady(reply.value());
+    } else {
+        qWarning() << "Wayland ListCategories failed:" << reply.error();
+    }
+    w->deleteLater();
 }
 
 // Wayland: called when new API GetShortcut() async reply arrives.
