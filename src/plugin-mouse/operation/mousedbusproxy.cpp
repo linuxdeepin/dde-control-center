@@ -24,13 +24,15 @@ using namespace DCC_NAMESPACE;
 struct GestureInfoNew {
     QString id;
     QString displayName;
-    int category;
-    int gestureType;     // 1=Swipe, 2=Hold
+    QString category;               // Logical category key (mirrors dde-services GestureInfo)
+    int gestureType;                // 1=Swipe, 2=Hold
     int fingerCount;
-    int direction;       // 0=None, 1=Down, 2=Left, 3=Up, 4=Right
+    int direction;                  // 0=None, 1=Down, 2=Left, 3=Up, 4=Right
     int triggerType;
     QStringList triggerValue;
     QString localLanguageName;
+    QString localLanguageCategory;  // Resolved display text for the category
+    bool isCustom = false;          // True for runtime-added gestures
 };
 Q_DECLARE_METATYPE(GestureInfoNew)
 Q_DECLARE_METATYPE(QList<GestureInfoNew>)
@@ -39,7 +41,8 @@ inline QDBusArgument &operator<<(QDBusArgument &argument, const GestureInfoNew &
     argument.beginStructure();
     argument << info.id << info.displayName << info.category
              << info.gestureType << info.fingerCount << info.direction
-             << info.triggerType << info.triggerValue << info.localLanguageName;
+             << info.triggerType << info.triggerValue << info.localLanguageName
+             << info.localLanguageCategory << info.isCustom;
     argument.endStructure();
     return argument;
 }
@@ -48,7 +51,8 @@ inline const QDBusArgument &operator>>(const QDBusArgument &argument, GestureInf
     argument.beginStructure();
     argument >> info.id >> info.displayName >> info.category
              >> info.gestureType >> info.fingerCount >> info.direction
-             >> info.triggerType >> info.triggerValue >> info.localLanguageName;
+             >> info.triggerType >> info.triggerValue >> info.localLanguageName
+             >> info.localLanguageCategory >> info.isCustom;
     argument.endStructure();
     return argument;
 }
