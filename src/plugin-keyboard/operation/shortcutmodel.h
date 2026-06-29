@@ -25,7 +25,8 @@ struct ShortcutInfo
     int type;
     ShortcutInfo *replace = nullptr;
     ShortcutItem *item = nullptr;
-    QString sectionName;
+    QString sectionKey;            // Stable logical category key (never translated)
+    QString sectionName;           // Resolved translated display text for section
     QString pinyin;
     int index = 0;
 
@@ -70,6 +71,13 @@ public:
 
     inline int count()
     {
+        // Wayland dynamic grouping: rows come from m_groupInfos in groupOrder.
+        if (!m_groupInfos.isEmpty()) {
+            int c = 0;
+            for (const auto &list : m_groupInfos)
+                c += list.count();
+            return c;
+        }
         int c = m_systemInfos.count() + m_windowInfos.count() + m_workspaceInfos.count()
                 + m_assistiveToolsInfos.count() + m_appInfos.count() + m_customInfos.count();
         return c;
@@ -104,8 +112,30 @@ public:
     static QStringList formatKeys(const QString &shortcut);
     int indexOfShortcut(ShortcutInfo *info);
 
+    // Wayland (new API): category metadata is supplied entirely by the
+    // service's ListCategories() — dcc never hardcodes category strings.
+    struct CategoryMeta {
+        QString key;
+        QString displayName;
+        int order = 0;
+        bool isCustom = false;
+    };
+    void setCategoryMeta(const QList<CategoryMeta> &meta);
+    // Display name for a section key (service metadata, then per-item
+    // resolved text, then the raw key).
+    QString sectionDisplayName(const QString &key) const;
+    // Keys in display order, per service metadata.
+    QList<QString> groupOrder() const;
+    // The user-editable (Custom) category key, per service metadata.
+    // On X11 (no service metadata) it is derived from the section key of a
+    // type==Custom item, so the QML Custom-button check still works.
+    QString customCategoryKey() const;
+
 Q_SIGNALS:
     void listChanged(QList<ShortcutInfo *>, InfoType);
+    // Wayland: category metadata (ordering/display/custom) changed — the list
+    // model resets so rows re-layout in the new order.
+    void categoryMetaChanged();
     void addCustomInfo(ShortcutInfo *info);
     void delCustomInfo(ShortcutInfo *info);
     void shortcutChanged(ShortcutInfo *info);
@@ -130,6 +160,11 @@ private:
     QList<ShortcutInfo *> m_assistiveToolsInfos;
     QList<ShortcutInfo *> m_appInfos;
     QList<ShortcutInfo *> m_customInfos;
+    // Wayland dynamic grouping: sectionKey -> items, plus service-supplied
+    // category metadata (ordering / display names / custom-group identity).
+    QHash<QString, QList<ShortcutInfo *>> m_groupInfos;
+    QHash<QString, CategoryMeta> m_categoryMeta;
+    QString m_customCategoryKey;
     QList<ShortcutInfo *> m_searchList;
     QList<ShortcutInfo *> m_windowSwitchStateInfos;
     ShortcutInfo *m_currentInfo = nullptr;
@@ -154,6 +189,7 @@ public:
         KeySequenceRole,
         AccelsRole,
         SectionNameRole,
+        SectionKeyRole,
         CornersRole,
         IsCustomRole
 

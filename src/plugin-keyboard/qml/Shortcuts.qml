@@ -91,7 +91,7 @@ DccObject {
 
                 model: dccData.shortcutSearchModel()
 
-                section.property: "section"
+                section.property: "sectionKey"
                 section.criteria: ViewSection.FullString
                 section.delegate: RowLayout {
                     width: ListView.view.width
@@ -100,7 +100,7 @@ DccObject {
                     required property string section
 
                     Label {
-                        text: parent.section
+                        text: dccData.sectionDisplayName(parent.section)
                         font.bold: true
                         font.pointSize: 13
                         leftPadding: 20
@@ -111,7 +111,7 @@ DccObject {
                     D.Button {
                         id: button
                         focusPolicy: Qt.NoFocus
-                        visible: parent.section === qsTranslate("dccV25::ShortcutModel", "Custom")
+                        visible: parent.section === dccData.customCategoryKey()
                         checkable: true
                         checked: shortcutSettingsBody.isEditing
                         Layout.alignment: Qt.AlignRight | Qt.AlignVCenter

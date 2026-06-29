@@ -73,6 +73,24 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::compositingEnabledChanged, this, &KeyboardWorker::onGetWindowWM);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::Added, this, &KeyboardWorker::onAdded);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::AllShortcutsReady, this, &KeyboardWorker::onAllShortcutsReady);
+    // Wayland: category metadata (ordering/display/custom flag) from the
+    // service's ListCategories(). Feeds the model so it never hardcodes
+    // category strings for grouping or Custom detection.
+    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::categoriesReady, this, [this](const QList<CategoryInfoNew> &cats) {
+        if (!m_shortcutModel)
+            return;
+        QList<ShortcutModel::CategoryMeta> meta;
+        meta.reserve(cats.size());
+        for (const auto &c : cats) {
+            ShortcutModel::CategoryMeta m;
+            m.key = c.key;
+            m.displayName = c.displayName;
+            m.order = c.order;
+            m.isCustom = c.isCustom;
+            meta.append(m);
+        }
+        m_shortcutModel->setCategoryMeta(meta);
+    });
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::searchShortcutsReady, this, [this](const QString &json) {
         if (m_shortcutModel)
             m_shortcutModel->setSearchResult(json);
@@ -146,6 +164,8 @@ void KeyboardWorker::refreshShortcut()
     if (m_keyboardDBusProxy->isWayland()) {
         // Wayland: result is delivered asynchronously via AllShortcutsReady signal.
         m_keyboardDBusProxy->ListAllShortcuts();
+        // Also refresh category metadata (ordering/display/custom flag).
+        m_keyboardDBusProxy->ListCategories();
         return;
     }
     QDBusPendingCallWatcher *result = new QDBusPendingCallWatcher(m_keyboardDBusProxy->ListAllShortcuts(), this);

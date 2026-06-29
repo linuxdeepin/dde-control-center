@@ -67,6 +67,13 @@ public Q_SLOTS:
     QSortFilterProxyModel *layoutSearchModel();
     QSortFilterProxyModel *shortcutSearchModel();
 
+    // Wayland: category metadata is supplied by the service (ListCategories).
+    // Exposed to QML so the section delegate can render the display name for
+    // a section key and detect the user-editable (Custom) group without any
+    // hardcoded category strings.
+    Q_INVOKABLE QString sectionDisplayName(const QString &key) const;
+    Q_INVOKABLE QString customCategoryKey() const;
+
     void updateKey(const QString &id, const int &type);
     QStringList formatKeys(const QString &shortcuts);
     Q_INVOKABLE QString keyEventToAccels(int key, int modifiers);

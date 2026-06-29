@@ -221,12 +221,24 @@ QSortFilterProxyModel *KeyboardController::shortcutSearchModel()
     connect(m_shortcutModel, &ShortcutModel::addCustomInfo, sourceModel, &ShortcutListModel::reset);
     connect(m_shortcutModel, &ShortcutModel::shortcutChanged, sourceModel, &ShortcutListModel::onUpdateShortcut);
     connect(m_shortcutModel, &ShortcutModel::windowSwitchChanged, sourceModel, &ShortcutListModel::reset);
+    // Wayland: re-layout rows when category ordering metadata arrives.
+    connect(m_shortcutModel, &ShortcutModel::categoryMetaChanged, sourceModel, &ShortcutListModel::reset);
 
     m_shortcutSearchModel->setSourceModel(sourceModel);
     m_shortcutSearchModel->setFilterRole(ShortcutListModel::SearchedTextRole);
     m_shortcutSearchModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
 
     return m_shortcutSearchModel;
+}
+
+QString KeyboardController::sectionDisplayName(const QString &key) const
+{
+    return m_shortcutModel ? m_shortcutModel->sectionDisplayName(key) : key;
+}
+
+QString KeyboardController::customCategoryKey() const
+{
+    return m_shortcutModel ? m_shortcutModel->customCategoryKey() : QString();
 }
 
 void KeyboardController::updateKey(const QString &id, const int &type)
