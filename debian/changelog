@@ -1,3 +1,10 @@
+dde-control-center (6.1.97) unstable; urgency=medium
+
+  * fix: improve overlay window behavior on X11 and add background
+    styling
+
+ -- zhangkun <zhangkun2@uniontech.com>  Mon, 29 Jun 2026 17:04:31 +0800
+
 dde-control-center (6.1.96) unstable; urgency=medium
 
   * fix(personalization): remove unreliable 2x2 image for wallpaper dark
