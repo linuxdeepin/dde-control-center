@@ -20,7 +20,7 @@ Loader {
         screen: root.screen
         color: "#2ca7f8"
 
-        flags: Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint
+        flags: Qt.WindowStaysOnTopHint | Qt.FramelessWindowHint | Qt.X11BypassWindowManagerHint
         DS.DLayerShellWindow.layer: DS.DLayerShellWindow.LayerOverlay
         DS.DLayerShellWindow.exclusionZone: -1
         Component.onCompleted: show()
