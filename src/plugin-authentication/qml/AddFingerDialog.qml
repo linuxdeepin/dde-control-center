@@ -141,6 +141,9 @@ D.DialogWindow {
                         name: dccData.fingerprintController.fingertipImagePath
                         retainWhileLoading: true
                         sourceSize: Qt.size(150, 150)
+                        layer.enabled: true
+                        width: 150
+                        height: 150
                     }
                 }
 
