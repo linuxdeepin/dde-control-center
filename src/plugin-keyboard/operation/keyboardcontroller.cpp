@@ -144,6 +144,9 @@ bool KeyboardController::numLock() const
 
 void KeyboardController::setNumLock(bool newNumLock)
 {
+    if (numLock() == newNumLock)
+        return;
+
     m_worker->setNumLock(newNumLock);
 }
 

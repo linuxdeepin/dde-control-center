@@ -27,7 +27,7 @@ DccObject {
         pageType: DccObject.Editor
         page: D.Switch {
             checked: dccData.keyboardEnabled
-            onCheckedChanged: {
+            onToggled: {
                 dccData.keyboardEnabled = checked
             }
         }
@@ -291,7 +291,7 @@ DccObject {
             pageType: DccObject.Editor
             page: D.Switch {
                 checked: dccData.numLock
-                onCheckedChanged: {
+                onToggled: {
                     dccData.numLock = checked
                 }
             }
@@ -306,7 +306,7 @@ DccObject {
             pageType: DccObject.Editor
             page: D.Switch {
                 checked: dccData.capsLock
-                onCheckedChanged: {
+                onToggled: {
                     dccData.capsLock = checked
                 }
             }
