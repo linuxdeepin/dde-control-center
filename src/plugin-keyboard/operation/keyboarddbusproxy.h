@@ -247,9 +247,10 @@ public slots:
     QDBusPendingReply<bool> callModifyHotkeys(const QString &id, const QStringList &hotkeys);
     // Wayland: replace hotkey — remove newHotkey from conflictId, add to targetId.
     QDBusPendingReply<bool> callReplaceHotkey(const QString &targetId, const QString &newHotkey, const QString &conflictId);
-    QDBusPendingReply<> AddCustomShortcut(const QString &in0, const QString &in1, const QString &in2);
-    QDBusPendingReply<> ModifyCustomShortcut(const QString &in0, const QString &in1, const QString &in2, const QString &in3);
-    QDBusPendingReply<> DeleteCustomShortcut(const QString &in0);
+    QDBusPendingReply<QString> AddCustomShortcut(const QString &in0, const QString &in1, const QString &in2);
+    QDBusPendingReply<bool> ModifyCustomShortcut(const QString &in0, const QString &in1, const QString &in2, const QString &in3);
+    QDBusPendingReply<bool> DeleteCustomShortcut(const QString &in0);
+    QDBusPendingReply<QString> GetShortcutCommand(const QString &in0);
     QDBusPendingReply<> GrabScreen();
     void SetNumLockState(int in0);
     QDBusPendingReply<QString> GetShortcut(const QString &in0, int in1);
