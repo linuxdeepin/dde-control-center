@@ -45,6 +45,8 @@ KeyboardController::KeyboardController(QObject *parent)
     connect(m_model, &KeyboardModel::userLayoutChanged, this, &KeyboardController::layoutCountChanged);
     connect(m_model, &KeyboardModel::curLayoutChanged, this, &KeyboardController::currentLayoutChanged);
     connect(m_model, &KeyboardModel::keyboardEnabledChanged, this, &KeyboardController::keyboardEnabledChanged);
+    connect(m_worker, &KeyboardWorker::shortcutCommandReady,
+            this, &KeyboardController::shortcutCommandReady);
 
     connect(m_shortcutModel, &ShortcutModel::keyEvent, this, [this](bool press, const QString &shortcut){
         ShortcutInfo *current = m_shortcutModel->currentInfo();
@@ -279,12 +281,7 @@ QString KeyboardController::checkDesktopCmd(const QString &cmd)
 void KeyboardController::addCustomShortcut(const QString &name, const QString &cmd, const QString &accels)
 {
     if (m_worker->isWayland()) {
-        // dde-services' Keybinding1 has no AddCustomShortcut yet (the service's
-        // own CONTROL_CENTER_INTEGRATION.md marks custom-shortcut CRUD as 服务侧需补齐).
-        // Bail out before any side effect (the conflict Disable below, the
-        // optimistic model insert in the worker) so the row doesn't flicker.
-        // TODO: wire up once AddCustomShortcut/ModifyCustomShortcut/DeleteCustomShortcut land.
-        qWarning() << "[Wayland] addCustomShortcut not yet supported by dde-services; ignoring";
+        m_worker->addCustomShortcut(name, checkDesktopCmd(cmd), accels);
         return;
     }
 
@@ -300,18 +297,18 @@ void KeyboardController::addCustomShortcut(const QString &name, const QString &c
 
 void KeyboardController::modifyCustomShortcut(const QString &id, const QString &name, const QString &cmd, const QString &accels)
 {
-    if (m_worker->isWayland()) {
-        // No ModifyCustomShortcut on the Wayland service yet — return before
-        // mutating the local model or triggering the conflict Disable below,
-        // so the UI is unchanged rather than showing an edit that won't persist.
-        // TODO: wire up once dde-services implements custom-shortcut CRUD.
-        qWarning() << "[Wayland] modifyCustomShortcut not yet supported by dde-services; ignoring";
-        return;
-    }
-
     ShortcutInfo *shortcut = m_shortcutModel->findInfoIf([id](ShortcutInfo *info){ return id == info->id; });
     if (!shortcut) {
         qWarning() << "shortcut not found..." << id << name;
+        return;
+    }
+
+    if (m_worker->isWayland()) {
+        ShortcutInfo updated = *shortcut;
+        updated.name = name;
+        updated.command = checkDesktopCmd(cmd);
+        updated.accels = accels;
+        m_worker->modifyCustomShortcut(&updated);
         return;
     }
 
@@ -327,17 +324,14 @@ void KeyboardController::modifyCustomShortcut(const QString &id, const QString &
     m_worker->modifyCustomShortcut(shortcut);
 }
 
+void KeyboardController::requestShortcutCommand(const QString &id)
+{
+    if (m_worker)
+        m_worker->requestShortcutCommand(id);
+}
+
 void KeyboardController::deleteCustomShortcut(const QString &id)
 {
-    if (m_worker->isWayland()) {
-        // No DeleteCustomShortcut on the Wayland service yet. Return before
-        // delShortcut's optimistic delInfo() (which removes + deletes the row);
-        // otherwise the row would vanish then reappear on the next refresh.
-        // TODO: wire up once dde-services implements custom-shortcut CRUD.
-        qWarning() << "[Wayland] deleteCustomShortcut not yet supported by dde-services; ignoring";
-        return;
-    }
-
     ShortcutInfo *shortcut = m_shortcutModel->findInfoIf([id](ShortcutInfo *info){ return id == info->id; });
     if (!shortcut) {
         qWarning() << "shortcut not found..." << id;

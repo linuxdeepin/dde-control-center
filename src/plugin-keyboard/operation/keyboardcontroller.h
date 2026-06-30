@@ -96,6 +96,7 @@ public Q_SLOTS:
 
     void addCustomShortcut(const QString &name, const QString &cmd, const QString &accels);
     void modifyCustomShortcut(const QString &id, const QString &name, const QString &cmd, const QString &accels);
+    Q_INVOKABLE void requestShortcutCommand(const QString &id);
     void modifyShortcut(const QString &id, const QString &accels, const int &type);
     void deleteCustomShortcut(const QString &id);
     void clearShortcut(const QString &id, const int &type);
@@ -130,6 +131,7 @@ signals:
 
     void waylandKeyCaptureFinished(const QString &id, int type, const QString &accels);
     void waylandKeyCaptureFailed(const QString &id, int type, int reason);
+    void shortcutCommandReady(const QString &id, const QString &command, bool available);
 
     void conflictTextChanged();
     void keyboardEnabledChanged();

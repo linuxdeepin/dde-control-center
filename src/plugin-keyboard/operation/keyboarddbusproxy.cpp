@@ -293,7 +293,8 @@ void KeyboardDBusProxy::onListAllShortcutsNewFinished(QDBusPendingCallWatcher *w
 {
     QDBusPendingReply<QList<ShortcutInfoNew>> reply = *w;
     if (!reply.isError()) {
-        QString json = convertShortcutListToJson(reply.value());
+        const QList<ShortcutInfoNew> shortcuts = reply.value();
+        QString json = convertShortcutListToJson(shortcuts);
         Q_EMIT AllShortcutsReady(json);
     } else {
         qWarning() << "Wayland ListAllShortcuts failed:" << reply.error();
@@ -354,7 +355,8 @@ void KeyboardDBusProxy::onGetShortcutNewFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<ShortcutInfoNew> reply = *w;
     if (!reply.isError()) {
-        QString json = convertShortcutToJson(reply.value());
+        const ShortcutInfoNew info = reply.value();
+        QString json = convertShortcutToJson(info);
         Q_EMIT shortcutQueried(json);
     }
     w->deleteLater();
@@ -462,25 +464,32 @@ QDBusPendingReply<> KeyboardDBusProxy::AddShortcutKeystroke(const QString &in0, 
     return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("AddShortcutKeystroke"), argumentList);
 }
 
-QDBusPendingReply<> KeyboardDBusProxy::AddCustomShortcut(const QString &in0, const QString &in1, const QString &in2)
+QDBusPendingReply<QString> KeyboardDBusProxy::AddCustomShortcut(const QString &in0, const QString &in1, const QString &in2)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2);
     return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("AddCustomShortcut"), argumentList);
 }
 
-QDBusPendingReply<> KeyboardDBusProxy::ModifyCustomShortcut(const QString &in0, const QString &in1, const QString &in2, const QString &in3)
+QDBusPendingReply<bool> KeyboardDBusProxy::ModifyCustomShortcut(const QString &in0, const QString &in1, const QString &in2, const QString &in3)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2) << QVariant::fromValue(in3);
     return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("ModifyCustomShortcut"), argumentList);
 }
 
-QDBusPendingReply<> KeyboardDBusProxy::DeleteCustomShortcut(const QString &in0)
+QDBusPendingReply<bool> KeyboardDBusProxy::DeleteCustomShortcut(const QString &in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
     return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("DeleteCustomShortcut"), argumentList);
+}
+
+QDBusPendingReply<QString> KeyboardDBusProxy::GetShortcutCommand(const QString &in0)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(in0);
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("GetShortcutCommand"), argumentList);
 }
 
 QDBusPendingReply<> KeyboardDBusProxy::GrabScreen()
@@ -505,7 +514,8 @@ void KeyboardDBusProxy::onSearchShortcutsNewFinished(QDBusPendingCallWatcher *w)
 {
     QDBusPendingReply<QList<ShortcutInfoNew>> reply = *w;
     if (!reply.isError()) {
-        QString json = convertShortcutListToJson(reply.value());
+        const QList<ShortcutInfoNew> shortcuts = reply.value();
+        QString json = convertShortcutListToJson(shortcuts);
         Q_EMIT searchShortcutsReady(json);
     }
     w->deleteLater();
