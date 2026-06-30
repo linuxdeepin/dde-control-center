@@ -95,6 +95,28 @@ static QString toPinyin(const QString &name)
     return pinyin(name, TS_NoneTone).join(FieldSeparator) + FieldSeparator + firstLetters(name).join(FieldSeparator);
 }
 
+static void fillShortcutInfoFromJson(dccV25::ShortcutInfo *info, const QJsonObject &obj)
+{
+    if (!info)
+        return;
+
+    info->type = obj["Type"].toInt();
+    const QJsonArray accels = obj["Accels"].toArray();
+    info->accels = accels.isEmpty() ? QString() : accels.first().toString();
+    info->name = obj["Name"].toString();
+    info->pinyin = toPinyin(info->name);
+    info->id = obj["Id"].toString();
+    info->command = obj["Exec"].toString();
+
+    const QString sectionKey = obj["Section"].toString();
+    if (!sectionKey.isEmpty()) {
+        info->sectionKey = sectionKey;
+        info->sectionName = obj["SectionName"].toString();
+        if (info->sectionName.isEmpty())
+            info->sectionName = sectionKey;
+    }
+}
+
 using namespace dccV25;
 DCORE_USE_NAMESPACE
 ShortcutModel::ShortcutModel(QObject *parent)
@@ -455,25 +477,61 @@ void ShortcutModel::onKeyBindingChanged(const QString &value)
     const QJsonObject &obj       = QJsonDocument::fromJson(value.toStdString().c_str()).object();
     const QString     &update_id = obj["Id"].toString();
     const int     &update_type = obj["Type"].toInt();
+    if (update_id.isEmpty())
+        return;
+
     auto res = std::find_if(m_infos.begin(), m_infos.end(), [ = ] (const ShortcutInfo *info)->bool{
         return info->id == update_id && info->type == update_type;
     });
 
     if (res != m_infos.end()) {
-        (*res)->type = obj["Type"].toInt();
-        (*res)->accels  = obj["Accels"].toArray().first().toString();
-        (*res)->name    = obj["Name"].toString();
-        (*res)->command = obj["Exec"].toString();
+        const QString oldSectionKey = (*res)->sectionKey;
+        fillShortcutInfoFromJson(*res, obj);
+        if (!oldSectionKey.isEmpty() && oldSectionKey != (*res)->sectionKey)
+            m_groupInfos[oldSectionKey].removeOne(*res);
+        if (!(*res)->sectionKey.isEmpty() && !m_groupInfos[(*res)->sectionKey].contains(*res))
+            m_groupInfos[(*res)->sectionKey].append(*res);
+
+        bool searchUpdated = false;
+        for (ShortcutInfo *searchInfo : m_searchList) {
+            if (searchInfo && searchInfo->id == update_id && searchInfo->type == update_type) {
+                fillShortcutInfoFromJson(searchInfo, obj);
+                searchUpdated = true;
+            }
+        }
 
         Q_EMIT shortcutChanged((*res));
+        if (searchUpdated)
+            Q_EMIT searchFinished(m_searchList);
+        if (!m_groupInfos.isEmpty())
+            Q_EMIT categoryMetaChanged();
+        return;
     }
-    // NOTE: update-in-place only — no insert branch. A change signal for an id
-    // not yet in m_infos is dropped. On X11 new shortcuts arrive via Added →
-    // onCustomInfo (the insert path); on Wayland that path is unused (custom
-    // CRUD is stubbed) and a brand-new id would only appear through the next
-    // full ListAllShortcuts refresh. Tolerated because no realistic Wayland flow
-    // surfaces an unknown id via ShortcutChanged alone; revisit if dde-services
-    // grows dynamic shortcut registration.
+
+    ShortcutInfo *info = new ShortcutInfo();
+    fillShortcutInfoFromJson(info, obj);
+
+    if (!info->sectionKey.isEmpty()) {
+        m_infos.append(info);
+        m_groupInfos[info->sectionKey].append(info);
+        if (info->type == Custom)
+            m_customInfos.append(info);
+        invalidateSystemShortcutNamesCache();
+        Q_EMIT addCustomInfo(info);
+        Q_EMIT categoryMetaChanged();
+        return;
+    }
+
+    if (info->type != Custom) {
+        delete info;
+        return;
+    }
+
+    info->sectionName = tr("Custom");
+    info->sectionKey = info->sectionName;
+    m_infos.append(info);
+    m_customInfos.append(info);
+    Q_EMIT addCustomInfo(info);
 }
 
 void ShortcutModel::onWindowSwitchChanged(bool value)
@@ -682,6 +740,13 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
     QJsonArray array = QJsonDocument::fromJson(searchResult.toStdString().c_str()).array();
     for (auto value : array) {
         QJsonObject obj  = value.toObject();
+        if (!obj["Section"].toString().isEmpty()) {
+            ShortcutInfo *info = new ShortcutInfo();
+            fillShortcutInfoFromJson(info, obj);
+            m_searchList << info;
+            continue;
+        }
+
         int         type = obj["Type"].toInt();
         ShortcutInfo *info = new ShortcutInfo();
         info->type         = type;
