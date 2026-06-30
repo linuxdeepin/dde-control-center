@@ -885,7 +885,7 @@ DccObject {
                             Layout.rightMargin: 10
                             text: groupSettings.isEditing ? qsTr("done") : qsTr("edit")
                             font: DTK.fontManager.t8
-                            focusPolicy: Qt.StrongFocus
+                            focusPolicy: Qt.TabFocus
                             activeFocusOnTab: true
                             background: Rectangle {
                                 radius: addGroupButton.background.radius
