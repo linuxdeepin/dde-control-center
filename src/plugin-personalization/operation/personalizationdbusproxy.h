@@ -91,7 +91,7 @@ public:
     void SetGreeterBackground(const QString &url);
     
     // daemon
-    QString saveCustomWallpaper(const QString &userName, const QString &url);
+    QString saveCustomWallpaper(const QString &userName, const QString &url, const QString &wallpaperType);
     void deleteCustomWallpaper(const QString &userName, const QString &url);
     QStringList getCustomWallpaper(const QString &userName);
 

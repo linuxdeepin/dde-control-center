@@ -32,8 +32,6 @@
 DCORE_USE_NAMESPACE
 Q_LOGGING_CATEGORY(DdcPersonalWorker, "dcc-personal-worker")
 
-#define SOLID_PREFIX "solid::"
-
 static const std::vector<int> OPACITY_SLIDER{ 0, 25, 40, 55, 70, 85, 100 };
 
 const QList<int> FontSizeList{ 11, 12, 13, 14, 15, 16, 18, 20 };
@@ -45,6 +43,8 @@ constexpr auto SCROLLBAR_POLICY_CONFIG_KEY = "scrollbarPolicyStatus";
 constexpr auto COMPACT_MODE_DISPLAY_KEY = "compactDisplayStatus";
 constexpr auto TITLE_BAR_HEIGHT_SUPPORT_COMPACT_DISPLAY = "titleBarHeightSupportCompactDisplay";
 constexpr auto SIZE_MODE_KEY = "sizeMode";
+constexpr auto WALLPAPER_TYPE_CUSTOM = "custom";
+constexpr auto WALLPAPER_TYPE_SOLID = "solid";
 constexpr auto SCROLLBAR_POLICY_KEY = "scrollBarPolicy";
 
 PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObject *parent)
@@ -524,9 +524,9 @@ void PersonalizationWorker::addCustomWallpaper(const QString &url)
 {
     QString lastHashPath;
     if (isURI(url)) {
-        lastHashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), QUrl(url).toLocalFile());
+        lastHashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), QUrl(url).toLocalFile(), WALLPAPER_TYPE_CUSTOM);
     } else {
-        lastHashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), url);
+        lastHashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), url, WALLPAPER_TYPE_CUSTOM);
     }
     setWallpaperForMonitor(m_model->getCurrentSelectScreen(), lastHashPath, PersonalizationExport::Option_All);
 }
@@ -548,8 +548,7 @@ void PersonalizationWorker::addSolidWallpaper(const QColor &color)
 
     img.save(&file, "JPG");
 
-    //set to dde, and prefix solid:: to tell dde this is a solid color wallpaper.
-    const QString &hashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), SOLID_PREFIX + file.fileName());
+    const QString &hashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), file.fileName(), WALLPAPER_TYPE_SOLID);
     setWallpaperForMonitor(m_model->getCurrentSelectScreen(), hashPath, PersonalizationExport::Option_All);
 }
 
