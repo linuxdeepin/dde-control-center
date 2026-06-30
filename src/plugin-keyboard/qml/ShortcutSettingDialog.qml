@@ -167,7 +167,10 @@ D.DialogWindow {
                 Layout.leftMargin: 4
                 text: qsTr("Cancel")
                 onClicked: {
-                    if (ddialog.keyId.length > 0) {
+                    if (ddialog.keyId.length > 0
+                            && (nameEdit.text !== ddialog.saveKeyName
+                                || commandEdit.text !== ddialog.saveCmdName
+                                || edit.accels !== ddialog.saveAccels)) {
                         dccData.modifyCustomShortcut(ddialog.keyId, ddialog.saveKeyName, ddialog.saveCmdName, ddialog.saveAccels);
                     }
                     ddialog.close();

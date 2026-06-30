@@ -83,6 +83,7 @@ DccObject {
                 id: shortcutView
                 property Item editItem
                 property Item conflictText
+                property string pendingCommandId
                 clip: true
                 interactive: false // 外层有滚动了，listview 就别滚了
                 implicitHeight: contentHeight
@@ -127,6 +128,7 @@ DccObject {
                         }
                         onCheckedChanged: {
                             shortcutSettingsBody.isEditing = button.checked
+                            shortcutView.pendingCommandId = ""
 
                             if (!shortcutView.editItem)
                                 return
@@ -158,6 +160,7 @@ DccObject {
                     contentItem: ColumnLayout {
                         KeySequenceDisplay {
                             id: edit
+                            property string dialogCommand: model.command
                             text: model.display
                             keys: model.keySequence
                             placeholderText: qsTr("please enter a new shortcut key")
@@ -197,10 +200,15 @@ DccObject {
                                 dccData.beginWaylandKeyCapture(edit, model.id, model.type)
                             }
                             onRequestEditKeys: {
-                                dialogloader.active = true
+                                if (dialogloader.active)
+                                    return
+
+                                shortcutView.pendingCommandId = model.id
+                                dccData.requestShortcutCommand(model.id)
                             }
                             onRequestDeleteKeys: {
                                 console.log("onRequestDeleteKeys", model.id)
+                                shortcutView.pendingCommandId = ""
                                 dccData.deleteCustomShortcut(model.id)
                             }
 
@@ -239,6 +247,7 @@ DccObject {
                                     onClosing: {
                                         dccData.endWaylandKeyCapture()
                                         dialogloader.active = false
+                                        shortcutView.pendingCommandId = ""
 
                                         conflictText.visible = false
                                         shortcutSettingsBody.conflictAccels = ""
@@ -251,7 +260,7 @@ DccObject {
 
                                     item.keyId = model.id
                                     item.keyName = model.display
-                                    item.cmdName = model.command
+                                    item.cmdName = edit.dialogCommand
                                     item.keySequence = model.keySequence
                                     if (model.keySequence.length > 0) {
                                         item.saveKeys = model.keySequence
@@ -262,6 +271,20 @@ DccObject {
                                     item.saveCmdName = item.cmdName
 
                                     item.show()
+                                }
+                            }
+                            Connections {
+                                target: dccData
+                                function onShortcutCommandReady(id, command, available) {
+                                    if (shortcutView.pendingCommandId !== id || model.id !== id)
+                                        return
+
+                                    shortcutView.pendingCommandId = ""
+                                    if (!available)
+                                        return
+
+                                    edit.dialogCommand = command
+                                    dialogloader.active = true
                                 }
                             }
                         }
@@ -343,6 +366,8 @@ DccObject {
                 }
 
                 function restoreShortcutView() {
+                    shortcutView.pendingCommandId = ""
+
                     if (!shortcutView.editItem)
                         return
 
