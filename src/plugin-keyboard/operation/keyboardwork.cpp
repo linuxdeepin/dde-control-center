@@ -350,11 +350,56 @@ void KeyboardWorker::modifyShortcutEdit(ShortcutInfo *info) {
 
 void KeyboardWorker::addCustomShortcut(const QString &name, const QString &command, const QString &accels)
 {
-    m_keyboardDBusProxy->AddCustomShortcut(name, command, accels);
+    if (!m_keyboardDBusProxy->isWayland()) {
+        m_keyboardDBusProxy->AddCustomShortcut(name, command, accels);
+        return;
+    }
+
+    QDBusPendingReply<QString> reply = m_keyboardDBusProxy->AddCustomShortcut(name, command, accels);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished,
+            this, &KeyboardWorker::onAddCustomShortcutFinished);
+}
+
+void KeyboardWorker::callModifyCustomShortcut(const QString &id, const QString &name,
+                                              const QString &command, const QString &accels,
+                                              int type)
+{
+    QDBusPendingReply<bool> reply = m_keyboardDBusProxy->ModifyCustomShortcut(id, name, command, accels);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+    watcher->setProperty("id", id);
+    watcher->setProperty("type", type);
+    connect(watcher, &QDBusPendingCallWatcher::finished,
+            this, &KeyboardWorker::onModifyCustomShortcutFinished);
+}
+
+void KeyboardWorker::requestShortcutCommand(const QString &id)
+{
+    ShortcutInfo *shortcut = m_shortcutModel ? m_shortcutModel->findInfoIf([&id](ShortcutInfo *info) {
+        return info->id == id;
+    }) : nullptr;
+    const QString fallbackCommand = shortcut ? shortcut->command : QString();
+
+    if (id.isEmpty() || !m_keyboardDBusProxy->isWayland()) {
+        Q_EMIT shortcutCommandReady(id, fallbackCommand, !id.isEmpty());
+        return;
+    }
+
+    QDBusPendingReply<QString> reply = m_keyboardDBusProxy->GetShortcutCommand(id);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+    watcher->setProperty("id", id);
+    watcher->setProperty("fallbackCommand", fallbackCommand);
+    connect(watcher, &QDBusPendingCallWatcher::finished,
+            this, &KeyboardWorker::onGetShortcutCommandFinished);
 }
 
 void KeyboardWorker::modifyCustomShortcut(ShortcutInfo *info)
 {
+    if (m_keyboardDBusProxy->isWayland()) {
+        callModifyCustomShortcut(info->id, info->name, info->command, info->accels, info->type);
+        return;
+    }
+
     if (info->replace) {
         onDisableShortcut(info->replace);
     }
@@ -362,9 +407,6 @@ void KeyboardWorker::modifyCustomShortcut(ShortcutInfo *info)
     // reset replace shortcut
     info->replace = nullptr;
 
-    // Wayland custom-shortcut CRUD is stubbed at the controller layer
-    // (KeyboardController::modifyCustomShortcut early-returns) until
-    // dde-services implements ModifyCustomShortcut, so this body is X11-only.
     const QString &result = m_keyboardDBusProxy->LookupConflictingShortcut(info->accels);
 
     if (!result.isEmpty()) {
@@ -408,9 +450,19 @@ QString KeyboardWorker::lookupConflictingShortcut(const QString &key)
 
 void KeyboardWorker::delShortcut(ShortcutInfo* info)
 {
-    m_keyboardDBusProxy->DeleteCustomShortcut(info->id);
-    if (m_shortcutModel)
-        m_shortcutModel->delInfo(info);
+    if (!m_keyboardDBusProxy->isWayland()) {
+        m_keyboardDBusProxy->DeleteCustomShortcut(info->id);
+        if (m_shortcutModel)
+            m_shortcutModel->delInfo(info);
+        return;
+    }
+
+    QDBusPendingReply<bool> reply = m_keyboardDBusProxy->DeleteCustomShortcut(info->id);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(reply, this);
+    watcher->setProperty("id", info->id);
+    watcher->setProperty("type", info->type);
+    connect(watcher, &QDBusPendingCallWatcher::finished,
+            this, &KeyboardWorker::onDeleteCustomShortcutFinished);
 }
 
 void KeyboardWorker::setRepeatDelay(uint value)
@@ -931,6 +983,11 @@ void KeyboardWorker::cleanShortcutSlef(const QString &id, const int type, const 
 
 void KeyboardWorker::setNewCustomShortcut(const QString &id, const QString &name, const QString &command, const QString &accles)
 {
+    if (m_keyboardDBusProxy->isWayland()) {
+        callModifyCustomShortcut(id, name, command, accles, ShortcutModel::Custom);
+        return;
+    }
+
     m_keyboardDBusProxy->ModifyCustomShortcut(id, name, command, accles);
 }
 
@@ -1090,6 +1147,67 @@ void KeyboardWorker::onCustomConflictCleanFinished(QDBusPendingCallWatcher *w)
     }
 
     w->deleteLater();
+}
+
+void KeyboardWorker::onAddCustomShortcutFinished(QDBusPendingCallWatcher *watch)
+{
+    QDBusPendingReply<QString> reply = *watch;
+    if (reply.isError() || reply.value().isEmpty()) {
+        qWarning() << "AddCustomShortcut failed:"
+                   << (reply.isError() ? reply.error().message() : QStringLiteral("server returned empty id"));
+        refreshShortcut();
+    } else {
+        onAdded(reply.value(), ShortcutModel::Custom);
+    }
+
+    watch->deleteLater();
+}
+
+void KeyboardWorker::onModifyCustomShortcutFinished(QDBusPendingCallWatcher *watch)
+{
+    QDBusPendingReply<bool> reply = *watch;
+    const QString id = watch->property("id").toString();
+    const int type = watch->property("type").toInt();
+    const bool success = (!reply.isError() && reply.value());
+    if (!success) {
+        qWarning() << "ModifyCustomShortcut failed for" << id
+                   << (reply.isError() ? reply.error().message() : QStringLiteral("server returned false"));
+        refreshShortcut();
+    } else if (!id.isEmpty()) {
+        onShortcutChanged(id, type);
+    }
+
+    watch->deleteLater();
+}
+
+void KeyboardWorker::onDeleteCustomShortcutFinished(QDBusPendingCallWatcher *watch)
+{
+    QDBusPendingReply<bool> reply = *watch;
+    const QString id = watch->property("id").toString();
+    const bool success = (!reply.isError() && reply.value());
+    if (!success) {
+        qWarning() << "DeleteCustomShortcut failed for" << id
+                   << (reply.isError() ? reply.error().message() : QStringLiteral("server returned false"));
+    }
+    refreshShortcut();
+
+    watch->deleteLater();
+}
+
+void KeyboardWorker::onGetShortcutCommandFinished(QDBusPendingCallWatcher *watch)
+{
+    QDBusPendingReply<QString> reply = *watch;
+    const QString id = watch->property("id").toString();
+    QString command = watch->property("fallbackCommand").toString();
+
+    if (reply.isError()) {
+        qWarning() << "GetShortcutCommand failed for" << id << reply.error().message();
+    } else {
+        command = reply.value();
+    }
+
+    Q_EMIT shortcutCommandReady(id, command, !reply.isError() || !command.isEmpty());
+    watch->deleteLater();
 }
 
 QString KeyboardWorker::makeShortcutKey(const QString &id, int type)
