@@ -217,6 +217,8 @@ void KeyboardWorker::active()
 void KeyboardWorker::deactive()
 {
     m_keyboardDBusProxy->blockSignals(true);
+    if (m_deviceProxy)
+        m_deviceProxy->deactive();
 }
 
 void KeyboardWorker::refreshKeyboard()

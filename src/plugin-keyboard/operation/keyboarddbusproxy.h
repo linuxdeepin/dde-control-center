@@ -100,6 +100,7 @@ class KeyboardDBusProxy : public QObject, public DCC_NAMESPACE::IKeyboardDeviceP
 public:
     explicit KeyboardDBusProxy(QObject *parent = nullptr);
     void active() override {}
+    void deactive() override {}
 
     //Keyboard
     Q_PROPERTY(bool CapslockToggle READ capslockToggle WRITE setCapslockToggle NOTIFY CapslockToggleChanged)

@@ -13,6 +13,7 @@ namespace DCC_NAMESPACE {
 
 class TreelandInputManager;
 class TreelandKeyboardSettings;
+class KeyboardStateNotify;
 
 /**
  * @brief 封装 treeland 输入管理协议的键盘代理类，对外提供与 KeyboardDBusProxy 相同的信号/槽接口，
@@ -32,6 +33,7 @@ public:
 
     /** 初始化并连接 TreelandInputManager 信号，发射当前初始状态 */
     void active() override;
+    void deactive() override;
     bool keyboardAvailable() const;
 
     // ---- 同步读取当前缓存值（与 KeyboardDBusProxy 接口保持兼容）----
@@ -76,7 +78,7 @@ private:
 
     TreelandInputManager *m_inputManager = nullptr;
     QPointer<TreelandKeyboardSettings> m_keyboardSettings;
+    KeyboardStateNotify *m_keyboardStateNotify = nullptr;
 };
 
 } // namespace DCC_NAMESPACE
-
