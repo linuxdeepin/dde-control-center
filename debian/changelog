@@ -1,3 +1,9 @@
+dde-control-center (6.1.98) unstable; urgency=medium
+
+  * fix: prevent fallback page from overriding pending showPage requests
+
+ -- xujin <xujin@uniontech.com>  Wed, 01 Jul 2026 11:06:07 +0800
+
 dde-control-center (6.1.97) unstable; urgency=medium
 
   * fix: improve overlay window behavior on X11 and add background
