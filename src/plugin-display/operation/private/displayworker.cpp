@@ -163,6 +163,10 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
 {
     if (WQt::Utils::isTreeland()) {
         auto *voMgr = m_reg->virtualOutputManager();
+        auto updateDisplayModeFromCurrentState = [this]() {
+            updateVirtualOutputs();
+            updateTreelandDisplayMode();
+        };
 
         // 销毁所有已有的虚拟输出
         if (voMgr) {
@@ -182,15 +186,65 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                     }
                 }
                 if (outputNames.size() >= 2) {
-                    voMgr->createVirtualOutput("ddeScreenGroup", outputNames);
-                    QMap<QString, QStringList> voMap;
-                    voMap.insert("ddeScreenGroup", outputNames);
-                    m_model->setVirtualOutput(voMap);
+                    auto createMergeVirtualOutput = [this, voMgr, outputNames]() {
+                        voMgr->createVirtualOutput("ddeScreenGroup", outputNames);
+                        QMap<QString, QStringList> voMap;
+                        voMap.insert("ddeScreenGroup", outputNames);
+                        m_model->setVirtualOutput(voMap);
+                        m_model->setDisplayMode(MERGE_MODE);
+                    };
+
+                    auto *opMgr = m_reg->outputManager();
+                    if (!opMgr) {
+                        updateDisplayModeFromCurrentState();
+                        return;
+                    }
+
+                    auto *opCfg = opMgr->createConfiguration();
+                    if (!opCfg) {
+                        updateDisplayModeFromCurrentState();
+                        return;
+                    }
+                    for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
+                        auto *cfgHead = opCfg->enableHead(it.value());
+                        if (!cfgHead) {
+                            opCfg->deleteLater();
+                            updateDisplayModeFromCurrentState();
+                            return;
+                        }
+                        if (!it.key()->enable()) {
+                            WQt::OutputMode *preferMode = nullptr;
+                            for (auto *mode : it.value()->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
+                                preferMode = mode;
+                                if (mode->isPreferred())
+                                    break;
+                            }
+                            if (preferMode)
+                                cfgHead->setMode(preferMode);
+                        }
+                        cfgHead->setPosition({ 0, 0 });
+                    }
+                    connect(opCfg, &WQt::OutputConfiguration::succeeded, this, createMergeVirtualOutput);
+                    connect(opCfg, &WQt::OutputConfiguration::succeeded, opCfg, &QObject::deleteLater);
+                    connect(opCfg, &WQt::OutputConfiguration::failed, this, updateDisplayModeFromCurrentState);
+                    connect(opCfg, &WQt::OutputConfiguration::failed, opCfg, &QObject::deleteLater);
+                    connect(opCfg, &WQt::OutputConfiguration::canceled, this, updateDisplayModeFromCurrentState);
+                    connect(opCfg, &WQt::OutputConfiguration::canceled, opCfg, &QObject::deleteLater);
+                    opCfg->apply();
                 }
             }
-            m_model->setDisplayMode(mode);
         } else {
-            auto *opCfg = m_reg->outputManager()->createConfiguration();
+            auto *opMgr = m_reg->outputManager();
+            if (!opMgr) {
+                updateDisplayModeFromCurrentState();
+                return;
+            }
+
+            auto *opCfg = opMgr->createConfiguration();
+            if (!opCfg) {
+                updateDisplayModeFromCurrentState();
+                return;
+            }
             m_model->setDisplayMode(mode);
             int posX = 0;
 
@@ -198,6 +252,11 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                 switch (mode) {
                 case EXTEND_MODE: {
                     auto *cfgHead = opCfg->enableHead(it.value());
+                    if (!cfgHead) {
+                        opCfg->deleteLater();
+                        updateDisplayModeFromCurrentState();
+                        return;
+                    }
                     cfgHead->setPosition({ posX, 0 });
                     posX += it.key()->w();
                     break;
@@ -205,13 +264,19 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                 case SINGLE_MODE: {
                     if (it.key()->name() == name) {
                         auto *cfgHead = opCfg->enableHead(it.value());
+                        if (!cfgHead) {
+                            opCfg->deleteLater();
+                            updateDisplayModeFromCurrentState();
+                            return;
+                        }
                         WQt::OutputMode *preferMode = nullptr;
                         for (auto *mode : it.value()->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
                             preferMode = mode;
                             if (mode->isPreferred())
                                 break;
                         }
-                        cfgHead->setMode(preferMode);
+                        if (preferMode)
+                            cfgHead->setMode(preferMode);
                         cfgHead->setPosition({ 0, 0 });
                     } else {
                         opCfg->disableHead(it.value());
@@ -354,6 +419,23 @@ void DisplayWorker::updateVirtualOutputs()
     m_model->setVirtualOutput(virtualOutputMap);
 }
 
+void DisplayWorker::updateTreelandDisplayMode()
+{
+    auto *voMgr = m_reg ? m_reg->virtualOutputManager() : nullptr;
+    if (voMgr && !voMgr->virtualOutputs().isEmpty()) {
+        m_model->setDisplayMode(MERGE_MODE);
+        return;
+    }
+
+    int enabledCount = 0;
+    for (auto *monitor : m_model->monitorList()) {
+        if (monitor->enable())
+            ++enabledCount;
+    }
+
+    m_model->setDisplayMode(enabledCount == 1 && m_model->monitorList().size() > 1 ? SINGLE_MODE : EXTEND_MODE);
+}
+
 void DisplayWorker::onBrightnessChanged(WQt::ColorControl *colorControl, double brightness)
 {
     brightness = qBound(0.0, brightness / 100.0, 1.0);
@@ -426,20 +508,17 @@ void DisplayWorker::onInterfaceRegistered(WQt::Registry::Interface interface)
         } else {
             virtOpMgr->getVirtualOutputList();
             connect(virtOpMgr, &WQt::VirtualOutputManager::virtualOutputList, this, [this, virtOpMgr](const QStringList &names) {
-                if (names.isEmpty()) {
-                    m_model->setDisplayMode(EXTEND_MODE);
-                } else {
-                    m_model->setDisplayMode(MERGE_MODE);
-                }
                 for (const auto &name : names) {
                     auto *vo = virtOpMgr->virtualOutputs().value(name);
                     if (vo) {
                         connect(vo, &WQt::VirtualOutput::outputsChanged, this, [this]() {
                             updateVirtualOutputs();
+                            updateTreelandDisplayMode();
                         });
                     }
                 }
                 updateVirtualOutputs();
+                updateTreelandDisplayMode();
             });
         }
     } break;
@@ -460,7 +539,7 @@ void DisplayWorker::onWlOutputManagerDone()
 {
     onWlMonitorListChanged();
 
-    m_model->setDisplayMode(EXTEND_MODE); // TODO: use dconfig
+    updateTreelandDisplayMode();
     auto *treelandOpMgr = m_reg->treeLandOutputManager();
     if (treelandOpMgr) {
         m_model->setPrimary(treelandOpMgr->mPrimaryOutput);
@@ -1005,7 +1084,7 @@ void DisplayWorker::wlMonitorAdded(WQt::OutputHead *head)
         wlMonitorRemoved(head);
     });
 
-    connect(head, &WQt::OutputHead::changed, mon, [mon, head](WQt::OutputHead::Property type) {
+    connect(head, &WQt::OutputHead::changed, mon, [this, mon, head](WQt::OutputHead::Property type) {
         switch (type) {
         case WQt::OutputHead::Name:
             mon->setName(head->property(WQt::OutputHead::Name).toString());
@@ -1045,13 +1124,16 @@ void DisplayWorker::wlMonitorAdded(WQt::OutputHead *head)
         case WQt::OutputHead::Scale:
             mon->setScale(head->property(WQt::OutputHead::Scale).toFloat());
             break;
+        case WQt::OutputHead::Enabled:
+            mon->setMonitorEnable(head->property(WQt::OutputHead::Enabled).toBool());
+            updateTreelandDisplayMode();
+            break;
         case WQt::OutputHead::Make:
             mon->setManufacturer(head->property(WQt::OutputHead::Make).toString());
             break;
         case WQt::OutputHead::Model:
             mon->setModel(head->property(WQt::OutputHead::Model).toString());
             break;
-        case WQt::OutputHead::Enabled:
         case WQt::OutputHead::Description:
         case WQt::OutputHead::SerialNumber:
             // Not handle
