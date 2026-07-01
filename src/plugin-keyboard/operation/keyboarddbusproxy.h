@@ -71,9 +71,11 @@ class DCCDBusInterface;
 struct ShortcutInfoNew {
     QString id;
     QString displayName;
-    int category;
+    QString category;               // Logical category key (e.g. "System", app-defined)
     QStringList hotkeys;
     QString localLanguageName;
+    QString localLanguageCategory;  // Resolved display text for the category
+    bool isCustom = false;          // True for runtime-added (service API) shortcuts
 };
 Q_DECLARE_METATYPE(ShortcutInfoNew)
 Q_DECLARE_METATYPE(QList<ShortcutInfoNew>)
@@ -81,7 +83,8 @@ Q_DECLARE_METATYPE(QList<ShortcutInfoNew>)
 inline QDBusArgument &operator<<(QDBusArgument &argument, const ShortcutInfoNew &info) {
     argument.beginStructure();
     argument << info.id << info.displayName << info.category
-             << info.hotkeys << info.localLanguageName;
+             << info.hotkeys << info.localLanguageName
+             << info.localLanguageCategory << info.isCustom;
     argument.endStructure();
     return argument;
 }
@@ -89,7 +92,34 @@ inline QDBusArgument &operator<<(QDBusArgument &argument, const ShortcutInfoNew 
 inline const QDBusArgument &operator>>(const QDBusArgument &argument, ShortcutInfoNew &info) {
     argument.beginStructure();
     argument >> info.id >> info.displayName >> info.category
-             >> info.hotkeys >> info.localLanguageName;
+             >> info.hotkeys >> info.localLanguageName
+             >> info.localLanguageCategory >> info.isCustom;
+    argument.endStructure();
+    return argument;
+}
+
+// New API category metadata (dde-services ListCategories()). The control
+// center treats this as the single source of truth for grouping/ordering/
+// display/custom-detection — it never hardcodes category strings.
+struct CategoryInfoNew {
+    QString key;
+    QString displayName;
+    int order = 0;
+    bool isCustom = false;
+};
+Q_DECLARE_METATYPE(CategoryInfoNew)
+Q_DECLARE_METATYPE(QList<CategoryInfoNew>)
+
+inline QDBusArgument &operator<<(QDBusArgument &argument, const CategoryInfoNew &info) {
+    argument.beginStructure();
+    argument << info.key << info.displayName << info.order << info.isCustom;
+    argument.endStructure();
+    return argument;
+}
+
+inline const QDBusArgument &operator>>(const QDBusArgument &argument, CategoryInfoNew &info) {
+    argument.beginStructure();
+    argument >> info.key >> info.displayName >> info.order >> info.isCustom;
     argument.endStructure();
     return argument;
 }
@@ -193,6 +223,9 @@ signals:
     // never reuse Deleted, whose X11 auto-wiring → KeyboardWorker::removed is a
     // dead-end relay. Carries only the id (the new-API signal has no type).
     void shortcutRemovedById(const QString &id);
+    // Wayland: category metadata from ListCategories() — drives grouping,
+    // ordering, display names, and custom-group identity in the model.
+    void categoriesReady(const QList<CategoryInfoNew> &categories);
 
     //wm
     void compositingEnabledChanged(bool enabled);
@@ -203,6 +236,8 @@ public slots:
     // Keybinding
     QDBusPendingReply<>  KeybindingReset();
     QDBusPendingReply<QString> ListAllShortcuts();
+    // Wayland: fetch category metadata (ordering/display/custom flag).
+    QDBusPendingReply<> ListCategories();
     QString LookupConflictingShortcut(const QString &in0);
     QDBusPendingReply<ShortcutInfoNew> LookupConflictShortcut(const QString &in0);
     QDBusPendingReply<> ClearShortcutKeystrokes(const QString &in0, int in1);
@@ -238,6 +273,7 @@ private slots:
     void onLangSelectorStartServiceProcessFinished(QDBusPendingCallWatcher *w);
     // New API -> Old API adapters (Wayland)
     void onListAllShortcutsNewFinished(QDBusPendingCallWatcher *w);
+    void onListCategoriesFinished(QDBusPendingCallWatcher *w);
     void onGetShortcutNewFinished(QDBusPendingCallWatcher *w);
     void onSearchShortcutsNewFinished(QDBusPendingCallWatcher *w);
     // Bridge: new dde-services D-Bus signals (ShortcutChanged/ShortcutRemoved)

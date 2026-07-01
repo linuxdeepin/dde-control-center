@@ -144,6 +144,13 @@ QList<ShortcutInfo *> ShortcutModel::appInfo() const
 
 QList<ShortcutInfo *> ShortcutModel::customInfo() const
 {
+    // Wayland dynamic grouping: the custom group lives in m_groupInfos under
+    // the service-reported custom key (falls back to the legacy list on X11).
+    if (!m_groupInfos.isEmpty()) {
+        const QString key = customCategoryKey();
+        if (!key.isEmpty())
+            return m_groupInfos.value(key);
+    }
     return m_customInfos;
 }
 
@@ -157,7 +164,7 @@ ShortcutInfo *ShortcutModel::shortcutAt(int index, int *corners)
     if (index < 0)
         return nullptr;
 
-    auto getCorners = [](QList<ShortcutInfo *>&list, int index) {
+    auto getCorners = [](const QList<ShortcutInfo *> &list, int index) {
         if (index == 0)
             return TopCorner;
         else if (index == list.count() - 1)
@@ -165,6 +172,20 @@ ShortcutInfo *ShortcutModel::shortcutAt(int index, int *corners)
         else
             return NoneCorner;
     };
+
+    // Wayland dynamic grouping: walk groups in service-supplied order.
+    if (!m_groupInfos.isEmpty()) {
+        for (const QString &key : groupOrder()) {
+            const auto &list = m_groupInfos[key];
+            if (index < list.count()) {
+                if (corners)
+                    *corners = getCorners(list, index);
+                return list.value(index);
+            }
+            index -= list.count();
+        }
+        return nullptr;
+    }
 
 #define CHECK_INDEX_DCC(List) \
     if (index < List.count()) { \
@@ -193,6 +214,9 @@ void ShortcutModel::delInfo(ShortcutInfo *info)
     if (m_customInfos.contains(info)) {
         m_customInfos.removeOne(info);
     }
+    // Wayland dynamic-grouping container: sweep by section key too.
+    for (auto it = m_groupInfos.begin(); it != m_groupInfos.end(); ++it)
+        it.value().removeOne(info);
 
     Q_EMIT delCustomInfo(info);
 
@@ -221,6 +245,10 @@ void ShortcutModel::removeShortcutById(const QString &id)
     };
     for (auto *list : lists)
         list->removeOne(info);
+
+    // Wayland dynamic-grouping container: sweep by section key too.
+    for (auto it = m_groupInfos.begin(); it != m_groupInfos.end(); ++it)
+        it.value().removeOne(info);
 
     invalidateSystemShortcutNamesCache();
     // Reuse the optimistic-delete UI path: delCustomInfo → ShortcutListModel::reset.
@@ -260,6 +288,8 @@ void ShortcutModel::onParseInfo(const QString &info)
     m_assistiveToolsInfos.clear();
     m_appInfos.clear();
     m_customInfos.clear();
+    // Wayland dynamic grouping containers
+    m_groupInfos.clear();
     
     // 清理系统快捷键名称缓存，因为数据即将更新
     invalidateSystemShortcutNamesCache();
@@ -283,51 +313,55 @@ void ShortcutModel::onParseInfo(const QString &info)
 
         m_infos << info;
 
-        // Wayland: use Section field from new API (avoids hardcoded ID lists)
-        QString section = obj["Section"].toString();
-        if (!section.isEmpty()) {
-            if (section == QLatin1String("System")) {
-                info->sectionName = tr("System");
-                m_systemInfos << info;
-                continue;
-            }
-            if (section == QLatin1String("App")) {
-                info->sectionName = tr("App");
-                m_appInfos << info;
-                continue;
-            }
-            if (section == QLatin1String("Custom")) {
-                info->sectionName = tr("Custom");
-                m_customInfos << info;
-                continue;
-            }
-            qWarning() << "Unknown shortcut section:" << section << "id=" << info->id;
+        // Wayland: group by the stable category key from the new API. dcc
+        // knows nothing about specific category values — ordering, display
+        // names, and which group is the user-editable (Custom) one all come
+        // from the service's ListCategories() metadata (see setCategoryMeta).
+        // Section = logical key (grouping); SectionName = already-resolved
+        // display text (rendered directly, dcc no longer translates).
+        QString sectionKey = obj["Section"].toString();
+        if (!sectionKey.isEmpty()) {
+            info->sectionKey = sectionKey;
+            info->sectionName = obj["SectionName"].toString();
+            if (info->sectionName.isEmpty())
+                info->sectionName = sectionKey;   // fallback to raw key
+            m_groupInfos[sectionKey].append(info);
+            continue;
         }
 
-        // X11: old ID-based categorization
+        // X11: old ID-based categorization. sectionKey mirrors sectionName
+        // (the translated text) so the QML section.property:"sectionKey"
+        // grouping reproduces the legacy group-by-translated-name behavior.
+        // The Wayland path above instead uses stable English keys from the
+        // service; X11 is legacy and single-locale, so this is equivalent.
         if (type != MEDIAKEY) {
             if (systemShortKeys.contains(info->id)) {
                 info->sectionName = tr("System");
+                info->sectionKey = info->sectionName;
                 m_systemInfos << info;
                 continue;
             }
             if (windowFilter.contains(info->id)) {
                 info->sectionName = tr("Window");
+                info->sectionKey = info->sectionName;
                 m_windowInfos << info;
                 continue;
             }
             if (workspaceFilter.contains(info->id)) {
                 info->sectionName = tr("Workspace");
+                info->sectionKey = info->sectionName;
                 m_workspaceInfos << info;
                 continue;
             }
             if (assistiveToolsFilter.contains(info->id)) {
                 info->sectionName = tr("AssistiveTools");
+                info->sectionKey = info->sectionName;
                 m_assistiveToolsInfos << info;
                 continue;
             }
             if (type == 1) {
                 info->sectionName = tr("Custom");
+                info->sectionKey = info->sectionName;
                 m_customInfos << info;
             }
         }
@@ -384,6 +418,15 @@ void ShortcutModel::onParseInfo(const QString &info)
     Q_EMIT listChanged(m_assistiveToolsInfos, InfoType::AssistiveTools);
     Q_EMIT listChanged(m_appInfos, InfoType::App);
     Q_EMIT listChanged(m_customInfos, InfoType::Custom);
+
+    // Wayland: items are in m_groupInfos, not the legacy fixed lists above.
+    // listChanged has no consumers on Wayland, so emit categoryMetaChanged
+    // to trigger ShortcutListModel::reset() — the view updates immediately
+    // with the data we just populated, even if ListCategories hasn't arrived
+    // yet. A later ListCategories reply will re-sort groups into their final
+    // order when setCategoryMeta fires categoryMetaChanged again.
+    if (!m_groupInfos.isEmpty())
+        Q_EMIT categoryMetaChanged();
 }
 
 void ShortcutModel::onCustomInfo(const QString &json)
@@ -400,6 +443,7 @@ void ShortcutModel::onCustomInfo(const QString &json)
     info->id      = obj["Id"].toString();
     info->command = obj["Exec"].toString();
     info->sectionName = tr("Custom");
+    info->sectionKey = info->sectionName;   // X11: mirror translated name
 
     m_infos.append(info);
     m_customInfos.append(info);
@@ -496,6 +540,19 @@ int ShortcutModel::indexOfShortcut(ShortcutInfo *info)
     if (!info)
         return -1;
 
+    // Wayland dynamic grouping: search groups in display order.
+    if (!m_groupInfos.isEmpty()) {
+        int row = 0;
+        for (const QString &key : groupOrder()) {
+            const auto &list = m_groupInfos[key];
+            const int idx = list.indexOf(info);
+            if (idx >= 0)
+                return row + idx;
+            row += list.size();
+        }
+        return -1;
+    }
+
     const QList<ShortcutInfo*> *lists[] = {
         &m_systemInfos, &m_windowInfos, &m_workspaceInfos,
         &m_assistiveToolsInfos, &m_appInfos, &m_customInfos
@@ -510,6 +567,75 @@ int ShortcutModel::indexOfShortcut(ShortcutInfo *info)
     }
 
     return -1;
+}
+
+void ShortcutModel::setCategoryMeta(const QList<CategoryMeta> &meta)
+{
+    m_categoryMeta.clear();
+    m_customCategoryKey.clear();
+    for (const auto &m : meta) {
+        m_categoryMeta.insert(m.key, m);
+        if (m.isCustom)
+            m_customCategoryKey = m.key;
+    }
+    invalidateSystemShortcutNamesCache();
+    Q_EMIT categoryMetaChanged();
+}
+
+QString ShortcutModel::sectionDisplayName(const QString &key) const
+{
+    // Service metadata is authoritative; fall back to the per-item resolved
+    // text carried in the group, then to the raw key.
+    auto it = m_categoryMeta.constFind(key);
+    if (it != m_categoryMeta.constEnd() && !it.value().displayName.isEmpty())
+        return it.value().displayName;
+
+    auto git = m_groupInfos.constFind(key);
+    if (git != m_groupInfos.constEnd() && !git.value().isEmpty()) {
+        const QString &name = git.value().first()->sectionName;
+        if (!name.isEmpty())
+            return name;
+    }
+    return key;
+}
+
+QString ShortcutModel::customCategoryKey() const
+{
+    // Wayland: from service metadata (setCategoryMeta).
+    if (!m_customCategoryKey.isEmpty())
+        return m_customCategoryKey;
+    // X11 fallback: the custom group's key is the section key of any
+    // type==Custom item (legacy items carry sectionKey == sectionName).
+    for (const auto *info : m_infos) {
+        if (info->type == Custom && !info->sectionKey.isEmpty())
+            return info->sectionKey;
+    }
+    return QString();
+}
+
+QList<QString> ShortcutModel::groupOrder() const
+{
+    // Order by service-supplied order; keys not in the metadata (e.g. items
+    // arriving before metadata) append by first-seen. The custom group is
+    // already last via its high order value from the service.
+    QList<QString> known, unknown;
+    for (const auto &m : m_categoryMeta) {
+        if (!m_groupInfos.contains(m.key))
+            continue;
+        known.append(m.key);
+    }
+    std::sort(known.begin(), known.end(),
+              [this](const QString &a, const QString &b) {
+        return m_categoryMeta.value(a).order < m_categoryMeta.value(b).order;
+    });
+    for (auto it = m_groupInfos.constBegin(); it != m_groupInfos.constEnd(); ++it) {
+        if (!m_categoryMeta.contains(it.key()))
+            unknown.append(it.key());
+    }
+    // Sort unknown keys for deterministic ordering across runs (QHash
+    // iteration is seed-dependent). Known keys are already sorted above.
+    unknown.sort();
+    return known + unknown;
 }
 
 ShortcutInfo *ShortcutModel::currentInfo() const
@@ -630,15 +756,15 @@ bool ShortcutModel::searchResultContains(const QString &id)
 QStringList ShortcutModel::getSystemShortcutNames() const
 {
     QStringList names;
-    
+
     // 合并所有系统相关的快捷键列表
     QList<QList<ShortcutInfo *>> systemLists = {
         m_systemInfos,
-        m_windowInfos, 
+        m_windowInfos,
         m_workspaceInfos,
         m_assistiveToolsInfos
     };
-    
+
     for (const auto &list : systemLists) {
         for (const auto *info : list) {
             if (info && !info->name.trimmed().isEmpty()) {
@@ -646,7 +772,22 @@ QStringList ShortcutModel::getSystemShortcutNames() const
             }
         }
     }
-    
+
+    // Wayland: items live in m_groupInfos rather than the legacy fixed lists.
+    // Collect names from all groups except the user-editable (Custom) one so
+    // that name-conflict detection works for system/app/workspace shortcuts.
+    if (names.isEmpty() && !m_groupInfos.isEmpty()) {
+        const QString customKey = customCategoryKey();
+        for (auto it = m_groupInfos.constBegin(); it != m_groupInfos.constEnd(); ++it) {
+            if (!customKey.isEmpty() && it.key() == customKey)
+                continue;
+            for (const auto *info : it.value()) {
+                if (info && !info->name.trimmed().isEmpty())
+                    names.append(info->name.trimmed());
+            }
+        }
+    }
+
     return names;
 }
 
@@ -747,6 +888,8 @@ QVariant ShortcutListModel::data(const QModelIndex &index, int role) const
         return info->accels;
     case SectionNameRole:
         return info->sectionName;
+    case SectionKeyRole:
+        return info->sectionKey;
     case CornersRole:
         return corners;
     case IsCustomRole:
@@ -766,7 +909,8 @@ QHash<int, QByteArray> ShortcutListModel::roleNames() const
     names[TypeRole] = "type";
     names[KeySequenceRole] = "keySequence";
     names[CommandRole] = "command";
-    names[SectionNameRole] = "section";
+    names[SectionNameRole] = "sectionName";
+    names[SectionKeyRole] = "sectionKey";
     names[AccelsRole] = "accels";
     names[CornersRole] = "corners";
     names[IsCustomRole] = "isCustom";
