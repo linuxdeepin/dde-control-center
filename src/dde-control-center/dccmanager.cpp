@@ -418,6 +418,22 @@ bool DccManager::action(const QString &json)
     return true;
 }
 
+QVariantMap DccManager::get(const QString &module, const QVariantMap &param)
+{
+    auto message = this->message();
+    setDelayedReply(true);
+    QMetaObject::invokeMethod(m_plugins, &DccPluginManager::get, Qt::QueuedConnection, module, param, message);
+    return QVariantMap();
+}
+
+QVariantMap DccManager::set(const QString &module, const QVariantMap &param)
+{
+    auto message = this->message();
+    setDelayedReply(true);
+    QMetaObject::invokeMethod(m_plugins, &DccPluginManager::set, Qt::QueuedConnection, module, param, message);
+    return QVariantMap();
+}
+
 QString DccManager::GetAllModule()
 {
     auto message = this->message();
@@ -464,6 +480,7 @@ void DccManager::cacheImage(const QString &id, const QSize &thumbnailSize)
 
 void DccManager::show()
 {
+    m_plugins->switchToFullMode();
     QWindow *w = DccManager::mainWindow();
     if (!w) {
         return;
