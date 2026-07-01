@@ -43,7 +43,7 @@ public Q_SLOTS:
 
     // 设置给Appearance分别在深色和浅色下的活动色
     void setActiveColors(const QString &activeColors);
-    void addCustomWallpaper(const QString &url);
+    QString addCustomWallpaper(const QString &url, bool autoSet = true);
     void addSolidWallpaper(const QColor &color);
     void deleteWallpaper(const QString &str);
     void setScreenSaver(const QString &value);
@@ -117,9 +117,9 @@ private:
 protected:
     PersonalizationModel *m_model;
     PersonalizationDBusProxy *m_personalizationDBusProxy;
+    WallpaperProvider *m_wallpaperWorker = nullptr;
 
 private:
-    WallpaperProvider *m_wallpaperWorker = nullptr;
     ScreensaverProvider *m_screenSaverProvider = nullptr;
     Dtk::Core::DConfig *m_personalizationConfig = nullptr;
     Dtk::Core::DConfig *m_dtkConfig = nullptr;
