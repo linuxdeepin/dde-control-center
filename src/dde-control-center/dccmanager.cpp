@@ -67,6 +67,7 @@ DccManager::DccManager(QObject *parent)
     , m_sidebarWidth(-1)
     , m_showTimer(nullptr)
     , m_showFallbackTimer(nullptr)
+    , m_showPagePending(false)
 #ifdef HAVE_DDE_API_EVENTLOGGER
     , m_pageStayTimer(nullptr)
 #endif
@@ -288,11 +289,13 @@ void DccManager::showPage(const QString &url)
 
 void DccManager::showPage(DccObject *obj)
 {
+    m_showPagePending = true;
     QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, QPointer<DccObject>(obj), QString());
 }
 
 void DccManager::showPage(DccObject *obj, const QString &cmd)
 {
+    m_showPagePending = true;
     QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, QPointer<DccObject>(obj), cmd);
 }
 
@@ -834,7 +837,7 @@ void DccManager::handleShowReady()
 {
     if (!m_showUrl.isEmpty()) {
         tryShow();
-    } else if (m_showFallbackTimer->isActive() && !m_activeObject) {
+    } else if (m_showFallbackTimer->isActive() && !m_activeObject && !m_showPagePending) {
         tryShowFallback();
     }
 }
@@ -869,7 +872,7 @@ void DccManager::tryShow()
 
 void DccManager::tryShowFallback()
 {
-    if (m_plugins->isDeleting() || !m_showUrl.isEmpty() || m_activeObject) {
+    if (m_plugins->isDeleting() || !m_showUrl.isEmpty() || m_activeObject || m_showPagePending) {
         return;
     }
 
@@ -879,6 +882,12 @@ void DccManager::tryShowFallback()
 
 void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
 {
+    struct PendingGuard
+    {
+        DccManager *manager;
+        ~PendingGuard() { manager->m_showPagePending = false; }
+    } pendingGuard{ this };
+
     if (m_plugins->isDeleting() || !obj) {
         return;
     }
