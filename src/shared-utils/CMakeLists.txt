@@ -37,6 +37,7 @@ if (Enable_TreelandSupport)
     qt6_generate_wayland_protocol_client_sources(dcc-shared-utils
         FILES
             ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-input-manager-unstable-v1.xml
+            ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-keyboard-state-notify-unstable-v1.xml
     )
 
     target_include_directories(dcc-shared-utils PUBLIC
@@ -46,6 +47,8 @@ if (Enable_TreelandSupport)
     target_sources(dcc-shared-utils PRIVATE
         treelandinputmanager.h
         treelandinputmanager.cpp
+        keyboardstatenotify.h
+        keyboardstatenotify.cpp
     )
 
     if(${QT_NS}_VERSION VERSION_GREATER_EQUAL 6.10)

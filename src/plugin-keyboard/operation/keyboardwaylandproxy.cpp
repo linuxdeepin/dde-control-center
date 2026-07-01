@@ -4,6 +4,7 @@
 #include "keyboardwaylandproxy.h"
 
 #include "treelandinputmanager.h"
+#include "keyboardstatenotify.h"
 
 #include <QLoggingCategory>
 
@@ -39,6 +40,23 @@ void KeyboardWaylandProxy::active()
         qCDebug(lcKeyboardWaylandProxy) << "Keyboard not yet available, waiting for signal";
     }
     Q_EMIT KeyboardAvailableChanged(m_inputManager->keyboardAvailable());
+
+    if (!m_keyboardStateNotify) {
+        m_keyboardStateNotify = new KeyboardStateNotify(this);
+        connect(m_keyboardStateNotify, &KeyboardStateNotify::numLockChanged, this,
+                [this](bool on) {
+                    qCDebug(lcKeyboardWaylandProxy) << "numLockChanged (global state notify):" << on;
+                    Q_EMIT NumLockStateChanged(on ? 1 : 0);
+                });
+        qCDebug(lcKeyboardWaylandProxy) << "KeyboardStateNotify initialized";
+    }
+}
+
+void KeyboardWaylandProxy::deactive()
+{
+    qCDebug(lcKeyboardWaylandProxy) << "KeyboardWaylandProxy::deactive()";
+    delete m_keyboardStateNotify;
+    m_keyboardStateNotify = nullptr;
 }
 
 void KeyboardWaylandProxy::connectKeyboardSettings(TreelandKeyboardSettings *kbd)

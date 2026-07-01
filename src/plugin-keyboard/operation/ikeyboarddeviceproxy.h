@@ -13,6 +13,7 @@ public:
     virtual ~IKeyboardDeviceProxy() = default;
 
     virtual void active() = 0;
+    virtual void deactive() = 0;
 
     virtual uint repeatDelay() const = 0;
     virtual uint repeatInterval() const = 0;
