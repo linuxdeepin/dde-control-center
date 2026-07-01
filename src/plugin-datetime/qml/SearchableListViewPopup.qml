@@ -159,73 +159,85 @@ Popup {
                 activeFocusOnTab: false
             }
 
-            ListView {
-                id: listView
-                clip: true
+            Item {
                 Layout.fillWidth: true
                 Layout.fillHeight: true
-                model: control.delegateModel
-                currentIndex: control.highlightedIndex
-                highlightMoveDuration: -1
-                highlightMoveVelocity: -1
-                highlightFollowsCurrentItem: true
-                focus: true
-                activeFocusOnTab: true
-                ScrollBar.vertical: verticalScrollBar
 
-                interactive: control.delegateModel.count > control.maxVisibleItems
+                ListView {
+                    id: listView
+                    clip: true
+                    anchors.fill: parent
+                    model: control.delegateModel
+                    currentIndex: control.highlightedIndex
+                    highlightMoveDuration: -1
+                    highlightMoveVelocity: -1
+                    highlightFollowsCurrentItem: true
+                    focus: true
+                    activeFocusOnTab: true
+                    ScrollBar.vertical: verticalScrollBar
 
-                property bool keyboardScrolling: control.contentScrolling
+                    interactive: control.delegateModel.count > control.maxVisibleItems
 
-                Timer {
-                    id: keyboardScrollTimer
-                    interval: 50
-                    onTriggered: {
-                        control.contentScrolling = false
-                    }
-                }
+                    property bool keyboardScrolling: control.contentScrolling
 
-                Keys.onUpPressed: {
-                    control.contentScrolling = true
-                    keyboardScrollTimer.restart()
-                    control.setViewIndex(currentIndex - 1)
-                }
-
-                Keys.onDownPressed: {
-                    control.contentScrolling = true
-                    keyboardScrollTimer.restart()
-                    control.setViewIndex(currentIndex + 1)
-                }
-
-                Keys.onEscapePressed: {
-                    searchEdit.forceActiveFocus()
-                }
-
-                Component.onCompleted: {
-                    control.view = listView
-                    control.viewWidth = listView.width
-
-                    var foundChecked = false
-                    for (var i = 0; i < count; i++) {
-                        var item = itemAtIndex(i)
-                        if (item && item.checked === true) {
-                            control.setViewIndex(i)
-                            positionViewAtIndex(i, ListView.Center)
-                            foundChecked = true
-                            break
+                    Timer {
+                        id: keyboardScrollTimer
+                        interval: 50
+                        onTriggered: {
+                            control.contentScrolling = false
                         }
                     }
 
-                    if (!foundChecked && control.highlightedIndex >= 0) {
-                        control.setViewIndex(control.highlightedIndex)
-                        positionViewAtIndex(control.highlightedIndex, ListView.Center)
+                    Keys.onUpPressed: {
+                        control.contentScrolling = true
+                        keyboardScrollTimer.restart()
+                        control.setViewIndex(currentIndex - 1)
                     }
 
-                    forceActiveFocus()
+                    Keys.onDownPressed: {
+                        control.contentScrolling = true
+                        keyboardScrollTimer.restart()
+                        control.setViewIndex(currentIndex + 1)
+                    }
+
+                    Keys.onEscapePressed: {
+                        searchEdit.forceActiveFocus()
+                    }
+
+                    Component.onCompleted: {
+                        control.view = listView
+                        control.viewWidth = listView.width
+
+                        var foundChecked = false
+                        for (var i = 0; i < count; i++) {
+                            var item = itemAtIndex(i)
+                            if (item && item.checked === true) {
+                                control.setViewIndex(i)
+                                positionViewAtIndex(i, ListView.Center)
+                                foundChecked = true
+                                break
+                            }
+                        }
+
+                        if (!foundChecked && control.highlightedIndex >= 0) {
+                            control.setViewIndex(control.highlightedIndex)
+                            positionViewAtIndex(control.highlightedIndex, ListView.Center)
+                        }
+
+                        forceActiveFocus()
+                    }
+
+                    onWidthChanged: {
+                        control.viewWidth = listView.width
+                    }
                 }
 
-                onWidthChanged: {
-                    control.viewWidth = listView.width
+                ScrollBar {
+                    id: verticalScrollBar
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    anchors.right: parent.right
+                    anchors.rightMargin: -6
                 }
             }
 
@@ -240,14 +252,6 @@ Popup {
                 enabled: !listView.atYEnd
                 focusPolicy: Qt.NoFocus
                 activeFocusOnTab: false
-            }
-
-            ScrollBar {
-                id: verticalScrollBar
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.right: parent.right
-                anchors.rightMargin: -6
             }
         }
 

@@ -1010,7 +1010,7 @@ DccObject {
         weight: 110
         // visible: dccData.colorTemperatureEnabled
         pageType: DccObject.Item
-        onParentItemChanged: item => { if (item) { item.rightItemTopMargin = 6; item.rightItemBottomMargin = 6 } }
+        onParentItemChanged: item => { if (item) item.topInset = 6 }
         page: DccGroupView {}
         DccObject {
             name: "time"
