@@ -94,8 +94,16 @@ Popup {
             font: DTK.fontManager.t6
             Layout.alignment: Qt.AlignTop
             placeholder: qsTr("Search")
+            Timer {
+                id: searchDebounceTimer
+                interval: 100
+                onTriggered: {
+                    control.searchText = searchEdit.text
+                }
+            }
+
             onTextChanged: {
-                control.searchText = text
+                searchDebounceTimer.restart()
             }
             onVisibleChanged: {
                 clear()
