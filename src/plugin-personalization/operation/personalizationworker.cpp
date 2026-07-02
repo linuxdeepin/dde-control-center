@@ -32,8 +32,6 @@
 DCORE_USE_NAMESPACE
 Q_LOGGING_CATEGORY(DdcPersonalWorker, "dcc-personal-worker")
 
-#define SOLID_PREFIX "solid::"
-
 static const std::vector<int> OPACITY_SLIDER{ 0, 25, 40, 55, 70, 85, 100 };
 
 const QList<int> FontSizeList{ 11, 12, 13, 14, 15, 16, 18, 20 };
@@ -548,8 +546,7 @@ void PersonalizationWorker::addSolidWallpaper(const QColor &color)
 
     img.save(&file, "JPG");
 
-    //set to dde, and prefix solid:: to tell dde this is a solid color wallpaper.
-    const QString &hashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), SOLID_PREFIX + file.fileName());
+    const QString &hashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), file.fileName(), true);
     setWallpaperForMonitor(m_model->getCurrentSelectScreen(), hashPath, PersonalizationExport::Option_All);
 }
 
