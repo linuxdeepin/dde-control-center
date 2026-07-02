@@ -9,8 +9,9 @@ import org.deepin.dtk 1.0 as D
 Control {
     id: control
     property real radius: 8
-    width: 430
-    height: 360
+    property bool invalidFileType: false
+    implicitWidth: 460
+    implicitHeight: 360
 
     signal requireFileDialog()
     signal iconDropped(string file)
@@ -69,45 +70,44 @@ Control {
                     var filePath = drop.urls[0].toString()
                     var ext = filePath.substring(filePath.lastIndexOf('.') + 1).toLowerCase()
                     if (['png', 'bmp', 'jpg', 'jpeg'].indexOf(ext) === -1) {
-                        errorLabel.visible = true
-                        normalLabel.visible = false
+                        control.invalidFileType = true
                         return
                     }
-                    errorLabel.visible = false
-                    normalLabel.visible = true
+                    control.invalidFileType = false
                     iconDropped(filePath)
                 }
             }
         }
     }
-    D.DciIcon {
-        id: addIcon
-        anchors.centerIn: parent
-        name: "dcc_user_add_icon"
-        sourceSize:  Qt.size(64, 64)
-    }
 
-    D.Label {
-        id: normalLabel
-        width: 360
-        wrapMode: Text.WordWrap
-        font: D.DTK.fontManager.t8
-        anchors.top: addIcon.bottom
-        anchors.topMargin: 20
-        horizontalAlignment: Text.AlignHCenter
-        anchors.horizontalCenter: parent.horizontalCenter
-        text: qsTr("You haven't uploaded an avatar yet. Click or drag and drop to upload an image.")
-    }
+    Item {
+        id: emptyState
+        width: shape.width - 40
+        height: addIcon.height + 20 + messageLabel.implicitHeight
+        anchors.centerIn: shape
 
-    D.Label {
-        id: errorLabel
-        width: 360
-        wrapMode: Text.WordWrap
-        anchors.top: addIcon.bottom
-        anchors.topMargin: 20
-        horizontalAlignment: Text.AlignHCenter
-        anchors.horizontalCenter: parent.horizontalCenter
-        visible: false
-        text: qsTr("The uploaded file type is incorrect, please upload it again")
+        D.DciIcon {
+            id: addIcon
+            width: 64
+            height: 64
+            anchors.top: parent.top
+            anchors.horizontalCenter: parent.horizontalCenter
+            name: "dcc_user_add_icon"
+            sourceSize: Qt.size(width, height)
+        }
+
+        D.Label {
+            id: messageLabel
+            width: parent.width
+            wrapMode: Text.WordWrap
+            font: D.DTK.fontManager.t8
+            anchors.top: addIcon.bottom
+            anchors.topMargin: 20
+            anchors.horizontalCenter: parent.horizontalCenter
+            horizontalAlignment: Text.AlignHCenter
+            text: control.invalidFileType
+                ? qsTr("The uploaded file type is incorrect, please upload it again")
+                : qsTr("You haven't uploaded an avatar yet. Click or drag and drop to upload an image.")
+        }
     }
 }
