@@ -13,6 +13,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QScreen>
+#include <DConfig>
 
 #include "utils.hpp"
 #include <qpa/qplatformnativeinterface.h>
@@ -38,10 +39,28 @@
 
 Q_LOGGING_CATEGORY(DdcPersonnalizationTreelandWorker, "dcc-personalization-treeland-woker")
 
+namespace {
+constexpr char DccAppId[] = "org.deepin.dde.control-center";
+constexpr char PersonalizationConfig[] = "org.deepin.dde.control-center.personalization";
+constexpr char TreelandDesktopWallpaperCustomizedKey[] = "treelandDesktopWallpaperCustomized";
+
+QString globalThemeBaseId(QString themeId)
+{
+    if (themeId.endsWith(".light")) {
+        themeId.chop(6);
+    } else if (themeId.endsWith(".dark")) {
+        themeId.chop(5);
+    }
+    return themeId;
+}
+}
+
 TreeLandWorker::TreeLandWorker(PersonalizationModel *model, QObject *parent)
 : PersonalizationWorker(model, parent)
 {
-
+#ifdef Enable_Treeland
+    initDConfig();
+#endif
 }
 
 TreeLandWorker::~TreeLandWorker()
@@ -59,6 +78,29 @@ TreeLandWorker::~TreeLandWorker()
 }
 
 #ifdef Enable_Treeland
+
+void TreeLandWorker::initDConfig()
+{
+    m_dconfig = Dtk::Core::DConfig::create(DccAppId, PersonalizationConfig, QString(), this);
+    if (!m_dconfig || !m_dconfig->isValid()) {
+        qCWarning(DdcPersonnalizationTreelandWorker) << "Failed to create personalization DConfig";
+        return;
+    }
+
+    m_desktopWallpaperCustomized = m_dconfig->value(TreelandDesktopWallpaperCustomizedKey, false).toBool();
+}
+
+void TreeLandWorker::setDesktopWallpaperCustomized(bool customized)
+{
+    if (m_desktopWallpaperCustomized == customized) {
+        return;
+    }
+
+    m_desktopWallpaperCustomized = customized;
+    if (m_dconfig && m_dconfig->isValid()) {
+        m_dconfig->setValue(TreelandDesktopWallpaperCustomizedKey, customized);
+    }
+}
 
 void TreeLandWorker::setWallpaperForMonitor(const QString &screen, const QString &url, PersonalizationExport::WallpaperSetOption option, PersonalizationExport::WallpaperSetType type)
 {
@@ -78,7 +120,9 @@ void TreeLandWorker::setWallpaperForMonitor(const QString &screen, const QString
 
 void TreeLandWorker::setBackgroundForMonitor(const QString &monitorName, const QString &url, PersonalizationExport::WallpaperSetType type)
 {
-    setWallpaper(monitorName, url, WallpaperContext::wallpaper_role_desktop, type);
+    if (setWallpaper(monitorName, url, WallpaperContext::wallpaper_role_desktop, type)) {
+        setDesktopWallpaperCustomized(true);
+    }
 }
 
 QString TreeLandWorker::getBackgroundForMonitor(const QString &monitorName)
@@ -235,10 +279,22 @@ void TreeLandWorker::setOpacity(int value)
 void TreeLandWorker::setGlobalTheme(const QString &themeId)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setGlobalTheme:" << themeId;
-    if (m_globalTheme == themeId) {
+    const QString baseThemeId = globalThemeBaseId(themeId);
+    QString currentBaseThemeId = m_globalTheme;
+    if (currentBaseThemeId.isEmpty()) {
+        currentBaseThemeId = globalThemeBaseId(m_model->getGlobalThemeModel()->getDefault());
+    }
+
+    if (currentBaseThemeId == baseThemeId) {
+        m_globalTheme = baseThemeId;
         return;
     }
-    m_globalTheme = themeId;
+
+    if (!currentBaseThemeId.isEmpty()) {
+        setDesktopWallpaperCustomized(false);
+    }
+
+    m_globalTheme = baseThemeId;
     handleGlobalTheme(themeId);
     PersonalizationWorker::setGlobalTheme(themeId);
 }
@@ -336,12 +392,12 @@ WallpaperContext *TreeLandWorker::getOrCreateWallpaperContext(const QString &mon
     return nullptr;
 }
 
-void TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url, uint32_t role, uint32_t type)
+bool TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url, uint32_t role, uint32_t type)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setWallpaper:" << monitorName << "url:" << url << "role:" << role << "type:" << type;
 
     if (checkWallpaperLockStatus()) {
-        return;
+        return false;
     }
 
     QString dest;
@@ -353,7 +409,7 @@ void TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url
     }
 
     if (dest.isEmpty())
-        return;
+        return false;
 
     auto updateWallpaperMetaData = [monitorName, url](QMap<QString, WallpaperMetaData *> &wallpapers) {
         if (!wallpapers.contains(monitorName)) {
@@ -387,8 +443,11 @@ void TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url
             }
         } else {
             qCWarning(DdcPersonnalizationTreelandWorker) << "Failed to get wallpaper context for:" << monitorName;
+            return false;
         }
     }
+
+    return true;
 }
 
 void TreeLandWorker::handleGlobalTheme(const QString &themeId)
@@ -466,7 +525,9 @@ void TreeLandWorker::applyGlobalTheme(KeyFile &theme, const QString &themeName, 
         return setGlobalItem("AppTheme", TYPEGTK);
     }
 
-    setGlobalFile("Wallpaper", TYPEWALLPAPER);
+    if (!m_desktopWallpaperCustomized) {
+        setGlobalFile("Wallpaper", TYPEWALLPAPER);
+    }
     setGlobalFile("LockBackground", TYPEGREETERBACKGROUND);
     setGlobalItem("IconTheme", TYPEICON);
     setGlobalItem("CursorTheme", TYPECURSOR);
@@ -511,6 +572,10 @@ void TreeLandWorker::doSetByType(const QString &type, const QString &value)
 
 void TreeLandWorker::active()
 {
+    if (m_globalTheme.isEmpty()) {
+        m_globalTheme = globalThemeBaseId(m_model->getGlobalThemeModel()->getDefault());
+    }
+
     if (m_personalizationManager.isNull()) {
         m_personalizationManager.reset(new PersonalizationManager(this));
         connect(m_personalizationManager.get(), &PersonalizationManager::activeChanged, this, [this]() {
@@ -551,6 +616,7 @@ void TreeLandWorker::active()
     });
 
     PersonalizationWorker::active();
+    m_globalTheme = globalThemeBaseId(m_model->getGlobalThemeModel()->getDefault());
 }
 
 PersonalizationManager::PersonalizationManager(QObject *parent)
