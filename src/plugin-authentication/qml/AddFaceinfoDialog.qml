@@ -231,6 +231,9 @@ To ensure successful entry:\n\
                         anchors.centerIn: parent
                         name: dccData.faceController.faceImgContent
                         sourceSize: Qt.size(210, 210)
+                        layer.enabled: true
+                        width: 210
+                        height: 210
                     }
 
                     Control {
