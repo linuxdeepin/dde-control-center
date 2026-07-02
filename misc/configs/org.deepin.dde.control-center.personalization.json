@@ -56,6 +56,17 @@
             "description": "",
             "permissions": "readwrite",
             "visibility": "private"
+        },
+        "treelandDesktopWallpaperCustomized": {
+            "value": false,
+            "serial": 0,
+            "flags": [],
+            "name": "treelandDesktopWallpaperCustomized",
+            "name[zh_CN]": "Treeland桌面壁纸是否已自定义",
+            "description[zh_CN]": "记录Treeland环境下用户是否手动设置过桌面壁纸",
+            "description": "Whether the desktop wallpaper was manually customized in Treeland",
+            "permissions": "readwrite",
+            "visibility": "private"
         }
-    }    
+    }
 }
