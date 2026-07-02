@@ -244,8 +244,9 @@ D.DialogWindow {
             CustomAvatarEmpatyArea {
                 id: customEmptyAvatar
                 visible: needShow()
-                Layout.alignment: Qt.AlignHCenter
-                Layout.rightMargin: 10
+                Layout.fillWidth: true
+                Layout.fillHeight: true
+                Layout.alignment: Qt.AlignHCenter | Qt.AlignVCenter
                 onIconDropped: function (url){
                     let filePath = url.toString()
                     const sourceFile = filePath.replace("file://", "")
