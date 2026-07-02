@@ -49,6 +49,13 @@ public:
     void modifyShortcutEdit(ShortcutInfo* info);
     void addCustomShortcut(const QString& name, const QString& command, const QString& accels);
     void modifyCustomShortcut(ShortcutInfo *info);
+    // Fire ModifyCustomShortcut on the Wayland service and wire the reply to
+    // onModifyCustomShortcutFinished. Shared by modifyCustomShortcut (Wayland
+    // branch) and setNewCustomShortcut so the watcher/id/type setup stays in
+    // one place.
+    void callModifyCustomShortcut(const QString &id, const QString &name,
+                                  const QString &command, const QString &accels,
+                                  int type);
 
     void grabScreen();
     bool checkAvaliable(const QString& key);
@@ -122,6 +129,9 @@ public Q_SLOTS:
     void onLookupConflictForShortcutFinished(QDBusPendingCallWatcher *watch);
     void onShortcutCleanFinished(QDBusPendingCallWatcher *watch);
     void onCustomConflictCleanFinished(QDBusPendingCallWatcher *w);
+    void onAddCustomShortcutFinished(QDBusPendingCallWatcher *watch);
+    void onModifyCustomShortcutFinished(QDBusPendingCallWatcher *watch);
+    void onDeleteCustomShortcutFinished(QDBusPendingCallWatcher *watch);
 
 private:
     static QString makeShortcutKey(const QString &id, int type);
