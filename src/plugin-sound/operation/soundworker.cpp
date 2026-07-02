@@ -204,7 +204,7 @@ void SoundWorker::setSourceVolume(double volume)
 void SoundWorker::setSinkVolume(double volume)
 {
     qWarning()<<__FUNCTION__<<volume;
-    m_soundDBusInter->SetVolumeSink(volume, true);
+    m_soundDBusInter->SetVolumeSink(volume, !m_soundDBusInter->muteSink());
     qCDebug(DdcSoundWorker) << "set sink volume to " << volume;
 }
 
