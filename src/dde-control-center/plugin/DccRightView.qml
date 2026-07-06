@@ -15,6 +15,14 @@ Flickable {
 
     contentHeight: groupView.height
 
+    // 修复：内容缩小到视口以内时，Qt Flickable C++ 内部可能保留旧的滚动偏移，
+    // 导致切换 app 回来后 contentY 越界使页面滚飞。
+    onContentYChanged: {
+        if (!moving && !dragging && contentHeight <= height && contentY > 0) {
+            cancelFlick()
+            contentY = 0
+        }
+    }
     ScrollBar.vertical: ScrollBar { }
 
     DccGroupView {
@@ -89,6 +97,11 @@ Flickable {
     }
     Connections {
         target: DccApp.mainWindow()
+        function onActiveChanged() {
+            if (!target.active) {
+                skipNextFocusChange = true
+            }
+        }
         function onActiveFocusItemChanged() {
             var focusItem = target.activeFocusItem
             var parentItem = focusItem
@@ -99,12 +112,26 @@ Flickable {
                 return
             }
 
+            // 跳过标记：只在焦点回到 groupView 内部时消耗
+            if (skipNextFocusChange && parentItem === groupView) {
+                skipNextFocusChange = false
+                lastFocusedItem = focusItem
+                return
+            }
+
+            lastFocusedItem = focusItem
             let itemY = focusItem.mapToItem(control, 0, 0).y
             if ((itemY + focusItem.height) > control.height) {
                 control.contentY = itemY + focusItem.height - control.height + control.contentY
             } else if (itemY < 0) {
                 control.contentY = focusItem.mapToItem(groupView, 0, 0).y
             }
+            var maxY = Math.max(0, control.contentHeight - control.height)
+            if (control.contentY > maxY) {
+                control.contentY = maxY
+            }
         }
     }
+    property var lastFocusedItem: null
+    property bool skipNextFocusChange: true
 }
