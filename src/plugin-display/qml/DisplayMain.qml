@@ -710,15 +710,13 @@ DccObject {
             displayName: qsTr("Resolution") // 分辨率
             weight: 20
             pageType: DccObject.Editor
-            page: ComboBox {
+            page: AutoSizingComboBox {
                 id: resolutionComboBox
                 flat: true
                 enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
                 model: root.getResolutionModel(screen.resolutionList, screen.bestResolution)
                 textRole: "text"
                 valueRole: "value"
-
-                property real popupContentWidth: 0
 
                 function indexOfSize(model, currentSize) {
                     for (var i = 0; i < model.length; i++) {
@@ -729,28 +727,6 @@ DccObject {
                     }
                     return -1
                 }
-
-                TextMetrics {
-                    id: resolutionTextMetrics
-                    font: resolutionComboBox.font
-                }
-
-                function updatePopupWidth() {
-                    var maxWidth = 0
-                    for (var i = 0; i < model.length; i++) {
-                        resolutionTextMetrics.text = model[i].text
-                        var itemWidth = resolutionTextMetrics.width + 80
-                        if (itemWidth > maxWidth) {
-                            maxWidth = itemWidth
-                        }
-                    }
-                    popupContentWidth = maxWidth
-                }
-
-                Component.onCompleted: updatePopupWidth()
-                onModelChanged: updatePopupWidth()
-
-                popup.width: Math.max(popupContentWidth, width)
 
                 currentIndex: indexOfSize(model, screen.currentResolution)
                 onActivated: {
@@ -856,7 +832,7 @@ DccObject {
             displayName: qsTr("Refresh Rate") // 刷新率
             weight: 40
             pageType: DccObject.Editor
-            page: ComboBox {
+            page: AutoSizingComboBox {
                 flat: true
                 enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
                 textRole: "text"
