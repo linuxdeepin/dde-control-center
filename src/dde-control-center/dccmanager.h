@@ -151,6 +151,7 @@ private:
     QTimer *m_showFallbackTimer;
     QString m_showUrl;
     QDBusMessage m_showMessage;
+    bool m_showPagePending;
 
     QHash<QString, QVector<DccObject *>> m_objMap; // 映射对象名称到对象指针列表，用于快速查找
 
