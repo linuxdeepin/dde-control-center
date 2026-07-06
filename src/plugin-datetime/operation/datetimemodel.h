@@ -233,6 +233,7 @@ public Q_SLOTS:
     void addUserTimeZoneById(const QString &zoneId);
     void removeUserTimeZoneById(const QString &name);
     void setSystemTimeZone(const QString &zoneId);
+    Q_INVOKABLE bool hasUserTimeZone(const QString &zoneId) const;
     QString timeZoneDescription(const ZoneInfo &zone) const;
     void ensureLangModel();
     void addLang(const QString &lang);

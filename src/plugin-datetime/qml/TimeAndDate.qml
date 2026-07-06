@@ -535,12 +535,12 @@ DccObject {
                                         timezoneListWindow.setViewIndex(index)
                                     }
                                 }
-                                onCheckedChanged: {
-                                    if (checked) {
-                                        let zoneId = model.zoneId
+                                onClicked: {
+                                    let zoneId = model.zoneId
+                                    if (checked && !dccData.hasUserTimeZone(zoneId)) {
                                         dccData.addUserTimeZoneById(zoneId)
-                                        timezoneListWindow.close()
                                     }
+                                    timezoneListWindow.close()
                                 }
                             }
                         }
