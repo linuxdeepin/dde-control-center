@@ -1024,6 +1024,11 @@ void DatetimeModel::removeUserTimeZoneById(const QString &zoneId)
     m_work->removeUserTimeZone(zoneId);
 }
 
+bool DatetimeModel::hasUserTimeZone(const QString &zoneId) const
+{
+    return m_userZoneIds.contains(zoneId);
+}
+
 void DatetimeModel::setSystemTimeZone(const QString &zoneId)
 {
     if (zoneId.isEmpty() || !m_work)
