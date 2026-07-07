@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -27,9 +27,9 @@ QString getUrlTitle()
 {
     QString url;
     if (qEnvironmentVariableIsEmpty("DEEPIN_PRE")) {
-        url = IsCommunitySystem ? QStringLiteral("https://login.deepin.org") : QStringLiteral("https://login.uniontech.com");
+        url = isCommunitySystem() ? QStringLiteral("https://login.deepin.org") : QStringLiteral("https://login.uniontech.com");
     } else {
-        url = IsCommunitySystem ? QStringLiteral("https://login-pre.deepin.org") : QStringLiteral("https://login-pre.uniontech.com");
+        url = isCommunitySystem() ? QStringLiteral("https://login-pre.deepin.org") : QStringLiteral("https://login-pre.uniontech.com");
     }
     return url;
 }
@@ -196,12 +196,12 @@ QStringList getDeviceInfo()
 
 QString getEditionName()
 {
-    return IsCommunitySystem ? "deepin" : "UOS";
+    return isCommunitySystem() ? "deepin" : "UOS";
 }
 
 QString getIconName()
 {
-    return IsCommunitySystem ? "deepin-id" : "uos-id";
+    return isCommunitySystem() ? "deepin-id" : "uos-id";
 }
 
 }; // namespace utils
