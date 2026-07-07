@@ -142,6 +142,13 @@ DccObject {
                             }
                         }
 
+                        Timer {
+                            id: alertDismissTimer
+                            interval: nameEditPanel.alertDuration
+                            repeat: false
+                            onTriggered: nameEditPanel.showAlert = false
+                        }
+
                         D.LineEdit {
                             id: nameEditor
                             property int maxLength: 15
@@ -170,6 +177,7 @@ DccObject {
                             onTextEdited: {
                                 if (nameEditPanel.showAlert) {
                                     nameEditPanel.showAlert = false
+                                    alertDismissTimer.stop()
                                 }
                                 // 实时检测：过滤非法字符并限制长度
                                 var filteredText = text;
@@ -180,6 +188,7 @@ DccObject {
                                 if (filteredText.length > maxLength) {
                                     nameEditPanel.showAlert = true
                                     nameEditPanel.alertText = qsTr("No more than 15 characters")
+                                    alertDismissTimer.restart()
                                     filteredText = filteredText.slice(0, maxLength);
                                 }
 
@@ -191,10 +200,6 @@ DccObject {
                             onEditingFinished: {
                                 if (readOnly) {
                                     return
-                                }
-
-                                if (nameEditPanel.showAlert) {
-                                    nameEditPanel.showAlert = false
                                 }
 
                                 if (!checkInputInvalid()) {
@@ -253,6 +258,7 @@ DccObject {
                                 } else {
                                     return true;
                                 }
+                                alertDismissTimer.restart()
                                 return false;
                             }
                         }
