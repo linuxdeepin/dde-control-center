@@ -509,8 +509,6 @@ DccObject {
                                 font: D.DTK.fontManager.t6
                                 highlighted: ListView.isCurrentItem
                                 hoverEnabled: true
-                                checkable: true
-                                autoExclusive: true
 
                                 contentItem: RowLayout {
                                     spacing: 8
@@ -537,7 +535,7 @@ DccObject {
                                 }
                                 onClicked: {
                                     let zoneId = model.zoneId
-                                    if (checked && !dccData.hasUserTimeZone(zoneId)) {
+                                    if (!dccData.hasUserTimeZone(zoneId)) {
                                         dccData.addUserTimeZoneById(zoneId)
                                     }
                                     timezoneListWindow.close()
