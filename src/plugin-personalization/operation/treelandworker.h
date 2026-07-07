@@ -29,6 +29,10 @@ class PersonalizationFontContext;
 class WallpaperManager;
 class WallpaperContext;
 
+namespace Dtk::Core {
+class DConfig;
+}
+
 class TreeLandWorker : public PersonalizationWorker
 {
 Q_OBJECT
@@ -101,10 +105,12 @@ signals:
 
 private:
     WallpaperContext *getOrCreateWallpaperContext(const QString &monitorName);
-    void setWallpaper(const QString &monitorName, const QString &url, uint32_t role, uint32_t type);
+    bool setWallpaper(const QString &monitorName, const QString &url, uint32_t role, uint32_t type);
     void handleGlobalTheme(const QString &themeId);
     void applyGlobalTheme(KeyFile &theme, const QString &themeName, const QString &defaultTheme, const QString &themePath);
     void doSetByType(const QString &type, const QString &value);
+    void initDConfig();
+    void setDesktopWallpaperCustomized(bool customized);
 
 private:
     QScopedPointer<PersonalizationManager> m_personalizationManager;
@@ -112,6 +118,7 @@ private:
     QScopedPointer<PersonalizationCursorContext> m_cursorContext;
     QScopedPointer<PersonalizationFontContext> m_fontContext;
     QScopedPointer<WallpaperManager> m_wallpaperManager;
+    Dtk::Core::DConfig *m_dconfig = nullptr;
     QMap<QString, WallpaperContext *> m_wallpaperContexts;
 
     QMap<QString, WallpaperMetaData *> m_wallpapers;
@@ -128,6 +135,7 @@ private:
     int m_opacity;
     QString m_globalTheme;
     bool m_compactDisplay;
+    bool m_desktopWallpaperCustomized = false;
 #endif
 };
 
