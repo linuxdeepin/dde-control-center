@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef UTILS_H
@@ -31,15 +31,47 @@ inline constexpr qint32 ActionIconSize=30;//大图标角标大小
 inline constexpr qint32 ActionListSize=26;//list图标角标大小
 
 
-const DSysInfo::UosType UosType = DSysInfo::uosType();
-const DSysInfo::UosEdition UosEdition = DSysInfo::uosEditionType();
-const bool IsServerSystem = (DSysInfo::UosServer == UosType);//是否是服务器版
-const bool IsCommunitySystem = (DSysInfo::UosCommunity == UosEdition);//是否是社区版
-const bool IsProfessionalSystem = (DSysInfo::UosProfessional == UosEdition);//是否是专业版
-const bool IsHomeSystem = (DSysInfo::UosHome == UosEdition);//是否是个人版
-const bool IsEducationSystem = (DSysInfo::UosEducation == UosEdition); // 是否是教育版
-const bool IsDeepinDesktop = (DSysInfo::DeepinDesktop == DSysInfo::deepinType());//是否是Deepin桌面
-const bool IsNotDeepinUos = !DSysInfo::isDeepin(); // 是否是 Deepin/Uos 以外的发行版
+static inline bool isServerSystem()
+{
+    static const bool serverSystem = DSysInfo::UosServer == DSysInfo::uosType();
+    return serverSystem;
+}
+
+static inline bool isCommunitySystem()
+{
+    static const bool communitySystem = DSysInfo::UosCommunity == DSysInfo::uosEditionType();
+    return communitySystem;
+}
+
+static inline bool isProfessionalSystem()
+{
+    static const bool professionalSystem = DSysInfo::UosProfessional == DSysInfo::uosEditionType();
+    return professionalSystem;
+}
+
+static inline bool isHomeSystem()
+{
+    static const bool homeSystem = DSysInfo::UosHome == DSysInfo::uosEditionType();
+    return homeSystem;
+}
+
+static inline bool isEducationSystem()
+{
+    static const bool educationSystem = DSysInfo::UosEducation == DSysInfo::uosEditionType();
+    return educationSystem;
+}
+
+static inline bool isDeepinDesktop()
+{
+    static const bool deepinDesktop = DSysInfo::DeepinDesktop == DSysInfo::deepinType();
+    return deepinDesktop;
+}
+
+static inline bool isNotDeepinUos()
+{
+    static const bool notDeepinUos = !DSysInfo::isDeepin();
+    return notDeepinUos;
+}
 
 
 template <typename T>

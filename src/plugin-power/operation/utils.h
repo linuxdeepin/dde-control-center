@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef UTILS_H
@@ -35,9 +35,11 @@ T valueByQSettings(const QStringList& configFiles,
     return failback.value<T>();
 }
 
-inline const static Dtk::Core::DSysInfo::UosType UosType = Dtk::Core::DSysInfo::uosType();
-inline const static bool IsServerSystem =
-        (Dtk::Core::DSysInfo::UosServer == UosType); // 是否是服务器版
+static inline bool isServerSystem()
+{
+    static const bool serverSystem = Dtk::Core::DSysInfo::UosServer == Dtk::Core::DSysInfo::uosType();
+    return serverSystem;
+}
 
 inline static bool isVirtualEnvironment()
 {

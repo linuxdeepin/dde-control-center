@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -16,7 +16,7 @@ DeepinIDInterface::DeepinIDInterface(QObject *parent)
 
 QString DeepinIDInterface::editionName() const
 {
-    if (IsCommunitySystem) {
+    if (isCommunitySystem()) {
         return tr("deepin");
     } else {
         return tr("UOS");

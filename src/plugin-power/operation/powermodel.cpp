@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "powermodel.h"
@@ -331,7 +331,7 @@ void PowerModel::setBalancePerformanceSupported(bool isBalancePerformanceSupport
 
 void PowerModel::setSuspend(bool suspend)
 {
-    bool enable = !IsServerSystem && suspend;
+    bool enable = !isServerSystem() && suspend;
     if (m_isSuspend != enable) {
         m_isSuspend = enable;
 
@@ -341,7 +341,7 @@ void PowerModel::setSuspend(bool suspend)
 
 void PowerModel::setHibernate(bool hibernate)
 {
-    bool enable = !IsServerSystem && hibernate;
+    bool enable = !isServerSystem() && hibernate;
     if (m_isHibernate != enable) {
         m_isHibernate = enable;
 
