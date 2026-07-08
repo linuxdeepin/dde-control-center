@@ -1,4 +1,6 @@
-<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_CN">
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -191,7 +193,7 @@ To ensure successful entry:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
@@ -237,7 +239,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
@@ -287,7 +289,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
@@ -1741,6 +1743,116 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Diskmanager</name>
+    <message>
+        <source>Disk Manager</source>
+        <translation>磁盘管理器</translation>
+    </message>
+</context>
+<context>
+    <name>DiskmanagerMain</name>
+    <message>
+        <source>Disk Overview</source>
+        <translation>磁盘概览</translation>
+    </message>
+    <message>
+        <source>View information about physical disks installed in your system</source>
+        <translation>查看系统中安装的物理磁盘信息</translation>
+    </message>
+    <message>
+        <source>Total Disks</source>
+        <translation>磁盘总数</translation>
+    </message>
+    <message>
+        <source>SSD</source>
+        <translation>固态硬盘</translation>
+    </message>
+    <message>
+        <source>HDD</source>
+        <translation>机械硬盘</translation>
+    </message>
+    <message>
+        <source>Click a disk card below to view detailed information</source>
+        <translation>点击下方磁盘卡片查看详细信息</translation>
+    </message>
+    <message>
+        <source>Refresh</source>
+        <translation>刷新</translation>
+    </message>
+    <message>
+        <source>Physical Disks</source>
+        <translation>物理磁盘</translation>
+    </message>
+    <message>
+        <source>Unknown Model</source>
+        <translation>未知型号</translation>
+    </message>
+    <message>
+        <source>Total: %1</source>
+        <translation>总计: %1</translation>
+    </message>
+    <message>
+        <source>Model information unavailable</source>
+        <translation>无法获取型号信息</translation>
+    </message>
+    <message>
+        <source>No mounted partitions</source>
+        <translation>未挂载分区</translation>
+    </message>
+    <message>
+        <source>Used: %1</source>
+        <translation>已用: %1</translation>
+    </message>
+    <message>
+        <source>Free: %1</source>
+        <translation>可用: %1</translation>
+    </message>
+    <message>
+        <source>%1% used</source>
+        <translation>已用 %1%</translation>
+    </message>
+    <message>
+        <source>Mount Points</source>
+        <translation>挂载点</translation>
+    </message>
+    <message>
+        <source>View mounted partitions, usage, and available space</source>
+        <translation>查看已挂载的分区、使用情况和可用空间</translation>
+    </message>
+    <message>
+        <source>Partitions</source>
+        <translation>分区数</translation>
+    </message>
+    <message>
+        <source>Total Space</source>
+        <translation>总空间</translation>
+    </message>
+    <message>
+        <source>Used</source>
+        <translation>已使用</translation>
+    </message>
+    <message>
+        <source>Usage bar color: 		Green = Safe  		Yellow = Warning  		Red = Critical</source>
+        <translation>进度条颜色: 		绿色=安全  		黄色=警告  		红色=危险</translation>
+    </message>
+    <message>
+        <source>Partitions &amp;&amp; Mount Points</source>
+        <translation>分区和挂载点</translation>
+    </message>
+    <message>
+        <source>%1 filesystem · %2 available</source>
+        <translation>%1 文件系统 · %2 可用</translation>
+    </message>
+    <message>
+        <source>Avail: %1</source>
+        <translation>可用: %1</translation>
+    </message>
+    <message>
+        <source>Used: %1 / %2 (%3%)</source>
+        <translation>已用: %1 / %2 (%3%)</translation>
+    </message>
+</context>
+<context>
     <name>Display</name>
     <message>
         <source>Display</source>
@@ -2062,6 +2174,109 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Combine application icons</source>
         <translation>合并应用图标</translation>
+    </message>
+</context>
+<context>
+    <name>Example</name>
+    <message>
+        <source>Example</source>
+        <translation type="unfinished">示例</translation>
+    </message>
+</context>
+<context>
+    <name>ExampleMain</name>
+    <message>
+        <source>Normal Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ExamplePage1</name>
+    <message>
+        <source>calc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>calc type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>group2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Item</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ExamplePage2</name>
+    <message>
+        <source>calc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>no Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>calc type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>group2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">删除</translation>
+    </message>
+    <message>
+        <source>Are you sure you want to delete this configuration?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">保存</translation>
+    </message>
+</context>
+<context>
+    <name>ExamplePage3</name>
+    <message>
+        <source>Item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished">删除</translation>
     </message>
 </context>
 <context>
@@ -2775,11 +2990,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PersonalizationInterface</name>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -3791,11 +4006,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Time zone:</source>
@@ -3803,7 +4018,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Cancel</source>

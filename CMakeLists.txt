@@ -240,6 +240,7 @@ if (NOT DISABLE_PRIVACY_PLUGIN)
     add_subdirectory(src/plugin-privacy)
 endif()
 add_subdirectory(src/plugin-dock)
+add_subdirectory(src/plugin-diskmanager)
 
 if(BUILD_EXAMPLES)
     add_subdirectory(examples)

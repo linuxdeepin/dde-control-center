@@ -1730,6 +1730,52 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Diskmanager</name>
+    <message>
+        <source>Disk Manager</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>DiskmanagerMain</name>
+    <message>
+        <source>Disk Overview</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Physical Disks</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Model: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unknown</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Type: %1 | Size: %2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Mount Points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Partitions &amp;&amp; Mount Points</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Filesystem: %1 | Used: %2 / %3 (%4%)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Available: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>Display</name>
     <message>
         <source>Display</source>
@@ -2050,6 +2096,109 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Combine application icons</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>Example</name>
+    <message>
+        <source>Example</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ExampleMain</name>
+    <message>
+        <source>Normal Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Settings Page</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ExamplePage1</name>
+    <message>
+        <source>calc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>group</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>calc type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>group2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Item</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>ExamplePage2</name>
+    <message>
+        <source>calc</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>no Search</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>calc type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>group2</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>value</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Are you sure you want to delete this configuration?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished">Αποθήκευση</translation>
+    </message>
+</context>
+<context>
+    <name>ExamplePage3</name>
+    <message>
+        <source>Item</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Delete</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
