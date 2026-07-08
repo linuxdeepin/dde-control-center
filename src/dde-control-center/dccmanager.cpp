@@ -319,11 +319,19 @@ QWindow *DccManager::mainWindow() const
 
 void DccManager::showHelp()
 {
-    QString helpTitle;
-    if (1 < m_currentObjects.count())
-        helpTitle = m_currentObjects.last()->name();
-    if (helpTitle.isEmpty())
-        helpTitle = "controlcenter";
+    QStringList helpTitles;
+    for (auto it = m_currentObjects.crbegin(); it != m_currentObjects.crend(); ++it) {
+        DccObject *object = *it;
+        if (!object || object == m_root)
+            continue;
+
+        if (!(object->pageType() & DccObject::PageType::Menu) || object->displayName().isEmpty())
+            continue;
+
+        helpTitles.append(object->name());
+    }
+
+    const QString helpTitle = helpTitles.isEmpty() ? QStringLiteral("controlcenter") : helpTitles.join(QChar(0x1f));
 
     const QString &dmanInterface = "com.deepin.Manual.Open";
     QDBusMessage message = QDBusMessage::createMethodCall(dmanInterface, "/com/deepin/Manual/Open", dmanInterface, "OpenTitle");
