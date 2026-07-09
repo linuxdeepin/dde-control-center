@@ -52,9 +52,9 @@
 
 控制中心采用**三层架构**运作：一个轻量级应用外壳、一个插件管理引擎，以及每个插件各自的 QML+C++ 模块。外壳（`dde-control-center` 二进制文件）引导启动一个 `DccManager` 单例，该单例拥有 `DccApp` 实例、`DccPluginManager` 以及 QML 应用引擎。插件管理器从插件目录发现并加载共享库，每个共享库注册一个 `DccFactory`，用于生成数据对象和 `DccObject` 树。随后，QML 引擎使用内置视图组件（如 `DccGroupView`、`DccSettingsView` 和 `DccRepeater`）渲染这些对象。
 
-![插件架构图](docs/images/插件架构图.png)
+![插件架构图](images/插件架构图.png)
 
-数据流：当应用启动时，` main.cpp ` 创建 DccManager 并调用 `loadModules()` 。插件管理器生成 ` DccPluginLoader ` 实例，每个实例遍历一个多阶段状态机（元数据 → 模块 → 数据 → 主对象），并可选地在线程池上异步执行。每个已加载的插件将 `DccObject`  节点贡献给以`DccApp.root`  为根的全局树。QML 场景读取此树，并自动渲染导航、主页图标和详情页。
+数据流：当应用启动时，` main.cpp ` 创 `DccManager` 并调用 `loadModules()` 。插件管理器生成 ` DccPluginLoader ` 实例，每个实例遍历一个多阶段状态机（元数据 → 模块 → 数据 → 主对象），并可选地在线程池上异步执行。每个已加载的插件将 `DccObject`  节点贡献给以`DccApp.root`  为根的全局树。QML 场景读取此树，并自动渲染导航、主页图标和详情页。
 
 ### 三层职责
 
@@ -95,8 +95,6 @@
 ---
 
 ## 三、项目结构（按功能层次标注）
-
-整个代码库按**六层职责**组织，以下在目录树上逐一标注各组件所属的角色。
 
 ```
 
@@ -155,6 +153,8 @@ dde-control-center/
 └── toolGenerate/                     # 代码生成工具
 
 ```
+
+> **三层归属说明**：目录树中的文件可对应到第二章所述的**三层架构**——`main.cpp` 和 `controlcenterdbusadaptor.h/cpp` 属于**应用外壳**层，负责程序入口、CLI 解析与 DBus 适配；`dccmanager`、`dccpluginloader`、`pluginmanager`、`navigationmodel`、`searchmodel` 及 `plugin/` 下的核心框架类型属于**插件管理引擎**层，负责生命周期编排、树组装与导航搜索；所有 `plugin-*` 目录则属于**插件模块**层，每个插件提供独立设置功能的数据模型、后端逻辑与 QML 界面。
 
 ---
 
@@ -308,7 +308,7 @@ graph LR
     DATA -.->|可在线程池异步执行| THREADPOOL[QThreadPool + LoadDataTask]
 ```
 
-> **状态机设计说明**：`DccPluginLoader` 使用**位标志（bit flag）**驱动四阶段流水线，每个阶段独占不同的位范围以避免冲突。这种设计带来两个关键优势：一是支持乱序/跳跃式状态推进（例如元数据加载失败可直接置入 `MetaDataErr` 跳过后续阶段）；二是可以通过位掩码表达式一次性检测多个阶段状态（如 `status & PluginEndMask` 判断是否全部完成）。其中 **Data 阶段**是唯一的"耗时瓶颈"——它通过 `LoadDataTask` 提交到 `QThreadPool` 后台线程执行，不会阻塞主线程的 QML 渲染和事件处理。
+> **状态机设计说明**：`DccPluginLoader` 使用**位标志**bit flag驱动四阶段流水线，每个阶段独占不同的位范围以避免冲突。这种设计带来两个关键优势：一是支持乱序/跳跃式状态推进（例如元数据加载失败可直接置入 `MetaDataErr` 跳过后续阶段）；二是可以通过位掩码表达式一次性检测多个阶段状态（如 `status & PluginEndMask` 判断是否全部完成）。其中 **Data 阶段**是唯一的"耗时瓶颈"——它通过 `LoadDataTask` 提交到 `QThreadPool` 后台线程执行，不会阻塞主线程的 QML 渲染和事件处理。
 
 ### 状态机枚举说明
 
@@ -323,8 +323,8 @@ graph LR
 
 **组合掩码**：
 
-- `PluginErrMask = MetaDataErr \| ModuleErr \| DataErr \| MainObjErr` — 任意阶段出错
-- `PluginEndMask = PluginEnd \| MetaDataEnd \| ModuleEnd \| DataEnd \| MainObjEnd` — 所有阶段完成
+- `PluginErrMask = MetaDataErr | ModuleErr | DataErr | MainObjErr` — 任意阶段出错
+- `PluginEndMask = PluginEnd | MetaDataEnd | ModuleEnd | DataEnd | MainObjEnd` — 所有阶段完成
 
 - `DataBegin→DataEnd` 阶段通过 `LoadDataTask` 在 `QThreadPool` 工作线程中异步执行
 - 使用位掩码表达式（如 `(status & (DataEnd | MainObjLoad)) == DataEnd`）检查当前阶段状态
@@ -354,7 +354,7 @@ graph TB
 
 ```mermaid
 graph TB
-    TRIGGER(["用户点击侧边栏项 / DBus ShowPage 调用"]) --> SHOW_PAGE["DccApp::showPage(url)<br/>例如 display/brightness"]
+    TRIGGER(["用户点击侧边栏项 / DBus ShowPage 调用"]) --> SHOW_PAGE["DccApp::showPage(url)<br/>例如 privacy/camera"]
     SHOW_PAGE --> RESOLVE["解析 URL 路径<br/>通过 m_objMap 查找对象"]
     RESOLVE --> ACTIVATE["激活目标对象<br/>→ 发射 activeObjectChanged"]
     ACTIVATE --> DEACTIVATE["旧的 currentObject → deactive() 信号"]
@@ -365,7 +365,7 @@ graph TB
     SEARCH --> RENDER["QML 视图响应式渲染 page 组件"]
 ```
 
-> **页面导航说明**：导航的核心是 **URL 驱动的对象激活模型**——每个 `DccObject` 的 `name` 构成 URL 路径段（如 `display/brightness`），`DccApp::showPage()` 通过 `m_objMap` 全局注册表以 O(1) 时间复杂度定位目标对象。激活过程中会依次触发旧对象的 `deactive()` 信号和新对象的 `active()` 信号，形成清晰的**生命周期钩子**，方便插件在各阶段执行资源释放或数据刷新。导航模型（`NavigationModel`）同步维护面包屑路径，而搜索模型（`SearchModel`）亦随之更新，确保全文搜索索引与当前导航状态一致。
+> **页面导航说明**：导航的核心是 **URL 驱动的对象激活模型**——每个 `DccObject` 的 `name` 构成 URL 路径段（如 `privacy/camera`），`DccApp::showPage()` 通过 `m_objMap` 全局注册表以 O(1) 时间复杂度定位目标对象。激活过程中会依次触发旧对象的 `deactive()` 信号和新对象的 `active()` 信号，形成清晰的**生命周期钩子**，方便插件在各阶段执行资源释放或数据刷新。导航模型（`NavigationModel`）同步维护面包屑路径，而搜索模型（`SearchModel`）亦随之更新，确保全文搜索索引与当前导航状态一致。
 
 ### 5.5 DBus 单实例守护
 
@@ -406,7 +406,7 @@ sequenceDiagram
 
 ## 七、DBus 接口
 
-详见 [docs/references/dbus-interface.md](docs/references/dbus-interface.md)：
+详见 [references/dbus-interface.md](references/dbus-interface.md)：
 
 - 服务标识：`org.deepin.dde.ControlCenter1`（会话总线）
 - 方法：`Show` / `Hide` / `Toggle` / `Exit` / `ShowHome` / `ShowPage` / `GetAllModule`
@@ -418,7 +418,7 @@ sequenceDiagram
 
 ## 八、DConfig 配置系统
 
-详见 [docs/references/dconfig-configuration.md](docs/references/dconfig-configuration.md)：
+详见 [references/dconfig-configuration.md](references/dconfig-configuration.md)：
 
 - 全局配置（`hideModule` / `disableModule` / 窗口尺寸）
 - 各插件模块配置：账户、日期时间、显示、电源、声音、个性化、通用信息
@@ -437,7 +437,7 @@ sequenceDiagram
 | 项目概述与技术栈 | [一、项目概述](#一项目概述) |
 | 三层架构总览与插件模块 | [二、架构一览](#二架构一览) |
 | 源码目录结构与各层职责 | [三、项目结构](#三项目结构按功能层次标注) |
-| 核心类图与关键抽象 | [四、代码架构](#四代码架构) |
+| 核心类图与关键抽象 | [四、核心类图](#四核心类图) |
 | 启动/加载/导航/DBus 单实例流程 | [五、核心工作流](#五核心工作流) |
 | CLI 参数列表 | [六、命令行参数](#六命令行参数) |
 
@@ -445,8 +445,8 @@ sequenceDiagram
 
 | 目标 | 参考 |
 |------|------|
-| DBus 调用控制中心（显示/隐藏/跳转页面） | [DBus 接口参考 → 命令行调用示例](docs/references/dbus-interface.md#命令行调用示例) |
-| 查询/修改配置项（隐藏模块、电源策略等） | [DConfig 配置参考 → 常用命令示例](docs/references/dconfig-configuration.md#常用命令示例) |
+| DBus 调用控制中心（显示/隐藏/跳转页面） | [DBus 接口参考 → 命令行调用示例](references/dbus-interface.md#命令行调用示例) |
+| 查询/修改配置项（隐藏模块、电源策略等） | [DConfig 配置参考 → 常用命令示例](references/dconfig-configuration.md#常用命令示例) |
 | 查看运行日志 | `tail -f ~/.cache/deepin/dde-control-center/dde-control-center.log` |
 | 指定自定义插件目录调试 | `dde-control-center --spec ./build/.../plugins_v1.1/` |
 
@@ -455,8 +455,8 @@ sequenceDiagram
 | 概念 | 说明 |
 |------|------|
 | **.dci 文件** | Deepin Custom Icon 格式的图标文件，deepin 桌面环境自有的矢量图标格式 |
-| **DccObject** | 树节点，一切 UI 元素的基础构建块（详见[代码架构](#四代码架构)） |
-| **DccFactory** | 插件工厂接口，`DCC_FACTORY_CLASS` 宏自动注册（详见[核心类图](#41-核心类图)） |
+| **DccObject** | 树节点，一切 UI 元素的基础构建块（详见[四、核心类图](#四核心类图)） |
+| **DccFactory** | 插件工厂接口，`DCC_FACTORY_CLASS` 宏自动注册（详见[四、核心类图](#四核心类图)） |
 
 ### 想开发一个新插件？
 
@@ -464,11 +464,17 @@ sequenceDiagram
 2. 参考 `DCC_FACTORY_CLASS` 宏用法（[include/dccfactory.h](../include/dccfactory.h)）
 3. 插件命名规则：`{name}.qml`（元数据）+ `{name}Main.qml`（完整 UI）+ `{name}.so`（C++ 后端）
 4. CMake 模板：`dcc_install_plugin()` + `dcc_handle_plugin_translation()`
-5. 详见 [v25-dcc-interface.zh_CN.md](docs/v25-dcc-interface.zh_CN.md)
+5. 详见 [references/v25-dcc-interface.zh_CN.md](references/v25-dcc-interface.zh_CN.md) 、  [references/plugin-development.md](references/plugin-development.md)
 
-### 参考来源
+### 相关文档
 
-- [zread.ai 上的 dde-control-center 文档集](https://zread.ai/linuxdeepin/dde-control-center/1-overview)
-- [docs/v25-dcc-interface.zh_CN.md](docs/v25-dcc-interface.zh_CN.md)
-- [docs/references/dbus-interface.md](docs/references/dbus-interface.md) — DBus 接口完整参考
-- [docs/references/dconfig-configuration.md](docs/references/dconfig-configuration.md) — DConfig 配置完整参考
+| 文档 | 说明 |
+|------|------|
+| [zread.ai 上的 dde-control-center 文档集](https://zread.ai/linuxdeepin/dde-control-center/1-overview) | 在线文档集（英文） |
+| [references/v25-dcc-interface.zh_CN.md](references/v25-dcc-interface.zh_CN.md) | 完整插件开发接口参考（中文） |
+| [references/dbus-interface.md](references/dbus-interface.md) | DBus 接口完整参考 |
+| [references/dconfig-configuration.md](references/dconfig-configuration.md) | DConfig 配置完整参考 |
+| [references/cpp-api.md](references/cpp-api.md) | C++ API 参考 |
+| [references/qml-api.md](references/qml-api.md) | QML API 参考 |
+| [references/debugging.md](references/debugging.md) | 调试与日志指南 |
+| [references/plugin-development.md](references/plugin-development.md) | 插件开发指南 |
