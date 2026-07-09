@@ -1,6 +1,6 @@
 # DDE 控制中心 (dde-control-center) 简介
 
-> 基于 v25 版本编写 | 2026-07-08
+> 基于 v25 版本编写 | 2026-07-08 | 参考链接：https://zread.ai/linuxdeepin/dde-control-center
 
 ---
 
@@ -52,7 +52,115 @@
 
 控制中心采用**三层架构**运作：一个轻量级应用外壳、一个插件管理引擎，以及每个插件各自的 QML+C++ 模块。外壳（`dde-control-center` 二进制文件）引导启动一个 `DccManager` 单例，该单例拥有 `DccApp` 实例、`DccPluginManager` 以及 QML 应用引擎。插件管理器从插件目录发现并加载共享库，每个共享库注册一个 `DccFactory`，用于生成数据对象和 `DccObject` 树。随后，QML 引擎使用内置视图组件（如 `DccGroupView`、`DccSettingsView` 和 `DccRepeater`）渲染这些对象。
 
-![插件架构图](images/插件架构图.png)
+```mermaid
+flowchart LR
+
+%%========================
+%% Application Shell
+%%========================
+subgraph APP["Application Shell"]
+direction TB
+
+MAIN["main.cpp<br/>QGuiApplication"]
+
+MGR["DccManager<br/>(DccApp subclass)"]
+
+DBUS["ControlCenterDBusAdaptor"]
+
+MAIN --> MGR
+MGR --> DBUS
+
+end
+
+%%========================
+%% QML UI Layer
+%%========================
+subgraph UI["QML UI Layer"]
+direction TB
+
+subgraph UITOP[" "]
+direction LR
+
+ENGINE["QQmlApplicationEngine"]
+NAV["NavigationModel"]
+SEARCH["SearchModel"]
+
+SEARCH --> NAV
+NAV --> ENGINE
+
+end
+
+WINDOW["DccWindow.qml"]
+
+HOME["HomePage.qml"]
+SECOND["SecondPage.qml"]
+
+ENGINE --> WINDOW
+WINDOW --> HOME
+WINDOW --> SECOND
+
+end
+
+%%========================
+%% Plugin Engine
+%%========================
+subgraph PE["Plugin Engine"]
+direction TB
+
+PM["DccPluginManager"]
+
+LOADER["DccPluginLoader<br/>(per-plugin)"]
+
+POOL["QThreadPool<br/>(async loading)"]
+
+PM --> LOADER
+LOADER --> POOL
+
+end
+
+%%========================
+%% Plugin Modules
+%%========================
+subgraph MOD["Plugin Modules"]
+direction LR
+
+DISPLAY["plugin-display"]
+SOUND["plugin-sound"]
+BT["plugin-bluetooth"]
+MORE["...20+ plugins"]
+
+DISPLAY --> SOUND
+SOUND --> BT
+BT --> MORE
+
+end
+
+%%========================
+%% Cross Layer Connections
+%%========================
+
+MGR --> SEARCH
+MGR --> NAV
+MGR --> ENGINE
+
+MGR --> PM
+
+LOADER --> DISPLAY
+LOADER --> SOUND
+LOADER --> BT
+LOADER --> MORE
+
+%%========================
+%% Style
+%%========================
+
+style APP fill:#fafafa,stroke:#888
+style UI fill:#fafafa,stroke:#888
+style PE fill:#fafafa,stroke:#888
+style MOD fill:#fafafa,stroke:#888
+
+style UITOP fill:none,stroke:none
+```
 
 数据流：当应用启动时，` main.cpp ` 创 `DccManager` 并调用 `loadModules()` 。插件管理器生成 ` DccPluginLoader ` 实例，每个实例遍历一个多阶段状态机（元数据 → 模块 → 数据 → 主对象），并可选地在线程池上异步执行。每个已加载的插件将 `DccObject`  节点贡献给以`DccApp.root`  为根的全局树。QML 场景读取此树，并自动渲染导航、主页图标和详情页。
 
@@ -460,8 +568,8 @@ sequenceDiagram
 
 ### 想开发一个新插件？
 
-1. 阅读 [examples/plugin-example/](../examples/plugin-example/) 完整示例
-2. 参考 `DCC_FACTORY_CLASS` 宏用法（[include/dccfactory.h](../include/dccfactory.h)）
+1. 阅读 `examples/plugin-example`  完整示例，可以通过修改CMakeList.txt打开开关
+2. 参考 `DCC_FACTORY_CLASS` 宏用法 `dccfactory.h`
 3. 插件命名规则：`{name}.qml`（元数据）+ `{name}Main.qml`（完整 UI）+ `{name}.so`（C++ 后端）
 4. CMake 模板：`dcc_install_plugin()` + `dcc_handle_plugin_translation()`
 5. 详见 [references/v25-dcc-interface.zh_CN.md](references/v25-dcc-interface.zh_CN.md) 、  [references/plugin-development.md](references/plugin-development.md)
