@@ -903,7 +903,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation>Indicador visual do teclado numérico: ativado/desligado</translation>
+        <translation>Indicador visual do teclado numérico</translation>
     </message>
     <message>
         <source>test here</source>
@@ -911,7 +911,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation>Indicador visual do Caps Lock: ativado/desligado</translation>
+        <translation>Indicador visual do Caps Lock</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
@@ -2417,7 +2417,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation>Mouse e Touchpad</translation>
+        <translation>Mouse e touchpad</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
@@ -2677,7 +2677,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation>Mostrar dispositivos Bluetooth sem nomes</translation>
+        <translation>Exibir dispositivos Bluetooth sem nome</translation>
     </message>
 </context>
 <context>

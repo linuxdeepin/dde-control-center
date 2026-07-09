@@ -1149,11 +1149,11 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Al unirte al Programa de Experiencia de Usuario, nos autoriza a recopilar y utilizar la información de tu dispositivo, sistema y aplicaciones. Si rechazas la recopilación y el uso de dicha información, no te unas al Programa de Experiencia de Usuario. Para más detalles, consulta la Política de Privacidad de Deepin. (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Al unirte al Programa de Experiencia de Usuario, nos autoriza a recopilar y utilizar la información de su dispositivo, sistema y aplicaciones. Si rechaza la recopilación y el uso de dicha información, no se una al Programa de Experiencia de Usuario. Para más detalles, consulte la Política de Privacidad de Deepin. (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Al unirte al Programa de Experiencia del Usuario, nos otorga y autoriza a recopilar y utilizar la información de tu dispositivo, sistema y aplicaciones. Si rechazas la recopilación y el uso de dicha información, no te unas. Para obtener más detalles sobre el Programa de Experiencia del Usuario, visita&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Al unirte al Programa de Experiencia de Usuario, nos otorga y autoriza a recopilar y utilizar la información de su dispositivo, sistema y aplicaciones. Si rechaza la recopilación y el uso de dicha información, no se una. Para obtener más detalles sobre el Programa de Experiencia de Usuario, visita&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -1652,7 +1652,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>1.Export PC Info</source>
-        <translation>1.Exportar información del PC</translation>
+        <translation>1.Exportar información del equipo</translation>
     </message>
     <message>
         <source>Export</source>
@@ -3314,7 +3314,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation>Se requiere contraseña para la recuperación</translation>
+        <translation>Se requiere contraseña al reactivar</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
@@ -3388,11 +3388,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation>Haz clic en Guardar para que esta tecla de acceso directo sea efectiva.</translation>
+        <translation>Haga clic en Guardar para que esta tecla de acceso directo sea efectiva.</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation>Haz clic en Agregar para que esta tecla de acceso directo sea efectiva.</translation>
+        <translation>Haga clic en Añadir para que esta tecla de acceso directo sea efectiva.</translation>
     </message>
 </context>
 <context>
@@ -4089,7 +4089,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Add Picture</source>
-        <translation>Agregar imagen</translation>
+        <translation>Añadir imagen</translation>
     </message>
 </context>
 <context>
@@ -4362,7 +4362,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation>Usa tu iris para desbloquear el dispositivo y realizar ajustes posteriormente.</translation>
+        <translation>Use su iris para desbloquear el dispositivo y realizar ajustes posteriormente.</translation>
     </message>
 </context>
 <context>
