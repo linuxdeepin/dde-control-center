@@ -2417,7 +2417,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Mouse</name>
     <message>
         <source>Mouse and Touchpad</source>
-        <translation>Mouse e Touchpad</translation>
+        <translation>Mouse e touchpad</translation>
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
@@ -2677,7 +2677,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation>Mostrar dispositivos Bluetooth sem nomes</translation>
+        <translation>Exibir dispositivos Bluetooth sem nome</translation>
     </message>
 </context>
 <context>
