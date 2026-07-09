@@ -228,6 +228,7 @@ DccObject {
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
                 flat: true
+                enabled: dccData.model().outPutPortComboEnable
                 textRole: "name"
                 currentIndex: dccData.model().outPutPortComboIndex
                 model: dccData.model().soundOutputDeviceModel()
@@ -352,6 +353,7 @@ DccObject {
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
                 flat: true
+                enabled: dccData.model().outPutPortComboEnable
                 model: dccData.model().bluetoothModeOpts
                 currentIndex: count > 0 ? Math.max(0, indexOfValue(dccData.model().currentBluetoothAudioMode)) : 0
                 property bool isInitialized: false

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SOUNDWORKER_H
@@ -78,6 +78,8 @@ private Q_SLOTS:
     void updatePlayAniIconPath();
     void changeOutputDeviceComboxStatus();
     void changeInputDeviceComboxStatus();
+    void onBluetoothModeDebounceTimeout();
+    void onDefaultSinkChangedForDebounce(const QDBusObjectPath &path);
 
 private:
     void initConnect();
@@ -103,8 +105,10 @@ private:
     QMediaDevices* m_mediaDevices;
 
     QTimer* m_playAnimationTime;
+    QTimer* m_debounceChangeModeTimer;
     int m_upateSoundEffectsIndex;
     QString m_playAniIconPath;
+    QString m_expectedSinkName;
 };
 
 #endif // SOUNDWORKER_H

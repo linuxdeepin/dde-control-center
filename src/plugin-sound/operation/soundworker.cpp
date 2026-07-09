@@ -6,6 +6,7 @@
 #include <DGuiApplicationHelper>
 
 #include <QAudioDevice>
+#include <QDateTime>
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -45,6 +46,9 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     m_waitInputReceiptTimer->setSingleShot(true);
     m_waitOutputReceiptTimer->setSingleShot(true);
 
+    m_debounceChangeModeTimer = new QTimer(this);
+    m_debounceChangeModeTimer->setSingleShot(true);
+
     updatePlayAniIconPath();
 
     initConnect();
@@ -59,6 +63,7 @@ void SoundWorker::initConnect()
     connect(m_model, &SoundModel::bluetoothModeChanged, this, &SoundWorker::changeOutputDeviceComboxStatus);
 
     connect(m_soundDBusInter, &SoundDBusProxy::DefaultSinkChanged, m_model, &SoundModel::setDefaultSink);
+    connect(m_soundDBusInter, &SoundDBusProxy::DefaultSinkChanged, this, &SoundWorker::onDefaultSinkChangedForDebounce);
     connect(m_soundDBusInter, &SoundDBusProxy::DefaultSourceChanged, m_model, &SoundModel::setDefaultSource);
     connect(m_soundDBusInter, &SoundDBusProxy::MaxUIVolumeChanged, m_model, &SoundModel::setMaxUIVolume);
     connect(m_soundDBusInter, &SoundDBusProxy::IncreaseVolumeChanged, m_model, &SoundModel::setIncreaseVolume);
@@ -88,6 +93,8 @@ void SoundWorker::initConnect()
 
     connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
         this, &SoundWorker::updatePlayAniIconPath);
+
+    connect(m_debounceChangeModeTimer, &QTimer::timeout, this, &SoundWorker::onBluetoothModeDebounceTimeout);
 }
 
 void SoundWorker::activate()
@@ -309,6 +316,17 @@ void SoundWorker::stopSoundEffectPlayback()
 
 void SoundWorker::setBluetoothMode(const QString &mode)
 {
+    // 记录期望的输出设备Name
+    m_expectedSinkName = m_soundDBusInter->nameSink();
+
+    // 停止可能正在运行的其他定时器，避免干扰防抖
+    m_waitOutputReceiptTimer->stop();
+
+    // 启动防抖：阻止Output Device列表更新，禁用相关控件
+    m_model->setDebounceOutputDeviceList(true);
+    m_model->setOutPutPortComboEnable(false);
+    m_debounceChangeModeTimer->start(1500);  // 蓝牙Mode切换需要更长时间
+
     m_soundDBusInter->SetBluetoothAudioMode(mode);
 }
 
@@ -438,9 +456,15 @@ void SoundWorker::cardsChanged(const QString &cards)
         }
     }
 
-    m_model->updatePortCombo();
-    m_model->updateAllDeviceModel();
-    m_model->updateActiveComboIndex();
+    // 提取公共调用，简化分支逻辑
+    m_model->updatePortCombo();  // output部分已在内部被防抖跳过
+
+    // 防抖期间跳过Output Device相关UI更新，防止闪烁
+    // 内部port数据仍然保持准确，UI延迟到防抖超时或匹配到期望设备后恢复
+    if (!m_model->debounceOutputDeviceList()) {
+        m_model->updateAllDeviceModel();
+        m_model->updateActiveComboIndex();
+    }
 }
 
 void SoundWorker::activeSinkPortChanged(const AudioPort &activeSinkPort)
@@ -578,8 +602,44 @@ void SoundWorker::updatePlayAniIconPath()
     m_playAniIconPath = QString("qrc:/icons/deepin/builtin/icons/%1/volume_sound_wave_ani.webp").arg(themeTypeStr);
 }
 
+void SoundWorker::onDefaultSinkChangedForDebounce(const QDBusObjectPath &)
+{
+    if (!m_model->debounceOutputDeviceList() || !m_debounceChangeModeTimer->isActive()) {
+        return;
+    }
+
+    QString currentSinkName = m_soundDBusInter->nameSink();
+
+    // 如果切换到的设备就是期望的设备，提前结束防抖
+    if (currentSinkName == m_expectedSinkName && !m_expectedSinkName.isEmpty()) {
+        m_debounceChangeModeTimer->stop();
+        onBluetoothModeDebounceTimeout();
+    } else {
+        // 设备仍在切换中，重启定时器
+        m_debounceChangeModeTimer->start(1500);
+    }
+}
+
+void SoundWorker::onBluetoothModeDebounceTimeout()
+{
+    // 停止防抖期间启动的延迟定时器，防止它们超时后触发更新
+    m_waitOutputReceiptTimer->stop();
+
+    m_model->setDebounceOutputDeviceList(false);
+
+    m_model->updatePortCombo();
+    m_model->updateAllDeviceModel();
+    m_model->updateActiveComboIndex();
+
+    m_model->setOutPutPortComboEnable(true);
+}
+
 void SoundWorker::changeOutputDeviceComboxStatus()
 {
+    // 防抖期间不干涉，由防抖定时器统一管理控件的启用/禁用
+    if (m_model->debounceOutputDeviceList()) {
+        return;
+    }
     m_model->setOutPutPortComboEnable(false);
     m_waitOutputReceiptTimer->setInterval(m_model->currentWaitSoundReceiptTime());
     m_waitOutputReceiptTimer->start();

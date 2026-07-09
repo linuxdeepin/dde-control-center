@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "soundmodel.h"
@@ -131,7 +131,11 @@ void SoundModel::updatePortCombo()
     }
 
     setInPutPortCombo(inPutPortCombo);
-    setOutPutPortCombo(outPutPortCombo);
+
+    // 防抖期间跳过Output Device列表更新，已记录的值保持不变
+    if (!m_debounceOutputDeviceList) {
+        setOutPutPortCombo(outPutPortCombo);
+    }
 }
 
 int SoundModel::inPutPortComboIndex() const
@@ -167,8 +171,13 @@ int SoundModel::outPutPortComboIndex() const
 
 void SoundModel::setOutPutPortComboIndex(int newOutPutPortComboIndex)
 {
+    // 防抖期间跳过索引更新，防止闪烁
+    if (m_debounceOutputDeviceList) {
+        return;
+    }
     if (newOutPutPortComboIndex < 0 || m_outPutPortComboIndex == newOutPutPortComboIndex)
         return;
+
     m_outPutPortComboIndex = newOutPutPortComboIndex;
     emit outPutPortComboIndexChanged();
 }
@@ -216,6 +225,10 @@ void SoundModel::setMicrophoneOn(bool microphoneOn)
 
 void SoundModel::setSpeakerBalance(double speakerBalance)
 {
+    // 防抖期间跳过balance更新，防止闪烁
+    if (m_debounceOutputDeviceList) {
+        return;
+    }
     if (!qFuzzyCompare(speakerBalance, m_speakerBalance)) {
 
 
@@ -256,11 +269,13 @@ void SoundModel::addPort(Port *port)
         if (port->direction() == Port::Out) {
             m_outputPorts.append(port);
             setOutPutCount(static_cast<int>(m_outputPorts.count()));
-            if (port->isEnabled()) {
-                m_outPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
+            // 防抖期间不更新UI可见数据，防止闪烁
+            if (!m_debounceOutputDeviceList) {
+                if (port->isEnabled()) {
+                    m_outPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
+                }
+                m_soundOutputDeviceModel->addData(port);
             }
-
-            m_soundOutputDeviceModel->addData(port);
         } else {
             m_inputPorts.append(port);
             setInPutPortCount(static_cast<int>(m_inputPorts.count()));
@@ -286,10 +301,11 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
         if (port->direction() == Port::Out) {
             m_outputPorts.removeOne(port);
             setOutPutCount(static_cast<int>(m_outputPorts.count()));
-            m_outPutPortCombo.removeOne(port->name() + "(" + port->cardName() + ")");
-
-            m_soundOutputDeviceModel->removeData(port);
-
+            // 防抖期间不更新UI可见数据，防止闪烁
+            if (!m_debounceOutputDeviceList) {
+                m_outPutPortCombo.removeOne(port->name() + "(" + port->cardName() + ")");
+                m_soundOutputDeviceModel->removeData(port);
+            }
         } else {
             m_inputPorts.removeOne(port);
             setInPutPortCount(static_cast<int>(m_inputPorts.count()));
@@ -467,6 +483,10 @@ void SoundModel::setIncreaseVolume(bool value)
 
 void SoundModel::setBluetoothAudioModeOpts(const QStringList &modes)
 {
+    // 防抖期间跳过Mode选项列表更新，防止闪烁
+    if (m_debounceOutputDeviceList) {
+        return;
+    }
     if (modes != m_bluetoothModeOpts) {
         m_bluetoothModeOpts = modes;
         Q_EMIT bluetoothModeOptsChanged(modes);
@@ -611,6 +631,10 @@ bool SoundModel::showBluetoothMode() const
 
 void SoundModel::setShowBluetoothMode(bool newShowBluetoothMode)
 {
+    // 防抖期间跳过Mode可见性更新，防止Mode选项消失
+    if (m_debounceOutputDeviceList) {
+        return;
+    }
     if (m_showBluetoothMode == newShowBluetoothMode)
         return;
     m_showBluetoothMode = newShowBluetoothMode;
@@ -711,6 +735,16 @@ void SoundModel::setAudioServer(const QString &audioServer)
 
 void SoundModel::setOutPutPortCombo(const QStringList& outPutPort)
 {
+    // 防抖期间跳过Output Device列表更新，防止闪烁
+    if (m_debounceOutputDeviceList) {
+        return;
+    }
+
+    // 只在内容真正变化时才触发信号，避免冗余更新
+    if (m_outPutPortCombo == outPutPort) {
+        return;
+    }
+
     m_outPutPortCombo = outPutPort;
     Q_EMIT outPutPortComboChanged(m_outPutPortCombo);
 }
@@ -732,5 +766,13 @@ void SoundModel::setShowInputBluetoothMode(bool newShowInputBluetoothMode)
         return;
     m_showInputBluetoothMode = newShowInputBluetoothMode;
     emit showInputBluetoothModeChanged();
+}
+
+void SoundModel::setDebounceOutputDeviceList(bool debounce)
+{
+    if (m_debounceOutputDeviceList == debounce)
+        return;
+    m_debounceOutputDeviceList = debounce;
+    emit debounceOutputDeviceListChanged();
 }
 
