@@ -1,3 +1,32 @@
+dde-control-center (6.1.99) unstable; urgency=medium
+
+  * fix: resolve DciIcon animation jitter
+  * fix: handle setTimezone failure by updating model with current zone
+  * fix: adjust focus policy for group edit button in account settings
+  * fix: optimize timezone data access and add display name caching
+  * refactor: resolve rightItemTopMargin warning and adjust item spacing
+  * refactor: resolve QML undefined behavior warnings in
+  * fix: prevent scroll bounce and focus jump when switching apps in
+  * fix(display): fix treeland display mode determination logic
+  * fix(sound): avoid duplicate muted volume feedback
+  * fix(wallpaper): pass custom wallpaper by fd
+  * fix: prevent numLock write-back on keyboard page re-entry
+  * fix: add user timezone existence check in datetime plugin
+  * fix(personalization): reset wallpaper state per backend
+  * fix: refactor popup width calculation into reusable
+    AutoSizingComboBox
+  * fix: listen keyboard-state-notify for NumLock sync
+  * fix(personalization): preserve custom Treeland wallpaper
+  * fix: clear stale checkmark in datetime timezone add dialog
+  * feat(keyboard): consume shortcut category metadata
+  * fix: pass control center help fallback candidates
+  * feat(keyboard): wire custom shortcut CRUD on Wayland
+  * fix(accounts): center avatar empty state
+  * i18n: Updates for project Deepin Desktop Environment (#3295)
+  * fix: defer DSysInfo queries in plugins to avoid dlopen deadlock
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 09 Jul 2026 19:29:16 +0800
+
 dde-control-center (6.1.98) unstable; urgency=medium
 
   * fix: prevent fallback page from overriding pending showPage requests
