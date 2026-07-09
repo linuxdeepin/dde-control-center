@@ -536,37 +536,7 @@ sequenceDiagram
 
 ---
 
-## 九、快速指南
-
-### 想了解整体架构？
-
-| 目标 | 章节 |
-|------|------|
-| 项目概述与技术栈 | [一、项目概述](#一项目概述) |
-| 三层架构总览与插件模块 | [二、架构一览](#二架构一览) |
-| 源码目录结构与各层职责 | [三、项目结构](#三项目结构按功能层次标注) |
-| 核心类图与关键抽象 | [四、核心类图](#四核心类图) |
-| 启动/加载/导航/DBus 单实例流程 | [五、核心工作流](#五核心工作流) |
-| CLI 参数列表 | [六、命令行参数](#六命令行参数) |
-
-### 想进行日常运维/调试？
-
-| 目标 | 参考 |
-|------|------|
-| DBus 调用控制中心（显示/隐藏/跳转页面） | [DBus 接口参考 → 命令行调用示例](references/dbus-interface.md#命令行调用示例) |
-| 查询/修改配置项（隐藏模块、电源策略等） | [DConfig 配置参考 → 常用命令示例](references/dconfig-configuration.md#常用命令示例) |
-| 查看运行日志 | `tail -f ~/.cache/deepin/dde-control-center/dde-control-center.log` |
-| 指定自定义插件目录调试 | `dde-control-center --spec ./build/.../plugins_v1.1/` |
-
-### 常见概念
-
-| 概念 | 说明 |
-|------|------|
-| **.dci 文件** | Deepin Custom Icon 格式的图标文件，deepin 桌面环境自有的矢量图标格式 |
-| **DccObject** | 树节点，一切 UI 元素的基础构建块（详见[四、核心类图](#四核心类图)） |
-| **DccFactory** | 插件工厂接口，`DCC_FACTORY_CLASS` 宏自动注册（详见[四、核心类图](#四核心类图)） |
-
-### 想开发一个新插件？
+## 九、开发新插件
 
 1. 阅读 `examples/plugin-example`  完整示例，可以通过修改CMakeList.txt打开开关
 2. 参考 `DCC_FACTORY_CLASS` 宏用法 `dccfactory.h`
@@ -574,11 +544,10 @@ sequenceDiagram
 4. CMake 模板：`dcc_install_plugin()` + `dcc_handle_plugin_translation()`
 5. 详见 [references/v25-dcc-interface.zh_CN.md](references/v25-dcc-interface.zh_CN.md) 、  [references/plugin-development.md](references/plugin-development.md)
 
-### 相关文档
+## 相关文档
 
 | 文档 | 说明 |
 |------|------|
-| [zread.ai 上的 dde-control-center 文档集](https://zread.ai/linuxdeepin/dde-control-center/1-overview) | 在线文档集（英文） |
 | [references/v25-dcc-interface.zh_CN.md](references/v25-dcc-interface.zh_CN.md) | 完整插件开发接口参考（中文） |
 | [references/dbus-interface.md](references/dbus-interface.md) | DBus 接口完整参考 |
 | [references/dconfig-configuration.md](references/dconfig-configuration.md) | DConfig 配置完整参考 |

@@ -9,7 +9,7 @@
 | 接口名称 | `org.deepin.dde.ControlCenter1` |
 | 总线类型 | 会话总线 (Session Bus) |
 
-## 主接口方法
+## 接口方法
 
 | 方法 | 签名 | 说明 |
 |------|------|------|
@@ -23,7 +23,7 @@
 | `ShowModule` (已弃用) | `void ShowModule(QString module)` | 委托给 `ShowPage(module)` |
 | `GetAllModule` | `QString GetAllModule()` | 返回所有已注册模块的 JSON 列表（异步回复） |
 
-## 主接口属性
+## 接口属性
 
 | 属性 | 类型 | 说明 |
 |------|------|------|
