@@ -308,11 +308,14 @@ DccObject {
                                 id: row
                                 width: parent.width
                                 spacing: 3
+                                Item {
+                                    Layout.fillWidth: true
+                                    Layout.fillHeight: true
+                                }
                                 Label {
                                     id: conflictTextLabel
                                     text: dccData.conflictText + ","
                                     elide: Text.ElideLeft
-                                    Layout.fillWidth: true
                                     horizontalAlignment: Text.AlignRight
                                     HoverHandler { id: conflictHandler }
                                     ToolTip.visible: conflictHandler.hovered
