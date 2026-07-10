@@ -22,7 +22,7 @@ DccObject {
         name: "otherAcountsTitle"
         parentName: "accounts"
         displayName: qsTr("Other accounts")
-        canSearch: settings.canSearch
+        canSearch: currentAccount.canSearch
         weight: 58
     }
 
