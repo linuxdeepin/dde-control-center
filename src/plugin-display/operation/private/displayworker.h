@@ -11,7 +11,9 @@
 
 #include <dtkcore_global.h>
 
+#include <QMap>
 #include <QObject>
+#include <QPointer>
 #include <QTimer>
 
 #define GAMMA_SUPPORT false
@@ -116,8 +118,11 @@ private:
     // task 264375
     void initCTMData();
 
+    QString resolveVideoThumbnail(const QString &videoPath, Monitor *monitor);
+
 Q_SIGNALS:
     void requestUpdateModeList();
+    void videoThumbnailReady(const QString &videoPath, const QString &thumbnailPath);
 
 private:
     DisplayModel *m_model;
@@ -143,6 +148,7 @@ private:
     int m_tcMaxValue;
     int m_tcMinValue;
     int m_defaultMode;
+    QMap<QString, QList<QPointer<Monitor>>> m_videoWallpaperMonitors;
 };
 }
 

@@ -4,6 +4,7 @@
 #include "displayworker.h"
 
 #include "displaymodel.h"
+#include "wallpaperthumbnailutils.h"
 
 #include <Output.h>
 #include <OutputManager.h>
@@ -17,15 +18,30 @@
 #include <QDBusPendingCallWatcher>
 #include <QDebug>
 #include <QFile>
+#include <QFileInfo>
+#include <QDir>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QLoggingCategory>
+#include <QPointer>
 #include <QXmlStreamReader>
+#include <QtConcurrent/QtConcurrent>
 
 Q_LOGGING_CATEGORY(DdcDisplayWorker, "dcc-display-worker")
 
 const QString DisplayInterface("org.deepin.dde.Display1");
 static const QString EyeProtectionConfig = "/usr/share/dde-wloutput-daemon/eyeprotection.xml";
+static const QString SysLiveWallpaperDir = "/usr/share/wallpapers/deepin-livewallpapers";
+
+static const QStringList videoSuffixes = { "mp4", "mov", "avi", "webm", "mkv" };
+
+static bool isVideoFile(const QString &path)
+{
+    return videoSuffixes.contains(QFileInfo(path).suffix().toLower());
+}
+
+static constexpr uint32_t WallpaperSourceTypeVideo = 1;
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>)
 using namespace dccV25;
@@ -84,6 +100,17 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
             m_displayInter->Save().waitForFinished();
         });
     }
+
+    connect(this, &DisplayWorker::videoThumbnailReady, this, [this](const QString &videoPath, const QString &thumbnailPath) {
+        const auto monitors = m_videoWallpaperMonitors.take(videoPath);
+        if (thumbnailPath.isEmpty())
+            return;
+
+        for (const auto &monitor : monitors) {
+            if (monitor && monitor->wallpaper() == videoPath)
+                monitor->setWallpaper(thumbnailPath);
+        }
+    });
 }
 
 DisplayWorker::~DisplayWorker()
@@ -347,7 +374,11 @@ void DisplayWorker::updateWallpaper()
 
 void DisplayWorker::updateMonitorWallpaper(Monitor *mon)
 {
-    mon->setWallpaper(m_displayInter->GetCurrentWorkspaceBackgroundForMonitor(mon->name()));
+    QString wallpaper = m_displayInter->GetCurrentWorkspaceBackgroundForMonitor(mon->name());
+    if (isVideoFile(wallpaper)) {
+        wallpaper = resolveVideoThumbnail(wallpaper, mon);
+    }
+    mon->setWallpaper(wallpaper);
 }
 
 void DisplayWorker::updateWallpaperFromWayland()
@@ -376,12 +407,20 @@ void DisplayWorker::onOutputWallpaperReady(WQt::Output *output)
     auto *wp = wpMgr->getWallpaper(output->get());
     if (wp) {
         connect(wp, &WQt::Wallpaper::changed, this, &DisplayWorker::onWallpaperChanged, Qt::UniqueConnection);
+
+        if (wp->sourceType() == WallpaperSourceTypeVideo && !wp->fileSource().isEmpty()) {
+            for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
+                if (it.key()->name() == output->name()) {
+                    it.key()->setWallpaper(resolveVideoThumbnail(wp->fileSource(), it.key()));
+                    break;
+                }
+            }
+        }
     }
 }
 
 void DisplayWorker::onWallpaperChanged(const QString &fileSource, uint32_t sourceType, uint32_t role)
 {
-    Q_UNUSED(sourceType);
     Q_UNUSED(role);
     auto *wp = qobject_cast<WQt::Wallpaper *>(sender());
     if (!wp || !wp->output() || !m_reg)
@@ -400,7 +439,11 @@ void DisplayWorker::onWallpaperChanged(const QString &fileSource, uint32_t sourc
 
     for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
         if (it.key()->name() == outputName) {
-            it.key()->setWallpaper(fileSource);
+            QString wallpaper = fileSource;
+            if (sourceType == WallpaperSourceTypeVideo) {
+                wallpaper = resolveVideoThumbnail(fileSource, it.key());
+            }
+            it.key()->setWallpaper(wallpaper);
             break;
         }
     }
@@ -1398,4 +1441,57 @@ void DisplayWorker::updateConcatScreenMode()
 
     qCDebug(DdcDisplayWorker) << "[ConcatScreen] updateConcatScreenMode via DBus property";
     m_model->setIsConcatScreenMode(m_displayInter->isConcatScreenEnabled());
+}
+
+QString DisplayWorker::resolveVideoThumbnail(const QString &videoPath, Monitor *monitor)
+{
+    QDir liveDir(SysLiveWallpaperDir);
+    if (liveDir.exists()) {
+        QFile metaFile(liveDir.absoluteFilePath("metadata.json"));
+        if (metaFile.open(QIODevice::ReadOnly)) {
+            QJsonParseError parseErr;
+            QJsonDocument doc = QJsonDocument::fromJson(metaFile.readAll(), &parseErr);
+            metaFile.close();
+            if (parseErr.error != QJsonParseError::NoError || !doc.isArray()) {
+                qCWarning(DdcDisplayWorker) << "metadata.json parse error:" << parseErr.errorString();
+            } else {
+                for (const auto &entry : doc.array()) {
+                    QJsonObject obj = entry.toObject();
+                    QString videoAbsPath = liveDir.absoluteFilePath(obj.value("path").toString());
+                    if (videoAbsPath == videoPath) {
+                        QString thumbnailRel = obj.value("thumbnail").toString();
+                        if (!thumbnailRel.isEmpty()) {
+                            QString thumbAbsPath = liveDir.absoluteFilePath(thumbnailRel);
+                            if (QFile::exists(thumbAbsPath)) {
+                                return thumbAbsPath;
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    const QString cachePath = DccWallpaperThumbnail::cachePath(videoPath);
+
+    if (QFile::exists(cachePath)) {
+        return cachePath;
+    }
+
+    if (m_videoWallpaperMonitors.contains(videoPath)) {
+        m_videoWallpaperMonitors[videoPath].append(monitor);
+        return videoPath;
+    }
+
+    m_videoWallpaperMonitors[videoPath] = { monitor };
+
+    QPointer<DisplayWorker> guard(this);
+    (void)QtConcurrent::run([guard, videoPath]() {
+        const QString thumbnailPath = DccWallpaperThumbnail::generate(videoPath);
+        if (guard)
+            Q_EMIT guard->videoThumbnailReady(videoPath, thumbnailPath);
+    });
+
+    return videoPath;
 }
