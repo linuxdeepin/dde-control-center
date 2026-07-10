@@ -29,7 +29,6 @@ public:
     void getSolodBackground();
     void getLiveBackground();
     QStringList fetchWallpaper(const QString &dir);
-    static QString thumbnailCacheDir();
 
 signals:
     void pushBackground(const QList<WallpaperItemPtr> &items, WallpaperType type = WallpaperType::Wallpaper_Sys);
@@ -41,7 +40,7 @@ public slots:
     void startListOne(const QString &path, WallpaperType type = WallpaperType::Wallpaper_all);
 private:
     WallpaperItemPtr createItem(const QString &path, bool del, WallpaperType type);
-    void generateVideoThumbnail(const QString &videoPath, const QString &cachePath, const QString &id);
+    void generateVideoThumbnail(const QString &videoPath, const QString &id);
 private:
     PersonalizationDBusProxy *m_proxy = nullptr;
     std::atomic_bool m_running = false;
