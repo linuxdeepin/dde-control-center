@@ -64,9 +64,9 @@ PersonalizationDBusProxy::PersonalizationDBusProxy(QObject *parent)
         m_wallpaperSlideshowInter = new DDBusInterface(WallpaperSlideshowService, WallpaperSlideshowPath, WallpaperSlideshowInterface, QDBusConnection::sessionBus(), this);
     }
 
-    connect(m_AppearanceInter, SIGNAL(Changed(const QString &, const QString &)), this, SIGNAL(Changed(const QString &, const QString &)));
-    connect(m_AppearanceInter, SIGNAL(Refreshed(const QString &)), this, SIGNAL(Refreshed(const QString &)));
-    connect(m_DaemonInter, SIGNAL(WallpaperChanged(const QString &, uint, const QStringList &)), this, SIGNAL(WallpaperChanged(const QString &, uint, const QStringList &)));
+    QDBusConnection::sessionBus().connect(AppearanceService, AppearancePath, AppearanceInterface, "Changed", this, SIGNAL(Changed(const QString &, const QString &)));
+    QDBusConnection::sessionBus().connect(AppearanceService, AppearancePath, AppearanceInterface, "Refreshed", this, SIGNAL(Refreshed(const QString &)));
+    QDBusConnection::systemBus().connect(DaemonService, DaemonPath, DaemonInterface, "WallpaperChanged", this, SIGNAL(WallpaperChanged(const QString &, uint, const QStringList &)));
 }
 
 // Appearance
