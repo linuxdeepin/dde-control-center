@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SOUNDDBUSPROXY_H
@@ -69,6 +69,14 @@ public:
     Q_PROPERTY(bool ReduceNoise READ reduceNoise WRITE setReduceNoise NOTIFY ReduceNoiseChanged)
     bool reduceNoise();
     void setReduceNoise(bool value);
+
+    Q_PROPERTY(bool AiReduceNoise READ aiReduceNoise WRITE setAiReduceNoise NOTIFY AiReduceNoiseChanged)
+    bool aiReduceNoise();
+    void setAiReduceNoise(bool value);
+    QDBusPendingCall setAiReduceNoiseAsync(bool value);
+
+    Q_PROPERTY(QDBusObjectPath AiNoiseSourcePath READ aiNoiseSourcePath NOTIFY AiNoiseSourcePathChanged)
+    QDBusObjectPath aiNoiseSourcePath();
 
     Q_PROPERTY(bool PausePlayer READ pausePlayer WRITE setPausePlayer NOTIFY PausePlayerChanged)
     bool pausePlayer();
@@ -145,8 +153,10 @@ Q_SIGNALS:
     void CardsChanged(const QString &value) const;
     void CardsWithoutUnavailableChanged(const QString &value) const;
     void DefaultSinkChanged(const QDBusObjectPath &value) const;
+    void AiNoiseSourcePathChanged(const QDBusObjectPath &value) const;
     void DefaultSourceChanged(const QDBusObjectPath &value) const;
     void IncreaseVolumeChanged(bool value) const;
+    void AiReduceNoiseChanged(bool value) const;
     void MaxUIVolumeChanged(double value) const;
     void ReduceNoiseChanged(bool value) const;
     void PausePlayerChanged(bool value) const;
