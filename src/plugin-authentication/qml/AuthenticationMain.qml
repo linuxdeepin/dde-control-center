@@ -214,10 +214,14 @@ DccObject {
                             }
 
                             function checkInputInvalid() {
-                                var reg = /^[A-Za-z0-9\u4e00-\u9fa5_]+$/;
-                                var isValid = text.length === 0 || reg.test(nameEditor.text);
-                                var isOverLength = nameEditor.text.length > maxLength;
                                 var isEmpty = nameEditor.text.length === 0;
+                                if (isEmpty) {
+                                    return false
+                                }
+
+                                var reg = /^[A-Za-z0-9\u4e00-\u9fa5_]+$/;
+                                var isValid = reg.test(nameEditor.text);
+                                var isOverLength = nameEditor.text.length > maxLength;
 
                                 var nameList = [];
                                 switch (itemRep.authType) {
@@ -235,10 +239,7 @@ DccObject {
                                 var isDuplicate = nameList.includes(nameEditor.text) &&
                                                   nameEditor.text !== modelData;
 
-                                if (isEmpty) {
-                                    nameEditPanel.showAlert = true
-                                    nameEditPanel.alertText = qsTr("The name cannot be empty")
-                                } else if (!isValid && isOverLength) {
+                                if (!isValid && isOverLength) {
                                     nameEditPanel.showAlert = true
                                     nameEditPanel.alertText = qsTr("Use letters, numbers and underscores only, and no more than 15 characters")
                                 } else if (!isValid) {
