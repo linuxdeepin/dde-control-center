@@ -19,7 +19,7 @@
     </message>
     <message>
         <source>Login without password</source>
-        <translation>Entrar sem senha</translation>
+        <translation>Login sem senha</translation>
     </message>
     <message>
         <source>Delete current account</source>
