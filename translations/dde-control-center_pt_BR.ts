@@ -2360,11 +2360,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Modify password</source>
-        <translation>Modificar senha</translation>
+        <translation>Alterar senha</translation>
     </message>
     <message>
         <source>Validity days</source>
-        <translation>Dias de validade</translation>
+        <translation>Validade (dias)</translation>
     </message>
     <message>
         <source>Always</source>
