@@ -864,7 +864,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation>Ir para as configurações </translation>
+        <translation>Acessar configurações</translation>
     </message>
     <message>
         <source>Cancel</source>
