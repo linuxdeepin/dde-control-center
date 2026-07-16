@@ -7,7 +7,7 @@
     </message>
     <message>
         <source>Add new user</source>
-        <translation>Adicionar novo usuário</translation>
+        <translation>Adicionar usuário</translation>
     </message>
     <message>
         <source>Set fullname</source>
