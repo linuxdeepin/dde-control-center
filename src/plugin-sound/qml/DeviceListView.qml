@@ -67,9 +67,7 @@ Rectangle {
                     AnimatedImage {
                         source: model.aniIconPath || ""
                         Layout.alignment: Qt.AlignLeft
-                        visible: showPlayBtn
-                                && model.aniIconPath
-                                && model.aniIconPath.length !== 0
+                        visible: showPlayBtn && source.length !== 0
                         sourceSize.width: 24
                         sourceSize.height: 24
                     }
