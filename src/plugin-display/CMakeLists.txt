@@ -1,9 +1,10 @@
 cmake_minimum_required(VERSION 3.18)
 
-find_package(${QT_NS} REQUIRED COMPONENTS WaylandClient)
+find_package(${QT_NS} REQUIRED COMPONENTS WaylandClient Concurrent)
 find_package(PkgConfig REQUIRED)
 find_package(TreelandProtocols REQUIRED)
 pkg_check_modules(WaylandClient REQUIRED IMPORTED_TARGET wayland-client)
+pkg_check_modules(FFMPEGTHUMBNAILER REQUIRED IMPORTED_TARGET libffmpegthumbnailer)
 pkg_check_modules(WLR_PROTOCOLS REQUIRED wlr-protocols)
 
 execute_process(
@@ -67,7 +68,9 @@ set(Display_Libraries
     ${QT_NS}::Gui
     ${QT_NS}::DBus
     ${QT_NS}::Quick
+    ${QT_NS}::Concurrent
     ${DTK_NS}::Core
+    PkgConfig::FFMPEGTHUMBNAILER
 )
 
 target_link_libraries(${Display_Name} PRIVATE
