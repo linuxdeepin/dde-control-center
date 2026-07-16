@@ -1,3 +1,16 @@
+dde-control-center (6.1.100) unstable; urgency=medium
+
+  * fix(shortcuts): add spacer item for conflict text layout alignment
+  * fix: improve name validation logic in authentication dialog
+  * refactor: correct D-Bus signal connections to use specific service
+    and
+  * refactor: fix other accounts search feature using wrong search
+  * i18n: Translate dde-control-center_en.ts in pt_BR
+  * fix(dcc-plugin): adjust MenuEditor switch and arrow alignment
+  * fix(accounts): correct ComboBox dropdown arrow position
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 16 Jul 2026 21:47:12 +0800
+
 dde-control-center (6.1.99) unstable; urgency=medium
 
   * fix: resolve DciIcon animation jitter
