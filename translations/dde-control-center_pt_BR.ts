@@ -2279,7 +2279,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>KeyboardMain</name>
     <message>
         <source>Common</source>
-        <translation>Comum</translation>
+        <translation>Geral</translation>
     </message>
 </context>
 <context>
@@ -2421,7 +2421,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation>Comum, Mouse, Touchpad</translation>
+        <translation>Geral, Mouse, Touchpad</translation>
     </message>
 </context>
 <context>
@@ -2471,7 +2471,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>MouseMain</name>
     <message>
         <source>Common</source>
-        <translation>Comum</translation>
+        <translation>Geral</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -3885,7 +3885,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation>Comum</translation>
+        <translation>Geral</translation>
     </message>
 </context>
 <context>
