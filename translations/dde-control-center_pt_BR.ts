@@ -3701,7 +3701,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation>Mais papéis de parede</translation>
+        <translation>Obter mais papéis de parede</translation>
     </message>
 </context>
 <context>
