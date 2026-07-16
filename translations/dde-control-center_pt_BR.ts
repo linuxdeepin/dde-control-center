@@ -3640,7 +3640,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>System</name>
     <message>
         <source>Common settings</source>
-        <translation>Configurações comuns</translation>
+        <translation>Configurações gerais</translation>
     </message>
     <message>
         <source>System</source>
