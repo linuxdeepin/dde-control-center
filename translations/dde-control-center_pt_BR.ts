@@ -1452,7 +1452,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation>Serviço de Sincronização</translation>
+        <translation>Serviço de sincronização</translation>
     </message>
     <message>
         <source>Account and Security</source>
@@ -1464,7 +1464,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation>Ir para as configurações da web</translation>
+        <translation>Acessar configurações</translation>
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
