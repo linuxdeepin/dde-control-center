@@ -3586,7 +3586,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation>Nenhum dispositivo de saída de som encontrado</translation>
+        <translation>Nenhum dispositivo de saída encontrado</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
@@ -3610,7 +3610,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output Device</source>
-        <translation>Dispositivo de Saída</translation>
+        <translation>Dispositivo de saída</translation>
     </message>
 </context>
 <context>
