@@ -3225,7 +3225,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation>Repita a senha</translation>
+        <translation>Repetir senha</translation>
     </message>
     <message>
         <source>Cancel</source>
