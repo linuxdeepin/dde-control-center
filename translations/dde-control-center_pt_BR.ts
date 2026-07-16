@@ -641,7 +641,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation>Repita a senha:</translation>
+        <translation>Repetir senha:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -2704,7 +2704,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation>Repita a sua senha</translation>
+        <translation>Repetir senha</translation>
     </message>
     <message>
         <source>Password hint</source>
