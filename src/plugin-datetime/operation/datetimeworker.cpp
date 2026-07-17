@@ -29,6 +29,7 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     , m_config(DTK_CORE_NAMESPACE::DConfig::createGeneric("org.deepin.region-format", QString(), this))
     , m_datetimeConfig(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center.datetime", QString(), this))
     , m_daemonTimedateConfig(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.daemon", "org.deepin.dde.daemon.timedate", QString(), this))
+    , m_trayDatetimeConfig(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.tray-loader", "org.deepin.dde.dock.plugin.datetime", QString(), this))
 {
     QMetaObject::invokeMethod(this, "activate", Qt::QueuedConnection);
 #ifndef DCC_DISABLE_TIMEZONE
@@ -92,6 +93,21 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     m_model->setDigitGroupingSymbol(m_timedateInter->digitGroupingSymbol());
 
     initRegionFormatData();
+
+    // showSeconds 与 showSecondsMode 均来自 tray-loader 的 datetime schema。
+    // showSecondsMode: 0=show, 1=hide, 2=disable，控制控制中心开关的显隐/禁用。
+    if (m_trayDatetimeConfig && m_trayDatetimeConfig->isValid()) {
+        // 先连接信号再读初值，避免读值和连接之间发生的外部修改被漏掉。
+        connect(m_trayDatetimeConfig, &DTK_CORE_NAMESPACE::DConfig::valueChanged, this, [this](const QString &key) {
+            if (key == "showSeconds") {
+                m_model->setShowSeconds(m_trayDatetimeConfig->value("showSeconds", false).toBool());
+            } else if (key == "showSecondsMode") {
+                updateShowSecondsState();
+            }
+        });
+        m_model->setShowSeconds(m_trayDatetimeConfig->value("showSeconds", false).toBool());
+    }
+    updateShowSecondsState();
 }
 
 DatetimeWorker::~DatetimeWorker()
@@ -160,6 +176,35 @@ void DatetimeWorker::setDateFinished()
 void DatetimeWorker::set24HourType(bool state)
 {
     m_timedateInter->setUse24HourFormat(state);
+}
+
+void DatetimeWorker::setShowSeconds(bool showSeconds)
+{
+    if (trayShowSecondsConfigAvailable()) {
+        m_trayDatetimeConfig->setValue("showSeconds", showSeconds);
+    }
+}
+
+bool DatetimeWorker::trayShowSecondsConfigAvailable() const
+{
+    if (!m_trayDatetimeConfig || !m_trayDatetimeConfig->isValid())
+        return false;
+
+    const QStringList keys = m_trayDatetimeConfig->keyList();
+    return keys.contains("showSeconds") && keys.contains("showSecondsMode");
+}
+
+void DatetimeWorker::updateShowSecondsState()
+{
+    if (!trayShowSecondsConfigAvailable()) {
+        m_model->setShowSecondsAvailable(false);
+        m_model->setShowSecondsEnabled(false);
+        return;
+    }
+    const int mode = m_trayDatetimeConfig->value("showSecondsMode", 0).toInt();
+    const bool visible = (mode != 1);
+    m_model->setShowSecondsAvailable(visible);
+    m_model->setShowSecondsEnabled(visible && (mode != 2));
 }
 
 #ifndef DCC_DISABLE_TIMEZONE
