@@ -23,6 +23,9 @@ class DatetimeModel : public QObject
     friend class DatetimeWorker;
     Q_PROPERTY(bool ntpEnabled READ nTP WRITE setNTP NOTIFY ntpChanged FINAL)
     Q_PROPERTY(bool use24HourFormat READ use24HourFormat WRITE set24HourFormat NOTIFY hourTypeChanged FINAL)
+    Q_PROPERTY(bool showSeconds READ showSeconds WRITE setShowSeconds NOTIFY showSecondsChanged FINAL)
+    Q_PROPERTY(bool showSecondsAvailable READ showSecondsAvailable NOTIFY showSecondsAvailableChanged FINAL)
+    Q_PROPERTY(bool showSecondsEnabled READ showSecondsEnabled NOTIFY showSecondsEnabledChanged FINAL)
     Q_PROPERTY(QString ntpServerAddress READ ntpServerAddress WRITE setNtpServerAddress NOTIFY NTPServerChanged FINAL)
     Q_PROPERTY(QString previousServerAddress READ previousServerAddress WRITE setPreviousServerAddress NOTIFY previousServerAddressChanged FINAL)
     Q_PROPERTY(QStringList ntpServerList READ ntpServerList WRITE setNTPServerList NOTIFY NTPServerListChanged FINAL)
@@ -84,6 +87,9 @@ public:
     inline bool nTP() const { return m_ntp; }
     void setNTP(bool ntp);
     inline bool use24HourFormat() const { return m_bUse24HourType; }
+    inline bool showSeconds() const { return m_showSeconds; }
+    inline bool showSecondsAvailable() const { return m_showSecondsAvailable; }
+    inline bool showSecondsEnabled() const { return m_showSecondsEnabled; }
 
     QList<ZoneInfo> userTimeZones() const;
     void addUserTimeZone(const ZoneInfo &zone);
@@ -173,6 +179,9 @@ public:
 Q_SIGNALS:
     void ntpChanged(bool value);
     void hourTypeChanged(bool value);
+    void showSecondsChanged(bool value);
+    void showSecondsAvailableChanged(bool value);
+    void showSecondsEnabledChanged(bool value);
     void userTimeZoneAdded(const ZoneInfo &zone);
     void userTimeZoneRemoved(const ZoneInfo &zone);
     void systemTimeZoneIdChanged(const QString &zone);
@@ -213,6 +222,9 @@ Q_SIGNALS:
 
 public Q_SLOTS:
     void set24HourFormat(bool state);
+    void setShowSeconds(bool showSeconds);
+    void setShowSecondsAvailable(bool available);
+    void setShowSecondsEnabled(bool enabled);
     void setDateTime(const QDateTime &dateTime);
     QStringList zones(int x, int y, int map_width, int map_height);
     QPoint zonePosition(const QString &timezone, int map_width, int map_height);
@@ -284,6 +296,9 @@ private:
 
     bool m_ntp;
     bool m_bUse24HourType;
+    bool m_showSeconds = false;
+    bool m_showSecondsAvailable = false;
+    bool m_showSecondsEnabled = false;
     QStringList m_userZoneIds;
 #ifndef DCC_DISABLE_TIMEZONE
     QString m_systemTimeZoneId;

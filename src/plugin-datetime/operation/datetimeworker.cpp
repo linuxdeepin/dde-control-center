@@ -29,6 +29,7 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     , m_config(DTK_CORE_NAMESPACE::DConfig::createGeneric("org.deepin.region-format", QString(), this))
     , m_datetimeConfig(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center.datetime", QString(), this))
     , m_daemonTimedateConfig(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.daemon", "org.deepin.dde.daemon.timedate", QString(), this))
+    , m_trayDatetimeConfig(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.tray-loader", "org.deepin.dde.dock.plugin.datetime", QString(), this))
 {
     QMetaObject::invokeMethod(this, "activate", Qt::QueuedConnection);
 #ifndef DCC_DISABLE_TIMEZONE
@@ -92,6 +93,23 @@ DatetimeWorker::DatetimeWorker(DatetimeModel *model, QObject *parent)
     m_model->setDigitGroupingSymbol(m_timedateInter->digitGroupingSymbol());
 
     initRegionFormatData();
+
+    // showSeconds 与 showSecondsMode 均来自 tray-loader 的 datetime schema。
+    // showSecondsMode 仅控制控制中心开关的显隐：true=显示，false=隐藏；禁用状态由 showSeconds 的只读权限决定。
+    if (m_trayDatetimeConfig && m_trayDatetimeConfig->isValid()) {
+        // 先连接信号再读初值，避免读值和连接之间发生的外部修改被漏掉。
+        connect(m_trayDatetimeConfig, &DTK_CORE_NAMESPACE::DConfig::valueChanged, this, [this](const QString &key) {
+            if (key == "showSeconds") {
+                m_model->setShowSeconds(m_trayDatetimeConfig->value("showSeconds", false).toBool());
+                // 外部策略可能同时修改了 showSeconds 的读写权限，重新评估开关状态。
+                updateShowSecondsState();
+            } else if (key == "showSecondsMode") {
+                updateShowSecondsState();
+            }
+        });
+        m_model->setShowSeconds(m_trayDatetimeConfig->value("showSeconds", false).toBool());
+    }
+    updateShowSecondsState();
 }
 
 DatetimeWorker::~DatetimeWorker()
@@ -160,6 +178,46 @@ void DatetimeWorker::setDateFinished()
 void DatetimeWorker::set24HourType(bool state)
 {
     m_timedateInter->setUse24HourFormat(state);
+}
+
+void DatetimeWorker::setShowSeconds(bool showSeconds)
+{
+    if (!trayShowSecondsConfigAvailable())
+        return;
+
+    // 外部策略可能把 showSeconds 覆盖为 readonly。此时不接受写入，回滚模型到
+    // DConfig 的实际生效值，并重新评估开关状态，避免界面与配置不一致或开关保持可点。
+    if (m_trayDatetimeConfig->isReadOnly("showSeconds")) {
+        m_model->setShowSeconds(m_trayDatetimeConfig->value("showSeconds", false).toBool());
+        updateShowSecondsState();
+        return;
+    }
+
+    m_trayDatetimeConfig->setValue("showSeconds", showSeconds);
+}
+
+bool DatetimeWorker::trayShowSecondsConfigAvailable() const
+{
+    if (!m_trayDatetimeConfig || !m_trayDatetimeConfig->isValid())
+        return false;
+
+    const QStringList keys = m_trayDatetimeConfig->keyList();
+    return keys.contains("showSeconds") && keys.contains("showSecondsMode");
+}
+
+void DatetimeWorker::updateShowSecondsState()
+{
+    if (!trayShowSecondsConfigAvailable()) {
+        m_model->setShowSecondsAvailable(false);
+        m_model->setShowSecondsEnabled(false);
+        return;
+    }
+    // showSecondsMode 仅控制显隐：true=显示，false=隐藏。
+    const bool visible = m_trayDatetimeConfig->value("showSecondsMode", true).toBool();
+    // 禁用状态完全由 showSeconds 的只读权限决定。
+    const bool writable = !m_trayDatetimeConfig->isReadOnly("showSeconds");
+    m_model->setShowSecondsAvailable(visible);
+    m_model->setShowSecondsEnabled(visible && writable);
 }
 
 #ifndef DCC_DISABLE_TIMEZONE

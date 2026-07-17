@@ -3708,6 +3708,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>24小时制</translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation>任务栏时间显示秒数</translation>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation>系统时区</translation>
     </message>

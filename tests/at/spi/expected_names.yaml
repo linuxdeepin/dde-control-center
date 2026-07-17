@@ -1387,6 +1387,20 @@ qml_elements:
   source_file: src/plugin-datetime/qml/TimeAndDate.qml
   parent_type: ''
   line: 549
+- element_type: DccObject
+  id: showSecondsSettings
+  accessible_id: DatetimeShowSeconds
+  accessible_role: ''
+  source_file: src/plugin-datetime/qml/TimeAndDate.qml
+  parent_type: ''
+  line: 661
+- element_type: Switch
+  id: showSecondsSettings
+  accessible_id: TimeAndDate_Switch_3
+  accessible_role: ''
+  source_file: src/plugin-datetime/qml/TimeAndDate.qml
+  parent_type: ''
+  line: 671
 - element_type: ItemDelegate
   id: contentLayout
   accessible_id: TimeAndDate_ItemDelegate_
