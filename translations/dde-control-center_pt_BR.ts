@@ -1120,7 +1120,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation>Disponível</translation>
+        <translation>disponível</translation>
     </message>
 </context>
 <context>
