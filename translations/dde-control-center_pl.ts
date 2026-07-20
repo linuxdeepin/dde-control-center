@@ -1751,7 +1751,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation>Jasność, rozdzielczość, skalowanie itp.</translation>
+        <translation>Jasność, rozdzielczość, skalowanie</translation>
     </message>
 </context>
 <context>
