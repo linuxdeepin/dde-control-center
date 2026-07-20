@@ -2997,15 +2997,15 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation>Minutach</translation>
+        <translation>minutach</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation>Godzinie</translation>
+        <translation>godzinie</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation>Nigdy</translation>
+        <translation>nigdy</translation>
     </message>
 </context>
 <context>
