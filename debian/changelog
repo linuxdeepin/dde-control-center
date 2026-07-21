@@ -1,3 +1,10 @@
+dde-control-center (6.1.101) unstable; urgency=medium
+
+  * fix(wallpaper): show video previews
+  * Revert "fix(sound): avoid duplicate muted volume feedback"
+
+ -- zhangkun <zhangkun2@uniontech.com>  Tue, 21 Jul 2026 11:42:58 +0800
+
 dde-control-center (6.1.100) unstable; urgency=medium
 
   * fix(shortcuts): add spacer item for conflict text layout alignment
