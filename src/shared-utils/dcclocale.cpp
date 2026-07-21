@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -7,6 +7,7 @@
 #include <QCoreApplication>
 #include <QGlobalStatic>
 #include <QLocale>
+#include <QRegularExpression>
 #include <memory>
 
 #include <unicode/locdspnm.h>
@@ -90,4 +91,35 @@ QPair<QString, QString> DCCLocale::languageAndRegionName(const QString &localeCo
     }
 
     return { displayLanguage, displayCountry };
+}
+
+// 两个正则都需要 static QRegularExpression，避免每次调用重新编译。
+// 正则对象本身是线程安全的（只读使用），与 QRegularExpression 的文档一致。
+static const QRegularExpression &tzTokenRegex()
+{
+    static const QRegularExpression re(
+        // 1) 半角/全角括号、方括号整体包裹的时区: (tttt)、（tttt）、[tttt]
+        // 2) 裸时区 token，连同前导分隔符(空格/逗号/分号，但不含句点)一并删除
+        //    * 让前导分支也能匹配 zh_CN "tttt HH:mm:ss" 这种开头裸时区
+        // 分隔符字符类不含句点，避免误吞 bg_BG "'ч'." 这种以缩写句点结尾的字面量；
+        // 同样不匹配引号字面量本身，bg_BG 的 'ч'. 与 fr_CA 的 'h'/'min'/'s'
+        // 都交由 Qt 的 toString 自行渲染，保证它们不会被剥离。
+        "(?:\\([tT]+\\)|（[tT]+）|\\[[tT]+\\])"
+        "|[\\s,，;；]*[tT]+"
+    );
+    return re;
+}
+
+static const QRegularExpression &trailingSepRegex()
+{
+    static const QRegularExpression re("[\\s,，;；]+\\s*$");
+    return re;
+}
+
+QString DCCLocale::stripTimezoneFromTimeFormat(const QString &timeFormat)
+{
+    QString s = timeFormat;
+    s.remove(tzTokenRegex());
+    s.remove(trailingSepRegex());
+    return s;
 }
