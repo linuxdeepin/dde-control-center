@@ -989,9 +989,7 @@ QString DatetimeModel::getCurrentTime() const
     } else {
         locale = QLocale(m_localeName);
     }
-    QString timeFormat = longTimeFormat();
-    // remove all occurrences of 't' and '[tttt]' or similar patterns
-    timeFormat.remove(QRegularExpression("(\\[t+?\\]|t+)"));
+    QString timeFormat = DCCLocale::stripTimezoneFromTimeFormat(longTimeFormat());
     return locale.toString(QTime::currentTime(), timeFormat).trimmed();
 }
 
