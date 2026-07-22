@@ -195,7 +195,7 @@ void PersonalizationModel::setScreens(const QStringList &screens)
     if (m_screens == screens)
         return;
     m_screens = screens;
-    if (m_currentSelectScreen.isEmpty() && !m_screens.isEmpty())
+    if (!m_screens.isEmpty() && (m_currentSelectScreen.isEmpty() || !m_screens.contains(m_currentSelectScreen)))
         setCurrentSelectScreen(m_screens.first());
     Q_EMIT screensChanged(screens);
 }
