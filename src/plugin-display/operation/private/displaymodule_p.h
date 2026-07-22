@@ -8,6 +8,10 @@
 #include <QObject>
 #include <QPair>
 
+QT_BEGIN_NAMESPACE
+class QTimer;
+QT_END_NAMESPACE
+
 namespace dccV25 {
 class DisplayWorker;
 class DisplayModel;
@@ -50,6 +54,8 @@ public:
     QString m_displayMode;
     qreal m_maxGlobalScale;
     bool m_screensFormRect;
+    QTimer *m_scalePositionTimer { nullptr };
+    QHash<Monitor *, QPair<int, int>> m_pendingScalePosition;
 
     Q_DECLARE_PUBLIC(DisplayModule)
 };

@@ -249,7 +249,6 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                             if (preferMode)
                                 cfgHead->setMode(preferMode);
                         }
-                        cfgHead->setPosition({ 0, 0 });
                     }
                     connect(opCfg, &WQt::OutputConfiguration::succeeded, this, createMergeVirtualOutput);
                     connect(opCfg, &WQt::OutputConfiguration::succeeded, opCfg, &QObject::deleteLater);
@@ -273,7 +272,6 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                 return;
             }
             m_model->setDisplayMode(mode);
-            int posX = 0;
 
             for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
                 switch (mode) {
@@ -284,8 +282,6 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                         updateDisplayModeFromCurrentState();
                         return;
                     }
-                    cfgHead->setPosition({ posX, 0 });
-                    posX += it.key()->w();
                     break;
                 }
                 case SINGLE_MODE: {
@@ -304,7 +300,6 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                         }
                         if (preferMode)
                             cfgHead->setMode(preferMode);
-                        cfgHead->setPosition({ 0, 0 });
                     } else {
                         opCfg->disableHead(it.value());
                     }
@@ -315,6 +310,9 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                 }
             }
 
+            connect(opCfg, &WQt::OutputConfiguration::succeeded, opCfg, &QObject::deleteLater);
+            connect(opCfg, &WQt::OutputConfiguration::failed, opCfg, &QObject::deleteLater);
+            connect(opCfg, &WQt::OutputConfiguration::canceled, opCfg, &QObject::deleteLater);
             opCfg->apply();
         }
     } else {
@@ -656,13 +654,13 @@ constexpr static int wlRotate2dcc(int wlRotate)
 {
     switch (wlRotate) {
     case WL_OUTPUT_TRANSFORM_NORMAL:
-        return 1;
+        return Monitor::RotationNormal;
     case WL_OUTPUT_TRANSFORM_90:
-        return 2;
+        return Monitor::Rotation90;
     case WL_OUTPUT_TRANSFORM_180:
-        return 4;
+        return Monitor::Rotation180;
     case WL_OUTPUT_TRANSFORM_270:
-        return 8;
+        return Monitor::Rotation270;
     default:
         qWarning("dcc dont support FLIPPED");
         return 0;
@@ -672,13 +670,13 @@ constexpr static int wlRotate2dcc(int wlRotate)
 constexpr static int dccRotate2wl(int dccRotate)
 {
     switch (dccRotate) {
-    case 1:
+    case Monitor::RotationNormal:
         return WL_OUTPUT_TRANSFORM_NORMAL;
-    case 2:
+    case Monitor::Rotation90:
         return WL_OUTPUT_TRANSFORM_90;
-    case 4:
+    case Monitor::Rotation180:
         return WL_OUTPUT_TRANSFORM_180;
-    case 8:
+    case Monitor::Rotation270:
         return WL_OUTPUT_TRANSFORM_270;
     default:
         qWarning("unkone dccRotate, feedback to normal");
@@ -917,6 +915,9 @@ void DisplayWorker::setMonitorPosition(const QHash<Monitor *, QPair<int, int>> m
 {
     if (WQt::Utils::isTreeland()) {
         auto *opCfg = m_reg->outputManager()->createConfiguration();
+        if (!opCfg) {
+            return;
+        }
         for (auto it(monitorPosition.cbegin()); it != monitorPosition.cend(); ++it) {
             auto *head = m_wl_monitors.value(it.key());
             Q_ASSERT(head);
@@ -927,6 +928,9 @@ void DisplayWorker::setMonitorPosition(const QHash<Monitor *, QPair<int, int>> m
             auto *cfgHead = opCfg->enableHead(head);
             cfgHead->setPosition({ it.value().first, it.value().second });
         }
+        connect(opCfg, &WQt::OutputConfiguration::succeeded, opCfg, &QObject::deleteLater);
+        connect(opCfg, &WQt::OutputConfiguration::failed, opCfg, &QObject::deleteLater);
+        connect(opCfg, &WQt::OutputConfiguration::canceled, opCfg, &QObject::deleteLater);
         opCfg->apply();
     } else {
         for (auto it(monitorPosition.cbegin()); it != monitorPosition.cend(); ++it) {
@@ -944,12 +948,12 @@ void DisplayWorker::setUiScale(const double value)
     double rv = value;
     if (rv < 0)
         rv = m_model->uiScale();
-    for (auto &mm : m_model->monitorList()) {
-        mm->setScale(-1);
-    }
 
     if (WQt::Utils::isTreeland()) {
         auto *opCfg = m_reg->outputManager()->createConfiguration();
+        if (!opCfg) {
+            return;
+        }
         for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
             if (!it.key()->enable()) {
                 opCfg->disableHead(it.value());
@@ -958,11 +962,17 @@ void DisplayWorker::setUiScale(const double value)
             auto *cfgHead = opCfg->enableHead(it.value());
             cfgHead->setScale(rv);
         }
-        opCfg->apply();
         connect(opCfg, &WQt::OutputConfiguration::succeeded, this, [this, rv]() {
             m_model->setUIScale(rv);
         });
+        connect(opCfg, &WQt::OutputConfiguration::succeeded, opCfg, &QObject::deleteLater);
+        connect(opCfg, &WQt::OutputConfiguration::failed, opCfg, &QObject::deleteLater);
+        connect(opCfg, &WQt::OutputConfiguration::canceled, opCfg, &QObject::deleteLater);
+        opCfg->apply();
     } else {
+        for (auto &mm : m_model->monitorList()) {
+            mm->setScale(-1);
+        }
         QDBusPendingCall call = m_displayInter->SetScaleFactor(rv);
 
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
@@ -976,14 +986,15 @@ void DisplayWorker::setUiScale(const double value)
 
 void DisplayWorker::setIndividualScaling(Monitor *m, const double scaling)
 {
-    if (m && scaling >= 1.0) {
-        m->setScale(scaling);
-    } else {
+    if (!m || scaling < 1.0) {
         return;
     }
 
     if (WQt::Utils::isTreeland()) {
         auto *opCfg = m_reg->outputManager()->createConfiguration();
+        if (!opCfg) {
+            return;
+        }
         for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
             if (!it.key()->enable()) {
                 opCfg->disableHead(it.value());
@@ -994,8 +1005,12 @@ void DisplayWorker::setIndividualScaling(Monitor *m, const double scaling)
                 cfgHead->setScale(scaling);
             }
         }
+        connect(opCfg, &WQt::OutputConfiguration::succeeded, opCfg, &QObject::deleteLater);
+        connect(opCfg, &WQt::OutputConfiguration::failed, opCfg, &QObject::deleteLater);
+        connect(opCfg, &WQt::OutputConfiguration::canceled, opCfg, &QObject::deleteLater);
         opCfg->apply();
     } else {
+        m->setScale(scaling);
         QMap<QString, double> scalemap;
         for (Monitor *m : m_model->monitorList()) {
             scalemap[m->name()] = m_model->monitorScale(m);
@@ -1199,7 +1214,7 @@ void DisplayWorker::wlMonitorAdded(WQt::OutputHead *head)
     mon->setX(head->property(WQt::OutputHead::Position).toPoint().x());
     mon->setY(head->property(WQt::OutputHead::Position).toPoint().y());
 
-    mon->setRotateList({ 1, 2, 4, 8 });
+    mon->setRotateList({ Monitor::RotationNormal, Monitor::Rotation90, Monitor::Rotation180, Monitor::Rotation270 });
     mon->setRotate(wlRotate2dcc(head->property(WQt::OutputHead::Transform).toInt()));
 
     ResolutionList resolutionList;
