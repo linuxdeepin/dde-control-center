@@ -3,6 +3,7 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "dccscreen.h"
 
+#include "WayQtUtils.h"
 #include "private/dccscreen_p.h"
 #include "private/displayworker.h"
 
@@ -123,6 +124,12 @@ void DccScreenPrivate::setMonitors(QList<Monitor *> monitors)
     q_ptr->connect(monitor(), &Monitor::currentModeChanged, q_ptr, &DccScreen::currentModeChanged);
     q_ptr->connect(monitor(), &Monitor::enableChanged, q_ptr, &DccScreen::enableChanged);
     q_ptr->connect(monitor(), &Monitor::rotateChanged, q_ptr, &DccScreen::rotateChanged);
+    q_ptr->connect(monitor(), &Monitor::rotateChanged, q_ptr, [this]() {
+        if (WQt::Utils::isTreeland()) {
+            Q_EMIT q_ptr->widthChanged();
+            Q_EMIT q_ptr->heightChanged();
+        }
+    });
     q_ptr->connect(monitor(), &Monitor::scaleChanged, q_ptr, &DccScreen::scaleChanged);
     q_ptr->connect(monitor(), &Monitor::scaleChanged, q_ptr, &DccScreen::widthChanged);
     q_ptr->connect(monitor(), &Monitor::scaleChanged, q_ptr, &DccScreen::heightChanged);
@@ -317,12 +324,24 @@ int DccScreen::y() const
 
 int DccScreen::width() const
 {
-    return d_ptrDccScreen->monitor()->scale() > 0 ? (d_ptrDccScreen->monitor()->w() / d_ptrDccScreen->monitor()->scale()) : d_ptrDccScreen->monitor()->w();
+    const auto *monitor = d_ptrDccScreen->monitor();
+    if (!WQt::Utils::isTreeland()) {
+        return monitor->scale() > 0 ? (monitor->w() / monitor->scale()) : monitor->w();
+    }
+    const bool rotated = monitor->rotate() == Monitor::Rotation90 || monitor->rotate() == Monitor::Rotation270;
+    const int width = rotated ? monitor->h() : monitor->w();
+    return monitor->scale() > 0 ? qRound(width / monitor->scale()) : width;
 }
 
 int DccScreen::height() const
 {
-    return d_ptrDccScreen->monitor()->scale() > 0 ? (d_ptrDccScreen->monitor()->h() / d_ptrDccScreen->monitor()->scale()) : d_ptrDccScreen->monitor()->h();
+    const auto *monitor = d_ptrDccScreen->monitor();
+    if (!WQt::Utils::isTreeland()) {
+        return monitor->scale() > 0 ? (monitor->h() / monitor->scale()) : monitor->h();
+    }
+    const bool rotated = monitor->rotate() == Monitor::Rotation90 || monitor->rotate() == Monitor::Rotation270;
+    const int height = rotated ? monitor->w() : monitor->h();
+    return monitor->scale() > 0 ? qRound(height / monitor->scale()) : height;
 }
 
 QSize DccScreen::bestResolution() const
