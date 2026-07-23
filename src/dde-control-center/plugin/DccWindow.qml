@@ -29,10 +29,9 @@ D.ApplicationWindow {
     color: "transparent"
     D.DWindow.enabled: true
     onClosing: {
-        Qt.callLater(function () {
-            console.info("DccWindow closed")
-            Qt.quit()
-        })
+        close.accepted = false
+        DccApp.mainWindow().hide()
+        console.info("DccWindow hidden")
     }
     MouseArea {
         anchors.fill: parent
