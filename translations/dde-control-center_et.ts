@@ -2277,6 +2277,17 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     </message>
 </context>
 <context>
+    <name>KeyboardWorker</name>
+    <message>
+        <source>The shortcut service is unavailable. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -3381,6 +3392,22 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Replace to make this shortcut key effective</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Shortcuts</name>
@@ -3430,6 +3457,14 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     </message>
     <message>
         <source>please enter a new shortcut key</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4357,6 +4392,29 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>This shortcut conflicts with [%1]</source>
         <translation>See pikaavaldus ületab [%1]</translation>
+    </message>
+    <message>
+        <source>The shortcut no longer exists.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please confirm the shortcut conflict again.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV25::KeyboardWorker</name>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
