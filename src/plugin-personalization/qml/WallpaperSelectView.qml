@@ -40,6 +40,14 @@ ColumnLayout {
     property bool firstItemVisible: firstItemImgSource !== ""
     property string firstItemTopIconName: ""
     property bool enableContextMenu: true
+    property int delegateLoadLimit: 1
+    property string contextMenuUrl: ""
+
+    function continueLoadingDelegate(loadedIndex) {
+        if (loadedIndex + 1 >= delegateLoadLimit) {
+            delegateLoadLimit = loadedIndex + 2
+        }
+    }
 
     signal wallpaperSelected(var url, var option)
     signal firstItemClicked()
@@ -268,192 +276,193 @@ ColumnLayout {
                 lastMaxCount = maxCount
             }
 
-            delegate: Control {
-                id: control
+            delegate: Loader {
+                readonly property int visualIndex: DelegateModel.visibleIndex
                 width: root.itemWidth
                 height: root.itemHeight
-                hoverEnabled: true
+                active: visualIndex >= 0 && visualIndex < root.delegateLoadLimit
+                asynchronous: true
+                onLoaded: Qt.callLater(root.continueLoadingDelegate, visualIndex)
 
-                contentItem: Item {
-                    id: wallpaperItem
-                    function requestSetWallpaper(option) {
-                        root.wallpaperSelected(model.url, option)
-                    }
+                sourceComponent: Control {
+                    id: control
+                    width: root.itemWidth
+                    height: root.itemHeight
+                    hoverEnabled: true
 
-                    Image {
-                        id: image
-                        anchors.centerIn: parent
-                        width: root.imageRectW
-                        height: root.imageRectH
-                        sourceSize: Qt.size(width, height)
-                        source: "image://DccImage/" + model.thumbnail
-                        mipmap: false
-                        visible: false
-                        fillMode: Image.PreserveAspectCrop
-                        asynchronous: true
-                        retainWhileLoading: true
+                    contentItem: Item {
+                        id: wallpaperItem
+                        function requestSetWallpaper(option) {
+                            root.wallpaperSelected(model.url, option)
+                        }
 
-                        Item {
-                            id: liveWallpaperInditor
-                            visible: model.type === WallpaperEnums.Wallpaper_Live
-                            anchors.fill: parent
+                        Image {
+                            id: image
+                            anchors.centerIn: parent
+                            width: root.imageRectW
+                            height: root.imageRectH
+                            sourceSize: Qt.size(width, height)
+                            source: "image://DccImage/" + model.thumbnail
+                            mipmap: false
+                            visible: false
+                            fillMode: Image.PreserveAspectCrop
+                            asynchronous: true
+                            retainWhileLoading: true
 
-                            DownloadIndicator {
-                                anchors.left: parent.left
-                                anchors.bottom: parent.bottom
-                                anchors.leftMargin: 5
-                                anchors.bottomMargin: 5
-                                implicitWidth: 14
-                                implicitHeight: 14
-                                progress: model.installProgress
-                                opacity: model.installStatus === WallpaperEnums.Download_Installing ? 1.0 : 0
-                                scale: model.installStatus === WallpaperEnums.Download_Installing ? 1.0 : 0.1
-                            }
+                            Loader {
+                                anchors.fill: parent
+                                active: model.type === WallpaperEnums.Wallpaper_Live
+                                asynchronous: true
+                                sourceComponent: Item {
+                                    DownloadIndicator {
+                                        anchors.left: parent.left
+                                        anchors.bottom: parent.bottom
+                                        anchors.leftMargin: 5
+                                        anchors.bottomMargin: 5
+                                        implicitWidth: 14
+                                        implicitHeight: 14
+                                        progress: model.installProgress
+                                        opacity: model.installStatus === WallpaperEnums.Download_Installing ? 1.0 : 0
+                                        scale: model.installStatus === WallpaperEnums.Download_Installing ? 1.0 : 0.1
+                                    }
 
-                            D.DciIcon {
-                                anchors.left: parent.left
-                                anchors.bottom: parent.bottom
-                                anchors.leftMargin: 5
-                                anchors.bottomMargin: 5
-                                sourceSize: Qt.size(18, 18)
-                                name: "wallpaper_download"
-                                visible: model.installStatus === WallpaperEnums.Download_NotInstalled
-                            }
+                                    D.DciIcon {
+                                        anchors.left: parent.left
+                                        anchors.bottom: parent.bottom
+                                        anchors.leftMargin: 5
+                                        anchors.bottomMargin: 5
+                                        sourceSize: Qt.size(18, 18)
+                                        name: "wallpaper_download"
+                                        visible: model.installStatus === WallpaperEnums.Download_NotInstalled
+                                    }
 
-                            D.DciIcon {
-                                anchors.right: parent.right
-                                anchors.bottom: parent.bottom
-                                anchors.rightMargin: 5
-                                anchors.bottomMargin: 5
-                                sourceSize: Qt.size(18, 18)
-                                name: "video_wallpaper"
+                                    D.DciIcon {
+                                        anchors.right: parent.right
+                                        anchors.bottom: parent.bottom
+                                        anchors.rightMargin: 5
+                                        anchors.bottomMargin: 5
+                                        sourceSize: Qt.size(18, 18)
+                                        name: "video_wallpaper"
+                                    }
+                                }
                             }
                         }
-                    }
 
 
-                    OpacityMask {
-                        anchors.fill: parent
-                        anchors.margins: root.imageMargin
-                        source: image
-                        maskSource: Rectangle {
+                        OpacityMask {
                             anchors.fill: parent
-                            implicitWidth: image.width
-                            implicitHeight: image.height
+                            anchors.margins: root.imageMargin
+                            source: image
+                            maskSource: Rectangle {
+                                anchors.fill: parent
+                                implicitWidth: image.width
+                                implicitHeight: image.height
+                                radius: 6
+                            }
+                        }
+
+                        D.InsideBoxBorder {
+                            anchors.fill: image
+                            visible: !borderRect.visible
+                            color: Qt.rgba(0, 0, 0, 0.1)
                             radius: 6
                         }
-                    }
 
-                    D.InsideBoxBorder {
-                        anchors.fill: image
-                        visible: !borderRect.visible
-                        color: Qt.rgba(0, 0, 0, 0.1)
-                        radius: 6
-                    }
+                        Rectangle {
+                            id: borderRect
+                            anchors.fill: parent
+                            visible: model.url !== undefined && model.url === root.currentItem
+                            color: "transparent"
+                            border.width: 2
+                            border.color: D.DTK.platformTheme.activeColor
+                            radius: 8
+                        }
 
-                    Rectangle {
-                        id: borderRect
-                        anchors.fill: parent
-                        visible: model.url !== undefined && model.url === root.currentItem
-                        color: "transparent"
-                        border.width: 2
-                        border.color: D.DTK.platformTheme.activeColor
-                        radius: 8
-                    }
-
-                    MouseArea {
-                        anchors.fill: parent
-                        hoverEnabled: true
-                        acceptedButtons: Qt.LeftButton | Qt.RightButton
-                        onClicked: function(mouse) {
-                            if (mouse.button === Qt.LeftButton) {
-                                if (model.installStatus === WallpaperEnums.Download_Installed) {
-                                    wallpaperItem.requestSetWallpaper(PersonalizationExport.Option_All)
-                                } else if (model.installStatus === WallpaperEnums.Download_NotInstalled) {
-                                    dccData.worker.requestInstallWallpaper(model.url, WallpaperEnums.Wallpaper_Live)
+                        MouseArea {
+                            anchors.fill: parent
+                            hoverEnabled: true
+                            acceptedButtons: Qt.LeftButton | Qt.RightButton
+                            onClicked: function(mouse) {
+                                if (mouse.button === Qt.LeftButton) {
+                                    if (model.installStatus === WallpaperEnums.Download_Installed) {
+                                        wallpaperItem.requestSetWallpaper(PersonalizationExport.Option_All)
+                                    } else if (model.installStatus === WallpaperEnums.Download_NotInstalled) {
+                                        dccData.worker.requestInstallWallpaper(model.url, WallpaperEnums.Wallpaper_Live)
+                                    }
+                                } else if (mouse.button === Qt.RightButton && root.enableContextMenu) {
+                                    const pos = mapToItem(contextMenu.parent, mouse.x, mouse.y)
+                                    root.contextMenuUrl = model.url
+                                    contextMenu.x = pos.x
+                                    contextMenu.y = pos.y
+                                    contextMenu.open()
                                 }
-                            } else if (mouse.button === Qt.RightButton && root.enableContextMenu) {
-                                contextMenu.x = mouse.x
-                                contextMenu.y = mouse.y
-                                contextMenu.open()
                             }
                         }
-                    }
 
-                    Control {
-                        anchors.right: parent.right
-                        anchors.top: parent.top
-                        anchors.topMargin: - height / 2 + root.imageMargin
-                        anchors.rightMargin: - width / 2 + root.imageMargin + 2
-                        hoverEnabled: true
-                        z: 999
-                        // replace visible with opacity for animation
-                        opacity: ((control.hovered || hovered) && model.deleteAble && !model.selected) ? 1 : 0
-                        visible: opacity > 0
-                        Behavior on opacity {
-                            NumberAnimation {
-                                duration: 300
-                                easing.type: Easing.OutExpo
-                            }
-                        }
-                        contentItem: D.ActionButton {
-                            icon.name: "close"
-                            implicitWidth: 20
-                            implicitHeight: 20
-                            icon.width: 14
-                            icon.height: 14
-                            background: D.BoxPanel {
-                                radius: width / 2
-                                enableBoxShadow: true
-                                boxShadowBlur: 10
-                                boxShadowOffsetY: 4
-                                color1: D.Palette {
-                                    normal {
-                                        common: Qt.rgba(240 / 255.0, 240 / 255.0, 240 / 255.0, 0.9)
-                                        // TODO crystal: Qt.rgba(240 / 255.0, 240 / 255.0, 240 / 255.0, 0.5)
-                                        crystal: Qt.rgba(240 / 255.0, 240 / 255.0, 240 / 255.0, 1.0)
+                        Loader {
+                            anchors.right: parent.right
+                            anchors.top: parent.top
+                            anchors.topMargin: - 10 + root.imageMargin
+                            anchors.rightMargin: - 8 + root.imageMargin
+                            width: 20
+                            height: 20
+                            z: 999
+                            active: control.hovered && model.deleteAble && !model.selected
+                            sourceComponent: D.ActionButton {
+                                icon.name: "close"
+                                width: 20
+                                height: 20
+                                icon.width: 14
+                                icon.height: 14
+                                background: D.BoxPanel {
+                                    radius: width / 2
+                                    enableBoxShadow: true
+                                    boxShadowBlur: 10
+                                    boxShadowOffsetY: 4
+                                    color1: D.Palette {
+                                        normal {
+                                            common: Qt.rgba(240 / 255.0, 240 / 255.0, 240 / 255.0, 0.9)
+                                            // TODO crystal: Qt.rgba(240 / 255.0, 240 / 255.0, 240 / 255.0, 0.5)
+                                            crystal: Qt.rgba(240 / 255.0, 240 / 255.0, 240 / 255.0, 1.0)
+                                        }
+                                        normalDark {
+                                            common: Qt.rgba(24 / 255.0, 24 / 255.0, 24 / 255.0, 0.8)
+                                            // TODO crystal: Qt.rgba(240 / 255.0, 240 / 255.0, 240 / 255.0, 0.5)
+                                            crystal: Qt.rgba(24 / 255.0, 24 / 255.0, 24 / 255.0, 1.0)
+                                        }
+                                        hovered {
+                                            common: Qt.rgba(220 / 255.0, 220 / 255.0, 220 / 255.0, 0.95)
+                                            crystal: Qt.rgba(220 / 255.0, 220 / 255.0, 220 / 255.0, 1.0)
+                                        }
+                                        hoveredDark {
+                                            common: Qt.rgba(44 / 255.0, 44 / 255.0, 44 / 255.0, 0.9)
+                                            crystal: Qt.rgba(44 / 255.0, 44 / 255.0, 44 / 255.0, 1.0)
+                                        }
                                     }
-                                    normalDark {
-                                        common: Qt.rgba(24 / 255.0, 24 / 255.0, 24 / 255.0, 0.8)
-                                        // TODO crystal: Qt.rgba(240 / 255.0, 240 / 255.0, 240 / 255.0, 0.5)
-                                        crystal: Qt.rgba(24 / 255.0, 24 / 255.0, 24 / 255.0, 1.0)
-                                    }
-                                    hovered {
-                                        common: Qt.rgba(220 / 255.0, 220 / 255.0, 220 / 255.0, 0.95)
-                                        crystal: Qt.rgba(220 / 255.0, 220 / 255.0, 220 / 255.0, 1.0)
-                                    }
-                                    hoveredDark {
-                                        common: Qt.rgba(44 / 255.0, 44 / 255.0, 44 / 255.0, 0.9)
-                                        crystal: Qt.rgba(44 / 255.0, 44 / 255.0, 44 / 255.0, 1.0)
-                                    }
+
+                                    color2: color1
+                                    insideBorderColor: null
+                                    outsideBorderColor: null
                                 }
-
-                                color2: color1
-                                insideBorderColor: null
-                                outsideBorderColor: null
-                            }
-                            onClicked: {
-                                root.wallpaperDeleteClicked(model.url)
-                            }
-                        }
-                    }
-
-                    D.Menu {
-                        id: contextMenu
-                        MenuItem {
-                            text: qsTr("Set lock screen")
-                            onTriggered: {
-                                wallpaperItem.requestSetWallpaper(PersonalizationExport.Option_Lock)
-                            }
-                        }
-                        MenuItem {
-                            text: qsTr("Set desktop")
-                            onTriggered: {
-                                wallpaperItem.requestSetWallpaper(PersonalizationExport.Option_Desktop)
+                                onClicked: {
+                                    root.wallpaperDeleteClicked(model.url)
+                                }
                             }
                         }
                     }
                 }
+            }
+        }
+
+        D.Menu {
+            id: contextMenu
+            MenuItem {
+                text: qsTr("Set lock screen")
+                onTriggered: root.wallpaperSelected(root.contextMenuUrl, PersonalizationExport.Option_Lock)
+            }
+            MenuItem {
+                text: qsTr("Set desktop")
+                onTriggered: root.wallpaperSelected(root.contextMenuUrl, PersonalizationExport.Option_Desktop)
             }
         }
     }
