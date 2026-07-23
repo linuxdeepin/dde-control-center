@@ -36,6 +36,11 @@ public:
     explicit DisplayModule(QObject *parent = nullptr);
     ~DisplayModule() override;
 
+    static void registerType()
+    {
+        // 注册自定义类型（如果需要）
+    }
+
     // 逻辑屏幕 去除禁用的
     QList<DccScreen *> virtualScreens() const;
     // 物理屏幕
@@ -64,6 +69,11 @@ public:
     bool isConcatScreenMode() const;
 
 public Q_SLOTS:
+    // DBus get/set 接口
+    const QVariantMap get(const QVariantMap &param);
+    const QVariantMap set(const QVariantMap &param);
+    void active();
+
     void saveChanges();
     void resetBackup();
 
@@ -92,6 +102,8 @@ Q_SIGNALS:
     void builtinMonitorNameChanged();
     void screensFormRectChanged();
     void isConcatScreenModeChanged();
+    // DBus get/set 变化信号
+    void propertiesChanged(const QVariantMap &properties);
 
 private:
     QScopedPointer<DisplayModulePrivate> d_ptrDisplayModule;

@@ -96,6 +96,16 @@ void ControlCenterDBusAdaptor::Toggle()
     parent()->toggle();
 }
 
+QVariantMap ControlCenterDBusAdaptor::Get(const QString &module, const QVariantMap &param)
+{
+    return parent()->get(module, param);
+}
+
+QVariantMap ControlCenterDBusAdaptor::Set(const QString &module, const QVariantMap &param)
+{
+    return parent()->set(module, param);
+}
+
 QString ControlCenterDBusAdaptor::GetAllModule()
 {
     return parent()->GetAllModule();
@@ -142,7 +152,7 @@ DBusControlCenterGrandSearchService::DBusControlCenterGrandSearchService(DccMana
     : QDBusAbstractAdaptor(parent)
     , m_autoExitTimer(new QTimer(this))
 {
-    m_autoExitTimer->setInterval(10000);
+    m_autoExitTimer->setInterval(60000);
     m_autoExitTimer->setSingleShot(true);
     connect(m_autoExitTimer, &QTimer::timeout, this, [this]() {
         // 当主界面show出来之后不再执行自动退出
