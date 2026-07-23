@@ -14,12 +14,11 @@ GestureModel::~GestureModel()
     qDeleteAll(m_gestures);
 }
 
-bool GestureModel::containsGestures(QString direction, int fingersNum)
+bool GestureModel::containsGesture(const QString &gestureId) const
 {
-    for (auto data : m_gestures) {
-        if (data->direction() == direction && data->fingersNum() == fingersNum) {
+    for (const GestureData *data : m_gestures) {
+        if (data->gestureId() == gestureId)
             return true;
-        }
     }
     return false;
 }
@@ -27,9 +26,11 @@ bool GestureModel::containsGestures(QString direction, int fingersNum)
 void GestureModel::updateGestureData(const GestureData &data)
 {
     for (int i = 0; i < m_gestures.size(); i++) {
-        if (data.direction() == m_gestures[i]->direction() && data.fingersNum() == m_gestures[i]->fingersNum()) {
+        if (data.gestureId() == m_gestures[i]->gestureId()) {
             m_gestures[i]->setGestureId(data.gestureId());
+            m_gestures[i]->setDisplayName(data.displayName());
             m_gestures[i]->setActionName(data.actionName());
+            m_gestures[i]->setActions(data.actions());
             QModelIndex modelIndex = createIndex(i, 0);
             emit dataChanged(modelIndex, modelIndex, {});
             return;
@@ -62,7 +63,7 @@ QVariant GestureModel::data(const QModelIndex &index, int role) const
         case IconRole:
             return getGesturesIconPath(data);
         case DescriptionRole:
-            return getGesturesDec(data);
+            return data->displayName();
         case ActionsIndexRole:
             return getGestureActionIndex(data);
         case ActionListRole:
@@ -73,42 +74,6 @@ QVariant GestureModel::data(const QModelIndex &index, int role) const
 
     // FIXME: Implement me!
     return QVariant();
-}
-
-QString GestureModel::getGesturesDec(GestureData *data) const
-{
-    QString description;
-    if (data->fingersNum() == 3) {
-        if (data->actionType() == "swipe") {
-            if (data->direction() == "up") {
-                description += tr("Three-finger up");
-            } else if (data->direction() == "down") {
-                description += tr("Three-finger down");
-            } else if (data->direction() == "left") {
-                description += tr("Three-finger left");
-            } else if (data->direction() == "right") {
-                description += tr("Three-finger right");
-            }
-        } else if (data->actionType() == "tap") {
-            description += tr("Three-finger tap");
-        }
-    } else if (data->fingersNum() == 4) {
-        if (data->actionType() == "swipe") {
-            if (data->direction() == "up") {
-                description += tr("Four-finger up");
-            } else if (data->direction() == "down") {
-                description += tr("Four-finger down");
-            } else if (data->direction() == "left") {
-                description += tr("Four-finger left");
-            } else if (data->direction() == "right") {
-                description += tr("Four-finger right");
-            }
-        } else if (data->actionType() == "tap") {
-            description += tr("Four-finger tap");
-        }
-    }
-
-    return description;
 }
 
 QString GestureModel::getGesturesIconPath(GestureData *data) const
@@ -123,10 +88,12 @@ QString GestureModel::getGesturesIconPath(GestureData *data) const
 QVariantList GestureModel::getGestureActionNames(GestureData *data) const
 {
     QVariantList gestureActionNames;
-    for (auto data : data->actionMaps()) {
+    for (const GestureActionData &action : data->actions()) {
         QVariantMap map;
-        map["actionText"] = data.second;
-        map["actionValue"] = data.first;
+        map["actionText"] = action.displayName;
+        map["actionValue"] = action.actionId;
+        map["supported"] = action.supported;
+        map["unavailableReason"] = action.unavailableReason;
         gestureActionNames.append(map);
     }
 
@@ -135,13 +102,13 @@ QVariantList GestureModel::getGestureActionNames(GestureData *data) const
 
 int GestureModel::getGestureActionIndex(GestureData *data) const
 {
-    auto maps = data->actionMaps();
-    for (int i = 0; i < maps.size(); i++) {
-        if (maps[i].first == data->actionName()) {
+    const QList<GestureActionData> actions = data->actions();
+    for (int i = 0; i < actions.size(); i++) {
+        if (actions[i].actionId == data->actionName()) {
             return i;
         }
     }
-    return 0;
+    return -1;
 }
 
 bool GestureModel::insertRows(int row, int count, const QModelIndex &parent)
@@ -191,18 +158,6 @@ void GestureModel::removeGestureData(GestureData *data)
     m_gestures.remove(index);
     endRemoveRows();
     delete data;
-}
-
-void GestureModel::updateGestureData(GestureData *data)
-{
-    for (int index = 0; index < m_gestures.count(); index++) {
-        if (m_gestures[index]->fingersNum() == data->fingersNum()
-            && m_gestures[index]->direction() == data->direction()) {
-            QModelIndex modelIndex = createIndex(index, 0);
-            emit dataChanged(modelIndex, modelIndex, {});
-            break;
-        }
-    }
 }
 
 GestureData *GestureModel::getGestureData(int index) const

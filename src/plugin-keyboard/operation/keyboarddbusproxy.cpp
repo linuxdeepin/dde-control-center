@@ -83,6 +83,7 @@ static QJsonObject shortcutInfoToJsonObject(const ShortcutInfoNew &info)
     // text for direct rendering — dcc no longer translates categories.
     obj["Section"] = info.category;
     obj["SectionName"] = info.localLanguageCategory;
+    obj["Modifiable"] = info.modifiable;
     return obj;
 }
 
@@ -113,16 +114,18 @@ void KeyboardDBusProxy::init()
     // which don't match the legacy Changed/Deleted names auto-wired by
     // QDBusAbstractInterface. Subscribe by full signature so the model
     // refreshes after server-side updates (e.g. Reset).
-    if (m_isWayland) {
-        QDBusConnection::sessionBus().connect(
-            KeybingdingService, KeybingdingPath, KeybingdingInterface,
-            "ShortcutChanged", this,
-            SLOT(onNewShortcutChanged(QString, ShortcutInfoNew)));
-        QDBusConnection::sessionBus().connect(
-            KeybingdingService, KeybingdingPath, KeybingdingInterface,
-            "ShortcutRemoved", this,
-            SLOT(onNewShortcutRemoved(QString)));
-    }
+    QDBusConnection::sessionBus().connect(
+        KeybingdingService, KeybingdingPath, KeybingdingInterface,
+        "ShortcutChanged", this,
+        SLOT(onNewShortcutChanged(QString, ShortcutInfoNew)));
+    QDBusConnection::sessionBus().connect(
+        KeybingdingService, KeybingdingPath, KeybingdingInterface,
+        "ShortcutRemoved", this,
+        SLOT(onNewShortcutRemoved(QString)));
+    QDBusConnection::sessionBus().connect(
+        KeybingdingService, KeybingdingPath, KeybingdingInterface,
+        "KeyEvent", this,
+        SIGNAL(KeyEvent(bool,QString)));
 }
 
 void KeyboardDBusProxy::langSelectorStartServiceProcess()
@@ -305,20 +308,12 @@ void KeyboardDBusProxy::onListAllShortcutsNewFinished(QDBusPendingCallWatcher *w
 QDBusPendingReply<QString> KeyboardDBusProxy::ListAllShortcuts()
 {
     QList<QVariant> argumentList;
-    if (isWayland()) {
-        // New API: ListAllShortcuts() → QList<ShortcutInfoNew>
-        // We fire-and-forget, result arrives in onListAllShortcutsNewFinished
-        QDBusPendingCall call = m_dBusKeybingdingInter->asyncCallWithArgumentList(
-            QStringLiteral("ListAllShortcuts"), argumentList);
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-        connect(watcher, &QDBusPendingCallWatcher::finished,
-                this, &KeyboardDBusProxy::onListAllShortcutsNewFinished);
-        // Return dummy — actual data comes via Added signal
-        return QDBusPendingReply<QString>();
-    }
-    // Old API
-    return QDBusPendingReply<QString>(
-        m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("ListAllShortcuts"), argumentList));
+    QDBusPendingCall call = m_dBusKeybingdingInter->asyncCallWithArgumentList(
+        QStringLiteral("ListAllShortcuts"), argumentList);
+    auto *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished,
+            this, &KeyboardDBusProxy::onListAllShortcutsNewFinished);
+    return QDBusPendingReply<QString>();
 }
 
 // Wayland: fetch category metadata (key/displayName/order/isCustom) so the
@@ -327,13 +322,11 @@ QDBusPendingReply<QString> KeyboardDBusProxy::ListAllShortcuts()
 QDBusPendingReply<> KeyboardDBusProxy::ListCategories()
 {
     QList<QVariant> argumentList;
-    if (isWayland()) {
-        QDBusPendingCall call = m_dBusKeybingdingInter->asyncCallWithArgumentList(
-            QStringLiteral("ListCategories"), argumentList);
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-        connect(watcher, &QDBusPendingCallWatcher::finished,
-                this, &KeyboardDBusProxy::onListCategoriesFinished);
-    }
+    QDBusPendingCall call = m_dBusKeybingdingInter->asyncCallWithArgumentList(
+        QStringLiteral("ListCategories"), argumentList);
+    auto *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished,
+            this, &KeyboardDBusProxy::onListCategoriesFinished);
     return QDBusPendingReply<>();
 }
 
@@ -386,34 +379,14 @@ QDBusPendingReply<QString> KeyboardDBusProxy::GetShortcut(const QString &in0, in
 {
     Q_UNUSED(in1);
     QList<QVariant> argumentList;
-    if (isWayland()) {
-        // New API: GetShortcut(id) → ShortcutInfoNew
-        argumentList << QVariant::fromValue(in0);
-        QDBusPendingCall call = m_dBusKeybingdingInter->asyncCallWithArgumentList(
-            QStringLiteral("GetShortcut"), argumentList);
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-        watcher->setProperty("shortcutId", in0);
-        connect(watcher, &QDBusPendingCallWatcher::finished,
-                this, &KeyboardDBusProxy::onGetShortcutNewFinished);
-        return QDBusPendingReply<QString>();
-    }
-    // Old API
-    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
-    return QDBusPendingReply<QString>(
-        m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("GetShortcut"), argumentList));
-}
-
-QString KeyboardDBusProxy::LookupConflictingShortcut(const QString &in0)
-{
-    QList<QVariant> argumentList;
-    if (isWayland()) {
-        qWarning() << "Wayland LookupConflictingShortcut is asynchronous; use LookupConflictShortcut instead";
-        return QString();
-    }
-    // Old API
     argumentList << QVariant::fromValue(in0);
-    return QDBusPendingReply<QString>(
-        m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("LookupConflictingShortcut"), argumentList));
+    QDBusPendingCall call = m_dBusKeybingdingInter->asyncCallWithArgumentList(
+        QStringLiteral("GetShortcut"), argumentList);
+    auto *watcher = new QDBusPendingCallWatcher(call, this);
+    watcher->setProperty("shortcutId", in0);
+    connect(watcher, &QDBusPendingCallWatcher::finished,
+            this, &KeyboardDBusProxy::onGetShortcutNewFinished);
+    return QDBusPendingReply<QString>();
 }
 
 QDBusPendingReply<ShortcutInfoNew> KeyboardDBusProxy::LookupConflictShortcut(const QString &in0)
@@ -424,17 +397,12 @@ QDBusPendingReply<ShortcutInfoNew> KeyboardDBusProxy::LookupConflictShortcut(con
         m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("LookupConflictShortcut"), argumentList));
 }
 
-QDBusPendingReply<> KeyboardDBusProxy::ClearShortcutKeystrokes(const QString &in0, int in1)
+QDBusPendingReply<bool> KeyboardDBusProxy::ClearShortcutKeystrokes(const QString &in0, int in1)
 {
+    Q_UNUSED(in1);
     QList<QVariant> argumentList;
-    if (isWayland()) {
-        // New API: Disable(id)
-        argumentList << QVariant::fromValue(in0);
-        return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("Disable"), argumentList);
-    }
-    // Old API
-    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
-    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("ClearShortcutKeystrokes"), argumentList);
+    argumentList << QVariant::fromValue(in0);
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("Disable"), argumentList);
 }
 
 QDBusPendingReply<bool> KeyboardDBusProxy::callModifyHotkeys(const QString &id, const QStringList &hotkeys)
@@ -451,19 +419,6 @@ QDBusPendingReply<bool> KeyboardDBusProxy::callReplaceHotkey(const QString &targ
     return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("ReplaceHotkey"), argumentList);
 }
 
-QDBusPendingReply<> KeyboardDBusProxy::AddShortcutKeystroke(const QString &in0, int in1, const QString &in2)
-{
-    QList<QVariant> argumentList;
-    if (isWayland()) {
-        // New API: ModifyHotkeys(id, [keystroke])
-        argumentList << QVariant::fromValue(in0) << QVariant::fromValue(QStringList{in2});
-        return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("ModifyHotkeys"), argumentList);
-    }
-    // Old API
-    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2);
-    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("AddShortcutKeystroke"), argumentList);
-}
-
 QDBusPendingReply<QString> KeyboardDBusProxy::AddCustomShortcut(const QString &in0, const QString &in1, const QString &in2)
 {
     QList<QVariant> argumentList;
@@ -471,11 +426,38 @@ QDBusPendingReply<QString> KeyboardDBusProxy::AddCustomShortcut(const QString &i
     return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("AddCustomShortcut"), argumentList);
 }
 
+QDBusPendingReply<QString> KeyboardDBusProxy::AddCustomShortcutWithConflict(
+        const QString &name, const QString &command, const QString &accels,
+        const QString &expectedConflictId)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(name)
+                 << QVariant::fromValue(command)
+                 << QVariant::fromValue(accels)
+                 << QVariant::fromValue(expectedConflictId);
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(
+            QStringLiteral("AddCustomShortcutWithConflict"), argumentList);
+}
+
 QDBusPendingReply<bool> KeyboardDBusProxy::ModifyCustomShortcut(const QString &in0, const QString &in1, const QString &in2, const QString &in3)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1) << QVariant::fromValue(in2) << QVariant::fromValue(in3);
     return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("ModifyCustomShortcut"), argumentList);
+}
+
+QDBusPendingReply<bool> KeyboardDBusProxy::ModifyCustomShortcutWithConflict(
+        const QString &id, const QString &name, const QString &command,
+        const QString &accels, const QString &expectedConflictId)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(id)
+                 << QVariant::fromValue(name)
+                 << QVariant::fromValue(command)
+                 << QVariant::fromValue(accels)
+                 << QVariant::fromValue(expectedConflictId);
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(
+            QStringLiteral("ModifyCustomShortcutWithConflict"), argumentList);
 }
 
 QDBusPendingReply<bool> KeyboardDBusProxy::DeleteCustomShortcut(const QString &in0)
@@ -490,17 +472,6 @@ QDBusPendingReply<QString> KeyboardDBusProxy::GetShortcutCommand(const QString &
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
     return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("GetShortcutCommand"), argumentList);
-}
-
-QDBusPendingReply<> KeyboardDBusProxy::GrabScreen()
-{
-    QList<QVariant> argumentList;
-    if (isWayland()) {
-        // Not supported in new API, return empty
-        qWarning() << "Wayland GrabScreen not supported";
-        return QDBusPendingReply<>();
-    }
-    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("GrabScreen"), argumentList);
 }
 
 void KeyboardDBusProxy::SetNumLockState(int in0)
@@ -524,51 +495,39 @@ void KeyboardDBusProxy::onSearchShortcutsNewFinished(QDBusPendingCallWatcher *w)
 QDBusPendingReply<QString> KeyboardDBusProxy::SearchShortcuts(const QString &in0)
 {
     QList<QVariant> argumentList;
-    if (isWayland()) {
-        // New API: SearchShortcuts(keyword) → QList<ShortcutInfoNew>
-        argumentList << QVariant::fromValue(in0);
-        QDBusPendingCall call = m_dBusKeybingdingInter->asyncCallWithArgumentList(
-            QStringLiteral("SearchShortcuts"), argumentList);
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-        connect(watcher, &QDBusPendingCallWatcher::finished,
-                this, &KeyboardDBusProxy::onSearchShortcutsNewFinished);
-        return QDBusPendingReply<QString>();
-    }
-    // Old API
     argumentList << QVariant::fromValue(in0);
-    return QDBusPendingReply<QString>(
-        m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("SearchShortcuts"), argumentList));
+    QDBusPendingCall call = m_dBusKeybingdingInter->asyncCallWithArgumentList(
+        QStringLiteral("SearchShortcuts"), argumentList);
+    auto *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished,
+            this, &KeyboardDBusProxy::onSearchShortcutsNewFinished);
+    return QDBusPendingReply<QString>();
 }
 
 QDBusPendingReply<QString> KeyboardDBusProxy::Query(const QString &in0, int in1)
 {
+    Q_UNUSED(in1);
     QList<QVariant> argumentList;
-    if (isWayland()) {
-        // New API: GetShortcut(id) (Query was same as GetShortcut in old API)
-        argumentList << QVariant::fromValue(in0);
-        QDBusPendingCall call = m_dBusKeybingdingInter->asyncCallWithArgumentList(
-            QStringLiteral("GetShortcut"), argumentList);
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-        watcher->setProperty("shortcutId", in0);
-        connect(watcher, &QDBusPendingCallWatcher::finished,
-                this, &KeyboardDBusProxy::onGetShortcutNewFinished);
-        return QDBusPendingReply<QString>();
-    }
-    // Old API
-    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(in1);
-    return QDBusPendingReply<QString>(
-        m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("Query"), argumentList));
+    argumentList << QVariant::fromValue(in0);
+    QDBusPendingCall call = m_dBusKeybingdingInter->asyncCallWithArgumentList(
+        QStringLiteral("GetShortcut"), argumentList);
+    auto *watcher = new QDBusPendingCallWatcher(call, this);
+    watcher->setProperty("shortcutId", in0);
+    connect(watcher, &QDBusPendingCallWatcher::finished,
+            this, &KeyboardDBusProxy::onGetShortcutNewFinished);
+    return QDBusPendingReply<QString>();
 }
 
-void KeyboardDBusProxy::SelectKeystroke()
+QDBusPendingReply<bool> KeyboardDBusProxy::BeginCapture(uint timeoutMs)
 {
-    if (isWayland()) {
-        // Not supported — control center handles key capture via Qt keyPressEvent
-        qDebug() << "[Wayland] SelectKeystroke handled by control center natively";
-        return;
-    }
     QList<QVariant> argumentList;
-    m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("SelectKeystroke"), argumentList);
+    argumentList << timeoutMs;
+    return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("BeginCapture"), argumentList);
+}
+
+void KeyboardDBusProxy::EndCapture()
+{
+    m_dBusKeybingdingInter->asyncCall(QStringLiteral("EndCapture"));
 }
 
 //keyBoard

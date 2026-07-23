@@ -22,8 +22,6 @@ public:
     void deactive();
     void init();
 
-    void parseGesturesData(const QDBusArgument &argument);
-
 Q_SIGNALS:
     void mouseExistChanged(bool exist);
     void tpadExistChanged(bool exist);
@@ -82,30 +80,22 @@ public Q_SLOTS:
     void setScrollSpeed(uint speed);
     bool getLidIsPresent();
 
-    void setGesture(const QString& name, const QString& direction, int fingers, const QString& action);
+    void setGesture(const QString &gestureId, const QString &actionId);
 
     void onMousePathPropertiesChanged(QDBusMessage msg);
     void onTouchpadPathPropertiesChanged(QDBusMessage msg);
     void onTrackpointPathPropertiesChanged(QDBusMessage msg);
     void onInputDevicesPathPropertiesChanged(QDBusMessage msg);
-    void onGesturePropertiesChanged(QDBusMessage msg);
     void onAppearancePropertiesChanged(QDBusMessage msg);
 
-    void onGetGestureAvaiableActionsFinished(QDBusPendingCallWatcher *w);
-
-    // New API adapters (Wayland)
     void refreshGestures();
     void onListAllGesturesNewFinished(QDBusPendingCallWatcher *w);
 
 private:
-    bool isWayland() const;
-
     QDBusInterface *m_dbusMouseProperties;
     QDBusInterface *m_dbusTouchPadProperties;
     QDBusInterface *m_dbusTrackPointProperties;
     QDBusInterface *m_dbusDevicesProperties;
-    QDBusInterface *m_dbusGestureProperties;
-
     QDBusInterface *m_dbusMouse;
     QDBusInterface *m_dbusTouchPad;
     QDBusInterface *m_dbusTrackPoint;

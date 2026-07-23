@@ -2205,7 +2205,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation>三指点击</translation>
+        <translation>三指短按</translation>
     </message>
     <message>
         <source>Four-finger up</source>
@@ -2225,7 +2225,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation>四指点击</translation>
+        <translation>四指短按</translation>
     </message>
 </context>
 <context>
@@ -2264,6 +2264,28 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
         <translation>启用所有界面和窗口特效，体验最佳视觉效果</translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardWorker</name>
+    <message>
+        <source>The shortcut service is unavailable. Please try again.</source>
+        <translation>快捷键服务不可用，请重试。</translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation>保存快捷键失败，请重试。</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::KeyboardWorker</name>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation>快捷键冲突状态已失效。</translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation>保存快捷键失败，请重试。</translation>
     </message>
 </context>
 <context>
@@ -3389,6 +3411,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>click Add to make this shortcut key effective</source>
         <translation>点击添加使这个快捷键生效</translation>
     </message>
+    <message>
+        <source>Replace</source>
+        <translation>替换</translation>
+    </message>
+    <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation>启动快捷键录入失败，请重试。</translation>
+    </message>
+    <message>
+        <source>click Replace to make this shortcut key effective</source>
+        <translation>点击替换使这个快捷键生效</translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation>保存快捷键失败，请重试。</translation>
+    </message>
 </context>
 <context>
     <name>Shortcuts</name>
@@ -3427,6 +3465,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Replace</source>
         <translation>替换</translation>
+    </message>
+    <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation>启动快捷键录入失败，请重试。</translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation>保存快捷键失败，请重试。</translation>
     </message>
     <message>
         <source>Restore default</source>
@@ -4365,6 +4411,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>This shortcut conflicts with [%1]</source>
         <translation>此快捷键与[%1]冲突</translation>
+    </message>
+    <message>
+        <source>The shortcut no longer exists.</source>
+        <translation>快捷键已不存在。</translation>
+    </message>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation>快捷键冲突状态已失效。</translation>
+    </message>
+    <message>
+        <source>Please confirm the shortcut conflict again.</source>
+        <translation>请重新确认快捷键冲突。</translation>
     </message>
 </context>
 <context>

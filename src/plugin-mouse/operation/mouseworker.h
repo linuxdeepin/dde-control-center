@@ -90,7 +90,7 @@ Q_SIGNALS:
     void requestSetTouchpadMotionAcceleration(const double &value);
     void requestSetTrackPointMotionAcceleration(const double &value);
     void requestSetTouchpadEnabled(const bool state);
-    void requestSetGesture(const QString& name, const QString& direction, int fingers, const QString& action);
+    void requestSetGesture(const QString &gestureId, const QString &actionId);
     void requestSetCursorSize(const int cursorSize);
 
 private:
