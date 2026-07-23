@@ -65,10 +65,37 @@ DccObject {
             D.TipsSlider {
                 id: scrollSlider
                 readonly property var tips: [qsTr("Light"), (""), (""), (""), (""), (""), qsTr("Heavy")]
+
+                property real leftTextWidth: 0
+                property real rightTextWidth: 0
+                property real dynamicLeftMargin: Math.max(16, leftTextWidth / 2 + 5)
+                property real dynamicRightMargin: Math.max(16, rightTextWidth / 2 + 5)
+
                 Layout.preferredHeight: 90
                 Layout.alignment: Qt.AlignCenter
-                Layout.margins: 10
+                Layout.leftMargin: dynamicLeftMargin
+                Layout.rightMargin: dynamicRightMargin
+                Layout.topMargin: 10
+                Layout.bottomMargin: 10
                 Layout.fillWidth: true
+
+                TextMetrics {
+                    id: scrollLeftTextMetrics
+                    font: scrollSlider.slider.font
+                    text: scrollSlider.tips[0]
+                    Component.onCompleted: {
+                        scrollSlider.leftTextWidth = width
+                    }
+                }
+                TextMetrics {
+                    id: scrollRightTextMetrics
+                    font: scrollSlider.slider.font
+                    text: scrollSlider.tips[scrollSlider.tips.length - 1]
+                    Component.onCompleted: {
+                        scrollSlider.rightTextWidth = width
+                    }
+                }
+
                 tickDirection: D.TipsSlider.TickDirection.Back
                 slider.handleType: Slider.HandleType.ArrowBottom
                 slider.value: dccData.EraserPressureSensitive
