@@ -2283,6 +2283,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>KeyboardWorker</name>
+    <message>
+        <source>The shortcut service is unavailable. Please try again.</source>
+        <translation>O serviço de atalhos está indisponível. Tente novamente.</translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation>Falha ao salvar o atalho. Tente novamente.</translation>
+    </message>
+</context>
+<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -3387,6 +3398,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>click Add to make this shortcut key effective</source>
         <translation>Clique em Adicionar para ativar esta tecla de atalho</translation>
     </message>
+    <message>
+        <source>Replace</source>
+        <translation>Substituir</translation>
+    </message>
+    <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation>Falha ao iniciar a captura de atalho. Tente novamente.</translation>
+    </message>
+    <message>
+        <source>click Replace to make this shortcut key effective</source>
+        <translation>Clique em Substituir para ativar esta tecla de atalho</translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation>Não foi possível salvar o atalho. Tente novamente.</translation>
+    </message>
 </context>
 <context>
     <name>Shortcuts</name>
@@ -3437,6 +3464,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>please enter a new shortcut key</source>
         <translation>Insira um novo atalho de teclado</translation>
+    </message>
+    <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation>Não foi possível iniciar a captura do atalho. Tente novamente.</translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4363,6 +4398,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>This shortcut conflicts with [%1]</source>
         <translation>Este atalho entra em conflito com [%1]</translation>
+    </message>
+    <message>
+        <source>The shortcut no longer exists.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please confirm the shortcut conflict again.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV25::KeyboardWorker</name>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
