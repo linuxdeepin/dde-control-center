@@ -258,61 +258,71 @@ DccObject {
                             }
                         }
 
-                        D.ActionButton {
-                            id: editButton
-                            visible: hoverHandler.hovered || layout.showActions
-                            implicitWidth: 30
-                            implicitHeight: 30
-                            icon.name: "dcc_edit"
-                            icon.width: DS.Style.edit.actionIconSize
-                            icon.height: DS.Style.edit.actionIconSize
-                            background: Rectangle {
-                                property D.Palette pressedColor: D.Palette {
-                                    normal: Qt.rgba(0, 0, 0, 0.2)
-                                    normalDark: Qt.rgba(1, 1, 1, 0.25)
+                        RowLayout {
+                            id: actionButtons
+                            Layout.preferredWidth: 60
+                            Layout.preferredHeight: 30
+                            Layout.fillWidth: false
+                            Layout.topMargin: 5
+                            Layout.bottomMargin: 5
+                            spacing: 0
+
+                            D.ActionButton {
+                                id: editButton
+                                visible: hoverHandler.hovered || layout.showActions
+                                implicitWidth: 30
+                                implicitHeight: 30
+                                icon.name: "dcc_edit"
+                                icon.width: DS.Style.edit.actionIconSize
+                                icon.height: DS.Style.edit.actionIconSize
+                                background: Rectangle {
+                                    property D.Palette pressedColor: D.Palette {
+                                        normal: Qt.rgba(0, 0, 0, 0.2)
+                                        normalDark: Qt.rgba(1, 1, 1, 0.25)
+                                    }
+                                    property D.Palette hoveredColor: D.Palette {
+                                        normal: Qt.rgba(0, 0, 0, 0.1)
+                                        normalDark: Qt.rgba(1, 1, 1, 0.1)
+                                    }
+                                    radius: DS.Style.control.radius
+                                    color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                                    border {
+                                        color: parent.palette.highlight
+                                        width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                                    }
                                 }
-                                property D.Palette hoveredColor: D.Palette {
-                                    normal: Qt.rgba(0, 0, 0, 0.1)
-                                    normalDark: Qt.rgba(1, 1, 1, 0.1)
-                                }
-                                radius: DS.Style.control.radius
-                                color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
-                                border {
-                                    color: parent.palette.highlight
-                                    width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
-                                }
-                            }
-                            onClicked: {
-                                nameEditor.readOnly = false;
-                                nameEditor.forceActiveFocus();
-                            }
-                        }
-                        D.ActionButton {
-                            id: deleteButton
-                            visible: hoverHandler.hovered || layout.showActions
-                            implicitWidth: 30
-                            implicitHeight: 30
-                            icon.name: "dcc_delete"
-                            icon.width: DS.Style.edit.actionIconSize
-                            icon.height: DS.Style.edit.actionIconSize
-                            background: Rectangle {
-                                property D.Palette pressedColor: D.Palette {
-                                    normal: Qt.rgba(0, 0, 0, 0.2)
-                                    normalDark: Qt.rgba(1, 1, 1, 0.25)
-                                }
-                                property D.Palette hoveredColor: D.Palette {
-                                    normal: Qt.rgba(0, 0, 0, 0.1)
-                                    normalDark: Qt.rgba(1, 1, 1, 0.1)
-                                }
-                                radius: DS.Style.control.radius
-                                color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
-                                border {
-                                    color: parent.palette.highlight
-                                    width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                                onClicked: {
+                                    nameEditor.readOnly = false;
+                                    nameEditor.forceActiveFocus();
                                 }
                             }
-                            onClicked: {
-                                layout.requestDelete(modelData);
+                            D.ActionButton {
+                                id: deleteButton
+                                visible: hoverHandler.hovered || layout.showActions
+                                implicitWidth: 30
+                                implicitHeight: 30
+                                icon.name: "dcc_delete"
+                                icon.width: DS.Style.edit.actionIconSize
+                                icon.height: DS.Style.edit.actionIconSize
+                                background: Rectangle {
+                                    property D.Palette pressedColor: D.Palette {
+                                        normal: Qt.rgba(0, 0, 0, 0.2)
+                                        normalDark: Qt.rgba(1, 1, 1, 0.25)
+                                    }
+                                    property D.Palette hoveredColor: D.Palette {
+                                        normal: Qt.rgba(0, 0, 0, 0.1)
+                                        normalDark: Qt.rgba(1, 1, 1, 0.1)
+                                    }
+                                    radius: DS.Style.control.radius
+                                    color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                                    border {
+                                        color: parent.palette.highlight
+                                        width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                                    }
+                                }
+                                onClicked: {
+                                    layout.requestDelete(modelData);
+                                }
                             }
                         }
 
