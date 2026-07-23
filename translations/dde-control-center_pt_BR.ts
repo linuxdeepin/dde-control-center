@@ -2455,7 +2455,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Multitasking view</source>
-        <translation>Exibir multitarefas</translation>
+        <translation>Visão multitarefa</translation>
     </message>
     <message>
         <source>Disable</source>
