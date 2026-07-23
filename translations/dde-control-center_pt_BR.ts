@@ -2471,11 +2471,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Hide multitasking view</source>
-        <translation>Ocultar multitarefas</translation>
+        <translation>Ocultar visão multitarefa</translation>
     </message>
     <message>
         <source>Toggle multitasking view</source>
-        <translation>Alternar multitarefas</translation>
+        <translation>Alternar visão multitarefa</translation>
     </message>
 </context>
 <context>
