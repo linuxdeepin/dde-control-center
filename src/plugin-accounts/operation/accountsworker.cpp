@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "accountsworker.h"
@@ -606,26 +606,36 @@ void AccountsWorker::onGroupListChanged(const QStringList &groupList)
 
 void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd, const QString &repeatPasswd, const bool needResult)
 {
-    QProcess process;
-    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
-    env.insert("LC_ALL", "C");
-    process.setProcessEnvironment(env);
-    process.setProcessChannelMode(QProcess::MergedChannels);
+    Q_UNUSED(oldpwd);
+    Q_UNUSED(repeatPasswd);
 
-    process.start("/bin/bash", QStringList() << "-c" << QString("passwd"));
-    if (user->passwordStatus() == NO_PASSWORD) {
-        process.write(QString("%1\n%2\n").arg(passwd).arg(repeatPasswd).toLatin1());
-    } else {
-        process.write(QString("%1\n%2\n%3").arg(oldpwd).arg(passwd).arg(repeatPasswd).toLatin1());
+    // 验证两次输入的密码是否匹配
+    if (passwd != repeatPasswd) {
+        if (needResult) {
+            Q_EMIT user->passwordModifyFinished(1, QString("Passwords do not match"));
+        }
+        return;
     }
 
-    process.closeWriteChannel();
-    process.waitForFinished();
+    // 使用配置的加密算法加密密码
+    QString encrypted = cryptUserPassword(passwd);
+    if (encrypted.isEmpty()) {
+        if (needResult) {
+            Q_EMIT user->passwordModifyFinished(1, QString("Password encryption failed"));
+        }
+        return;
+    }
+
+    // 通过 DBus 调用 SetPassword，polkit 会处理旧密码验证（用户需在 polkit 对话框中认证）
+    UserDBusProxy *userInter = m_userInters.value(user);
+    Q_ASSERT(userInter);
+
+    auto reply = userInter->SetPassword(encrypted);
+    reply.waitForFinished();
 
     if (needResult) {
-        // process.exitCode() = 0 表示密码修改成功
-        int exitCode = process.exitCode();
-        const QString& outputTxt = process.readAll();
+        int exitCode = reply.isError() ? 1 : 0;
+        QString outputTxt = reply.isError() ? reply.error().message() : QString();
         Q_EMIT user->passwordModifyFinished(exitCode, outputTxt);
     }
 }
