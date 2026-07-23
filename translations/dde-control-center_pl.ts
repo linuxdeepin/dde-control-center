@@ -1751,7 +1751,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Brightness,resolution,scaling</source>
-        <translation>Jasność, rozdzielczość, skalowanie itp.</translation>
+        <translation>Jasność, rozdzielczość, skalowanie</translation>
     </message>
 </context>
 <context>
@@ -2285,6 +2285,17 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>Common</source>
         <translation>Ogólne</translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardWorker</name>
+    <message>
+        <source>The shortcut service is unavailable. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2997,15 +3008,15 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation>Minutach</translation>
+        <translation>minutach</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation>Godzinie</translation>
+        <translation>godzinie</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation>Nigdy</translation>
+        <translation>nigdy</translation>
     </message>
 </context>
 <context>
@@ -3392,6 +3403,22 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
         <source>click Add to make this shortcut key effective</source>
         <translation>kliknij Dodaj, aby zastosować skrót</translation>
     </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Replace to make this shortcut key effective</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Shortcuts</name>
@@ -3442,6 +3469,14 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>please enter a new shortcut key</source>
         <translation>wprowadź skrót</translation>
+    </message>
+    <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4368,6 +4403,29 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>This shortcut conflicts with [%1]</source>
         <translation>Ten skrót jest w konflikcie z [%1]</translation>
+    </message>
+    <message>
+        <source>The shortcut no longer exists.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please confirm the shortcut conflict again.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV25::KeyboardWorker</name>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
