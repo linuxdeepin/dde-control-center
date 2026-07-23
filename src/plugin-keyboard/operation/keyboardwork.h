@@ -17,6 +17,7 @@
 
 #include <DConfig>
 
+#include <QHash>
 #include <QObject>
 
 class QDBusPendingCallWatcher;
@@ -45,22 +46,27 @@ public:
     inline QList<MetaData> getDatas() {return m_metaDatas;}
     inline QList<QString> getLetters() {return m_letters;}
 
-    void modifyShortcutEditAux(ShortcutInfo* info, bool isKPDelete = false);
-    void modifyShortcutEdit(ShortcutInfo* info);
-    void addCustomShortcut(const QString& name, const QString& command, const QString& accels);
-    void modifyCustomShortcut(ShortcutInfo *info);
-    void requestShortcutCommand(const QString &id);
+    void modifyShortcutEditAux(ShortcutInfo *info, quint64 generation);
+    void modifyShortcutEdit(ShortcutInfo *info, quint64 generation);
+    void replaceShortcutEdit(ShortcutInfo *info, const QString &expectedConflictId,
+                             quint64 generation);
+    void setShortcutGeneration(const QString &id, int type, quint64 generation);
+    void addCustomShortcut(const QString& name, const QString& command, const QString& accels,
+                           quint64 requestId);
+    void modifyCustomShortcut(ShortcutInfo *info, quint64 requestId);
+    void replaceCustomShortcut(const QString &id, const QString &name,
+                               const QString &command, const QString &accels,
+                               const QString &expectedConflictId, quint64 generation,
+                               quint64 requestId);
+    void requestShortcutCommand(const QString &id, quint64 requestSerial);
     // Fire ModifyCustomShortcut on the Wayland service and wire the reply to
     // onModifyCustomShortcutFinished. Shared by modifyCustomShortcut (Wayland
     // branch) and setNewCustomShortcut so the watcher/id/type setup stays in
     // one place.
     void callModifyCustomShortcut(const QString &id, const QString &name,
                                   const QString &command, const QString &accels,
-                                  int type);
+                                  int type, quint64 requestId = 0);
 
-    void grabScreen();
-    bool checkAvaliable(const QString& key);
-    QString lookupConflictingShortcut(const QString &key);
     void delShortcut(ShortcutInfo *info);
 
     void setRepeatDelay(uint value);
@@ -85,7 +91,6 @@ public:
     bool isWayland() const { return m_keyboardDBusProxy->isWayland(); }
 
 Q_SIGNALS:
-    void KeyEvent(bool in0, const QString &in1);
     void searchChangd(ShortcutInfo* info, const QString& key);
     void removed(const QString &id, int type);
     void requestSetAutoHide(const bool visible);
@@ -93,7 +98,16 @@ Q_SIGNALS:
     void onLettersChanged(QList<QString> letters);
     // 快捷键恢复默认完成
     void onResetFinished();
-    void shortcutCommandReady(const QString &id, const QString &command, bool available);
+    void shortcutCommandReady(const QString &id, const QString &command, bool available,
+                              quint64 requestSerial);
+    void captureRequestFinished(quint64 requestId, bool success, const QString &reason);
+    void shortcutConflictDetected(const QString &id, int type, const QString &shortcut,
+                                  const QString &conflictId, const QString &conflictName,
+                                  bool replaceable, quint64 generation);
+    void shortcutModificationFinished(const QString &id, int type, const QString &shortcut,
+                                      bool success, quint64 generation);
+    void customShortcutOperationFinished(quint64 requestId, bool success,
+                                         const QString &errorMessage);
 
 public Q_SLOTS:
     void setLang(const QString &value);
@@ -102,13 +116,11 @@ public Q_SLOTS:
     void setLayout(const QString& value);
     void addUserLayout(const QString& value);
     void delUserLayout(const QString& value);
-    void onRequestShortcut(QDBusPendingCallWatcher* watch);
     void onAllShortcutsReady(const QString &info);
     void onModifyHotkeysFinished(QDBusPendingCallWatcher *watch);
     void onReplaceHotkeyFinished(QDBusPendingCallWatcher *watch);
     void onAdded(const QString&in0, int in1);
     void onDisableShortcut(ShortcutInfo* info);
-    void onAddedFinished(QDBusPendingCallWatcher *watch);
     void onLocalListsFinished(QDBusPendingCallWatcher *watch);
     void onGetWindowWM(bool value);
     void onLayoutListsFinished(QDBusPendingCallWatcher *watch);
@@ -119,25 +131,26 @@ public Q_SLOTS:
     void onCurrentLayoutFinished(QDBusPendingCallWatcher *watch);
     void onPinyin();
     void onSearchShortcuts(const QString &searchKey);
-    void onSearchFinished(QDBusPendingCallWatcher *watch);
     void append(const MetaData& md);
     void onLangSelectorServiceFinished();
     void onShortcutChanged(const QString &id, int type);
-    void onGetShortcutFinished(QDBusPendingCallWatcher *watch);
     void updateKey(ShortcutInfo *info);
-    void cleanShortcutSlef(const QString &id, const int type, const QString &shortcut);
+    void beginCapture(quint64 requestId);
+    void endCapture();
+    void cleanShortcutSlef(const QString &id, const int type, const QString &shortcut,
+                           quint64 generation);
     void setNewCustomShortcut(const QString &id, const QString &name, const QString &command, const QString &accles);
-    void onConflictShortcutCleanFinished(QDBusPendingCallWatcher *watch);
     void onLookupConflictForShortcutFinished(QDBusPendingCallWatcher *watch);
-    void onShortcutCleanFinished(QDBusPendingCallWatcher *watch);
-    void onCustomConflictCleanFinished(QDBusPendingCallWatcher *w);
     void onAddCustomShortcutFinished(QDBusPendingCallWatcher *watch);
     void onModifyCustomShortcutFinished(QDBusPendingCallWatcher *watch);
     void onDeleteCustomShortcutFinished(QDBusPendingCallWatcher *watch);
     void onGetShortcutCommandFinished(QDBusPendingCallWatcher *watch);
 
 private:
-    static QString makeShortcutKey(const QString &id, int type);
+    static QString shortcutKey(const QString &id, int type);
+    bool isCurrentShortcutGeneration(const QString &id, int type, quint64 generation) const;
+    void lookupShortcutConflict(const QString &id, int type, const QString &shortcut,
+                                quint64 generation, bool reportFailureIfNoConflict = false);
     void initKeyboardEnabledSync();
     void syncKeyboardEnabled();
     uint converToDBusDelay(uint value);
@@ -158,8 +171,7 @@ private:
     QTranslator *m_translatorLanguage;
     Dtk::Core::DConfig *m_inputDevCfg;
     bool m_isResetting = false; // Flag to prevent duplicate reset calls
-    QMap<QString, qint64> m_shortcutQueryTime; // 记录每个快捷键最后一次 Query 的时间戳
-    QSet<QString> m_replacingShortcuts; // 记录正在替换的快捷键，用于屏蔽中间状态的UI更新
+    QHash<QString, quint64> m_shortcutGenerations;
     bool m_isTreelandSession = false;
 #ifdef ENABLE_TREELAND_INPUT_MANAGER
     DCC_NAMESPACE::KeyboardWaylandProxy *m_waylandProxy = nullptr;

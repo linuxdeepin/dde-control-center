@@ -35,6 +35,8 @@ DccObject {
     Connections {
         target: shortcutSettingsView
         function onDeactive() {
+            dccData.endKeyCapture()
+            shortcutView.restoreShortcutView()
             shortcutSettingsBody.conflictAccels = ""
             shortcutSettingsBody.isEditing = false
         }
@@ -81,9 +83,10 @@ DccObject {
 
             ListView {
                 id: shortcutView
-                property Item editItem
-                property Item conflictText
+                property var editItem
+                property var conflictText
                 property string pendingCommandId
+                property double pendingCommandSerial: 0
                 clip: true
                 interactive: false // 外层有滚动了，listview 就别滚了
                 implicitHeight: contentHeight
@@ -132,11 +135,7 @@ DccObject {
 
                             if (!shortcutView.editItem)
                                 return
-                            shortcutView.editItem.keys = shortcutView.editItem.keySequence
-                            shortcutView.editItem.focus = false
-                            shortcutView.conflictText.visible = false
-                            shortcutView.editItem = null
-                            shortcutView.conflictText = null
+                            shortcutView.editItem.restore()
                         }
                     }
                 }
@@ -161,6 +160,8 @@ DccObject {
                         KeySequenceDisplay {
                             id: edit
                             property string dialogCommand: model.command
+                            property string shortcutId: model.id
+                            property int shortcutType: model.type
                             text: model.display
                             keys: model.keySequence
                             placeholderText: qsTr("please enter a new shortcut key")
@@ -179,32 +180,22 @@ DccObject {
                                 }
                             }
 
-                            // On Wayland the compositor swallows key events
-                            // for already-registered global shortcuts, so we
-                            // ask Treeland (via capture_next_shortcut) to
-                            // forward the next combo here. On X11 the local
-                            // Keys.onPressed in KeySequenceDisplay handles
-                            // capture as before — beginWaylandKeyCapture
-                            // is a no-op there.
                             onRequestKeys: {
                                 if (shortcutView.editItem) {
                                     shortcutView.editItem.restore()
-                                    // return
                                 }
 
-                                edit.keys = ""
-                                dccData.updateKey(model.id, model.type)
                                 shortcutView.editItem = edit
                                 shortcutView.conflictText = conflictText
                                 shortcutSettingsBody.isEditing = false
-                                dccData.beginWaylandKeyCapture(edit, model.id, model.type)
+                                dccData.beginKeyCapture(edit, model.id, model.type)
                             }
                             onRequestEditKeys: {
                                 if (dialogloader.active)
                                     return
 
                                 shortcutView.pendingCommandId = model.id
-                                dccData.requestShortcutCommand(model.id)
+                                shortcutView.pendingCommandSerial = dccData.requestShortcutCommand(model.id)
                             }
                             onRequestDeleteKeys: {
                                 console.log("onRequestDeleteKeys", model.id)
@@ -218,12 +209,54 @@ DccObject {
                                     dccData.modifyShortcut(model.id, accels, model.type)
                             }
 
+                            function replaceShortcut(accels) {
+                                if (accels.length > 0)
+                                    dccData.replaceShortcut(model.id, accels, model.type)
+                            }
+
+                            function matches(id, type) {
+                                return shortcutId === id && shortcutType === type
+                            }
+
+                            function startCapture() {
+                                conflictText.message = ""
+                                conflictText.showActions = true
+                                conflictText.visible = false
+                                keys = []
+                            }
+
+                            function showConflict(accels, message) {
+                                keys = dccData.formatKeys(accels)
+                                conflictText.message = message
+                                conflictText.showActions = true
+                                conflictText.visible = true
+                                shortcutSettingsBody.conflictAccels = accels
+                            }
+
+                            function showFailure(message) {
+                                keys = model.keySequence
+                                conflictText.message = message
+                                conflictText.showActions = false
+                                conflictText.visible = true
+                                shortcutSettingsBody.conflictAccels = ""
+                            }
+
+                            function finishModification(accels) {
+                                keys = dccData.formatKeys(accels)
+                                conflictText.visible = false
+                                conflictText.message = ""
+                                shortcutSettingsBody.conflictAccels = ""
+                                shortcutView.editItem = null
+                                shortcutView.conflictText = null
+                            }
+
                             function clearShortcut() {
+                                dccData.endKeyCapture()
                                 dccData.clearShortcut(model.id, model.type)
 
-                                focus = false
                                 keys = dccData.formatKeys("")
                                 conflictText.visible = false
+                                conflictText.message = ""
 
                                 shortcutSettingsBody.conflictAccels = ""
                                 shortcutView.editItem = null
@@ -231,9 +264,11 @@ DccObject {
                             }
 
                             function restore() {
-                                dccData.endWaylandKeyCapture()
+                                dccData.endKeyCapture()
                                 edit.keys = model.keySequence
                                 conflictText.visible = false
+                                conflictText.message = ""
+                                conflictText.showActions = true
 
                                 shortcutSettingsBody.conflictAccels = ""
                                 shortcutView.editItem = null
@@ -244,8 +279,8 @@ DccObject {
                                 id: dialogloader
                                 active: false
                                 sourceComponent: ShortcutSettingDialog {
-                                    onClosing: {
-                                        dccData.endWaylandKeyCapture()
+                                    onCloseConfirmed: {
+                                        dccData.endKeyCapture()
                                         dialogloader.active = false
                                         shortcutView.pendingCommandId = ""
 
@@ -275,11 +310,14 @@ DccObject {
                             }
                             Connections {
                                 target: dccData
-                                function onShortcutCommandReady(id, command, available) {
-                                    if (shortcutView.pendingCommandId !== id || model.id !== id)
+                                function onShortcutCommandReady(id, command, available, requestSerial) {
+                                    if (shortcutView.pendingCommandId !== id
+                                            || shortcutView.pendingCommandSerial !== requestSerial
+                                            || model.id !== id)
                                         return
 
                                     shortcutView.pendingCommandId = ""
+                                    shortcutView.pendingCommandSerial = 0
                                     if (!available)
                                         return
 
@@ -291,6 +329,8 @@ DccObject {
 
                         Item {
                             id: conflictText
+                            property string message: ""
+                            property bool showActions: true
                             visible: false
                             implicitHeight: 20
                             implicitWidth: row.implicitWidth
@@ -314,22 +354,26 @@ DccObject {
                                 }
                                 Label {
                                     id: conflictTextLabel
-                                    text: dccData.conflictText + ","
+                                    text: conflictText.message + (conflictText.showActions ? "," : "")
                                     elide: Text.ElideLeft
                                     horizontalAlignment: Text.AlignRight
                                     HoverHandler { id: conflictHandler }
                                     ToolTip.visible: conflictHandler.hovered
-                                    ToolTip.text: conflictTextLabel.text + clickLabel.text + " " + cancelLabel.text + " " + orLabel.text + " " + replaceLabel.text
+                                    ToolTip.text: conflictText.showActions
+                                                  ? conflictTextLabel.text + clickLabel.text + " " + cancelLabel.text + " " + orLabel.text + " " + replaceLabel.text
+                                                  : conflictTextLabel.text
                                     ToolTip.delay: 500
                                     ToolTip.timeout: 4000
                                 }
                                 Label {
                                     id: clickLabel
                                     text: qsTr("Click")
+                                    visible: conflictText.showActions
                                 }
                                 Label {
                                     id: cancelLabel
                                     text: qsTr("Cancel")
+                                    visible: conflictText.showActions
                                     color: palette.highlight
                                     MouseArea {
                                         anchors.fill: parent
@@ -341,24 +385,19 @@ DccObject {
                                 Label {
                                     id: orLabel
                                     text: qsTr("or")
+                                    visible: conflictText.showActions
                                 }
                                 Label {
                                     id: replaceLabel
                                     text: qsTr("Replace")
+                                    visible: conflictText.showActions
                                     color: palette.highlight
                                     MouseArea {
                                         anchors.fill: parent
                                         onClicked: {
                                             var newAccels = shortcutSettingsBody.conflictAccels
-                                            dccData.endWaylandKeyCapture()
-                                            edit.modifyShortcut(newAccels)
-                                            shortcutSettingsBody.conflictAccels = ""
-
-                                            // Fix: hide conflict warning and reset edit state after replacing
-                                            edit.keys = dccData.formatKeys(newAccels)
-                                            conflictText.visible = false
-                                            shortcutView.editItem = null
-                                            shortcutView.conflictText = null
+                                            dccData.endKeyCapture()
+                                            edit.replaceShortcut(newAccels)
                                         }
                                     }
                                 }
@@ -385,48 +424,54 @@ DccObject {
                 }
                 Connections {
                     target: dccData
-                    function onRequestRestore() {
+                    function onRequestRestore(id, type) {
+                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
+                            return
                         shortcutView.restoreShortcutView()
                     }
-                    function onRequestClear() {
+                    function onRequestClear(id, type) {
+                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
+                            return
                         shortcutView.editItem.clearShortcut()
                     }
-                    function onKeyConflicted(oldAccels, newAccels) {
-                        if (shortcutView.conflictText)
-                            shortcutView.conflictText.visible = true
-
-                        shortcutSettingsBody.conflictAccels = newAccels
-                    }
-                    function onKeyDone(accels) {
-                        if (!shortcutView.editItem)
+                    function onKeyCaptureStarted(id, type) {
+                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
                             return
-                        shortcutView.editItem.focus = false
+                        shortcutView.editItem.startCapture()
+                    }
+                    function onKeyCaptureFailed(id, type, reason) {
+                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
+                            return
+                        shortcutView.editItem.showFailure(qsTr("Failed to start shortcut capture. Please try again."))
+                    }
+                    function onKeyConflicted(id, type, oldAccels, newAccels, message, replaceable) {
+                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
+                            return
+                        if (replaceable)
+                            shortcutView.editItem.showConflict(newAccels, message)
+                        else
+                            shortcutView.editItem.showFailure(message)
+                    }
+                    function onKeyDone(id, type, accels) {
+                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
+                            return
                         shortcutView.editItem.keys = dccData.formatKeys(accels)
                         shortcutView.conflictText.visible = false
-
+                        shortcutView.conflictText.message = ""
                         shortcutView.editItem.modifyShortcut(accels)
-
-                        shortcutView.editItem = null
-                        shortcutView.conflictText = null
-
                     }
-                    function onKeyEvent(accels) {
-                        if (!shortcutView.editItem)
+                    function onKeyEvent(id, type, accels) {
+                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
                             return
-
-                        shortcutView.editItem.focus = false
                         shortcutView.editItem.keys = dccData.formatKeys(accels)
                     }
-                    function onWaylandKeyCaptureFailed(id, type, reason) {
-                        // not_active (3) / interrupted (4) / busy (1) / aborted (2).
-                        // Skip if nothing is being edited here — the dialog
-                        // path has its own handler and a stale event from a
-                        // session we've already cancelled (see disconnect in
-                        // beginWaylandKeyCapture) shouldn't tear down a fresh
-                        // edit.
-                        if (!shortcutView.editItem)
+                    function onShortcutModificationFinished(id, type, accels, success) {
+                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
                             return
-                        shortcutView.restoreShortcutView()
+                        if (success)
+                            shortcutView.editItem.finishModification(accels)
+                        else
+                            shortcutView.editItem.showFailure(qsTr("Failed to save the shortcut. Please try again."))
                     }
                 }
             }
@@ -523,7 +568,7 @@ DccObject {
                     active: addButton.needShowDialog
                     sourceComponent: ShortcutSettingDialog {
                         id: shortcutSettingDialog
-                        onClosing: {
+                        onCloseConfirmed: {
                             addButton.needShowDialog = false
                             shortcutSettingsBody.conflictAccels = ""
                         }

@@ -29,6 +29,19 @@ void GestureData::setGestureId(const QString &newGestureId)
     emit gestureIdChanged();
 }
 
+QString GestureData::displayName() const
+{
+    return m_displayName;
+}
+
+void GestureData::setDisplayName(const QString &newDisplayName)
+{
+    if (m_displayName == newDisplayName)
+        return;
+    m_displayName = newDisplayName;
+    emit displayNameChanged();
+}
+
 QString GestureData::direction() const
 {
     return m_direction;
@@ -81,39 +94,14 @@ void GestureData::setSequence(int newSequence)
     emit sequenceChanged();
 }
 
-QStringList GestureData::actionNameList() const
+QList<GestureActionData> GestureData::actions() const
 {
-    return m_actionNameList;
+    return m_actions;
 }
 
-void GestureData::setActionNameList(const QStringList &newActionNameList)
+void GestureData::setActions(const QList<GestureActionData> &actions)
 {
-    m_actionNameList = newActionNameList;
-}
-
-QStringList GestureData::actionDescriptionList() const
-{
-    return m_actionDescriptionList;
-}
-
-void GestureData::setActionDescriptionList(const QStringList &newActionDescriptionList)
-{
-    m_actionDescriptionList = newActionDescriptionList;
-}
-
-QList<QPair<QString, QString> > GestureData::actionMaps() const
-{
-    return m_actionMaps;
-}
-
-void GestureData::setActionMaps(const QList<QPair<QString, QString> > &newActionMaps)
-{
-    m_actionMaps = newActionMaps;
-}
-
-void GestureData::addActiosPair(const QPair<QString, QString> &actionPair)
-{
-    m_actionMaps.append(actionPair);
+    m_actions = actions;
 }
 
 GestureData::GestureData(QObject *parent)
