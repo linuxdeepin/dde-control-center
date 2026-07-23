@@ -4416,11 +4416,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::KeyboardWorker</name>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>O conflito de atalhos não é mais válido.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Não foi possível salvar o atalho. Tente novamente.</translation>
     </message>
 </context>
 <context>
