@@ -3413,11 +3413,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>click Replace to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>Feu clic a Reemplaça per activar aquesta drecera de teclat.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat desar la drecera. Si us plau, torneu-ho a provar.</translation>
     </message>
 </context>
 <context>
@@ -3472,11 +3472,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat iniciar la captura de dreceres. Si us plau, torneu-ho a provar.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat desar la drecera. Si us plau, torneu-ho a provar.</translation>
     </message>
 </context>
 <context>
@@ -4406,7 +4406,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>The shortcut no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>La drecera ja no existeix.</translation>
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
