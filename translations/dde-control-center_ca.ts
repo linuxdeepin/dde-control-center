@@ -4410,7 +4410,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>El conflicte de dreceres ja no és vigent.</translation>
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
