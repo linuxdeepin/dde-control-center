@@ -756,114 +756,16 @@ DccObject {
             canSearch: settings.canSearch
             weight: 10
             pageType: DccObject.Menu
-            page: ListView {
-                id: groupview
-                property int lrMargin: DccUtils.getMargin(width)
-                property int conY: 0
-                property bool blockInitialFocus: false
-                property bool focusNewlyCreatedItem: false
-                property bool mousePressed: false
-                property Item headerEditButton
-                property Item addGroupButton
-                spacing: 0
-                currentIndex: -1
-                activeFocusOnTab: true
-                keyNavigationEnabled: true
-                clip: false
+            page: Item {
+                anchors.fill: parent
 
-                cacheBuffer: height * 6
-                displayMarginBeginning: height * 2
-                displayMarginEnd: height * 2
-
-                MouseArea {
-                    anchors.fill: parent
-                    propagateComposedEvents: true
-                    onPressed: function(mouse) {
-                        groupview.mousePressed = true
-                        mouse.accepted = false
-                    }
-                    onReleased: function(mouse) {
-                        groupview.mousePressed = false
-                        mouse.accepted = false
-                    }
-                }
-
-                onActiveFocusChanged: {
-                    if (activeFocus && count > 0) {
-                        if (focusNewlyCreatedItem) {
-                            return
-                        }
-                        if (blockInitialFocus) {
-                            if (model && model.isCreatingGroup) {
-                                blockInitialFocus = false
-                                return
-                            }
-                            blockInitialFocus = false
-                            if (mousePressed) {
-                                mousePressed = false
-                                return
-                            }
-                            focus = false
-                            return
-                        }
-                        if (groupview.headerEditButton && !mousePressed) {
-                            groupview.headerEditButton.forceActiveFocus(Qt.TabFocusReason)
-                            return
-                        }
-                        if (mousePressed) {
-                            mousePressed = false
-                        }
-                    }
-                }
-
-                onCurrentIndexChanged: {
-                    if (activeFocus && currentItem) {
-                        currentItem.forceActiveFocus()
-                    }
-                }
-
-                function qmlListModelUpdata() {
-                    if (model && model.isCreatingGroup) {
-                        model.setCreatingGroup(false)
-                        Qt.callLater(function () {
-                            groupview.positionViewAtEnd()
-                            if (groupview.focusNewlyCreatedItem && groupview.count > 0) {
-                                groupview.currentIndex = groupview.count - 1
-                                if (groupview.currentItem && groupview.currentItem.forceActiveFocus) {
-                                    groupview.currentItem.forceActiveFocus()
-                                }
-                                groupview.focusNewlyCreatedItem = false
-                            }
-                        })
-                    } else {
-                        groupview.contentY = conY
-                    }
-                }
-
-                Connections {
-                    target: model
-                    function onGroupsUpdated() {
-                        qmlListModelUpdata()
-                    }
-                }
-
-                onContentYChanged: {
-                    if(contentY != -50) {
-                        conY = contentY
-                    }
-                }
-                anchors {
-                    left: parent ? parent.left : undefined
-                    right: parent ? parent.right : undefined
-                }
-
-                ScrollBar.vertical: ScrollBar { }
-
-                header: Item {
+                Item {
+                    id: headerRow
                     implicitHeight: 50
                     anchors {
-                        left: parent ? parent.left : undefined
-                        right: parent ? parent.right : undefined
+                        top: parent.top
+                        left: parent.left
+                        right: parent.right
                         leftMargin: groupview.lrMargin
                         rightMargin: groupview.lrMargin
                     }
@@ -874,11 +776,11 @@ DccObject {
                             Layout.leftMargin: 10
                             font.pixelSize: DTK.fontManager.t5.pixelSize
                             font.weight: 700
-                            text: dccObj.displayName
+                            text: groupSettings.displayName
                         }
 
                         Button {
-                            id: button
+                            id: headerEditButton
                             checkable: true
                             checked: groupSettings.isEditing
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
@@ -888,32 +790,10 @@ DccObject {
                             focusPolicy: Qt.TabFocus
                             activeFocusOnTab: true
                             background: Rectangle {
-                                radius: addGroupButton.background.radius
+                                radius: 8
                                 color: "transparent"
                                 border.color: parent.palette.highlight
-                                border.width: button.activeFocus ? 2 : 0
-                            }
-                            Keys.onPressed: function(event) {
-                                if (event.key === Qt.Key_Tab && !event.isAutoRepeat) {
-                                    event.accepted = true
-                                    groupview.blockInitialFocus = false
-                                    groupview.currentIndex = 0
-                                    groupview.positionViewAtIndex(0, ListView.Beginning)
-                                    Qt.callLater(function() {
-                                        if (groupview.currentItem && groupview.currentItem.forceActiveFocus) {
-                                            groupview.currentItem.forceActiveFocus(Qt.TabFocusReason)
-                                        }
-                                    })
-                                    return
-                                }
-                            }
-                            Component.onCompleted: {
-                                groupview.headerEditButton = button
-                            }
-                            onActiveFocusChanged: {
-                                if (activeFocus) {
-                                    groupview.positionViewAtBeginning()
-                                }
+                                border.width: headerEditButton.activeFocus ? 2 : 0
                             }
                             textColor: Palette {
                                 normal {
@@ -922,407 +802,395 @@ DccObject {
                                 }
                             }
                             onCheckedChanged: {
-                                groupSettings.isEditing = button.checked
+                                groupSettings.isEditing = headerEditButton.checked
                             }
                         }
                     }
                 }
 
-                model: settings.userId.length > 0 ? dccData.groupsModel(settings.userId) : 0
-                delegate: ItemDelegate {
-                    id: itemDelegate
-                    implicitHeight: 36
-                    padding: 0
-                    checkable: false
+                ListView {
+                    id: groupview
+                    anchors { top: headerRow.bottom; left: parent.left; right: parent.right; bottom: parent.bottom }
+                    property int lrMargin: DccUtils.getMargin(width)
+                    property int conY: 0
+                    spacing: 0
+                    currentIndex: -1
+                    keyNavigationEnabled: true
                     clip: false
-                    z: editLabel.showAlert ? 100 : 1
 
-                    focusPolicy: Qt.StrongFocus
-                    activeFocusOnTab: false
-                    KeyNavigation.tab: groupview.addGroupButton
+                    cacheBuffer: height * 6
+                    displayMarginBeginning: height * 2
+                    displayMarginEnd: height * 2
 
-                    Keys.onPressed: function(event) {
-                        if (!model.groupEnabled) {
-                            if (event.key === Qt.Key_Up) {
-                                if (groupview.currentIndex > 0) {
-                                    groupview.currentIndex = groupview.currentIndex - 1
-                                    groupview.positionViewAtIndex(groupview.currentIndex, ListView.Contain)
+                    function qmlListModelUpdate() {
+                        if (model && model.isCreatingGroup) {
+                            model.setCreatingGroup(false)
+                            Qt.callLater(function () {
+                                groupview.positionViewAtEnd()
+                            })
+                        } else {
+                            groupview.contentY = conY
+                        }
+                    }
+
+                    Connections {
+                        target: groupview.model
+                        function onGroupsUpdated() {
+                            qmlListModelUpdate()
+                        }
+                    }
+
+                    onContentYChanged: {
+                        if(contentY != -50) {
+                            conY = contentY
+                        }
+                    }
+
+                    ScrollBar.vertical: ScrollBar { }
+
+                    model: settings.userId.length > 0 ? dccData.groupsModel(settings.userId) : 0
+                    delegate: ItemDelegate {
+                        id: itemDelegate
+                        implicitHeight: 36
+                        padding: 0
+                        checkable: false
+                        clip: false
+                        z: editLabel.showAlert ? 100 : 1
+
+                        focusPolicy: Qt.StrongFocus
+                        activeFocusOnTab: true
+
+                        onActiveFocusChanged: {
+                            if (activeFocus) {
+                                groupview.currentIndex = index
+                            }
+                        }
+
+                        Keys.onPressed: function(event) {
+                            if (!model.groupEnabled) {
+                                return
+                            }
+                            if (!editLabel.readOnly) {
+                                return
+                            }
+                            if (event.key === Qt.Key_Space || event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
+                                if (!groupSettings.isEditing && model.groupEnabled) {
+                                    dccData.setGroup(settings.userId, model.display, !editButton.checked)
+                                    groupview.currentIndex = -1
+                                    groupview.focus = false
                                 }
                                 event.accepted = true
+                            }
+                        }
+
+                        property var editTextWidth: itemDelegate.width - editButton.width - rightPadding - 80
+                        background: DccItemBackground {
+                            backgroundType: DccObject.Normal
+                            separatorVisible: true
+                            externalFocus: itemDelegate.activeFocus
+                        }
+                        anchors {
+                            left: parent ? parent.left : undefined
+                            right: parent ? parent.right : undefined
+                            leftMargin: groupview.lrMargin
+                            rightMargin: groupview.lrMargin
+                        }
+
+                        onWidthChanged: {
+                            if (editLabel.readOnly) {
+                                var elidedText = editLabel.metrics.elidedText(editLabel.completeText, Text.ElideRight, editTextWidth)
+                                editLabel.text = elidedText
                                 return
-                            } else if (event.key === Qt.Key_Down) {
-                                if (groupview.currentIndex < groupview.count - 1) {
-                                    groupview.currentIndex = groupview.currentIndex + 1
-                                    groupview.positionViewAtIndex(groupview.currentIndex, ListView.Contain)
-                                }
-                                event.accepted = true
-                                return
                             }
-                            event.accepted = true
-                            return
                         }
-                        if (!editLabel.readOnly) {
-                            return
-                        }
-                        if (event.key === Qt.Key_Up) {
-                            if (groupview.currentIndex > 0) {
-                                groupview.currentIndex = groupview.currentIndex - 1
-                                groupview.positionViewAtIndex(groupview.currentIndex, ListView.Contain)
-                            }
-                            event.accepted = true
-                        } else if (event.key === Qt.Key_Down) {
-                            if (groupview.currentIndex < groupview.count - 1) {
-                                groupview.currentIndex = groupview.currentIndex + 1
-                                groupview.positionViewAtIndex(groupview.currentIndex, ListView.Contain)
-                            }
-                            event.accepted = true
-                        } else if (event.key === Qt.Key_Space || event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
-                            if (!groupSettings.isEditing && model.groupEnabled) {
-                                dccData.setGroup(settings.userId, model.display, !editButton.checked)
-                                groupview.currentIndex = -1
-                                groupview.focus = false
-                            }
-                            event.accepted = true
-                        }
-                    }
 
-                    property var editTextWidth: itemDelegate.width - editButton.width - rightPadding - 80
-                    background: DccItemBackground {
-                        backgroundType: DccObject.Normal
-                        separatorVisible: true
-                    }
-                    anchors {
-                        left: parent ? parent.left : undefined
-                        right: parent ? parent.right : undefined
-                        leftMargin: groupview.lrMargin
-                        rightMargin: groupview.lrMargin
-                    }
+                        contentItem: RowLayout {
+                            spacing: 0
+                            Item {
+                                id: editContainer
+                                Layout.fillWidth: !editLabel.readOnly
+                                Layout.alignment: Qt.AlignVCenter
+                                Layout.leftMargin: 14
+                                Layout.rightMargin: 2
+                                implicitHeight: 36
+                                implicitWidth: !editLabel.readOnly 
+                                            ? groupview.width
+                                            : Math.min(editLabel.metrics.advanceWidth(editLabel.text) + editButton.width + 20,
+                                                    groupview.width - editButton.width - 30)
 
-                    onWidthChanged: {
-                        if (editLabel.readOnly) {
-                            var elidedText = editLabel.metrics.elidedText(editLabel.completeText, Text.ElideRight, editTextWidth)
-                            editLabel.text = elidedText
-                            return
-                        }
-                    }
+                                EditActionLabel {
+                                    id: editLabel
+                                    property bool editAble: model.groupEditAble
+                                    property string lastValidText: ""
+                                    property bool isRestoring: false
+                                    property string originalGroupName: ""
+                                    anchors.fill: parent
+                                    text: model.display
+                                    completeText: model.display
+                                    rightPadding: editButton.width + 10
+                                    placeholderText: qsTr("Group name")
+                                    background: Item{}
+                                    horizontalAlignment: TextInput.AlignLeft
+                                    verticalAlignment: TextInput.AlignVCenter
+                                    editBtn.visible: readOnly && editAble
+                                                    && !groupSettings.isEditing
+                                    readOnly: model.display.length > 0
+                                    activeFocusOnTab: !readOnly
+                                    ToolTip {
+                                        visible: parent.hovered && parent.readOnly && parent.completeText != "" && (parent.metrics.advanceWidth(parent.completeText) > (parent.width - parent.rightPadding - 10))
+                                        text: parent.completeText
+                                    }
 
-                    contentItem: RowLayout {
-                        spacing: 0
-                        Item {
-                            id: editContainer
-                            Layout.fillWidth: !editLabel.readOnly
-                            Layout.alignment: Qt.AlignVCenter
-                            Layout.leftMargin: 14
-                            Layout.rightMargin: 2
-                            implicitHeight: 36
-                            implicitWidth: !editLabel.readOnly 
-                                        ? groupview.width
-                                        : Math.min(editLabel.metrics.advanceWidth(editLabel.text) + editButton.width + 20,
-                                                groupview.width - editButton.width - 30)
+                                    // Monitor model.display changes to update elided text
+                                    onCompleteTextChanged: {
+                                        if (readOnly && completeText.length > 0) {
+                                            var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
+                                            text = elidedText
+                                        }
+                                    }
 
-                            EditActionLabel {
-                                id: editLabel
-                                property bool editAble: model.groupEditAble
-                                property string lastValidText: ""
-                                property bool isRestoring: false
-                                property string originalGroupName: ""
-                                anchors.fill: parent
-                                text: model.display
-                                completeText: model.display
-                                rightPadding: editButton.width + 10
-                                placeholderText: qsTr("Group name")
-                                background: Item{}
-                                horizontalAlignment: TextInput.AlignLeft
-                                verticalAlignment: TextInput.AlignVCenter
-                                editBtn.visible: readOnly && editAble
-                                                 && !groupSettings.isEditing
-                                readOnly: model.display.length > 0
-                                ToolTip {
-                                    visible: parent.hovered && parent.readOnly && parent.completeText != "" && (parent.metrics.advanceWidth(parent.completeText) > (parent.width - parent.rightPadding - 10))
-                                    text: parent.completeText
+                                onReadOnlyChanged: {
+                                    if (!readOnly) {
+                                        text = completeText
+                                        lastValidText = model.display
+                                        originalGroupName = model.display
+                                    }
                                 }
 
-                                // Monitor model.display changes to update elided text
-                                onCompleteTextChanged: {
-                                    if (readOnly && completeText.length > 0) {
+                                Connections {
+                                    target: dccData
+                                    function onGroupsUpdateFailed(groupName) {
+                                        if (groupName === editLabel.originalGroupName) {
+                                            editLabel.completeText = editLabel.originalGroupName
+                                            var elidedText = editLabel.metrics.elidedText(editLabel.originalGroupName, Text.ElideRight, editTextWidth)
+                                            editLabel.text = elidedText
+                                        }
+                                    }
+                                }
+
+                                onTextChanged: {
+                                    if (readOnly) {
+                                        return
+                                    }
+                                    if (isRestoring) {
+                                        isRestoring = false
+                                        return
+                                    }
+
+                                    if (showAlert)
+                                        showAlert = false
+
+                                    if (text.length < 1 && lastValidText.length > 0 && !readOnly) {
+                                        Qt.callLater(function() {
+                                            editLabel.forceActiveFocus()
+                                        })
+                                    }
+
+                                    var isNewGroup = (model.display.length === 0)
+
+                                    if (text.length > 32) {
+                                        showAlert = true
+                                        alertText = qsTr("Group names should be no more than 32 characters")
+                                        dccData.playSystemSound(14)
+                                        isRestoring = true
+                                        text = lastValidText
+                                        return
+                                    }
+
+                                    var numbersOnlyRegex = /^[0-9]+$/
+                                    if (text.length > 0 && numbersOnlyRegex.test(text)) {
+                                        showAlert = true
+                                        alertText = qsTr("Group names cannot only have numbers")
+                                        dccData.playSystemSound(14)
+                                        isRestoring = true
+                                        text = lastValidText
+                                        return
+                                    }
+
+                                    var validFormatRegex = /^[a-zA-Z][a-zA-Z0-9-_]*$/
+                                    if (text.length > 0 && !validFormatRegex.test(text) && model.display != "_ssh") {
+                                        showAlert = true
+                                        alertText = qsTr("Use letters,numbers,underscores and dashes only, and must start with a letter")
+                                        dccData.playSystemSound(14)
+                                        isRestoring = true
+                                        text = lastValidText
+                                        return
+                                    }
+
+                                    lastValidText = text
+                                }
+
+                                onFinished: function () {
+                                    var wasNewGroup = (model.display.length < 1)
+                                    if (text.length < 1) {
+                                        if (model.display.length < 1) {
+                                            dccData.requestClearEmptyGroup(settings.userId)
+                                        } else {
+                                            var elidedText = metrics.elidedText(model.display, Text.ElideRight, editTextWidth)
+                                            text = elidedText
+                                            readOnly = true
+                                        }
+                                        return
+                                    }
+
+                                    if (dccData.groupExists(text) && text !== model.display) {
+                                        showAlert = true
+                                        alertText = qsTr("The group name has been used")
+                                        return
+                                    }
+
+                                    if (text === model.display) {
+                                        completeText = text
                                         var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
                                         text = elidedText
-                                    }
-                                }
-
-                            onReadOnlyChanged: {
-                                if (!readOnly) {
-                                    text = completeText
-                                    lastValidText = model.display
-                                    originalGroupName = model.display
-                                }
-                            }
-
-                            Connections {
-                                target: dccData
-                                function onGroupsUpdateFailed(groupName) {
-                                    if (groupName === editLabel.originalGroupName) {
-                                        editLabel.completeText = editLabel.originalGroupName
-                                        var elidedText = editLabel.metrics.elidedText(editLabel.originalGroupName, Text.ElideRight, editTextWidth)
-                                        editLabel.text = elidedText
-                                    }
-                                }
-                            }
-
-                            onTextChanged: {
-                                if (readOnly) {
-                                    return
-                                }
-                                if (isRestoring) {
-                                    isRestoring = false
-                                    return
-                                }
-
-                                if (showAlert)
-                                    showAlert = false
-
-                                if (text.length < 1 && lastValidText.length > 0 && !readOnly) {
-                                    Qt.callLater(function() {
-                                        editLabel.forceActiveFocus()
-                                    })
-                                }
-
-                                var isNewGroup = (model.display.length === 0)
-
-                                if (text.length > 32) {
-                                    showAlert = true
-                                    alertText = qsTr("Group names should be no more than 32 characters")
-                                    dccData.playSystemSound(14)
-                                    isRestoring = true
-                                    text = lastValidText
-                                    return
-                                }
-
-                                var numbersOnlyRegex = /^[0-9]+$/
-                                if (text.length > 0 && numbersOnlyRegex.test(text)) {
-                                    showAlert = true
-                                    alertText = qsTr("Group names cannot only have numbers")
-                                    dccData.playSystemSound(14)
-                                    isRestoring = true
-                                    text = lastValidText
-                                    return
-                                }
-
-                                var validFormatRegex = /^[a-zA-Z][a-zA-Z0-9-_]*$/
-                                if (text.length > 0 && !validFormatRegex.test(text) && model.display != "_ssh") {
-                                    showAlert = true
-                                    alertText = qsTr("Use letters,numbers,underscores and dashes only, and must start with a letter")
-                                    dccData.playSystemSound(14)
-                                    isRestoring = true
-                                    text = lastValidText
-                                    return
-                                }
-
-                                lastValidText = text
-                            }
-
-                            onFinished: function () {
-                                var wasNewGroup = (model.display.length < 1)
-                                if (text.length < 1) {
-                                    if (model.display.length < 1) {
-                                        dccData.requestClearEmptyGroup(settings.userId)
-                                    } else {
-                                        var elidedText = metrics.elidedText(model.display, Text.ElideRight, editTextWidth)
-                                        text = elidedText
                                         readOnly = true
+                                        return
                                     }
-                                    return
-                                }
 
-                                if (dccData.groupExists(text) && text !== model.display) {
-                                    showAlert = true
-                                    alertText = qsTr("The group name has been used")
-                                    return
-                                }
+                                    if (model.display.length < 1)
+                                        dccData.createGroup(text)
+                                    else
+                                        dccData.modifyGroup(model.display, text)
 
-                                if (text === model.display) {
                                     completeText = text
                                     var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
                                     text = elidedText
                                     readOnly = true
-                                    return
+
+                                    // 当通过回车结束新建分组的编辑时，清空 ListView 的焦点与选中
+                                    if (wasNewGroup) {
+                                        groupview.currentIndex = -1
+                                        groupview.focus = false
+                                    }
                                 }
+                                onFocusChanged: {
+                                    if (focus || text.length > 0 || editLabel.readOnly)
+                                        return
 
-                                if (model.display.length < 1)
-                                    dccData.createGroup(text)
-                                else
-                                    dccData.modifyGroup(model.display, text)
+                                    if (model.display.length < 1) {
+                                        dccData.requestClearEmptyGroup(settings.userId)
+                                        return
+                                    }
 
-                                completeText = text
-                                var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
-                                text = elidedText
-                                readOnly = true
+                                    text = model.display
+                                }
+                                Component.onCompleted: {
+                                    completeText = model.display
+                                    lastValidText = model.display
+                                    originalGroupName = model.display  // Initialize original name
 
-                                // 当通过回车结束新建分组的编辑时，清空 ListView 的焦点与选中
-                                if (wasNewGroup) {
-                                    groupview.currentIndex = -1
-                                    groupview.focus = false
+                                    if (editLabel.readOnly) {
+                                        var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
+                                        text = elidedText
+                                        return
+                                    }
+
+                                    Qt.callLater(function () {
+                                        editLabel.focus = true
+                                    })
                                 }
                             }
-                            onFocusChanged: {
-                                if (focus || text.length > 0 || editLabel.readOnly)
-                                    return
-
-                                if (model.display.length < 1) {
-                                    dccData.requestClearEmptyGroup(settings.userId)
-                                    return
-                                }
-
-                                text = model.display
                             }
-                            Component.onCompleted: {
-                                completeText = model.display
-                                lastValidText = model.display
-                                originalGroupName = model.display  // Initialize original name
 
-                                if (editLabel.readOnly) {
-                                    var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
-                                    text = elidedText
-                                    return
+                            Item {
+                                Layout.fillWidth: true
+                                Layout.alignment: Qt.AlignVCenter
+                                implicitHeight: 36
+
+                                MouseArea {
+                                    anchors.fill: parent
+                                    visible: !groupSettings.isEditing
+                                    enabled: model.groupEnabled
+                                    acceptedButtons: Qt.AllButtons
+                                    onClicked: {
+                                        dccData.setGroup(settings.userId, model.display, !editButton.checked)
+                                    }
                                 }
-
-                                Qt.callLater(function () {
-                                    editLabel.focus = true
-                                })
                             }
-                        }
-                        }
 
-                        Item {
-                            Layout.fillWidth: true
-                            Layout.alignment: Qt.AlignVCenter
-                            implicitHeight: 36
-
-                            MouseArea {
-                                anchors.fill: parent
-                                visible: !groupSettings.isEditing
+                            ActionButton {
+                                id: editButton
+                                focusPolicy: Qt.NoFocus
+                                icon.width: 16
+                                icon.height: 16
+                                visible: groupSettings.isEditing ? editLabel.editAble : editLabel.readOnly
                                 enabled: model.groupEnabled
-                                acceptedButtons: Qt.AllButtons
+                                icon.name: {
+                                    if (groupSettings.isEditing) {
+                                        return "list_delete"
+                                    }
+
+                                    return editButton.checked ? "item_checked" : "radio_unchecked"
+                                }
+
+                                background: null
+                                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                                // list_delete.dci icon has padding 10 (1.10p)
+                                Layout.rightMargin: groupSettings.isEditing ? 0 : 10
+                                // only checked from groupsChanged
+                                checkable: false
+                                checked: dccData.groupContains(settings.userId, model.display)
                                 onClicked: {
+                                    if (groupSettings.isEditing) {
+                                        // delete group
+                                        dccData.deleteGroup(model.display)
+                                        groupSettings.isEditing = false
+                                        return
+                                    }
+
                                     dccData.setGroup(settings.userId, model.display, !editButton.checked)
                                 }
                             }
                         }
 
-                        ActionButton {
-                            id: editButton
-                            focusPolicy: Qt.NoFocus
-                            icon.width: 16
-                            icon.height: 16
-                            visible: groupSettings.isEditing ? editLabel.editAble : editLabel.readOnly
-                            enabled: model.groupEnabled
-                            icon.name: {
-                                if (groupSettings.isEditing) {
-                                    return "list_delete"
-                                }
-
-                                return editButton.checked ? "item_checked" : "radio_unchecked"
-                            }
-
-                            background: null
-                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                            // list_delete.dci icon has padding 10 (1.10p)
-                            Layout.rightMargin: groupSettings.isEditing ? 0 : 10
-                            // only checked from groupsChanged
-                            checkable: false
-                            checked: dccData.groupContains(settings.userId, model.display)
-                            onClicked: {
-                                if (groupSettings.isEditing) {
-                                    // delete group
-                                    dccData.deleteGroup(model.display)
-                                    groupSettings.isEditing = false
-                                    return
-                                }
-
-                                dccData.setGroup(settings.userId, model.display, !editButton.checked)
-                            }
-                        }
-                    }
-
-                    Item {
-                        anchors.fill: parent
-                        visible: !model.groupEnabled
-                        z: 10000
-                        focus: true
-                        Keys.onPressed: function(event) {
-                            if (event.key === Qt.Key_Up) {
-                                if (groupview.currentIndex > 0) {
-                                    groupview.currentIndex = groupview.currentIndex - 1
-                                    groupview.positionViewAtIndex(groupview.currentIndex, ListView.Contain)
-                                }
-                                event.accepted = true
-                                return
-                            } else if (event.key === Qt.Key_Down) {
-                                if (groupview.currentIndex < groupview.count - 1) {
-                                    groupview.currentIndex = groupview.currentIndex + 1
-                                    groupview.positionViewAtIndex(groupview.currentIndex, ListView.Contain)
-                                }
-                                event.accepted = true
-                                return
-                            }
-                            event.accepted = true
-                        }
-                        Keys.onReleased: function(event) { event.accepted = true }
-                        Keys.onShortcutOverride: function(event) { event.accepted = true }
-
-                        MouseArea {
+                        Item {
                             anchors.fill: parent
-                            acceptedButtons: Qt.AllButtons
-                            hoverEnabled: true
-                            preventStealing: true
-                            onPressed: function(mouse) { mouse.accepted = true }
-                            onReleased: function(mouse) { mouse.accepted = true }
-                            onClicked: function(mouse) { mouse.accepted = true }
-                            onWheel: function(wheel) { wheel.accepted = true }
-                        }
-                    }
-
-                    corners: getCornersForBackground(index, groupview.count)
-                }
-
-                footer: Item {
-                    implicitHeight: 50
-                    anchors {
-                        left: parent ? parent.left : undefined
-                        right: parent ? parent.right : undefined
-                        leftMargin: groupview.lrMargin
-                        rightMargin: groupview.lrMargin
-                    }
-                    RowLayout {
-                        anchors.fill: parent
-                        Button {
-                            id: addGroupButton
-                            Layout.alignment: Qt.AlignRight
-                            text: qsTr("Add group")
-                            implicitWidth: implicitContentWidth + 20
-                            implicitHeight: 30
-                            focusPolicy: Qt.StrongFocus
-                            activeFocusOnTab: true
-                            Component.onCompleted: {
-                                groupview.addGroupButton = addGroupButton
+                            visible: !model.groupEnabled
+                            z: 10000
+                            focus: true
+                            Keys.onPressed: function(event) {
+                                event.accepted = true
                             }
-                            onActiveFocusChanged: {
-                                if (activeFocus) {
+                            Keys.onReleased: function(event) { event.accepted = true }
+                            Keys.onShortcutOverride: function(event) { event.accepted = true }
+
+                            MouseArea {
+                                anchors.fill: parent
+                                acceptedButtons: Qt.AllButtons
+                                hoverEnabled: true
+                                preventStealing: true
+                                onPressed: function(mouse) { mouse.accepted = true }
+                                onReleased: function(mouse) { mouse.accepted = true }
+                                onClicked: function(mouse) { mouse.accepted = true }
+                                onWheel: function(wheel) { wheel.accepted = true }
+                            }
+                        }
+
+                        corners: getCornersForBackground(index, groupview.count)
+                    }
+
+                    footer: Item {
+                        implicitHeight: 50
+                        anchors {
+                            left: parent ? parent.left : undefined
+                            right: parent ? parent.right : undefined
+                            leftMargin: groupview.lrMargin
+                            rightMargin: groupview.lrMargin
+                        }
+                        RowLayout {
+                            anchors.fill: parent
+                            Button {
+                                id: addGroupButton
+                                Layout.alignment: Qt.AlignRight
+                                text: qsTr("Add group")
+                                implicitWidth: implicitContentWidth + 20
+                                implicitHeight: 30
+                                focusPolicy: Qt.StrongFocus
+                                activeFocusOnTab: true
+                                onClicked: {
+                                    dccData.requestCreateGroup(settings.userId)
                                     groupview.positionViewAtEnd()
                                 }
-                            }
-                            Keys.onPressed: function(event) {
-                                if (event.key === Qt.Key_Tab || event.key === Qt.Key_Backtab) {
-                                    groupview.blockInitialFocus = true
-                                    groupview.focus = false
-                                    event.accepted = false
-                                    return
-                                }
-                            }
-                            onClicked: {
-                                groupview.focusNewlyCreatedItem = true
-                                dccData.requestCreateGroup(settings.userId)
-                                groupview.positionViewAtEnd()
                             }
                         }
                     }
