@@ -2291,11 +2291,11 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <name>KeyboardWorker</name>
     <message>
         <source>The shortcut service is unavailable. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Usługa skrótów klawiszowych jest niedostępna. Spróbuj ponownie później.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się zapisać skrótu klawiszowego. Spróbuj ponownie.</translation>
     </message>
 </context>
 <context>
@@ -3405,11 +3405,11 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Zamień</translation>
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się przechwycić skrótu klawiszowego. Spróbuj ponownie.</translation>
     </message>
     <message>
         <source>click Replace to make this shortcut key effective</source>
