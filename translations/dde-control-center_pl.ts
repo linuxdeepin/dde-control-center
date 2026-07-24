@@ -3413,11 +3413,11 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>click Replace to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>Kliknij Zamień, aby aktywować skrót klawiszowy</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się zapisać skrótu klawiszowego. Spróbuj ponownie.</translation>
     </message>
 </context>
 <context>
@@ -3472,11 +3472,11 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się przechwycić skrótu klawiszowego. Spróbuj ponownie.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się zapisać skrótu klawiszowego. Spróbuj ponownie.</translation>
     </message>
 </context>
 <context>
@@ -4406,7 +4406,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>The shortcut no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>Skrót klawiszowy nie istnieje</translation>
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
