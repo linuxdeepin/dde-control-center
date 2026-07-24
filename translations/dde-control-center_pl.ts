@@ -4406,7 +4406,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>The shortcut no longer exists.</source>
-        <translation>Skrót klawiszowy nie istnieje</translation>
+        <translation>Skrót klawiszowy nie istnieje.</translation>
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
