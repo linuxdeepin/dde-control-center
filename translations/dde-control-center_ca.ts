@@ -2291,11 +2291,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>KeyboardWorker</name>
     <message>
         <source>The shortcut service is unavailable. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>El servei de dreceres no està disponible. Si us plau, torneu-ho a intentar.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat desar la drecera. Si us plau, torneu-ho a provar.</translation>
     </message>
 </context>
 <context>
@@ -3405,11 +3405,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Reemplaça</translation>
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat iniciar la captura de dreceres. Si us plau, torneu-ho a provar.</translation>
     </message>
     <message>
         <source>click Replace to make this shortcut key effective</source>
