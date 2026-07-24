@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -732,15 +732,21 @@ QAbstractListModel *AccountsController::accountsModel()
     return m_accountsModel;
 }
 
-QAbstractListModel *AccountsController::groupsModel(const QString &id)
+QAbstractItemModel *AccountsController::groupsModel(const QString &id)
 {
     if (m_groupsModel) {
-        static_cast<GroupListModel*>(m_groupsModel)->setUserId(id);
+        auto *proxy = qobject_cast<GroupListProxyModel *>(m_groupsModel);
+        auto *source = proxy ? qobject_cast<GroupListModel *>(proxy->sourceModel()) : nullptr;
+        if (source)
+            source->setUserId(id);
+
         return m_groupsModel;
     }
 
-    auto groupsModel = new GroupListModel(id, this);
-    m_groupsModel = groupsModel;
+    auto *groupsModel = new GroupListModel(id, this);
+    auto *proxyModel = new GroupListProxyModel(this);
+    proxyModel->setSourceModel(groupsModel);
+    m_groupsModel = proxyModel;
     return m_groupsModel;
 }
 
