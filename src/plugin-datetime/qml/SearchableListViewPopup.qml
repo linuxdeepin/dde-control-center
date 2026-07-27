@@ -42,6 +42,27 @@ Popup {
         highlightedIndex = viewIndex
     }
 
+    function scrollToHighlighted() {
+        if (!view) return
+
+        var foundChecked = false
+        for (var i = 0; i < view.count; i++) {
+            var item = view.itemAtIndex(i)
+            if (item && item.checked === true) {
+                setViewIndex(i)
+                view.positionViewAtIndex(i, ListView.Center)
+                foundChecked = true
+                break
+            }
+        }
+
+        if (!foundChecked && highlightedIndex >= 0) {
+            setViewIndex(highlightedIndex)
+            view.positionViewAtIndex(highlightedIndex, ListView.Center)
+        }
+    }
+
+
     function show() {
         if (anchorItem) {
             positionWindow()
@@ -75,6 +96,12 @@ Popup {
     onClosed: {
         searchEdit.clear()
     }
+    
+    onOpened: {
+        scrollToHighlighted()
+        if (view) view.forceActiveFocus()
+    }
+
 
     TextMetrics {
         id: textMetrics
@@ -215,23 +242,7 @@ Popup {
                     Component.onCompleted: {
                         control.view = listView
                         control.viewWidth = listView.width
-
-                        var foundChecked = false
-                        for (var i = 0; i < count; i++) {
-                            var item = itemAtIndex(i)
-                            if (item && item.checked === true) {
-                                control.setViewIndex(i)
-                                positionViewAtIndex(i, ListView.Center)
-                                foundChecked = true
-                                break
-                            }
-                        }
-
-                        if (!foundChecked && control.highlightedIndex >= 0) {
-                            control.setViewIndex(control.highlightedIndex)
-                            positionViewAtIndex(control.highlightedIndex, ListView.Center)
-                        }
-
+                        control.scrollToHighlighted()
                         forceActiveFocus()
                     }
 
