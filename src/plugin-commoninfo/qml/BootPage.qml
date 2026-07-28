@@ -70,7 +70,7 @@ DccObject {
 
             Image {
                 id: image
-                source: "file://" + dccData.mode().grubThemePath + "?timestamp=" + Date.now()
+                source: dccData.mode().grubThemePath ? "file://" + dccData.mode().grubThemePath + "?timestamp=" + Date.now() : ""
                 asynchronous: true
                 anchors.fill: parent
                 width: parent.width
