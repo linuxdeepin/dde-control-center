@@ -548,11 +548,13 @@ void TreeLandWorker::applyGlobalTheme(KeyFile &theme, const QString &themeName, 
 
 void TreeLandWorker::doSetByType(const QString &type, const QString &value)
 {
-    if (type == TYPEWALLPAPER) {
+    if (type == TYPEWALLPAPER || type == TYPEGREETERBACKGROUND) {
+        WallpaperContext::wallpaper_role wallpaperRole = type == TYPEWALLPAPER ? 
+            WallpaperContext::wallpaper_role_desktop : WallpaperContext::wallpaper_role_lockscreen;
         auto screens = qApp->screens();
         for (const auto screen : screens) {
-            // FIXME(mhduiy): only set image, only set to desktop
-            setWallpaper(screen->name(), value, WallpaperContext::wallpaper_role_desktop, WallpaperContext::wallpaper_source_type_image);
+            // FIXME(mhduiy): only set image
+            setWallpaper(screen->name(), value, wallpaperRole, WallpaperContext::wallpaper_source_type_image);
         }
     } else if(type == TYPEICON) {
         setIconTheme(value);
