@@ -130,6 +130,7 @@ DccObject {
                     anchors.fill: parent
                     hoverEnabled: true
                     model: serverList
+                    popup.popupType: Popup.Window
                     // 不设置默认的话可能无法滚动（不显示上下箭头按钮）。。。
                     maxVisibleItems: serverList.length - 1
                     currentIndex:  {
