@@ -68,6 +68,8 @@ DccManager::DccManager(QObject *parent)
     , m_showTimer(nullptr)
     , m_showFallbackTimer(nullptr)
     , m_showPagePending(false)
+    , m_showLoadPage(!isTreeland())
+    , m_needShow(false)
 #ifdef HAVE_DDE_API_EVENTLOGGER
     , m_pageStayTimer(nullptr)
 #endif
@@ -472,15 +474,19 @@ void DccManager::cacheImage(const QString &id, const QSize &thumbnailSize)
 
 void DccManager::show()
 {
+    m_needShow = true;
     QWindow *w = DccManager::mainWindow();
     if (!w) {
         return;
     }
-
+    if (!m_showLoadPage && !m_activeObject) {
+        return;
+    }
     if (w->windowStates() == Qt::WindowMinimized || !w->isVisible()) {
         w->showNormal();
     }
     w->requestActivate();
+    m_needShow = false;
 }
 
 void DccManager::toggle()
@@ -1009,6 +1015,9 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
         Q_EMIT triggeredObjectsChanged(m_triggeredObjects);
 
     m_showFallbackTimer->stop();
+    if (m_needShow) {
+        show();
+    }
 }
 
 QSet<QString> findAddItems(QSet<QString> *oldSet, QSet<QString> *newSet)
