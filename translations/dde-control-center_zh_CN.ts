@@ -2307,6 +2307,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>KeyboardWorker</name>
+    <message>
+        <source>The shortcut service is unavailable. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -3486,6 +3497,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>please enter a new shortcut key</source>
         <translation>请输入新的快捷键</translation>
     </message>
+    <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Sound</name>
@@ -4423,6 +4442,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Please confirm the shortcut conflict again.</source>
         <translation>请重新确认快捷键冲突。</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::KeyboardWorker</name>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

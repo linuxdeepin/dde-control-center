@@ -7,7 +7,7 @@
     </message>
     <message>
         <source>Add new user</source>
-        <translation>Adicionar novo usuário</translation>
+        <translation>Adicionar usuário</translation>
     </message>
     <message>
         <source>Set fullname</source>
@@ -369,7 +369,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>Ok</source>
-        <translation>Ok</translation>
+        <translation>OK</translation>
     </message>
 </context>
 <context>
@@ -641,7 +641,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation>Repita a senha:</translation>
+        <translation>Repetir senha:</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -864,7 +864,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation>Ir para as configurações </translation>
+        <translation>Acessar configurações</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -1120,7 +1120,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation>Disponível</translation>
+        <translation>disponível</translation>
     </message>
 </context>
 <context>
@@ -1452,7 +1452,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation>Serviço de Sincronização</translation>
+        <translation>Serviço de sincronização</translation>
     </message>
     <message>
         <source>Account and Security</source>
@@ -1464,7 +1464,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation>Ir para as configurações da web</translation>
+        <translation>Acessar configurações</translation>
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
@@ -1693,7 +1693,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>OK</source>
-        <translation>Ok</translation>
+        <translation>OK</translation>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
@@ -2279,7 +2279,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>KeyboardMain</name>
     <message>
         <source>Common</source>
-        <translation>Comum</translation>
+        <translation>Geral</translation>
+    </message>
+</context>
+<context>
+    <name>KeyboardWorker</name>
+    <message>
+        <source>The shortcut service is unavailable. Please try again.</source>
+        <translation>O serviço de atalhos está indisponível. Tente novamente.</translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation>Falha ao salvar o atalho. Tente novamente.</translation>
     </message>
 </context>
 <context>
@@ -2360,11 +2371,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Modify password</source>
-        <translation>Modificar senha</translation>
+        <translation>Alterar senha</translation>
     </message>
     <message>
         <source>Validity days</source>
-        <translation>Dias de validade</translation>
+        <translation>Validade (dias)</translation>
     </message>
     <message>
         <source>Always</source>
@@ -2421,7 +2432,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation>Comum, Mouse, Touchpad</translation>
+        <translation>Geral, Mouse, Touchpad</translation>
     </message>
 </context>
 <context>
@@ -2444,7 +2455,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Multitasking view</source>
-        <translation>Exibir multitarefas</translation>
+        <translation>Visão multitarefa</translation>
     </message>
     <message>
         <source>Disable</source>
@@ -2460,18 +2471,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Hide multitasking view</source>
-        <translation>Ocultar multitarefas</translation>
+        <translation>Ocultar visão multitarefa</translation>
     </message>
     <message>
         <source>Toggle multitasking view</source>
-        <translation>Alternar multitarefas</translation>
+        <translation>Alternar visão multitarefa</translation>
     </message>
 </context>
 <context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
-        <translation>Comum</translation>
+        <translation>Geral</translation>
     </message>
     <message>
         <source>Mouse</source>
@@ -2704,7 +2715,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation>Repita a sua senha</translation>
+        <translation>Repetir senha</translation>
     </message>
     <message>
         <source>Password hint</source>
@@ -3225,7 +3236,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation>Repita a senha</translation>
+        <translation>Repetir senha</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3387,6 +3398,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>click Add to make this shortcut key effective</source>
         <translation>Clique em Adicionar para ativar esta tecla de atalho</translation>
     </message>
+    <message>
+        <source>Replace</source>
+        <translation>Substituir</translation>
+    </message>
+    <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation>Falha ao iniciar a captura de atalho. Tente novamente.</translation>
+    </message>
+    <message>
+        <source>click Replace to make this shortcut key effective</source>
+        <translation>Clique em Substituir para ativar esta tecla de atalho</translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation>Não foi possível salvar o atalho. Tente novamente.</translation>
+    </message>
 </context>
 <context>
     <name>Shortcuts</name>
@@ -3437,6 +3464,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>please enter a new shortcut key</source>
         <translation>Insira um novo atalho de teclado</translation>
+    </message>
+    <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation>Não foi possível iniciar a captura do atalho. Tente novamente.</translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation>Não foi possível salvar o atalho. Tente novamente.</translation>
     </message>
 </context>
 <context>
@@ -3586,7 +3621,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation>Nenhum dispositivo de saída de som encontrado</translation>
+        <translation>Nenhum dispositivo de saída encontrado</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
@@ -3610,7 +3645,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output Device</source>
-        <translation>Dispositivo de Saída</translation>
+        <translation>Dispositivo de saída</translation>
     </message>
 </context>
 <context>
@@ -3640,7 +3675,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>System</name>
     <message>
         <source>Common settings</source>
-        <translation>Configurações comuns</translation>
+        <translation>Configurações gerais</translation>
     </message>
     <message>
         <source>System</source>
@@ -3701,7 +3736,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation>Mais papéis de parede</translation>
+        <translation>Obter mais papéis de parede</translation>
     </message>
 </context>
 <context>
@@ -3885,7 +3920,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation>Comum</translation>
+        <translation>Geral</translation>
     </message>
 </context>
 <context>
@@ -4363,6 +4398,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>This shortcut conflicts with [%1]</source>
         <translation>Este atalho entra em conflito com [%1]</translation>
+    </message>
+    <message>
+        <source>The shortcut no longer exists.</source>
+        <translation>O atalho não existe mais.</translation>
+    </message>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation>O conflito de atalhos não é mais válido.</translation>
+    </message>
+    <message>
+        <source>Please confirm the shortcut conflict again.</source>
+        <translation>Confirme novamente o conflito de atalhos.</translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::KeyboardWorker</name>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation>O conflito de atalhos não é mais válido.</translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation>Não foi possível salvar o atalho. Tente novamente.</translation>
     </message>
 </context>
 <context>
