@@ -461,12 +461,12 @@ DccObject {
                 }
                 Connections {
                     target: dccData.mode()
-                    onDeveloperModeStateChanged: function(enable) {
+                    function onDeveloperModeStateChanged(enable) {
                         if (enable && developDlg.currentStackIndex === 1) {
                             developDlg.showSuccess = true
                         }
                     }
-                    onIsDeveloperModeChanged: {
+                    function onIsDeveloperModeChanged() {
                         if (dccData.mode().isDeveloperMode && developDlg.currentStackIndex === 1) {
                             developDlg.showSuccess = true
                         }

@@ -4,6 +4,7 @@
 #include "displayworker.h"
 
 #include "displaymodel.h"
+#include "wallpaperthumbnailutils.h"
 
 #include <Output.h>
 #include <OutputManager.h>
@@ -17,15 +18,30 @@
 #include <QDBusPendingCallWatcher>
 #include <QDebug>
 #include <QFile>
+#include <QFileInfo>
+#include <QDir>
+#include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QLoggingCategory>
+#include <QPointer>
 #include <QXmlStreamReader>
+#include <QtConcurrent/QtConcurrent>
 
 Q_LOGGING_CATEGORY(DdcDisplayWorker, "dcc-display-worker")
 
 const QString DisplayInterface("org.deepin.dde.Display1");
 static const QString EyeProtectionConfig = "/usr/share/dde-wloutput-daemon/eyeprotection.xml";
+static const QString SysLiveWallpaperDir = "/usr/share/wallpapers/deepin-livewallpapers";
+
+static const QStringList videoSuffixes = { "mp4", "mov", "avi", "webm", "mkv" };
+
+static bool isVideoFile(const QString &path)
+{
+    return videoSuffixes.contains(QFileInfo(path).suffix().toLower());
+}
+
+static constexpr uint32_t WallpaperSourceTypeVideo = 1;
 
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>)
 using namespace dccV25;
@@ -84,6 +100,17 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
             m_displayInter->Save().waitForFinished();
         });
     }
+
+    connect(this, &DisplayWorker::videoThumbnailReady, this, [this](const QString &videoPath, const QString &thumbnailPath) {
+        const auto monitors = m_videoWallpaperMonitors.take(videoPath);
+        if (thumbnailPath.isEmpty())
+            return;
+
+        for (const auto &monitor : monitors) {
+            if (monitor && monitor->wallpaper() == videoPath)
+                monitor->setWallpaper(thumbnailPath);
+        }
+    });
 }
 
 DisplayWorker::~DisplayWorker()
@@ -222,7 +249,6 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                             if (preferMode)
                                 cfgHead->setMode(preferMode);
                         }
-                        cfgHead->setPosition({ 0, 0 });
                     }
                     connect(opCfg, &WQt::OutputConfiguration::succeeded, this, createMergeVirtualOutput);
                     connect(opCfg, &WQt::OutputConfiguration::succeeded, opCfg, &QObject::deleteLater);
@@ -246,7 +272,6 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                 return;
             }
             m_model->setDisplayMode(mode);
-            int posX = 0;
 
             for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
                 switch (mode) {
@@ -257,8 +282,6 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                         updateDisplayModeFromCurrentState();
                         return;
                     }
-                    cfgHead->setPosition({ posX, 0 });
-                    posX += it.key()->w();
                     break;
                 }
                 case SINGLE_MODE: {
@@ -277,7 +300,6 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                         }
                         if (preferMode)
                             cfgHead->setMode(preferMode);
-                        cfgHead->setPosition({ 0, 0 });
                     } else {
                         opCfg->disableHead(it.value());
                     }
@@ -288,6 +310,9 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                 }
             }
 
+            connect(opCfg, &WQt::OutputConfiguration::succeeded, opCfg, &QObject::deleteLater);
+            connect(opCfg, &WQt::OutputConfiguration::failed, opCfg, &QObject::deleteLater);
+            connect(opCfg, &WQt::OutputConfiguration::canceled, opCfg, &QObject::deleteLater);
             opCfg->apply();
         }
     } else {
@@ -347,7 +372,11 @@ void DisplayWorker::updateWallpaper()
 
 void DisplayWorker::updateMonitorWallpaper(Monitor *mon)
 {
-    mon->setWallpaper(m_displayInter->GetCurrentWorkspaceBackgroundForMonitor(mon->name()));
+    QString wallpaper = m_displayInter->GetCurrentWorkspaceBackgroundForMonitor(mon->name());
+    if (isVideoFile(wallpaper)) {
+        wallpaper = resolveVideoThumbnail(wallpaper, mon);
+    }
+    mon->setWallpaper(wallpaper);
 }
 
 void DisplayWorker::updateWallpaperFromWayland()
@@ -376,12 +405,20 @@ void DisplayWorker::onOutputWallpaperReady(WQt::Output *output)
     auto *wp = wpMgr->getWallpaper(output->get());
     if (wp) {
         connect(wp, &WQt::Wallpaper::changed, this, &DisplayWorker::onWallpaperChanged, Qt::UniqueConnection);
+
+        if (wp->sourceType() == WallpaperSourceTypeVideo && !wp->fileSource().isEmpty()) {
+            for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
+                if (it.key()->name() == output->name()) {
+                    it.key()->setWallpaper(resolveVideoThumbnail(wp->fileSource(), it.key()));
+                    break;
+                }
+            }
+        }
     }
 }
 
 void DisplayWorker::onWallpaperChanged(const QString &fileSource, uint32_t sourceType, uint32_t role)
 {
-    Q_UNUSED(sourceType);
     Q_UNUSED(role);
     auto *wp = qobject_cast<WQt::Wallpaper *>(sender());
     if (!wp || !wp->output() || !m_reg)
@@ -400,7 +437,11 @@ void DisplayWorker::onWallpaperChanged(const QString &fileSource, uint32_t sourc
 
     for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
         if (it.key()->name() == outputName) {
-            it.key()->setWallpaper(fileSource);
+            QString wallpaper = fileSource;
+            if (sourceType == WallpaperSourceTypeVideo) {
+                wallpaper = resolveVideoThumbnail(fileSource, it.key());
+            }
+            it.key()->setWallpaper(wallpaper);
             break;
         }
     }
@@ -613,13 +654,13 @@ constexpr static int wlRotate2dcc(int wlRotate)
 {
     switch (wlRotate) {
     case WL_OUTPUT_TRANSFORM_NORMAL:
-        return 1;
+        return Monitor::RotationNormal;
     case WL_OUTPUT_TRANSFORM_90:
-        return 2;
+        return Monitor::Rotation90;
     case WL_OUTPUT_TRANSFORM_180:
-        return 4;
+        return Monitor::Rotation180;
     case WL_OUTPUT_TRANSFORM_270:
-        return 8;
+        return Monitor::Rotation270;
     default:
         qWarning("dcc dont support FLIPPED");
         return 0;
@@ -629,13 +670,13 @@ constexpr static int wlRotate2dcc(int wlRotate)
 constexpr static int dccRotate2wl(int dccRotate)
 {
     switch (dccRotate) {
-    case 1:
+    case Monitor::RotationNormal:
         return WL_OUTPUT_TRANSFORM_NORMAL;
-    case 2:
+    case Monitor::Rotation90:
         return WL_OUTPUT_TRANSFORM_90;
-    case 4:
+    case Monitor::Rotation180:
         return WL_OUTPUT_TRANSFORM_180;
-    case 8:
+    case Monitor::Rotation270:
         return WL_OUTPUT_TRANSFORM_270;
     default:
         qWarning("unkone dccRotate, feedback to normal");
@@ -874,6 +915,9 @@ void DisplayWorker::setMonitorPosition(const QHash<Monitor *, QPair<int, int>> m
 {
     if (WQt::Utils::isTreeland()) {
         auto *opCfg = m_reg->outputManager()->createConfiguration();
+        if (!opCfg) {
+            return;
+        }
         for (auto it(monitorPosition.cbegin()); it != monitorPosition.cend(); ++it) {
             auto *head = m_wl_monitors.value(it.key());
             Q_ASSERT(head);
@@ -884,6 +928,9 @@ void DisplayWorker::setMonitorPosition(const QHash<Monitor *, QPair<int, int>> m
             auto *cfgHead = opCfg->enableHead(head);
             cfgHead->setPosition({ it.value().first, it.value().second });
         }
+        connect(opCfg, &WQt::OutputConfiguration::succeeded, opCfg, &QObject::deleteLater);
+        connect(opCfg, &WQt::OutputConfiguration::failed, opCfg, &QObject::deleteLater);
+        connect(opCfg, &WQt::OutputConfiguration::canceled, opCfg, &QObject::deleteLater);
         opCfg->apply();
     } else {
         for (auto it(monitorPosition.cbegin()); it != monitorPosition.cend(); ++it) {
@@ -901,12 +948,12 @@ void DisplayWorker::setUiScale(const double value)
     double rv = value;
     if (rv < 0)
         rv = m_model->uiScale();
-    for (auto &mm : m_model->monitorList()) {
-        mm->setScale(-1);
-    }
 
     if (WQt::Utils::isTreeland()) {
         auto *opCfg = m_reg->outputManager()->createConfiguration();
+        if (!opCfg) {
+            return;
+        }
         for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
             if (!it.key()->enable()) {
                 opCfg->disableHead(it.value());
@@ -915,11 +962,17 @@ void DisplayWorker::setUiScale(const double value)
             auto *cfgHead = opCfg->enableHead(it.value());
             cfgHead->setScale(rv);
         }
-        opCfg->apply();
         connect(opCfg, &WQt::OutputConfiguration::succeeded, this, [this, rv]() {
             m_model->setUIScale(rv);
         });
+        connect(opCfg, &WQt::OutputConfiguration::succeeded, opCfg, &QObject::deleteLater);
+        connect(opCfg, &WQt::OutputConfiguration::failed, opCfg, &QObject::deleteLater);
+        connect(opCfg, &WQt::OutputConfiguration::canceled, opCfg, &QObject::deleteLater);
+        opCfg->apply();
     } else {
+        for (auto &mm : m_model->monitorList()) {
+            mm->setScale(-1);
+        }
         QDBusPendingCall call = m_displayInter->SetScaleFactor(rv);
 
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
@@ -933,14 +986,15 @@ void DisplayWorker::setUiScale(const double value)
 
 void DisplayWorker::setIndividualScaling(Monitor *m, const double scaling)
 {
-    if (m && scaling >= 1.0) {
-        m->setScale(scaling);
-    } else {
+    if (!m || scaling < 1.0) {
         return;
     }
 
     if (WQt::Utils::isTreeland()) {
         auto *opCfg = m_reg->outputManager()->createConfiguration();
+        if (!opCfg) {
+            return;
+        }
         for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
             if (!it.key()->enable()) {
                 opCfg->disableHead(it.value());
@@ -951,8 +1005,12 @@ void DisplayWorker::setIndividualScaling(Monitor *m, const double scaling)
                 cfgHead->setScale(scaling);
             }
         }
+        connect(opCfg, &WQt::OutputConfiguration::succeeded, opCfg, &QObject::deleteLater);
+        connect(opCfg, &WQt::OutputConfiguration::failed, opCfg, &QObject::deleteLater);
+        connect(opCfg, &WQt::OutputConfiguration::canceled, opCfg, &QObject::deleteLater);
         opCfg->apply();
     } else {
+        m->setScale(scaling);
         QMap<QString, double> scalemap;
         for (Monitor *m : m_model->monitorList()) {
             scalemap[m->name()] = m_model->monitorScale(m);
@@ -1156,7 +1214,7 @@ void DisplayWorker::wlMonitorAdded(WQt::OutputHead *head)
     mon->setX(head->property(WQt::OutputHead::Position).toPoint().x());
     mon->setY(head->property(WQt::OutputHead::Position).toPoint().y());
 
-    mon->setRotateList({ 1, 2, 4, 8 });
+    mon->setRotateList({ Monitor::RotationNormal, Monitor::Rotation90, Monitor::Rotation180, Monitor::Rotation270 });
     mon->setRotate(wlRotate2dcc(head->property(WQt::OutputHead::Transform).toInt()));
 
     ResolutionList resolutionList;
@@ -1398,4 +1456,57 @@ void DisplayWorker::updateConcatScreenMode()
 
     qCDebug(DdcDisplayWorker) << "[ConcatScreen] updateConcatScreenMode via DBus property";
     m_model->setIsConcatScreenMode(m_displayInter->isConcatScreenEnabled());
+}
+
+QString DisplayWorker::resolveVideoThumbnail(const QString &videoPath, Monitor *monitor)
+{
+    QDir liveDir(SysLiveWallpaperDir);
+    if (liveDir.exists()) {
+        QFile metaFile(liveDir.absoluteFilePath("metadata.json"));
+        if (metaFile.open(QIODevice::ReadOnly)) {
+            QJsonParseError parseErr;
+            QJsonDocument doc = QJsonDocument::fromJson(metaFile.readAll(), &parseErr);
+            metaFile.close();
+            if (parseErr.error != QJsonParseError::NoError || !doc.isArray()) {
+                qCWarning(DdcDisplayWorker) << "metadata.json parse error:" << parseErr.errorString();
+            } else {
+                for (const auto &entry : doc.array()) {
+                    QJsonObject obj = entry.toObject();
+                    QString videoAbsPath = liveDir.absoluteFilePath(obj.value("path").toString());
+                    if (videoAbsPath == videoPath) {
+                        QString thumbnailRel = obj.value("thumbnail").toString();
+                        if (!thumbnailRel.isEmpty()) {
+                            QString thumbAbsPath = liveDir.absoluteFilePath(thumbnailRel);
+                            if (QFile::exists(thumbAbsPath)) {
+                                return thumbAbsPath;
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    const QString cachePath = DccWallpaperThumbnail::cachePath(videoPath);
+
+    if (QFile::exists(cachePath)) {
+        return cachePath;
+    }
+
+    if (m_videoWallpaperMonitors.contains(videoPath)) {
+        m_videoWallpaperMonitors[videoPath].append(monitor);
+        return videoPath;
+    }
+
+    m_videoWallpaperMonitors[videoPath] = { monitor };
+
+    QPointer<DisplayWorker> guard(this);
+    (void)QtConcurrent::run([guard, videoPath]() {
+        const QString thumbnailPath = DccWallpaperThumbnail::generate(videoPath);
+        if (guard)
+            Q_EMIT guard->videoThumbnailReady(videoPath, thumbnailPath);
+    });
+
+    return videoPath;
 }

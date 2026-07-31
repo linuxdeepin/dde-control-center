@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -84,7 +84,7 @@ public slots:
     QSortFilterProxyModel *avatarFilterModel();
     QAbstractListModel *avatarTypesModel();
     QAbstractListModel *accountsModel();
-    QAbstractListModel *groupsModel(const QString &id);
+    QAbstractItemModel *groupsModel(const QString &id);
 
     int passwordLevel(const QString &pwd);
     QString checkUsername(const QString &name);
@@ -134,7 +134,7 @@ private:
     QAbstractListModel    *m_avatarTypesModel = nullptr;
     QAbstractListModel    *m_accountsModel = nullptr;
     QHash<QString, QStringList> m_groups;
-    QAbstractListModel    *m_groupsModel = nullptr;
+    QAbstractItemModel    *m_groupsModel = nullptr;
     bool m_isCreatingUser = false;
 };
 

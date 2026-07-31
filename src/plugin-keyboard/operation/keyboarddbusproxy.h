@@ -76,6 +76,7 @@ struct ShortcutInfoNew {
     QString localLanguageName;
     QString localLanguageCategory;  // Resolved display text for the category
     bool isCustom = false;          // True for runtime-added (service API) shortcuts
+    bool modifiable = false;        // Whether the conflicting shortcut may be replaced
 };
 Q_DECLARE_METATYPE(ShortcutInfoNew)
 Q_DECLARE_METATYPE(QList<ShortcutInfoNew>)
@@ -84,7 +85,7 @@ inline QDBusArgument &operator<<(QDBusArgument &argument, const ShortcutInfoNew 
     argument.beginStructure();
     argument << info.id << info.displayName << info.category
              << info.hotkeys << info.localLanguageName
-             << info.localLanguageCategory << info.isCustom;
+             << info.localLanguageCategory << info.isCustom << info.modifiable;
     argument.endStructure();
     return argument;
 }
@@ -93,7 +94,7 @@ inline const QDBusArgument &operator>>(const QDBusArgument &argument, ShortcutIn
     argument.beginStructure();
     argument >> info.id >> info.displayName >> info.category
              >> info.hotkeys >> info.localLanguageName
-             >> info.localLanguageCategory >> info.isCustom;
+             >> info.localLanguageCategory >> info.isCustom >> info.modifiable;
     argument.endStructure();
     return argument;
 }
@@ -210,10 +211,7 @@ signals:
     void NumLockStateChanged(int  value) const;
     void ShortcutSwitchLayoutChanged(uint  value) const;
     // Keybinding
-    void Added(const QString &in0, int in1);
-    void Changed(const QString &in0, int in1);
-    void Deleted(const QString &in0, int in1);
-    void KeyEvent(bool in0, const QString &in1);
+    void KeyEvent(bool pressed, const QString &keystroke);
     // Wayland new-API bridge: full shortcut list converted to old JSON format.
     void AllShortcutsReady(const QString &json);
     // Wayland: result of a GetShortcut query, already converted to old JSON.
@@ -239,25 +237,32 @@ public slots:
     QDBusPendingReply<QString> ListAllShortcuts();
     // Wayland: fetch category metadata (ordering/display/custom flag).
     QDBusPendingReply<> ListCategories();
-    QString LookupConflictingShortcut(const QString &in0);
     QDBusPendingReply<ShortcutInfoNew> LookupConflictShortcut(const QString &in0);
-    QDBusPendingReply<> ClearShortcutKeystrokes(const QString &in0, int in1);
-    QDBusPendingReply<> AddShortcutKeystroke(const QString &in0, int in1, const QString &in2);
+    QDBusPendingReply<bool> ClearShortcutKeystrokes(const QString &in0, int in1);
     // Wayland: direct ModifyHotkeys (returns bool success), so the caller
     // can detect commit failures and roll back the UI.
     QDBusPendingReply<bool> callModifyHotkeys(const QString &id, const QStringList &hotkeys);
     // Wayland: replace hotkey — remove newHotkey from conflictId, add to targetId.
     QDBusPendingReply<bool> callReplaceHotkey(const QString &targetId, const QString &newHotkey, const QString &conflictId);
     QDBusPendingReply<QString> AddCustomShortcut(const QString &in0, const QString &in1, const QString &in2);
+    QDBusPendingReply<QString> AddCustomShortcutWithConflict(const QString &name,
+                                                             const QString &command,
+                                                             const QString &accels,
+                                                             const QString &expectedConflictId);
     QDBusPendingReply<bool> ModifyCustomShortcut(const QString &in0, const QString &in1, const QString &in2, const QString &in3);
+    QDBusPendingReply<bool> ModifyCustomShortcutWithConflict(const QString &id,
+                                                            const QString &name,
+                                                            const QString &command,
+                                                            const QString &accels,
+                                                            const QString &expectedConflictId);
     QDBusPendingReply<bool> DeleteCustomShortcut(const QString &in0);
     QDBusPendingReply<QString> GetShortcutCommand(const QString &in0);
-    QDBusPendingReply<> GrabScreen();
     void SetNumLockState(int in0);
     QDBusPendingReply<QString> GetShortcut(const QString &in0, int in1);
     QDBusPendingReply<QString> SearchShortcuts(const QString &in0);
     QDBusPendingReply<QString> Query(const QString &in0, int in1);
-    void SelectKeystroke();
+    QDBusPendingReply<bool> BeginCapture(uint timeoutMs = 30000);
+    void EndCapture();
 
     //KeyBoard
     QDBusPendingReply<KeyboardLayoutList> LayoutList();

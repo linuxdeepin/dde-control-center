@@ -30,6 +30,24 @@ D.DialogWindow {
     property string saveAccels: ""
     property var saveKeys: [qsTr("None")]
     property bool nameExists: false
+    property var captureRestoreKeys: [qsTr("None")]
+    property string captureRestoreAccels: ""
+    property bool captureRestoreValid: false
+    property bool pendingConflict: false
+    property bool submitting: false
+    property double pendingRequestId: 0
+    signal closeConfirmed()
+
+    onClosing: function(close) {
+        if (ddialog.submitting) {
+            close.accepted = false
+            return
+        }
+        dccData.endKeyCapture()
+        dccData.clearPendingConflict(ddialog.keyId, 1)
+        ddialog.pendingConflict = false
+        ddialog.closeConfirmed()
+    }
 
     ColumnLayout {
         spacing: 10
@@ -137,12 +155,19 @@ D.DialogWindow {
                 else
                     return DS.Style.keySequenceEdit.background;
             }
-            // Wayland: ask Treeland to forward the next combo (capture protocol).
-            // No-op on X11; local Keys.onPressed handles capture there.
             onRequestKeys: {
-                keys = [];
-                dccData.updateKey(ddialog.keyId, 1);
-                dccData.beginWaylandKeyCapture(edit, ddialog.keyId, 1);
+                dccData.clearPendingConflict(ddialog.keyId, 1)
+                ddialog.pendingConflict = false
+                conflictText.text = ""
+                if (!ddialog.captureRestoreValid) {
+                    var restoreKeys = []
+                    for (var index = 0; index < edit.keys.length; ++index)
+                        restoreKeys.push(edit.keys[index])
+                    ddialog.captureRestoreKeys = restoreKeys
+                    ddialog.captureRestoreAccels = edit.accels
+                    ddialog.captureRestoreValid = true
+                }
+                dccData.beginKeyCapture(edit, ddialog.keyId, 1)
             }
         }
 
@@ -166,14 +191,9 @@ D.DialogWindow {
                 font: D.DTK.fontManager.t6
                 Layout.leftMargin: 4
                 text: qsTr("Cancel")
+                enabled: !ddialog.submitting
                 onClicked: {
-                    if (ddialog.keyId.length > 0
-                            && (nameEdit.text !== ddialog.saveKeyName
-                                || commandEdit.text !== ddialog.saveCmdName
-                                || edit.accels !== ddialog.saveAccels)) {
-                        dccData.modifyCustomShortcut(ddialog.keyId, ddialog.saveKeyName, ddialog.saveCmdName, ddialog.saveAccels);
-                    }
-                    ddialog.close();
+                    ddialog.close()
                 }
             }
             Button {
@@ -181,29 +201,50 @@ D.DialogWindow {
                 Layout.fillWidth: true
                 Layout.rightMargin: 24
                 font: D.DTK.fontManager.t6
-                text: ddialog.keyId.length > 0 ? qsTr("Save") : qsTr("Add")
-                enabled: commandEdit.text.length > 0 && nameEdit.text.length > 0 && !ddialog.nameExists
+                text: ddialog.pendingConflict
+                      ? qsTr("Replace")
+                      : (ddialog.keyId.length > 0 ? qsTr("Save") : qsTr("Add"))
+                enabled: !ddialog.submitting && commandEdit.text.length > 0
+                         && nameEdit.text.length > 0 && !ddialog.nameExists
                 onClicked: {
-                    if (edit.keys[0] === qsTr("None")) {
+                    if (edit.keys.length === 0 || edit.keys[0] === qsTr("None")) {
                         edit.showAlertColor = true;
                         return;
                     }
 
-                    if (ddialog.keyId.length > 0)
-                        dccData.modifyCustomShortcut(ddialog.keyId, nameEdit.text, commandEdit.text, edit.accels);
-                    else
-                        dccData.addCustomShortcut(nameEdit.text, commandEdit.text, edit.accels);
-
-                    ddialog.close();
+                    conflictText.text = ""
+                    ddialog.submitting = true
+                    if (ddialog.pendingConflict) {
+                        ddialog.pendingRequestId = dccData.replaceCustomShortcut(
+                                    ddialog.keyId, nameEdit.text, commandEdit.text, edit.accels)
+                    } else if (ddialog.keyId.length > 0) {
+                        ddialog.pendingRequestId = dccData.modifyCustomShortcut(
+                                    ddialog.keyId, nameEdit.text, commandEdit.text, edit.accels)
+                    } else {
+                        ddialog.pendingRequestId = dccData.addCustomShortcut(
+                                    nameEdit.text, commandEdit.text, edit.accels)
+                    }
                 }
             }
         }
 
         Connections {
             target: dccData
-            function onRequestRestore() {
-                edit.keys = ddialog.saveKeys;
-                conflictText.text = "";
+            function onRequestRestore(id, type) {
+                if (id !== ddialog.keyId || type !== 1)
+                    return
+                dccData.endKeyCapture()
+                if (ddialog.captureRestoreValid) {
+                    edit.keys = ddialog.captureRestoreKeys
+                    edit.accels = ddialog.captureRestoreAccels
+                } else {
+                    edit.keys = ddialog.saveKeys
+                    edit.accels = ddialog.saveAccels
+                }
+                ddialog.captureRestoreValid = false
+                dccData.clearPendingConflict(ddialog.keyId, 1)
+                ddialog.pendingConflict = false
+                conflictText.text = ""
                 // 重置名称验证状态
                 if (nameEdit.text.trim().length > 0) {
                     ddialog.nameExists = dccData.isShortcutNameExists(nameEdit.text.trim(), ddialog.keyId);
@@ -211,30 +252,75 @@ D.DialogWindow {
                     ddialog.nameExists = false;
                 }
             }
-            function onRequestClear() {
-                onRequestRestore();
+            function onRequestClear(id, type) {
+                if (id === ddialog.keyId && type === 1)
+                    onRequestRestore(id, type)
             }
-            function onKeyConflicted(oldAccels, newAccels) {
-                edit.accels = newAccels; // 冲突也可以覆盖
-                var actionText = ddialog.keyId.length > 0 ? qsTr("click Save to make this shortcut key effective") : qsTr("click Add to make this shortcut key effective");
-                conflictText.text = dccData.conflictText + ", " + actionText;
+            function onKeyCaptureStarted(id, type) {
+                if (id !== ddialog.keyId || type !== 1)
+                    return
+                ddialog.pendingConflict = false
+                conflictText.text = ""
+                edit.keys = []
             }
-            function onKeyDone(accels) {
+            function onKeyCaptureFailed(id, type, reason) {
+                if (id !== ddialog.keyId || type !== 1)
+                    return
+                edit.keys = ddialog.captureRestoreKeys
+                edit.accels = ddialog.captureRestoreAccels
+                ddialog.captureRestoreValid = false
+                dccData.clearPendingConflict(ddialog.keyId, 1)
+                ddialog.pendingConflict = false
+                conflictText.text = qsTr("Failed to start shortcut capture. Please try again.")
+            }
+            function onKeyConflicted(id, type, oldAccels, newAccels, message, replaceable) {
+                if (id !== ddialog.keyId || type !== 1)
+                    return
+                if (!replaceable) {
+                    edit.keys = ddialog.captureRestoreKeys
+                    edit.accels = ddialog.captureRestoreAccels
+                    ddialog.captureRestoreValid = false
+                    dccData.clearPendingConflict(ddialog.keyId, 1)
+                    ddialog.pendingConflict = false
+                    conflictText.text = message
+                    return
+                }
+                ddialog.captureRestoreValid = false
+                ddialog.pendingConflict = true
+                edit.accels = newAccels;
+                conflictText.text = message + ", "
+                        + qsTr("click Replace to make this shortcut key effective");
+            }
+            function onKeyDone(id, type, accels) {
+                if (id !== ddialog.keyId || type !== 1)
+                    return
+                ddialog.captureRestoreValid = false
+                dccData.clearPendingConflict(ddialog.keyId, 1)
+                ddialog.pendingConflict = false
                 edit.keys = dccData.formatKeys(accels);
                 edit.accels = accels;
                 conflictText.text = "";
             }
-            function onKeyEvent(accels) {
+            function onKeyEvent(id, type, accels) {
+                if (id !== ddialog.keyId || type !== 1)
+                    return
                 edit.showAlertColor = false;
                 edit.keys = dccData.formatKeys(accels);
             }
-            function onWaylandKeyCaptureFailed(id, type, reason) {
-                // Restrict to this dialog's own capture — id may be empty
-                // when wrapping a new custom shortcut.
-                if (id !== ddialog.keyId)
-                    return;
-                // Same recovery as a server-side requestRestore.
-                onRequestRestore();
+            function onCustomShortcutOperationFinished(requestId, success, errorMessage) {
+                if (!ddialog.submitting || requestId !== ddialog.pendingRequestId)
+                    return
+
+                ddialog.submitting = false
+                ddialog.pendingRequestId = 0
+                if (success) {
+                    ddialog.close()
+                    return
+                }
+
+                conflictText.text = errorMessage.length > 0
+                        ? errorMessage
+                        : qsTr("Failed to save the shortcut. Please try again.")
             }
         }
     }

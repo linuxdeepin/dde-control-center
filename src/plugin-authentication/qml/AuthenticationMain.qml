@@ -152,6 +152,9 @@ DccObject {
                             Layout.topMargin: 5
                             Layout.bottomMargin: 5
                             horizontalAlignment: TextInput.AlignLeft
+                            verticalAlignment: TextInput.AlignVCenter
+                            topPadding: 0
+                            bottomPadding: 0
                             text: modelData
                             readOnly: true
                             clearButton.active: false

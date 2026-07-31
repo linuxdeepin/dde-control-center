@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -58,6 +58,21 @@ Rectangle {
                     currentIndex: comboIndex
                     editable: false
                     flat: true
+                    delegate: D.MenuItem {
+                        id: actionItem
+                        useIndicatorPadding: true
+                        width: combo.width
+                        text: modelData.actionText
+                        enabled: modelData.supported
+                        highlighted: combo.isInteractingWithContent
+                                && combo.highlightedIndex === index
+                        hoverEnabled: true
+                        autoExclusive: true
+                        checked: combo.currentIndex === index
+                        implicitHeight: DS.Style.control.implicitHeight(actionItem)
+                        ToolTip.visible: hovered && !modelData.supported && modelData.unavailableReason.length > 0
+                        ToolTip.text: modelData.unavailableReason
+                    }
                     onActivated: {
                         root.comboIndexChanged(itemCtl.delegateIndex, combo.currentValue)
                     }

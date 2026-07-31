@@ -14,9 +14,6 @@
 #include <QUrl>
 #include <QDir>
 #include <QHash>
-#include <libffmpegthumbnailer/videothumbnailer.h>
-#include <QCryptographicHash>
-#include <QStandardPaths>
 #include <QPointer>
 #include <QtConcurrent/QtConcurrent>
 #include <algorithm>
@@ -26,6 +23,7 @@
 #include "operation/model/wallpapermodel.h"
 #include "operation/personalizationdbusproxy.h"
 #include "utils.hpp"
+#include "wallpaperthumbnailutils.h"
 
 Q_LOGGING_CATEGORY(DdcPersonalizationWallpaperWorker, "dcc-personalization-wallpaper-worker")
 
@@ -439,10 +437,7 @@ void InterfaceWorker::getLiveBackground()
             CHECK_RETURN_RUNNING
             QString videoPath = fileInfo.absoluteFilePath();
             QUrl url = QUrl::fromLocalFile(videoPath);
-            QString cacheDir = thumbnailCacheDir();
-            QDir().mkpath(cacheDir);
-            QString cacheName = QString(QCryptographicHash::hash(videoPath.toUtf8(), QCryptographicHash::Md5).toHex()) + ".png";
-            QString cachePath = cacheDir + "/" + cacheName;
+            QString cachePath = DccWallpaperThumbnail::cachePath(videoPath);
             QString thumbnail = QFile::exists(cachePath) ? cachePath : videoPath;
 
             WallpaperItemPtr ptr(new WallpaperItem{
@@ -452,7 +447,7 @@ void InterfaceWorker::getLiveBackground()
             });
             if (ptr) {
                 if (!QFile::exists(cachePath))
-                    generateVideoThumbnail(videoPath, cachePath, url.toString());
+                    generateVideoThumbnail(videoPath, url.toString());
                 wallpapers.append(ptr);
             }
         }
@@ -475,8 +470,6 @@ void InterfaceWorker::getLiveBackground()
         return;
     }
 
-    QString cacheDir = thumbnailCacheDir();
-    QDir().mkpath(cacheDir);
 
     QJsonArray entries = doc.array();
     for (const auto &entry : entries) {
@@ -508,8 +501,7 @@ void InterfaceWorker::getLiveBackground()
         }
 
         if (needGenerate && videoExists) {
-            QString cacheName = QString(QCryptographicHash::hash(videoAbsPath.toUtf8(), QCryptographicHash::Md5).toHex()) + ".png";
-            QString cachePath = cacheDir + "/" + cacheName;
+            QString cachePath = DccWallpaperThumbnail::cachePath(videoAbsPath);
             if (QFile::exists(cachePath)) {
                 thumbnailPath = cachePath;
                 needGenerate = false;
@@ -531,7 +523,7 @@ void InterfaceWorker::getLiveBackground()
         if (ptr) {
             wallpapers.append(ptr);
             if (needGenerate && videoExists)
-                generateVideoThumbnail(videoAbsPath, thumbnailPath, id);
+                generateVideoThumbnail(videoAbsPath, id);
         }
     }
 
@@ -539,42 +531,17 @@ void InterfaceWorker::getLiveBackground()
     Q_EMIT pushBackground(wallpapers, WallpaperType::Wallpaper_Live);
 }
 
-QString InterfaceWorker::thumbnailCacheDir()
-{
-    return QStandardPaths::writableLocation(QStandardPaths::CacheLocation) + "/live-wallpaper-thumbnails";
-}
 
-void InterfaceWorker::generateVideoThumbnail(const QString &videoPath, const QString &cachePath, const QString &id)
+void InterfaceWorker::generateVideoThumbnail(const QString &videoPath, const QString &id)
 {
     QPointer<InterfaceWorker> guard(this);
-    (void)QtConcurrent::run([guard, videoPath, cachePath, id]() {
-        if (!guard)
+    (void)QtConcurrent::run([guard, videoPath, id]() {
+        if (!guard || !guard->m_running.load(std::memory_order_acquire))
             return;
 
-        if (!guard->m_running.load(std::memory_order_acquire))
-            return;
-
-        ffmpegthumbnailer::VideoThumbnailer thumbnailer(480, false, true, 8, false);
-        thumbnailer.setThumbnailSize(480, -1);
-        thumbnailer.setSeekTime("00:00:01");
-
-        try {
-            thumbnailer.generateThumbnail(videoPath.toStdString(), Png, cachePath.toStdString());
-        } catch (const std::exception &e) {
-            if (!guard)
-                return;
-            qCWarning(DdcPersonalizationWallpaperWorker)
-                << "Failed to generate video thumbnail:" << e.what()
-                << "video:" << videoPath;
-            return;
-        }
-
-        if (!guard)
-            return;
-
-        if (QFile::exists(cachePath)) {
-            Q_EMIT guard->videoThumbnailReady(id, cachePath);
-        }
+        const QString thumbnailPath = DccWallpaperThumbnail::generate(videoPath);
+        if (guard && !thumbnailPath.isEmpty())
+            Q_EMIT guard->videoThumbnailReady(id, thumbnailPath);
     });
 }
 

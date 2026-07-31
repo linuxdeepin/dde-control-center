@@ -3,6 +3,7 @@
 import QtQuick 2.15
 import QtQuick.Controls 2.15
 import org.deepin.dtk 1.0
+import org.deepin.dcc 1.0
 
 Label {
     id: control
@@ -10,12 +11,23 @@ Label {
 
     elide: Text.ElideRight
     font: DTK.fontManager.t6
-    ToolTip {
-        visible: control.width < control.implicitWidth && control.hovered
-        text: control.text
-        delay: 500
-        timeout: 3000
-        implicitWidth: Math.min(control.implicitWidth + 10, 400)
+    Loader {
+        active: control.width < control.implicitWidth && control.hovered
+        sourceComponent: Component {
+            ToolTip {
+                visible: true
+                text: control.text
+                delay: 500
+                timeout: 3000
+                implicitWidth: Math.min(control.implicitWidth + 10, 400)
+                Connections {
+                    target: DccApp
+                    function onActiveObjectChanged() {
+                        close()
+                    }
+                }
+            }
+        }
     }
     // 使用Attached方式退出时会崩溃
     // ToolTip.visible: width < implicitWidth && hovered

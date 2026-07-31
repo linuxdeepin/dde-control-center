@@ -34,6 +34,27 @@ DisplayModulePrivate::DisplayModulePrivate(DisplayModule *parent)
     qRegisterMetaType<QHash<Monitor *, QPair<int, int>>>("QHash<Monitor *, QPair<int, int>>");
     m_model = new DisplayModel(q_ptr);
     m_worker = new DisplayWorker(m_model, q_ptr);
+    m_scalePositionTimer = new QTimer(q_ptr);
+    m_scalePositionTimer->setSingleShot(true);
+    m_scalePositionTimer->setInterval(300);
+    q_ptr->connect(m_scalePositionTimer, &QTimer::timeout, q_ptr, [this]() {
+        if (m_model->displayMode() != EXTEND_MODE) {
+            m_pendingScalePosition.clear();
+            return;
+        }
+
+        const auto monitors = m_model->monitorList();
+        for (auto *monitor : m_pendingScalePosition.keys()) {
+            if (!monitors.contains(monitor) || !monitor->enable()) {
+                m_pendingScalePosition.clear();
+                return;
+            }
+        }
+
+        const auto monitorPosition = m_pendingScalePosition;
+        m_pendingScalePosition.clear();
+        m_worker->setMonitorPosition(monitorPosition);
+    });
     init();
 }
 
@@ -41,12 +62,20 @@ void DisplayModulePrivate::init()
 {
     m_worker->active();
     q_ptr->connect(m_model, &DisplayModel::monitorListChanged, [this]() {
+        if (WQt::Utils::isTreeland()) {
+            m_scalePositionTimer->stop();
+            m_pendingScalePosition.clear();
+        }
         updateMonitorList();
     });
     q_ptr->connect(m_model, &DisplayModel::primaryScreenChanged, q_ptr, [this]() {
         updatePrimary();
     });
     q_ptr->connect(m_model, &DisplayModel::displayModeChanged, q_ptr, [this]() {
+        if (WQt::Utils::isTreeland()) {
+            m_scalePositionTimer->stop();
+            m_pendingScalePosition.clear();
+        }
         updateVirtualScreens();
         updateDisplayMode();
     });
@@ -411,10 +440,14 @@ void DisplayModulePrivate::updateScale(DccScreen *item)
     auto monitorPosition = buildMonitorPosition(tmpListItems);
     m_worker->updateMonitorPosition(monitorPosition);
     qDeleteAll(tmpListItems);
-    // 设置过快会导致treeland崩溃
-    QTimer::singleShot(300, q_ptr, [this, monitorPosition] {
-        m_worker->setMonitorPosition(monitorPosition);
-    });
+    if (WQt::Utils::isTreeland()) {
+        m_pendingScalePosition = monitorPosition;
+        m_scalePositionTimer->start();
+    } else {
+        QTimer::singleShot(300, q_ptr, [this, monitorPosition] {
+            m_worker->setMonitorPosition(monitorPosition);
+        });
+    }
 }
 
 DisplayModule::DisplayModule(QObject *parent)

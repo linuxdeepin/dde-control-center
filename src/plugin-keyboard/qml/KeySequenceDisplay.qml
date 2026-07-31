@@ -23,7 +23,6 @@ Control {
     signal requestKeys
     signal requestEditKeys
     signal requestDeleteKeys
-
     background: Rectangle {
         implicitWidth: DS.Style.keySequenceEdit.width
         implicitHeight: DS.Style.keySequenceEdit.height

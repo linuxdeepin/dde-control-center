@@ -6,6 +6,8 @@ add_library(dcc-shared-utils OBJECT)
 set_target_properties(dcc-shared-utils PROPERTIES POSITION_INDEPENDENT_CODE ON)
 
 find_package(ICU COMPONENTS i18n uc)
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(FFMPEGTHUMBNAILER REQUIRED IMPORTED_TARGET libffmpegthumbnailer)
 
 set(DCC_SHARED_UTILS_SOURCES
     "dcclocale.h"
@@ -24,6 +26,20 @@ target_link_libraries(dcc-shared-utils PRIVATE
     ICU::i18n
     ICU::uc
     ${QT_NS}::Core
+)
+
+add_library(dcc-wallpaper-utils STATIC
+    wallpaperthumbnailutils.cpp
+)
+set_target_properties(dcc-wallpaper-utils PROPERTIES POSITION_INDEPENDENT_CODE ON)
+target_include_directories(dcc-wallpaper-utils PUBLIC
+    ${CMAKE_CURRENT_SOURCE_DIR}
+)
+target_link_libraries(dcc-wallpaper-utils
+    PUBLIC
+        ${QT_NS}::Core
+    PRIVATE
+        PkgConfig::FFMPEGTHUMBNAILER
 )
 
 # Treeland input manager (wraps treeland_input_manager_v1 Wayland protocol)

@@ -2274,6 +2274,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>KeyboardWorker</name>
+    <message>
+        <source>The shortcut service is unavailable. Please try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -3378,6 +3389,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>click Add to make this shortcut key effective</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Replace</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>click Replace to make this shortcut key effective</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>Shortcuts</name>
@@ -3427,6 +3454,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a new shortcut key</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4353,6 +4388,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::KeyboardController</name>
     <message>
         <source>This shortcut conflicts with [%1]</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The shortcut no longer exists.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Please confirm the shortcut conflict again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>dccV25::KeyboardWorker</name>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

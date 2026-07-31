@@ -6,8 +6,36 @@
 #include "mouseworker.h"
 #include "mousedbusproxy.h"
 #include <QFile>
+#include <QHash>
 
 using namespace DCC_NAMESPACE;
+
+namespace {
+
+QString gestureActionIconName(const QString &actionId)
+{
+    static const QHash<QString, QString> iconNames = {
+        {QStringLiteral("11"), QStringLiteral("MaximizeWindow")},
+        {QStringLiteral("12"), QStringLiteral("RestoreWindow")},
+        {QStringLiteral("100"), QStringLiteral("SplitWindowLeft")},
+        {QStringLiteral("101"), QStringLiteral("SplitWindowRight")},
+        {QStringLiteral("16"), QStringLiteral("ShowMultiTask")},
+        {QStringLiteral("17"), QStringLiteral("HideMultitask")},
+        {QStringLiteral("18"), QStringLiteral("ShowMultiTask")},
+        {QStringLiteral("8"), QStringLiteral("SwitchToPreDesktop")},
+        {QStringLiteral("9"), QStringLiteral("SwitchToNextDesktop")},
+        {QStringLiteral("10"), QStringLiteral("ShowDesktop")},
+        {QStringLiteral("102"), QStringLiteral("HideDesktop")},
+        {QStringLiteral("103"), QStringLiteral("ToggleGrandSearch")},
+        {QStringLiteral("104"), QStringLiteral("ToggleLaunchPad")},
+        {QStringLiteral("105"), QStringLiteral("ToggleClipboard")},
+        {QStringLiteral("106"), QStringLiteral("ToggleNotifications")}
+    };
+    return iconNames.value(actionId);
+}
+
+}
+
 MouseModel::MouseModel(QObject *parent)
     : QObject(parent)
     , m_leftHandState(false)
@@ -296,17 +324,18 @@ void MouseModel::updateGesturesData(const GestureData &gestureData)
         return;
     }
 
-    if (gestureModel->containsGestures(gestureData.direction(), gestureData.fingersNum())) {
+    if (gestureModel->containsGesture(gestureData.gestureId())) {
         gestureModel->updateGestureData(gestureData);
     } else {
         GestureData *data = new GestureData(this);
         data->setActionType(gestureData.actionType());
         data->setGestureId(gestureData.gestureId());
+        data->setDisplayName(gestureData.displayName());
         data->setDirection(gestureData.direction());
         data->setActionName(gestureData.actionName());
         data->setFingersNum(gestureData.fingersNum());
         data->setSequence(gestureData.sequence());
-        data->setActionMaps(gestureData.actionMaps());
+        data->setActions(gestureData.actions());
         gestureModel->addGestureData(data);
     }
 }
@@ -339,11 +368,7 @@ void MouseModel::setGestures(int fingerNum, int index, QString actionName)
             return;
 
         updateFigerAniPath(actionName, data);
-        const QString gestureName = data->gestureId().isEmpty() ? data->actionType() : data->gestureId();
-        Q_EMIT m_worker->requestSetGesture(gestureName,
-                                           data->direction(),
-                                           data->fingersNum(),
-                                           actionName);
+        Q_EMIT m_worker->requestSetGesture(data->gestureId(), actionName);
     }
 }
 
@@ -425,7 +450,11 @@ void MouseModel::updateFigerAniPath(QString actionName, GestureData *data)
                                     .arg(themeColor)
                                     .arg(fingerNum)
                                     .arg(gestureDirection));
-    setGestureActionAniPath(QString("qrc:/icons/deepin/builtin/icons/%1/%2.webp").arg(themeColor).arg(actionName));
+    const QString actionIconName = gestureActionIconName(actionName);
+    setGestureActionAniPath(actionIconName.isEmpty()
+                    ? QString()
+                    : QString("qrc:/icons/deepin/builtin/icons/%1/%2.webp")
+                              .arg(themeColor, actionIconName));
 }
 
 void MouseModel::updateFigerAniPath(const Dtk::Gui::DGuiApplicationHelper::ColorType &newThemeType)

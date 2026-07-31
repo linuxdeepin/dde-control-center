@@ -156,7 +156,6 @@ D.DialogWindow {
             ComboBox {
                 id: userType
                 implicitHeight: 30
-                padding: 0
                 Layout.alignment: Qt.AlignVCenter
                 Layout.fillWidth: true
                 model: dccData.userTypes(true)

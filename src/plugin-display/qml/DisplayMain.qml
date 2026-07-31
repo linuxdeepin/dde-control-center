@@ -485,23 +485,23 @@ DccObject {
                     anchors.fill: parent
                     anchors.leftMargin: 14
                     anchors.rightMargin: 14
+                    spacing: 0
 
                     D.Label {
                         text: dccObj.displayName
-                        Layout.rightMargin: 4
+                        Layout.rightMargin: 6
+                        Layout.bottomMargin: 1
                     }
-                    D.Button {
+                    D.ActionButton {
                         id: helpBtn
-                        flat: true
                         implicitWidth: 16
                         implicitHeight: 16
                         icon {
-                            name: "help"
+                            name: "dcc_help"
                             width: 16
                             height: 16
                         }
                         hoverEnabled: false
-                        background: Item {}
                         ToolTip {
                             x: 0
                             implicitWidth: 400

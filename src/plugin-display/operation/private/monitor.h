@@ -28,6 +28,14 @@ public:
         Rotate
     };
 
+    enum Rotation : quint16 {
+        RotationNormal = 1,
+        Rotation90 = 2,
+        Rotation180 = 4,
+        Rotation270 = 8,
+    };
+    Q_ENUM(Rotation)
+
 public:
     explicit Monitor(QObject *parent = 0);
 

@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef GESTUREMODEL_H
@@ -23,7 +23,7 @@ public:
     explicit GestureModel(QObject *parent = nullptr);
     ~GestureModel() override;
 
-    bool containsGestures(QString direction, int fingersNum);
+    bool containsGesture(const QString &gestureId) const;
     void updateGestureData(const GestureData &data);
 
     // Basic functionality:
@@ -31,7 +31,6 @@ public:
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
 
-    QString getGesturesDec(GestureData *data) const;
     QString getGesturesIconPath(GestureData *data) const;
     QVariantList getGestureActionNames(GestureData *data) const;
     int getGestureActionIndex(GestureData *data) const;
@@ -44,8 +43,6 @@ public:
 
     void addGestureData(GestureData *data);
     void removeGestureData(GestureData *data);
-    void updateGestureData(GestureData *data);
-
     GestureData *getGestureData(int index) const;
 
     QHash<int, QByteArray> roleNames() const override

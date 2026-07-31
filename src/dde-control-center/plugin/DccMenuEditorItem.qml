@@ -15,7 +15,7 @@ DccEditorItem {
     bottomPadding: bottomInset
     activeFocusOnTab: false
     rightItem: RowLayout {
-        spacing: 10
+        spacing: 8
         DccLoader {
             active: !editor
             dccObj: model.item
