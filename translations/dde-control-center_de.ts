@@ -1690,7 +1690,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>Die Funktion ist zur Zeit nicht verfügbar, bitte aktivieren Sie zuerst Ihr System</translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
@@ -1945,7 +1945,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch und Taskleiste</translation>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
@@ -2008,7 +2008,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>Angezeigt lassen</translation>
     </message>
     <message>
         <source>Keep hidden</source>
