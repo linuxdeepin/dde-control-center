@@ -3131,7 +3131,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation type="unfinished"/>
+        <translation>dde-Kontrollzentrum</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
@@ -3139,47 +3139,47 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"/>
+        <translation>Die Einstellungen des Tastbildschirms wurden geändert</translation>
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation type="unfinished"/>
+        <translation>Das System-Hintergrundbild ist gesperrt. Admin fragen.</translation>
     </message>
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
+        <translation>%1 (%2)</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Suche</translation>
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"/>
+        <translation>Standardformate</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>Erster Tag der Woche</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Kurzes Datum</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Langform-Datum</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Kurze Zeitform</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Lange Zeitform</translation>
     </message>
     <message>
         <source>Currency symbol</source>
