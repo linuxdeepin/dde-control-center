@@ -1949,7 +1949,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch-Organisation, Tasskbar-Modus, PlugIn-Bereich-Einstellungen</translation>
     </message>
 </context>
 <context>
@@ -4075,7 +4075,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Bewegtbild-Hintergrund</translation>
     </message>
     <message>
         <source>1 hour</source>
