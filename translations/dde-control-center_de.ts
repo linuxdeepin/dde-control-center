@@ -2720,34 +2720,34 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Passwörter stimmen nicht überein</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Der Hinweis ist für alle Benutzer sichtbar. Geben Sie hier nicht das Passwort ein.</translation>
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Neues Passwort</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"/>
+        <translation>Neues Passwort sollte sich vom aktuellen unterscheiden</translation>
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Das Passwort muss sich vom Benutzernamen unterscheiden</translation>
     </message>
 </context>
 <context>
     <name>PasswordModifyDialog</name>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort ändern</translation>
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort zurücksetzen</translation>
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
