@@ -4043,15 +4043,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>30 second</source>
-        <translation>30 second</translation>
+        <translation>30 Sekunden</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1 Minute</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation>5 Minuten</translation>
     </message>
     <message>
         <source>10 minute</source>
@@ -4071,7 +4071,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>wake up</source>
-        <translation type="unfinished"/>
+        <translation>Aufwachen</translation>
     </message>
     <message>
         <source>Live Wallpaper</source>
