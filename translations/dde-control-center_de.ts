@@ -3594,7 +3594,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>Die Lautstärke ist über 100% ist, das kann den Ton verzerren und für Ausgabegeräte schädlich sein</translation>
     </message>
     <message>
         <source>Left</source>
@@ -3606,15 +3606,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Ausgabe</translation>
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Kein Ausgabegerät für Ton gefunden</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>Links-Rechts-Balance</translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
