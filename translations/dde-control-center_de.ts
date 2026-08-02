@@ -2246,29 +2246,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation>Einige Fenstereffekte begrenzen für ausgezeichnete Optik bei gleichzeitig flüssiger Systemleistung</translation>
+        <translation>Einige Fenstereffekte begrenzen für ausgezeichnete Optik bei gleichzeitig flüssiger Systemleistung.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation>Alle Oberflächen- und Fenstereffekte für das beste visuelle Erlebnis aktivieren</translation>
+        <translation>Alle Oberflächen- und Fenstereffekte für das beste visuelle Erlebnis aktivieren.</translation>
     </message>
 </context>
 <context>
     <name>Keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Tastatur</translation>
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Allgemeine Einstellungen, Eingabemethode, Tastenkürzel</translation>
     </message>
 </context>
 <context>
     <name>KeyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Allgemein</translation>
     </message>
 </context>
 <context>
