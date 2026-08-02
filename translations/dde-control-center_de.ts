@@ -3768,26 +3768,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>system time zone</source>
-        <translation type="unfinished"/>
+        <translation>Systemzeitzone</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"/>
+        <translation>Zeitzonenliste</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Hinzufügen</translation>
     </message>
 </context>
 <context>
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>Von</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>bis</translation>
     </message>
 </context>
 <context>
@@ -3813,7 +3813,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation>Zeitzone hinzufügen</translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
