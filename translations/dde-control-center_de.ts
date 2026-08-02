@@ -2302,15 +2302,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"/>
+        <translation>hinzufügen</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation type="unfinished"/>
+        <translation>Region</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"/>
+        <translation>Bereich</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
