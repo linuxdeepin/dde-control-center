@@ -4379,7 +4379,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Entsperren Sie das Gerät mit Ihrem Gesicht und nehmen Sie  Einstellungen später vor</translation>
     </message>
 </context>
 <context>
@@ -4390,11 +4390,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>Das Kürzel gibt es nicht länger</translation>
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>Der Konflikt der Tastenkürzel ist gelöst</translation>
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
