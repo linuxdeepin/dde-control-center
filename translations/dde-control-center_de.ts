@@ -3630,7 +3630,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"/>
+        <translation>Auto-Pause</translation>
     </message>
     <message>
         <source>Output Device</source>
@@ -3641,15 +3641,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SyncInfoListModel</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Ton</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Energie</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Maus</translation>
     </message>
     <message>
         <source>Update</source>
