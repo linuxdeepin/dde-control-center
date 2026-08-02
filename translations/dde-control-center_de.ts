@@ -3512,11 +3512,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Audio-Gerät aktivieren/deaktivieren</translation>
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation>Geräteverwaltung</translation>
     </message>
 </context>
 <context>
