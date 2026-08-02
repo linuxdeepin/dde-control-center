@@ -3690,11 +3690,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Anmerkungen zu Open Source Software ansehen</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Benutzererfahrungsprogramm</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
@@ -3702,19 +3702,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Endbenutzer-Lizenzvertrag</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Endbenutzer-Lizenzvertrag einsehen</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Datenschutzerklärung</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Datenschutzerklärung einsehen</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
