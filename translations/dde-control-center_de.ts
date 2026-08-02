@@ -2957,11 +2957,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation type="unfinished"/>
+        <translation>Hochleistung</translation>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"/>
+        <translation>Ausgeglichene Leistung</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
