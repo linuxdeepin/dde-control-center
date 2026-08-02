@@ -1510,7 +1510,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Die Funktion ist zur Zeit nicht verfügbar, bitte aktivieren Sie zuerst Ihr System</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
@@ -4460,7 +4460,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>Es erfüllt nicht die Passwortregeln</translation>
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
