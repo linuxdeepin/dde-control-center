@@ -3675,18 +3675,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Zusatzinfo</translation>
     </message>
 </context>
 <context>
     <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Über diesen PC</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Systemversion, Geräteinformationen</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
