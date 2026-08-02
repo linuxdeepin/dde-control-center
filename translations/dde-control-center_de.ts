@@ -2751,7 +2751,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation>Passwort sollte mindestens 8 Zeichen lang sein, und eine Mischung aus zumindest 3 der folgenden Typen sein: Großbuchstaben, Kleinbuchstaben, Zahlen, Sonderzeichen. Das erhöht die Passwort-Sicherheit.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
