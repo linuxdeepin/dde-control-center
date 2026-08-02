@@ -2406,7 +2406,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>No input device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Kein Eingabegerät für Ton gefunden</translation>
     </message>
     <message>
         <source>Input Device</source>
@@ -2421,26 +2421,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Allgemein, Maus, Touchpad</translation>
     </message>
 </context>
 <context>
     <name>MouseDBusProxy</name>
     <message>
         <source>Maximize window</source>
-        <translation type="unfinished"/>
+        <translation>Fenster maximieren</translation>
     </message>
     <message>
         <source>Restore window</source>
-        <translation type="unfinished"/>
+        <translation>Fenster wiederherstellen</translation>
     </message>
     <message>
         <source>Show desktop</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch zeigen</translation>
     </message>
     <message>
         <source>Lock screen</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirm sperren</translation>
     </message>
     <message>
         <source>Multitasking view</source>
