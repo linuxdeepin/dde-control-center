@@ -2880,15 +2880,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Einstellungen für Energie und Energiesparpläne, Aufwachen und Abschalten</translation>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Angeschlossen</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirm und Bereitschaftszustand</translation>
     </message>
     <message>
         <source>On Battery</source>
