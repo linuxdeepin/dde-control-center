@@ -3365,11 +3365,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
-        <translation type="unfinished"/>
+        <translation>Der Tastenkürzelname wird schon verwendet. Bitte anderen wählen.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Eigenes Tastenkürzel ändern</translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
