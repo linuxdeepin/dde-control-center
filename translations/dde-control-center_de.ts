@@ -3373,7 +3373,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation>Bitte eine Tastenkombination eigeben</translation>
+        <translation>Bitte eine Tastenkombination eingeben</translation>
     </message>
     <message>
         <source>Save</source>
@@ -3471,14 +3471,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Ausgabe, Eingabe, Klangeffekte, Geräte</translation>
     </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"/>
+        <translation>Ausgabegeräte</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
