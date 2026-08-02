@@ -2642,7 +2642,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Erlaube Benachrichtigungen</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
