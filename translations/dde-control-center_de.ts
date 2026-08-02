@@ -4094,15 +4094,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Set lock screen</source>
-        <translation type="unfinished"/>
+        <translation>Sperrbildschirm einstellen</translation>
     </message>
     <message>
         <source>Set desktop</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch einrichten</translation>
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>Zeige alle %1</translation>
     </message>
     <message>
         <source>Add Picture</source>
