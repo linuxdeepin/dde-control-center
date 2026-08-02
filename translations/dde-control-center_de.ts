@@ -2755,11 +2755,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Durch das Zurücksetzen des Passworts werden die im Schlüsselbund gespeicherten Daten gelöscht.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
 </context>
 <context>
@@ -2773,7 +2773,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PersonalizationInterface</name>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation>Farbpipetten-Dienst ist nicht verfügbar</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
