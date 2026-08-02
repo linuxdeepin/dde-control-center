@@ -2444,53 +2444,53 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>Multitasking-Ansicht</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"/>
+        <translation>Deaktivieren</translation>
     </message>
     <message>
         <source>Switch to previous workspace</source>
-        <translation type="unfinished"/>
+        <translation>Zur vorherigen Arbeitsfläche wechseln</translation>
     </message>
     <message>
         <source>Switch to next workspace</source>
-        <translation type="unfinished"/>
+        <translation>Zur nächsten Arbeitfläche wechseln</translation>
     </message>
     <message>
         <source>Hide multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>Verstecke Multitasking-Ansicht</translation>
     </message>
     <message>
         <source>Toggle multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>Multitasking-Ansicht umschalten</translation>
     </message>
 </context>
 <context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Maus</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Touchpad</translation>
     </message>
 </context>
 <context>
     <name>MousePage</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Maus</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Zeigergeschwindigkeit</translation>
     </message>
     <message>
         <source>Slow</source>
