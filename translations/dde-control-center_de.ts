@@ -2981,33 +2981,33 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation>Ausgeglichene Leistung und Akkulebensdauer an Nutzungsprofil anpassen</translation>
+        <translation>Ausgeglichene Leistung und Akkulaufzeit an Nutzungsprofil anpassen</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Akkulaufzeit verlängern, also Energie sparen, was jedoch das Gerät verlangsamen kann.</translation>
     </message>
 </context>
 <context>
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation type="unfinished"/>
+        <translation>Minuten</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation type="unfinished"/>
+        <translation>Stunde</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"/>
+        <translation>Nie</translation>
     </message>
 </context>
 <context>
     <name>Privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Datenschutz und Sicherheit</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
