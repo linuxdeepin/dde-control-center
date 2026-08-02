@@ -4079,18 +4079,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 Stunde</translation>
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Systemhintergrundbilder</translation>
     </message>
 </context>
 <context>
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"/>
+        <translation>vorzeigen</translation>
     </message>
     <message>
         <source>Set lock screen</source>
@@ -4405,7 +4405,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::KeyboardWorker</name>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>Der Konflikt der Tastenkürzel ist gelöst</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -4495,7 +4495,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished"/>
+        <translation>App</translation>
     </message>
 </context>
 </TS>
