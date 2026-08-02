@@ -2352,27 +2352,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation>Passwort, WeChat, Biometrische Authentifizierung, Sicherheitsschlüssel</translation>
+        <translation>Passwort, WeChat, Biometrische Authentifizierung, Sicherheits-Schlüssel</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort</translation>
     </message>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort ändern</translation>
     </message>
     <message>
         <source>Validity days</source>
-        <translation type="unfinished"/>
+        <translation>Gültigkeitstage</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation type="unfinished"/>
+        <translation>Immer</translation>
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort zurücksetzen</translation>
     </message>
 </context>
 <context>
@@ -2402,7 +2402,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Eingabe</translation>
     </message>
     <message>
         <source>No input device for sound found</source>
