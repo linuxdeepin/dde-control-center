@@ -3817,30 +3817,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation>Zeitzone basierend auf den aktuellen Standort einstellen</translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>Zeitzone:</translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation>Näheste Stadt: </translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Speichern</translation>
     </message>
 </context>
 <context>
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation type="unfinished"/>
+        <translation>TouchScreen</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
