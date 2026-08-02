@@ -2230,27 +2230,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation type="unfinished"/>
+        <translation>Optimale Leistung</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation type="unfinished"/>
+        <translation>Ausgeglichen</translation>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation type="unfinished"/>
+        <translation>Beste Optik</translation>
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Alle Oberflächen- und Fenstereffekte für effiziente Systemleistung deaktivieren.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Einige Fenstereffekte begrenzen für ausgezeichnete Optik bei gleichzeitig flüssiger Systemleistung</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Alle Oberflächen- und Fenstereffekte für das beste visuelle Erlebnis aktivieren</translation>
     </message>
 </context>
 <context>
