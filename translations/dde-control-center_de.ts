@@ -4149,61 +4149,61 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation type="unfinished"/>
+        <translation>Zauberlampe</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Deckkraft</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"/>
+        <translation>Niedrig</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"/>
+        <translation>Hoch</translation>
     </message>
     <message>
         <source>Scroll Bars</source>
-        <translation type="unfinished"/>
+        <translation>Bildlaufleisten</translation>
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Beim Scrollen anzeigen</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>Angezeigt lassen</translation>
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>Kompakte Anzeige</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert, wird mehr Inhalt im Fenster angezeigt.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation type="unfinished"/>
+        <translation>Titelleistenhöhe</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation type="unfinished"/>
+        <translation>Nur geeignet für Titelleisten von Anwendungsfenstern, die vom Fenstermanager gezeichnet werden.</translation>
     </message>
     <message>
         <source>Extremely small</source>
-        <translation type="unfinished"/>
+        <translation>Sehr klein</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
+        <translation>Mittel</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
+        <translation>Mittel</translation>
     </message>
 </context>
 <context>
