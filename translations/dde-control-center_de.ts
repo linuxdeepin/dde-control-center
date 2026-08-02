@@ -3744,27 +3744,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>Anpassen</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>Server address</source>
-        <translation type="unfinished"/>
+        <translation>Serveradresse</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Erforderlich</translation>
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>ntp-Server-adresse konnte nicht gefunden werden</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
+        <translation>24-Stunden-Uhr benutzen</translation>
     </message>
     <message>
         <source>system time zone</source>
