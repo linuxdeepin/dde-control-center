@@ -4218,7 +4218,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>Min Nan Chinese</translation>
     </message>
 </context>
 <context>
@@ -4232,70 +4232,70 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Benutzername muss zwischen 3 und 32 Zeichen lang sein</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>Das erste Zeichen muss ein Buchstabe oder eine Zahl sein</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Ihr Benutzername sollte nicht nur aus Zahlen bestehen</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Der Benutzername wurde bereits von anderen Benutzerkonten verwendet</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Der Name ist zu lang</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Der vollständige Name wurde bereits von anderen Benutzerkonten verwendet</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Falsches Passwort</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>Standard-Benutzer</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrator</translation>
     </message>
     <message>
         <source>Customized</source>
-        <translation type="unfinished"/>
+        <translation>Angepasst</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Ihr System hat den Domänen-Server erfolgreich verlassen.</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Ihr System ist dem Domänen-Server erfolgreich beigetreten</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Ihr System konnte den Domänen-Server nicht verlassen</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Ihr System konnte dem Domänen-Server nicht beitreten</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>AD-Domänen-Einstellungen</translation>
     </message>
     <message>
         <source>Password not match</source>
-        <translation type="unfinished"/>
+        <translation>Passwort stimmt nicht überein.</translation>
     </message>
 </context>
 <context>
