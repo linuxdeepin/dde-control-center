@@ -2607,38 +2607,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation type="unfinished"/>
+        <translation>Nicht-stören-Modus, App-Benachrichtigungen</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Benachrichtigung</translation>
     </message>
 </context>
 <context>
     <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nicht-Stören-Einstellungen</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>App-Benachrichtigungen werden nicht auf dem Desktop angezeigt und Töne werden stummgeschaltet, aber Sie können alle Nachrichten im Benachrichtigungszentrum ansehen.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Nicht-stören aktivieren</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Wenn der Bildschirm gesperrt ist</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Anzahl der auf dem Desktop angezeigten Benachrichtigungen</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>App-Benachrichtigungen</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
