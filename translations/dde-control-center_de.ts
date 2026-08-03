@@ -1344,11 +1344,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>Verknüpfung mit lokalem Konto</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"/>
+        <translation>Nach dem Verknüpfen mit dem lokalen Konto können Sie folgende Funktionen verwenden:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
