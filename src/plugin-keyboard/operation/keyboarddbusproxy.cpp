@@ -263,7 +263,11 @@ int KeyboardDBusProxy::numLockState() const
 
 void KeyboardDBusProxy::setNumLockState(int value)
 {
-    SetNumLockState(value != 0);
+    // The dde-services Keybinding1 API exposes SetNumLockState with an
+    // unsigned DBus argument (signature "u"). Keep the device-proxy API as
+    // int for the Wayland implementation, but use the service's exact type at
+    // the X11 DBus boundary.
+    SetNumLockState(value != 0 ? 1U : 0U);
 }
 
 uint KeyboardDBusProxy::shortcutSwitchLayout()
@@ -474,7 +478,7 @@ QDBusPendingReply<QString> KeyboardDBusProxy::GetShortcutCommand(const QString &
     return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("GetShortcutCommand"), argumentList);
 }
 
-void KeyboardDBusProxy::SetNumLockState(int in0)
+void KeyboardDBusProxy::SetNumLockState(uint in0)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(in0);
