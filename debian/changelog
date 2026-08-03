@@ -1,3 +1,26 @@
+dde-control-center (6.1.102) unstable; urgency=medium
+
+  * fix(authentication): set fixed height and vertical center alignment
+    for biometric name display
+  * fix(datetime): scroll to highlighted item on popup reopen
+  * refactor: resolve boot page image source empty path issue
+  * fix: refactor account group list to simplify focus and event
+    handling
+  * chore: replace help icon with dcc style icon
+  * fix(personalization): apply greeter background in global theme
+  * fix: show the complete NTP server list
+  * i18n: Updates for project Deepin Desktop Environment (#3355)
+  * fix: limit custom shortcut names to 128 characters
+  * fix: use uint for NumLock DBus calls
+  * i18n: Updates for project Deepin Desktop Environment (#3377)
+  * fix: clarify custom shortcut conflict guidance
+  * fix: synchronize NumLock state from DBus
+  * fix(datetime): strip timezone tokens via DCCLocale helper across
+    locales
+  * fix: align custom shortcut conflict actions
+
+ -- zhangkun <zhangkun2@uniontech.com>  Mon, 03 Aug 2026 17:24:52 +0800
+
 dde-control-center (6.1.101) unstable; urgency=medium
 
   * fix(wallpaper): show video previews
