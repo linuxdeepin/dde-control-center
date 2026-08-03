@@ -570,7 +570,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"/>
+        <translation>Klicken Sie auf das Menü um die Standard-Startobjekte zu ändern, oder bewegen Sie das Bild auf das Fenster, um es Hintergrundbild einzurichten.</translation>
     </message>
     <message>
         <source>grub start delay</source>
