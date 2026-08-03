@@ -2267,28 +2267,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>KeyboardWorker</name>
-    <message>
-        <source>The shortcut service is unavailable. Please try again.</source>
-        <translation>快捷键服务不可用，请重试。</translation>
-    </message>
-    <message>
-        <source>Failed to save the shortcut. Please try again.</source>
-        <translation>保存快捷键失败，请重试。</translation>
-    </message>
-</context>
-<context>
-    <name>dccV25::KeyboardWorker</name>
-    <message>
-        <source>The shortcut conflict is no longer current.</source>
-        <translation>快捷键冲突状态已失效。</translation>
-    </message>
-    <message>
-        <source>Failed to save the shortcut. Please try again.</source>
-        <translation>保存快捷键失败，请重试。</translation>
-    </message>
-</context>
-<context>
     <name>Keyboard</name>
     <message>
         <source>Keyboard</source>
@@ -2310,11 +2288,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>KeyboardWorker</name>
     <message>
         <source>The shortcut service is unavailable. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>快捷键服务不可用，请重试。</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>保存快捷键失败，请重试。</translation>
     </message>
 </context>
 <context>
@@ -3478,14 +3456,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>替换</translation>
     </message>
     <message>
-        <source>Failed to start shortcut capture. Please try again.</source>
-        <translation>启动快捷键录入失败，请重试。</translation>
-    </message>
-    <message>
-        <source>Failed to save the shortcut. Please try again.</source>
-        <translation>保存快捷键失败，请重试。</translation>
-    </message>
-    <message>
         <source>Restore default</source>
         <translation>恢复默认</translation>
     </message>
@@ -3499,11 +3469,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>启动快捷键录入失败，请重试。</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>保存快捷键失败，请重试。</translation>
     </message>
 </context>
 <context>
@@ -4448,11 +4418,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::KeyboardWorker</name>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>快捷键冲突状态已失效。</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>保存快捷键失败，请重试。</translation>
     </message>
 </context>
 <context>
