@@ -30,6 +30,8 @@ D.DialogWindow {
     property string saveAccels: ""
     property var saveKeys: [qsTr("None")]
     property bool nameExists: false
+    property bool nameLengthExceeded: false
+    property string lastAcceptedName: ""
     property var captureRestoreKeys: [qsTr("None")]
     property string captureRestoreAccels: ""
     property bool captureRestoreValid: false
@@ -84,16 +86,33 @@ D.DialogWindow {
             Layout.rightMargin: 20
             Layout.preferredWidth: parent.width
             font: D.DTK.fontManager.t6
+            maximumLength: 129
             placeholderText: qsTr("Required")
-            showAlert: ddialog.nameExists
-            alertText: qsTr("The shortcut name is already in use. Choose a different name.")
+            showAlert: ddialog.nameLengthExceeded || ddialog.nameExists
+            alertText: ddialog.nameLengthExceeded
+                       ? qsTr("The name cannot exceed 128 characters.")
+                       : qsTr("The shortcut name is already in use. Choose a different name.")
             onTextChanged: {
+                if (text.length > 128) {
+                    text = ddialog.lastAcceptedName.length === 128
+                           ? ddialog.lastAcceptedName
+                           : text.substr(0, 128)
+                    ddialog.nameLengthExceeded = true
+                    nameLengthAlertTimer.restart()
+                }
+                ddialog.lastAcceptedName = text
                 // 检查名称是否已存在（包括系统和自定义快捷键）
                 if (text.trim().length > 0) {
                     ddialog.nameExists = dccData.isShortcutNameExists(text.trim(), ddialog.keyId);
                 } else {
                     ddialog.nameExists = false;
                 }
+            }
+            Timer {
+                id: nameLengthAlertTimer
+                interval: 2000
+                repeat: false
+                onTriggered: ddialog.nameLengthExceeded = false
             }
         }
 
