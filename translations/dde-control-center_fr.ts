@@ -3386,6 +3386,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <translation>Le nom du raccourci est déjà utilisé. Choisissez un autre nom.</translation>
     </message>
     <message>
+        <source>The name cannot exceed 128 characters.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Change custom shortcut</source>
         <translation>Modifier un raccourci personnalisé</translation>
     </message>

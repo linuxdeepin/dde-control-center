@@ -3377,6 +3377,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Nimi on jo käytössä. Valitse toinen nimi.</translation>
     </message>
     <message>
+        <source>The name cannot exceed 128 characters.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Change custom shortcut</source>
         <translation>Vaihda pikanäppäintä</translation>
     </message>

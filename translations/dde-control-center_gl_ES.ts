@@ -3397,6 +3397,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>The name cannot exceed 128 characters.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Change custom shortcut</source>
         <translation type="unfinished"/>
     </message>

@@ -3386,6 +3386,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>El nombre del acceso directo ya está en uso. Elija un nombre diferente.</translation>
     </message>
     <message>
+        <source>The name cannot exceed 128 characters.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Change custom shortcut</source>
         <translation>Modificar el acceso directo personalizado</translation>
     </message>

@@ -1510,7 +1510,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>Die Funktion ist zur Zeit nicht verfügbar, bitte aktivieren Sie zuerst Ihr System</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
@@ -1690,7 +1690,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>Die Funktion ist zur Zeit nicht verfügbar, bitte aktivieren Sie zuerst Ihr System</translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
@@ -1826,7 +1826,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Display And Layout</source>
-        <translation type="unfinished"/>
+        <translation>Anzeige und Aufteilung</translation>
     </message>
     <message>
         <source>Brightness</source>
@@ -1930,11 +1930,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Auto-Helligkeit</translation>
     </message>
     <message>
         <source>Concat Screen</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirm anhängen</translation>
     </message>
     <message>
         <source>Drag the display layout first to form a rectangle. If a rectangular layout is not possible, set all displays to the same resolution first.</source>
@@ -1945,372 +1945,372 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch und Taskleiste</translation>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch-Organisation, Tasskbar-Modus, PlugIn-Bereich-Einstellungen</translation>
     </message>
 </context>
 <context>
     <name>DockMain</name>
     <message>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>Dock</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modus</translation>
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation type="unfinished"/>
+        <translation>Klassischer Modus</translation>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation type="unfinished"/>
+        <translation>Zentrierter Modus</translation>
     </message>
     <message>
         <source>Dock size</source>
-        <translation type="unfinished"/>
+        <translation>Dockgröße</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Klein</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Groß</translation>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation type="unfinished"/>
+        <translation>Position auf dem Bildschirm</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"/>
+        <translation>Oben</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"/>
+        <translation>Unten</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>Links</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>Rechts</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished"/>
+        <translation>Status</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>Angezeigt lassen</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation type="unfinished"/>
+        <translation>Ausgeblendet lassen</translation>
     </message>
     <message>
         <source>Smart hide</source>
-        <translation type="unfinished"/>
+        <translation>Intelligentes Ausblenden</translation>
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation type="unfinished"/>
+        <translation>Mehrere Bildschirme</translation>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
-        <translation type="unfinished"/>
+        <translation>Festlegen der Position der Taskleiste auf dem Bildschirm</translation>
     </message>
     <message>
         <source>Only on main</source>
-        <translation type="unfinished"/>
+        <translation>Nur auf dem Hauptbildschirm</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
-        <translation type="unfinished"/>
+        <translation>Auf dem Bildschirm, wo sich der Zeiger befindet</translation>
     </message>
     <message>
         <source>Plugin Area</source>
-        <translation type="unfinished"/>
+        <translation>Pluginbereich</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Wählen Sie aus, welche Symbole im Dock erscheinen sollen</translation>
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation type="unfinished"/>
+        <translation>Dock sperren</translation>
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation type="unfinished"/>
+        <translation>Fasse Programm-Symbole zusammen</translation>
     </message>
 </context>
 <context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
-        <translation type="unfinished"/>
+        <translation>Folgenden Anwendungen den Zugriff auf diese Dateien und Ordner erlauben:</translation>
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"/>
+        <translation>Dokumente</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished"/>
+        <translation>Bilder</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation type="unfinished"/>
+        <translation>Videos</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Musik</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>Downloads</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation type="unfinished"/>
+        <translation>Ordner</translation>
     </message>
 </context>
 <context>
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Größe</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>Standardschriftart</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Schriftart mit fester Breite</translation>
     </message>
 </context>
 <context>
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation type="unfinished"/>
+        <translation>Energiepläne</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>Energiespareinstellungen</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"/>
+        <translation>Automatisches Energiesparen bei niedriger Akkuladung</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Schwellenwert für niedrigen Akkustand</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>Im Akkubetrieb automatisch Energie sparen</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Aufwach-Einstellungen</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>Zum Aufwecken des Computers ist ein Passwort erforderlich</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Zum Freischalten des Monitors wird ein Passwort benötigt</translation>
     </message>
     <message>
         <source>Shutdown Settings</source>
-        <translation type="unfinished"/>
+        <translation>Einstellungen beim Herunterfahren</translation>
     </message>
     <message>
         <source>Scheduled Shutdown</source>
-        <translation type="unfinished"/>
+        <translation>Planmäßiges Herunterfahren</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Zeit</translation>
     </message>
     <message>
         <source>Repeat</source>
-        <translation type="unfinished"/>
+        <translation>Wiederholen</translation>
     </message>
     <message>
         <source>Once</source>
-        <translation type="unfinished"/>
+        <translation>Einmal</translation>
     </message>
     <message>
         <source>Every day</source>
-        <translation type="unfinished"/>
+        <translation>Jeden Tag</translation>
     </message>
     <message>
         <source>Working days</source>
-        <translation type="unfinished"/>
+        <translation>Arbeitstage</translation>
     </message>
     <message>
         <source>Custom Time</source>
-        <translation type="unfinished"/>
+        <translation>Benutzerdefinierte Zeit</translation>
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirmhelligkeit beim Energiesparen verringern</translation>
     </message>
 </context>
 <context>
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Drei-Finger nach oben</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Drei-Finger nach unten</translation>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Drei-Finger nach links</translation>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Drei-Finger nach rechts</translation>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Drei-Finger-Tipp</translation>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Vier-Finger nach oben</translation>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Vier-Finger nach unten</translation>
     </message>
     <message>
         <source>Four-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Vier-Finger nach links</translation>
     </message>
     <message>
         <source>Four-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Vier-Finger nach rechts</translation>
     </message>
     <message>
         <source>Four-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Vier-Finger-Tipp</translation>
     </message>
 </context>
 <context>
     <name>HomePage</name>
     <message>
         <source>,</source>
-        <translation type="unfinished"/>
+        <translation>,</translation>
     </message>
     <message>
         <source>...</source>
-        <translation type="unfinished"/>
+        <translation>...</translation>
     </message>
 </context>
 <context>
     <name>InterfaceEffectListview</name>
     <message>
         <source>Optimal Performance</source>
-        <translation type="unfinished"/>
+        <translation>Optimale Leistung</translation>
     </message>
     <message>
         <source>Balance</source>
-        <translation type="unfinished"/>
+        <translation>Ausgeglichen</translation>
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation type="unfinished"/>
+        <translation>Beste Optik</translation>
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Alle Oberflächen- und Fenstereffekte für effiziente Systemleistung deaktivieren.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Einige Fenstereffekte begrenzen für ausgezeichnete Optik bei gleichzeitig flüssiger Systemleistung.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Alle Oberflächen- und Fenstereffekte für das beste visuelle Erlebnis aktivieren.</translation>
     </message>
 </context>
 <context>
     <name>Keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Tastatur</translation>
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Allgemeine Einstellungen, Eingabemethode, Tastenkürzel</translation>
     </message>
 </context>
 <context>
     <name>KeyboardMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Allgemein</translation>
     </message>
 </context>
 <context>
     <name>KeyboardWorker</name>
     <message>
         <source>The shortcut service is unavailable. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Der Tastenkürzel-Dienst ist nicht erreichbar, bitte nochmals probieren.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Tastenkürzel konnte nicht gespeichert werden, bitte erneut probieren.</translation>
     </message>
 </context>
 <context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
-        <translation type="unfinished"/>
+        <translation>Sprache</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>fertig</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>bearbeiten</translation>
     </message>
     <message>
         <source>Other languages</source>
-        <translation type="unfinished"/>
+        <translation>Andere Sprachen</translation>
     </message>
     <message>
         <source>add</source>
-        <translation type="unfinished"/>
+        <translation>hinzufügen</translation>
     </message>
     <message>
         <source>Region</source>
-        <translation type="unfinished"/>
+        <translation>Region</translation>
     </message>
     <message>
         <source>Area</source>
-        <translation type="unfinished"/>
+        <translation>Bereich</translation>
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
@@ -2322,26 +2322,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Regionalformat</translation>
     </message>
 </context>
 <context>
     <name>LangsChooserDialog</name>
     <message>
         <source>Add language</source>
-        <translation type="unfinished"/>
+        <translation>Sprache hinzufügen</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Suche</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Hinzufügen</translation>
     </message>
 </context>
 <context>
@@ -2352,27 +2352,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Password, wechat, biometric authentication, security key</source>
-        <translation type="unfinished"/>
+        <translation>Passwort, WeChat, Biometrische Authentifizierung, Sicherheits-Schlüssel</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort</translation>
     </message>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort ändern</translation>
     </message>
     <message>
         <source>Validity days</source>
-        <translation type="unfinished"/>
+        <translation>Gültigkeitstage</translation>
     </message>
     <message>
         <source>Always</source>
-        <translation type="unfinished"/>
+        <translation>Immer</translation>
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort zurücksetzen</translation>
     </message>
 </context>
 <context>
@@ -2402,11 +2402,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input</source>
-        <translation type="unfinished"/>
+        <translation>Eingabe</translation>
     </message>
     <message>
         <source>No input device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Kein Eingabegerät für Ton gefunden</translation>
     </message>
     <message>
         <source>Input Device</source>
@@ -2421,345 +2421,345 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Allgemein, Maus, Touchpad</translation>
     </message>
 </context>
 <context>
     <name>MouseDBusProxy</name>
     <message>
         <source>Maximize window</source>
-        <translation type="unfinished"/>
+        <translation>Fenster maximieren</translation>
     </message>
     <message>
         <source>Restore window</source>
-        <translation type="unfinished"/>
+        <translation>Fenster wiederherstellen</translation>
     </message>
     <message>
         <source>Show desktop</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch zeigen</translation>
     </message>
     <message>
         <source>Lock screen</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirm sperren</translation>
     </message>
     <message>
         <source>Multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>Multitasking-Ansicht</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"/>
+        <translation>Deaktivieren</translation>
     </message>
     <message>
         <source>Switch to previous workspace</source>
-        <translation type="unfinished"/>
+        <translation>Zur vorherigen Arbeitsfläche wechseln</translation>
     </message>
     <message>
         <source>Switch to next workspace</source>
-        <translation type="unfinished"/>
+        <translation>Zur nächsten Arbeitfläche wechseln</translation>
     </message>
     <message>
         <source>Hide multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>Verstecke Multitasking-Ansicht</translation>
     </message>
     <message>
         <source>Toggle multitasking view</source>
-        <translation type="unfinished"/>
+        <translation>Multitasking-Ansicht umschalten</translation>
     </message>
 </context>
 <context>
     <name>MouseMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Maus</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Touchpad</translation>
     </message>
 </context>
 <context>
     <name>MousePage</name>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Maus</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Zeigergeschwindigkeit</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Langsam</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Schnell</translation>
     </message>
     <message>
         <source>Pointer Size</source>
-        <translation type="unfinished"/>
+        <translation>Zeigergröße</translation>
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation type="unfinished"/>
+        <translation>Mausbeschleunigung</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation type="unfinished"/>
+        <translation>Tastfeld deaktivieren, wenn eine Maus angeschlossen ist</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Natürlicher Bildlauf</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Klein</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Mittel</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Groß</translation>
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation type="unfinished"/>
+        <translation>Manche Programme benötigen für die Änderungen ein Ausloggen oder System-Neustart</translation>
     </message>
 </context>
 <context>
     <name>MyDevice</name>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"/>
+        <translation>Meine Geräte</translation>
     </message>
 </context>
 <context>
     <name>NativeInfoPage</name>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
     <message>
         <source>Computer name</source>
-        <translation type="unfinished"/>
+        <translation>Computername</translation>
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"/>
+        <translation>Er darf nicht mit Bindestrichen beginnen oder enden</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>Name des Betriebssystems</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Version</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>Ausgabe</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Typ</translation>
     </message>
     <message>
         <source>bit</source>
-        <translation type="unfinished"/>
+        <translation>bit</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>Autorisierung</translation>
     </message>
     <message>
         <source>System installation time</source>
-        <translation type="unfinished"/>
+        <translation>Zeitpunkt der Systeminstallation</translation>
     </message>
     <message>
         <source>Kernel</source>
-        <translation type="unfinished"/>
+        <translation>Kernel</translation>
     </message>
     <message>
         <source>Graphics Platform</source>
-        <translation type="unfinished"/>
+        <translation>Grafikplattform</translation>
     </message>
     <message>
         <source>Processor</source>
-        <translation type="unfinished"/>
+        <translation>Prozessor</translation>
     </message>
     <message>
         <source>Memory</source>
-        <translation type="unfinished"/>
+        <translation>Speicher</translation>
     </message>
     <message>
         <source>1~63 characters please</source>
-        <translation type="unfinished"/>
+        <translation>Bitte 1~63 Zeichen</translation>
     </message>
 </context>
 <context>
     <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation type="unfinished"/>
+        <translation>Nicht-stören-Modus, App-Benachrichtigungen</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Benachrichtigung</translation>
     </message>
 </context>
 <context>
     <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"/>
+        <translation>Nicht-Stören-Einstellungen</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>App-Benachrichtigungen werden nicht auf dem Desktop angezeigt und Töne werden stummgeschaltet, aber Sie können alle Nachrichten im Benachrichtigungszentrum ansehen.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Nicht-stören aktivieren</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Wenn der Bildschirm gesperrt ist</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation type="unfinished"/>
+        <translation>Anzahl der auf dem Desktop angezeigten Benachrichtigungen</translation>
     </message>
     <message>
         <source>App Notifications</source>
-        <translation type="unfinished"/>
+        <translation>App-Benachrichtigungen</translation>
     </message>
     <message>
         <source>Allow Notifications</source>
-        <translation type="unfinished"/>
+        <translation>Erlaube Benachrichtigungen</translation>
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Benachrichtigungen auf dem Desktop anzeigen oder ungelesene im Benachrichtigungszentrum</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirm sperren</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Benachrichtigungszentrum</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Nachrichtenvorschau anzeigen</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Benachrichtigungston</translation>
     </message>
 </context>
 <context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Andere Geräte</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth-Geräte ohne Namen anzeigen</translation>
     </message>
 </context>
 <context>
     <name>PasswordLayout</name>
     <message>
         <source>Current password</source>
-        <translation type="unfinished"/>
+        <translation>Aktuelles Passwort</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Erforderlich</translation>
     </message>
     <message>
         <source>Weak</source>
-        <translation type="unfinished"/>
+        <translation>Schwach</translation>
     </message>
     <message>
         <source>Medium</source>
-        <translation type="unfinished"/>
+        <translation>Mittel</translation>
     </message>
     <message>
         <source>Strong</source>
-        <translation type="unfinished"/>
+        <translation>Stark</translation>
     </message>
     <message>
         <source>Repeat Password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort wiederholen</translation>
     </message>
     <message>
         <source>Password hint</source>
-        <translation type="unfinished"/>
+        <translation>Passworthinweis</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Optional</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Passwort darf nicht leer sein</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>Passwörter stimmen nicht überein</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>Der Hinweis ist für alle Benutzer sichtbar. Geben Sie hier nicht das Passwort ein.</translation>
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Neues Passwort</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"/>
+        <translation>Neues Passwort sollte sich vom aktuellen unterscheiden</translation>
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Das Passwort muss sich vom Benutzernamen unterscheiden</translation>
     </message>
 </context>
 <context>
     <name>PasswordModifyDialog</name>
     <message>
         <source>Modify password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort ändern</translation>
     </message>
     <message>
         <source>Reset password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort zurücksetzen</translation>
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation>Passwort sollte mindestens 8 Zeichen lang sein, und eine Mischung aus zumindest 3 der folgenden Typen sein: Großbuchstaben, Kleinbuchstaben, Zahlen, Sonderzeichen. Das erhöht die Passwort-Sicherheit.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Durch das Zurücksetzen des Passworts werden die im Schlüsselbund gespeicherten Daten gelöscht.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
 </context>
 <context>
@@ -2773,62 +2773,62 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PersonalizationInterface</name>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation>Farbpipetten-Dienst ist nicht verfügbar</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation type="unfinished"/>
+        <translation>Ungültiges Farbformat: %1</translation>
     </message>
 </context>
 <context>
     <name>PersonalizationMain</name>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"/>
+        <translation>Design-Thema</translation>
     </message>
     <message>
         <source>Appearance</source>
-        <translation type="unfinished"/>
+        <translation>Aussehen</translation>
     </message>
     <message>
         <source>Window effect</source>
-        <translation type="unfinished"/>
+        <translation>Fenstereffekt</translation>
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Hintergrundbild und Bildschirmschoner aussuchen</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirmschoner</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation type="unfinished"/>
+        <translation>Farben und Symbole</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Farbakzente und Symbolthema anpassen</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Schrift und Schriftgröße</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Ändere Schrift und -größe</translation>
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Hintergrundbild</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Hell, Dunkel und Automatik-Aussehen auswählen</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Oberfläche und Effekte, abgerundete Ecken</translation>
     </message>
 </context>
 <context>
@@ -2839,22 +2839,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Hell</translation>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"/>
+        <translation>Automatisch</translation>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"/>
+        <translation>Dunkel</translation>
     </message>
 </context>
 <context>
     <name>PluginArea</name>
     <message>
         <source>Plugin Area</source>
-        <translation type="unfinished"/>
+        <translation>Pluginbereich</translation>
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
@@ -2865,183 +2865,183 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Energiepläne, Bildschirm und Abschalten</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Energie</translation>
     </message>
 </context>
 <context>
     <name>PowerMain</name>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Allgemein</translation>
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation type="unfinished"/>
+        <translation>Einstellungen für Energie und Energiesparpläne, Aufwachen und Abschalten</translation>
     </message>
     <message>
         <source>Plugged In</source>
-        <translation type="unfinished"/>
+        <translation>Angeschlossen</translation>
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirm und Bereitschaftszustand</translation>
     </message>
     <message>
         <source>On Battery</source>
-        <translation type="unfinished"/>
+        <translation>Im Akkubetrieb</translation>
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirm, Bereitschaft, Niedriger Akkustand, Akkuverwaltung</translation>
     </message>
 </context>
 <context>
     <name>PowerOperatorModel</name>
     <message>
         <source>Shut down</source>
-        <translation type="unfinished"/>
+        <translation>Herunterfahren</translation>
     </message>
     <message>
         <source>Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Bereitschaftszustand</translation>
     </message>
     <message>
         <source>Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>Tiefschlafzustand</translation>
     </message>
     <message>
         <source>Turn off the monitor</source>
-        <translation type="unfinished"/>
+        <translation>Monitor ausschalten</translation>
     </message>
     <message>
         <source>Show the shutdown Interface</source>
-        <translation type="unfinished"/>
+        <translation>Herunterfahrenoberfläche anzeigen</translation>
     </message>
     <message>
         <source>Do nothing</source>
-        <translation type="unfinished"/>
+        <translation>Nichts machen</translation>
     </message>
 </context>
 <context>
     <name>PowerPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirm und Bereitschaftszustand</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Monitor ausschalten nach</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirm sperren nach</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>Bereitschaftszustand des Computers nach</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>Wenn der Deckel geschlossen ist</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Wenn der Netzschalter gedrückt wird</translation>
     </message>
 </context>
 <context>
     <name>PowerPlansListview</name>
     <message>
         <source>High Performance</source>
-        <translation type="unfinished"/>
+        <translation>Hochleistung</translation>
     </message>
     <message>
         <source>Balance Performance</source>
-        <translation type="unfinished"/>
+        <translation>Ausgeglichene Leistung</translation>
     </message>
     <message>
         <source>Aggressively adjust CPU operating frequency based on CPU load condition</source>
-        <translation type="unfinished"/>
+        <translation>CPU-Taktfrequenz stark an CPU-Last ausrichen</translation>
     </message>
     <message>
         <source>Balanced</source>
-        <translation type="unfinished"/>
+        <translation>Ausgeglichen</translation>
     </message>
     <message>
         <source>Power Saver</source>
-        <translation type="unfinished"/>
+        <translation>Energiesparen</translation>
     </message>
     <message>
         <source>Prioritize performance, which will significantly increase power consumption and heat generation</source>
-        <translation type="unfinished"/>
+        <translation>Hohe Leistung bevorzugen, was Energieverbrauch und Wärmeentwicklung verstärkt</translation>
     </message>
     <message>
         <source>Balancing performance and battery life, automatically adjusted according to usage</source>
-        <translation type="unfinished"/>
+        <translation>Ausgeglichene Leistung und Akkulaufzeit an Nutzungsprofil anpassen</translation>
     </message>
     <message>
         <source>Prioritize battery life, which the system will sacrifice some performance to reduce power consumption</source>
-        <translation type="unfinished"/>
+        <translation>Akkulaufzeit verlängern, also Energie sparen, was jedoch das Gerät verlangsamen kann.</translation>
     </message>
 </context>
 <context>
     <name>PowerWorker</name>
     <message>
         <source>Minutes</source>
-        <translation type="unfinished"/>
+        <translation>Minuten</translation>
     </message>
     <message>
         <source>Hour</source>
-        <translation type="unfinished"/>
+        <translation>Stunde</translation>
     </message>
     <message>
         <source>Never</source>
-        <translation type="unfinished"/>
+        <translation>Nie</translation>
     </message>
 </context>
 <context>
     <name>Privacy</name>
     <message>
         <source>Privacy and Security</source>
-        <translation type="unfinished"/>
+        <translation>Datenschutz und Sicherheit</translation>
     </message>
     <message>
         <source>Camera, folder permissions</source>
-        <translation type="unfinished"/>
+        <translation>Kamera, Verzeichnisberechtigungen</translation>
     </message>
 </context>
 <context>
     <name>PrivacyMain</name>
     <message>
         <source>Camera</source>
-        <translation type="unfinished"/>
+        <translation>Kamera</translation>
     </message>
     <message>
         <source>Choose whether the application has access to the camera</source>
-        <translation type="unfinished"/>
+        <translation>Wählen Sie, ob das Programm Zugang zur Kamera bekommt</translation>
     </message>
     <message>
         <source>Files and Folders</source>
-        <translation type="unfinished"/>
+        <translation>Dateien und Ordner</translation>
     </message>
     <message>
         <source>Choose whether the application has access to files and folders</source>
-        <translation type="unfinished"/>
+        <translation>Wählen Sie, ob das Programm Zugang zur Dateien und Ordnern bekommt</translation>
     </message>
 </context>
 <context>
     <name>PrivacyPolicyPage</name>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Datenschutzerklärung</translation>
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Link-Adresse kopieren</translation>
     </message>
 </context>
 <context>
@@ -3131,7 +3131,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>dde-control-center</source>
-        <translation type="unfinished"/>
+        <translation>dde-Kontrollzentrum</translation>
     </message>
     <message>
         <source>Touch Screen Settings</source>
@@ -3139,245 +3139,249 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The settings of touch screen changed</source>
-        <translation type="unfinished"/>
+        <translation>Die Einstellungen des Tastbildschirms wurden geändert</translation>
     </message>
     <message>
         <source>This system wallpaper is locked. Please contact your admin.</source>
-        <translation type="unfinished"/>
+        <translation>Das System-Hintergrundbild ist gesperrt. Admin fragen.</translation>
     </message>
     <message>
         <source>%1 (%2)</source>
         <comment>Language and region name, e.g. Chinese (China)</comment>
-        <translation type="unfinished"/>
+        <translation>%1 (%2)</translation>
     </message>
 </context>
 <context>
     <name>RegionFormatDialog</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Suche</translation>
     </message>
     <message>
         <source>Default formats</source>
-        <translation type="unfinished"/>
+        <translation>Standardformate</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>Erster Tag der Woche</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Kurzes Datum</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Langform-Datum</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Kurze Zeitform</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Lange Zeitform</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Währungssymbol</translation>
     </message>
     <message>
         <source>Digit</source>
-        <translation type="unfinished"/>
+        <translation>Ziffer</translation>
     </message>
     <message>
         <source>Paper size</source>
-        <translation type="unfinished"/>
+        <translation>Papiergröße</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Regionalformat</translation>
     </message>
 </context>
 <context>
     <name>RegionsChooserWindow</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Suche</translation>
     </message>
 </context>
 <context>
     <name>RegisterDialog</name>
     <message>
         <source>Set a Password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort festlegen</translation>
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64 Zeichen</translation>
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation type="unfinished"/>
+        <translation>Passwort wiederholen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Bestätigen</translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
-        <translation type="unfinished"/>
+        <translation>Passwörter stimmen nicht überein</translation>
     </message>
 </context>
 <context>
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"/>
+        <translation>Wiederholungsrate einstellen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Speichern</translation>
     </message>
 </context>
 <context>
     <name>ScreenSaverPage</name>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirmschoner</translation>
     </message>
     <message>
         <source>preview</source>
-        <translation type="unfinished"/>
+        <translation>Vorschau</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Eigener Bildschirmschoner</translation>
     </message>
     <message>
         <source>setting</source>
-        <translation type="unfinished"/>
+        <translation>Einstellung</translation>
     </message>
     <message>
         <source>idle time</source>
-        <translation type="unfinished"/>
+        <translation>Wach-Zeit</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1 Minute</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation>5 Minuten</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"/>
+        <translation>10 Minuten</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"/>
+        <translation>15 Minuten</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"/>
+        <translation>30 Minuten</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 Stunde</translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>nie</translation>
     </message>
     <message>
         <source>Password required for recovery</source>
-        <translation type="unfinished"/>
+        <translation>Passwort für Wiederherstellung erforderlich</translation>
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Diashow-Bildschirmschoner</translation>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation type="unfinished"/>
+        <translation>System-Bildschirmschoner</translation>
     </message>
 </context>
 <context>
     <name>SearchableListViewPopup</name>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Suche</translation>
     </message>
     <message>
         <source>No search results</source>
-        <translation type="unfinished"/>
+        <translation>Keine Suchergebnisse</translation>
     </message>
 </context>
 <context>
     <name>ShortcutSettingDialog</name>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Eigenes Tastenkürzel hinzufügen</translation>
     </message>
     <message>
         <source>Name:</source>
-        <translation type="unfinished"/>
+        <translation>Name:</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Erforderlich</translation>
     </message>
     <message>
         <source>Command:</source>
-        <translation type="unfinished"/>
+        <translation>Befehl:</translation>
     </message>
     <message>
         <source>Shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Tastenkürzel</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Keine</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Hinzufügen</translation>
     </message>
     <message>
         <source>The shortcut name is already in use. Choose a different name.</source>
+        <translation>Der Tastenkürzelname wird schon verwendet. Bitte anderen wählen.</translation>
+    </message>
+    <message>
+        <source>The name cannot exceed 128 characters.</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>Change custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Eigenes Tastenkürzel ändern</translation>
     </message>
     <message>
         <source>please enter a shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Bitte eine Tastenkombination eingeben</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Speichern</translation>
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
@@ -3389,7 +3393,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Ersetzen</translation>
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
@@ -3401,58 +3405,58 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Tastenkürzel konnte nicht gespeichert werden, bitte erneut probieren.</translation>
     </message>
 </context>
 <context>
     <name>Shortcuts</name>
     <message>
         <source>Shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Tastenkürzel</translation>
     </message>
     <message>
         <source>System shortcut, custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Eigene und System-Tastenkürzel</translation>
     </message>
     <message>
         <source>Search shortcuts</source>
-        <translation type="unfinished"/>
+        <translation>Suche Tastenkürzel</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>fertig</translation>
     </message>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>ändern</translation>
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"/>
+        <translation>Klick</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>oder</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Ersetzen</translation>
     </message>
     <message>
         <source>Restore default</source>
-        <translation type="unfinished"/>
+        <translation>Standardeinstellung wiederherstellen</translation>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Eigenes Tastenkürzel hinzufügen</translation>
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>Bitte eine andere Tastenkombination eingeben</translation>
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
@@ -3460,7 +3464,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Tastenkürzel konnte nicht gespeichert werden, bitte erneut probieren.</translation>
     </message>
 </context>
 <context>
@@ -3471,22 +3475,22 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Ausgabe, Eingabe, Klangeffekte, Geräte</translation>
     </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"/>
+        <translation>Ausgabegeräte</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation type="unfinished"/>
+        <translation>Wählen Sie ob die Geräte zugeschaltet werden</translation>
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"/>
+        <translation>Eingabegeräte</translation>
     </message>
 </context>
 <context>
@@ -3500,23 +3504,23 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundMain</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Toneffekte</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Toneffekte aktivieren</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Audio-Gerät aktivieren/deaktivieren</translation>
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation>Geräteverwaltung</translation>
     </message>
 </context>
 <context>
@@ -3594,7 +3598,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>Die Lautstärke ist über 100% ist, das kann den Ton verzerren und für Ausgabegeräte schädlich sein</translation>
     </message>
     <message>
         <source>Left</source>
@@ -3606,31 +3610,31 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Ausgabe</translation>
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Kein Ausgabegerät für Ton gefunden</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>Links-Rechts-Balance</translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"/>
+        <translation>Linken und rechten Kanal zu einem Monokanal mischen</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
-        <translation type="unfinished"/>
+        <translation>Ob Audio angehalten wird, wenn das aktuelle Gerät abgesteckt wird</translation>
     </message>
     <message>
         <source>Mono Audio</source>
-        <translation type="unfinished"/>
+        <translation>Mono</translation>
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation type="unfinished"/>
+        <translation>Auto-Pause</translation>
     </message>
     <message>
         <source>Output Device</source>
@@ -3641,60 +3645,60 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SyncInfoListModel</name>
     <message>
         <source>Sound</source>
-        <translation type="unfinished"/>
+        <translation>Ton</translation>
     </message>
     <message>
         <source>Power</source>
-        <translation type="unfinished"/>
+        <translation>Energie</translation>
     </message>
     <message>
         <source>Mouse</source>
-        <translation type="unfinished"/>
+        <translation>Maus</translation>
     </message>
     <message>
         <source>Update</source>
-        <translation type="unfinished"/>
+        <translation>Aktualisierung</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Bildschirmschoner</translation>
     </message>
 </context>
 <context>
     <name>System</name>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Allgemeine Einstellungen</translation>
     </message>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>System</translation>
     </message>
 </context>
 <context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
-        <translation type="unfinished"/>
+        <translation>Zusatzinfo</translation>
     </message>
 </context>
 <context>
     <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Über diesen PC</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Systemversion, Geräteinformationen</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Anmerkungen zu Open Source Software ansehen</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Benutzererfahrungsprogramm</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
@@ -3702,92 +3706,92 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Endbenutzer-Lizenzvertrag</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Endbenutzer-Lizenzvertrag einsehen</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Datenschutzerklärung</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Datenschutzerklärung einsehen</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Hinweis zu Open-Source-Software</translation>
     </message>
 </context>
 <context>
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Weitere Hintergrundbilder</translation>
     </message>
 </context>
 <context>
     <name>TimeAndDate</name>
     <message>
         <source>Auto sync time</source>
-        <translation type="unfinished"/>
+        <translation>Automatische Synchronisierungszeit</translation>
     </message>
     <message>
         <source>Ntp server</source>
-        <translation type="unfinished"/>
+        <translation>Ntp server</translation>
     </message>
     <message>
         <source>System date and time</source>
-        <translation type="unfinished"/>
+        <translation>Systemdatum und -zeit</translation>
     </message>
     <message>
         <source>Customize</source>
-        <translation type="unfinished"/>
+        <translation>Anpassen</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Einstellungen</translation>
     </message>
     <message>
         <source>Server address</source>
-        <translation type="unfinished"/>
+        <translation>Serveradresse</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Erforderlich</translation>
     </message>
     <message>
         <source>The ntp server address cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>ntp-Server-adresse konnte nicht gefunden werden</translation>
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
+        <translation>24-Stunden-Uhr benutzen</translation>
     </message>
     <message>
         <source>system time zone</source>
-        <translation type="unfinished"/>
+        <translation>Systemzeitzone</translation>
     </message>
     <message>
         <source>Timezone list</source>
-        <translation type="unfinished"/>
+        <translation>Zeitzonenliste</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Hinzufügen</translation>
     </message>
 </context>
 <context>
     <name>TimeRange</name>
     <message>
         <source>from</source>
-        <translation type="unfinished"/>
+        <translation>Von</translation>
     </message>
     <message>
         <source>to</source>
-        <translation type="unfinished"/>
+        <translation>bis</translation>
     </message>
 </context>
 <context>
@@ -3813,34 +3817,34 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation type="unfinished"/>
+        <translation>Zeitzone hinzufügen</translation>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation type="unfinished"/>
+        <translation>Zeitzone basierend auf den aktuellen Standort einstellen</translation>
     </message>
     <message>
         <source>Time zone:</source>
-        <translation type="unfinished"/>
+        <translation>Zeitzone:</translation>
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation type="unfinished"/>
+        <translation>Näheste Stadt: </translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Speichern</translation>
     </message>
 </context>
 <context>
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation type="unfinished"/>
+        <translation>TouchScreen</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
@@ -3851,98 +3855,98 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Touchpad</name>
     <message>
         <source>Basic Settings</source>
-        <translation type="unfinished"/>
+        <translation>Grundeinstellungen</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Touchpad</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Zeigergeschwindigkeit</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Langsam</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Schnell</translation>
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"/>
+        <translation>Tochpad während Eingabe deaktivieren</translation>
     </message>
     <message>
         <source>Tap to Click</source>
-        <translation type="unfinished"/>
+        <translation>Zum Klicken antippen</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Natürlicher Bildlauf</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Drei-Finger-Gesten</translation>
     </message>
     <message>
         <source>Four-finger gestures</source>
-        <translation type="unfinished"/>
+        <translation>Vier-Finger-Gesten</translation>
     </message>
     <message>
         <source>Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Wischgesten</translation>
     </message>
 </context>
 <context>
     <name>Touchscreen</name>
     <message>
         <source>Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Touchscreen</translation>
     </message>
     <message>
         <source>Configuring Touchscreen</source>
-        <translation type="unfinished"/>
+        <translation>Touchscreen einstellen</translation>
     </message>
 </context>
 <context>
     <name>TouchscreenMain</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Allgemein</translation>
     </message>
 </context>
 <context>
     <name>UeProgramLicenseDialog</name>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Zustimmen und am Benutzererfahrungsprogramm teilnehmen</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Bestätigen</translation>
     </message>
 </context>
 <context>
     <name>UserExperienceProgramPage</name>
     <message>
         <source>Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Am Benutzererfahrungsprogramm teilnehmen</translation>
     </message>
     <message>
         <source>Copy Link Address</source>
-        <translation type="unfinished"/>
+        <translation>Link-Adresse kopieren</translation>
     </message>
 </context>
 <context>
     <name>VerifyDialog</name>
     <message>
         <source>Security Verification</source>
-        <translation type="unfinished"/>
+        <translation>Sicherheitsüberprüfung</translation>
     </message>
     <message>
         <source>The action is sensitive, please enter the login password first</source>
@@ -3950,120 +3954,120 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64 Zeichen</translation>
     </message>
     <message>
         <source>Forgot Password?</source>
-        <translation type="unfinished"/>
+        <translation>Passwort vergessen?</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Abbrechen</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Bestätigen</translation>
     </message>
 </context>
 <context>
     <name>Wacom</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation type="unfinished"/>
+        <translation>Konfiguriere Wacom</translation>
     </message>
 </context>
 <context>
     <name>WacomMain</name>
     <message>
         <source>wacom</source>
-        <translation type="unfinished"/>
+        <translation>Wacom</translation>
     </message>
     <message>
         <source>Pen Mode</source>
-        <translation type="unfinished"/>
+        <translation>Stiftmodus</translation>
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mausmodus</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
-        <translation type="unfinished"/>
+        <translation>Druckempfindlichkeit</translation>
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished"/>
+        <translation>Leicht</translation>
     </message>
     <message>
         <source>Heavy</source>
-        <translation type="unfinished"/>
+        <translation>Stark</translation>
     </message>
     <message>
         <source>Model</source>
-        <translation type="unfinished"/>
+        <translation>Modell</translation>
     </message>
 </context>
 <context>
     <name>WallpaperPage</name>
     <message>
         <source>wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Hintergrundbild</translation>
     </message>
     <message>
         <source>My pictures</source>
-        <translation type="unfinished"/>
+        <translation>Meine Bilder</translation>
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Systemhintergrundbild</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Einfarbigen Hintergrund</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Selbsterstellbare Hintergrundbilder</translation>
     </message>
     <message>
         <source>fill style</source>
-        <translation type="unfinished"/>
+        <translation>Füllstil</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation type="unfinished"/>
+        <translation>Automatischer Hintergrundwechsel</translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>nie</translation>
     </message>
     <message>
         <source>30 second</source>
-        <translation type="unfinished"/>
+        <translation>30 Sekunden</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1 Minute</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation>5 Minuten</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"/>
+        <translation>10 Minuten</translation>
     </message>
     <message>
         <source>15 minute</source>
-        <translation type="unfinished"/>
+        <translation>15 Minuten</translation>
     </message>
     <message>
         <source>30 minute</source>
-        <translation type="unfinished"/>
+        <translation>30 Minuten</translation>
     </message>
     <message>
         <source>login</source>
@@ -4071,139 +4075,139 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>wake up</source>
-        <translation type="unfinished"/>
+        <translation>Aufwachen</translation>
     </message>
     <message>
         <source>Live Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Bewegtbild-Hintergrund</translation>
     </message>
     <message>
         <source>1 hour</source>
-        <translation type="unfinished"/>
+        <translation>1 Stunde</translation>
     </message>
     <message>
         <source>System Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Systemhintergrundbilder</translation>
     </message>
 </context>
 <context>
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation type="unfinished"/>
+        <translation>vorzeigen</translation>
     </message>
     <message>
         <source>Set lock screen</source>
-        <translation type="unfinished"/>
+        <translation>Sperrbildschirm einstellen</translation>
     </message>
     <message>
         <source>Set desktop</source>
-        <translation type="unfinished"/>
+        <translation>Schreibtisch einrichten</translation>
     </message>
     <message>
         <source>show all - %1 items</source>
-        <translation type="unfinished"/>
+        <translation>Zeige alle %1</translation>
     </message>
     <message>
         <source>Add Picture</source>
-        <translation type="unfinished"/>
+        <translation>Bild hinzufügen</translation>
     </message>
 </context>
 <context>
     <name>WindowEffectPage</name>
     <message>
         <source>Interface and Effects</source>
-        <translation type="unfinished"/>
+        <translation>Oberfläche und Effekte</translation>
     </message>
     <message>
         <source>Window Settings</source>
-        <translation type="unfinished"/>
+        <translation>Fenster-Einstellungen</translation>
     </message>
     <message>
         <source>Window rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Abgerundete Fensterecken</translation>
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"/>
+        <translation>Keine</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>gering</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>weit</translation>
     </message>
     <message>
         <source>Enable transparent effects when moving windows</source>
-        <translation type="unfinished"/>
+        <translation>Transparenzeffekte zeigen, wenn ein Fenster verschoben wird</translation>
     </message>
     <message>
         <source>Window Minimize Effect</source>
-        <translation type="unfinished"/>
+        <translation>Fenster-minimieren-Effekt</translation>
     </message>
     <message>
         <source>Scale</source>
-        <translation type="unfinished"/>
+        <translation>Verkleinern</translation>
     </message>
     <message>
         <source>Magic Lamp</source>
-        <translation type="unfinished"/>
+        <translation>Zauberlampe</translation>
     </message>
     <message>
         <source>Opacity</source>
-        <translation type="unfinished"/>
+        <translation>Deckkraft</translation>
     </message>
     <message>
         <source>Low</source>
-        <translation type="unfinished"/>
+        <translation>Niedrig</translation>
     </message>
     <message>
         <source>High</source>
-        <translation type="unfinished"/>
+        <translation>Hoch</translation>
     </message>
     <message>
         <source>Scroll Bars</source>
-        <translation type="unfinished"/>
+        <translation>Bildlaufleisten</translation>
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Beim Scrollen anzeigen</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>Angezeigt lassen</translation>
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>Kompakte Anzeige</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
-        <translation type="unfinished"/>
+        <translation>Wenn aktiviert, wird mehr Inhalt im Fenster angezeigt.</translation>
     </message>
     <message>
         <source>Title Bar Height</source>
-        <translation type="unfinished"/>
+        <translation>Titelleistenhöhe</translation>
     </message>
     <message>
         <source>Only suitable for application window title bars drawn by the window manager.</source>
-        <translation type="unfinished"/>
+        <translation>Nur geeignet für Titelleisten von Anwendungsfenstern, die vom Fenstermanager gezeichnet werden.</translation>
     </message>
     <message>
         <source>Extremely small</source>
-        <translation type="unfinished"/>
+        <translation>Sehr klein</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe size of window rounded corners</comment>
-        <translation type="unfinished"/>
+        <translation>Mittel</translation>
     </message>
     <message>
         <source>Medium</source>
         <comment>describe height of window title bar</comment>
-        <translation type="unfinished"/>
+        <translation>Mittel</translation>
     </message>
 </context>
 <context>
@@ -4218,7 +4222,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>Min Nan Chinese</translation>
     </message>
 </context>
 <context>
@@ -4232,154 +4236,154 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Benutzername muss zwischen 3 und 32 Zeichen lang sein</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>Das erste Zeichen muss ein Buchstabe oder eine Zahl sein</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Ihr Benutzername sollte nicht nur aus Zahlen bestehen</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Der Benutzername wurde bereits von anderen Benutzerkonten verwendet</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>Der Name ist zu lang</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>Der vollständige Name wurde bereits von anderen Benutzerkonten verwendet</translation>
     </message>
     <message>
         <source>Wrong password</source>
-        <translation type="unfinished"/>
+        <translation>Falsches Passwort</translation>
     </message>
     <message>
         <source>Standard User</source>
-        <translation type="unfinished"/>
+        <translation>Standard-Benutzer</translation>
     </message>
     <message>
         <source>Administrator</source>
-        <translation type="unfinished"/>
+        <translation>Administrator</translation>
     </message>
     <message>
         <source>Customized</source>
-        <translation type="unfinished"/>
+        <translation>Angepasst</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Ihr System hat den Domänen-Server erfolgreich verlassen.</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation type="unfinished"/>
+        <translation>Ihr System ist dem Domänen-Server erfolgreich beigetreten</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Ihr System konnte den Domänen-Server nicht verlassen</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>Ihr System konnte dem Domänen-Server nicht beitreten</translation>
     </message>
     <message>
         <source>AD domain settings</source>
-        <translation type="unfinished"/>
+        <translation>AD-Domänen-Einstellungen</translation>
     </message>
     <message>
         <source>Password not match</source>
-        <translation type="unfinished"/>
+        <translation>Passwort stimmt nicht überein.</translation>
     </message>
 </context>
 <context>
     <name>dccV25::AvatarTypesModel</name>
     <message>
         <source>Dimensional</source>
-        <translation type="unfinished"/>
+        <translation>Räumlich</translation>
     </message>
     <message>
         <source>Flat</source>
-        <translation type="unfinished"/>
+        <translation>Flach</translation>
     </message>
 </context>
 <context>
     <name>dccV25::FaceAuthController</name>
     <message>
         <source>Faceprint</source>
-        <translation type="unfinished"/>
+        <translation>Gesichtsabdruck</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Gesicht</translation>
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Entsperren Sie das Gerät mit Ihrem Gesicht und nehmen Sie später Einstellungen vor</translation>
     </message>
 </context>
 <context>
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Fingerabdruck</translation>
     </message>
     <message>
         <source>Place your finger</source>
-        <translation type="unfinished"/>
+        <translation>Legen Sie Ihren Finger auf</translation>
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation type="unfinished"/>
+        <translation>Legen Sie Ihren Finger fest auf den Sensor, bis Sie aufgefordert werden, ihn anzuheben</translation>
     </message>
     <message>
         <source>Lift your finger</source>
-        <translation type="unfinished"/>
+        <translation>Heben Sie Ihren Finger hoch</translation>
     </message>
     <message>
         <source>Lift your finger and place it on the sensor again</source>
-        <translation type="unfinished"/>
+        <translation>Heben Sie Ihren Finger hoch und legen Sie ihn erneut auf den Sensor</translation>
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation type="unfinished"/>
+        <translation>Heben Sie Ihren Finger hoch und machen Sie es noch einmal</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation type="unfinished"/>
+        <translation>Scan unterbrochen</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Scannen Sie die Ränder Ihres Fingerabdrucks</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Legen Sie den Rand Ihres Fingerabdrucks auf den Sensor</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Passen Sie die Position an, um die Ränder Ihres Fingerabdrucks zu scannen</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Fingerabdruck hinzugefügt</translation>
     </message>
 </context>
 <context>
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Iris</translation>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Entsperren Sie das Gerät mit Ihrem Gesicht und nehmen Sie  Einstellungen später vor</translation>
     </message>
 </context>
 <context>
@@ -4390,11 +4394,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>Das Kürzel gibt es nicht länger</translation>
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>Der Konflikt der Tastenkürzel ist gelöst</translation>
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
@@ -4405,62 +4409,62 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::KeyboardWorker</name>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>Der Konflikt der Tastenkürzel ist gelöst</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Tastenkürzel konnte nicht gespeichert werden, bitte erneut probieren.</translation>
     </message>
 </context>
 <context>
     <name>dccV25::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>Passwort darf nicht leer sein</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Passwort muss mindestens %1 Zeichen haben</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>Passwort darf nicht mehr als %1 Zeichen haben</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>Passwort darf nur englische Buchstaben (Groß- und Kleinschreibung beachten), Zahlen oder Sonderzeichen (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/) enthalten</translation>
     </message>
     <message>
         <source>No more than %1 palindrome characters please</source>
-        <translation type="unfinished"/>
+        <translation>Bitte nicht mehr als %1 Palindrom-Zeichen</translation>
     </message>
     <message>
         <source>No more than %1 monotonic characters please</source>
-        <translation type="unfinished"/>
+        <translation>Bitte nicht mehr als %1 monotone Zeichen</translation>
     </message>
     <message>
         <source>No more than %1 repeating characters please</source>
-        <translation type="unfinished"/>
+        <translation>Bitte nicht mehr als %1 sich wiederholende Zeichen</translation>
     </message>
     <message>
         <source>Password must contain uppercase letters, lowercase letters, numbers and symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
-        <translation type="unfinished"/>
+        <translation>Passwort muss Großbuchstaben, Kleinbuchstaben, Zahlen und Symbole enthalten (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</translation>
     </message>
     <message>
         <source>Password must not contain more than 4 palindrome characters</source>
-        <translation type="unfinished"/>
+        <translation>Passwort darf nicht mehr als 4 Palindromzeichen enthalten</translation>
     </message>
     <message>
         <source>Do not use common words and combinations as password</source>
-        <translation type="unfinished"/>
+        <translation>Verwenden Sie keine gebräuchlichen Wörter und Kombinationen als Passwort</translation>
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"/>
+        <translation>Bitte erstellen Sie ein sicheres Passwort</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>Es erfüllt nicht die Passwortregeln</translation>
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
@@ -4495,7 +4499,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished"/>
+        <translation>App</translation>
     </message>
 </context>
 </TS>

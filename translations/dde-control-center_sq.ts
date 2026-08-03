@@ -3384,6 +3384,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation>Emri i shkurtores është tashmë në përdorim. Zgjidhni një emër tjetër</translation>
     </message>
     <message>
+        <source>The name cannot exceed 128 characters.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Change custom shortcut</source>
         <translation>Ndryshoni shkurtore vetjake</translation>
     </message>
