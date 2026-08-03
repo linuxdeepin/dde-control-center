@@ -257,7 +257,7 @@ public slots:
                                                             const QString &expectedConflictId);
     QDBusPendingReply<bool> DeleteCustomShortcut(const QString &in0);
     QDBusPendingReply<QString> GetShortcutCommand(const QString &in0);
-    void SetNumLockState(int in0);
+    void SetNumLockState(uint in0);
     QDBusPendingReply<QString> GetShortcut(const QString &in0, int in1);
     QDBusPendingReply<QString> SearchShortcuts(const QString &in0);
     QDBusPendingReply<QString> Query(const QString &in0, int in1);
