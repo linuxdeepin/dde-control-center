@@ -258,7 +258,12 @@ QStringList KeyboardDBusProxy::locales()
 //Keybinding
 int KeyboardDBusProxy::numLockState() const
 {
-    return qvariant_cast<int>(m_dBusKeybingdingInter->property("NumLockState"));
+    return static_cast<int>(dbusNumLockState());
+}
+
+uint KeyboardDBusProxy::dbusNumLockState() const
+{
+    return qvariant_cast<uint>(m_dBusKeybingdingInter->property("NumLockState"));
 }
 
 void KeyboardDBusProxy::setNumLockState(int value)

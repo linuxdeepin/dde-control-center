@@ -90,7 +90,8 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
 #endif
     {
         m_inputDevCfg = DConfig::create("org.deepin.dde.daemon", "org.deepin.dde.daemon.inputdevices", QString(), this);
-        connect(m_keyboardDBusProxy, &KeyboardDBusProxy::NumLockStateChanged, m_model, &KeyboardModel::setNumLock);
+        connect(m_keyboardDBusProxy, &KeyboardDBusProxy::NumLockStateChanged,
+                m_model, [this](uint value) { m_model->setNumLock(value != 0); });
         connect(m_keyboardDBusProxy, &KeyboardDBusProxy::RepeatDelayChanged, this, &KeyboardWorker::setModelRepeatDelay);
         connect(m_keyboardDBusProxy, &KeyboardDBusProxy::RepeatIntervalChanged, this, &KeyboardWorker::setModelRepeatInterval);
         m_deviceProxy = m_keyboardDBusProxy;
