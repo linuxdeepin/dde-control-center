@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SOUNDWORKER_H
@@ -16,6 +16,7 @@
 #include <QTimer>
 #include <QSoundEffect>
 #include <QMediaDevices>
+#include <DNotifySender>
 
 class SoundWorker : public QObject
 {
@@ -31,6 +32,7 @@ public:
 
     Q_INVOKABLE void setSinkVolume(double volume);
     Q_INVOKABLE void setReduceNoise(bool value);
+    Q_INVOKABLE void setAiReduceNoise(bool value);
     Q_INVOKABLE void setPausePlayer(bool value);
     Q_INVOKABLE void setIncreaseVolume(bool value);
     Q_INVOKABLE void setSinkBalance(double balance);
@@ -62,6 +64,7 @@ public Q_SLOTS:
 private Q_SLOTS:
     void defaultSinkChanged(const QDBusObjectPath &path);
     void defaultSourceChanged(const QDBusObjectPath &path);
+    void aiReduceNoiseOrPathChanged();
     void cardsChanged(const QString &cards);
 
     void activeSinkPortChanged(const AudioPort &activeSinkPort);
@@ -83,6 +86,9 @@ private:
     void initConnect();
     void updatePortActivity();
     void initAudioServerData();
+    QDBusObjectPath effectiveSourcePath() const;
+    void rebindSource(const QDBusObjectPath &path);
+
 
 private:
     SoundModel *m_model;
