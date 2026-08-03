@@ -220,9 +220,7 @@ D.DialogWindow {
                 Layout.fillWidth: true
                 Layout.rightMargin: 24
                 font: D.DTK.fontManager.t6
-                text: ddialog.pendingConflict
-                      ? qsTr("Replace")
-                      : (ddialog.keyId.length > 0 ? qsTr("Save") : qsTr("Add"))
+                text: ddialog.keyId.length > 0 ? qsTr("Save") : qsTr("Add")
                 enabled: !ddialog.submitting && commandEdit.text.length > 0
                          && nameEdit.text.length > 0 && !ddialog.nameExists
                 onClicked: {
