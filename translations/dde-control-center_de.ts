@@ -3385,11 +3385,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>auf Speichern klicken, um diese Tastenkombination einzurichten</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>auf Hinzufügen klicken, um diese Tastenkombination einzurichten</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -3401,7 +3401,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>click Replace to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>auf Ersetzen klicken, um diese Tastenkombination einzurichten</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
