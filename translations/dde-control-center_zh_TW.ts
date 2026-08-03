@@ -3379,7 +3379,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The name cannot exceed 128 characters.</source>
-        <translation type="unfinished"/>
+        <translation>名稱長度不能超過128個字元</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
