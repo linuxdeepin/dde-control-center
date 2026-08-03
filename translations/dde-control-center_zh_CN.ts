@@ -3381,6 +3381,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>快捷键名称已被占用，请修改名称。</translation>
     </message>
     <message>
+        <source>The name cannot exceed 128 characters.</source>
+        <translation>名称长度不能超过128个字符</translation>
+    </message>
+    <message>
         <source>Change custom shortcut</source>
         <translation>修改自定义快捷键</translation>
     </message>
