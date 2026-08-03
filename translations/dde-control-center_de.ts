@@ -1426,7 +1426,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"/>
+        <translation>Einmal gelöscht können die Daten nicht wiederhergestellt werden!</translation>
     </message>
     <message>
         <source>Cancel</source>
