@@ -3384,6 +3384,10 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
         <translation>Nazwa skrótu jest już w użyciu. Wybierz inną nazwę.</translation>
     </message>
     <message>
+        <source>The name cannot exceed 128 characters.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Change custom shortcut</source>
         <translation>Zmień własny skrót</translation>
     </message>
