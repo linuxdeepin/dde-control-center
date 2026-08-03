@@ -3373,6 +3373,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>The name cannot exceed 128 characters.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Change custom shortcut</source>
         <translation type="unfinished"/>
     </message>
