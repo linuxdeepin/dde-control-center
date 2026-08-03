@@ -7,10 +7,11 @@
 #include <QQmlEngine>
 #include <QString>
 
+#include "dccfactory.h"
+
 namespace dccV25 {
 
 class DccObject;
-class DccFactory;
 class DccPluginManager;
 
 class DccPluginLoader : public QObject
@@ -77,7 +78,7 @@ public:
     DccObject *mainObj() const;
     DccObject *soObj() const;
     QObject *data() const;
-    DccFactory *factory() const;
+    DccFactory_20 *factory() const;
     void setLog(const QString &log);
     // State query methods
     bool isFinished() const;
@@ -86,6 +87,10 @@ public:
 
     // Dependency injection
     void setType(TypeFlags type);
+
+    // 新增: 标记该模块是否有待处理的 DBus get/set 请求
+    inline bool hasPendingDataRequest() const { return m_pendingDataRequest; }
+    inline void setPendingDataRequest(bool pending) { m_pendingDataRequest = pending; }
 
     // Loading methods
     void reset(); // Reset status and restart loading
@@ -118,7 +123,7 @@ private:
     QString m_path;
     std::atomic<StatusFlags> m_status;
     TypeFlags m_type;
-    DccFactory *m_factory;
+    DccFactory_20 *m_factory;
     DccObject *m_module;
     DccObject *m_mainObj;
     DccObject *m_soObj;
@@ -126,6 +131,7 @@ private:
 
     DccPluginManager *m_pManager;
     QStringList m_log;
+    bool m_pendingDataRequest = false;
 };
 
 } // namespace dccV25

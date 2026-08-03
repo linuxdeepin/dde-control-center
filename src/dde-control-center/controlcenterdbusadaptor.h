@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
@@ -47,9 +47,14 @@ public Q_SLOTS: // METHODS
     void ShowHome();
     void ShowPage(const QString &url);
     void Toggle();
+    QVariantMap Get(const QString &module, const QVariantMap &param);
+    QVariantMap Set(const QString &module, const QVariantMap &param); // 成功返回空，错误以DBus的错误返回
     QString GetAllModule();
     Q_DECL_DEPRECATED_X("Use ShowPage") void ShowPage(const QString &module, const QString &page);
     Q_DECL_DEPRECATED_X("Use ShowPage") void ShowModule(const QString &module);
+
+Q_SIGNALS:
+    void PropertiesChanged(const QString &module, const QVariantMap &properties);
 
 private:
     bool eventFilter(QObject *obj, QEvent *event) override;

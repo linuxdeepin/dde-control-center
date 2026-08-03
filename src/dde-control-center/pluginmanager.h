@@ -3,6 +3,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
+#include <qdbusmessage.h>
+
 #include <QObject>
 #include <QQmlContext>
 #include <QStringList>
@@ -14,6 +16,12 @@ class QQmlComponent;
 class QThreadPool;
 
 namespace dccV25 {
+
+enum LoadMode {
+    OnlyData,  // 按需：只加载 Data，跳过 Module
+    Full       // 全量：完整加载到 PluginEnd
+};
+
 class DccObject;
 class DccManager;
 class DccPluginLoader;
@@ -35,14 +43,19 @@ public:
     inline bool isDeleting() const { return m_isDeleting.load(); }
 
 public Q_SLOTS:
+    void get(const QString &module, const QVariantMap &param, const QDBusMessage &message);
+    void set(const QString &module, const QVariantMap &param, const QDBusMessage &message);
+    void switchToFullMode();
     void cancelLoad();
 
 Q_SIGNALS:
     void addObject(DccObject *obj);
     void loadAllFinished();
+    void requestAdvancePlugin(DccPluginLoader *loader);
 
 private:
     QThreadPool *threadPool();
+    DccPluginLoader *findLoader(const QString &module) const;
 
 private Q_SLOTS:
     void loadPlugin(DccPluginLoader *loader);
@@ -58,6 +71,7 @@ private:
     QThreadPool *m_threadPool;
     std::atomic<bool> m_isDeleting;
     QQmlEngine *m_engine;
+    LoadMode m_loadMode = OnlyData;
 };
 
 } // namespace dccV25
