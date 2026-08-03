@@ -179,7 +179,8 @@ public:
     QStringList locales();
 
     //Keybinding
-    Q_PROPERTY(int NumLockState READ numLockState NOTIFY NumLockStateChanged)
+    Q_PROPERTY(uint NumLockState READ dbusNumLockState NOTIFY NumLockStateChanged)
+    uint dbusNumLockState() const;
     int numLockState() const override;
     void setNumLockState(int value) override;
 
@@ -208,7 +209,7 @@ signals:
     void LocalesChanged(const QStringList & value) const;
 
     // Keybinding property
-    void NumLockStateChanged(int  value) const;
+    void NumLockStateChanged(uint value) const;
     void ShortcutSwitchLayoutChanged(uint  value) const;
     // Keybinding
     void KeyEvent(bool pressed, const QString &keystroke);
