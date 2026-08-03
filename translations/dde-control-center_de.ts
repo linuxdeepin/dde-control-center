@@ -3368,6 +3368,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Der Tastenkürzelname wird schon verwendet. Bitte anderen wählen.</translation>
     </message>
     <message>
+        <source>The name cannot exceed 128 characters.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Change custom shortcut</source>
         <translation>Eigenes Tastenkürzel ändern</translation>
     </message>
