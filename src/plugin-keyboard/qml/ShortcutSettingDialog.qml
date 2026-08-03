@@ -308,7 +308,9 @@ D.DialogWindow {
                 ddialog.pendingConflict = true
                 edit.accels = newAccels;
                 conflictText.text = message + ", "
-                        + qsTr("click Replace to make this shortcut key effective");
+                        + (ddialog.keyId.length > 0
+                           ? qsTr("click Save to make this shortcut key effective")
+                           : qsTr("click Add to make this shortcut key effective"));
             }
             function onKeyDone(id, type, accels) {
                 if (id !== ddialog.keyId || type !== 1)
