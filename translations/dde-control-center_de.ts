@@ -570,7 +570,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"/>
+        <translation>Klicken Sie auf das Menü um die Standard-Startobjekte zu ändern, oder bewegen Sie das Bild auf das Fenster, um es Hintergrundbild einzurichten.</translation>
     </message>
     <message>
         <source>grub start delay</source>
@@ -1344,11 +1344,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>Verknüpfung mit lokalem Konto</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"/>
+        <translation>Nach dem Verknüpfen mit dem lokalen Konto können Sie folgende Funktionen verwenden:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
@@ -1426,7 +1426,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"/>
+        <translation>Einmal gelöscht können die Daten nicht wiederhergestellt werden!</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3385,11 +3385,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>auf Speichern klicken, um diese Tastenkombination einzurichten</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>auf Hinzufügen klicken, um diese Tastenkombination einzurichten</translation>
     </message>
     <message>
         <source>Replace</source>
@@ -3401,7 +3401,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>click Replace to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>auf Ersetzen klicken, um diese Tastenkombination einzurichten</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -4468,7 +4468,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>Mindestens %1 aus diesen verschiedenen Typen verwenden: Großbuchstaben, Kleinbuchstaben, Zahlen, und Sonderzeichen, und außerdem darf das Passwort nicht dem Benutzernamen entsprechen.</translation>
     </message>
 </context>
 <context>

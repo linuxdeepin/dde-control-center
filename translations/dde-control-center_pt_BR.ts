@@ -3380,7 +3380,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The name cannot exceed 128 characters.</source>
-        <translation type="unfinished"/>
+        <translation>O nome não pode exceder 128 caracteres.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
