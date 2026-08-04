@@ -149,6 +149,13 @@ D.SpinBox {
                     event.accepted = false
                 }
             }
+            onEditingFinished: {
+                if (text !== "") {
+                    var h = parseInt(text, 10)
+                    var m = control.value % 60
+                    control.value = h * 60 + m
+                }
+            }
         }
         Label {
             Layout.preferredWidth: 10
@@ -195,6 +202,13 @@ D.SpinBox {
                     event.accepted = true
                 } else {
                     event.accepted = false
+                }
+            }
+            onEditingFinished: {
+                if (text !== "") {
+                    var m = parseInt(text, 10)
+                    var h = Math.floor(control.value / 60)
+                    control.value = h * 60 + m
                 }
             }
         }
