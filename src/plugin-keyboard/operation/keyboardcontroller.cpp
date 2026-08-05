@@ -266,7 +266,7 @@ QSortFilterProxyModel *KeyboardController::shortcutSearchModel()
     if (m_shortcutSearchModel)
         return m_shortcutSearchModel;
 
-    m_shortcutSearchModel = new QSortFilterProxyModel(this);
+    m_shortcutSearchModel = new ShortcutFilterModel(this);
 
     auto sourceModel = new ShortcutListModel(this);
     sourceModel->setSouceModel(m_shortcutModel);

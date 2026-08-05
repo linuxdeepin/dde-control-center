@@ -3,6 +3,7 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "shortcutmodel.h"
+#include "pinyinsearch.h"
 
 #include <DSysInfo>
 #include <QDBusInterface>
@@ -13,7 +14,6 @@
 #include <QJsonValue>
 #include <QThreadPool>
 #include <QGuiApplication>
-#include <DPinyin>
 
 QStringList systemFilter = {"terminal",
                             "terminalQuake",
@@ -89,12 +89,6 @@ static const QMap<QString, QString> &DisplaykeyMap = { {"exclam", "!"}, {"at", "
     {"Super_L", "Super"}, {"Super_R", "Super"}
 };
 
-static QString toPinyin(const QString &name)
-{
-    DCORE_USE_NAMESPACE
-    return pinyin(name, TS_NoneTone).join(FieldSeparator) + FieldSeparator + firstLetters(name).join(FieldSeparator);
-}
-
 static void fillShortcutInfoFromJson(dccV25::ShortcutInfo *info, const QJsonObject &obj)
 {
     if (!info)
@@ -104,7 +98,7 @@ static void fillShortcutInfoFromJson(dccV25::ShortcutInfo *info, const QJsonObje
     const QJsonArray accels = obj["Accels"].toArray();
     info->accels = accels.isEmpty() ? QString() : accels.first().toString();
     info->name = obj["Name"].toString();
-    info->pinyin = toPinyin(info->name);
+    info->pinyinIndex = dccV25::buildPinyinSearchIndex(info->name);
     info->id = obj["Id"].toString();
     info->command = obj["Exec"].toString();
 
@@ -330,7 +324,7 @@ void ShortcutModel::onParseInfo(const QString &info)
         if (systemShortKeys.contains(info->id)) {
             info->name    = info->name.trimmed();
         }
-        info->pinyin  =  toPinyin(info->name);
+        info->pinyinIndex = buildPinyinSearchIndex(info->name);
         info->command = obj["Exec"].toString();
 
         m_infos << info;
@@ -461,7 +455,7 @@ void ShortcutModel::onCustomInfo(const QString &json)
     info->accels = accels;
 
     info->name    = obj["Name"].toString();
-    info->pinyin = toPinyin(info->name);
+    info->pinyinIndex = buildPinyinSearchIndex(info->name);
     info->id      = obj["Id"].toString();
     info->command = obj["Exec"].toString();
     info->sectionName = tr("Custom");
@@ -773,6 +767,7 @@ void ShortcutModel::setSearchResult(const QString &searchResult)
         info->type         = type;
         info->accels       = obj["Accels"].toArray().first().toString();
         info->name    = obj["Name"].toString();
+        info->pinyinIndex = buildPinyinSearchIndex(info->name);
         info->id      = obj["Id"].toString();
         info->command = obj["Exec"].toString();
 
@@ -918,6 +913,11 @@ ShortcutModel *ShortcutListModel::souceModel()
     return m_model;
 }
 
+const ShortcutInfo *ShortcutListModel::shortcutAt(int row) const
+{
+    return m_model ? m_model->shortcutAt(row) : nullptr;
+}
+
 void ShortcutListModel::reset()
 {
     beginResetModel();
@@ -969,7 +969,7 @@ QVariant ShortcutListModel::data(const QModelIndex &index, int role) const
     case Qt::DisplayRole:
         return info->name;
     case SearchedTextRole:
-        return info->name + info->pinyin + FieldSeparator + displayKeys.join(FieldSeparator);
+        return info->name + FieldSeparator + displayKeys.join(FieldSeparator);
     case IdRole:
         return info->id;
     case TypeRole:
@@ -1010,4 +1010,32 @@ QHash<int, QByteArray> ShortcutListModel::roleNames() const
     names[IsCustomRole] = "isCustom";
 
     return names;
+}
+
+ShortcutFilterModel::ShortcutFilterModel(QObject *parent)
+    : QSortFilterProxyModel(parent)
+{
+}
+
+const PinyinSearchQuery &ShortcutFilterModel::cachedPinyinQuery(const QString &pattern) const
+{
+    if (pattern != m_cachedPinyinPattern) {
+        m_cachedPinyinPattern = pattern;
+        m_cachedPinyinQuery = buildPinyinSearchQuery(pattern);
+    }
+    return m_cachedPinyinQuery;
+}
+
+bool ShortcutFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
+{
+    if (QSortFilterProxyModel::filterAcceptsRow(sourceRow, sourceParent))
+        return true;
+
+    const auto *model = qobject_cast<const ShortcutListModel *>(sourceModel());
+    const ShortcutInfo *info = model ? model->shortcutAt(sourceRow) : nullptr;
+    if (!info)
+        return false;
+
+    const QString pattern = filterRegularExpression().pattern();
+    return matchesPinyinSearch(info->pinyinIndex, cachedPinyinQuery(pattern));
 }

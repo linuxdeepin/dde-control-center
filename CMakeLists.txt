@@ -246,5 +246,6 @@ if(BUILD_EXAMPLES)
 endif()
 
 if(UNITTEST)
+    enable_testing()
     add_subdirectory(tests)
 endif()

@@ -5,6 +5,8 @@
 #ifndef SHORTCUTMODEL_H
 #define SHORTCUTMODEL_H
 
+#include "pinyinsearch.h"
+
 #define MEDIAKEY 2
 
 #include <QAbstractListModel>
@@ -27,7 +29,7 @@ struct ShortcutInfo
     ShortcutItem *item = nullptr;
     QString sectionKey;            // Stable logical category key (never translated)
     QString sectionName;           // Resolved translated display text for section
-    QString pinyin;
+    PinyinSearchIndex pinyinIndex;
     int index = 0;
 
     ShortcutInfo()
@@ -197,6 +199,7 @@ public:
 
     void setSouceModel(ShortcutModel *model);
     ShortcutModel *souceModel();
+    const ShortcutInfo *shortcutAt(int row) const;
 
     int rowCount(const QModelIndex &parent) const override;
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
@@ -208,6 +211,22 @@ public Q_SLOTS:
 
 private:
     ShortcutModel *m_model = nullptr;
+};
+
+class ShortcutFilterModel : public QSortFilterProxyModel
+{
+    Q_OBJECT
+public:
+    explicit ShortcutFilterModel(QObject *parent = nullptr);
+
+protected:
+    bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
+
+private:
+    const PinyinSearchQuery &cachedPinyinQuery(const QString &pattern) const;
+
+    mutable QString m_cachedPinyinPattern;
+    mutable PinyinSearchQuery m_cachedPinyinQuery;
 };
 
 } // namespace dccV25
