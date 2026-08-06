@@ -3385,7 +3385,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>The name cannot exceed 128 characters.</source>
-        <translation type="unfinished"/>
+        <translation>El nom no pot superar els 128 caràcters.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
