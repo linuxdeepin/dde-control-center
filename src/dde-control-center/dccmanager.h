@@ -107,6 +107,7 @@ private:
 
 private Q_SLOTS:
     void saveSize();
+    void onWindowStateChanged();
     void handleScreenAdded(QScreen *screen);
     void waitShowPage(const QString &url, const QDBusMessage message);
     void clearShowParam();

@@ -24,6 +24,17 @@
             "permissions": "readwrite",
             "visibility": "public"
         },
+        "maximized": {
+            "value": false,
+            "serial": 0,
+            "flags": [],
+            "name": "maximized",
+            "name[zh_CN]": "最大化",
+            "description": "config dde-control-center maximized state",
+            "description[zh_CN]": "控制中心最大化状态配置",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
         "sidebarWidth": {
             "value": -1,
             "serial": 0,
