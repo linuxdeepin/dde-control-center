@@ -3385,7 +3385,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>The name cannot exceed 128 characters.</source>
-        <translation type="unfinished"/>
+        <translation>Nazwa nie może przekraczać 128 znaków.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
