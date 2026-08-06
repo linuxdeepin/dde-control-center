@@ -1,3 +1,14 @@
+dde-control-center (6.1.103) unstable; urgency=medium
+
+  * fix(time-range): apply manually entered time on edit finish
+  * fix: place language and region after time and date
+  * i18n: Updates for project Deepin Desktop Environment (#3384)
+  * fix: avoid shortcut pinyin expansion stalls
+  * fix: skip control center loading page under Treeland
+  * i18n: Updates for project Deepin Desktop Environment (#3387)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 06 Aug 2026 15:53:12 +0800
+
 dde-control-center (6.1.102) unstable; urgency=medium
 
   * fix(authentication): set fixed height and vertical center alignment
