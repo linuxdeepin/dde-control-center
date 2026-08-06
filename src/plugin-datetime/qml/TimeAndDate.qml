@@ -131,6 +131,16 @@ DccObject {
                     hoverEnabled: true
                     model: serverList
                     popup.popupType: Popup.Window
+                    // Scroll the popup to the current item on open; ApplyRange only
+                    // reacts to currentIndex changes, not the initial popup layout.
+                    popup.onOpened: {
+                        let listView = comboBox.popup.contentItem.view
+                        if (listView) {
+                            Qt.callLater(function() {
+                                listView.positionViewAtIndex(comboBox.currentIndex, ListView.Contain)
+                            })
+                        }
+                    }
                     // 不设置默认的话可能无法滚动（不显示上下箭头按钮）。。。
                     maxVisibleItems: serverList.length - 1
                     currentIndex:  {
