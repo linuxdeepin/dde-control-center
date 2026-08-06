@@ -45,6 +45,7 @@ namespace dccV25 {
 
 const QString WidthConfig = QStringLiteral("width");
 const QString HeightConfig = QStringLiteral("height");
+const QString MaximizedConfig = QStringLiteral("maximized");
 const QString HideConfig = QStringLiteral("hideModule");
 const QString DisableConfig = QStringLiteral("disableModule");
 const QString ControlCenterIcon = QStringLiteral("preferences-system");
@@ -150,6 +151,9 @@ void DccManager::setMainWindow(QWindow *window)
     connect(m_window, &QWindow::widthChanged, this, &DccManager::saveSize);
     connect(m_window, &QWindow::heightChanged, this, &DccManager::saveSize);
     connect(m_window, &QWindow::windowStateChanged, this, &DccManager::saveSize);
+    // Persist the maximized flag on the authoritative state-change event only,
+    // not on the high-frequency widthChanged/heightChanged resize signals.
+    connect(m_window, &QWindow::windowStateChanged, this, &DccManager::onWindowStateChanged);
     connect(qGuiApp, &QGuiApplication::screenAdded, this, &DccManager::handleScreenAdded);
     m_window->installEventFilter(this);
 }
@@ -483,7 +487,10 @@ void DccManager::show()
         return;
     }
     if (w->windowStates() == Qt::WindowMinimized || !w->isVisible()) {
-        w->showNormal();
+        if (m_dconfig->value(MaximizedConfig, false).toBool())
+            w->showMaximized();
+        else
+            w->showNormal();
     }
     w->requestActivate();
     m_needShow = false;
@@ -745,6 +752,21 @@ void DccManager::saveSize()
 
     m_dconfig->setValue(WidthConfig, m_window->width());
     m_dconfig->setValue(HeightConfig, m_window->height());
+}
+
+void DccManager::onWindowStateChanged()
+{
+    if (!m_window)
+        return;
+    if (!m_dconfig->isValid())
+        return;
+
+    // Persist the maximized/fullscreen flag only on the state-change event so
+    // the last window state can be restored on the next launch. Writing it here
+    // (rather than inside saveSize) avoids touching DConfig on every resize.
+    m_dconfig->setValue(MaximizedConfig,
+        m_window->windowStates().testFlag(Qt::WindowMaximized)
+            || m_window->windowStates().testFlag(Qt::WindowFullScreen));
 }
 
 void DccManager::handleScreenAdded(QScreen *screen)
