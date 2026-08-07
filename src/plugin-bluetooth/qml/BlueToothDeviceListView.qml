@@ -37,6 +37,7 @@ Rectangle {
                 Layout.fillHeight: true
 
                 topPadding: 0
+                leftPadding: 14
                 bottomPadding: 0
 
                 cascadeSelected: true
