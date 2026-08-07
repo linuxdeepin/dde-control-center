@@ -190,6 +190,7 @@ public:
 
     bool langSelectorIsValid();
     void langSelectorStartServiceProcess();
+    bool keybindingServiceAvailable() const;
 
 signals:
     // Keyboard property
@@ -226,6 +227,8 @@ signals:
     // Wayland: category metadata from ListCategories() — drives grouping,
     // ordering, display names, and custom-group identity in the model.
     void categoriesReady(const QList<CategoryInfoNew> &categories);
+    // Emitted when the shortcut service appears after control center startup.
+    void keybindingServiceRegistered();
 
     //wm
     void compositingEnabledChanged(bool enabled);
