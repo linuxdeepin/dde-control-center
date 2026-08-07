@@ -9,10 +9,12 @@
 #include <QJsonArray>
 #include <QDBusArgument>
 #include <QDBusConnection>
+#include <QDBusConnectionInterface>
 #include <QDBusInterface>
 #include <QDBusPendingCall>
 #include <QDBusPendingCallWatcher>
 #include <QDBusReply>
+#include <QDBusServiceWatcher>
 #include <QDBusMetaType>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -215,6 +217,15 @@ void MouseDBusProxy::active()
 
 void MouseDBusProxy::refreshGestures()
 {
+    auto *busInterface = QDBusConnection::sessionBus().interface();
+    if (!busInterface)
+        return;
+
+    const QDBusReply<bool> registered = busInterface->isServiceRegistered(GestureService);
+    if (!registered.isValid() || !registered.value()
+            || !m_dbusGesture || !m_dbusGesture->isValid())
+        return;
+
     QDBusPendingCall call = m_dbusGesture->asyncCall(QStringLiteral("ListAllGestures"));
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
     connect(watcher, &QDBusPendingCallWatcher::finished,
@@ -259,6 +270,27 @@ void MouseDBusProxy::init()
                                           "GestureInfosChanged",
                                           this,
                                           SLOT(refreshGestures()));
+
+    auto *gestureWatcher = new QDBusServiceWatcher(
+        GestureService,
+        QDBusConnection::sessionBus(),
+        QDBusServiceWatcher::WatchForRegistration,
+        this);
+    connect(gestureWatcher, &QDBusServiceWatcher::serviceRegistered,
+            this, [this](const QString &service) {
+        if (service != GestureService)
+            return;
+
+        auto *oldGestureInterface = m_dbusGesture;
+        m_dbusGesture = new QDBusInterface(GestureService,
+                                           GesturePath,
+                                           GestureInterface,
+                                           QDBusConnection::sessionBus(),
+                                           this);
+        if (oldGestureInterface)
+            oldGestureInterface->deleteLater();
+        refreshGestures();
+    });
 
     QDBusConnection::sessionBus().connect(AppearanceService,
                                           AppearancePath,
@@ -315,7 +347,8 @@ void MouseDBusProxy::init()
     m_dbusGesture = new QDBusInterface(GestureService,
                                        GesturePath,
                                        GestureInterface,
-                                       QDBusConnection::sessionBus());
+                                       QDBusConnection::sessionBus(),
+                                       this);
 }
 
 void MouseDBusProxy::onDefaultReset()

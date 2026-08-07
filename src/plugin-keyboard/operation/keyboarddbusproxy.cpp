@@ -6,9 +6,12 @@
 
 #include <QMetaObject>
 #include <QDBusConnection>
+#include <QDBusConnectionInterface>
 #include <QDBusInterface>
 #include <QDBusPendingReply>
 #include <QDBusPendingCallWatcher>
+#include <QDBusReply>
+#include <QDBusServiceWatcher>
 #include <QDBusMetaType>
 #include <QDebug>
 #include <QJsonArray>
@@ -126,6 +129,39 @@ void KeyboardDBusProxy::init()
         KeybingdingService, KeybingdingPath, KeybingdingInterface,
         "KeyEvent", this,
         SIGNAL(KeyEvent(bool,QString)));
+
+    auto *keybindingWatcher = new QDBusServiceWatcher(
+        KeybingdingService,
+        QDBusConnection::sessionBus(),
+        QDBusServiceWatcher::WatchForRegistration,
+        this);
+    connect(keybindingWatcher, &QDBusServiceWatcher::serviceRegistered,
+            this, [this](const QString &service) {
+        if (service != KeybingdingService)
+            return;
+
+        auto *oldKeybindingInterface = m_dBusKeybingdingInter;
+        m_dBusKeybingdingInter = new DDBusInterface(KeybingdingService,
+                                                    KeybingdingPath,
+                                                    KeybingdingInterface,
+                                                    QDBusConnection::sessionBus(),
+                                                    this);
+        if (oldKeybindingInterface)
+            oldKeybindingInterface->deleteLater();
+        Q_EMIT keybindingServiceRegistered();
+    });
+}
+
+bool KeyboardDBusProxy::keybindingServiceAvailable() const
+{
+    auto *busInterface = QDBusConnection::sessionBus().interface();
+    if (!busInterface)
+        return false;
+
+    QDBusReply<bool> reply = busInterface->isServiceRegistered(KeybingdingService);
+    return reply.isValid() && reply.value()
+            && m_dBusKeybingdingInter
+            && m_dBusKeybingdingInter->isValid();
 }
 
 void KeyboardDBusProxy::langSelectorStartServiceProcess()

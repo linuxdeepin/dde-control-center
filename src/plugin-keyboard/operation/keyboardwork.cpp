@@ -99,6 +99,10 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
 
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::compositingEnabledChanged, this, &KeyboardWorker::onGetWindowWM);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::AllShortcutsReady, this, &KeyboardWorker::onAllShortcutsReady);
+    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::keybindingServiceRegistered, this, [this] {
+        qCInfo(lcKeyboardWorker) << "Keybinding service registered, refresh shortcuts";
+        refreshShortcut();
+    });
     // Wayland: category metadata (ordering/display/custom flag) from the
     // service's ListCategories(). Feeds the model so it never hardcodes
     // category strings for grouping or Custom detection.
@@ -185,6 +189,9 @@ void KeyboardWorker::setShortcutModel(ShortcutModel *model)
 
 void KeyboardWorker::refreshShortcut()
 {
+    if (!m_keyboardDBusProxy->keybindingServiceAvailable())
+        return;
+
     m_keyboardDBusProxy->ListAllShortcuts();
     m_keyboardDBusProxy->ListCategories();
 }
