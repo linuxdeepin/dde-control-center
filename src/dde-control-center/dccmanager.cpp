@@ -477,9 +477,11 @@ void DccManager::show()
     m_needShow = true;
     QWindow *w = DccManager::mainWindow();
     if (!w) {
+        m_needShow = false;
         return;
     }
     if (!m_showLoadPage && !m_activeObject) {
+        m_needShow = false;
         return;
     }
     if (w->windowStates() == Qt::WindowMinimized || !w->isVisible()) {
