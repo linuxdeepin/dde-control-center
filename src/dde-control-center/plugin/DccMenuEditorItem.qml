@@ -26,6 +26,10 @@ DccEditorItem {
             sourceComponent: editor
         }
         D.IconLabel {
+            // Clamp the arrow width so it stays 12px under high DPI, keeping the
+            // switch 30px from the list right edge (rightPadding 10 + arrow 12 + spacing 8).
+            Layout.preferredWidth: 12
+            Layout.maximumWidth: 12
             icon {
                 width: 12
                 height: 12
