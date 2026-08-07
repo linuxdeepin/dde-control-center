@@ -53,10 +53,8 @@ public:
         if (m_manager->isDeleting()) {
             return;
         }
+        // createData和moveThread需要完整，都执行或都不执行
         m_loader->createData();
-        if (m_manager->isDeleting()) {
-            return;
-        }
         m_loader->moveThread();
         m_loader->setLog("create data finished. elapsed time :" + QString::number(timer.elapsed()));
         m_loader->transitionStatus(DccPluginLoader::DataEnd);
