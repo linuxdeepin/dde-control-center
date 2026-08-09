@@ -3410,11 +3410,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>click Replace to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>paina Korvaa, jotta tämä pikanäppäin toimii</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäimen tallentaminen epäonnistui. Yritä uudelleen.</translation>
     </message>
 </context>
 <context>
