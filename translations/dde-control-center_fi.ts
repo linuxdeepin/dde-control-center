@@ -4411,18 +4411,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
-        <translation type="unfinished"/>
+        <translation>Vahvista pikanäppäimen ristiriita uudelleen.</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardWorker</name>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>Ristiriita pikanäppäimissä ei ole enää ajankohtainen.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäimen tallentaminen epäonnistui. Yritä uudelleen.</translation>
     </message>
 </context>
 <context>
