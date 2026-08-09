@@ -4403,11 +4403,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäintä ei enää ole käytössä.</translation>
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>Ristiriita pikanäppäimissä ei ole enää ajankohtainen.</translation>
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
