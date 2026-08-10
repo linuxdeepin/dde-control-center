@@ -3404,6 +3404,14 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Shortcut input timed out. Try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid keyboard shortcut. Set a new one.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>click Replace to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
@@ -3464,6 +3472,14 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Shortcut input timed out. Try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation type="unfinished"/>
     </message>
     <message>
