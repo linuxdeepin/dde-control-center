@@ -444,6 +444,16 @@ DccObject {
                             return
                         shortcutView.editItem.showFailure(qsTr("Failed to start shortcut capture. Please try again."))
                     }
+                    function onKeyCaptureTimedOut(id, type) {
+                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
+                            return
+                        shortcutView.editItem.showFailure(qsTr("Shortcut input timed out. Try again."))
+                    }
+                    function onInvalidShortcutCaptured(id, type) {
+                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
+                            return
+                        shortcutView.editItem.showFailure(qsTr("Invalid keyboard shortcut. Set a new one."))
+                    }
                     function onKeyConflicted(id, type, oldAccels, newAccels, message, replaceable) {
                         if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
                             return

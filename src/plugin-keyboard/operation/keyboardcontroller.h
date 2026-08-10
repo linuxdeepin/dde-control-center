@@ -126,6 +126,8 @@ signals:
 
     void keyCaptureStarted(const QString &id, int type);
     void keyCaptureFailed(const QString &id, int type, const QString &reason);
+    void keyCaptureTimedOut(const QString &id, int type);
+    void invalidShortcutCaptured(const QString &id, int type);
     void shortcutModificationFinished(const QString &id, int type, const QString &accels, bool success);
     void customShortcutOperationFinished(quint64 requestId, bool success,
                                          const QString &errorMessage);
