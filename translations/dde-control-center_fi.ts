@@ -2284,11 +2284,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>KeyboardWorker</name>
     <message>
         <source>The shortcut service is unavailable. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Palvelu ei ole käytettävissä. Yritä uudelleen.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäimen tallentaminen epäonnistui. Yritä uudelleen.</translation>
     </message>
 </context>
 <context>
@@ -3378,7 +3378,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The name cannot exceed 128 characters.</source>
-        <translation type="unfinished"/>
+        <translation>Nimi enintään 128 merkkiä</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
@@ -3402,27 +3402,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Korvaa</translation>
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäimen tallennuksen aloitus epäonnistui. Yritä uudelleen.</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>click Replace to make this shortcut key effective</source>
-        <translation type="unfinished"/>
+        <translation>paina Korvaa, jotta tämä pikanäppäin toimii</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäimen tallentaminen epäonnistui. Yritä uudelleen.</translation>
     </message>
 </context>
 <context>
@@ -3477,19 +3477,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäimen tallennuksen aloitus epäonnistui. Yritä uudelleen.</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäimen tallentaminen epäonnistui. Yritä uudelleen.</translation>
     </message>
 </context>
 <context>
@@ -4419,26 +4419,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäintä ei enää ole käytössä.</translation>
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>Ristiriita pikanäppäimissä ei ole enää ajankohtainen.</translation>
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
-        <translation type="unfinished"/>
+        <translation>Vahvista pikanäppäimen ristiriita uudelleen.</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardWorker</name>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>Ristiriita pikanäppäimissä ei ole enää ajankohtainen.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Pikanäppäimen tallentaminen epäonnistui. Yritä uudelleen.</translation>
     </message>
 </context>
 <context>
