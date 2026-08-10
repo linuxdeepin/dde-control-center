@@ -3487,7 +3487,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
+        <translation>Atalho de teclado inválido. Defina um novo atalho.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
