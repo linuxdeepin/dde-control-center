@@ -3416,6 +3416,14 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Ha fallat iniciar la captura de dreceres. Si us plau, torneu-ho a provar.</translation>
     </message>
     <message>
+        <source>Shortcut input timed out. Try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid keyboard shortcut. Set a new one.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>click Replace to make this shortcut key effective</source>
         <translation>Feu clic a Reemplaça per activar aquesta drecera de teclat.</translation>
     </message>
@@ -3477,6 +3485,14 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>Ha fallat iniciar la captura de dreceres. Si us plau, torneu-ho a provar.</translation>
+    </message>
+    <message>
+        <source>Shortcut input timed out. Try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid keyboard shortcut. Set a new one.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
