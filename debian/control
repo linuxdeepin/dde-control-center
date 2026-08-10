@@ -54,6 +54,7 @@ Depends:
  libdtk6declarative(>> 6.7.40),
  netselect,
  dde-daemon (>> 6.1.99),
+ dde-services (>> 1.0.38),
  deepin-security-loader,
 Recommends: uos-license-content,
 Conflicts: dde-control-center-dock
