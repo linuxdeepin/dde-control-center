@@ -2272,6 +2272,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>KeyboardWorker</name>
+    <message>
+        <source>The shortcut service is unavailable. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>LangAndFormat</name>
     <message>
         <source>Language</source>
@@ -3357,6 +3368,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>The name cannot exceed 128 characters.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Change custom shortcut</source>
         <translation type="unfinished"/>
     </message>
@@ -3377,12 +3392,28 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Replace</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Replace to make this shortcut key effective</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3436,12 +3467,20 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Failed to start shortcut capture. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4368,6 +4407,29 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>This shortcut conflicts with [%1]</source>
         <translation>Ar berradur-mañ a stourm gant [%1]</translation>
+    </message>
+    <message>
+        <source>The shortcut no longer exists.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Please confirm the shortcut conflict again.</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dccV25::KeyboardWorker</name>
+    <message>
+        <source>The shortcut conflict is no longer current.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to save the shortcut. Please try again.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
