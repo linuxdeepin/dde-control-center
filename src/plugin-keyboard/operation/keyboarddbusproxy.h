@@ -8,6 +8,7 @@
 #include "ikeyboarddeviceproxy.h"
 
 #include <DDBusInterface>
+#include <DConfig>
 
 #include <QObject>
 #include <QDBusPendingReply>
@@ -16,6 +17,7 @@ class QDBusInterface;
 class QDBusMessage;
 
 using Dtk::Core::DDBusInterface;
+using Dtk::Core::DConfig;
 
 typedef QMap<QString, QString> KeyboardLayoutList;
 
@@ -308,6 +310,7 @@ private:
     DDBusInterface *m_dBusKeyboardInter;
     DDBusInterface *m_dBusKeybingdingInter;
     DDBusInterface *m_dBusWMInter;
+    DConfig *m_shortcutKeyboardConfig;
     const bool m_isWayland;
 };
 

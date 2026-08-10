@@ -26,6 +26,10 @@ const static QString KeyboardService = "org.deepin.dde.InputDevices1";
 const static QString KeyboardPath = "/org/deepin/dde/InputDevice1/Keyboard";
 const static QString KeyboardInterface = "org.deepin.dde.InputDevice1.Keyboard";
 
+const static QString ShortcutKeyboardConfigAppId = "org.deepin.dde.keybinding";
+const static QString ShortcutKeyboardConfigName = "org.deepin.dde.keybinding.keyboard";
+const static QString CapsLockToggleConfigKey = "capslockToggle";
+
 const static QString KeybingdingService = "org.deepin.dde.Keybinding1";
 const static QString KeybingdingPath = "/org/deepin/dde/Keybinding1";
 const static QString KeybingdingInterface = "org.deepin.dde.Keybinding1";
@@ -36,6 +40,9 @@ const static QString WMInterface = "com.deepin.wm";
 
 KeyboardDBusProxy::KeyboardDBusProxy(QObject *parent)
     : QObject(parent)
+    , m_shortcutKeyboardConfig(DConfig::create(ShortcutKeyboardConfigAppId,
+                                                ShortcutKeyboardConfigName,
+                                                QString(), this))
     , m_isWayland((qgetenv("XDG_SESSION_TYPE").toLower() == QLatin1String("wayland"))
                   || !qgetenv("WAYLAND_DISPLAY").isEmpty())
 {
@@ -150,6 +157,18 @@ void KeyboardDBusProxy::init()
             oldKeybindingInterface->deleteLater();
         Q_EMIT keybindingServiceRegistered();
     });
+
+    if (!m_shortcutKeyboardConfig || !m_shortcutKeyboardConfig->isValid()) {
+        qWarning() << "Shortcut keyboard config is unavailable";
+    } else {
+        connect(m_shortcutKeyboardConfig, &DConfig::valueChanged,
+                this, [this](const QString &key) {
+            if (key == CapsLockToggleConfigKey) {
+                Q_EMIT CapslockToggleChanged(
+                        m_shortcutKeyboardConfig->value(key).toBool());
+            }
+        });
+    }
 }
 
 bool KeyboardDBusProxy::keybindingServiceAvailable() const
@@ -192,12 +211,18 @@ void KeyboardDBusProxy::onLangSelectorStartServiceProcessFinished(QDBusPendingCa
 //Keyboard
 bool KeyboardDBusProxy::capslockToggle()
 {
-    return qvariant_cast<bool>(m_dBusKeyboardInter->property("CapslockToggle"));
+    if (!m_shortcutKeyboardConfig || !m_shortcutKeyboardConfig->isValid())
+        return true;
+    return m_shortcutKeyboardConfig->value(CapsLockToggleConfigKey).toBool();
 }
 
 void KeyboardDBusProxy::setCapslockToggle(bool value)
 {
-    m_dBusKeyboardInter->setProperty("CapslockToggle", QVariant::fromValue(value));
+    if (!m_shortcutKeyboardConfig || !m_shortcutKeyboardConfig->isValid()) {
+        qWarning() << "Cannot update CapsLock OSD setting: shortcut keyboard config is unavailable";
+        return;
+    }
+    m_shortcutKeyboardConfig->setValue(CapsLockToggleConfigKey, value);
 }
 
 QString KeyboardDBusProxy::currentLayout()
