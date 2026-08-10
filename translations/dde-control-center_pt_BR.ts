@@ -3412,11 +3412,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"/>
+        <translation>O tempo limite para inserir o atalho foi atingido. Tente novamente.</translation>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
+        <translation>Atalho de teclado inválido. Defina um novo atalho.</translation>
     </message>
     <message>
         <source>click Replace to make this shortcut key effective</source>
@@ -3483,7 +3483,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"/>
+        <translation>O tempo limite para inserir o atalho foi atingido. Tente novamente.</translation>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
