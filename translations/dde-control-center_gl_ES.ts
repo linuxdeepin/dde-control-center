@@ -3429,6 +3429,14 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation type="unfinished"/>
     </message>
     <message>
+        <source>Shortcut input timed out. Try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid keyboard shortcut. Set a new one.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>click Replace to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
@@ -3489,6 +3497,14 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Shortcut input timed out. Try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation type="unfinished"/>
     </message>
     <message>
