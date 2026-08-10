@@ -280,15 +280,28 @@ D.DialogWindow {
                 conflictText.text = ""
                 edit.keys = []
             }
-            function onKeyCaptureFailed(id, type, reason) {
-                if (id !== ddialog.keyId || type !== 1)
-                    return
+            function showCaptureFailure(message) {
                 edit.keys = ddialog.captureRestoreKeys
                 edit.accels = ddialog.captureRestoreAccels
                 ddialog.captureRestoreValid = false
                 dccData.clearPendingConflict(ddialog.keyId, 1)
                 ddialog.pendingConflict = false
-                conflictText.text = qsTr("Failed to start shortcut capture. Please try again.")
+                conflictText.text = message
+            }
+            function onKeyCaptureFailed(id, type, reason) {
+                if (id !== ddialog.keyId || type !== 1)
+                    return
+                showCaptureFailure(qsTr("Failed to start shortcut capture. Please try again."))
+            }
+            function onKeyCaptureTimedOut(id, type) {
+                if (id !== ddialog.keyId || type !== 1)
+                    return
+                showCaptureFailure(qsTr("Shortcut input timed out. Try again."))
+            }
+            function onInvalidShortcutCaptured(id, type) {
+                if (id !== ddialog.keyId || type !== 1)
+                    return
+                showCaptureFailure(qsTr("Invalid keyboard shortcut. Set a new one."))
             }
             function onKeyConflicted(id, type, oldAccels, newAccels, message, replaceable) {
                 if (id !== ddialog.keyId || type !== 1)

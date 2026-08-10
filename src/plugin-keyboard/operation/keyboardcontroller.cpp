@@ -16,6 +16,10 @@
 namespace dccV25 {
 DCC_FACTORY_CLASS(KeyboardController)
 
+namespace {
+constexpr int ShortcutCaptureTimeoutMs = 30000;
+}
+
 KeyboardController::KeyboardController(QObject *parent)
     : QObject(parent)
 {
@@ -681,6 +685,19 @@ void KeyboardController::beginKeyCapture(QQuickItem *item, const QString &id, in
         });
     }
 
+    QTimer::singleShot(ShortcutCaptureTimeoutMs, this,
+                       [this, requestId, id, type, generation] {
+        if (requestId != m_capture.requestId
+                || m_capture.phase == CapturePhase::Idle
+                || !isCurrentShortcutGeneration(id, type, generation)) {
+            return;
+        }
+
+        qWarning() << "Shortcut capture timed out:" << id << type;
+        endKeyCapture();
+        Q_EMIT keyCaptureTimedOut(id, type);
+    });
+
     if (m_worker->isWayland()) {
         m_capture.backend = CaptureBackend::Wayland;
         startWaylandKeyCapture(item, id, type, requestId, generation);
@@ -699,23 +716,6 @@ void KeyboardController::startRequestedX11Capture()
         return;
 
     m_pendingX11RequestId = m_capture.requestId;
-    const quint64 requestId = m_capture.requestId;
-    const QString id = m_capture.id;
-    const int type = m_capture.type;
-    const quint64 generation = m_capture.generation;
-    QTimer::singleShot(30000, this, [this, requestId, id, type, generation] {
-        const bool requestPending = requestId == m_pendingX11RequestId;
-        const bool requestActive = requestId == m_capture.requestId
-                && m_capture.backend == CaptureBackend::X11
-                && m_capture.phase == CapturePhase::Active;
-        if ((!requestPending && !requestActive)
-                || !isCurrentShortcutGeneration(id, type, generation)) {
-            return;
-        }
-
-        endKeyCapture();
-        Q_EMIT keyCaptureFailed(id, type, QStringLiteral("shortcut capture timed out"));
-    });
     m_worker->beginCapture(m_pendingX11RequestId);
 }
 
@@ -725,6 +725,7 @@ void KeyboardController::startWaylandKeyCapture(QQuickItem *item, const QString 
     const QString failureReason = QStringLiteral("unable to start compositor shortcut capture");
     if (!item || !item->window()) {
         m_capture.reset();
+        qWarning() << failureReason << id << type;
         Q_EMIT keyCaptureFailed(id, type, failureReason);
         Q_EMIT waylandKeyCaptureFailed(id, type, 0);
         return;
@@ -736,6 +737,7 @@ void KeyboardController::startWaylandKeyCapture(QQuickItem *item, const QString 
     TreelandShortcutCaptureSession *session = m_captureManager->captureNext(item->window());
     if (!session) {
         m_capture.reset();
+        qWarning() << failureReason << id << type;
         Q_EMIT keyCaptureFailed(id, type, failureReason);
         Q_EMIT waylandKeyCaptureFailed(id, type, 0);
         return;
@@ -768,7 +770,13 @@ void KeyboardController::startWaylandKeyCapture(QQuickItem *item, const QString 
                 }
                 endKeyCapture();
                 const QString message = QStringLiteral("compositor capture failed: %1").arg(reason);
-                Q_EMIT keyCaptureFailed(id, type, message);
+                qWarning() << message << id << type;
+                using Capture = QtWayland::treeland_shortcut_capture_v1;
+                const auto failedReason = static_cast<Capture::failed_reason>(reason);
+                if (failedReason == Capture::failed_reason_interrupted)
+                    Q_EMIT invalidShortcutCaptured(id, type);
+                else
+                    Q_EMIT keyCaptureFailed(id, type, message);
                 Q_EMIT waylandKeyCaptureFailed(id, type, static_cast<int>(reason));
             });
 }
@@ -815,7 +823,7 @@ void KeyboardController::handleCapturedKeystroke(const QString &id, int type, co
         return;
 
     if (accels.isEmpty()) {
-        Q_EMIT requestRestore(id, type);
+        Q_EMIT invalidShortcutCaptured(id, type);
         return;
     }
     if (accels == QLatin1String("Esc") || accels == QLatin1String("Escape")) {

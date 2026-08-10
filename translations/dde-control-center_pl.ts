@@ -3416,6 +3416,14 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
         <translation>Nie udało się przechwycić skrótu klawiszowego. Spróbuj ponownie.</translation>
     </message>
     <message>
+        <source>Shortcut input timed out. Try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid keyboard shortcut. Set a new one.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <source>click Replace to make this shortcut key effective</source>
         <translation>Kliknij Zamień, aby aktywować skrót klawiszowy.</translation>
     </message>
@@ -3477,6 +3485,14 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>Nie udało się przechwycić skrótu klawiszowego. Spróbuj ponownie.</translation>
+    </message>
+    <message>
+        <source>Shortcut input timed out. Try again.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Invalid keyboard shortcut. Set a new one.</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
