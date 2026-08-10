@@ -3411,11 +3411,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>快捷鍵錄入已超時，請重試</translation>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"></translation>
+        <translation>快捷鍵組合無效，請重新設置</translation>
     </message>
     <message>
         <source>click Replace to make this shortcut key effective</source>
@@ -3482,11 +3482,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"></translation>
+        <translation>快捷鍵錄入已超時，請重試</translation>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"></translation>
+        <translation>快捷鍵組合無效，請重新設置</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
