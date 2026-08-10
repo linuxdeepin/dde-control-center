@@ -1,11 +1,11 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
 
 import org.deepin.dcc 1.0
 import QtQuick.Layouts 1.15
-import org.deepin.dtk 1.0
+import org.deepin.dtk 1.0 as D
 
 DccObject{
     property bool refreshEnable: true
@@ -68,21 +68,12 @@ DccObject{
         }
     }
 
-    DccObject {
+    DccTitleObject {
         name: "OtherDeviceTitle"
         parentName: "otherDevice" + model.id
         displayName: qsTr("Other Devices")
         weight: 10
         visible: model.powered
-        pageType: DccObject.Item
-        page: ColumnLayout {
-            Label {
-                Layout.leftMargin: 10
-                font.bold: true
-                font.pixelSize: DTK.fontManager.t5.pixelSize
-                text: dccObj.displayName
-            }
-        }
     }
 
     DccObject {
@@ -93,7 +84,7 @@ DccObject{
         visible: model.powered && !hideWhenUserClosing
 
         page: RowLayout {
-            CheckBox {
+            D.CheckBox {
                 Layout.leftMargin: 10
                 Layout.alignment: Qt.AlignLeft
                 checked: dccData.model().displaySwitch
@@ -103,7 +94,7 @@ DccObject{
                 }
             }
 
-            IconButton {
+            D.IconButton {
                 id: redobtn
                 Layout.alignment: Qt.AlignRight
                 flat: true
@@ -115,7 +106,7 @@ DccObject{
                 }
             }
 
-            BusyIndicator {
+            D.BusyIndicator {
                 id: scanAnimation
                 Layout.alignment: Qt.AlignRight
                 running: model.discovering
