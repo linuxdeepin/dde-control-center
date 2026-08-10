@@ -3411,6 +3411,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Falha ao iniciar a captura de atalho. Tente novamente.</translation>
     </message>
     <message>
+        <source>Shortcut input timed out. Try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid keyboard shortcut. Set a new one.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>click Replace to make this shortcut key effective</source>
         <translation>Clique em Substituir para ativar esta tecla de atalho</translation>
     </message>
@@ -3472,6 +3480,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>Não foi possível iniciar a captura do atalho. Tente novamente.</translation>
+    </message>
+    <message>
+        <source>Shortcut input timed out. Try again.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Invalid keyboard shortcut. Set a new one.</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
