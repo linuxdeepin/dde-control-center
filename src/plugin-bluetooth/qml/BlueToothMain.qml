@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -27,7 +27,7 @@ DccObject{
             pageType: DccObject.Item
 
             page: DccGroupView {
-                spacing: 0
+                spacing: 10
                 isGroup: false
             }
 

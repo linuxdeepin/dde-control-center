@@ -144,26 +144,34 @@ DccObject{
         visible: model.powered
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
-        page: BlueToothDeviceListView {
-            id: deviceListView
-            showMoreBtn: false
-            showConnectStatus: false
-            showPowerStatus: false
+        page: ColumnLayout {
+            spacing: 0
+            Item {
+                Layout.fillWidth: true
+                Layout.preferredHeight: 2
+            }
+            BlueToothDeviceListView {
+                id: deviceListView
+                Layout.fillWidth: true
+                showMoreBtn: false
+                showConnectStatus: false
+                showPowerStatus: false
 
-            Timer {
-                interval: 300
-                repeat: false
-                running: true
-                onTriggered: {
-                    deviceListView.deviceModel = model.otherDevice
+                Timer {
+                    interval: 300
+                    repeat: false
+                    running: true
+                    onTriggered: {
+                        deviceListView.deviceModel = model.otherDevice
+                    }
                 }
-            }
 
-            onClicked: function (index, checked) {
-            }
+                onClicked: function (index, checked) {
+                }
 
-            onVisibleChanged: {
-                refreshEnable = visible
+                onVisibleChanged: {
+                    refreshEnable = visible
+                }
             }
         }
     }
