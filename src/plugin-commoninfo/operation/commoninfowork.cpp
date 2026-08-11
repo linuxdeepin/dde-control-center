@@ -14,6 +14,7 @@
 #include <QDebug>
 #include <QDateTime>
 #include <QProcess>
+#include <QProcessEnvironment>
 #include <QRegularExpression>
 #include <QSettings>
 #include <QLoggingCategory>
@@ -769,6 +770,13 @@ QString CommonInfoWork::passwdEncrypt(const QString &password)
     pbkdf2.setProgram("grub-mkpasswd-pbkdf2");
     pbkdf2.setProcessChannelMode(QProcess::SeparateChannels);
 
+    // 强制使用 C locale，避免 grub-mkpasswd-pbkdf2 的输出被本地化，
+    // 导致按固定字段下标提取哈希时取到错误值（如英文 locale 下取到 "your"）。
+    QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+    env.insert("LANG", "C");
+    env.insert("LANGUAGE", "C");
+    pbkdf2.setProcessEnvironment(env);
+
     pbkdf2.start();
     if (!pbkdf2.waitForStarted()) {
         qCWarning(DccCommonInfoWork) << "Failed to start grub-mkpasswd-pbkdf2:" << pbkdf2.errorString();
@@ -792,15 +800,18 @@ QString CommonInfoWork::passwdEncrypt(const QString &password)
         return QString();
     }
 
-    // 解析输出：grep PBKDF2 并提取第4个字段
+    // 使用正则提取 PBKDF2 哈希，避免依赖 grub-mkpasswd-pbkdf2 输出的 locale。
+    // 哈希格式：grub.pbkdf2.sha512.<iterations>.<salt>.<hash>
+    static const QRegularExpression pbkdf2HashRe(
+        QStringLiteral("grub\\.pbkdf2\\.sha\\d+\\.\\d+\\.[0-9A-Fa-f]+\\.[0-9A-Fa-f]+"));
     QString output = QString::fromUtf8(pbkdf2.readAllStandardOutput());
     QStringList lines = output.split('\n', Qt::SkipEmptyParts);
 
     for (const QString &line : lines) {
         if (line.contains("PBKDF2")) {
-            QStringList fields = line.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts);
-            if (fields.size() >= 4) {
-                return fields.at(3);  // 返回第4个字段（下标3）
+            QRegularExpressionMatch match = pbkdf2HashRe.match(line);
+            if (match.hasMatch()) {
+                return match.captured(0);
             }
         }
     }
