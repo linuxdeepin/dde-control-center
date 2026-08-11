@@ -18,7 +18,7 @@ DccObject {
         weight: 10
         onParentItemChanged: {
             if (parentItem) {
-                parentItem.bottomInset = 10
+                parentItem.bottomInset = 5
             }
         }
     }
@@ -211,8 +211,8 @@ DccObject {
         }
         onParentItemChanged: {
             if (parentItem) {
-                parentItem.topInset = 6
-                parentItem.bottomInset = 15
+                parentItem.topInset = 3
+                parentItem.bottomInset = 14
             }
         }
     }
