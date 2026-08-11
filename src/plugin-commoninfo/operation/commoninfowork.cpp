@@ -198,10 +198,21 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
     });
     connect(m_commonInfoProxy, &CommonInfoProxy::UpdatingChanged, m_commomModel, &CommonInfoModel::setUpdating);
     connect(m_commonInfoProxy, &CommonInfoProxy::BackgroundChanged, m_commomModel, [this] () {
-        if (!m_commomModel->themeEnabled()) {
+        // Only a background change we initiated (user dragged an image)
+        // should refresh the preview and, when the theme was off, turn it
+        // back on. A BackgroundChanged we did not request -- e.g. the
+        // delayed signal that follows a theme toggle -- must neither bump
+        // the cache-busting revision nor fight the user's explicit
+        // theme-off choice, otherwise the preview reloads a second time
+        // and flickers, and the theme switch bounces back on by itself.
+        const bool pending = m_pendingBackgroundRefresh;
+        m_pendingBackgroundRefresh = false;
+
+        if (pending && !m_commomModel->themeEnabled()) {
             setEnableTheme(true);
             m_commomModel->setThemeEnabled(true);
         }
+
         QString backgroundPath = m_commonInfoProxy->Background();
         QPixmap pix = QPixmap(backgroundPath);
         m_commomModel->setGrubThemePath(backgroundPath);
@@ -210,6 +221,14 @@ CommonInfoWork::CommonInfoWork(CommonInfoModel *model, QObject *parent)
         QDir dir(kTmpGrubBgDir);
         if (dir.exists()) {
             dir.removeRecursively();
+        }
+
+        // Bump the revision only for a content change we requested so the
+        // QML Image reloads once for same-path new content (BUG-281399)
+        // while the duplicate BackgroundChanged after a theme toggle is
+        // a no-op thanks to the setGrubThemePath same-value guard.
+        if (pending) {
+            m_commomModel->bumpGrubBackgroundRevision();
         }
     });
     connect(m_commonInfoProxy, &CommonInfoProxy::EnabledUsersChanged, m_commomModel, [this] (const QStringList &users) {
@@ -623,6 +642,11 @@ void CommonInfoWork::setBackground(const QString &path)
         }
         qCDebug(DccCommonInfoWork) << "Resolved symlink" << path << "to" << realPath;
     }
+
+    // Mark this as a self-initiated background change so the delayed
+    // BackgroundChanged handler refreshes the preview (and re-enables
+    // the theme if it was off) instead of treating the signal as noise.
+    m_pendingBackgroundRefresh = true;
 
     QString suffix = QFileInfo(realPath).suffix();
     if (suffix.isEmpty()) {

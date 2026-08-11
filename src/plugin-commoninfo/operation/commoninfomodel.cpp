@@ -229,8 +229,28 @@ QString CommonInfoModel::grubThemePath() const
 
 void CommonInfoModel::setGrubThemePath(const QString &newGrubThemePath)
 {
+    // Guard against redundant emits: the grub background path is a fixed
+    // location whose content is overwritten in place, so BackgroundChanged
+    // frequently reports the same string. Emitting on identical values
+    // made the QML Image reload twice (real change + delayed duplicate)
+    // and flicker; cache-busting for genuine same-path content changes
+    // is handled by grubBackgroundRevision instead.
+    if (m_grubThemePath == newGrubThemePath)
+        return;
+
     m_grubThemePath = newGrubThemePath;
     emit grubThemePathChanged();
+}
+
+int CommonInfoModel::grubBackgroundRevision() const
+{
+    return m_grubBackgroundRevision;
+}
+
+void CommonInfoModel::bumpGrubBackgroundRevision()
+{
+    ++m_grubBackgroundRevision;
+    emit grubBackgroundRevisionChanged();
 }
 
 int CommonInfoModel::debugLogCurrentIndex() const

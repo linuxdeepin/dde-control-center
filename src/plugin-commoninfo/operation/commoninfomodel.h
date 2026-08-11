@@ -25,6 +25,7 @@ class CommonInfoModel : public QObject
     Q_PROPERTY(bool isLogin READ isLogin NOTIFY isLoginChenged FINAL)
     Q_PROPERTY(bool isActivate READ isActivate NOTIFY LicenseStateChanged FINAL)
     Q_PROPERTY(QString grubThemePath READ grubThemePath NOTIFY grubThemePathChanged FINAL)
+    Q_PROPERTY(int grubBackgroundRevision READ grubBackgroundRevision NOTIFY grubBackgroundRevisionChanged FINAL)
     Q_PROPERTY(bool needShowModalDialog READ needShowModalDialog NOTIFY needShowModalDialogChanged FINAL)
     Q_PROPERTY(bool isDeveloperMode READ isDeveloperMode NOTIFY isDeveloperModeChanged FINAL)
     Q_PROPERTY(bool readOnlyProtectionEnabled READ readOnlyProtectionEnabled NOTIFY readOnlyProtectionEnabledChanged FINAL)
@@ -63,6 +64,9 @@ public:
     QString grubThemePath() const;
     void setGrubThemePath(const QString &newGrubThemePath);
 
+    int grubBackgroundRevision() const;
+    void bumpGrubBackgroundRevision();
+
     bool needShowModalDialog() const;
     void setNeedShowModalDialog(bool newNeedShowModalDialog);
 
@@ -96,6 +100,7 @@ Q_SIGNALS:
     void debugLogCurrentIndexChanged();
 
     void grubThemePathChanged();
+    void grubBackgroundRevisionChanged();
 
     void needShowModalDialogChanged();
 
@@ -136,6 +141,7 @@ private:
     int m_plymouthscale;
     QString m_plymouththeme;
     QString m_grubThemePath;
+    int m_grubBackgroundRevision{0};
 
     GrubAnimationModel* m_GrubAnimationModel;
     GrubMenuListModel* m_GrubMenuListModel;
