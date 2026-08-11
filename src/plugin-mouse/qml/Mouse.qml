@@ -13,6 +13,6 @@ DccObject {
     weight: 30
 
     page: DccRightView {
-        spacing: -4
+        spacing: 0
     }
 }
