@@ -90,6 +90,7 @@ private:
     QDBusInterface *m_debugConfigInter;
     QDBusInterface *m_inter;
     QString m_tmpBackgroundPath;
+    bool m_pendingBackgroundRefresh{false};
     QString m_immutableWritableStatus;
     Dtk::Core::DConfig *m_dtkConfig = nullptr;
 };
