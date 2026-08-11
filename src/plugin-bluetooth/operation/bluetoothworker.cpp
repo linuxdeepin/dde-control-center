@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "bluetoothworker.h"
@@ -270,8 +270,11 @@ void BluetoothWorker::connectDevice(const QString &deviceId, const QString adapt
         return;
 
     const BluetoothDevice *device = adapter->deviceById(deviceId);
+    // deviceType() returns the icon name mapped by setDeviceType() (bluetoothdevice.cpp:87),
+    // not the raw BlueZ type. audio-card/audio-headset/audio-headphones all map to
+    // bluetooth_pheadset, so compare against that to skip duplicate audio-device connects.
     if (device
-        && (device->deviceType() == "audio-headset" || device->deviceType() == "audio-headphones")
+        && device->deviceType() == "bluetooth_pheadset"
         && device->state() == BluetoothDevice::StateAvailable) {
         return;
     }
