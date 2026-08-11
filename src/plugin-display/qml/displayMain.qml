@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -822,6 +822,7 @@ DccObject {
         parentName: "display"
         displayName: qsTr("Eye Comfort")
         weight: 90
+        onParentItemChanged: item => { if (item) { item.leftPadding = 14 } }
     }
     DccObject {
         name: "eyeComfort"
@@ -835,6 +836,7 @@ DccObject {
             checked: dccData.colorTemperatureEnabled
             onClicked: dccData.colorTemperatureEnabled = checked
         }
+        onParentItemChanged: item => { if (item) { item.topInset = 0; item.bottomInset = 0; item.rightItemTopMargin = 6; item.rightItemBottomMargin = 6 } }
     }
     DccObject {
         name: "eyeComfortGroup"
@@ -843,6 +845,7 @@ DccObject {
         visible: dccData.colorTemperatureEnabled
         pageType: DccObject.Item
         page: DccGroupView {}
+        onParentItemChanged: item => { if (item) item.topInset = 6 }
         DccObject {
             name: "time"
             parentName: "display/eyeComfortGroup"

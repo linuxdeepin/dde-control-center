@@ -30,7 +30,7 @@ DccObject {
     }
     onParentItemChanged: {
         if (parentItem) {
-            parentItem.leftPadding = 10
+            parentItem.leftPadding = 14
         }
     }
 }

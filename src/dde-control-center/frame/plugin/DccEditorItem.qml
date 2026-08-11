@@ -14,7 +14,7 @@ D.ItemDelegate {
     property var rightItem: null
     property real iconRadius: model.item.iconRadius ? model.item.iconRadius : 0
     property real iconSize: model.item.iconSize ? model.item.iconSize : 0
-    property real leftPaddingSize: model.item.leftPaddingSize ? model.item.leftPaddingSize : 10
+    property real leftPaddingSize: model.item.leftPaddingSize ? model.item.leftPaddingSize : 14
     property real rightItemTopMargin: 5
     property real rightItemBottomMargin: 5
 
