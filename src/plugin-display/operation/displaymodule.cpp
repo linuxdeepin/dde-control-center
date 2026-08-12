@@ -142,7 +142,7 @@ void DisplayModulePrivate::updateVirtualScreens()
                 continue;
             DccScreenPrivate *screenPrivate = DccScreenPrivate::Private(srcScreen);
             QRect rect(QPoint(srcScreen->x(), srcScreen->y()), srcScreen->currentResolution());
-            QString key = QStringLiteral("%1,%2,%3,%4").arg(rect.x()).arg(rect.y()).arg(rect.width()).arg(rect.height());
+            QString key = srcScreen->name();
             if (addScreenMap.contains(key)) {
                 addScreenMap[key].append(screenPrivate->monitors());
             } else {

@@ -3,6 +3,7 @@
 //SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "displaymodel.h"
+#include "WayQtUtils.h"
 
 using namespace dccV25;
 const double DoubleZero = 0.000001;
@@ -64,6 +65,17 @@ void DisplayModel::setDisplayMode(const int mode)
 {
     if (m_mode != mode && mode >= 0 && mode < 5) {
         m_mode = mode;
+        if (!WQt::Utils::isTreeland()) {
+            QMap<QString, QStringList> voMap;
+            if (mode == MERGE_MODE) {
+                QStringList outputNames;
+                for (auto &&monitor : monitorList()) {
+                    outputNames.append(monitor->name());
+                }
+                voMap.insert(outputNames.join("="), outputNames);
+            }
+            setVirtualOutput(voMap);
+        }
         Q_EMIT displayModeChanged(m_mode);
     }
 }
