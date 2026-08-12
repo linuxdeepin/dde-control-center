@@ -131,21 +131,13 @@ DccObject {
                     hoverEnabled: true
                     model: serverList
                     popup.popupType: Popup.Window
-                    // Under Popup.Window the popup geometry and contentHeight settle
-                    // asynchronously; a single positionViewAtIndex gets overwritten by
-                    // later fixupPosition passes, so reposition on layout changes
-                    // until the geometry stabilizes (see ntpPopupScroll below).
-                    popup.onOpened: {
-                        ntpPopupScroll.target = comboBox.popup.contentItem.view
-                        ntpPopupScroll.targetIndex = comboBox.currentIndex
-                        ntpPopupScroll.repositionCount = 0
-                        Qt.callLater(ntpPopupScroll.reposition)
-                    }
-                    popup.onClosed: {
-                        ntpPopupScroll.target = null
-                    }
-                    // 不设置默认的话可能无法滚动（不显示上下箭头按钮）。。。
-                    maxVisibleItems: serverList.length - 1
+                    // Show all NTP servers incl. "Customize" so the list never scrolls.
+                    // The DTK ArrowListView arrow buttons are ColumnLayout siblings of the
+                    // ListView and their visibility tracks the scroll position; toggling
+                    // them resizes the layout, which under Popup.Window feeds back into
+                    // contentY resets (scroll snap-back) and popup height jitter. ~17 sample
+                    // servers fit in 20; a longer list just becomes scrollable again.
+                    maxVisibleItems: 20
                     currentIndex:  {
                         let index = serverList.indexOf(dccData.ntpServerAddress)
                         dateAndTimeSettings.showCustom = (index < 0)
@@ -199,31 +191,6 @@ DccObject {
                             }
                         }
                     }
-                }
-
-                // Helper that keeps the NTP popup scrolled to the selected item:
-                // listens to the inner ListView layout changes and re-scrolls until
-                // the asynchronous Popup.Window geometry stabilizes.
-                QtObject {
-                    id: ntpPopupScroll
-                    property var target: null        // comboBox.popup.contentItem.view (ListView)
-                    property int targetIndex: -1     // selected index captured when the popup opened
-                    property int repositionCount: 0
-                    readonly property int maxRepositions: 10  // cap so it stops fighting the user
-
-                    function reposition() {
-                        if (!target || targetIndex < 0 || repositionCount >= maxRepositions)
-                            return
-                        if (target.contentHeight > 0) {
-                            target.positionViewAtIndex(targetIndex, ListView.Contain)
-                            repositionCount++
-                        }
-                    }
-                }
-                Connections {
-                    target: ntpPopupScroll.target
-                    function onContentHeightChanged() { Qt.callLater(ntpPopupScroll.reposition) }
-                    function onHeightChanged() { Qt.callLater(ntpPopupScroll.reposition) }
                 }
 
                 Button {
