@@ -105,6 +105,7 @@ D.ItemDelegate {
             enabled: model.item.enabledToApp
             opacity: enabled ? 1 : 0.4
             active: !rightItem
+            visible: active
             dccObj: model.item
             dccObjItem: control
         }
@@ -115,6 +116,7 @@ D.ItemDelegate {
             enabled: model.item.enabledToApp
             opacity: enabled ? 1 : 0.4
             active: rightItem
+            visible: active
             sourceComponent: rightItem
         }
     }
