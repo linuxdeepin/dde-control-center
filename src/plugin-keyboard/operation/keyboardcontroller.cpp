@@ -18,6 +18,12 @@ DCC_FACTORY_CLASS(KeyboardController)
 
 namespace {
 constexpr int ShortcutCaptureTimeoutMs = 30000;
+enum CaptureResult : uint {
+    CaptureSuccess = 0,
+    CaptureInvalid = 1,
+    CaptureCanceled = 2,
+    CaptureTimedOut = 3,
+};
 }
 
 KeyboardController::KeyboardController(QObject *parent)
@@ -126,6 +132,41 @@ KeyboardController::KeyboardController(QObject *parent)
     connect(m_worker, &KeyboardWorker::customShortcutOperationFinished,
             this, &KeyboardController::customShortcutOperationFinished);
 
+    connect(m_worker, &KeyboardWorker::captureFinished, this,
+            [this](quint64 captureId, uint result, const QString &keystroke) {
+                if (m_capture.backend != CaptureBackend::X11
+                        || m_capture.phase != CapturePhase::Active
+                        || captureId != m_capture.requestId) {
+                    return;
+                }
+
+                const QString id = m_capture.id;
+                const int type = m_capture.type;
+                const quint64 generation = m_capture.generation;
+                ++m_captureRequestSerial;
+                m_capture.reset();
+
+                switch (result) {
+                case CaptureSuccess:
+                    handleCapturedKeystroke(id, type, keystroke, generation);
+                    break;
+                case CaptureInvalid:
+                    Q_EMIT invalidShortcutCaptured(id, type);
+                    break;
+                case CaptureCanceled:
+                    Q_EMIT keyCaptureCanceled(id, type);
+                    break;
+                case CaptureTimedOut:
+                    Q_EMIT keyCaptureTimedOut(id, type);
+                    break;
+                default:
+                    qWarning() << "Unknown shortcut capture result:" << result;
+                    Q_EMIT keyCaptureFailed(id, type,
+                                            QStringLiteral("unknown capture result"));
+                    break;
+                }
+            });
+
     connect(m_shortcutModel, &ShortcutModel::keyEvent, this, [this](bool press, const QString &shortcut){
         if (m_capture.backend != CaptureBackend::X11
                 || m_capture.phase != CapturePhase::Active)
@@ -139,10 +180,6 @@ KeyboardController::KeyboardController(QObject *parent)
 
         if (press)
             Q_EMIT keyEvent(id, type, shortcut);
-        else {
-            endKeyCapture();
-            handleCapturedKeystroke(id, type, shortcut, generation);
-        }
     });
 
     QMetaObject::invokeMethod(m_worker, "active", Qt::QueuedConnection);
@@ -652,7 +689,8 @@ bool KeyboardController::isCurrentShortcutGeneration(const QString &id, int type
             && m_shortcutGenerations.value(key) == generation;
 }
 
-void KeyboardController::beginKeyCapture(QQuickItem *item, const QString &id, int type)
+void KeyboardController::beginKeyCapture(QQuickItem *item, const QString &id, int type,
+                                         bool timeoutEnabled)
 {
     endKeyCapture();
 
@@ -685,18 +723,20 @@ void KeyboardController::beginKeyCapture(QQuickItem *item, const QString &id, in
         });
     }
 
-    QTimer::singleShot(ShortcutCaptureTimeoutMs, this,
-                       [this, requestId, id, type, generation] {
-        if (requestId != m_capture.requestId
-                || m_capture.phase == CapturePhase::Idle
-                || !isCurrentShortcutGeneration(id, type, generation)) {
-            return;
-        }
+    if (timeoutEnabled) {
+        QTimer::singleShot(ShortcutCaptureTimeoutMs, this,
+                           [this, requestId, id, type, generation] {
+            if (requestId != m_capture.requestId
+                    || m_capture.phase == CapturePhase::Idle
+                    || !isCurrentShortcutGeneration(id, type, generation)) {
+                return;
+            }
 
-        qWarning() << "Shortcut capture timed out:" << id << type;
-        endKeyCapture();
-        Q_EMIT keyCaptureTimedOut(id, type);
-    });
+            qWarning() << "Shortcut capture timed out:" << id << type;
+            endKeyCapture();
+            Q_EMIT keyCaptureTimedOut(id, type);
+        });
+    }
 
     if (m_worker->isWayland()) {
         m_capture.backend = CaptureBackend::Wayland;
@@ -773,8 +813,12 @@ void KeyboardController::startWaylandKeyCapture(QQuickItem *item, const QString 
                 qWarning() << message << id << type;
                 using Capture = QtWayland::treeland_shortcut_capture_v1;
                 const auto failedReason = static_cast<Capture::failed_reason>(reason);
+                // The protocol groups pointer clicks, Escape and unmodified
+                // alphanumeric keys under "interrupted" without exposing the
+                // triggering input. Treat it as cancellation so clicking away
+                // never produces a misleading invalid-shortcut error.
                 if (failedReason == Capture::failed_reason_interrupted)
-                    Q_EMIT invalidShortcutCaptured(id, type);
+                    Q_EMIT keyCaptureCanceled(id, type);
                 else
                     Q_EMIT keyCaptureFailed(id, type, message);
                 Q_EMIT waylandKeyCaptureFailed(id, type, static_cast<int>(reason));
@@ -822,12 +866,15 @@ void KeyboardController::handleCapturedKeystroke(const QString &id, int type, co
     if (!isCurrentShortcutGeneration(id, type, generation))
         return;
 
-    if (accels.isEmpty()) {
-        Q_EMIT invalidShortcutCaptured(id, type);
-        return;
+    QString capturedKey = accels.trimmed();
+    if (capturedKey.startsWith(QLatin1Char('<'))
+            && capturedKey.endsWith(QLatin1Char('>'))) {
+        capturedKey = capturedKey.mid(1, capturedKey.size() - 2);
     }
-    if (accels == QLatin1String("Esc") || accels == QLatin1String("Escape")) {
-        Q_EMIT requestRestore(id, type);
+    if (capturedKey.isEmpty()
+            || capturedKey.compare(QLatin1String("Esc"), Qt::CaseInsensitive) == 0
+            || capturedKey.compare(QLatin1String("Escape"), Qt::CaseInsensitive) == 0) {
+        Q_EMIT keyCaptureCanceled(id, type);
         return;
     }
     if (accels == QLatin1String("BackSpace")

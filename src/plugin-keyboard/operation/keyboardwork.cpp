@@ -99,6 +99,8 @@ KeyboardWorker::KeyboardWorker(KeyboardModel *model, QObject *parent)
 
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::compositingEnabledChanged, this, &KeyboardWorker::onGetWindowWM);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::AllShortcutsReady, this, &KeyboardWorker::onAllShortcutsReady);
+    connect(m_keyboardDBusProxy, &KeyboardDBusProxy::CaptureFinished,
+            this, &KeyboardWorker::captureFinished);
     connect(m_keyboardDBusProxy, &KeyboardDBusProxy::keybindingServiceRegistered, this, [this] {
         qCInfo(lcKeyboardWorker) << "Keybinding service registered, refresh shortcuts";
         refreshShortcut();
@@ -846,7 +848,7 @@ bool KeyboardWorker::isCurrentShortcutGeneration(const QString &id, int type,
 
 void KeyboardWorker::beginCapture(quint64 requestId)
 {
-    QDBusPendingReply<bool> reply = m_keyboardDBusProxy->BeginCapture();
+    QDBusPendingReply<bool> reply = m_keyboardDBusProxy->BeginCapture(requestId);
     auto *watcher = new QDBusPendingCallWatcher(reply, this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher, requestId] {
         QDBusPendingReply<bool> result = *watcher;

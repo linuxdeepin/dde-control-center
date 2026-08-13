@@ -136,6 +136,10 @@ void KeyboardDBusProxy::init()
         KeybingdingService, KeybingdingPath, KeybingdingInterface,
         "KeyEvent", this,
         SIGNAL(KeyEvent(bool,QString)));
+    QDBusConnection::sessionBus().connect(
+        KeybingdingService, KeybingdingPath, KeybingdingInterface,
+        "CaptureFinished", this,
+        SIGNAL(CaptureFinished(qulonglong,uint,QString)));
 
     auto *keybindingWatcher = new QDBusServiceWatcher(
         KeybingdingService,
@@ -588,9 +592,10 @@ QDBusPendingReply<QString> KeyboardDBusProxy::Query(const QString &in0, int in1)
     return QDBusPendingReply<QString>();
 }
 
-QDBusPendingReply<bool> KeyboardDBusProxy::BeginCapture(uint timeoutMs)
+QDBusPendingReply<bool> KeyboardDBusProxy::BeginCapture(quint64 captureId, uint timeoutMs)
 {
     QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(captureId);
     argumentList << timeoutMs;
     return m_dBusKeybingdingInter->asyncCallWithArgumentList(QStringLiteral("BeginCapture"), argumentList);
 }
