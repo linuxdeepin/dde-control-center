@@ -78,7 +78,8 @@ public Q_SLOTS:
     void updateKey(const QString &id, const int &type);
     QStringList formatKeys(const QString &shortcuts);
     Q_INVOKABLE bool isWaylandSession() const;
-    Q_INVOKABLE void beginKeyCapture(QQuickItem *item, const QString &id, int type);
+    Q_INVOKABLE void beginKeyCapture(QQuickItem *item, const QString &id, int type,
+                                     bool timeoutEnabled = true);
     Q_INVOKABLE void endKeyCapture();
     Q_INVOKABLE void submitCapturedKeystroke(const QString &id, int type, const QString &accels);
 
@@ -127,6 +128,7 @@ signals:
     void keyCaptureStarted(const QString &id, int type);
     void keyCaptureFailed(const QString &id, int type, const QString &reason);
     void keyCaptureTimedOut(const QString &id, int type);
+    void keyCaptureCanceled(const QString &id, int type);
     void invalidShortcutCaptured(const QString &id, int type);
     void shortcutModificationFinished(const QString &id, int type, const QString &accels, bool success);
     void customShortcutOperationFinished(quint64 requestId, bool success,

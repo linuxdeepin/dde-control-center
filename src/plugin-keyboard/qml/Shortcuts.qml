@@ -188,7 +188,7 @@ DccObject {
                                 shortcutView.editItem = edit
                                 shortcutView.conflictText = conflictText
                                 shortcutSettingsBody.isEditing = false
-                                dccData.beginKeyCapture(edit, model.id, model.type)
+                                dccData.beginKeyCapture(edit, model.id, model.type, true)
                             }
                             onRequestEditKeys: {
                                 if (dialogloader.active)
@@ -219,6 +219,7 @@ DccObject {
                             }
 
                             function startCapture() {
+                                captureFailureTimer.stop()
                                 conflictText.message = ""
                                 conflictText.showActions = true
                                 conflictText.visible = false
@@ -239,9 +240,11 @@ DccObject {
                                 conflictText.showActions = false
                                 conflictText.visible = true
                                 shortcutSettingsBody.conflictAccels = ""
+                                captureFailureTimer.restart()
                             }
 
                             function finishModification(accels) {
+                                captureFailureTimer.stop()
                                 keys = dccData.formatKeys(accels)
                                 conflictText.visible = false
                                 conflictText.message = ""
@@ -251,6 +254,7 @@ DccObject {
                             }
 
                             function clearShortcut() {
+                                captureFailureTimer.stop()
                                 dccData.endKeyCapture()
                                 dccData.clearShortcut(model.id, model.type)
 
@@ -264,6 +268,7 @@ DccObject {
                             }
 
                             function restore() {
+                                captureFailureTimer.stop()
                                 dccData.endKeyCapture()
                                 edit.keys = model.keySequence
                                 conflictText.visible = false
@@ -273,6 +278,15 @@ DccObject {
                                 shortcutSettingsBody.conflictAccels = ""
                                 shortcutView.editItem = null
                                 shortcutView.conflictText = null
+                            }
+
+                            // Keep capture errors visible long enough to be read, then
+                            // return the row to its normal state when the user is idle.
+                            Timer {
+                                id: captureFailureTimer
+                                interval: 20000
+                                repeat: false
+                                onTriggered: edit.restore()
                             }
 
                             Loader {
@@ -448,6 +462,11 @@ DccObject {
                         if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
                             return
                         shortcutView.editItem.showFailure(qsTr("Shortcut input timed out. Try again."))
+                    }
+                    function onKeyCaptureCanceled(id, type) {
+                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
+                            return
+                        shortcutView.restoreShortcutView()
                     }
                     function onInvalidShortcutCaptured(id, type) {
                         if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))

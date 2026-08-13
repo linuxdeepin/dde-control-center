@@ -175,6 +175,7 @@ D.DialogWindow {
                     return DS.Style.keySequenceEdit.background;
             }
             onRequestKeys: {
+                captureFailureTimer.stop()
                 dccData.clearPendingConflict(ddialog.keyId, 1)
                 ddialog.pendingConflict = false
                 conflictText.text = ""
@@ -186,7 +187,7 @@ D.DialogWindow {
                     ddialog.captureRestoreAccels = edit.accels
                     ddialog.captureRestoreValid = true
                 }
-                dccData.beginKeyCapture(edit, ddialog.keyId, 1)
+                dccData.beginKeyCapture(edit, ddialog.keyId, 1, true)
             }
         }
 
@@ -250,6 +251,7 @@ D.DialogWindow {
             function onRequestRestore(id, type) {
                 if (id !== ddialog.keyId || type !== 1)
                     return
+                captureFailureTimer.stop()
                 dccData.endKeyCapture()
                 if (ddialog.captureRestoreValid) {
                     edit.keys = ddialog.captureRestoreKeys
@@ -281,6 +283,7 @@ D.DialogWindow {
                 edit.keys = []
             }
             function showCaptureFailure(message) {
+                captureFailureTimer.restart()
                 edit.keys = ddialog.captureRestoreKeys
                 edit.accels = ddialog.captureRestoreAccels
                 ddialog.captureRestoreValid = false
@@ -298,6 +301,11 @@ D.DialogWindow {
                     return
                 showCaptureFailure(qsTr("Shortcut input timed out. Try again."))
             }
+            function onKeyCaptureCanceled(id, type) {
+                if (id !== ddialog.keyId || type !== 1)
+                    return
+                onRequestRestore(id, type)
+            }
             function onInvalidShortcutCaptured(id, type) {
                 if (id !== ddialog.keyId || type !== 1)
                     return
@@ -306,13 +314,9 @@ D.DialogWindow {
             function onKeyConflicted(id, type, oldAccels, newAccels, message, replaceable) {
                 if (id !== ddialog.keyId || type !== 1)
                     return
+                captureFailureTimer.stop()
                 if (!replaceable) {
-                    edit.keys = ddialog.captureRestoreKeys
-                    edit.accels = ddialog.captureRestoreAccels
-                    ddialog.captureRestoreValid = false
-                    dccData.clearPendingConflict(ddialog.keyId, 1)
-                    ddialog.pendingConflict = false
-                    conflictText.text = message
+                    showCaptureFailure(message)
                     return
                 }
                 ddialog.captureRestoreValid = false
@@ -326,6 +330,7 @@ D.DialogWindow {
             function onKeyDone(id, type, accels) {
                 if (id !== ddialog.keyId || type !== 1)
                     return
+                captureFailureTimer.stop()
                 ddialog.captureRestoreValid = false
                 dccData.clearPendingConflict(ddialog.keyId, 1)
                 ddialog.pendingConflict = false
@@ -350,9 +355,30 @@ D.DialogWindow {
                     return
                 }
 
+                edit.keys = ddialog.saveKeys
+                edit.accels = ddialog.saveAccels
+                ddialog.captureRestoreValid = false
+                dccData.clearPendingConflict(ddialog.keyId, 1)
+                ddialog.pendingConflict = false
                 conflictText.text = errorMessage.length > 0
                         ? errorMessage
                         : qsTr("Failed to save the shortcut. Please try again.")
+                captureFailureTimer.restart()
+            }
+        }
+
+        Timer {
+            id: captureFailureTimer
+            interval: 20000
+            repeat: false
+            onTriggered: {
+                // The failure handler has already restored the shortcut. Only
+                // clear the temporary alert and any stale capture state here.
+                dccData.endKeyCapture()
+                ddialog.captureRestoreValid = false
+                dccData.clearPendingConflict(ddialog.keyId, 1)
+                ddialog.pendingConflict = false
+                conflictText.text = ""
             }
         }
     }

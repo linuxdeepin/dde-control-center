@@ -101,6 +101,7 @@ Q_SIGNALS:
     void shortcutCommandReady(const QString &id, const QString &command, bool available,
                               quint64 requestSerial);
     void captureRequestFinished(quint64 requestId, bool success, const QString &reason);
+    void captureFinished(quint64 captureId, uint result, const QString &keystroke);
     void shortcutConflictDetected(const QString &id, int type, const QString &shortcut,
                                   const QString &conflictId, const QString &conflictName,
                                   bool replaceable, quint64 generation);

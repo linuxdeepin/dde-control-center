@@ -216,6 +216,9 @@ signals:
     void ShortcutSwitchLayoutChanged(uint  value) const;
     // Keybinding
     void KeyEvent(bool pressed, const QString &keystroke);
+    // Explicit terminal result from the new shortcut capture protocol:
+    // 0=success, 1=invalid, 2=canceled, 3=timed out.
+    void CaptureFinished(quint64 captureId, uint result, const QString &keystroke);
     // Wayland new-API bridge: full shortcut list converted to old JSON format.
     void AllShortcutsReady(const QString &json);
     // Wayland: result of a GetShortcut query, already converted to old JSON.
@@ -267,7 +270,7 @@ public slots:
     QDBusPendingReply<QString> GetShortcut(const QString &in0, int in1);
     QDBusPendingReply<QString> SearchShortcuts(const QString &in0);
     QDBusPendingReply<QString> Query(const QString &in0, int in1);
-    QDBusPendingReply<bool> BeginCapture(uint timeoutMs = 30000);
+    QDBusPendingReply<bool> BeginCapture(quint64 captureId, uint timeoutMs = 30000);
     void EndCapture();
 
     //KeyBoard
