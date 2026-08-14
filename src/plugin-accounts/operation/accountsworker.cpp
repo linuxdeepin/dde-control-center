@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "accountsworker.h"
@@ -311,6 +311,9 @@ void AccountsWorker::modifyGroup(const QString &oldGroup, const QString &newGrou
 
 bool AccountsWorker::hasOpenSecurity()
 {
+    if (!m_securityInter->isServiceAvailable()) {
+        return false;
+    }
     const auto &value = m_securityInter->Status();
     if (value.isEmpty()) {
         qWarning() << m_securityInter->lastError();
@@ -323,6 +326,9 @@ bool AccountsWorker::hasOpenSecurity()
 
 SecurityLever AccountsWorker::getSecUserLeverbyname(QString userName)
 {
+    if (!m_securityInter->isServiceAvailable()) {
+        return SecurityLever::Standard;
+    }
     std::tuple<QString, QString> result = m_securityInter->GetSEUserByName(userName);
     const auto &value = std::get<0>(result);
     if (value.isEmpty()) {
