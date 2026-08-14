@@ -3417,7 +3417,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"/>
+        <translation>Upłynął czas oczekiwania wprowadzenia skrótu, spróbuj ponownie.</translation>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
