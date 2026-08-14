@@ -1,10 +1,11 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "securitydbusproxy.h"
 
 #include <QDBusConnection>
+#include <QDBusConnectionInterface>
 #include <QDBusPendingReply>
 #include <QDebug>
 
@@ -16,6 +17,9 @@ SecurityDBusProxy::SecurityDBusProxy(QObject *parent)
 
 QString SecurityDBusProxy::Status()
 {
+    if (!m_serviceAvailable) {
+        return QString();
+    }
     QDBusPendingReply<QString> reply = m_dBusInter->asyncCall("Status");
     reply.waitForFinished();
     if (reply.isError()) {
@@ -30,6 +34,9 @@ std::tuple<QString, QString> SecurityDBusProxy::GetSEUserByName(const QString &u
 {
     Q_UNUSED(user)
     std::tuple<QString, QString> result;
+    if (!m_serviceAvailable) {
+        return result;
+    }
     QDBusPendingReply<QString, QString> reply = m_dBusInter->asyncCall("GetSEUserByName");
     reply.waitForFinished();
     if (reply.isError()) {
@@ -48,8 +55,18 @@ void SecurityDBusProxy::init()
 
     m_dBusInter = new DDBusInterface(service, path, interface, QDBusConnection::systemBus(), this);
 
+    // SecurityEnhance 服务为可选的安全增强组件，并非所有镜像都预装。
+    // 若该服务未注册到系统总线上，跳过后续 DBus 调用，避免产生
+    // "The name com.deepin.daemon.SecurityEnhance was not provided by any
+    // .service files" 这类 ServiceUnknown 报错日志。
+    m_serviceAvailable = QDBusConnection::systemBus().interface()->isServiceRegistered(service);
+    if (!m_serviceAvailable) {
+        return;
+    }
+
     if (!m_dBusInter->isValid()) {
         qWarning() << "Security interface invalid: " << m_dBusInter->lastError().message();
+        m_serviceAvailable = false;
         return;
     }
 }
