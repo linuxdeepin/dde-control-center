@@ -2,8 +2,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
-import QtQuick.Controls 2.0
-import QtQuick.Layouts 1.15
+import QtQuick.Controls
+import QtQuick.Layouts
 
 Item {
     id: item

@@ -5,10 +5,10 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
-import org.deepin.dtk 1.0 as D
-import org.deepin.dtk.style 1.0 as DS
-import org.deepin.dtk.private 1.0 as P
-import org.deepin.dcc 1.0
+import org.deepin.dtk as D
+import org.deepin.dtk.style as DS
+import org.deepin.dtk.private as P
+import org.deepin.dcc
 
 Control {
     id: control

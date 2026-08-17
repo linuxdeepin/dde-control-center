@@ -1,15 +1,15 @@
 // SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick
-import QtQuick.Controls 2.0
-import QtQuick.Layouts 1.15
-import QtQml.Models 2.11
-import org.deepin.dcc 1.0
-import org.deepin.dtk 1.0 as D
-import org.deepin.dtk.private 1.0 as P
-import org.deepin.dtk.style 1.0 as DS
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQml.Models
+import org.deepin.dcc
+import org.deepin.dtk as D
+import org.deepin.dtk.private as P
+import org.deepin.dtk.style as DS
 
-import ZoneInfoModel 1.0
+import ZoneInfoModel
 
 // 时间和日期
 DccObject {

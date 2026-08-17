@@ -3,8 +3,8 @@
 // SPDX-License-Identifier: LGPL-3.0-or-later
 
 import QtQuick
-import org.deepin.dtk 1.0
-import org.deepin.dtk.style 1.0 as DS
+import org.deepin.dtk
+import org.deepin.dtk.style as DS
 
 
 // AutoSizingComboBox — ComboBox 封装，自动适配下拉面板宽度

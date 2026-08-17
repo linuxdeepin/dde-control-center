@@ -1,8 +1,8 @@
 // SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import org.deepin.dtk 1.0 as D
-import org.deepin.dtk.style 1.0 as DS
+import org.deepin.dtk as D
+import org.deepin.dtk.style as DS
 D.ComboBox {
     id: control
     flat: true
