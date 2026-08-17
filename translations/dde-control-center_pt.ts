@@ -557,15 +557,15 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"/>
+        <translation>Para usar a função de Bluetooth, por favor desligue</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo de Avião</translation>
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>O nome do Bluetooth não pode exceder 64 caracteres</translation>
     </message>
 </context>
 <context>
@@ -583,11 +583,11 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições de Arranque</translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"/>
+        <translation>Pode clicar no menu para alterar os itens de arranque predefinidos ou arrastar a imagem para a janela para alterar a imagem de fundo.</translation>
     </message>
     <message>
         <source>grub start delay</source>
