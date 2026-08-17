@@ -461,35 +461,35 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificação de bateria fraca</translation>
     </message>
     <message>
         <source>Auto suspend</source>
-        <translation type="unfinished"/>
+        <translation>Auto suspender</translation>
     </message>
     <message>
         <source>Auto Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>Auto Hibernar</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Limite de bateria fraca</translation>
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"/>
+        <translation>Gestão da Bateria</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar tempo restante de utilização e carregamento</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation type="unfinished"/>
+        <translation>Capacidade máxima</translation>
     </message>
     <message>
         <source>Low battery level</source>
-        <translation type="unfinished"/>
+        <translation>Nível de bateria baixo</translation>
     </message>
     <message>
         <source>Disable</source>
