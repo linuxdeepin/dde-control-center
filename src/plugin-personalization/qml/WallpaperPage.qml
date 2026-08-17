@@ -67,6 +67,13 @@ DccObject {
             weight: 200
             pageType: DccObject.Item
             page: RowLayout {
+                // Fixed-size 197x110 preview: never stretch. DccRowView forwards this
+                // to its loader, and Layout.fillWidth defaults to true for layout items.
+                // Filling here starves the sibling status group, whose DccGroupView has
+                // implicitWidth 0, so the row's spare width is distributed in proportion
+                // to preferred width (197 : 0) and the group is left a few pixels wide
+                // against the right edge, clipping its text outside the viewport.
+                Layout.fillWidth: false
                 Item {
                     implicitWidth: 197
                     implicitHeight: 110
