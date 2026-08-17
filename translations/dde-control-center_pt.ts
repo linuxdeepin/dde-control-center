@@ -836,22 +836,22 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation type="unfinished"/>
+        <translation>Personalizar o seu tema de ícones</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema do Cursor</translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation type="unfinished"/>
+        <translation>Personalizar o seu tema do cursor</translation>
     </message>
 </context>
 <context>
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"/>
+        <translation>Tem a certeza que quer apagar esta conta?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
