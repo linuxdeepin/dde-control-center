@@ -164,19 +164,19 @@
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation>Falha ao registar o rosto</translation>
+        <translation>Falha ao registar o seu rosto</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Concluído</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Tentar Registar Novamente</translation>
     </message>
     <message>
         <source>Face recognition does not support liveness detection, and the verification method may carry risks.
