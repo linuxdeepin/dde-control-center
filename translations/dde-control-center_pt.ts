@@ -183,7 +183,10 @@
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation>O reconhecimento facial não suporta a deteção de vida, pelo que este método de verificação pode acarretar riscos.
+Para garantir o acesso bem-sucedido:
+1. Mantenha as suas características faciais claramente visíveis e não as cubra (chapéus, óculos de sol, máscaras, etc.).
+2. Assegure-se de que há iluminação suficiente e evite a luz solar direta.</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
