@@ -670,7 +670,7 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Permitir que as apps abaixo tenham acesso à sua câmara:</translation>
     </message>
 </context>
 <context>
@@ -817,7 +817,7 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>Câmara ocupada!</translation>
     </message>
 </context>
 <context>
