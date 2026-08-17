@@ -591,19 +591,19 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>grub start delay</source>
-        <translation type="unfinished"/>
+        <translation>atraso do arranque do grub</translation>
     </message>
     <message>
         <source>theme</source>
-        <translation type="unfinished"/>
+        <translation>tema</translation>
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"/>
+        <translation>Depois de ativar o tema, poderá ver o fundo do tema ao ligar o computador</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation type="unfinished"/>
+        <translation>Verificação do menu de arranque</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
