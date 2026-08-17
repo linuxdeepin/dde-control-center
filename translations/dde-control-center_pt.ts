@@ -302,7 +302,7 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, mantenha o seu olhar no dispositivo e certifique-se de que ambos os olhos se encontram dentro da área de captação</translation>
     </message>
 </context>
 <context>
@@ -324,11 +324,11 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
+        <translation>Até 5 dados faciais podem ser inseridos</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Impressão digital</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
