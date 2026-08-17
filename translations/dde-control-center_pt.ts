@@ -223,19 +223,19 @@ Traduzido com a versão gratuita do tradutor - DeepL.com</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Li e concordo com o</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Aviso Legal</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Seguinte</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Tentar Registar Novamente</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
