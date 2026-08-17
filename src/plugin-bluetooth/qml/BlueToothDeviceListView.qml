@@ -79,7 +79,7 @@ Rectangle {
                             Layout.fillHeight: true
                             Layout.fillWidth: true
                             spacing: 0
-                            Layout.leftMargin: 10
+                            Layout.leftMargin: 5
                             implicitHeight: Math.max(myDeviceName.implicitHeight, loader.implicitHeight) + 10
                             Label {
                                 id: myDeviceName
