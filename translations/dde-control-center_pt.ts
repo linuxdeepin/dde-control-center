@@ -75,15 +75,15 @@
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Os nomes dos grupos não devem ter mais de 32 caracteres</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Os nomes dos grupos não podem ter só números</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>Use apenas letras, números, sinal de traço baixo, e barras, e têm de começar com uma letra</translation>
     </message>
     <message>
         <source>The group name has been used</source>
