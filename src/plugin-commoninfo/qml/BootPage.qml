@@ -1,15 +1,15 @@
 // SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
-import QtQuick 2.11
-import QtQuick.Controls 2.4
-import QtQuick.Layouts 1.15
-import QtQuick.Window 2.15
+import QtQuick
+import QtQuick.Controls
+import QtQuick.Layouts
+import QtQuick.Window
 import QtQuick.Effects
-import org.deepin.dtk 1.0
+import org.deepin.dtk
 
 import Qt5Compat.GraphicalEffects
 
-import org.deepin.dcc 1.0
+import org.deepin.dcc
 
 DccObject {
 

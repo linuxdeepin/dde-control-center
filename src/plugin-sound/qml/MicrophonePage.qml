@@ -2,14 +2,14 @@
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick
-import QtQuick.Layouts 1.15
-import QtQuick.Controls 2.15
-import QtQuick.Window 2.15
+import QtQuick.Layouts
+import QtQuick.Controls
+import QtQuick.Window
 import QtQuick.Templates as T
-import org.deepin.dtk 1.0 as D
-import org.deepin.dtk.style 1.0 as DS
+import org.deepin.dtk as D
+import org.deepin.dtk.style as DS
 
-import org.deepin.dcc 1.0
+import org.deepin.dcc
 
 DccObject {
     id: root

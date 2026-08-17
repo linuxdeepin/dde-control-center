@@ -6,7 +6,7 @@ import QtQuick.Controls
 import QtQuick.Layouts
 import Qt5Compat.GraphicalEffects
 
-import org.deepin.dtk 1.0 as D
+import org.deepin.dtk as D
 
 Canvas {
     property real progress: 0

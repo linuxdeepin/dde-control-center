@@ -1,9 +1,9 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
-import org.deepin.dcc 1.0
-import QtQuick 2.15
-import QtQuick.Controls 2.15
+import org.deepin.dcc
+import QtQuick
+import QtQuick.Controls
 
 DccObject {
     id: authentication
