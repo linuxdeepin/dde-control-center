@@ -607,15 +607,15 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation type="unfinished"/>
+        <translation>Depois de abrir, entrar na edição de menu requer uma palavra-passe</translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>Alterar Palavra-passe</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation type="unfinished"/>
+        <translation>Alterar a palavra-passe da verificação do menu de arranque</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
