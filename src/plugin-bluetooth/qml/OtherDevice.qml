@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -6,6 +6,7 @@ import QtQuick.Controls 2.0
 import org.deepin.dcc 1.0
 import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
+import org.deepin.dtk.style 1.0 as DS
 
 DccObject{
     property bool refreshEnable: true
@@ -94,13 +95,35 @@ DccObject{
                 }
             }
 
-            D.IconButton {
+            D.ActionButton {
                 id: redobtn
                 Layout.alignment: Qt.AlignRight
-                flat: true
                 visible: !model.discovering
-
+                palette.windowText: D.ColorSelector.textColor
                 icon.name: "redo"
+                icon.width: 16
+                icon.height: 16
+                implicitHeight: 30
+                implicitWidth: 30
+                flat: !hovered
+
+                background: Rectangle {
+                    property D.Palette pressedColor: D.Palette {
+                        normal: Qt.rgba(0, 0, 0, 0.2)
+                        normalDark: Qt.rgba(1, 1, 1, 0.25)
+                    }
+                    property D.Palette hoveredColor: D.Palette {
+                        normal: Qt.rgba(0, 0, 0, 0.1)
+                        normalDark: Qt.rgba(1, 1, 1, 0.1)
+                    }
+                    radius: DS.Style.control.radius
+                    color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                    border {
+                        color: parent.palette.highlight
+                        width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                    }
+                }
+
                 onClicked: {
                     dccData.work().setAdapterDiscoverable(model.id)
                 }
