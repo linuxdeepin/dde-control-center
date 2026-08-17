@@ -3,19 +3,19 @@
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>editar</translation>
     </message>
     <message>
         <source>Add new user</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar novo utilizador</translation>
     </message>
     <message>
         <source>Set fullname</source>
-        <translation type="unfinished"/>
+        <translation>Definir nome completo</translation>
     </message>
     <message>
         <source>Login settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições de início de sessão</translation>
     </message>
     <message>
         <source>Login without password</source>
