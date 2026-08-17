@@ -243,46 +243,50 @@ Traduzido com a versão gratuita do tradutor - DeepL.com</translation>
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>A &quot;autenticação biométrica&quot; é uma função de autenticação da identidade do utilizador fornecida pela UnionTech Software Technology Co., Ltd. Através da &quot;autenticação biométrica&quot;, os dados biométricos recolhidos serão comparados com os armazenados no dispositivo, e a identidade do utilizador será verificada com base no resultado da comparação.
+
+Tenha em atenção que a UnionTech Software Technology Co., Ltd. não irá recolher nem aceder às suas informações biométricas, as quais serão armazenadas no seu dispositivo local. Ative a autenticação biométrica apenas no seu dispositivo pessoal e utilize as suas próprias informações biométricas para as operações relacionadas; desative ou elimine imediatamente as informações biométricas de outras pessoas nesse dispositivo, caso contrário, assumirá o risco daí decorrente.
+
+A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhorar a segurança, a precisão e a estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros, bem como ao controlo de riscos, não há garantia de que consiga passar na autenticação biométrica temporariamente. Por conseguinte, não considere a autenticação biométrica como a única forma de iniciar sessão no UOS. Se tiver quaisquer dúvidas ou sugestões ao utilizar a autenticação biométrica, pode enviar o seu feedback através da secção «Serviço e Suporte» no UOS.</translation>
     </message>
 </context>
 <context>
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>Registar Íris</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Li e concordo com o</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Aviso Legal</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Seguinte</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Concluído</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Tentar Registar Novamente</translation>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Íris registada</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao registar a sua íris</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
