@@ -515,45 +515,45 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>O bluetooth está ligado, e o nome é mostrado como &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
     <name>BlueToothDeviceListView</name>
     <message>
         <source>Disconnect</source>
-        <translation type="unfinished"/>
+        <translation>Desconectar</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation type="unfinished"/>
+        <translation>Conectar</translation>
     </message>
     <message>
         <source>Send Files</source>
-        <translation type="unfinished"/>
+        <translation>Enviar Ficheiros</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Renomear</translation>
     </message>
     <message>
         <source>Remove Device</source>
-        <translation type="unfinished"/>
+        <translation>Remover Dispositivo</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar ficheiro</translation>
     </message>
 </context>
 <context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation type="unfinished"/>
+        <translation>Permitir que outros dispositivos Bluetooth encontrem este dispositivo</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
