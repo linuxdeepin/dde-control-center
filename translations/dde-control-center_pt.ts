@@ -824,15 +824,15 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation type="unfinished"/>
+        <translation>Cor de Destaque</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições de Ícones</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema de Ícones</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
