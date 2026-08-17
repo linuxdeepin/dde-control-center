@@ -194,7 +194,13 @@ Para garantir o acesso bem-sucedido:
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>A &quot;autenticação biométrica&quot; é uma função de autenticação da identidade do utilizador fornecida pela UnionTech Software Technology Co., Ltd. Através da &quot;autenticação biométrica&quot;, os dados biométricos recolhidos serão comparados com os armazenados no dispositivo, e a identidade do utilizador será verificada com base no resultado da comparação.
+
+Tenha em atenção que a UnionTech Software Technology Co., Ltd. não irá recolher nem aceder às suas informações biométricas, as quais serão armazenadas no seu dispositivo local. Ative a autenticação biométrica apenas no seu dispositivo pessoal e utilize as suas próprias informações biométricas para as operações relacionadas; desative ou elimine imediatamente as informações biométricas de outras pessoas nesse dispositivo, caso contrário, assumirá o risco daí decorrente.
+
+A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhorar a segurança, a precisão e a estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros, bem como ao controlo de riscos, não há garantia de que consiga passar na autenticação biométrica temporariamente. Por conseguinte, não considere a autenticação biométrica como a única forma de iniciar sessão no UOS. Se tiver quaisquer dúvidas ou sugestões ao utilizar a autenticação biométrica, pode enviar o seu feedback através da secção «Serviço e Suporte» no UOS.
+
+Traduzido com a versão gratuita do tradutor - DeepL.com</translation>
     </message>
 </context>
 <context>
@@ -209,11 +215,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation type="unfinished"/>
+        <translation>Registar Impressão Digital</translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation>Coloque o dedo que pretende registar no sensor de impressões digitais e deslize-o de baixo para cima. Depois de concluir a ação, retire o dedo.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
