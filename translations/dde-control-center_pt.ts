@@ -643,27 +643,27 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>As palavras-passe não coincidem</translation>
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation type="unfinished"/>
+        <translation>Repetir palavra-passe:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Sure</source>
-        <translation type="unfinished"/>
+        <translation>Com certeza</translation>
     </message>
     <message>
         <source>Start animation</source>
-        <translation type="unfinished"/>
+        <translation>Animação de Início</translation>
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"/>
+        <translation>Ajustar o tamanho da animação do logótipo na interface de arranque do sistema</translation>
     </message>
 </context>
 <context>
