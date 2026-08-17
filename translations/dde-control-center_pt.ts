@@ -148,23 +148,23 @@
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Li e concordo com o</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Aviso Legal</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Seguinte</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Rosto registado</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao registar o rosto</translation>
     </message>
     <message>
         <source>Done</source>
