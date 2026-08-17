@@ -174,6 +174,7 @@ Rectangle {
                         RowLayout {
                             id: rowCtl
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                            Layout.rightMargin: showMoreBtn ? 0 : 10
                             spacing: 10
                             D.BusyIndicator {
                                 id: connectBusyIndicator
