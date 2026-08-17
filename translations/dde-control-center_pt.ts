@@ -19,27 +19,27 @@
     </message>
     <message>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Início de sessão sem palavra-passe</translation>
     </message>
     <message>
         <source>Delete current account</source>
-        <translation type="unfinished"/>
+        <translation>Apagar conta atual</translation>
     </message>
     <message>
         <source>Group setting</source>
-        <translation type="unfinished"/>
+        <translation>Definição de grupo</translation>
     </message>
     <message>
         <source>Account groups</source>
-        <translation type="unfinished"/>
+        <translation>Grupos da conta</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>concluído</translation>
     </message>
     <message>
         <source>Group name</source>
-        <translation type="unfinished"/>
+        <translation>Nome do grupo</translation>
     </message>
     <message>
         <source>Add group</source>
