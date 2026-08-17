@@ -43,35 +43,35 @@
     </message>
     <message>
         <source>Add group</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar grupo</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished"/>
+        <translation>Início de sessão automático</translation>
     </message>
     <message>
         <source>Account Information</source>
-        <translation type="unfinished"/>
+        <translation>Informação da Conta</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"/>
+        <translation>Nome da conta, nome completo da conta, tipo de conta</translation>
     </message>
     <message>
         <source>Account name</source>
-        <translation type="unfinished"/>
+        <translation>Nome da conta</translation>
     </message>
     <message>
         <source>Account fullname</source>
-        <translation type="unfinished"/>
+        <translation>Nome completo da conta</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de conta</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>O nome completo é demasiado longo</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
