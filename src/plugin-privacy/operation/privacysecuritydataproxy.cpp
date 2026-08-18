@@ -82,6 +82,9 @@ void PrivacySecurityDataProxy::onSetModeFinished(QDBusPendingCallWatcher *w)
 
 void PrivacySecurityDataProxy::listEntity()
 {
+    if (m_entityListQueried)            // 守卫: 本在线周期已签发则吞掉,防任何调用点重复
+        return;
+    m_entityListQueried = true;
     QDBusMessage message = QDBusMessage::createMethodCall(UsecService, UsecPath, UsecInterface, "ListEntity");
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, DBUS_TIMEOUT), this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, &PrivacySecurityDataProxy::onListEntityFinished);
@@ -95,8 +98,10 @@ void PrivacySecurityDataProxy::onListEntityFinished(QDBusPendingCallWatcher *w)
             Q_EMIT EntityChanged(entity, "modify");
         }
     } else {
-        qCWarning(DCC_PRIVACY) << "Get entity list failed, DBus reply error: " << reply.error();
+        m_entityListQueried = false;    // 失败复位: 让 usec 上线后能补查
+        qCWarning(DCC_PRIVACY) << "Get entity list failed, DBus reply error: " << reply.error();  // 不降级,保持现状
     }
+    Q_EMIT entityListFinished();        // 成功: map 已填门控查询; 失败: map 空+守卫已复位
     w->deleteLater();
 }
 
@@ -216,6 +221,8 @@ void PrivacySecurityDataProxy::updateServiceExists(bool serviceExists)
 {
     if (serviceExists != m_serviceExists) {
         m_serviceExists = serviceExists;
+        if (!serviceExists)
+            m_entityListQueried = false;   // 下线/重启复位守卫(在 proxy 内,不经信号)
         Q_EMIT serviceExistsChanged(m_serviceExists);
     }
 }

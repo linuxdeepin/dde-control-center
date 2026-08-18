@@ -30,11 +30,13 @@ private slots:
     void onEntityChanged(const QString &entity, const QString &type);
     void onPolicyChanged(const QString &policy, const QString &type);
 
+    void onEntityListFinished();
+    void onServiceExistsChanged(bool exists);
+
     void setAppPermissionEnableByCheck(bool ok);
 
 signals:
     void checkAuthorization(bool checking);
-    void serviceExistsChanged(bool exists);
 
     void appAdded(const QString &appId);
     void appRemoved(const QString &id);
@@ -47,8 +49,6 @@ private:
     QString getAppEntityJson(const ApplicationItem *item);
     QString getSubjectModeJson(const QString &name, bool isBlacklist);
     QString getObjectPolicyJson(const ApplicationItem *item, int premission, bool enabled);
-
-    bool existsService() const;
 
     void init();
     void initApp();
