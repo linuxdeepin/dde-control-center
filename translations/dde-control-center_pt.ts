@@ -885,7 +885,7 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation>Repetir atraso</translation>
+        <translation>Atraso de repetição</translation>
     </message>
     <message>
         <source>Short</source>
@@ -893,7 +893,7 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Longo</translation>
     </message>
     <message>
         <source>Repeat rate</source>
