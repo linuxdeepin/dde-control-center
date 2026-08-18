@@ -1069,23 +1069,23 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>FullName</source>
-        <translation type="unfinished"/>
+        <translation>Nome Completo</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Opcional</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Create account</source>
-        <translation type="unfinished"/>
+        <translation>Criar conta</translation>
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>O nome de utilizador não pode exceder 32 caracteres</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
