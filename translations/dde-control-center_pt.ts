@@ -1345,11 +1345,11 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"/>
+        <translation>Associar</translation>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"/>
+        <translation>Tem a certeza que quer desvincular o WeChat?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
@@ -1357,11 +1357,11 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"/>
+        <translation>Deixe-me pensar melhor</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>Vinculação de Conta Local</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
@@ -1392,7 +1392,7 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation type="unfinished"/>
+        <translation>deepin</translation>
     </message>
     <message>
         <source>UOS</source>
