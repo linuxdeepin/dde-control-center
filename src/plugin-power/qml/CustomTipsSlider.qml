@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -16,15 +16,13 @@ D.TipsSlider {
     slider.live: true
     slider.stepSize: 1
     slider.snapMode: D.Slider.SnapAlways
-    Loader {
-        Repeater {
-            model: slider.dataMap.length
-            D.SliderTipItem {
-                // TODO need to modify
-                parent: slider.children[1]
-                text: slider.dataMap[index].text
-                highlight: slider.slider.value === index
-            }
+    Instantiator {
+        model: slider.dataMap.length
+        D.SliderTipItem {
+            // TODO need to modify
+            parent: slider.children[1]
+            text: slider.dataMap[index].text
+            highlight: slider.slider.value === index
         }
     }
 }
