@@ -1023,19 +1023,19 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"/>
+        <translation>As definições serão aplicadas após reiniciar o sistema</translation>
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation>Reiniciar agora</translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation>Dispensar</translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation>Reiniciar dispositivo para terminar de aplicar a definições de Proteção de Apenas-Leitura do Sistema Sólido</translation>
     </message>
 </context>
 <context>
