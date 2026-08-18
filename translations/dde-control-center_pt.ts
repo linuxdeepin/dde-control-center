@@ -1322,22 +1322,22 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"/>
+        <translation>O Centro de Controlo fornece as opções para as definições do sistema.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation type="unfinished"/>
+        <translation>Vincular WeChat</translation>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation type="unfinished"/>
+        <translation>Ao vincular o WeChat, pode iniciar sessão de forma rápida à sua ID %1 e contas locais.</translation>
     </message>
     <message>
         <source>Unlinked</source>
-        <translation type="unfinished"/>
+        <translation>Desassociado</translation>
     </message>
     <message>
         <source>Unbinding</source>
