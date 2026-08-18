@@ -70,7 +70,6 @@ PrivacySecurityWorker::PrivacySecurityWorker(PrivacySecurityModel *appsModel, QO
 {
     m_dpkgThreadPool = new QThreadPool(this);
     m_dpkgThreadPool->setMaxThreadCount(1);
-    connect(m_dataProxy, &PrivacySecurityDataProxy::serviceExistsChanged, this, &PrivacySecurityWorker::serviceExistsChanged);
     init();
 }
 
@@ -99,11 +98,21 @@ void PrivacySecurityWorker::init()
     connect(m_dataProxy, &PrivacySecurityDataProxy::EntityChanged, this, &PrivacySecurityWorker::onEntityChanged, Qt::QueuedConnection);
     connect(m_dataProxy, &PrivacySecurityDataProxy::PolicyChanged, this, &PrivacySecurityWorker::onPolicyChanged, Qt::QueuedConnection);
 
+    connect(m_dataProxy, &PrivacySecurityDataProxy::entityListFinished,
+            this, &PrivacySecurityWorker::onEntityListFinished, Qt::QueuedConnection);
+    connect(m_dataProxy, &PrivacySecurityDataProxy::serviceExistsChanged,
+            this, &PrivacySecurityWorker::onServiceExistsChanged);
+
     QString envPath = QProcessEnvironment::systemEnvironment().value("PATH");
     m_pathList = envPath.split(':');
 
-    m_dataProxy->listEntity();
-    QStringList folders = { 
+    m_dataProxy->listEntity();         // 保留首轮主动拉取; 守卫在 listEntity() 内自动置位
+    // (原 folders 循环删除, 改由 onEntityListFinished 按 m_entityMap 门控查询)
+}
+
+void PrivacySecurityWorker::onEntityListFinished()
+{
+    QStringList folders = {
         "camera",
         m_model->premissiontoPath(ApplicationItem::DocumentFoldersPermission),
         m_model->premissiontoPath(ApplicationItem::PictureFoldersPermission),
@@ -113,8 +122,25 @@ void PrivacySecurityWorker::init()
         m_model->premissiontoPath(ApplicationItem::DownloadFoldersPermission)
     };
     for (const auto &folder : folders) {
-        m_dataProxy->getMode(folder);
-        m_dataProxy->getPolicy(folder);
+        if (folder.isEmpty()) {                 // premissiontoPath 返回空串=真异常,照常告警
+            qCWarning(DCC_PRIVACY) << "onEntityListFinished: folder path is empty, skip";
+            continue;
+        }
+        if (m_entityMap.contains(folder)) {     // 只查已注册对象,从源头不发 doomed 调用
+            m_dataProxy->getMode(folder);
+            m_dataProxy->getPolicy(folder);
+        }
+    }
+}
+
+void PrivacySecurityWorker::onServiceExistsChanged(bool exists)
+{
+    if (exists) {
+        m_dataProxy->listEntity();           // 直接调, asyncCall 非阻塞无重入; 守卫在 listEntity() 内自动防重
+    } else {
+        m_entityMap.clear();                    // 清陈旧注册表,防误门控
+        m_blacklistByPackage.clear();
+        // 守卫复位已在 proxy 的 updateServiceExists(false) 内完成
     }
 }
 
