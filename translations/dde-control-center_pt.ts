@@ -1160,11 +1160,11 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation type="unfinished"/>
+        <translation>Definição de data e hora</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Data</translation>
     </message>
     <message>
         <source>Year</source>
