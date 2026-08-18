@@ -33,7 +33,7 @@ public:
     explicit DccManager(QObject *parent = nullptr);
     ~DccManager() override;
 
-    static bool installTranslator(const QString &name);
+    static bool installTranslator(const QString &name, bool optional = false);
     void init();
     QQmlApplicationEngine *engine();
     void setMainWindow(QWindow *window);
