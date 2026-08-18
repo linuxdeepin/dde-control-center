@@ -983,15 +983,15 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Por favor inicie primeiro a sessão no seu Union ID</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>Não é possível ler a informação do seu PC</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>Sem ligação à rede</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
