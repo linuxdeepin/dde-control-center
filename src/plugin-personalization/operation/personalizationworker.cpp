@@ -520,7 +520,7 @@ void PersonalizationWorker::setActiveColors(const QString &activeColors)
     m_personalizationDBusProxy->setActiveColors(activeColors);
 }
 
-void PersonalizationWorker::addCustomWallpaper(const QString &url)
+QString PersonalizationWorker::addCustomWallpaper(const QString &url, bool autoSet)
 {
     QString lastHashPath;
     if (isURI(url)) {
@@ -528,7 +528,10 @@ void PersonalizationWorker::addCustomWallpaper(const QString &url)
     } else {
         lastHashPath = m_personalizationDBusProxy->saveCustomWallpaper(currentUserName(), url, WALLPAPER_TYPE_CUSTOM);
     }
-    setWallpaperForMonitor(m_model->getCurrentSelectScreen(), lastHashPath, PersonalizationExport::Option_All);
+    if (autoSet) {
+        setWallpaperForMonitor(m_model->getCurrentSelectScreen(), lastHashPath, PersonalizationExport::Option_All);
+    }
+    return lastHashPath;
 }
 
 void PersonalizationWorker::addSolidWallpaper(const QColor &color)
