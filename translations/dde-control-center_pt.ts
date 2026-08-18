@@ -1281,7 +1281,7 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Digit grouping symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo de agrupamento de algarismos</translation>
     </message>
     <message>
         <source>Digit grouping</source>
