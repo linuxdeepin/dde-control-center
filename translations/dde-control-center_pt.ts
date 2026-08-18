@@ -1341,7 +1341,7 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"/>
+        <translation>A desvincular</translation>
     </message>
     <message>
         <source>Link</source>
