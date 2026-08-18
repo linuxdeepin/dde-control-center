@@ -1007,19 +1007,19 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>Aviso Legal do Modo de Programador</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Concordar e Solicitar Acesso Root</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"/>
+        <translation>A iniciar a definição de nova animação de arranque, por favor espere um minuto</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"/>
+        <translation>Definição de nova animação de arranque concluída</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
