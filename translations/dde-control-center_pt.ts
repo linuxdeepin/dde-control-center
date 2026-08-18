@@ -952,7 +952,7 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Gerir o seu menu de arranque</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
