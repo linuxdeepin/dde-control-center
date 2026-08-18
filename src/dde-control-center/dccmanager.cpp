@@ -16,6 +16,7 @@
 #include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusPendingCall>
+#include <QDir>
 #include <QElapsedTimer>
 #include <QFileInfo>
 #include <QGuiApplication>
@@ -119,11 +120,34 @@ DccManager::~DccManager()
     qCDebug(dccLog()) << "delete dccManger end";
 }
 
-bool DccManager::installTranslator(const QString &name)
+bool DccManager::installTranslator(const QString &name, bool optional)
 {
     const QStringList translateDirs = { TRANSLATE_READ_DIR,
                                         TRANSLATE_READ_DIR "/../v1.0", // 兼容旧版位置
                                         TRANSLATE_READ_DIR "/.." };
+
+    // 插件翻译可选：内置插件（system/device/accounts 等）通常无独立 .qm，复用主程序翻译，
+    // 此时直接跳过，避免触发 dtkgui "can not find qm files" 告警；
+    // 第三方/新增插件若提供了独立 .qm 仍会正常加载。
+    // 预检目录须与 DGuiApplicationHelper::loadTranslator 实际搜索路径保持一致：
+    // 除此处传入的三个目录外，loadTranslator 还会追加 applicationDirPath/translations
+    // 与 currentPath/translations。
+    if (optional) {
+        QStringList searchDirs = translateDirs;
+        searchDirs << QDir(qApp->applicationDirPath()).absoluteFilePath("translations");
+        searchDirs << QDir::current().absoluteFilePath("translations");
+
+        bool hasQm = false;
+        for (const QString &dir : std::as_const(searchDirs)) {
+            if (!QDir(dir).entryList({ name + "_*.qm" }, QDir::Files).isEmpty()) {
+                hasQm = true;
+                break;
+            }
+        }
+        if (!hasQm)
+            return false;
+    }
+
     return Dtk::Gui::DGuiApplicationHelper::loadTranslator(name, translateDirs, { QLocale() });
 }
 
