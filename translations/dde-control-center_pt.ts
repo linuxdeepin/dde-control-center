@@ -1089,22 +1089,22 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>O nome do utilizador só pode conter letras, números, - e _</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>O nome completo não pode exceder 32 caracteres</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation>O nome completo não pode conter dois pontos</translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation>pequeno</translation>
     </message>
     <message>
         <source>big</source>
