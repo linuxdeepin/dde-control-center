@@ -1042,30 +1042,30 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     <name>ConfirmManager</name>
     <message>
         <source>Password must contain numbers and letters</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe deve conter números e letras</translation>
     </message>
     <message>
         <source>Password must be between 8 and 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe deve conter entre 8 e 64 caracteres</translation>
     </message>
 </context>
 <context>
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation type="unfinished"/>
+        <translation>Criar uma nova conta</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de conta</translation>
     </message>
     <message>
         <source>UserName</source>
-        <translation type="unfinished"/>
+        <translation>Nome de Utilizador</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Requerido</translation>
     </message>
     <message>
         <source>FullName</source>
