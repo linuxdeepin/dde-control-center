@@ -3,187 +3,190 @@
     <name>AccountSettings</name>
     <message>
         <source>edit</source>
-        <translation type="unfinished"/>
+        <translation>editar</translation>
     </message>
     <message>
         <source>Add new user</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar novo utilizador</translation>
     </message>
     <message>
         <source>Set fullname</source>
-        <translation type="unfinished"/>
+        <translation>Definir nome completo</translation>
     </message>
     <message>
         <source>Login settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições de início de sessão</translation>
     </message>
     <message>
         <source>Login without password</source>
-        <translation type="unfinished"/>
+        <translation>Início de sessão sem palavra-passe</translation>
     </message>
     <message>
         <source>Delete current account</source>
-        <translation type="unfinished"/>
+        <translation>Apagar conta atual</translation>
     </message>
     <message>
         <source>Group setting</source>
-        <translation type="unfinished"/>
+        <translation>Definição de grupo</translation>
     </message>
     <message>
         <source>Account groups</source>
-        <translation type="unfinished"/>
+        <translation>Grupos da conta</translation>
     </message>
     <message>
         <source>done</source>
-        <translation type="unfinished"/>
+        <translation>concluído</translation>
     </message>
     <message>
         <source>Group name</source>
-        <translation type="unfinished"/>
+        <translation>Nome do grupo</translation>
     </message>
     <message>
         <source>Add group</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar grupo</translation>
     </message>
     <message>
         <source>Auto login</source>
-        <translation type="unfinished"/>
+        <translation>Início de sessão automático</translation>
     </message>
     <message>
         <source>Account Information</source>
-        <translation type="unfinished"/>
+        <translation>Informação da Conta</translation>
     </message>
     <message>
         <source>Account name, account fullname, account type</source>
-        <translation type="unfinished"/>
+        <translation>Nome da conta, nome completo da conta, tipo de conta</translation>
     </message>
     <message>
         <source>Account name</source>
-        <translation type="unfinished"/>
+        <translation>Nome da conta</translation>
     </message>
     <message>
         <source>Account fullname</source>
-        <translation type="unfinished"/>
+        <translation>Nome completo da conta</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de conta</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>O nome completo é demasiado longo</translation>
     </message>
     <message>
         <source>Group names should be no more than 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>Os nomes dos grupos não devem ter mais de 32 caracteres</translation>
     </message>
     <message>
         <source>Group names cannot only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>Os nomes dos grupos não podem ter só números</translation>
     </message>
     <message>
         <source>Use letters,numbers,underscores and dashes only, and must start with a letter</source>
-        <translation type="unfinished"/>
+        <translation>Use apenas letras, números, sinal de traço baixo, e barras, e têm de começar com uma letra</translation>
     </message>
     <message>
         <source>The group name has been used</source>
-        <translation type="unfinished"/>
+        <translation>O nome do grupo foi usado</translation>
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation type="unfinished"/>
+        <translation>início de sessão rápido, automático, e sem palavra-passe</translation>
     </message>
     <message>
         <source>Undo</source>
-        <translation type="unfinished"/>
+        <translation>Desfazer</translation>
     </message>
     <message>
         <source>Redo</source>
-        <translation type="unfinished"/>
+        <translation>Refazer</translation>
     </message>
     <message>
         <source>Cut</source>
-        <translation type="unfinished"/>
+        <translation>Cortar</translation>
     </message>
     <message>
         <source>Copy</source>
-        <translation type="unfinished"/>
+        <translation>Copiar</translation>
     </message>
     <message>
         <source>Paste</source>
-        <translation type="unfinished"/>
+        <translation>Colar</translation>
     </message>
     <message>
         <source>Select All</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar Tudo</translation>
     </message>
     <message>
         <source>Quick login</source>
-        <translation type="unfinished"/>
+        <translation>Início de sessão rápido</translation>
     </message>
 </context>
 <context>
     <name>Accounts</name>
     <message>
         <source>Account</source>
-        <translation type="unfinished"/>
+        <translation>Conta</translation>
     </message>
     <message>
         <source>Account manager</source>
-        <translation type="unfinished"/>
+        <translation>Gestor de conta</translation>
     </message>
 </context>
 <context>
     <name>AccountsMain</name>
     <message>
         <source>Other accounts</source>
-        <translation type="unfinished"/>
+        <translation>Outras contas</translation>
     </message>
 </context>
 <context>
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation type="unfinished"/>
+        <translation>Registar Rosto</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Li e concordo com o</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Aviso Legal</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Seguinte</translation>
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Rosto registado</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao registar o seu rosto</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Concluído</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Tentar Registar Novamente</translation>
     </message>
     <message>
         <source>Face recognition does not support liveness detection, and the verification method may carry risks.
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation type="unfinished"/>
+        <translation>O reconhecimento facial não suporta a deteção de vida, pelo que este método de verificação pode acarretar riscos.
+Para garantir o acesso bem-sucedido:
+1. Mantenha as suas características faciais claramente visíveis e não as cubra (chapéus, óculos de sol, máscaras, etc.).
+2. Assegure-se de que há iluminação suficiente e evite a luz solar direta.</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -191,7 +194,13 @@ To ensure successful entry:
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>A &quot;autenticação biométrica&quot; é uma função de autenticação da identidade do utilizador fornecida pela UnionTech Software Technology Co., Ltd. Através da &quot;autenticação biométrica&quot;, os dados biométricos recolhidos serão comparados com os armazenados no dispositivo, e a identidade do utilizador será verificada com base no resultado da comparação.
+
+Tenha em atenção que a UnionTech Software Technology Co., Ltd. não irá recolher nem aceder às suas informações biométricas, as quais serão armazenadas no seu dispositivo local. Ative a autenticação biométrica apenas no seu dispositivo pessoal e utilize as suas próprias informações biométricas para as operações relacionadas; desative ou elimine imediatamente as informações biométricas de outras pessoas nesse dispositivo, caso contrário, assumirá o risco daí decorrente.
+
+A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhorar a segurança, a precisão e a estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros, bem como ao controlo de riscos, não há garantia de que consiga passar na autenticação biométrica temporariamente. Por conseguinte, não considere a autenticação biométrica como a única forma de iniciar sessão no UOS. Se tiver quaisquer dúvidas ou sugestões ao utilizar a autenticação biométrica, pode enviar o seu feedback através da secção «Serviço e Suporte» no UOS.
+
+Traduzido com a versão gratuita do tradutor - DeepL.com</translation>
     </message>
 </context>
 <context>
@@ -206,27 +215,27 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation type="unfinished"/>
+        <translation>Registar Impressão Digital</translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
-        <translation type="unfinished"/>
+        <translation>Coloque o dedo que pretende registar no sensor de impressões digitais e deslize-o de baixo para cima. Depois de concluir a ação, retire o dedo.</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Li e concordo com o</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Aviso Legal</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Seguinte</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Tentar Registar Novamente</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -234,46 +243,50 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>A &quot;autenticação biométrica&quot; é uma função de autenticação da identidade do utilizador fornecida pela UnionTech Software Technology Co., Ltd. Através da &quot;autenticação biométrica&quot;, os dados biométricos recolhidos serão comparados com os armazenados no dispositivo, e a identidade do utilizador será verificada com base no resultado da comparação.
+
+Tenha em atenção que a UnionTech Software Technology Co., Ltd. não irá recolher nem aceder às suas informações biométricas, as quais serão armazenadas no seu dispositivo local. Ative a autenticação biométrica apenas no seu dispositivo pessoal e utilize as suas próprias informações biométricas para as operações relacionadas; desative ou elimine imediatamente as informações biométricas de outras pessoas nesse dispositivo, caso contrário, assumirá o risco daí decorrente.
+
+A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhorar a segurança, a precisão e a estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros, bem como ao controlo de riscos, não há garantia de que consiga passar na autenticação biométrica temporariamente. Por conseguinte, não considere a autenticação biométrica como a única forma de iniciar sessão no UOS. Se tiver quaisquer dúvidas ou sugestões ao utilizar a autenticação biométrica, pode enviar o seu feedback através da secção «Serviço e Suporte» no UOS.</translation>
     </message>
 </context>
 <context>
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation type="unfinished"/>
+        <translation>Registar Íris</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation type="unfinished"/>
+        <translation>Li e concordo com o</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation type="unfinished"/>
+        <translation>Aviso Legal</translation>
     </message>
     <message>
         <source>Next</source>
-        <translation type="unfinished"/>
+        <translation>Seguinte</translation>
     </message>
     <message>
         <source>Done</source>
-        <translation type="unfinished"/>
+        <translation>Concluído</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation type="unfinished"/>
+        <translation>Tentar Registar Novamente</translation>
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation type="unfinished"/>
+        <translation>Íris registada</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao registar a sua íris</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -281,274 +294,278 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation type="unfinished"/>
+        <translation>A &quot;autenticação biométrica&quot; é uma função de autenticação da identidade do utilizador fornecida pela UnionTech Software Technology Co., Ltd. Através da &quot;autenticação biométrica&quot;, os dados biométricos recolhidos serão comparados com os armazenados no dispositivo, e a identidade do utilizador será verificada com base no resultado da comparação.
+
+Tenha em atenção que a UnionTech Software Technology Co., Ltd. não irá recolher nem aceder às suas informações biométricas, as quais serão armazenadas no seu dispositivo local. Ative a autenticação biométrica apenas no seu dispositivo pessoal e utilize as suas próprias informações biométricas para as operações relacionadas; desative ou elimine imediatamente as informações biométricas de outras pessoas nesse dispositivo, caso contrário, assumirá o risco daí decorrente.
+
+A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhorar a segurança, a precisão e a estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros, bem como ao controlo de riscos, não há garantia de que consiga passar na autenticação biométrica temporariamente. Por conseguinte, não considere a autenticação biométrica como a única forma de iniciar sessão no UOS. Se tiver quaisquer dúvidas ou sugestões ao utilizar a autenticação biométrica, pode enviar o seu feedback através da secção «Serviço e Suporte» no UOS.</translation>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation type="unfinished"/>
+        <translation>Por favor, mantenha o seu olhar no dispositivo e certifique-se de que ambos os olhos se encontram dentro da área de captação</translation>
     </message>
 </context>
 <context>
     <name>Authentication</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Autenticação Biométrica</translation>
     </message>
 </context>
 <context>
     <name>AuthenticationMain</name>
     <message>
         <source>Biometric Authentication</source>
-        <translation type="unfinished"/>
+        <translation>Autenticação Biométrica</translation>
     </message>
     <message>
         <source>Face</source>
-        <translation type="unfinished"/>
+        <translation>Rosto</translation>
     </message>
     <message>
         <source>Up to 5 facial data can be entered</source>
-        <translation type="unfinished"/>
+        <translation>Até 5 dados faciais podem ser inseridos</translation>
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Impressão digital</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation type="unfinished"/>
+        <translation>Identificação da identidade do utilizador através da digitalização de impressões digitais</translation>
     </message>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Íris</translation>
     </message>
     <message>
         <source>Identity recognition through iris scanning</source>
-        <translation type="unfinished"/>
+        <translation>Reconhecimento de identidade através da leitura da íris</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>Use apenas letras, números e sublinhados, e não mais de 15 carateres</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation type="unfinished"/>
+        <translation>Use apenas letras, números e traços baixos</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
-        <translation type="unfinished"/>
+        <translation>Não mais de 15 carateres</translation>
     </message>
     <message>
         <source>This name already exists</source>
-        <translation type="unfinished"/>
+        <translation>Este nome já existe</translation>
     </message>
     <message>
         <source>Add a new %1 ...</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar um novo %1 ...</translation>
     </message>
     <message>
         <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>O nome não pode estar vazio</translation>
     </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
     <message>
         <source>&quot;Auto Login&quot; can be enabled for only one account, please disable it for the account &quot;%1&quot; first</source>
-        <translation type="unfinished"/>
+        <translation>O &quot;Início de sessão automático&quot; pode ser ativado apenas para uma conta, primeiro desative-o para a conta &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Ok</source>
-        <translation type="unfinished"/>
+        <translation>Ok</translation>
     </message>
 </context>
 <context>
     <name>AvatarSettingsDialog</name>
     <message>
         <source>Images</source>
-        <translation type="unfinished"/>
+        <translation>Imagens</translation>
     </message>
     <message>
         <source>Human</source>
-        <translation type="unfinished"/>
+        <translation>Humano</translation>
     </message>
     <message>
         <source>Animal</source>
-        <translation type="unfinished"/>
+        <translation>Animal</translation>
     </message>
     <message>
         <source>Scenery</source>
-        <translation type="unfinished"/>
+        <translation>Cenário</translation>
     </message>
     <message>
         <source>Illustration</source>
-        <translation type="unfinished"/>
+        <translation>Ilustração</translation>
     </message>
     <message>
         <source>Emoji</source>
-        <translation type="unfinished"/>
+        <translation>Emoji</translation>
     </message>
     <message>
         <source>custom</source>
-        <translation type="unfinished"/>
+        <translation>personalizado</translation>
     </message>
     <message>
         <source>Cartoon style</source>
-        <translation type="unfinished"/>
+        <translation>Estilo desenho animado</translation>
     </message>
     <message>
         <source>Dimensional style</source>
-        <translation type="unfinished"/>
+        <translation>Estilo dimensional</translation>
     </message>
     <message>
         <source>Flat style</source>
-        <translation type="unfinished"/>
+        <translation>Estilo raso</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
     <name>BatteryPage</name>
     <message>
         <source>Screen and Suspend</source>
-        <translation type="unfinished"/>
+        <translation>Ecrã e Suspender</translation>
     </message>
     <message>
         <source>Turn off the monitor after</source>
-        <translation type="unfinished"/>
+        <translation>Desligar o monitor após</translation>
     </message>
     <message>
         <source>Lock screen after</source>
-        <translation type="unfinished"/>
+        <translation>Bloquear o ecrã após</translation>
     </message>
     <message>
         <source>Computer suspends after</source>
-        <translation type="unfinished"/>
+        <translation>O computador entrará em suspensão após</translation>
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation type="unfinished"/>
+        <translation>Ao fechar a tampa</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation type="unfinished"/>
+        <translation>Ao premir o botão de ligar</translation>
     </message>
     <message>
         <source>Low Battery</source>
-        <translation type="unfinished"/>
+        <translation>Bateria Fraca</translation>
     </message>
     <message>
         <source>Low battery notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificação de bateria fraca</translation>
     </message>
     <message>
         <source>Auto suspend</source>
-        <translation type="unfinished"/>
+        <translation>Auto suspender</translation>
     </message>
     <message>
         <source>Auto Hibernate</source>
-        <translation type="unfinished"/>
+        <translation>Auto Hibernar</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Limite de bateria fraca</translation>
     </message>
     <message>
         <source>Battery Management</source>
-        <translation type="unfinished"/>
+        <translation>Gestão da Bateria</translation>
     </message>
     <message>
         <source>Display remaining using and charging time</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar tempo restante de utilização e carregamento</translation>
     </message>
     <message>
         <source>Maximum capacity</source>
-        <translation type="unfinished"/>
+        <translation>Capacidade máxima</translation>
     </message>
     <message>
         <source>Low battery level</source>
-        <translation type="unfinished"/>
+        <translation>Nível de bateria fraca</translation>
     </message>
     <message>
         <source>Disable</source>
-        <translation type="unfinished"/>
+        <translation>Desativar</translation>
     </message>
 </context>
 <context>
     <name>BlueTooth</name>
     <message>
         <source>Bluetooth settings, devices</source>
-        <translation type="unfinished"/>
+        <translation>Definições bluetooth, dispositivos</translation>
     </message>
     <message>
         <source>Bluetooth</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
     <name>BlueToothAdaptersModel</name>
     <message>
         <source>Bluetooth is turned off, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>O bluetooth está desligado, e o nome é mostrado como &quot;%1&quot;</translation>
     </message>
     <message>
         <source>Bluetooth is turned on, and the name is displayed as &quot;%1&quot;</source>
-        <translation type="unfinished"/>
+        <translation>O bluetooth está ligado, e o nome é mostrado como &quot;%1&quot;</translation>
     </message>
 </context>
 <context>
     <name>BlueToothDeviceListView</name>
     <message>
         <source>Disconnect</source>
-        <translation type="unfinished"/>
+        <translation>Desconectar</translation>
     </message>
     <message>
         <source>Connect</source>
-        <translation type="unfinished"/>
+        <translation>Conectar</translation>
     </message>
     <message>
         <source>Send Files</source>
-        <translation type="unfinished"/>
+        <translation>Enviar Ficheiros</translation>
     </message>
     <message>
         <source>Rename</source>
-        <translation type="unfinished"/>
+        <translation>Renomear</translation>
     </message>
     <message>
         <source>Remove Device</source>
-        <translation type="unfinished"/>
+        <translation>Remover Dispositivo</translation>
     </message>
     <message>
         <source>Select file</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar ficheiro</translation>
     </message>
 </context>
 <context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
-        <translation type="unfinished"/>
+        <translation>Editar</translation>
     </message>
     <message>
         <source>Allow other Bluetooth devices to find this device</source>
-        <translation type="unfinished"/>
+        <translation>Permitir que outros dispositivos Bluetooth encontrem este dispositivo</translation>
     </message>
     <message>
         <source>To use the Bluetooth function, please turn off</source>
-        <translation type="unfinished"/>
+        <translation>Para usar a função de Bluetooth, por favor desligue</translation>
     </message>
     <message>
         <source>Airplane Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo de Avião</translation>
     </message>
     <message>
         <source>Bluetooth name cannot exceed 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>O nome do Bluetooth não pode exceder 64 caracteres</translation>
     </message>
 </context>
 <context>
@@ -566,94 +583,94 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>BootPage</name>
     <message>
         <source>Startup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições de Arranque</translation>
     </message>
     <message>
         <source>You can click the menu to change the default startup items, or drag the image to the window to change the background image.</source>
-        <translation type="unfinished"/>
+        <translation>Pode clicar no menu para alterar os itens de arranque predefinidos ou arrastar a imagem para a janela para alterar a imagem de fundo.</translation>
     </message>
     <message>
         <source>grub start delay</source>
-        <translation type="unfinished"/>
+        <translation>atraso do arranque do grub</translation>
     </message>
     <message>
         <source>theme</source>
-        <translation type="unfinished"/>
+        <translation>tema</translation>
     </message>
     <message>
         <source>After turning on the theme, you can see the theme background when you turn on the computer</source>
-        <translation type="unfinished"/>
+        <translation>Depois de ativar o tema, poderá ver o fundo do tema ao ligar o computador</translation>
     </message>
     <message>
         <source>Boot menu verification</source>
-        <translation type="unfinished"/>
+        <translation>Verificação do menu de arranque</translation>
     </message>
     <message>
         <source>After opening, entering the menu editing requires a password.</source>
-        <translation type="unfinished"/>
+        <translation>Depois de abrir, entrar na edição de menu requer uma palavra-passe</translation>
     </message>
     <message>
         <source>Change Password</source>
-        <translation type="unfinished"/>
+        <translation>Alterar Palavra-passe</translation>
     </message>
     <message>
         <source>Change boot menu verification password</source>
-        <translation type="unfinished"/>
+        <translation>Alterar a palavra-passe da verificação do menu de arranque</translation>
     </message>
     <message>
         <source>Set the boot menu authentication password</source>
-        <translation type="unfinished"/>
+        <translation>Definir a palavra-passe de autenticação do menu de arranque</translation>
     </message>
     <message>
         <source>User Name :</source>
-        <translation type="unfinished"/>
+        <translation>Nome de Utilizador :</translation>
     </message>
     <message>
         <source>root</source>
-        <translation type="unfinished"/>
+        <translation>root</translation>
     </message>
     <message>
         <source>New Password :</source>
-        <translation type="unfinished"/>
+        <translation>Nova Palavra-passe :</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Requerido</translation>
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe não pode estar vazia</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>As palavras-passe não coincidem</translation>
     </message>
     <message>
         <source>Repeat password:</source>
-        <translation type="unfinished"/>
+        <translation>Repetir palavra-passe:</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Sure</source>
-        <translation type="unfinished"/>
+        <translation>Com certeza</translation>
     </message>
     <message>
         <source>Start animation</source>
-        <translation type="unfinished"/>
+        <translation>Animação de Início</translation>
     </message>
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
-        <translation type="unfinished"/>
+        <translation>Ajustar o tamanho da animação do logótipo na interface de arranque do sistema</translation>
     </message>
 </context>
 <context>
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation type="unfinished"/>
+        <translation>Permitir que as apps abaixo tenham acesso à sua câmara:</translation>
     </message>
 </context>
 <context>
@@ -800,41 +817,41 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera occupied!</source>
-        <translation type="unfinished"/>
+        <translation>Câmara ocupada!</translation>
     </message>
 </context>
 <context>
     <name>ColorAndIcons</name>
     <message>
         <source>Accent Color</source>
-        <translation type="unfinished"/>
+        <translation>Cor de Destaque</translation>
     </message>
     <message>
         <source>Icon Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições de Ícones</translation>
     </message>
     <message>
         <source>Icon Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema de Ícones</translation>
     </message>
     <message>
         <source>Customize your theme icon</source>
-        <translation type="unfinished"/>
+        <translation>Personalizar o seu tema de ícones</translation>
     </message>
     <message>
         <source>Cursor Theme</source>
-        <translation type="unfinished"/>
+        <translation>Tema do Cursor</translation>
     </message>
     <message>
         <source>Customize your theme cursor</source>
-        <translation type="unfinished"/>
+        <translation>Personalizar o seu tema do cursor</translation>
     </message>
 </context>
 <context>
     <name>ComfirmDeleteDialog</name>
     <message>
         <source>Are you sure you want to delete this account?</source>
-        <translation type="unfinished"/>
+        <translation>Tem a certeza que quer apagar esta conta?</translation>
     </message>
     <message>
         <source>Delete account directory</source>
