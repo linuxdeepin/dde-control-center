@@ -141,15 +141,20 @@ void ControlCenterDBusAdaptor::updateRect()
 DBusControlCenterGrandSearchService::DBusControlCenterGrandSearchService(DccManager *parent)
     : QDBusAbstractAdaptor(parent)
     , m_autoExitTimer(new QTimer(this))
+    , m_hasEverShown(false)
 {
     m_autoExitTimer->setInterval(10000);
     m_autoExitTimer->setSingleShot(true);
     connect(m_autoExitTimer, &QTimer::timeout, this, [this]() {
-        // 当主界面show出来之后不再执行自动退出
-        if (!this->parent()->mainWindow()->isVisible())
+        if (!m_hasEverShown && !this->parent()->mainWindow()->isVisible())
             QCoreApplication::quit();
     });
     m_autoExitTimer->start();
+    connect(this->parent()->mainWindow(), &QWindow::visibleChanged, this, [this](bool visible) {
+        if (visible) {
+            m_hasEverShown = true;
+        }
+    });
 }
 
 DBusControlCenterGrandSearchService::~DBusControlCenterGrandSearchService() { }
