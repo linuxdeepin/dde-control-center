@@ -956,11 +956,11 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Gestão de permissão root do programador</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Opções de Programador</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
