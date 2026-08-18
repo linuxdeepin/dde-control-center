@@ -995,15 +995,15 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>O carregamento do certificado falhou, não é possível obter acesso root</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>A verificação da assinatura falhou, não é possível obter acesso root</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Concordar e Aderir ao Programa de Experiência do Utilizador</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
