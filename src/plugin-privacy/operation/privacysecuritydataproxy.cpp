@@ -104,6 +104,8 @@ void PrivacySecurityDataProxy::onListEntityFinished(QDBusPendingCallWatcher *w)
         if (m_serviceExists && !m_listEntityRetried) {
             m_listEntityRetried = true;
             listEntity();
+            w->deleteLater();
+            return;
         }
     }
     Q_EMIT entityListFinished();
