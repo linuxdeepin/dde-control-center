@@ -82,6 +82,7 @@ ColumnLayout {
             Layout.fillWidth: true
         }
         D.ToolButton {
+            Accessible.name: "TitleLoolButton"
             id: titleLoolButton
             font: D.DTK.fontManager.t7
             visible: layout.lineCount * 2 < root.model.count + root.firstItemVisible ? 1 : 0
@@ -455,12 +456,15 @@ ColumnLayout {
         }
 
         D.Menu {
+            Accessible.name: "ContextMenu"
             id: contextMenu
             MenuItem {
+                Accessible.name: "SetLockScreen"
                 text: qsTr("Set lock screen")
                 onTriggered: root.wallpaperSelected(root.contextMenuUrl, PersonalizationExport.Option_Lock)
             }
             MenuItem {
+                Accessible.name: "SetDesktop"
                 text: qsTr("Set desktop")
                 onTriggered: root.wallpaperSelected(root.contextMenuUrl, PersonalizationExport.Option_Desktop)
             }

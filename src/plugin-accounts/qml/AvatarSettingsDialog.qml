@@ -174,6 +174,7 @@ D.DialogWindow {
             }
 
             D.ListView {
+                Accessible.name: "LeftView"
                 id: leftView
                 clip: true
                 implicitHeight: 400
@@ -181,6 +182,7 @@ D.DialogWindow {
                 Layout.alignment: Qt.AlignTop
                 model: listModel
                 delegate: D.ItemDelegate {
+                    Accessible.name: "ItemDelegate_2"
                     id: itemDelegate
                     text: qsTr(model.name)
                     font: D.DTK.fontManager.t6
@@ -472,6 +474,7 @@ D.DialogWindow {
                 Layout.rightMargin: 59
 
                 Button {
+                    Accessible.name: "Cancel_8"
                     Layout.fillWidth: true
                     text: qsTr("Cancel")
                     onClicked: {

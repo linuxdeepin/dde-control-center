@@ -103,6 +103,7 @@ DccObject {
                                 text: qsTr("folder")
                             }
                             D.Switch {
+                                Accessible.name: "FileAndFolder_Switch"
                                 Layout.alignment: Qt.AlignRight
                                 Layout.rightMargin: 10
                                 checked: rep.checkedStates[index]

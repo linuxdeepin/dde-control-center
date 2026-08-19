@@ -8,6 +8,7 @@ import org.deepin.dtk 1.0 as D
 import QtQuick.Effects
 
 GridView {
+    Accessible.name: "GridView"
     id: gridView
     property string headerText
     property string currentAvatar
@@ -54,6 +55,7 @@ GridView {
     }
 
     delegate: D.ItemDelegate {
+        Accessible.name: "Delegate"
         id: delegate
         property bool isAddButton: modelData == "add"
         property bool isSelected: !isAddButton && (gridView.currentAvatar === modelData)
@@ -71,6 +73,7 @@ GridView {
                 implicitHeight: gridView.cellHeight
                 implicitWidth: gridView.cellWidth
                 Button {
+                    Accessible.name: "Control_8"
                     id: control
                     width: gridView.itemSize
                     height: gridView.itemSize

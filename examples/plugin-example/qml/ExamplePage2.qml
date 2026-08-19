@@ -29,6 +29,7 @@ DccObject {
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Button {
+                Accessible.name: "DccObjDisplayName_5"
                 text: dccObj.displayName
                 onClicked: {
                     calcValue = dccData.calc(calcValue, 2)
@@ -130,6 +131,7 @@ DccObject {
             weight: 10
             pageType: DccObject.Item
             page: Button {
+                Accessible.name: "Delete"
                 text: qsTr("Delete")
                 onClicked: {
                     deleteDialog.createObject(this).show()
@@ -159,6 +161,7 @@ DccObject {
                         Layout.topMargin: 10
                         Layout.bottomMargin: 10
                         Button {
+                            Accessible.name: "Cancel_17"
                             Layout.fillWidth: true
                             text: qsTr("Cancel")
                             onClicked: close()
@@ -170,6 +173,7 @@ DccObject {
                         }
 
                         Button {
+                            Accessible.name: "Delete_2"
                             Layout.fillWidth: true
                             text: qsTr("Delete")
                             onClicked: {
@@ -196,6 +200,7 @@ DccObject {
             weight: 30
             pageType: DccObject.Item
             page: Button {
+                Accessible.name: "Cancel_18"
                 text: qsTr("Cancel")
                 onClicked: {
                     DccApp.showPage(root.parentName)
@@ -208,6 +213,7 @@ DccObject {
             weight: 40
             pageType: DccObject.Item
             page: Button {
+                Accessible.name: "Save_6"
                 text: qsTr("Save")
                 onClicked: {
                     calcValue = dccData.calc(calcValue, 3)

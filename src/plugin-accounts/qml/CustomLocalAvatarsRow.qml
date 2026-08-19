@@ -50,6 +50,7 @@ Item {
         Repeater {
             model: row.icons
             delegate: D.ItemDelegate {
+                Accessible.name: "Delegate_2"
                 id: delegate
                 property bool isAddButton: modelData == "add"
                 property string modelPathNoQuery: (modelData || "").toString().replace("file://", "")
@@ -81,6 +82,7 @@ Item {
                         implicitHeight: 72
                         implicitWidth: 72
                         Button {
+                            Accessible.name: "Control_9"
                             id: control
                             width: 60
                             height: 60

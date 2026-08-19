@@ -28,6 +28,7 @@ Rectangle {
         Repeater {
             id: repeater
             delegate: ItemDelegate {
+                Accessible.name: "ItemCtl"
                 id: itemCtl
                 Layout.fillWidth: true
                 leftPadding: 16

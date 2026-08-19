@@ -5,6 +5,7 @@ import QtQuick.Controls 2.0
 import org.deepin.dtk 1.0 as D
 
 SpinBox {
+    Accessible.name: "Sp"
     id: sp
     editable: true
     property string unitText

@@ -23,6 +23,7 @@ DccObject {
         pageType: DccObject.Editor
         page: ColumnLayout {
             D.Switch {
+                Accessible.name: "UserExperienceProgramPage_Switch"
                 Layout.alignment: Qt.AlignRight | Qt.AlignTop
                 checked: dccData.systemInfoMode().joinUeProgram
                 onCheckedChanged: {
@@ -111,8 +112,10 @@ DccObject {
             }
 
             Menu {
+                Accessible.name: "ContextMenu_4"
                 id: contextMenu
                 MenuItem {
+                    Accessible.name: "CopyLinkAddress"
                     text: qsTr("Copy Link Address") + "(L)" 
                     onTriggered: {
                         dccData.systemInfoWork().copyTextToClipboard(userExperienceLabel.currentLinkUrl)

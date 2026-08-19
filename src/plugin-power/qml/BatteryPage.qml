@@ -231,6 +231,7 @@ DccObject {
             weight: 1
             pageType: DccObject.Editor
             page: D.ComboBox {
+                Accessible.name: "BatteryPage_ComboBox"
                 textRole: "text"
                 flat: true
                 currentIndex: dccData.indexByValueOnModel(model, dccData.model.lowPowerNotifyThreshold)
@@ -337,6 +338,7 @@ DccObject {
             weight: 1
             pageType: DccObject.Editor
             page: D.Switch {
+                Accessible.name: "BatteryPage_Switch"
                 checked: dccData.model.showBatteryTimeToFull
                 onCheckedChanged: {
                     dccData.worker.setShowBatteryTimeToFull(checked)

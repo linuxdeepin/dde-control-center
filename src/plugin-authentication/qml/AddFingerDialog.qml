@@ -85,11 +85,13 @@ D.DialogWindow {
                     Layout.alignment: Qt.AlignCenter
 
                     CheckBox {
+                        Accessible.name: "AgreeCheckbox_3"
                         id: agreeCheckbox
                         text: qsTr("I have read and agree to the")
                     }
 
                     D.ToolButton {
+                        Accessible.name: "Disclaimer_2"
                         text: qsTr("Disclaimer")
                         padding: 0
                         background: null
@@ -181,6 +183,7 @@ D.DialogWindow {
                     Layout.rightMargin: 0
 
                     Button {
+                        Accessible.name: "Done_3"
                         Layout.fillWidth: true
                         text: qsTr("Done")
                         onClicked: {
@@ -198,6 +201,7 @@ D.DialogWindow {
                     Layout.rightMargin: 0
 
                     Button {
+                        Accessible.name: "Cancel_3"
                         Layout.fillWidth: true
                         text: qsTr("Cancel")
                         onClicked: {
@@ -223,6 +227,7 @@ D.DialogWindow {
                     Layout.rightMargin: 0
 
                     Button {
+                        Accessible.name: "Cancel_4"
                         Layout.fillWidth: true
                         text: qsTr("Cancel")
                         onClicked: {

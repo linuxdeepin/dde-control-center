@@ -106,6 +106,7 @@ ColorDialogImpl {
             }
 
             Slider {
+                Accessible.name: "HueSlider"
                 id: hueSlider
                 orientation: Qt.Horizontal
                 value: control.hue
@@ -159,6 +160,7 @@ ColorDialogImpl {
             }
 
             D.TextField {
+                Accessible.name: "ControlColorToStringSubstring1ToUpperCase"
                 text: control.color.toString().substring(1).toUpperCase()
                 Layout.preferredWidth: 74
                 Layout.preferredHeight: 28
@@ -180,6 +182,7 @@ ColorDialogImpl {
             Repeater {
                 model: [control.red, control.green, control.blue]
                 D.TextField {
+                    Accessible.name: "ModelData"
                     text: modelData
                     Layout.fillWidth: true
                     Layout.preferredWidth: 44
@@ -244,6 +247,7 @@ ColorDialogImpl {
             Layout.bottomMargin: 10
             spacing: 9
             D.Button {
+                Accessible.name: "Cancel_7"
                 text: qsTr("Cancel")
                 Layout.fillWidth: true
                 background: Rectangle {
@@ -255,6 +259,7 @@ ColorDialogImpl {
                 }
             }
             D.Button {
+                Accessible.name: "Save_2"
                 text: qsTr("Save")
                 Layout.fillWidth: true
                 background: Rectangle {

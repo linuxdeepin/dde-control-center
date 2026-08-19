@@ -26,6 +26,7 @@ DccSettingsObject {
         weight: 10
         pageType: DccObject.Item
         page: Button {
+            Accessible.name: "Delete_3"
             text: qsTr("Delete")
         }
     }

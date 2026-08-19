@@ -81,11 +81,13 @@ D.DialogWindow {
                     spacing: 0
 
                     CheckBox {
+                        Accessible.name: "AgreeCheckbox_2"
                         id: agreeCheckbox
                         text: qsTr("I have read and agree to the")
                     }
 
                     D.ToolButton {
+                        Accessible.name: "Disclaimer"
                         text: qsTr("Disclaimer")
                         padding: 0
                         background: null
@@ -240,6 +242,7 @@ D.DialogWindow {
                     Layout.rightMargin: 0
 
                     Button {
+                        Accessible.name: "Done_2"
                         Layout.fillWidth: true
                         text: qsTr("Done")
                         onClicked: {
@@ -259,6 +262,7 @@ D.DialogWindow {
                     Layout.rightMargin: 0
 
                     Button {
+                        Accessible.name: "Cancel_2"
                         Layout.fillWidth: true
                         text: qsTr("Cancel")
                         onClicked: {

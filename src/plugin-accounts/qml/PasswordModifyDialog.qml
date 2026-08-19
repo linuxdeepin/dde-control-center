@@ -69,6 +69,7 @@ D.DialogWindow {
             Layout.rightMargin: 16
 
             Button {
+                Accessible.name: "CancelButton"
                 id: cancelButton
                 Layout.fillWidth: true
                 text: qsTr("Cancel")

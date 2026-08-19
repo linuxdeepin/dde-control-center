@@ -33,6 +33,7 @@ D.DialogWindow {
         }
 
         Button {
+            Accessible.name: "Ok"
             Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
             Layout.bottomMargin: 10
             Layout.fillWidth: true

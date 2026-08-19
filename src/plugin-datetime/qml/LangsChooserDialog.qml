@@ -64,6 +64,7 @@ Loader {
                 Layout.rightMargin: 6 - DS.Style.dialogWindow.contentHMargin  // Match searchEdit margin
 
                 ListView {
+                    Accessible.name: "ItemsView_2"
                     id: itemsView
                     property string checkedLang
                     anchors.fill: parent
@@ -77,6 +78,7 @@ Loader {
                         }
 
                         delegate: CheckDelegate {
+                            Accessible.name: "CheckDelegate_2"
                             id: checkDelegate
                             implicitWidth: itemsView.width
                             implicitHeight: Math.max(30, checkDelegateFontMetrics.height + (DS.Style.control.padding - DS.Style.control.borderWidth) * 2) // Minimum 30px, adaptive based on font
@@ -204,6 +206,7 @@ Loader {
                 Layout.rightMargin: 6 - DS.Style.dialogWindow.contentHMargin
                 spacing: 6
                 Button {
+                    Accessible.name: "CancelButton_2"
                     id: cancelButton
                     Layout.fillWidth: true
                     Layout.bottomMargin: 6
@@ -220,6 +223,7 @@ Loader {
                     }
                 }
                 Button {
+                    Accessible.name: "AddButton_3"
                     id: addButton
                     Layout.fillWidth: true
                     Layout.bottomMargin: 6

@@ -324,6 +324,7 @@ ColumnLayout {
                 Layout.bottomMargin: 20
                 model: passwordModel
                 delegate: D.ItemDelegate {
+                    Accessible.name: "Repeater_ItemDelegate_2"
                     implicitWidth: pwdColumnLayout.width
                     backgroundVisible: false
                     checkable: false

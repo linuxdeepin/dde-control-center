@@ -48,6 +48,7 @@ ColumnLayout {
         Layout.bottomMargin: 10
         
         Button {
+            Accessible.name: "Cancel_5"
             Layout.fillWidth: true
             text: qsTr("Cancel")
             onClicked: {

@@ -154,6 +154,7 @@ D.DialogWindow {
             }
 
             ComboBox {
+                Accessible.name: "UserType"
                 id: userType
                 implicitHeight: 30
                 Layout.alignment: Qt.AlignVCenter
@@ -221,6 +222,7 @@ D.DialogWindow {
                 Repeater {
                     model: namesModel
                     delegate: D.ItemDelegate {
+                        Accessible.name: "Repeater_ItemDelegate"
                         Layout.fillWidth: true
                         backgroundVisible: false
                         checkable: false
@@ -343,6 +345,7 @@ D.DialogWindow {
             Layout.rightMargin: 6 - DS.Style.dialogWindow.contentHMargin
 
             Button {
+                Accessible.name: "Cancel_9"
                 Layout.fillWidth: true
                 text: qsTr("Cancel")
                 font: D.DTK.fontManager.t7
