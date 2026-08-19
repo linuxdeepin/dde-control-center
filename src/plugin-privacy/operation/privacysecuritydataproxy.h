@@ -67,7 +67,8 @@ private Q_SLOTS:
 
 private:
     bool m_serviceExists;
-    bool m_entityListQueried = false;   // 守卫: 本在线周期是否已签发 listEntity, 签发即置位、失败/下线即复位
+    bool m_entityListQueried = false;
+    bool m_listEntityRetried = false;   // 本在线周期是否已重试过一次
 };
 
 #endif // PRIVACYSECURITYDATAPROXY_H
