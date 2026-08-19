@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
@@ -74,7 +74,6 @@ public Q_SLOTS: // METHODS
     bool Action(const QString &json);
 
 private:
-    QTimer *m_autoExitTimer;
     QString m_jsonCache; // 缓存下对重复请求不处理(规避全局搜索会调两次Search)
 };
 

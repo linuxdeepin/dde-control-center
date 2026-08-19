@@ -140,16 +140,7 @@ void ControlCenterDBusAdaptor::updateRect()
 
 DBusControlCenterGrandSearchService::DBusControlCenterGrandSearchService(DccManager *parent)
     : QDBusAbstractAdaptor(parent)
-    , m_autoExitTimer(new QTimer(this))
 {
-    m_autoExitTimer->setInterval(10000);
-    m_autoExitTimer->setSingleShot(true);
-    connect(m_autoExitTimer, &QTimer::timeout, this, [this]() {
-        // 当主界面show出来之后不再执行自动退出
-        if (!this->parent()->mainWindow()->isVisible())
-            QCoreApplication::quit();
-    });
-    m_autoExitTimer->start();
 }
 
 DBusControlCenterGrandSearchService::~DBusControlCenterGrandSearchService() { }
@@ -167,7 +158,6 @@ QString DBusControlCenterGrandSearchService::Search(const QString &json)
     }
     m_jsonCache = json;
     const QString &val = parent()->searchProxy(json);
-    m_autoExitTimer->start();
     return val;
 }
 
@@ -176,7 +166,6 @@ bool DBusControlCenterGrandSearchService::Stop(const QString &json)
 {
     m_jsonCache.clear();
     bool val = parent()->stop(json);
-    m_autoExitTimer->start();
     return val;
 }
 
@@ -185,6 +174,5 @@ bool DBusControlCenterGrandSearchService::Action(const QString &json)
 {
     m_jsonCache.clear();
     bool val = parent()->action(json);
-    m_autoExitTimer->start();
     return val;
 }

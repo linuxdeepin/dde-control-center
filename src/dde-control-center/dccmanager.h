@@ -180,6 +180,7 @@ private:
     bool m_windowShown;
     bool m_pageShown;
     bool m_allPluginsLoaded;
+    QTimer *m_autoExitTimer;
 
     QHash<QString, QVector<DccObject *>> m_objMap; // 映射对象名称到对象指针列表，用于快速查找
 
