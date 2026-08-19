@@ -98,8 +98,10 @@ void PrivacySecurityDataProxy::onListEntityFinished(QDBusPendingCallWatcher *w)
             Q_EMIT EntityChanged(entity, "modify");
         }
     } else {
-        m_entityListQueried = false;    // 失败复位: 让 usec 上线后能补查
-        qCWarning(DCC_PRIVACY) << "Get entity list failed, DBus reply error: " << reply.error();  // 不降级,保持现状
+        m_entityListQueried = false;    // 失败复位
+        qCWarning(DCC_PRIVACY) << "Get entity list failed, DBus reply error: " << reply.error();
+        if (m_serviceExists)            // X1 修复: 竞态——init 发出时离线、回复前上线, 重拉被守卫吞; 失败后服务已在线则补发
+            listEntity();               // 守卫已复位, 此处重新置位并发出新请求(给已在线的 usec)
     }
     Q_EMIT entityListFinished();        // 成功: map 已填门控查询; 失败: map 空+守卫已复位
     w->deleteLater();
