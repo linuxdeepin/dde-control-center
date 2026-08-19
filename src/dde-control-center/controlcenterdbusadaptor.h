@@ -74,7 +74,6 @@ public Q_SLOTS: // METHODS
     bool Action(const QString &json);
 
 private:
-    QTimer *m_autoExitTimer;
     QString m_jsonCache; // 缓存下对重复请求不处理(规避全局搜索会调两次Search)
 };
 
