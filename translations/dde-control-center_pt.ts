@@ -3458,31 +3458,31 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Click</source>
-        <translation type="unfinished"/>
+        <translation>Clique</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>or</source>
-        <translation type="unfinished"/>
+        <translation>ou</translation>
     </message>
     <message>
         <source>Replace</source>
-        <translation type="unfinished"/>
+        <translation>Substituir</translation>
     </message>
     <message>
         <source>Restore default</source>
-        <translation type="unfinished"/>
+        <translation>Restaurar predefinição</translation>
     </message>
     <message>
         <source>Add custom shortcut</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar atalho personalizado</translation>
     </message>
     <message>
         <source>please enter a new shortcut key</source>
-        <translation type="unfinished"/>
+        <translation>por favor insira uma nova tecla de atalho</translation>
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
