@@ -13,6 +13,7 @@ RowLayout {
     property var sysItemModel: dccData.sysItemModel
     spacing: 5
     D.CheckBox {
+        Accessible.name: "TimeSlotCheckBox"
         id: timeSlotCheckBox
         implicitHeight: implicitContentHeight + 30
         checked: dccData.sysItemModel.timeSlot

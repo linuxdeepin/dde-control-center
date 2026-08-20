@@ -103,6 +103,7 @@ DccObject {
             pageType: DccObject.Editor
             icon: "appearance"
             page: D.ComboBox {
+                Accessible.name: "PersonalizationMain_ComboBox"
                 flat: true
                 textRole: "text"
                 model: dccData.model.appearanceSwitchModel

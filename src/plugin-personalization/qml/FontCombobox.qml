@@ -1,10 +1,12 @@
 // SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+import QtQuick 2.15
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 D.ComboBox {
+    Accessible.name: "Control_5"
     id: control
     flat: true
     property string visibleRole
@@ -18,6 +20,7 @@ D.ComboBox {
     }
 
     delegate: D.MenuItem {
+        Accessible.name: "MenuItem_5"
         id: menuItem
         useIndicatorPadding: true
         width: parent.width

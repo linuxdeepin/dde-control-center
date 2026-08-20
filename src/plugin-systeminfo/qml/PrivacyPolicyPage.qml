@@ -71,8 +71,10 @@ DccObject {
                 }
 
                 Menu {
+                    Accessible.name: "ContextMenu_3"
                     id: contextMenu
                     MenuItem {
+                        Accessible.name: "CopyLinkMenuItem"
                         id: copyLinkMenuItem
                         text: qsTr("Copy Link Address") + "(L)"
                         onTriggered: {

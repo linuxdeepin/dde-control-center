@@ -73,6 +73,7 @@ Item {
             }
         }
         ListView {
+            Accessible.name: "List"
             id: list
             visible: true
             anchors.top: searchEdit.bottom
@@ -157,6 +158,7 @@ Item {
             }
 
             delegate: D.ItemDelegate {
+                Accessible.name: "ListView_ItemDelegate"
                 implicitHeight: 40
                 width: parent ? parent.width : 300
                 font: D.DTK.fontManager.t6

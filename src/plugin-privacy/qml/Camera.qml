@@ -41,6 +41,7 @@ DccObject {
                 canSearch: false
                 backgroundType: DccObject.Hover
                 page: D.Switch {
+                    Accessible.name: "Camera_Switch"
                     checked: model.cameraPermission
                     onCheckedChanged: {
                         if (checked !== model.cameraPermission) {

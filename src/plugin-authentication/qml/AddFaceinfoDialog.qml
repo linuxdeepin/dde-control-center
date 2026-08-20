@@ -119,6 +119,7 @@ To ensure successful entry:\n\
                         spacing: 0
 
                         CheckBox {
+                            Accessible.name: "AgreeCheckbox"
                             id: agreeCheckbox
                             text: qsTr("I have read and agree to the")
                             anchors.verticalCenter: parent.verticalCenter
@@ -127,6 +128,7 @@ To ensure successful entry:\n\
                         }
 
                         D.ToolButton {
+                            Accessible.name: "DisclaimerButton"
                             id: disclaimerButton
                             text: qsTr("Disclaimer")
                             padding: 0
@@ -157,6 +159,7 @@ To ensure successful entry:\n\
                         spacing: 0
 
                         CheckBox {
+                            Accessible.name: "AgreeCheckboxWrapped"
                             id: agreeCheckboxWrapped
                             anchors.horizontalCenter: parent.horizontalCenter
                             text: qsTr("I have read and agree to the")
@@ -168,6 +171,7 @@ To ensure successful entry:\n\
                         }
 
                         D.ToolButton {
+                            Accessible.name: "DisclaimerButtonWrapped"
                             id: disclaimerButtonWrapped
                             anchors.horizontalCenter: parent.horizontalCenter
                             text: qsTr("Disclaimer")
@@ -330,6 +334,7 @@ To ensure successful entry:\n\
                     Layout.rightMargin: 0
 
                     Button {
+                        Accessible.name: "Done"
                         Layout.fillWidth: true
                         text: qsTr("Done")
                         onClicked: {
@@ -349,6 +354,7 @@ To ensure successful entry:\n\
                     Layout.rightMargin: 0
 
                     Button {
+                        Accessible.name: "Cancel"
                         Layout.fillWidth: true
                         text: qsTr("Cancel")
                         onClicked: {

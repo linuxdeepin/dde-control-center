@@ -39,6 +39,7 @@ D.DialogWindow {
             Layout.topMargin: 10
             Layout.fillWidth: true
             Button {
+                Accessible.name: "GoToSettings"
                 text: qsTr("Go to settings")
                 Layout.fillWidth: true
                 onClicked: {

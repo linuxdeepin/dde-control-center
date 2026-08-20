@@ -7,6 +7,7 @@ import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 
 D.ItemDelegate {
+    Accessible.name: "Control_13"
     id: control
     property alias separatorVisible: background.separatorVisible
     property alias backgroundType: background.backgroundType

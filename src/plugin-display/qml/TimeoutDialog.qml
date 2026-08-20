@@ -67,6 +67,7 @@ D.DialogWindow {
             }
 
             D.Button {
+                Accessible.name: "Save_4"
                 Layout.fillWidth: true
                 text: qsTr("Save")
                 onClicked: {

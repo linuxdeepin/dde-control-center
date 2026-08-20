@@ -63,6 +63,7 @@ DccObject {
                 }
 
                 D.ToolButton {
+                    Accessible.name: "Unbinding"
                     text: wechatLayout.isBindWechat ? qsTr("Unbinding") : qsTr("Link")
                     visible: dccData.editionName() === "deepin" ? false : true
                     textColor: D.Palette {

@@ -105,6 +105,7 @@ DccObject{
                     }
 
                     ToolButton {
+                        Accessible.name: "EditBtn"
                         id: editBtn
                         anchors.left: nameDetail.right
                         anchors.verticalCenter: nameDetail.verticalCenter
@@ -206,6 +207,7 @@ DccObject{
             }
 
             Switch {
+                Accessible.name: "DeviceSwitch"
                 id: deviceSwitch
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 Layout.rightMargin: 10
@@ -265,6 +267,7 @@ DccObject{
 
         page: RowLayout {
             CheckBox {
+                Accessible.name: "AllowOtherBluetoothDevicesToFindThisDevice"
                 checked: model.discoverabled
                 Layout.alignment: Qt.AlignLeft
                 leftPadding: 10

@@ -28,6 +28,7 @@ DccObject {
         weight: 10
         pageType: DccObject.Editor
         page: Button {
+            Accessible.name: "Add"
             implicitWidth: implicitContentWidth + 20
             implicitHeight: 30
             text: qsTr("add")
@@ -60,6 +61,7 @@ DccObject {
             backgroundType: DccObject.ClickStyle
             pageType: DccObject.Item
             page: D.ItemDelegate {
+                Accessible.name: "Control_4"
                 id: control
                 leftPadding: 10
                 rightPadding: 8

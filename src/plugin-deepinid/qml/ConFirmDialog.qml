@@ -49,6 +49,7 @@ D.DialogWindow {
             Layout.bottomMargin: 10
             spacing: 10
             Button {
+                Accessible.name: "DialogLeftBtnText"
                 text: dialog.leftBtnText
                 Layout.fillWidth: true
                 onClicked: {

@@ -102,6 +102,7 @@ DccObject {
                     }
                 }
                 Slider {
+                    Accessible.name: "VoiceTipsSlider1"
                     id: voiceTipsSlider1
                     Layout.alignment: Qt.AlignVCenter
                     implicitHeight: 24
@@ -154,6 +155,7 @@ DccObject {
                     implicitWidth: slider.implicitWidth
 
                     Slider {
+                        Accessible.name: "Slider"
                         id: slider
                         anchors.fill: parent
                         handleType: Slider.HandleType.NoArrowType
@@ -185,6 +187,7 @@ DccObject {
             pageType: DccObject.Editor
             visible: !dccData.model().showInputBluetoothMode
             page: Switch {
+                Accessible.name: "MicrophonePage_Switch"
                 Layout.alignment: Qt.AlignRight | Qt.AlignTop
 
                 checked: dccData.model().reduceNoise
@@ -203,6 +206,7 @@ DccObject {
             weight: 40
             pageType: DccObject.Editor
             page: D.ComboBox {
+                Accessible.name: "Control_2"
                 id: control
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
@@ -231,6 +235,7 @@ DccObject {
                     }
 
                     T.TextField {
+                        Accessible.name: "TextField_3"
                         id: textField
 
                         function getDisplayText() {
@@ -279,6 +284,7 @@ DccObject {
                 }
 
                 delegate: MenuItem {
+                    Accessible.name: "MenuItem_3"
                     id: menuItem
                     useIndicatorPadding: true
                     width: control.width

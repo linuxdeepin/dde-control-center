@@ -16,6 +16,7 @@ DccObject {
         weight: 10
         pageType: DccObject.Editor
         page: Switch {
+            Accessible.name: "SoundEffectsPage_Switch"
             checked: dccData.model().enableSoundEffect
             onCheckedChanged: {
                 dccData.worker().enableAllSoundEffect(checked)

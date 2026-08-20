@@ -84,6 +84,7 @@ DccObject {
                 }
 
                 Button {
+                    Accessible.name: "EnterBtn"
                     id: enterBtn
                     Layout.alignment: Qt.AlignRight
                     Layout.rightMargin: 10
@@ -159,6 +160,7 @@ DccObject {
                             spacing: 20
                             Layout.alignment: Qt.AlignHCenter
                             RadioButton {
+                                Accessible.name: "Radio1"
                                 id: radio1
                                 text: qsTr("Online")
                                 font: D.DTK.fontManager.t6
@@ -173,6 +175,7 @@ DccObject {
                             }
 
                             RadioButton {
+                                Accessible.name: "Radio2"
                                 id: radio2
                                 text: qsTr("Offline")
                                 font: D.DTK.fontManager.t6
@@ -329,6 +332,7 @@ DccObject {
                                             verticalAlignment: Text.AlignVCenter
                                         }
                                         Button {
+                                            Accessible.name: "ExportBtn"
                                             id: exportBtn
                                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                                             Layout.rightMargin: 6
@@ -558,6 +562,7 @@ DccObject {
             pageType: DccObject.Editor
             page:  Row{
                 ComboBox {
+                    Accessible.name: "DebugLogCombo"
                     id: debugLogCombo
                     model: [ qsTr("Off"), qsTr("Debug") ]
                     flat: true
@@ -628,6 +633,7 @@ DccObject {
             }
 
             Switch {
+                Accessible.name: "DevelopModePage_Switch"
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
                 implicitWidth: 50

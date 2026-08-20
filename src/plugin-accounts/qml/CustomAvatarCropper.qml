@@ -189,6 +189,7 @@ Control {
         }
 
         Slider {
+            Accessible.name: "ScaleSlider"
             id: scaleSlider
             from: 1.0
             to: 2.0

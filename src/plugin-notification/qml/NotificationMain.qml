@@ -33,6 +33,7 @@ DccObject {
             weight: 10
             pageType: DccObject.Editor
             page: D.Switch {
+                Accessible.name: "NotificationMain_Switch"
                 anchors {
                     left: parent.left
                     leftMargin: 10
@@ -74,6 +75,7 @@ DccObject {
                     leftMargin: 10
                 }
                 D.CheckBox {
+                    Accessible.name: "LockScreenCheckBox"
                     id: lockScreenCheckBox
                     implicitHeight: implicitContentHeight + 30
                     checked: dccData.sysItemModel.lockScreen
@@ -107,6 +109,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.ComboBox {
+            Accessible.name: "NotificationMain_ComboBox"
             model: ["1", "2", "3"]
             flat: true
             currentIndex: dccData.sysItemModel.bubbleCount - 1
@@ -241,6 +244,7 @@ DccObject {
                 displayName: model.AppName
                 backgroundType: DccObject.Normal
                 page: D.Switch {
+                    Accessible.name: "NotificationMain_Switch_2"
                     checked: model.EnableNotification
                     onCheckedChanged: {
                         if (model.EnableNotification !== checked) {
@@ -261,6 +265,7 @@ DccObject {
                         weight: 10
                         pageType: DccObject.Editor
                         page: D.Switch {
+                            Accessible.name: "NotificationMain_Switch_3"
                             Layout.rightMargin: 10
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             checked: model.EnableNotification
@@ -338,6 +343,7 @@ DccObject {
                             weight: 10
                             page: RowLayout {
                                 D.CheckBox {
+                                    Accessible.name: "DccObjDisplayName_2"
                                     implicitHeight: 40
                                     Layout.leftMargin: 14
                                     text: dccObj.displayName
@@ -358,6 +364,7 @@ DccObject {
                             weight: 20
                             page: RowLayout {
                                 D.CheckBox {
+                                    Accessible.name: "DccObjDisplayName_3"
                                     implicitHeight: 40
                                     Layout.leftMargin: 14
                                     text: dccObj.displayName

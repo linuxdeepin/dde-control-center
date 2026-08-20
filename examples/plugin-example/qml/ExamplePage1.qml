@@ -19,6 +19,7 @@ DccObject {
         backgroundType: DccObject.Normal // 设置背景样式
         pageType: DccObject.Editor // Editor为page是右边的控件，左边显示displayName、icon等
         page: Button {
+            Accessible.name: "DccObjDisplayName_6"
             text: dccObj.displayName
             onClicked: {
                 calcValue = dccData.calc(calcValue, 2)
@@ -78,6 +79,7 @@ DccObject {
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Button {
+                Accessible.name: "DccObjDisplayName_7"
                 text: dccObj.displayName
                 onClicked: {
                     calcType++

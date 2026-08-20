@@ -46,6 +46,7 @@ DccObject {
                     }
                 }
                 Switch {
+                    Accessible.name: "DeepinIdsyncService_Switch"
                     checked: dccData.model.syncSwitch
                     enabled: dccData.model.syncEnabled
                     onCheckedChanged: {
@@ -164,6 +165,7 @@ DccObject {
             }
 
             D.ToolButton {
+                Accessible.name: "ClearCloudData"
                 Layout.preferredHeight: 40
                 text: qsTr("Clear cloud data")
                 font: D.DTK.fontManager.t10

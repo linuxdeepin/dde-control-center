@@ -127,6 +127,7 @@ DccObject {
             weight: 2
             pageType: DccObject.Editor
             page: D.Switch {
+                Accessible.name: "WindowEffectPage_Switch"
                 checked: dccData.model.isMoveWindow
                 onCheckedChanged: {
                     dccData.worker.setMovedWindowOpacity(checked)
@@ -222,6 +223,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.ComboBox {
+            Accessible.name: "WindowEffectPage_ComboBox"
             flat: true
             currentIndex: indexOfValue(dccData.model.titleBarHeight)
             model: [
@@ -274,6 +276,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.ComboBox {
+            Accessible.name: "WindowEffectPage_ComboBox_2"
             flat: true
             enabled: dccData.model.scrollBarPolicyConfig !== "Disabled"
             model: [qsTr("Show on scrolling"), qsTr("Keep shown")]
@@ -306,6 +309,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.Switch {
+            Accessible.name: "WindowEffectPage_Switch_2"
             enabled: dccData.model.compactDisplayConfig !== "Disabled"
             checked: dccData.model.compactDisplay
             onCheckedChanged: {
