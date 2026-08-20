@@ -2123,27 +2123,27 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <name>GeneralPage</name>
     <message>
         <source>Power Plans</source>
-        <translation type="unfinished"/>
+        <translation>Planos de Energia</translation>
     </message>
     <message>
         <source>Power Saving Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições de Poupança de Energia</translation>
     </message>
     <message>
         <source>Auto power saving on low battery</source>
-        <translation type="unfinished"/>
+        <translation>Poupança automática de energia com bateria fraca</translation>
     </message>
     <message>
         <source>Low battery threshold</source>
-        <translation type="unfinished"/>
+        <translation>Limite de bateria fraca</translation>
     </message>
     <message>
         <source>Auto power saving on battery</source>
-        <translation type="unfinished"/>
+        <translation>Poupança automática de energia com bateria</translation>
     </message>
     <message>
         <source>Wakeup Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições de Acordar</translation>
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
