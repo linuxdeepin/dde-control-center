@@ -1475,18 +1475,18 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation type="unfinished"/>
+        <translation>O nickname deve ter 1~32 caracteres de comprimento</translation>
     </message>
 </context>
 <context>
     <name>DeepinWorker</name>
     <message>
         <source>encrypt password failed</source>
-        <translation type="unfinished"/>
+        <translation>encriptação da palavra-passe falhou</translation>
     </message>
     <message>
         <source>Wrong password, %1 chances left</source>
-        <translation type="unfinished"/>
+        <translation>Palavra-passe errada, restam %1 chances</translation>
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
