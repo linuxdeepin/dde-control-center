@@ -3728,27 +3728,27 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Ver a nota sobre software de código aberto</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Programa de Experiência do Utilizador</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Junte-se ao programa de experiência do utilizador para ajudar a melhorar o produto</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Contrato de Licença de Utilizador Final</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Ver o contrato de licença de utilizador final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Política de Privacidade</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
