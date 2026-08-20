@@ -1990,47 +1990,47 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Dock size</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho do dock</translation>
     </message>
     <message>
         <source>Small</source>
-        <translation type="unfinished"/>
+        <translation>Pequeno</translation>
     </message>
     <message>
         <source>Large</source>
-        <translation type="unfinished"/>
+        <translation>Grande</translation>
     </message>
     <message>
         <source>Position on the screen</source>
-        <translation type="unfinished"/>
+        <translation>Posição no ecrã</translation>
     </message>
     <message>
         <source>Top</source>
-        <translation type="unfinished"/>
+        <translation>Topo</translation>
     </message>
     <message>
         <source>Bottom</source>
-        <translation type="unfinished"/>
+        <translation>Fundo</translation>
     </message>
     <message>
         <source>Left</source>
-        <translation type="unfinished"/>
+        <translation>Esquerda</translation>
     </message>
     <message>
         <source>Right</source>
-        <translation type="unfinished"/>
+        <translation>Direita</translation>
     </message>
     <message>
         <source>Status</source>
-        <translation type="unfinished"/>
+        <translation>Estado</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>Manter visível</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation type="unfinished"/>
+        <translation>Manter escondido</translation>
     </message>
     <message>
         <source>Smart hide</source>
