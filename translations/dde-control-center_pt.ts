@@ -1528,18 +1528,18 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation>De momento esta funcionalidade não está presente, por favor ative primeiro o seu sistema</translation>
+        <translation>De momento a funcionalidade não está disponível, por favor ative primeiro o seu sistema</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation type="unfinished"/>
+        <translation>De acordo com as suas regulamentações e leis locais, não se encontra de momento disponível na sua região.</translation>
     </message>
 </context>
 <context>
     <name>Defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation type="unfinished"/>
+        <translation>Aplicação Pré-definida</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
