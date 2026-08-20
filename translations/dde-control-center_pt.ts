@@ -1956,37 +1956,37 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Drag the display layout first to form a rectangle. If a rectangular layout is not possible, set all displays to the same resolution first.</source>
-        <translation type="unfinished"/>
+        <translation>Arraste primeiro a disposição do ecrã para formar um retângulo. Se não for possível criar uma disposição retangular, defina primeiro a mesma resolução para todos os ecrãs.</translation>
     </message>
 </context>
 <context>
     <name>Dock</name>
     <message>
         <source>Desktop and taskbar</source>
-        <translation type="unfinished"/>
+        <translation>Ambiente de trabalho e barra de tarefas</translation>
     </message>
     <message>
         <source>Desktop organization, taskbar mode, plugin area settings</source>
-        <translation type="unfinished"/>
+        <translation>Organização do ambiente de trabalho, modo da barra de tarefas, definições da área de extensões</translation>
     </message>
 </context>
 <context>
     <name>DockMain</name>
     <message>
         <source>Dock</source>
-        <translation type="unfinished"/>
+        <translation>Dock</translation>
     </message>
     <message>
         <source>Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo</translation>
     </message>
     <message>
         <source>Classic Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo Clássico</translation>
     </message>
     <message>
         <source>Centered Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo Centrado</translation>
     </message>
     <message>
         <source>Dock size</source>
