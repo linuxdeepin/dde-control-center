@@ -1952,7 +1952,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Concat Screen</source>
-        <translation type="unfinished"/>
+        <translation>Concatenar Ecrã</translation>
     </message>
     <message>
         <source>Drag the display layout first to form a rectangle. If a rectangular layout is not possible, set all displays to the same resolution first.</source>
