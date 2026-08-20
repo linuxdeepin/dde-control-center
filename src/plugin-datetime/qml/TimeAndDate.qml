@@ -131,8 +131,15 @@ DccObject {
                     hoverEnabled: true
                     model: serverList
                     popup.popupType: Popup.Window
-                    // 不设置默认的话可能无法滚动（不显示上下箭头按钮）。。。
-                    maxVisibleItems: serverList.length - 1
+                    // Show every NTP server incl. "Customize" so the list never scrolls.
+                    // The DTK ArrowListView arrow buttons are ColumnLayout siblings of the
+                    // ListView and their visibility tracks the scroll position; toggling
+                    // them resizes the layout, which under Popup.Window feeds back into
+                    // contentY resets (scroll snap-back) and popup height jitter. Binding
+                    // to serverList.length works because Component.onCompleted reassigns
+                    // serverList after pushing "Customize", emitting the change signal the
+                    // var-array push itself does not, so this binding re-evaluates.
+                    maxVisibleItems: serverList.length
                     currentIndex:  {
                         let index = serverList.indexOf(dccData.ntpServerAddress)
                         dateAndTimeSettings.showCustom = (index < 0)
@@ -165,8 +172,14 @@ DccObject {
 
                     Component.onCompleted: {
                         let text = qsTr("Customize")
-                        if (!comboBox.serverList.includes(text))
+                        if (!comboBox.serverList.includes(text)) {
                             comboBox.serverList.push(text)
+                            // Reassign to emit the serverList change signal: pushing into a
+                            // property var JS array mutates it in place without NOTIFY, so
+                            // bindings on serverList.length (e.g. maxVisibleItems) and the
+                            // model would otherwise keep the pre-push value.
+                            comboBox.serverList = comboBox.serverList
+                        }
 
                         if (dccData.ntpServerAddress.length === 0 && dccData.previousServerAddress.length > 0) {
                             dccData.ntpServerAddress = dccData.previousServerAddress
