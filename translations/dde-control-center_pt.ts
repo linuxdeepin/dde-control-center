@@ -3632,7 +3632,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
-        <translation type="unfinished"/>
+        <translation>Se o nível de som é superior a 100%, pode distorcer o áudio e ser prejudicial para os dispositivos de saída</translation>
     </message>
     <message>
         <source>Left</source>
@@ -3644,19 +3644,19 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Output</source>
-        <translation type="unfinished"/>
+        <translation>Saída</translation>
     </message>
     <message>
         <source>No output device for sound found</source>
-        <translation type="unfinished"/>
+        <translation>Nenhum dispositivo de saída encontrado para som</translation>
     </message>
     <message>
         <source>Left Right Balance</source>
-        <translation type="unfinished"/>
+        <translation>Balanceamento Esquerda/Direita</translation>
     </message>
     <message>
         <source>Merge left and right channels into a single channel</source>
-        <translation type="unfinished"/>
+        <translation>Juntar os canais esquerdo e direito num único canal</translation>
     </message>
     <message>
         <source>Whether the audio will be automatically paused when the current audio device is unplugged</source>
