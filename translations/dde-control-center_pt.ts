@@ -1716,11 +1716,11 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation type="unfinished"/>
+        <translation>Desativar a proteção desbloqueia pastas do sistema. Esta ação acarreta um alto risco de dano no sistema.</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation type="unfinished"/>
+        <translation>Ativar proteção de bloqueio nas pastas dos sistema e garantir ótima estabilidade.</translation>
     </message>
 </context>
 <context>
