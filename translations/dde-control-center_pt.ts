@@ -1498,22 +1498,22 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation type="unfinished"/>
+        <translation>O nickname pode ser modificado apenas uma vez por dia</translation>
     </message>
 </context>
 <context>
     <name>Deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation type="unfinished"/>
+        <translation>ID deepin</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation type="unfinished"/>
+        <translation>ID UOS</translation>
     </message>
     <message>
         <source>Cloud services</source>
-        <translation type="unfinished"/>
+        <translation>Serviços da Nuvem</translation>
     </message>
 </context>
 <context>
