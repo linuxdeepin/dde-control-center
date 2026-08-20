@@ -4270,23 +4270,23 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <name>dccV25::AccountsController</name>
     <message>
         <source>Username must be between 3 and 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>O nome de utilizador tem de ter entre 3 e 32 carateres</translation>
     </message>
     <message>
         <source>The first character must be a letter or number</source>
-        <translation type="unfinished"/>
+        <translation>O primeiro caráter tem de ser uma letra ou número</translation>
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation type="unfinished"/>
+        <translation>O seu nome de utilizador não deve ter apenas números</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
-        <translation type="unfinished"/>
+        <translation>O nome de utilizador foi usado por outras contas de utilizador</translation>
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation type="unfinished"/>
+        <translation>O nome completo é demasiado longo</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
