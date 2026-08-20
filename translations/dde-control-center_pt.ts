@@ -1708,11 +1708,11 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation type="unfinished"/>
+        <translation>De momento a funcionalidade não está disponível, por favor ative primeiro o seu sistema</translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation type="unfinished"/>
+        <translation>Proteção de Apenas-Leitura do Sistema Sólido</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
