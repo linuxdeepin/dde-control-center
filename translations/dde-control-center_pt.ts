@@ -3763,7 +3763,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <name>ThemeSelectView</name>
     <message>
         <source>More Wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Mais Fundos</translation>
     </message>
 </context>
 <context>
