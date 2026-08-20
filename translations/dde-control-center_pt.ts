@@ -2648,7 +2648,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation>Quando o ecrã está bloqueado</translation>
+        <translation>Quando o ecrã está trancado</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
@@ -2664,38 +2664,38 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar notificação no ambiente de trabalho ou mostrar mensagens não lidas no centro de notificações</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Ambiente de trabalho</translation>
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation type="unfinished"/>
+        <translation>Trancar Ecrã</translation>
     </message>
     <message>
         <source>Notification Center</source>
-        <translation type="unfinished"/>
+        <translation>Centro de Notificações</translation>
     </message>
     <message>
         <source>Show message preview</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar pré-visualização da mensagem</translation>
     </message>
     <message>
         <source>Play a sound</source>
-        <translation type="unfinished"/>
+        <translation>Tocar um som</translation>
     </message>
 </context>
 <context>
     <name>OtherDevice</name>
     <message>
         <source>Other Devices</source>
-        <translation type="unfinished"/>
+        <translation>Outros Dispositivos</translation>
     </message>
     <message>
         <source>Show Bluetooth devices without names</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar dispositivos Bluetooth sem nomes</translation>
     </message>
 </context>
 <context>
