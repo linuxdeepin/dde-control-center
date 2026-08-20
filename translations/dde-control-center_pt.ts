@@ -3589,11 +3589,11 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Enviar ícone no lançador para o ambiente de trabalho</translation>
+        <translation>Enviar ícone no Lançador para o Ambiente de Trabalho</translation>
     </message>
     <message>
         <source>Empty Trash</source>
-        <translation>Esvaziar o lixo</translation>
+        <translation>Esvaziar Lixo</translation>
     </message>
     <message>
         <source>Plug in</source>
@@ -3605,7 +3605,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Removable device connected</source>
-        <translation>Dispositivo removível ligado</translation>
+        <translation>Dispositivo removível conetado</translation>
     </message>
     <message>
         <source>Removable device removed</source>
