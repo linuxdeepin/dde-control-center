@@ -3509,7 +3509,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation>Saída, entrada, efeitos de som, dispositivos</translation>
+        <translation>Saída, entrada, efeitos sonoros, dispositivos</translation>
     </message>
 </context>
 <context>
@@ -3524,44 +3524,44 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Input Devices</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivos de Entrada</translation>
     </message>
 </context>
 <context>
     <name>SoundEffectsPage</name>
     <message>
         <source>Sound Effects</source>
-        <translation>Efeitos sonoros</translation>
+        <translation>Efeitos Sonoros</translation>
     </message>
 </context>
 <context>
     <name>SoundMain</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições</translation>
     </message>
     <message>
         <source>Sound Effects</source>
-        <translation type="unfinished"/>
+        <translation>Efeitos Sonoros</translation>
     </message>
     <message>
         <source>Enable/disable sound effects</source>
-        <translation type="unfinished"/>
+        <translation>Ativar/desativar efeitos sonoros</translation>
     </message>
     <message>
         <source>Enable/disable audio devices</source>
-        <translation type="unfinished"/>
+        <translation>Ativar/desativar dispositivos de áudio</translation>
     </message>
     <message>
         <source>Devices Management</source>
-        <translation type="unfinished"/>
+        <translation>Gestão de Dispositivos</translation>
     </message>
 </context>
 <context>
     <name>SoundModel</name>
     <message>
         <source>Boot up</source>
-        <translation>Arrancar</translation>
+        <translation>Arranque</translation>
     </message>
     <message>
         <source>Shut down</source>
@@ -3573,7 +3573,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Wake up</source>
-        <translation>Retomar</translation>
+        <translation>Acordar</translation>
     </message>
     <message>
         <source>Volume +/-</source>
