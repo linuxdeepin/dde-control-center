@@ -2332,34 +2332,34 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Operating system and applications may provide you with local content based on your country and region</source>
-        <translation type="unfinished"/>
+        <translation>O sistema operativo e as aplicações podem apresentar-lhe conteúdos locais com base no seu país e região</translation>
     </message>
     <message>
         <source>Operating system and applications may set date and time formats based on regional formats</source>
-        <translation type="unfinished"/>
+        <translation>O sistema operativo e as aplicações podem definir os formatos de data e hora com base nos formatos regionais</translation>
     </message>
     <message>
         <source>Regional format</source>
-        <translation type="unfinished"/>
+        <translation>Formato regional</translation>
     </message>
 </context>
 <context>
     <name>LangsChooserDialog</name>
     <message>
         <source>Add language</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar idioma</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"/>
+        <translation>Procurar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Add</source>
-        <translation type="unfinished"/>
+        <translation>Adicionar</translation>
     </message>
 </context>
 <context>
