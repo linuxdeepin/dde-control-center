@@ -3628,7 +3628,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Volume Boost</source>
-        <translation>Aumento do volume</translation>
+        <translation>Aumento do Nível de Som</translation>
     </message>
     <message>
         <source>If the volume is louder than 100%, it may distort audio and be harmful to output devices</source>
