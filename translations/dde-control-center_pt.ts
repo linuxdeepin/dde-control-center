@@ -2826,15 +2826,15 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation type="unfinished"/>
+        <translation>Ajustar cor de destaque e tema de ícones</translation>
     </message>
     <message>
         <source>Font and font size</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho e tipo de letra</translation>
     </message>
     <message>
         <source>Change system font and size</source>
-        <translation type="unfinished"/>
+        <translation>Mudar o tamanho e tipo de letra do sistema</translation>
     </message>
     <message>
         <source>Wallpaper</source>
