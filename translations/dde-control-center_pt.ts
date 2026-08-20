@@ -4256,7 +4256,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation type="unfinished"/>
+        <translation>Chinês Min Nan</translation>
     </message>
 </context>
 <context>
