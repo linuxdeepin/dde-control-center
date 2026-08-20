@@ -1696,15 +1696,15 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>You have entered developer mode</source>
-        <translation type="unfinished"/>
+        <translation>Entrou no modo de programador</translation>
     </message>
     <message>
         <source>OK</source>
-        <translation type="unfinished"/>
+        <translation>OK</translation>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation type="unfinished"/>
+        <translation>2.por favor vá a %1 para Descarregar certificado offline</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
