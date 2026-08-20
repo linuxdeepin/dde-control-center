@@ -4325,7 +4325,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation type="unfinished"/>
+        <translation>O seu host falhou ao juntar-se ao servidor do domínio</translation>
     </message>
     <message>
         <source>AD domain settings</source>
