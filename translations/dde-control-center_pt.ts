@@ -1424,7 +1424,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
-        <translation type="unfinished"/>
+        <translation>Guarde os seus dados pessoais e definições de sistema de forma segura na Nuvem, e mantenha-os sincronizados entre dispositivos.</translation>
     </message>
     <message>
         <source>System Settings</source>
@@ -1471,7 +1471,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation type="unfinished"/>
+        <translation>Ir para definições da web</translation>
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
