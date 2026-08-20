@@ -1381,11 +1381,11 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
-        <translation type="unfinished"/>
+        <translation>Redefinir a sua palavra-passe local via ID %1 em caso de esquecimento.</translation>
     </message>
     <message>
         <source>To use the above features, please go to Control Center - Accounts and turn on the corresponding options.</source>
-        <translation type="unfinished"/>
+        <translation>Para utilizar as funcionalidades acima, por favor vá ao Centro de Controlo - Contas e ative as opções correspondentes.</translation>
     </message>
 </context>
 <context>
