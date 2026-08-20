@@ -1688,11 +1688,11 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation>Para instalar e correr apps não assinadas, por favor vá ao &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Centro de Segurança &lt;/a&gt; para mudar as definições.</translation>
+        <translation>Para instalar e correr apps não assinadas, por favor vá ao &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Centro de Segurança &lt;/a&gt; para alterar as definições.</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Para instalar e correr aplicações não assinadas, por favor vá ao Centro de Segurança para alterar as definições.</translation>
     </message>
     <message>
         <source>You have entered developer mode</source>
