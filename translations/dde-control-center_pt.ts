@@ -1550,31 +1550,31 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <name>DefaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation type="unfinished"/>
+        <translation>Página web</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation type="unfinished"/>
+        <translation>Correio</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation type="unfinished"/>
+        <translation>Texto</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Música</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation type="unfinished"/>
+        <translation>Vídeo</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation type="unfinished"/>
+        <translation>Imagem</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation type="unfinished"/>
+        <translation>Terminal</translation>
     </message>
 </context>
 <context>
