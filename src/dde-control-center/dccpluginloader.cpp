@@ -206,8 +206,8 @@ bool DccPluginLoader::loadMetaData()
         return false;
     }
 
-    // Install translator for this plugin
-    DccManager::installTranslator(name());
+    // Install translator for this plugin (可选：内置插件可能无独立 .qm)
+    DccManager::installTranslator(name(), true);
 
     // Skip hidden modules (this should be checked by the caller)
     if (m_pManager->hidden(name())) {
