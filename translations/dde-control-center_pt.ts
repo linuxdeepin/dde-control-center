@@ -2734,23 +2734,23 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe não pode estar vazia</translation>
     </message>
     <message>
         <source>Passwords do not match</source>
-        <translation type="unfinished"/>
+        <translation>As palavras-passe não coincidem</translation>
     </message>
     <message>
         <source>The hint is visible to all users. Do not include the password here.</source>
-        <translation type="unfinished"/>
+        <translation>A dica é visível para todos os utilizadores. Não inclua aqui a palavra-passe.</translation>
     </message>
     <message>
         <source>New password</source>
-        <translation type="unfinished"/>
+        <translation>Nova palavra-passe</translation>
     </message>
     <message>
         <source>New password should differ from the current one</source>
-        <translation type="unfinished"/>
+        <translation>A nova palavra-passe deve ser diferente da atual</translation>
     </message>
     <message>
         <source>The password cannot be the same as the username.</source>
