@@ -3270,26 +3270,26 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
     <name>ScreenSaverPage</name>
     <message>
         <source>Screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Protetor de ecrã</translation>
     </message>
     <message>
         <source>preview</source>
-        <translation type="unfinished"/>
+        <translation>pré-visualizar</translation>
     </message>
     <message>
         <source>Personalized screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Protetor de ecrã personalizado</translation>
     </message>
     <message>
         <source>setting</source>
-        <translation type="unfinished"/>
+        <translation>definição</translation>
     </message>
     <message>
         <source>idle time</source>
