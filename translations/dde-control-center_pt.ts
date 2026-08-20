@@ -1539,11 +1539,11 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <name>Defaultapp</name>
     <message>
         <source>Default App</source>
-        <translation>Aplicação Pré-definida</translation>
+        <translation>Aplicação Predefinida</translation>
     </message>
     <message>
         <source>Set the default application for opening various types of files</source>
-        <translation type="unfinished"/>
+        <translation>Definir a aplicação predefinida para abrir vários tipos de ficheiros</translation>
     </message>
 </context>
 <context>
