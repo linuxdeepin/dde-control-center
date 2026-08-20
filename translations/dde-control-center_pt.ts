@@ -3486,19 +3486,19 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao iniciar captura de tecla de atalho. Por favor tente novamente.</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"/>
+        <translation>O tempo de espera para a introdução do atalho expirou. Tente novamente.</translation>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
+        <translation>Atalho de teclado inválido. Defina um novo.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao guardar o atalho. Por favor tente novamente.</translation>
     </message>
 </context>
 <context>
@@ -3509,14 +3509,14 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Output, input, sound effects, devices</source>
-        <translation type="unfinished"/>
+        <translation>Saída, entrada, efeitos de som, dispositivos</translation>
     </message>
 </context>
 <context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
-        <translation type="unfinished"/>
+        <translation>Dispositivos de Saída</translation>
     </message>
     <message>
         <source>Select whether to enable the devices</source>
