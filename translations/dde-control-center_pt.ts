@@ -4207,15 +4207,15 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Show on scrolling</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar ao deslocar</translation>
     </message>
     <message>
         <source>Keep shown</source>
-        <translation type="unfinished"/>
+        <translation>Manter visível</translation>
     </message>
     <message>
         <source>Compact Display</source>
-        <translation type="unfinished"/>
+        <translation>Visualização Compacta</translation>
     </message>
     <message>
         <source>If enabled, more content is displayed in the window.</source>
