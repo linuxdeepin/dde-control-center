@@ -1684,11 +1684,11 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Changing the option may take up to a minute to process, after receiving a successful setting prompt, please reboot the device to take effect.</source>
-        <translation type="unfinished"/>
+        <translation>A alteração da opção pode demorar até um minuto a ser processada. Após receber uma mensagem a confirmar que a configuração foi bem sucedida, reinicie o dispositivo para que as alterações entrem em vigor.</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Security Center &lt;/a&gt; to change the settings.</source>
-        <translation type="unfinished"/>
+        <translation>Para instalar e correr apps não assinadas, por favor vá ao &lt;a style=&apos;text-decoration: none;&apos; href=&apos;Security Center&apos;&gt; Centro de Segurança &lt;/a&gt; para mudar as definições.</translation>
     </message>
     <message>
         <source>To install and run unsigned apps, please go to Security Center to change the settings.</source>
