@@ -2838,15 +2838,15 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fundo do ambiente de trabalho</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation type="unfinished"/>
+        <translation>Selecione claro, escuro ou tema de aparência automática</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
-        <translation type="unfinished"/>
+        <translation>Interface e efeitos, cantos arredondados</translation>
     </message>
 </context>
 <context>
