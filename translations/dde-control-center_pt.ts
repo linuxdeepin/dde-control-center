@@ -2636,19 +2636,19 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <name>NotificationMain</name>
     <message>
         <source>Do Not Disturb Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições do Modo Não Incomodar</translation>
     </message>
     <message>
         <source>App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.</source>
-        <translation type="unfinished"/>
+        <translation>As notificações das aplicações não serão mostradas no ambiente de trabalho e os sons serão silenciados, mas pode ver todas as mensagens no centro de notificações.</translation>
     </message>
     <message>
         <source>Enable Do Not Disturb</source>
-        <translation type="unfinished"/>
+        <translation>Ativar Modo Não Incomodar</translation>
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation type="unfinished"/>
+        <translation>Quando o ecrã está bloqueado</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
