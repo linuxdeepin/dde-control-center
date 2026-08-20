@@ -1153,7 +1153,7 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation type="unfinished"/>
+        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Ao aderir ao Programa de Experiência do Utilizador, está a conceder-nos autorização para recolher e utilizar as informações relativas ao seu dispositivo, sistema e aplicações. Se não concordar com a recolha e utilização das informações acima referidas, por favor, não adira ao programa. Para obter mais informações sobre o Programa de Experiência do Utilizador, visite &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -1353,7 +1353,7 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
-        <translation type="unfinished"/>
+        <translation>Depois de desvincular o WeChat, não poderá utilizar o WeChat para digitalizar o código QR e iniciar sessão na conta %1 ID ou na conta local.</translation>
     </message>
     <message>
         <source>Let me think it over</source>
@@ -1365,11 +1365,11 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
-        <translation type="unfinished"/>
+        <translation>Após vincular a sua conta local, pode utilizar as seguinte funções:</translation>
     </message>
     <message>
         <source>WeChat Scan Code Login System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema de Inicio de Sessão com Scan de Código WeChat</translation>
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
