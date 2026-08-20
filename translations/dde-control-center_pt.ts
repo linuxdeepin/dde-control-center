@@ -2625,11 +2625,11 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <name>Notification</name>
     <message>
         <source>DND mode, app notifications</source>
-        <translation type="unfinished"/>
+        <translation>Modo Não Incomodar, notificações da aplicação</translation>
     </message>
     <message>
         <source>Notification</source>
-        <translation type="unfinished"/>
+        <translation>Notificação</translation>
     </message>
 </context>
 <context>
