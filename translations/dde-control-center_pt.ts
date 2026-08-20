@@ -2077,46 +2077,46 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Documents</source>
-        <translation type="unfinished"/>
+        <translation>Documentos</translation>
     </message>
     <message>
         <source>Desktop</source>
-        <translation type="unfinished"/>
+        <translation>Ambiente de Trabalho</translation>
     </message>
     <message>
         <source>Pictures</source>
-        <translation type="unfinished"/>
+        <translation>Imagens</translation>
     </message>
     <message>
         <source>Videos</source>
-        <translation type="unfinished"/>
+        <translation>Vídeos</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation type="unfinished"/>
+        <translation>Música</translation>
     </message>
     <message>
         <source>Downloads</source>
-        <translation type="unfinished"/>
+        <translation>Transferências</translation>
     </message>
     <message>
         <source>folder</source>
-        <translation type="unfinished"/>
+        <translation>pasta</translation>
     </message>
 </context>
 <context>
     <name>FontSizePage</name>
     <message>
         <source>Size</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho</translation>
     </message>
     <message>
         <source>Standard Font</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de Letra Padrão</translation>
     </message>
     <message>
         <source>Monospaced Font</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de Letra Mono-espaçada</translation>
     </message>
 </context>
 <context>
