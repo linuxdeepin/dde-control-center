@@ -2769,15 +2769,15 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Password length should be at least 8 characters, and the password should contain a combination of at least 3 of the following: uppercase letters, lowercase letters, numbers, and symbols. This type of password is more secure.</source>
-        <translation type="unfinished"/>
+        <translation>O comprimento da palavra-passe deve ser de pelo menos 8 caracteres, e a palavra-passe deve conter uma combinação depelo menos, 3 dos seguintes elementos: letras maiúsculas, letras minúsculas, números, e símbolos. Este tipo de palavra-passe é mais seguro.</translation>
     </message>
     <message>
         <source>Resetting the password will clear the data stored in the keyring.</source>
-        <translation type="unfinished"/>
+        <translation>Repor a palavra-passe limpará os dados armazenados no chaveiro.</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
