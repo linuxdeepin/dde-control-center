@@ -3878,38 +3878,38 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <name>TouchScreen</name>
     <message>
         <source>TouchScreen</source>
-        <translation>TouchScreen</translation>
+        <translation>Ecrã Tátil</translation>
     </message>
     <message>
         <source>Set up here when connecting the touch screen</source>
-        <translation type="unfinished"/>
+        <translation>Defina aqui quando conectar um ecrã tátil</translation>
     </message>
 </context>
 <context>
     <name>Touchpad</name>
     <message>
         <source>Basic Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições Básicas</translation>
     </message>
     <message>
         <source>Touchpad</source>
-        <translation type="unfinished"/>
+        <translation>Touchpad</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade do Ponteiro</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lento</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rápido</translation>
     </message>
     <message>
         <source>Disable touchpad during input</source>
-        <translation type="unfinished"/>
+        <translation>Desativar o touchpad enquanto escreve</translation>
     </message>
     <message>
         <source>Tap to Click</source>
