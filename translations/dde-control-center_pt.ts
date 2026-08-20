@@ -3624,7 +3624,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Output Volume</source>
-        <translation>Volume de saída</translation>
+        <translation>Nível de Som de Saída</translation>
     </message>
     <message>
         <source>Volume Boost</source>
