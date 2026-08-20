@@ -2147,7 +2147,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Password is required to wake up the computer</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe é retomar para acordar o computador</translation>
     </message>
     <message>
         <source>Password is required to wake up the monitor</source>
