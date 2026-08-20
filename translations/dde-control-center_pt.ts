@@ -1373,11 +1373,11 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.</source>
-        <translation type="unfinished"/>
+        <translation>Use o WeChat, que está associado ao seu ID %1, para digitalizar o código e iniciar sessão na sua conta local.</translation>
     </message>
     <message>
         <source>Reset password via %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Redefinir palavra-passe via ID %1</translation>
     </message>
     <message>
         <source>Reset your local password via %1 ID in case you forget it.</source>
