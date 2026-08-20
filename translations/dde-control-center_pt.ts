@@ -1520,15 +1520,15 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <name>DeepinidModel</name>
     <message>
         <source>Mainland China</source>
-        <translation type="unfinished"/>
+        <translation>China Continental</translation>
     </message>
     <message>
         <source>Other regions</source>
-        <translation type="unfinished"/>
+        <translation>Outras regiões</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first</source>
-        <translation type="unfinished"/>
+        <translation>De momento esta funcionalidade não está presente, por favor ative primeiro o seu sistema</translation>
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
