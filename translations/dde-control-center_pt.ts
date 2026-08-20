@@ -855,293 +855,293 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Delete account directory</source>
-        <translation type="unfinished"/>
+        <translation>Apagar pasta da conta</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Delete</source>
-        <translation type="unfinished"/>
+        <translation>Apagar</translation>
     </message>
 </context>
 <context>
     <name>ComfirmSafePage</name>
     <message>
         <source>Go to settings</source>
-        <translation type="unfinished"/>
+        <translation>Ir para definições</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
     <name>Common</name>
     <message>
         <source>Common</source>
-        <translation type="unfinished"/>
+        <translation>Comum</translation>
     </message>
     <message>
         <source>Repeat delay</source>
-        <translation type="unfinished"/>
+        <translation>Atraso de repetição</translation>
     </message>
     <message>
         <source>Short</source>
-        <translation type="unfinished"/>
+        <translation>Curto</translation>
     </message>
     <message>
         <source>Long</source>
-        <translation type="unfinished"/>
+        <translation>Longo</translation>
     </message>
     <message>
         <source>Repeat rate</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade da repetição</translation>
     </message>
     <message>
         <source>Slow</source>
-        <translation type="unfinished"/>
+        <translation>Lento</translation>
     </message>
     <message>
         <source>Fast</source>
-        <translation type="unfinished"/>
+        <translation>Rápido</translation>
     </message>
     <message>
         <source>Numeric Keypad</source>
-        <translation type="unfinished"/>
+        <translation>Teclado Numérico</translation>
     </message>
     <message>
         <source>test here</source>
-        <translation type="unfinished"/>
+        <translation>testar aqui</translation>
     </message>
     <message>
         <source>Caps lock prompt</source>
-        <translation type="unfinished"/>
+        <translation>Solicitação de caps lock</translation>
     </message>
     <message>
         <source>Double Click Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade do Duplo Clique</translation>
     </message>
     <message>
         <source>Double Click Test</source>
-        <translation type="unfinished"/>
+        <translation>Testar Duplo Clique</translation>
     </message>
     <message>
         <source>Left Hand Mode</source>
-        <translation type="unfinished"/>
+        <translation>Modo Mão Esquerda</translation>
     </message>
     <message>
         <source>Enable Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Ativar Teclado</translation>
     </message>
     <message>
         <source>General</source>
-        <translation type="unfinished"/>
+        <translation>Geral</translation>
     </message>
     <message>
         <source>Scrolling Speed</source>
-        <translation type="unfinished"/>
+        <translation>Velocidade de Deslocação</translation>
     </message>
 </context>
 <context>
     <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu de Arranque</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Gerir o seu menu de arranque</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Gestão de permissão root do programador</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Opções de Programador</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Opções de depuração do programador</translation>
     </message>
 </context>
 <context>
     <name>CommonInfoWork</name>
     <message>
         <source>Large size</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho grande</translation>
     </message>
     <message>
         <source>Small size</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho pequeno</translation>
     </message>
     <message>
         <source>Failed to get root access</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao obter acesso root</translation>
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation type="unfinished"/>
+        <translation>Por favor inicie primeiro a sessão no seu Union ID</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
-        <translation type="unfinished"/>
+        <translation>Não é possível ler a informação do seu PC</translation>
     </message>
     <message>
         <source>No network connection</source>
-        <translation type="unfinished"/>
+        <translation>Sem ligação à rede</translation>
     </message>
     <message>
         <source>Certificate loading failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>O carregamento do certificado falhou, não é possível obter acesso root</translation>
     </message>
     <message>
         <source>Signature verification failed, unable to get root access</source>
-        <translation type="unfinished"/>
+        <translation>A verificação da assinatura falhou, não é possível obter acesso root</translation>
     </message>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Concordar e Aderir ao Programa de Experiência do Utilizador</translation>
     </message>
     <message>
         <source>The Disclaimer of Developer Mode</source>
-        <translation type="unfinished"/>
+        <translation>Aviso Legal do Modo de Programador</translation>
     </message>
     <message>
         <source>Agree and Request Root Access</source>
-        <translation type="unfinished"/>
+        <translation>Concordar e Solicitar Acesso Root</translation>
     </message>
     <message>
         <source>Start setting the new boot animation, please wait for a minute</source>
-        <translation type="unfinished"/>
+        <translation>A iniciar a definição de nova animação de arranque, por favor espere um minuto</translation>
     </message>
     <message>
         <source>Setting new boot animation finished</source>
-        <translation type="unfinished"/>
+        <translation>Definição de nova animação de arranque concluída</translation>
     </message>
     <message>
         <source>The settings will be applied after rebooting the system</source>
-        <translation type="unfinished"/>
+        <translation>As definições serão aplicadas após reiniciar o sistema</translation>
     </message>
     <message>
         <source>Restart now</source>
-        <translation type="unfinished"/>
+        <translation>Reiniciar agora</translation>
     </message>
     <message>
         <source>Dismiss</source>
-        <translation type="unfinished"/>
+        <translation>Dispensar</translation>
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation type="unfinished"/>
+        <translation>Reiniciar dispositivo para terminar de aplicar a definições de Proteção de Apenas-Leitura do Sistema Sólido</translation>
     </message>
 </context>
 <context>
     <name>ConfirmManager</name>
     <message>
         <source>Password must contain numbers and letters</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe deve conter números e letras</translation>
     </message>
     <message>
         <source>Password must be between 8 and 64 characters</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe deve conter entre 8 e 64 caracteres</translation>
     </message>
 </context>
 <context>
     <name>CreateAccountDialog</name>
     <message>
         <source>Create a new account</source>
-        <translation type="unfinished"/>
+        <translation>Criar uma nova conta</translation>
     </message>
     <message>
         <source>Account type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo de conta</translation>
     </message>
     <message>
         <source>UserName</source>
-        <translation type="unfinished"/>
+        <translation>Nome de Utilizador</translation>
     </message>
     <message>
         <source>Required</source>
-        <translation type="unfinished"/>
+        <translation>Requerido</translation>
     </message>
     <message>
         <source>FullName</source>
-        <translation type="unfinished"/>
+        <translation>Nome Completo</translation>
     </message>
     <message>
         <source>Optional</source>
-        <translation type="unfinished"/>
+        <translation>Opcional</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Create account</source>
-        <translation type="unfinished"/>
+        <translation>Criar conta</translation>
     </message>
     <message>
         <source>Username cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>O nome de utilizador não pode exceder 32 caracteres</translation>
     </message>
     <message>
         <source>Username can only contain letters, numbers, - and _</source>
-        <translation type="unfinished"/>
+        <translation>O nome do utilizador só pode conter letras, números, - e _</translation>
     </message>
     <message>
         <source>Full name cannot exceed 32 characters</source>
-        <translation type="unfinished"/>
+        <translation>O nome completo não pode exceder 32 caracteres</translation>
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation type="unfinished"/>
+        <translation>O nome completo não pode conter dois pontos</translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarCropper</name>
     <message>
         <source>small</source>
-        <translation type="unfinished"/>
+        <translation>pequeno</translation>
     </message>
     <message>
         <source>big</source>
-        <translation type="unfinished"/>
+        <translation>grande</translation>
     </message>
 </context>
 <context>
     <name>CustomAvatarEmpatyArea</name>
     <message>
         <source>You haven&apos;t uploaded an avatar yet. Click or drag and drop to upload an image.</source>
-        <translation type="unfinished"/>
+        <translation>Ainda não enviou um avatar. Clique ou arraste e largue para enviar uma imagem.</translation>
     </message>
     <message>
         <source>The uploaded file type is incorrect, please upload it again</source>
-        <translation type="unfinished"/>
+        <translation>O tipo de ficheiro enviado é incorreto, por favor envie-o novamente</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoModel</name>
     <message>
         <source>available</source>
-        <translation type="unfinished"/>
+        <translation>disponível</translation>
     </message>
 </context>
 <context>
     <name>DCC_NAMESPACE::SystemInfoWork</name>
     <message>
         <source>https://www.deepin.org/en/agreement/privacy/</source>
-        <translation type="unfinished"/>
+        <translation>https://www.deepin.org/en/agreement/privacy/</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/privacy-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/privacy-en</translation>
     </message>
     <message>
         <source>https://www.uniontech.com/agreement/experience-en</source>
-        <translation type="unfinished"/>
+        <translation>https://www.uniontech.com/agreement/experience-en</translation>
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
@@ -1160,140 +1160,140 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     <name>DateTimeSettingDialog</name>
     <message>
         <source>Date and time setting</source>
-        <translation type="unfinished"/>
+        <translation>Definição de data e hora</translation>
     </message>
     <message>
         <source>Date</source>
-        <translation type="unfinished"/>
+        <translation>Data</translation>
     </message>
     <message>
         <source>Year</source>
-        <translation type="unfinished"/>
+        <translation>Ano</translation>
     </message>
     <message>
         <source>Month</source>
-        <translation type="unfinished"/>
+        <translation>Mês</translation>
     </message>
     <message>
         <source>Day</source>
-        <translation type="unfinished"/>
+        <translation>Dia</translation>
     </message>
     <message>
         <source>Time</source>
-        <translation type="unfinished"/>
+        <translation>Hora</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
 </context>
 <context>
     <name>Datetime</name>
     <message>
         <source>Time and date</source>
-        <translation type="unfinished"/>
+        <translation>Data e hora</translation>
     </message>
     <message>
         <source>Time and date, time zone settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições fuso horário, data e hora</translation>
     </message>
 </context>
 <context>
     <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Idioma e região</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Idioma do sistema, formatos regionais</translation>
     </message>
 </context>
 <context>
     <name>DatetimeModel</name>
     <message>
         <source>Tomorrow</source>
-        <translation type="unfinished"/>
+        <translation>Amanhã</translation>
     </message>
     <message>
         <source>Yesterday</source>
-        <translation type="unfinished"/>
+        <translation>Ontem</translation>
     </message>
     <message>
         <source>Today</source>
-        <translation type="unfinished"/>
+        <translation>Hoje</translation>
     </message>
     <message>
         <source>%1 hours earlier than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 horas antes da local</translation>
     </message>
     <message>
         <source>%1 hours later than local</source>
-        <translation type="unfinished"/>
+        <translation>%1 horas depois da local</translation>
     </message>
     <message>
         <source>Space</source>
-        <translation type="unfinished"/>
+        <translation>Espaço</translation>
     </message>
     <message>
         <source>Week</source>
-        <translation type="unfinished"/>
+        <translation>Semana</translation>
     </message>
     <message>
         <source>First day of week</source>
-        <translation type="unfinished"/>
+        <translation>Primeiro dia da semana</translation>
     </message>
     <message>
         <source>Short date</source>
-        <translation type="unfinished"/>
+        <translation>Data abreviada</translation>
     </message>
     <message>
         <source>Long date</source>
-        <translation type="unfinished"/>
+        <translation>Data por extenso</translation>
     </message>
     <message>
         <source>Short time</source>
-        <translation type="unfinished"/>
+        <translation>Hora abreviada</translation>
     </message>
     <message>
         <source>Long time</source>
-        <translation type="unfinished"/>
+        <translation>Hora por extenso</translation>
     </message>
     <message>
         <source>Currency symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo monetário</translation>
     </message>
     <message>
         <source>Positive currency</source>
-        <translation type="unfinished"/>
+        <translation>Moeda positiva</translation>
     </message>
     <message>
         <source>Negative currency</source>
-        <translation type="unfinished"/>
+        <translation>Moeda negativa</translation>
     </message>
     <message>
         <source>Decimal symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo decimal</translation>
     </message>
     <message>
         <source>Digit grouping symbol</source>
-        <translation type="unfinished"/>
+        <translation>Símbolo de agrupamento de algarismos</translation>
     </message>
     <message>
         <source>Digit grouping</source>
-        <translation type="unfinished"/>
+        <translation>Agrupamento de algarismos</translation>
     </message>
     <message>
         <source>Page size</source>
-        <translation type="unfinished"/>
+        <translation>Tamanho da página</translation>
     </message>
     <message>
         <source>Example</source>
-        <translation type="unfinished"/>
+        <translation>Exemplo</translation>
     </message>
 </context>
 <context>
@@ -1311,45 +1311,45 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     <name>DccColorDialog</name>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"/>
+        <translation>Guardar</translation>
     </message>
 </context>
 <context>
     <name>DccWindow</name>
     <message>
         <source>Control Center provides the options for system settings.</source>
-        <translation type="unfinished"/>
+        <translation>O Centro de Controlo fornece as opções para as definições do sistema.</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDAccountSecurity</name>
     <message>
         <source>Bind WeChat</source>
-        <translation type="unfinished"/>
+        <translation>Vincular WeChat</translation>
     </message>
     <message>
         <source>By binding WeChat, you can securely and quickly log in to your %1 ID and local accounts.</source>
-        <translation type="unfinished"/>
+        <translation>Ao vincular o WeChat, pode iniciar sessão de forma rápida à sua ID %1 e contas locais.</translation>
     </message>
     <message>
         <source>Unlinked</source>
-        <translation type="unfinished"/>
+        <translation>Desassociado</translation>
     </message>
     <message>
         <source>Unbinding</source>
-        <translation type="unfinished"/>
+        <translation>A desvincular</translation>
     </message>
     <message>
         <source>Link</source>
-        <translation type="unfinished"/>
+        <translation>Associar</translation>
     </message>
     <message>
         <source>Are you sure you want to unbind WeChat?</source>
-        <translation type="unfinished"/>
+        <translation>Tem a certeza que quer desvincular o WeChat?</translation>
     </message>
     <message>
         <source>After unbinding WeChat, you will not be able to use WeChat to scan the QR code to log in to %1 ID or local account.</source>
@@ -1357,11 +1357,11 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Let me think it over</source>
-        <translation type="unfinished"/>
+        <translation>Deixe-me pensar melhor</translation>
     </message>
     <message>
         <source>Local Account Binding</source>
-        <translation type="unfinished"/>
+        <translation>Vinculação de Conta Local</translation>
     </message>
     <message>
         <source>After binding your local account, you can use the following functions:</source>
@@ -1392,18 +1392,18 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     <name>DeepinIDInterface</name>
     <message>
         <source>deepin</source>
-        <translation type="unfinished"/>
+        <translation>deepin</translation>
     </message>
     <message>
         <source>UOS</source>
-        <translation type="unfinished"/>
+        <translation>UOS</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDLogin</name>
     <message>
         <source>Cloud Sync</source>
-        <translation type="unfinished"/>
+        <translation>Sincronização na Nuvem</translation>
     </message>
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
@@ -1419,7 +1419,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DeepinIDSyncService</name>
     <message>
         <source>Auto Sync</source>
-        <translation type="unfinished"/>
+        <translation>Sincronização Automática</translation>
     </message>
     <message>
         <source>Securely store system settings and personal data in the cloud, and keep them in sync across devices</source>
@@ -1427,46 +1427,46 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>System Settings</source>
-        <translation type="unfinished"/>
+        <translation>Definições de Sistema</translation>
     </message>
     <message>
         <source>Last sync time: %1</source>
-        <translation type="unfinished"/>
+        <translation>Última sincronização: %1</translation>
     </message>
     <message>
         <source>Clear cloud data</source>
-        <translation type="unfinished"/>
+        <translation>Limpar dados na Nuvem</translation>
     </message>
     <message>
         <source>Are you sure you want to clear your system settings and personal data saved in the cloud?</source>
-        <translation type="unfinished"/>
+        <translation>Tem a certeza que pretende remover as suas definições de sistema e dados pessoais guardados na Nuvem?</translation>
     </message>
     <message>
         <source>Once the data is cleared, it cannot be recovered!</source>
-        <translation type="unfinished"/>
+        <translation>Uma vez removidos os dados, serão impossíveis de recuperar!</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Clear</source>
-        <translation type="unfinished"/>
+        <translation>Limpar</translation>
     </message>
 </context>
 <context>
     <name>DeepinIDUserInfo</name>
     <message>
         <source>Synchronization Service</source>
-        <translation type="unfinished"/>
+        <translation>Serviços de Sincronização</translation>
     </message>
     <message>
         <source>Account and Security</source>
-        <translation type="unfinished"/>
+        <translation>Conta e Segurança</translation>
     </message>
     <message>
         <source>Sign out</source>
-        <translation type="unfinished"/>
+        <translation>Terminar sessão</translation>
     </message>
     <message>
         <source>Go to web settings</source>
