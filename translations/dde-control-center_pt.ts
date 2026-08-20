@@ -3329,11 +3329,11 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Picture slideshow screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Protetor de ecrã com apresentação de imagens</translation>
     </message>
     <message>
         <source>System screensaver</source>
-        <translation type="unfinished"/>
+        <translation>Protetor de ecrã do sistema</translation>
     </message>
 </context>
 <context>
