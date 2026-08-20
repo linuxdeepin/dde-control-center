@@ -1490,11 +1490,11 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>The login error has reached the limit today. You can reset the password and try again.</source>
-        <translation type="unfinished"/>
+        <translation>O erro de início de sessão atingiu o limite de hoje. Pode repor a palavra-passe e tentar novamente.</translation>
     </message>
     <message>
         <source>Operation Successful</source>
-        <translation type="unfinished"/>
+        <translation>Operação Bem Sucedida</translation>
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
