@@ -3239,30 +3239,30 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>8-64 characters</source>
-        <translation type="unfinished"/>
+        <translation>8-64 caracteres</translation>
     </message>
     <message>
         <source>Repeat the password</source>
-        <translation type="unfinished"/>
+        <translation>Repita a palavra-passe</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"/>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmar</translation>
     </message>
     <message>
         <source>Passwords don&apos;t match</source>
-        <translation type="unfinished"/>
+        <translation>As palavras-passe não coincidem</translation>
     </message>
 </context>
 <context>
     <name>ScheduledShutdownDialog</name>
     <message>
         <source>Customize repetition time</source>
-        <translation type="unfinished"/>
+        <translation>Personalizar horário de repetição</translation>
     </message>
     <message>
         <source>Cancel</source>
