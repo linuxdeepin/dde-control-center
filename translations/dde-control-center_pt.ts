@@ -2256,26 +2256,26 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Best Visuals</source>
-        <translation type="unfinished"/>
+        <translation>Melhores Efeitos Visuais</translation>
     </message>
     <message>
         <source>Disable all interface and window effects for efficient system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Desativar todos os efeitos de janela e interface para um desempenho eficiente do sistema.</translation>
     </message>
     <message>
         <source>Limit some window effects for excellent visuals while maintaining smooth system performance.</source>
-        <translation type="unfinished"/>
+        <translation>Limitar alguns efeitos de janela para visuais excelentes enquanto mantém um desempenho suave do sistema.</translation>
     </message>
     <message>
         <source>Enable all interface and window effects for the best visual experience.</source>
-        <translation type="unfinished"/>
+        <translation>Ativar todos os efeitos de janela e interface para a melhor experiência visual.</translation>
     </message>
 </context>
 <context>
     <name>Keyboard</name>
     <message>
         <source>Keyboard</source>
-        <translation type="unfinished"/>
+        <translation>Teclado</translation>
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
