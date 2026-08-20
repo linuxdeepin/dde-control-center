@@ -1796,31 +1796,31 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Duplicate</source>
-        <translation type="unfinished"/>
+        <translation>Duplicar</translation>
     </message>
     <message>
         <source>Extend</source>
-        <translation type="unfinished"/>
+        <translation>Estender</translation>
     </message>
     <message>
         <source>Default</source>
-        <translation type="unfinished"/>
+        <translation>Predefinição</translation>
     </message>
     <message>
         <source>Fit</source>
-        <translation type="unfinished"/>
+        <translation>Ajustar</translation>
     </message>
     <message>
         <source>Stretch</source>
-        <translation type="unfinished"/>
+        <translation>Esticar</translation>
     </message>
     <message>
         <source>Center</source>
-        <translation type="unfinished"/>
+        <translation>Centrar</translation>
     </message>
     <message>
         <source>Only on %1</source>
-        <translation type="unfinished"/>
+        <translation>Apenas em %1</translation>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
