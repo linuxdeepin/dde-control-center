@@ -4402,22 +4402,22 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Ajuste a posição para digitalizar os contornos da sua impressão digital</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation type="unfinished"/>
+        <translation>Impressão digital adicionada</translation>
     </message>
 </context>
 <context>
     <name>dccV25::IrisAuthController</name>
     <message>
         <source>Iris</source>
-        <translation type="unfinished"/>
+        <translation>Íris</translation>
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation type="unfinished"/>
+        <translation>Use a sua íris para desbloquear o dispositivo e fazer configurações mais tarde</translation>
     </message>
 </context>
 <context>
@@ -4428,7 +4428,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>The shortcut no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>O atalho deixou de existir.</translation>
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
