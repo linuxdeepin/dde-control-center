@@ -1644,7 +1644,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Your UOS ID has been logged in, click to enter developer mode</source>
-        <translation type="unfinished"/>
+        <translation>A sua ID UOS iniciou sessão, clique para entrar no modo de programador</translation>
     </message>
     <message>
         <source>Please sign in to your UOS ID first and continue</source>
