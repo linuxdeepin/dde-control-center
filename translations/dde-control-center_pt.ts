@@ -1672,11 +1672,11 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Changing the options results in more detailed logging that may degrade system performance and/or take up more storage space.</source>
-        <translation type="unfinished"/>
+        <translation>Mudar as opções resulta num histórico mais detalhado que pode degradar o desempenho do sistema e/ou ocupar mais espaço de armazenamento.</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"/>
+        <translation>Desligado</translation>
     </message>
     <message>
         <source>Debug</source>
