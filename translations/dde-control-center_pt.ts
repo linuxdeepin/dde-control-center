@@ -3520,7 +3520,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Select whether to enable the devices</source>
-        <translation type="unfinished"/>
+        <translation>Selecionar se pretende ativar os dispositivos</translation>
     </message>
     <message>
         <source>Input Devices</source>
