@@ -191,7 +191,8 @@ FocusScope {
                                     anchors.margins: 4
                                     mipmap: true
                                     source: model.pic
-                                    sourceSize: Qt.size(width, height)
+                                    sourceSize: Qt.size(width * Screen.devicePixelRatio,
+                                                        height * Screen.devicePixelRatio)
                                     asynchronous: true
                                 }
                             }
@@ -270,6 +271,8 @@ FocusScope {
                                         mipmap: true
                                         source: D.DTK.themeType === D.ApplicationHelper.LightType ?
                                             "qrc:/icons/download_more_light.png" : "qrc:/icons/download_more_dark.png"
+                                        sourceSize: Qt.size(width * Screen.devicePixelRatio,
+                                                            height * Screen.devicePixelRatio)
                                     }
                                 }
                             }
