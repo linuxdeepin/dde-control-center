@@ -1408,11 +1408,12 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     <message>
         <source>Manage your %1 ID and sync your personal data across devices.
 Sign in to %1 ID to get personalized features and services of Browser, App Store, and more.</source>
-        <translation type="unfinished"/>
+        <translation>Faça a gestão da sua ID %1 e sincronize os seus dados pessoais entre dispositivos.
+Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados do Navegador, da Loja de Aplicações, e mais.</translation>
     </message>
     <message>
         <source>Sign In to %1 ID</source>
-        <translation type="unfinished"/>
+        <translation>Iniciar Sessão com a ID %1</translation>
     </message>
 </context>
 <context>
