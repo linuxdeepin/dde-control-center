@@ -4394,11 +4394,11 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation type="unfinished"/>
+        <translation>Digitalizar as margens da sua impressão digital</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation type="unfinished"/>
+        <translation>Coloque as extremidades da sua impressão digital no sensor</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
