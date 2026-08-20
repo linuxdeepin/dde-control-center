@@ -4057,43 +4057,43 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>System Wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fundo do Sistema</translation>
     </message>
     <message>
         <source>Solid color wallpaper</source>
-        <translation type="unfinished"/>
+        <translation>Fundo de cor sólida</translation>
     </message>
     <message>
         <source>Customizable wallpapers</source>
-        <translation type="unfinished"/>
+        <translation>Fundos personalizáveis</translation>
     </message>
     <message>
         <source>fill style</source>
-        <translation type="unfinished"/>
+        <translation>estilo preenchido</translation>
     </message>
     <message>
         <source>Automatic wallpaper change</source>
-        <translation type="unfinished"/>
+        <translation>Mudança automática de fundo</translation>
     </message>
     <message>
         <source>never</source>
-        <translation type="unfinished"/>
+        <translation>nunca</translation>
     </message>
     <message>
         <source>30 second</source>
-        <translation type="unfinished"/>
+        <translation>30 segundos</translation>
     </message>
     <message>
         <source>1 minute</source>
-        <translation type="unfinished"/>
+        <translation>1 minuto</translation>
     </message>
     <message>
         <source>5 minute</source>
-        <translation type="unfinished"/>
+        <translation>5 minutos</translation>
     </message>
     <message>
         <source>10 minute</source>
-        <translation type="unfinished"/>
+        <translation>10 minutos</translation>
     </message>
     <message>
         <source>15 minute</source>
