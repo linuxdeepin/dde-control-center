@@ -82,6 +82,9 @@ void PrivacySecurityDataProxy::onSetModeFinished(QDBusPendingCallWatcher *w)
 
 void PrivacySecurityDataProxy::listEntity()
 {
+    if (m_entityListQueried)
+        return;
+    m_entityListQueried = true;
     QDBusMessage message = QDBusMessage::createMethodCall(UsecService, UsecPath, UsecInterface, "ListEntity");
     QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(QDBusConnection::systemBus().asyncCall(message, DBUS_TIMEOUT), this);
     connect(watcher, &QDBusPendingCallWatcher::finished, this, &PrivacySecurityDataProxy::onListEntityFinished);
@@ -95,8 +98,17 @@ void PrivacySecurityDataProxy::onListEntityFinished(QDBusPendingCallWatcher *w)
             Q_EMIT EntityChanged(entity, "modify");
         }
     } else {
+        m_entityListQueried = false;
         qCWarning(DCC_PRIVACY) << "Get entity list failed, DBus reply error: " << reply.error();
+        // X1: 失败后若服务已在线则补发一次（开机竞态：init 发出时离线、回复前上线，重拉被守卫吞）
+        if (m_serviceExists && !m_listEntityRetried) {
+            m_listEntityRetried = true;
+            listEntity();
+            w->deleteLater();
+            return;
+        }
     }
+    Q_EMIT entityListFinished();
     w->deleteLater();
 }
 
@@ -216,6 +228,10 @@ void PrivacySecurityDataProxy::updateServiceExists(bool serviceExists)
 {
     if (serviceExists != m_serviceExists) {
         m_serviceExists = serviceExists;
+        if (!serviceExists) {
+            m_entityListQueried = false;
+            m_listEntityRetried = false;   // 下线复位，下个在线周期可重试一次
+        }
         Q_EMIT serviceExistsChanged(m_serviceExists);
     }
 }
