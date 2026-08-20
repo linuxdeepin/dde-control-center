@@ -4432,37 +4432,37 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>O conflito de atalho já não se verifica.</translation>
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
-        <translation type="unfinished"/>
+        <translation>Por favor confirme o conflito de atalho novamente.</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardWorker</name>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>O conflito de atalho já não se verifica.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Falha ao guardar o atalho. Por favor tente novamente.</translation>
     </message>
 </context>
 <context>
     <name>dccV25::PwqualityManager</name>
     <message>
         <source>Password cannot be empty</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe não pode estar vazia</translation>
     </message>
     <message>
         <source>Password must have at least %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe tem de ter pelo menos %1 caracteres</translation>
     </message>
     <message>
         <source>Password must be no more than %1 characters</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe não pode ter mais do que %1 caracteres</translation>
     </message>
     <message>
         <source>Password can only contain English letters (case-sensitive), numbers or special symbols (~`!@#$%^&amp;*()-_+=|\{}[]:&quot;&apos;&lt;&gt;,.?/)</source>
