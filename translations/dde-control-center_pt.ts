@@ -4494,15 +4494,15 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Create a strong password please</source>
-        <translation type="unfinished"/>
+        <translation>Por favor crie uma palavra-passe forte</translation>
     </message>
     <message>
         <source>It does not meet password rules</source>
-        <translation type="unfinished"/>
+        <translation>Não cumpre as regras de palavra-passe</translation>
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation type="unfinished"/>
+        <translation>A palavra-passe deve incluir, pelo menos, %1 tipos entre letras minúsculas, letras maiúsculas, números e símbolos, e não pode ser igual ao nome de utilizador.</translation>
     </message>
 </context>
 <context>
@@ -4521,7 +4521,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>AssistiveTools</source>
-        <translation>Ferramentas de Assistência</translation>
+        <translation>Ferramentas Assistivas</translation>
     </message>
     <message>
         <source>Custom</source>
@@ -4533,7 +4533,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>App</source>
-        <translation type="unfinished"/>
+        <translation>Aplicação</translation>
     </message>
 </context>
 </TS>
