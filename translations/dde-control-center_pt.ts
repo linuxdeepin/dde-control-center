@@ -2187,38 +2187,38 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Decrease screen brightness on power saver</source>
-        <translation type="unfinished"/>
+        <translation>Diminuir brilho do ecrã em poupança de energia</translation>
     </message>
 </context>
 <context>
     <name>GestureModel</name>
     <message>
         <source>Three-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Toque três-dedos para cima</translation>
     </message>
     <message>
         <source>Three-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Toque três-dedos para baixo</translation>
     </message>
     <message>
         <source>Three-finger left</source>
-        <translation type="unfinished"/>
+        <translation>Toque três-dedos para a esquerda</translation>
     </message>
     <message>
         <source>Three-finger right</source>
-        <translation type="unfinished"/>
+        <translation>Toque três-dedos para a direita</translation>
     </message>
     <message>
         <source>Three-finger tap</source>
-        <translation type="unfinished"/>
+        <translation>Toque três-dedos</translation>
     </message>
     <message>
         <source>Four-finger up</source>
-        <translation type="unfinished"/>
+        <translation>Toque quatro-dedos para cima</translation>
     </message>
     <message>
         <source>Four-finger down</source>
-        <translation type="unfinished"/>
+        <translation>Toque quatro-dedos para baixo</translation>
     </message>
     <message>
         <source>Four-finger left</source>
