@@ -1944,11 +1944,11 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Scaling</source>
-        <translation type="unfinished"/>
+        <translation>Escalabilidade</translation>
     </message>
     <message>
         <source>Auto Brightness</source>
-        <translation type="unfinished"/>
+        <translation>Brilho Automático</translation>
     </message>
     <message>
         <source>Concat Screen</source>
