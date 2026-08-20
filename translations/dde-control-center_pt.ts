@@ -2570,31 +2570,31 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>It cannot start or end with dashes</source>
-        <translation type="unfinished"/>
+        <translation>Não pode começar ou terminar com traços</translation>
     </message>
     <message>
         <source>OS Name</source>
-        <translation type="unfinished"/>
+        <translation>Nome do SO</translation>
     </message>
     <message>
         <source>Version</source>
-        <translation type="unfinished"/>
+        <translation>Versão</translation>
     </message>
     <message>
         <source>Edition</source>
-        <translation type="unfinished"/>
+        <translation>Edição</translation>
     </message>
     <message>
         <source>Type</source>
-        <translation type="unfinished"/>
+        <translation>Tipo</translation>
     </message>
     <message>
         <source>bit</source>
-        <translation type="unfinished"/>
+        <translation>bit</translation>
     </message>
     <message>
         <source>Authorization</source>
-        <translation type="unfinished"/>
+        <translation>Autorização</translation>
     </message>
     <message>
         <source>System installation time</source>
