@@ -1,0 +1,14 @@
+[main]
+host = https://www.transifex.com
+
+[o:linuxdeepin:p:deepin-desktop-environment:r:332dacad18d2b1a048dba06b5c1f0293]
+file_filter = translations/dde-control-center_<lang>.ts
+source_file = translations/dde-control-center_en.ts
+source_lang = en_US
+type = QT
+
+[o:linuxdeepin:p:deepin-desktop-environment:r:4ea171636f1b3b620948addfb330f0d9]
+file_filter = translations/desktop/desktop_<lang>.ts
+source_file = translations/desktop/desktop.ts
+source_lang = en_US
+type = QT

@@ -1,0 +1,558 @@
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-License-Identifier: GPL-3.0-or-later
+
+import QtQuick 2.15
+import QtQuick.Controls 2.15
+import QtQuick.Layouts 1.15
+import org.deepin.dtk 1.0 as D
+import org.deepin.dtk.style 1.0 as DS
+import org.deepin.dcc 1.0
+
+ColumnLayout {
+    id: pwdLayout
+    property string userId
+    property string name: dccData.userName(pwdLayout.userId)
+    property bool currentPwdVisible: true
+    property string currentName: name
+    Layout.fillWidth: true
+    spacing: 0
+    
+    property int maxLabelWidth: 100
+
+    signal requestClose()
+    signal labelWidthCalculated()
+
+    FontMetrics {
+        id: fm
+        font: D.DTK.fontManager.t6
+    }
+
+    function maxWidth(font) {
+        fm.font = font
+        var texts = []
+        if (currentPwd.visible) {
+            texts.push(currentPwd.label.text)
+        }
+        
+        // 获取每个delegate中label的text
+        for (var i = 0; i < pwdContainter.repeater.count; i++) {
+            var delegateItem = pwdContainter.repeater.itemAt(i)
+            if (delegateItem && delegateItem.contentItem) {
+                texts.push(delegateItem.contentItem.label.text)
+            }
+        }
+        
+        var maxWidth = 0
+        for (var i = 0; i < texts.length; i++) {
+            var width = fm.advanceWidth(texts[i])
+            if (width > maxWidth) {
+                maxWidth = width
+            }
+        }
+        var finalWidth = maxWidth > 110 ? 110 : maxWidth
+        pwdLayout.maxLabelWidth = Math.ceil(finalWidth)
+    }
+    
+    Component.onCompleted: {
+        maxWidth(currentPwd.label.font)
+        labelWidthCalculated()
+    }
+
+    function minWidth(font, text, width) {
+        fm.font = font
+        return Math.min(width, fm.advanceWidth(text) + 20)
+    }
+
+    function getPwdInfo() {
+        var info = {
+            "pwd": pwdContainter.eidtItems[0].text,
+            "pwdRepeat": pwdContainter.eidtItems[1].text,
+            "pwdHint": pwdContainter.eidtItems[2].text
+        }
+        if (currentPwd.visible)
+            info["oldPwd"] = currentPwd.edit.text
+
+        return info
+    }
+
+    function checkPassword() {
+        return pwdContainter.checkPassword()
+    }
+
+    function showUserNameMatchPasswordAlert() {
+        if (pwdContainter && pwdContainter.eidtItems && pwdContainter.eidtItems[0]) {
+            pwdContainter.eidtItems[0].showAlertText(qsTr("The password cannot be the same as the username."))
+        }
+    }
+
+    function playErrorSound() {
+        dccData.playSystemSound(14)
+    }
+
+    function focusAndSelectAll(edit) {
+        if (edit) {
+            edit.forceActiveFocus()
+            if (edit.selectAll) {
+                edit.selectAll()
+            } else if (edit.select) {
+                edit.select(0, edit.text.length)
+            }
+        }
+    }
+
+    PasswordItem {
+        id: currentPwd
+        visible: pwdLayout.currentPwdVisible
+        label.text: qsTr("Current password")
+        label.font: D.DTK.fontManager.t6
+        edit.placeholderText: qsTr("Required")
+        implicitHeight: 30
+        Layout.leftMargin: 0
+        Layout.rightMargin: -DS.Style.dialogWindow.contentHMargin
+        Layout.bottomMargin: 0
+
+        Loader {
+            id: safepageLoader
+            active: false
+            property string msg
+            sourceComponent: ComfirmSafePage {
+                msg: safepageLoader.msg
+                onClosing: function () {
+                    safepageLoader.active = false
+                }
+                onRequestShowSafePage: {
+                    dccData.showDefender()
+                }
+            }
+            onLoaded: function () {
+                safepageLoader.item.show()
+            }
+        }
+
+        Connections {
+            target: dccData
+            function onPasswordModifyFinished(id, code, msg) {
+                if (id !== pwdLayout.userId)
+                    return
+
+                // no error, set pwd hint
+                if (code === 0) {
+                    if (pwdContainter.eidtItems[2])
+                        dccData.setPasswordHint(pwdLayout.userId, pwdContainter.eidtItems[2].text)
+                    pwdLayout.requestClose()
+                    return
+                }
+                let info = dccData.checkPasswordResult(code, msg, pwdLayout.name, pwdContainter.eidtItems[0].text)
+                // wrong password
+                if (info["oldPwd"] !== undefined && currentPwd.visible) {
+                    currentPwd.edit.showAlertText(info["oldPwd"])
+                    focusAndSelectAll(currentPwd.edit)
+                    return
+                }
+
+                // new password error
+                if (info["pwd"] !== undefined)
+                    pwdContainter.eidtItems[0].showAlertText(info["pwd"])
+            }
+
+            function onShowSafetyPage(msg) {
+                if (!safepageLoader.active) {
+                    safepageLoader.msg = msg
+                    safepageLoader.active = true
+                }
+            }
+        }
+    }
+
+    RowLayout {
+        id: pwdIndicator
+        spacing: 4
+        Layout.alignment: Qt.AlignRight | Qt.AlignBottom
+        Layout.rightMargin: 10
+        Layout.bottomMargin: 6
+        Layout.topMargin: 20
+        Label {
+            id: pwdStrengthHintText
+            text: ""
+            Layout.rightMargin: 6
+            visible: false // if need text set visible
+        }
+        Repeater {
+            id: indicatorRepeater
+            readonly property var defaultModel: [ palette.button, palette.button, palette.button ]
+            model: defaultModel
+            delegate: Rectangle {
+                implicitHeight: 4
+                height: 4
+                width: 10
+                color: modelData
+                radius: 2
+            }
+        }
+
+        function updateIndicatorColors(level, colors) {
+            // Note: slice() 拷贝一份 defaultModel 数组
+            // 如果直接等号后面赋值操作将会修改 defaultModel （就算是 readonly 也会？）
+            let model = indicatorRepeater.defaultModel.slice()
+            for (let i = 0; i < level; ++i) {
+                model[i] = colors[level - 1]
+            }
+            indicatorRepeater.model = model
+        }
+
+        function update(level) {
+            if (level > 0) {
+                var colors = [ "#FF5736", "#FFAA00", "#15BB18" ]
+                pwdStrengthHintText.color = colors[level - 1]
+                if (level === 1) {
+                    pwdStrengthHintText.text = qsTr("Weak")
+                } else if (level === 2) {
+                    pwdStrengthHintText.text = qsTr("Medium")
+                } else if (level === 3) {
+                    pwdStrengthHintText.text = qsTr("Strong")
+                } else {
+                    pwdStrengthHintText.text = ""
+                }
+                updateIndicatorColors(level, colors)
+            } else {
+                pwdStrengthHintText.text = ""
+                indicatorRepeater.model = indicatorRepeater.defaultModel
+            }
+        }
+    }
+
+    ListModel {
+        id: passwordModel
+        ListElement {
+            name: qsTr("New password")
+            placeholder: qsTr("Required")
+            echoButtonVisible: true
+        }
+        ListElement {
+            name: qsTr("Repeat Password")
+            placeholder: qsTr("Required")
+            echoButtonVisible: true
+        }
+        ListElement {
+            name: qsTr("Password hint")
+            placeholder: qsTr("Optional")
+            echoButtonVisible: false
+        }
+    }
+
+    Rectangle {
+        id: pwdContainter
+        property var eidtItems: []
+        property alias repeater: repeater
+        radius: 8
+        Layout.fillWidth: true
+        Layout.alignment: Qt.AlignTop | Qt.AlignHCenter
+        Layout.rightMargin: 0
+        Layout.topMargin: 4 - DS.Style.dialogWindow.contentHMargin
+        Layout.bottomMargin: 30
+        implicitHeight: 150
+        color: "transparent"
+
+        function emptyCheck(edit) {
+            if (edit.text.length < 1) {
+                edit.showAlertText(qsTr("Password cannot be empty"))
+                focusAndSelectAll(edit)
+                return false
+            }
+
+            return true
+        }
+
+        function checkPassword() {
+            if (currentPwd.visible && !emptyCheck(currentPwd.edit))
+                return false
+
+            let edit0 = pwdContainter.eidtItems[0]
+            let edit1 = pwdContainter.eidtItems[1]
+            let edit2 = pwdContainter.eidtItems[2]
+            if (!edit0 || !edit1 || !edit2)
+                return true
+
+            if (!emptyCheck(edit0))
+                return false
+
+            // password repeat test
+            if (edit1.text.length < 1 || edit1.text !== edit0.text) {
+                edit1.showAlertText(qsTr("Passwords do not match"))
+                focusAndSelectAll(edit1)
+                return false
+            }
+
+            // password notchanged test
+            if (edit0.text.length < 1 || (currentPwd.visible && currentPwd.edit.text === edit0.text)) {
+                edit0.showAlertText(qsTr("New password should differ from the current one"))
+                focusAndSelectAll(edit0)
+                return false
+            }
+
+            if (edit0.text === pwdLayout.currentName && pwdLayout.currentName.length > 0) {
+                edit0.showAlertText(qsTr("The password cannot be the same as the username."))
+                focusAndSelectAll(edit0)
+                return false
+            }
+
+            let alertText = ""
+            // pwcheck verifyPassword
+            alertText = dccData.checkPassword(pwdLayout.currentName, edit0.text)
+            if (alertText.length > 0) {
+                edit0.showAlertText(alertText)
+                focusAndSelectAll(edit0)
+                return false
+            }
+
+            // password hint test
+            if (edit0.text.split('').filter(c => edit2.text.includes(c)).length > 0) {
+                edit2.showAlertText(qsTr("The hint is visible to all users. Do not include the password here."))
+                focusAndSelectAll(edit2)
+                return false
+            }
+
+            return true
+        }
+
+        ColumnLayout {
+            id: pwdColumnLayout
+            spacing: 10
+            anchors.fill: parent
+            Repeater {
+                id: repeater
+                Layout.bottomMargin: 20
+                model: passwordModel
+                delegate: D.ItemDelegate {
+                    implicitWidth: pwdColumnLayout.width
+                    backgroundVisible: false
+                    checkable: false
+                    clip: false
+                    z: (control && control.contentItem && control.contentItem.edit && control.contentItem.edit.showAlert) ? 100 : 1
+                    implicitHeight: 30
+                    leftPadding: pwdLayout.currentPwdVisible ? 0 : 10
+                    rightPadding: 0
+
+                    contentItem: PasswordItem {
+                        label.text: model.name
+                        label.font: D.DTK.fontManager.t6
+                        edit {
+                            placeholderText: model.placeholder
+                            echoButtonVisible: model.echoButtonVisible
+                        }
+                        onTextChanged: function(text) {
+                            if (index == 0) {
+                                if (text.length > 0) {
+                                    let lvl = dccData.passwordLevel(text)
+                                    pwdIndicator.update(lvl)
+                                } else {
+                                    pwdIndicator.update(0)
+                                }
+
+                                // Realtime validation (red border only, no tips).
+                                let edit0 = pwdContainter.eidtItems[0]
+                                if (!edit0)
+                                    return
+
+                                if (text.length === 0) {
+                                    edit0.showAlert = false
+                                    edit0.alertText = ""
+                                    edit0.hasErrorBorder = false
+                                    return
+                                }
+
+                                // username match
+                                if (pwdLayout.currentName.length > 0 && text === pwdLayout.currentName) {
+                                    edit0.showAlert = true
+                                    edit0.alertText = ""
+                                    edit0.hasErrorBorder = true
+                                    return
+                                }
+
+                                let err = dccData.checkPasswordSilently(pwdLayout.currentName, text)
+                                edit0.showAlert = (err.length > 0)
+                                edit0.alertText = ""
+                                edit0.hasErrorBorder = (err.length > 0)
+                            } else if (index == 1) {
+                                // Repeat password: realtime red border when mismatch (no tips text yet)
+                                let edit0 = pwdContainter.eidtItems[0]
+                                let edit1 = pwdContainter.eidtItems[1]
+                                if (!edit0 || !edit1)
+                                    return
+
+                                if (text.length === 0) {
+                                    edit1.showAlert = false
+                                    edit1.alertText = ""
+                                    edit1.hasErrorBorder = false
+                                    return
+                                }
+
+                                if (edit0.text.length > 0 && text !== edit0.text) {
+                                    edit1.showAlert = true
+                                    edit1.alertText = ""
+                                    edit1.hasErrorBorder = true
+                                } else {
+                                    edit1.showAlert = false
+                                    edit1.alertText = ""
+                                    edit1.hasErrorBorder = false
+                                }
+                            }
+                        }
+                        onEditingFinished: {
+                            // Validate and show tips on focus-out (v20 behavior)
+                            if (index == 0) {
+                                let edit0 = pwdContainter.eidtItems[0]
+                                if (!edit0)
+                                    return
+
+                                if (edit0.text.length === 0) {
+                                    edit0.showAlertText(qsTr("Password cannot be empty"))
+                                    return
+                                }
+
+                                if (pwdLayout.currentName.length > 0 && edit0.text === pwdLayout.currentName) {
+                                    edit0.showAlertText(qsTr("The password cannot be the same as the username."))
+                                    return
+                                }
+
+                                let err = dccData.checkPasswordSilently(pwdLayout.currentName, edit0.text)
+                                if (err.length > 0) {
+                                    edit0.showAlertText(err)
+                                } else {
+                                    edit0.showAlert = false
+                                    edit0.alertText = ""
+                                    edit0.hasErrorBorder = false
+                                }
+                            } else if (index == 1) {
+                                let edit0 = pwdContainter.eidtItems[0]
+                                let edit1 = pwdContainter.eidtItems[1]
+                                if (!edit0 || !edit1)
+                                    return
+
+                                if (edit1.text.length === 0) {
+                                    edit1.showAlertText(qsTr("Password cannot be empty"))
+                                    return
+                                }
+
+                                if (edit0.text.length > 0 && edit1.text !== edit0.text) {
+                                    edit1.showAlertText(qsTr("Passwords do not match"))
+                                } else {
+                                    edit1.showAlert = false
+                                    edit1.alertText = ""
+                                    edit1.hasErrorBorder = false
+                                }
+                            }
+                        }
+                        Component.onCompleted: {
+                            pwdContainter.eidtItems[index] = this.edit
+                        }
+                    }
+
+                    background: DccItemBackground {
+                        separatorVisible: true
+                        focusBorderVisible: !(control
+                                             && control.contentItem
+                                             && control.contentItem.edit
+                                             && (control.contentItem.edit.hasErrorBorder
+                                                 || control.contentItem.edit.showAlert))
+                    }
+                }
+            }
+
+            Label {
+                text: qsTr("The hint is visible to all users. Do not include the password here.")
+                wrapMode: Text.WordWrap
+                Layout.alignment: Qt.AlignLeft
+                Layout.rightMargin: 0
+                Layout.leftMargin: maxLabelWidth + 27
+                Layout.preferredWidth: pwdLayout.minWidth(font, text, pwdColumnLayout.width - Layout.leftMargin)
+                font: D.DTK.fontManager.t8
+            }
+        }
+    }
+
+    component PasswordItem : RowLayout {
+        id: pwdItem
+        property alias label: leftItem
+        property alias edit: rightItem
+        signal textChanged(string text)
+        signal editingFinished()
+        spacing: 10
+        Layout.alignment: Qt.AlignVCenter
+
+        Label {
+            id: leftItem
+            Layout.preferredHeight: 30
+            font: D.DTK.fontManager.t6
+            elide: Text.ElideRight
+            Layout.preferredWidth: pwdLayout.maxLabelWidth
+            Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+            verticalAlignment: Text.AlignVCenter
+
+            ToolTip.visible: leftItemHoverHandler.hovered && truncated
+            ToolTip.text: text
+
+            HoverHandler {
+                id: leftItemHoverHandler
+            }
+        }
+
+        Item {
+            id: editWrapper
+            Layout.preferredHeight: 30
+            Layout.fillWidth: true
+            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+
+            D.PasswordEdit {
+                id: rightItem
+                anchors.fill: parent
+                property bool hasErrorBorder: false
+                // Cache the normal focus color so we can restore it.
+                property color normalHighlight: "transparent"
+                Component.onCompleted: {
+                    normalHighlight = palette.highlight
+                    palette.highlight = Qt.binding(function() {
+                        return ((hasErrorBorder || showAlert) ? "#FF5736" : normalHighlight)
+                    })
+                }
+                topPadding: 0
+                bottomPadding: 0
+                font: D.DTK.fontManager.t7
+                canCopy: false
+                canCut: false
+                inputMethodHints: echoButtonVisible ? (Qt.ImhHiddenText | Qt.ImhNoPredictiveText | Qt.ImhNoAutoUppercase) : Qt.ImhNone
+                verticalAlignment: TextInput.AlignVCenter
+                echoMode: echoButtonVisible ? TextInput.Password :  TextInput.Normal
+                alertDuration: 3000
+                onTextChanged: {
+                    if (rightItem.hasErrorBorder)
+                        rightItem.hasErrorBorder = false
+
+                    if (!echoButtonVisible && text.length > 14) {
+                        rightItem.text = text.substring(0, 14)
+                        playErrorSound()
+                        return
+                    }
+
+                    pwdItem.textChanged(text)
+                }
+
+                onEditingFinished: {
+                    if (echoButtonVisible && pwdContainter.eidtItems[2] != rightItem) {
+                        if (text === pwdLayout.currentName && text.length > 0) {
+                            showAlertText(qsTr("The password cannot be the same as the username."))
+                        }
+                    }
+                    pwdItem.editingFinished()
+                }
+
+                function showAlertText(text) {
+                    rightItem.hasErrorBorder = true
+                    rightItem.showAlert = false
+                    rightItem.showAlert = true
+                    rightItem.alertText = text
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,1319 @@
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+#include "dccmanager.h"
+
+#include "dccapp.h"
+#include "dccimageprovider.h"
+#include "dccobject_p.h"
+#include "navigationmodel.h"
+#include "pluginmanager.h"
+#include "searchmodel.h"
+
+#include <DGuiApplicationHelper>
+#include <DIconTheme>
+
+#include <QCoreApplication>
+#include <QDBusConnection>
+#include <QDBusPendingCall>
+#include <QElapsedTimer>
+#include <QFileInfo>
+#include <QGuiApplication>
+#include <QJsonArray>
+#include <QJsonDocument>
+#include <QJsonObject>
+#include <QLocale>
+#include <QLoggingCategory>
+#include <QQmlApplicationEngine>
+#include <QQmlContext>
+#include <QQuickWindow>
+#include <QScreen>
+#include <QTimer>
+#include <QTranslator>
+#include <QWindow>
+
+#ifdef HAVE_DDE_API_EVENTLOGGER
+#include <dde-api/eventlogger.hpp>
+
+// Event ID for control center page stay (10-digit number)
+constexpr qint64 EVENT_LOGGER_CONTROL_CENTER_STAY = 1000610008;
+#endif
+
+DCORE_USE_NAMESPACE
+
+namespace dccV25 {
+
+const QString WidthConfig = QStringLiteral("width");
+const QString HeightConfig = QStringLiteral("height");
+const QString MaximizedConfig = QStringLiteral("maximized");
+const QString HideConfig = QStringLiteral("hideModule");
+const QString DisableConfig = QStringLiteral("disableModule");
+const QString ControlCenterIcon = QStringLiteral("preferences-system");
+const QString ControlCenterGroupName = "com.deepin.dde-grand-search.group.dde-control-center-setting";
+
+DccManager::DccManager(QObject *parent)
+    : DccApp(parent)
+    , m_root(new DccObject())
+    , m_activeObject(nullptr)
+    , m_hideObjects(new DccObject(this))
+    , m_noAddObjects(new DccObject(this))
+    , m_noParentObjects(new DccObject(this))
+    , m_plugins(new DccPluginManager(this))
+    , m_window(nullptr)
+    , m_dconfig(DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center", QString(), this))
+    , m_engine(nullptr)
+    , m_navModel(new NavigationModel(this))
+    , m_searchModel(new SearchModel(this))
+    , m_imageProvider(nullptr)
+    , m_sidebarWidth(-1)
+    , m_showTimer(nullptr)
+    , m_showFallbackTimer(nullptr)
+    , m_showPagePending(false)
+    , m_showLoadPage(!isTreeland())
+    , m_needShow(false)
+#ifdef HAVE_DDE_API_EVENTLOGGER
+    , m_pageStayTimer(nullptr)
+#endif
+{
+    m_hideObjects->setName("_hide");
+    m_noAddObjects->setName("_noAdd");
+    m_noParentObjects->setName("_noParent");
+
+    m_root->setName("root");
+    m_root->setCanSearch(false);
+    m_currentObjects.append(m_root);
+    onObjectAdded(m_root);
+    m_objMap.insert(m_root->name(), { m_root });
+    QJSEngine::setObjectOwnership(m_root, QQmlEngine::CppOwnership);
+    QJSEngine::setObjectOwnership(m_hideObjects, QQmlEngine::CppOwnership);
+    QJSEngine::setObjectOwnership(m_noAddObjects, QQmlEngine::CppOwnership);
+    QJSEngine::setObjectOwnership(m_noParentObjects, QQmlEngine::CppOwnership);
+
+#ifdef HAVE_DDE_API_EVENTLOGGER
+    qCInfo(dccLog) << "EventLogger initialized";
+
+    m_pageStayTimer = new QTimer(this);
+    m_pageStayTimer->setSingleShot(true);
+    m_pageStayTimer->setInterval(2000); // 2 seconds
+    connect(m_pageStayTimer, &QTimer::timeout, this, &DccManager::onPageStayTimeout);
+#endif
+
+    initConfig();
+    connect(m_plugins, &DccPluginManager::addObject, this, &DccManager::addObject);
+    connect(m_plugins, &DccPluginManager::loadAllFinished, this, &DccManager::handleShowReady, Qt::QueuedConnection);
+    m_showTimer = new QTimer(this);
+    m_showTimer->setInterval(60);
+    m_showTimer->setSingleShot(true);
+    connect(m_showTimer, &QTimer::timeout, this, &DccManager::tryShow);
+    m_showFallbackTimer = new QTimer(this);
+    m_showFallbackTimer->setSingleShot(true);
+    connect(m_showFallbackTimer, &QTimer::timeout, this, &DccManager::tryShowFallback);
+    m_showFallbackTimer->start(5000); // 防止插件卡死不显示界面
+}
+
+DccManager::~DccManager()
+{
+    qCDebug(dccLog()) << "delete dccManger";
+    clearData();
+    delete m_plugins;
+    qCDebug(dccLog()) << "delete dccManger end";
+}
+
+bool DccManager::installTranslator(const QString &name)
+{
+    const QStringList translateDirs = { TRANSLATE_READ_DIR,
+                                        TRANSLATE_READ_DIR "/../v1.0", // 兼容旧版位置
+                                        TRANSLATE_READ_DIR "/.." };
+    return Dtk::Gui::DGuiApplicationHelper::loadTranslator(name, translateDirs, { QLocale() });
+}
+
+void DccManager::init()
+{
+    if (m_engine)
+        return;
+
+    QQmlEngine::setObjectOwnership(dccV25::DccApp::instance(), QQmlEngine::CppOwnership);
+    qmlRegisterSingletonInstance("org.deepin.dcc", 1, 0, "DccApp", dccV25::DccApp::instance());
+
+    m_engine = new QQmlApplicationEngine(this);
+    m_imageProvider = new DccImageProvider();
+    m_engine->addImageProvider("DccImage", m_imageProvider);
+}
+
+QQmlApplicationEngine *DccManager::engine()
+{
+    return m_engine;
+}
+
+void DccManager::setMainWindow(QWindow *window)
+{
+    m_window = window;
+    connect(m_window, &QWindow::widthChanged, this, &DccManager::saveSize);
+    connect(m_window, &QWindow::heightChanged, this, &DccManager::saveSize);
+    connect(m_window, &QWindow::windowStateChanged, this, &DccManager::saveSize);
+    // Persist the maximized flag on the authoritative state-change event only,
+    // not on the high-frequency widthChanged/heightChanged resize signals.
+    connect(m_window, &QWindow::windowStateChanged, this, &DccManager::onWindowStateChanged);
+    connect(qGuiApp, &QGuiApplication::screenAdded, this, &DccManager::handleScreenAdded);
+    m_window->installEventFilter(this);
+}
+
+void DccManager::loadModules(bool async, const QStringList &dirs)
+{
+    // onAddModule(m_rootModule);
+    m_plugins->loadModules(m_root, async, dirs, m_engine);
+    // showModule(m_rootModule);
+}
+
+int DccManager::width() const
+{
+    auto w = m_dconfig->value(WidthConfig).toInt();
+    return w > 630 ? w : 630;
+}
+
+int DccManager::height() const
+{
+    auto h = m_dconfig->value(HeightConfig).toInt();
+    return h >= 400 ? h : 530;
+}
+
+int DccManager::sidebarWidth() const
+{
+    return m_sidebarWidth;
+}
+
+void DccManager::setSidebarWidth(int width)
+{
+    if (width > 0 && m_sidebarWidth != width) {
+        m_sidebarWidth = width;
+        m_dconfig->setValue("sidebarWidth", m_sidebarWidth);
+        Q_EMIT sidebarWidthChanged(m_sidebarWidth);
+    }
+}
+
+DccApp::UosEdition DccManager::uosEdition() const
+{
+    DSysInfo::UosEdition edition = DSysInfo::uosEditionType();
+    return DccApp::UosEdition(edition);
+}
+
+Q_INVOKABLE Dtk::Core::DSysInfo::ProductType DccManager::productType() const
+{
+    return DSysInfo::productType();
+}
+
+bool DccManager::isTreeland() const
+{
+    return Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform);
+}
+
+DccObject *DccManager::object(const QString &name)
+{
+    return findObject(name);
+}
+
+inline void noRepeatAdd(QVector<DccObject *> &list, DccObject *obj)
+{
+    if (!list.contains(obj)) {
+        list.append(obj);
+    }
+}
+
+void DccManager::addObject(DccObject *obj)
+{
+    if (!obj)
+        return;
+    QVector<DccObject *> objs;
+    objs.append(obj);
+    while (!objs.isEmpty()) {
+        DccObject *o = objs.takeFirst();
+        if (!o->name().isEmpty()) {
+            m_objMap[o->name()].append(o);
+            connect(o, &DccObject::objectDestroyed, this, &DccManager::onDccObjectDestroyed, Qt::UniqueConnection);
+        }
+        connect(o, &DccObject::addObject, this, &DccManager::addObject);
+        connect(o, &DccObject::removeObject, this, qOverload<DccObject *>(&DccManager::removeObject));
+        if (o->parentName().isEmpty()) {
+            DccObject::Private::FromObject(m_noParentObjects)->addChild(o, false);
+        } else {
+            if (contains(m_hideModule, o)) {
+                DccObject::Private::FromObject(o)->setFlagState(DCC_CONFIG_HIDDEN, true);
+            }
+            if (contains(m_disableModule, o)) {
+                DccObject::Private::FromObject(o)->setFlagState(DCC_CONFIG_DISABLED, true);
+            }
+            if (!o->isVisibleToApp()) {
+                connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
+                DccObject::Private::FromObject(m_hideObjects)->addChild(o, false);
+            } else if (!addObjectToParent(o)) {
+                DccObject::Private::FromObject(m_noAddObjects)->addChild(o, false);
+            }
+        }
+
+        objs.append(DccObject::Private::FromObject(o)->getObjects());
+    }
+    // 处理m_noAddObject
+    objs.append(m_noAddObjects->getChildren());
+    while (!objs.isEmpty()) {
+        DccObject *o = objs.takeFirst();
+        if (const DccObject *parentObj = findParent(o)) {
+            DccObject::Private::FromObject(m_noAddObjects)->removeChild(o);
+            DccObject::Private::FromObject(parentObj)->addChild(o);
+            objs = m_noAddObjects->getChildren();
+        }
+    }
+}
+
+void DccManager::removeObject(DccObject *obj)
+{
+    if (!obj)
+        return;
+    removeObjectFromParent(obj);
+}
+
+void DccManager::removeObject(const QString &name)
+{
+    removeObject(findObject(name));
+}
+
+void DccManager::showPage(const QString &url)
+{
+    if (this->calledFromDBus()) {
+        // show(); // 先查找再显示则注释掉此处
+        int i = url.indexOf('?');
+        QString cmd = i != -1 ? url.mid(i + 1) : QString();
+        if (cmd.isEmpty() || isIndicatorShown(cmd)) {
+            show();
+        }
+        auto message = this->message();
+        setDelayedReply(true);
+        QMetaObject::invokeMethod(this, &DccManager::waitShowPage, Qt::QueuedConnection, url, message);
+    } else {
+        QMetaObject::invokeMethod(this, &DccManager::waitShowPage, Qt::QueuedConnection, url, QDBusMessage());
+    }
+}
+
+void DccManager::showPage(DccObject *obj)
+{
+    m_showPagePending = true;
+    QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, QPointer<DccObject>(obj), QString());
+}
+
+void DccManager::showPage(DccObject *obj, const QString &cmd)
+{
+    m_showPagePending = true;
+    QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, QPointer<DccObject>(obj), cmd);
+}
+
+void DccManager::toBack()
+{
+    int row = m_navModel->rowCount() - 2;
+    if (row < 0) {
+        showPage(m_root);
+    } else {
+        QString url = m_navModel->data(m_navModel->index(row, 0), NavigationModel::NavUrlRole).toString();
+        if (!url.isEmpty()) {
+            showPage(url);
+        }
+    }
+}
+
+QWindow *DccManager::mainWindow() const
+{
+    return m_window;
+}
+
+void DccManager::showHelp()
+{
+    QStringList helpTitles;
+    for (auto it = m_currentObjects.crbegin(); it != m_currentObjects.crend(); ++it) {
+        DccObject *object = *it;
+        if (!object || object == m_root)
+            continue;
+
+        if (!(object->pageType() & DccObject::PageType::Menu) || object->displayName().isEmpty())
+            continue;
+
+        helpTitles.append(object->name());
+    }
+
+    const QString helpTitle = helpTitles.isEmpty() ? QStringLiteral("controlcenter") : helpTitles.join(QChar(0x1f));
+
+    const QString &dmanInterface = "com.deepin.Manual.Open";
+    QDBusMessage message = QDBusMessage::createMethodCall(dmanInterface, "/com/deepin/Manual/Open", dmanInterface, "OpenTitle");
+    message << "dde" << helpTitle;
+    QDBusConnection::sessionBus().asyncCall(message);
+}
+
+QString DccManager::search(const QString &json) const
+{
+    QJsonDocument jsonDocument = QJsonDocument::fromJson(json.toLocal8Bit().data());
+    if (!jsonDocument.isNull()) {
+        QJsonObject jsonObject = jsonDocument.object();
+
+        // 处理搜索任务, 返回搜索结果
+        QJsonArray items;
+        m_searchModel->setFilterRegularExpression(jsonObject.value("cont").toString());
+        qCDebug(dccLog()) << "search key:" << jsonObject.value("cont").toString();
+        for (int i = 0; i < m_searchModel->rowCount(); ++i) {
+            QJsonObject jsonObj;
+            jsonObj.insert("item", m_searchModel->data(m_searchModel->index(i, 0), SearchModel::SearchUrlRole).toString());
+            jsonObj.insert("name", m_searchModel->data(m_searchModel->index(i, 0), SearchModel::SearchPlainTextRole).toString());
+            jsonObj.insert("icon", ControlCenterIcon);
+            jsonObj.insert("type", "application/x-dde-control-center-xx");
+            qCDebug(dccLog()) << "search results:" << jsonObj["name"].toString();
+            items.insert(i, jsonObj);
+        }
+
+        QJsonObject objCont;
+        objCont.insert("group", ControlCenterGroupName);
+        objCont.insert("items", items);
+
+        QJsonArray arrConts;
+        arrConts.insert(0, objCont);
+
+        QJsonObject jsonResults;
+        jsonResults.insert("ver", jsonObject.value("ver"));
+        jsonResults.insert("mID", jsonObject.value("mID"));
+        jsonResults.insert("cont", arrConts);
+
+        QJsonDocument document;
+        document.setObject(jsonResults);
+
+        return document.toJson(QJsonDocument::Compact);
+    }
+
+    return QString();
+}
+
+QString DccManager::searchProxy(const QString &json) const
+{
+    if (this->calledFromDBus()) {
+        if (!m_plugins->loadFinished()) {
+            qDebug(dccLog) << "Delay to get searching due to plugins unloaded.";
+            auto message = this->message();
+            setDelayedReply(true);
+            QObject::connect(
+                    m_plugins,
+                    &DccPluginManager::loadAllFinished,
+                    this,
+                    [this, json, message]() {
+                        const auto &ret = this->search(json);
+                        qDebug(dccLog) << "Searching finished, result size:" << ret.size();
+                        QDBusConnection::sessionBus().send(message.createReply(ret));
+                    },
+                    Qt::SingleShotConnection);
+
+            return {};
+        }
+    }
+    return search(json);
+}
+
+bool DccManager::stop(const QString &)
+{
+    return true;
+}
+
+bool DccManager::action(const QString &json)
+{
+    QString searchName;
+    QJsonDocument jsonDocument = QJsonDocument::fromJson(json.toLocal8Bit().data());
+    if (!jsonDocument.isNull()) {
+        QJsonObject jsonObject = jsonDocument.object();
+        if (jsonObject.value("action") == "openitem") {
+            // 打开item的操作
+            searchName = jsonObject.value("item").toString();
+        }
+    }
+
+    show();
+    showPage(searchName);
+    return true;
+}
+
+QString DccManager::GetAllModule()
+{
+    auto message = this->message();
+    setDelayedReply(true);
+    QMetaObject::invokeMethod(this, &DccManager::doGetAllModule, Qt::QueuedConnection, message);
+    return QString();
+}
+
+void DccManager::onDccObjectDestroyed(DccObject *obj)
+{
+    if (m_plugins->isDeleting()) {
+        return;
+    }
+    const QString &name = obj->name();
+    if (name.isEmpty()) {
+        return;
+    }
+    auto it = m_objMap.find(name);
+    if (it == m_objMap.end()) {
+        return;
+    }
+    it->removeOne(obj);
+    if (it->isEmpty()) {
+        m_objMap.erase(it);
+    }
+}
+
+QAbstractItemModel *DccManager::navModel() const
+{
+    return m_navModel;
+}
+
+QSortFilterProxyModel *DccManager::searchModel() const
+{
+    return m_searchModel;
+}
+
+void DccManager::cacheImage(const QString &id, const QSize &thumbnailSize)
+{
+    if (m_imageProvider) {
+        m_imageProvider->cacheImage(id, thumbnailSize);
+    }
+}
+
+void DccManager::show()
+{
+    m_needShow = true;
+    QWindow *w = DccManager::mainWindow();
+    if (!w) {
+        return;
+    }
+    if (!m_showLoadPage && !m_activeObject) {
+        return;
+    }
+    if (w->windowStates() == Qt::WindowMinimized || !w->isVisible()) {
+        if (m_dconfig->value(MaximizedConfig, false).toBool())
+            w->showMaximized();
+        else
+            w->showNormal();
+    }
+    w->requestActivate();
+    m_needShow = false;
+}
+
+void DccManager::toggle()
+{
+    QWindow *w = DccManager::mainWindow();
+    if (!w) {
+        return;
+    }
+
+    w->setVisible(!w->isVisible());
+    if (w->isVisible())
+        w->requestActivate();
+}
+
+void DccManager::initConfig()
+{
+    if (!m_dconfig->isValid()) {
+        qCWarning(dccLog()) << QString("DConfig is invalide, name:[%1], subpath[%2].").arg(m_dconfig->name(), m_dconfig->subpath());
+        return;
+    }
+
+    updateModuleConfig(HideConfig);
+    updateModuleConfig(DisableConfig);
+    m_sidebarWidth = m_dconfig->value("sidebarWidth", -1).toInt();
+    if (m_sidebarWidth <= 0) {
+        // 英文环境做特殊处理，加宽侧边栏
+        QLocale locale;
+        m_sidebarWidth = locale.language() == QLocale::English ? 210 : 180;
+    }
+    connect(m_dconfig, &DConfig::valueChanged, this, &DccManager::updateModuleConfig);
+}
+
+bool DccManager::contains(const QSet<QString> &urls, const DccObject *obj)
+{
+    for (auto &&url : urls) {
+        if (url.contains("*")) {
+            if (isMatch(url, obj)) {
+                return true;
+            }
+        } else {
+            if (isEqual(url, obj)) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+QStringList DccManager::splitUrl(const QString &url, QString &targetName)
+{
+    QStringList paths = url.split("/", Qt::SkipEmptyParts);
+    if (!paths.isEmpty()) {
+        targetName = paths.takeLast();
+    }
+    return paths;
+}
+
+bool DccManager::isMatchByName(const QString &url, const QString &name)
+{
+    Q_ASSERT(!url.isEmpty());
+
+    QString objPath = "/" + name;
+    int urlPos = url.size() - 1;
+    int objPos = objPath.size() - 1;
+    bool inWildcard = false; //  包含*
+    while (urlPos >= 0 && objPos >= 0) {
+        if (url[urlPos] == objPath[objPos]) {
+            urlPos--;
+            objPos--;
+            inWildcard = false;
+        } else if (url[urlPos] == '*') {
+            inWildcard = true;
+            urlPos--;
+        } else if (inWildcard && objPath[objPos] != '/') {
+            objPos--;
+        } else {
+            return false;
+        }
+    }
+    if (inWildcard) {
+        return true;
+    }
+    if (urlPos >= 0) {
+        return true; // 等价于 objPath[0] == '/' || url[urlPos] == '/';
+    }
+    if (objPos >= 0) {
+        return objPath[objPos] == '/' || url[0] == '/';
+    }
+    return true;
+}
+
+// url需要在调用处保证非空
+bool DccManager::isMatch(const QString &url, const DccObject *obj)
+{
+    return isMatchByName(url, obj->parentName() + "/" + obj->name());
+}
+
+bool DccManager::isEqualByName(const QString &url, const QString &name)
+{
+    for (auto it = url.crbegin(), itObj = name.crbegin();; ++it, ++itObj) {
+        if (it == url.crend()) {
+            return itObj == name.crend() || (*itObj) == '/';
+        }
+        if (itObj == name.crend()) {
+            return (*it) == '/';
+        }
+        if (*it != *itObj) {
+            return false;
+        }
+    }
+    return true;
+}
+
+bool DccManager::isEqual(const QString &url, const DccObject *obj)
+{
+    return isEqualByName(url, obj->parentName() + "/" + obj->name());
+}
+
+DccObject *DccManager::findObject(const QString &url)
+{
+    if (!m_root || url.isEmpty()) {
+        return nullptr;
+    }
+    QString targetName;
+    QStringList paths = splitUrl(url, targetName);
+    if (targetName.isEmpty()) {
+        return nullptr;
+    }
+    auto it = m_objMap.find(targetName);
+    if (it == m_objMap.end()) {
+        return nullptr;
+    }
+    if (paths.isEmpty()) {
+        return it.value().first();
+    }
+    QString parentPath = paths.join("/");
+    for (const auto &obj : it.value()) {
+        if (isEqualByName(parentPath, obj->parentName())) {
+            return obj;
+        }
+    }
+    return nullptr;
+}
+
+QVector<DccObject *> DccManager::findObjects(const QString &url, bool one)
+{
+    if (!m_root || url.isEmpty()) {
+        return {};
+    }
+    QString targetName;
+    QStringList paths = splitUrl(url, targetName);
+    if (targetName.isEmpty()) {
+        return {};
+    }
+    QVector<DccObject *> rets;
+    QVector<DccObject *> objs;
+    if (!targetName.contains("*")) {
+        auto it = m_objMap.find(targetName);
+        if (it == m_objMap.end()) {
+            return {};
+        }
+        objs = it.value();
+    } else {
+        targetName = "/" + targetName;
+        for (auto it = m_objMap.begin(); it != m_objMap.end(); it++) {
+            if (isMatchByName(targetName, it.key())) {
+                objs.append(it.value());
+            }
+        }
+    }
+    if (paths.isEmpty()) {
+        return objs;
+    }
+    QString parentPath = "/" + paths.join("/");
+    for (auto &&obj : objs) {
+        if (isMatchByName(parentPath, obj->parentName())) {
+            rets.append(obj);
+            if (one) {
+                break;
+            }
+        }
+    }
+    return rets;
+}
+
+const DccObject *DccManager::findParent(const DccObject *obj)
+{
+    const QString &path = obj->parentName();
+    const DccObject *p = DccObject::Private::FromObject(obj)->getRecommendedParent();
+    const QObject *op = obj;
+    if (p && !p->name().isEmpty() && isEqual(path, p)) {
+        return p;
+    }
+    while (op) {
+        op = op->parent();
+        p = qobject_cast<const DccObject *>(op);
+        if (p && !p->name().isEmpty() && isEqual(path, p)) {
+            return p;
+        }
+    }
+    qCDebug(dccLog()) << obj->name() << "find parent:" << path << ".Parent-child position error, traverse all objects to find.";
+    p = findObject(path);
+    return p;
+}
+
+bool DccManager::eventFilter(QObject *watched, QEvent *event)
+{
+    if (event->type() == QEvent::MouseButtonPress && watched == m_window && m_window) {
+        QMouseEvent *e = static_cast<QMouseEvent *>(event);
+        if (e->buttons() == Qt::LeftButton) {
+            QQuickWindow *w = static_cast<QQuickWindow *>(m_window.get());
+            if (w) {
+                QQuickItem *focusItem = w->activeFocusItem();
+                if (focusItem) {
+                    QObject *popup = focusItem->property("popup").value<QObject *>();
+                    if (!popup || !popup->property("visible").toBool()) {
+                        QPointF point = focusItem->mapFromGlobal(e->globalPosition());
+                        QRectF rect(0, 0, focusItem->width(), focusItem->height());
+                        if (!rect.contains(point)) {
+                            QQuickItem *item = w->property("sidebarPage").value<QQuickItem *>();
+                            if (item) {
+                                item->forceActiveFocus();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return DccApp::eventFilter(watched, event);
+}
+
+bool DccManager::isIndicatorShown(const QString &cmd) const
+{
+    return cmd == "indicator=true";
+}
+
+void DccManager::saveSize()
+{
+    if (!m_window)
+        return;
+    if (!m_dconfig->isValid())
+        return;
+
+    const auto states = m_window->windowStates();
+    const bool isMaximized = states.testFlag(Qt::WindowMaximized) || states.testFlag(Qt::WindowFullScreen);
+    const bool visible = m_window->isVisible();
+
+    // Only save normal size when visible and not maximized.
+    // During maximization, widthChanged/heightChanged may fire with screen
+    // dimensions before windowStateChanged updates the state.
+    // On some platforms (e.g. Wayland), hiding a window may reset its state,
+    // so we must not save the reset dimensions either.
+    if (!visible || isMaximized)
+        return;
+
+    m_dconfig->setValue(WidthConfig, m_window->width());
+    m_dconfig->setValue(HeightConfig, m_window->height());
+}
+
+void DccManager::onWindowStateChanged()
+{
+    if (!m_window)
+        return;
+    if (!m_dconfig->isValid())
+        return;
+
+    // Persist the maximized/fullscreen flag only on the state-change event so
+    // the last window state can be restored on the next launch. Writing it here
+    // (rather than inside saveSize) avoids touching DConfig on every resize.
+    m_dconfig->setValue(MaximizedConfig,
+        m_window->windowStates().testFlag(Qt::WindowMaximized)
+            || m_window->windowStates().testFlag(Qt::WindowFullScreen));
+}
+
+void DccManager::handleScreenAdded(QScreen *screen)
+{
+    Q_UNUSED(screen)
+    if (!m_window)
+        return;
+
+    // Requirement: when HDMI re-connected, if the control center is maximized,
+    // restore it back to the default (normal) window size.
+    if (!m_window->windowStates().testFlag(Qt::WindowMaximized))
+        return;
+
+    m_window->showNormal();
+
+    QScreen *targetScreen = m_window->screen() ? m_window->screen() : qGuiApp->primaryScreen();
+    if (!targetScreen)
+        return;
+
+    QRect avail = targetScreen->availableGeometry();
+    int w = width();
+    int h = height();
+
+    // Clamp into the available area (avoid going off-screen)
+    // Keep consistent with `DccWindow.qml` minimum sizes.
+    constexpr int kMinW = 520;
+    constexpr int kMinH = 400;
+    w = qMax(kMinW, qMin(w, avail.width()));
+    h = qMax(kMinH, qMin(h, avail.height()));
+
+    m_window->resize(QSize(w, h));
+    const int x = avail.x() + (avail.width() - w) / 2;
+    const int y = avail.y() + (avail.height() - h) / 2;
+    m_window->setPosition(QPoint(x, y));
+    m_window->requestActivate();
+}
+
+QString DccManager::parseShowPageUrl(const QString &url, QString &cmd) const
+{
+    const int i = url.indexOf('?');
+    cmd = i != -1 ? url.mid(i + 1) : QString();
+    return url.mid(0, i).split('/', Qt::SkipEmptyParts).join('/'); // 移除多余的/
+}
+
+void DccManager::replyShowPageRequest(const QString &url, const QDBusMessage &message, bool found) const
+{
+    if (message.type() == QDBusMessage::InvalidMessage) {
+        return;
+    }
+
+    if (found) {
+        QDBusConnection::sessionBus().send(message.createReply());
+    } else {
+        QDBusConnection::sessionBus().send(message.createErrorReply(QDBusError::InvalidArgs, QString("not found url:") + url));
+    }
+}
+
+void DccManager::startPendingShow(const QString &url, const QDBusMessage &message)
+{
+    m_showUrl = url;
+    m_showMessage = message;
+    m_showTimer->start();
+}
+
+void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
+{
+    qCInfo(dccLog()) << "show page:" << url;
+    clearShowParam();
+
+    if (m_plugins->isDeleting()) {
+        return;
+    }
+
+    DccObject *obj = nullptr;
+    QString cmd;
+    if (url.isEmpty()) {
+        obj = m_root;
+        showPage(obj, QString());
+    } else {
+        const QString path = parseShowPageUrl(url, cmd);
+        const auto objs = findObjects(path, true);
+        obj = objs.isEmpty() ? nullptr : objs.first();
+        if (obj) {
+            showPage(obj, cmd);
+        } else if (!m_plugins->loadFinished()) {
+            startPendingShow(url, message);
+            return;
+        }
+    }
+
+    replyShowPageRequest(url, message, obj);
+}
+
+void DccManager::clearShowParam()
+{
+    m_showTimer->stop();
+    if (!m_showUrl.isEmpty()) {
+        m_showUrl.clear();
+        m_showMessage = QDBusMessage();
+    }
+}
+
+void DccManager::handleShowReady()
+{
+    if (!m_showUrl.isEmpty()) {
+        tryShow();
+    } else if (m_showFallbackTimer->isActive() && !m_activeObject && !m_showPagePending) {
+        tryShowFallback();
+    }
+}
+
+void DccManager::tryShow()
+{
+    if (m_showUrl.isEmpty()) {
+        return;
+    }
+
+    QString cmd;
+    const QString path = parseShowPageUrl(m_showUrl, cmd);
+    DccObject *obj = findObject(path);
+    if (obj) {
+        const QString url = m_showUrl;
+        const QDBusMessage message = m_showMessage;
+        clearShowParam();
+        showPage(obj, cmd);
+        replyShowPageRequest(url, message, true);
+    } else if (m_plugins->loadFinished()) {
+        const QString url = m_showUrl;
+        const QDBusMessage message = m_showMessage;
+        clearShowParam();
+        replyShowPageRequest(url, message, false);
+        if (!m_activeObject) {
+            showPage(m_root, QString());
+        }
+    } else if (!m_plugins->isDeleting()) {
+        m_showTimer->start();
+    }
+}
+
+void DccManager::tryShowFallback()
+{
+    if (m_plugins->isDeleting() || !m_showUrl.isEmpty() || m_activeObject || m_showPagePending) {
+        return;
+    }
+
+    m_showFallbackTimer->stop();
+    showPage(m_root, QString());
+}
+
+void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
+{
+    struct PendingGuard
+    {
+        DccManager *manager;
+        ~PendingGuard() { manager->m_showPagePending = false; }
+    } pendingGuard{ this };
+
+    if (m_plugins->isDeleting() || !obj) {
+        return;
+    }
+    qCInfo(dccLog) << "ShowPage:" << obj << " have cmd:" << !cmd.isEmpty();
+    // 禁用首页
+    if (obj == m_root) {
+        if (m_root->getChildren().isEmpty()) {
+            return;
+        }
+        obj = m_root->getChildren().first();
+    }
+    if (m_activeObject == obj && cmd.isEmpty()) {
+        return;
+    }
+    bool indicatorShown = isIndicatorShown(cmd);
+    if (!cmd.isEmpty() && !indicatorShown) {
+        Q_EMIT obj->active(cmd);
+        return;
+    }
+    DccObject *parent = obj;
+    while (parent && parent != m_root) {
+        parent = DccObject::Private::FromObject(parent)->getParent();
+    }
+    if (parent != m_root) {
+        return;
+    }
+    QVector<DccObject *> modules;
+    QVector<DccObject *> triggeredObjs;
+    DccObject *triggeredObj = obj;
+    if (triggeredObj->pageType() == DccObject::MenuEditor && !triggeredObj->getChildren().isEmpty()) {
+        triggeredObj = triggeredObj->getChildren().first();
+    }
+    DccObject *tmpObj = triggeredObj;
+    tmpObj->setCurrentObject(nullptr);
+    tmpObj->active(QString());
+    while (tmpObj && (tmpObj->pageType() != DccObject::Menu)) { // 页面中的控件，则激活项为父项
+        triggeredObjs.append(tmpObj);
+        DccObject *tmpObjParent = DccObject::Private::FromObject(tmpObj)->getParent();
+        if (tmpObjParent) {
+            tmpObjParent->setCurrentObject(tmpObj);
+            tmpObjParent->active(QString());
+        }
+        tmpObj = tmpObjParent;
+    }
+    if (!tmpObj) {
+        return;
+    }
+    modules.append(tmpObj);
+    DccObject *p = DccObject::Private::FromObject(tmpObj)->getParent();
+    while (p) {
+        p->setCurrentObject(tmpObj);
+        Q_EMIT p->active(QString());
+        modules.append(p);
+        tmpObj = p;
+        p = DccObject::Private::FromObject(p)->getParent();
+    }
+    triggeredObjs.append(modules);
+    std::reverse(modules.begin(), modules.end());
+    std::reverse(triggeredObjs.begin(), triggeredObjs.end());
+    auto animationMode = DccApp::AnimationPush;
+
+    // 处理旧对象
+    for (auto *oldObj : std::as_const(m_triggeredObjects)) {
+        if (!triggeredObjs.contains(oldObj)) {
+            oldObj->setCurrentObject(nullptr);
+            animationMode = DccApp::AnimationPop;
+        }
+        if (oldObj != m_root && oldObj != triggeredObjs.last()) {
+            Q_EMIT oldObj->deactive();
+        }
+    }
+    setAnimationMode(animationMode);
+
+    // 更新当前对象
+    const bool currentObjectsUpdated = (m_currentObjects != modules);
+    const bool triggeredObjectsUpdated = (m_triggeredObjects != triggeredObjs);
+    m_currentObjects = modules;
+    m_triggeredObjects = triggeredObjs;
+    if (auto *lastObj = m_currentObjects.last(); lastObj != m_activeObject) {
+        m_activeObject = lastObj;
+        Q_EMIT activeObjectChanged(m_activeObject);
+    }
+
+    // 更新导航模型和日志
+    m_navModel->setNavigationObject(m_currentObjects);
+    qCInfo(dccLog) << "trigger object:" << triggeredObj->name() << " active object:" << m_activeObject->name() << " parent:" << (void *)triggeredObj->parentItem();
+
+#ifdef HAVE_DDE_API_EVENTLOGGER
+    // Reset and start page stay timer when page changes
+    if (m_pageStayTimer) {
+        m_pageStayTimer->stop();
+        // Build page tags directly from current objects
+        m_lastPageTags.clear();
+        for (auto *obj : m_currentObjects) {
+            if (!obj->displayName().isEmpty()) {
+                m_lastPageTags.append(obj->name());
+            }
+        }
+        m_pageStayTimer->start();
+    }
+#endif
+
+    // 触发父项变更
+    if (auto *parentItem = triggeredObj->parentItem(); !(triggeredObj->pageType() & DccObject::Menu) && parentItem) {
+        Q_EMIT activeItemChanged(parentItem, indicatorShown);
+    }
+
+    if (currentObjectsUpdated)
+        Q_EMIT currentObjectsChanged(m_currentObjects);
+    if (triggeredObjectsUpdated)
+        Q_EMIT triggeredObjectsChanged(m_triggeredObjects);
+
+    m_showFallbackTimer->stop();
+    if (m_needShow) {
+        show();
+    }
+}
+
+QSet<QString> findAddItems(QSet<QString> *oldSet, QSet<QString> *newSet)
+{
+    QSet<QString> addSet;
+    for (auto &&key : *newSet) {
+        if (!oldSet->contains(key)) {
+            addSet.insert(key);
+        }
+    }
+    return addSet;
+}
+
+void DccManager::updateModuleConfig(const QString &key)
+{
+    QSet<QString> oldModuleConfig;
+    QSet<QString> *newModuleConfig = nullptr;
+    uint32_t type = DCC_CONFIG_HIDDEN;
+    if (key == HideConfig) {
+        type = DCC_CONFIG_HIDDEN;
+        oldModuleConfig = m_hideModule;
+        newModuleConfig = &m_hideModule;
+    } else if (key == DisableConfig) {
+        type = DCC_CONFIG_DISABLED;
+        oldModuleConfig = m_disableModule;
+        newModuleConfig = &m_disableModule;
+    } else {
+        return;
+    }
+    const auto &list = m_dconfig->value(key).toStringList();
+    // 预处理，去掉首尾空格项，去多通配符项
+    newModuleConfig->clear();
+    for (auto &&config : list) {
+        bool isValid = false;
+        // 有效字符为：字母、数字、'/'、'*'
+        for (auto &c : config) {
+            isValid = c == '/' || c == '*' || c.isLetterOrNumber();
+            if (!isValid) {
+                break;
+            }
+        }
+        if (isValid) {
+            newModuleConfig->insert(config);
+        }
+    }
+    QSet<QString> addModuleConfig = findAddItems(&oldModuleConfig, newModuleConfig);
+    QSet<QString> removeModuleConfig = findAddItems(newModuleConfig, &oldModuleConfig);
+    for (auto &&url : addModuleConfig) {
+        QVector<DccObject *> objs = findObjects(url);
+        for (auto &&obj : objs) {
+            DccObject::Private::FromObject(obj)->setFlagState(type, true);
+        }
+    }
+    for (auto &&url : removeModuleConfig) {
+        QVector<DccObject *> objs = findObjects(url);
+        for (auto &&obj : objs) {
+            DccObject::Private::FromObject(obj)->setFlagState(type, false);
+        }
+    }
+    if (newModuleConfig == &m_hideModule && (!addModuleConfig.isEmpty() || !removeModuleConfig.isEmpty())) {
+        Q_EMIT hideModuleChanged(m_hideModule);
+    }
+}
+
+void DccManager::onVisible(bool visible)
+{
+    if (!m_root) {
+        return;
+    }
+    DccObject *obj = qobject_cast<DccObject *>(sender());
+    if (!obj) {
+        return;
+    }
+    if (visible) {
+        QVector<DccObject *> objs;
+        objs.append(obj->getChildren());
+        while (!objs.isEmpty()) {
+            auto o = objs.takeFirst();
+            if (o->isVisibleToApp()) {
+                objs.append(o->getChildren());
+            } else {
+                connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
+                removeObjectFromParent(o);
+                DccObject::Private::FromObject(m_hideObjects)->addChild(o, false);
+            }
+        }
+        DccObject::Private::FromObject(m_hideObjects)->removeChild(obj);
+        if (!addObjectToParent(obj)) {
+            DccObject::Private::FromObject(m_noAddObjects)->addChild(obj, false);
+        }
+    } else {
+        removeObjectFromParent(obj);
+        DccObject::Private::FromObject(m_hideObjects)->addChild(obj, false);
+    }
+}
+
+void DccManager::onObjectAdded(DccObject *obj)
+{
+    if (!m_root) {
+        return;
+    }
+    m_searchModel->addSearchData(obj, QString(), QString());
+    QVector<DccObject *> objs;
+    objs.append(obj);
+    while (!objs.isEmpty()) {
+        auto o = objs.takeFirst();
+        connect(o, &DccObject::childAdded, this, &DccManager::onObjectAdded);
+        connect(o, &DccObject::childRemoved, this, &DccManager::onObjectRemoved);
+        connect(o, &DccObject::displayNameChanged, this, &DccManager::onObjectDisplayChanged);
+        connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
+        objs.append(o->getChildren());
+    }
+}
+
+void DccManager::onObjectRemoved(DccObject *obj)
+{
+    if (!m_root) {
+        return;
+    }
+    QVector<DccObject *> objs;
+    objs.append(obj);
+    while (!objs.isEmpty()) {
+        auto o = objs.takeFirst();
+        disconnect(o, &DccObject::childAdded, this, nullptr);
+        disconnect(o, &DccObject::childRemoved, this, nullptr);
+        disconnect(o, &DccObject::displayNameChanged, this, nullptr);
+        m_searchModel->removeSearchData(o, QString());
+        objs.append(o->getChildren());
+    }
+    auto it = std::find(m_triggeredObjects.begin(), m_triggeredObjects.end(), obj);
+    if (it != m_triggeredObjects.end()) {
+        m_triggeredObjects.erase(it, m_triggeredObjects.end());
+    }
+    DccObject *parentObj = m_root;
+    for (auto &&o : m_currentObjects) {
+        if (o == obj) {
+            doShowPage(QPointer<DccObject>(parentObj), QString());
+            break;
+        }
+        parentObj = o;
+    }
+}
+
+void DccManager::onObjectDisplayChanged()
+{
+    if (!m_root) {
+        return;
+    }
+    DccObject *obj = qobject_cast<DccObject *>(sender());
+    if (obj) {
+        m_searchModel->removeSearchData(obj, QString());
+        m_searchModel->addSearchData(obj, QString(), QString());
+    }
+}
+
+bool DccManager::addObjectToParent(DccObject *obj)
+{
+    if (const DccObject *parentObj = findParent(obj)) {
+        DccObject::Private::FromObject(parentObj)->addChild(obj);
+        return true;
+    }
+    return false;
+}
+
+bool DccManager::removeObjectFromParent(DccObject *obj)
+{
+    DccObject *parentObj = DccObject::Private::FromObject(obj)->getParent();
+    if (parentObj) {
+        DccObject::Private::FromObject(parentObj)->removeChild(obj);
+        return true;
+    }
+    return false;
+}
+
+void DccManager::clearData()
+{
+    if (m_plugins->isDeleting()) {
+        return;
+    }
+    m_imageProvider = nullptr;
+    m_plugins->beginDelete();
+    clearShowParam();
+
+    m_window->hide();
+    m_window->close();
+    m_objMap.clear();
+    // doShowPage(m_root, QString());
+
+#ifdef DCC_ENABLE_MEMORY_MANAGEMENT
+    // TODO: delete m_engine会有概率崩溃
+    m_window = nullptr;
+    DccObject *root = m_root;
+    m_root = nullptr;
+    Q_EMIT rootChanged(m_root);
+
+    qCDebug(dccLog()) << "delete clearData hide:" << m_hideObjects->getChildren().size() << "noAdd:" << m_noAddObjects->getChildren().size() << "noParent" << m_noParentObjects->getChildren().size();
+    delete m_noParentObjects;
+    delete m_noAddObjects;
+    delete m_hideObjects;
+    qCDebug(dccLog()) << "delete dccobject";
+    qCDebug(dccLog()) << "delete QmlEngine";
+    delete m_engine;
+    qCDebug(dccLog()) << "clear QmlEngine";
+    m_engine = nullptr;
+    qCDebug(dccLog()) << "delete root begin";
+    delete root;
+    qCDebug(dccLog()) << "delete root end";
+#endif
+}
+
+void DccManager::waitLoadFinished() const
+{
+    if (!m_plugins->loadFinished()) {
+        QEventLoop loop;
+        QTimer timer;
+        connect(&timer, &QTimer::timeout, &loop, &QEventLoop::quit);
+        connect(m_plugins, &DccPluginManager::loadAllFinished, &loop, &QEventLoop::quit);
+        timer.start(5000);
+        loop.exec();
+    }
+}
+
+void DccManager::doGetAllModule(const QDBusMessage message) const
+{
+    waitLoadFinished();
+    DccObject *root = m_root;
+    QList<QPair<DccObject *, QStringList>> modules;
+    for (auto &&child : root->getChildren()) {
+        modules.append({ child, { child->name(), child->displayName() } });
+    }
+    for (auto &&child : m_hideObjects->getChildren()) {
+        modules.append({ child, { child->name(), child->displayName() } });
+    }
+
+    QJsonArray arr;
+    while (!modules.isEmpty()) {
+        const auto &urlInfo = modules.takeFirst();
+        QJsonObject obj;
+        obj.insert("url", urlInfo.second.at(0));
+        obj.insert("displayName", urlInfo.second.at(1));
+        obj.insert("weight", (int)(urlInfo.first->weight()));
+        arr.append(obj);
+        const QList<DccObject *> &children = urlInfo.first->getChildren();
+        for (auto it = children.crbegin(); it != children.crend(); ++it)
+            modules.prepend({ *it, { urlInfo.second.at(0) + "/" + (*it)->name(), urlInfo.second.at(1) + "/" + (*it)->displayName() } });
+    }
+
+    QJsonDocument doc;
+    doc.setArray(arr);
+    QString json = doc.toJson(QJsonDocument::Compact);
+    QDBusConnection::sessionBus().send(message.createReply(json));
+}
+
+void DccManager::onPageStayTimeout()
+{
+#ifdef HAVE_DDE_API_EVENTLOGGER
+    qCInfo(dccLog) << "onPageStayTimeout triggered, m_lastPageTags:" << m_lastPageTags;
+    if (m_lastPageTags.isEmpty()) {
+        qCWarning(dccLog) << "onPageStayTimeout: m_lastPageTags is empty, skipping log";
+        return;
+    }
+
+    QJsonArray tagArray;
+    for (const auto &tag : m_lastPageTags) {
+        tagArray.append(tag);
+    }
+
+    DDE_EventLogger::EventLogger::instance().writeEventLog(
+        DDE_EventLogger::EventLoggerData(EVENT_LOGGER_CONTROL_CENTER_STAY, "control_center_config", {
+            {"control_center_tag", tagArray}
+        }));
+
+    qCInfo(dccLog) << "EventLogger: page stay - tags:" << QJsonDocument(tagArray).toJson(QJsonDocument::Compact);
+#endif
+}
+
+} // namespace dccV25

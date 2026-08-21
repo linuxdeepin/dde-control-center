@@ -1,0 +1,17 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "avatarPath": {
+            "value": "",
+            "serial": 0,
+            "flags": [],
+            "name": "avatarPath",
+            "name[zh_CN]": "图像路径",
+            "description": "config accounts avatar path",
+            "description[zh_CN]": "控制中心账户图像路径配置",
+            "permissions": "readwrite",
+            "visibility": "public"
+        }
+    }
+  }

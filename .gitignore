@@ -1,0 +1,51 @@
+# Compiled Object files
+*.slo
+*.lo
+*.o
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+
+build*/
+*.pro.user*
+*.DS_Store
+*.core
+*.autosave
+*.user*
+
+debian/files
+debian/tmp
+obj-x86_64-linux-gnu
+debian/debhelper-build-stamp
+debian/dde-control-center
+debian/dde-control-center-dev
+debian/dde-control-center-doc
+*.log
+*.substvars
+.debhelper
+
+# qm file is auto generate from .ts file
+*.qm
+
+# vim tmp file
+*.swp
+
+*.vscode
+*.vim
+
+# clion tmp file
+.idea/
+# clangd tmp file
+.cache/
+
+.transifexrc
+lupdate.sh
+
+# nix
+.direnv

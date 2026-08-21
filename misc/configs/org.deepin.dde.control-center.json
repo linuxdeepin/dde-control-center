@@ -1,0 +1,72 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "width": {
+            "value": 800,
+            "serial": 0,
+            "flags": [],
+            "name": "width",
+            "name[zh_CN]": "宽度",
+            "description": "config dde-control-center width",
+            "description[zh_CN]": "控制中心宽度配置",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "height": {
+            "value": 600,
+            "serial": 0,
+            "flags": [],
+            "name": "height",
+            "name[zh_CN]": "高度",
+            "description": "config dde-control-center height",
+            "description[zh_CN]": "控制中心高度配置",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "maximized": {
+            "value": false,
+            "serial": 0,
+            "flags": [],
+            "name": "maximized",
+            "name[zh_CN]": "最大化",
+            "description": "config dde-control-center maximized state",
+            "description[zh_CN]": "控制中心最大化状态配置",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "sidebarWidth": {
+            "value": -1,
+            "serial": 0,
+            "flags": true,
+            "name": "sidebarWidth",
+            "name[zh_CN]": "侧边栏宽度",
+            "description": "config dde-control-center sidebar width",
+            "description[zh_CN]": "控制中心侧边栏宽度",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "hideModule": {
+            "value": [],
+            "serial": 0,
+            "flags": [],
+            "name": "hide module",
+            "name[zh_CN]": "隐藏模块",
+            "description": "config dde-control-center hide module",
+            "description[zh_CN]": "控制中心隐藏模块配置",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "disableModule": {
+            "value": [],
+            "serial": 0,
+            "flags": [],
+            "name": "disable module",
+            "name[zh_CN]": "禁用模块",
+            "description": "config dde-control-center disable module",
+            "description[zh_CN]": "控制中心禁用模块配置",
+            "permissions": "readwrite",
+            "visibility": "public"
+        }
+    }
+  }

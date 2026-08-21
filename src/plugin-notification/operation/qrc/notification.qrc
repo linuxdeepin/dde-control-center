@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/icons/deepin/builtin">
+        <file>icons/dcc_nav_notification_42px.svg</file>
+        <file>icons/dcc_nav_notification_84px.svg</file>
+        <file>dark/icons/notify_center_84px.png</file>
+        <file>dark/icons/notify_desktop_84px.png</file>
+        <file>dark/icons/notify_lock_84px.png</file>
+        <file>light/icons/notify_center_84px.png</file>
+        <file>light/icons/notify_desktop_84px.png</file>
+        <file>light/icons/notify_lock_84px.png</file>
+    </qresource>
+</RCC>

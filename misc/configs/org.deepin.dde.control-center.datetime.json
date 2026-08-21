@@ -1,0 +1,17 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "customNtpServer": {
+            "value": "",
+            "serial": 0,
+            "flags": [],
+            "name": "custom NTP server",
+            "name[zh_CN]": "自定义NTP服务器",
+            "description": "custom NTP server address for time synchronization",
+            "description[zh_CN]": "用于时间同步的自定义NTP服务器地址",
+            "permissions": "readwrite",
+            "visibility": "public"
+        }
+    }
+}

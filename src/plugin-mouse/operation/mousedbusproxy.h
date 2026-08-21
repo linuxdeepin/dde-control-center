@@ -1,0 +1,109 @@
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//
+//SPDX-License-Identifier: GPL-3.0-or-later
+#ifndef MOUSEDBUSPROXY_H
+#define MOUSEDBUSPROXY_H
+
+#include "gesturedata.h"
+
+#include <QDBusArgument>
+#include <QDBusMessage>
+#include <QDBusPendingCallWatcher>
+#include <QObject>
+
+class QDBusInterface;
+
+namespace DCC_NAMESPACE {
+class MouseDBusProxy : public QObject
+{
+    Q_OBJECT
+public:
+    explicit MouseDBusProxy(QObject *parent = nullptr);
+    void deactive();
+    void init();
+
+Q_SIGNALS:
+    void mouseExistChanged(bool exist);
+    void tpadExistChanged(bool exist);
+    void tpadEnabledChanged(bool enabled);
+    void redPointExistChanged(bool exist);
+    void leftHandStateChanged(bool state);
+    void mouseNaturalScrollStateChanged(bool state);
+    void touchNaturalScrollStateChanged(bool state);
+    void disTypingChanged(bool state);
+    void disTouchPadChanged(bool state);
+    void tapClickChanged(bool state);
+    void douClickChanged(int value);
+    void mouseMotionAccelerationChanged(double value);
+    void accelProfileChanged(bool state);
+    void touchpadMotionAccelerationChanged(double value);
+    void trackPointMotionAccelerationChanged(double value);
+    void palmDetectChanged(bool palmDetect);
+    void palmMinWidthChanged(int palmMinWidth);
+    void palmMinzChanged(int palmMinz);
+    void scrollSpeedChanged(uint speed);
+    void gestureDataChanged(const GestureData &data);
+    void cursorSizeChanged(int cursorSize);
+    void availableCursorSizesChanged(QList<int> sizes);
+    void lidIsPresentChanged(bool lidIsPresent);
+
+public Q_SLOTS:
+    void active();
+    void onDefaultReset();
+    void setLeftHandState(const bool state);
+    void setDouClick(const int &value);
+
+    // mouse settings
+    void setMouseNaturalScrollState(const bool state);
+    void setDisableTouchPadWhenMouseExist(const bool state);
+    void setAccelProfile(const bool state);
+    void setMouseMotionAcceleration(const double &value);
+
+    // touchpad settings
+    void setTouchNaturalScrollState(const bool state);
+    void setDisTyping(const bool state);
+    void setTouchpadMotionAcceleration(const double &value);
+    void setTapClick(const bool state);
+    void setPalmDetect(bool palmDetect);
+    void setPalmMinWidth(int palmMinWidth);
+    void setPalmMinz(int palmMinz);
+    void setTouchpadEnabled(bool state);
+
+    // appearance
+    void setCursorSize(const int cursorSize);
+    void listCursor();
+
+    // redpoint settings
+    void setTrackPointMotionAcceleration(const double &value);
+
+    // device properties
+    void setScrollSpeed(uint speed);
+    bool getLidIsPresent();
+
+    void setGesture(const QString &gestureId, const QString &actionId);
+
+    void onMousePathPropertiesChanged(QDBusMessage msg);
+    void onTouchpadPathPropertiesChanged(QDBusMessage msg);
+    void onTrackpointPathPropertiesChanged(QDBusMessage msg);
+    void onInputDevicesPathPropertiesChanged(QDBusMessage msg);
+    void onAppearancePropertiesChanged(QDBusMessage msg);
+
+    void refreshGestures();
+    void onListAllGesturesNewFinished(QDBusPendingCallWatcher *w);
+
+private:
+    QDBusInterface *m_dbusMouseProperties;
+    QDBusInterface *m_dbusTouchPadProperties;
+    QDBusInterface *m_dbusTrackPointProperties;
+    QDBusInterface *m_dbusDevicesProperties;
+    QDBusInterface *m_dbusMouse;
+    QDBusInterface *m_dbusTouchPad;
+    QDBusInterface *m_dbusTrackPoint;
+    QDBusInterface *m_dbusDevices;
+    QDBusInterface *m_dbusGesture;
+    QDBusInterface *m_appearance;
+    const bool m_isWayland;
+};
+}
+
+#endif // MOUSEWORKER_H

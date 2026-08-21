@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="108px" height="75px" viewBox="0 0 108 75" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>dark_middle</title>
+    <defs>
+        <rect id="path-1" x="0" y="0" width="108" height="75" rx="4"></rect>
+        <path d="M0,0 L83.180574,5.17920154e-16 C87.6381677,-3.00926524e-16 89.2545989,0.464128056 90.8842285,1.33566352 C92.5138581,2.20719898 93.792801,3.48614185 94.6643365,5.11577148 C95.5358719,6.74540111 96,8.3618323 96,12.819426 L96,63 L96,63 L0,63 L0,0 Z" id="path-3"></path>
+        <polygon id="path-5" points="-1 0 96 0 96 26 -1 26"></polygon>
+        <filter x="-0.5%" y="-1.9%" width="101.0%" height="107.7%" filterUnits="objectBoundingBox" id="filter-6">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feComposite in="shadowOffsetOuter1" in2="SourceAlpha" operator="out" result="shadowOffsetOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.05 0" type="matrix" in="shadowOffsetOuter1"></feColorMatrix>
+        </filter>
+        <rect id="path-7" x="0" y="0" width="108" height="75" rx="4"></rect>
+    </defs>
+    <g id="个性化" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="画板" transform="translate(-789, -966)">
+            <g id="dark_middle" transform="translate(789, 966)">
+                <g id="编组-3">
+                    <mask id="mask-2" fill="white">
+                        <use xlink:href="#path-1"></use>
+                    </mask>
+                    <use id="矩形" fill-opacity="0.1" fill="#FFFFFF" xlink:href="#path-1"></use>
+                    <g id="矩形" mask="url(#mask-2)">
+                        <g transform="translate(0, 12)" id="编组">
+                            <mask id="mask-4" fill="white">
+                                <use xlink:href="#path-3"></use>
+                            </mask>
+                            <path stroke-opacity="0.2" stroke="#FFFFFF" stroke-width="0.99" d="M83.180574,-0.495 C87.7783503,-0.495 89.4386582,0.00122065601 91.11767,0.899165986 C92.8348384,1.81751773 94.1824823,3.16516159 95.100834,4.88233005 C95.9987793,6.56134183 96.495,8.22164968 96.495,12.819426 L96.495,63.495 L-0.495,63.495 L-0.495,-0.495 Z"></path>
+                            <polygon id="蒙版" fill-opacity="0.85" fill="#181818" mask="url(#mask-4)" points="0 26 97 26 97 63 0 63"></polygon>
+                            <g id="蒙版" mask="url(#mask-4)">
+                                <use fill="black" fill-opacity="1" filter="url(#filter-6)" xlink:href="#path-5"></use>
+                                <use fill-opacity="0.85" fill="#181818" fill-rule="evenodd" xlink:href="#path-5"></use>
+                            </g>
+                            <path d="M77,8 L85,8 C85.5522847,8 86,8.44771525 86,9 L86,17 C86,17.5522847 85.5522847,18 85,18 L77,18 C76.4477153,18 76,17.5522847 76,17 L76,9 C76,8.44771525 76.4477153,8 77,8 Z M61,8 L69,8 C69.5522847,8 70,8.44771525 70,9 L70,17 C70,17.5522847 69.5522847,18 69,18 L61,18 C60.4477153,18 60,17.5522847 60,17 L60,9 C60,8.44771525 60.4477153,8 61,8 Z M45,8 L53,8 C53.5522847,8 54,8.44771525 54,9 L54,17 C54,17.5522847 53.5522847,18 53,18 L45,18 C44.4477153,18 44,17.5522847 44,17 L44,9 C44,8.44771525 44.4477153,8 45,8 Z" id="形状结合" fill-opacity="0.07" fill="#FFFFFF" mask="url(#mask-4)"></path>
+                        </g>
+                    </g>
+                </g>
+                <mask id="mask-8" fill="white">
+                    <use xlink:href="#path-7"></use>
+                </mask>
+                <rect stroke-opacity="0.1" stroke="#FFFFFF" x="0.5" y="0.5" width="107" height="74" rx="4"></rect>
+            </g>
+        </g>
+    </g>
+</svg>

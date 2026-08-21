@@ -1,0 +1,32 @@
+<RCC>
+    <qresource prefix="/dsg">
+        <file>icons/dcc_cloud_logo.dci</file>
+    </qresource>
+    <qresource prefix="/icons/deepin/builtin">
+        <file>icons/dcc_login_bg.svg</file>
+        <file>icons/dcc_cfg_set_24px.svg</file>
+        <file>icons/dcc_union_id_32px.svg</file>
+        <file>icons/dcc_not_use_28px.svg</file>
+        <file>icons/dcc_secwechat_26px.svg</file>
+        <file>icons/dcc_wechattip_24px.svg</file>
+        <file>icons/dcc_uosidtip_24px.svg</file>
+        <file>light/actions/dcc_cloud_net_12px.svg</file>
+        <file>light/actions/dcc_cloud_luncher_12px.svg</file>
+        <file>light/actions/dcc_cloud_mouse_12px.svg</file>
+        <file>light/actions/dcc_cloud_power_12px.svg</file>
+        <file>light/actions/dcc_cloud_taskbar_12px.svg</file>
+        <file>light/actions/dcc_cloud_them_12px.svg</file>
+        <file>light/actions/dcc_cloud_update_12px.svg</file>
+        <file>light/actions/dcc_cloud_voice_12px.svg</file>
+        <file>light/actions/dcc_cloud_wallpaper_12px.svg</file>
+        <file>dark/actions/dcc_cloud_net_12px.svg</file>
+        <file>dark/actions/dcc_cloud_luncher_12px.svg</file>
+        <file>dark/actions/dcc_cloud_mouse_12px.svg</file>
+        <file>dark/actions/dcc_cloud_power_12px.svg</file>
+        <file>dark/actions/dcc_cloud_taskbar_12px.svg</file>
+        <file>dark/actions/dcc_cloud_them_12px.svg</file>
+        <file>dark/actions/dcc_cloud_update_12px.svg</file>
+        <file>dark/actions/dcc_cloud_voice_12px.svg</file>
+        <file>dark/actions/dcc_cloud_wallpaper_12px.svg</file>
+    </qresource>
+</RCC>

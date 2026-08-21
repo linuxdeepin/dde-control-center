@@ -1,0 +1,116 @@
+{
+    "name": "dde-control-center",
+    "group": "dde",
+    "submodules": [
+        {
+            "name": "control-center.app",
+            "filter": "org.deepin.dde.control-center.app",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.accounts",
+            "filter": "org.deepin.dde.control-center.accounts",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.bluetooth",
+            "filter": "org.deepin.dde.control-center.bluetooth",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.datetime",
+            "filter": "org.deepin.dde.control-center.datetime",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.defaultapp",
+            "filter": "org.deepin.dde.control-center.defaultapp",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.display",
+            "filter": "org.deepin.dde.control-center.display",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.keyboard",
+            "filter": "org.deepin.dde.control-center.keyboard",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.mouse",
+            "filter": "org.deepin.dde.control-center.mouse",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.notification",
+            "filter": "org.deepin.dde.control-center.notification",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.personalization",
+            "filter": "org.deepin.dde.control-center.personalization",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.power",
+            "filter": "org.deepin.dde.control-center.power",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.privacy",
+            "filter": "org.deepin.dde.control-center.privacy",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.sound",
+            "filter": "org.deepin.dde.control-center.sound",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.cloudsync",
+            "filter": "org.deepin.dde.control-center.cloudsync",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.systeminfo",
+            "filter": "org.deepin.dde.control-center.systeminfo",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.",
+            "filter": "org.deepin.dde.control-center.",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.commoninfo",
+            "filter": "org.deepin.dde.control-center.commoninfo",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        },
+        {
+            "name": "control-center.update",
+            "filter": "org.deepin.dde.control-center.update",
+            "exec": "/usr/bin/dde-control-center",
+            "logType": "journal"
+        }
+    ],
+    "visible": 1,
+    "version": "V1.0"
+}

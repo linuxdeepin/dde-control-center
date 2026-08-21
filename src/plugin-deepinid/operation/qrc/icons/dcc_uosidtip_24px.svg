@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ICON/uos/reset password</title>
+    <defs>
+        <linearGradient x1="50%" y1="3.90764382%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#B2B2B2" offset="0%"></stop>
+            <stop stop-color="#7B7B7B" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="99.1887019%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" stop-opacity="0.2" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.2" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-3" cx="12" cy="12" r="11"></circle>
+        <filter x="-20.5%" y="-20.5%" width="140.9%" height="140.9%" filterUnits="objectBoundingBox" id="filter-4">
+            <feGaussianBlur stdDeviation="3" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="-3" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.175905642   0 0 0 0 0.175905642   0 0 0 0 0.175905642  0 0 0 0.3 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="ICON/uos/reset-password" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="椭圆形">
+            <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-3"></use>
+            <use fill="black" fill-opacity="1" filter="url(#filter-4)" xlink:href="#path-3"></use>
+            <circle stroke="url(#linearGradient-2)" stroke-width="1" stroke-linejoin="square" cx="12" cy="12" r="10.5"></circle>
+        </g>
+        <path d="M13.210781,6.39262593 C15.074742,6.39262593 16.585781,7.9036649 16.585781,9.76762593 C16.585781,11.631587 15.074742,13.1426259 13.210781,13.1426259 C12.7949455,13.1426259 12.396675,13.0674212 12.0288285,12.9298708 L12.006034,13.0136326 L12,14.7071691 L10.3117012,14.7071691 L10.0291099,14.9897604 L10.0411778,16.7013987 L8.23902979,16.6893308 C7.86190617,16.8612992 7.3993012,16.7909027 7.08553435,16.4771359 L7.0543588,16.4459603 C6.65209361,16.0436952 6.64807096,15.3960482 7.04530783,14.9988113 L10.4028802,11.6407847 C10.044654,11.1048633 9.83578097,10.4606371 9.83578097,9.76762593 C9.83578097,7.9036649 11.3468199,6.39262593 13.210781,6.39262593 Z M10.9259084,12.8094575 C10.8522428,12.7366791 10.7335266,12.7373983 10.6607482,12.8110639 L8.13989676,15.3626455 C8.0671184,15.436311 8.06783761,15.5550273 8.14150317,15.6278056 C8.21516873,15.700584 8.33388498,15.6998648 8.40666335,15.6261992 L10.9275148,13.0746176 C11.0002932,13.0009521 10.999574,12.8822358 10.9259084,12.8094575 Z M13.210781,7.52580458 C11.9681403,7.52580458 10.960781,8.53316389 10.960781,9.77580458 C10.960781,11.0184453 11.9681403,12.0258046 13.210781,12.0258046 C14.4534217,12.0258046 15.460781,11.0184453 15.460781,9.77580458 C15.460781,8.53316389 14.4534217,7.52580458 13.210781,7.52580458 Z" id="形状结合" fill="#FFFFFF" fill-rule="nonzero"></path>
+        <path d="M12,3.5 C16.6944204,3.5 20.5,7.30557963 20.5,12 C20.5,16.6944204 16.6944204,20.5 12,20.5 C9.91960063,20.5 7.95419073,19.7492727 6.41766999,18.4101151 C4.5771511,16.8060073 3.5,14.4896797 3.5,12 C3.5,9.38222768 4.69153459,6.95933264 6.69743778,5.35636288 C8.19230879,4.16177231 10.046232,3.5 12,3.5 Z M12,4.5 C10.2751833,4.5 8.64090078,5.08336986 7.3217165,6.13756456 C5.55080546,7.55274595 4.5,9.68947899 4.5,12 C4.5,14.1975465 5.44983929,16.2401002 7.07470111,17.6562516 C8.43081818,18.8381781 10.1634731,19.5 12,19.5 C16.1421356,19.5 19.5,16.1421356 19.5,12 C19.5,7.85786438 16.1421356,4.5 12,4.5 Z" id="椭圆形" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>

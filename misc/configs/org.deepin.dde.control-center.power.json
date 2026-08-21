@@ -1,0 +1,117 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "linePowerScreenBlackDelay": {
+            "value": ["1m","5m","10m","15m","30m","1h"],
+            "serial": 0,
+            "flags": [],
+            "name": "Control-center_LinePowerScreenBlackDelay",
+            "name[zh_CN]": "使用电源-关闭显示器",
+            "description[zh_CN]": "此配置用于设置插入电源关闭显示器的时间",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "linePowerSleepDelay": {
+            "value": ["10m","15m","30m","1h","2h","3h"],
+            "serial": 0,
+            "flags": [],
+            "name": "Control-center_LinePowerSleepDelay",
+            "name[zh_CN]": "使用电源-进入待机时间",
+            "description[zh_CN]": "此配置用于设置插入电源进入待机的时间",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "linePowerLockDelay": {
+                "value": ["1m","5m","10m","15m","30m","1h"],
+                "serial": 0,
+                "flags": [],
+                "name": "Control-center_LinePowerLockDelay",
+                "name[zh_CN]": "使用电源-自动锁屏时间",
+                "description[zh_CN]": "此配置用于设置插入电源自动锁屏的时间",
+                "description": "",
+                "permissions": "readwrite",
+                "visibility": "private"
+        },
+	    "batteryScreenBlackDelay": {
+            "value": ["1m","5m","10m","15m","30m","1h"],
+            "serial": 0,
+            "flags": [],
+            "name": "Control-center_BatteryScreenBlackDelay",
+            "name[zh_CN]": "使用电池-关闭显示器",
+            "description[zh_CN]": "此配置用于设置使用电池关闭显示器的时间",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "batterySleepDelay": {
+            "value": ["10m","15m","30m","1h","2h","3h"],
+            "serial": 0,
+            "flags": [],
+            "name": "Control-center_BatterySleepDelay",
+            "name[zh_CN]": "使用电池-进入待机时间",
+            "description[zh_CN]": "此配置用于设置使用电池进入待机的时间",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "batteryLockDelay": {
+            "value": ["1m","5m","10m","15m","30m","1h"],
+            "serial": 0,
+            "flags": [],
+            "name": "Control-center_BatteryLockDelay",
+            "name[zh_CN]": "使用电池-自动锁屏时间",
+            "description[zh_CN]": "此配置用于设置使用电池自动锁屏的时间",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "showHibernate": {
+            "value": true,
+            "serial": 0,
+            "flags": [],
+            "name": "show hibernate",
+            "name[zh_CN]": "下拉框显示休眠选项",
+            "description[zh_CN]": "笔记本合盖或按下电源键的下拉框中是否显示休眠",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "showShutdown": {
+            "value": true,
+            "serial": 0,
+            "flags": [],
+            "name": "show shutdown",
+            "name[zh_CN]": "下拉框显示关机选项",
+            "description[zh_CN]": "笔记本合盖或按下电源键的下拉框中是否显示关机",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "showSuspend": {
+            "value": true,
+            "serial": 0,
+            "flags": [],
+            "name": "show suspend",
+            "name[zh_CN]": "下拉框显示待机选项",
+            "description[zh_CN]": "笔记本合盖或按下电源键的下拉框中是否显示待机",
+            "description": "",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "enableScheduledShutdown": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": [],
+            "name": "enableScheduledShutdown",
+            "name[zh_CN]": "定时关机",
+            "description[zh_CN]": "",
+            "description": "控制中心-电源管理-关机设置中`定时关机`的显示状态 \n 值为 Enabled 时在控制中心正常显示 \n 值为 Disabled 时在控制中心显示禁用状态 \n 值为 Hidden 时不在控制中心显示",
+            "permissions": "readwrite",
+            "visibility": "private"
+        }
+    }
+}
+

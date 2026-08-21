@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ICON/uos/QRcode</title>
+    <defs>
+        <filter x="-15.9%" y="-11.4%" width="131.8%" height="131.8%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="1" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="50%" y1="3.90764382%" x2="50%" y2="100%" id="linearGradient-2">
+            <stop stop-color="#B2B2B2" offset="0%"></stop>
+            <stop stop-color="#7B7B7B" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="99.1887019%" id="linearGradient-3">
+            <stop stop-color="#FFFFFF" stop-opacity="0.2" offset="0%"></stop>
+            <stop stop-color="#000000" stop-opacity="0.2" offset="100%"></stop>
+        </linearGradient>
+        <path d="M5.1277704,-2.26708535e-16 L16.8722296,0 C18.6552671,0 19.3018396,0.185651222 19.9536914,0.534265408 C20.6055433,0.882879593 21.1171204,1.39445674 21.4657346,2.04630859 C21.8143488,2.69816044 22,3.34473292 22,5.1277704 L22,16.8722296 C22,18.6552671 21.8143488,19.3018396 21.4657346,19.9536914 C21.1171204,20.6055433 20.6055433,21.1171204 19.9536914,21.4657346 C19.3018396,21.8143488 18.6552671,22 16.8722296,22 L5.1277704,22 C3.34473292,22 2.69816044,21.8143488 2.04630859,21.4657346 C1.39445674,21.1171204 0.882879593,20.6055433 0.534265408,19.9536914 C0.185651222,19.3018396 0,18.6552671 0,16.8722296 L0,5.1277704 C0,3.34473292 0.185651222,2.69816044 0.534265408,2.04630859 C0.882879593,1.39445674 1.39445674,0.882879593 2.04630859,0.534265408 C2.69816044,0.185651222 3.34473292,1.31724187e-16 5.1277704,-2.26708535e-16 Z" id="path-4"></path>
+        <filter x="-20.5%" y="-20.5%" width="140.9%" height="140.9%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="3" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="-3" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0.175905642   0 0 0 0 0.175905642   0 0 0 0 0.175905642  0 0 0 0.3 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="ICON/uos/QRcode" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组" transform="translate(1, 1)" filter="url(#filter-1)">
+            <g id="矩形">
+                <use fill="url(#linearGradient-2)" fill-rule="evenodd" xlink:href="#path-4"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                <path stroke="url(#linearGradient-3)" stroke-width="1" d="M5.1277704,0.5 L16.8722296,0.5 C18.5136685,0.5 19.1159211,0.653234454 19.717892,0.975172007 C20.2813208,1.27649702 20.723503,1.71867923 21.024828,2.28210802 C21.3467655,2.88407891 21.5,3.48633153 21.5,5.1277704 L21.5,16.8722296 C21.5,18.5136685 21.3467655,19.1159211 21.024828,19.717892 C20.723503,20.2813208 20.2813208,20.723503 19.717892,21.024828 C19.1159211,21.3467655 18.5136685,21.5 16.8722296,21.5 L5.1277704,21.5 C3.48633153,21.5 2.88407891,21.3467655 2.28210802,21.024828 C1.71867923,20.723503 1.27649702,20.2813208 0.975172007,19.717892 C0.653234454,19.1159211 0.5,18.5136685 0.5,16.8722296 L0.5,5.1277704 C0.5,3.48633153 0.653234454,2.88407891 0.975172007,2.28210802 C1.27649702,1.71867923 1.71867923,1.27649702 2.28210802,0.975172007 C2.88407891,0.653234454 3.48633153,0.5 5.1277704,0.5 Z" stroke-linejoin="square"></path>
+            </g>
+        </g>
+        <path d="M17,4 C18.6568542,4 20,5.34314575 20,7 L20,17 C20,18.6568542 18.6568542,20 17,20 L7,20 C5.34314575,20 4,18.6568542 4,17 L4,7 C4,5.34314575 5.34314575,4 7,4 L17,4 Z M17,5 L7,5 C5.8954305,5 5,5.8954305 5,7 L5,17 C5,18.1045695 5.8954305,19 7,19 L17,19 C18.1045695,19 19,18.1045695 19,17 L19,7 C19,5.8954305 18.1045695,5 17,5 Z M10,13 C10.5522847,13 11,13.4477153 11,14 L11,17 C11,17.5522847 10.5522847,18 10,18 L7,18 C6.44771525,18 6,17.5522847 6,17 L6,14 C6,13.4477153 6.44771525,13 7,13 L10,13 Z M16,13 L16,15 L17,15 L17,13 L18,13 L18,16 L15,16 L15,14 L13,14 L13,18 L12,18 L12,13 L16,13 Z M17,17 L17,18 L16,18 L16,17 L17,17 Z M15,17 L15,18 L14,18 L14,17 L15,17 Z M10,14 L7,14 L7,17 L10,17 L10,14 Z M9,15 L9,16 L8,16 L8,15 L9,15 Z M11,6 C11.5522847,6 12,6.44771525 12,7 L12,11 C12,11.5522847 11.5522847,12 11,12 L7,12 C6.44771525,12 6,11.5522847 6,11 L6,7 C6,6.44771525 6.44771525,6 7,6 L11,6 Z M17,7 C17.5522847,7 18,7.44771525 18,8 L18,11 C18,11.5522847 17.5522847,12 17,12 L14,12 C13.4477153,12 13,11.5522847 13,11 L13,8 C13,7.44771525 13.4477153,7 14,7 L17,7 Z M11,7 L7,7 L7,11 L11,11 L11,7 Z M17,8 L14,8 L14,11 L17,11 L17,8 Z M10,8 L10,10 L8,10 L8,8 L10,8 Z M16,9 L16,10 L15,10 L15,9 L16,9 Z" id="形状结合" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>

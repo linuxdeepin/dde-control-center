@@ -1,0 +1,11 @@
+{
+    "name": "dde-control-center",
+    "group": "dde",
+    "submodules": [
+        {
+            "name": "org.deepin.dde.control-center",
+            "exec": "org.deepin.dde.control-center.sh"
+        }
+    ],
+    "version": "V1.0"
+}

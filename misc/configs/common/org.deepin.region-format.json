@@ -1,0 +1,127 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "country": {
+            "value": "",
+            "serial": 0,
+            "flags": ["user-public"],
+            "name": "country",
+            "name[zh_CN]": "国家/地区",
+            "description": "config country",
+            "description[zh_CN]": "配置国家/地区",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "languageRegion": {
+            "value": "",
+            "serial": 0,
+            "flags": ["user-public"],
+            "name": "language and region",
+            "name[zh_CN]": "语言和区域",
+            "description": "config language and region",
+            "description[zh_CN]": "配置语言和区域",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "localeName": {
+            "value": "",
+            "serial": 0,
+            "flags": ["user-public"],
+            "name": "language[_script][_country][.codeset][@modifier]",
+            "name[zh_CN]": "本地",
+            "description": "config locale name",
+            "description[zh_CN]": "配置本地",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "firstDayOfWeek": {
+            "value": 0,
+            "serial": 0,
+            "flags": ["user-public"],
+            "name": "First day of week",
+            "name[zh_CN]": "一周第一天",
+            "description": "config region format first day of week",
+            "description[zh_CN]": "配置区域格式一周第一天",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "shortDateFormat": {
+            "value": "",
+            "serial": 0,
+            "flags": ["user-public"],
+            "name": "short date format",
+            "name[zh_CN]": "短日期格式",
+            "description": "config region format short date",
+            "description[zh_CN]": "配置区域格式短日期格式",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "longDateFormat": {
+            "value": "",
+            "serial": 0,
+            "flags": ["user-public"],
+            "name": "long date format",
+            "name[zh_CN]": "长日期格式",
+            "description": "config region format long date",
+            "description[zh_CN]": "配置区域格式长日期格式",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "shortTimeFormat": {
+            "value": "",
+            "serial": 0,
+            "flags": ["user-public"],
+            "name": "short time format",
+            "name[zh_CN]": "短时间格式",
+            "description": "config region format short time",
+            "description[zh_CN]": "配置区域格式短时间格式",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "longTimeFormat": {
+            "value": "",
+            "serial": 0,
+            "flags": ["user-public"],
+            "name": "long time",
+            "name[zh_CN]": "长时间格式",
+            "description": "config region format long time",
+            "description[zh_CN]": "配置区域格式长时间格式",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "currencyFormat": {
+            "value": "",
+            "serial": 0,
+            "flags": [],
+            "name": "currency symbol",
+            "name[zh_CN]": "货币符号",
+            "description": "config region format currency symbol",
+            "description[zh_CN]": "配置区域货币符号",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "numberFormat": {
+            "value": "",
+            "serial": 0,
+            "flags": [],
+            "name": "number format",
+            "name[zh_CN]": "数字格式",
+            "description": "config region format number format",
+            "description[zh_CN]": "配置区域格式数字格式",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "paperFormat": {
+            "value": "",
+            "serial": 0,
+            "flags": [],
+            "name": "paper format",
+            "name[zh_CN]": "纸张格式",
+            "description": "config region format paper format",
+            "description[zh_CN]": "配置区域格式纸张格式",
+            "permissions": "readwrite",
+            "visibility": "public"
+        }
+    }
+  }

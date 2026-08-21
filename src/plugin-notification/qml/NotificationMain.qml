@@ -1,0 +1,379 @@
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-License-Identifier: GPL-3.0-or-later
+import QtQuick 2.0
+import QtQuick.Controls 2.0
+import QtQuick.Layouts 1.15
+import QtQuick.Window 2.15
+
+import org.deepin.dtk 1.0 as D
+import org.deepin.dtk.style 1.0 as DS
+
+import org.deepin.dcc 1.0
+
+DccObject {
+    id: root
+    property var appList: dccData.appItemModels
+    DccTitleObject {
+        name: "doNotDisturbNotification"
+        parentName: "notification"
+        displayName: qsTr("Do Not Disturb Settings")
+        weight: 10
+    }
+    DccObject {
+        name: "enableDoNotDisturb"
+        parentName: "notification"
+        weight: 20
+        pageType: DccObject.Item
+        page: DccGroupView {}
+        DccObject {
+            name: "enableDoNotDisturbSwitch"
+            parentName: "enableDoNotDisturb"
+            description: qsTr("App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.")
+            displayName: qsTr("Enable Do Not Disturb")
+            weight: 10
+            pageType: DccObject.Editor
+            page: D.Switch {
+                anchors {
+                    left: parent.left
+                    leftMargin: 10
+                }
+                checked: dccData.sysItemModel.disturbMode
+                onCheckedChanged: {
+                    if (dccData.sysItemModel.disturbMode !== checked) {
+                        dccData.sysItemModel.disturbMode = checked
+                    }
+                }
+            }
+        }
+        DccObject {
+            name: "enableDoNotDisturbTime"
+            parentName: "enableDoNotDisturb"
+            displayName: qsTr("Enable Do Not Disturb")
+            icon: "notification"
+            weight: 20
+            pageType: DccObject.Item
+            visible: dccData.sysItemModel.disturbMode
+            page: TimeRange {
+                anchors {
+                    left: parent.left
+                    leftMargin: 10
+                }
+            }
+        }
+        DccObject {
+            name: "enableDoNotDisturbLock"
+            parentName: "enableDoNotDisturb"
+            displayName: qsTr("Enable Do Not Disturb")
+            icon: "notification"
+            weight: 30
+            pageType: DccObject.Item
+            visible: dccData.sysItemModel.disturbMode
+            page: RowLayout {
+                anchors {
+                    left: parent.left
+                    leftMargin: 10
+                }
+                D.CheckBox {
+                    id: lockScreenCheckBox
+                    implicitHeight: implicitContentHeight + 30
+                    checked: dccData.sysItemModel.lockScreen
+                    onCheckedChanged: {
+                        if (dccData.sysItemModel.lockScreen !== checked) {
+                            dccData.sysItemModel.lockScreen = checked
+                        }
+                    }
+                }
+                D.Label {
+                    text: qsTr("When the screen is locked")
+                    MouseArea {
+                        anchors.fill: parent
+                        acceptedButtons: Qt.LeftButton
+                        onClicked: {
+                            lockScreenCheckBox.checked = !lockScreenCheckBox.checked
+                        }
+                    }
+                }
+                Item {
+                    Layout.fillWidth: true
+                }
+            }
+        }
+    }
+    DccObject {
+        name: "enableDoNotDisturb"
+        parentName: "notification"
+        displayName: qsTr("Number of notifications shown on the desktop")
+        weight: 30
+        backgroundType: DccObject.Normal
+        pageType: DccObject.Editor
+        page: D.ComboBox {
+            model: ["1", "2", "3"]
+            flat: true
+            currentIndex: dccData.sysItemModel.bubbleCount - 1
+            onCurrentIndexChanged: {
+                if (dccData.sysItemModel.bubbleCount - 1 !== currentIndex) {
+                    dccData.sysItemModel.bubbleCount = currentIndex + 1
+                }
+            }
+        }
+    }
+
+    DccObject {
+        id: appNotifyTitle
+        name: "appNotify"
+        parentName: "notification"
+        displayName: qsTr("App Notifications")
+        weight: 40
+        pageType: DccObject.Item
+
+        property bool searchVisible: false
+
+        page: RowLayout {
+
+            Component.onDestruction:   {
+                appNotifyTitle.searchVisible = false
+            }
+
+            Timer {
+                id: searchTimer
+                interval: 100
+                onTriggered: {
+                    if (searchEdit.text.length > 0) {
+                        dccData.appListModel().setFilterFixedString(searchEdit.text);
+                    } else {
+                        dccData.appListModel().setFilterWildcard("");
+                    }
+                }
+            }
+            spacing: 6
+            D.Label {
+                property D.Palette textColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.9)
+                    normalDark: Qt.rgba(1, 1, 1, 0.9)
+                }
+                Layout.alignment: Qt.AlignLeft | Qt.AlignVCenter
+                Layout.leftMargin: 12
+                text: dccObj.displayName
+                font: DccUtils.copyFont(D.DTK.fontManager.t5, {
+                                            "weight": 500
+                                        })
+                color: D.ColorSelector.textColor
+            }
+            Item { Layout.fillWidth: true }
+
+            D.SearchEdit {
+                id: searchEdit
+                visible: appNotifyTitle.searchVisible
+                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                Layout.rightMargin: 0
+                implicitWidth: 200
+                implicitHeight: 32
+                onTextChanged: {
+                    searchTimer.start()
+                }
+                onActiveFocusChanged: {
+                    if (!activeFocus && text.length === 0) {
+                        appNotifyTitle.searchVisible = false
+                    }
+                }
+                Component.onCompleted: {
+                    dccData.appListModel().setFilterWildcard("");
+                }
+            }
+
+            D.IconButton {
+                id: searchButton
+                visible: !appNotifyTitle.searchVisible
+                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                Layout.rightMargin: 0
+                icon.name: "dcc_search"
+                icon.width: 16
+                icon.height: 16
+                implicitWidth: 32
+                implicitHeight: 32
+                background: Rectangle {
+                    property D.Palette pressedColor: D.Palette {
+                        normal: Qt.rgba(0, 0, 0, 0.2)
+                        normalDark: Qt.rgba(1, 1, 1, 0.25)
+                    }
+                    property D.Palette hoveredColor: D.Palette {
+                        normal: Qt.rgba(0, 0, 0, 0.1)
+                        normalDark: Qt.rgba(1, 1, 1, 0.1)
+                    }
+                    radius: DS.Style.control.radius
+                    color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                    border {
+                        color: parent.palette.highlight
+                        width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                    }
+                }
+                onClicked: {
+                    appNotifyTitle.searchVisible = true
+                    searchEdit.forceActiveFocus()
+                }
+            }
+        }
+
+        onParentItemChanged: item => {
+            if (item) {
+                item.bottomPadding = 2
+                item.topPadding = 6
+                item.rightPadding = 0
+            }
+        }
+    }
+
+    DccObject {
+        id: applicationList
+        name: "list"
+        parentName: "notification"
+        weight: 50
+        pageType: DccObject.Item
+        page: DccGroupView {}
+        DccRepeater {
+            model: dccData.appListModel()
+            delegate: DccObject {
+                name: model.AppId
+                parentName: "notification/list"
+                pageType: DccObject.MenuEditor
+                weight: 10 + index
+                icon: model.AppIcon
+                displayName: model.AppName
+                backgroundType: DccObject.Normal
+                page: D.Switch {
+                    checked: model.EnableNotification
+                    onCheckedChanged: {
+                        if (model.EnableNotification !== checked) {
+                            model.EnableNotification = checked
+                        }
+                    }
+                }
+                DccObject {
+                    name: "notificationItemDetails"
+                    parentName: "notification/list/" + model.AppId
+                    DccObject {
+                        backgroundType: DccObject.Normal
+                        name: "allowNotifications"
+                        parentName: "notification/list/" + model.AppId + "/notificationItemDetails"
+                        displayName: qsTr("Allow Notifications")
+                        description: qsTr("Display notification on desktop or show unread messages in the notification center")
+                        icon: model.AppIcon
+                        weight: 10
+                        pageType: DccObject.Editor
+                        page: D.Switch {
+                            Layout.rightMargin: 10
+                            Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                            checked: model.EnableNotification
+                            onCheckedChanged: {
+                                if (model.EnableNotification !== checked) {
+                                    model.EnableNotification = checked
+                                }
+                            }
+                        }
+                    }
+                    DccObject {
+                        name: "notificationItemDetailsType"
+                        parentName: "notification/list/" + model.AppId + "/notificationItemDetails"
+                        backgroundType: DccObject.Normal
+                        visible: model.EnableNotification
+                        weight: 20
+                        pageType: DccObject.Item
+                        page: Rectangle {
+                            color: "transparent"
+                            implicitHeight: rowView.height + 20
+                            RowLayout {
+                                id: rowView
+                                width: parent.width
+                                anchors.centerIn: parent
+                                ImageCheckBox {
+                                    Layout.alignment: Qt.AlignCenter
+                                    text: qsTr("Desktop")
+                                    imageName: "notify_desktop"
+                                    checked: model.ShowNotificationDesktop
+                                    onCheckedChanged: {
+                                        if (checked !== model.ShowNotificationDesktop) {
+                                            model.ShowNotificationDesktop = checked
+                                        }
+                                    }
+                                }
+                                ImageCheckBox {
+                                    Layout.alignment: Qt.AlignCenter
+                                    text: qsTr("Lock Screen")
+                                    imageName: "notify_lock"
+                                    visible: false
+                                    checked: model.LockScreenShowNotification
+                                    onCheckedChanged: {
+                                        if (checked !== model.LockScreenShowNotification) {
+                                            model.LockScreenShowNotification = checked
+                                        }
+                                    }
+                                }
+                                ImageCheckBox {
+                                    Layout.alignment: Qt.AlignCenter
+                                    text: qsTr("Notification Center")
+                                    imageName: "notify_center"
+                                    checked: model.ShowNotificationCenter
+                                    onCheckedChanged: {
+                                        if (checked !== model.ShowNotificationCenter) {
+                                            model.ShowNotificationCenter = checked
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                    DccObject {
+                        name: "notificationSettingsGroup"
+                        parentName: "notification/list/" + model.AppId + "/notificationItemDetails"
+                        pageType: DccObject.Item
+                        backgroundType: DccObject.Normal
+                        visible: model.EnableNotification
+                        weight: 30
+                        page: DccGroupView {}
+                        DccObject {
+                            name: "notificationPreview"
+                            parentName: "notification/list/" + model.AppId + "/notificationItemDetails/notificationSettingsGroup"
+                            displayName: qsTr("Show message preview")
+                            pageType: DccObject.Item
+                            weight: 10
+                            page: RowLayout {
+                                D.CheckBox {
+                                    implicitHeight: 40
+                                    Layout.leftMargin: 14
+                                    text: dccObj.displayName
+                                    checked: model.EnablePreview
+                                    onCheckedChanged: {
+                                        if (model.EnablePreview !== checked) {
+                                            model.EnablePreview = checked
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                        DccObject {
+                            name: "notificationSound"
+                            parentName: "notification/list/" + model.AppId + "/notificationItemDetails/notificationSettingsGroup"
+                            displayName: qsTr("Play a sound")
+                            pageType: DccObject.Item
+                            weight: 20
+                            page: RowLayout {
+                                D.CheckBox {
+                                    implicitHeight: 40
+                                    Layout.leftMargin: 14
+                                    text: dccObj.displayName
+                                    checked: model.EnableSound
+                                    onCheckedChanged: {
+                                        if (model.EnableSound !== checked) {
+                                            model.EnableSound = checked
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+

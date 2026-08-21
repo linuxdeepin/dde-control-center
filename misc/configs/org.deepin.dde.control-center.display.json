@@ -1,0 +1,17 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "minBrightnessValue": {
+            "value": 0.1,
+            "serial": 0,
+            "flags": [],
+            "name": "minBrightnessValue",
+            "name[zh_CN]": "亮度调节最小值",
+            "description": "config brightness min value",
+            "description[zh_CN]": "控制中心显示亮度调节最小值",
+            "permissions": "readwrite",
+            "visibility": "public"
+        }
+    }
+}

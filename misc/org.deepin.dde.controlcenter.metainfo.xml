@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component type="desktop-application">
+  <id>org.deepin.dde.control-center</id>
+  <launchable type="desktop-id">org.deepin.dde.control-center.desktop</launchable>
+  <project_group>DDE</project_group>
+  <compulsory_for_desktop>DDE</compulsory_for_desktop>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0+</project_license>
+  <content_rating type="oars-1.0"/>
+  <categories>
+    <category>DDE</category>
+    <category>Qt</category>
+    <category>Settings</category>
+  </categories>
+  <name>DDE Control Center</name>
+  <name xml:lang="zh-CN">深度控制中心</name>
+  <name xml:lang="zh-TW">Deepin 控制中心</name>
+  <summary>Configuration tools for your computer</summary>
+  <summary xml:lang="ar">أدوات لضبط حاسبك</summary>
+  <summary xml:lang="az">Kompyuteriniz üçün tənzimləmə alətləri</summary>
+  <summary xml:lang="be">Інструменты для наладжвання вашага камп'ютара</summary>
+  <summary xml:lang="bg">Конфигурационни инструменти за вашия компютър</summary>
+  <summary xml:lang="ca">Eines de configuració per a l'ordinador</summary>
+  <summary xml:lang="ca-valencia">Eines de configuració per a l'ordinador</summary>
+  <summary xml:lang="cs">Konfigurační nástroje pro váš počítač</summary>
+  <summary xml:lang="da">Konfigurationsværktøjer til din computer</summary>
+  <summary xml:lang="de">Einstellungen für Ihren Rechner</summary>
+  <summary xml:lang="el">Εργαλεία διαμόρφωσης για τον υπολογιστή σας</summary>
+  <summary xml:lang="en-GB">Configuration tools for your computer</summary>
+  <summary xml:lang="eo">Agordiloj por via komputilo</summary>
+  <summary xml:lang="es">Herramientas de configuración para su equipo</summary>
+  <summary xml:lang="et">Oma arvuti tööriistade seadistamine</summary>
+  <summary xml:lang="eu">Zure ordenagailua konfiguratzeko tresnak</summary>
+  <summary xml:lang="fi">Tietokoneen ylläpitotyökalut</summary>
+  <summary xml:lang="fr">Outils de configuration pour votre ordinateur</summary>
+  <summary xml:lang="gl">Ferramentas de configuración para o computador.</summary>
+  <summary xml:lang="he">כלי הגדרה למחשב שלך</summary>
+  <summary xml:lang="hi">आपके कंप्यूटर के लिए विन्यास साधन</summary>
+  <summary xml:lang="hu">Beállítóeszközök számítógépéhez</summary>
+  <summary xml:lang="ia">Instrumentos de configuration per tu computator</summary>
+  <summary xml:lang="id">Peralatan konfigurasi untuk komputermu</summary>
+  <summary xml:lang="is">Grunnstillingaverkfæri fyrir tölvuna þína</summary>
+  <summary xml:lang="it">Strumenti di configurazione per il tuo computer</summary>
+  <summary xml:lang="ja">コンピュータ設定ツール</summary>
+  <summary xml:lang="ka">თქვენი კომპიუტერის თქვენზე მორგების ხელსაწყოები</summary>
+  <summary xml:lang="ko">컴퓨터 설정 도구</summary>
+  <summary xml:lang="lt">Jūsų kompiuterio konfigūravimo įrankiai</summary>
+  <summary xml:lang="ml">നിങ്ങളുടെ കമ്പ്യൂട്ടറിനുള്ള ക്രമീകരണങ്ങൾ</summary>
+  <summary xml:lang="my">သင့်ကွန်ပြူတာအတွက် ပြင်ဆင်ရေးကိရိယာများ</summary>
+  <summary xml:lang="nb">Oppsettsverktøy for datamaskinen</summary>
+  <summary xml:lang="nl">Hulpmiddelen voor configuratie van uw computer</summary>
+  <summary xml:lang="nn">Oppsettverktøy for datamaskina</summary>
+  <summary xml:lang="pa">ਤੁਹਾਡੇ ਕੰਪਿਊਟਰ ਲਈ ਸੰਰਚਨਾ ਟੂਲ</summary>
+  <summary xml:lang="pl">Narzędzia ustawień dla twojego komputera</summary>
+  <summary xml:lang="pt">Ferramentas de configuração do seu computador</summary>
+  <summary xml:lang="pt-BR">Ferramentas de configuração para seu computador</summary>
+  <summary xml:lang="ro">Unelte de configurare pentru calculator</summary>
+  <summary xml:lang="ru">Инструменты для настройки компьютера</summary>
+  <summary xml:lang="sa">भवतः सङ्गणकस्य कृते समायोजनानिसाधनम्</summary>
+  <summary xml:lang="sk">Koniguračné nástroje pre váš počítač</summary>
+  <summary xml:lang="sl">Orodja za nastavitve vašega računalnika</summary>
+  <summary xml:lang="sv">Inställningsverktyg för datorn</summary>
+  <summary xml:lang="ta">உங்கள் கணினியை அமைக்க உதவும் கருவிகள்</summary>
+  <summary xml:lang="tg">Абзорҳои танзимотӣ барои компютери шумо</summary>
+  <summary xml:lang="tr">Bilgisayarınız için yapılandırma araçları</summary>
+  <summary xml:lang="uk">Інструменти для налаштовування вашого комп'ютера</summary>
+  <summary xml:lang="vi">Các công cụ cấu hình cho máy tính của bạn</summary>
+  <summary xml:lang="x-test">xxConfiguration tools for your computerxx</summary>
+  <summary xml:lang="zh-CN">您的计算机的配置工具</summary>
+  <summary xml:lang="zh-TW">適用於您電腦的設定工具</summary>
+  <icon type="stock">systemsettings</icon>
+  <description>
+    <p>DDE Control Center allows you to configure and tweak your DDE desktop to make it better meet your needs.</p>
+    <p xml:lang="zh-CN">深度控制中心让您可以按需配置和调整 DDE 桌面环境。</p>
+  </description>
+  <url type="bugtracker">https://github.com/linuxdeepin/developer-center/issues/</url>
+  <url type="help">https://github.com/linuxdeepin/developer-center/issues/</url>
+  <url type="homepage">https://bbs.deepin.org/</url>
+  <releases>
+    <release version="6.0.38" date="2024-01-13"/>
+  </releases>
+</component>

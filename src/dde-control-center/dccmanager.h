@@ -1,0 +1,167 @@
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+#ifndef DCCMANAGER_H
+#define DCCMANAGER_H
+#include "dccapp.h"
+#include "dccobject.h"
+
+#include <DConfig>
+#include <DSysInfo>
+
+#include <QDBusContext>
+#include <QDBusMessage>
+#include <QObject>
+
+QT_BEGIN_NAMESPACE
+class QWindow;
+class QQmlApplicationEngine;
+class QAbstractItemModel;
+class QScreen;
+QT_END_NAMESPACE
+
+namespace dccV25 {
+class NavigationModel;
+class SearchModel;
+class DccPluginManager;
+class DccImageProvider;
+
+class DccManager : public DccApp, protected QDBusContext
+{
+    Q_OBJECT
+public:
+    explicit DccManager(QObject *parent = nullptr);
+    ~DccManager() override;
+
+    static bool installTranslator(const QString &name);
+    void init();
+    QQmlApplicationEngine *engine();
+    void setMainWindow(QWindow *window);
+    void loadModules(bool async, const QStringList &dirs);
+
+    int width() const override;
+    int height() const override;
+    int sidebarWidth() const override;
+    void setSidebarWidth(int width) override;
+
+    inline DccObject *root() const override { return m_root; }
+
+    inline DccObject *activeObject() const override { return m_activeObject; }
+
+    inline const QVector<DccObject *> &currentObjects() const override { return m_currentObjects; }
+
+    inline const QVector<DccObject *> &triggeredObjects() const override { return m_triggeredObjects; }
+
+    Q_INVOKABLE DccApp::UosEdition uosEdition() const;
+    Q_INVOKABLE Dtk::Core::DSysInfo::ProductType productType() const;
+
+    Q_INVOKABLE bool isTreeland() const;
+
+    inline const QSet<QString> &hideModule() const { return m_hideModule; }
+
+public Q_SLOTS:
+    DccObject *object(const QString &name) override;
+    void addObject(DccObject *obj) override;
+    void removeObject(DccObject *obj) override;
+    void removeObject(const QString &name) override;
+    void showPage(const QString &url) override;
+    void showPage(DccObject *obj);
+    void showPage(DccObject *obj, const QString &cmd) override;
+    void toBack();
+    QWindow *mainWindow() const override;
+    QAbstractItemModel *navModel() const override;
+    QSortFilterProxyModel *searchModel() const override;
+    void cacheImage(const QString &id, const QSize &thumbnailSize = QSize());
+
+    void show();
+    void toggle();
+    void showHelp();
+    // DBus Search
+    QString search(const QString &json) const;
+    QString searchProxy(const QString &json) const;
+    bool stop(const QString &json);
+    bool action(const QString &json);
+    QString GetAllModule();
+    void onDccObjectDestroyed(DccObject *obj);
+
+Q_SIGNALS:
+    void activeItemChanged(QQuickItem *item, bool isIndicatorShown);
+    void hideModuleChanged(const QSet<QString> &hideModule);
+
+private:
+    void initConfig();
+    bool contains(const QSet<QString> &urls, const DccObject *obj);
+    QStringList splitUrl(const QString &url, QString &targetName);
+    bool isMatchByName(const QString &url, const QString &name);
+    bool isMatch(const QString &url, const DccObject *obj);
+    bool isEqualByName(const QString &url, const QString &name);
+    bool isEqual(const QString &url, const DccObject *obj);
+    DccObject *findObject(const QString &url);
+    QVector<DccObject *> findObjects(const QString &url, bool one = false);
+    const DccObject *findParent(const DccObject *obj);
+    bool eventFilter(QObject *watched, QEvent *event) override;
+    bool isIndicatorShown(const QString &cmd) const;
+    QString parseShowPageUrl(const QString &url, QString &cmd) const;
+    void replyShowPageRequest(const QString &url, const QDBusMessage &message, bool found) const;
+    void startPendingShow(const QString &url, const QDBusMessage &message);
+
+private Q_SLOTS:
+    void saveSize();
+    void onWindowStateChanged();
+    void handleScreenAdded(QScreen *screen);
+    void waitShowPage(const QString &url, const QDBusMessage message);
+    void clearShowParam();
+    void handleShowReady();
+    void tryShow();
+    void tryShowFallback();
+    void doShowPage(QPointer<DccObject> obj, const QString &cmd);
+    void updateModuleConfig(const QString &key);
+    void onVisible(bool visible);
+    void onObjectAdded(DccObject *obj);
+    void onObjectRemoved(DccObject *obj);
+    void onObjectDisplayChanged();
+    bool addObjectToParent(DccObject *obj);
+    bool removeObjectFromParent(DccObject *obj);
+    void clearData();
+    void waitLoadFinished() const;
+    void doGetAllModule(const QDBusMessage message) const;
+    void onPageStayTimeout();
+
+private:
+    DccObject *m_root;
+    DccObject *m_activeObject;    // 当前定位的项
+    DccObject *m_hideObjects;     // 隐藏的项
+    DccObject *m_noAddObjects;    // 未找到父对象的
+    DccObject *m_noParentObjects; // 没有父对象的
+
+    QVector<DccObject *> m_currentObjects;   // 当前显示的页面路径，从根页面到当前页面
+    QVector<DccObject *> m_triggeredObjects; // 用户交互触发的对象路径，从根菜单到当前子控件
+
+    DccPluginManager *m_plugins;
+    QPointer<QWindow> m_window;
+    Dtk::Core::DConfig *m_dconfig;
+    QSet<QString> m_hideModule;
+    QSet<QString> m_disableModule;
+    QQmlApplicationEngine *m_engine;
+    NavigationModel *m_navModel;
+    SearchModel *m_searchModel;
+    DccImageProvider *m_imageProvider;
+    int m_sidebarWidth;
+    // DBus调用时，对应项还没加载完成，此处保存跳转参数
+    QTimer *m_showTimer;
+    QTimer *m_showFallbackTimer;
+    QString m_showUrl;
+    QDBusMessage m_showMessage;
+    bool m_showPagePending;
+    bool m_showLoadPage;
+    bool m_needShow;
+
+    QHash<QString, QVector<DccObject *>> m_objMap; // 映射对象名称到对象指针列表，用于快速查找
+
+#ifdef HAVE_DDE_API_EVENTLOGGER
+    QTimer *m_pageStayTimer;
+    QStringList m_lastPageTags;
+#endif
+};
+} // namespace dccV25
+#endif // DCCMANAGER_H

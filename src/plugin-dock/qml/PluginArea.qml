@@ -1,0 +1,132 @@
+//SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+//
+//SPDX-License-Identifier: GPL-3.0-or-later
+
+import QtQuick 2.15
+import QtQuick.Window 2.15
+import QtQuick.Controls 2.3
+import QtQuick.Layouts 1.15
+
+import org.deepin.dcc 1.0
+import org.deepin.dtk 1.0 as D
+
+DccObject {
+    Connections {
+        target: DccApp
+        function onActiveObjectChanged(activeObject) {
+            if (activeObject.name === "pluginArea") {
+                console.log("pluginArea object activated, refreshing plugin data...")
+                dccData.loadPluginData()
+            }
+        }
+    }
+
+    DccObject {
+        name: "pluginAreaTitle"
+        weight: 10
+        parentName: "personalization/dock/pluginArea"
+        pageType: DccObject.Item
+        displayName: qsTr("Plugin Area")
+        description: qsTr("Select which icons appear in the Dock")
+        onParentItemChanged: item => { if (item) item.activeFocusOnTab = false }
+        page: ColumnLayout {
+            Label {
+                property D.Palette textColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.9)
+                    normalDark: Qt.rgba(1, 1, 1, 0.9)
+                }
+                font.family: D.DTK.fontManager.t5.family
+                font.pixelSize: D.DTK.fontManager.t5.pixelSize
+                font.weight: 500
+                Layout.leftMargin: 14
+                text: dccObj.displayName
+                color: D.ColorSelector.textColor
+            }
+            Label {
+                Layout.leftMargin: 14
+                text: dccObj.description
+            }
+        }
+    }
+
+    DccObject {
+        name: "pluginAreaView"
+        parentName: "personalization/dock/pluginArea"
+        weight: 100
+        pageType: DccObject.Item
+        page: DccGroupView {}
+
+        DccRepeater {
+            model: dccData.pluginModel
+            delegate: DccObject {
+                name: "plugin" + model.key
+                property real iconSize: 16
+                parentName: "personalization/dock/pluginArea/pluginAreaView"
+                weight: 10 + index * 10
+                backgroundType: DccObject.Normal
+                icon: model.icon
+                displayName: model.displayName
+                pageType: DccObject.Editor
+                page: DccCheckIcon {
+                    checked: model.visible
+                    onClicked: {
+                        dccData.dockInter.setItemOnDock(model.settingKey, model.key, !checked)
+                    }
+                }
+                onParentItemChanged: function(item) {
+                    if (!item) return
+                    
+                    item.activeFocusOnTab = true
+                    function isSameGroup(obj) {
+                        return obj && obj.toString().indexOf("DccEditorItem") >= 0
+                    }
+                    
+                    function findContainer() {
+                        var container = item.parent
+                        while (container && container.children.length <= 1) {
+                            container = container.parent
+                        }
+                        return container
+                    }
+                    
+                    function findEdgeItem(forward) {
+                        var container = findContainer()
+                        if (!container) return null
+                        
+                        var siblings = container.children
+                        if (forward) {
+                            for (var i = siblings.length - 1; i >= 0; i--) {
+                                if (isSameGroup(siblings[i])) return siblings[i]
+                            }
+                        } else {
+                            for (var i = 0; i < siblings.length; i++) {
+                                if (isSameGroup(siblings[i])) return siblings[i]
+                            }
+                        }
+                        return null
+                    }
+                    
+                    item.Keys.onUpPressed.connect(function() {
+                        var next = item.nextItemInFocusChain(false)
+                        if (isSameGroup(next)) {
+                            next.forceActiveFocus(Qt.BacktabFocusReason)
+                        } else {
+                            var lastItem = findEdgeItem(true)
+                            if (lastItem) lastItem.forceActiveFocus(Qt.BacktabFocusReason)
+                        }
+                    })
+                    
+                    item.Keys.onDownPressed.connect(function() {
+                        var next = item.nextItemInFocusChain(true)
+                        if (isSameGroup(next)) {
+                            next.forceActiveFocus(Qt.TabFocusReason)
+                        } else {
+                            var firstItem = findEdgeItem(false)
+                            if (firstItem) firstItem.forceActiveFocus(Qt.TabFocusReason)
+                        }
+                    })
+                }
+            }
+        }
+    }
+}

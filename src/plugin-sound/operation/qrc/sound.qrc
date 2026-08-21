@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/icons/deepin/builtin">
+        <file>actions/dcc_volume1_32px.svg</file>
+        <file>actions/dcc_volume2_32px.svg</file>
+        <file>actions/dcc_volume3_32px.svg</file>
+        <file>actions/checked.png</file>
+        <file>actions/nocheck.png</file>
+        <file>icons/play_back.dci</file>
+        <file>icons/sound_off.dci</file>
+        <file>icons/small_volume.dci</file>
+        <file>icons/big_volume.dci</file>
+        <file>icons/dcc_volume2.dci</file>
+        <file>icons/dcc_volume3.dci</file>
+        <file>icons/dcc_volume1.dci</file>
+        <file>icons/dark/volume_sound_wave_ani.webp</file>
+        <file>icons/light/volume_sound_wave_ani.webp</file>
+    </qresource>
+</RCC>

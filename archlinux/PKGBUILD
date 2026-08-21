@@ -1,0 +1,45 @@
+pkgname=deepin-control-center-git
+_pkgname=deepin-control-center
+pkgver=5.4.47.r673.g52c86a908
+pkgrel=1
+sourcename=dde-control-center
+sourcetars=("$sourcename"_"$pkgver".tar.xz)
+sourcedir="$sourcename"
+pkgdesc='New control center for linux deepin'
+arch=('x86_64' 'aarch64')
+url="https://github.com/linuxdeepin/dde-control-center"
+license=('GPL3')
+depends=('dtkwidget-git' 'libpwquality' 'doxygen'
+         'deepin-daemon-git' 'startdde-git'
+         'deepin-pw-check-git' 'qt5-gsettings' 'icu')
+makedepends=('git' 'cmake' 'ninja' 'qt5-tools' 'qt5-base' 'qt5-x11extras' 
+             'qt5-multimedia' 'qt5-svg' 'dtkcommon-git' 'dtkcore-git' 'dtkwidget-git' 'dtkgui-git'
+             'gtest' 'gmock' 'polkit-qt5' 'systemd')
+optdepends=('redshift: automatic color temperature support')
+# Not packaged: network-manager-l2tp
+conflicts=('deepin-control-center')
+provides=('deepin-control-center')
+optdepends=('deepin-network-core-git' 'networkmanager-qt')
+groups=('deepin-git')
+source=("${sourcetars[@]}")
+sha512sums=('SKIP')
+prepare() {
+    cd $sourcedir
+}
+
+build() {
+  cd $sourcedir
+  cmake -GNinja \
+        -DCMAKE_INSTALL_PREFIX=/usr \
+        -DDISABLE_UPDATE=ON \
+        -DDISABLE_AUTHENTICATION=ON \
+        -DDISABLE_LANGUAGE=ON \
+        -DCMAKE_INSTALL_LIBDIR=/usr/lib \
+        -DCMAKE_INSTALL_LOCALSTATEDIR=/var
+  ninja
+}
+
+package() {
+  cd $sourcedir
+  DESTDIR="$pkgdir" ninja install
+}

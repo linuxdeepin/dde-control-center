@@ -1,0 +1,87 @@
+Source: dde-control-center
+Section: admin
+Priority: optional
+Maintainer: Deepin Sysdev <sysdev@deepin.com>
+Build-Depends:
+ debhelper-compat (= 12),
+ pkg-config,
+ cmake,
+ qt6-base-dev,
+ qt6-declarative-dev,
+ qt6-tools-dev,
+ qt6-declarative-private-dev,
+ qt6-multimedia-dev,
+ libpolkit-qt6-1-dev,
+ libdtkcommon-dev,
+ libdtk6gui-dev(>=6.0.21),
+ libdtk6core-dev,
+ libdtk6core-bin,
+ doxygen,
+ libgtest-dev,
+ extra-cmake-modules,
+ libqt6svg6,
+ deepin-gettext-tools,
+ qml6-module-qtquick-layouts,
+ qml6-module-qtquick-window,
+ qml6-module-qt-labs-qmlmodels,
+ qt6-wayland-dev,
+ qt6-wayland-private-dev,
+ qt6-wayland-dev-tools,
+ wlr-protocols,
+ treeland-protocols (>>0.5.8),
+ systemd,
+ libdareader-dev,
+ libdeepin-pw-check-dev,
+ libicu-dev,
+ libwayland-dev,
+ libssl-dev,
+ libdde-shell-dev(>= 1.99.20),
+ libdpkg-dev,
+ libffmpegthumbnailer-dev,
+ dde-api-dev (>> 6.0.39)
+Standards-Version: 4.5.0
+Homepage: https://github.com/linuxdeepin/dde-control-center
+
+Package: dde-control-center
+Architecture: any
+Depends:
+ ${shlibs:Depends}, ${misc:Depends},
+ qml6-module-qtquick-layouts,
+ qml6-module-qtquick-window,
+ qml6-module-qt-labs-qmlmodels,
+ qml6-module-qtquick-dialogs,
+ qml6-module-qtquick-effects,
+ libdtk6declarative(>> 6.7.40),
+ netselect,
+ dde-daemon (>> 6.1.99),
+ dde-services (>> 1.0.38),
+ deepin-security-loader,
+Recommends: uos-license-content,
+Conflicts: dde-control-center-dock
+Replaces: dde-control-center-dock
+Description: New control center for Deepin Desktop Environment,
+ Integrated control center with rich functions,Besides providing rich
+ system setting items, the function level is simple, the logic is clear,
+ the user can easily set the system, and the learning cost is low,
+ Provide users with automatic update system and developer mode to meet
+ the various needs of users for the operating system.
+ abrecovery -restore system, Determine whether the system is restored
+ reboot-reminder-dialog -Update restart, Confirm whether to restart the system
+ after the completion of the update.
+ DDE Control Center is the control panel of Deepin Desktop Environment.
+
+Package: dde-control-center-dev
+Architecture: any
+Depends: 
+ dde-control-center (= ${binary:Version}),
+ qt6-declarative-dev,
+ qt6-tools-dev,
+ ${misc:Depends},
+Description: New control center for Deepin Desktop Environment - development files
+ DDE Control Center is the control panel of Deepin Desktop Environment.
+
+Package: dde-control-center-doc
+Architecture: any
+Depends: dde-control-center (= ${binary:Version}), ${misc:Depends}
+Description: dde-control-center (document)
+ This package contains the doc files of dde-control-center

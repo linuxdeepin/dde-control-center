@@ -1,0 +1,2585 @@
+dde-control-center (6.1.104) unstable; urgency=medium
+
+  * fix: remove redundant isDeleting guard in LoadDataTask
+  * fix: remember control center maximized state across restarts
+  * fix: refresh shortcuts and gestures after service restart
+  * fix: use shortcut-owned lock key configuration
+  * fix: improve shortcut capture failure feedback
+  * i18n: Updates for project Deepin Desktop Environment (#3402)
+
+ -- Kun Zhang <zhangkun2@uniontech.com>  Tue, 11 Aug 2026 20:57:31 +0800
+
+dde-control-center (6.1.103) unstable; urgency=medium
+
+  * fix(time-range): apply manually entered time on edit finish
+  * fix: place language and region after time and date
+  * i18n: Updates for project Deepin Desktop Environment (#3384)
+  * fix: avoid shortcut pinyin expansion stalls
+  * fix: skip control center loading page under Treeland
+  * i18n: Updates for project Deepin Desktop Environment (#3387)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 06 Aug 2026 15:53:12 +0800
+
+dde-control-center (6.1.102) unstable; urgency=medium
+
+  * fix(authentication): set fixed height and vertical center alignment
+    for biometric name display
+  * fix(datetime): scroll to highlighted item on popup reopen
+  * refactor: resolve boot page image source empty path issue
+  * fix: refactor account group list to simplify focus and event
+    handling
+  * chore: replace help icon with dcc style icon
+  * fix(personalization): apply greeter background in global theme
+  * fix: show the complete NTP server list
+  * i18n: Updates for project Deepin Desktop Environment (#3355)
+  * fix: limit custom shortcut names to 128 characters
+  * fix: use uint for NumLock DBus calls
+  * i18n: Updates for project Deepin Desktop Environment (#3377)
+  * fix: clarify custom shortcut conflict guidance
+  * fix: synchronize NumLock state from DBus
+  * fix(datetime): strip timezone tokens via DCCLocale helper across
+    locales
+  * fix: align custom shortcut conflict actions
+
+ -- zhangkun <zhangkun2@uniontech.com>  Mon, 03 Aug 2026 17:24:52 +0800
+
+dde-control-center (6.1.101) unstable; urgency=medium
+
+  * fix(wallpaper): show video previews
+  * Revert "fix(sound): avoid duplicate muted volume feedback"
+  * fix(CI): broken cppcheck
+  * fix(personalization): prevent screen indicator creating extra
+    taskbar entries
+  * fix: select default screen when current screen is no longer
+    available
+  * refactor: handle undefined aniIconPath in DeviceListView
+  * refactor: refactor Connectons signal handling in DevelopModePage
+  * fix: hide DccLabel tooltip during page switch
+  * perf(wallpaper): defer thumbnail delegates
+  * feat: migrate shortcut and gesture settings to dde-services
+  * fix(display): refine Treeland layout
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 23 Jul 2026 21:57:16 +0800
+
+dde-control-center (6.1.100) unstable; urgency=medium
+
+  * fix(shortcuts): add spacer item for conflict text layout alignment
+  * fix: improve name validation logic in authentication dialog
+  * refactor: correct D-Bus signal connections to use specific service
+    and
+  * refactor: fix other accounts search feature using wrong search
+  * i18n: Translate dde-control-center_en.ts in pt_BR
+  * fix(dcc-plugin): adjust MenuEditor switch and arrow alignment
+  * fix(accounts): correct ComboBox dropdown arrow position
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 16 Jul 2026 21:47:12 +0800
+
+dde-control-center (6.1.99) unstable; urgency=medium
+
+  * fix: resolve DciIcon animation jitter
+  * fix: handle setTimezone failure by updating model with current zone
+  * fix: adjust focus policy for group edit button in account settings
+  * fix: optimize timezone data access and add display name caching
+  * refactor: resolve rightItemTopMargin warning and adjust item spacing
+  * refactor: resolve QML undefined behavior warnings in
+  * fix: prevent scroll bounce and focus jump when switching apps in
+  * fix(display): fix treeland display mode determination logic
+  * fix(sound): avoid duplicate muted volume feedback
+  * fix(wallpaper): pass custom wallpaper by fd
+  * fix: prevent numLock write-back on keyboard page re-entry
+  * fix: add user timezone existence check in datetime plugin
+  * fix(personalization): reset wallpaper state per backend
+  * fix: refactor popup width calculation into reusable
+    AutoSizingComboBox
+  * fix: listen keyboard-state-notify for NumLock sync
+  * fix(personalization): preserve custom Treeland wallpaper
+  * fix: clear stale checkmark in datetime timezone add dialog
+  * feat(keyboard): consume shortcut category metadata
+  * fix: pass control center help fallback candidates
+  * feat(keyboard): wire custom shortcut CRUD on Wayland
+  * fix(accounts): center avatar empty state
+  * i18n: Updates for project Deepin Desktop Environment (#3295)
+  * fix: defer DSysInfo queries in plugins to avoid dlopen deadlock
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 09 Jul 2026 19:29:16 +0800
+
+dde-control-center (6.1.98) unstable; urgency=medium
+
+  * fix: prevent fallback page from overriding pending showPage requests
+
+ -- xujin <xujin@uniontech.com>  Wed, 01 Jul 2026 11:06:07 +0800
+
+dde-control-center (6.1.97) unstable; urgency=medium
+
+  * fix: improve overlay window behavior on X11 and add background
+    styling
+
+ -- zhangkun <zhangkun2@uniontech.com>  Mon, 29 Jun 2026 17:04:31 +0800
+
+dde-control-center (6.1.96) unstable; urgency=medium
+
+  * fix(personalization): remove unreliable 2x2 image for wallpaper dark
+    type detection
+  * chore: Sync by
+    https://github.com/linuxdeepin/.github/commit/88706fa723e3771211cb07
+    81d3d97fd4a6cd2a68
+  * fix(notification): use bundled search icon instead of dde-grand-
+    search
+  * fix(desktop): add trailing semicolon to Categories field
+  * fix(authentication): improve name editor layout and add focus border
+
+ -- zhangkun <zhangkun2@uniontech.com>  Wed, 24 Jun 2026 15:35:35 +0800
+
+dde-control-center (6.1.95) unstable; urgency=medium
+
+  * fix: fingerprint enrollment dialog becomes unresponsive after losing
+    focus
+  * fix(personalization): remove all files filter from wallpaper dialog
+  * fix: move fallback timer stop to after page show completes
+  * fix(accounts): fix password field binding and input hints
+
+ -- zhangkun <zhangkun2@uniontech.com>  Wed, 17 Jun 2026 16:28:20 +0800
+
+dde-control-center (6.1.94) unstable; urgency=medium
+
+  * fix: set max width for DccLabel tooltip
+  * fix: use layer-shell for screen indicator on wayland
+  * refactor: remove unused PersonalizationWallpaperContext class
+  * fix(personalization): fix treeland theme switching logic
+  * fix(treeland): guard wallpaper output lifecycle
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Wed, 17 Jun 2026 13:23:25 +0800
+
+dde-control-center (6.1.93) unstable; urgency=medium
+
+  * feat: integrate deepin-security-loader for privileged service access
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 12 Jun 2026 09:22:53 +0800
+
+dde-control-center (6.1.92) unstable; urgency=medium
+
+  * fix(display): migrate concat screen management to daemon
+  * fix(dock): keep dock size slider responsive
+  * fix: request authorization for folder privacy permissions
+  * fix: fix region format dialog showing behind parent window
+  * i18n: Updates for project Deepin Desktop Environment (#3284)
+  * fix: add tap support for hover-only buttons
+  * fix: handle treeland restart crash and prevent double connections
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 11 Jun 2026 21:45:06 +0800
+
+dde-control-center (6.1.91) unstable; urgency=medium
+
+  * fix: enable PIC for shared-utils on aarch64
+  * feat: use ReplaceHotkey for atomic conflict resolution on Wayland
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 04 Jun 2026 21:50:52 +0800
+
+dde-control-center (6.1.90) unstable; urgency=medium
+
+  * feat: adapt color temperature for Treeland
+  * fix: add null pointer checks for D-Bus proxy member variables
+  * feat: adapt keyboard shortcuts and mouse gestures for Wayland
+  * fix: ensure control center displays when showing specific page
+  * feat: set control-center as singleton application
+  * feat: add Treeland Wayland input device support for keyboard and
+    mouse settings
+  * fix: restore DccQuickRepeater to prevent timer warning on quit
+  * fix(systeminfo): fix EULA path and remove hardcoded extension
+  * refactor(datetime): replace hand-rolled Window popup with DTK Popup
+  * fix(touchpad): fix gesture display order inconsistent on first
+    launch
+  * i18n: Updates for project Deepin Desktop Environment (#3268)
+  * feat(display): add virtual output protocol for clone mode
+  * refactor(personalization): move theme models from interface to model
+  * fix(authentication): fix background persisting and buttons
+    misalignment after cancel rename
+  * fix(treeland-worker): bind wallpaper context lifecycle to screen and
+    improve error logging
+  * fix(power): remove Wayland visibility restrictions on power settings
+  * refactor(personalization): use libffmpegthumbnailer for video
+    thumbnails
+  * fix(wallpaper): replace visibility/scale with opacity animation for
+    delete button
+  * fix(personalization): hide automatic wallpaper option in Treeland
+    environment
+  * fix: prevent hang when canceling plugin loading
+  * feat(dccquickdbusinterface): add enabled property to control D-Bus
+    connection
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 04 Jun 2026 19:44:13 +0800
+
+dde-control-center (6.1.89) unstable; urgency=medium
+
+  * Release 6.1.89
+
+ -- zhangkun <zhangkun2@uniontech.com>  Mon, 25 May 2026 11:37:57 +0800
+
+dde-control-center (6.1.88) unstable; urgency=medium
+
+  * feat(display): add help icon with tooltip for concat screen
+  * fix(display): disable primary screen switch and screen identify in
+    concat screen mode
+  * fix: remove duplicate title label in timeout dialog
+  * fix: update model accels role after shortcut data changes
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 22 May 2026 21:30:24 +0800
+
+dde-control-center (6.1.87) unstable; urgency=medium
+
+  * feat(display): add translation for "Concat Screen" in
+    zh_CN/zh_HK/zh_TW
+  * feat(display): add multi-monitor concat screen support
+  * refactor: decouple MouseDBusProxy from MouseWorker using signal-slot
+    pattern
+  * feat: use DTK single instance and fix window activation under
+    Wayland
+  * fix(privacy): resolve symlink before dpkg-query for correct package
+    resolution
+  * fix: remove redundant dialog titles
+  * fix: restore sidebar display after window minimization
+  * fix: resolve visibility and focus issues in control center
+
+ -- zhangkun <zhangkun2@uniontech.com>  Wed, 20 May 2026 16:43:24 +0800
+
+dde-control-center (6.1.86) unstable; urgency=medium
+
+  * feat(wallpaper): add live wallpaper download and install support
+  * i18n: Updates for project Deepin Desktop Environment (#3235)
+  * feat: 更新翻译
+  * feat: add auto brightness toggle
+  * fix: filter nodes with empty displayName in event logger page tags
+  * fix: persist display scale after logout and re-login
+  * fix: set plugin install dir to system path in debug build
+  * fix: update event logger ID for control center page stay
+  * fix(display): adjust layout on scale change in extend mode
+  * fix: normalize space symbol checks
+  * i18n: Updates for project Deepin Desktop Environment (#3222)
+  * fix: align scrollbar appearance with DTK style
+  * i18n: Updates for project Deepin Desktop Environment (#3220)
+  * fix(wallpaper): enable per-screen wallpaper setting for treeland
+  * fix: replace external license dialog with embedded dialog for user experience program
+
+ -- zhangkun <zhangkun2@uniontech.com>  Sat, 16 May 2026 15:44:10 +0800
+
+dde-control-center (6.1.85) unstable; urgency=medium
+
+  * fix: Fix Tab key cycling in control center settings pages
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 08 May 2026 16:44:10 +0800
+
+dde-control-center (6.1.84) unstable; urgency=medium
+
+  * refactor: split PluginManager into DccPluginLoader and
+    DccPluginManager
+  * fix: adjust path calculation for handle alignment
+  * fix: add first letter search support for apps list
+  * fix: reset search state on notification page destruction
+  * fix: Fix extra taskbar icons when opening developer mode disclaimer
+  * fix: adjust the editing button style for "Biometric Authentication"
+  * feat(wallpaper): adapt new wallpaper protocol and support live
+    wallpaper
+  * fix: clear conflict UI after shortcut edit
+  * fix: clear shortcut editing state on deactive
+  * i18n: Updates for project Deepin Desktop Environment (#3200)
+  * feat: add cmake find_package support and auto-init for EventLogger 为
+    EventLogger 添加 cmake find_package 支持和自动初始化
+  * fix: adjust the layout of the custom Repeat time control
+  * fix: Optimize the issue of slow entry into the Bluetooth interface
+  * fix: fix activeTimers crash in control center
+  * fix: adjust the click area for Time Range Control
+  * fix: fix the issue of slow default recovery of system shortcut keys
+  * refactor: optimize DccObject parent management and simplify memory
+    handling
+  * fix: add tooltips to automatically elided text
+  * fix: Make the selected region visible when entering the Regional
+    format pop-up window.
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 08 May 2026 15:45:13 +0800
+
+dde-control-center (6.1.83) unstable; urgency=medium
+
+  * build: add dde-api-dev build dependency
+  * i18n: Updates for project Deepin Desktop Environment (#3179)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 24 Apr 2026 13:18:28 +0800
+
+dde-control-center (6.1.82) unstable; urgency=medium
+
+  * feat: add event logger integration for control center
+  * perf(wallpaper): optimize wallpaper thumbnail loading with
+    QImageReader scaling
+  * refactor: simplify plugin loading by removing async loading
+  * Revert "fix: use QQmlIncubator for asynchronous plugin object
+    creation"
+  * fix: Optimize the typesetting layout of open-source software
+    declarations
+  * feat(notification): add app notification search functionality
+  * fix(display): use screen dimensions instead of currentResolution for
+    Qt screen matching
+  * fix: use QQmlIncubator for asynchronous plugin object creation
+  * docs: update v25 dcc interface documentation
+  * i18n: Updates for project Deepin Desktop Environment (#3170)
+  * fix: prevent control center from not closing properly
+  * fix: Window size not correctly restored after maximisation
+  * fix: optimize page visibility management in DccWindow
+  * fix(datetime): add real-time display for timezone information
+  * i18n: Updates for project Deepin Desktop Environment (#3127)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 23 Apr 2026 21:46:05 +0800
+
+dde-control-center (6.1.81) unstable; urgency=medium
+
+  * feat: improve DccRepeater parent object assignment
+  * fix: dconfig controls whether the username is displayed in the
+    verification password pop-up window
+  * fix: fix control center plugin loading and page display logic
+  * fix: Optimize the typesetting layout of open-source software
+    declarations
+  * fix: defer icon source resolution until component completion
+  * fix: synchronize plugin data phase loading
+  * refactor: move plugin factory preparation before module loading
+  * refactor: remove mutex lock and use async processing for image
+    provider
+  * fix: improve keyboard navigation focus management and rename
+    property
+  * fix(sound): fix Bluetooth audio mode detection and switching logic
+  * fix: DConfig controls whether the boot menu item area supports
+    editing the wallpaper
+  * fix: Modify the background transparency of the account creation
+    screen
+  * fix: correct text color property type and logic
+  * fix(datetime): fix layout overlap in RegionFormatDialog
+  * fix(ui): optimize layout and visibility control for list items
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 09 Apr 2026 20:27:22 +0800
+
+dde-control-center (6.1.80) unstable; urgency=medium
+
+  * fix: add support for markdown format in user license
+  * fix: update license file search logic and UI improvements
+  * fix: enable TLS certificate verification for avatar downloads
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 03 Apr 2026 13:05:02 +0800
+
+dde-control-center (6.1.79) unstable; urgency=medium
+
+  * chore(systeminfo): remove redundant Copyright fields from license
+    files
+  * fix(systeminfo): prevent auth dialog loop by transferring focus to
+    edit button
+
+ -- zhangkun <zhangkun2@uniontech.com>  Mon, 30 Mar 2026 15:16:14 +0800
+
+dde-control-center (6.1.78) unstable; urgency=medium
+
+  * fix: defer object creation to prevent QML GC crash
+  * fix(commoninfo): set notification replacesId to 0 for proper display
+  * fix: update translation URLs and fix typo
+  * fix: Fix the issue where pressing Enter on an item has no effect
+  * fix: resolve highlight residue issue after mouse leaves dropdown
+    menu items
+  * fix(bluetooth): correct audio headset icon mapping
+  * fix: correct typo "operation system" to "operating system" in GPL
+    license files
+  * fix: Resolve the issue where the shortcut key for selected desktop
+    files does not work
+  * fix: fix DccRepeater memory management and object ownership
+  * i18n: Updates for project Deepin Desktop Environment (#3112)
+  * chore: update GPL-3.0 license files with complete open source
+    software list
+  * fix: prevent GC crashes during page transitions
+  * fix(datetime): resolve SpinboxEx unit text overlap in English locale
+  * refactor: optimize DConfig data synchronization to reduce DBus calls
+  * fix: prevent control center crash from recursive QML creation
+  * fix: optimize model assignment in RegionFormatDialog
+  * fix(ui): optimize UI details and unify color management
+  * refactor: optimize time plugin timer update mechanism
+  * fix: optimize package query method for privacy security module
+  * fix: change overlap detection from complete to partial coverage
+  * fix: fix potential null pointer and loading state issues
+  * fix: prevent infinite loops and improve UI responsiveness
+  * style(keyboard): update file selection button icon in shortcut
+    dialog
+  * fix(ui): fix theme switch buttons to prevent blur
+  * fix: Fix the issue of inconsistent display of title text
+  * fix(keyboard): resolve shortcut text overlap with input box on
+    window resize
+  * i18n: Updates for project Deepin Desktop Environment (#3082)
+  * fix: correct shortcut ID for preview-workspace
+
+ -- zhangkun <zhangkun2@uniontech.com>  Wed, 25 Mar 2026 17:09:29 +0800
+
+dde-control-center (6.1.77) unstable; urgency=medium
+
+  * refactor: remove DConfig usage for permission blacklist
+  * fix: Fix the misalignment issue of the tablet title
+  * fix(ui): fix breadcrumb title overlap when window width is small
+  * fix(touchscreen): add tooltip for truncated display names
+  * fix(accounts): fix edit icon color too light in account fullname
+    editor
+  * Fix: Optimised the UI display of the Eye Care interface
+  * fix: update layout on Crumb visibility change
+  * fix: Custom keyboard shortcuts
+  * fix(datetime): resolve long date/time format text overflow in
+    language settings
+  * fix(display): make home screen icon responsive to screen item size
+  * Fix: Keyboard control issue in secondary menus
+  * fix: Fix brightness control height issue
+  * fix(datetime): adjust date label left margin to align with settings
+  * Revert "fix： Speaker Display Anomaly"
+  * fix(datetime): optimize timezone display and text visibility
+  * Fix: Issue with password prompt box
+  * fix(datetime): adjust timezone clock icon size to 24px
+  * fix(datetime): adjust spacing between clock and title bar
+  * refactor(datetime): optimize datetime setting dialog layout and unit
+    display
+  * fix(power): adjust spacing to 6px in power management interface
+  * fix(touchscreen): fix style issues in touchscreen settings module
+  * fix: Fixed the issue of the other users list not displaying
+    completely
+
+ -- zhangkun <zhangkun2@uniontech.com>  Wed, 18 Mar 2026 14:13:59 +0800
+
+dde-control-center (6.1.76) unstable; urgency=medium
+
+  * refactor: update system info DBus interface and proxy
+  * fix(display): preserve display order when adjusting resolution
+  * Fix: Abnormal behaviour in primary menu tabs
+  * fix(accounts): resolve clear button shifting during text input
+  * fix: Time display UI optimisation
+  * fix: fix module matching and listing issues
+  * fix: Optimized focus acquisition logic for secondary menus
+  * fix: add parent module validation and fix DTK reference
+  * fix(window): change about dialog to window modal mode
+  * fix: make loading page background opaque
+  * fix(plugin): set DTK palette for loaded plugin components
+  * fix(power): show tooltip for truncated text in ComboBox dropdown
+    items
+  * refactor: improve permission matching with package name fallback
+  * fix(ui): adjust padding and insets for better layout alignment
+  * fix: remove unused port combo enable properties
+  * fix: set smooth=false for sidebar button icon to prevent blur at
+    fractional scaling
+  * fix: preserve maximized window state when jumping from global search
+  * fix: fix control center initialization and navigation issues
+  * refactor: remove search result separator logic
+  * fix: Fix the translation function call issue in ListElement
+  * fix(keyboard): use DTK font manager for shortcuts edit button
+  * fix(accounts): adjust password dialog layout spacing
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 12 Mar 2026 21:31:46 +0800
+
+dde-control-center (6.1.75) unstable; urgency=medium
+
+  * fix: Optimized display for solid-color wallpapers
+  * fix(accounts): fix hover area response issue in custom avatar upload
+  * fix(ui): adapt button width to text content
+  * fix: optimize window color and page visibility handling
+  * feat: optimize object lookup performance with name-based mapping
+  * refactor: improve search relevance algorithm and sorting
+  * fix: resolve clicked function naming conflict
+  * fix(accounts): optimize delete dialog layout alignment
+  * fix(bluetooth): adjust loading animation size
+  * fix: Fixed the issue of the secondary screen being disconnected
+    during resolution changes
+  * fix: Subsystem sound options appearing empty when navigating
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 05 Mar 2026 20:48:43 +0800
+
+dde-control-center (6.1.74) unstable; urgency=medium
+
+  * Revert "fix: Optimized text display position at progress bar edges"
+  * fix: prevent dangling pointer in page navigation
+  * fix(systeminfo): align copyright text center in systemLogo
+  * fix(systeminfo): align copyright text center and enable word wrap
+  * fix: defer showing repeat days edit page
+
+ -- zhangkun <zhangkun2@uniontech.com>  Mon, 02 Mar 2026 10:52:37 +0800
+
+dde-control-center (6.1.73) unstable; urgency=medium
+
+  * fix: Fix incomplete display of processor text on the page
+  * fix: include size in image cache key to prevent collisions
+  * fix: Optimized text display position at progress bar edges
+  * feat: simplify cursor size selection logic
+  * fix: Filter out components whose focus cannot be operated
+  * fix: fix sidebar width initialization and validation
+  * feat: add loading page for control center
+  * chore: update dde-control-center-dev dependencies
+  * fix: keep sleep and screen lock switches enabled with passwordless
+    login
+  * fix: fix cache image error
+  * fix: fix touchpad visibility and disable input condition
+  * Fix: Optimize cyclic selection in the system sound effects list.
+  * fix(personalization): fix touchpad swipe and mouse drag in theme
+    selector
+  * fix(time-range): improve hour input focus behavior
+  * fix： Speaker Display Anomaly
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 27 Feb 2026 17:02:50 +0800
+
+dde-control-center (6.1.72) unstable; urgency=medium
+
+  * fix: Adapt the first item in the menu
+  * fix(bluetooth): fix audio-headphones device type support
+  * fix: Fixed issue where the focus did not start from the current page
+    when entering the secondary interface
+  * fix(display): prevent unintended brightness reset to 10%
+  * fix: prevent face image stretching distortion
+  * fix: Optimise Password Change Interface
+  * fix: Default window size not restored
+  * fix(sound): font size of "No output device for sound found" is too
+    large
+  * fix: fix wallpaper path handling for non-existent files
+  * fix(display): fix screen context for x11 display dialogs
+  * fix: improve audio device combo box state management
+  * fix: adjust wallpaper selection border rendering order
+  * feat: Updated translations
+  * feat: adjust sidebar width for English locale and update device
+    module name
+  * fix(ui): fix scrollbar ghosting during page switching
+  * feat: add dock plugin sorting with custom proxy model
+  * feat: add pluginsChanged signal to reload dock tray plugins
+    dynamically
+  * fix: [Device] [Keyboard] Keyboard test text appears too large
+  * fix: No response when using arrow keys
+  * fix: improve navigation object tracking in control center
+  * fix(systeminfo): fix processorChanged signal emission and processor
+    setting location
+  * fix: Fix cursor style not updating after theme switch
+  * fix: fix window effect feature availability and combo box model
+    handling
+  * feat: add indicator display control
+  * refactor: optimize parent object lookup and code structure
+  * fix(bluetooth): fix send file button not showing due to stale state
+  * docs: update v25 dcc interface documentation
+  * fix: update fingerprint enrollment error handling and UI logic
+  * fix: Configuration switch save error
+  * fix: The black wallpaper is positioned too far forward
+  * fix: move getAppPath to background thread
+  * Fixed: Level 1 menu items unresponsive when navigating with keyboard
+    arrow keys
+  * feat: show touchpad only on laptops
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 05 Feb 2026 19:23:12 +0800
+
+dde-control-center (6.1.71) unstable; urgency=medium
+
+  * i18n: Updates for project Deepin Desktop Environment (#2967)
+  * fix: Fix the UI flickering issue when editing shortcut keys
+  * fix: Modified the time setting logic in the scheduled shutdown
+    feature.
+  * chore: update cmake minimum version to 3.23
+  * fix(sound): sync source mute state with volume
+  * feat: Updated translation
+  * feat: add brightness control for Treeland compositor
+  * feat: migrate QML plugins to Qt6 resource system
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 29 Jan 2026 20:22:08 +0800
+
+dde-control-center (6.1.70) unstable; urgency=medium
+
+  * feat: support configurable password encryption algorithms
+  * fix: Fix the timing of when the popup appears
+  * fix: adjust mode delegate styling properties
+  * feat: redesign color picker dialog UI
+  * fix: Fix the error of looping through the plugin area list
+
+ -- fuleyi <fuleyi@uniontech.com>  Wed, 28 Jan 2026 15:59:27 +0800
+
+dde-control-center (6.1.69) unstable; urgency=medium
+
+  * fix: fix screensaver initialization on Wayland
+  * docs: update developer mode license agreement text
+  * fix: hide screensaver module when treeland is active
+  * chore: update commoninfo icon
+  * fix: add DBus signal connection for mime info changes
+  * fix: separate model data from checked states in privacy folder
+  * fix: improve spinbox input validation and sync
+  * fix: remove premature wallpaperMapChanged signal emission
+  * i18n: Updates for project Deepin Desktop Environment (#2942)
+  * fix: Fix issue where system sound effects cannot be selected using
+    the Tab key
+  * feat: add privacy configuration for control center
+  * fix: update file dialog signal handling and remove debug log
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 23 Jan 2026 10:05:33 +0800
+
+dde-control-center (6.1.68) unstable; urgency=medium
+
+  * feat: Change "Device" to "Bluetooth and other devices"
+  * i18n: Translate dde-control-center_en.ts in ja
+  * i18n: Translate dde-control-center_en.ts in ja
+  * i18n: Translate dde-control-center_en.ts in ja
+  * i18n: Translate dde-control-center_en.ts in ja
+  * fix: resolve binding loop in CustomComBobox MenuItem
+  * refactor: migrate DBus interfaces to DDBusInterface
+  * fix: Fix the issue of the timeRange control sending signals
+    repeatedly
+  * fix: remove duplicate taskbar icon for region chooser
+  * fix: adjust mouse cursor size UI layout and remove debug log
+  * fix spelling errors
+  * fix: Fix multiple entries showing in the list after renaming
+    Bluetooth
+  * fix: improve timezone list display performance
+  * fix: correct copyright year logic for system info
+  * feat: add Alt+Space shortcut for window menu
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 15 Jan 2026 20:00:09 +0800
+
+dde-control-center (6.1.67) unstable; urgency=medium
+
+  * fix: exclude onboard from privacy FileAndFolder app list
+
+ -- zhangkun <zhangkun2@uniontech.com>  Wed, 07 Jan 2026 13:35:37 +0800
+
+dde-control-center (6.1.66) unstable; urgency=medium
+
+  * chore: remove touchpad switch file existence check
+  * fix: fix command injection vulnerability in password encryption
+  * fix: correct 12-hour time format patterns in RegionProxy
+  * i18n: Updates for project Deepin Desktop Environment (#2920)
+  * fix: Fix the issue with focus in the user group interface
+  * refactor: migrate InterfaceEffectListview to DccObject for search
+    support
+  * i18n: Updates for project Deepin Desktop Environment (#2889)
+  * fix: unmute input device when adjusting volume
+  * fix: Fix the issue where error messages do not disappear
+    automatically
+  * fix: resolve Next button not disabled after unchecking disclaimer
+  * fix: reset face image content when starting enrollment
+  * fix: Fix the issue where disabled modules are not grayed out
+  * fix: correct decimal symbol setting when user selects space
+  * docs: add GitHub Copilot instructions file
+  * feat: support multiple plugin directories via --spec option
+  * fix: add text drop support to search bar
+  * fix: add close button hint to timezone popup
+  * fix: prepend runtime plugin directory to QML import paths
+
+ -- zhangkun <zhangkun2@uniontech.com>  Tue, 06 Jan 2026 20:51:47 +0800
+
+dde-control-center (6.1.65) unstable; urgency=medium
+
+  * fix: adjust alert tooltip target in authentication UI
+  * fix: Fix the issue with selecting screensaver settings
+  * fix: emit all relevant roles on bluetooth device state change
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 25 Dec 2025 19:33:39 +0800
+
+dde-control-center (6.1.64) unstable; urgency=medium
+
+  * feat: manage QML cache versioning proactively
+  * fix: Fix the issue where the theme area cannot switch focus
+  * fix: Fix the issue where tab cannot select focus
+  * fix: Change the app order in Privacy and Security
+  * feat: Remove old code
+  * fix: avoid list refresh on camera auth dialog open
+  * fix: Fixed the issue where the time format did not follow the locale
+  * fix: resolve text truncation in multi-screen dock settings
+  * fix: correct loading indicator position when adding language
+  * fix: add scrollbar to region format list in RegionFormatDialog
+  * feat: remove night mode redshift integration
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Wed, 24 Dec 2025 14:36:14 +0800
+
+dde-control-center (6.1.63) unstable; urgency=medium
+
+  * i18n: Updates for project Deepin Desktop Environment (#2885)
+  * fix: fix QML component loading and gesture data handling
+  * fix: Modify display interface layout spacing
+  * fix: improve URL matching logic and empty URL handling
+  * fix: Fix build with Qt 6.10 and higher
+  * i18n: Updates for project Deepin Desktop Environment (#2873)
+  * feat: remove pointer size configuration from mouse settings
+  * fix: add pointer size change notification
+  * fix: adjust DccTitleObject styling for better visual consistency
+  * fix: Fix incomplete display of resolution options
+  * fix: adjust footer layout spacing in DccSettingsView
+  * fix: Update open source license
+  * fix: Optimize the UI of wallpaper selection page
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 18 Dec 2025 19:43:30 +0800
+
+dde-control-center (6.1.62) unstable; urgency=medium
+
+  * refactor: standardize QML component id naming
+  * fix: fix sidebar width update when right view is empty
+  * fix: Tooltip for the add image button
+  * fix: add monitor count tracking for multi-screen visibility
+  * fix: Fix the issue of shortcut key replacement failure
+  * fix: Fix Bluetooth model being reset
+  * refactor: replace custom object creation with Qt Loader
+  * fix: refresh fingerprint list before enrollment
+  * feat: replace screen saver start/stop with preview method
+  * fix: fix repeater child object crash without parent
+  * fix: refresh fingerprint list when device is hot-plugged
+  * fix: align balance slider style with design specification
+  * fix: Fix issue where renaming a Bluetooth device does not refresh
+  * chore: fix screensaver button colors
+  * fix: resolve text overflow issues in keyboard plugin for Russian
+    locale
+  * fix: Update translation file
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 11 Dec 2025 20:32:03 +0800
+
+dde-control-center (6.1.61) unstable; urgency=medium
+
+  * fix: Fix the issue with link text style errors
+  * fix: Fix issue where the interface does not restore after deleting
+    the avatar
+  * fix: Fix no prompt when input is too long
+  * fix: Fix thumbnails not updating
+  * fix: reset boot delay switch state when authentication is cancelled
+  * i18n: Updates for project Deepin Desktop Environment (#2847)
+  * fix: Fix issue with full names containing spaces being incorrectly
+    recognized
+  * fix: restore Custom shortcut edit button in Spanish locale
+
+ -- fuleyi <fuleyi@uniontech.com>  Thu, 04 Dec 2025 19:12:24 +0800
+
+dde-control-center (6.1.60) unstable; urgency=medium
+
+  * i18n: Updates for project Deepin Desktop Environment (#2840)
+
+ -- wjyrich <wujiangyu@uniontech.com>  Fri, 28 Nov 2025 10:45:26 +0800
+
+dde-control-center (6.1.59) unstable; urgency=medium
+
+  * fix: adjust clear cloud data button font size
+  * fix: Fix the date server authentication issue
+  * fix: update transaltion
+  * feat: add combine application icons option to dock settings
+  * i18n: Updates for project Deepin Desktop Environment (#2806)
+  * fix: auto fallback to system app when default app is uninstalled
+  * fix: unify screen tab style in display and wallpaper modules
+  * fix: adjust font size of setting button in ScreenSaver page
+  * fix: add tooltip for truncated authorization button in
+    NativeInfoPage
+  * fix: resolve preview button text truncation in ScreenSaverPage
+  * fix: Modify mouse interface layout
+  * fix: resolve color picker handle overflow in
+    SaturationLightnessPicker
+  * fix: Fix custom avatar selection issue
+  * fix: improve wallpaper thumbnail alignment and layout
+  * fix: improve locale-aware number formatting
+  * fix: Fixed an issue where the edit and add buttons could not be
+    focused using the tab key
+  * i18n: remove de_DE translation resources
+  * fix: Fix the mouse interface layout effect
+  * fix: improve wallpaper thumbnail rendering quality
+  * refactor: use install command for plugin binaries
+  * fix: resolve unknown icons in notifications after editor install
+  * fix: Fix the issue of drag-and-drop images not working
+  * fix: resolve duplicate installation in QML plugin build
+  * feat: add reproducible build parameters
+  * fix: add display mode detection for dock plugin visibility
+
+ -- zhaoyingzhen <zhaoyingzhen@uniontech.com>  Thu, 27 Nov 2025 17:31:35 +0800
+
+dde-control-center (6.1.58) unstable; urgency=medium
+
+  * fix: update dock plugins reload, icon not show.
+
+ -- wujiangyu <wujiangyu@uniontech.com>  Fri, 14 Nov 2025 13:53:21 +0800
+
+dde-control-center (6.1.57) unstable; urgency=medium
+
+  * fix: fix QML memory management crash issues
+  * fix: Fix where custom dates have no authorization
+  * fix: prioritize loading group plugins and fix icon paths
+  * fix: Fix shortcut key tooltip text overflow
+  * fix: hide touchpad switch on devices without touchpad_switch file
+  * fix: Fix language long text overflow
+  * fix: resolve delay when removing user apps via trash button
+  * feat: enhance number format symbol conflict handling
+  * refactor: expose initData as public slot and add activation handler
+  * fix: improve text width calculation in sound plugin menu items
+  * i18n: Updates for project Deepin Desktop Environment (#2803)
+  * fix: update DNotifySender usage for system protection
+  * fix: add translation for system protection notification
+  * feat: add solid system read-only protection feature
+  * fix: normalize title-to-thumbnail spacing in WallpaperSelectView
+  * fix: Fix Bluetooth name change flashing
+
+ -- xionglinlin <xionglinlin@uniontech.com>  Thu, 13 Nov 2025 19:53:05 +0800
+
+dde-control-center (6.1.56) unstable; urgency=medium
+
+  * fix: Record the status of the sidebar
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Fri, 07 Nov 2025 10:11:47 +0800
+
+dde-control-center (6.1.55) unstable; urgency=medium
+
+  * fix: add hover tooltip for Mode options in Sound settings
+  * fix: Modifying text beyond the scope of the control
+  * fix: update shortcut placeholder text
+  * i18n: Updates for project Deepin Desktop Environment (#2786)
+  * fix: resolve color picker dialog shaking issue
+  * refactor: reorder window effect settings
+  * fix: update translations
+  * fix: Screen sorted by type
+  * fix: Record the status of the sidebar
+  * fix: Update disclaimer content
+  * fix: correct eyedropper button style in custom color dialog
+  * i18n: Updates for project Deepin Desktop Environment (#2782)
+  * feat: add Min Nan Chinese locale support
+  * [dde-control-center] Updates for project Deepin Desktop Environment (#2759)
+  * fix: align screensaver preview height with settings items
+  * fix: Repeated incorrect password change prompt
+  * fix: enable tab focus for app items in FileAndFolder
+  * fix: align selection background with design spec in ScreenTab
+  * fix: prevent UI freeze when rapidly clicking Restore Defaults button
+  * fix: resolve text spacing issue in ScreenSaver setting button
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Thu, 06 Nov 2025 16:56:37 +0800
+
+dde-control-center (6.1.54) UNRELEASED; urgency=medium
+
+  * fix: resolve currency format example display issues in RTL locales
+  * fix: remove hover inner shadow on first item in Touchpad gestures
+  * fix: Fix the password input box so that Chinese characters can be entered
+  * fix: Fix the main window graying out after the dialog box is displayed
+  * fix: ScheduledShutdownDialog title invisible in dark mode
+  * fix: reduce screensaver settings button height in personalization
+  * fix: scrollbar cannot reach bottom in language selection dialog
+  * fix: prevent button conflict during language loading in LangAndFormat
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 30 Oct 2025 21:47:29 +0800
+
+dde-control-center (6.1.53) unstable; urgency=medium
+
+  * fix: correct custom wallpaper delete button color in dark mode
+  * i18n: Updates for project Deepin Desktop Environment (#2749)
+  * fix: correct lock switch display with passwordless login enabled
+  * fix: Modify the spacing between menu controls
+  * fix: adjust dialog layout margins and width calculation
+  * feat: sort theme list alphabetically and keep custom theme first
+  * fix: background misalignment in format dialog
+  * fix: auth dialog missing on second timezone change
+  * feat: adjust disclaimer layout spacing
+  * fix: Fix password verification prompt
+  * fix: underscore search mismatch in keyboard shortcuts
+  * fix: escape HTML special characters in conflict name display
+  * i18n: Translate dde-control-center_en.ts in pl
+  * feat: add fingerprint device change handling
+
+ -- wujiangyu <wujiangyu@uniontech.com>  Thu, 23 Oct 2025 17:19:10 +0800
+
+dde-control-center (6.1.52) unstable; urgency=medium
+
+  * i18n: Translate dde-control-center_en.ts in uk
+  * fix: Fix the issue on the change password interface
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2730)
+  * fix: Modify the issue of only X screen not updating
+  * fix: Modify the user experience plan popup style
+  * fix: Fix abnormal graying effect
+  * fix: add ListView background and rounded item selection
+  * fix: compatibility with Qt 6.10
+  * fix: adjust SearchEdit width to align with list in
+    RegionFormatDialog
+  * fix: resolve spacing issues in RegionFormatDialog
+  * fix: add background highlight when clicking accounts
+  * fix: gesture animation plays selected action instead of hovered item
+  * fix: Modify the font style of color temperature parameters
+  * fix: add tooltip for truncated text in sound device dropdown menu
+  * fix: Fix the incorrect email issue in the privacy text
+  * fix: make fingerprint renaming operation synchronous
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2722)
+  * fix: resolve SearchEdit text truncation with large font size
+  * fix: Fix custom avatar issue
+  * refactor: optimize wallpaper settings layout structure
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 16 Oct 2025 20:51:00 +0800
+
+dde-control-center (6.1.51) unstable; urgency=medium
+
+  * fix: add missing signal for developer mode state sync
+  * fix: remove keyboard layout from description
+  * fix: prevent control center freeze when uninstalling third-party
+    apps
+  * fix: remove click-triggered focus highlight in accounts list
+  * fix: resolve disabled speaker still showing as current output device
+  * fix: update time format display when system timezone is modified
+  * fix: preserve hostname validation alert when input loses focus
+  * fix: support qrc scheme in image loading and replace dci with png
+  * refactor: optimize image loading and thumbnail generation
+  * fix: add missing scrollbars in timezone selection dialogs
+  * fix: adjust time range input opacity based on enabled state
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Fri, 10 Oct 2025 17:31:21 +0800
+
+dde-control-center (6.1.50) unstable; urgency=medium
+
+  * fix: Fix the issue of the edit button not being horizontal
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 26 Sep 2025 13:11:56 +0800
+
+dde-control-center (6.1.49) unstable; urgency=medium
+
+  * fix: disable hover effect on language delete button
+  * fix: Fix the security center version judgment exception
+  * fix: Fix the issue with the display of the license file
+  * fix: resolve dark mode icon visibility in keyboard shortcut editor
+  * fix: handle multi-arch package list paths
+  * fix: enable text wrapping for security center link
+  * fix: Fix the password error not selected completely
+  * fix: update week start day format on locale change
+  * fix: correct ACL error code matching logic
+  * fix: fix applet threading and item removal issues
+  * fix: add persistent storage for custom NTP server addresses
+  * refactor: replace libdpkg API with dpkg-query command
+  * feat: remove keyboard layout management module
+  * i18n: Updates for project Deepin Desktop Environment (#2691)
+  * fix: When system has no blur effect, the Multitasking View plugin is
+    also displayed in the Control Center
+  * fix: resolve onboard icon display in privacy FileAndFolder
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 25 Sep 2025 19:28:02 +0800
+
+dde-control-center (6.1.48) unstable; urgency=medium
+
+  * fix: connect license state change signal
+  * i18n: Updates for project Deepin Desktop Environment (#2685)
+  * fix: remove background from default app items
+  * style: update font styles in control center
+  * feat: adapt developer mode to use ACL service
+  * i18n: Updates for project Deepin Desktop Environment (#2683)
+  * fix: update iris enrollment UI and max limit
+  * feat: improve fingerprint enrollment animation and messaging
+  * fix: adjust title bar left margin
+  * feat: add configurable device management visibility
+  * fix: Adjust the display effects of the user group interface.
+  * i18n: Updates for project Deepin Desktop Environment (#2668)
+  * fix: hide current keyboard layouts from add layout dialog
+  * fix: resolve missing translation in power module US English locale
+  * fix: Fix the abnormal layout of the interface
+  * fix: Adjust the user group interface layout
+  * refactor: simplify gesture action mapping logic
+  * fix: correct i18n formatting in QML file
+  * fix: typo mistake of "Wallpapers"
+  * fix: resolve scrollbar unable to reach bottom in region list
+  * fix: add timeout dialog for X11 rotation changes
+  * fix: improve touchpad gesture animation behavior
+  * chore: Sync by
+    https://github.com/linuxdeepin/.github/commit/ae0f54a002362031e7e012
+    f4be2d79cfb370a57e
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 18 Sep 2025 20:07:38 +0800
+
+dde-control-center (6.1.47) unstable; urgency=medium
+
+  * chore(iris): update translation
+  * refactor: restructure biometric authentication controllers
+  * i18n: Translate dde-control-center_en.ts in uk (#2663)
+  * fix: Fix the Bluetooth interface opening slowly
+  * fix: Fix the font issue in the Bluetooth interface.
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2659)
+  * fix: adapt datetime interface to 20pt system font size
+  * fix: Fix developer mode links not clicking
+  * fix: Fix the startup menu text not displaying fully
+  * fix: align edit button to right in language module
+  * fix: adapt datetime plugin dialogs for 20pt font size display
+  * fix: Fix account interface focus anomaly
+  * i18n: Updates for project Deepin Desktop Environment (#2649)
+  * fix: Fix the issue of unresponsive spaces
+  * fix: center-align verification switch in boot menu settings
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2644)
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2644)
+  * fix: resolve incorrect corner display on hover in default app list
+  * fix: add previousServerAddress recovery mechanism in datetime plugin
+  * i18n: Updates for project Deepin Desktop Environment (#2635)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 11 Sep 2025 20:58:45 +0800
+
+dde-control-center (6.1.46) unstable; urgency=medium
+
+  * chore: update color extractor icon binary
+  * fix: fix combobox layout issues in sound settings
+  * fix: Fix the plaintext password to be copied
+  * fix: update DeepinID UI layout and icons
+  * fix: Changing the reset password does not prompt an error
+  * fix: fix gesture group item corner and separator styling
+  * feat: replace rectangle with DciIcon for badge display
+  * i18n: Translate dde-control-center_en.ts in pl (#2618)
+  * fix: adjust notification settings checkbox layout
+  * fix: Adjust the layout of the password change interface
+  * fix: adjust ScrollBar position and width in LangsChooserDialog
+  * fix: Modify the Edit Avatar interface
+  * fix: use ClickStyle instead of magic number
+  * fix: correct ScrollBar position in RegionsChooserWindow
+  * fix: update gesture group combo box background style
+  * fix: rename four finger click animation file
+  * fix: adjust ComboBox width in datetime plugin for better layout
+  * fix: add missing number separators for international locales
+  * fix: show remove button when locale generation is running
+  * fix: resolve loading state inconsistency in LangAndFormat component
+  * style: adjust font size and left margin in multiple QML files
+  * fix: Supplement referral dependencies
+  * fix: prevent region dropdown graying out on language switch
+  * fix: improve face enrollment dialog layout and responsiveness
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 04 Sep 2025 21:47:37 +0800
+
+dde-control-center (6.1.45) unstable; urgency=medium
+
+  * refactor: standardize shortcut key identifiers naming convention
+  * fix: resolve text truncation in language dialog with large system
+    fonts
+  * Fix: Adapt debugging settings function
+  * fix: standardize font sizes for Wacom plugin menu item titles
+  * fix: correct DBus interface usage in SetTimezone method
+  * i18n: Updates for project Deepin Desktop Environment (#2605)
+  * style: remove explicit width from combo boxes
+  * fix: correct bluetooth mouse icon style issue
+  * fix: Fixed the user group list stuttering
+  * fix: enhance timezone authentication and standardize UI text
+    formatting
+  * fix: Modify the interface layout
+  * fix: Fixed a bug in the developer mode interface
+  * fix: prevent audio effect output when toggling mono audio setting
+  * fix: resolve text truncation issue in ShortcutSettingDialog
+  * fix: align combo label to right (#2599)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 28 Aug 2025 14:33:41 +0200
+
+dde-control-center (6.1.44) unstable; urgency=medium
+
+  * style: adjust busy indicator size and positioning
+  * Fix: Modify search list style
+  * fix: Fixed the launch menu display issue
+  * fix: resolve language display order issues in language name
+    formatting
+  * fix: Fixed user group list tab focus failure
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2591)
+  * Fix: Default display on the primary screen
+  * i18n: Updates for project Deepin Desktop Environment (#2575)
+  * fix: add system shortcut name conflict detection
+  * fix: correct double click speed slider direction (#2588)
+  * fix: resolve bluetooth device more button style issues
+  * fix: Fix the password box display abnormally
+  * fix: resolve delete button hover effect issues in DefaultApp
+    DetailItem
+  * fix: resolve missing corner radius in format list items
+  * fix: adjust DccEditorItem height calculation
+  * fix: update building warnings.
+  * style: update DccLabel font style
+  * feat: enhance privacy plugin UI and functionality
+  * refactor: simplify theme selection UI components
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 21 Aug 2025 19:47:51 +0800
+
+dde-control-center (6.1.43) unstable; urgency=medium
+
+  * fix: update region format config flags
+  * chore: update desktop translation
+  * i18n: Updates for project Deepin Desktop Environment (#2573)
+  * fix: adjust notification UI alignment
+  * fix: improve input field UI consistency
+  * fix: adjust password layout spacing and margins
+  * fix: improve shortcut conflict text display
+  * fix: improve Bluetooth UI state handling during power toggle
+  * fix: improve shortcut dialog text consistency
+  * fix: bluetooth device list auto-refresh after power toggle (#2567)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 14 Aug 2025 20:46:50 +0800
+
+dde-control-center (6.1.42) unstable; urgency=medium
+
+  * fix: improve bluetooth mode selection stability (#2564)
+  * i18n: Updates for project Deepin Desktop Environment (#2558)
+  * fix: round margin values to prevent subpixel blurring
+
+ -- wujiangyu <wujiangyu@uniontech.com>  Tue, 12 Aug 2025 10:38:51 +0800
+
+dde-control-center (6.1.41) unstable; urgency=medium
+
+  * fix: improve gesture action data handling
+  * i18n: Updates for project Deepin Desktop Environment (#2552)
+  * fix: Created successfully with the same username and password
+  * fix: add focus support for SearchableListViewPopup
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 07 Aug 2025 20:52:06 +0800
+
+dde-control-center (6.1.40) unstable; urgency=medium
+
+  * fix: unsupported relocation error on arm64
+
+ -- Wang Zichong <wangzichong@deepin.org>  Fri, 01 Aug 2025 11:08:00 +0800
+
+dde-control-center (6.1.39) unstable; urgency=medium
+
+  * chore: remove upper-level datetime_*.ts resources
+  * fix: Modify the translation of Scaling
+  * i18n: Updates for project Deepin Desktop Environment (#2549)
+  * fix: update double click speed slider labels
+  * style: adjust datetime plugin UI elements
+  * fix: remove unnecessary trim in Bluetooth device name validation
+  * fix: Cursor display jumps add text measurement and auto-alignment
+    for text field
+  * i18n: Updates for project Deepin Desktop Environment (#2545)
+  * fix: remove unused QString to UnicodeString convert
+  * fix: remove the need of `datetime_language.ts` and
+    `datetime_country.ts`
+  * i18n: Updates for project Deepin Desktop Environment (#2543)
+  * chore: update ts files
+  * i18n: Translate dde-control-center_en.ts in es (#2541)
+  * fix: remove the need of `keyboard_language.ts` resources
+  * i18n: Updates for project Deepin Desktop Environment (#2521)
+  * fix: add fallback for empty app icons in notification plugin
+  * fix: show shortcut keys in edit mode
+  * refactor: remove redundant textColor property in NativeInfoPage
+  * fix: allow saving shortcuts with modifier-only keys
+  * feat: adjust notification combo box width
+  * fix: Fixed the issue of incomplete display of large fonts
+  * fix: Modify search error issues
+  * fix: Modify the schematic diagram style
+  * fix: resolve active color inconsistency in timezone menu popup
+  * fix: Change the size of the hover background
+  * fix: Fixed the issue of pop-up theme mismatch
+  * fix: resolve theme adaptation issues in RegionsChooserWindow dark
+    mode
+  * fix: resolve cancel operation in shortcut setting dialog
+  * fix: Fix mailbox errors
+  * fix: Fix the startup screen
+  * fix: reset view position when searching in RegionFormatDialog
+  * fix: resolve empty region list after clearing search input
+  * fix: The error message is fixed
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 31 Jul 2025 19:42:46 +0800
+
+dde-control-center (6.1.38) unstable; urgency=medium
+
+  * i18n: Updates for project Deepin Desktop Environment (#2519)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 18 Jul 2025 15:08:00 +0800
+
+dde-control-center (6.1.37) unstable; urgency=medium
+
+  * fix: Update text errors
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2512)
+  * fix: Fixed Bluetooth device status not refreshing
+  * fix: hide noise suppression setting when input device is bluetooth
+  * fix: Modifying icons does not change with the theme
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 18 Jul 2025 13:58:02 +0800
+
+dde-control-center (6.1.36) unstable; urgency=medium
+
+  * fix: Worng state in power anagement
+  * fix: resolve keyboard layout addition failure
+  * fix: Fix password error prompt issue
+  * i18n: Updates for project Deepin Desktop Environment (#2500)
+  * fix: resolve audio feedback issue when adjusting volume from 0% to
+    100%
+  * refactor: clean up QML properties and connections
+  * fix: improve region selection menu styling and interaction
+  * style: remove redundant textColor properties in DccWindow
+  * fix: The issue of renaming user groups is fixed
+  * fix: adjust text opacity in LangAndFormat for better visibility
+  * fix: Fixed the Bluetooth speaker icon error
+  * fix: Fixed the issue of customizing the avatar
+
+ -- WuJiangYu <wujiangyu@uniontech.com>  Wed, 16 Jul 2025 10:47:37 +0800
+
+dde-control-center (6.1.35) unstable; urgency=medium
+
+  * i18n: Translate dde-control-center_en.ts in zh_TW
+  * i18n: Translate dde-control-center_en.ts in zh_HK
+  * i18n: Translate dde-control-center_en.ts in zh_CN
+  * i18n: Translate dde-control-center_en.ts in hu
+  * i18n: Translate dde-control-center_en.ts in fi
+  * i18n: Translate dde-control-center_en.ts in pl
+  * i18n: Translate dde-control-center_en.ts in sv
+  * i18n: Translate dde-control-center_en.ts in az
+  * i18n: Translate dde-control-center_en.ts in vi
+  * i18n: Translate dde-control-center_en.ts in kab
+  * i18n: Translate dde-control-center_en.ts in pt_BR
+  * i18n: Translate dde-control-center_en.ts in zh_HK
+  * i18n: Translate dde-control-center_en.ts in fr
+  * i18n: Translate dde-control-center_en.ts in ko
+  * i18n: Translate dde-control-center_en.ts in ru
+  * i18n: Translate dde-control-center_en.ts in sl
+  * i18n: Translate dde-control-center_en.ts in zh_CN
+  * i18n: Translate dde-control-center_en.ts in gl_ES
+  * i18n: Translate dde-control-center_en.ts in zh_TW
+  * i18n: Translate dde-control-center_en.ts in th
+  * i18n: Translate dde-control-center_en.ts in ja
+  * i18n: Translate dde-control-center_en.ts in es
+  * i18n: Translate dde-control-center_en.ts in sq
+  * i18n: Translate dde-control-center_en.ts in ne
+  * i18n: Translate dde-control-center_en.ts in uk
+  * i18n: Translate dde-control-center_en.ts in kk
+  * i18n: Translate dde-control-center_en.ts in de_DE
+  * i18n: Translate dde-control-center_en.ts in bn
+  * i18n: Translate dde-control-center_en.ts in ca
+  * i18n: Translate dde-control-center_en.ts in tr
+  * i18n: Translate dde-control-center_en.ts in he
+  * i18n: Translate dde-control-center_en.ts in et
+  * i18n: Translate dde-control-center_en.ts in ar
+  * feat: add locale generation support and UI indicators
+  * fix: resolve missing number format in region settings
+  * i18n: Translate dde-control-center_en.ts in zh_CN
+  * i18n: Translate dde-control-center_en.ts in zh_TW
+  * i18n: Translate dde-control-center_en.ts in zh_HK
+  * i18n: Translate dde-control-center_en.ts in ru
+  * i18n: Translate dde-control-center_en.ts in kk
+  * i18n: Translate dde-control-center_en.ts in kab
+  * i18n: Translate dde-control-center_en.ts in sq
+  * i18n: Translate dde-control-center_en.ts in fr
+  * i18n: Translate dde-control-center_en.ts in de_DE
+  * i18n: Translate dde-control-center_en.ts in zh_CN
+  * i18n: Translate dde-control-center_en.ts in he
+  * i18n: Translate dde-control-center_en.ts in th
+  * i18n: Translate dde-control-center_en.ts in vi
+  * i18n: Translate dde-control-center_en.ts in ne
+  * i18n: Translate dde-control-center_en.ts in pt_BR
+  * i18n: Translate dde-control-center_en.ts in bn
+  * i18n: Translate dde-control-center_en.ts in hu
+  * i18n: Translate dde-control-center_en.ts in ca
+  * i18n: Translate dde-control-center_en.ts in fi
+  * i18n: Translate dde-control-center_en.ts in uk
+  * i18n: Translate dde-control-center_en.ts in pl
+  * i18n: Translate dde-control-center_en.ts in gl_ES
+  * i18n: Translate dde-control-center_en.ts in sl
+  * i18n: Translate dde-control-center_en.ts in tr
+  * i18n: Translate dde-control-center_en.ts in az
+  * i18n: Translate dde-control-center_en.ts in zh_HK
+  * i18n: Translate dde-control-center_en.ts in et
+  * i18n: Translate dde-control-center_en.ts in es
+  * i18n: Translate dde-control-center_en.ts in zh_TW
+  * i18n: Translate dde-control-center_en.ts in sv
+  * i18n: Translate dde-control-center_en.ts in ko
+  * i18n: Translate dde-control-center_en.ts in ja
+  * i18n: Translate dde-control-center_en.ts in ar
+  * fix: improve nickname modification handling and validation
+  * i18n: Updates for project Deepin Desktop Environment (#2491)
+  * fix: Unprocessed screen scaling
+  * fix: Fixed the issue of right-clicking to exit editing
+  * fix: Modify the schematic diagram style
+  * fix: The issue of creating a new user prompt is fixed
+  * fix: Fixed the sorting issue of Bluetooth devices
+  * [dde-control-center] Updates for project Deepin Desktop Environment
+    (#2470)
+  * feat: implement avatar caching system
+  * fix: Fixed the dynamic display in Security Center
+  * fix: hide balance control for handsfree devices
+  * fix: prevent bottom button occlusion in RegionFormatDialog
+  * fix: prevent scrollbar overflow in region selection dropdown
+  * fix: Volume adjustment display issue Update font size and add
+    transparency to volume percentage labels
+  * fix: Fix file prompts that are not supported
+  * fix: fix region and format panel layout in TimeAndDate dialog
+  * fix: Fixed the user group focus issue
+  * fix: improve shortcut conflict handling and data persistence
+  * fix: prevent duplicate shortcut conflict errors
+  * fix: prevent bottom clipping at maximum font size
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 10 Jul 2025 21:52:38 +0800
+
+dde-control-center (6.1.34) unstable; urgency=medium
+
+  * refactor: clean up code and optimize variable declarations
+  * fix: The fingerprint animation is too small
+  * feat: Add development and debugging options to the community version
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Fri, 04 Jul 2025 09:28:25 +0800
+
+dde-control-center (6.1.33) unstable; urgency=medium
+
+  * fix: Fix symbolic link error
+  * i18n: Updates for project Deepin Desktop Environment (#2463)
+  * fix: Add image caching processing
+  * fix: Fix the issue of abnormal display of user types
+  * fix: Modify the button style
+  * fix: optimize search bar layout metrics in ListViewPopup
+  * fix(power): The first modification of custom shutdown does not take
+    effect
+  * fix: Add schematic text shadow
+  * fix: Fixed the issue that custom avatars were displayed incorrectly
+  * chore: avoid hard-code compiler options in CMakeLists.txt
+  * fix: enhance timezone selector layout and display
+  * fix: Modify the issue of incomplete text display in Crumb
+  * fix: Fixed the issue that the upload avatar was set immediately
+  * fix: Scheduled shutdown dialog date synchronization issue Initialize
+    `selectedDays` as empty and sync with latest model data on dialog
+    visibility. Centralizes reset logic in `syncSelectedDays()` function
+    called during: - Dialog visibility changes - Closing/cancellation
+    actions - Cancel button click
+  * fix: resolve oversized edit button font in language settings
+  * fix: Add error handling for opening developer mode
+  * fix: adjust language selector layout alignment
+  * Make the string translatable
+  * fix: preserve balance when toggling mono audio and adjust UI weights
+  * fix: Fix compilation warning
+  * fix: prevent focus on keyboard shortcut edit buttons
+  * fix: Fixed some copywriting errors
+  * fix: Fixed the Bluetooth sorting issue of links
+  * chore: add option to disable privacy'n'security plugin
+  * fix: Modify the Create User dialog box
+  * fix: round volume values to avoid floating point precision issues
+  * fix: add shortcut clearing functionality in keyboard module
+  * fix: Fixed the issue that the settings menu was opened
+  * fix: position regions chooser window at mouse click position
+  * fix: adjust UI spacing and fonts in Region and Language interface
+  * fix: Fixed the issue that the blur effect was abnormal
+  * fix: Fixed the wrong selection of the active color
+  * fix: remove duplicate Numeric Keypad display names in keyboard
+    settings
+  * fix: Fix creating user interface display
+  * fix: maintain selected region when filtering in RegionFormatDialog
+  * fix: improve icon handling and UI components
+  * fix(accounts): The 'Quick Login' option is not hidden correctly
+
+ -- WuJiangYu <wujiangyu@uniontech.com>  Thu, 03 Jul 2025 19:59:25 +0800
+
+dde-control-center (6.1.32) unstable; urgency=medium
+
+  * i18n: Updates for project Deepin Desktop Environment (#2419)
+  * chore: remove reginal variants for es language
+  * fix: update deepin ID notification for UOS compatibility
+  * refactor: add Q_UNUSED macros to unused parameters
+  * i18n: Updates for project Deepin Desktop Environment (#2415)
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Mon, 23 Jun 2025 16:58:03 +0800
+
+dde-control-center (6.1.31) unstable; urgency=medium
+
+  * fix: Open all keyboard layouts
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Thu, 19 Jun 2025 16:43:03 +0800
+
+dde-control-center (6.1.30) unstable; urgency=medium
+
+  * fix: hide pressure sensitivity settings in mouse mode
+  * refactor: reorganize shutdown time signal and handling
+  * fix: resolve spacing and font issues in touchpad components
+  * fix: adjust spacing and margins in LangsChooserDialog
+  * fix: Fix the issue of incomplete text display
+  * fix: Block keyboard lock function
+  * fix: Fixed text position anomalies
+  * fix: resolve button hover effects in MicrophonePage
+  * fix: add missing hover effects for shortcut editing buttons
+  * fix: Fixed icon exceptions
+  * i18n: Translate dde-control-center_en.ts in uk (#2399)
+  * fix: Fixed the issue of font display in user groups
+  * fix: reduce excessive spacing between list items in LangAndFormat
+  * fix: reduce excessive spacing between setting sections in
+    TimeAndDate
+  * fix: align placeholder text to left in custom NTP server input field
+  * i18n: Updates for project Deepin Desktop Environment (#2378)
+  * fix: modify opacity slide Min value as 25%.
+  * fix: adapt custom server confirm button for screen scaling
+  * fix: resolve volume icon hover effect issues in SpeakerPage
+  * fix: Fix default display for unnamed Bluetooth
+  * fix: resolve play button icon display in sound effects
+  * style: reorder member variable initialization
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 19 Jun 2025 10:09:03 +0800
+
+dde-control-center (6.1.29) unstable; urgency=medium
+
+  * fix: Fixed the failure of uploading an avatar
+  * fix: Fix activation status not syncing
+  * fix: Modify the processing method of the identify window
+  * fix: ScheduledShutdownDialog cancel behavior on close
+  * fix: standardize icon naming in TimeAndDate component
+  * fix: resolve caps lock toggle functionality in keyboard plugin
+  * fix: Modify brightness text style
+  * fix: hide Touchpad gesture options when disabled
+  * fix: Fix search no results
+  * fix: The fixed issue is prompt for creating a user with the same name
+  * fix: Add notification jump processing
+  * fix: resolve editing state issue in Shortcuts component
+  * fix: Fixed the display of developer mode
+  * i18n: Updates for project Deepin Desktop Environment (#2370)
+  * fix: improve RegionsChooserWindow layout and scrolling experience
+  * fix: handle empty text input in DateTimeSettingDialog
+  * fix: Fixed the issue of user group clicking
+  * fix: Modify the height spacing
+  * fix: customize spinbox input validation in DateTimeSettingDialog
+  * chore: update debian control
+  * i18n: Translate dde-control-center_en.ts in zh_TW (#2368)
+  * i18n: Updates for project Deepin Desktop Environment (#2363)
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Thu, 12 Jun 2025 16:40:40 +0800
+
+dde-control-center (6.1.28) unstable; urgency=medium
+
+  * refactor: migrate RSA encryption to EVP API
+  * style: add unused parameter markers and fix member order
+  * feat: add battery power state awareness to screensaver
+  * fix: add POST_BUILD to custom commands
+  * fix: update translation with QuickLogin and Lock Dock
+  * fix: Add a user group error message
+  * feat: add Lock the height of dock.
+  * feat: add quick login.
+  * fix: improve caps lock and num lock toggle functionality
+  * fix: add disambiguation context for "Medium" copywriting
+  * i18n: Updates for project Deepin Desktop Environment (#2352)
+  * fix: prevent key sequence recording when edit button is clicked
+  * fix: Add a full name error message
+  * fix: Fixed the issue that the error message was displayed
+  * fix: Fix text length limit
+  * fix: adjust text handling in KeyboardLayout component
+  * feat: Implement keyboard on/off authentication
+  * feat: The mode is not updated when only one screen is switched
+  * fix: optimize scrolling experience in Shortcuts component
+  * fix: Mask input field copy operations
+  * fix: Modify menu translations
+  * fix: optimize input field layout and validation in TimeAndDate
+  * feat: update moudle translation
+  * feat: Implement keyboard on/off function
+  * fix: remove redundant displayName properties in sound component
+  * fix: Fixed the issue of the background color of the list item hover
+  * fix: Optimized the focus of the user group list
+  * fix: optimize volume control step size for better usability
+  * fix: improve deepinid plugin initialization and activation logic
+  * i18n: Updates for project Deepin Desktop Environment (#2329)
+  * fix: Modifying desktop display without options issue
+  * i18n: Updates for project Deepin Desktop Environment (#2326)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 05 Jun 2025 21:38:17 +0800
+
+dde-control-center (6.1.27) unstable; urgency=medium
+
+  * fix: Edit compilation warning
+  * fix: Modify the style of the ComboBox
+  * fix: Modify confirmation window coordinate error
+  * fix: Fixed the computer name error message
+  * chore: use day name from Locale.standaloneDayName()
+  * fix: Modify duplicate settings issue
+  * fix: enhance clear button UI and padding in TimeAndDate
+  * fix: Fixed the issue that Bluetooth did not refresh automatically
+  * fix: Add password hint restrictions
+  * fix: Duplicate applications can be added in the default program
+  * fix: improve text visibility in TimeAndDate component
+  * fix: resolve con loading in LangsChooserDialog
+  * feat: Add URL fuzzy matching function
+  * fix: resolve shortcut conflicts by adding type parameter
+  * fix: Fixed the issue that the menu position was abnormal
+  * fix: remove ai-assistant from assistive tools filter
+  * fix: The default program appears in recent installations
+  * fix: Fixed the issue of slow creation of multiple accounts
+  * fix: preserve custom shortcut order in ShortcutModel
+  * fix: optimize window switch handling in keyboard plugin
+  * chore: Update QML imports for compatibility with Qt >= 6.9
+  * fix: Fix the blank context menu issue
+  * fix: Fixed the issue that the button text was not displayed
+    completely
+  * fix: optimize text filtering in keyboard shortcuts
+  * fix: The scrollbar does not display
+  * fix: Modify time input control
+  * fix: Same page return and item animation
+  * fix: update focus handling in Common
+  * chore: update UI text descriptions and translations
+  * feat: disables search in privacy plugin settings
+  * fix: Fixed the issue that the font size did not change with the
+    change
+  * fix: optimize input field widths on Sound page
+  * fix: Modify custom time rules
+  * style: add subtle borders to preview containers
+  * fix: adjust sound name width with ellipsis in TimeAndDate
+  * fix: Fixed the issue that the font size did not change with the
+    change
+  * fix: Modify the text ellipsis effect
+  * style: improve window blur color handling
+  * fix: prevent duplicate format in TimeAndDate component
+  * chore: Update obs workflows.yml
+  * fix: update numberKeepList with Arabic thousands separator
+  * fix: update time format strings in RegionProxy
+  * fix: Add Bluetooth connection animation
+  * fix: add wrap support for datetime spinboxes
+  * fix: Fixed the issue that other account status was abnormal
+  * fix: adjust component heights and vertical alignment for
+    localization
+  * refactor: improve scheduled shutdown dialog handling
+  * fix: Fix the issue of user group name not displaying completely
+  * fix: The following is fixed for the user group sorting error
+  * fix: improve text visibility in Label components
+  * fix: The default program of the terminal cannot be set
+  * fix: No search results related to performance mode
+  * fix: Tab key cannot traverse application notifications
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 29 May 2025 17:31:02 +0800
+
+dde-control-center (6.1.26) unstable; urgency=medium
+
+  * fix: ensure plain text format in KeySequenceDisplay
+  * fix: Correct spelling errors
+  * fix: improve sound device combo box dynamic sizing
+  * fix: disable power management features in virtual environments
+  * fix: adjust device page plugin order
+  * fix: The application name contains the deepin character
+  * fix: Fix the issue of names that are too long not being truncated.
+  * fix: improve language label display in LangsChooserDialog
+  * fix: Fix the display issue of the new creation failure interface.
+  * fix: disable focus on shortcut operation buttons
+  * fix: Modify custom time rules
+  * fix(auth): adjust unreasonable UI
+
+ -- xionglinlin <xionglinlin@uniontech.com>  Thu, 15 May 2025 22:05:47 +0800
+
+dde-control-center (6.1.25) unstable; urgency=medium
+
+  * fix: Modifying settings for copying mode issues
+  * fix: Fix the hyperlink issue in the user interface
+  * fix: Fix Bluetooth rename prompt error
+  * fix: correct week start day format index
+  * fix: Fix text style
+  * fix: Fix the button text display issue
+  * fix: hide play button background
+  * fix: improve datetime format handling for non-Chinese locales
+  * i18n: Updates for project Deepin Desktop Environment (#2244)
+  * fix: preserve original language data in LanguageListModel
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Tue, 13 May 2025 16:28:40 +0800
+
+dde-control-center (6.1.24) unstable; urgency=medium
+
+  * fix: optimize slider behavior in sound control center
+  * fix: improve country name translation in datetime module
+  * fix: update mouse double-click speed slider labels
+  * fix: Fixed the issue that hyperlinks did not have context menus
+  * fix: Fixed the Bluetooth switch issue in airplane mode
+  * fix: Fixed the lack of hover effect for list items
+  * fix: Modify the height of the sidebar item
+  * fix: improve time format handling in datetime model
+  * feat:  adapt to WallpaperChanged signal
+  * fix: Modify and check password strength issues
+  * fix: Add keyboard_language generation script
+  * i18n: Updates for project Deepin Desktop Environment (#2233)
+  * fix: Fix layout errors
+  * fix: update font in ShortcutSettingDialog
+  * fix: Fixed the issue that the rename was empty
+  * i18n: Updates for project Deepin Desktop Environment (#2229)
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 08 May 2025 16:44:23 +0800
+
+dde-control-center (6.1.23) unstable; urgency=medium
+
+  * fix: Add new language translation
+  * fix: The issue of abnormal mouse style is fixed
+  * fix: clear filter wildcard in LangsChooserDialog when deactivated
+  * fix: failed to retrieve search results for grand searching
+  * fix: Fixed the issue that the test content was not cleared
+  * fix: adjust icon size in LangAndFormat component
+  * fix: update locale in currentTime()
+  * fix: Fixed the error of opening the default path
+  * i18n: Updates for project Deepin Desktop Environment (#2218)
+  * fix: update system time zone check in addUserTimeZone method
+  * fix: Fixed the issue that the error content did not disappear
+  * fix: add setFirstDayOfWeek call in setCurrentFormat
+  * fix: Fixed the background exception of mouse operation
+  * fix: resolve display issues in TimeAndDate component
+  * fix: Modify the width of the strong reminder box
+  * fix: Update Chinese translation
+  * fix: Fixed that the password was empty and could still be determined
+  * feat: DccCheckIcon defaults to checked status
+  * fix: Modify search term configuration
+  * fix: enhance SearchableListViewPopup and TimeAndDate components
+  * fix: Fixed the issue that Bluetooth was renamed to empty
+  * fix: Fixed the error issue of changing the full name
+  * fix: Fixed the issue of waiting for Bluetooth to be turned on and
+    off
+  * fix: The issue of setting the background of grub startup is fixed
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Tue, 29 Apr 2025 13:16:21 +0800
+
+dde-control-center (6.1.22) unstable; urgency=medium
+
+  * fix: Display window only when DBus calls ShowPage
+  * fix: Update error messages for camera occupancy
+  * i18n: Updates for project Deepin Desktop Environment (#2198)
+  * fix: add stopSoundEffectPlayback method and integrate into SoundEffectsPage
+  * fix: Fixed the Bluetooth list loading issue
+  * i18n: Updates for project Deepin Desktop Environment (#2194)
+  * fix: Can be renamed to a duplicate name
+  * fix: update sound effects and animations for theme support
+  * fix: Fixed the Bluetooth name display issue
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Tue, 22 Apr 2025 15:52:20 +0800
+
+dde-control-center (6.1.21) unstable; urgency=medium
+
+  * fix: Compatible with previous command parameters
+  * fix: Return hierarchy error
+  * fix: Return hierarchy error
+  * fix: use system locale for date formatting
+  * fix: Add translation language types
+  * fix: use system locale for date formatting
+  * fix: Added error sounds
+  * fix: Modify the translation loading location
+  * fix: The title is displayed incorrectly.
+  * fix: Add secure compilation parameters
+  * i18n: Updates for project Deepin Desktop Environment (#2171)
+  * fix: improve timezone selection persistence in search
+  * fix: The issue of user group editing is fixed
+  * fix: always include switch-monitors in system shortcuts filter
+  * fix: Fixed the Bluetooth checkbox clicking issue
+  * fix: simplify NTP server validation and address assignment
+  * fix: missing unchecked state for DccCheckIcon
+  * fix: ScorllBar still hide when hovered
+  * feat: Support the user agreement for UosMilitary
+  * fix: copyright cannot display Chinese
+  * fix: Add the computer name tooltip
+  * i18n: Updates for project Deepin Desktop Environment (#2168)
+  * fix: Fixed the issue of formula bar style
+  * fix: The issue that the username is displayed too long is fixed
+  * fix: The issue that the group title is not refreshed in time is fixed
+  * fix: disable microphone input level slider interaction
+  * i18n: Updates for project Deepin Desktop Environment (#2156)
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Thu, 17 Apr 2025 16:32:20 +0800
+
+dde-control-center (6.1.20) unstable; urgency=medium
+
+  * refact: migrate plugin-update to deepin-update-ui
+  * fix: remove redundant locale config when setting region
+  * fix: improve SearchableListViewPopup positioning and visibility
+  * fix: Fixed text color errors
+  * fix: The issue that the username is displayed abnormally is fixed
+  * fix: Fixed the issue that the full name could not be set to the
+    blank
+  * fix: number separator issue in SpinBox with C locale
+  * fix: Fixed the profile picture background issue
+  * fix: Fixed the issue that the font size does not change
+  * fix: adjust UI for DccCheckIcon
+  * fix: Fixed it was not refreshed in time when switching theme
+    displays
+  * fix: prevent duplicate timezone between system and user lists
+  * i18n: Updates for project Deepin Desktop Environment (#2154)
+  * i18n: Updates for project Deepin Desktop Environment (#2153)
+
+ -- YeShanShan <yeshanshan@uniontech.com>  Thu, 10 Apr 2025 15:49:14 +0800
+
+dde-control-center (6.1.19) unstable; urgency=medium
+
+  *  feat: modify the system configuration items of the deepinid
+  * fix: No configuration written after modifying the region format
+  * chore: update README.md and translations in desktop file
+  * i18n: Updates for project Deepin Desktop Environment (#2147)
+  * fix: typo mistakes (#2145)
+  * i18n: Updates for project Deepin Desktop Environment (#2146)
+  * fix(personalization): UI optimization
+  * fix: Modify Crumb spacing
+  * fix: No configuration written after modifying the region format
+  * i18n: Updates for project Deepin Desktop Environment (#2140)
+  * fix: Remove Qt5 dependencies
+  * fix: wallpaper interface loads slowly
+  * fix: Modify search list keyboard interaction
+  * fix: Modify the style of the return key
+  * i18n: Updates for project Deepin Desktop Environment (#2138)
+  * fix: fix typo and update ts files
+  * i18n: Updates for project Deepin Desktop Environment (#2136)
+  * fix: minor typos (#2134)
+  * fix: add update moudle check error tips
+  * i18n: Updates for project Deepin Desktop Environment (#2131)
+  * i18n: Updates for project Deepin Desktop Environment (#2130)
+  * fix: add transifex config
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Thu, 27 Mar 2025 15:52:20 +0800
+
+dde-control-center (6.1.18) unstable; urgency=medium
+
+  * fix: The issue of intercepting mouse events while modifying the ComboBox
+  * fix: Adjust the ListView UI
+  * chore(power): update translate
+  * fix(power): ui optimization
+  * fix: Modify Crumb style
+  * fix: add transifex config
+  * fix: the number of wallpapers displayed has not been updated
+  * fix: no hide 'Show the shutdown Interface' option on lid close
+  * fix: Modifying cursor style issues
+  * fix: Modify Control Center Exit Deadlock Issue
+  * fix: Notification preview image without dark mode
+  * fix: develop moudel add get debug level
+  * fix: change sound list model enabled
+  * fix: Can delete logged-in users
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Thu, 20 Mar 2025 17:52:20 +0800
+
+dde-control-center (6.1.17) unstable; urgency=medium
+
+  * fix: occasionally crashes when switching wallpapers on multiple screens
+
+ -- zhangkun <zhangkun2@uniontech.com>  Tue, 18 Mar 2025 10:27:40 +0800
+
+dde-control-center (6.1.16) unstable; urgency=medium
+
+  * chore: update icon
+  * fix: add Bluetooth name and icon margin
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Wed, 12 Mar 2025 13:31:20 +0800
+
+dde-control-center (6.1.15) unstable; urgency=medium
+
+  * fix: Missing application notification title
+  * fix: langAndFormat moudle Reset button width
+  * fix: Change username to root
+  * fix: update touchscreen icon
+  * fix: No response to jump datetime module
+  * feat: comment unadapted system configuration items
+
+ -- xionglinlin <xionglinlin@uniontech.com>  Tue, 11 Mar 2025 16:22:22 +0800
+
+dde-control-center (6.1.14) unstable; urgency=medium
+
+  * fix: Add eye protection mode
+  * fix: Change the image of the startup menu
+  * fix: appearance theme can not change by property changed
+  * chore: update icons
+  * fix: update developerMode translation
+  * chore(bluetooth): update icon
+  * feat(power): Adjust and optimize the UI
+  * fix: Modify the button hierarchy of the title bar
+  * fix: change system version info to Authorization Property data
+  * chore: hide compact mode
+  * chore(power): update icon
+  * fix: Continuous calls to the enroll interface may not initiate enroll
+  * typo: Correct the interface of the PropertiesChanged signal
+  * fix: Fix overlapping issue in the control center display schematic adjustment
+  * fix: update status is incorrect
+  * fix: Modify the disappearance issue of the network interface
+  * fix: Abnormal display of modify delete button
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 06 Mar 2025 19:30:52 +0800
+
+dde-control-center (6.1.13) unstable; urgency=medium
+
+  * chore: add dde-control-center-dock conflict
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 28 Feb 2025 17:22:58 +0800
+
+dde-control-center (6.1.12) unstable; urgency=medium
+
+  * fix: update moudle add reday state
+  * fix: update User Experience Program text
+  * chore(personalization): Custom images are prohibited from selecting GIF and svg images
+  * fix: combobox for slideShow wallpaper  will not select 'never'
+  * fix: Occasionally crash when exiting
+  * fit: Modify the display logic of the monitor title
+  * fix: font combobox displays incomplete font names
+  * chore(power): Unhide the auto shutdown module on treeland
+  * fit: No response after switching to only the secondary screen
+  * chore(update): update icon
+  * fit: Modifying the unplugged network card caused a crash issue
+  * fit: When merge mode, masking should not be re spliced
+  * fix: update bluetooth icon
+  * fix: update commonInfo translation
+  * fix: first thumb name is empty
+  * fix: fix develop mode status issue
+  * fit: Modify the display rules of the Identify button
+  * fix: the configuration of hide combobox options does not take effect
+  * feat: hide privacy on non uos
+  * fit: No character rule verification
+  * fit: Modify screen stitching overlap issue
+  * fix: fix develop mode status issue
+  * fix: unlock when not locked
+  * fix: biometric authentication sometimes not displaying
+  * chore(wallpaper): update translate
+  * chore(dock): update include
+  * feat: add dock plugin
+
+ -- shenwenqi <shenwenqi@uniontech.com>  Fri, 28 Feb 2025 14:40:53 +0800
+
+dde-control-center (6.1.11) unstable; urgency=medium
+
+  * feat: add dock plugin
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 21 Feb 2025 17:18:53 +0800
+
+dde-control-center (6.1.10) unstable; urgency=medium
+
+  * feat: Support selecting monitor when setting wallpaper
+  * fix: can not click setting button when setting picture screensaver
+  * fix: the opacity has abnormally reached its maximum value in treeland
+  * feat: Add tab key navigation interaction function
+  * chore: update custom solidwallpapers path
+  * chore(personalization): update translate
+  * feat: add wallpaper and screensaver
+  * fix: update Bluetooth list ui
+  * feat: update moudle translation
+  * feat: update moudle adapter Lastore daemon
+  * fix: multiple accounts can be enabled for automatic login
+  * fix: standardUser can change other account passwords
+  * fix: The bottom button is not fully displayed
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 21 Feb 2025 15:49:34 +0800
+
+dde-control-center (6.1.9) unstable; urgency=medium
+
+  * fix(privacy): some applications that have been abnormally excluded
+  * feat(BiometricAuth): Add fingerprint registration animation and Reasonably hide modules
+  * feat: Provide interfaces for setting wallpapers and themeType
+  * feat: Update icon
+  * feat: Update display module translation
+  * feat: Display module screen splicing function
+  * fix: delete update moudel list item implicitHeight
+  * fix: modify Bluetooth moudle edit button style
+  * fix: Plugin status updates are processed in the main thread through signaling
+  * fix: modify update actionBtn width
+  * fix: modify bluetooth moudel redo icon path
+  * fix: Incorrect setting of suspend mode to hibernate mode
+  * fix: Incorrect password modification function for other accounts
+  * fix: bluetooth moudle change button to toolbutton
+  * fix: add bluetooth device not update model
+  * fix: update touchpad translation
+  * fix: touchpad finger animation not update
+  * feat: add biometric authentication module
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 14 Feb 2025 10:38:44 +0800
+
+dde-control-center (6.1.8) unstable; urgency=medium
+
+  * feat: override icu database
+  * fix: Modify the issue of dconfig saving crashing and freezing
+  * feat: impl privacy
+  * fix: Modify memory release issue
+  * feat: 初步实现生物认证-人脸识别
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 23 Jan 2025 17:21:20 +0800
+
+dde-control-center (6.1.7) unstable; urgency=medium
+
+  * fix: Adjust default program UI style
+  * feat: add mouse touchpad gesture module (#2000)
+  * feat: Temporarily hide account and security modules (#1999)
+  * feat: update deepinid module (#1997)
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Tue, 14 Jan 2025 16:46:20 +0800
+
+dde-control-center (6.1.6) unstable; urgency=medium
+
+  * fix: Add default program functionality
+  * fix: Error in modifying the setting area
+  * fix: Adjust the UI style of the control center
+  * fix: update system update icon
+  * fix: update keyboard icon
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 10 Jan 2025 14:34:23 +0800
+
+dde-control-center (6.1.5) unstable; urgency=medium
+
+  * fix: Modify the UI style of the list view
+  * fix: delete boot menu background color (#1987)
+  * fix: add mouse and keyboard icon (#1988)
+  * fix: the icon for sending system notifications is incorrect
+  * fix: Adjust bluetooth more button size
+  * chore: do not fullscreen on space key pressed
+  * feat: Add the function of modifying screen scale
+  * fix: Adjust sound combobox mode data (#1983)
+  * chore: hide edit button when item count < 2
+  * chore: dialog set fix size
+  * fix: Adjust the bluetooth module UI (#1980)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 02 Jan 2025 13:52:51 +0800
+
+dde-control-center (6.1.4) unstable; urgency=medium
+
+  * fix: Adjust the audio module UI
+  * fix: abnormal hiding of some items on Treeland
+  * fix: Modify exit crash issue
+  * fix: button size tweak
+  * chore: CustomAvatarEmptyArea text align tweak
+  * fix: update systeminfo ui
+  * chore(personalization): ui optimization
+  * fix: arrow button error in dark mode
+  * fix: crash when saving avatar
+  * fix: option to set the 'titlebarHeight' for Combbox is empty
+  * feat: Modify sidebar behavior
+  * fix: shortcut modify failed
+  * chore: account view loading speed optimized
+  * fix: RegionFormatDialog view background missing
+  * chore: disable timezone clock animation
+  * fix: region chooser window color and position error
+
+ -- zhangkun <zhangkun2@uniontech.com>  Tue, 24 Dec 2024 19:29:24 +0800
+
+dde-control-center (6.1.3) unstable; urgency=medium
+
+  * release 6.1.3
+
+ -- shenwenqi <shenwenqi@uniontech.com>  Mon, 23 Dec 2024 10:28:31 +0800
+
+dde-control-center (6.1.2) unstable; urgency=medium
+
+  * release 6.1.2
+
+ -- shenwenqi <shenwenqi@uniontech.com>  Fri, 20 Dec 2024 11:30:42 +0800
+
+dde-control-center (6.1.1) unstable; urgency=medium
+
+  * release 6.1.1
+
+ -- Mike Chen <chenke@deepin.org>  Thu, 19 Dec 2024 11:06:42 +0800
+
+dde-control-center (6.1.0) unstable; urgency=medium
+
+  * fix: Failed to modify DBus jump issue
+  * fix: long date formats error
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Mon, 16 Dec 2024 16:33:40 +0800
+
+dde-control-center (6.0.78) unstable; urgency=medium
+
+  * 6.0.78
+
+ -- Wang Fei <wangfei@deepin.org>  Fri, 13 Dec 2024 13:46:35 +0800
+
+dde-control-center (6.0.77) unstable; urgency=medium
+
+  * fix: Fix incorrect page status after the update is completed
+  * chore: adjust active colors
+  * chore: keyboard translations tweak
+  * chore: update datetime/language translations
+  * chore: add keboard layout tips
+  * chore(power): update translate
+  * chore(personalization): update translate
+  * fix: modify deepinid module display name
+  * fix: have no input device,there are input titles and prompt texts (#1873)
+  * fix: DBus adds asynchronous return processing
+  * feat: add audio Mono (#1871)
+  * chore: dcc focus tweak
+  * Fix: update bluetooth translation
+  * fix: wallpaper color selection is not effective
+  * fix: region format init failed
+  * fix: wrong lib install path
+  * feat: Modify translation processing errors
+  * chore: udpate keyboard shortcut translations
+  * fix(personnalization): screen select combobox is empty
+  * feat: Update menu item description
+  * feat: add sound description (#1859)
+  * chore: update date and time translations
+  * chore(personalization): update activeColor list
+  * fix: hidden developer mode (#1856)
+  * fix: system/custom timezone datas affect each other
+  * fix(power): The sliding bar scale value is incorrect
+  * feat: update audio framework translations (#1853)
+  * fix: Modifying DBus cannot redirect properly
+  * feat: Add audio framework module (#1850)
+  * feat: Update weight
+  * feat: Update {name}Main translation
+  * feat: Change main.qml to {name}Main.qm
+  * fix: window effect no background
+  * feat: Update display,notification,deepinid,wacom,touchscreen translation
+  * chore: update power and personalization translations
+  * chore: keyboard visble tweak
+  * chore: update datetime/accounts translations
+  * feat: Update translations for Bluetooth, General, System Information, Sound, etc.
+  * chore: update power translations
+  * feat: Update translation
+  * chore: datetime translation tweak
+  * chore: init ts files
+  * fix: Modify update description (#1832)
+  * fix: Update workflows.yml
+  * fix(build): display module arm64 build failed
+  * fix: Hide menu without touchpad
+  * fix: font size error
+  * fix: font Combobox is empty
+  * fix: update deepinid description
+  * feat: Add display module
+  * feat: Update workflows.yml
+  * fix: language set failed
+  * fix: Setting activity color invalid
+  * fix: Personalization module starts slowly in Treeland
+  * feat: dcc deepinid module
+  * fix: Create a new object when calling getSectionItem
+  * fix: zoom shortcut filter tweak
+  * chore: use AP instead of ap/Ap
+  * fix: system timezone setting error
+  * feat: Added initial version update function
+  * feat: Treeland adaptation of personalized modules
+  * feat: add the StartupWMClass field to the desktop file
+  * fix: ntp server list can not scroll
+  * fix: The hoverEnabled of DccItem defaults to true
+  * feat: add current acount page
+  * feat: add account module
+  * chore: time date tweak
+  * fix: loading plugin crashed
+  * chore: time date display tweak
+  * fix: Add DCI search path
+
+ -- Zhangkun <zhangkun2@uniontech.com>  Fri, 06 Dec 2024 16:25:17 +0800
+
+dde-control-center (6.0.76.2) unstable; urgency=medium
+
+  * release 6.0.76.2
+
+ -- Zhangkun <zhangkun2@uniontech.com>  Fri, 22 Nov 2024 11:18:36 +0800
+
+dde-control-center (6.0.76.1) unstable; urgency=medium
+
+  * fix: modify keyboard name(Task: 361721)
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Wed, 20 Nov 2024 16:09:40 +0800
+
+dde-control-center (6.0.76) unstable; urgency=medium
+
+  * feat: Implement notification module code(Task: 366517)
+  * fix: Multiple creation issues with modifying plugin objects(Task: 361721)
+  * feat: Improve the interface of the control center(Task: 361721)
+  * fix: Add DccSetingsObject(Task: 361721)
+  * fix: modify keyboard name(Task: 361721)
+
+ -- Deepin Packages Builder <packages@deepin.org>  Wed, 20 Nov 2024 13:39:40 +0800
+
+dde-control-center (6.0.75) unstable; urgency=medium
+
+  * release 6.0.75
+
+ -- xionglinlin <xionglinlin@uniontech.com>  Thu, 14 Nov 2024 10:00:17 +0800
+ 
+dde-control-center (6.0.74) UNRELEASED; urgency=medium
+
+  * release 6.0.74
+
+ -- Zhangkun <zhangkun2@uniontech.com>  Fri, 08 Nov 2024 14:26:12 +0800
+
+dde-control-center (6.0.73) unstable; urgency=medium
+
+  * release 6.0.73 
+
+ -- Zhangkun <zhangkun2@uniontech.com>  Thu, 07 Nov 2024 15:58:29 +0800
+
+dde-control-center (6.0.72) unstable; urgency=medium
+
+  * release 6.0.72
+
+ -- Mike Chen <chenke@deepin.org>  Thu, 31 Oct 2024 13:36:34 +0800
+
+dde-control-center (6.0.71) unstable; urgency=medium
+
+  * Release 6.0.71
+  * fix: adapt to compact mode
+
+ -- Zhang Kun <zhangkun2@uniontech.com>  Thu, 24 Oct 2024 19:09:05 +0800
+
+dde-control-center (6.0.70) unstable; urgency=medium
+
+  * chore: add translations about time format
+  * chore: add the country feature
+  * fix: Modify the style of the image source list widget
+  * chore: Add 'qt6-declarative-private-dev' dependency in control
+  * fix: Fixed the problem of obtaining the path of the boot menu theme image
+  * feat: 蓝牙图标改成和dde-tray-loader一样的内建图标
+  * feat: Control Center-General Module Design and Transformation
+  * feat: add dccrepeater
+  * feat: implement personalized module
+
+ -- Yutao Meng <mengyutao@deepin.org>  Wed, 16 Oct 2024 17:29:08 +0800
+
+dde-control-center (6.0.69) unstable; urgency=medium
+
+  * Display compact mode
+
+ -- Zhang Kun <zhangkun2@uniontech.com>  Sat, 12 Oct 2024 10:28:49 +0800
+
+dde-control-center (6.0.68) unstable; urgency=medium
+
+  * release 6.0.68
+
+ -- Mike Chen <chenke@deepin.org>  Fri, 27 Sep 2024 14:11:00 +0800
+
+dde-control-center (6.0.67) unstable; urgency=medium
+
+  * fix: incorrect bluetooth device icon theme type
+
+ -- xionglinlin <xionglinlin@uniontech.com>  Wed, 25 Sep 2024 17:58:11 +0800
+
+dde-control-center (6.0.66) unstable; urgency=medium
+
+  * release 6.0.66
+  * feat: remove linglong update
+  * feat: add compact mode and hide it by default
+
+ -- Zhang Kun <zhangkun2@uniontech.com>  Thu, 12 Sep 2024 15:49:46 +0800
+
+dde-control-center (6.0.65) unstable; urgency=medium
+
+  * fix: need click twice to set hidden dock plugin visible
+
+ -- Yutao Meng <mengyutao@deepin.org>  Wed, 04 Sep 2024 16:47:38 +0800
+
+dde-control-center (6.0.64) unstable; urgency=medium
+
+  * bump version to 6.0.64
+
+ -- Deepin Packages Builder <packages@deepin.org>  Thu, 29 Aug 2024 10:34:15 +0800
+
+dde-control-center (6.0.63) unstable; urgency=medium
+
+  * fix: set search popup distance from searchLineEdit to 8 (#1675)(Issue: 10398)
+
+ -- Deepin Packages Builder <packages@deepin.org>  Thu, 22 Aug 2024 11:02:02 +0800
+
+dde-control-center (6.0.62) unstable; urgency=medium
+
+  * bump version to 6.0.62
+
+ -- Deepin Packages Builder <packages@deepin.org>  Wed, 14 Aug 2024 14:42:16 +0800
+
+dde-control-center (6.0.61) unstable; urgency=medium
+
+  * fix: dock panel min size error(Issue: 10069)(Influence: can adjust dock's min size)
+
+ -- Deepin Packages Builder <packages@deepin.org>  Tue, 06 Aug 2024 15:45:27 +0800
+
+dde-control-center (6.0.60) unstable; urgency=medium
+
+  * fix: Fixed the problem that the icon cannot be retrieved from the system monitor (#1661)(issue: 9833)
+  * fix: Add screenshot plug-in icon (#1662)(Issue: 9944)
+
+ -- zyz <zhaoyingzhen@uniontech.com>  Wed, 31 Jul 2024 14:48:00 +0800
+
+dde-control-center (6.0.59) unstable; urgency=medium
+
+  * fix: module object name setting error (#1655)(Influence: module can jump normally)
+  * fix: remove some shortcuts(Issue: 9599)
+  * fix: Fix crash when switching Light/Dark theme(Issue: 9883)
+
+ -- zyz <zhaoyingzhen@uniontech.com>  Wed, 24 Jul 2024 14:16:00 +0800
+
+dde-control-center (6.0.58) unstable; urgency=medium
+
+  * chore: compatible to new dock 
+
+ -- Wang Fei <wangfei@deepin.org>  Tue, 09 Jul 2024 11:41:02 +0800
+
+dde-control-center (6.0.57) unstable; urgency=medium
+
+  * feat: Add translations for dde-control-center in plymouth notifications(Issue: https://github.com/linuxdeepin/developer-center/issues/8998)
+  * fix: The avatar selection interface is not adapted to dark mode(Issue: https://github.com/linuxdeepin/developer-center/issues/9440)
+  * feat: add configuration for hidden icon themes(Issue: https://github.com/linuxdeepin/developer-center/issues/9024)
+  * fix: Refresh dock plugins list when switch composite status(Issue: https://github.com/linuxdeepin/developer-center/issues/8995)
+  * fix: crash when selecting custom avatar(Issue: https://github.com/linuxdeepin/developer-center/issues/9513)
+  * fix: 规范地区名称(Issue: https://github.com/linuxdeepin/developer-center/issues/5997)
+
+ -- Zhang kun <zhangkun2@uniontech.com>  Tue, 02 Jul 2024 10:05:16 +0800
+
+dde-control-center (6.0.56) unstable; urgency=medium
+
+  * chore: use GenericName if X-Deepin-Vendor is 'deepin' (linuxdeepin/developer-center#6692)
+
+ -- zsien <quezhiyong@deepin.org>  Thu, 30 May 2024 17:39:02 +0800
+
+dde-control-center (6.0.55) unstable; urgency=medium
+
+  * feat: add backup updates ui(Issue: https://github.com/linuxdeepin/developer-center/issues/8626)
+  * fix: data of datetime is unintialized(Issue: https://github.com/linuxdeepin/developer-center/issues/8248)
+
+ -- Zhang Kun <zhangkun2@uniontech.com>  Thu, 23 May 2024 16:08:10 +0800
+
+dde-control-center (6.0.54) unstable; urgency=medium
+
+  * release 6.0.54
+
+ -- Mike Chen <chenke@deepin.org>  Mon, 13 May 2024 15:15:21 +0800
+
+dde-control-center (6.0.53) unstable; urgency=medium
+
+  * fix: the config file of "showtimetofull" option has changed
+
+ -- Yutao Meng <mengyutao@deepin.org>  Tue, 30 Apr 2024 13:14:53 +0800
+
+dde-control-center (6.0.52) unstable; urgency=medium
+
+  * fix: upgrade information mismatch with dark mode(Issue: https://github.com/linuxdeepin/developer-center/issues/7996)
+
+ -- Zhang kun <zhangkun2@uniontech.com>  Fri, 26 Apr 2024 13:30:56 +0800
+
+dde-control-center (6.0.51) unstable; urgency=medium
+
+  * feat: Update performance mode listview style
+  * fix: wrong time format
+
+ -- Wang Fei <wangfei@deepin.org>  Wed, 24 Apr 2024 19:07:10 +0800
+
+dde-control-center (6.0.50) unstable; urgency=medium
+
+  * release 6.0.50
+
+ -- Mike Chen <chenke@deepin.org>  Mon, 22 Apr 2024 09:36:57 +0800
+
+dde-control-center (6.0.49) unstable; urgency=medium
+
+  * fix: adjust configure for dock module temporarily
+  * fix: space between lang and country 
+
+ -- Wang Fei <wangfei@deepin.org>  Mon, 15 Apr 2024 17:40:26 +0800
+
+dde-control-center (6.0.48) unstable; urgency=medium
+
+  * chore: remove show recent apps in dock settings 
+  * fix: wrong long date format
+  * chore: tab indicator radius tweak
+  * fix: cannot search parenthese 
+
+ -- Wang Fei <wangfei@deepin.org>  Tue, 02 Apr 2024 10:04:37 +0800
+
+dde-control-center (6.0.47) unstable; urgency=medium
+
+  * fix: ui flash when switching power subpage
+
+ -- Wang Fei <wangfei@deepin.org>  Wed, 20 Mar 2024 16:36:48 +0800
+
+dde-control-center (6.0.46) unstable; urgency=medium
+
+  * fix: ui flash when switching power subpage 
+  * Revert "fix: type(defult)"
+
+ -- wangfei <wangfei@deepin.org>  Fri, 15 Mar 2024 10:05:46 +0800
+
+dde-control-center (6.0.45) unstable; urgency=medium
+
+  * fix: grand search can not search dcc modules
+  * fix: hover index not repaint
+  * fix: type(defult)
+  * fix: The width of bottom button is too long
+  * fix: version info data source not consistent
+  * fix(PersonalizationThemeList): wrong margins
+
+ -- Yutao Meng <mengyutao@deepin.org>  Mon, 04 Mar 2024 16:46:01 +0800
+
+dde-control-center (6.0.44) unstable; urgency=medium
+
+  * fix: typo compositor
+  * chore: remove code for gamma control
+  * fix(CustomShortcut): file chooser is opened when Enter pressed
+  * fix: wrong tab index
+  * fix: listview not show item backgound when normal
+  * fix: set all mime type
+  * chore: mask linglong-upgrade.service together
+
+ -- wangfei <wangfei@deepin.org>  Wed, 31 Jan 2024 09:34:03 +0800
+
+dde-control-center (6.0.43) unstable; urgency=medium
+
+  * feat: make plugin-display works in treeland
+
+ -- rewine <luhongxu@deepin.org>  Mon, 22 Jan 2024 23:23:44 +0800
+
+dde-control-center (6.0.42) unstable; urgency=medium
+
+  *  chore: remove Cooperation in display plugin (https://github.com/linuxdeepin/developer-center/issues/7023)
+
+ -- chenhongtao <chenhongtao@deepin.org>  Mon, 22 Jan 2024 17:22:42 +0800
+
+dde-control-center (6.0.41) unstable; urgency=medium
+
+  * fix: time format error （https://github.com/linuxdeepin/developer-center/issues/6995）
+
+ -- chenhongtao <chenhongtao@deepin.org>  Mon, 22 Jan 2024 09:54:17 +0800
+
+dde-control-center (6.0.40) unstable; urgency=medium
+
+  * fix: block some plugins under treeland
+  * fix: wait for http event finished when join internal channel
+  * fix: extra button too wide
+  * chore: record app added and removed event in notify plugin
+
+ -- chenhongtao <chenhongtao@deepin.org>  Thu, 18 Jan 2024 10:24:02 +0800
+
+dde-control-center (6.0.39) unstable; urgency=medium
+
+  * feat: add new custom date format
+  * fix: after set password status, restart dde-lock
+  * if dist space is full show the reason
+
+ -- chenhongtao <chenhongtao@deepin.org>  Mon, 15 Jan 2024 18:08:52 +0800
+
+dde-control-center (6.0.38) unstable; urgency=medium
+
+  * feat: make display of account list show in center
+  * fix: ci with new dtk
+
+ -- chenhongtao <chenhongtao@deepin.org>  Thu, 11 Jan 2024 16:16:50 +0800
+
+dde-control-center (6.0.37) unstable; urgency=medium
+
+  * feat: set locale.conf when set region
+  * fix: after set region, label value not update
+  * fix: account icon count is wrong
+  * fix: defaultapp program name is not displayed correctly
+  * fix: unable to delete timezone continuously
+  * feat: let avatarlistview can handle tab
+  * fix: when there is a modal dialog, not switch pages
+  * fix: language and locale not initialized
+
+ -- chenhongtao <chenhongtao@deepin.org>  Mon, 08 Jan 2024 09:55:12 +0800
+
+dde-control-center (6.0.36) unstable; urgency=medium
+
+  * fix: bring back close button for password dialog
+  * fix: settingsgroup in scrollarea is not resized
+  * feat: split plymouth scale settings
+  * fix: atom upgrade status should not be stored
+  * fix: use mask to handle linglong
+  * fix: remembered size should not min than sizehint
+  * chore: hide region feature
+  * chore: add new shotcut
+  * feat: use icu to translate region
+  * chore: add log to plugin-commoninfo
+  * feat: show tooltip when switchlabel text is elided
+  * feat: check package in feature
+  * fix: map dialog radius not follow system
+  * chore: sync translation
+  * chore: find icon from system first
+
+ -- chenhongtao <chenhongtao@deepin.org>  Tue, 12 Dec 2023 16:02:51 +0800
+
+dde-control-center (6.0.35) unstable; urgency=medium
+
+  * when there are no link, detailinfoitem hide the link widgets
+  * fix: slider of battery should not have background
+  * fix typo in datetime region
+  * fix: read point/badge not clear
+  * tidy up the cmake
+
+ -- chenhongtao <chenhongtao@deepin.org>  Tue, 28 Nov 2023 11:25:52 +0800
+
+dde-control-center (6.0.34) unstable; urgency=medium
+
+  * fix: is desktop is marked nodisplay, not show it
+  * feat: switch defappplugin to new am
+  * fix: crash when setting default application
+  * chore: set defaultterminal with qgsettings
+  * feat: add audio server switch support
+  * chore: update translations
+
+ -- bluesky <chenchongbiao@deepin.org>  Thu, 16 Nov 2023 15:46:10 +0800
+
+dde-control-center (6.0.33) unstable; urgency=medium
+
+  * chore: update translation about region
+  * fix: fontsize icon is not clear enough
+
+ -- chenhongtao <chenhongtao@deepin.org>  Thu, 09 Nov 2023 10:04:32 +0800
+
+dde-control-center (6.0.32) unstable; urgency=medium
+
+  * feat: better cmake
+  * feat: support balance_performance
+  * fix: widgets will increase in vlistmodule
+
+ -- chenhongtao <chenhongtao@deepin.org>  Wed, 01 Nov 2023 18:04:41 +0800
+
+dde-control-center (6.0.31) unstable; urgency=medium
+
+  * feat: country and region format
+  * fix: archlinux obs remove useless depencies
+  * feat: special timezone on deepin
+  * fix: ui error on zone map
+
+ -- chenhongtao <chenhongtao@deepin.org>  Thu, 26 Oct 2023 15:32:19 +0800
+
+dde-control-center (6.0.30) unstable; urgency=medium
+
+  * feat: add pausePlayer ability
+  * fix: typo of "finger"
+  * feat: when it is no password, set wakeupsetting to all false
+  * feat: support configure low power percentage
+  * feat(persionalization): always put custom to the end
+  * feat: use DIconTheme instead
+  * fix: when add custom avatar, page not change
+  * feat: ability of showing battery percentage in bluetooth page
+
+ -- chenhongtao <chenhongtao@deepin.org>  Thu, 19 Oct 2023 10:18:40 +0800
+
+dde-control-center (6.0.29) unstable; urgency=medium
+
+  * fix: debian warning
+ -- chenhongtao <chenhongtao@deepin.org>  Mon, 25 Sep 2023 13:40:40 +0800
+
+dde-control-center (6.0.28) unstable; urgency=medium
+
+  * fix: tabbar height is too large cause page flash
+  * fix: light theme text in discaimer is not clear
+  * fix: listview is not in the center or grub page
+  * fix sidebar expand/collapse status error
+ -- chenhongtao <chenhongtao@deepin.org>  Thu, 14 Sep 2023 13:56:40 +0800
+
+dde-control-center (6.0.27) unstable; urgency=medium
+
+  * resize window at frist to fit some pages
+ -- chenhongtao <chenhongtao@deepin.org>  Tue, 12 Sep 2023 09:53:30 +0800
+
+dde-control-center (6.0.26) unstable; urgency=medium
+
+  * fix alert message position error
+  * update the tip of internal switcher
+  * hide region-setting view
+  * show hscrollbar when page width is too big
+  * fix machineid is remembered when joining tesing
+ -- chenhongtao <chenhongtao@deepin.org>  Fri, 08 Sep 2023 11:04:30 +0800
+
+dde-control-center (6.0.25) unstable; urgency=medium
+
+  * bring back missing translations
+
+ -- chenhongtao <chenhongtao@deepin.org>  Wed, 06 Sep 2023 15:26:30 +0800
+
+dde-control-center (6.0.24) unstable; urgency=medium
+  * support linglong update
+  * fix settings always be disabled
+ -- chenhongtao <chenhongtao@deepin.org>  Wed, 06 Sep 2023 10:27:05 +0800
+
+dde-control-center (6.0.23) unstable; urgency=medium
+
+  * fix avatarlistDialog is not modal
+  * not to init filedialog when initialize a class, to speed up the plugin
+  * use categrade log to show the log
+  * fix opening the Control Center in the launcher or right-clicking to open the Control Center fails
+  * disable edit btn when no customzonelist
+  * fix the logic of the shown of description, and update description
+  * bring back missing icon
+  * remote setSelection of the tabbar, we not use it anymore
+  * init device Combobox enable state when active
+ -- chenhongtao <chenhongtao@deepin.org>  Mon, 28 Aug 2023 10:55:03 +0800
+
+dde-control-center (6.0.22) unstable; urgency=medium
+
+  * when descption is empty, module will use the displayName of child to make
+    a descption
+  * fix the case that on archlinux, it shows uniontech in the module of systeminfo
+  * fix the issue that dde-control-center coredump on opensuse
+  * fix wrong usage of the dbus mouse speed
+  * avoid hardcode of dbus service
+  * dark png shown in personalization
+  * fix dcc-update-plugin cannot initialize very fast
+  * change account to user
+  * region set in datetime plugin
+
+ -- chenhongtao <chenhongtao@deepin.org>  Tue, 08 Aug 2023 13:55:03 +0800
+
+dde-control-center (6.0.21) unstable; urgency=medium
+
+  * fix margin of page
+  * a missing choice in power plugin
+  * depercate DCCDBusInterface
+  * fix the white place of titlebar in hlistmodule cannot be dragged
+
+ -- chenhongtao <chenhongtao@deepin.org>  Thu, 25 May 2023 15:01:03 +0800
+
+dde-control-center (6.0.20) unstable; urgency=medium
+
+  * 更新systeminfo文案
+  * 更新keyboard的布局，去除错误的实现，使用DCCListview
+  * 修改错误的cmake写法
+
+ -- chenhongtao <chenhongtao@uniontech.com>  Thu, 11 May 2023 14:01:03 +0800
+
+dde-control-center (6.0.19) unstable; urgency=medium
+
+  * 修改繁体中文名称
+
+ -- zsien <quezhiyong@uniontech.com>  Sat, 06 May 2023 11:01:03 +0800
+
+dde-control-center (6.0.18) unstable; urgency=medium
+
+  * fix: wrong package for doc
+  * chore: add a readme for doc
+  * chore: adjust internal channel logic
+  * fix: a lot of qt warning
+  * feat: change logic to load translations
+
+ -- chenhongtao <chenhongtao@uniontech.com>  Fri, 5 May 2023 10:23:35 +0800
+
+dde-control-center (6.0.17) unstable; urgency=medium
+
+  * fix: load plugin logic
+  * chore: add document package
+  * feat: read path form READ_DIR instead of INSTALL_DIR
+
+ -- chenhongtao <chenhongtao@uniontech.com>  Sun, 23 Apr 2023 16:28:35 +0800
+
+dde-control-center (6.0.16) unstable; urgency=medium
+
+  * chore: 优化账户头像设置
+  * chore: change the display for wm radius
+
+ -- dengbo <dengbo@uniontech.com>  Fri, 21 Apr 2023 13:28:35 +0800
+
+dde-control-center (6.0.15) unstable; urgency=medium
+
+  * fix: 控制中心新建用户时闪退
+
+ -- dengbo <dengbo@uniontech.com>  Wed, 19 Apr 2023 16:47:45 +0800
+
+dde-control-center (6.0.14) unstable; urgency=medium
+
+  * fix: 控制中心用户头像显示异常
+  * feat: add docs build
+
+ -- dengbo <dengbo@uniontech.com>  Tue, 18 Apr 2023 13:39:45 +0800
+
+dde-control-center (6.0.13) unstable; urgency=medium
+
+  * Support Internal Channel
+  * Support more account icon
+  * Register Log to JournalAppender
+  * Handle new sync load logic, use Eventloop to set a timeout
+
+ -- chenhongtao <chenhongtao@uniontech.com>  Fri, 14 Apr 2023 10:22:04 +0800
+
+dde-control-center (6.0.12) unstable; urgency=medium
+
+  * Reflactor bluetooth page, use icon from system
+  * Fix animate on sound page when choose sound effect
+  * Reflactor notify Page
+  * Add a plugindir flag for plugin developer
+  * Fix wrong active color in personalization
+
+ -- chenhongtao <chenhongtao@uniontech.com>  Tue, 28 Mar 2023 15:53:04 +0800
+
+dde-control-center (6.0.11) unstable; urgency=medium
+
+  * Fix slider item
+  * Fix battery setting lost
+  * Fix the bug of async
+
+ -- chenhongtao <chenhongtao@uniontech.com>  Wed, 22 Feb 2023 14:53:04 +0800
+
+dde-control-center (6.0.10) unstable; urgency=medium
+  * fix align of center widget
+
+ -- chenhongtao <chenhongtao@uniontech.com>  Fri, 17 Feb 2023 16:18:00 +0800
+
+dde-control-center (6.0.9.1) unstable; urgency=medium
+
+  [ TagBuilder ]
+  * chore: 替换deepin下系统信息图标(Task: 185303)(Influence: 系统信息图标)
+
+ -- chenhongtao <chenhongtao@uniontech.com>  Tue, 07 Feb 2023 18:00:00 +0800
+
+dde-control-center (6.0.9) unstable; urgency=medium
+
+  [ TagBuilder ]
+  * chore: 修改deepin下系统信息图标(Task: 185303)(Influence: 系统信息图标)
+
+ -- chenhongtao <chenhongtao@uniontech.com>  Tue, 07 Feb 2023 15:14:17 +0800
+
+dde-control-center (6.0.8) unstable; urgency=medium
+
+  [ TagBuilder ]
+  * fix: 修改主题缩略图模糊问题(Bug: 182545)(Influence: 屏幕缩放不为1时，控制中心-个性化-图标主题-缩略图)
+  * fix: 更新主题开发者文档(Bug: 182241)(Influence: 控制中心-个性化-主题-开发者文档)
+  * fix: 屏蔽主题开发者文档按钮(Bug: 182241)(Influence: 控制中心-个性化-开发者文档按钮)
+  * fix: 修改更新设置自动安装和清除软件包按钮状态不同步问题(Bug: 182923)(Influence: 控制中心-更新-自动安装和清除软件包按钮状态)
+
+ -- zhaoyingzhen <zhaoyingzhen@uniontech.com>  Fri, 13 Jan 2023 10:21:17 +0800
+
+dde-control-center (6.0.7.1) unstable; urgency=medium
+
+  [ Deepin Packages Builder ]
+  * dde-control-center for v25
+
+ -- caixiangrong <caixiangrong@uniontech.com>  Fri, 05 Jul 2024 14:49:21 +0800

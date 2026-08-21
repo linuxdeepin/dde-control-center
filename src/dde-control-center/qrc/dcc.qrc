@@ -1,0 +1,40 @@
+<RCC>
+    <qresource prefix="/icons/deepin/builtin">
+        <file>icons/dcc_nav_accounts_42px.svg</file>
+        <file>icons/dcc_nav_accounts_84px.svg</file>
+        <file>icons/dcc_nav_mouse_42px.svg</file>
+        <file>icons/dcc_nav_mouse_84px.svg</file>
+        <file>icons/dcc_nav_notification_42px.svg</file>
+        <file>icons/dcc_nav_notification_84px.svg</file>
+        <file>icons/dcc_nav_personalization_42px.svg</file>
+        <file>icons/dcc_nav_personalization_84px.svg</file>
+        <file>icons/dcc_nav_power_42px.svg</file>
+        <file>icons/dcc_nav_power_84px.svg</file>
+        <file>icons/dcc_nav_privacy_42px.svg</file>
+        <file>icons/dcc_nav_privacy_84px.svg</file>
+        <file>icons/dcc_nav_sound_42px.svg</file>
+        <file>icons/dcc_nav_sound_84px.svg</file>
+        <file>icons/dcc_nav_systeminfo_42px.svg</file>
+        <file>icons/dcc_nav_systeminfo_84px.svg</file>
+        <file>icons/dcc_nav_touchscreen_42px.svg</file>
+        <file>icons/dcc_nav_touchscreen_84px.svg</file>
+        <file>icons/dcc_nav_update_42px.svg</file>
+        <file>icons/dcc_nav_update_84px.svg</file>
+        <file>icons/dcc_nav_wacom_42px.svg</file>
+        <file>icons/dcc_nav_wacom_84px.svg</file>
+        <file>icons/dcc_none_dark.svg</file>
+        <file>icons/dcc_none_light.svg</file>
+        <file>icons/dcc_privacy_policy_32px.svg</file>
+        <file>icons/dcc_protocol_32px.svg</file>
+        <file>icons/dcc_safe_update.svg</file>
+        <file>icons/dcc_unknown_update.svg</file>
+        <file>icons/dcc_using_electric_32px.svg</file>
+        <file>icons/dcc_version_32px.svg</file>
+        <file>icons/dcc_volume1_32px.svg</file>
+        <file>icons/dcc_volume2_32px.svg</file>
+        <file>icons/dcc_volume3_32px.svg</file>
+        <file>icons/dcc_system_update_48px.svg</file>
+        <file>icons/dcc_nav_datetime_42px.svg</file>
+        <file>icons/dcc_nav_datetime_84px.svg</file>
+    </qresource>
+</RCC>

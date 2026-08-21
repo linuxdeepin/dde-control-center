@@ -1,0 +1,63 @@
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+//
+// SPDX-License-Identifier: GPL-3.0-or-later
+#ifndef DISPLAYMODULE_P_H
+#define DISPLAYMODULE_P_H
+
+#include <QHash>
+#include <QObject>
+#include <QPair>
+
+QT_BEGIN_NAMESPACE
+class QTimer;
+QT_END_NAMESPACE
+
+namespace dccV25 {
+class DisplayWorker;
+class DisplayModel;
+class DisplayModule;
+class DccScreen;
+class Monitor;
+class ScreenData;
+
+class DisplayModulePrivate
+{
+
+public:
+    explicit DisplayModulePrivate(DisplayModule *parent);
+
+    virtual ~DisplayModulePrivate() { }
+
+    void init();
+    void updateVirtualScreens();
+    void updateMonitorList();
+    void updatePrimary();
+    void updateDisplayMode();
+    void updateMaxGlobalScale();
+    void updateScreensFormRect();
+    void setConcatScreenMode(bool enable);
+    void updateConcatScreenMode();
+    DccScreen *primary() const;
+    QList<DccScreen *> enabledScreens() const;
+    QString displayMode() const;
+    void setScreenPosition(const QList<ScreenData *> &screensData);
+    void updateScale(DccScreen *item);
+    QHash<Monitor *, QPair<int, int>> buildMonitorPosition(const QList<ScreenData *> &screensData);
+
+public:
+    DisplayModule *q_ptr;
+    DisplayModel *m_model;
+    DisplayWorker *m_worker;
+    QList<DccScreen *> m_screens;
+    QList<DccScreen *> m_virtualScreens;
+    DccScreen *m_primary;
+    QString m_displayMode;
+    qreal m_maxGlobalScale;
+    bool m_screensFormRect;
+    QTimer *m_scalePositionTimer { nullptr };
+    QHash<Monitor *, QPair<int, int>> m_pendingScalePosition;
+
+    Q_DECLARE_PUBLIC(DisplayModule)
+};
+} // namespace dccV25
+#endif // DISPLAYMODULE_P_H

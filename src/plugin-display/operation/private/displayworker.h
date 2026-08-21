@@ -1,0 +1,155 @@
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//
+//SPDX-License-Identifier: GPL-3.0-or-later
+#ifndef DISPLAYWORKER_H
+#define DISPLAYWORKER_H
+
+#include "Registry.h"
+#include "VirtualOutputManager.h"
+#include "displaydbusproxy.h"
+#include "monitor.h"
+
+#include <dtkcore_global.h>
+
+#include <QMap>
+#include <QObject>
+#include <QPointer>
+#include <QTimer>
+
+#define GAMMA_SUPPORT false
+/*
+ * Disable gamma support for treeland now
+ * We can't keep GammaTable when dde-control-center close
+ * We need write a daemon in future
+ */
+
+DCORE_BEGIN_NAMESPACE
+class DConfig;
+DCORE_END_NAMESPACE
+
+namespace WQt {
+    class Output;
+    class Registry;
+    class OutputHead;
+    class ColorControl;
+}
+
+namespace dccV25 {
+class DisplayModel;
+class DisplayWorker : public QObject
+{
+    Q_OBJECT
+
+public:
+    explicit DisplayWorker(DisplayModel *model, QObject *parent = nullptr, bool isSync = false);
+    ~DisplayWorker() override;
+
+    void active();
+
+public Q_SLOTS:
+    void saveChanges();
+    void switchMode(const int mode, const QString &name);
+    void setPrimary(const QString &name);
+    void setMonitorEnable(Monitor *monitor, const bool enable);
+    void applyChanges();
+    void setColorTemperatureEnabled(bool enabled);
+    void setColorTemperature(int pos);
+    void SetMethodAdjustCCT(int mode);
+    void setCustomColorTempTimePeriod(const QString &timePeriod);
+#ifndef DCC_DISABLE_ROTATE
+    void setMonitorRotate(Monitor *mon, const quint16 rotate);
+#endif
+    void setMonitorResolution(Monitor *mon, const int mode);
+    void setMonitorBrightness(Monitor *mon, const double brightness);
+    void updateMonitorPosition(const QHash<Monitor *, QPair<int, int>> &monitorPosition);
+    void setMonitorPosition(const QHash<Monitor *, QPair<int, int> > monitorPosition);
+    void setUiScale(const double value);
+    void setIndividualScaling(Monitor *m, const double scaling);
+    void setTouchScreenAssociation(const QString &monitor, const QString &touchscreenUUID);
+    void setMonitorResolutionBySize(Monitor *mon, const int width, const int height);
+    void setAmbientLightAdjustBrightness(bool);
+    void setCurrentFillMode(Monitor *mon, const QString fillMode);
+    void setAutoBacklightEnabled(const bool value);
+
+    void setConcatScreenMode(bool enable);
+    void updateConcatScreenMode();
+
+    void backupConfig();
+    void clearBackup();
+    void resetBackup();
+
+private Q_SLOTS:
+    void onMonitorListChanged(const QList<QDBusObjectPath> &mons);
+    void onMonitorsBrightnessChanged(const BrightnessMap &brightness);
+    void onGetScaleFinished(QDBusPendingCallWatcher *w);
+    void onGetScreenScalesFinished(QDBusPendingCallWatcher *w);
+
+    // for wlroots-based compositors
+    void onInterfaceRegistered(WQt::Registry::Interface interface);
+    void onWlOutputManagerDone();
+    void onWlMonitorListChanged();
+    void updateWallpaper();
+    void updateMonitorWallpaper(Monitor *mon);
+    void updateWallpaperFromWayland();
+    void onOutputWallpaperReady(WQt::Output *output);
+    void onWallpaperChanged(const QString &fileSource, uint32_t sourceType, uint32_t role);
+    void updateVirtualOutputs();
+
+    void onBrightnessChanged(WQt::ColorControl *colorControl, double brightness);
+    void initTreeland();
+
+private:
+    void monitorAdded(const QString &path);
+    void monitorRemoved(const QString &path);
+
+    // for wlroots-based compositors
+    void wlMonitorAdded(WQt::OutputHead *head);
+    void wlMonitorRemoved(WQt::OutputHead *head);
+
+    void wlOutputAdded(WQt::Output *output);
+    void wlOutputRemoved(WQt::Output *output);
+
+    void updateControl();
+    void updateTreelandDisplayMode();
+    void initAutoBacklight();
+
+    uint32_t toColorTemp(int pos);
+    int toColorTempPos(uint32_t kelvin);
+    // task 264375
+    void initCTMData();
+
+    QString resolveVideoThumbnail(const QString &videoPath, Monitor *monitor);
+
+Q_SIGNALS:
+    void requestUpdateModeList();
+    void videoThumbnailReady(const QString &videoPath, const QString &thumbnailPath);
+
+private:
+    DisplayModel *m_model;
+    DisplayDBusProxy *m_displayInter;
+    QMap<Monitor *, MonitorDBusProxy *> m_monitors;
+
+    // for wlroots-based compositors
+    WQt::Registry *m_reg { nullptr };
+    QMap<Monitor *, WQt::OutputHead *> m_wl_monitors;
+    QMap<Monitor *, WQt::ColorControl *> m_control_monitors;
+#if GAMMA_SUPPORT
+    QMap<Monitor *, DFL::GammaEffects *> *m_wl_gammaEffects;
+    QMap<Monitor *, DFL::GammaEffectsConfig *> *m_wl_gammaConfig;
+#endif
+
+    double m_currentScale;
+    bool m_updateScale;
+    QTimer *m_timer;
+    DTK_CORE_NAMESPACE::DConfig *m_dconfig;
+    QString m_displayConfig;
+
+    DTK_CORE_NAMESPACE::DConfig *m_displayDConf;
+    int m_tcMaxValue;
+    int m_tcMinValue;
+    int m_defaultMode;
+    QMap<QString, QList<QPointer<Monitor>>> m_videoWallpaperMonitors;
+};
+}
+
+#endif // DISPLAYWORKER_H

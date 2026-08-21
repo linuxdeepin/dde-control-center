@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ICON / Device /taskbar-light</title>
+    <g id="ICON-/-Device-/taskbar-light" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.7">
+        <path d="M7,3 C7.55228475,3 8,3.37309604 8,3.83333333 L8,7.16666667 C8,7.62690396 7.55228475,8 7,8 L3,8 C2.44771525,8 2,7.62690396 2,7.16666667 L2,3.83333333 C2,3.37309604 2.44771525,3 3,3 L7,3 Z M7,7 L7,4 L3,4 L3,7 L7,7 Z" id="矩形" fill="#FFFFFF" fill-rule="nonzero"></path>
+        <path d="M13,9 C13.5522847,9 14,9.44771525 14,10 L14,13 C14,13.5522847 13.5522847,14 13,14 L9,14 C8.44771525,14 8,13.5522847 8,13 L8,10 C8,9.44771525 8.44771525,9 9,9 L13,9 Z M13,10 L9,10 L9,13 L13,13 L13,10 Z" id="矩形" fill="#FFFFFF" fill-rule="nonzero"></path>
+        <path d="M13,3 C13.5522847,3 14,3.44771525 14,4 L14,7 C14,7.55228475 13.5522847,8 13,8 L10,8 C9.44771525,8 9,7.55228475 9,7 L9,4 C9,3.44771525 9.44771525,3 10,3 L13,3 Z" id="矩形" fill="#FFFFFF" fill-rule="nonzero"></path>
+        <path d="M6,9 C6.55228475,9 7,9.44771525 7,10 L7,13 C7,13.5522847 6.55228475,14 6,14 L3,14 C2.44771525,14 2,13.5522847 2,13 L2,10 C2,9.44771525 2.44771525,9 3,9 L6,9 Z" id="矩形" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>

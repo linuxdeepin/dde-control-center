@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="32px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>app/union id/32px</title>
+    <defs>
+        <filter x="-13.3%" y="-13.3%" width="126.7%" height="126.7%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="1" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="0.5" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.15 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <linearGradient x1="50.0006818%" y1="2.22971221%" x2="50.0006818%" y2="97.1222502%" id="linearGradient-2">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#C0E9FE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-3">
+            <stop stop-color="#00A9FF" offset="0%"></stop>
+            <stop stop-color="#0049EA" offset="100%"></stop>
+        </linearGradient>
+        <circle id="path-4" cx="15" cy="15" r="13"></circle>
+        <filter x="-7.7%" y="-7.7%" width="115.4%" height="115.4%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="2" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="0" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0.171342171   0 0 0 0 0.336347055  0 0 0 0.5 0" type="matrix" in="shadowInnerInner1"></feColorMatrix>
+        </filter>
+        <linearGradient x1="50.0006818%" y1="2.22971221%" x2="50.0006818%" y2="97.1222502%" id="linearGradient-6">
+            <stop stop-color="#FFFFFF" offset="0%"></stop>
+            <stop stop-color="#C0E9FE" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="50%" y1="-44.5205284%" x2="50%" y2="100%" id="linearGradient-7">
+            <stop stop-color="#0088FF" offset="0%"></stop>
+            <stop stop-color="#0050FF" offset="100%"></stop>
+        </linearGradient>
+    </defs>
+    <g id="app/union-id/32px" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="编组" filter="url(#filter-1)" transform="translate(1.000000, 1.000000)">
+            <circle id="椭圆形" fill="url(#linearGradient-2)" fill-rule="nonzero" cx="15" cy="15" r="15"></circle>
+            <g id="椭圆形" fill-rule="nonzero">
+                <use fill="url(#linearGradient-3)" xlink:href="#path-4"></use>
+                <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+            </g>
+            <path d="M25,16.4163117 C25,14.7882514 23.8233223,13.4160524 22.2131088,12.9801104 C21.750642,11.3039742 20.1097702,10.0621505 18.1506557,10.0621505 C17.5806686,10.0621505 17.0383173,10.1680803 16.5426013,10.3579392 C15.6928024,9.52353791 14.4893525,9 13.1511784,9 C10.6017818,9 8.5334197,10.8916626 8.49412514,13.2376014 C7.04065817,13.7220267 6,15.0033705 6,16.5124634 C6,18.4261269 7.67066657,19.9779992 9.73816505,19.9955184 L9.73816505,20 L21.2389491,20 L21.2389491,19.9934813 C23.3263108,19.9352198 25,18.3580873 25,16.4163117 L25,16.4163117 Z" id="Shape" fill="url(#linearGradient-6)" fill-rule="nonzero" transform="translate(15.500000, 14.500000) scale(-1, 1) translate(-15.500000, -14.500000) "></path>
+            <path d="M12.894,14 C12.9525,14 13,14.0474 13,14.106 L13,14.894 C13,14.9526 13.0474,15 13.106,15 L13.8939,15 C13.9524,15 14,15.0475 14,15.106 L14,15.894 C14,15.9525 13.9524,16 13.8939,16 L10.1061,16 C10.0475,16 10,15.9525 10,15.894 L10,14.106 C10,14.0474 10.0475,14 10.1061,14 L12.894,14 Z M19.8939,14 C19.9525,14 20,14.0474 20,14.106 L20,14.106 L20,15.894 C20,15.9525 19.9525,16 19.8939,16 L19.8939,16 L16.1061,16 C16.0476,16 16,15.9525 16,15.894 L16,15.894 L16,15.106 C16,15.0475 16.0476,15 16.1061,15 L16.1061,15 L16.894,15 C16.9526,15 17,14.9526 17,14.894 L17,14.894 L17,14.106 C17,14.0474 17.0475,14 17.106,14 L17.106,14 L19.8939,14 Z" id="形状结合" fill="url(#linearGradient-7)"></path>
+        </g>
+    </g>
+</svg>

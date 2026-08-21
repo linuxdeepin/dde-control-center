@@ -1,0 +1,2 @@
+#!/bin/bash
+rm -rf  /home/*/.cache/deepin/dde-control-center/qmlcache/

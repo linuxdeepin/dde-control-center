@@ -1,0 +1,545 @@
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//
+//SPDX-License-Identifier: GPL-3.0-or-later
+#include "personalizationdbusproxy.h"
+
+#include <DGuiApplicationHelper>
+#include <QMetaObject>
+#include <QDBusConnection>
+#include <QDBusPendingReply>
+#include <QDBusUnixFileDescriptor>
+#include <QFile>
+#include <QFileInfo>
+
+DCORE_USE_NAMESPACE
+
+const QString AppearanceService = QStringLiteral("org.deepin.dde.Appearance1");
+const QString AppearancePath = QStringLiteral("/org/deepin/dde/Appearance1");
+const QString AppearanceInterface = QStringLiteral("org.deepin.dde.Appearance1");
+
+const QString WMService = QStringLiteral("com.deepin.wm");
+const QString WMPath = QStringLiteral("/com/deepin/wm");
+const QString WMInterface = QStringLiteral("com.deepin.wm");
+
+const QString EffectsService = QStringLiteral("org.kde.KWin");
+const QString EffectsPath = QStringLiteral("/Effects");
+const QString EffectsInterface = QStringLiteral("org.kde.kwin.Effects");
+
+const QString DaemonService = QStringLiteral("org.deepin.dde.Daemon1");
+const QString DaemonPath = QStringLiteral("/org/deepin/dde/Daemon1");
+const QString DaemonInterface = QStringLiteral("org.deepin.dde.Daemon1");
+
+const QString ScreenSaverServive = QStringLiteral("com.deepin.ScreenSaver");
+const QString ScreenSaverPath = QStringLiteral("/com/deepin/ScreenSaver");
+const QString ScreenSaverInterface = QStringLiteral("com.deepin.ScreenSaver");
+
+const QString WallpaperSlideshowService = QStringLiteral("org.deepin.dde.WallpaperSlideshow");
+const QString WallpaperSlideshowPath = QStringLiteral("/org/deepin/dde/WallpaperSlideshow");
+const QString WallpaperSlideshowInterface = QStringLiteral("org.deepin.dde.WallpaperSlideshow");
+
+const QString PowerService = QStringLiteral("org.deepin.dde.Power1");
+const QString PowerPath = QStringLiteral("/org/deepin/dde/Power1");
+const QString PowerInterface = QStringLiteral("org.deepin.dde.Power1");
+
+const static QString LastoreManagerService = QStringLiteral("org.deepin.dde.Lastore1");
+const static QString LastoreManagerPath = QStringLiteral("/org/deepin/dde/Lastore1");
+const static QString LastoreManagerInterface = QStringLiteral("org.deepin.dde.Lastore1.Manager");
+
+const QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
+const QString PropertiesChanged = QStringLiteral("PropertiesChanged");
+
+DGUI_USE_NAMESPACE
+
+PersonalizationDBusProxy::PersonalizationDBusProxy(QObject *parent)
+    : QObject(parent)
+{
+    m_AppearanceInter = new DDBusInterface(AppearanceService, AppearancePath, AppearanceInterface, QDBusConnection::sessionBus(), this);
+    m_DaemonInter = new DDBusInterface(DaemonService, DaemonPath, DaemonInterface, QDBusConnection::systemBus(), this);
+    m_powerInter = new DDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
+    m_lastoreManagerInter = new DDBusInterface(LastoreManagerService, LastoreManagerPath, LastoreManagerInterface, QDBusConnection::systemBus(), this);
+    if (!DGuiApplicationHelper::testAttribute(DGuiApplicationHelper::IsWaylandPlatform)) {
+        m_WMInter = new DDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this);
+        m_EffectsInter = new DDBusInterface(EffectsService, EffectsPath, EffectsInterface, QDBusConnection::sessionBus(), this);
+        m_screenSaverInter = new DDBusInterface(ScreenSaverServive, ScreenSaverPath, ScreenSaverInterface, QDBusConnection::sessionBus(), this);
+        m_wallpaperSlideshowInter = new DDBusInterface(WallpaperSlideshowService, WallpaperSlideshowPath, WallpaperSlideshowInterface, QDBusConnection::sessionBus(), this);
+    }
+
+    QDBusConnection::sessionBus().connect(AppearanceService, AppearancePath, AppearanceInterface, "Changed", this, SIGNAL(Changed(const QString &, const QString &)));
+    QDBusConnection::sessionBus().connect(AppearanceService, AppearancePath, AppearanceInterface, "Refreshed", this, SIGNAL(Refreshed(const QString &)));
+    QDBusConnection::systemBus().connect(DaemonService, DaemonPath, DaemonInterface, "WallpaperChanged", this, SIGNAL(WallpaperChanged(const QString &, uint, const QStringList &)));
+}
+
+// Appearance
+QString PersonalizationDBusProxy::background()
+{
+    return qvariant_cast<QString>(m_AppearanceInter->property("Background"));
+}
+void PersonalizationDBusProxy::setBackground(const QString &value)
+{
+    m_AppearanceInter->setProperty("Background", QVariant::fromValue(value));
+}
+
+QString PersonalizationDBusProxy::cursorTheme()
+{
+    return qvariant_cast<QString>(m_AppearanceInter->property("CursorTheme"));
+}
+
+void PersonalizationDBusProxy::setCursorTheme(const QString &value)
+{
+    m_AppearanceInter->setProperty("CursorTheme", QVariant::fromValue(value));
+}
+
+QString PersonalizationDBusProxy::globalTheme()
+{
+    return qvariant_cast<QString>(m_AppearanceInter->property("GlobalTheme"));
+}
+
+void PersonalizationDBusProxy::setGlobalTheme(const QString &value)
+{
+    m_AppearanceInter->setProperty("GlobalTheme", QVariant::fromValue(value));
+}
+
+double PersonalizationDBusProxy::fontSize()
+{
+    return qvariant_cast<double>(m_AppearanceInter->property("FontSize"));
+}
+
+void PersonalizationDBusProxy::setFontSize(double value)
+{
+    m_AppearanceInter->setProperty("FontSize", QVariant::fromValue(value));
+}
+
+QString PersonalizationDBusProxy::gtkTheme()
+{
+    return qvariant_cast<QString>(m_AppearanceInter->property("GtkTheme"));
+}
+void PersonalizationDBusProxy::setGtkTheme(const QString &value)
+{
+    m_AppearanceInter->setProperty("GtkTheme", QVariant::fromValue(value));
+}
+
+QString PersonalizationDBusProxy::iconTheme()
+{
+    return qvariant_cast<QString>(m_AppearanceInter->property("IconTheme"));
+}
+
+void PersonalizationDBusProxy::setIconTheme(const QString &value)
+{
+    m_AppearanceInter->setProperty("IconTheme", QVariant::fromValue(value));
+}
+
+QString PersonalizationDBusProxy::monospaceFont()
+{
+    return qvariant_cast<QString>(m_AppearanceInter->property("MonospaceFont"));
+}
+
+void PersonalizationDBusProxy::setMonospaceFont(const QString &value)
+{
+    m_AppearanceInter->setProperty("MonospaceFont", QVariant::fromValue(value));
+}
+
+double PersonalizationDBusProxy::opacity()
+{
+    return qvariant_cast<double>(m_AppearanceInter->property("Opacity"));
+}
+
+void PersonalizationDBusProxy::setOpacity(double value)
+{
+    m_AppearanceInter->setProperty("Opacity", QVariant::fromValue(value));
+}
+
+QString PersonalizationDBusProxy::qtActiveColor()
+{
+    return qvariant_cast<QString>(m_AppearanceInter->property("QtActiveColor"));
+}
+
+void PersonalizationDBusProxy::setQtActiveColor(const QString &value)
+{
+    m_AppearanceInter->setProperty("QtActiveColor", QVariant::fromValue(value));
+}
+
+QString PersonalizationDBusProxy::standardFont()
+{
+    return qvariant_cast<QString>(m_AppearanceInter->property("StandardFont"));
+}
+
+void PersonalizationDBusProxy::setStandardFont(const QString &value)
+{
+    m_AppearanceInter->setProperty("StandardFont", QVariant::fromValue(value));
+}
+
+QString PersonalizationDBusProxy::wallpaperSlideShow()
+{
+    return qvariant_cast<QString>(m_wallpaperSlideshowInter->property("WallpaperSlideShow"));
+}
+
+QString PersonalizationDBusProxy::wallpaperSlideShow(const QString &monitorName)
+{
+    return QDBusPendingReply<QString>(m_wallpaperSlideshowInter->asyncCall(QStringLiteral("GetWallpaperSlideShow"), QVariant::fromValue(monitorName)));
+}
+
+void PersonalizationDBusProxy::setWallpaperSlideShow(const QString &monitorName, const QString &slideShow)
+{
+    m_wallpaperSlideshowInter->asyncCall("SetWallpaperSlideShow", QVariant::fromValue(monitorName), QVariant::fromValue(slideShow));
+}
+
+void PersonalizationDBusProxy::setWallpaperSlideShow(const QString &wallpaperSlideShow)
+{
+    m_wallpaperSlideshowInter->setProperty("WallpaperSlideShow", QVariant::fromValue(wallpaperSlideShow));
+}
+
+int PersonalizationDBusProxy::windowRadius()
+{
+    return qvariant_cast<int>(m_AppearanceInter->property("WindowRadius"));
+}
+
+void PersonalizationDBusProxy::setWindowRadius(int value)
+{
+    m_AppearanceInter->setProperty("WindowRadius", QVariant::fromValue(value));
+}
+
+// Appearance slot
+QString PersonalizationDBusProxy::List(const QString &ty)
+{
+    return QDBusPendingReply<QString>(m_AppearanceInter->asyncCall(QStringLiteral("List"), QVariant::fromValue(ty)));
+}
+
+bool PersonalizationDBusProxy::List(const QString &ty, QObject *receiver, const char *member, const char *errorSlot)
+{
+    QList<QVariant> args;
+    args << QVariant::fromValue(ty);
+    return m_AppearanceInter->callWithCallback(QStringLiteral("List"), args, receiver, member, errorSlot);
+}
+
+void PersonalizationDBusProxy::Set(const QString &ty, const QString &value)
+{
+    m_AppearanceInter->asyncCall(QStringLiteral("Set"), QVariant::fromValue(ty), QVariant::fromValue(value));
+}
+
+QString PersonalizationDBusProxy::Show(const QString &ty, const QStringList &names)
+{
+    return QDBusPendingReply<QString>(m_AppearanceInter->asyncCall(QStringLiteral("Show"), QVariant::fromValue(ty), QVariant::fromValue(names)));
+}
+
+bool PersonalizationDBusProxy::Show(const QString &ty, const QStringList &names, QObject *receiver, const char *member)
+{
+    QList<QVariant> args;
+    args << QVariant::fromValue(ty) << QVariant::fromValue(names);
+    return m_AppearanceInter->callWithCallback(QStringLiteral("Show"), args, receiver, member);
+}
+
+QString PersonalizationDBusProxy::Thumbnail(const QString &ty, const QString &name)
+{
+    return QDBusPendingReply<QString>(m_AppearanceInter->asyncCall(QStringLiteral("Thumbnail"), QVariant::fromValue(ty), QVariant::fromValue(name)));
+}
+
+bool PersonalizationDBusProxy::Thumbnail(const QString &ty, const QString &name, QObject *receiver, const char *member, const char *errorSlot)
+{
+    QList<QVariant> args;
+    args << QVariant::fromValue(ty) << QVariant::fromValue(name);
+    return m_AppearanceInter->callWithCallback(QStringLiteral("Thumbnail"), args, receiver, member, errorSlot);
+}
+
+int PersonalizationDBusProxy::getDTKSizeMode()
+{
+    return qvariant_cast<int>(m_AppearanceInter->property("DTKSizeMode"));
+}
+
+void PersonalizationDBusProxy::setDTKSizeMode(int value)
+{
+    m_AppearanceInter->setProperty("DTKSizeMode", QVariant::fromValue(value));
+}
+
+int PersonalizationDBusProxy::getScrollBarPolicy()
+{
+    return qvariant_cast<int>(m_AppearanceInter->property("QtScrollBarPolicy"));
+}
+
+void PersonalizationDBusProxy::setScrollBarPolicy(int value)
+{
+    m_AppearanceInter->setProperty("QtScrollBarPolicy", QVariant::fromValue(value));
+}
+
+void PersonalizationDBusProxy::SetCurrentWorkspaceBackgroundForMonitor(const QString &url, const QString &screenName)
+{
+    m_AppearanceInter->asyncCall(QStringLiteral("SetCurrentWorkspaceBackgroundForMonitor"), url, screenName);
+}
+
+void PersonalizationDBusProxy::SetGreeterBackground(const QString &url)
+{
+    m_AppearanceInter->asyncCall(QStringLiteral("Set"), QStringLiteral("greeterbackground"), QVariant::fromValue(url));
+}
+
+QString PersonalizationDBusProxy::getCurrentWorkSpaceBackgroundForMonitor(const QString &screenName)
+{
+    return QDBusPendingReply<QString>(m_AppearanceInter->asyncCall(QStringLiteral("GetCurrentWorkspaceBackgroundForMonitor"), screenName));
+}
+
+// Daemon
+void PersonalizationDBusProxy::deleteCustomWallpaper(const QString &userName, const QString &url)
+{
+    m_DaemonInter->asyncCall(QStringLiteral("DeleteCustomWallPaper"), QVariant::fromValue(userName), QVariant::fromValue(url));
+}
+
+QString PersonalizationDBusProxy::saveCustomWallpaper(const QString &userName, const QString &url, const QString &wallpaperType)
+{
+    QFileInfo wallpaperInfo(url);
+    if (!wallpaperInfo.isFile() || !wallpaperInfo.isReadable()) {
+        return "";
+    }
+
+    QFile wallpaper(url);
+    if (!wallpaper.open(QIODevice::ReadOnly)) {
+        return "";
+    }
+
+    QDBusUnixFileDescriptor fd(wallpaper.handle());
+    if (!fd.isValid()) {
+        return "";
+    }
+
+    return QDBusPendingReply<QString>(m_DaemonInter->asyncCall(QStringLiteral("SaveCustomWallPaper"), QVariant::fromValue(userName), QVariant::fromValue(fd), QVariant::fromValue(wallpaperType)));
+}
+
+QStringList PersonalizationDBusProxy::getCustomWallpaper(const QString &userName)
+{
+    return QDBusPendingReply<QStringList>(m_DaemonInter->asyncCall(QStringLiteral("GetCustomWallPapers"), QVariant::fromValue(userName)));
+}
+
+// screenSaver
+QStringList PersonalizationDBusProxy::getAllscreensaver()
+{
+    if (!m_screenSaverInter)
+        return {};
+    return qvariant_cast<QStringList>(m_screenSaverInter->property("allScreenSaver"));
+}
+
+QString PersonalizationDBusProxy::GetScreenSaverCover(const QString &name)
+{
+    if (!m_screenSaverInter)
+        return {};
+    return QDBusPendingReply<QString>(m_screenSaverInter->asyncCall(QStringLiteral("GetScreenSaverCover"), QVariant::fromValue(name)));
+}
+
+QStringList PersonalizationDBusProxy::ConfigurableItems()
+{
+    if (!m_screenSaverInter)
+        return {};
+    return QDBusPendingReply<QStringList>(m_screenSaverInter->asyncCall(QStringLiteral("ConfigurableItems")));
+}
+
+void PersonalizationDBusProxy::setCurrentScreenSaver(const QString &value)
+{
+    if (!m_screenSaverInter)
+        return;
+    m_screenSaverInter->setProperty("currentScreenSaver", QVariant::fromValue(value));
+}
+
+QString PersonalizationDBusProxy::getCurrentScreenSaver()
+{
+    if (!m_screenSaverInter)
+        return {};
+    return qvariant_cast<QString>(m_screenSaverInter->property("currentScreenSaver"));
+}
+
+void PersonalizationDBusProxy::preview(const QString &name, bool stayOn)
+{
+    if (!m_screenSaverInter)
+        return;
+    m_screenSaverInter->asyncCall(QStringLiteral("Preview"), name, int32_t(stayOn));
+}
+
+void PersonalizationDBusProxy::setLinePowerScreenSaverTimeout(int value)
+{
+    if (!m_screenSaverInter)
+        return;
+    m_screenSaverInter->setProperty("linePowerScreenSaverTimeout", QVariant::fromValue(value));
+}
+
+void PersonalizationDBusProxy::setBatteryScreenSaverTimeout(int value)
+{
+    if (!m_screenSaverInter)
+        return;
+    m_screenSaverInter->setProperty("batteryScreenSaverTimeout", QVariant::fromValue(value));
+}
+
+int PersonalizationDBusProxy::getLinePowerScreenSaverTimeout()
+{
+    if (!m_screenSaverInter)
+        return {};
+    return qvariant_cast<int>(m_screenSaverInter->property("linePowerScreenSaverTimeout"));
+}
+
+int PersonalizationDBusProxy::getBatteryScreenSaverTimeout()
+{
+    if (!m_screenSaverInter)
+        return {};
+    return qvariant_cast<int>(m_screenSaverInter->property("batteryScreenSaverTimeout"));
+}
+
+void PersonalizationDBusProxy::requestScreenSaverConfig(const QString& name)
+{
+    if (!m_screenSaverInter)
+        return;
+    m_screenSaverInter->asyncCall(QStringLiteral("StartCustomConfig"), QVariant::fromValue(name));
+}
+
+bool PersonalizationDBusProxy::getLockScreenAtAwake()
+{
+    if (!m_screenSaverInter)
+        return false;
+    return qvariant_cast<bool>(m_screenSaverInter->property("lockScreenAtAwake"));
+}
+
+void PersonalizationDBusProxy::setLockScreenAtAwake(bool value)
+{
+    if (!m_screenSaverInter)
+        return;
+    m_screenSaverInter->setProperty("lockScreenAtAwake", QVariant::fromValue(value));
+}
+
+// WM
+bool PersonalizationDBusProxy::compositingAllowSwitch()
+{
+    if (!m_WMInter) {
+        return false;
+    }
+    return qvariant_cast<bool>(m_WMInter->property("compositingAllowSwitch"));
+}
+
+bool PersonalizationDBusProxy::compositingEnabled()
+{
+    if (!m_WMInter) {
+        return false;
+    }
+    return qvariant_cast<bool>(m_WMInter->property("compositingEnabled"));
+}
+
+void PersonalizationDBusProxy::setCompositingEnabled(bool value)
+{
+    if (!m_WMInter) {
+        return;
+    }
+    m_WMInter->setProperty("compositingEnabled", QVariant::fromValue(value));
+}
+
+bool PersonalizationDBusProxy::compositingPossible()
+{
+    if (!m_WMInter) {
+        return false;
+    }
+    return qvariant_cast<bool>(m_WMInter->property("compositingPossible"));
+}
+
+int PersonalizationDBusProxy::cursorSize()
+{
+    if (!m_WMInter) {
+        return 0;
+    }
+    return qvariant_cast<int>(m_WMInter->property("cursorSize"));
+}
+
+void PersonalizationDBusProxy::setCursorSize(int value)
+{
+    if (!m_WMInter) {
+        return;
+    }
+    m_WMInter->setProperty("cursorSize", QVariant::fromValue(value));
+}
+
+bool PersonalizationDBusProxy::zoneEnabled()
+{
+    if (!m_WMInter) {
+        return false;
+    }
+    return qvariant_cast<bool>(m_WMInter->property("zoneEnabled"));
+}
+
+void PersonalizationDBusProxy::setZoneEnabled(bool value)
+{
+    if (!m_WMInter) {
+        return;
+    }
+    m_WMInter->setProperty("zoneEnabled", QVariant::fromValue(value));
+}
+
+// Effects
+bool PersonalizationDBusProxy::loadEffect(const QString &name)
+{
+    if (!m_EffectsInter) {
+        return false;
+    }
+    return QDBusPendingReply<bool>(m_EffectsInter->asyncCall(QStringLiteral("loadEffect"), QVariant::fromValue(name)));
+}
+
+void PersonalizationDBusProxy::unloadEffect(const QString &name)
+{
+    if (!m_EffectsInter) {
+        return;
+    }
+    m_EffectsInter->asyncCall(QStringLiteral("unloadEffect"), QVariant::fromValue(name));
+}
+
+bool PersonalizationDBusProxy::isEffectLoaded(const QString &name)
+{
+    if (!m_EffectsInter) {
+        return false;
+    }
+    return QDBusPendingReply<bool>(m_EffectsInter->asyncCall(QStringLiteral("isEffectLoaded"), QVariant::fromValue(name)));
+}
+
+bool PersonalizationDBusProxy::isEffectLoaded(const QString &name, QObject *receiver, const char *member)
+{
+    if (!m_EffectsInter) {
+        return false;
+    }
+    QList<QVariant> args;
+    args << QVariant::fromValue(name);
+    return m_EffectsInter->callWithCallback(QStringLiteral("isEffectLoaded"), args, receiver, member);
+}
+
+bool PersonalizationDBusProxy::isEffectSupported(const QString &name)
+{
+    if (!m_EffectsInter) {
+        return false;
+    }
+    return QDBusPendingReply<bool>(m_EffectsInter->asyncCall(QStringLiteral("isEffectSupported"), QVariant::fromValue(name)));
+}
+
+QString PersonalizationDBusProxy::activeColors()
+{
+    return QDBusPendingReply<QString>(m_AppearanceInter->asyncCall(QStringLiteral("GetActiveColors")));
+}
+
+void PersonalizationDBusProxy::setActiveColors(const QString &activeColors)
+{
+    m_AppearanceInter->asyncCall(QStringLiteral("SetActiveColors"), QVariant::fromValue(activeColors));
+}
+
+// power
+bool PersonalizationDBusProxy::OnBattery()
+{
+    return qvariant_cast<bool>(m_powerInter->property("OnBattery"));
+}
+
+// Lastore Manager
+QList<QDBusObjectPath> PersonalizationDBusProxy::jobList()
+{
+    return qvariant_cast<QList<QDBusObjectPath>>(m_lastoreManagerInter->property("JobList"));
+}
+
+QDBusPendingReply<QDBusObjectPath> PersonalizationDBusProxy::InstallPackage(const QString &jobname,
+                                                                   const QString &packages)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(jobname) << QVariant::fromValue(packages);
+    return m_lastoreManagerInter->asyncCallWithArgumentList(QStringLiteral("InstallPackage"),
+                                                     argumentList);
+}
+
+void PersonalizationDBusProxy::CleanJob(const QString &in0)
+{
+    QList<QVariant> argumentList;
+    argumentList << QVariant::fromValue(in0);
+    m_lastoreManagerInter->asyncCallWithArgumentList(QStringLiteral("CleanJob"), argumentList);
+}

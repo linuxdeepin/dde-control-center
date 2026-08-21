@@ -1,0 +1,152 @@
+cmake_minimum_required(VERSION 3.18)
+
+#--------------------------frame--------------------------
+set(DCCFrame_Name ${DCC_FRAME_Library})
+
+add_library(${DCCFrame_Name} SHARED
+    "${DCC_PROJECT_ROOT_DIR}/include/dccfactory.h"
+)
+
+find_package(${QT_NS} COMPONENTS QmlModels REQUIRED)
+if(${QT_NS}_VERSION VERSION_GREATER_EQUAL 6.10)
+  find_package(${QT_NS} COMPONENTS QmlModelsPrivate QuickPrivate REQUIRED)
+endif()
+
+target_link_libraries(${DCCFrame_Name} PRIVATE
+    ${QT_NS}::Core
+)
+
+set_target_properties(${DCCFrame_Name} PROPERTIES
+    VERSION ${CMAKE_PROJECT_VERSION}
+    SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+    OUTPUT_NAME dde-control-center
+    EXPORT_NAME Control-Center
+)
+
+install(TARGETS ${DCCFrame_Name}
+        EXPORT DdeControlCenterTargets
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        INCLUDES DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center
+)
+
+install(EXPORT DdeControlCenterTargets
+        FILE DdeControlCenterTargets.cmake
+        NAMESPACE Dde::
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
+)
+#--------------------------qml-plugin--------------------------
+add_subdirectory(plugin)
+#--------------------------dde-control-center--------------------------
+set(Control_Center_Name dde-control-center)
+file(GLOB Control_Center_SRCS
+    "*.h"
+    "*.cpp"
+)
+
+add_executable(${Control_Center_Name}
+    ${Control_Center_SRCS}
+    qrc/dcc.qrc
+)
+
+target_compile_definitions(${Control_Center_Name} PRIVATE CVERSION="${CMAKE_PROJECT_VERSION}")
+
+target_include_directories(${Control_Center_Name} PRIVATE
+    include
+    plugin
+)
+
+set(Control_Center_Libraries
+    ${DCC_FRAME_Library}
+    ${DTK_NS}::Gui
+    ${QT_NS}::Gui
+    ${QT_NS}::DBus
+    ${QT_NS}::Concurrent
+    ${QT_NS}::Quick
+    dde-control-center-lib
+)
+
+target_link_libraries(${Control_Center_Name} PRIVATE
+    ${Control_Center_Libraries}
+)
+
+if (HAVE_DDE_API_EVENTLOGGER)
+    target_compile_definitions(${Control_Center_Name} PRIVATE HAVE_DDE_API_EVENTLOGGER)
+    target_link_libraries(${Control_Center_Name} PRIVATE DDEAPI::EventLogger)
+endif()
+
+file(GLOB_RECURSE DCC_Translation_QML_FILES ${DCC_PROJECT_ROOT_DIR}/qml/*.qml ${DCC_PROJECT_ROOT_DIR}/src/*.qml)
+file(GLOB_RECURSE DCC_Translation_SOURCE_FILES ${DCC_PROJECT_ROOT_DIR}/src/*.cpp ${DCC_PROJECT_ROOT_DIR}/src/*.h)
+dcc_handle_plugin_translation(NAME ${Control_Center_Name} SOURCE_DIR ${DCC_PROJECT_ROOT_DIR} QML_FILES ${DCC_Translation_QML_FILES} SOURCE_FILES ${DCC_Translation_SOURCE_FILES})
+# bin → libexec (launched via wrapper through security loader)
+install(TARGETS ${Control_Center_Name} DESTINATION ${CMAKE_INSTALL_LIBEXECDIR}/deepin)
+
+# Copy wrapper to build dir for local testing (install phase renames it to dde-control-center)
+configure_file("${DCC_PROJECT_ROOT_DIR}/misc/dde-control-center-loader-wrapper"
+               "${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/dde-control-center-loader-wrapper"
+               COPYONLY)
+
+# wrapper script (installed as /usr/bin/dde-control-center, replaces original binary)
+install(PROGRAMS "${DCC_PROJECT_ROOT_DIR}/misc/dde-control-center-loader-wrapper"
+    DESTINATION ${CMAKE_INSTALL_BINDIR}
+    RENAME dde-control-center
+    PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
+#----------------------------install config------------------------------
+#desktop
+install(FILES ${DCC_PROJECT_ROOT_DIR}/misc/org.deepin.dde.control-center.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
+
+#service
+configure_file(
+    ${DCC_PROJECT_ROOT_DIR}/misc/org.deepin.dde.ControlCenter1.service.in
+    ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.ControlCenter1.service
+    @ONLY)
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.ControlCenter1.service
+        DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/dbus-1/services)
+
+# systemd service
+if (NOT DEFINED SYSTEMD_USER_UNIT_DIR)
+    find_package(PkgConfig REQUIRED)
+    pkg_check_modules(Systemd REQUIRED systemd)
+    pkg_get_variable(SYSTEMD_USER_UNIT_DIR systemd systemduserunitdir)
+endif()
+
+configure_file(
+    ${CMAKE_SOURCE_DIR}/misc/systemd/dde-control-center.service.in
+    ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.control-center.service
+    @ONLY)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/org.deepin.dde.control-center.service
+        DESTINATION ${SYSTEMD_USER_UNIT_DIR})
+
+# dev files
+file(GLOB HEADERS "${DCC_PROJECT_ROOT_DIR}/include/*")
+set(INCLUDE_INSTALL_DIR ${CMAKE_INSTALL_INCLUDEDIR}/dde-control-center)
+install(FILES ${HEADERS} DESTINATION ${INCLUDE_INSTALL_DIR})
+configure_package_config_file(${DCC_PROJECT_ROOT_DIR}/misc/DdeControlCenterConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
+    INSTALL_DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter
+    PATH_VARS INCLUDE_INSTALL_DIR
+    INSTALL_PREFIX ${CMAKE_INSTALL_PREFIX})
+
+write_basic_package_version_file(
+    "${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfigVersion.cmake"
+    VERSION ${PROJECT_VERSION}
+    COMPATIBILITY SameMajorVersion
+)
+
+install(FILES ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfig.cmake
+              ${CMAKE_CURRENT_BINARY_DIR}/DdeControlCenterConfigVersion.cmake
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
+
+install(FILES "${DCC_PROJECT_ROOT_DIR}/misc/DdeControlCenterPluginMacros.cmake" DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/DdeControlCenter)
+
+install(FILES ${DCC_PROJECT_ROOT_DIR}/misc/org.deepin.dde.controlcenter.metainfo.xml DESTINATION ${CMAKE_INSTALL_DATADIR}/metainfo)
+
+#dde-grand-search-daemon conf
+install(FILES ${DCC_PROJECT_ROOT_DIR}/misc/org.deepin.dde-grand-search.dde-control-center-setting.conf
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}/dde-grand-search-daemon/plugins/searcher)
+
+# debug config file
+install(FILES ${DCC_PROJECT_ROOT_DIR}/misc/deepin-debug-config/org.deepin.dde.control-center.json
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/deepin-debug-config/deepin-debug-config.d)
+install(FILES ${DCC_PROJECT_ROOT_DIR}/misc/deepin-log-config/org.deepin.dde.control-center.json
+    DESTINATION ${CMAKE_INSTALL_DATADIR}/deepin-log-viewer/deepin-log.conf.d)
