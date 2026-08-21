@@ -64,6 +64,10 @@ void SoundWorker::initConnect()
     connect(m_soundDBusInter, &SoundDBusProxy::IncreaseVolumeChanged, m_model, &SoundModel::setIncreaseVolume);
     connect(m_soundDBusInter, &SoundDBusProxy::CardsWithoutUnavailableChanged, m_model, &SoundModel::setAudioCards);
     connect(m_soundDBusInter, &SoundDBusProxy::ReduceNoiseChanged, m_model, &SoundModel::setReduceNoise);
+    connect(m_soundDBusInter, &SoundDBusProxy::AiReduceNoiseChanged, m_model, &SoundModel::setAiReduceNoise);
+    connect(m_soundDBusInter, &SoundDBusProxy::AiReduceNoiseChanged, this, &SoundWorker::aiReduceNoiseOrPathChanged);
+    connect(m_soundDBusInter, &SoundDBusProxy::AiNoiseSourcePathChanged, m_model, &SoundModel::setAiNoiseSourcePath);
+    connect(m_soundDBusInter, &SoundDBusProxy::AiNoiseSourcePathChanged, this, &SoundWorker::aiReduceNoiseOrPathChanged);
     connect(m_soundDBusInter, &SoundDBusProxy::PausePlayerChanged, m_model, &SoundModel::setPausePlayer);
     connect(m_soundDBusInter, &SoundDBusProxy::BluetoothAudioModeOptsChanged, m_model, &SoundModel::setBluetoothAudioModeOpts);
     connect(m_soundDBusInter, &SoundDBusProxy::BluetoothAudioModeChanged, m_model, &SoundModel::setCurrentBluetoothAudioMode);
@@ -100,6 +104,8 @@ void SoundWorker::activate()
     m_model->setMaxUIVolume(m_soundDBusInter->maxUIVolume());
     m_model->setIncreaseVolume(m_soundDBusInter->increaseVolume());
     m_model->setReduceNoise(m_soundDBusInter->reduceNoise());
+    m_model->setAiReduceNoise(m_soundDBusInter->aiReduceNoise());
+    m_model->setAiNoiseSourcePath(m_soundDBusInter->aiNoiseSourcePath());
     m_model->setPausePlayer(m_soundDBusInter->pausePlayer());
     m_model->setBluetoothAudioModeOpts(m_soundDBusInter->bluetoothAudioModeOpts());
     m_model->setCurrentBluetoothAudioMode(m_soundDBusInter->bluetoothAudioMode());
@@ -238,6 +244,31 @@ void SoundWorker::setReduceNoise(bool value)
     m_soundDBusInter->setReduceNoise(value);
 }
 
+void SoundWorker::setAiReduceNoise(bool value)
+{
+    bool origin = m_model->aiReduceNoise();
+
+    QDBusPendingCall call = m_soundDBusInter->setAiReduceNoiseAsync(value);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, origin, value](QDBusPendingCallWatcher *w) {
+        QDBusPendingReply<> reply = *w;
+        if (reply.isError()) {
+            qCWarning(DdcSoundWorker) << "AiReduceNoise: failed to set" << value << ", restoring state, error:" << reply.error().message();
+            m_model->setAiReduceNoise(origin);
+            QString msg = value ? tr("Failed to enable intelligent noise reduction. Try again later.")
+                                : tr("Failed to disable intelligent noise reduction. Try again later.");
+            Dtk::Core::DUtil::DNotifySender(msg)
+                .appIcon("preferences-system")
+                .appName("org.deepin.dde.control-center")
+                .timeOut(5000)
+                .call();
+        } else {
+            m_model->setAiReduceNoise(value);
+        }
+        w->deleteLater();
+    });
+}
+
 void SoundWorker::setPausePlayer(bool value)
 {
     m_soundDBusInter->setPausePlayer(value);
@@ -336,9 +367,35 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 {
     qDebug() << "source default path:" << path.path();
+    rebindSource(effectiveSourcePath());
+}
+
+void SoundWorker::aiReduceNoiseOrPathChanged()
+{
+    rebindSource(effectiveSourcePath());
+}
+
+QDBusObjectPath SoundWorker::effectiveSourcePath() const
+{
+    if (m_model->aiReduceNoise()) {
+        const auto &path = m_model->aiNoiseSourcePath();
+        if (!path.path().isEmpty() && path.path() != "/") {
+            return path;
+        }
+    }
+    return m_model->defaultSource();
+}
+
+void SoundWorker::rebindSource(const QDBusObjectPath &path)
+{
     if (path.path().isEmpty() || path.path() == "/" ) return; //路径为空
 
     m_soundDBusInter->setSourceDevicePath(path.path());
+    disconnect(m_soundDBusInter, &SoundDBusProxy::MuteSourceChanged, nullptr, nullptr);
+    disconnect(m_soundDBusInter, &SoundDBusProxy::VolumeSourceChanged, nullptr, nullptr);
+    disconnect(m_soundDBusInter, &SoundDBusProxy::ActivePortSourceChanged, nullptr, nullptr);
+    disconnect(m_soundDBusInter, &SoundDBusProxy::CardSourceChanged, nullptr, nullptr);
+    disconnect(m_soundDBusInter, &SoundDBusProxy::VolumeMeterChanged, nullptr, nullptr);
 
     connect(m_soundDBusInter, &SoundDBusProxy::MuteSourceChanged, [this](bool mute) { m_model->setMicrophoneOn(mute); });
     connect(m_soundDBusInter, &SoundDBusProxy::VolumeSourceChanged, m_model, &SoundModel::setMicrophoneVolume);

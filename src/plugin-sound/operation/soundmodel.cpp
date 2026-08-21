@@ -200,6 +200,14 @@ void SoundModel::setReduceNoise(bool reduceNoise)
     }
 }
 
+void SoundModel::setAiReduceNoise(bool aiReduceNoise)
+{
+    if (aiReduceNoise != m_aiReduceNoise) {
+        m_aiReduceNoise = aiReduceNoise;
+        Q_EMIT aiReduceNoiseChanged(aiReduceNoise);
+    }
+}
+
 void SoundModel::setPausePlayer(bool pausePlayer)
 {
     if (pausePlayer != m_pausePlayer) {
@@ -354,6 +362,19 @@ void SoundModel::setDefaultSource(const QDBusObjectPath &defaultSource)
     m_defaultSource = defaultSource;
 
     Q_EMIT defaultSourceChanged(m_defaultSource);
+}
+
+QDBusObjectPath SoundModel::aiNoiseSourcePath() const
+{
+    return m_aiNoiseSourcePath;
+}
+
+void SoundModel::setAiNoiseSourcePath(const QDBusObjectPath &path)
+{
+    if (path != m_aiNoiseSourcePath) {
+        m_aiNoiseSourcePath = path;
+        Q_EMIT aiNoiseSourcePathChanged(m_aiNoiseSourcePath);
+    }
 }
 
 QDBusObjectPath SoundModel::defaultSink() const
