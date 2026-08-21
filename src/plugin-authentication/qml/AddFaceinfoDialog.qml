@@ -133,7 +133,6 @@ To ensure successful entry:\n\
                             background: null
                             font: agreeCheckbox.font
                             anchors.verticalCenter: parent.verticalCenter
-                            anchors.baseline: agreeCheckbox.baseline
                             textColor: D.Palette {
                                 normal {
                                     common: D.DTK.makeColor(D.Color.Highlight)
