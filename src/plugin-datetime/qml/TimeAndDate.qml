@@ -125,7 +125,8 @@ DccObject {
                     id: comboBox
                     property var serverList: dccData.ntpServerList
                     flat: true
-                    padding: 0
+                    topPadding: 0
+                    bottomPadding: 0
                     visible: dccData.ntpEnabled
                     anchors.fill: parent
                     hoverEnabled: true
