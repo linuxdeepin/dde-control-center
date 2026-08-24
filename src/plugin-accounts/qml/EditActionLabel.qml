@@ -3,6 +3,7 @@
 
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Layouts
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
@@ -54,40 +55,44 @@ D.LineEdit {
         font: edit.font
     }
 
-    D.ActionButton {
-        id: editButton
-        focusPolicy: Qt.StrongFocus
-        width: 30
-        height: 30
-        icon.name: "dcc-edit"
-        icon.width: DS.Style.edit.actionIconSize
-        icon.height: DS.Style.edit.actionIconSize
-        hoverEnabled: true
-        background: Rectangle {
-            anchors.fill: parent
-            property D.Palette pressedColor: D.Palette {
-                normal: Qt.rgba(0, 0, 0, 0.2)
-                normalDark: Qt.rgba(1, 1, 1, 0.25)
-            }
-            property D.Palette hoveredColor: D.Palette {
-                normal: Qt.rgba(0, 0, 0, 0.1)
-                normalDark: Qt.rgba(1, 1, 1, 0.1)
-            }
-            radius: DS.Style.control.radius
-            color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
-            border {
-                color: parent.palette.highlight
-                width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
-            }
-        }
+    RowLayout {
+        id: actionButtons
         anchors {
             right: edit.right
             verticalCenter: edit.verticalCenter
         }
-        onClicked: {
-            edit.readOnly = false
-            edit.selectAll()
-            edit.forceActiveFocus()
+
+        D.ActionButton {
+            id: editButton
+            focusPolicy: Qt.StrongFocus
+            Layout.preferredWidth: 30
+            Layout.preferredHeight: 30
+            icon.name: "dcc-edit"
+            icon.width: DS.Style.edit.actionIconSize
+            icon.height: DS.Style.edit.actionIconSize
+            hoverEnabled: true
+            background: Rectangle {
+                anchors.fill: parent
+                property D.Palette pressedColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.2)
+                    normalDark: Qt.rgba(1, 1, 1, 0.25)
+                }
+                property D.Palette hoveredColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.1)
+                    normalDark: Qt.rgba(1, 1, 1, 0.1)
+                }
+                radius: DS.Style.control.radius
+                color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                border {
+                    color: parent.palette.highlight
+                    width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                }
+            }
+            onClicked: {
+                edit.readOnly = false
+                edit.selectAll()
+                edit.forceActiveFocus()
+            }
         }
     }
 }
