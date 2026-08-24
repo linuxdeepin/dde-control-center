@@ -380,6 +380,20 @@ DccObject {
                 property var model: dccData.zoneSearchModel()
                 property var currentIndex: dccData.currentTimeZoneIndex
                 property string saveZoneId: ""
+                Rectangle {
+                    anchors.fill: parent
+                    z: -1
+                    property D.Palette pressedColor: D.Palette {
+                        normal: Qt.rgba(0, 0, 0, 0.2)
+                        normalDark: Qt.rgba(1, 1, 1, 0.25)
+                    }
+                    property D.Palette hoveredColor: D.Palette {
+                        normal: Qt.rgba(0, 0, 0, 0.1)
+                        normalDark: Qt.rgba(1, 1, 1, 0.1)
+                    }
+                    radius: DS.Style.control.radius
+                    color: mouseArea.pressed ? D.ColorSelector.pressedColor : (mouseArea.containsMouse ? D.ColorSelector.hoveredColor : "transparent")
+                }
                 RowLayout {
                     id: rowlayout
                     Label {
@@ -396,6 +410,7 @@ DccObject {
                 MouseArea {
                     id: mouseArea
                     anchors.fill: parent
+                    hoverEnabled: true
 
                     Component.onCompleted: {
                         if (dccData.currentTimeZoneIndex >= 0) {
