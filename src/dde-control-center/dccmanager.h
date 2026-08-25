@@ -120,6 +120,7 @@ private Q_SLOTS:
     void onObjectAdded(DccObject *obj);
     void onObjectRemoved(DccObject *obj);
     void onObjectDisplayChanged();
+    void onObjectIconChanged();
     bool addObjectToParent(DccObject *obj);
     bool removeObjectFromParent(DccObject *obj);
     void clearData();

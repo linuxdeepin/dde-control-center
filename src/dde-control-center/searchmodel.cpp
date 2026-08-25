@@ -40,9 +40,17 @@ struct SearchData
         }
     }
 
+
     inline const QString sourceText() const { return text.isEmpty() ? obj->displayName() : text; }
 
     inline const QString sourceUrl() const { return url.isEmpty() ? obj->parentName() + "/" + obj->name() : url; }
+
+    // Returns the object whose icon should be displayed for this search entry:
+    // the entry's own icon if set, otherwise the topmost ancestor's icon.
+    inline const DccObject *iconObject() const
+    {
+        return obj->icon().isEmpty() ? ancestors : obj;
+    }
 };
 
 //////////////////////////////////////////////////////
@@ -54,6 +62,7 @@ public:
 
     void addSearchData(DccObject *obj, const QString &text, const QString &url);
     void removeSearchData(const DccObject *obj, const QString &text);
+    void refreshIcon(const DccObject *obj);
 
 protected:
     void addObject(DccObject *obj, const QString &text, const QString &url);
@@ -113,6 +122,25 @@ void SearchSourceModel::removeSearchData(const DccObject *obj, const QString &te
             endRemoveRows();
         } else {
             ++it;
+        }
+    }
+}
+
+void SearchSourceModel::refreshIcon(const DccObject *obj)
+{
+    if (!obj) {
+        return;
+    }
+    for (int i = 0; i < m_data.size(); ++i) {
+        const SearchData *data = m_data.at(i);
+        // Refresh when the changed object is the search entry itself, or when
+        // it is the ancestor whose icon is used as a fallback and the entry
+        // has no own icon.
+        const bool ownIconChanged = (data->obj == obj);
+        const bool fallbackIconChanged = (data->ancestors == obj && data->obj->icon().isEmpty());
+        if (ownIconChanged || fallbackIconChanged) {
+            emit dataChanged(index(i, 0), index(i, 0),
+                             { Qt::DecorationRole, SearchModel::SearchIconSourceRole });
         }
     }
 }
@@ -195,9 +223,10 @@ QVariant SearchSourceModel::data(const QModelIndex &index, int role) const
     switch (role) {
     case Qt::DisplayRole:
         return data->display.isEmpty() ? data->sourceText() : data->display;
-    case Qt::DecorationRole: {
-        return data->ancestors->icon();
-    } break;
+    case Qt::DecorationRole:
+        return data->iconObject()->icon();
+    case SearchModel::SearchIconSourceRole:
+        return data->iconObject()->iconSource();
     case SearchModel::SearchPlainTextRole:
         return data->plainText;
     case SearchModel::SearchDataRole:
@@ -265,6 +294,8 @@ QHash<int, QByteArray> SearchModel::roleNames() const
     QHash<int, QByteArray> names = QAbstractItemModel::roleNames();
     names[SearchUrlRole] = "url";
     names[SearchPlainTextRole] = "plainText";
+    names[SearchIsEndRole] = "isEnd";
+    names[SearchIconSourceRole] = "iconSource";
     return names;
 }
 
@@ -281,6 +312,11 @@ void SearchModel::removeSearchData(const DccObject *obj, const QString &text)
 void SearchModel::doSort()
 {
     sort(0);
+}
+
+void SearchModel::refreshIcon(const DccObject *obj)
+{
+    static_cast<SearchSourceModel *>(sourceModel())->refreshIcon(obj);
 }
 
 bool SearchModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
