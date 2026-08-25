@@ -158,6 +158,11 @@ void DccManager::setMainWindow(QWindow *window)
     m_window->installEventFilter(this);
 }
 
+void DccManager::setPlugins(const QStringList &plugins)
+{
+    m_plugins->setPlugins(plugins);
+}
+
 void DccManager::loadModules(bool async, const QStringList &dirs)
 {
     // onAddModule(m_rootModule);

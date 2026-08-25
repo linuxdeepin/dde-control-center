@@ -112,6 +112,7 @@ int main(int argc, char *argv[])
     QCommandLineOption showTime(QStringList() << "z" << "time", "show control center exe time."); // 新增time参数自动测试启动速度
     QCommandLineOption loggingModuleOption(QStringList() << "l" << "logging-module", "Only output logs for the specified module", "loggingModule");
     QCommandLineOption pluginDir("spec", "load plugins from specialdir", "plugindir");
+    QCommandLineOption pluginOption(QStringList() << "P" << "plugin", "load specified plugins", "plugin");
     QCommandLineOption fd1Opt("fd1", "fd1 from security loader", "fd1");
     QCommandLineOption fd2Opt("fd2", "fd2 from security loader", "fd2");
 
@@ -127,6 +128,7 @@ int main(int argc, char *argv[])
     parser.addOption(showTime);
     parser.addOption(loggingModuleOption);
     parser.addOption(pluginDir);
+    parser.addOption(pluginOption);
     parser.addOption(fd1Opt);
     parser.addOption(fd2Opt);
     parser.process(*app);
@@ -227,6 +229,8 @@ int main(int argc, char *argv[])
         qDebug() << "dbus service already registered!" << "pid is:" << qApp->applicationPid();
         return -1;
     }
+    if (parser.isSet(pluginOption))
+        dccManager->setPlugins(parser.values(pluginOption));
     if (!refPluginDirs.isEmpty()) {
         dccManager->loadModules(true, refPluginDirs);
         adaptor->Show();
