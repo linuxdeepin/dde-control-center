@@ -21,6 +21,7 @@ D.ApplicationWindow {
     property string appLicense: "GPL-3.0-or-later"
     property int currentIndex: DccWindow.PageIndex.LoadIndex
     property var sidebarPage: null
+    property var groupObjects: null
 
     minimumWidth: 520
     minimumHeight: 400
@@ -50,6 +51,19 @@ D.ApplicationWindow {
             return DS.Style.control.selectColor(undefined, DS.Style.behindWindowBlur.lightNoBlurColor, DS.Style.behindWindowBlur.darkNoBlurColor)
         }
     }
+    Component {
+        id: aboutDialogComponent
+        D.AboutDialog {
+            D.DWindow.enabled: true
+            productIcon: "preferences-system"
+            modality: Qt.WindowModal
+            productName: appProductName
+            websiteName: D.DTK.deepinWebsiteName
+            websiteLink: D.DTK.deepinWebsiteLink
+            description: qsTr("Control Center provides the options for system settings.")
+            onClosing: destroy(10)
+        }
+    }
     Shortcut {
         context: Qt.ApplicationShortcut
         sequences: [StandardKey.HelpContents, "F1"]
@@ -67,16 +81,7 @@ D.ApplicationWindow {
                 onTriggered: DccApp.showHelp()
             }
             D.AboutAction {
-                aboutDialog: D.AboutDialog {
-                    D.DWindow.enabled: true
-                    productIcon: "preferences-system"
-                    modality: Qt.WindowModal
-                    productName: appProductName
-                    websiteName: D.DTK.deepinWebsiteName
-                    websiteLink: D.DTK.deepinWebsiteLink
-                    description: qsTr("Control Center provides the options for system settings.")
-                    onClosing: destroy(10)
-                }
+                aboutDialog: aboutDialogComponent
             }
             D.QuitAction {}
         }
@@ -201,7 +206,9 @@ D.ApplicationWindow {
         anchors.fill: parent
         dccObj: DccApp.root
     }
-
+    GroupObject {
+        Component.onCompleted: mainWindow.groupObjects = this
+    }
 
     /*  焦点切换调试，暂不删
     onActiveFocusItemChanged: {
@@ -257,12 +264,18 @@ D.ApplicationWindow {
                     theme: D.DTK.themeType
                 }
             }
-            HomePage {
-                id: homePage
+            Loader{
+                id: homeLoader
+                active: false
+                sourceComponent: HomePage {
+                }
             }
-            SecondPage {
-                id: secondPage
-                Component.onCompleted: mainWindow.sidebarPage = this
+            Loader{
+                id: secondLoader
+                active: false
+                sourceComponent: SecondPage {
+                    Component.onCompleted: mainWindow.sidebarPage = this
+                }
             }
             Connections {
                 target: DccApp
@@ -273,13 +286,19 @@ D.ApplicationWindow {
                             stackView.currentIndex = DccWindow.PageIndex.LoadIndex
                             mainWindow.currentIndex = DccWindow.PageIndex.LoadIndex
                         } else if (stackView.currentIndex !== DccWindow.PageIndex.HomeIndex && DccApp.root === DccApp.activeObject) {
+                            if (!homeLoader.active) {
+                                homeLoader.active = true
+                            }
                             mainWindow.sidebarPage = null
                             stackView.currentIndex = DccWindow.PageIndex.HomeIndex
                             mainWindow.currentIndex = DccWindow.PageIndex.HomeIndex
                         } else if (stackView.currentIndex !== DccWindow.PageIndex.SecondIndex && DccApp.root !== DccApp.activeObject) {
-                            mainWindow.sidebarPage = secondPage
+                            if(!secondLoader.active){
+                                secondLoader.active = true
+                            }
                             stackView.currentIndex = DccWindow.PageIndex.SecondIndex
                             mainWindow.currentIndex = DccWindow.PageIndex.SecondIndex
+                            mainWindow.sidebarPage = secondLoader.item
                         }
                     })
                 }

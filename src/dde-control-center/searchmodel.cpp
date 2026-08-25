@@ -55,6 +55,9 @@ public:
     void addSearchData(DccObject *obj, const QString &text, const QString &url);
     void removeSearchData(const DccObject *obj, const QString &text);
 
+    void beginBatch();
+    void endBatch();
+
 protected:
     void addObject(DccObject *obj, const QString &text, const QString &url);
     // Basic functionality:
@@ -70,6 +73,8 @@ protected:
 private:
     QList<SearchData *> m_data;
     QTextDocument m_doc;
+    QVector<SearchData *> m_batchData;
+    bool m_batchMode = false;
 };
 
 SearchSourceModel::SearchSourceModel(QObject *parent)
@@ -117,6 +122,92 @@ void SearchSourceModel::removeSearchData(const DccObject *obj, const QString &te
     }
 }
 
+static bool weightLessThan(const SearchData *a, const SearchData *b)
+{
+    for (int i = 0; i < a->weight.size() && i < b->weight.size(); ++i) {
+        if (a->weight.at(i) < b->weight.at(i))
+            return true;
+        if (a->weight.at(i) > b->weight.at(i))
+            return false;
+    }
+    return a->weight.size() < b->weight.size();
+}
+
+void SearchSourceModel::beginBatch()
+{
+    m_batchMode = true;
+    m_batchData.clear();
+}
+
+void SearchSourceModel::endBatch()
+{
+    m_batchMode = false;
+    if (m_batchData.isEmpty()) {
+        return;
+    }
+
+    // 1. sort batch data by weight
+    std::stable_sort(m_batchData.begin(), m_batchData.end(), weightLessThan);
+
+    // 2. two-way merge m_data (sorted) + m_batchData (sorted), record new item indices
+    QList<SearchData *> merged;
+    merged.reserve(m_data.size() + m_batchData.size());
+    QVector<int> newIndices;
+    int mi = 0, mj = 0;
+    while (mi < m_data.size() && mj < m_batchData.size()) {
+        if (weightLessThan(m_batchData.at(mj), m_data.at(mi))) {
+            newIndices.append(merged.size());
+            merged.append(m_batchData.at(mj++));
+        } else {
+            merged.append(m_data.at(mi++));
+        }
+    }
+    while (mi < m_data.size()) {
+        merged.append(m_data.at(mi++));
+    }
+    while (mj < m_batchData.size()) {
+        newIndices.append(merged.size());
+        merged.append(m_batchData.at(mj++));
+    }
+
+    // 3. group new indices into consecutive ranges
+    QVector<QPair<int, int>> ranges;
+    if (!newIndices.isEmpty()) {
+        int rangeStart = newIndices.first();
+        int rangeEnd = rangeStart;
+        for (int k = 1; k < newIndices.size(); ++k) {
+            if (newIndices.at(k) == rangeEnd + 1) {
+                rangeEnd = newIndices.at(k);
+            } else {
+                ranges.append({ rangeStart, rangeEnd });
+                rangeStart = newIndices.at(k);
+                rangeEnd = rangeStart;
+            }
+        }
+        ranges.append({ rangeStart, rangeEnd });
+    }
+
+    // 4. restore m_data to old-only state, then notify from back to front
+    QSet<SearchData *> batchSet(m_batchData.begin(), m_batchData.end());
+    m_data.clear();
+    for (auto *d : merged) {
+        if (!batchSet.contains(d)) {
+            m_data.append(d);
+        }
+    }
+    for (int r = ranges.size() - 1; r >= 0; --r) {
+        int start = ranges.at(r).first;
+        int end = ranges.at(r).second;
+        beginInsertRows(QModelIndex(), start, end);
+        for (int k = end; k >= start; --k) {
+            m_data.insert(start, merged.at(k));
+        }
+        endInsertRows();
+    }
+
+    m_batchData.clear();
+}
+
 void SearchSourceModel::addObject(DccObject *obj, const QString &text, const QString &url)
 {
     if (!obj || !obj->canSearch()) {
@@ -136,6 +227,10 @@ void SearchSourceModel::addObject(DccObject *obj, const QString &text, const QSt
     }
     if (!ok) {
         data->searchTexts.clear();
+    }
+    if (m_batchMode) {
+        m_batchData.append(data);
+        return;
     }
     // 排序规则不会变，添加时排序，避免在显示时处理
     int index = 0;
@@ -276,6 +371,16 @@ void SearchModel::addSearchData(DccObject *obj, const QString &text, const QStri
 void SearchModel::removeSearchData(const DccObject *obj, const QString &text)
 {
     static_cast<SearchSourceModel *>(sourceModel())->removeSearchData(obj, text);
+}
+
+void SearchModel::beginBatch()
+{
+    static_cast<SearchSourceModel *>(sourceModel())->beginBatch();
+}
+
+void SearchModel::endBatch()
+{
+    static_cast<SearchSourceModel *>(sourceModel())->endBatch();
 }
 
 void SearchModel::doSort()
