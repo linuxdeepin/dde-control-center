@@ -25,6 +25,8 @@ public Q_SLOTS:
     void addSearchData(DccObject *obj, const QString &text, const QString &url);
     void removeSearchData(const DccObject *obj, const QString &text);
     void doSort();
+    void beginBatch();
+    void endBatch();
 
 protected:
     bool filterAcceptsRow(int source_row, const QModelIndex &source_parent) const override;

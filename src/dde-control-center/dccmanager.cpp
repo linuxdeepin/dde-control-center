@@ -156,6 +156,10 @@ void DccManager::setMainWindow(QWindow *window)
     connect(m_window, &QWindow::windowStateChanged, this, &DccManager::onWindowStateChanged);
     connect(qGuiApp, &QGuiApplication::screenAdded, this, &DccManager::handleScreenAdded);
     m_window->installEventFilter(this);
+    DccObject *group = m_window->property("groupObjects").value<DccObject *>();
+    if (group) {
+        addObject(group);
+    }
 }
 
 void DccManager::setPlugins(const QStringList &plugins)
@@ -228,6 +232,7 @@ void DccManager::addObject(DccObject *obj)
 {
     if (!obj)
         return;
+    m_searchModel->beginBatch();
     QVector<DccObject *> objs;
     objs.append(obj);
     while (!objs.isEmpty()) {
@@ -267,6 +272,7 @@ void DccManager::addObject(DccObject *obj)
             objs = m_noAddObjects->getChildren();
         }
     }
+    m_searchModel->endBatch();
 }
 
 void DccManager::removeObject(DccObject *obj)

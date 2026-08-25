@@ -158,7 +158,6 @@ void DccPluginManager::loadModules(DccObject *root, bool async, const QStringLis
         }
     }
 
-    const QStringList groupPlugins({ "system", "device" }); // 优先加载只是组的插件
     QList<DccPluginLoader *> loaders;
     QSet<QString> matchedPlugins;
 
@@ -183,11 +182,7 @@ void DccPluginManager::loadModules(DccObject *root, bool async, const QStringLis
         // Connect signals
         connect(loader, &DccPluginLoader::statusChanged, this, &DccPluginManager::onPluginStatusChanged, Qt::QueuedConnection);
 
-        if (groupPlugins.contains(pluginName)) {
-            loaders.prepend(loader);
-        } else {
-            loaders.append(loader);
-        }
+        loaders.append(loader);
     }
 
     for (const auto &plugin : m_pluginsToLoad) {
