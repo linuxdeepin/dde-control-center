@@ -11,7 +11,6 @@
 
 #include <QDebug>
 #include <QDir>
-#include <QElapsedTimer>
 #include <QFileInfo>
 #include <QLoggingCategory>
 #include <QPluginLoader>
@@ -45,10 +44,7 @@ public:
         if (m_manager->isDeleting()) {
             return;
         }
-        QElapsedTimer timer;
-        timer.start();
         m_loader->loadData();
-        m_loader->setLog("load data finished. elapsed time :" + QString::number(timer.elapsed()));
         m_loader->transitionStatus(DccPluginLoader::DataLoad);
         if (m_manager->isDeleting()) {
             return;
@@ -56,7 +52,6 @@ public:
         // createData和moveThread需要完整，都执行或都不执行
         m_loader->createData();
         m_loader->moveThread();
-        m_loader->setLog("create data finished. elapsed time :" + QString::number(timer.elapsed()));
         m_loader->transitionStatus(DccPluginLoader::DataEnd);
     }
 
