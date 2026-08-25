@@ -37,6 +37,7 @@ public:
     void init();
     QQmlApplicationEngine *engine();
     void setMainWindow(QWindow *window);
+    void setPlugins(const QStringList &plugins);
     void loadModules(bool async, const QStringList &dirs);
 
     int width() const override;

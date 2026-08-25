@@ -82,6 +82,11 @@ DccPluginManager::~DccPluginManager()
     m_plugins.clear();
 }
 
+void DccPluginManager::setPlugins(const QStringList &plugins)
+{
+    m_pluginsToLoad = plugins;
+}
+
 QThreadPool *DccPluginManager::threadPool()
 {
     if (!m_threadPool) {
@@ -160,10 +165,15 @@ void DccPluginManager::loadModules(DccObject *root, bool async, const QStringLis
 
     const QStringList groupPlugins({ "system", "device" }); // 优先加载只是组的插件
     QList<DccPluginLoader *> loaders;
+    QSet<QString> matchedPlugins;
 
     for (auto &lib : pluginList) {
         const QString &filepath = lib.absoluteFilePath();
-        auto filename = lib.fileName();
+        const auto pluginName = lib.baseName();
+        if (!m_pluginsToLoad.isEmpty() && !m_pluginsToLoad.contains(pluginName)) {
+            continue;
+        }
+        matchedPlugins.insert(pluginName);
         DccPluginLoader *loader = new DccPluginLoader(lib.baseName(), filepath, this);
 
         // Set version type based on path
@@ -178,10 +188,16 @@ void DccPluginManager::loadModules(DccObject *root, bool async, const QStringLis
         // Connect signals
         connect(loader, &DccPluginLoader::statusChanged, this, &DccPluginManager::onPluginStatusChanged, Qt::QueuedConnection);
 
-        if (groupPlugins.contains(filename)) {
+        if (groupPlugins.contains(pluginName)) {
             loaders.prepend(loader);
         } else {
             loaders.append(loader);
+        }
+    }
+
+    for (const auto &plugin : m_pluginsToLoad) {
+        if (!matchedPlugins.contains(plugin)) {
+            qCWarning(dccLog()) << "Requested plugin was not found:" << plugin;
         }
     }
 

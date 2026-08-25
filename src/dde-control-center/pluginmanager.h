@@ -24,6 +24,7 @@ class DccPluginManager : public QObject
 public:
     explicit DccPluginManager(DccManager *parent);
     ~DccPluginManager();
+    void setPlugins(const QStringList &plugins);
     void loadModules(DccObject *root, bool async, const QStringList &dirs, QQmlEngine *engine);
     bool loadFinished() const;
     void beginDelete();
@@ -58,6 +59,7 @@ private:
     QThreadPool *m_threadPool;
     std::atomic<bool> m_isDeleting;
     QQmlEngine *m_engine;
+    QStringList m_pluginsToLoad;
 };
 
 } // namespace dccV25
