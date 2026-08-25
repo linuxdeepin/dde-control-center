@@ -1148,6 +1148,7 @@ void DccManager::onObjectAdded(DccObject *obj)
         auto o = objs.takeFirst();
         connect(o, &DccObject::childAdded, this, &DccManager::onObjectAdded);
         connect(o, &DccObject::childRemoved, this, &DccManager::onObjectRemoved);
+        connect(o, &DccObject::iconChanged, this, &DccManager::onObjectIconChanged);
         connect(o, &DccObject::displayNameChanged, this, &DccManager::onObjectDisplayChanged);
         connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
         objs.append(o->getChildren());
@@ -1165,6 +1166,7 @@ void DccManager::onObjectRemoved(DccObject *obj)
         auto o = objs.takeFirst();
         disconnect(o, &DccObject::childAdded, this, nullptr);
         disconnect(o, &DccObject::childRemoved, this, nullptr);
+        disconnect(o, &DccObject::iconChanged, this, nullptr);
         disconnect(o, &DccObject::displayNameChanged, this, nullptr);
         m_searchModel->removeSearchData(o, QString());
         objs.append(o->getChildren());
@@ -1192,6 +1194,17 @@ void DccManager::onObjectDisplayChanged()
     if (obj) {
         m_searchModel->removeSearchData(obj, QString());
         m_searchModel->addSearchData(obj, QString(), QString());
+    }
+}
+
+void DccManager::onObjectIconChanged()
+{
+    if (!m_root) {
+        return;
+    }
+    DccObject *obj = qobject_cast<DccObject *>(sender());
+    if (obj) {
+        m_searchModel->refreshIcon(obj);
     }
 }
 

@@ -120,6 +120,7 @@ Rectangle {
                 backgroundVisible: true
                 corners: getCornersForBackground(index, view.count)
                 icon.name: model.decoration
+                icon.source: model.iconSource
                 // text: model.display
                 checked: ListView.isCurrentItem
                 contentFlow: true
