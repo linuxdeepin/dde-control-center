@@ -291,6 +291,8 @@ DccObject {
                                 width: parent.width
                                 anchors.centerIn: parent
                                 ImageCheckBox {
+                                    Accessible.name: "Desktop"
+                                    Accessible.role: Accessible.CheckBox
                                     Layout.alignment: Qt.AlignCenter
                                     text: qsTr("Desktop")
                                     imageName: "notify_desktop"
@@ -302,6 +304,8 @@ DccObject {
                                     }
                                 }
                                 ImageCheckBox {
+                                    Accessible.name: "LockScreen"
+                                    Accessible.role: Accessible.CheckBox
                                     Layout.alignment: Qt.AlignCenter
                                     text: qsTr("Lock Screen")
                                     imageName: "notify_lock"
@@ -314,6 +318,8 @@ DccObject {
                                     }
                                 }
                                 ImageCheckBox {
+                                    Accessible.name: "NotificationCenter"
+                                    Accessible.role: Accessible.CheckBox
                                     Layout.alignment: Qt.AlignCenter
                                     text: qsTr("Notification Center")
                                     imageName: "notify_center"

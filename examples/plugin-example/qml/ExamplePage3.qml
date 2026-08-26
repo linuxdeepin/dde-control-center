@@ -17,7 +17,9 @@ DccSettingsObject {
             weight: 30 + index
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor
-            page: Switch {}
+            page: Switch {
+                Accessible.name: "DccSettingsObject_Switch"
+            }
         }
     }
     DccObject {

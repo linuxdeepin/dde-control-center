@@ -17,13 +17,27 @@ qml_elements:
   source_file: examples/plugin-example/qml/ExamplePage1.qml
   parent_type: ''
   line: 21
+- element_type: ComboBox
+  id: ''
+  accessible_name: ExamplePage1_ComboBox
+  accessible_role: ''
+  source_file: examples/plugin-example/qml/ExamplePage1.qml
+  parent_type: ''
+  line: 40
 - element_type: Button
   id: ''
   accessible_name: DccObjDisplayName_7
   accessible_role: ''
   source_file: examples/plugin-example/qml/ExamplePage1.qml
   parent_type: ''
-  line: 81
+  line: 83
+- element_type: Switch
+  id: ''
+  accessible_name: ExamplePage1_Switch
+  accessible_role: ''
+  source_file: examples/plugin-example/qml/ExamplePage1.qml
+  parent_type: ''
+  line: 118
 - element_type: Button
   id: ''
   accessible_name: DccObjDisplayName_5
@@ -31,48 +45,76 @@ qml_elements:
   source_file: examples/plugin-example/qml/ExamplePage2.qml
   parent_type: ''
   line: 31
+- element_type: Switch
+  id: ''
+  accessible_name: ExamplePage2_Switch
+  accessible_role: ''
+  source_file: examples/plugin-example/qml/ExamplePage2.qml
+  parent_type: ''
+  line: 57
+- element_type: Switch
+  id: ''
+  accessible_name: ExamplePage2_Switch_2
+  accessible_role: ''
+  source_file: examples/plugin-example/qml/ExamplePage2.qml
+  parent_type: ''
+  line: 73
+- element_type: Switch
+  id: ''
+  accessible_name: ExamplePage2_Switch_3
+  accessible_role: ''
+  source_file: examples/plugin-example/qml/ExamplePage2.qml
+  parent_type: ''
+  line: 122
 - element_type: Button
   id: ''
   accessible_name: Delete
   accessible_role: ''
   source_file: examples/plugin-example/qml/ExamplePage2.qml
   parent_type: ''
-  line: 133
+  line: 139
 - element_type: Button
   id: ''
   accessible_name: Cancel_17
   accessible_role: ''
   source_file: examples/plugin-example/qml/ExamplePage2.qml
   parent_type: Component
-  line: 163
+  line: 169
 - element_type: Button
   id: ''
   accessible_name: Delete_2
   accessible_role: ''
   source_file: examples/plugin-example/qml/ExamplePage2.qml
   parent_type: Component
-  line: 175
+  line: 181
 - element_type: Button
   id: ''
   accessible_name: Cancel_18
   accessible_role: ''
   source_file: examples/plugin-example/qml/ExamplePage2.qml
   parent_type: ''
-  line: 202
+  line: 208
 - element_type: Button
   id: ''
   accessible_name: Save_6
   accessible_role: ''
   source_file: examples/plugin-example/qml/ExamplePage2.qml
   parent_type: ''
-  line: 215
+  line: 221
+- element_type: Switch
+  id: ''
+  accessible_name: DccSettingsObject_Switch
+  accessible_role: ''
+  source_file: examples/plugin-example/qml/ExamplePage3.qml
+  parent_type: DccSettingsObject
+  line: 20
 - element_type: Button
   id: ''
   accessible_name: Delete_3
   accessible_role: ''
   source_file: examples/plugin-example/qml/ExamplePage3.qml
   parent_type: DccSettingsObject
-  line: 28
+  line: 30
 - element_type: ItemDelegate
   id: control
   accessible_name: Control_11
@@ -164,83 +206,97 @@ qml_elements:
   source_file: src/plugin-accounts/qml/AccountSettings.qml
   parent_type: ''
   line: 215
+- element_type: EditActionLabel
+  id: fullNameEdit
+  accessible_name: FullNameEdit
+  accessible_role: Accessible.EditableText
+  source_file: src/plugin-accounts/qml/AccountSettings.qml
+  parent_type: ''
+  line: 281
 - element_type: Menu
   id: contextMenu
   accessible_name: ContextMenu_2
   accessible_role: ''
   source_file: src/plugin-accounts/qml/AccountSettings.qml
   parent_type: EditActionLabel
-  line: 323
+  line: 325
 - element_type: ComboBox
   id: ''
   accessible_name: AccountSettings_ComboBox
   accessible_role: ''
   source_file: src/plugin-accounts/qml/AccountSettings.qml
   parent_type: ''
-  line: 524
+  line: 526
 - element_type: Switch
   id: ''
   accessible_name: AccountSettings_Switch
   accessible_role: ''
   source_file: src/plugin-accounts/qml/AccountSettings.qml
   parent_type: ''
-  line: 575
+  line: 577
 - element_type: Switch
   id: ''
   accessible_name: AccountSettings_Switch_2
   accessible_role: ''
   source_file: src/plugin-accounts/qml/AccountSettings.qml
   parent_type: ''
-  line: 597
+  line: 599
 - element_type: Switch
   id: ''
   accessible_name: AccountSettings_Switch_3
   accessible_role: ''
   source_file: src/plugin-accounts/qml/AccountSettings.qml
   parent_type: ''
-  line: 642
+  line: 644
 - element_type: Button
   id: deleteBtn
   accessible_name: DeleteBtn
   accessible_role: ''
   source_file: src/plugin-accounts/qml/AccountSettings.qml
   parent_type: ''
-  line: 706
+  line: 708
 - element_type: Button
   id: groupSettingsBtn
   accessible_name: GroupSettingsBtn
   accessible_role: ''
   source_file: src/plugin-accounts/qml/AccountSettings.qml
   parent_type: ''
-  line: 746
+  line: 748
 - element_type: ListView
   id: groupview
   accessible_name: Groupview
   accessible_role: ''
   source_file: src/plugin-accounts/qml/AccountSettings.qml
   parent_type: ''
-  line: 768
+  line: 770
 - element_type: Button
   id: headerEditButton
   accessible_name: HeaderEditButton
   accessible_role: ''
   source_file: src/plugin-accounts/qml/AccountSettings.qml
   parent_type: ListView
-  line: 848
+  line: 850
 - element_type: Button
   id: addGroupButton
   accessible_name: AddGroupButton
   accessible_role: ''
   source_file: src/plugin-accounts/qml/AccountSettings.qml
   parent_type: ListView
-  line: 891
+  line: 893
 - element_type: ItemDelegate
   id: itemDelegate
   accessible_name: ItemDelegate
   accessible_role: ''
   source_file: src/plugin-accounts/qml/AccountSettings.qml
   parent_type: ListView
-  line: 911
+  line: 913
+- element_type: EditActionLabel
+  id: editLabel
+  accessible_name: EditLabel
+  accessible_role: Accessible.EditableText
+  source_file: src/plugin-accounts/qml/AccountSettings.qml
+  parent_type: ItemDelegate
+  line: 983
 - element_type: ListView
   id: accountView
   accessible_name: AccountView
@@ -297,13 +353,20 @@ qml_elements:
   source_file: src/plugin-accounts/qml/AvatarSettingsDialog.qml
   parent_type: ListView
   line: 184
+- element_type: AvatarGridView
+  id: view
+  accessible_name: View
+  accessible_role: Accessible.List
+  source_file: src/plugin-accounts/qml/AvatarSettingsDialog.qml
+  parent_type: Repeater
+  line: 412
 - element_type: Button
   id: ''
   accessible_name: Cancel_8
   accessible_role: ''
   source_file: src/plugin-accounts/qml/AvatarSettingsDialog.qml
   parent_type: ''
-  line: 476
+  line: 478
 - element_type: CheckBox
   id: deleteHomeCheckbox
   accessible_name: DeleteHomeCheckbox
@@ -689,20 +752,55 @@ qml_elements:
   source_file: src/plugin-datetime/qml/DateTimeSettingDialog.qml
   parent_type: ''
   line: 23
+- element_type: SpinboxEx
+  id: spYear
+  accessible_name: SpYear
+  accessible_role: Accessible.SpinBox
+  source_file: src/plugin-datetime/qml/DateTimeSettingDialog.qml
+  parent_type: ''
+  line: 129
+- element_type: SpinboxEx
+  id: spMonth
+  accessible_name: SpMonth
+  accessible_role: Accessible.SpinBox
+  source_file: src/plugin-datetime/qml/DateTimeSettingDialog.qml
+  parent_type: ''
+  line: 155
+- element_type: SpinboxEx
+  id: spDay
+  accessible_name: SpDay
+  accessible_role: Accessible.SpinBox
+  source_file: src/plugin-datetime/qml/DateTimeSettingDialog.qml
+  parent_type: ''
+  line: 175
+- element_type: SpinboxEx
+  id: spHour
+  accessible_name: SpHour
+  accessible_role: Accessible.SpinBox
+  source_file: src/plugin-datetime/qml/DateTimeSettingDialog.qml
+  parent_type: ''
+  line: 202
+- element_type: SpinboxEx
+  id: spMin
+  accessible_name: SpMin
+  accessible_role: Accessible.SpinBox
+  source_file: src/plugin-datetime/qml/DateTimeSettingDialog.qml
+  parent_type: ''
+  line: 220
 - element_type: Button
   id: ''
   accessible_name: Cancel_16
   accessible_role: ''
   source_file: src/plugin-datetime/qml/DateTimeSettingDialog.qml
   parent_type: ''
-  line: 234
+  line: 244
 - element_type: Button
   id: ''
   accessible_name: Confirm
   accessible_role: ''
   source_file: src/plugin-datetime/qml/DateTimeSettingDialog.qml
   parent_type: ''
-  line: 243
+  line: 253
 - element_type: Button
   id: button
   accessible_name: Button_2
@@ -990,55 +1088,83 @@ qml_elements:
   source_file: src/plugin-display/qml/DisplayMain.qml
   parent_type: ''
   line: 707
+- element_type: AutoSizingComboBox
+  id: resolutionComboBox
+  accessible_name: ResolutionComboBox
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-display/qml/DisplayMain.qml
+  parent_type: ''
+  line: 720
 - element_type: ComboBox
   id: control
   accessible_name: Control_15
   accessible_role: ''
   source_file: src/plugin-display/qml/DisplayMain.qml
   parent_type: ''
-  line: 757
+  line: 759
+- element_type: AutoSizingComboBox
+  id: ''
+  accessible_name: DisplayMain_AutoSizingComboBox
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-display/qml/DisplayMain.qml
+  parent_type: ''
+  line: 845
 - element_type: ComboBox
   id: ''
   accessible_name: DisplayMain_ComboBox_3
   accessible_role: ''
   source_file: src/plugin-display/qml/DisplayMain.qml
   parent_type: ''
-  line: 876
+  line: 880
 - element_type: ComboBox
   id: ''
   accessible_name: DisplayMain_ComboBox_4
   accessible_role: ''
   source_file: src/plugin-display/qml/DisplayMain.qml
   parent_type: ''
-  line: 924
+  line: 928
 - element_type: ComboBox
   id: ''
   accessible_name: DisplayMain_ComboBox_5
   accessible_role: ''
   source_file: src/plugin-display/qml/DisplayMain.qml
   parent_type: ''
-  line: 956
+  line: 960
 - element_type: Switch
   id: ''
   accessible_name: DisplayMain_Switch_4
   accessible_role: ''
   source_file: src/plugin-display/qml/DisplayMain.qml
   parent_type: ''
-  line: 989
+  line: 993
 - element_type: ComboBox
   id: ''
   accessible_name: DisplayMain_ComboBox_6
   accessible_role: ''
   source_file: src/plugin-display/qml/DisplayMain.qml
   parent_type: ''
-  line: 1010
+  line: 1014
+- element_type: DccTimeRange
+  id: startTimeRange
+  accessible_name: StartTimeRange
+  accessible_role: Accessible.SpinBox
+  source_file: src/plugin-display/qml/DisplayMain.qml
+  parent_type: ''
+  line: 1032
+- element_type: DccTimeRange
+  id: endTimeRange
+  accessible_name: EndTimeRange
+  accessible_role: Accessible.SpinBox
+  source_file: src/plugin-display/qml/DisplayMain.qml
+  parent_type: ''
+  line: 1043
 - element_type: Slider
   id: colorTemperatureSlider
   accessible_name: ColorTemperatureSlider
   accessible_role: ''
   source_file: src/plugin-display/qml/DisplayMain.qml
   parent_type: ''
-  line: 1074
+  line: 1082
 - element_type: Button
   id: ''
   accessible_name: Save_4
@@ -1081,13 +1207,34 @@ qml_elements:
   source_file: src/plugin-dock/qml/DockMain.qml
   parent_type: ''
   line: 193
+- element_type: CustomComBobox
+  id: ''
+  accessible_name: DockMain_CustomComBobox
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-dock/qml/DockMain.qml
+  parent_type: ''
+  line: 208
+- element_type: CustomComBobox
+  id: ''
+  accessible_name: DockMain_CustomComBobox_2
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-dock/qml/DockMain.qml
+  parent_type: ''
+  line: 236
 - element_type: Switch
   id: ''
   accessible_name: DockMain_Switch_2
   accessible_role: ''
   source_file: src/plugin-dock/qml/DockMain.qml
   parent_type: ''
-  line: 258
+  line: 262
+- element_type: CustomComBobox
+  id: ''
+  accessible_name: DockMain_CustomComBobox_3
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-dock/qml/DockMain.qml
+  parent_type: ''
+  line: 288
 - element_type: Switch
   id: ''
   accessible_name: Common_Switch
@@ -1116,20 +1263,27 @@ qml_elements:
   source_file: src/plugin-keyboard/qml/Common.qml
   parent_type: ''
   line: 310
+- element_type: KeySequenceDisplay
+  id: edit
+  accessible_name: Edit
+  accessible_role: Accessible.EditableText
+  source_file: src/plugin-keyboard/qml/ShortcutSettingDialog.qml
+  parent_type: ''
+  line: 160
 - element_type: Button
   id: ''
   accessible_name: Cancel_12
   accessible_role: ''
   source_file: src/plugin-keyboard/qml/ShortcutSettingDialog.qml
   parent_type: ''
-  line: 208
+  line: 210
 - element_type: Button
   id: ''
   accessible_name: Save_3
   accessible_role: ''
   source_file: src/plugin-keyboard/qml/ShortcutSettingDialog.qml
   parent_type: ''
-  line: 220
+  line: 222
 - element_type: ListView
   id: shortcutView
   accessible_name: ShortcutView
@@ -1151,20 +1305,27 @@ qml_elements:
   source_file: src/plugin-keyboard/qml/Shortcuts.qml
   parent_type: ListView
   line: 145
+- element_type: KeySequenceDisplay
+  id: edit
+  accessible_name: Edit_2
+  accessible_role: Accessible.EditableText
+  source_file: src/plugin-keyboard/qml/Shortcuts.qml
+  parent_type: ItemDelegate
+  line: 163
 - element_type: Button
   id: restoreButton
   accessible_name: RestoreButton
   accessible_role: ''
   source_file: src/plugin-keyboard/qml/Shortcuts.qml
   parent_type: ''
-  line: 525
+  line: 527
 - element_type: Button
   id: addButton
   accessible_name: AddButton
   accessible_role: ''
   source_file: src/plugin-keyboard/qml/Shortcuts.qml
   parent_type: ''
-  line: 575
+  line: 577
 - element_type: Switch
   id: ''
   accessible_name: Common_Switch_4
@@ -1277,20 +1438,41 @@ qml_elements:
   source_file: src/plugin-notification/qml/NotificationMain.qml
   parent_type: ''
   line: 267
+- element_type: ImageCheckBox
+  id: ''
+  accessible_name: Desktop
+  accessible_role: Accessible.CheckBox
+  source_file: src/plugin-notification/qml/NotificationMain.qml
+  parent_type: ''
+  line: 293
+- element_type: ImageCheckBox
+  id: ''
+  accessible_name: LockScreen
+  accessible_role: Accessible.CheckBox
+  source_file: src/plugin-notification/qml/NotificationMain.qml
+  parent_type: ''
+  line: 306
+- element_type: ImageCheckBox
+  id: ''
+  accessible_name: NotificationCenter
+  accessible_role: Accessible.CheckBox
+  source_file: src/plugin-notification/qml/NotificationMain.qml
+  parent_type: ''
+  line: 320
 - element_type: CheckBox
   id: ''
   accessible_name: DccObjDisplayName_2
   accessible_role: ''
   source_file: src/plugin-notification/qml/NotificationMain.qml
   parent_type: ''
-  line: 345
+  line: 351
 - element_type: CheckBox
   id: ''
   accessible_name: DccObjDisplayName_3
   accessible_role: ''
   source_file: src/plugin-notification/qml/NotificationMain.qml
   parent_type: ''
-  line: 366
+  line: 372
 - element_type: CheckBox
   id: timeSlotCheckBox
   accessible_name: TimeSlotCheckBox
@@ -1298,6 +1480,20 @@ qml_elements:
   source_file: src/plugin-notification/qml/TimeRange.qml
   parent_type: ''
   line: 15
+- element_type: DccTimeRange
+  id: hourTime
+  accessible_name: HourTime
+  accessible_role: Accessible.SpinBox
+  source_file: src/plugin-notification/qml/TimeRange.qml
+  parent_type: ''
+  line: 36
+- element_type: DccTimeRange
+  id: ''
+  accessible_name: TimeRange_DccTimeRange
+  accessible_role: Accessible.SpinBox
+  source_file: src/plugin-notification/qml/TimeRange.qml
+  parent_type: ''
+  line: 47
 - element_type: ListView
   id: listview
   accessible_name: Listview
@@ -1319,41 +1515,48 @@ qml_elements:
   source_file: src/plugin-personalization/qml/CustomComboBox.qml
   parent_type: ComboBox
   line: 14
+- element_type: DccSaturationLightnessPicker
+  id: colorPicker
+  accessible_name: ColorPicker
+  accessible_role: Accessible.Slider
+  source_file: src/plugin-personalization/qml/DccColorDialog.qml
+  parent_type: ''
+  line: 63
 - element_type: Slider
   id: hueSlider
   accessible_name: HueSlider
   accessible_role: ''
   source_file: src/plugin-personalization/qml/DccColorDialog.qml
   parent_type: ''
-  line: 108
+  line: 110
 - element_type: TextField
   id: ''
   accessible_name: ControlColorToStringSubstring1ToUpperCase
   accessible_role: ''
   source_file: src/plugin-personalization/qml/DccColorDialog.qml
   parent_type: ''
-  line: 162
+  line: 164
 - element_type: TextField
   id: ''
   accessible_name: ModelData
   accessible_role: ''
   source_file: src/plugin-personalization/qml/DccColorDialog.qml
   parent_type: Repeater
-  line: 184
+  line: 186
 - element_type: Button
   id: ''
   accessible_name: Cancel_7
   accessible_role: ''
   source_file: src/plugin-personalization/qml/DccColorDialog.qml
   parent_type: ''
-  line: 249
+  line: 251
 - element_type: Button
   id: ''
   accessible_name: Save_2
   accessible_role: ''
   source_file: src/plugin-personalization/qml/DccColorDialog.qml
   parent_type: ''
-  line: 261
+  line: 263
 - element_type: ComboBox
   id: control
   accessible_name: Control_5
@@ -1368,6 +1571,20 @@ qml_elements:
   source_file: src/plugin-personalization/qml/FontCombobox.qml
   parent_type: ComboBox
   line: 22
+- element_type: FontCombobox
+  id: ''
+  accessible_name: FontSizePage_FontCombobox
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-personalization/qml/FontSizePage.qml
+  parent_type: ''
+  line: 70
+- element_type: FontCombobox
+  id: ''
+  accessible_name: FontSizePage_FontCombobox_2
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-personalization/qml/FontSizePage.qml
+  parent_type: ''
+  line: 100
 - element_type: ComboBox
   id: ''
   accessible_name: PersonalizationMain_ComboBox
@@ -1389,13 +1606,20 @@ qml_elements:
   source_file: src/plugin-personalization/qml/ScreenSaverPage.qml
   parent_type: ''
   line: 170
+- element_type: CustomComboBox
+  id: ''
+  accessible_name: ScreenSaverPage_CustomComboBox
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-personalization/qml/ScreenSaverPage.qml
+  parent_type: ''
+  line: 203
 - element_type: Switch
   id: ''
   accessible_name: ScreenSaverPage_Switch
   accessible_role: ''
   source_file: src/plugin-personalization/qml/ScreenSaverPage.qml
   parent_type: ''
-  line: 241
+  line: 243
 - element_type: ListView
   id: listview
   accessible_name: Listview_2
@@ -1410,6 +1634,13 @@ qml_elements:
   source_file: src/plugin-personalization/qml/WallpaperPage.qml
   parent_type: ''
   line: 152
+- element_type: CustomComboBox
+  id: ''
+  accessible_name: WallpaperPage_CustomComboBox
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-personalization/qml/WallpaperPage.qml
+  parent_type: ''
+  line: 170
 - element_type: ToolButton
   id: titleLoolButton
   accessible_name: TitleLoolButton
@@ -1445,41 +1676,97 @@ qml_elements:
   source_file: src/plugin-personalization/qml/WindowEffectPage.qml
   parent_type: ''
   line: 129
+- element_type: CustomComboBox
+  id: ''
+  accessible_name: WindowEffectPage_CustomComboBox
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-personalization/qml/WindowEffectPage.qml
+  parent_type: ''
+  line: 149
 - element_type: ComboBox
   id: ''
   accessible_name: WindowEffectPage_ComboBox
   accessible_role: ''
   source_file: src/plugin-personalization/qml/WindowEffectPage.qml
   parent_type: ''
-  line: 225
+  line: 227
 - element_type: ComboBox
   id: ''
   accessible_name: WindowEffectPage_ComboBox_2
   accessible_role: ''
   source_file: src/plugin-personalization/qml/WindowEffectPage.qml
   parent_type: ''
-  line: 278
+  line: 280
 - element_type: Switch
   id: ''
   accessible_name: WindowEffectPage_Switch_2
   accessible_role: ''
   source_file: src/plugin-personalization/qml/WindowEffectPage.qml
   parent_type: ''
-  line: 311
+  line: 313
+- element_type: CustomTipsSlider
+  id: offMonitorSlider
+  accessible_name: OffMonitorSlider_2
+  accessible_role: Accessible.Slider
+  source_file: src/plugin-power/qml/BatteryPage.qml
+  parent_type: ''
+  line: 52
+- element_type: CustomTipsSlider
+  id: lockScreenSlider
+  accessible_name: LockScreenSlider_2
+  accessible_role: Accessible.Slider
+  source_file: src/plugin-power/qml/BatteryPage.qml
+  parent_type: ''
+  line: 103
+- element_type: CustomTipsSlider
+  id: suspendsSlider
+  accessible_name: SuspendsSlider_2
+  accessible_role: Accessible.Slider
+  source_file: src/plugin-power/qml/BatteryPage.qml
+  parent_type: ''
+  line: 155
+- element_type: CustomComboBox
+  id: ''
+  accessible_name: BatteryPage_CustomComboBox
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-power/qml/BatteryPage.qml
+  parent_type: ''
+  line: 187
+- element_type: CustomComboBox
+  id: ''
+  accessible_name: BatteryPage_CustomComboBox_2
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-power/qml/BatteryPage.qml
+  parent_type: ''
+  line: 207
 - element_type: ComboBox
   id: ''
   accessible_name: BatteryPage_ComboBox
   accessible_role: ''
   source_file: src/plugin-power/qml/BatteryPage.qml
   parent_type: ''
-  line: 233
+  line: 243
+- element_type: CustomComboBox
+  id: ''
+  accessible_name: BatteryPage_CustomComboBox_3
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-power/qml/BatteryPage.qml
+  parent_type: ''
+  line: 284
+- element_type: CustomComboBox
+  id: ''
+  accessible_name: BatteryPage_CustomComboBox_4
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-power/qml/BatteryPage.qml
+  parent_type: ''
+  line: 307
 - element_type: Switch
   id: ''
   accessible_name: BatteryPage_Switch
   accessible_role: ''
   source_file: src/plugin-power/qml/BatteryPage.qml
   parent_type: ''
-  line: 340
+  line: 354
 - element_type: ComboBox
   id: control
   accessible_name: Control_3
@@ -1536,20 +1823,62 @@ qml_elements:
   source_file: src/plugin-power/qml/GeneralPage.qml
   parent_type: ''
   line: 209
+- element_type: DccTimeRange
+  id: timeRange
+  accessible_name: TimeRange
+  accessible_role: Accessible.SpinBox
+  source_file: src/plugin-power/qml/GeneralPage.qml
+  parent_type: ''
+  line: 235
 - element_type: ComboBox
   id: shutdownRepetitionCombobox
   accessible_name: ShutdownRepetitionCombobox
   accessible_role: ''
   source_file: src/plugin-power/qml/GeneralPage.qml
   parent_type: ''
-  line: 255
+  line: 257
 - element_type: ToolButton
   id: ''
   accessible_name: GeneralPage_ToolButton
   accessible_role: ''
   source_file: src/plugin-power/qml/GeneralPage.qml
   parent_type: ''
-  line: 323
+  line: 325
+- element_type: CustomTipsSlider
+  id: offMonitorSlider
+  accessible_name: OffMonitorSlider
+  accessible_role: Accessible.Slider
+  source_file: src/plugin-power/qml/PowerPage.qml
+  parent_type: ''
+  line: 53
+- element_type: CustomTipsSlider
+  id: lockScreenSlider
+  accessible_name: LockScreenSlider
+  accessible_role: Accessible.Slider
+  source_file: src/plugin-power/qml/PowerPage.qml
+  parent_type: ''
+  line: 104
+- element_type: CustomTipsSlider
+  id: suspendsSlider
+  accessible_name: SuspendsSlider
+  accessible_role: Accessible.Slider
+  source_file: src/plugin-power/qml/PowerPage.qml
+  parent_type: ''
+  line: 156
+- element_type: CustomComboBox
+  id: ''
+  accessible_name: PowerPage_CustomComboBox
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-power/qml/PowerPage.qml
+  parent_type: ''
+  line: 188
+- element_type: CustomComboBox
+  id: ''
+  accessible_name: PowerPage_CustomComboBox_2
+  accessible_role: Accessible.ComboBox
+  source_file: src/plugin-power/qml/PowerPage.qml
+  parent_type: ''
+  line: 208
 - element_type: ListView
   id: ''
   accessible_name: ScheduledShutdownDialog_ListView

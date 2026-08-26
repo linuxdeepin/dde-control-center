@@ -718,6 +718,8 @@ DccObject {
             weight: 20
             pageType: DccObject.Editor
             page: AutoSizingComboBox {
+                Accessible.name: "ResolutionComboBox"
+                Accessible.role: Accessible.ComboBox
                 id: resolutionComboBox
                 flat: true
                 enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
@@ -841,6 +843,8 @@ DccObject {
             weight: 40
             pageType: DccObject.Editor
             page: AutoSizingComboBox {
+                Accessible.name: "DisplayMain_AutoSizingComboBox"
+                Accessible.role: Accessible.ComboBox
                 flat: true
                 enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
                 textRole: "text"
@@ -1026,6 +1030,8 @@ DccObject {
                     text: qsTr("from")
                 }
                 DccTimeRange {
+                    Accessible.name: "StartTimeRange"
+                    Accessible.role: Accessible.SpinBox
                     id: startTimeRange
                     hour: dccData.customColorTempTimePeriod.split("-")[0].split(":")[0]
                     minute: dccData.customColorTempTimePeriod.split("-")[0].split(":")[1]
@@ -1035,6 +1041,8 @@ DccObject {
                     text: qsTr("to")
                 }
                 DccTimeRange {
+                    Accessible.name: "EndTimeRange"
+                    Accessible.role: Accessible.SpinBox
                     id: endTimeRange
                     hour: dccData.customColorTempTimePeriod.split("-")[1].split(":")[0]
                     minute: dccData.customColorTempTimePeriod.split("-")[1].split(":")[1]

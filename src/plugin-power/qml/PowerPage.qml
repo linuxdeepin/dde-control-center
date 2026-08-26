@@ -51,6 +51,8 @@ DccObject {
                 
 
                 CustomTipsSlider {
+                    Accessible.name: "OffMonitorSlider"
+                    Accessible.role: Accessible.Slider
                     id: offMonitorSlider
                     dataMap: dccData.model.linePowerScreenBlackDelayModel
                     Layout.preferredHeight: 80
@@ -100,6 +102,8 @@ DccObject {
                 }
     
                 CustomTipsSlider {
+                    Accessible.name: "LockScreenSlider"
+                    Accessible.role: Accessible.Slider
                     id: lockScreenSlider
                     dataMap: dccData.model.linePowerLockDelayModel
                     Layout.preferredHeight: 80
@@ -150,6 +154,8 @@ DccObject {
                 }
 
                 CustomTipsSlider {
+                    Accessible.name: "SuspendsSlider"
+                    Accessible.role: Accessible.Slider
                     id: suspendsSlider
                     dataMap: dccData.model.linePowerSleepDelayModel
                     Layout.preferredHeight: 80
@@ -180,6 +186,8 @@ DccObject {
             weight: 1
             pageType: DccObject.Editor
             page: CustomComboBox {
+                Accessible.name: "PowerPage_CustomComboBox"
+                Accessible.role: Accessible.ComboBox
                 textRole: "text"
                 enableRole: "enable"
                 visibleRole: "visible"
@@ -198,6 +206,8 @@ DccObject {
             weight: 2
             pageType: DccObject.Editor
             page: CustomComboBox {
+                Accessible.name: "PowerPage_CustomComboBox_2"
+                Accessible.role: Accessible.ComboBox
                 textRole: "text"
                 enableRole: "enable"
                 visibleRole: "visible"

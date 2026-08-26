@@ -37,7 +37,9 @@ DccObject {
             Text {
                 text: calcValue
             }
-            ComboBox {}
+            ComboBox {
+                Accessible.name: "ExamplePage1_ComboBox"
+            }
         }
         onActive: cmd => console.log(this, "onActive:", cmd)
     }
@@ -113,7 +115,9 @@ DccObject {
                 displayName: qsTr("Item") + (index + 1)
                 weight: 30 + index
                 pageType: DccObject.Editor
-                page: Switch {}
+                page: Switch {
+                    Accessible.name: "ExamplePage1_Switch"
+                }
             }
         }
     }

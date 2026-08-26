@@ -127,6 +127,8 @@ D.DialogWindow {
                 horizontalAlignment: Text.AlignLeft
             }
             SpinboxEx {
+                Accessible.name: "SpYear"
+                Accessible.role: Accessible.SpinBox
                 id: spYear
                 unitText: qsTr("Year")
                 locale: Qt.locale("C")
@@ -151,6 +153,8 @@ D.DialogWindow {
                 }
             }
             SpinboxEx {
+                Accessible.name: "SpMonth"
+                Accessible.role: Accessible.SpinBox
                 id: spMonth
                 unitText: qsTr("Month")
                 from: 1
@@ -169,6 +173,8 @@ D.DialogWindow {
                 }
             }
             SpinboxEx {
+                Accessible.name: "SpDay"
+                Accessible.role: Accessible.SpinBox
                 id: spDay
                 unitText: qsTr("Day")
                 from: 1
@@ -194,6 +200,8 @@ D.DialogWindow {
                 horizontalAlignment: Text.AlignLeft
             }
             SpinboxEx {
+                Accessible.name: "SpHour"
+                Accessible.role: Accessible.SpinBox
                 id: spHour
                 from: 0
                 to: 23
@@ -210,6 +218,8 @@ D.DialogWindow {
                 }
             }
             SpinboxEx {
+                Accessible.name: "SpMin"
+                Accessible.role: Accessible.SpinBox
                 id: spMin
                 from: 0
                 to: 59

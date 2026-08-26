@@ -34,6 +34,8 @@ RowLayout {
         }
     }
     DccTimeRange {
+        Accessible.name: "HourTime"
+        Accessible.role: Accessible.SpinBox
         id: hourTime
         hour: sysItemModel.timeStart.split(":")[0]
         minute: sysItemModel.timeStart.split(":")[1]
@@ -43,6 +45,8 @@ RowLayout {
         text: qsTr("to")
     }
     DccTimeRange {
+        Accessible.name: "TimeRange_DccTimeRange"
+        Accessible.role: Accessible.SpinBox
         hour: sysItemModel.timeEnd.split(":")[0]
         minute: sysItemModel.timeEnd.split(":")[1]
         onTimeChanged: sysItemModel.timeEnd = timeString

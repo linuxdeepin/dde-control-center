@@ -54,7 +54,9 @@ DccObject {
             canSearch: false // 设置界面通常不搜索，可设置canSearch
             weight: 30
             pageType: DccObject.MenuEditor // 菜单加编辑控件,子项是一个菜单项
-            page: Switch {}
+            page: Switch {
+                Accessible.name: "ExamplePage2_Switch"
+            }
             DccObject {
                 name: "menu"
                 parentName: root.name + "/body/menuEditor"
@@ -68,7 +70,9 @@ DccObject {
                         weight: 30 + index
                         backgroundType: DccObject.Normal
                         pageType: DccObject.Editor
-                        page: Switch {}
+                        page: Switch {
+                            Accessible.name: "ExamplePage2_Switch_2"
+                        }
                     }
                 }
             }
@@ -115,7 +119,9 @@ DccObject {
                     displayName: qsTr("Item") + (index + 1)
                     weight: 30 + index
                     pageType: DccObject.Editor
-                    page: Switch {}
+                    page: Switch {
+                        Accessible.name: "ExamplePage2_Switch_3"
+                    }
                 }
             }
         }

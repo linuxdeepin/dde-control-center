@@ -68,6 +68,8 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: FontCombobox {
+            Accessible.name: "FontSizePage_FontCombobox"
+            Accessible.role: Accessible.ComboBox
             flat: true
             model: dccData.model.standardFontModel.fontList
             textRole: "Name"
@@ -96,6 +98,8 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: FontCombobox {
+            Accessible.name: "FontSizePage_FontCombobox_2"
+            Accessible.role: Accessible.ComboBox
             flat: true
             model: dccData.model.monoFontModel.fontList
             textRole: "Name"

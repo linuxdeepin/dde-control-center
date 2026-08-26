@@ -161,6 +161,8 @@ DccObject {
 
                     contentItem: ColumnLayout {
                         KeySequenceDisplay {
+                            Accessible.name: "Edit_2"
+                            Accessible.role: Accessible.EditableText
                             id: edit
                             property string dialogCommand: model.command
                             property string shortcutId: model.id

@@ -147,6 +147,8 @@ DccObject {
             weight: 3
             pageType: DccObject.Editor
             page: CustomComboBox {
+                Accessible.name: "WindowEffectPage_CustomComboBox"
+                Accessible.role: Accessible.ComboBox
                 flat: true
                 currentIndex: dccData.model.miniEffect
                 textRole: "text"

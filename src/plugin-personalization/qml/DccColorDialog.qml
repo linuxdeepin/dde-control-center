@@ -61,6 +61,8 @@ ColorDialogImpl {
 
     contentItem: ColumnLayout {
         DccSaturationLightnessPicker {
+            Accessible.name: "ColorPicker"
+            Accessible.role: Accessible.Slider
             id: colorPicker
             color: control.color
             Layout.fillWidth: true

@@ -158,6 +158,8 @@ D.DialogWindow {
         }
 
         KeySequenceDisplay {
+            Accessible.name: "Edit"
+            Accessible.role: Accessible.EditableText
             id: edit
             property bool showAlertColor: false
             property string accels

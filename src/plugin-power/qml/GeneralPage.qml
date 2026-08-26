@@ -233,6 +233,8 @@ DccObject {
             pageType: DccObject.Editor
             page: RowLayout {
                 DccTimeRange {
+                    Accessible.name: "TimeRange"
+                    Accessible.role: Accessible.SpinBox
                     id: timeRange
                     Layout.preferredWidth: 100
                     hour: dccData.model.shutdownTime.split(':')[0]

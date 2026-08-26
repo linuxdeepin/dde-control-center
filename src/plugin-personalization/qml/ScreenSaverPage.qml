@@ -201,6 +201,8 @@ DccObject {
                 weight: 20
                 pageType: DccObject.Editor
                 page: CustomComboBox {
+                    Accessible.name: "ScreenSaverPage_CustomComboBox"
+                    Accessible.role: Accessible.ComboBox
                     flat: true
                     textRole: "text"
                     currentIndex: {

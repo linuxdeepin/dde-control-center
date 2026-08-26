@@ -279,6 +279,8 @@ DccObject {
                 property string originalFullName: "" // Store original name here
 
                 EditActionLabel {
+                    Accessible.name: "FullNameEdit"
+                    Accessible.role: Accessible.EditableText
                     id: fullNameEdit
                     property bool rightClickPressed: false
                     property bool contextMenuVisible: false
@@ -979,6 +981,8 @@ DccObject {
                                                         groupview.width - editButton.width - 30)
 
                                     EditActionLabel {
+                                        Accessible.name: "EditLabel"
+                                        Accessible.role: Accessible.EditableText
                                         id: editLabel
                                         property bool editAble: model.groupEditAble
                                         property string lastValidText: ""

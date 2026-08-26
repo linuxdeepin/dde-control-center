@@ -206,6 +206,8 @@ DccObject {
             weight: 100
             pageType: DccObject.Editor
             page: CustomComBobox {
+                Accessible.name: "DockMain_CustomComBobox"
+                Accessible.role: Accessible.ComboBox
                 flat: true
                 model: alignModel
                 currentIndex: indexByValue(dccData.dockInter.Position)
@@ -232,6 +234,8 @@ DccObject {
             weight: 200
             pageType: DccObject.Editor
             page: CustomComBobox {
+                Accessible.name: "DockMain_CustomComBobox_2"
+                Accessible.role: Accessible.ComboBox
                 flat: true
                 model: hideModel
                 currentIndex: indexByValue(dccData.dockInter.HideMode)
@@ -282,6 +286,8 @@ DccObject {
             weight: 10
             pageType: DccObject.Editor
             page: CustomComBobox {
+                Accessible.name: "DockMain_CustomComBobox_3"
+                Accessible.role: Accessible.ComboBox
                 flat: true
                 model: showModeModel
                 currentIndex: indexByValue(dccData.dockInter.showInPrimary)

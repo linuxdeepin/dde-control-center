@@ -410,6 +410,8 @@ D.DialogWindow {
                         id: repeater
                         model: scrollView.sections
                         AvatarGridView {
+                            Accessible.name: "View"
+                            Accessible.role: Accessible.List
                             id: view
                             visible: view.count > 0 && !scrollView.isCustom
                             currentAvatar: dialog.currentAvatar
