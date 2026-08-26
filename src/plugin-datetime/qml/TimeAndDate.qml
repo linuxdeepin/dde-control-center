@@ -111,22 +111,19 @@ DccObject {
             property bool showCustom: false
             property string customAddr
 
-            onParentItemChanged: item => {
-                if (item) {
-                    item.rightPadding = DS.Style.comboBox.spacing
-                }
-            }
-
             page: Item {
-                implicitHeight: 36
-                implicitWidth: dccData.ntpEnabled ? 280 : 80
+                implicitWidth: dccData.ntpEnabled ? comboBox.implicitWidth : settingsButton.implicitWidth
+                implicitHeight: dccData.ntpEnabled ? comboBox.implicitHeight : settingsButton.implicitHeight
 
                 ComboBox {
                     id: comboBox
                     property var serverList: dccData.ntpServerList
                     flat: true
-                    padding: 0
+                    padding: 10
+                    rightPadding: padding + 6
                     visible: dccData.ntpEnabled
+                    popup.implicitWidth: 220
+
                     anchors.fill: parent
                     hoverEnabled: true
                     model: serverList
@@ -375,27 +372,57 @@ DccObject {
 
             page: Item {
                 id: systemTimezoneItem
-                implicitWidth: rowlayout.implicitWidth
-                implicitHeight: rowlayout.implicitHeight
+                implicitWidth: zoneButton.implicitWidth
+                implicitHeight: zoneButton.implicitHeight
                 property var model: dccData.zoneSearchModel()
                 property var currentIndex: dccData.currentTimeZoneIndex
                 property string saveZoneId: ""
-                RowLayout {
-                    id: rowlayout
-                    Label {
-                        id: timezoneLabel
-                        text: dccData.timeZoneDispalyName
-                    }
-                    D.IconLabel {
-                        Layout.alignment: Qt.AlignRight | Qt.AlignHCenter
-                        icon.name: "arrow_ordinary_down"
-                        icon.palette: D.DTK.makeIconPalette(timezoneLabel.palette)
-                    }
-                }
 
-                MouseArea {
-                    id: mouseArea
-                    anchors.fill: parent
+                Button {
+                    id: zoneButton
+                    flat: true
+                    anchors.right: parent.right
+                    anchors.verticalCenter: parent.verticalCenter
+                    topPadding: 0
+                    bottomPadding: 0
+                    leftPadding: DS.Style.comboBox.padding
+                    rightPadding: DS.Style.comboBox.padding
+
+                    background: P.ButtonPanel {
+                        button: zoneButton
+                        implicitWidth: zoneButton.implicitContentWidth + zoneButton.leftPadding + zoneButton.rightPadding
+                        implicitHeight: 30
+                        color1: DS.Style.comboBox.flatBackground
+                        color2: DS.Style.comboBox.flatBackground
+                        outsideBorderColor: null
+                    }
+
+                    contentItem: RowLayout {
+                        spacing: 4
+
+                        Label {
+                            id: timezoneLabel
+                            Layout.alignment: Qt.AlignVCenter
+                            verticalAlignment: Text.AlignVCenter
+                            horizontalAlignment: Text.AlignRight
+                            text: dccData.timeZoneDispalyName
+                        }
+
+                        D.DciIcon {
+                            Layout.alignment: Qt.AlignVCenter
+                            Layout.preferredWidth: DS.Style.comboBox.iconSize
+                            Layout.preferredHeight: DS.Style.comboBox.iconSize
+                            sourceSize {
+                                width: DS.Style.comboBox.iconSize
+                                height: DS.Style.comboBox.iconSize
+                            }
+                            name: "arrow_ordinary_down"
+                            palette: D.DTK.makeIconPalette(zoneButton.palette)
+                            mode: zoneButton.D.ColorSelector.controlState
+                            theme: zoneButton.D.ColorSelector.controlTheme
+                            fallbackToQIcon: false
+                        }
+                    }
 
                     Component.onCompleted: {
                         if (dccData.currentTimeZoneIndex >= 0) {
@@ -472,12 +499,12 @@ DccObject {
                         }
                     }
 
-                    onClicked: function (mouse) {
+                    onClicked: {
                         if (!timezoneWindow.isVisible()) {
                             // 保持当前选中项可见，但居中显示
                             timezoneWindow.highlightedIndex = systemTimezoneItem.currentIndex
                             timezoneWindow.show()
-                            timezoneWindow.setPositionByItem(parent)
+                            timezoneWindow.setPositionByItem(zoneButton)
                         }
                     }
                 }
