@@ -55,6 +55,7 @@ D.DialogWindow {
         }
 
         D.ToolButton {
+            Accessible.name: "ForgotPassword"
             id: btn
             Layout.alignment: Qt.AlignRight
             Layout.preferredHeight: 30
@@ -82,6 +83,7 @@ D.DialogWindow {
             Layout.fillWidth: true
             spacing: 10
             Button {
+                Accessible.name: "Cancel_20"
                 text: qsTr("Cancel")
                 Layout.fillWidth: true
                 onClicked: {
@@ -89,6 +91,7 @@ D.DialogWindow {
                 }
             }
             D.WarningButton {
+                Accessible.name: "Confirm_4"
                 text: qsTr("Confirm")
                 Layout.fillWidth: true
                 onClicked: {

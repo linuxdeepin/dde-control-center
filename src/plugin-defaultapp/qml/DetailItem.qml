@@ -83,6 +83,7 @@ DccObject {
                         visible: model.isDefault
                     }
                     D.IconButton {
+                        Accessible.name: "DeleteButton"
                         Layout.alignment: Qt.AlignCenter
                         implicitHeight: 30
                         implicitWidth: 30

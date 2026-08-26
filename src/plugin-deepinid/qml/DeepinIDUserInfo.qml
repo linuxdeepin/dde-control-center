@@ -195,6 +195,7 @@ DccObject {
         weight: 60
         page: RowLayout {
             Button {
+                Accessible.name: "SignOut"
                 text: qsTr("Sign out")
                 onClicked: {
                     dccData.worker.logoutUser()
@@ -204,6 +205,7 @@ DccObject {
                 Layout.fillWidth: true
             }
             Button {
+                Accessible.name: "GoToWebSettings"
                 text: qsTr("Go to web settings")
                 onClicked: {
                     dccData.worker.openWeb()

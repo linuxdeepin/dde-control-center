@@ -207,6 +207,7 @@ D.DialogWindow {
                 }
             }
             D.RecommandButton {
+                Accessible.name: "Save_8"
                 enabled: timezoneDialog.selectedTimeZone.length > 0
                 Layout.bottomMargin: 10
                 text: qsTr("Save")

@@ -119,6 +119,7 @@ DccObject {
                     }
                 }
                 D.IconButton {
+                    Accessible.name: "MicrophoneVolumeButton"
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                     icon.name: "big_volume"
                     icon.width: 16

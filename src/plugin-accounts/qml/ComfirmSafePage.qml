@@ -48,6 +48,7 @@ D.DialogWindow {
                 }
             }
             D.WarningButton {
+                Accessible.name: "Cancel_19"
                 text: qsTr("Cancel")
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignRight

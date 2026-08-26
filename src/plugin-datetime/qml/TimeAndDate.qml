@@ -274,6 +274,7 @@ DccObject {
                     }
                 }
                 D.IconButton {
+                    Accessible.name: "EditTimezoneButton"
                     id: editBtn
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
@@ -625,6 +626,7 @@ DccObject {
             }
 
             D.IconButton {
+                Accessible.name: "RemoveTimezoneButton"
                 id: removeButton
                 visible: itemZoneCompItemDelegate.hovered
                 icon.name: "dcc-delete"

@@ -56,6 +56,7 @@ ColumnLayout {
             }
         }
         D.RecommandButton {
+            Accessible.name: "Agree"
             Layout.fillWidth: true
             text: qsTr("Agree")
             onClicked: {

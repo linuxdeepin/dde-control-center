@@ -354,6 +354,7 @@ D.DialogWindow {
                 }
             }
             D.RecommandButton {
+                Accessible.name: "CreateAccount"
                 id: createButton
                 Layout.fillWidth: true
                 text: qsTr("Create account")

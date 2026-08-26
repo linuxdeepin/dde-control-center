@@ -486,6 +486,7 @@ D.DialogWindow {
                     }
                 }
                 D.RecommandButton {
+                    Accessible.name: "Save_7"
                     Layout.fillWidth: true
                     text: qsTr("Save")
                     onClicked: {

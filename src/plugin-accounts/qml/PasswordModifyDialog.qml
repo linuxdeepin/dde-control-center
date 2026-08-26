@@ -79,6 +79,7 @@ D.DialogWindow {
                 }
             }
             D.RecommandButton {
+                Accessible.name: "ModifyPassword"
                 Layout.fillWidth: true
                 text: qsTr("Modify password")
                 font: D.DTK.fontManager.t7

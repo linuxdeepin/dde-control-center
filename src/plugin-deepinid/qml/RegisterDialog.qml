@@ -66,6 +66,7 @@ D.DialogWindow {
             Layout.fillWidth: true
             spacing: 10
             Button {
+                Accessible.name: "Cancel_21"
                 text: qsTr("Cancel")
                 Layout.fillWidth: true
                 onClicked: {
@@ -73,6 +74,7 @@ D.DialogWindow {
                 }
             }
             D.RecommandButton {
+                Accessible.name: "Confirm_3"
                 text: qsTr("Confirm")
                 Layout.fillWidth: true
                 onClicked: {

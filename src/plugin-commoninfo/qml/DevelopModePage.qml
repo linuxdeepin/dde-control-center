@@ -200,6 +200,7 @@ DccObject {
                         }
 
                         D.RecommandButton {
+                            Accessible.name: "DevelopModeConfirmButton"
                             visible: !developDlg.showSuccess
                             id: confirmBtn
                             text: developDlg.currentStackIndex === 1 ? qsTr("Import Certificate") : (dccData.mode().isLogin ? qsTr("Request Root Access") : qsTr("Login UOS ID"))
@@ -454,6 +455,7 @@ DccObject {
                                 font: D.DTK.fontManager.t8
                             }
                             D.RecommandButton {
+                                Accessible.name: "Ok_2"
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignHCenter
                                 Layout.bottomMargin: 6

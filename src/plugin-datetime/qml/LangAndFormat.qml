@@ -179,6 +179,7 @@ DccObject {
                         }
 
                         IconButton {
+                            Accessible.name: "RemoveLanguageButton"
                             id: removeButton
                             visible: !itemDelegate.isLoading && (
                                      (itemDelegate.isCurrentLang && dccObj.enabled) ||

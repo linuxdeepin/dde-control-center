@@ -108,6 +108,7 @@ D.DialogWindow {
                 }
             }
             D.RecommandButton {
+                Accessible.name: "Confirm_2"
                 Layout.fillWidth: true
                 text: qsTr("Confirm")
                 font: D.DTK.fontManager.t7

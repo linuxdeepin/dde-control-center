@@ -109,6 +109,7 @@ D.DialogWindow {
                 }
 
                 D.RecommandButton {
+                    Accessible.name: "Next_2"
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
                     Layout.bottomMargin: DS.Style.dialogWindow.contentHMargin
@@ -270,6 +271,7 @@ D.DialogWindow {
                         }
                     }
                     D.RecommandButton {
+                        Accessible.name: "RetryEnroll_2"
                         Layout.fillWidth: true
                         text: qsTr("Retry Enroll")
                         onClicked: {

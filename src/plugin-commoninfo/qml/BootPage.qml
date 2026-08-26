@@ -628,6 +628,7 @@ DccObject {
                             }
 
                             RecommandButton {
+                                Accessible.name: "Sure"
                                 id: submitbtn
                                 text: qsTr("Sure")
                                 enabled: false

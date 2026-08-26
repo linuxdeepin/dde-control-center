@@ -76,6 +76,7 @@ ColorDialogImpl {
             Layout.bottomMargin: 2
 
             D.IconButton {
+                Accessible.name: "EyeDropperButton"
                 id: eyeDropperButton
                 icon.name: "color_extractor"
                 icon.width: 20

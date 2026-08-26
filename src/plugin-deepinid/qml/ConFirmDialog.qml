@@ -57,6 +57,7 @@ D.DialogWindow {
                 }
             }
             D.WarningButton {
+                Accessible.name: "DialogRightBtnText"
                 text: dialog.rightBtnText
                 Layout.fillWidth: true
                 onClicked: {

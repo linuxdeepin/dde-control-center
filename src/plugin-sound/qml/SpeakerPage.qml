@@ -114,6 +114,7 @@ DccObject {
                     }
                 }
                 IconButton {
+                    Accessible.name: "SpeakerVolumeButton"
                     icon {
                         name: "big_volume"
                         width: 16

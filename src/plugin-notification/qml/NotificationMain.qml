@@ -185,6 +185,7 @@ DccObject {
             }
 
             D.IconButton {
+                Accessible.name: "SearchButton"
                 id: searchButton
                 visible: !appNotifyTitle.searchVisible
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter

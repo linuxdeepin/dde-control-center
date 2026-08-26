@@ -77,6 +77,7 @@ Rectangle {
                         spacing: 10
                         Layout.alignment: Qt.AlignRight
                         IconButton {
+                            Accessible.name: "DeviceTestButton"
                             Layout.alignment: Qt.AlignLeft
                             icon.name: "play_back"
                             flat: true
