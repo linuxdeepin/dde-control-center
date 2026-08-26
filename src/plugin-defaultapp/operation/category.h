@@ -26,7 +26,7 @@ struct App {
     }
 
     bool operator !=(const App &app) const {
-        return app.Id != Id && app.isUser != isUser;
+        return app.Id != Id || app.isUser != isUser;
     }
 };
 
