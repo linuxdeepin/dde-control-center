@@ -27,4 +27,40 @@ DccBenchmark::~DccBenchmark()
                        .arg(elapsed);
 }
 
+void DccLoadTimer::start()
+{
+    qCDebug(dccBenchmarkLog).noquote() << QStringLiteral("Begin-to-load-plugins.");
+    m_totalTimer.start();
+    m_pluginStartTimes.clear();
+}
+
+void DccLoadTimer::addPlugin(const QString &name)
+{
+    m_pluginStartTimes.insert(name, m_totalTimer.elapsed());
+}
+
+void DccLoadTimer::finishPlugin(const QString &name)
+{
+    if (m_pluginStartTimes.contains(name)) {
+        const qint64 startTime = m_pluginStartTimes.value(name);
+        qCDebug(dccBenchmarkLog).noquote()
+                << QStringLiteral("\"%1\" total-loading-finished in %2 ms.")
+                           .arg(name)
+                           .arg(m_totalTimer.elapsed() - startTime);
+    }
+}
+
+void DccLoadTimer::stop()
+{
+    if (!m_totalTimer.isValid())
+        return;
+
+    qCDebug(dccBenchmarkLog).noquote()
+            << QStringLiteral("All %1 plugins-loaded in %2 ms.")
+                       .arg(m_pluginStartTimes.size())
+                       .arg(m_totalTimer.elapsed());
+    m_totalTimer.invalidate();
+    m_pluginStartTimes.clear();
+}
+
 } // namespace dccV25

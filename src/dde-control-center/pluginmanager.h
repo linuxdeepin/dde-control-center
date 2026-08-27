@@ -3,6 +3,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
+#include "dccbenchmark.h"
+
 #include <QObject>
 #include <QQmlContext>
 #include <QStringList>
@@ -60,6 +62,7 @@ private:
     std::atomic<bool> m_isDeleting;
     QQmlEngine *m_engine;
     QStringList m_pluginsToLoad;
+    DccLoadTimer m_loadTimer;
 };
 
 } // namespace dccV25
