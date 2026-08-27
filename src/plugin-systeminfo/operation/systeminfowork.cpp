@@ -251,7 +251,7 @@ void SystemInfoWork::initSystemCopyright()
     const QSettings settings("/etc/deepin-installer.conf", QSettings::IniFormat);
     QString oem_copyright = settings.value("system_info_vendor_name").toString().toUtf8();
 
-    const int buildYear = QString(__DATE__).right(4).toInt();
+    const int buildYear = DCC_BUILD_YEAR;
     int validYear = QDateTime::currentDateTime().date().year();
     validYear = qMax(buildYear, validYear);
     if (oem_copyright.isEmpty()) {
