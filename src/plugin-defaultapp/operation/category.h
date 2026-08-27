@@ -40,7 +40,7 @@ public:
 
     const QString getName() const { return m_category;}
     void setCategory(const QString &category);
-    inline const QList<App> getappItem() const { return m_applist;}
+    inline const QList<App>& getappItem() const { return m_applist;}
     inline const QList<App> systemAppList() const { return m_systemAppList; }
     inline const QList<App> userAppList() const { return m_userAppList; }
     inline const App getDefault() { return m_default;}
