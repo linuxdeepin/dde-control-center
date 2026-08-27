@@ -5,6 +5,7 @@
 #pragma once
 
 #include <QElapsedTimer>
+#include <QHash>
 #include <QLoggingCategory>
 #include <QString>
 
@@ -25,6 +26,24 @@ private:
     QString m_plugin;
     const char *m_stage;
     QElapsedTimer m_timer;
+};
+
+class DccLoadTimer
+{
+public:
+    DccLoadTimer() = default;
+
+    DccLoadTimer(const DccLoadTimer &) = delete;
+    DccLoadTimer &operator=(const DccLoadTimer &) = delete;
+
+    void start();                          // Start global timer, clear per-plugin tracking
+    void addPlugin(const QString &name);  // Record a plugin's start timestamp
+    void finishPlugin(const QString &name);  // Calculate & log per-plugin total time
+    void stop();                           // Stop timer and log all-plugins total time
+
+private:
+    QElapsedTimer m_totalTimer;
+    QHash<QString, qint64> m_pluginStartTimes;
 };
 
 } // namespace dccV25

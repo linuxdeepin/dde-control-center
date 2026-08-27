@@ -97,7 +97,9 @@ void DccPluginManager::loadPlugin(DccPluginLoader *loader)
         return;
     }
     if (loader->status() & DccPluginLoader::PluginEnd) {
+        m_loadTimer.finishPlugin(loader->name());
         if (loadFinished()) {
+            m_loadTimer.stop();
             Q_EMIT loadAllFinished();
             cancelLoad();
         }
@@ -143,6 +145,7 @@ void DccPluginManager::loadModules(DccObject *root, bool async, const QStringLis
     Q_UNUSED(async)
     if (!root)
         return;
+    m_loadTimer.start();
     m_rootModule = root;
     m_engine = engine;
     qCDebug(dccLog()) << "plugin dir:" << dirs;
@@ -169,6 +172,7 @@ void DccPluginManager::loadModules(DccObject *root, bool async, const QStringLis
         }
         matchedPlugins.insert(pluginName);
         DccPluginLoader *loader = new DccPluginLoader(lib.baseName(), filepath, this);
+        m_loadTimer.addPlugin(loader->name());
 
         // Set version type based on path
         DccPluginLoader::TypeFlags type = DccPluginLoader::T_Unknown;
