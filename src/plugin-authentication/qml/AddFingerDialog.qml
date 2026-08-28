@@ -85,13 +85,13 @@ D.DialogWindow {
                     Layout.alignment: Qt.AlignCenter
 
                     CheckBox {
-                        Accessible.name: "AgreeCheckbox_3"
+                        Accessible.id: "AgreeCheckbox_3"
                         id: agreeCheckbox
                         text: qsTr("I have read and agree to the")
                     }
 
                     D.ToolButton {
-                        Accessible.name: "Disclaimer_2"
+                        Accessible.id: "Disclaimer_2"
                         text: qsTr("Disclaimer")
                         padding: 0
                         background: null
@@ -113,7 +113,7 @@ D.DialogWindow {
                 }
 
                 D.RecommandButton {
-                    Accessible.name: "Next_3"
+                    Accessible.id: "Next_3"
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
                     Layout.bottomMargin: DS.Style.dialogWindow.contentHMargin
@@ -184,7 +184,7 @@ D.DialogWindow {
                     Layout.rightMargin: 0
 
                     Button {
-                        Accessible.name: "Done_3"
+                        Accessible.id: "Done_3"
                         Layout.fillWidth: true
                         text: qsTr("Done")
                         onClicked: {
@@ -202,7 +202,7 @@ D.DialogWindow {
                     Layout.rightMargin: 0
 
                     Button {
-                        Accessible.name: "Cancel_3"
+                        Accessible.id: "Cancel_3"
                         Layout.fillWidth: true
                         text: qsTr("Cancel")
                         onClicked: {
@@ -211,7 +211,7 @@ D.DialogWindow {
                         }
                     }
                     D.RecommandButton {
-                        Accessible.name: "RetryEnroll_3"
+                        Accessible.id: "RetryEnroll_3"
                         Layout.fillWidth: true
                         text: qsTr("Retry Enroll")
                         onClicked: {
@@ -229,7 +229,7 @@ D.DialogWindow {
                     Layout.rightMargin: 0
 
                     Button {
-                        Accessible.name: "Cancel_4"
+                        Accessible.id: "Cancel_4"
                         Layout.fillWidth: true
                         text: qsTr("Cancel")
                         onClicked: {

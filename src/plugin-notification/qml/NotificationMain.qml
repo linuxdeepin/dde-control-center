@@ -33,7 +33,7 @@ DccObject {
             weight: 10
             pageType: DccObject.Editor
             page: D.Switch {
-                Accessible.name: "NotificationMain_Switch"
+                Accessible.id: "NotificationMain_Switch"
                 anchors {
                     left: parent.left
                     leftMargin: 10
@@ -75,7 +75,7 @@ DccObject {
                     leftMargin: 10
                 }
                 D.CheckBox {
-                    Accessible.name: "LockScreenCheckBox"
+                    Accessible.id: "LockScreenCheckBox"
                     id: lockScreenCheckBox
                     implicitHeight: implicitContentHeight + 30
                     checked: dccData.sysItemModel.lockScreen
@@ -109,7 +109,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.ComboBox {
-            Accessible.name: "NotificationMain_ComboBox"
+            Accessible.id: "NotificationMain_ComboBox"
             model: ["1", "2", "3"]
             flat: true
             currentIndex: dccData.sysItemModel.bubbleCount - 1
@@ -185,7 +185,7 @@ DccObject {
             }
 
             D.IconButton {
-                Accessible.name: "SearchButton"
+                Accessible.id: "SearchButton"
                 id: searchButton
                 visible: !appNotifyTitle.searchVisible
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
@@ -245,7 +245,7 @@ DccObject {
                 displayName: model.AppName
                 backgroundType: DccObject.Normal
                 page: D.Switch {
-                    Accessible.name: "NotificationMain_Switch_2"
+                    Accessible.id: "NotificationMain_Switch_2"
                     checked: model.EnableNotification
                     onCheckedChanged: {
                         if (model.EnableNotification !== checked) {
@@ -266,7 +266,7 @@ DccObject {
                         weight: 10
                         pageType: DccObject.Editor
                         page: D.Switch {
-                            Accessible.name: "NotificationMain_Switch_3"
+                            Accessible.id: "NotificationMain_Switch_3"
                             Layout.rightMargin: 10
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             checked: model.EnableNotification
@@ -292,7 +292,7 @@ DccObject {
                                 width: parent.width
                                 anchors.centerIn: parent
                                 ImageCheckBox {
-                                    Accessible.name: "Desktop"
+                                    Accessible.id: "Desktop"
                                     Accessible.role: Accessible.CheckBox
                                     Layout.alignment: Qt.AlignCenter
                                     text: qsTr("Desktop")
@@ -305,7 +305,7 @@ DccObject {
                                     }
                                 }
                                 ImageCheckBox {
-                                    Accessible.name: "LockScreen"
+                                    Accessible.id: "LockScreen"
                                     Accessible.role: Accessible.CheckBox
                                     Layout.alignment: Qt.AlignCenter
                                     text: qsTr("Lock Screen")
@@ -319,7 +319,7 @@ DccObject {
                                     }
                                 }
                                 ImageCheckBox {
-                                    Accessible.name: "NotificationCenter"
+                                    Accessible.id: "NotificationCenter"
                                     Accessible.role: Accessible.CheckBox
                                     Layout.alignment: Qt.AlignCenter
                                     text: qsTr("Notification Center")
@@ -350,7 +350,7 @@ DccObject {
                             weight: 10
                             page: RowLayout {
                                 D.CheckBox {
-                                    Accessible.name: "DccObjDisplayName_2"
+                                    Accessible.id: "DccObjDisplayName_2"
                                     implicitHeight: 40
                                     Layout.leftMargin: 14
                                     text: dccObj.displayName
@@ -371,7 +371,7 @@ DccObject {
                             weight: 20
                             page: RowLayout {
                                 D.CheckBox {
-                                    Accessible.name: "DccObjDisplayName_3"
+                                    Accessible.id: "DccObjDisplayName_3"
                                     implicitHeight: 40
                                     Layout.leftMargin: 14
                                     text: dccObj.displayName

@@ -50,7 +50,7 @@ DccObject {
                 }
 
                 CustomTipsSlider {
-                    Accessible.name: "OffMonitorSlider_2"
+                    Accessible.id: "OffMonitorSlider_2"
                     Accessible.role: Accessible.Slider
                     id: offMonitorSlider
                     dataMap: dccData.model.batteryScreenBlackDelayModel
@@ -101,7 +101,7 @@ DccObject {
                 }
 
                 CustomTipsSlider {
-                    Accessible.name: "LockScreenSlider_2"
+                    Accessible.id: "LockScreenSlider_2"
                     Accessible.role: Accessible.Slider
                     id: lockScreenSlider
                     dataMap: dccData.model.batteryLockDelayModel
@@ -153,7 +153,7 @@ DccObject {
                 }
 
                 CustomTipsSlider {
-                    Accessible.name: "SuspendsSlider_2"
+                    Accessible.id: "SuspendsSlider_2"
                     Accessible.role: Accessible.Slider
                     id: suspendsSlider
                     dataMap: dccData.model.batterySleepDelayModel
@@ -185,7 +185,7 @@ DccObject {
             weight: 1
             pageType: DccObject.Editor
             page: CustomComboBox {
-                Accessible.name: "BatteryPage_CustomComboBox"
+                Accessible.id: "BatteryPage_CustomComboBox"
                 Accessible.role: Accessible.ComboBox
                 textRole: "text"
                 enableRole: "enable"
@@ -205,7 +205,7 @@ DccObject {
             weight: 2
             pageType: DccObject.Editor
             page: CustomComboBox {
-                Accessible.name: "BatteryPage_CustomComboBox_2"
+                Accessible.id: "BatteryPage_CustomComboBox_2"
                 Accessible.role: Accessible.ComboBox
                 textRole: "text"
                 enableRole: "enable"
@@ -241,7 +241,7 @@ DccObject {
             weight: 1
             pageType: DccObject.Editor
             page: D.ComboBox {
-                Accessible.name: "BatteryPage_ComboBox"
+                Accessible.id: "BatteryPage_ComboBox"
                 textRole: "text"
                 flat: true
                 currentIndex: dccData.indexByValueOnModel(model, dccData.model.lowPowerNotifyThreshold)
@@ -282,7 +282,7 @@ DccObject {
             weight: 1
             pageType: DccObject.Editor
             page: CustomComboBox {
-                Accessible.name: "BatteryPage_CustomComboBox_3"
+                Accessible.id: "BatteryPage_CustomComboBox_3"
                 Accessible.role: Accessible.ComboBox
                 textRole: "text"
                 valueRole: "value"
@@ -305,7 +305,7 @@ DccObject {
             weight: 2
             pageType: DccObject.Editor
             page: CustomComboBox {
-                Accessible.name: "BatteryPage_CustomComboBox_4"
+                Accessible.id: "BatteryPage_CustomComboBox_4"
                 Accessible.role: Accessible.ComboBox
                 textRole: "text"
                 valueRole: "value"
@@ -352,7 +352,7 @@ DccObject {
             weight: 1
             pageType: DccObject.Editor
             page: D.Switch {
-                Accessible.name: "BatteryPage_Switch"
+                Accessible.id: "BatteryPage_Switch"
                 checked: dccData.model.showBatteryTimeToFull
                 onCheckedChanged: {
                     dccData.worker.setShowBatteryTimeToFull(checked)

@@ -118,7 +118,7 @@ DccObject {
         pageType: DccObject.Item
         page: RowLayout{
             Button {
-                Accessible.name: "SignInTo1Id"
+                Accessible.id: "SignInTo1Id"
                 Layout.preferredWidth: 200
                 Layout.preferredHeight: 30
                 Layout.alignment: Qt.AlignHCenter

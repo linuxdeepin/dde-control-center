@@ -114,7 +114,7 @@ DccTitleObject {
                     weight: 12
                     pageType: DccObject.Editor
                     page: D.SpinBox {
-                        Accessible.name: "SbAge"
+                        Accessible.id: "SbAge"
                         id: sbAge
                         from: 1
                         to: 99999
@@ -146,7 +146,7 @@ DccTitleObject {
                         }
 
                         contentItem: TextInput {
-                            Accessible.name: "Ti"
+                            Accessible.id: "Ti"
                             id: ti
                             text: sbAge.textFromValue(sbAge.value, sbAge.locale)
                             color: sbAge.palette.text

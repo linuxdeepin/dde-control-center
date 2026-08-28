@@ -9,7 +9,7 @@ import org.deepin.dtk.style 1.0 as DS
 
 // AutoSizingComboBox — ComboBox 封装，自动适配下拉面板宽度
 ComboBox {
-    Accessible.name: "Control_14"
+    Accessible.id: "Control_14"
     id: control
 
     property real _popupContentWidth: 0

@@ -52,7 +52,7 @@ Item {
         anchors.fill: parent
         
         ComboBox {
-            Accessible.name: "ComboBox_2"
+            Accessible.id: "ComboBox_2"
             id: comboBox
             visible: item.comboModel.length > 1
             flat: true

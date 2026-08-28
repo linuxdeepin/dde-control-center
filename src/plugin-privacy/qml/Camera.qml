@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -41,7 +41,7 @@ DccObject {
                 canSearch: false
                 backgroundType: DccObject.Hover
                 page: D.Switch {
-                    Accessible.name: "Camera_Switch"
+                    Accessible.id: "Camera_Switch"
                     checked: model.cameraPermission
                     onCheckedChanged: {
                         if (checked !== model.cameraPermission) {

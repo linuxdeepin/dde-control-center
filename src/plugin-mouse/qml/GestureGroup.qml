@@ -28,7 +28,7 @@ Rectangle {
         Repeater {
             id: repeater
             delegate: D.ItemDelegate {
-                Accessible.name: "ItemCtl_2"
+                Accessible.id: "ItemCtl_2"
                 id: itemCtl
                 Layout.fillWidth: true
                 leftPadding: 10
@@ -51,7 +51,7 @@ Rectangle {
                 property var comboItem: null
                 property int delegateIndex: index  // Save delegate's index to avoid being overridden by ComboBox's index parameter
                 content: D.ComboBox {
-                    Accessible.name: "Combo_2"
+                    Accessible.id: "Combo_2"
                     id: combo
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                     model: comboMoel
@@ -61,7 +61,7 @@ Rectangle {
                     editable: false
                     flat: true
                     delegate: D.MenuItem {
-                        Accessible.name: "ActionItem"
+                        Accessible.id: "ActionItem"
                         id: actionItem
                         useIndicatorPadding: true
                         width: combo.width

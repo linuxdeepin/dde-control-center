@@ -30,7 +30,7 @@ Rectangle {
         Repeater {
             id: repeater
             delegate: D.ItemDelegate {
-                Accessible.name: "ItemCtl_3"
+                Accessible.id: "ItemCtl_3"
                 readonly property bool showSendFile: model.canSendFile && model.connectStatus === 2
 
                 id: itemCtl
@@ -187,7 +187,7 @@ Rectangle {
                                 visible: model.connectStatus === 1
                             }
                             D.ToolButton {
-                                Accessible.name: "ConnectBtn"
+                                Accessible.id: "ConnectBtn"
                                 id: connectBtn
                                 implicitHeight: 30
                                 background.visible: true
@@ -241,12 +241,12 @@ Rectangle {
                                     }
 
                                     D.Menu {
-                                        Accessible.name: "ContextMenu_5"
+                                        Accessible.id: "ContextMenu_5"
                                         id: contextMenu
                                         implicitWidth: 150
 
                                         D.MenuItem {
-                                            Accessible.name: "ConnectDev"
+                                            Accessible.id: "ConnectDev"
                                             id: connectDev
                                             padding: 0
                                             text: model.connectStatus === 2 ? qsTr("Disconnect") : qsTr("Connect")
@@ -260,7 +260,7 @@ Rectangle {
                                             }
                                         }
                                         D.MenuItem {
-                                            Accessible.name: "SendFile"
+                                            Accessible.id: "SendFile"
                                             id: sendFile
                                             padding: 0
                                             text: qsTr("Send Files")
@@ -276,7 +276,7 @@ Rectangle {
                                         }
 
                                         D.MenuItem {
-                                            Accessible.name: "Rename"
+                                            Accessible.id: "Rename"
                                             id: rename
                                             text: qsTr("Rename")
                                             padding: 0
@@ -291,7 +291,7 @@ Rectangle {
                                         }
 
                                         D.MenuItem {
-                                            Accessible.name: "RemoveDev"
+                                            Accessible.id: "RemoveDev"
                                             id: removeDev
                                             text: qsTr("Remove Device")
                                             enabled: model.connectStatus === 2 || model.connectStatus === 0

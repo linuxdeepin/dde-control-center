@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -50,7 +50,7 @@ Item {
         Repeater {
             model: row.icons
             delegate: D.ItemDelegate {
-                Accessible.name: "Delegate_2"
+                Accessible.id: "Delegate_2"
                 id: delegate
                 property bool isAddButton: modelData == "add"
                 property string modelPathNoQuery: (modelData || "").toString().replace("file://", "")
@@ -82,7 +82,7 @@ Item {
                         implicitHeight: 72
                         implicitWidth: 72
                         Button {
-                            Accessible.name: "Control_9"
+                            Accessible.id: "Control_9"
                             id: control
                             width: 60
                             height: 60

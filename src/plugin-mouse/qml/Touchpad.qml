@@ -54,7 +54,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.Switch {
-            Accessible.name: "Touchpad_Switch"
+            Accessible.id: "Touchpad_Switch"
             Layout.rightMargin: 10
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
             checked: dccData.tapEnabled
@@ -168,7 +168,7 @@ DccObject {
             pageType: DccObject.Editor
 
             page: D.Switch {
-                Accessible.name: "Touchpad_Switch_2"
+                Accessible.id: "Touchpad_Switch_2"
                 Layout.rightMargin: 10
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 checked: dccData.disIfTyping
@@ -189,7 +189,7 @@ DccObject {
             pageType: DccObject.Editor
 
             page: D.Switch {
-                Accessible.name: "Touchpad_Switch_3"
+                Accessible.id: "Touchpad_Switch_3"
                 Layout.rightMargin: 10
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 checked: dccData.tapClick
@@ -210,7 +210,7 @@ DccObject {
             pageType: DccObject.Editor
 
             page: D.Switch {
-                Accessible.name: "Touchpad_Switch_4"
+                Accessible.id: "Touchpad_Switch_4"
                 Layout.rightMargin: 10
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 checked: dccData.tpadNaturalScroll

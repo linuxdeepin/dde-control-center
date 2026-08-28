@@ -37,7 +37,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: ComboBox {
-            Accessible.name: "WacomMain_ComboBox"
+            Accessible.id: "WacomMain_ComboBox"
             model: [qsTr("Pen Mode"), qsTr("Mouse Mode")]
             currentIndex: dccData.CursorMode
             onCurrentIndexChanged: {

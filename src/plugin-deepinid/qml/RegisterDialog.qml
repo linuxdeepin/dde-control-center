@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -66,7 +66,7 @@ D.DialogWindow {
             Layout.fillWidth: true
             spacing: 10
             Button {
-                Accessible.name: "Cancel_21"
+                Accessible.id: "Cancel_21"
                 text: qsTr("Cancel")
                 Layout.fillWidth: true
                 onClicked: {
@@ -74,7 +74,7 @@ D.DialogWindow {
                 }
             }
             D.RecommandButton {
-                Accessible.name: "Confirm_3"
+                Accessible.id: "Confirm_3"
                 text: qsTr("Confirm")
                 Layout.fillWidth: true
                 onClicked: {

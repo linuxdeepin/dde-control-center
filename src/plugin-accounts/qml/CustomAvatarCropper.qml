@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -189,7 +189,7 @@ Control {
         }
 
         Slider {
-            Accessible.name: "ScaleSlider"
+            Accessible.id: "ScaleSlider"
             id: scaleSlider
             from: 1.0
             to: 2.0

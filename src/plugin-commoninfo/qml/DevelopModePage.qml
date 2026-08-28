@@ -84,7 +84,7 @@ DccObject {
                 }
 
                 Button {
-                    Accessible.name: "EnterBtn"
+                    Accessible.id: "EnterBtn"
                     id: enterBtn
                     Layout.alignment: Qt.AlignRight
                     Layout.rightMargin: 10
@@ -160,7 +160,7 @@ DccObject {
                             spacing: 20
                             Layout.alignment: Qt.AlignHCenter
                             RadioButton {
-                                Accessible.name: "Radio1"
+                                Accessible.id: "Radio1"
                                 id: radio1
                                 text: qsTr("Online")
                                 font: D.DTK.fontManager.t6
@@ -175,7 +175,7 @@ DccObject {
                             }
 
                             RadioButton {
-                                Accessible.name: "Radio2"
+                                Accessible.id: "Radio2"
                                 id: radio2
                                 text: qsTr("Offline")
                                 font: D.DTK.fontManager.t6
@@ -200,7 +200,7 @@ DccObject {
                         }
 
                         D.RecommandButton {
-                            Accessible.name: "DevelopModeConfirmButton"
+                            Accessible.id: "DevelopModeConfirmButton"
                             visible: !developDlg.showSuccess
                             id: confirmBtn
                             text: developDlg.currentStackIndex === 1 ? qsTr("Import Certificate") : (dccData.mode().isLogin ? qsTr("Request Root Access") : qsTr("Login UOS ID"))
@@ -333,7 +333,7 @@ DccObject {
                                             verticalAlignment: Text.AlignVCenter
                                         }
                                         Button {
-                                            Accessible.name: "ExportBtn"
+                                            Accessible.id: "ExportBtn"
                                             id: exportBtn
                                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                                             Layout.rightMargin: 6
@@ -455,7 +455,7 @@ DccObject {
                                 font: D.DTK.fontManager.t8
                             }
                             D.RecommandButton {
-                                Accessible.name: "Ok_2"
+                                Accessible.id: "Ok_2"
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignHCenter
                                 Layout.bottomMargin: 6
@@ -564,7 +564,7 @@ DccObject {
             pageType: DccObject.Editor
             page:  Row{
                 ComboBox {
-                    Accessible.name: "DebugLogCombo"
+                    Accessible.id: "DebugLogCombo"
                     id: debugLogCombo
                     model: [ qsTr("Off"), qsTr("Debug") ]
                     flat: true
@@ -635,7 +635,7 @@ DccObject {
             }
 
             Switch {
-                Accessible.name: "DevelopModePage_Switch"
+                Accessible.id: "DevelopModePage_Switch"
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
                 implicitWidth: 50

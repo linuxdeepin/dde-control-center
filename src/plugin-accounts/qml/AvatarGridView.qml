@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -8,7 +8,7 @@ import org.deepin.dtk 1.0 as D
 import QtQuick.Effects
 
 GridView {
-    Accessible.name: "GridView"
+    Accessible.id: "GridView"
     id: gridView
     property string headerText
     property string currentAvatar
@@ -55,7 +55,7 @@ GridView {
     }
 
     delegate: D.ItemDelegate {
-        Accessible.name: "Delegate"
+        Accessible.id: "Delegate"
         id: delegate
         property bool isAddButton: modelData == "add"
         property bool isSelected: !isAddButton && (gridView.currentAvatar === modelData)
@@ -73,7 +73,7 @@ GridView {
                 implicitHeight: gridView.cellHeight
                 implicitWidth: gridView.cellWidth
                 Button {
-                    Accessible.name: "Control_8"
+                    Accessible.id: "Control_8"
                     id: control
                     width: gridView.itemSize
                     height: gridView.itemSize

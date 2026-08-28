@@ -8,7 +8,7 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 D.SpinBox {
-    Accessible.name: "Control_12"
+    Accessible.id: "Control_12"
     id: control
     wrap: true
     readonly property string timeString: textFromValue(value)
@@ -88,7 +88,7 @@ D.SpinBox {
         spacing: 0
         opacity: enabled ? 1 : 0.4
         TextInput {
-            Accessible.name: "HourInput"
+            Accessible.id: "HourInput"
             id: hourInput
             property bool typingDigit: false
             Layout.fillWidth: true
@@ -169,7 +169,7 @@ D.SpinBox {
             verticalAlignment: Qt.AlignVCenter
         }
         TextInput {
-            Accessible.name: "MinuteInput"
+            Accessible.id: "MinuteInput"
             id: minuteInput
             Layout.fillWidth: true
             Layout.fillHeight: true

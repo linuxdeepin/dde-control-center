@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
@@ -33,7 +33,7 @@ D.DialogWindow {
         }
 
         Button {
-            Accessible.name: "Ok"
+            Accessible.id: "Ok"
             Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
             Layout.bottomMargin: 10
             Layout.fillWidth: true

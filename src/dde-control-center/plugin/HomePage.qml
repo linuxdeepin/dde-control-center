@@ -70,7 +70,7 @@ Control {
     }
 
     GridView {
-        Accessible.name: "Grid"
+        Accessible.id: "Grid"
         id: grid
 
         anchors {
@@ -121,7 +121,7 @@ Control {
             root: dccObj
         }
         delegate: D.ItemDelegate {
-            Accessible.name: "GridView_ItemDelegate"
+            Accessible.id: "GridView_ItemDelegate"
             width: root.cellWidth
             height: root.cellHeight
             padding: 12

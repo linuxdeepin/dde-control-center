@@ -227,7 +227,7 @@ DccObject {
             weight: 10
             pageType: DccObject.Editor
             page: D.Switch {
-                Accessible.name: "MousePage_Switch"
+                Accessible.id: "MousePage_Switch"
                 checked: dccData.accelProfile
                 onCheckedChanged: {
                     dccData.accelProfile = checked
@@ -242,7 +242,7 @@ DccObject {
             visible: dccData.tpadExist
             pageType: DccObject.Editor
             page: D.Switch {
-                Accessible.name: "MousePage_Switch_2"
+                Accessible.id: "MousePage_Switch_2"
                 checked: dccData.disTpad
                 onCheckedChanged: {
                     dccData.disTpad = checked
@@ -256,7 +256,7 @@ DccObject {
             weight: 30
             pageType: DccObject.Editor
             page: D.Switch {
-                Accessible.name: "MousePage_Switch_3"
+                Accessible.id: "MousePage_Switch_3"
                 checked: dccData.mouseNaturalScroll
                 onCheckedChanged: {
                     dccData.mouseNaturalScroll = checked

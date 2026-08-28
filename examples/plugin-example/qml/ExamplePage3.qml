@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -18,7 +18,7 @@ DccSettingsObject {
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Switch {
-                Accessible.name: "DccSettingsObject_Switch"
+                Accessible.id: "DccSettingsObject_Switch"
             }
         }
     }
@@ -28,7 +28,7 @@ DccSettingsObject {
         weight: 10
         pageType: DccObject.Item
         page: Button {
-            Accessible.name: "Delete_3"
+            Accessible.id: "Delete_3"
             text: qsTr("Delete")
         }
     }

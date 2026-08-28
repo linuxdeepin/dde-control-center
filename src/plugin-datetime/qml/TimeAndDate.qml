@@ -93,7 +93,7 @@ DccObject {
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Switch {
-                Accessible.name: "TimeAndDate_Switch"
+                Accessible.id: "TimeAndDate_Switch"
                 checked: ntpSettings.ntpOn
                 onCheckedChanged: {
                     dccData.ntpEnabled = checked
@@ -123,7 +123,7 @@ DccObject {
                 implicitWidth: dccData.ntpEnabled ? 280 : 80
 
                 ComboBox {
-                    Accessible.name: "ComboBox"
+                    Accessible.id: "ComboBox"
                     id: comboBox
                     property var serverList: dccData.ntpServerList
                     flat: true
@@ -191,7 +191,7 @@ DccObject {
                 }
 
                 Button {
-                    Accessible.name: "SettingsButton"
+                    Accessible.id: "SettingsButton"
                     id: settingsButton
                     visible: !dccData.ntpEnabled
                     anchors.fill: parent
@@ -274,7 +274,7 @@ DccObject {
                     }
                 }
                 D.IconButton {
-                    Accessible.name: "EditTimezoneButton"
+                    Accessible.id: "EditTimezoneButton"
                     id: editBtn
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
@@ -327,7 +327,7 @@ DccObject {
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Switch {
-                Accessible.name: "TimeAndDate_Switch_2"
+                Accessible.id: "TimeAndDate_Switch_2"
                 checked: dccData.use24HourFormat
                 onCheckedChanged: {
                     dccData.use24HourFormat = checked
@@ -427,7 +427,7 @@ DccObject {
                         delegateModel: DelegateModel {
                             model: systemTimezoneItem.model
                             delegate: D.MenuItem {
-                                Accessible.name: "ModelDisplay_6"
+                                Accessible.id: "ModelDisplay_6"
                                 useIndicatorPadding: true
                                 width: timezoneWindow.viewWidth
                                 text: model.display
@@ -500,7 +500,7 @@ DccObject {
             page: RowLayout {
                 spacing: 10
                 Button {
-                    Accessible.name: "AddButton_2"
+                    Accessible.id: "AddButton_2"
                     id: addButton
                     text: qsTr("Add")
                     implicitHeight: 30
@@ -511,7 +511,7 @@ DccObject {
                         delegateModel: DelegateModel {
                             model: dccData.zoneSearchModel()
                             delegate: D.MenuItem {
-                                Accessible.name: "ModelDisplay_7"
+                                Accessible.id: "ModelDisplay_7"
                                 useIndicatorPadding: true
                                 width: timezoneListWindow.viewWidth
                                 text: model.display
@@ -576,7 +576,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: ItemDelegate {
-            Accessible.name: "ItemZoneCompItemDelegate"
+            Accessible.id: "ItemZoneCompItemDelegate"
             id: itemZoneCompItemDelegate
             visible: dccObj
             hoverEnabled: true
@@ -626,7 +626,7 @@ DccObject {
             }
 
             D.IconButton {
-                Accessible.name: "RemoveTimezoneButton"
+                Accessible.id: "RemoveTimezoneButton"
                 id: removeButton
                 visible: itemZoneCompItemDelegate.hovered
                 icon.name: "dcc-delete"

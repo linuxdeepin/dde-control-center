@@ -39,7 +39,7 @@ DccObject {
            weight: 10
            pageType: DccObject.Item
            page: ListView {
-               Accessible.name: "AccountView"
+               Accessible.id: "AccountView"
                id: accountView
                implicitHeight: contentHeight
                implicitWidth: 400
@@ -62,7 +62,7 @@ DccObject {
                    }
                }
                delegate: D.ItemDelegate {
-                   Accessible.name: "MenuItemDelegate"
+                   Accessible.id: "MenuItemDelegate"
                    id: menuItemDelegate
                    implicitWidth: accountView.width
                    implicitHeight: Math.max(50, contentItem.implicitHeight + topPadding + bottomPadding)

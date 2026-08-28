@@ -68,7 +68,7 @@ D.DialogWindow {
         }
 
         CheckBox {
-            Accessible.name: "DetermineTheTimeZoneBasedOnTheCurrentLocation"
+            Accessible.id: "DetermineTheTimeZoneBasedOnTheCurrentLocation"
             text: qsTr("Determine the time zone based on the current location")
             Layout.alignment: Qt.AlignCenter
             visible: false
@@ -89,7 +89,7 @@ D.DialogWindow {
                     Repeater {
                         id: arrowListView
                         D.ItemDelegate {
-                            Accessible.name: "Item"
+                            Accessible.id: "Item"
                             id: item
                             implicitWidth: 120
                             implicitHeight: 30
@@ -198,7 +198,7 @@ D.DialogWindow {
             Layout.alignment: Qt.AlignCenter | Qt.AlignBottom
             spacing: 10
             Button {
-                Accessible.name: "Cancel_14"
+                Accessible.id: "Cancel_14"
                 Layout.bottomMargin: 10
                 text: qsTr("Cancel")
                 onClicked: {
@@ -207,7 +207,7 @@ D.DialogWindow {
                 }
             }
             D.RecommandButton {
-                Accessible.name: "Save_8"
+                Accessible.id: "Save_8"
                 enabled: timezoneDialog.selectedTimeZone.length > 0
                 Layout.bottomMargin: 10
                 text: qsTr("Save")

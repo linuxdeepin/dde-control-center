@@ -81,13 +81,13 @@ D.DialogWindow {
                     spacing: 0
 
                     CheckBox {
-                        Accessible.name: "AgreeCheckbox_2"
+                        Accessible.id: "AgreeCheckbox_2"
                         id: agreeCheckbox
                         text: qsTr("I have read and agree to the")
                     }
 
                     D.ToolButton {
-                        Accessible.name: "Disclaimer"
+                        Accessible.id: "Disclaimer"
                         text: qsTr("Disclaimer")
                         padding: 0
                         background: null
@@ -109,7 +109,7 @@ D.DialogWindow {
                 }
 
                 D.RecommandButton {
-                    Accessible.name: "Next_2"
+                    Accessible.id: "Next_2"
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
                     Layout.bottomMargin: DS.Style.dialogWindow.contentHMargin
@@ -243,7 +243,7 @@ D.DialogWindow {
                     Layout.rightMargin: 0
 
                     Button {
-                        Accessible.name: "Done_2"
+                        Accessible.id: "Done_2"
                         Layout.fillWidth: true
                         text: qsTr("Done")
                         onClicked: {
@@ -263,7 +263,7 @@ D.DialogWindow {
                     Layout.rightMargin: 0
 
                     Button {
-                        Accessible.name: "Cancel_2"
+                        Accessible.id: "Cancel_2"
                         Layout.fillWidth: true
                         text: qsTr("Cancel")
                         onClicked: {
@@ -271,7 +271,7 @@ D.DialogWindow {
                         }
                     }
                     D.RecommandButton {
-                        Accessible.name: "RetryEnroll_2"
+                        Accessible.id: "RetryEnroll_2"
                         Layout.fillWidth: true
                         text: qsTr("Retry Enroll")
                         onClicked: {

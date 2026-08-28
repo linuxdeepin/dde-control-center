@@ -6,7 +6,7 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 D.ComboBox {
-    Accessible.name: "Control_5"
+    Accessible.id: "Control_5"
     id: control
     flat: true
     property string visibleRole
@@ -20,7 +20,7 @@ D.ComboBox {
     }
 
     delegate: D.MenuItem {
-        Accessible.name: "MenuItem_5"
+        Accessible.id: "MenuItem_5"
         id: menuItem
         useIndicatorPadding: true
         width: parent.width

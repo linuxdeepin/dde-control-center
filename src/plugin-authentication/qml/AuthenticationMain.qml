@@ -340,7 +340,7 @@ DccObject {
                 weight: 50
                 page: RowLayout {
                     D.ToolButton {
-                        Accessible.name: "AddANew1"
+                        Accessible.id: "AddANew1"
                         implicitHeight: DS.Style.itemDelegate.height
                         Layout.leftMargin: 5
                         textColor: D.Palette {

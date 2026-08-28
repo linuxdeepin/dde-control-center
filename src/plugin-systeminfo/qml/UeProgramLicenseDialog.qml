@@ -85,7 +85,7 @@ D.DialogWindow {
         }
 
         CheckBox {
-            Accessible.name: "AgreeCheckBox"
+            Accessible.id: "AgreeCheckBox"
             id: agreeCheckBox
             Layout.alignment: Qt.AlignHCenter
             text: qsTr("Agree and Join User Experience Program")
@@ -98,7 +98,7 @@ D.DialogWindow {
             Layout.fillWidth: true
 
             Button {
-                Accessible.name: "Cancel_13"
+                Accessible.id: "Cancel_13"
                 Layout.fillWidth: true
                 text: qsTr("Cancel")
                 font: D.DTK.fontManager.t7
@@ -108,7 +108,7 @@ D.DialogWindow {
                 }
             }
             D.RecommandButton {
-                Accessible.name: "Confirm_2"
+                Accessible.id: "Confirm_2"
                 Layout.fillWidth: true
                 text: qsTr("Confirm")
                 font: D.DTK.fontManager.t7

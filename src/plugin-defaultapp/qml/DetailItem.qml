@@ -28,7 +28,7 @@ DccObject {
         weight: 10
         pageType: DccObject.Editor
         page: Button {
-            Accessible.name: "Add"
+            Accessible.id: "Add"
             implicitWidth: implicitContentWidth + 20
             implicitHeight: 30
             text: qsTr("add")
@@ -61,7 +61,7 @@ DccObject {
             backgroundType: DccObject.ClickStyle
             pageType: DccObject.Item
             page: D.ItemDelegate {
-                Accessible.name: "Control_4"
+                Accessible.id: "Control_4"
                 id: control
                 leftPadding: 10
                 rightPadding: 8
@@ -83,7 +83,7 @@ DccObject {
                         visible: model.isDefault
                     }
                     D.IconButton {
-                        Accessible.name: "DeleteButton"
+                        Accessible.id: "DeleteButton"
                         Layout.alignment: Qt.AlignCenter
                         implicitHeight: 30
                         implicitWidth: 30

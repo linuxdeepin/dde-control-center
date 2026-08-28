@@ -11,14 +11,14 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 D.ComboBox {
-    Accessible.name: "Control_7"
+    Accessible.id: "Control_7"
     id: control
     flat: true
     textRole: "text"
     valueRole: "value"
 
     delegate: D.MenuItem {
-        Accessible.name: "MenuItem_7"
+        Accessible.id: "MenuItem_7"
         id: menuItem
         useIndicatorPadding: true
         width: control.width

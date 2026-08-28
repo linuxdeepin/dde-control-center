@@ -150,7 +150,7 @@ DccObject {
                 weight: 100
                 pageType: DccObject.Editor
                 page: D.ComboBox {
-                    Accessible.name: "WallpaperPage_ComboBox"
+                    Accessible.id: "WallpaperPage_ComboBox"
                     flat: true
                     model: ["adapt"]
                 }
@@ -168,7 +168,7 @@ DccObject {
                 weight: 200
                 pageType: DccObject.Editor
                 page: CustomComboBox {
-                    Accessible.name: "WallpaperPage_CustomComboBox"
+                    Accessible.id: "WallpaperPage_CustomComboBox"
                     Accessible.role: Accessible.ComboBox
                     flat: true
                     textRole: "text"

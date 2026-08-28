@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -63,7 +63,7 @@ DccObject {
                 }
 
                 D.ToolButton {
-                    Accessible.name: "Unbinding"
+                    Accessible.id: "Unbinding"
                     text: wechatLayout.isBindWechat ? qsTr("Unbinding") : qsTr("Link")
                     visible: dccData.editionName() === "deepin" ? false : true
                     textColor: D.Palette {

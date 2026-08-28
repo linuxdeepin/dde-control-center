@@ -98,7 +98,7 @@ DccObject {
                     }
                 }
                 Slider {
-                    Accessible.name: "VoiceTipsSlider"
+                    Accessible.id: "VoiceTipsSlider"
                     id: voiceTipsSlider
                     Layout.alignment: Qt.AlignVCenter
                     implicitHeight: 24
@@ -114,7 +114,7 @@ DccObject {
                     }
                 }
                 IconButton {
-                    Accessible.name: "SpeakerVolumeButton"
+                    Accessible.id: "SpeakerVolumeButton"
                     icon {
                         name: "big_volume"
                         width: 16
@@ -137,7 +137,7 @@ DccObject {
             weight: 20
             pageType: DccObject.Editor
             page: Switch {
-                Accessible.name: "SpeakerPage_Switch"
+                Accessible.id: "SpeakerPage_Switch"
                 Layout.alignment: Qt.AlignRight
                 checked: dccData.model().increaseVolume
                 onCheckedChanged: {
@@ -164,7 +164,7 @@ DccObject {
                     text: qsTr("Left")
                 }
                 Slider {
-                    Accessible.name: "BalanceSlider"
+                    Accessible.id: "BalanceSlider"
                     id: balanceSlider
                     Layout.alignment: Qt.AlignVCenter
                     implicitHeight: 24
@@ -197,7 +197,7 @@ DccObject {
             weight: 30
             pageType: DccObject.Editor
             page: Switch {
-                Accessible.name: "SpeakerPage_Switch_2"
+                Accessible.id: "SpeakerPage_Switch_2"
                 checked: dccData.model().audioMono
                 onCheckedChanged: {
                     if (dccData.model().audioMono !== checked) {
@@ -214,7 +214,7 @@ DccObject {
             weight: 50
             pageType: DccObject.Editor
             page: Switch {
-                Accessible.name: "SpeakerPage_Switch_3"
+                Accessible.id: "SpeakerPage_Switch_3"
                 checked: dccData.model().pausePlayer
                 onCheckedChanged: {
                     if (dccData.model().pausePlayer !== checked) {
@@ -230,7 +230,7 @@ DccObject {
             weight: 60
             pageType: DccObject.Editor
             page: ComboBox {
-                Accessible.name: "Control"
+                Accessible.id: "Control"
                 id: control
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
@@ -259,7 +259,7 @@ DccObject {
                     }
 
                     T.TextField {
-                        Accessible.name: "TextField"
+                        Accessible.id: "TextField"
                         id: textField
 
                         function getDisplayText() {
@@ -310,7 +310,7 @@ DccObject {
                 property bool isInitialized: false
 
                 delegate: MenuItem {
-                    Accessible.name: "MenuItem"
+                    Accessible.id: "MenuItem"
                     id: menuItem
                     useIndicatorPadding: true
                     width: control.width
@@ -357,7 +357,7 @@ DccObject {
             pageType: DccObject.Editor
             visible: dccData.model().showBluetoothMode
             page: ComboBox {
-                Accessible.name: "BluetoothControl"
+                Accessible.id: "BluetoothControl"
                 id: bluetoothControl
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
@@ -371,7 +371,7 @@ DccObject {
                     spacing: DS.Style.comboBox.spacing
 
                     T.TextField {
-                        Accessible.name: "TextField_2"
+                        Accessible.id: "TextField_2"
                         id: textField
 
                         function getDisplayText() {
@@ -420,7 +420,7 @@ DccObject {
                 }
 
                 delegate: MenuItem {
-                    Accessible.name: "MenuItem_2"
+                    Accessible.id: "MenuItem_2"
                     id: menuItem
                     useIndicatorPadding: true
                     width: bluetoothControl.width

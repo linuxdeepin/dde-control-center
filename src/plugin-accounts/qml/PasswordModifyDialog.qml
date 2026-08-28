@@ -69,7 +69,7 @@ D.DialogWindow {
             Layout.rightMargin: 16
 
             Button {
-                Accessible.name: "CancelButton"
+                Accessible.id: "CancelButton"
                 id: cancelButton
                 Layout.fillWidth: true
                 text: qsTr("Cancel")
@@ -79,7 +79,7 @@ D.DialogWindow {
                 }
             }
             D.RecommandButton {
-                Accessible.name: "ModifyPassword"
+                Accessible.id: "ModifyPassword"
                 Layout.fillWidth: true
                 text: qsTr("Modify password")
                 font: D.DTK.fontManager.t7

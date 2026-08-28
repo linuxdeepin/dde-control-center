@@ -86,7 +86,7 @@ DccObject{
 
         page: RowLayout {
             D.CheckBox {
-                Accessible.name: "ShowBluetoothDevicesWithoutNames"
+                Accessible.id: "ShowBluetoothDevicesWithoutNames"
                 Layout.leftMargin: 10
                 Layout.alignment: Qt.AlignLeft
                 checked: dccData.model().displaySwitch

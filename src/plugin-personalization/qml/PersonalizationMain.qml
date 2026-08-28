@@ -49,7 +49,7 @@ DccObject {
                     }
 
                     D.IconButton {
-                        Accessible.name: "PrevThemeButton"
+                        Accessible.id: "PrevThemeButton"
                         flat: true
                         enabled: themeSelectView.currentIndex !== 0
                         icon.name: "arrow_left"
@@ -68,7 +68,7 @@ DccObject {
                         }
                     }
                     D.IconButton {
-                        Accessible.name: "NextThemeButton"
+                        Accessible.id: "NextThemeButton"
                         flat: true
                         enabled: themeSelectView.currentIndex !== themeSelectView.count - 1
                         icon.name: "arrow_right"
@@ -105,7 +105,7 @@ DccObject {
             pageType: DccObject.Editor
             icon: "appearance"
             page: D.ComboBox {
-                Accessible.name: "PersonalizationMain_ComboBox"
+                Accessible.id: "PersonalizationMain_ComboBox"
                 flat: true
                 textRole: "text"
                 model: dccData.model.appearanceSwitchModel

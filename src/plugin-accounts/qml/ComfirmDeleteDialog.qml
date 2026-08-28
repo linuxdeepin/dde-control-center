@@ -25,7 +25,7 @@ D.DialogWindow {
             text: qsTr("Are you sure you want to delete this account?")
         }
         CheckBox {
-            Accessible.name: "DeleteHomeCheckbox"
+            Accessible.id: "DeleteHomeCheckbox"
             id: deleteHomeCheckbox
             Layout.alignment: Qt.AlignHCenter
             font: D.DTK.fontManager.t6
@@ -39,7 +39,7 @@ D.DialogWindow {
             Layout.topMargin: 30
             Layout.fillWidth: true
             Button {
-                Accessible.name: "Cancel_10"
+                Accessible.id: "Cancel_10"
                 text: qsTr("Cancel")
                 Layout.preferredWidth: 180
                 onClicked: {
@@ -50,7 +50,7 @@ D.DialogWindow {
                 Layout.fillWidth: true
             }
             D.WarningButton {
-                Accessible.name: "Delete_4"
+                Accessible.id: "Delete_4"
                 text: qsTr("Delete")
                 Layout.preferredWidth: 180
                 Layout.alignment: Qt.AlignRight

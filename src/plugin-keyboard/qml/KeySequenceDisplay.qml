@@ -81,7 +81,7 @@ Control {
         RowLayout {
             spacing: DS.Style.keySequenceEdit.margin
             D.IconButton {
-                Accessible.name: "KeySequenceWarningButton"
+                Accessible.id: "KeySequenceWarningButton"
                 id: warnningBtn
                 flat: true
                 background: null
@@ -103,7 +103,7 @@ Control {
                 spacing: 0
                 Layout.alignment: Qt.AlignRight
                 D.IconButton {
-                    Accessible.name: "EditButton"
+                    Accessible.id: "EditButton"
                     id: editButton
                     visible: control.showEditButtons
                     focusPolicy: Qt.NoFocus
@@ -136,7 +136,7 @@ Control {
                     }
                 }
                 D.IconButton {
-                    Accessible.name: "RemoveButton"
+                    Accessible.id: "RemoveButton"
                     id: removeButton
                     visible: control.showEditButtons
                     focusPolicy: Qt.NoFocus

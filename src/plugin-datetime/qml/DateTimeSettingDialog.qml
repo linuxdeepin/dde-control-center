@@ -21,7 +21,7 @@ D.DialogWindow {
     property date currentDate: new Date()
 
     component SpinboxTextInput: TextInput {
-        Accessible.name: "SpinboxDisplayText"
+        Accessible.id: "SpinboxDisplayText"
         property var spinbox: parent
 
         text: spinbox.displayText
@@ -127,7 +127,7 @@ D.DialogWindow {
                 horizontalAlignment: Text.AlignLeft
             }
             SpinboxEx {
-                Accessible.name: "SpYear"
+                Accessible.id: "SpYear"
                 Accessible.role: Accessible.SpinBox
                 id: spYear
                 unitText: qsTr("Year")
@@ -153,7 +153,7 @@ D.DialogWindow {
                 }
             }
             SpinboxEx {
-                Accessible.name: "SpMonth"
+                Accessible.id: "SpMonth"
                 Accessible.role: Accessible.SpinBox
                 id: spMonth
                 unitText: qsTr("Month")
@@ -173,7 +173,7 @@ D.DialogWindow {
                 }
             }
             SpinboxEx {
-                Accessible.name: "SpDay"
+                Accessible.id: "SpDay"
                 Accessible.role: Accessible.SpinBox
                 id: spDay
                 unitText: qsTr("Day")
@@ -200,7 +200,7 @@ D.DialogWindow {
                 horizontalAlignment: Text.AlignLeft
             }
             SpinboxEx {
-                Accessible.name: "SpHour"
+                Accessible.id: "SpHour"
                 Accessible.role: Accessible.SpinBox
                 id: spHour
                 from: 0
@@ -218,7 +218,7 @@ D.DialogWindow {
                 }
             }
             SpinboxEx {
-                Accessible.name: "SpMin"
+                Accessible.id: "SpMin"
                 Accessible.role: Accessible.SpinBox
                 id: spMin
                 from: 0
@@ -242,7 +242,7 @@ D.DialogWindow {
             Layout.topMargin: 20
             spacing: 10
             Button {
-                Accessible.name: "Cancel_16"
+                Accessible.id: "Cancel_16"
                 Layout.fillWidth: true
                 text: qsTr("Cancel")
                 font: D.DTK.fontManager.t6
@@ -251,7 +251,7 @@ D.DialogWindow {
                 }
             }
             Button {
-                Accessible.name: "Confirm"
+                Accessible.id: "Confirm"
                 Layout.fillWidth: true
                 text: qsTr("Confirm")
                 font: D.DTK.fontManager.t6

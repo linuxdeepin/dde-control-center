@@ -349,7 +349,7 @@ DccObject {
                     clip: true
                 }
                 D.Button {
-                    Accessible.name: "IdentifyBut"
+                    Accessible.id: "IdentifyBut"
                     id: identifyBut
                     property bool identifyActive: false
                     implicitHeight: 24
@@ -403,7 +403,7 @@ DccObject {
             visible: dccData.screens.length > 1
             pageType: DccObject.Editor
             page: D.ComboBox {
-                Accessible.name: "DisplayMain_ComboBox"
+                Accessible.id: "DisplayMain_ComboBox"
                 ListModel {
                     id: modeModel
                 }
@@ -453,7 +453,7 @@ DccObject {
             pageType: DccObject.Editor
             visible: dccData.virtualScreens.length > 1
             page: ComboBox {
-                Accessible.name: "DisplayMain_ComboBox_2"
+                Accessible.id: "DisplayMain_ComboBox_2"
                 flat: true
                 enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
                 textRole: "name"
@@ -522,7 +522,7 @@ DccObject {
                         Layout.fillWidth: true
                     }
                     Switch {
-                        Accessible.name: "DisplayMain_Switch"
+                        Accessible.id: "DisplayMain_Switch"
                         checked: dccData.isConcatScreenMode
                         enabled: root.screensFormRect || dccData.isConcatScreenMode
                         onCheckedChanged: {
@@ -610,7 +610,7 @@ DccObject {
             palette: D.DTK.makeIconPalette(parent.palette)
         }
         Slider {
-            Accessible.name: "BrightnessSlider"
+            Accessible.id: "BrightnessSlider"
             id: brightnessSlider
             implicitHeight: 24
             Layout.alignment: Qt.AlignVCenter
@@ -671,7 +671,7 @@ DccObject {
             pageType: DccObject.Editor
             onParentItemChanged: item => { if (item) { item.rightItemTopMargin = 6; item.rightItemBottomMargin = 6 } }
             page: Switch {
-                Accessible.name: "DisplayMain_Switch_2"
+                Accessible.id: "DisplayMain_Switch_2"
                 checked: dccData.autoBacklightEnabled
                 onClicked: dccData.autoBacklightEnabled = checked
             }
@@ -705,7 +705,7 @@ DccObject {
             pageType: DccObject.Editor
             onParentItemChanged: item => { if (item) { item.rightItemTopMargin = 6; item.rightItemBottomMargin = 6 } }
             page: Switch {
-                Accessible.name: "DisplayMain_Switch_3"
+                Accessible.id: "DisplayMain_Switch_3"
                 checked: dccData.autoBacklightEnabled
                 onClicked: dccData.autoBacklightEnabled = checked
             }
@@ -718,7 +718,7 @@ DccObject {
             weight: 20
             pageType: DccObject.Editor
             page: AutoSizingComboBox {
-                Accessible.name: "ResolutionComboBox"
+                Accessible.id: "ResolutionComboBox"
                 Accessible.role: Accessible.ComboBox
                 id: resolutionComboBox
                 flat: true
@@ -757,7 +757,7 @@ DccObject {
             visible: screen.availableFillModes.length > 0
             pageType: DccObject.Editor
             page: D.ComboBox {
-                Accessible.name: "Control_15"
+                Accessible.id: "Control_15"
                 id: control
                 ListModel {
                     id: fillmodellist
@@ -843,7 +843,7 @@ DccObject {
             weight: 40
             pageType: DccObject.Editor
             page: AutoSizingComboBox {
-                Accessible.name: "DisplayMain_AutoSizingComboBox"
+                Accessible.id: "DisplayMain_AutoSizingComboBox"
                 Accessible.role: Accessible.ComboBox
                 flat: true
                 enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
@@ -878,7 +878,7 @@ DccObject {
             weight: 50
             pageType: DccObject.Editor
             page: ComboBox {
-                Accessible.name: "DisplayMain_ComboBox_3"
+                Accessible.id: "DisplayMain_ComboBox_3"
                 flat: true
                 enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
                 textRole: "text"
@@ -926,7 +926,7 @@ DccObject {
             visible: !dccData.isX11 || dccData.virtualScreens.length === 1
             pageType: DccObject.Editor
             page: ComboBox {
-                Accessible.name: "DisplayMain_ComboBox_4"
+                Accessible.id: "DisplayMain_ComboBox_4"
                 flat: true
                 enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
                 textRole: "text"
@@ -958,7 +958,7 @@ DccObject {
         pageType: DccObject.Editor
         onParentItemChanged: item => { if (item) item.topInset = 6 }
         page: ComboBox {
-            Accessible.name: "DisplayMain_ComboBox_5"
+            Accessible.id: "DisplayMain_ComboBox_5"
             flat: true
             enabled: !(root.isExtendMode && dccData.isConcatScreenMode)
             textRole: "text"
@@ -991,7 +991,7 @@ DccObject {
         pageType: DccObject.Editor
         onParentItemChanged: item => { if (item) { item.rightItemTopMargin = 6; item.rightItemBottomMargin = 6 } }
         page: Switch {
-            Accessible.name: "DisplayMain_Switch_4"
+            Accessible.id: "DisplayMain_Switch_4"
             checked: dccData.colorTemperatureEnabled
             onClicked: dccData.colorTemperatureEnabled = checked
         }
@@ -1012,7 +1012,7 @@ DccObject {
             visible: dccData.colorTemperatureEnabled && dccData.isX11
             pageType: DccObject.Editor
             page: ComboBox {
-                Accessible.name: "DisplayMain_ComboBox_6"
+                Accessible.id: "DisplayMain_ComboBox_6"
                 flat: true
                 model: [qsTr("All day"), qsTr("Sunset to Sunrise"), qsTr("Custom Time")]
                 currentIndex: dccData.colorTemperatureMode
@@ -1030,7 +1030,7 @@ DccObject {
                     text: qsTr("from")
                 }
                 DccTimeRange {
-                    Accessible.name: "StartTimeRange"
+                    Accessible.id: "StartTimeRange"
                     Accessible.role: Accessible.SpinBox
                     id: startTimeRange
                     hour: dccData.customColorTempTimePeriod.split("-")[0].split(":")[0]
@@ -1041,7 +1041,7 @@ DccObject {
                     text: qsTr("to")
                 }
                 DccTimeRange {
-                    Accessible.name: "EndTimeRange"
+                    Accessible.id: "EndTimeRange"
                     Accessible.role: Accessible.SpinBox
                     id: endTimeRange
                     hour: dccData.customColorTempTimePeriod.split("-")[1].split(":")[0]
@@ -1080,7 +1080,7 @@ DccObject {
                     name: "cool_colour"
                 }
                 Slider {
-                    Accessible.name: "ColorTemperatureSlider"
+                    Accessible.id: "ColorTemperatureSlider"
                     id: colorTemperatureSlider
                     implicitHeight: 24
                     Layout.alignment: Qt.AlignVCenter

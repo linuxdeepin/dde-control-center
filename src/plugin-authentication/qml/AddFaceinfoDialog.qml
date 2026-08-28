@@ -119,7 +119,7 @@ To ensure successful entry:\n\
                         spacing: 0
 
                         CheckBox {
-                            Accessible.name: "AgreeCheckbox"
+                            Accessible.id: "AgreeCheckbox"
                             id: agreeCheckbox
                             text: qsTr("I have read and agree to the")
                             anchors.verticalCenter: parent.verticalCenter
@@ -128,7 +128,7 @@ To ensure successful entry:\n\
                         }
 
                         D.ToolButton {
-                            Accessible.name: "DisclaimerButton"
+                            Accessible.id: "DisclaimerButton"
                             id: disclaimerButton
                             text: qsTr("Disclaimer")
                             padding: 0
@@ -159,7 +159,7 @@ To ensure successful entry:\n\
                         spacing: 0
 
                         CheckBox {
-                            Accessible.name: "AgreeCheckboxWrapped"
+                            Accessible.id: "AgreeCheckboxWrapped"
                             id: agreeCheckboxWrapped
                             anchors.horizontalCenter: parent.horizontalCenter
                             text: qsTr("I have read and agree to the")
@@ -171,7 +171,7 @@ To ensure successful entry:\n\
                         }
 
                         D.ToolButton {
-                            Accessible.name: "DisclaimerButtonWrapped"
+                            Accessible.id: "DisclaimerButtonWrapped"
                             id: disclaimerButtonWrapped
                             anchors.horizontalCenter: parent.horizontalCenter
                             text: qsTr("Disclaimer")
@@ -198,7 +198,7 @@ To ensure successful entry:\n\
                 }
 
                 D.RecommandButton {
-                    Accessible.name: "Next"
+                    Accessible.id: "Next"
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
                     Layout.bottomMargin: DS.Style.dialogWindow.contentHMargin
@@ -335,7 +335,7 @@ To ensure successful entry:\n\
                     Layout.rightMargin: 0
 
                     Button {
-                        Accessible.name: "Done"
+                        Accessible.id: "Done"
                         Layout.fillWidth: true
                         text: qsTr("Done")
                         onClicked: {
@@ -355,7 +355,7 @@ To ensure successful entry:\n\
                     Layout.rightMargin: 0
 
                     Button {
-                        Accessible.name: "Cancel"
+                        Accessible.id: "Cancel"
                         Layout.fillWidth: true
                         text: qsTr("Cancel")
                         onClicked: {
@@ -363,7 +363,7 @@ To ensure successful entry:\n\
                         }
                     }
                     D.RecommandButton {
-                        Accessible.name: "RetryEnroll"
+                        Accessible.id: "RetryEnroll"
                         Layout.fillWidth: true
                         text: qsTr("Retry Enroll")
                         onClicked: {
