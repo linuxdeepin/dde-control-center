@@ -106,6 +106,10 @@ DccObject {
                     value: dccData.model().speakerVolume
                     to: dccData.model().increaseVolume ? 1.5 : 1.0
                     stepSize: 0.01
+                    onMoved: {
+                        // 实时提交拖动过程中的音量，避免只在松手时生效
+                        dccData.worker().setSinkVolume(voiceTipsSlider.value)
+                    }
                     onPressedChanged: {
                         if (!pressed) {
                             dccData.worker().setSinkVolume(voiceTipsSlider.value)
