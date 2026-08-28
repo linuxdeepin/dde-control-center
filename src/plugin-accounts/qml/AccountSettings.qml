@@ -762,6 +762,7 @@ DccObject {
                 property int lrMargin: DccUtils.getMargin(width)
                 property int conY: 0
                 property bool resetActive: false
+                property int focusIndex: 1
                 spacing: 0
                 currentIndex: -1
                 keyNavigationEnabled: true
@@ -818,7 +819,7 @@ DccObject {
 
                     DelegateChoice {
                         roleValue: "header"
-                        delegate: Item {
+                        delegate: FocusScope {
                             implicitHeight: 50
                             anchors {
                                 left: parent ? parent.left : undefined
@@ -861,6 +862,12 @@ DccObject {
                                     onCheckedChanged: {
                                         groupSettings.isEditing = headerEditButton.checked
                                     }
+                                    onActiveFocusChanged: {
+                                        if (activeFocus) {
+                                            groupview.currentIndex = 0
+                                            groupview.positionViewAtBeginning()
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -868,7 +875,7 @@ DccObject {
 
                     DelegateChoice {
                         roleValue: "footer"
-                        delegate: Item {
+                        delegate: FocusScope {
                             implicitHeight: 50
                             anchors {
                                 left: parent ? parent.left : undefined
@@ -886,6 +893,12 @@ DccObject {
                                     implicitHeight: 30
                                     focusPolicy: Qt.StrongFocus
                                     activeFocusOnTab: true
+                                    onActiveFocusChanged: {
+                                        if (activeFocus) {
+                                            groupview.currentIndex = groupview.count - 1
+                                            groupview.positionViewAtEnd()
+                                        }
+                                    }
                                     onClicked: {
                                         dccData.requestCreateGroup(settings.userId)
                                         groupview.positionViewAtEnd()
@@ -906,15 +919,25 @@ DccObject {
                             z: editLabel.showAlert ? 100 : 1
 
                             focusPolicy: Qt.StrongFocus
-                            activeFocusOnTab: true
+                            activeFocusOnTab: index === focusIndex
 
                             onActiveFocusChanged: {
                                 if (activeFocus) {
                                     groupview.currentIndex = index
+                                    groupview.focusIndex = index
+                                    groupview.positionViewAtIndex(index, ListView.Visible)
                                 }
                             }
 
                             Keys.onPressed: function(event) {
+                                if (event.key === Qt.Key_Up && index === 1) {
+                                    event.accepted = true
+                                    return
+                                }
+                                if (event.key === Qt.Key_Down && index === groupview.count - 2) {
+                                    event.accepted = true
+                                    return
+                                }
                                 if (!model.groupEnabled) {
                                     return
                                 }
@@ -982,8 +1005,9 @@ DccObject {
                                         verticalAlignment: TextInput.AlignVCenter
                                         editBtn.visible: readOnly && editAble
                                                         && !groupSettings.isEditing
+                                        editBtn.activeFocusOnTab: false
+                                        activeFocusOnTab: false
                                         readOnly: model.display.length > 0
-                                        activeFocusOnTab: !readOnly
                                         ToolTip {
                                             visible: parent.hovered && parent.readOnly && parent.completeText != "" && (parent.metrics.advanceWidth(parent.completeText) > (parent.width - parent.rightPadding - 10))
                                             text: parent.completeText
