@@ -47,6 +47,8 @@ WQt::VirtualOutput::VirtualOutput(::treeland_virtual_output_v1 *obj, QObject *pa
 WQt::VirtualOutput::~VirtualOutput()
 {
     qCDebug(DccWayQt) << "VirtualOutput destroyed:" << mName;
+    if (isInitialized())
+        QtWayland::treeland_virtual_output_v1::destroy();
 }
 
 QString WQt::VirtualOutput::name() const
@@ -106,6 +108,11 @@ WQt::VirtualOutputManager::~VirtualOutputManager()
         disconnect(vo, &QObject::destroyed, this, nullptr);
     }
     qDeleteAll(mVirtualOutputs);
+
+    // The destroy request was introduced in version 2; older compositors
+    // reject it as an unknown method.
+    if (isInitialized() && QtWayland::treeland_virtual_output_manager_v1::version() >= 2)
+        QtWayland::treeland_virtual_output_manager_v1::destroy();
 }
 
 WQt::VirtualOutput *WQt::VirtualOutputManager::createVirtualOutput(const QString &name, const QStringList &outputs)
@@ -116,7 +123,9 @@ WQt::VirtualOutput *WQt::VirtualOutputManager::createVirtualOutput(const QString
         screenArray.append('\0');
     }
     screenArray.append('\0');
+
     auto *obj = QtWayland::treeland_virtual_output_manager_v1::create_virtual_output(name, screenArray);
+
     return registerVirtualOutput(name, obj);
 }
 

@@ -19,7 +19,7 @@
 /**
  * Output Manager
  * This is the beginning of all our operations.
- * Obtain a pointer to this object from Wayland Registry
+ * Bound as a Qt Wayland client extension.
  */
 
 WQt::OutputManager::OutputManager(QObject *parent)
@@ -37,6 +37,13 @@ QList<WQt::OutputHead *> WQt::OutputManager::heads()
 
 WQt::OutputConfiguration *WQt::OutputManager::createConfiguration()
 {
+    // The extension holds no bound proxy until activeChanged reports it active,
+    // and loses it again once the compositor removes the global.
+    if (!isActive()) {
+        qCWarning(DccWayQt) << "OutputManager is not active, cannot create a configuration";
+        return nullptr;
+    }
+
     qCDebug(DccWayQt) << "OutputManager::createConfiguration serial:" << mSerial;
     return new WQt::OutputConfiguration(QtWayland::zwlr_output_manager_v1::create_configuration(mSerial), this);
 }

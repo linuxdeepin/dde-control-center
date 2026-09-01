@@ -1,6 +1,6 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #ifndef TREELANDWORKER_H
 #define TREELANDWORKER_H
@@ -44,6 +44,7 @@ class PersonalizationManager: public QWaylandClientExtensionTemplate<Personaliza
     Q_OBJECT
 public:
     explicit PersonalizationManager(QObject *parent = nullptr);
+    ~PersonalizationManager() override;
 
 private:
     void addListener();
@@ -62,6 +63,7 @@ class TreelandCursorContext : public QWaylandClientExtensionTemplate<TreelandCur
     Q_OBJECT
 public:
     explicit TreelandCursorContext(struct ::treeland_personalization_cursor_context_v1 *context);
+    ~TreelandCursorContext() override;
 };
 #endif
 }

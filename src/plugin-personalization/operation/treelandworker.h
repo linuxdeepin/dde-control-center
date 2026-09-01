@@ -147,6 +147,7 @@ class PersonalizationManager: public QWaylandClientExtensionTemplate<Personaliza
     Q_OBJECT
 public:
     explicit PersonalizationManager(QObject *parent = nullptr);
+    ~PersonalizationManager() override;
 
 private:
     void addListener();
@@ -165,6 +166,7 @@ class PersonalizationAppearanceContext : public QWaylandClientExtensionTemplate<
 
 public:
     explicit PersonalizationAppearanceContext(struct ::treeland_personalization_appearance_context_v1 *context, PersonalizationModel *model);
+    ~PersonalizationAppearanceContext() override;
 
 protected:
     void treeland_personalization_appearance_context_v1_round_corner_radius(int32_t radius) override;
@@ -186,6 +188,7 @@ class PersonalizationCursorContext : public QWaylandClientExtensionTemplate<Pers
     Q_OBJECT
 public:
     explicit PersonalizationCursorContext(struct ::treeland_personalization_cursor_context_v1 *context, PersonalizationModel *model);
+    ~PersonalizationCursorContext() override;
 
 protected:
     void treeland_personalization_cursor_context_v1_theme(const QString &name) override;
@@ -200,6 +203,7 @@ class PersonalizationFontContext : public QWaylandClientExtensionTemplate<Person
     Q_OBJECT
 public:
     explicit PersonalizationFontContext(struct ::treeland_personalization_font_context_v1 *context, PersonalizationModel *model);
+    ~PersonalizationFontContext() override;
 
 protected:
     void treeland_personalization_font_context_v1_font(const QString &font_name) override;
@@ -216,6 +220,7 @@ class WallpaperManager : public QWaylandClientExtensionTemplate<WallpaperManager
     Q_OBJECT
 public:
     explicit WallpaperManager(QObject *parent = nullptr);
+    ~WallpaperManager() override;
 
 private:
     void addListener();
@@ -233,6 +238,7 @@ class WallpaperContext : public QWaylandClientExtensionTemplate<WallpaperContext
     Q_OBJECT
 public:
     explicit WallpaperContext(struct ::treeland_wallpaper_v1 *context);
+    ~WallpaperContext() override;
 
     void setImageSource(const QString &filePath, wallpaper_role role);
     void setVideoSource(const QString &filePath, wallpaper_role role);

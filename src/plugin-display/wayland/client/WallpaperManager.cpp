@@ -5,6 +5,7 @@
 #include "WallpaperManager.h"
 
 #include "WayQtLogging.h"
+#include "WayQtUtils.h"
 
 #include <QDebug>
 #include <QLoggingCategory>
@@ -72,23 +73,30 @@ WQt::WallpaperManager::~WallpaperManager()
         disconnect(wp, &QObject::destroyed, this, nullptr);
     }
     qDeleteAll(mWallpapers);
+
+    if (isInitialized())
+        QtWayland::treeland_wallpaper_manager_v1::destroy();
 }
 
 WQt::Wallpaper *WQt::WallpaperManager::getWallpaper(wl_output *output)
 {
-    if (!output) {
+    if (!output)
         return nullptr;
-    }
 
     void *key = reinterpret_cast<void *>(output);
-    if (mWallpapers.contains(key)) {
+    if (mWallpapers.contains(key))
         return mWallpapers.value(key);
+
+    // Never name an output whose global the compositor already removed: the
+    // request is answered with a fatal protocol error on the whole connection.
+    if (!WQt::Utils::isOutputAlive(output)) {
+        qCWarning(DccWayQt) << "skipping get_treeland_wallpaper for a removed output" << output;
+        return nullptr;
     }
 
     auto *obj = QtWayland::treeland_wallpaper_manager_v1::get_treeland_wallpaper(output, nullptr);
-    if (!obj) {
+    if (!obj)
         return nullptr;
-    }
 
     auto *wallpaper = new WQt::Wallpaper(obj, output, this);
     connect(wallpaper, &QObject::destroyed, this, [this, key]() {
@@ -106,10 +114,11 @@ void WQt::WallpaperManager::removeWallpaper(wl_output *output)
 
     void *key = reinterpret_cast<void *>(output);
     auto *wallpaper = mWallpapers.take(key);
-    if (!wallpaper) {
+    if (!wallpaper)
         return;
-    }
 
+    // The compositor already dropped the wl_output global, so the context is
+    // destroyed here rather than through the destroyed() hook above.
     disconnect(wallpaper, &QObject::destroyed, this, nullptr);
     wallpaper->deleteLater();
 }
