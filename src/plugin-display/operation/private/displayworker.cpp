@@ -6,10 +6,9 @@
 #include "displaymodel.h"
 #include "wallpaperthumbnailutils.h"
 
-#include <Output.h>
 #include <OutputManager.h>
-#include <Registry.h>
 #include <TreeLandOutputManager.h>
+#include <VirtualOutputManager.h>
 #include <WallpaperManager.h>
 #include <WayQtUtils.h>
 #include <dconfig.h>
@@ -20,11 +19,13 @@
 #include <QFile>
 #include <QFileInfo>
 #include <QDir>
+#include <QGuiApplication>
 #include <QJsonArray>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QLoggingCategory>
 #include <QPointer>
+#include <QScreen>
 #include <QXmlStreamReader>
 #include <QtConcurrent/QtConcurrent>
 
@@ -43,6 +44,16 @@ static bool isVideoFile(const QString &path)
 
 static constexpr uint32_t WallpaperSourceTypeVideo = 1;
 
+// Treeland reports the same output name through wlr-output-management and
+// xdg-output, so QScreen::name() is the identity shared with Monitor.
+static bool isSameOutput(dccV25::Monitor *monitor, QScreen *screen)
+{
+    if (!monitor || !screen)
+        return false;
+
+    return monitor->name() == screen->name();
+}
+
 Q_DECLARE_METATYPE(QList<QDBusObjectPath>)
 using namespace dccV25;
 
@@ -50,7 +61,6 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
     : QObject(parent)
     , m_model(model)
     , m_displayInter(new DisplayDBusProxy(this))
-    , m_reg(nullptr)
     , m_updateScale(false)
     , m_timer(new QTimer(this))
     , m_dconfig(DTK_CORE_NAMESPACE::DConfig::create("org.deepin.dde.control-center", QStringLiteral("org.deepin.dde.control-center.display"), QString(), this))
@@ -122,9 +132,25 @@ DisplayWorker::~DisplayWorker()
 void DisplayWorker::initTreeland()
 {
     // treeland协议需要在主线程中初始化
-    m_reg = new WQt::Registry(WQt::Wayland::display(), this);
-    connect(m_reg, &WQt::Registry::interfaceRegistered, this, &DisplayWorker::onInterfaceRegistered);
-    m_reg->setup();
+    // 这些扩展通过 Qt Wayland 平台插件已有的 wl_registry 绑定，
+    // 控制中心不再自建 registry
+    m_outputMgr = new WQt::OutputManager(this);
+    connect(m_outputMgr, &WQt::OutputManager::activeChanged, this, &DisplayWorker::onOutputManagerActive);
+
+    m_treelandOutputMgr = new WQt::TreeLandOutputManager(this);
+    connect(m_treelandOutputMgr, &WQt::TreeLandOutputManager::activeChanged, this, &DisplayWorker::onTreeLandOutputManagerActive);
+
+    m_virtualOutputMgr = new WQt::VirtualOutputManager(this);
+    connect(m_virtualOutputMgr, &WQt::VirtualOutputManager::activeChanged, this, &DisplayWorker::onVirtualOutputManagerActive);
+
+    m_wallpaperMgr = new WQt::WallpaperManager(this);
+    connect(m_wallpaperMgr, &WQt::WallpaperManager::activeChanged, this, &DisplayWorker::onWallpaperManagerActive);
+
+    // wl_output 的生命周期由 Qt 平台插件维护，跟随 QScreen 即可
+    connect(qApp, &QGuiApplication::screenAdded, this, &DisplayWorker::screenAdded);
+    connect(qApp, &QGuiApplication::screenRemoved, this, &DisplayWorker::screenRemoved);
+    for (auto *screen : QGuiApplication::screens())
+        screenAdded(screen);
 }
 
 void DisplayWorker::active()
@@ -189,21 +215,21 @@ void DisplayWorker::saveChanges()
 void DisplayWorker::switchMode(const int mode, const QString &name)
 {
     if (WQt::Utils::isTreeland()) {
-        auto *voMgr = m_reg->virtualOutputManager();
+        qCDebug(DdcDisplayWorker) << "switch mode" << mode << "target" << name;
         auto updateDisplayModeFromCurrentState = [this]() {
             updateVirtualOutputs();
             updateTreelandDisplayMode();
         };
 
         // 销毁所有已有的虚拟输出
-        if (voMgr) {
-            for (const auto &name : voMgr->virtualOutputs().keys()) {
-                voMgr->destroyVirtualOutput(name);
+        if (m_virtualOutputMgr) {
+            for (const auto &virtualOutputName : m_virtualOutputMgr->virtualOutputs().keys()) {
+                m_virtualOutputMgr->destroyVirtualOutput(virtualOutputName);
             }
         }
 
         if (mode == MERGE_MODE) {
-            if (voMgr) {
+            if (m_virtualOutputMgr) {
                 QStringList outputNames;
                 for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
                     if (it.key()->name() == m_model->primary()) {
@@ -213,21 +239,20 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                     }
                 }
                 if (outputNames.size() >= 2) {
-                    auto createMergeVirtualOutput = [this, voMgr, outputNames]() {
-                        voMgr->createVirtualOutput("ddeScreenGroup", outputNames);
+                    auto createMergeVirtualOutput = [this, outputNames]() {
+                        m_virtualOutputMgr->createVirtualOutput("ddeScreenGroup", outputNames);
                         QMap<QString, QStringList> voMap;
                         voMap.insert("ddeScreenGroup", outputNames);
                         m_model->setVirtualOutput(voMap);
                         m_model->setDisplayMode(MERGE_MODE);
                     };
 
-                    auto *opMgr = m_reg->outputManager();
-                    if (!opMgr) {
+                    if (!m_outputMgr) {
                         updateDisplayModeFromCurrentState();
                         return;
                     }
 
-                    auto *opCfg = opMgr->createConfiguration();
+                    auto *opCfg = m_outputMgr->createConfiguration();
                     if (!opCfg) {
                         updateDisplayModeFromCurrentState();
                         return;
@@ -260,13 +285,12 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                 }
             }
         } else {
-            auto *opMgr = m_reg->outputManager();
-            if (!opMgr) {
+            if (!m_outputMgr) {
                 updateDisplayModeFromCurrentState();
                 return;
             }
 
-            auto *opCfg = opMgr->createConfiguration();
+            auto *opCfg = m_outputMgr->createConfiguration();
             if (!opCfg) {
                 updateDisplayModeFromCurrentState();
                 return;
@@ -276,6 +300,7 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
             for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
                 switch (mode) {
                 case EXTEND_MODE: {
+                    qCDebug(DdcDisplayWorker) << "extend mode enables" << it.key()->name();
                     auto *cfgHead = opCfg->enableHead(it.value());
                     if (!cfgHead) {
                         opCfg->deleteLater();
@@ -286,6 +311,7 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                 }
                 case SINGLE_MODE: {
                     if (it.key()->name() == name) {
+                        qCDebug(DdcDisplayWorker) << "single mode enables" << name;
                         auto *cfgHead = opCfg->enableHead(it.value());
                         if (!cfgHead) {
                             opCfg->deleteLater();
@@ -342,8 +368,11 @@ void DisplayWorker::onMonitorListChanged(const QList<QDBusObjectPath> &mons)
 
 void DisplayWorker::onWlMonitorListChanged()
 {
+    if (!m_outputMgr)
+        return;
+
     // Only check new output here, listen OutputHead::finished for remove
-    auto heads = m_reg->outputManager()->heads();
+    auto heads = m_outputMgr->heads();
 
     qCDebug(DdcDisplayWorker) << heads.size();
     for (auto *head : heads) {
@@ -356,11 +385,7 @@ void DisplayWorker::onWlMonitorListChanged()
         if (isNew)
             wlMonitorAdded(head);
     }
-    for (auto output : m_reg->waylandOutputs()) {
-        wlOutputAdded(output);
-    }
-    connect(m_reg, &WQt::Registry::outputAdded, this, &DisplayWorker::wlOutputAdded);
-    connect(m_reg, &WQt::Registry::outputRemoved, this, &DisplayWorker::wlOutputRemoved);
+    updateControl();
 }
 
 void DisplayWorker::updateWallpaper()
@@ -381,37 +406,30 @@ void DisplayWorker::updateMonitorWallpaper(Monitor *mon)
 
 void DisplayWorker::updateWallpaperFromWayland()
 {
-    auto *wpMgr = m_reg->wallpaperManager();
-    if (!wpMgr || !wpMgr->isActive())
-        return;
-
-    for (auto *output : m_reg->waylandOutputs()) {
-        if (!output || !output->get())
-            continue;
-
-        auto *wp = wpMgr->getWallpaper(output->get());
-        if (!wp)
-            continue;
-        connect(wp, &WQt::Wallpaper::changed, this, &DisplayWorker::onWallpaperChanged, Qt::UniqueConnection);
-    }
+    for (auto *screen : QGuiApplication::screens())
+        ensureWallpaperContext(screen);
 }
 
-void DisplayWorker::onOutputWallpaperReady(WQt::Output *output)
+void DisplayWorker::ensureWallpaperContext(QScreen *screen)
 {
-    auto *wpMgr = m_reg->wallpaperManager();
-    if (!output || !output->get() || !wpMgr || !wpMgr->isActive())
+    if (!screen || !m_wallpaperMgr || !m_wallpaperMgr->isActive())
         return;
 
-    auto *wp = wpMgr->getWallpaper(output->get());
-    if (wp) {
-        connect(wp, &WQt::Wallpaper::changed, this, &DisplayWorker::onWallpaperChanged, Qt::UniqueConnection);
+    auto *output = m_screen_outputs.value(screen);
+    if (!output)
+        return;
 
-        if (wp->sourceType() == WallpaperSourceTypeVideo && !wp->fileSource().isEmpty()) {
-            for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
-                if (it.key()->name() == output->name()) {
-                    it.key()->setWallpaper(resolveVideoThumbnail(wp->fileSource(), it.key()));
-                    break;
-                }
+    auto *wp = m_wallpaperMgr->getWallpaper(output);
+    if (!wp)
+        return;
+
+    connect(wp, &WQt::Wallpaper::changed, this, &DisplayWorker::onWallpaperChanged, Qt::UniqueConnection);
+
+    if (wp->sourceType() == WallpaperSourceTypeVideo && !wp->fileSource().isEmpty()) {
+        for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
+            if (isSameOutput(it.key(), screen)) {
+                it.key()->setWallpaper(resolveVideoThumbnail(wp->fileSource(), it.key()));
+                break;
             }
         }
     }
@@ -421,22 +439,22 @@ void DisplayWorker::onWallpaperChanged(const QString &fileSource, uint32_t sourc
 {
     Q_UNUSED(role);
     auto *wp = qobject_cast<WQt::Wallpaper *>(sender());
-    if (!wp || !wp->output() || !m_reg)
+    if (!wp || !wp->output())
         return;
 
-    QString outputName;
-    for (auto *output : m_reg->waylandOutputs()) {
-        if (output && output->get() == wp->output()) {
-            outputName = output->name();
+    QScreen *screen = nullptr;
+    for (auto it(m_screen_outputs.cbegin()); it != m_screen_outputs.cend(); ++it) {
+        if (it.value() == wp->output()) {
+            screen = it.key();
             break;
         }
     }
 
-    if (outputName.isEmpty())
+    if (!screen)
         return;
 
     for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
-        if (it.key()->name() == outputName) {
+        if (isSameOutput(it.key(), screen)) {
             QString wallpaper = fileSource;
             if (sourceType == WallpaperSourceTypeVideo) {
                 wallpaper = resolveVideoThumbnail(fileSource, it.key());
@@ -449,12 +467,12 @@ void DisplayWorker::onWallpaperChanged(const QString &fileSource, uint32_t sourc
 
 void DisplayWorker::updateVirtualOutputs()
 {
-    auto *voMgr = m_reg->virtualOutputManager();
-    if (!voMgr)
+    if (!m_virtualOutputMgr)
         return;
 
+    const auto virtualOutputs = m_virtualOutputMgr->virtualOutputs();
     QMap<QString, QStringList> virtualOutputMap;
-    for (auto it = voMgr->virtualOutputs().cbegin(); it != voMgr->virtualOutputs().cend(); ++it) {
+    for (auto it = virtualOutputs.cbegin(); it != virtualOutputs.cend(); ++it) {
         virtualOutputMap.insert(it.key(), it.value()->outputs());
     }
     m_model->setVirtualOutput(virtualOutputMap);
@@ -462,8 +480,7 @@ void DisplayWorker::updateVirtualOutputs()
 
 void DisplayWorker::updateTreelandDisplayMode()
 {
-    auto *voMgr = m_reg ? m_reg->virtualOutputManager() : nullptr;
-    if (voMgr && !voMgr->virtualOutputs().isEmpty()) {
+    if (m_virtualOutputMgr && !m_virtualOutputMgr->virtualOutputs().isEmpty()) {
         m_model->setDisplayMode(MERGE_MODE);
         return;
     }
@@ -481,7 +498,7 @@ void DisplayWorker::onBrightnessChanged(WQt::ColorControl *colorControl, double 
 {
     brightness = qBound(0.0, brightness / 100.0, 1.0);
     for (auto it(m_control_monitors.cbegin()); it != m_control_monitors.cend(); ++it) {
-        if (it.value() == colorControl) {
+        if (it.value().control == colorControl) {
             it.key()->setBrightness(brightness);
             return;
         }
@@ -521,59 +538,80 @@ void DisplayWorker::onGetScreenScalesFinished(QDBusPendingCallWatcher *w)
     w->deleteLater();
 }
 
-void DisplayWorker::onInterfaceRegistered(WQt::Registry::Interface interface)
+void DisplayWorker::onOutputManagerActive()
 {
-    switch (interface) {
-    case WQt::Registry::OutputManagerInterface: {
-        m_model->setResolutionRefreshEnable(true);
-        m_model->setBrightnessEnable(false);
-
-        m_model->setColorTemperatureEnabled(true);
-        m_model->setAdjustCCTmode(0);
-        m_model->setColorTemperature(toColorTempPos(m_defaultMode));
-        m_model->setRedshiftIsValid(true);
-        auto *opMgr = m_reg->outputManager();
-        if (!opMgr) {
-            qCCritical(DdcDisplayWorker) << "Unable to start the output manager";
-        } else {
-            connect(opMgr, &WQt::OutputManager::done, this, &DisplayWorker::onWlOutputManagerDone);
-        }
-    } break;
-    case WQt::Registry::TreeLandOutputManagerInterface: {
-        updateControl();
-    } break;
-    case WQt::Registry::VirtualOutputManagerInterface: {
-        auto *virtOpMgr = m_reg->virtualOutputManager();
-        if (!virtOpMgr) {
-            qCCritical(DdcDisplayWorker) << "Unable to start the virtual output manager";
-        } else {
-            virtOpMgr->getVirtualOutputList();
-            connect(virtOpMgr, &WQt::VirtualOutputManager::virtualOutputList, this, [this, virtOpMgr](const QStringList &names) {
-                for (const auto &name : names) {
-                    auto *vo = virtOpMgr->virtualOutputs().value(name);
-                    if (vo) {
-                        connect(vo, &WQt::VirtualOutput::outputsChanged, this, [this]() {
-                            updateVirtualOutputs();
-                            updateTreelandDisplayMode();
-                        });
-                    }
-                }
-                updateVirtualOutputs();
-                updateTreelandDisplayMode();
-            });
-        }
-    } break;
-    case WQt::Registry::WallpaperManagerInterface: {
-        auto *wpMgr = m_reg->wallpaperManager();
-        if (!wpMgr) {
-            qCCritical(DdcDisplayWorker) << "Unable to start the wallpaper manager";
-        } else {
-            updateWallpaperFromWayland();
-        }
-    } break;
-    default:
-        break;
+    if (!m_outputMgr || !m_outputMgr->isActive()) {
+        qCCritical(DdcDisplayWorker) << "Unable to start the output manager";
+        return;
     }
+
+    m_model->setResolutionRefreshEnable(true);
+    m_model->setBrightnessEnable(false);
+
+    m_model->setColorTemperatureEnabled(true);
+    m_model->setAdjustCCTmode(0);
+    m_model->setColorTemperature(toColorTempPos(m_defaultMode));
+    m_model->setRedshiftIsValid(true);
+
+    connect(m_outputMgr, &WQt::OutputManager::done, this, &DisplayWorker::onWlOutputManagerDone, Qt::UniqueConnection);
+}
+
+void DisplayWorker::onTreeLandOutputManagerActive()
+{
+    if (!m_treelandOutputMgr || !m_treelandOutputMgr->isActive()) {
+        qCCritical(DdcDisplayWorker) << "Unable to start the treeland output manager";
+        return;
+    }
+
+    updateControl();
+}
+
+void DisplayWorker::onVirtualOutputManagerActive()
+{
+    if (!m_virtualOutputMgr || !m_virtualOutputMgr->isActive()) {
+        qCCritical(DdcDisplayWorker) << "Unable to start the virtual output manager";
+        return;
+    }
+
+    connect(m_virtualOutputMgr,
+            &WQt::VirtualOutputManager::virtualOutputList,
+            this,
+            &DisplayWorker::onVirtualOutputList,
+            Qt::UniqueConnection);
+    m_virtualOutputMgr->getVirtualOutputList();
+}
+
+void DisplayWorker::onVirtualOutputList(const QStringList &names)
+{
+    const auto virtualOutputs = m_virtualOutputMgr->virtualOutputs();
+    for (const auto &name : names) {
+        auto *vo = virtualOutputs.value(name);
+        if (vo) {
+            connect(vo,
+                    &WQt::VirtualOutput::outputsChanged,
+                    this,
+                    &DisplayWorker::onVirtualOutputsChanged,
+                    Qt::UniqueConnection);
+        }
+    }
+
+    onVirtualOutputsChanged();
+}
+
+void DisplayWorker::onVirtualOutputsChanged()
+{
+    updateVirtualOutputs();
+    updateTreelandDisplayMode();
+}
+
+void DisplayWorker::onWallpaperManagerActive()
+{
+    if (!m_wallpaperMgr || !m_wallpaperMgr->isActive()) {
+        qCCritical(DdcDisplayWorker) << "Unable to start the wallpaper manager";
+        return;
+    }
+
+    updateWallpaperFromWayland();
 }
 
 void DisplayWorker::onWlOutputManagerDone()
@@ -581,12 +619,13 @@ void DisplayWorker::onWlOutputManagerDone()
     onWlMonitorListChanged();
 
     updateTreelandDisplayMode();
-    auto *treelandOpMgr = m_reg->treeLandOutputManager();
-    if (treelandOpMgr) {
-        m_model->setPrimary(treelandOpMgr->mPrimaryOutput);
-        connect(treelandOpMgr, &WQt::TreeLandOutputManager::primaryOutputChanged, this, [this]() {
-            m_model->setPrimary(m_reg->treeLandOutputManager()->mPrimaryOutput);
-        });
+    if (m_treelandOutputMgr) {
+        m_model->setPrimary(m_treelandOutputMgr->mPrimaryOutput);
+        connect(m_treelandOutputMgr,
+                &WQt::TreeLandOutputManager::primaryOutputChanged,
+                m_model,
+                &DisplayModel::setPrimary,
+                Qt::UniqueConnection);
     }
 }
 
@@ -688,7 +727,10 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 {
     m_model->setmodeChanging(true);
     if (WQt::Utils::isTreeland()) {
-        auto *opCfg = m_reg->outputManager()->createConfiguration();
+        auto *opCfg = m_outputMgr ? m_outputMgr->createConfiguration() : nullptr;
+        if (!opCfg)
+            return;
+
         for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
             if (!it.key()->enable()) {
                 opCfg->disableHead(it.value());
@@ -716,9 +758,8 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 void DisplayWorker::setPrimary(const QString &name)
 {
     if (WQt::Utils::isTreeland()) {
-        auto *treelandOpMgr = m_reg->treeLandOutputManager();
-        if (treelandOpMgr)
-            treelandOpMgr->setPrimaryOutput(name.toStdString().c_str());
+        if (m_treelandOutputMgr)
+            m_treelandOutputMgr->setPrimaryOutput(name.toStdString().c_str());
     } else {
         m_displayInter->SetPrimary(name);
     }
@@ -727,7 +768,9 @@ void DisplayWorker::setPrimary(const QString &name)
 void DisplayWorker::setMonitorEnable(Monitor *monitor, const bool enable)
 {
     if (WQt::Utils::isTreeland()) {
-        auto *opCfg = m_reg->outputManager()->createConfiguration();
+        auto *opCfg = m_outputMgr ? m_outputMgr->createConfiguration() : nullptr;
+        if (!opCfg)
+            return;
 
         for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
             if (it.key() == monitor) {
@@ -771,8 +814,8 @@ void DisplayWorker::setColorTemperatureEnabled(bool enabled)
     if (WQt::Utils::isTreeland()) {
         uint32_t temp = enabled ? toColorTemp(m_model->colorTemperature()) : toColorTemp(m_defaultMode);
         for (auto it(m_control_monitors.cbegin()); it != m_control_monitors.cend(); ++it) {
-            if (it.value())
-                it.value()->setColorTemperature(temp);
+            if (it.value().control)
+                it.value().control->setColorTemperature(temp);
         }
     } else {
         m_displayInter->setColorTemperatureEnabled(enabled);
@@ -784,8 +827,8 @@ void DisplayWorker::setColorTemperature(int pos)
     if (WQt::Utils::isTreeland()) {
         uint32_t temp = toColorTemp(pos);
         for (auto it(m_control_monitors.cbegin()); it != m_control_monitors.cend(); ++it) {
-            if (it.value()) {
-                it.value()->setColorTemperature(temp);
+            if (it.value().control) {
+                it.value().control->setColorTemperature(temp);
             }
         }
     } else {
@@ -854,7 +897,10 @@ void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
 {
     m_model->setmodeChanging(true);
     if (WQt::Utils::isTreeland()) {
-        auto *opCfg = m_reg->outputManager()->createConfiguration();
+        auto *opCfg = m_outputMgr ? m_outputMgr->createConfiguration() : nullptr;
+        if (!opCfg)
+            return;
+
         auto res = mon->getResolutionById(mode);
         if (!res.has_value())
             return;
@@ -893,7 +939,8 @@ void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
 #else
         for (auto it(m_control_monitors.cbegin()); it != m_control_monitors.cend(); ++it) {
             if (it.key() == mon) {
-                it.value()->setBrightness(brightness * 100.0);
+                if (it.value().control)
+                    it.value().control->setBrightness(brightness * 100.0);
                 break;
             }
         }
@@ -914,7 +961,7 @@ void DisplayWorker::updateMonitorPosition(const QHash<Monitor *, QPair<int, int>
 void DisplayWorker::setMonitorPosition(const QHash<Monitor *, QPair<int, int>> monitorPosition)
 {
     if (WQt::Utils::isTreeland()) {
-        auto *opCfg = m_reg->outputManager()->createConfiguration();
+        auto *opCfg = m_outputMgr ? m_outputMgr->createConfiguration() : nullptr;
         if (!opCfg) {
             return;
         }
@@ -950,7 +997,7 @@ void DisplayWorker::setUiScale(const double value)
         rv = m_model->uiScale();
 
     if (WQt::Utils::isTreeland()) {
-        auto *opCfg = m_reg->outputManager()->createConfiguration();
+        auto *opCfg = m_outputMgr ? m_outputMgr->createConfiguration() : nullptr;
         if (!opCfg) {
             return;
         }
@@ -991,7 +1038,7 @@ void DisplayWorker::setIndividualScaling(Monitor *m, const double scaling)
     }
 
     if (WQt::Utils::isTreeland()) {
-        auto *opCfg = m_reg->outputManager()->createConfiguration();
+        auto *opCfg = m_outputMgr ? m_outputMgr->createConfiguration() : nullptr;
         if (!opCfg) {
             return;
         }
@@ -1280,8 +1327,9 @@ void DisplayWorker::wlMonitorRemoved(WQt::OutputHead *head)
             break;
         }
     }
-    if (!monitor)
+    if (!monitor) {
         return;
+    }
 
     m_model->monitorRemoved(monitor);
 
@@ -1292,57 +1340,82 @@ void DisplayWorker::wlMonitorRemoved(WQt::OutputHead *head)
     head->deleteLater();
 
     m_wl_monitors.remove(monitor);
-    if (m_control_monitors.contains(monitor)) {
-        delete m_control_monitors.value(monitor);
-        m_control_monitors.remove(monitor);
-    }
+    const auto controlContext = m_control_monitors.take(monitor);
+    delete controlContext.control;
 
     monitor->deleteLater();
 }
 
-void DisplayWorker::wlOutputAdded(WQt::Output *output)
+void DisplayWorker::screenAdded(QScreen *screen)
 {
+    if (!screen)
+        return;
+
+    auto *output = WQt::Utils::wlOutputFromQScreen(screen);
+    if (!output) {
+        // Qt creates a placeholder screen when the compositor has no output
+        return;
+    }
+
+    m_screen_outputs.insert(screen, output);
+
+    ensureWallpaperContext(screen);
+    updateControl();
+}
+
+void DisplayWorker::screenRemoved(QScreen *screen)
+{
+    auto *output = m_screen_outputs.take(screen);
     if (!output)
         return;
 
-    connect(output, &WQt::Output::done, this, &DisplayWorker::updateControl);
-    connect(output, &WQt::Output::done, this, [this, output]() {
-        onOutputWallpaperReady(output);
-    });
-}
+    // Qt destroys the platform screen right after this signal and releases its
+    // wl_output, so everything bound to that output must be destroyed now.
+    for (auto it = m_control_monitors.begin(); it != m_control_monitors.end();) {
+        if (it.value().screen != screen) {
+            ++it;
+            continue;
+        }
 
-void DisplayWorker::wlOutputRemoved(WQt::Output *output)
-{
-    auto *wpMgr = m_reg ? m_reg->wallpaperManager() : nullptr;
-    if (output && wpMgr)
-        wpMgr->removeWallpaper(output->get());
+        delete it.value().control;
+        it = m_control_monitors.erase(it);
+    }
+
+    if (m_wallpaperMgr)
+        m_wallpaperMgr->removeWallpaper(output);
 }
 
 void DisplayWorker::updateControl()
 {
-    auto *treelandOpMgr = m_reg->treeLandOutputManager();
-    if (!treelandOpMgr) {
+    if (!m_treelandOutputMgr || !m_treelandOutputMgr->isActive())
         return;
-    }
-    for (auto output : m_reg->waylandOutputs()) {
-        if (output->isReady()) {
-            for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
-                if (it.key()->name() == output->name()) {
-                    if (!m_control_monitors.contains(it.key())) {
-                        auto control = treelandOpMgr->getColorControl(output->get());
-                        if (control) {
-                            connect(control, &WQt::ColorControl::brightnessChanged, this, [this, control](double brightness) {
-                                onBrightnessChanged(control, brightness);
-                            });
-                            connect(control, &WQt::ColorControl::colorTemperatureChanged, this, [this](uint32_t temperature) {
-                                m_model->setColorTemperature(toColorTempPos(temperature));
-                            });
-                        }
-                        m_control_monitors.insert(it.key(), control);
-                    }
-                    break;
+
+    for (auto it(m_screen_outputs.cbegin()); it != m_screen_outputs.cend(); ++it) {
+        QScreen *screen = it.key();
+        for (auto monIt(m_wl_monitors.cbegin()); monIt != m_wl_monitors.cend(); ++monIt) {
+            if (!isSameOutput(monIt.key(), screen))
+                continue;
+
+            auto controlContext = m_control_monitors.find(monIt.key());
+            if (controlContext != m_control_monitors.end() && controlContext.value().screen != screen) {
+                delete controlContext.value().control;
+                m_control_monitors.erase(controlContext);
+                controlContext = m_control_monitors.end();
+            }
+
+            if (controlContext == m_control_monitors.end()) {
+                auto *control = m_treelandOutputMgr->getColorControl(it.value());
+                if (control) {
+                    connect(control, &WQt::ColorControl::brightnessChanged, this, [this, control](double brightness) {
+                        onBrightnessChanged(control, brightness);
+                    });
+                    connect(control, &WQt::ColorControl::colorTemperatureChanged, this, [this](uint32_t temperature) {
+                        m_model->setColorTemperature(toColorTempPos(temperature));
+                    });
+                    m_control_monitors.insert(monIt.key(), { screen, control });
                 }
             }
+            break;
         }
     }
 }
@@ -1400,7 +1473,10 @@ void DisplayWorker::setMonitorResolutionBySize(Monitor *mon, const int width, co
 {
     m_model->setmodeChanging(true);
     if (WQt::Utils::isTreeland()) {
-        auto *opCfg = m_reg->outputManager()->createConfiguration();
+        auto *opCfg = m_outputMgr ? m_outputMgr->createConfiguration() : nullptr;
+        if (!opCfg)
+            return;
+
         for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
             if (!it.key()->enable()) {
                 opCfg->disableHead(it.value());

@@ -323,7 +323,7 @@ void TreeLandWorker::onWindowThemeTypeChanged(uint32_t type)
 
 void TreeLandWorker::init()
 {
-    if (m_appearanceContext.isNull()) { 
+    if (m_appearanceContext.isNull()) {
         m_appearanceContext.reset(new PersonalizationAppearanceContext(m_personalizationManager->get_appearance_context(), this->m_model));
     }
     if (m_cursorContext.isNull()) {
@@ -356,7 +356,7 @@ WallpaperContext *TreeLandWorker::getOrCreateWallpaperContext(const QString &mon
         if (screen->name() == monitorName) {
             struct wl_output *output = reinterpret_cast<wl_output *>(
                 native->nativeResourceForScreen("output", screen));
-            
+
             if (output) {
                 auto *wallpaperObj = m_wallpaperManager->get_treeland_wallpaper(output, nullptr);
                 if (wallpaperObj) {
@@ -644,6 +644,15 @@ PersonalizationManager::PersonalizationManager(QObject *parent)
     setParent(parent);
 }
 
+PersonalizationManager::~PersonalizationManager()
+{
+    removeListener();
+    // The destroy request was introduced in version 2; older compositors
+    // reject it as an unknown method.
+    if (isInitialized() && QtWayland::treeland_personalization_manager_v1::version() >= 2)
+        QtWayland::treeland_personalization_manager_v1::destroy();
+}
+
 void PersonalizationManager::addListener()
 {
     if (!m_waylandDisplay) {
@@ -686,6 +695,12 @@ PersonalizationAppearanceContext::PersonalizationAppearanceContext(struct ::tree
     get_window_opacity();
     get_window_theme_type();
     get_window_titlebar_height();
+}
+
+PersonalizationAppearanceContext::~PersonalizationAppearanceContext()
+{
+    if (isInitialized())
+        QtWayland::treeland_personalization_appearance_context_v1::destroy();
 }
 
 void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_round_corner_radius(int32_t radius)
@@ -732,6 +747,12 @@ PersonalizationCursorContext::PersonalizationCursorContext(struct ::treeland_per
     get_theme();
 }
 
+PersonalizationCursorContext::~PersonalizationCursorContext()
+{
+    if (isInitialized())
+        QtWayland::treeland_personalization_cursor_context_v1::destroy();
+}
+
 void PersonalizationCursorContext::treeland_personalization_cursor_context_v1_theme(const QString &)
 {
 
@@ -745,6 +766,12 @@ PersonalizationFontContext::PersonalizationFontContext(struct ::treeland_persona
     get_font();
     get_monospace_font();
     get_font_size();
+}
+
+PersonalizationFontContext::~PersonalizationFontContext()
+{
+    if (isInitialized())
+        QtWayland::treeland_personalization_font_context_v1::destroy();
 }
 
 void PersonalizationFontContext::treeland_personalization_font_context_v1_font(const QString &)
@@ -780,6 +807,13 @@ WallpaperManager::WallpaperManager(QObject *parent)
         addListener();
     }
     setParent(parent);
+}
+
+WallpaperManager::~WallpaperManager()
+{
+    removeListener();
+    if (isInitialized())
+        QtWayland::treeland_wallpaper_manager_v1::destroy();
 }
 
 void WallpaperManager::addListener()
@@ -819,6 +853,12 @@ WallpaperContext::WallpaperContext(struct ::treeland_wallpaper_v1 *context)
     , QtWayland::treeland_wallpaper_v1(context)
 {
 
+}
+
+WallpaperContext::~WallpaperContext()
+{
+    if (isInitialized())
+        QtWayland::treeland_wallpaper_v1::destroy();
 }
 
 void WallpaperContext::setImageSource(const QString &filePath, wallpaper_role role)

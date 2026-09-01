@@ -12,17 +12,17 @@ execute_process(
     OUTPUT_STRIP_TRAILING_WHITESPACE
 )
 
-file(GLOB_RECURSE LIBWAYQT_SRCS
-    "wayland/libwayqt/*.cpp"
-    "wayland/libwayqt/*.h"
+file(GLOB_RECURSE WAYLAND_CLIENT_SRCS
+    "wayland/client/*.cpp"
+    "wayland/client/*.h"
 )
 
-add_library(libwayqt6
+add_library(display-wayland-client
     OBJECT
-    ${LIBWAYQT_SRCS}
+    ${WAYLAND_CLIENT_SRCS}
 )
 
-qt_generate_wayland_protocol_client_sources(libwayqt6
+qt_generate_wayland_protocol_client_sources(display-wayland-client
     FILES
         ${WLR_PROTOCOLS_XML_DIR}/unstable/wlr-output-management-unstable-v1.xml
         ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-output-manager-v1.xml
@@ -31,16 +31,16 @@ qt_generate_wayland_protocol_client_sources(libwayqt6
 )
 
 # fix arm64 build failed relocation R_AARCH64_ADR_PREL_PG_HI21 against symbol
-target_compile_options(libwayqt6 PRIVATE "-fpic")
+target_compile_options(display-wayland-client PRIVATE "-fpic")
 
-target_include_directories(libwayqt6
+target_include_directories(display-wayland-client
     PUBLIC
-        "${CMAKE_CURRENT_SOURCE_DIR}/wayland/libwayqt"
+        "${CMAKE_CURRENT_SOURCE_DIR}/wayland/client"
     PRIVATE
         ${Qt6Gui_PRIVATE_INCLUDE_DIRS}
 )
 
-target_link_libraries(libwayqt6
+target_link_libraries(display-wayland-client
     PUBLIC
     ${QT_NS}::Core
     ${QT_NS}::Gui
@@ -59,7 +59,7 @@ add_library(${Display_Name} MODULE
 )
 
 target_include_directories(${Display_Name} PUBLIC
-    $<TARGET_PROPERTY:libwayqt6,INTERFACE_INCLUDE_DIRECTORIES>
+    $<TARGET_PROPERTY:display-wayland-client,INTERFACE_INCLUDE_DIRECTORIES>
 )
 
 set(Display_Libraries
@@ -74,7 +74,7 @@ set(Display_Libraries
 
 target_link_libraries(${Display_Name} PRIVATE
     ${Display_Libraries}
-    $<TARGET_OBJECTS:libwayqt6>
+    $<TARGET_OBJECTS:display-wayland-client>
     PkgConfig::WaylandClient
 )
 

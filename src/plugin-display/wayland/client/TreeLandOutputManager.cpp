@@ -5,6 +5,7 @@
 #include "TreeLandOutputManager.h"
 
 #include "WayQtLogging.h"
+#include "WayQtUtils.h"
 
 #include <wayland-client.h>
 
@@ -22,7 +23,8 @@ WQt::ColorControl::ColorControl(::treeland_output_color_control_v1 *obj, QObject
 
 WQt::ColorControl::~ColorControl()
 {
-    QtWayland::treeland_output_color_control_v1::destroy();
+    if (isInitialized())
+        QtWayland::treeland_output_color_control_v1::destroy();
 }
 
 void WQt::ColorControl::setBrightness(double brightness)
@@ -64,7 +66,10 @@ WQt::TreeLandOutputManager::TreeLandOutputManager(QObject *parent)
 
 WQt::TreeLandOutputManager::~TreeLandOutputManager()
 {
-    QtWayland::treeland_output_manager_v1::destroy();
+    // The destroy request was introduced in version 2; older compositors
+    // reject it as an unknown method.
+    if (isInitialized() && QtWayland::treeland_output_manager_v1::version() >= 2)
+        QtWayland::treeland_output_manager_v1::destroy();
 }
 
 void WQt::TreeLandOutputManager::setPrimaryOutput(const char *name)
@@ -75,9 +80,20 @@ void WQt::TreeLandOutputManager::setPrimaryOutput(const char *name)
 
 WQt::ColorControl *WQt::TreeLandOutputManager::getColorControl(struct wl_output *output)
 {
+    if (!output)
+        return nullptr;
+
+    // Same guard as WallpaperManager::getWallpaper: a removed output turns this
+    // request into a fatal protocol error.
+    if (!WQt::Utils::isOutputAlive(output)) {
+        qCWarning(DccWayQt) << "skipping get_color_control for a removed output" << output;
+        return nullptr;
+    }
+
     auto *colorControl = get_color_control(output);
     if (!colorControl)
         return nullptr;
+
     return new WQt::ColorControl(colorControl, this);
 }
 
