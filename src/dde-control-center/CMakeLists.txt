@@ -12,6 +12,7 @@ if(${QT_NS}_VERSION VERSION_GREATER_EQUAL 6.10)
   find_package(${QT_NS} COMPONENTS QmlModelsPrivate QuickPrivate REQUIRED)
 endif()
 
+find_package(DDEShell REQUIRED)
 target_link_libraries(${DCCFrame_Name} PRIVATE
     ${QT_NS}::Core
 )
@@ -63,6 +64,7 @@ set(Control_Center_Libraries
     ${QT_NS}::Concurrent
     ${QT_NS}::Quick
     dde-control-center-lib
+    Dde::Shell
 )
 
 target_link_libraries(${Control_Center_Name} PRIVATE

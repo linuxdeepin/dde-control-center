@@ -3,8 +3,6 @@
 
 #include "appmgr.h"
 
-#include <containment.h>
-#include <pluginloader.h>
 #include <appletbridge.h>
 #include <appletproxy.h>
 
@@ -81,22 +79,6 @@ void AppMgr::initApplet()
 {
     DS_NAMESPACE::DAppletBridge bridge("org.deepin.ds.dde-apps");
     auto appletProxy = bridge.applet();
-    if (!appletProxy) {
-        auto rootApplet = qobject_cast<DS_NAMESPACE::DContainment *>(DS_NAMESPACE::DPluginLoader::instance()->rootApplet());
-        if (!rootApplet) {
-            qCWarning(DccNotificationAppMgr) << "Failed to get root applet for dde-apps";
-            return;
-        }
-
-        auto applet = rootApplet->createApplet(DS_NAMESPACE::DAppletData{"org.deepin.ds.dde-apps"});
-        if (!applet) {
-            qCWarning(DccNotificationAppMgr) << "Failed to create dde-apps applet";
-            return;
-        }
-        applet->load();
-        applet->init();
-        appletProxy = bridge.applet();
-    }
 
     if (!appletProxy) {
         qCWarning(DccNotificationAppMgr) << "Failed to get applet proxy for dde-apps";

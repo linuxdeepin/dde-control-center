@@ -17,10 +17,7 @@
 #include "QCoreApplication"
 #include <QtConcurrent>
 
-#include "applet.h"
-#include <dsglobal.h>
-#include "pluginloader.h"
-#include "containment.h"
+#include <applet.h>
 #include <appletbridge.h>
 
 #include <polkit-qt6-1/PolkitQt1/Authority>
@@ -88,12 +85,7 @@ void PrivacySecurityWorker::init()
     if (!m_pathList.isEmpty())
         return;
     m_dataProxy->init();
-    // TODO：由于控制中心通过子线程加载插件后，会移动插件的加载线程->主线程，
-    // 并删除原有线程->未指定父的对象所处的线程会被删除，所以使用qApp->主线程调用initApp
-    QMetaObject::invokeMethod(qApp, [this]() {
-        initApp();
-    }, Qt::BlockingQueuedConnection);
-
+    initApp();
 
     connect(m_dataProxy, &PrivacySecurityDataProxy::ModeChanged, this, &PrivacySecurityWorker::onModeChanged, Qt::QueuedConnection);
     connect(m_dataProxy, &PrivacySecurityDataProxy::EntityChanged, this, &PrivacySecurityWorker::onEntityChanged, Qt::QueuedConnection);
@@ -120,11 +112,6 @@ void PrivacySecurityWorker::init()
 
 void PrivacySecurityWorker::initApp()
 {
-    auto rootApplet = qobject_cast<DS_NAMESPACE::DContainment *>(DS_NAMESPACE::DPluginLoader::instance()->rootApplet());
-    auto applet = rootApplet->createApplet(DS_NAMESPACE::DAppletData{"org.deepin.ds.dde-apps"});
-    applet->load();
-    applet->init();
-
     DS_NAMESPACE::DAppletBridge bridge("org.deepin.ds.dde-apps");
     DS_NAMESPACE::DAppletProxy * amAppsProxy = bridge.applet();
 
@@ -148,7 +135,7 @@ void PrivacySecurityWorker::initApp()
                     m_model->removeApplictionItem(appId);
                 }
             }
-        }, Qt::DirectConnection);
+        });
     }
 }
 

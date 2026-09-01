@@ -105,6 +105,7 @@ private:
     QString parseShowPageUrl(const QString &url, QString &cmd) const;
     void replyShowPageRequest(const QString &url, const QDBusMessage &message, bool found) const;
     void startPendingShow(const QString &url, const QDBusMessage &message);
+    void loadAppInfos();
 
 private Q_SLOTS:
     void saveSize();

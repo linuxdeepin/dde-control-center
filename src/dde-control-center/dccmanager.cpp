@@ -10,6 +10,11 @@
 #include "pluginmanager.h"
 #include "searchmodel.h"
 
+#include <containment.h>
+#include <pluginloader.h>
+#include <appletbridge.h>
+#include <appletproxy.h>
+
 #include <DGuiApplicationHelper>
 #include <DIconTheme>
 
@@ -138,6 +143,8 @@ void DccManager::init()
     m_engine = new QQmlApplicationEngine(this);
     m_imageProvider = new DccImageProvider();
     m_engine->addImageProvider("DccImage", m_imageProvider);
+
+    loadAppInfos();
 }
 
 QQmlApplicationEngine *DccManager::engine()
@@ -840,6 +847,24 @@ void DccManager::startPendingShow(const QString &url, const QDBusMessage &messag
     m_showUrl = url;
     m_showMessage = message;
     m_showTimer->start();
+}
+
+void DccManager::loadAppInfos()
+{
+    DCC_BENCHMARK("dde-apps", "Load-dde-apps");
+    auto rootApplet = qobject_cast<DS_NAMESPACE::DContainment *>(DS_NAMESPACE::DPluginLoader::instance()->rootApplet());
+    if (!rootApplet) {
+        qWarning() << "Failed to get root applet for dde-apps";
+        return;
+    }
+
+    auto applet = rootApplet->createApplet(DS_NAMESPACE::DAppletData{"org.deepin.ds.dde-apps"});
+    if (!applet) {
+        qWarning() << "Failed to create dde-apps applet";
+        return;
+    }
+    applet->load();
+    applet->init();
 }
 
 void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
