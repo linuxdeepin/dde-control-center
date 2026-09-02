@@ -14,7 +14,6 @@ if (BUILD_PLUGIN)
         "qml/*.qml"
     )
     find_package(${QT_NS} COMPONENTS Concurrent REQUIRED COMPONENTS Qml)
-    find_package(DDEShell REQUIRED)
 
     add_library(${notification_Name} MODULE
         ${notification_SRCS}
@@ -30,13 +29,13 @@ if (BUILD_PLUGIN)
         ${DTK_NS}::Gui
         ${QT_NS}::DBus
         ${QT_NS}::Concurrent
-        Dde::Shell
     )
     target_include_directories(${notification_Name} PUBLIC
         ${notification_Includes}
     )
     target_link_libraries(${notification_Name} PRIVATE
         ${notification_Libraries}
+        dcc-shared-utils
     )
 
     dcc_install_plugin(NAME ${notification_Name} TARGET ${notification_Name})

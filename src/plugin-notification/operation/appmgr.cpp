@@ -3,10 +3,7 @@
 
 #include "appmgr.h"
 
-#include <containment.h>
-#include <pluginloader.h>
-#include <appletbridge.h>
-#include <appletproxy.h>
+#include "dccdsappletmanager.h"
 
 #include <QAbstractItemModel>
 #include <QCoreApplication>
@@ -68,51 +65,22 @@ AppMgr *AppMgr::instance()
 AppMgr::AppMgr(QObject *parent)
     : QObject(parent)
 {
-    initApplet();
+    m_appModel = DSAppletManager::instance()->appModel();
+    if (!m_appModel) {
+        qCWarning(DccNotificationAppMgr) << "DSAppletManager not ready";
+        return;
+    }
+    for (int row = 0; row < m_appModel->rowCount(); ++row)
+        createAppItem(row);
+    connect(m_appModel, &QAbstractItemModel::rowsInserted, this, &AppMgr::onRowsInserted);
+    connect(m_appModel, &QAbstractItemModel::rowsAboutToBeRemoved, this,
+            &AppMgr::onRowsAboutToBeRemoved, Qt::DirectConnection);
 }
 
 AppMgr::~AppMgr()
 {
     QMutexLocker locker(&m_mutex);
     m_appItems.clear();
-}
-
-void AppMgr::initApplet()
-{
-    DS_NAMESPACE::DAppletBridge bridge("org.deepin.ds.dde-apps");
-    auto appletProxy = bridge.applet();
-    if (!appletProxy) {
-        auto rootApplet = qobject_cast<DS_NAMESPACE::DContainment *>(DS_NAMESPACE::DPluginLoader::instance()->rootApplet());
-        if (!rootApplet) {
-            qCWarning(DccNotificationAppMgr) << "Failed to get root applet for dde-apps";
-            return;
-        }
-
-        auto applet = rootApplet->createApplet(DS_NAMESPACE::DAppletData{"org.deepin.ds.dde-apps"});
-        if (!applet) {
-            qCWarning(DccNotificationAppMgr) << "Failed to create dde-apps applet";
-            return;
-        }
-        applet->load();
-        applet->init();
-        appletProxy = bridge.applet();
-    }
-
-    if (!appletProxy) {
-        qCWarning(DccNotificationAppMgr) << "Failed to get applet proxy for dde-apps";
-        return;
-    }
-    m_appModel = appletProxy->property("appModel").value<QAbstractItemModel *>();
-    if (!m_appModel) {
-        qCWarning(DccNotificationAppMgr) << "Failed to get appModel from dde-apps";
-        return;
-    }
-
-    connect(m_appModel, &QAbstractItemModel::rowsInserted, this, &AppMgr::onRowsInserted);
-    connect(m_appModel, &QAbstractItemModel::rowsAboutToBeRemoved, this,
-            &AppMgr::onRowsAboutToBeRemoved, Qt::DirectConnection);
-    for (int row = 0; row < m_appModel->rowCount(); ++row)
-        createAppItem(row);
 }
 
 bool AppMgr::createAppItem(int row)

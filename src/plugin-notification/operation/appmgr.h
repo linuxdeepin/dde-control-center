@@ -27,7 +27,6 @@ Q_SIGNALS:
     void appItemRemove(const QString &id);
 
 private:
-    void initApplet();
     bool createAppItem(int row);
     void onRowsInserted(const QModelIndex &parent, int first, int last);
     void onRowsAboutToBeRemoved(const QModelIndex &parent, int first, int last);
