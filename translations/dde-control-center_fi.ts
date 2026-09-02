@@ -1879,11 +1879,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation>Silmien mukavuus</translation>
+        <translation>Yövalo</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation>Silmien mukavuus käyttöön</translation>
+        <translation>Käytä yövaloa</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>

@@ -3456,7 +3456,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Click</source>
-        <translation>Kliknij</translation>
+        <translation>kliknij</translation>
     </message>
     <message>
         <source>Cancel</source>
