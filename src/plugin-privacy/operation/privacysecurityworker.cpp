@@ -17,11 +17,7 @@
 #include "QCoreApplication"
 #include <QtConcurrent>
 
-#include "applet.h"
-#include <dsglobal.h>
-#include "pluginloader.h"
-#include "containment.h"
-#include <appletbridge.h>
+#include "dccdsappletmanager.h"
 
 #include <polkit-qt6-1/PolkitQt1/Authority>
 #include <qnamespace.h>
@@ -88,12 +84,7 @@ void PrivacySecurityWorker::init()
     if (!m_pathList.isEmpty())
         return;
     m_dataProxy->init();
-    // TODO：由于控制中心通过子线程加载插件后，会移动插件的加载线程->主线程，
-    // 并删除原有线程->未指定父的对象所处的线程会被删除，所以使用qApp->主线程调用initApp
-    QMetaObject::invokeMethod(qApp, [this]() {
-        initApp();
-    }, Qt::BlockingQueuedConnection);
-
+    initApp();
 
     connect(m_dataProxy, &PrivacySecurityDataProxy::ModeChanged, this, &PrivacySecurityWorker::onModeChanged, Qt::QueuedConnection);
     connect(m_dataProxy, &PrivacySecurityDataProxy::EntityChanged, this, &PrivacySecurityWorker::onEntityChanged, Qt::QueuedConnection);
@@ -120,36 +111,31 @@ void PrivacySecurityWorker::init()
 
 void PrivacySecurityWorker::initApp()
 {
-    auto rootApplet = qobject_cast<DS_NAMESPACE::DContainment *>(DS_NAMESPACE::DPluginLoader::instance()->rootApplet());
-    auto applet = rootApplet->createApplet(DS_NAMESPACE::DAppletData{"org.deepin.ds.dde-apps"});
-    applet->load();
-    applet->init();
-
-    DS_NAMESPACE::DAppletBridge bridge("org.deepin.ds.dde-apps");
-    DS_NAMESPACE::DAppletProxy * amAppsProxy = bridge.applet();
-
-    if (amAppsProxy) {
-        QAbstractItemModel * model = amAppsProxy->property("appModel").value<QAbstractItemModel *>();
-        m_ddeAmModel = model;
-
-        connect(model, &QAbstractItemModel::rowsInserted, this, [this](const QModelIndex &parent, int first, int last)
-        {
-            Q_UNUSED(parent)
-            for (int i = first; i <= last; i++) {
-                addAppItem(i);
-            }
-        });
-        connect(model, &QAbstractItemModel::rowsAboutToBeRemoved, this, [this](const QModelIndex &parent, int first, int last)
-        {
-            Q_UNUSED(parent)
-            for (int i = last; i >= first; i--) {
-                QString appId = m_ddeAmModel->data(m_ddeAmModel->index(i, 0), DS_NAMESPACE::AppItemModel::IdRole).toString();
-                if (!appId.isEmpty()) {
-                    m_model->removeApplictionItem(appId);
-                }
-            }
-        }, Qt::DirectConnection);
+    m_ddeAmModel = DSAppletManager::instance()->appModel();
+    if (!m_ddeAmModel) {
+        qCWarning(DCC_PRIVACY) << "DSAppletManager not ready";
+        return;
     }
+    for (int row = 0; row < m_ddeAmModel->rowCount(); ++row)
+        addAppItem(row);
+
+    connect(m_ddeAmModel, &QAbstractItemModel::rowsInserted, this, [this](const QModelIndex &parent, int first, int last)
+    {
+        Q_UNUSED(parent)
+        for (int i = first; i <= last; i++) {
+            addAppItem(i);
+        }
+    });
+    connect(m_ddeAmModel, &QAbstractItemModel::rowsAboutToBeRemoved, this, [this](const QModelIndex &parent, int first, int last)
+    {
+        Q_UNUSED(parent)
+        for (int i = last; i >= first; i--) {
+            QString appId = m_ddeAmModel->data(m_ddeAmModel->index(i, 0), DS_NAMESPACE::AppItemModel::IdRole).toString();
+            if (!appId.isEmpty()) {
+                m_model->removeApplictionItem(appId);
+            }
+        }
+    }, Qt::DirectConnection);
 }
 
 void PrivacySecurityWorker::setPremissionEnabled(int appItemIndex, int premission, bool enabled)

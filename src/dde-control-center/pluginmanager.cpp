@@ -7,6 +7,7 @@
 #include "dccfactory.h"
 #include "dccmanager.h"
 #include "dccobject_p.h"
+#include "dccdsappletmanager.h"
 #include "dccpluginloader.h"
 
 #include <QDebug>
@@ -201,6 +202,9 @@ void DccPluginManager::loadModules(DccObject *root, bool async, const QStringLis
     for (auto &&loader : m_plugins) {
         loadPlugin(loader);
     }
+    // 预热：在线程池中提前创建 DSAppletManager 单例（构造即完成 dde-apps
+    // applet 初始化），避免首个消费者在插件加载路径上同步承担该开销。
+    threadPool()->start(DSAppletManager::instance);
 }
 
 void DccPluginManager::cancelLoad()

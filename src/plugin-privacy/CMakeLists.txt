@@ -1,6 +1,5 @@
 set(LIB_NAME privacy)
 
-find_package(DDEShell REQUIRED)
 find_package(PolkitQt6-1 REQUIRED)
 
 file(GLOB_RECURSE Privacy_SRCS
@@ -25,7 +24,6 @@ set(Privacy_Libraries
     ${QT_NS}::DBus
     ${QT_NS}::Qml
     ${QT_NS}::Concurrent
-    Dde::Shell
     PolkitQt6-1::Agent
 )
 
@@ -35,6 +33,7 @@ target_include_directories(${LIB_NAME} PUBLIC
 
 target_link_libraries(${LIB_NAME} PRIVATE
     ${Privacy_Libraries}
+    dcc-shared-utils
 )
 
 dcc_install_plugin(NAME ${LIB_NAME} TARGET ${LIB_NAME})
