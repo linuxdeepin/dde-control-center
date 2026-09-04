@@ -1,6 +1,7 @@
 // SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
+import QtQuick.Window 2.15
 import org.deepin.dtk 1.0
 import QtQuick.Layouts 1.15
 
@@ -101,10 +102,25 @@ Rectangle {
     }
     Popup {
         id: popup
-        y: 35
+        popupType: Popup.Window
+        closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
+        PopupHandle.enableBlurWindow: true
         width: searchEdit.width > 308 ? searchEdit.width : 308
         height: (view.count > 7 ? 7 : view.count) * 32 + 15
         padding: 5
+
+        function positionWindow() {
+            var globalPos = searchEdit.mapToGlobal(0, 0)
+            var w = Window.window
+            if (w) {
+                var localPos = w.mapFromGlobal(globalPos.x, globalPos.y)
+                x = localPos.x
+                y = localPos.y + searchEdit.height
+            }
+        }
+
+        onOpened: positionWindow()
+
         ListView {
             id: view
             clip: true
@@ -145,22 +161,11 @@ Rectangle {
                 to: 1.0
                 duration: 150
             }
-            NumberAnimation {
-                property: "scale"
-                from: 0.0
-                to: 1.0
-                duration: 150
-            }
         }
 
         exit: Transition {
             NumberAnimation {
                 property: "opacity"
-                to: 0.0
-                duration: 150
-            }
-            NumberAnimation {
-                property: "scale"
                 to: 0.0
                 duration: 150
             }
