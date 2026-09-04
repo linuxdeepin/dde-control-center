@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -12,6 +12,9 @@
 #include <QDBusArgument>
 #include <QDBusReply>
 #include <QDBusConnectionInterface>
+#include <QDBusUnixFileDescriptor>
+#include <QFile>
+#include <QFileInfo>
 #include <QLoggingCategory>
 
 namespace {
@@ -285,7 +288,28 @@ QString CommonInfoProxy::Background()
 
 void CommonInfoProxy::setBackground(const QString &name)
 {
-    m_grubThemeInter->asyncCallWithArgumentList("SetBackgroundSourceFile", { name });
+    QFileInfo info(name);
+    if (!info.isFile() || !info.isReadable()) {
+        qWarning(dcCommonLog) << "Background file is not readable:" << name;
+        Q_EMIT BackgroundChanged();
+        return;
+    }
+
+    QFile file(name);
+    if (!file.open(QIODevice::ReadOnly)) {
+        qWarning(dcCommonLog) << "Failed to open background file:" << name << file.errorString();
+        Q_EMIT BackgroundChanged();
+        return;
+    }
+
+    QDBusUnixFileDescriptor fd(file.handle());
+    if (!fd.isValid()) {
+        qWarning(dcCommonLog) << "Invalid file descriptor for background file:" << name;
+        Q_EMIT BackgroundChanged();
+        return;
+    }
+
+    m_grubThemeInter->asyncCallWithArgumentList("SetBackgroundSourceFile", { QVariant::fromValue(fd) });
 }
 
 int CommonInfoProxy::AuthorizationState()
