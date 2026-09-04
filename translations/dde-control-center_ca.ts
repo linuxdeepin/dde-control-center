@@ -2426,7 +2426,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Intelligent Noise Reduction</source>
-        <translation type="unfinished"/>
+        <translation>Reducció intel·ligent de soroll</translation>
     </message>
 </context>
 <context>
@@ -3618,11 +3618,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>SoundWorker</name>
     <message>
         <source>Failed to enable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat activar la reducció de soroll intel·ligent. Torneu-ho a intentar més tard.</translation>
     </message>
     <message>
         <source>Failed to disable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Ha fallat desactivar la reducció de soroll intel·ligent. Torneu-ho a intentar més tard.</translation>
     </message>
 </context>
 <context>
