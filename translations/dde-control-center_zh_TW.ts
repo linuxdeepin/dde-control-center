@@ -2285,11 +2285,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>KeyboardWorker</name>
     <message>
         <source>The shortcut service is unavailable. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>快捷鍵服務不可用，請重試。</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>儲存快捷鍵失敗，請重試。</translation>
     </message>
 </context>
 <context>
@@ -2420,7 +2420,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Intelligent Noise Reduction</source>
-        <translation type="unfinished"/>
+        <translation>智慧降噪</translation>
     </message>
 </context>
 <context>
@@ -3407,7 +3407,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>啟動快捷鍵錄入失敗，請重試。</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
@@ -3423,7 +3423,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>儲存快捷鍵失敗，請重試。</translation>
     </message>
 </context>
 <context>
@@ -3478,7 +3478,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>啟動快捷鍵錄入失敗，請重試。</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
@@ -3490,7 +3490,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>儲存快捷鍵失敗，請重試。</translation>
     </message>
 </context>
 <context>
@@ -3612,11 +3612,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundWorker</name>
     <message>
         <source>Failed to enable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"/>
+        <translation>智慧降噪開啟失敗，請稍後重試</translation>
     </message>
     <message>
         <source>Failed to disable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"/>
+        <translation>智慧降噪關閉失敗，請稍後重試</translation>
     </message>
 </context>
 <context>
@@ -4431,26 +4431,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>快捷鍵已不存在。</translation>
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>快捷鍵衝突狀態已失效。</translation>
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
-        <translation type="unfinished"/>
+        <translation>請重新確認快捷鍵衝突。</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardWorker</name>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>快捷鍵衝突狀態已失效。</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>儲存快捷鍵失敗，請重試。</translation>
     </message>
 </context>
 <context>
