@@ -4,6 +4,7 @@
 #include "controlcenterdbusadaptor.h"
 #include "dccmanager.h"
 #include "securityloaderhelper.h"
+#include "dccbenchmark.h"
 
 #include <DDBusSender>
 #include <DIconTheme>
@@ -94,6 +95,8 @@ int main(int argc, char *argv[])
     app->setApplicationVersion("6.0");
 #endif
     app->setQuitOnLastWindowClosed(false);
+
+    dccV25::DccAppTimeline::instance().start();
 
     refreshQmlCache(app->applicationVersion());
 

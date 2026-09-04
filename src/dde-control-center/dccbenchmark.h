@@ -28,6 +28,24 @@ private:
     QElapsedTimer m_timer;
 };
 
+class DccAppTimeline
+{
+public:
+    static DccAppTimeline &instance();
+
+    DccAppTimeline(const DccAppTimeline &) = delete;
+    DccAppTimeline &operator=(const DccAppTimeline &) = delete;
+
+    void start();
+    void stop();
+    void log(const QString &stage, const QString &detail = QString()) const;
+
+private:
+    DccAppTimeline() = default;
+
+    QElapsedTimer m_timer;
+};
+
 class DccLoadTimer
 {
 public:

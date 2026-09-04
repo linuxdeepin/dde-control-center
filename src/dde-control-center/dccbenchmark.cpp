@@ -27,6 +27,39 @@ DccBenchmark::~DccBenchmark()
                        .arg(elapsed);
 }
 
+DccAppTimeline &DccAppTimeline::instance()
+{
+    static DccAppTimeline timer;
+    return timer;
+}
+
+void DccAppTimeline::start()
+{
+    m_timer.start();
+}
+
+void DccAppTimeline::stop()
+{
+    if (!m_timer.isValid())
+        return;
+
+    m_timer.invalidate();
+}
+
+void DccAppTimeline::log(const QString &stage, const QString &detail) const
+{
+    if (!m_timer.isValid()) {
+        return;
+    }
+
+    QString message = QStringLiteral("Dcc-timeline: %1").arg(stage);
+    if (!detail.isEmpty()) {
+        message += QStringLiteral(" \"%1\"").arg(detail);
+    }
+    message += QStringLiteral(" in %1 ms.").arg(m_timer.elapsed());
+    qCDebug(dccBenchmarkLog).noquote() << message;
+}
+
 void DccLoadTimer::start()
 {
     qCDebug(dccBenchmarkLog).noquote() << QStringLiteral("Begin-to-load-plugins.");

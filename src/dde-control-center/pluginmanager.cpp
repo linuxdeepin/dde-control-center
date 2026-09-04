@@ -99,11 +99,8 @@ void DccPluginManager::loadPlugin(DccPluginLoader *loader)
     }
     if (loader->status() & DccPluginLoader::PluginEnd) {
         m_loadTimer.finishPlugin(loader->name());
-        if (loadFinished()) {
-            m_loadTimer.stop();
-            Q_EMIT loadAllFinished();
-            cancelLoad();
-        }
+        checkNavigationFinished();
+        checkLoadFinished();
     } else if (loader->status() & DccPluginLoader::MainObjEnd) {
         loader->addMainObject();
         if (loader->mainObj()) {
@@ -120,17 +117,18 @@ void DccPluginManager::loadPlugin(DccPluginLoader *loader)
         loader->loadMain();
         loader->transitionStatus(DccPluginLoader::MainObjEnd);
     } else if ((loader->status() & (DccPluginLoader::ModuleEnd | DccPluginLoader::DataBegin)) == DccPluginLoader::ModuleEnd) {
-        loader->transitionStatus(DccPluginLoader::DataBegin);
-        if (loader->module()) {
-            Q_EMIT addObject(loader->module());
-        }
-        threadPool()->start(new LoadDataTask(loader, this));
+
+        checkNavigationFinished();
     } else if ((loader->status() & (DccPluginLoader::MetaDataEnd | DccPluginLoader::ModuleLoad)) == DccPluginLoader::MetaDataEnd) {
         loader->transitionStatus(DccPluginLoader::ModuleLoad);
         if (loader->loadModule()) {
             loader->transitionStatus(DccPluginLoader::ModuleEnd);
+            Q_EMIT moduleLoaded(loader->name());
         } else {
             loader->transitionStatus(DccPluginLoader::ModuleEnd | DccPluginLoader::PluginEnd);
+        }
+        if (loader->module()) {
+            Q_EMIT addObject(loader->module());
         }
     } else {
         if (loader->loadMetaData()) {
@@ -197,6 +195,8 @@ void DccPluginManager::loadModules(DccObject *root, bool async, const QStringLis
     }
 
     m_plugins = loaders;
+    m_navigationFinished = false;
+    m_allLoadFinished = false;
 
     // Start loading all plugins
     for (auto &&loader : m_plugins) {
@@ -204,7 +204,59 @@ void DccPluginManager::loadModules(DccObject *root, bool async, const QStringLis
     }
     // 预热：在线程池中提前创建 DSAppletManager 单例（构造即完成 dde-apps
     // applet 初始化），避免首个消费者在插件加载路径上同步承担该开销。
+    checkNavigationFinished();
+}
+
+void DccPluginManager::checkNavigationFinished()
+{
+    if (m_navigationFinished) {
+        return;
+    }
+
+    for (auto &&loader : m_plugins) {
+        const auto status = loader->status();
+        if (!(status & (DccPluginLoader::ModuleEnd | DccPluginLoader::PluginEnd))) {
+            return;
+        }
+    }
+
+    m_navigationFinished = true;
+    DccAppTimeline::instance().log(QStringLiteral("navigation-ready"));
+    Q_EMIT navigationReady();
+
+    // Start data phase after navigation is ready, to avoid blocking the main thread with data loading
+    // Use a single-shot timer to ensure that the data phase starts after the current event loop iteration
+    QTimer::singleShot(100, this, &DccPluginManager::startDataPhase);
+}
+
+void DccPluginManager::startDataPhase()
+{
     threadPool()->start(DSAppletManager::instance);
+    DccAppTimeline::instance().log(QStringLiteral("data-phase-start"));
+    for (auto &&loader : m_plugins) {
+        if ((loader->status() & DccPluginLoader::PluginEnd)
+            || !(loader->status() & DccPluginLoader::ModuleEnd)
+            || (loader->status() & DccPluginLoader::DataBegin)) {
+            continue;
+        }
+
+        loader->transitionStatus(DccPluginLoader::DataBegin);
+        threadPool()->start(new LoadDataTask(loader, this));
+    }
+}
+
+void DccPluginManager::checkLoadFinished()
+{
+    if (m_allLoadFinished || !loadFinished()) {
+        return;
+    }
+
+    m_allLoadFinished = true;
+    m_loadTimer.stop();
+    DccAppTimeline::instance().log(QStringLiteral("all-plugins-loaded"));
+    DccAppTimeline::instance().stop();
+    Q_EMIT loadAllFinished();
+    cancelLoad();
 }
 
 void DccPluginManager::cancelLoad()
