@@ -2405,10 +2405,6 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>Automatyczne tłumienie hałasu</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>Głośność wejściowa</translation>
     </message>
@@ -2427,6 +2423,10 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>Input Device</source>
         <translation>Urządzenie wejściowe</translation>
+    </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3612,6 +3612,17 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>Error</source>
         <translation>Błąd</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
