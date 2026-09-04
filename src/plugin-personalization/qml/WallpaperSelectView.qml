@@ -454,6 +454,19 @@ ColumnLayout {
             }
         }
 
+        Connections {
+            target: root.model
+            function onRowsInserted(parent, first, last) {
+                root.delegateLoadLimit += (last - first + 1)
+            }
+            function onRowsRemoved() {
+                root.delegateLoadLimit = Math.max(root.delegateLoadLimit - 1, 1)
+            }
+            function onModelReset() {
+                root.delegateLoadLimit = 1
+            }
+        }
+
         D.Menu {
             id: contextMenu
             MenuItem {
