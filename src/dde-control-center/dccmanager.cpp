@@ -72,6 +72,7 @@ DccManager::DccManager(QObject *parent)
     , m_showPagePending(false)
     , m_showLoadPage(!isTreeland())
     , m_needShow(false)
+    , m_autoExitTimer(new QTimer(this))
 #ifdef HAVE_DDE_API_EVENTLOGGER
     , m_pageStayTimer(nullptr)
 #endif
@@ -110,6 +111,15 @@ DccManager::DccManager(QObject *parent)
     m_showFallbackTimer->setSingleShot(true);
     connect(m_showFallbackTimer, &QTimer::timeout, this, &DccManager::tryShowFallback);
     m_showFallbackTimer->start(5000); // 防止插件卡死不显示界面
+
+    m_autoExitTimer->setInterval(10000);
+    m_autoExitTimer->setSingleShot(true);
+    connect(m_autoExitTimer, &QTimer::timeout, this, [this]() {
+        // 当主界面show出来之后不再执行自动退出
+        if (!m_showPagePending && !m_needShow && (mainWindow() && !mainWindow()->isVisible()))
+            QCoreApplication::quit();
+    });
+    m_autoExitTimer->start();
 }
 
 DccManager::~DccManager()
@@ -319,12 +329,14 @@ void DccManager::showPage(const QString &url)
 
 void DccManager::showPage(DccObject *obj)
 {
+    qCInfo(dccLog) << "showPage:" << obj;
     m_showPagePending = true;
     QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, QPointer<DccObject>(obj), QString());
 }
 
 void DccManager::showPage(DccObject *obj, const QString &cmd)
 {
+    qCInfo(dccLog) << "showPage:" << obj << cmd;
     m_showPagePending = true;
     QMetaObject::invokeMethod(this, "doShowPage", Qt::QueuedConnection, QPointer<DccObject>(obj), cmd);
 }
@@ -428,6 +440,7 @@ QString DccManager::searchProxy(const QString &json) const
                     },
                     Qt::SingleShotConnection);
 
+            m_autoExitTimer->start();
             return {};
         }
     }
@@ -436,6 +449,7 @@ QString DccManager::searchProxy(const QString &json) const
 
 bool DccManager::stop(const QString &)
 {
+    m_autoExitTimer->start();
     return true;
 }
 
@@ -453,6 +467,7 @@ bool DccManager::action(const QString &json)
 
     show();
     showPage(searchName);
+    m_autoExitTimer->start();
     return true;
 }
 
@@ -895,6 +910,7 @@ void DccManager::clearShowParam()
 
 void DccManager::handleShowReady()
 {
+    qCInfo(dccLog) << "handleShowReady: loadAllFinished" << m_showUrl;
     if (!m_showUrl.isEmpty()) {
         tryShow();
     } else if (m_showFallbackTimer->isActive() && !m_activeObject && !m_showPagePending) {
@@ -905,19 +921,27 @@ void DccManager::handleShowReady()
 void DccManager::tryShow()
 {
     if (m_showUrl.isEmpty()) {
+        qCDebug(dccLog) << "tryShow: url is empty, skip";
         return;
     }
+
+    qCDebug(dccLog) << "tryShow: url =" << m_showUrl
+                       << "loadFinished =" << m_plugins->loadFinished()
+                       << "isDeleting =" << m_plugins->isDeleting();
 
     QString cmd;
     const QString path = parseShowPageUrl(m_showUrl, cmd);
     DccObject *obj = findObject(path);
+    qCDebug(dccLog) << "tryShow: parsed path =" << path << "cmd =" << cmd << "found obj =" << (void *)obj;
     if (obj) {
         const QString url = m_showUrl;
         const QDBusMessage message = m_showMessage;
         clearShowParam();
         showPage(obj, cmd);
+        qCInfo(dccLog) << "tryShow: page shown successfully, url =" << url;
         replyShowPageRequest(url, message, true);
     } else if (m_plugins->loadFinished()) {
+        qCWarning(dccLog) << "tryShow: plugins loaded but object not found, path =" << path << "url =" << m_showUrl;
         const QString url = m_showUrl;
         const QDBusMessage message = m_showMessage;
         clearShowParam();
@@ -926,7 +950,10 @@ void DccManager::tryShow()
             showPage(m_root, QString());
         }
     } else if (!m_plugins->isDeleting()) {
+        qCDebug(dccLog) << "tryShow: plugins not ready, retrying...";
         m_showTimer->start();
+    } else {
+        qCWarning(dccLog) << "tryShow: plugins deleting, abort show, url =" << m_showUrl;
     }
 }
 
@@ -935,7 +962,7 @@ void DccManager::tryShowFallback()
     if (m_plugins->isDeleting() || !m_showUrl.isEmpty() || m_activeObject || m_showPagePending) {
         return;
     }
-
+    qCInfo(dccLog) << "tryShowFallback: home";
     m_showFallbackTimer->stop();
     showPage(m_root, QString());
 }
