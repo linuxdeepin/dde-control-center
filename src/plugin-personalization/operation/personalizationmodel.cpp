@@ -214,7 +214,7 @@ void PersonalizationModel::setLinePowerScreenSaverIdleTime(int value)
         return;
 
     m_linePowerScreenSaverIdleTime = value;
-    qWarning() << "model: setLinePowerScreenSaverIdleTime" << value << m_linePowerScreenSaverIdleTime;
+    qDebug() << "model: setLinePowerScreenSaverIdleTime" << value << m_linePowerScreenSaverIdleTime;
     Q_EMIT linePowerScreenSaverIdleTimeChanged(value);
 }
 

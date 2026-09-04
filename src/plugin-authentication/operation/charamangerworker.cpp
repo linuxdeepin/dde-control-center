@@ -375,7 +375,7 @@ void CharaMangerWorker::refreshFingerEnrollList(const QString &id)
 
 void CharaMangerWorker::stopFingerEnroll(const QString &userName)
 {
-    qDebug() << "stopEnroll";
+    qDebug() << "stopEnroll for user: " << userName;
     m_charaMangerInter->StopEnroll();
 }
 
