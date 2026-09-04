@@ -2426,7 +2426,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Intelligent Noise Reduction</source>
-        <translation type="unfinished"/>
+        <translation>Inteligentna redukcja szumów</translation>
     </message>
 </context>
 <context>
@@ -3618,11 +3618,11 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <name>SoundWorker</name>
     <message>
         <source>Failed to enable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się włączyć inteligentnej redukcji szumów. Spróbuj ponownie później.</translation>
     </message>
     <message>
         <source>Failed to disable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Nie udało się wyłączyć inteligentnej redukcji szumów. Spróbuj ponownie później.</translation>
     </message>
 </context>
 <context>
