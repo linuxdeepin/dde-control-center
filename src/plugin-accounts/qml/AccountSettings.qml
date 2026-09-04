@@ -946,7 +946,7 @@ DccObject {
                                 }
                                 if (event.key === Qt.Key_Space || event.key === Qt.Key_Return || event.key === Qt.Key_Enter) {
                                     if (!groupSettings.isEditing && model.groupEnabled) {
-                                        dccData.setGroup(settings.userId, model.display, !editButton.checked)
+                                        dccData.setGroup(settings.userId, editLabel.groupName, !editButton.checked)
                                         groupview.currentIndex = -1
                                         groupview.focus = false
                                     }
@@ -995,9 +995,13 @@ DccObject {
                                         property string lastValidText: ""
                                         property bool isRestoring: false
                                         property string originalGroupName: ""
+                                        // Normalized group name: undefined → "" for safe access everywhere.
+                                        // Guards still check `model.display == null` to distinguish model
+                                        // transition (undefined) from a genuinely new empty group ("").
+                                        property string groupName: model.display || ""
                                         anchors.fill: parent
-                                        text: model.display
-                                        completeText: model.display
+                                        text: groupName
+                                        completeText: groupName
                                         rightPadding: editButton.width + 10
                                         placeholderText: qsTr("Group name")
                                         background: Item{}
@@ -1007,7 +1011,7 @@ DccObject {
                                                         && !groupSettings.isEditing
                                         editBtn.activeFocusOnTab: false
                                         activeFocusOnTab: false
-                                        readOnly: model.display.length > 0
+                                        readOnly: groupName.length > 0
                                         ToolTip {
                                             visible: parent.hovered && parent.readOnly && parent.completeText != "" && (parent.metrics.advanceWidth(parent.completeText) > (parent.width - parent.rightPadding - 10))
                                             text: parent.completeText
@@ -1022,10 +1026,13 @@ DccObject {
                                         }
 
                                     onReadOnlyChanged: {
+                                        if (model.display == null) {
+                                            return
+                                        }
                                         if (!readOnly) {
                                             text = completeText
-                                            lastValidText = model.display
-                                            originalGroupName = model.display
+                                            lastValidText = groupName
+                                            originalGroupName = groupName
                                         }
                                     }
 
@@ -1044,6 +1051,9 @@ DccObject {
                                         if (readOnly) {
                                             return
                                         }
+                                        if (model.display == null) {
+                                            return
+                                        }
                                         if (isRestoring) {
                                             isRestoring = false
                                             return
@@ -1058,7 +1068,7 @@ DccObject {
                                             })
                                         }
 
-                                        var isNewGroup = (model.display.length === 0)
+                                        var isNewGroup = (groupName.length === 0)
 
                                         if (text.length > 32) {
                                             showAlert = true
@@ -1080,7 +1090,7 @@ DccObject {
                                         }
 
                                         var validFormatRegex = /^[a-zA-Z][a-zA-Z0-9-_]*$/
-                                        if (text.length > 0 && !validFormatRegex.test(text) && model.display != "_ssh") {
+                                        if (text.length > 0 && !validFormatRegex.test(text) && groupName != "_ssh") {
                                             showAlert = true
                                             alertText = qsTr("Use letters,numbers,underscores and dashes only, and must start with a letter")
                                             dccData.playSystemSound(14)
@@ -1093,25 +1103,28 @@ DccObject {
                                     }
 
                                     onFinished: function () {
-                                        var wasNewGroup = (model.display.length < 1)
+                                        if (model.display == null) {
+                                            return
+                                        }
+                                        var wasNewGroup = (groupName.length < 1)
                                         if (text.length < 1) {
-                                            if (model.display.length < 1) {
+                                            if (groupName.length < 1) {
                                                 dccData.requestClearEmptyGroup(settings.userId)
                                             } else {
-                                                var elidedText = metrics.elidedText(model.display, Text.ElideRight, editTextWidth)
+                                                var elidedText = metrics.elidedText(groupName, Text.ElideRight, editTextWidth)
                                                 text = elidedText
                                                 readOnly = true
                                             }
                                             return
                                         }
 
-                                        if (dccData.groupExists(text) && text !== model.display) {
+                                        if (dccData.groupExists(text) && text !== groupName) {
                                             showAlert = true
                                             alertText = qsTr("The group name has been used")
                                             return
                                         }
 
-                                        if (text === model.display) {
+                                        if (text === groupName) {
                                             completeText = text
                                             var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
                                             text = elidedText
@@ -1119,10 +1132,10 @@ DccObject {
                                             return
                                         }
 
-                                        if (model.display.length < 1)
+                                        if (groupName.length < 1)
                                             dccData.createGroup(text)
                                         else
-                                            dccData.modifyGroup(model.display, text)
+                                            dccData.modifyGroup(groupName, text)
 
                                         completeText = text
                                         var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
@@ -1138,18 +1151,21 @@ DccObject {
                                     onFocusChanged: {
                                         if (focus || text.length > 0 || editLabel.readOnly)
                                             return
+                                        if (model.display == null) {
+                                            return
+                                        }
 
-                                        if (model.display.length < 1) {
+                                        if (groupName.length < 1) {
                                             dccData.requestClearEmptyGroup(settings.userId)
                                             return
                                         }
 
-                                        text = model.display
+                                        text = groupName
                                     }
                                     Component.onCompleted: {
-                                        completeText = model.display
-                                        lastValidText = model.display
-                                        originalGroupName = model.display  // Initialize original name
+                                        completeText = groupName
+                                        lastValidText = groupName
+                                        originalGroupName = groupName  // Initialize original name
 
                                         if (editLabel.readOnly) {
                                             var elidedText = metrics.elidedText(completeText, Text.ElideRight, editTextWidth)
@@ -1175,7 +1191,7 @@ DccObject {
                                         enabled: model.groupEnabled
                                         acceptedButtons: Qt.AllButtons
                                         onClicked: {
-                                            dccData.setGroup(settings.userId, model.display, !editButton.checked)
+                                            dccData.setGroup(settings.userId, editLabel.groupName, !editButton.checked)
                                         }
                                     }
                                 }
@@ -1201,16 +1217,16 @@ DccObject {
                                     Layout.rightMargin: groupSettings.isEditing ? 0 : 10
                                     // only checked from groupsChanged
                                     checkable: false
-                                    checked: dccData.groupContains(settings.userId, model.display)
+                                    checked: dccData.groupContains(settings.userId, editLabel.groupName)
                                     onClicked: {
                                         if (groupSettings.isEditing) {
                                             // delete group
-                                            dccData.deleteGroup(model.display)
+                                            dccData.deleteGroup(editLabel.groupName)
                                             groupSettings.isEditing = false
                                             return
                                         }
 
-                                        dccData.setGroup(settings.userId, model.display, !editButton.checked)
+                                        dccData.setGroup(settings.userId, editLabel.groupName, !editButton.checked)
                                     }
                                 }
                             }
