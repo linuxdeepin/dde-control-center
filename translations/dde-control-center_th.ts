@@ -2392,10 +2392,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>การลดเสียงรบกวนอัตโนมัติ</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>ระดับเสียงนำเข้า</translation>
     </message>
@@ -2413,6 +2409,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3599,6 +3599,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>ข้อผิดพลาด</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
