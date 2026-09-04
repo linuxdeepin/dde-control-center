@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -103,6 +103,7 @@ DccObject {
                                 text: qsTr("folder")
                             }
                             D.Switch {
+                                Accessible.id: "FileAndFolder_Switch"
                                 Layout.alignment: Qt.AlignRight
                                 Layout.rightMargin: 10
                                 checked: rep.checkedStates[index]

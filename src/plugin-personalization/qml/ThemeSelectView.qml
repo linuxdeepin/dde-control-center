@@ -100,6 +100,7 @@ FocusScope {
 
         // ListView放在前面（底层），处理鼠标拖拽翻页
         ListView {
+            Accessible.id: "Listview_2"
             id: listview
             anchors.fill: parent
 

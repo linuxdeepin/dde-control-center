@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 // import org.deepin.dtk 1.0 as D
 import QtQuick 2.15
@@ -105,6 +105,7 @@ DccObject{
                     }
 
                     ToolButton {
+                        Accessible.id: "EditBtn"
                         id: editBtn
                         anchors.left: nameDetail.right
                         anchors.verticalCenter: nameDetail.verticalCenter
@@ -206,6 +207,7 @@ DccObject{
             }
 
             Switch {
+                Accessible.id: "DeviceSwitch"
                 id: deviceSwitch
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 Layout.rightMargin: 10
@@ -265,6 +267,7 @@ DccObject{
 
         page: RowLayout {
             CheckBox {
+                Accessible.id: "AllowOtherBluetoothDevicesToFindThisDevice"
                 checked: model.discoverabled
                 Layout.alignment: Qt.AlignLeft
                 leftPadding: 10

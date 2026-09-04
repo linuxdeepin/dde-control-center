@@ -62,6 +62,7 @@ DccObject {
                         model: modeData
                         ColumnLayout {
                             D.ItemDelegate {
+                                Accessible.id: "ModeDelegate"
                                 id: modeDelegate
                                 Layout.preferredWidth: modeDelegateWidth
                                 Layout.preferredHeight: modeDelegateHeight
@@ -149,6 +150,7 @@ DccObject {
                     text: qsTr("Small")
                 }
                 D.Slider {
+                    Accessible.id: "BalanceSlider_2"
                     Layout.alignment: Qt.AlignVCenter
                     id: balanceSlider
                     handleType: Slider.HandleType.ArrowBottom
@@ -189,6 +191,7 @@ DccObject {
             weight: 20
             pageType: DccObject.Editor
             page: Switch {
+                Accessible.id: "DockMain_Switch"
                 checked: dccData.dockInter.locked 
                 onCheckedChanged: {
                     if (dccData.dockInter.locked != checked)
@@ -203,6 +206,8 @@ DccObject {
             weight: 100
             pageType: DccObject.Editor
             page: CustomComBobox {
+                Accessible.id: "DockMain_CustomComBobox"
+                Accessible.role: Accessible.ComboBox
                 flat: true
                 model: alignModel
                 currentIndex: indexByValue(dccData.dockInter.Position)
@@ -229,6 +234,8 @@ DccObject {
             weight: 200
             pageType: DccObject.Editor
             page: CustomComBobox {
+                Accessible.id: "DockMain_CustomComBobox_2"
+                Accessible.role: Accessible.ComboBox
                 flat: true
                 model: hideModel
                 currentIndex: indexByValue(dccData.dockInter.HideMode)
@@ -253,6 +260,7 @@ DccObject {
             weight: 200
             pageType: DccObject.Editor
             page: Switch {
+                Accessible.id: "DockMain_Switch_2"
                 checked: dccData.combineApp
                 onCheckedChanged: {
                     if (dccData.combineApp !== checked)
@@ -278,6 +286,8 @@ DccObject {
             weight: 10
             pageType: DccObject.Editor
             page: CustomComBobox {
+                Accessible.id: "DockMain_CustomComBobox_3"
+                Accessible.role: Accessible.ComboBox
                 flat: true
                 model: showModeModel
                 currentIndex: indexByValue(dccData.dockInter.showInPrimary)

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
@@ -39,6 +39,7 @@ D.DialogWindow {
             Layout.topMargin: 10
             Layout.fillWidth: true
             Button {
+                Accessible.id: "GoToSettings"
                 text: qsTr("Go to settings")
                 Layout.fillWidth: true
                 onClicked: {
@@ -47,6 +48,7 @@ D.DialogWindow {
                 }
             }
             D.WarningButton {
+                Accessible.id: "Cancel_19"
                 text: qsTr("Cancel")
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignRight

@@ -199,6 +199,7 @@ Popup {
                 Layout.fillHeight: true
 
                 ListView {
+                    Accessible.id: "ListView"
                     id: listView
                     clip: true
                     anchors.fill: parent

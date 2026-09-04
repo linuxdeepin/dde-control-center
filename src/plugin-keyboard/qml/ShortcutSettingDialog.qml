@@ -158,6 +158,8 @@ D.DialogWindow {
         }
 
         KeySequenceDisplay {
+            Accessible.id: "Edit"
+            Accessible.role: Accessible.EditableText
             id: edit
             property bool showAlertColor: false
             property string accels
@@ -206,6 +208,7 @@ D.DialogWindow {
             Layout.topMargin: 0
             spacing: 10
             Button {
+                Accessible.id: "Cancel_12"
                 Layout.bottomMargin: 14
                 Layout.fillWidth: true
                 font: D.DTK.fontManager.t6
@@ -217,6 +220,7 @@ D.DialogWindow {
                 }
             }
             Button {
+                Accessible.id: "Save_3"
                 Layout.bottomMargin: 14
                 Layout.fillWidth: true
                 Layout.rightMargin: 24

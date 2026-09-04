@@ -50,6 +50,8 @@ DccObject {
                 }
 
                 CustomTipsSlider {
+                    Accessible.id: "OffMonitorSlider_2"
+                    Accessible.role: Accessible.Slider
                     id: offMonitorSlider
                     dataMap: dccData.model.batteryScreenBlackDelayModel
                     Layout.preferredHeight: 80
@@ -99,6 +101,8 @@ DccObject {
                 }
 
                 CustomTipsSlider {
+                    Accessible.id: "LockScreenSlider_2"
+                    Accessible.role: Accessible.Slider
                     id: lockScreenSlider
                     dataMap: dccData.model.batteryLockDelayModel
                     Layout.preferredHeight: 80
@@ -149,6 +153,8 @@ DccObject {
                 }
 
                 CustomTipsSlider {
+                    Accessible.id: "SuspendsSlider_2"
+                    Accessible.role: Accessible.Slider
                     id: suspendsSlider
                     dataMap: dccData.model.batterySleepDelayModel
                     Layout.preferredHeight: 80
@@ -179,6 +185,8 @@ DccObject {
             weight: 1
             pageType: DccObject.Editor
             page: CustomComboBox {
+                Accessible.id: "BatteryPage_CustomComboBox"
+                Accessible.role: Accessible.ComboBox
                 textRole: "text"
                 enableRole: "enable"
                 visibleRole: "visible"
@@ -197,6 +205,8 @@ DccObject {
             weight: 2
             pageType: DccObject.Editor
             page: CustomComboBox {
+                Accessible.id: "BatteryPage_CustomComboBox_2"
+                Accessible.role: Accessible.ComboBox
                 textRole: "text"
                 enableRole: "enable"
                 visibleRole: "visible"
@@ -231,6 +241,7 @@ DccObject {
             weight: 1
             pageType: DccObject.Editor
             page: D.ComboBox {
+                Accessible.id: "BatteryPage_ComboBox"
                 textRole: "text"
                 flat: true
                 currentIndex: dccData.indexByValueOnModel(model, dccData.model.lowPowerNotifyThreshold)
@@ -271,6 +282,8 @@ DccObject {
             weight: 1
             pageType: DccObject.Editor
             page: CustomComboBox {
+                Accessible.id: "BatteryPage_CustomComboBox_3"
+                Accessible.role: Accessible.ComboBox
                 textRole: "text"
                 valueRole: "value"
                 flat: true
@@ -292,6 +305,8 @@ DccObject {
             weight: 2
             pageType: DccObject.Editor
             page: CustomComboBox {
+                Accessible.id: "BatteryPage_CustomComboBox_4"
+                Accessible.role: Accessible.ComboBox
                 textRole: "text"
                 valueRole: "value"
                 currentIndex: indexByValue(dccData.model.lowPowerAutoSleepThreshold)
@@ -337,6 +352,7 @@ DccObject {
             weight: 1
             pageType: DccObject.Editor
             page: D.Switch {
+                Accessible.id: "BatteryPage_Switch"
                 checked: dccData.model.showBatteryTimeToFull
                 onCheckedChanged: {
                     dccData.worker.setShowBatteryTimeToFull(checked)

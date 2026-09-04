@@ -150,6 +150,7 @@ DccObject {
                 weight: 100
                 pageType: DccObject.Editor
                 page: D.ComboBox {
+                    Accessible.id: "WallpaperPage_ComboBox"
                     flat: true
                     model: ["adapt"]
                 }
@@ -167,6 +168,8 @@ DccObject {
                 weight: 200
                 pageType: DccObject.Editor
                 page: CustomComboBox {
+                    Accessible.id: "WallpaperPage_CustomComboBox"
+                    Accessible.role: Accessible.ComboBox
                     flat: true
                     textRole: "text"
                     currentIndex: indexByValue(dccData.model.wallpaperSlideShowMap[dccData.model.currentSelectScreen])

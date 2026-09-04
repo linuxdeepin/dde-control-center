@@ -56,6 +56,7 @@ D.DialogWindow {
             Layout.topMargin: 10
             Layout.bottomMargin: 10
             D.RecommandButton {
+                Accessible.id: "Revert"
                 Layout.fillWidth: true
                 text: qsTr("Revert")
                 onClicked: close()
@@ -67,6 +68,7 @@ D.DialogWindow {
             }
 
             D.Button {
+                Accessible.id: "Save_4"
                 Layout.fillWidth: true
                 text: qsTr("Save")
                 onClicked: {

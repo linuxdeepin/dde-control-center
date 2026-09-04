@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -29,6 +29,7 @@ DccObject {
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Button {
+                Accessible.id: "DccObjDisplayName_5"
                 text: dccObj.displayName
                 onClicked: {
                     calcValue = dccData.calc(calcValue, 2)
@@ -53,7 +54,9 @@ DccObject {
             canSearch: false // 设置界面通常不搜索，可设置canSearch
             weight: 30
             pageType: DccObject.MenuEditor // 菜单加编辑控件,子项是一个菜单项
-            page: Switch {}
+            page: Switch {
+                Accessible.id: "ExamplePage2_Switch"
+            }
             DccObject {
                 name: "menu"
                 parentName: root.name + "/body/menuEditor"
@@ -67,7 +70,9 @@ DccObject {
                         weight: 30 + index
                         backgroundType: DccObject.Normal
                         pageType: DccObject.Editor
-                        page: Switch {}
+                        page: Switch {
+                            Accessible.id: "ExamplePage2_Switch_2"
+                        }
                     }
                 }
             }
@@ -114,7 +119,9 @@ DccObject {
                     displayName: qsTr("Item") + (index + 1)
                     weight: 30 + index
                     pageType: DccObject.Editor
-                    page: Switch {}
+                    page: Switch {
+                        Accessible.id: "ExamplePage2_Switch_3"
+                    }
                 }
             }
         }
@@ -130,6 +137,7 @@ DccObject {
             weight: 10
             pageType: DccObject.Item
             page: Button {
+                Accessible.id: "Delete"
                 text: qsTr("Delete")
                 onClicked: {
                     deleteDialog.createObject(this).show()
@@ -159,6 +167,7 @@ DccObject {
                         Layout.topMargin: 10
                         Layout.bottomMargin: 10
                         Button {
+                            Accessible.id: "Cancel_17"
                             Layout.fillWidth: true
                             text: qsTr("Cancel")
                             onClicked: close()
@@ -170,6 +179,7 @@ DccObject {
                         }
 
                         Button {
+                            Accessible.id: "Delete_2"
                             Layout.fillWidth: true
                             text: qsTr("Delete")
                             onClicked: {
@@ -196,6 +206,7 @@ DccObject {
             weight: 30
             pageType: DccObject.Item
             page: Button {
+                Accessible.id: "Cancel_18"
                 text: qsTr("Cancel")
                 onClicked: {
                     DccApp.showPage(root.parentName)
@@ -208,6 +219,7 @@ DccObject {
             weight: 40
             pageType: DccObject.Item
             page: Button {
+                Accessible.id: "Save_6"
                 text: qsTr("Save")
                 onClicked: {
                     calcValue = dccData.calc(calcValue, 3)

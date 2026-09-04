@@ -90,6 +90,7 @@ Loader {
                         }
 
                         D.ListView {
+                            Accessible.id: "ItemsView"
                             id: itemsView
                             property string checkedLang
                             property string checkedLocale
@@ -128,6 +129,7 @@ Loader {
                             }
 
                             delegate: D.CheckDelegate {
+                                Accessible.id: "CheckDelegate"
                                 id: checkDelegate
                                 implicitWidth: itemsView.width
                                 text: model.display
@@ -224,6 +226,7 @@ Loader {
                         }
 
                         ItemDelegate {
+                            Accessible.id: "Root_2"
                             id: root
                             Layout.fillWidth: true
                             backgroundVisible: true
@@ -276,6 +279,7 @@ Loader {
                 Layout.bottomMargin: 6
                 spacing: 10
                 D.Button {
+                    Accessible.id: "Cancel_15"
                     font: D.DTK.fontManager.t6
                     text: qsTr("Cancel")
                     onClicked: {
@@ -283,6 +287,7 @@ Loader {
                     }
                 }
                 D.Button {
+                    Accessible.id: "Save_5"
                     text: qsTr("Save")
                     font: D.DTK.fontManager.t6
                     enabled: itemsView.checkedLang.length > 0
