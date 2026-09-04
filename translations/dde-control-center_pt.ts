@@ -2407,10 +2407,6 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>Supressão automática de ruído</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>Volume de entrada</translation>
     </message>
@@ -2429,6 +2425,10 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <message>
         <source>Input Device</source>
         <translation>Dispositivo de entrada</translation>
+    </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3614,6 +3614,17 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <message>
         <source>Error</source>
         <translation>Erro</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
