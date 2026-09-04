@@ -2393,10 +2393,6 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>Samodejno preprečevanje zvočnih sporočil</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>Vločnost vstava</translation>
     </message>
@@ -2415,6 +2411,10 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     <message>
         <source>Input Device</source>
         <translation>Vhodna naprava</translation>
+    </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3600,6 +3600,17 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     <message>
         <source>Error</source>
         <translation>Napaka</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
