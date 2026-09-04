@@ -42,6 +42,8 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void addObject(DccObject *obj);
+    void moduleLoaded(const QString &name);
+    void navigationReady();
     void loadAllFinished();
 
 private:
@@ -55,6 +57,10 @@ private Q_SLOTS:
     void onHideModuleChanged(const QSet<QString> &hideModule);
 
 private:
+    void checkNavigationFinished();
+    void startDataPhase();
+    void checkLoadFinished();
+
     DccManager *m_manager;
     QList<DccPluginLoader *> m_plugins; // cache for other plugin
     DccObject *m_rootModule;            // root module from MainWindow
@@ -63,6 +69,8 @@ private:
     QQmlEngine *m_engine;
     QStringList m_pluginsToLoad;
     DccLoadTimer m_loadTimer;
+    bool m_navigationFinished = false;
+    bool m_allLoadFinished = false;
 };
 
 } // namespace dccV25

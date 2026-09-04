@@ -248,6 +248,23 @@ Item {
                 fill: parent
                 topMargin: 50
             }
+            popEnter: Transition {
+                XAnimator {
+                    from: (rightView.mirrored ? -1 : 1) * -rightView.width
+                    to: 0
+                    duration: 100
+                    easing.type: Easing.OutCubic
+                }
+            }
+
+            popExit: Transition {
+                XAnimator {
+                    from: 0
+                    to: (rightView.mirrored ? -1 : 1) * rightView.width
+                    duration: 100
+                    easing.type: Easing.OutCubic
+                }
+            }
             onCurrentItemChanged: {
                 if (currentItem && !root.isKeyboardNavigating) {
                     rightView.forceActiveFocus()

@@ -4,6 +4,7 @@
 #include "dccmanager.h"
 
 #include "dccapp.h"
+#include "dccbenchmark.h"
 #include "dccimageprovider.h"
 #include "dccobject_p.h"
 #include "navigationmodel.h"
@@ -71,6 +72,8 @@ DccManager::DccManager(QObject *parent)
     , m_showPagePending(false)
     , m_showLoadPage(!isTreeland())
     , m_needShow(false)
+    , m_windowShown(false)
+    , m_pageShown(false)
 #ifdef HAVE_DDE_API_EVENTLOGGER
     , m_pageStayTimer(nullptr)
 #endif
@@ -100,7 +103,7 @@ DccManager::DccManager(QObject *parent)
 
     initConfig();
     connect(m_plugins, &DccPluginManager::addObject, this, &DccManager::addObject);
-    connect(m_plugins, &DccPluginManager::loadAllFinished, this, &DccManager::handleShowReady, Qt::QueuedConnection);
+    connect(m_plugins, &DccPluginManager::navigationReady, this, &DccManager::handleShowReady, Qt::QueuedConnection);
     m_showTimer = new QTimer(this);
     m_showTimer->setInterval(60);
     m_showTimer->setSingleShot(true);
@@ -520,6 +523,11 @@ void DccManager::show()
     }
     w->requestActivate();
     m_needShow = false;
+
+    if (!m_windowShown) {
+        DccAppTimeline::instance().log(QStringLiteral("window-visible"));
+        m_windowShown = true;
+    }
 }
 
 void DccManager::toggle()
@@ -1065,6 +1073,11 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
     m_showFallbackTimer->stop();
     if (m_needShow) {
         show();
+    }
+
+    if (!m_pageShown) {
+        DccAppTimeline::instance().log(QStringLiteral("first-page-visible"));
+        m_pageShown = true;
     }
 }
 
