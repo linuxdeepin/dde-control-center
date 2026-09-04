@@ -2419,7 +2419,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Intelligent Noise Reduction</source>
-        <translation>Kohinan poisto tekoälyllä</translation>
+        <translation>Kohinanpoisto tekoälyllä</translation>
     </message>
 </context>
 <context>
@@ -3611,7 +3611,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundWorker</name>
     <message>
         <source>Failed to enable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"/>
+        <translation>Kohinanpoisto tekoälyllä, käyttöönotto epäonnistui. Yritä myöhemmin uudelleen.</translation>
     </message>
     <message>
         <source>Failed to disable intelligent noise reduction. Try again later.</source>
