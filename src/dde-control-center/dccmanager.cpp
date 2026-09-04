@@ -216,6 +216,21 @@ bool DccManager::isTreeland() const
     return Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform);
 }
 
+bool DccManager::isServerSystem() const
+{
+    return DSysInfo::uosType() == DSysInfo::UosServer;
+}
+
+bool DccManager::isCommunitySystem() const
+{
+    return DSysInfo::uosEditionType() == DSysInfo::UosCommunity;
+}
+
+bool DccManager::isDeepin() const
+{
+    return DSysInfo::isDeepin();
+}
+
 DccObject *DccManager::object(const QString &name)
 {
     return findObject(name);

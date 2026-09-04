@@ -125,11 +125,6 @@ bool SystemInfoModel::showAuthorization() const
     return !(IS_COMMUNITY_SYSTEM || DSysInfo::UosEditionUnknown == DSysInfo::uosEditionType()) && DSysInfo::uosEditionType() != DSysInfo::UosEnterpriseC;
 }
 
-bool SystemInfoModel::showUserExperienceProgram() const
-{
-    return !IS_SERVER_SYSTEM && !IS_COMMUNITY_SYSTEM && DSysInfo::isDeepin();
-}
-
 bool SystemInfoModel::showGraphicsPlatform() const
 {
     return  IS_COMMUNITY_SYSTEM;

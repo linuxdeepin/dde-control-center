@@ -57,6 +57,9 @@ public:
     Q_INVOKABLE Dtk::Core::DSysInfo::ProductType productType() const;
 
     Q_INVOKABLE bool isTreeland() const;
+    Q_INVOKABLE bool isServerSystem() const;
+    Q_INVOKABLE bool isCommunitySystem() const;
+    Q_INVOKABLE bool isDeepin() const;
 
     inline const QSet<QString> &hideModule() const { return m_hideModule; }
 
