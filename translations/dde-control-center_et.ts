@@ -2394,10 +2394,6 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>Auto äänepealikuvõtmine</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>Sisestusvõimsus</translation>
     </message>
@@ -2415,6 +2411,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     </message>
     <message>
         <source>Input Device</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3601,6 +3601,17 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>Error</source>
         <translation>Viga</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
