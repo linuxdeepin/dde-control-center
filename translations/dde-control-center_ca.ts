@@ -3618,11 +3618,11 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>SoundWorker</name>
     <message>
         <source>Failed to enable intelligent noise reduction. Try again later.</source>
-        <translation>Ha fallat activar la reducció de soroll intel·ligent. Torneu-ho a intentar més tard.</translation>
+        <translation>Ha fallat activar la reducció intel·ligent de soroll. Torneu-ho a intentar més tard.</translation>
     </message>
     <message>
         <source>Failed to disable intelligent noise reduction. Try again later.</source>
-        <translation>Ha fallat desactivar la reducció de soroll intel·ligent. Torneu-ho a intentar més tard.</translation>
+        <translation>Ha fallat desactivar la reducció intel·ligent de soroll. Torneu-ho a intentar més tard.</translation>
     </message>
 </context>
 <context>
