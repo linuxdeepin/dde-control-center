@@ -3587,7 +3587,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Wysłanie ikony programu wywołującego na pulpit</translation>
+        <translation>Wysłanie ikony Launchera na pulpit</translation>
     </message>
     <message>
         <source>Empty Trash</source>
