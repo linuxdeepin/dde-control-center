@@ -4137,7 +4137,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation>rozwiń</translation>
+        <translation>zwiń</translation>
     </message>
     <message>
         <source>Set lock screen</source>
