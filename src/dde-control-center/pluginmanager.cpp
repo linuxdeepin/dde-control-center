@@ -121,14 +121,15 @@ void DccPluginManager::loadPlugin(DccPluginLoader *loader)
         checkNavigationFinished();
     } else if ((loader->status() & (DccPluginLoader::MetaDataEnd | DccPluginLoader::ModuleLoad)) == DccPluginLoader::MetaDataEnd) {
         loader->transitionStatus(DccPluginLoader::ModuleLoad);
-        if (loader->loadModule()) {
+        const auto ret = loader->loadModule();
+        if (auto module = loader->module()) {
+            Q_EMIT addObject(module);
+        }
+        if (ret) {
             loader->transitionStatus(DccPluginLoader::ModuleEnd);
             Q_EMIT moduleLoaded(loader->name());
         } else {
             loader->transitionStatus(DccPluginLoader::ModuleEnd | DccPluginLoader::PluginEnd);
-        }
-        if (loader->module()) {
-            Q_EMIT addObject(loader->module());
         }
     } else {
         if (loader->loadMetaData()) {
@@ -202,8 +203,6 @@ void DccPluginManager::loadModules(DccObject *root, bool async, const QStringLis
     for (auto &&loader : m_plugins) {
         loadPlugin(loader);
     }
-    // 预热：在线程池中提前创建 DSAppletManager 单例（构造即完成 dde-apps
-    // applet 初始化），避免首个消费者在插件加载路径上同步承担该开销。
     checkNavigationFinished();
 }
 
@@ -231,8 +230,10 @@ void DccPluginManager::checkNavigationFinished()
 
 void DccPluginManager::startDataPhase()
 {
-    threadPool()->start(DSAppletManager::instance);
     DccAppTimeline::instance().log(QStringLiteral("data-phase-start"));
+    // 预热：在线程池中提前创建 DSAppletManager 单例（构造即完成 dde-apps
+    // applet 初始化），避免首个消费者在插件加载路径上同步承担该开销。
+    threadPool()->start(DSAppletManager::instance);
     for (auto &&loader : m_plugins) {
         if ((loader->status() & DccPluginLoader::PluginEnd)
             || !(loader->status() & DccPluginLoader::ModuleEnd)
