@@ -324,6 +324,7 @@ ColumnLayout {
                 Layout.bottomMargin: 20
                 model: passwordModel
                 delegate: D.ItemDelegate {
+                    id: control
                     implicitWidth: pwdColumnLayout.width
                     backgroundVisible: false
                     checkable: false
