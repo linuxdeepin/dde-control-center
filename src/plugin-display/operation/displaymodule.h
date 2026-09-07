@@ -23,6 +23,7 @@ class DisplayModule : public QObject
     Q_PROPERTY(bool isX11 READ isX11 NOTIFY isX11Changed FINAL)
     Q_PROPERTY(qreal globalScale READ globalScale WRITE setGlobalScale NOTIFY globalScaleChanged FINAL)
     Q_PROPERTY(qreal maxGlobalScale READ maxGlobalScale NOTIFY maxGlobalScaleChanged FINAL)
+    Q_PROPERTY(bool colorTemperatureSupported READ colorTemperatureSupported NOTIFY colorTemperatureSupportedChanged FINAL)
     Q_PROPERTY(bool colorTemperatureEnabled READ colorTemperatureEnabled WRITE setColorTemperatureEnabled NOTIFY colorTemperatureEnabledChanged FINAL)
     Q_PROPERTY(int colorTemperatureMode READ colorTemperatureMode WRITE setColorTemperatureMode NOTIFY colorTemperatureModeChanged FINAL)
     Q_PROPERTY(int colorTemperature READ colorTemperature WRITE setColorTemperature NOTIFY colorTemperatureChanged FINAL)
@@ -48,6 +49,7 @@ public:
     qreal globalScale() const;
     void setGlobalScale(qreal scale);
     qreal maxGlobalScale() const;
+    bool colorTemperatureSupported() const;
     bool colorTemperatureEnabled() const;
     void setColorTemperatureEnabled(bool enabled);
     int colorTemperatureMode() const;
@@ -82,6 +84,7 @@ Q_SIGNALS:
     void globalScaleChanged();
     void globalScaleEnabledChanged();
     void maxGlobalScaleChanged();
+    void colorTemperatureSupportedChanged();
     void colorTemperatureEnabledChanged();
     void colorTemperatureModeChanged();
     void colorTemperatureChanged();

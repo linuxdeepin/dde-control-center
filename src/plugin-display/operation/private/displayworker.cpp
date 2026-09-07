@@ -92,6 +92,7 @@ DisplayWorker::DisplayWorker(DisplayModel *model, QObject *parent, bool isSync)
         connect(m_displayInter, &DisplayDBusProxy::ScreenWidthChanged, model, &DisplayModel::setScreenWidth);
         connect(m_displayInter, &DisplayDBusProxy::DisplayModeChanged, model, &DisplayModel::setDisplayMode);
         connect(m_displayInter, &DisplayDBusProxy::MaxBacklightBrightnessChanged, model, &DisplayModel::setmaxBacklightBrightness);
+        connect(m_displayInter, &DisplayDBusProxy::SupportColorTemperatureChanged, model, &DisplayModel::setRedshiftIsValid);
         connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureEnabledChanged, model, &DisplayModel::setColorTemperatureEnabled);
         connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureModeChanged, model, &DisplayModel::setAdjustCCTmode);
         connect(m_displayInter, &DisplayDBusProxy::ColorTemperatureManualChanged, this, [this](int kelvin) {
@@ -188,13 +189,7 @@ void DisplayWorker::active()
         // 初始化自动亮度
         initAutoBacklight();
 
-        bool isRedshiftValid = true;
-        QDBusReply<bool> reply = m_displayInter->SupportSetColorTemperatureSync();
-        if (QDBusError::NoError == reply.error().type())
-            isRedshiftValid = reply.value();
-        else
-            qCWarning(DdcDisplayWorker) << "Call SupportSetColorTemperature method failed: " << reply.error().message();
-        m_model->setRedshiftIsValid(isRedshiftValid);
+        m_model->setRedshiftIsValid(m_displayInter->supportColorTemperature());
         QVariant minBrightnessValue = 0.1f;
         minBrightnessValue = m_dconfig->value("minBrightnessValue", minBrightnessValue);
         m_model->setMinimumBrightnessScale(minBrightnessValue.toDouble());
