@@ -16,7 +16,7 @@ DccObject {
         name: "developerMode"
         parentName: "system"
         displayName: qsTr("Developer Options")
-        description: !dccData.mode().isCommunitySystem() ? qsTr("Developer root permission management") : qsTr("Developer debugging options")
+        description: !DccApp.isCommunitySystem() ? qsTr("Developer root permission management") : qsTr("Developer debugging options")
         icon: "developer"
         weight: 90
     }
