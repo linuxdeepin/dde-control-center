@@ -28,6 +28,9 @@ public:
     Q_PROPERTY(BrightnessMap Brightness READ brightness NOTIFY BrightnessChanged)
     BrightnessMap brightness();
 
+    Q_PROPERTY(bool SupportColorTemperature READ supportColorTemperature NOTIFY SupportColorTemperatureChanged FINAL)
+    bool supportColorTemperature() const;
+
     Q_PROPERTY(bool ColorTemperatureEnabled READ colorTemperatureEnabled WRITE setColorTemperatureEnabled NOTIFY ColorTemperatureEnabledChanged FINAL)
     bool colorTemperatureEnabled() const;
     void setColorTemperatureEnabled(bool enabled);
@@ -132,7 +135,6 @@ public Q_SLOTS: // METHODS
     QDBusPendingReply<> SwitchMode(uchar in0, const QString &in1);
     QDBusPendingReply<> SetConcatScreen(bool enable);
     QDBusReply<bool> CanSetBrightnessSync(const QString &name);
-    QDBusReply<bool> SupportSetColorTemperatureSync();
     // Appearance
     QDBusPendingReply<double> GetScaleFactor();
     QDBusPendingReply<QMap<QString, double> > GetScreenScaleFactors();
@@ -146,6 +148,7 @@ public Q_SLOTS: // METHODS
 Q_SIGNALS: // SIGNALS
     // begin property changed signals
     void BrightnessChanged(BrightnessMap value) const;
+    void SupportColorTemperatureChanged(bool value) const;
     void ColorTemperatureEnabledChanged(bool value) const;
     void ColorTemperatureManualChanged(int value) const;
     void ColorTemperatureModeChanged(int value) const;

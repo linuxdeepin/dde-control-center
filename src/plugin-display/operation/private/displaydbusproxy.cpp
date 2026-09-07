@@ -85,6 +85,17 @@ BrightnessMap DisplayDBusProxy::brightness()
     return qvariant_cast<BrightnessMap>(m_dBusDisplayInter->property("Brightness"));
 }
 
+bool DisplayDBusProxy::supportColorTemperature() const
+{
+    const QVariant value = m_dBusDisplayInter->property("SupportColorTemperature");
+    if (!value.isValid()) {
+        qWarning("Failed to read SupportColorTemperature property; defaulting to false");
+        return false;
+    }
+
+    return qvariant_cast<bool>(value);
+}
+
 bool DisplayDBusProxy::colorTemperatureEnabled() const
 {
     return qvariant_cast<bool>(m_dBusDisplayInter->property("ColorTemperatureEnabled"));
@@ -384,9 +395,4 @@ QDBusPendingReply<> DisplayDBusProxy::SwitchMode(uchar in0, const QString &in1)
 QDBusReply<bool> DisplayDBusProxy::CanSetBrightnessSync(const QString &name)
 {
     return m_dBusDisplayInter->call("CanSetBrightness", name);
-}
-
-QDBusReply<bool> DisplayDBusProxy::SupportSetColorTemperatureSync()
-{
-    return m_dBusDisplayInter->call("SupportSetColorTemperature");
 }
