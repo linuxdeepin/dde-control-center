@@ -89,7 +89,11 @@ void ConcatScreen::adsorption()
     qreal leftTop = 0.0;
     qreal leftBottom = 0.0;
 
-    int space = 200;
+    // 吸附阈值按屏幕宽度比例计算：以 1080p(1920px) 下 200 逻辑像素为基准，
+    // 保证不同分辨率(如 4K)下吸附手感一致，避免固定值过小导致边缘无法对齐
+    qreal space = m_movingItem->rect().width() * (200.0 / 1920.0);
+    qDebug() << "[adsorption] space threshold =" << space
+             << ", movingItem width =" << m_movingItem->rect().width();
 
     auto minMoveLen = [=](qreal temp, qreal &len) {
         if (fabs(len) > 0.0) {
