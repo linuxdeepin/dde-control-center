@@ -204,6 +204,7 @@ DccObject {
             pageType: DccObject.Editor
             page: CustomComBobox {
                 flat: true
+                readonly property bool fashionMode: dccData.dockInter.DisplayMode === 2
                 model: alignModel
                 currentIndex: indexByValue(dccData.dockInter.Position)
 
@@ -215,9 +216,21 @@ DccObject {
                     ListElement { text: qsTr("Right"); value: 1 }
                 }
 
-                onCurrentIndexChanged: {
-                    var selectedValue = model.get(currentIndex).value;
-                    dccData.dockInter.setPosition(selectedValue)
+                function updateAlignModel() {
+                    if (fashionMode) {
+                        if (alignModel.count > 2)
+                            alignModel.remove(2, alignModel.count - 2)
+                    } else if (alignModel.count === 2) {
+                        alignModel.append({ text: qsTr("Left"), value: 3 })
+                        alignModel.append({ text: qsTr("Right"), value: 1 })
+                    }
+                }
+
+                Component.onCompleted: updateAlignModel()
+                onFashionModeChanged: updateAlignModel()
+
+                onActivated: function(index) {
+                    dccData.dockInter.setPosition(model.get(index).value)
                 }
             }
         }
@@ -252,6 +265,9 @@ DccObject {
             displayName: qsTr("Combine application icons")
             weight: 200
             pageType: DccObject.Editor
+            description: dccData.dockInter.DisplayMode === 2
+                         ? qsTr("App icons are always grouped on the taskbar in Fashion Mode.")
+                         : ""
             page: Switch {
                 checked: dccData.combineApp
                 onCheckedChanged: {
