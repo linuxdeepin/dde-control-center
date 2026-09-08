@@ -222,10 +222,6 @@ void DccPluginManager::checkNavigationFinished()
     m_navigationFinished = true;
     DccAppTimeline::instance().log(QStringLiteral("navigation-ready"));
     Q_EMIT navigationReady();
-
-    // Start data phase after navigation is ready, to avoid blocking the main thread with data loading
-    // Use a single-shot timer to ensure that the data phase starts after the current event loop iteration
-    QTimer::singleShot(100, this, &DccPluginManager::startDataPhase);
 }
 
 void DccPluginManager::startDataPhase()
@@ -255,7 +251,6 @@ void DccPluginManager::checkLoadFinished()
     m_allLoadFinished = true;
     m_loadTimer.stop();
     DccAppTimeline::instance().log(QStringLiteral("all-plugins-loaded"));
-    DccAppTimeline::instance().stop();
     Q_EMIT loadAllFinished();
     cancelLoad();
 }

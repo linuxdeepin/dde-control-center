@@ -280,27 +280,25 @@ D.ApplicationWindow {
             Connections {
                 target: DccApp
                 function onActiveObjectChanged(activeObject) {
-                    Qt.callLater(function () {
-                        if (stackView.currentIndex !== DccWindow.PageIndex.LoadIndex && null === DccApp.activeObject) {
-                            mainWindow.sidebarPage = null
-                            stackView.currentIndex = DccWindow.PageIndex.LoadIndex
-                            mainWindow.currentIndex = DccWindow.PageIndex.LoadIndex
-                        } else if (stackView.currentIndex !== DccWindow.PageIndex.HomeIndex && DccApp.root === DccApp.activeObject) {
-                            if (!homeLoader.active) {
-                                homeLoader.active = true
-                            }
-                            mainWindow.sidebarPage = null
-                            stackView.currentIndex = DccWindow.PageIndex.HomeIndex
-                            mainWindow.currentIndex = DccWindow.PageIndex.HomeIndex
-                        } else if (stackView.currentIndex !== DccWindow.PageIndex.SecondIndex && DccApp.root !== DccApp.activeObject) {
-                            if(!secondLoader.active){
-                                secondLoader.active = true
-                            }
-                            stackView.currentIndex = DccWindow.PageIndex.SecondIndex
-                            mainWindow.currentIndex = DccWindow.PageIndex.SecondIndex
-                            mainWindow.sidebarPage = secondLoader.item
+                    if (stackView.currentIndex !== DccWindow.PageIndex.LoadIndex && null === DccApp.activeObject) {
+                        mainWindow.sidebarPage = null
+                        stackView.currentIndex = DccWindow.PageIndex.LoadIndex
+                        mainWindow.currentIndex = DccWindow.PageIndex.LoadIndex
+                    } else if (stackView.currentIndex !== DccWindow.PageIndex.HomeIndex && DccApp.root === DccApp.activeObject) {
+                        if (!homeLoader.active) {
+                            homeLoader.active = true
                         }
-                    })
+                        mainWindow.sidebarPage = null
+                        stackView.currentIndex = DccWindow.PageIndex.HomeIndex
+                        mainWindow.currentIndex = DccWindow.PageIndex.HomeIndex
+                    } else if (stackView.currentIndex !== DccWindow.PageIndex.SecondIndex && DccApp.root !== DccApp.activeObject) {
+                        if (!secondLoader.active) {
+                            secondLoader.active = true
+                        }
+                        stackView.currentIndex = DccWindow.PageIndex.SecondIndex
+                        mainWindow.currentIndex = DccWindow.PageIndex.SecondIndex
+                        mainWindow.sidebarPage = secondLoader.item
+                    }
                 }
             }
             Component.onCompleted: {

@@ -30,6 +30,7 @@ public:
     void loadModules(DccObject *root, bool async, const QStringList &dirs, QQmlEngine *engine);
     bool loadFinished() const;
     void beginDelete();
+    void startDataPhase();
 
     QQmlEngine *engine();
     DccObject *rootModule();
@@ -58,7 +59,6 @@ private Q_SLOTS:
 
 private:
     void checkNavigationFinished();
-    void startDataPhase();
     void checkLoadFinished();
 
     DccManager *m_manager;
