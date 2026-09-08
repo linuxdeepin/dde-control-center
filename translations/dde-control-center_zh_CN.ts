@@ -359,10 +359,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Add a new %1 ...</source>
         <translation>添加新的%1...</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>名称不能为空</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -2065,6 +2061,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation>合并应用图标</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation>时尚模式下不支持拆分应用图标，任务栏应用图标始终合并显示。</translation>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2185,49 +2185,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>节能模式时降低屏幕亮度</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>三指向上</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>三指向下</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>三指向左</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>三指向右</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>三指短按</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>四指向上</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>四指向下</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>四指向左</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>四指向右</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>四指短按</translation>
     </message>
 </context>
 <context>
@@ -2437,49 +2394,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>通用、鼠标、触控板</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>最大化窗口</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>还原窗口</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>显示桌面</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>锁定屏幕</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>显示多任务视图</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>禁用</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>切换到上一工作区</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>切换到下一工作区</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>隐藏多任务视图</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>切换多任务视图</translation>
     </message>
 </context>
 <context>
@@ -3407,10 +3321,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>点击添加使这个快捷键生效</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation>替换</translation>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>启动快捷键录入失败，请重试。</translation>
     </message>
@@ -3421,10 +3331,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation>快捷键组合无效，请重新设置</translation>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
-        <translation>点击替换使这个快捷键生效</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -4538,10 +4444,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>无</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>应用</translation>
     </message>
 </context>
 </TS>
