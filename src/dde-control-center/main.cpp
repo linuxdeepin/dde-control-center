@@ -234,6 +234,7 @@ int main(int argc, char *argv[])
     }
     if (parser.isSet(pluginOption))
         dccManager->setPlugins(parser.values(pluginOption));
+    dccManager->setShowOnNavigationReady(reqPage.isEmpty() && !parser.isSet(dbusOption));
     if (!refPluginDirs.isEmpty()) {
         dccManager->loadModules(true, refPluginDirs);
         adaptor->Show();

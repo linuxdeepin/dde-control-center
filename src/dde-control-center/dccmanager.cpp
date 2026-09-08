@@ -71,9 +71,11 @@ DccManager::DccManager(QObject *parent)
     , m_showFallbackTimer(nullptr)
     , m_showPagePending(false)
     , m_showLoadPage(!isTreeland())
+    , m_showOnNavigationReady(false)
     , m_needShow(false)
     , m_windowShown(false)
     , m_pageShown(false)
+    , m_allPluginsLoaded(false)
 #ifdef HAVE_DDE_API_EVENTLOGGER
     , m_pageStayTimer(nullptr)
 #endif
@@ -103,7 +105,8 @@ DccManager::DccManager(QObject *parent)
 
     initConfig();
     connect(m_plugins, &DccPluginManager::addObject, this, &DccManager::addObject);
-    connect(m_plugins, &DccPluginManager::navigationReady, this, &DccManager::handleShowReady, Qt::QueuedConnection);
+    connect(m_plugins, &DccPluginManager::navigationReady, this, &DccManager::handleNavigationReady, Qt::QueuedConnection);
+    connect(m_plugins, &DccPluginManager::loadAllFinished, this, &DccManager::handleLoadFinished, Qt::QueuedConnection);
     m_showTimer = new QTimer(this);
     m_showTimer->setInterval(60);
     m_showTimer->setSingleShot(true);
@@ -170,6 +173,11 @@ void DccManager::setPlugins(const QStringList &plugins)
     m_plugins->setPlugins(plugins);
 }
 
+void DccManager::setShowOnNavigationReady(bool enabled)
+{
+    m_showOnNavigationReady = enabled;
+}
+
 void DccManager::loadModules(bool async, const QStringList &dirs)
 {
     // onAddModule(m_rootModule);
@@ -232,6 +240,11 @@ bool DccManager::isCommunitySystem() const
 bool DccManager::isDeepin() const
 {
     return DSysInfo::isDeepin();
+}
+
+void DccManager::logTimeline(const QString &stage, const QString &detail) const
+{
+    DccAppTimeline::instance().log(stage, detail);
 }
 
 DccObject *DccManager::object(const QString &name)
@@ -646,6 +659,14 @@ bool DccManager::isEqual(const QString &url, const DccObject *obj)
     return isEqualByName(url, obj->parentName() + "/" + obj->name());
 }
 
+bool DccManager::isObjectAttached(const DccObject *obj) const
+{
+    while (obj && obj != m_root) {
+        obj = DccObject::Private::FromObject(obj)->getParent();
+    }
+    return obj == m_root;
+}
+
 DccObject *DccManager::findObject(const QString &url)
 {
     if (!m_root || url.isEmpty()) {
@@ -880,14 +901,19 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
         obj = m_root;
         showPage(obj, QString());
     } else {
-        const QString path = parseShowPageUrl(url, cmd);
-        const auto objs = findObjects(path, true);
-        obj = objs.isEmpty() ? nullptr : objs.first();
-        if (obj) {
-            showPage(obj, cmd);
-        } else if (!m_plugins->loadFinished()) {
+        if (!m_plugins->loadFinished()) {
             startPendingShow(url, message);
             return;
+        }
+
+        const QString path = parseShowPageUrl(url, cmd);
+        const auto objs = findObjects(path);
+        const auto it = std::find_if(objs.cbegin(), objs.cend(), [this](const DccObject *candidate) {
+            return isObjectAttached(candidate);
+        });
+        obj = it == objs.cend() ? nullptr : *it;
+        if (obj) {
+            showPage(obj, cmd);
         }
     }
 
@@ -903,6 +929,25 @@ void DccManager::clearShowParam()
     }
 }
 
+void DccManager::handleNavigationReady()
+{
+    if (m_showOnNavigationReady) {
+        if (m_showUrl.isEmpty()) {
+            handleShowReady();
+        }
+        QTimer::singleShot(100, m_plugins, &DccPluginManager::startDataPhase);
+    } else {
+        m_plugins->startDataPhase();
+    }
+}
+
+void DccManager::handleLoadFinished()
+{
+    m_allPluginsLoaded = true;
+    handleShowReady();
+    tryStopTimeline();
+}
+
 void DccManager::handleShowReady()
 {
     if (!m_showUrl.isEmpty()) {
@@ -912,22 +957,35 @@ void DccManager::handleShowReady()
     }
 }
 
+void DccManager::tryStopTimeline()
+{
+    if (m_allPluginsLoaded && m_pageShown) {
+        DccAppTimeline::instance().stop();
+    }
+}
+
 void DccManager::tryShow()
 {
     if (m_showUrl.isEmpty()) {
+        return;
+    }
+    if (!m_plugins->loadFinished()) {
+        if (!m_plugins->isDeleting()) {
+            m_showTimer->start();
+        }
         return;
     }
 
     QString cmd;
     const QString path = parseShowPageUrl(m_showUrl, cmd);
     DccObject *obj = findObject(path);
-    if (obj) {
+    if (obj && isObjectAttached(obj)) {
         const QString url = m_showUrl;
         const QDBusMessage message = m_showMessage;
         clearShowParam();
         showPage(obj, cmd);
         replyShowPageRequest(url, message, true);
-    } else if (m_plugins->loadFinished()) {
+    } else {
         const QString url = m_showUrl;
         const QDBusMessage message = m_showMessage;
         clearShowParam();
@@ -935,8 +993,6 @@ void DccManager::tryShow()
         if (!m_activeObject) {
             showPage(m_root, QString());
         }
-    } else if (!m_plugins->isDeleting()) {
-        m_showTimer->start();
     }
 }
 
@@ -1078,6 +1134,7 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
     if (!m_pageShown) {
         DccAppTimeline::instance().log(QStringLiteral("first-page-visible"));
         m_pageShown = true;
+        tryStopTimeline();
     }
 }
 
