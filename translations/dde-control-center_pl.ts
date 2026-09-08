@@ -1530,7 +1530,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation>Ze względu na lokalne prawa i regulacje w Twoim regionie, ta obecnie funkcja nie jest dostępna.</translation>
+        <translation>Ze względu na lokalne prawo i regulacje w Twoim regionie, funkcja nie jest obecnie dostępna.</translation>
     </message>
 </context>
 <context>
