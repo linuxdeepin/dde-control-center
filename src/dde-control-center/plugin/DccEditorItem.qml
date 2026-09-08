@@ -68,7 +68,7 @@ D.ItemDelegate {
             mirrored: control.mirrored
             display: control.display
             alignment: control.display === D.IconLabel.IconOnly || control.display === D.IconLabel.TextUnderIcon ? Qt.AlignCenter : Qt.AlignLeft | Qt.AlignVCenter
-            color: control.palette.windowText
+            color: control.resolvedTextColor
             icon {
                 name: control.icon.name
                 source: control.icon.source
