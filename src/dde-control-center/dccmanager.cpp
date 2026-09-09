@@ -1286,6 +1286,11 @@ void DccManager::waitLoadFinished() const
     }
 }
 
+bool DccManager::loadFinished() const
+{
+    return m_plugins->loadFinished();
+}
+
 QList<ModuleInfo> DccManager::moduleList() const
 {
     waitLoadFinished();
