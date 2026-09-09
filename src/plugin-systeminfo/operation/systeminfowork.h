@@ -11,6 +11,12 @@
 
 class QApplication;
 class SystemInfoDBusProxy;
+namespace Dtk {
+namespace Core {
+class DConfig;
+}
+}
+
 namespace DCC_NAMESPACE{
 
 class SystemInfoModel;
@@ -60,12 +66,14 @@ public Q_SLOTS:
 private:
     void getLicenseState();
     void updateUserExperienceProgramText();
+    void updateCustomerLogo();
 
 private:
     SystemInfoModel *m_model;
     SystemInfoDBusProxy *m_systemInfoDBusProxy;
     QString m_title;
     QDBusInterface *m_dBusUeProgram; // for user experience program
+    Dtk::Core::DConfig *m_systemInfoConfig = nullptr;
 
 };
 
