@@ -45,14 +45,14 @@ target_include_directories(${BIN_NAME} PRIVATE
 
 # Expose protected/private members for the test files that need direct access
 # to non-public members (e.g. KeyboardModel::convertLang, CategoryModel::getAppById,
-# DockPluginSortProxyModel::lessThan). Applied per-file via set_source_files_properties
-# rather than target-wide so existing tests and Qt6 headers (which use private/
-# protected inheritance) are unaffected.
+# DockPluginSortProxyModel::lessThan). Applied per-file via -fno-access-control
+# (compile OPTION, not the `#define private public` macro which breaks
+# gtest/libstdc++ <sstream>/<any>).
 set_source_files_properties(
     ut_keyboardmodel.cpp
     ut_dockpluginsortproxymodel.cpp
     ut_categorymodel.cpp
-    PROPERTIES COMPILE_DEFINITIONS "protected=public;private=public"
+    PROPERTIES COMPILE_OPTIONS "-fno-access-control"
 )
 
 target_link_libraries(${BIN_NAME} PRIVATE
@@ -78,52 +78,42 @@ if(UNITTEST AND DEFINED UT_COMPILER)
 endif()
 
 # ---- 覆盖率报告生成 target（产物输出 build 目录）
-# 使用 gcovr 生成单页自包含 HTML 报告，仅纳入本次被测文件。
+# 使用 lcov + genhtml 生成报告，仅纳入本次被测源文件目录。
 # target 自包含：DEPENDS 编译出插桩二进制，前置 ctest 运行产出 .gcda，
-# 再由 gcovr 读取 .gcda/.gcno 生成报告。
+# 再由 lcov --capture 汇总、--extract 只保留被测模块、genhtml 渲染。
 # 运行： cmake --build build --target coverage
-# 产物： ${CMAKE_BINARY_DIR}/coverage_report/coverage-dde-control-center.html
-# 注意：--filter 必须用绝对路径——gcovr 的 RelativeFilter 以 CWD（此处为
-# ${CMAKE_BINARY_DIR}）为基准而非 --root，相对 "src/..." 在 build/ 下匹配不到
-# 任何文件会导致空报告。
-find_package(Python3 QUIET COMPONENTS Interpreter)
-if(Python3_Interpreter_FOUND)
-    set(GCOVR_CMD ${Python3_EXECUTABLE} -m gcovr)
-else()
-    find_program(GCOVR_PYTHON python3)
-    if(GCOVR_PYTHON)
-        set(GCOVR_CMD ${GCOVR_PYTHON} -m gcovr)
-    else()
-        set(GCOVR_CMD gcovr)
-    endif()
+# 产物： ${CMAKE_BINARY_DIR}/coverage_report/index.html
+find_program(LCOV_BIN lcov)
+find_program(GENHTML_BIN genhtml)
+set(_coverage_report_cmds "")
+if(LCOV_BIN AND GENHTML_BIN)
+    set(_coverage_report_cmds
+        COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/coverage_report"
+        COMMAND ${LCOV_BIN} --capture --directory "${CMAKE_BINARY_DIR}"
+                --rc lcov_branch_coverage=1
+                --output-file "${CMAKE_BINARY_DIR}/coverage.info"
+        COMMAND ${LCOV_BIN} --extract "${CMAKE_BINARY_DIR}/coverage.info"
+                --rc lcov_branch_coverage=1
+                "${PROJECT_SOURCE_DIR}/src/shared-utils/*"
+                "${PROJECT_SOURCE_DIR}/src/plugin-keyboard/operation/*"
+                "${PROJECT_SOURCE_DIR}/src/plugin-datetime/operation/timezoneMap/*"
+                "${PROJECT_SOURCE_DIR}/src/plugin-defaultapp/operation/*"
+                "${PROJECT_SOURCE_DIR}/src/plugin-personalization/operation/*"
+                "${PROJECT_SOURCE_DIR}/src/plugin-mouse/operation/*"
+                "${PROJECT_SOURCE_DIR}/src/plugin-bluetooth/operation/*"
+                "${PROJECT_SOURCE_DIR}/src/plugin-sound/operation/*"
+                "${PROJECT_SOURCE_DIR}/src/plugin-dock/operation/*"
+                --output-file "${CMAKE_BINARY_DIR}/coverage_filtered.info"
+        COMMAND ${GENHTML_BIN} "${CMAKE_BINARY_DIR}/coverage_filtered.info"
+                --branch-coverage
+                --output-directory "${CMAKE_BINARY_DIR}/coverage_report"
+    )
 endif()
-
-set(COVERAGE_HTML_OUT "${CMAKE_BINARY_DIR}/coverage_report/coverage-dde-control-center.html")
 add_custom_target(coverage
-    COMMAND ${CMAKE_COMMAND} -E make_directory "${CMAKE_BINARY_DIR}/coverage_report"
     COMMAND ${CMAKE_CTEST_COMMAND} --test-dir "${CMAKE_BINARY_DIR}" --output-on-failure
-    COMMAND ${GCOVR_CMD}
-            --root "${PROJECT_SOURCE_DIR}"
-            --filter "${PROJECT_SOURCE_DIR}/src/shared-utils/dcclocale\.cpp"
-            --filter "${PROJECT_SOURCE_DIR}/src/plugin-keyboard/operation/metadata\.cpp"
-            --filter "${PROJECT_SOURCE_DIR}/src/plugin-datetime/operation/timezoneMap/timezone_map_util\.cpp"
-            --filter "${PROJECT_SOURCE_DIR}/src/plugin-defaultapp/operation/category\.cpp"
-            --filter "${PROJECT_SOURCE_DIR}/src/plugin-personalization/operation/keyfile\.cpp"
-            --filter "${PROJECT_SOURCE_DIR}/src/plugin-mouse/operation/gesturedata\.cpp"
-            --filter "${PROJECT_SOURCE_DIR}/src/plugin-bluetooth/operation/bluetoothdevice\.cpp"
-            --filter "${PROJECT_SOURCE_DIR}/src/plugin-sound/operation/port\.cpp"
-            --filter "${PROJECT_SOURCE_DIR}/src/plugin-sound/operation/soundDeviceData\.cpp"
-            --filter "${PROJECT_SOURCE_DIR}/src/plugin-keyboard/operation/keyboardmodel\.cpp"
-            --filter "${PROJECT_SOURCE_DIR}/src/plugin-dock/operation/dockpluginsortproxymodel\.cpp"
-            --filter "${PROJECT_SOURCE_DIR}/src/plugin-defaultapp/operation/categorymodel\.cpp"
-            --html-details
-            --html-single-page
-            --html-self-contained
-            --html-title "DDE-104 控制中心测试覆盖率报告"
-            --output "${COVERAGE_HTML_OUT}"
-            --print-summary
+    ${_coverage_report_cmds}
     WORKING_DIRECTORY "${CMAKE_BINARY_DIR}"
     DEPENDS ${BIN_NAME}
-    COMMENT "Generating gcovr HTML coverage report -> ${COVERAGE_HTML_OUT}"
+    COMMENT "Run all tests and generate coverage report"
     VERBATIM
 )
