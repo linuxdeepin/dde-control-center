@@ -11,12 +11,15 @@
 
 #include <DGuiApplicationHelper>
 #include <DSysInfo>
+#include <DConfig>
 #include <QDBusInterface>
 
 #include <QDateTime>
 #include <QFutureWatcher>
 #include <QtConcurrent/qtconcurrentrun.h>
 #include <QClipboard>
+#include <QUrl>
+#include <QFileInfo>
 
 #include <qregularexpression.h>
 #include <qtimezone.h>
@@ -27,6 +30,9 @@ DCORE_USE_NAMESPACE
 DGUI_USE_NAMESPACE
 
 const QString USER_EXPERIENCE_SERVICE = "com.deepin.userexperience.Daemon";
+
+static const QString CUSTOMER_LOGO_ENABLED_KEY = QStringLiteral("customerLogoEnabled");
+static const QString CUSTOMER_LOGO_PATH_KEY = QStringLiteral("customerLogoPath");
 
 
 namespace DCC_NAMESPACE{
@@ -68,6 +74,15 @@ SystemInfoWork::SystemInfoWork(SystemInfoModel *model, QObject *parent)
             &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
             this,
             &SystemInfoWork::onThemeTypeChanged);
+
+    m_systemInfoConfig = DConfig::create("org.deepin.dde.control-center",
+                                         "org.deepin.dde.control-center.systeminfo",
+                                         QString(), this);
+    connect(m_systemInfoConfig, &DConfig::valueChanged, this, [this](const QString &key) {
+        if (key == CUSTOMER_LOGO_ENABLED_KEY || key == CUSTOMER_LOGO_PATH_KEY)
+            updateCustomerLogo();
+    });
+    updateCustomerLogo();
 
 
     updateFrequency(false);
@@ -266,6 +281,23 @@ void SystemInfoWork::initSystemCopyright()
     }
 
     m_model->setSystemCopyright(oem_copyright);
+}
+
+void SystemInfoWork::updateCustomerLogo()
+{
+    QString source;
+    if (m_systemInfoConfig && m_systemInfoConfig->isValid()
+            && m_systemInfoConfig->value(CUSTOMER_LOGO_ENABLED_KEY, false).toBool()) {
+        const QString path = m_systemInfoConfig->value(CUSTOMER_LOGO_PATH_KEY).toString().trimmed();
+        if (!path.isEmpty()) {
+            const QFileInfo logoFile(path);
+            if (!logoFile.isAbsolute() || !logoFile.exists())
+                qWarning() << "Invalid customer logo path:" << path;
+            else
+                source = QUrl::fromLocalFile(path).toString();
+        }
+    }
+    m_model->setCustomerLogoSource(source);
 }
 
 void SystemInfoWork::updateFrequency(bool state)
