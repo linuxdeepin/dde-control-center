@@ -5,6 +5,8 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.15
 import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0
+import org.deepin.dtk 1.0 as D
+import org.deepin.dtk.style 1.0 as DS
 import QtQml.Models
 
 // 语言和区域
@@ -308,10 +310,24 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: Item {
-            implicitWidth: rowlayout.implicitWidth
-            implicitHeight: rowlayout.implicitHeight
+            implicitWidth: rowlayout.implicitWidth + 20
+            implicitHeight: 30
+
+            D.BoxPanel {
+                anchors.fill: parent
+                color1: DS.Style.comboBox.flatBackground
+                outsideBorderColor: null
+                radius: DS.Style.control.radius
+                visible: mouseArea.containsMouse || mouseArea.pressed
+                D.ColorSelector.hovered: mouseArea.containsMouse
+                D.ColorSelector.pressed: mouseArea.pressed
+            }
+
             RowLayout {
                 id: rowlayout
+                anchors.fill: parent
+                anchors.leftMargin: 10
+                anchors.rightMargin: 10
                 Label {
                     id: regionLabel
                     text: dccData.region
@@ -328,6 +344,7 @@ DccObject {
                 id: mouseArea
                 anchors.fill: parent
                 focus: true
+                hoverEnabled: true
 
                 RegionsChooserWindow {
                     id: regionWndow
@@ -386,10 +403,25 @@ DccObject {
         }
         page: Item {
             id: regionAndFormatItem
-            implicitWidth: regionAndFormat.localeGenRunning ? 36 : layout.implicitWidth
-            implicitHeight: regionAndFormat.localeGenRunning ? 36 : layout.implicitHeight
+            implicitWidth: regionAndFormat.localeGenRunning ? 36 : layout.implicitWidth + 20
+            implicitHeight: regionAndFormat.localeGenRunning ? 36 : 30
+
+            D.BoxPanel {
+                anchors.fill: parent
+                color1: DS.Style.comboBox.flatBackground
+                outsideBorderColor: null
+                radius: DS.Style.control.radius
+                visible: !regionAndFormat.localeGenRunning
+                         && (mouseArea.containsMouse || mouseArea.pressed)
+                D.ColorSelector.hovered: mouseArea.containsMouse
+                D.ColorSelector.pressed: mouseArea.pressed
+            }
+
             RowLayout {
                 id: layout
+                anchors.fill: parent
+                anchors.leftMargin: 10
+                anchors.rightMargin: 10
                 visible: !regionAndFormat.localeGenRunning
                 Label {
                     id: currentLabel
@@ -415,8 +447,10 @@ DccObject {
             }
 
             MouseArea {
+                id: mouseArea
                 anchors.fill: parent
                 enabled: !regionAndFormat.localeGenRunning
+                hoverEnabled: true
                 RegionFormatDialog {
                     id: regionDialog
                     currentIndex: dccData.currentLanguageAndRegionIndex()
