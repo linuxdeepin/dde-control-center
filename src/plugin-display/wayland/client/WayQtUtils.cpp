@@ -27,6 +27,19 @@ wl_output *WQt::Utils::wlOutputFromQScreen(QScreen *screen)
     return native->output();
 }
 
+QScreen *WQt::Utils::qScreenFromWlOutput(wl_output *output)
+{
+    if (!output)
+        return nullptr;
+
+    for (QScreen *screen : QGuiApplication::screens()) {
+        if (wlOutputFromQScreen(screen) == output)
+            return screen;
+    }
+
+    return nullptr;
+}
+
 bool WQt::Utils::isOutputAlive(wl_output *output)
 {
     if (!output)

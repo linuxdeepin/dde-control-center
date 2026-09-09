@@ -753,8 +753,27 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 void DisplayWorker::setPrimary(const QString &name)
 {
     if (WQt::Utils::isTreeland()) {
-        if (m_treelandOutputMgr)
-            m_treelandOutputMgr->setPrimaryOutput(name.toStdString().c_str());
+        if (m_treelandOutputMgr) {
+            // v2 protocol takes a wl_output* instead of an output name string;
+            // resolve the name to the wl_output owned by the matching QScreen.
+            struct wl_output *output = nullptr;
+            for (auto it(m_screen_outputs.cbegin()); it != m_screen_outputs.cend(); ++it) {
+                if (it.key()->name() == name) {
+                    output = it.value();
+                    break;
+                }
+            }
+            // The v2 set_primary_output request does not declare allow-null for
+            // its output argument, so do not send a null object — the compositor
+            // would reject it (or worse, treat it as a protocol error).  This
+            // happens when the screen has not been registered yet; the primary
+            // output is left unchanged and the user can retry later.
+            if (!output) {
+                qCWarning(DdcDisplayWorker) << "cannot set primary output: no wl_output found for" << name;
+                return;
+            }
+            m_treelandOutputMgr->setPrimaryOutput(output);
+        }
     } else {
         m_displayInter->SetPrimary(name);
     }
@@ -1399,7 +1418,7 @@ void DisplayWorker::updateControl()
             }
 
             if (controlContext == m_control_monitors.end()) {
-                auto *control = m_treelandOutputMgr->getColorControl(it.value());
+                auto *control = m_treelandOutputMgr->getPictureControl(it.value());
                 if (control) {
                     connect(control, &WQt::ColorControl::brightnessChanged, this, [this, control](double brightness) {
                         onBrightnessChanged(control, brightness);
