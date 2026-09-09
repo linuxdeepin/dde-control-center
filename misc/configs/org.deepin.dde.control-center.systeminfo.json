@@ -1,0 +1,28 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "customerLogoEnabled": {
+            "value": false,
+            "serial": 0,
+            "flags": [],
+            "name": "enable customer logo",
+            "name[zh_CN]": "启用客户标识",
+            "description": "Whether to show the customer logo below the system logo on the About This PC page",
+            "description[zh_CN]": "是否在“关于本机”页面的系统 logo 下方显示客户标识",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
+        "customerLogoPath": {
+            "value": "",
+            "serial": 0,
+            "flags": [],
+            "name": "customer logo path",
+            "name[zh_CN]": "客户标识资源路径",
+            "description": "Absolute path of the customer logo image, no customer logo is shown when it is empty",
+            "description[zh_CN]": "客户标识图片的绝对路径，为空时不显示客户标识",
+            "permissions": "readwrite",
+            "visibility": "public"
+        }
+    }
+}

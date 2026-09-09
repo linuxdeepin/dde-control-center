@@ -51,12 +51,19 @@ DccObject {
         backgroundType: DccObject.Normal
         visible: dccData.systemInfoMode().showDetail
         page: ColumnLayout{
+            spacing: 0
             Image {
                 Layout.topMargin: 25
                 Layout.alignment: Qt.AlignHCenter
                 source: "file://" + dccData.systemInfoMode().logoPath
             }
+            Image {
+                Layout.alignment: Qt.AlignHCenter
+                visible: source !== ""
+                source: dccData.systemInfoMode().customerLogoSource
+            }
             Label {
+                Layout.topMargin: 5
                 Layout.alignment: Qt.AlignHCenter
                 text: dccData.systemInfoMode().systemCopyright
                 Layout.bottomMargin: 25
