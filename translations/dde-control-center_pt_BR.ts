@@ -2059,7 +2059,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation type="unfinished"/>
+        <translation>Os ícones dos aplicativos são sempre agrupados na barra de tarefas no Modo Fashion.</translation>
     </message>
 </context>
 <context>
