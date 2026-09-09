@@ -14,6 +14,8 @@ pkg_check_modules(FFMPEGTHUMBNAILER REQUIRED IMPORTED_TARGET libffmpegthumbnaile
 find_package(DDEShell REQUIRED)
 
 set(DCC_SHARED_UTILS_SOURCES
+    "dccbenchmark.h"
+    "dccbenchmark.cpp"
     "dcclocale.h"
     "dcclocale.cpp"
     "dccdsappletmanager.h"
