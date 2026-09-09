@@ -1,3 +1,10 @@
+dde-control-center (6.1.98.2) unstable; urgency=medium
+
+  * feat(systeminfo): add configurable customer logo on About This PC
+    page
+
+ -- xionglinlin <xionglinlin@uniontech.com>  Wed, 09 Sep 2026 18:07:03 +0800
+
 dde-control-center (6.1.98.1) unstable; urgency=medium
 
   * fix: sync volume adjustment in real time
