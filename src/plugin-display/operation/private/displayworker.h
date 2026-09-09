@@ -34,6 +34,7 @@ namespace WQt {
 class OutputHead;
 class OutputManager;
 class TreeLandOutputManager;
+class TreelandOutputUuidHead;
 class VirtualOutputManager;
 class WallpaperManager;
 class ColorControl;
@@ -109,6 +110,7 @@ private Q_SLOTS:
 
     void onBrightnessChanged(WQt::ColorControl *colorControl, double brightness);
     void initTreeland();
+    void onUuidChanged();
 
 private:
     void monitorAdded(const QString &path);
@@ -124,6 +126,7 @@ private:
     void updateControl();
     void updateTreelandDisplayMode();
     void initAutoBacklight();
+    QString uuidToMonitorName(const QString &uuid) const;
 
     uint32_t toColorTemp(int pos);
     int toColorTempPos(uint32_t kelvin);
@@ -139,7 +142,6 @@ Q_SIGNALS:
 private:
     struct ColorControlContext
     {
-        QScreen *screen = nullptr;
         WQt::ColorControl *control = nullptr;
     };
 
@@ -150,6 +152,7 @@ private:
     // for wlroots-based compositors
     WQt::OutputManager *m_outputMgr { nullptr };
     WQt::TreeLandOutputManager *m_treelandOutputMgr { nullptr };
+    WQt::TreelandOutputUuidHead *m_uuidHeadMgr { nullptr };
     WQt::VirtualOutputManager *m_virtualOutputMgr { nullptr };
     WQt::WallpaperManager *m_wallpaperMgr { nullptr };
     // wl_output proxy owned by each Qt platform screen, cached so that it is
@@ -157,6 +160,7 @@ private:
     QHash<QScreen *, wl_output *> m_screen_outputs;
     QMap<Monitor *, WQt::OutputHead *> m_wl_monitors;
     QMap<Monitor *, ColorControlContext> m_control_monitors;
+    QString m_pendingPrimaryName;
 #if GAMMA_SUPPORT
     QMap<Monitor *, DFL::GammaEffects *> *m_wl_gammaEffects;
     QMap<Monitor *, DFL::GammaEffectsConfig *> *m_wl_gammaConfig;
