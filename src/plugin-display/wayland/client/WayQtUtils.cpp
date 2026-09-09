@@ -26,7 +26,6 @@ wl_output *WQt::Utils::wlOutputFromQScreen(QScreen *screen)
 
     return native->output();
 }
-
 bool WQt::Utils::isOutputAlive(wl_output *output)
 {
     if (!output)
