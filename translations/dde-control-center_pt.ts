@@ -362,10 +362,6 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
         <source>Add a new %1 ...</source>
         <translation>Adicionar um novo %1 ...</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>O nome não pode estar vazio</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -2068,6 +2064,10 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
         <source>Combine application icons</source>
         <translation>Combinar ícones de aplicações</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2188,49 +2188,6 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Diminuir brilho do ecrã em poupança de energia</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>Toque três-dedos para cima</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>Toque três-dedos para baixo</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>Toque três-dedos para a esquerda</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Toque três-dedos para a direita</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Toque três-dedos</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Toque quatro-dedos para cima</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Toque quatro-dedos para baixo</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Toque quatro-dedos para a esquerda</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Toque quatro-dedos para a direita</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Toque quatro-dedos</translation>
     </message>
 </context>
 <context>
@@ -2440,49 +2397,6 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Comum、Rato、Touchpad</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>Maximizar janela</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>Restaurar janela</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>Mostrar ambiente de trabalho</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>Trancar ecrã</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>Vista Multi-tarefa</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Desativar</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>Trocar para área de trabalho anterior</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>Trocar para área de trabalho seguinte</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>Esconder vista multi-tarefa</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>Alternar vista de multi-tarefa</translation>
     </message>
 </context>
 <context>
@@ -3410,10 +3324,6 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
         <translation>clique em Adicionar para tornar efetivo este atalho de tecla</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation>Substituir</translation>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>Falha ao iniciar captura de tecla de atalho. Por favor tente novamente.</translation>
     </message>
@@ -3424,10 +3334,6 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation>Atalho de teclado inválido. Defina um novo.</translation>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
-        <translation>clique em Substituir para tornar efetivo este atalho de tecla</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -4541,10 +4447,6 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <message>
         <source>None</source>
         <translation>Nenhum</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>Aplicação</translation>
     </message>
 </context>
 </TS>
