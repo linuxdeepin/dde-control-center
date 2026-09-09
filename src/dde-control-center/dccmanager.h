@@ -92,6 +92,7 @@ public Q_SLOTS:
     bool action(const QString &json);
     QString GetAllModule();
     QList<ModuleInfo> moduleList() const;
+    bool loadFinished() const;
     void onDccObjectDestroyed(DccObject *obj);
 
 Q_SIGNALS:

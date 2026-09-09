@@ -235,6 +235,10 @@ int main(int argc, char *argv[])
     if (listMode) {
         dccManager->loadModules(false, refPluginDirs.isEmpty() ? defaultpath() : refPluginDirs);
         printModules(dccManager->moduleList());
+        if (!dccManager->loadFinished()) {
+            fprintf(stderr, "Some plugins did not finish loading, the list above is incomplete.\n");
+            return shutdown(1);
+        }
         return shutdown(0);
     }
 
