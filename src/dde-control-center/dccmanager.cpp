@@ -1286,29 +1286,51 @@ void DccManager::waitLoadFinished() const
     }
 }
 
-void DccManager::doGetAllModule(const QDBusMessage message) const
+QList<ModuleInfo> DccManager::moduleList() const
 {
     waitLoadFinished();
-    DccObject *root = m_root;
-    QList<QPair<DccObject *, QStringList>> modules;
-    for (auto &&child : root->getChildren()) {
-        modules.append({ child, { child->name(), child->displayName() } });
+
+    struct Entry
+    {
+        DccObject *obj;
+        ModuleInfo info;
+    };
+
+    QList<Entry> pending;
+    for (auto &&child : m_root->getChildren()) {
+        pending.append({ child, { child->name(), child->displayName(), child->displayName(), (int)child->weight(), false } });
     }
     for (auto &&child : m_hideObjects->getChildren()) {
-        modules.append({ child, { child->name(), child->displayName() } });
+        pending.append({ child, { child->name(), child->displayName(), child->displayName(), (int)child->weight(), true } });
     }
 
+    QList<ModuleInfo> modules;
+    while (!pending.isEmpty()) {
+        const Entry entry = pending.takeFirst();
+        modules.append(entry.info);
+        const QList<DccObject *> &children = entry.obj->getChildren();
+        for (auto it = children.crbegin(); it != children.crend(); ++it) {
+            ModuleInfo info;
+            info.url = entry.info.url + "/" + (*it)->name();
+            info.displayName = (*it)->displayName();
+            info.pathDisplayName = entry.info.pathDisplayName + "/" + info.displayName;
+            info.weight = (int)(*it)->weight();
+            info.hidden = entry.info.hidden;
+            pending.prepend({ *it, info });
+        }
+    }
+    return modules;
+}
+
+void DccManager::doGetAllModule(const QDBusMessage message) const
+{
     QJsonArray arr;
-    while (!modules.isEmpty()) {
-        const auto &urlInfo = modules.takeFirst();
+    for (const auto &module : moduleList()) {
         QJsonObject obj;
-        obj.insert("url", urlInfo.second.at(0));
-        obj.insert("displayName", urlInfo.second.at(1));
-        obj.insert("weight", (int)(urlInfo.first->weight()));
+        obj.insert("url", module.url);
+        obj.insert("displayName", module.pathDisplayName);
+        obj.insert("weight", module.weight);
         arr.append(obj);
-        const QList<DccObject *> &children = urlInfo.first->getChildren();
-        for (auto it = children.crbegin(); it != children.crend(); ++it)
-            modules.prepend({ *it, { urlInfo.second.at(0) + "/" + (*it)->name(), urlInfo.second.at(1) + "/" + (*it)->displayName() } });
     }
 
     QJsonDocument doc;

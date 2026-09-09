@@ -38,6 +38,8 @@ $ dpkg-buildpackage -uc -us -nc -b # 构建二进制软件包
 
 Execute `dde-control-center -h` to get more details.
 
+`--list` 用于列出所有模块（`url` 与显示名，被隐藏的模块标记 `[hidden]`）后直接退出，例如 `dde-control-center --list | grep display`。
+
 ## 帮助
 
 任何使用问题都可以通过以下方式寻求帮助:

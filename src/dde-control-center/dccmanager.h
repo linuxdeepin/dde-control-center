@@ -26,6 +26,15 @@ class SearchModel;
 class DccPluginManager;
 class DccImageProvider;
 
+struct ModuleInfo
+{
+    QString url;
+    QString displayName;
+    QString pathDisplayName;
+    int weight = 0;
+    bool hidden = false;
+};
+
 class DccManager : public DccApp, protected QDBusContext
 {
     Q_OBJECT
@@ -82,6 +91,7 @@ public Q_SLOTS:
     bool stop(const QString &json);
     bool action(const QString &json);
     QString GetAllModule();
+    QList<ModuleInfo> moduleList() const;
     void onDccObjectDestroyed(DccObject *obj);
 
 Q_SIGNALS:
