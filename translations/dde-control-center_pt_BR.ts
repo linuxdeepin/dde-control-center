@@ -3633,11 +3633,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Exibir aviso de software de código aberto</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Programa de experiência do usuário</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
