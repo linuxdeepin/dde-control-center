@@ -190,6 +190,7 @@ public slots:
     bool isEffectLoaded(const QString &name);
     bool isEffectLoaded(const QString &name, QObject *receiver, const char *member);
     bool isEffectSupported(const QString &name);
+    QDBusPendingReply<bool> isEffectSupportedAsync(const QString &name);
 
 private:
     Dtk::Core::DDBusInterface *m_AppearanceInter = nullptr;
