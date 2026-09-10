@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pt_BR">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pt_BR">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -193,7 +191,7 @@ Para garantir o acesso:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>A autenticação biométrica é uma função de verificação de identidade do usuário fornecida pela UnionTech Software Technology Ltda. Por meio da autenticação biométrica, os dados biométricos coletados serão comparados com os armazenados no dispositivo, e a identidade do usuário será verificada com base no resultado da comparação.
@@ -240,7 +238,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>&quot;A autenticação biométrica&quot; ​​é uma função para autenticação de identidade do usuário fornecida pela UnionTech Software Technology Co., Ltd. Por meio da &quot;autenticação biométrica&quot;, os dados biométricos coletados serão comparados com os armazenados no dispositivo, e a identidade do usuário será verificada com base no resultado da comparação.Observe que a UnionTech Software Technology Co., Ltd. não coletará ou acessará suas informações biométricas, que serão armazenadas em seu dispositivo local. Habilite apenas a autenticação biométrica em seu dispositivo pessoal e use suas próprias informações biométricas para operações relacionadas, e desabilite ou exclua imediatamente as informações biométricas de outras pessoas naquele dispositivo, caso contrário, você arcará com o risco decorrente disso.A UnionTech Software Technology Co., Ltd. está comprometida em pesquisar e melhorar a segurança, precisão e estabilidade da autenticação biométrica. No entanto, devido a fatores ambientais, de equipamento, técnicos e outros e controle de risco, não há garantia de que você passará pela autenticação biométrica temporariamente. Portanto, não tome a autenticação biométrica como a única maneira de fazer login no UOS.  Caso tenha alguma dúvida ou sugestão ao usar a autenticação biométrica, você pode nos dar um feedback através de &quot;Serviço e Suporte&quot; no UOS.</translation>
@@ -287,7 +285,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>A autenticação biométrica é uma função de verificação de identidade do usuário fornecida pela UnionTech Software Technology Ltda. Por meio da autenticação biométrica, os dados biométricos coletados serão comparados com os armazenados no dispositivo, e a identidade do usuário será verificada com base no resultado da comparação.
@@ -357,10 +355,6 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     <message>
         <source>Add a new %1 ...</source>
         <translation>Adicionar um novo %1 ...</translation>
-    </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>O nome não pode estar vazio</translation>
     </message>
 </context>
 <context>
@@ -2063,6 +2057,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation>Agrupar ícones de aplicativos</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation>Os ícones dos aplicativos são sempre agrupados na barra de tarefas no Modo Fashion.</translation>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2183,49 +2181,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Reduzir o brilho da tela no modo de economia de energia em</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>Deslizar três dedos para cima</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>Deslizar três dedos para baixo</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>Deslizar três dedos para a esquerda</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Deslizar três dedos para a direita</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Toque com três dedos</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Deslizar quatro dedos para cima</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Deslizar quatro dedos para baixo</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Deslizar quatro dedos para a esquerda</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Deslizar quatro dedos para a direita</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Toque com quatro dedos</translation>
     </message>
 </context>
 <context>
@@ -2423,7 +2378,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Intelligent Noise Reduction</source>
-        <translation type="unfinished"></translation>
+        <translation>Redução inteligente de ruído</translation>
     </message>
 </context>
 <context>
@@ -2435,49 +2390,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Geral, Mouse, Touchpad</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>Maximizar janela</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>Restaurar janela</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>Exibir área de trabalho</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>Bloquear tela</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>Visão multitarefa</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Desativar</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>Alternar para a área de trabalho anterior</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>Alternar para a próxima área de trabalho</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>Ocultar visão multitarefa</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>Alternar visão multitarefa</translation>
     </message>
 </context>
 <context>
@@ -3405,10 +3317,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Clique em Adicionar para ativar esta tecla de atalho</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation>Substituir</translation>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>Falha ao iniciar a captura de atalho. Tente novamente.</translation>
     </message>
@@ -3419,10 +3327,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation>Atalho de teclado inválido. Defina um novo atalho.</translation>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
-        <translation>Clique em Substituir para ativar esta tecla de atalho</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3615,11 +3519,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundWorker</name>
     <message>
         <source>Failed to enable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao ativar a redução inteligente de ruído. Tente novamente mais tarde.</translation>
     </message>
     <message>
         <source>Failed to disable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>Falha ao desativar a redução inteligente de ruído. Tente novamente mais tarde.</translation>
     </message>
 </context>
 <context>
@@ -4536,10 +4440,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Nenhum</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>Aplicativo</translation>
     </message>
 </context>
 </TS>
