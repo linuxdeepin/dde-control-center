@@ -4,6 +4,7 @@
 
 #include "pluginmanager.h"
 
+#include "dccasyncmodloader.h"
 #include "dccfactory.h"
 #include "dccmanager.h"
 #include "dccobject_p.h"
@@ -24,6 +25,10 @@
 #include <QSettings>
 #include <QtConcurrent>
 #include <QtConcurrentRun>
+
+// module同步加载尽快显示，main异步加载不阻塞主线程
+// #define ASYNC_MODULE
+#define ASYNC_MAIN
 
 namespace dccV25 {
 
@@ -67,6 +72,7 @@ DccPluginManager::DccPluginManager(DccManager *parent)
     , m_rootModule(nullptr)
     , m_threadPool(nullptr)
     , m_isDeleting(false)
+    , m_asyncLoader(nullptr)
 {
     connect(m_manager, &DccManager::hideModuleChanged, this, &DccPluginManager::onHideModuleChanged);
 }
@@ -111,26 +117,40 @@ void DccPluginManager::loadPlugin(DccPluginLoader *loader)
         }
         loader->transitionStatus(DccPluginLoader::PluginEnd);
     } else if ((loader->status() & (DccPluginLoader::DataEnd | DccPluginLoader::MainObjLoad)) == DccPluginLoader::DataEnd) {
-        loader->transitionStatus(DccPluginLoader::MainObjLoad);
         loader->createDccObject();
         loader->updateParent();
+#ifdef ASYNC_MAIN
+        m_asyncLoader->enqueue(loader);
+#else
+        loader->transitionStatus(DccPluginLoader::MainObjLoad);
         loader->loadMain();
         loader->transitionStatus(DccPluginLoader::MainObjEnd);
+#endif
     } else if ((loader->status() & (DccPluginLoader::ModuleEnd | DccPluginLoader::DataBegin)) == DccPluginLoader::ModuleEnd) {
-
+        if (loader->module()) {
+            if (!loader->module()->parent()) {
+                loader->module()->setParent(rootModule());
+            }
+            Q_EMIT addObject(loader->module());
+        }
+        if (!loader->isVisibleToApp()) {
+            loader->setLog("create module finished, module is hidden");
+            loader->transitionStatus(DccPluginLoader::ModuleEnd | DccPluginLoader::PluginEnd);
+        }
         checkNavigationFinished();
     } else if ((loader->status() & (DccPluginLoader::MetaDataEnd | DccPluginLoader::ModuleLoad)) == DccPluginLoader::MetaDataEnd) {
+#ifdef ASYNC_MODULE
+        m_asyncLoader->enqueue(loader);
+#else
         loader->transitionStatus(DccPluginLoader::ModuleLoad);
         const auto ret = loader->loadModule();
-        if (auto module = loader->module()) {
-            Q_EMIT addObject(module);
-        }
         if (ret) {
             loader->transitionStatus(DccPluginLoader::ModuleEnd);
             Q_EMIT moduleLoaded(loader->name());
         } else {
             loader->transitionStatus(DccPluginLoader::ModuleEnd | DccPluginLoader::PluginEnd);
         }
+#endif
     } else {
         if (loader->loadMetaData()) {
             loader->transitionStatus(DccPluginLoader::MetaDataEnd);
@@ -149,6 +169,9 @@ void DccPluginManager::loadModules(DccObject *root, bool async, const QStringLis
     m_rootModule = root;
     m_engine = engine;
     qCDebug(dccLog()) << "plugin dir:" << dirs;
+    if (!m_asyncLoader) {
+        m_asyncLoader = new DccAsyncModuleLoader(m_engine, this);
+    }
 
     QFileInfoList pluginList;
     for (const auto &dir : dirs) {

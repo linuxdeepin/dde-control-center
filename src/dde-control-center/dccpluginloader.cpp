@@ -113,6 +113,23 @@ void DccPluginLoader::setType(TypeFlags type)
     m_type = type;
 }
 
+void DccPluginLoader::setModule(DccObject *module)
+{
+    m_module = module;
+    if (module) {
+        module->setParent(m_pManager->rootModule());
+        connect(module, &DccObject::visibleToAppChanged, this, &DccPluginLoader::updateVisible);
+    }
+}
+
+void DccPluginLoader::setMainObj(DccObject *mainObj)
+{
+    m_mainObj = mainObj;
+    if (m_mainObj) {
+        m_mainObj->setParent(m_module ? m_module : m_pManager->rootModule());
+    }
+}
+
 void DccPluginLoader::transitionStatus(StatusFlags status)
 {
     StatusFlags oldStatus = m_status;
@@ -247,11 +264,10 @@ bool DccPluginLoader::loadModule()
         QObject *object = component.create();
         if (!object) {
             setLog("component create module object is null:" + component.errorString());
+            transitionStatus(ModuleErr);
             return true;
         }
-        object->setParent(m_pManager->rootModule());
-        m_module = qobject_cast<DccObject *>(object);
-        connect(m_module, &DccObject::visibleToAppChanged, this, &DccPluginLoader::updateVisible);
+        setModule(qobject_cast<DccObject *>(object));
         if (m_module && !m_module->isVisibleToApp()) {
             setLog("create module finished, module is hidden");
             return false;
@@ -394,8 +410,7 @@ void DccPluginLoader::loadMain()
             return;
         }
         context->setParent(object); // Context will be deleted when object is deleted
-        object->setParent(m_module ? m_module : m_pManager->rootModule());
-        m_mainObj = qobject_cast<DccObject *>(object);
+        setMainObj(qobject_cast<DccObject *>(object));
     } break;
     case QQmlComponent::Error: {
         setLog(" component create main object error:" + component.errorString());
