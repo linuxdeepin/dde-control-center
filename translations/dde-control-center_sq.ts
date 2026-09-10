@@ -939,26 +939,26 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Menu Nisjesh</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Administroni menunë tuaj të nisjeve</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Administrim lejesh rrënje për zhvilluesit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Mundësi Zhvilluesish</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>Mundësi diagnostikimi për zhvillues</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1195,9 +1195,6 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
         <source>Time and date, time zone settings</source>
         <translation>Datë dhe kohë, rregullime zone kohore</translation>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
         <translation>Gjuhë dhe rajon</translation>
@@ -1718,13 +1715,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
 </context>
 <context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Devices</source>
-        <translation>Bluetooth dhe Pajisje</translation>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2186,6 +2176,21 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Ule ndriçimin e ekranit nën kursyes energjie</translation>
+    </message>
+</context>
+<context>
+    <name>GroupObject</name>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3614,36 +3619,26 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation>Rregullime të rëndomëta</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>Sistem</translation>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>Informacion Ndihmës</translation>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Mbi Këtë PC</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Version sistemi, informacion pajisjesh</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>Shihni shënimin rreth software-i me burim të hapët</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -3651,27 +3646,23 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation>Merrni pjesë te “User Experience Program” që të ndihmoni të përmirësohet produkti</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Marrëveshje Licence Përdoruesi të Thjeshtë</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>Shihni marrëveshjen e licencës së përdoruesit të thjeshtë</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>Rregulla Privatësie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>Shihni informacion rreth rregullash privatësie</translation>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
-        <translation>Shënim Software-i Me Burim të Hapët</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
