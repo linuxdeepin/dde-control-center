@@ -36,7 +36,7 @@ DccObject {
         target: shortcutSettingsView
         function onDeactive() {
             dccData.endKeyCapture()
-            shortcutView.restoreShortcutView()
+            shortcutSettingsBody.requestRestore()
             shortcutSettingsBody.conflictAccels = ""
             shortcutSettingsBody.isEditing = false
         }

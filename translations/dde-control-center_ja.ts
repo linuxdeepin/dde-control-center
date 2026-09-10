@@ -357,10 +357,6 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
         <source>Add a new %1 ...</source>
         <translation>%1 を追加...</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>名前を空白にすることはできません</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -2063,6 +2059,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation>アプリケーションアイコンの結合</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2183,49 +2183,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>省電力モード使用時にディスプレイの明るさを減らす</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>3本指、上にスワイプ</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>3本指、下にスワイプ</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>3本指、左にスワイプ</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>3本指、右にスワイプ</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>3本指、タップ</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>4本指、上にスワイプ</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>4本指、下にスワイプ</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>4本指、左にスワイプ</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>4本指、右にスワイプ</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>4本指、タップ</translation>
     </message>
 </context>
 <context>
@@ -2402,10 +2359,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>自動ノイズ除去</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>入力音量</translation>
     </message>
@@ -2425,6 +2378,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Input Device</source>
         <translation>入力デバイス</translation>
     </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2435,49 +2392,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>一般、マウス、タッチパッド</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3405,10 +3319,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Replace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation type="unfinished"/>
     </message>
@@ -3418,10 +3328,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3609,6 +3515,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>エラー</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4525,10 +4442,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>なし</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

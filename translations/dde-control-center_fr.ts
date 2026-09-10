@@ -360,10 +360,6 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
         <source>Add a new %1 ...</source>
         <translation>Ajouter un nouveau %1 ...</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>Le nom ne peut pas être vide.</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -2068,6 +2064,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <source>Combine application icons</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2188,49 +2188,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Diminuer la luminosité de l&apos;écran en mode économie d&apos;énergie</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>Trois doigts en haut</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>Trois doigts en bas</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>Trois doigts à gauche</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Trois doigts à droite</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Appui à trois doigts</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Quatre doigts en haut</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Quatre doigts en bas</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Quatre doigts à gauche</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Quatre doigts à droite</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Appui à quatre doigts</translation>
     </message>
 </context>
 <context>
@@ -2407,10 +2364,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>Réduction automatique du bruit</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>Volume d&apos;entrée</translation>
     </message>
@@ -2430,6 +2383,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <source>Input Device</source>
         <translation>Périphérique d&apos;entrée</translation>
     </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2439,49 +2396,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3410,10 +3324,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <translation>Cliquez sur Ajouter pour activer ce raccourci clavier.</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation type="unfinished"/>
     </message>
@@ -3423,10 +3333,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3614,6 +3520,17 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>Error</source>
         <translation>Erreur</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4530,10 +4447,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>None</source>
         <translation>Aucun</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

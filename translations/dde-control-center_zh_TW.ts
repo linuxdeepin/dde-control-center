@@ -354,10 +354,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Add a new %1 ...</source>
         <translation>新增新的%1...</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>名稱不能為空</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -2060,6 +2056,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation>合併應用圖標</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2183,49 +2183,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>三指向上</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>三指向下</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>三指向左</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>三指向右</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>三指點選</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>四指向上</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>四指向下</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>四指向左</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>四指向右</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>四指點選</translation>
-    </message>
-</context>
-<context>
     <name>HomePage</name>
     <message>
         <source>,</source>
@@ -2285,11 +2242,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>KeyboardWorker</name>
     <message>
         <source>The shortcut service is unavailable. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>快捷鍵服務不可用，請重試。</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>儲存快捷鍵失敗，請重試。</translation>
     </message>
 </context>
 <context>
@@ -2399,10 +2356,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>噪音抑制</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>輸入音量</translation>
     </message>
@@ -2422,6 +2375,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Input Device</source>
         <translation>輸入裝置</translation>
     </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
+        <translation>智慧降噪</translation>
+    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2432,49 +2389,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>通用、滑鼠、觸控板</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>最大化視窗</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>還原視窗</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>顯示桌面</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>鎖定螢幕</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>顯示多工檢視</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>停用</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>切換到上一工作區</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>切換到下一工作區</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>隱藏多工檢視</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>切換多工檢視</translation>
     </message>
 </context>
 <context>
@@ -3402,12 +3316,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>點選新增使這個快捷鍵生效</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>啟動快捷鍵錄入失敗，請重試。</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
@@ -3418,12 +3328,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>快捷鍵組合無效，請重新設定</translation>
     </message>
     <message>
-        <source>click Replace to make this shortcut key effective</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>儲存快捷鍵失敗，請重試。</translation>
     </message>
 </context>
 <context>
@@ -3478,7 +3384,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>啟動快捷鍵錄入失敗，請重試。</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
@@ -3490,7 +3396,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>儲存快捷鍵失敗，請重試。</translation>
     </message>
 </context>
 <context>
@@ -3606,6 +3512,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>錯誤提示</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation>智慧降噪開啟失敗，請稍後重試</translation>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation>智慧降噪關閉失敗，請稍後重試</translation>
     </message>
 </context>
 <context>
@@ -4420,26 +4337,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>快捷鍵已不存在。</translation>
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>快捷鍵衝突狀態已失效。</translation>
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
-        <translation type="unfinished"/>
+        <translation>請重新確認快捷鍵衝突。</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardWorker</name>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>快捷鍵衝突狀態已失效。</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>儲存快捷鍵失敗，請重試。</translation>
     </message>
 </context>
 <context>
@@ -4522,10 +4439,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>無</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>應用</translation>
     </message>
 </context>
 </TS>

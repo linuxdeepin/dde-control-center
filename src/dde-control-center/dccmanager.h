@@ -26,6 +26,15 @@ class SearchModel;
 class DccPluginManager;
 class DccImageProvider;
 
+struct ModuleInfo
+{
+    QString url;
+    QString displayName;
+    QString pathDisplayName;
+    int weight = 0;
+    bool hidden = false;
+};
+
 class DccManager : public DccApp, protected QDBusContext
 {
     Q_OBJECT
@@ -33,7 +42,7 @@ public:
     explicit DccManager(QObject *parent = nullptr);
     ~DccManager() override;
 
-    static bool installTranslator(const QString &name);
+    static bool installTranslator(const QString &name, bool optional = false);
     void init();
     QQmlApplicationEngine *engine();
     void setMainWindow(QWindow *window);
@@ -88,6 +97,8 @@ public Q_SLOTS:
     bool stop(const QString &json);
     bool action(const QString &json);
     QString GetAllModule();
+    QList<ModuleInfo> moduleList() const;
+    bool loadFinished() const;
     void onDccObjectDestroyed(DccObject *obj);
 
 Q_SIGNALS:

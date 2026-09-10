@@ -356,10 +356,6 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
         <source>Add a new %1 ...</source>
         <translation>Adicionar um novo %1 ...</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>O nome não pode estar vazio</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -2061,6 +2057,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation>Agrupar ícones de aplicativos</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation>Os ícones dos aplicativos são sempre agrupados na barra de tarefas no Modo Fashion.</translation>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2181,49 +2181,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Reduzir o brilho da tela no modo de economia de energia em</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>Deslizar três dedos para cima</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>Deslizar três dedos para baixo</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>Deslizar três dedos para a esquerda</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Deslizar três dedos para a direita</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Toque com três dedos</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Deslizar quatro dedos para cima</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Deslizar quatro dedos para baixo</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Deslizar quatro dedos para a esquerda</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Deslizar quatro dedos para a direita</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Toque com quatro dedos</translation>
     </message>
 </context>
 <context>
@@ -2400,10 +2357,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>Cancelamento Automático de Ruído</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>Volume de entrada</translation>
     </message>
@@ -2423,6 +2376,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Input Device</source>
         <translation>Dispositivo de entrada</translation>
     </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
+        <translation>Redução inteligente de ruído</translation>
+    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2433,49 +2390,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Geral, Mouse, Touchpad</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>Maximizar janela</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>Restaurar janela</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>Exibir área de trabalho</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>Bloquear tela</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>Visão multitarefa</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Desativar</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>Alternar para a área de trabalho anterior</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>Alternar para a próxima área de trabalho</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>Ocultar visão multitarefa</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>Alternar visão multitarefa</translation>
     </message>
 </context>
 <context>
@@ -3403,10 +3317,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Clique em Adicionar para ativar esta tecla de atalho</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation>Substituir</translation>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>Falha ao iniciar a captura de atalho. Tente novamente.</translation>
     </message>
@@ -3417,10 +3327,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation>Atalho de teclado inválido. Defina um novo atalho.</translation>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
-        <translation>Clique em Substituir para ativar esta tecla de atalho</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3607,6 +3513,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>Erro</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation>Falha ao ativar a redução inteligente de ruído. Tente novamente mais tarde.</translation>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation>Falha ao desativar a redução inteligente de ruído. Tente novamente mais tarde.</translation>
     </message>
 </context>
 <context>
@@ -4523,10 +4440,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Nenhum</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>Aplicativo</translation>
     </message>
 </context>
 </TS>

@@ -345,10 +345,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Add a new %1 ...</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -2051,6 +2047,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2171,49 +2171,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Жаңырақ модде аркылуынан екінші есептің көршілігін азайту</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2390,10 +2347,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>Автоматтық шумды түштіру</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>Кірістік ортамдығындың жалпысы</translation>
     </message>
@@ -2413,6 +2366,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Input Device</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2422,49 +2379,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3393,10 +3307,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Replace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation type="unfinished"/>
     </message>
@@ -3406,10 +3316,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3597,6 +3503,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>Таа</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4513,10 +4430,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Жоқ</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

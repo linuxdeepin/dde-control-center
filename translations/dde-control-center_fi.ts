@@ -354,10 +354,6 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
         <source>Add a new %1 ...</source>
         <translation>Lisää uusi %1 ...</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>Nimeä ei voi jättää tyhjäksi</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -1879,11 +1875,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Eye Comfort</source>
-        <translation>Silmien mukavuus</translation>
+        <translation>Yövalo</translation>
     </message>
     <message>
         <source>Enable eye comfort</source>
-        <translation>Silmien mukavuus käyttöön</translation>
+        <translation>Käytä yövaloa</translation>
     </message>
     <message>
         <source>Adjust screen display to warmer colors, reducing screen blue light</source>
@@ -2059,6 +2055,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation>Yhdistä sovelluskuvakkeita</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2179,49 +2179,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Vähennä näytön kirkkautta virransäästössä</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>Kolmella sormella ylös</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>Kolmella sormella alas</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>Kolmella sormella vasemmalle</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Kolmella sormella oikealle</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Kolmen sormen painallus</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Neljällä sormella ylös</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Neljällä sormella alas</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Neljällä sormella vasemmalle</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Neljällä sormella oikealle</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Neljän sormen painallus</translation>
     </message>
 </context>
 <context>
@@ -2398,10 +2355,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>Automaattinen melunvaimennus</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>Sisääntulon voimakkuus</translation>
     </message>
@@ -2421,6 +2374,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Input Device</source>
         <translation>Sisääntulo</translation>
     </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
+        <translation>Kohinanpoisto tekoälyllä</translation>
+    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2431,49 +2388,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Yleinen, hiiri, kosketuslevy</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>Maksimoi ikkuna</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>Palauta ikkuna</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>Näytä työpöytä</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>Lukitse näyttö</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>Työtilan ikkunat</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Pois</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>Siirry edelliseen työtilaan</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>Siirry seuraavaan työtilaan</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>Piilota työtilat näkymä</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>Vaihda työtilat näkymä</translation>
     </message>
 </context>
 <context>
@@ -3401,10 +3315,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>paina Lisää ja pikanäppäin tulee voimaan</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation>Korvaa</translation>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>Pikanäppäimen tallennuksen aloitus epäonnistui. Yritä uudelleen.</translation>
     </message>
@@ -3415,10 +3325,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation>Virheellinen pikanäppäin. Anna uudestaan.</translation>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
-        <translation>paina Korvaa, jotta tämä pikanäppäin toimii</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3605,6 +3511,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>Virhe</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation>Kohinanpoisto tekoälyllä, käyttöönotto epäonnistui. Yritä myöhemmin uudelleen.</translation>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation>Kohinanpoisto tekoälyllä, sulkeminen epäonnistui. Yritä myöhemmin uudelleen.</translation>
     </message>
 </context>
 <context>
@@ -4521,10 +4438,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Mitään</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>Sovellus</translation>
     </message>
 </context>
 </TS>

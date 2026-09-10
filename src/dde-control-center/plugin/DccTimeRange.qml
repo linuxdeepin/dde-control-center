@@ -108,16 +108,18 @@ D.SpinBox {
             inputMethodHints: control.inputMethodHints
             selectByMouse: true
             mouseSelectionMode: TextInput.SelectCharacters
-            onFocusChanged: {
-                if (focus) {
+            onActiveFocusChanged: {
+                if (activeFocus) {
                     control.stepSize = 60
                     var minutes = value % 60
                     control.from = minutes
                     control.to = 23 * 60 + minutes
                 } else {
                     typingDigit = false
+                    text = control.formatText(Math.floor(control.value / 60))
                 }
             }
+
             Keys.onPressed: function(event) {
                 if (event.key >= Qt.Key_0 && event.key <= Qt.Key_9) {
                     typingDigit = true
@@ -155,6 +157,7 @@ D.SpinBox {
                     var m = control.value % 60
                     control.value = h * 60 + m
                 }
+                text = control.formatText(Math.floor(control.value / 60))
             }
         }
         Label {
@@ -187,12 +190,14 @@ D.SpinBox {
             inputMethodHints: control.inputMethodHints
             selectByMouse: true
             mouseSelectionMode: TextInput.SelectCharacters
-            onFocusChanged: {
-                if (focus) {
+            onActiveFocusChanged: {
+                if (activeFocus) {
                     control.stepSize = 1
                     var hours = Math.floor(value / 60)
                     control.from = hours * 60
                     control.to = hours * 60 + 59
+                } else {
+                    text = control.formatText(control.value % 60)
                 }
             }
             Keys.onLeftPressed: function(event) {
@@ -210,6 +215,7 @@ D.SpinBox {
                     var h = Math.floor(control.value / 60)
                     control.value = h * 60 + m
                 }
+                text = control.formatText(control.value % 60)
             }
         }
     }

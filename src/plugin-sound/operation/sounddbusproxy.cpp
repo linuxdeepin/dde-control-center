@@ -5,6 +5,7 @@
 // #include "widgets/dccdbusinterface.h"
 
 #include "audioport.h"
+#include <DDBusSender>
 #include <QDBusArgument>
 #include <QDBusInterface>
 #include <QDBusPendingReply>
@@ -97,6 +98,31 @@ void SoundDBusProxy::setReduceNoise(bool value)
 bool SoundDBusProxy::pausePlayer()
 {
     return qvariant_cast<bool>(m_audioInter->property("PausePlayer"));
+}
+
+bool SoundDBusProxy::aiReduceNoise()
+{
+    return qvariant_cast<bool>(m_audioInter->property("AiReduceNoise"));
+}
+
+void SoundDBusProxy::setAiReduceNoise(bool value)
+{
+    m_audioInter->setProperty("AiReduceNoise", QVariant::fromValue(value));
+}
+
+QDBusObjectPath SoundDBusProxy::aiNoiseSourcePath()
+{
+    return qvariant_cast<QDBusObjectPath>(m_audioInter->property("AiNoiseSourcePath"));
+}
+
+QDBusPendingCall SoundDBusProxy::setAiReduceNoiseAsync(bool value)
+{
+    return DDBusSender()
+        .service(AudioService)
+        .path(AudioPath)
+        .interface(AudioInterface)
+        .property("AiReduceNoise")
+        .set(value);
 }
 
 void SoundDBusProxy::setPausePlayer(bool value)

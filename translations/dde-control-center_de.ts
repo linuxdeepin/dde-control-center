@@ -345,10 +345,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Add a new %1 ...</source>
         <translation>Neuen %1 hinzufügen …</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>Benutzername darf nicht leer sein</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -2050,6 +2046,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation>Fasse Programm-Symbole zusammen</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2170,49 +2170,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Bildschirmhelligkeit beim Energiesparen verringern</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>Drei-Finger nach oben</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>Drei-Finger nach unten</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>Drei-Finger nach links</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Drei-Finger nach rechts</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Drei-Finger-Tipp</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Vier-Finger nach oben</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Vier-Finger nach unten</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Vier-Finger nach links</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Vier-Finger nach rechts</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Vier-Finger-Tipp</translation>
     </message>
 </context>
 <context>
@@ -2389,10 +2346,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>Automatische Rauschunterdrückung</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>Eingangslautstärke</translation>
     </message>
@@ -2412,6 +2365,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Input Device</source>
         <translation>Eingabegerät</translation>
     </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2422,49 +2379,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Allgemein, Maus, Touchpad</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>Fenster maximieren</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>Fenster wiederherstellen</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>Schreibtisch zeigen</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>Bildschirm sperren</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>Multitasking-Ansicht</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Deaktivieren</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>Zur vorherigen Arbeitsfläche wechseln</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>Zur nächsten Arbeitfläche wechseln</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>Verstecke Multitasking-Ansicht</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>Multitasking-Ansicht umschalten</translation>
     </message>
 </context>
 <context>
@@ -3392,10 +3306,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>auf Hinzufügen klicken, um diese Tastenkombination einzurichten</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation>Ersetzen</translation>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation type="unfinished"/>
     </message>
@@ -3406,10 +3316,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
-        <translation>auf Ersetzen klicken, um diese Tastenkombination einzurichten</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3596,6 +3502,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>Fehler</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4512,10 +4429,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Keine</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>App</translation>
     </message>
 </context>
 </TS>

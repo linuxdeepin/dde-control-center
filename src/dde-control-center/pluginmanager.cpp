@@ -258,13 +258,13 @@ void DccPluginManager::checkLoadFinished()
 void DccPluginManager::cancelLoad()
 {
     if (m_threadPool) {
-        qCWarning(dccLog()) << "delete threadPool";
+        qCDebug(dccLog()) << "delete threadPool";
         m_threadPool->clear();
         if (!m_threadPool->waitForDone(3000)) {
             qCWarning(dccLog()) << "thread pool waitForDone timeout, some tasks may still be running";
         }
         delete m_threadPool;
-        qCWarning(dccLog()) << "delete threadPool finish";
+        qCDebug(dccLog()) << "delete threadPool finish";
         m_threadPool = nullptr;
     }
 }

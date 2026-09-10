@@ -360,10 +360,6 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
         <source>Add a new %1 ...</source>
         <translation>Afegiu-hi un/a %1 nou/nova...</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>El nom no es pot deixar en blanc.</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -2066,6 +2062,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <source>Combine application icons</source>
         <translation>Combina les icones d&apos;aplicacions</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2186,49 +2186,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Disminueix la brillantor de la pantalla amb l&apos;estalvi d&apos;energia.</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>Tres dits cap amunt</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>Tres dits cap avall</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>Tres dits cap a l&apos;esquerra</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Tres dits cap a la dreta</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Toc amb tres dits</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Quatre dits cap amunt</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Quatre dits cap avall</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Quatre dits cap a l&apos;esquerra</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Quatre dits cap a la dreta</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Toc amb quatre dits</translation>
     </message>
 </context>
 <context>
@@ -2405,10 +2362,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>Supressió automàtica del soroll</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>Volum d&apos;entrada</translation>
     </message>
@@ -2428,6 +2381,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <source>Input Device</source>
         <translation>Dispositiu d&apos;entrada</translation>
     </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
+        <translation>Reducció intel·ligent de soroll</translation>
+    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2438,49 +2395,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Comú, ratolí, ratolí tàctil</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>Minimitza la finestra</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>Restaura la finestra</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>Mostra l&apos;escriptori</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>Bloca la pantalla</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>Vista de multitasca</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Inhabilita</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>Canvia a l&apos;espai de treball anterior</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>Canvia a l&apos;espai de treball següent</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>Amaga la vista de multitasca</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>Commuta la vista de multitasca</translation>
     </message>
 </context>
 <context>
@@ -3408,10 +3322,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Cliqueu a Afegeix per fer efectiva aquesta tecla de drecera.</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation>Reemplaça</translation>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>Ha fallat iniciar la captura de dreceres. Si us plau, torneu-ho a provar.</translation>
     </message>
@@ -3422,10 +3332,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation>Drecera de teclat no vàlida. Establiu-ne una de nova.</translation>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
-        <translation>Feu clic a Reemplaça per activar aquesta drecera de teclat.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3612,6 +3518,17 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Error</source>
         <translation>Error</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation>Ha fallat activar la reducció intel·ligent de soroll. Torneu-ho a intentar més tard.</translation>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation>Ha fallat desactivar la reducció intel·ligent de soroll. Torneu-ho a intentar més tard.</translation>
     </message>
 </context>
 <context>
@@ -4528,10 +4445,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>None</source>
         <translation>Cap</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>Aplicació</translation>
     </message>
 </context>
 </TS>

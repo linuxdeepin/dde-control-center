@@ -6,6 +6,7 @@
 
 #include <QGuiApplication>
 #include <QLoggingCategory>
+#include <QtGui/qguiapplication_platform.h>
 #include <wayland-client.h>
 
 // Note: qwayland-treeland-input-manager-unstable-v1.h is already included

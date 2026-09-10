@@ -270,7 +270,6 @@ DccObject {
             onParentItemChanged: item => {
                 if (item) {
                     item.implicitHeight = 40
-                    item.leftPadding = 7
                     item.rightPadding = 11
                 }
             }
@@ -354,7 +353,6 @@ DccObject {
         onParentItemChanged: item => {
             if (item) {
                 item.bottomInset = 3
-                item.leftPadding = 7
                 item.activeFocusOnTab = true
             }
         }
@@ -443,7 +441,6 @@ DccObject {
         onParentItemChanged: item => {
             if (item) {
                 item.topInset = 3
-                item.leftPadding = 7
                 item.activeFocusOnTab = true
             }
         }
@@ -485,7 +482,6 @@ DccObject {
                 onParentItemChanged: item => {
                     if (item) {
                         item.implicitHeight = 40
-                        item.leftPadding = 7
                         item.rightPadding = 0
                     }
                 }
@@ -529,7 +525,6 @@ DccObject {
                 onParentItemChanged: item => {
                     if (item) {
                         item.implicitHeight = 40
-                        item.leftPadding = 7
                         item.rightPadding = 0
                     }
                 }
@@ -571,7 +566,6 @@ DccObject {
                 onParentItemChanged: item => {
                     if (item) {
                         item.implicitHeight = 40
-                        item.leftPadding = 7
                         item.rightPadding = 0
                     }
                 }

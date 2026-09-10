@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCC_SOUND_SOUNDMODEL_H
@@ -38,6 +38,7 @@ class SoundModel : public QObject
 
     Q_PROPERTY(double microphoneVolume READ microphoneVolume NOTIFY microphoneVolumeChanged)
     Q_PROPERTY(bool reduceNoise READ reduceNoise NOTIFY reduceNoiseChanged)
+    Q_PROPERTY(bool aiReduceNoise READ aiReduceNoise NOTIFY aiReduceNoiseChanged)
     Q_PROPERTY(int outPutPortComboIndex READ outPutPortComboIndex NOTIFY outPutPortComboIndexChanged FINAL)
     Q_PROPERTY(double microphoneFeedback READ microphoneFeedback NOTIFY microphoneFeedbackChanged)
     Q_PROPERTY(bool enableSoundEffect READ enableSoundEffect NOTIFY enableSoundEffectChanged)
@@ -73,6 +74,8 @@ public:
 
     inline bool reduceNoise() const { return m_reduceNoise; }
     void setReduceNoise(bool reduceNoise);
+    inline bool aiReduceNoise() const { return m_aiReduceNoise; }
+    void setAiReduceNoise(bool aiReduceNoise);
 
     inline bool pausePlayer() const { return m_pausePlayer; }
     void setPausePlayer(bool reduceNoise);
@@ -106,6 +109,8 @@ public:
 
     QDBusObjectPath defaultSource() const;
     void setDefaultSource(const QDBusObjectPath &defaultSource);
+    QDBusObjectPath aiNoiseSourcePath() const;
+    void setAiNoiseSourcePath(const QDBusObjectPath &path);
 
     QDBusObjectPath defaultSink() const;
     void setDefaultSink(const QDBusObjectPath &defaultSink);
@@ -232,6 +237,8 @@ Q_SIGNALS:
     void maxUIVolumeChanged(double value) const;
     void increaseVolumeChanged(bool value) const;
     void reduceNoiseChanged(bool reduceNoise) const;
+    void aiReduceNoiseChanged(bool aiReduceNoise) const;
+    void aiNoiseSourcePathChanged(const QDBusObjectPath &path) const;
     void pausePlayerChanged(bool pausePlayer) const;
     void isPortEnableChanged(bool enable) const;
     void bluetoothModeOptsChanged(const QStringList &modeOpts) const;
@@ -290,6 +297,7 @@ private:
     bool m_isLaptop;
     bool m_increaseVolume{false};
     bool m_reduceNoise{true};
+    bool m_aiReduceNoise{true};
     bool m_pausePlayer{true};
     bool m_portEnable{false};
     double m_speakerVolume;
@@ -308,6 +316,7 @@ private:
 
     QDBusObjectPath m_defaultSource;
     QDBusObjectPath m_defaultSink;
+    QDBusObjectPath m_aiNoiseSourcePath;
     QString m_audioCards;
     QStringList m_bluetoothModeOpts;
     QString m_currentBluetoothMode;

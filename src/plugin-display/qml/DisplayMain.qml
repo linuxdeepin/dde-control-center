@@ -962,6 +962,7 @@ DccObject {
         name: "displayColorTemperature"
         parentName: "display"
         displayName: qsTr("Eye Comfort")
+        visible: dccData.colorTemperatureSupported
         onParentItemChanged: item => { if (item) { item.topInset = 12; item.leftPadding = 14 } }
         weight: 90
     }
@@ -971,7 +972,7 @@ DccObject {
         displayName: qsTr("Enable eye comfort")
         description: qsTr("Adjust screen display to warmer colors, reducing screen blue light")
         weight: 100
-        visible: dccData.isX11
+        visible: dccData.isX11 && dccData.colorTemperatureSupported
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         onParentItemChanged: item => { if (item) { item.rightItemTopMargin = 6; item.rightItemBottomMargin = 6 } }
@@ -984,7 +985,7 @@ DccObject {
         name: "eyeComfortGroup"
         parentName: "display"
         weight: 110
-        // visible: dccData.colorTemperatureEnabled
+        visible: dccData.colorTemperatureSupported
         pageType: DccObject.Item
         onParentItemChanged: item => { if (item) item.topInset = 6 }
         page: DccGroupView {}

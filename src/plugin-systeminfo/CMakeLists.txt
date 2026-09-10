@@ -21,4 +21,9 @@ target_link_libraries(${SystemInfo_Name} PRIVATE
     ${SystemInfo_Libraries}
 )
 
+string(TIMESTAMP DCC_BUILD_YEAR "%Y" UTC)
+target_compile_definitions(${SystemInfo_Name} PRIVATE
+    DCC_BUILD_YEAR=${DCC_BUILD_YEAR}
+)
+
 dcc_install_plugin(NAME ${SystemInfo_Name} TARGET ${SystemInfo_Name})

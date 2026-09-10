@@ -36,6 +36,7 @@ Q_SIGNALS:
     void PolicyChanged(const QString &policy, const QString &type);
     void EntityChanged(const QString &entity, const QString &type);
     void ModeChanged(const QString &mode, const QString &type);
+    void entityListFinished();          // ListEntity 拉取完成(成功/失败均 emit), 供 worker 门控查询
 
 public Q_SLOTS:
     void getMode(const QString &object);
@@ -66,6 +67,8 @@ private Q_SLOTS:
 
 private:
     bool m_serviceExists;
+    bool m_entityListQueried = false;
+    bool m_listEntityRetried = false;   // 本在线周期是否已重试过一次
 };
 
 #endif // PRIVACYSECURITYDATAPROXY_H

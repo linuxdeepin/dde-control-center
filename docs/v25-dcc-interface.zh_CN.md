@@ -43,7 +43,7 @@ ${CMAKE_INSTALL_LIBDIR}/dde-control-center/plugins_v1.1/example/
 5.  将example.so导出的对象设置为dccData,加载ExampleMain.qml。此时，ExampleMain.qml中可以使用dccData.xxx()调用example.so导出的函数
 6.  加载完成，将DccObject对象插入到模块树中
 ## V25控制中心插件开发必要说明
-1.  控制中心有一个option,可以用来加载一个文件夹下的插件，比如一般插件会放置到`build`文件夹下，这时候可以`dde-control-center --spec ./lib/plugins_v1.1/`来加载单独一个插件进行调试。另外提醒，调试时候不要使用asan，因为没有使用asan的控制中心无法加载使用了asan编译的插件
+1.  控制中心有一个option,可以用来加载一个文件夹下的插件，比如一般插件会放置到`build`文件夹下，这时候可以`dde-control-center --spec ./lib/plugins_v1.1/`来加载单独一个插件进行调试。另外提醒，调试时候不要使用asan，因为没有使用asan的控制中心无法加载使用了asan编译的插件。配合`--list`可查看当前加载出的模块树（url 与显示名，隐藏项标记`[hidden]`），如`dde-control-center --spec ./lib/plugins_v1.1/ --list`
 2.  控制中心插件加载是在线程中，但最终会将插件对象移到主线程。所以example.so构造函数中创建的对象需要在example.so导出类的树结构中(即子对象的父对象或祖先对象是example.so导出类)，否则不会被移动到主线程，导致其中信号槽线程等不到，无法正常使用。
 3.  example.so导出类是唯一的，插件中不建议使用单例，可在example.so导出类中创建一个单例对象
 ## V25控制中心开发接口说明

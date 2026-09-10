@@ -178,19 +178,19 @@ DccObject {
         }
 
         DccObject {
-            name: "reduceNoise"
+            name: "aiReduceNoise"
             parentName: "sound/inPut/inputGroup"
-            displayName: qsTr("Automatic Noise Suppression")
+            displayName: qsTr("Intelligent Noise Reduction")
             weight: 30
             pageType: DccObject.Editor
             visible: !dccData.model().showInputBluetoothMode
             page: Switch {
                 Layout.alignment: Qt.AlignRight | Qt.AlignTop
 
-                checked: dccData.model().reduceNoise
+                checked: dccData.model().aiReduceNoise
                 onCheckedChanged: {
-                    if (dccData.model().reduceNoise !== checked) {
-                        dccData.worker().setReduceNoise(checked)
+                    if (dccData.model().aiReduceNoise !== checked) {
+                        dccData.worker().setAiReduceNoise(checked)
                     }
                 }
             }

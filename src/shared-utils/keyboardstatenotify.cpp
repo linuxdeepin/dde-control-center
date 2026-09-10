@@ -99,6 +99,9 @@ KeyboardStateNotify::~KeyboardStateNotify()
 {
     delete m_watcher;
     m_watcher = nullptr;
+
+    if (isInitialized())
+        QtWayland::treeland_keyboard_state_notify_manager_v1::destroy();
 }
 
 bool KeyboardStateNotify::available() const

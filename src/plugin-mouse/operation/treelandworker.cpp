@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -80,6 +80,15 @@ PersonalizationManager::PersonalizationManager(QObject *parent)
     setParent(parent);
 }
 
+PersonalizationManager::~PersonalizationManager()
+{
+    removeListener();
+    // The destroy request was introduced in version 2; older compositors
+    // reject it as an unknown method.
+    if (isInitialized() && QtWayland::treeland_personalization_manager_v1::version() >= 2)
+        QtWayland::treeland_personalization_manager_v1::destroy();
+}
+
 void PersonalizationManager::addListener()
 {
     if (!m_waylandDisplay) {
@@ -117,5 +126,11 @@ TreelandCursorContext::TreelandCursorContext(
     : QWaylandClientExtensionTemplate<TreelandCursorContext>(1)
     , QtWayland::treeland_personalization_cursor_context_v1(context)
 {
+}
+
+TreelandCursorContext::~TreelandCursorContext()
+{
+    if (isInitialized())
+        QtWayland::treeland_personalization_cursor_context_v1::destroy();
 }
 #endif

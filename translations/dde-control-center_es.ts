@@ -362,10 +362,6 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
         <source>Add a new %1 ...</source>
         <translation>Añadir %1 ...</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>El nombre no puede estar vacío.</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -2068,6 +2064,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>Combine application icons</source>
         <translation>Agrupar iconos de las aplicaciones</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2188,49 +2188,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Disminuir el brillo de la pantalla en el modo de ahorro de energía</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>Tres dedos hacia arriba</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>Tres dedos hacia abajo</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>Tres dedos a la izquierda</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Tres dedos a la derecha</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Toque con tres dedos</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Cuatro dedos hacia arriba</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Cuatro dedos hacia abajo</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Cuatro dedos a la izquierda</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Cuatro dedos a la derecha</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Toque con cuatro dedos</translation>
     </message>
 </context>
 <context>
@@ -2407,10 +2364,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>Supresión automática de ruido</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>Volumen de entrada</translation>
     </message>
@@ -2430,6 +2383,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>Input Device</source>
         <translation>Dispositivo de entrada</translation>
     </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2440,49 +2397,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Ajustes generales, ratón, panel táctil</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>Maximizar ventana </translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>Restaurar ventana</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>Mostrar escritorio</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>Bloquear pantalla</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>Vista multitarea</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Desactivar</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>Cambiar al espacio de trabajo anterior</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>Volver al espacio de trabajo siguiente</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>Ocultar la vista multitarea</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>Alternar vista multitarea</translation>
     </message>
 </context>
 <context>
@@ -3410,10 +3324,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>Haga clic en Añadir para que esta tecla de acceso directo sea efectiva.</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation type="unfinished"/>
     </message>
@@ -3423,10 +3333,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3614,6 +3520,17 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Error</source>
         <translation>Error</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4530,10 +4447,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>None</source>
         <translation>Ninguno</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>Aplicación</translation>
     </message>
 </context>
 </TS>

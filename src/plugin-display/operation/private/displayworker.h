@@ -4,13 +4,12 @@
 #ifndef DISPLAYWORKER_H
 #define DISPLAYWORKER_H
 
-#include "Registry.h"
-#include "VirtualOutputManager.h"
 #include "displaydbusproxy.h"
 #include "monitor.h"
 
 #include <dtkcore_global.h>
 
+#include <QHash>
 #include <QMap>
 #include <QObject>
 #include <QPointer>
@@ -27,11 +26,17 @@ DCORE_BEGIN_NAMESPACE
 class DConfig;
 DCORE_END_NAMESPACE
 
+struct wl_output;
+
+class QScreen;
+
 namespace WQt {
-    class Output;
-    class Registry;
-    class OutputHead;
-    class ColorControl;
+class OutputHead;
+class OutputManager;
+class TreeLandOutputManager;
+class VirtualOutputManager;
+class WallpaperManager;
+class ColorControl;
 }
 
 namespace dccV25 {
@@ -85,13 +90,18 @@ private Q_SLOTS:
     void onGetScreenScalesFinished(QDBusPendingCallWatcher *w);
 
     // for wlroots-based compositors
-    void onInterfaceRegistered(WQt::Registry::Interface interface);
+    void onOutputManagerActive();
+    void onTreeLandOutputManagerActive();
+    void onVirtualOutputManagerActive();
+    void onWallpaperManagerActive();
+    void onVirtualOutputList(const QStringList &names);
+    void onVirtualOutputsChanged();
     void onWlOutputManagerDone();
     void onWlMonitorListChanged();
     void updateWallpaper();
     void updateMonitorWallpaper(Monitor *mon);
     void updateWallpaperFromWayland();
-    void onOutputWallpaperReady(WQt::Output *output);
+    void ensureWallpaperContext(QScreen *screen);
     void onWallpaperChanged(const QString &fileSource, uint32_t sourceType, uint32_t role);
     void updateVirtualOutputs();
 
@@ -106,8 +116,8 @@ private:
     void wlMonitorAdded(WQt::OutputHead *head);
     void wlMonitorRemoved(WQt::OutputHead *head);
 
-    void wlOutputAdded(WQt::Output *output);
-    void wlOutputRemoved(WQt::Output *output);
+    void screenAdded(QScreen *screen);
+    void screenRemoved(QScreen *screen);
 
     void updateControl();
     void updateTreelandDisplayMode();
@@ -125,14 +135,26 @@ Q_SIGNALS:
     void videoThumbnailReady(const QString &videoPath, const QString &thumbnailPath);
 
 private:
+    struct ColorControlContext
+    {
+        QScreen *screen = nullptr;
+        WQt::ColorControl *control = nullptr;
+    };
+
     DisplayModel *m_model;
     DisplayDBusProxy *m_displayInter;
     QMap<Monitor *, MonitorDBusProxy *> m_monitors;
 
     // for wlroots-based compositors
-    WQt::Registry *m_reg { nullptr };
+    WQt::OutputManager *m_outputMgr { nullptr };
+    WQt::TreeLandOutputManager *m_treelandOutputMgr { nullptr };
+    WQt::VirtualOutputManager *m_virtualOutputMgr { nullptr };
+    WQt::WallpaperManager *m_wallpaperMgr { nullptr };
+    // wl_output proxy owned by each Qt platform screen, cached so that it is
+    // still reachable while handling QGuiApplication::screenRemoved
+    QHash<QScreen *, wl_output *> m_screen_outputs;
     QMap<Monitor *, WQt::OutputHead *> m_wl_monitors;
-    QMap<Monitor *, WQt::ColorControl *> m_control_monitors;
+    QMap<Monitor *, ColorControlContext> m_control_monitors;
 #if GAMMA_SUPPORT
     QMap<Monitor *, DFL::GammaEffects *> *m_wl_gammaEffects;
     QMap<Monitor *, DFL::GammaEffectsConfig *> *m_wl_gammaConfig;

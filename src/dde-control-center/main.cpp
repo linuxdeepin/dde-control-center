@@ -77,6 +77,19 @@ static void refreshQmlCache(const QString &version)
     dir.mkpath(version);
 }
 
+static void printModules(const QList<dccV25::ModuleInfo> &modules)
+{
+    for (const auto &module : modules) {
+        QString line = QString(module.url.count(QLatin1Char('/')) * 4, QLatin1Char(' ')) + module.url;
+        if (!module.displayName.isEmpty())
+            line += QLatin1String("  ") + module.displayName;
+        if (module.hidden)
+            line += QLatin1String("  [hidden]");
+        fprintf(stdout, "%s\n", qUtf8Printable(line));
+    }
+    fflush(stdout);
+}
+
 int main(int argc, char *argv[])
 {
     QGuiApplication *app = new QGuiApplication(argc, argv);
@@ -116,6 +129,7 @@ int main(int argc, char *argv[])
     QCommandLineOption loggingModuleOption(QStringList() << "l" << "logging-module", "Only output logs for the specified module", "loggingModule");
     QCommandLineOption pluginDir("spec", "load plugins from specialdir", "plugindir");
     QCommandLineOption pluginOption(QStringList() << "P" << "plugin", "load specified plugins", "plugin");
+    QCommandLineOption listOption("list", "list all modules and exit.");
     QCommandLineOption fd1Opt("fd1", "fd1 from security loader", "fd1");
     QCommandLineOption fd2Opt("fd2", "fd2 from security loader", "fd2");
 
@@ -132,9 +146,16 @@ int main(int argc, char *argv[])
     parser.addOption(loggingModuleOption);
     parser.addOption(pluginDir);
     parser.addOption(pluginOption);
+    parser.addOption(listOption);
     parser.addOption(fd1Opt);
     parser.addOption(fd2Opt);
     parser.process(*app);
+
+    const bool listMode = parser.isSet(listOption);
+    if (listMode) {
+        // 保持 stdout 只有模块列表
+        QLoggingCategory::setFilterRules(QStringLiteral("*.debug=false\n*.info=false\n*.warning=false"));
+    }
 
     int fd1 = -1, fd2 = -1;
     if (parser.isSet(fd1Opt)) fd1 = parser.value(fd1Opt).toInt();
@@ -153,13 +174,13 @@ int main(int argc, char *argv[])
 
     const QStringList &refPluginDirs = parser.values(pluginDir);
 
-    if (!DGuiApplicationHelper::setSingleInstance("org.deepin.dde.control-center")) {
+    if (!listMode && !DGuiApplicationHelper::setSingleInstance("org.deepin.dde.control-center")) {
         qDebug() << "dde-control-center is already running, pid:" << qApp->applicationPid();
         return -1;
     }
 
     QDBusConnection conn = QDBusConnection::sessionBus();
-    if (!conn.registerService(DccDBusService)) {
+    if (!listMode && !conn.registerService(DccDBusService)) {
         qDebug() << "dbus service already registered!"
                  << "pid is:" << qApp->applicationPid();
         return -1;
@@ -207,6 +228,25 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    auto shutdown = [&](int exitCode) {
+        conn.unregisterService(DccDBusService);
+#ifdef DCC_ENABLE_MEMORY_MANAGEMENT
+        delete dccManager;
+        delete app;
+#endif
+        return exitCode;
+    };
+
+    if (listMode) {
+        dccManager->loadModules(false, refPluginDirs.isEmpty() ? defaultpath() : refPluginDirs);
+        printModules(dccManager->moduleList());
+        if (!dccManager->loadFinished()) {
+            fprintf(stderr, "Some plugins did not finish loading, the list above is incomplete.\n");
+            return shutdown(1);
+        }
+        return shutdown(0);
+    }
+
     // 监听 DTK 单例信号：当有新实例尝试启动时，在原进程内直接解析其参数并响应.
     QObject::connect(DGuiApplicationHelper::instance(), &DGuiApplicationHelper::newProcessInstance,
                      [&](qint64 pid, const QStringList &arguments) {
@@ -247,7 +287,7 @@ int main(int argc, char *argv[])
             adaptor->Show();
         } else if (parser.isSet(showTime)) {
             adaptor->Show();
-            return 0;
+            return shutdown(0);
         }
 
 #ifdef QT_DEBUG
@@ -259,11 +299,5 @@ int main(int argc, char *argv[])
         }
 #endif
     }
-    int exitCode = app->exec();
-    conn.unregisterService(DccDBusService);
-#ifdef DCC_ENABLE_MEMORY_MANAGEMENT
-    delete dccManager;
-    delete app;
-#endif
-    return exitCode;
+    return shutdown(app->exec());
 }

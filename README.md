@@ -41,6 +41,8 @@ Execute `dde-control-center -h` to get more details.
 
 Note: `--spec` can be used to debug plugins. The passed in value is the path where the so of plugin is in.
 
+Note: `--list` prints all modules (`url` and display name, hidden modules marked with `[hidden]`) and exits, e.g. `dde-control-center --list | grep display`. If some plugins do not finish loading within the timeout, the list is still printed and the command exits non-zero.
+
 ## Getting help
 
 You can press `F1` to start [deepin-manual](https://github.com/linuxdeepin/deepin-manual) when you focus on DDE Control Center window.

@@ -156,6 +156,19 @@ void SystemInfoModel::setLogoPath(const QString &newLogoPath)
     Q_EMIT logoPathChanged();
 }
 
+QString SystemInfoModel::customerLogoSource() const
+{
+    return m_customerLogoSource;
+}
+
+void SystemInfoModel::setCustomerLogoSource(const QString &newCustomerLogoSource)
+{
+    if (m_customerLogoSource == newCustomerLogoSource)
+        return;
+    m_customerLogoSource = newCustomerLogoSource;
+    Q_EMIT customerLogoSourceChanged();
+}
+
 bool SystemInfoModel::showDetail() const
 {
     return m_showDetail;

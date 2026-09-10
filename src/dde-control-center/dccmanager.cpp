@@ -17,6 +17,7 @@
 #include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusPendingCall>
+#include <QDir>
 #include <QElapsedTimer>
 #include <QFileInfo>
 #include <QGuiApplication>
@@ -125,11 +126,34 @@ DccManager::~DccManager()
     qCDebug(dccLog()) << "delete dccManger end";
 }
 
-bool DccManager::installTranslator(const QString &name)
+bool DccManager::installTranslator(const QString &name, bool optional)
 {
     const QStringList translateDirs = { TRANSLATE_READ_DIR,
                                         TRANSLATE_READ_DIR "/../v1.0", // 兼容旧版位置
                                         TRANSLATE_READ_DIR "/.." };
+
+    // 插件翻译可选：内置插件（system/device/accounts 等）通常无独立 .qm，复用主程序翻译，
+    // 此时直接跳过，避免触发 dtkgui "can not find qm files" 告警；
+    // 第三方/新增插件若提供了独立 .qm 仍会正常加载。
+    // 预检目录须与 DGuiApplicationHelper::loadTranslator 实际搜索路径保持一致：
+    // 除此处传入的三个目录外，loadTranslator 还会追加 applicationDirPath/translations
+    // 与 currentPath/translations。
+    if (optional) {
+        QStringList searchDirs = translateDirs;
+        searchDirs << QDir(qApp->applicationDirPath()).absoluteFilePath("translations");
+        searchDirs << QDir::current().absoluteFilePath("translations");
+
+        bool hasQm = false;
+        for (const QString &dir : std::as_const(searchDirs)) {
+            if (!QDir(dir).entryList({ name + "_*.qm" }, QDir::Files).isEmpty()) {
+                hasQm = true;
+                break;
+            }
+        }
+        if (!hasQm)
+            return false;
+    }
+
     return Dtk::Gui::DGuiApplicationHelper::loadTranslator(name, translateDirs, { QLocale() });
 }
 
@@ -1358,29 +1382,56 @@ void DccManager::waitLoadFinished() const
     }
 }
 
-void DccManager::doGetAllModule(const QDBusMessage message) const
+bool DccManager::loadFinished() const
+{
+    return m_plugins->loadFinished();
+}
+
+QList<ModuleInfo> DccManager::moduleList() const
 {
     waitLoadFinished();
-    DccObject *root = m_root;
-    QList<QPair<DccObject *, QStringList>> modules;
-    for (auto &&child : root->getChildren()) {
-        modules.append({ child, { child->name(), child->displayName() } });
+
+    struct Entry
+    {
+        DccObject *obj;
+        ModuleInfo info;
+    };
+
+    QList<Entry> pending;
+    for (auto &&child : m_root->getChildren()) {
+        pending.append({ child, { child->name(), child->displayName(), child->displayName(), (int)child->weight(), false } });
     }
     for (auto &&child : m_hideObjects->getChildren()) {
-        modules.append({ child, { child->name(), child->displayName() } });
+        pending.append({ child, { child->name(), child->displayName(), child->displayName(), (int)child->weight(), true } });
     }
 
+    QList<ModuleInfo> modules;
+    while (!pending.isEmpty()) {
+        const Entry entry = pending.takeFirst();
+        modules.append(entry.info);
+        const QList<DccObject *> &children = entry.obj->getChildren();
+        for (auto it = children.crbegin(); it != children.crend(); ++it) {
+            ModuleInfo info;
+            info.url = entry.info.url + "/" + (*it)->name();
+            info.displayName = (*it)->displayName();
+            info.pathDisplayName = entry.info.pathDisplayName + "/" + info.displayName;
+            info.weight = (int)(*it)->weight();
+            info.hidden = entry.info.hidden;
+            pending.prepend({ *it, info });
+        }
+    }
+    return modules;
+}
+
+void DccManager::doGetAllModule(const QDBusMessage message) const
+{
     QJsonArray arr;
-    while (!modules.isEmpty()) {
-        const auto &urlInfo = modules.takeFirst();
+    for (const auto &module : moduleList()) {
         QJsonObject obj;
-        obj.insert("url", urlInfo.second.at(0));
-        obj.insert("displayName", urlInfo.second.at(1));
-        obj.insert("weight", (int)(urlInfo.first->weight()));
+        obj.insert("url", module.url);
+        obj.insert("displayName", module.pathDisplayName);
+        obj.insert("weight", module.weight);
         arr.append(obj);
-        const QList<DccObject *> &children = urlInfo.first->getChildren();
-        for (auto it = children.crbegin(); it != children.crend(); ++it)
-            modules.prepend({ *it, { urlInfo.second.at(0) + "/" + (*it)->name(), urlInfo.second.at(1) + "/" + (*it)->displayName() } });
     }
 
     QJsonDocument doc;

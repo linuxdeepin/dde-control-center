@@ -18,9 +18,21 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(ENABLE_ASAN OFF)
 option(BUILD_TESTING "UNIT test" OFF)
+option(ENABLE_WARNINGS_AS_ERRORS
+    "Treat compiler warnings as errors" ON)
 set(BUILD_EXAMPLES OFF)
 
 set(DCC_ENABLE_MEMORY_MANAGEMENT ON)
+
+if(ENABLE_WARNINGS_AS_ERRORS)
+    # CMAKE_COMPILE_WARNING_AS_ERROR was introduced in CMake 3.24; fall back
+    # to explicit flags for older CMake versions.
+    if(CMAKE_VERSION VERSION_GREATER_EQUAL "3.24")
+        set(CMAKE_COMPILE_WARNING_AS_ERROR ON)
+    elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+        add_compile_options(-Werror)
+    endif()
+endif()
 
 set(QT_NS Qt6)
 set(DTK_NS Dtk6)

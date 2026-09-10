@@ -82,6 +82,7 @@ void DisplayModulePrivate::init()
     q_ptr->connect(m_model, &DisplayModel::virtualOutputChanged, q_ptr, [this]() {
         updateVirtualScreens();
     });
+    q_ptr->connect(m_model, &DisplayModel::redshiftVaildChanged, q_ptr, &DisplayModule::colorTemperatureSupportedChanged);
     q_ptr->connect(m_model, &DisplayModel::colorTemperatureEnabledChanged, q_ptr, &DisplayModule::colorTemperatureEnabledChanged);
     q_ptr->connect(m_model, &DisplayModel::colorTemperatureChanged, q_ptr, &DisplayModule::colorTemperatureChanged);
     q_ptr->connect(m_model, &DisplayModel::customColorTempTimePeriodChanged, q_ptr, &DisplayModule::customColorTempTimePeriodChanged);
@@ -530,6 +531,13 @@ qreal DisplayModule::maxGlobalScale() const
 {
     Q_D(const DisplayModule);
     return d->m_maxGlobalScale;
+}
+
+bool DisplayModule::colorTemperatureSupported() const
+{
+    Q_D(const DisplayModule);
+    // Treeland uses its own color-control protocol instead of the daemon gamma path.
+    return WQt::Utils::isTreeland() || d->m_model->redshiftIsValid();
 }
 
 bool DisplayModule::colorTemperatureEnabled() const

@@ -360,10 +360,6 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
         <source>Add a new %1 ...</source>
         <translation>Shtoni një %1 të re …</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>Emri s’mund të jetë i zbrazët</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -2066,6 +2062,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>Combine application icons</source>
         <translation>Ndërthur ikona aplikacionesh</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2186,49 +2186,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Ule ndriçimin e ekranit nën kursyes energjie</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>Sipër me tre gishta</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>Poshtë me tre gishta</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>Majtas me tre gishta</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Djathtas me tre gishtash</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Prekje me tre gishta</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Sipër me katër gishta</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Poshtë me katër gishta</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Majtas me katër gishta</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Djathas me katër gishta</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Prekje me katër gishta</translation>
     </message>
 </context>
 <context>
@@ -2405,10 +2362,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>Mbytje e Automatizuar Zhurmash</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>Volum Në Hyrje</translation>
     </message>
@@ -2428,6 +2381,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>Input Device</source>
         <translation>Pajisje Në Hyrje</translation>
     </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2438,49 +2395,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>Maksimizo dritaren</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>Riktheje dritaren</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>Shfaqe desktopin</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>Kyçe ekranin</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>Pamje shumëpunëshe</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Çaktivizoje</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>Kalo te hapësira e mëparshme e punës</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>Kalo te hapësira pasuese e punës</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>Fshihe pamjen shumëpunëshe</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>Shfaq/Fshih pamjen shumëpunëshe</translation>
     </message>
 </context>
 <context>
@@ -3408,10 +3322,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation>që ta bëni këtë shkurtore të hyjë në fuqi, klikoni mbi Shtoje</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation type="unfinished"/>
     </message>
@@ -3421,10 +3331,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3612,6 +3518,17 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Error</source>
         <translation>Gabim</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4528,10 +4445,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>None</source>
         <translation>Asnjë</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>Aplikacion</translation>
     </message>
 </context>
 </TS>
