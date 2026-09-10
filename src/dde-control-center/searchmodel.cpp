@@ -8,26 +8,27 @@
 
 #include <DPinyin>
 
-#include <QIcon>
+#include <QAbstractListModel>
+#include <QHash>
+#include <QSet>
 #include <QTextDocument>
+
+#include <algorithm>
+#include <utility>
 
 namespace dccV25 {
 
 struct SearchData
 {
-    QString display;
     QString text;
-    QString plainText;
     QString url;
     QList<QStringList> searchTexts;
     const DccObject *obj;
     const DccObject *ancestors;
     QList<int> weight;
-    unsigned int matchScore; // 匹配度，越小匹配度越高，排序越靠前
 
     explicit SearchData(const DccObject *o)
         : obj(o)
-        , matchScore(0)
     {
         ancestors = o;
         while (ancestors) {
@@ -40,13 +41,32 @@ struct SearchData
         }
     }
 
-    inline const QString sourceText() const { return text.isEmpty() ? obj->displayName() : text; }
+    inline QString sourceText() const { return text.isEmpty() ? obj->displayName() : text; }
 
-    inline const QString sourceUrl() const { return url.isEmpty() ? obj->parentName() + "/" + obj->name() : url; }
+    inline QString sourceUrl() const
+    {
+        return url.isEmpty() ? obj->parentName() + "/" + obj->name() : url;
+    }
+};
+
+struct SearchMatchResult
+{
+    bool accepted = false;
+    QList<int> positions;
+    QString displayText;
+    QString plainText;
+    unsigned int score = 0;
+};
+
+class SearchModelPrivate
+{
+public:
+    QString filterText;
+    QHash<const SearchData *, SearchMatchResult> results;
 };
 
 //////////////////////////////////////////////////////
-class SearchSourceModel : public QAbstractItemModel
+class SearchSourceModel : public QAbstractListModel
 {
 public:
     explicit SearchSourceModel(QObject *parent = nullptr);
@@ -55,31 +75,33 @@ public:
     void addSearchData(DccObject *obj, const QString &text, const QString &url);
     void removeSearchData(const DccObject *obj, const QString &text);
 
+    void beginBatch();
+    void endBatch();
+    bool isBatching() const;
+
 protected:
     void addObject(DccObject *obj, const QString &text, const QString &url);
-    // Basic functionality:
-    QModelIndex index(int row, int column, const QModelIndex &parentIndex = QModelIndex()) const override;
-    QModelIndex parent(const QModelIndex &index) const override;
 
     int rowCount(const QModelIndex &parent = QModelIndex()) const override;
-    int columnCount(const QModelIndex &parent = QModelIndex()) const override;
 
     QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
-    bool setData(const QModelIndex &index, const QVariant &value, int role = Qt::EditRole) override;
 
 private:
     QList<SearchData *> m_data;
     QTextDocument m_doc;
+    QVector<SearchData *> m_batchData;
+    int m_batchDepth = 0;
 };
 
 SearchSourceModel::SearchSourceModel(QObject *parent)
-    : QAbstractItemModel(parent)
+    : QAbstractListModel(parent)
 {
 }
 
 SearchSourceModel::~SearchSourceModel()
 {
     qDeleteAll(m_data);
+    qDeleteAll(m_batchData);
 }
 
 void SearchSourceModel::addSearchData(DccObject *obj, const QString &text, const QString &url)
@@ -103,18 +125,116 @@ void SearchSourceModel::removeSearchData(const DccObject *obj, const QString &te
     if (!obj) {
         return;
     }
-    auto beginIt = m_data.begin();
-    for (auto it = beginIt; it != m_data.end();) {
-        if ((*it)->obj == obj && (text.isEmpty() || (*it)->text == text)) {
-            int i = it - beginIt;
-            beginRemoveRows(QModelIndex(), i, i);
-            delete (*it);
-            it = m_data.erase(it);
+    for (int row = m_data.size() - 1; row >= 0; --row) {
+        SearchData *data = m_data.at(row);
+        if (data->obj == obj && (text.isEmpty() || data->text == text)) {
+            beginRemoveRows(QModelIndex(), row, row);
+            delete m_data.takeAt(row);
             endRemoveRows();
-        } else {
-            ++it;
         }
     }
+    for (int row = m_batchData.size() - 1; row >= 0; --row) {
+        SearchData *data = m_batchData.at(row);
+        if (data->obj == obj && (text.isEmpty() || data->text == text)) {
+            delete m_batchData.takeAt(row);
+        }
+    }
+}
+
+static bool weightLessThan(const SearchData *a, const SearchData *b)
+{
+    for (int i = 0; i < a->weight.size() && i < b->weight.size(); ++i) {
+        if (a->weight.at(i) < b->weight.at(i))
+            return true;
+        if (a->weight.at(i) > b->weight.at(i))
+            return false;
+    }
+    return a->weight.size() < b->weight.size();
+}
+
+void SearchSourceModel::beginBatch()
+{
+    ++m_batchDepth;
+}
+
+void SearchSourceModel::endBatch()
+{
+    if (m_batchDepth == 0) {
+        return;
+    }
+    --m_batchDepth;
+    if (m_batchDepth > 0) {
+        return;
+    }
+    if (m_batchData.isEmpty()) {
+        return;
+    }
+
+    // 1. sort batch data by weight
+    std::stable_sort(m_batchData.begin(), m_batchData.end(), weightLessThan);
+
+    // 2. two-way merge m_data (sorted) + m_batchData (sorted), record new item indices
+    QList<SearchData *> merged;
+    merged.reserve(m_data.size() + m_batchData.size());
+    QVector<int> newIndices;
+    int mi = 0, mj = 0;
+    while (mi < m_data.size() && mj < m_batchData.size()) {
+        if (weightLessThan(m_batchData.at(mj), m_data.at(mi))) {
+            newIndices.append(merged.size());
+            merged.append(m_batchData.at(mj++));
+        } else {
+            merged.append(m_data.at(mi++));
+        }
+    }
+    while (mi < m_data.size()) {
+        merged.append(m_data.at(mi++));
+    }
+    while (mj < m_batchData.size()) {
+        newIndices.append(merged.size());
+        merged.append(m_batchData.at(mj++));
+    }
+
+    // 3. group new indices into consecutive ranges
+    QVector<QPair<int, int>> ranges;
+    if (!newIndices.isEmpty()) {
+        int rangeStart = newIndices.first();
+        int rangeEnd = rangeStart;
+        for (int k = 1; k < newIndices.size(); ++k) {
+            if (newIndices.at(k) == rangeEnd + 1) {
+                rangeEnd = newIndices.at(k);
+            } else {
+                ranges.append({ rangeStart, rangeEnd });
+                rangeStart = newIndices.at(k);
+                rangeEnd = rangeStart;
+            }
+        }
+        ranges.append({ rangeStart, rangeEnd });
+    }
+
+    // 4. restore m_data to old-only state, then apply final indices from front to back
+    QSet<SearchData *> batchSet(m_batchData.begin(), m_batchData.end());
+    m_data.clear();
+    for (auto *d : merged) {
+        if (!batchSet.contains(d)) {
+            m_data.append(d);
+        }
+    }
+    for (const auto &range : std::as_const(ranges)) {
+        int start = range.first;
+        int end = range.second;
+        beginInsertRows(QModelIndex(), start, end);
+        for (int k = end; k >= start; --k) {
+            m_data.insert(start, merged.at(k));
+        }
+        endInsertRows();
+    }
+
+    m_batchData.clear();
+}
+
+bool SearchSourceModel::isBatching() const
+{
+    return m_batchDepth > 0;
 }
 
 void SearchSourceModel::addObject(DccObject *obj, const QString &text, const QString &url)
@@ -137,49 +257,26 @@ void SearchSourceModel::addObject(DccObject *obj, const QString &text, const QSt
     if (!ok) {
         data->searchTexts.clear();
     }
-    // 排序规则不会变，添加时排序，避免在显示时处理
-    int index = 0;
-    bool findOk = false;
-    for (auto d : m_data) {
-        for (int i = 0; i < d->weight.size() && i < data->weight.size(); ++i) {
-            if (d->weight.at(i) < data->weight.at(i)) {
-                break;
-            } else if (d->weight.at(i) > data->weight.at(i)) {
-                findOk = true;
-                break;
-            }
-        }
-        if (findOk) {
-            break;
-        }
-        index++;
+    if (isBatching()) {
+        m_batchData.append(data);
+        return;
     }
+    // 排序规则不会变，添加时排序，避免在显示时处理
+    const auto pos = std::upper_bound(m_data.cbegin(),
+                                      m_data.cend(),
+                                      data,
+                                      [](const SearchData *value, const SearchData *item) {
+                                          return weightLessThan(value, item);
+                                      });
+    const int index = std::distance(m_data.cbegin(), pos);
     beginInsertRows(QModelIndex(), index, index);
     m_data.insert(index, data);
     endInsertRows();
 }
 
-QModelIndex SearchSourceModel::index(int row, int column, const QModelIndex &) const
+int SearchSourceModel::rowCount(const QModelIndex &parent) const
 {
-    if (row < 0 || row >= rowCount()) {
-        return QModelIndex();
-    }
-    return createIndex(row, column);
-}
-
-QModelIndex SearchSourceModel::parent(const QModelIndex &) const
-{
-    return QModelIndex();
-}
-
-int SearchSourceModel::rowCount(const QModelIndex &) const
-{
-    return m_data.size();
-}
-
-int SearchSourceModel::columnCount(const QModelIndex &) const
-{
-    return 1;
+    return parent.isValid() ? 0 : m_data.size();
 }
 
 QVariant SearchSourceModel::data(const QModelIndex &index, int role) const
@@ -194,12 +291,10 @@ QVariant SearchSourceModel::data(const QModelIndex &index, int role) const
     const SearchData *data = m_data.at(i);
     switch (role) {
     case Qt::DisplayRole:
-        return data->display.isEmpty() ? data->sourceText() : data->display;
+        return data->sourceText();
     case Qt::DecorationRole: {
         return data->ancestors->icon();
     } break;
-    case SearchModel::SearchPlainTextRole:
-        return data->plainText;
     case SearchModel::SearchDataRole:
         return QVariant::fromValue(data);
     case SearchModel::SearchUrlRole:
@@ -208,57 +303,162 @@ QVariant SearchSourceModel::data(const QModelIndex &index, int role) const
         return data->sourceText();
     case SearchModel::SearchWeightRole:
         return QVariant::fromValue(data->weight);
-    case SearchModel::SearchMatchScoreRole:
-        return QVariant::fromValue(data->matchScore);
     default:
         break;
     }
     return QVariant();
 }
 
-bool SearchSourceModel::setData(const QModelIndex &index, const QVariant &value, int role)
+//////////////////////////////////////////////////////
+static QList<int> matchPositions(const SearchData *data, const QString &filterText)
 {
-    int i = index.row();
-    if (i < 0 || i >= m_data.size()) {
-        return false;
-    }
-    SearchData *data = m_data.at(i);
-    switch (role) {
-    case Qt::DisplayRole:
-    case Qt::EditRole: {
-        const QString &v = value.toString();
-        if (v != data->display) {
-            data->display = value.toString();
+    const QString text = data->sourceText();
+    QList<int> positions;
+    int from = 0;
+    bool found = true;
+    for (const QChar c : filterText) {
+        from = text.indexOf(c, from, Qt::CaseInsensitive);
+        if (from < 0) {
+            found = false;
+            break;
         }
-        return true;
+        positions.append(from++);
     }
-    case SearchModel::SearchPlainTextRole:
-        data->plainText = value.toString();
-        return true;
-    case SearchModel::SearchMatchScoreRole:
-        data->matchScore = value.toUInt();
-        return true;
-    default:
-        break;
+    if (found) {
+        return positions;
     }
-    return false;
+
+    bool isAllLetter = true;
+    for (const QChar c : filterText) {
+        isAllLetter &= c.unicode() < 127;
+    }
+    if (!isAllLetter) {
+        return {};
+    }
+
+    positions.clear();
+    int wordsIndex = -1;
+    auto cIt = filterText.cbegin();
+    for (const auto &words : data->searchTexts) {
+        ++wordsIndex;
+        for (const auto &pinyin : words) {
+            from = 0;
+            while (from < pinyin.size() && cIt != filterText.cend() && pinyin.at(from) == *cIt) {
+                ++cIt;
+                ++from;
+            }
+            if (from > 0) {
+                positions.append(wordsIndex);
+                break;
+            }
+        }
+        if (cIt == filterText.cend()) {
+            return positions;
+        }
+    }
+    return {};
+}
+
+static unsigned int matchScore(const QString &text, const QList<int> &positions)
+{
+    unsigned int leftCnt = positions.first(); // 开头未匹配字符
+    unsigned int midCnt = 0;                  // 中间未匹配字符，相关度影响最大
+    unsigned int rightCnt = text.length() - positions.last() - 1; // 末尾未匹配字符
+    for (auto it = positions.cbegin() + 1; it != positions.cend(); ++it) {
+        midCnt = midCnt * 10 + (*it - *(it - 1)) - 1;
+    }
+    if (midCnt > 0x0000FFFF) {
+        midCnt = 0x0000FFFF;
+    }
+    return rightCnt + leftCnt * 0x00000100 + midCnt * 0x00010000;
+}
+
+static QString highlightedText(const QString &text, const QList<int> &positions)
+{
+    QString display;
+    auto position = positions.cbegin();
+    bool highlighting = false;
+    for (int i = 0; i < text.size(); ++i) {
+        if (position != positions.cend() && i == *position) {
+            if (!highlighting) {
+                display.append("<font color='red'>");
+                highlighting = true;
+            }
+            display.append(text.at(i));
+            ++position;
+        } else {
+            if (highlighting) {
+                display.append("</font>");
+                highlighting = false;
+            }
+            display.append(text.at(i));
+        }
+    }
+    if (highlighting) {
+        display.append("</font>");
+    }
+    return display;
+}
+
+static QStringList ancestorPath(const SearchData *data)
+{
+    QStringList path;
+    const DccObject *parent = DccObject::Private::FromObject(data->obj)->getParent();
+    while (parent && parent->name() != "root") {
+        if (!parent->displayName().isEmpty()) {
+            path.prepend(parent->displayName());
+        }
+        parent = DccObject::Private::FromObject(parent)->getParent();
+    }
+    return path;
+}
+
+static SearchMatchResult createMatchResult(const SearchData *data, const QString &filterText)
+{
+    SearchMatchResult result;
+    if (!data || filterText.isEmpty()) {
+        return result;
+    }
+
+    result.positions = matchPositions(data, filterText);
+    if (result.positions.isEmpty()) {
+        return result;
+    }
+
+    const QString text = data->sourceText();
+    result.accepted = true;
+    result.score = matchScore(text, result.positions);
+
+    const QStringList path = ancestorPath(data);
+    QStringList displayPath = path;
+    displayPath.append(highlightedText(text, result.positions));
+    result.displayText = displayPath.join('/');
+
+    QStringList plainPath = path;
+    plainPath.append(text);
+    result.plainText = plainPath.join('/');
+    return result;
+}
+
+static const SearchData *searchData(const QAbstractItemModel *model, const QModelIndex &index)
+{
+    return model->data(index, SearchModel::SearchDataRole).value<const SearchData *>();
 }
 
 //////////////////////////////////////////////////////
 SearchModel::SearchModel(QObject *parent)
     : QSortFilterProxyModel(parent)
-    , m_timer(new QTimer(this))
+    , d_ptr(new SearchModelPrivate)
 {
     setFilterRole(SearchTextRole);
     setSortRole(SearchMatchScoreRole);
     setDynamicSortFilter(false);
-    sort(0);
-
     setSourceModel(new SearchSourceModel(this));
-    connect(m_timer, &QTimer::timeout, this, &SearchModel::doSort);
-    m_timer->setSingleShot(true);
-    m_timer->setInterval(100);
+    refreshSearchResults();
+    sort(0);
 }
+
+SearchModel::~SearchModel() = default;
 
 QHash<int, QByteArray> SearchModel::roleNames() const
 {
@@ -268,148 +468,126 @@ QHash<int, QByteArray> SearchModel::roleNames() const
     return names;
 }
 
+QVariant SearchModel::data(const QModelIndex &index, int role) const
+{
+    if (!index.isValid()) {
+        return {};
+    }
+    if (role != Qt::DisplayRole && role != SearchPlainTextRole && role != SearchMatchScoreRole) {
+        return QSortFilterProxyModel::data(index, role);
+    }
+
+    const QModelIndex sourceIndex = mapToSource(index);
+    const SearchData *entry = searchData(sourceModel(), sourceIndex);
+    const auto result = d_ptr->results.constFind(entry);
+    if (result == d_ptr->results.cend()) {
+        return QSortFilterProxyModel::data(index, role);
+    }
+    if (role == Qt::DisplayRole) {
+        return result->displayText;
+    }
+    if (role == SearchPlainTextRole) {
+        return result->plainText;
+    }
+    return result->score;
+}
+
+void SearchModel::setFilterRegularExpression(const QString &pattern)
+{
+    setFilterRegularExpression(QRegularExpression(pattern));
+}
+
+void SearchModel::setFilterRegularExpression(const QRegularExpression &regularExpression)
+{
+    d_ptr->filterText = regularExpression.pattern().trimmed().toLower();
+    refreshSearchResults();
+    QSortFilterProxyModel::setFilterRegularExpression(regularExpression);
+    sort(0);
+}
+
 void SearchModel::addSearchData(DccObject *obj, const QString &text, const QString &url)
 {
-    static_cast<SearchSourceModel *>(sourceModel())->addSearchData(obj, text, url);
+    auto model = static_cast<SearchSourceModel *>(sourceModel());
+    model->addSearchData(obj, text, url);
+    if (!model->isBatching() && !d_ptr->filterText.isEmpty()) {
+        refreshSearchResults();
+        invalidateRowsFilter();
+        sort(0);
+    }
 }
 
 void SearchModel::removeSearchData(const DccObject *obj, const QString &text)
 {
     static_cast<SearchSourceModel *>(sourceModel())->removeSearchData(obj, text);
+    if (d_ptr->filterText.isEmpty()) {
+        return;
+    }
+    refreshSearchResults();
+    invalidateRowsFilter();
+    sort(0);
 }
 
-void SearchModel::doSort()
+void SearchModel::beginBatch()
 {
+    static_cast<SearchSourceModel *>(sourceModel())->beginBatch();
+}
+
+void SearchModel::endBatch()
+{
+    auto model = static_cast<SearchSourceModel *>(sourceModel());
+    model->endBatch();
+    if (model->isBatching()) {
+        return;
+    }
+    if (d_ptr->filterText.isEmpty()) {
+        return;
+    }
+    refreshSearchResults();
+    invalidateRowsFilter();
     sort(0);
 }
 
 bool SearchModel::filterAcceptsRow(int source_row, const QModelIndex &source_parent) const
 {
-    QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
-    if (!sourceIndex.isValid())
-        return false;
-
-    const SearchData *data = sourceModel()->data(sourceIndex, SearchDataRole).value<const SearchData *>();
-    QString text = data->sourceText();
-    QString filterText = filterRegularExpression().pattern().trimmed();
-    if (filterText.isEmpty()) {
+    if (d_ptr->filterText.isEmpty()) {
         return false;
     }
-    filterText = filterText.toLower();
-    QList<int> findIndex;
-    int from = 0;
-    bool findOk = true;
-    for (QChar &c : filterText) {
-        from = text.indexOf(c, from, Qt::CaseInsensitive);
-        if (from < 0) {
-            findOk = false;
-            break;
-        }
-        findIndex.append(from++);
+    const QModelIndex sourceIndex = sourceModel()->index(source_row, 0, source_parent);
+    if (!sourceIndex.isValid()) {
+        return false;
     }
-    if (!findOk) {
-        bool isAllLetter = true;
-        for (QChar &c : filterText) {
-            isAllLetter &= c.unicode() < 127;
-        }
-        if (isAllLetter) {
-            QList<QStringList> texts = data->searchTexts;
-            findIndex.clear();
-            int wordsIndex = -1;
-
-            auto cIt = filterText.cbegin();
-            for (auto &&words : texts) {
-                ++wordsIndex;
-                for (auto &&py : words) {
-                    from = 0;
-                    while (from < py.size() && cIt != filterText.cend() && py.at(from) == (*cIt)) {
-                        ++cIt;
-                        ++from;
-                    }
-                    if (from > 0) {
-                        findIndex.append(wordsIndex);
-                        break;
-                    }
-                }
-                if (cIt == filterText.cend()) {
-                    findOk = true;
-                    break;
-                }
-            }
-        }
-        if (!findOk) {
-            return false;
-        }
-    }
-    unsigned int leftCnt = 0;  // 开头未匹配字符
-    unsigned int midCnt = 0;   // 中间未匹配字符，相关度影响最大
-    unsigned int rightCnt = 0; // 末尾未匹配字符，相关度影响最小
-    if (!findIndex.isEmpty()) {
-        leftCnt = findIndex.first();
-        rightCnt = text.length() - findIndex.last() - 1;
-        for (auto it = findIndex.begin() + 1; it != findIndex.end(); ++it) {
-            midCnt = midCnt * 10 + ((*it) - (*(it - 1))) - 1;
-        }
-        if (midCnt > 0x0000FFFF) {
-            midCnt = 0x0000FFFF;
-        }
-    }
-    unsigned int matchScore = rightCnt + leftCnt * 0x00000100 + midCnt * 0x00010000;
-
-    QString display;
-    int i = 0;
-    bool noEnd = false;
-    for (auto &&sub : text) {
-        if (!findIndex.isEmpty() && i == findIndex.first()) {
-            if (!noEnd) {
-                display.append("<font color='red'>");
-                noEnd = true;
-            }
-            display.append(sub);
-            findIndex.takeFirst();
-        } else {
-            if (noEnd) {
-                display.append("</font>");
-                noEnd = false;
-            }
-            display.append(sub);
-        }
-        ++i;
-    }
-    if (noEnd) {
-        display.append("</font>");
-    }
-    QStringList displays(display);
-    const DccObject *p = DccObject::Private::FromObject(data->obj)->getParent();
-    while (p && p->name() != "root") {
-        if (!p->displayName().isEmpty()) {
-            displays.prepend(p->displayName());
-        }
-        p = DccObject::Private::FromObject(p)->getParent();
-    }
-
-    sourceModel()->setData(sourceIndex, displays.join("/"));
-    displays.takeLast();
-    displays.append(text);
-    sourceModel()->setData(sourceIndex, displays.join("/"), SearchPlainTextRole);
-    sourceModel()->setData(sourceIndex, matchScore, SearchMatchScoreRole);
-
-    auto currentIndex = mapFromSource(sourceIndex);
-    if (currentIndex.isValid()) {
-        Q_EMIT const_cast<SearchModel *>(this)->dataChanged(currentIndex, currentIndex, { Qt::DisplayRole });
-        m_timer->start(); // 数据库更新后延时排序并防抖
-    }
-    return true;
+    const SearchData *entry = searchData(sourceModel(), sourceIndex);
+    const auto result = d_ptr->results.constFind(entry);
+    return result != d_ptr->results.cend() && result->accepted;
 }
 
 bool SearchModel::lessThan(const QModelIndex &source_left, const QModelIndex &source_right) const
 {
-    unsigned int left = source_left.data(SearchMatchScoreRole).toUInt();
-    unsigned int right = source_right.data(SearchMatchScoreRole).toUInt();
-    if (left == right) {
-        return source_left.data(SearchPlainTextRole).toString() < source_right.data(SearchPlainTextRole).toString();
+    const auto left = d_ptr->results.constFind(searchData(sourceModel(), source_left));
+    const auto right = d_ptr->results.constFind(searchData(sourceModel(), source_right));
+    if (left == d_ptr->results.cend() || right == d_ptr->results.cend()) {
+        return false;
     }
-    return left < right;
+    if (left->score == right->score) {
+        return left->plainText < right->plainText;
+    }
+    return left->score < right->score;
+}
+
+void SearchModel::refreshSearchResults()
+{
+    d_ptr->results.clear();
+    if (d_ptr->filterText.isEmpty()) {
+        return;
+    }
+    d_ptr->results.reserve(sourceModel()->rowCount());
+    for (int row = 0; row < sourceModel()->rowCount(); ++row) {
+        const QModelIndex sourceIndex = sourceModel()->index(row, 0);
+        const SearchData *entry = searchData(sourceModel(), sourceIndex);
+        if (entry) {
+            d_ptr->results.insert(entry, createMatchResult(entry, d_ptr->filterText));
+        }
+    }
 }
 
 } // namespace dccV25

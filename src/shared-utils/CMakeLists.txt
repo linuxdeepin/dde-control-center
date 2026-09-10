@@ -2,16 +2,24 @@
 #
 # SPDX-License-Identifier: GPL-3.0-or-later
 
-add_library(dcc-shared-utils OBJECT)
-set_target_properties(dcc-shared-utils PROPERTIES POSITION_INDEPENDENT_CODE ON)
+add_library(dcc-shared-utils SHARED)
+set_target_properties(dcc-shared-utils PROPERTIES
+    VERSION ${CMAKE_PROJECT_VERSION}
+    SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
+)
 
 find_package(ICU COMPONENTS i18n uc)
 find_package(PkgConfig REQUIRED)
 pkg_check_modules(FFMPEGTHUMBNAILER REQUIRED IMPORTED_TARGET libffmpegthumbnailer)
+find_package(DDEShell REQUIRED)
 
 set(DCC_SHARED_UTILS_SOURCES
+    "dccbenchmark.h"
+    "dccbenchmark.cpp"
     "dcclocale.h"
     "dcclocale.cpp"
+    "dccdsappletmanager.h"
+    "dccdsappletmanager.cpp"
 )
 
 target_sources(dcc-shared-utils PRIVATE
@@ -22,10 +30,11 @@ target_include_directories(dcc-shared-utils PUBLIC
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-target_link_libraries(dcc-shared-utils PRIVATE
+target_link_libraries(dcc-shared-utils PUBLIC
     ICU::i18n
     ICU::uc
     ${QT_NS}::Core
+    Dde::Shell
 )
 
 add_library(dcc-wallpaper-utils STATIC
@@ -38,7 +47,19 @@ target_include_directories(dcc-wallpaper-utils PUBLIC
 target_link_libraries(dcc-wallpaper-utils
     PUBLIC
         ${QT_NS}::Core
+)
+
+add_library(dcc-wallpaper-thumbnailer MODULE
+    wallpaperthumbnailbackend.cpp
+)
+add_dependencies(dcc-wallpaper-utils dcc-wallpaper-thumbnailer)
+target_compile_definitions(dcc-wallpaper-utils PRIVATE
+    DCC_WALLPAPER_THUMBNAILER_FILENAME="$<TARGET_FILE_NAME:dcc-wallpaper-thumbnailer>"
+    DCC_WALLPAPER_THUMBNAILER_INSTALL_PATH="${CMAKE_INSTALL_FULL_LIBDIR}/$<TARGET_FILE_NAME:dcc-wallpaper-thumbnailer>"
+)
+target_link_libraries(dcc-wallpaper-thumbnailer
     PRIVATE
+        ${QT_NS}::Core
         PkgConfig::FFMPEGTHUMBNAILER
 )
 
@@ -80,3 +101,9 @@ if (Enable_TreelandSupport)
 
     target_compile_definitions(dcc-shared-utils PUBLIC ENABLE_TREELAND_INPUT_MANAGER)
 endif()
+
+install(TARGETS
+        dcc-shared-utils
+        dcc-wallpaper-thumbnailer
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)

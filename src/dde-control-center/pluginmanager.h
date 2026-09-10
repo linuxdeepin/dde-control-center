@@ -3,6 +3,8 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
+#include "dccbenchmark.h"
+
 #include <QObject>
 #include <QQmlContext>
 #include <QStringList>
@@ -24,9 +26,11 @@ class DccPluginManager : public QObject
 public:
     explicit DccPluginManager(DccManager *parent);
     ~DccPluginManager();
+    void setPlugins(const QStringList &plugins);
     void loadModules(DccObject *root, bool async, const QStringList &dirs, QQmlEngine *engine);
     bool loadFinished() const;
     void beginDelete();
+    void startDataPhase();
 
     QQmlEngine *engine();
     DccObject *rootModule();
@@ -39,6 +43,8 @@ public Q_SLOTS:
 
 Q_SIGNALS:
     void addObject(DccObject *obj);
+    void moduleLoaded(const QString &name);
+    void navigationReady();
     void loadAllFinished();
 
 private:
@@ -52,12 +58,19 @@ private Q_SLOTS:
     void onHideModuleChanged(const QSet<QString> &hideModule);
 
 private:
+    void checkNavigationFinished();
+    void checkLoadFinished();
+
     DccManager *m_manager;
     QList<DccPluginLoader *> m_plugins; // cache for other plugin
     DccObject *m_rootModule;            // root module from MainWindow
     QThreadPool *m_threadPool;
     std::atomic<bool> m_isDeleting;
     QQmlEngine *m_engine;
+    QStringList m_pluginsToLoad;
+    DccLoadTimer m_loadTimer;
+    bool m_navigationFinished = false;
+    bool m_allLoadFinished = false;
 };
 
 } // namespace dccV25

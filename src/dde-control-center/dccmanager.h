@@ -46,6 +46,8 @@ public:
     void init();
     QQmlApplicationEngine *engine();
     void setMainWindow(QWindow *window);
+    void setPlugins(const QStringList &plugins);
+    void setShowOnNavigationReady(bool enabled);
     void loadModules(bool async, const QStringList &dirs);
 
     int width() const override;
@@ -65,6 +67,10 @@ public:
     Q_INVOKABLE Dtk::Core::DSysInfo::ProductType productType() const;
 
     Q_INVOKABLE bool isTreeland() const;
+    Q_INVOKABLE bool isServerSystem() const;
+    Q_INVOKABLE bool isCommunitySystem() const;
+    Q_INVOKABLE bool isDeepin() const;
+    Q_INVOKABLE void logTimeline(const QString &stage, const QString &detail = QString()) const;
 
     inline const QSet<QString> &hideModule() const { return m_hideModule; }
 
@@ -107,6 +113,7 @@ private:
     bool isMatch(const QString &url, const DccObject *obj);
     bool isEqualByName(const QString &url, const QString &name);
     bool isEqual(const QString &url, const DccObject *obj);
+    bool isObjectAttached(const DccObject *obj) const;
     DccObject *findObject(const QString &url);
     QVector<DccObject *> findObjects(const QString &url, bool one = false);
     const DccObject *findParent(const DccObject *obj);
@@ -115,6 +122,7 @@ private:
     QString parseShowPageUrl(const QString &url, QString &cmd) const;
     void replyShowPageRequest(const QString &url, const QDBusMessage &message, bool found) const;
     void startPendingShow(const QString &url, const QDBusMessage &message);
+    void tryStopTimeline();
 
 private Q_SLOTS:
     void saveSize();
@@ -122,6 +130,8 @@ private Q_SLOTS:
     void handleScreenAdded(QScreen *screen);
     void waitShowPage(const QString &url, const QDBusMessage message);
     void clearShowParam();
+    void handleNavigationReady();
+    void handleLoadFinished();
     void handleShowReady();
     void tryShow();
     void tryShowFallback();
@@ -165,7 +175,11 @@ private:
     QDBusMessage m_showMessage;
     bool m_showPagePending;
     bool m_showLoadPage;
+    bool m_showOnNavigationReady;
     bool m_needShow;
+    bool m_windowShown;
+    bool m_pageShown;
+    bool m_allPluginsLoaded;
 
     QHash<QString, QVector<DccObject *>> m_objMap; // 映射对象名称到对象指针列表，用于快速查找
 

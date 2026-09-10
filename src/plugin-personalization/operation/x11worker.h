@@ -29,6 +29,7 @@ private Q_SLOTS:
 private:
     void onKWinConfigChanged(const QString &key);
     void onTitleHeightChanged();
+    void loadSupportedEffects();
 
 private:
     Dtk::Core::DConfig *m_kwinTitleBarConfig = nullptr;

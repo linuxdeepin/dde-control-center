@@ -38,6 +38,7 @@ foreach(FILE_PATH ${DCI_PATHS})
 endforeach(FILE_PATH)
 
 qt_policy(SET QTP0001 NEW)
+qt_policy(SET QTP0004 NEW)
 qt_add_qml_module(${DCCQmlPlugin_Name}
     PLUGIN_TARGET ${DCCQmlPlugin_Name}
     URI org.deepin.dcc

@@ -7,6 +7,8 @@
 #include "operation/personalizationworker.h"
 
 #include <QLoggingCategory>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
 #include <QTimer>
 #include <DConfig>
 
@@ -43,17 +45,32 @@ void X11Worker::active()
     m_personalizationDBusProxy->isEffectLoaded(EffectMiniLampArg, this, SLOT(onMiniEffectChanged(bool)));
     m_model->setIsMoveWindow(m_personalizationDBusProxy->isEffectLoaded(EffectMoveWindowArg));
 
-    QStringList supportEffects;
-    if (m_personalizationDBusProxy->isEffectSupported(EffectMiniLampArg)) {
-        supportEffects.append(EffectMiniLampArg);
+    loadSupportedEffects();
+}
+
+void X11Worker::loadSupportedEffects()
+{
+    const QStringList effectNames = {EffectMiniLampArg, EffectMiniScaleArg, EffectMoveWindowArg};
+    for (const QString &effectName : effectNames) {
+        auto *watcher = new QDBusPendingCallWatcher(
+            m_personalizationDBusProxy->isEffectSupportedAsync(effectName), this);
+
+        connect(watcher, &QDBusPendingCallWatcher::finished, this,
+                [this, watcher, effectName] {
+            const QDBusPendingReply<bool> reply = *watcher;
+            QStringList supportEffects = m_model->supportEffects();
+            if (reply.isValid() && !reply.isError() && reply.value()) {
+                if (!supportEffects.contains(effectName)) {
+                    supportEffects.append(effectName);
+                }
+            } else {
+                supportEffects.removeAll(effectName);
+            }
+            m_model->setSupportEffects(supportEffects);
+
+            watcher->deleteLater();
+        });
     }
-    if (m_personalizationDBusProxy->isEffectSupported(EffectMiniScaleArg)) {
-        supportEffects.append(EffectMiniScaleArg);
-    }
-    if (m_personalizationDBusProxy->isEffectSupported(EffectMoveWindowArg)) {
-        supportEffects.append(EffectMoveWindowArg);
-    }
-    m_model->setSupportEffects(supportEffects);
 }
 
 void X11Worker::setTitleBarHeight(int value)

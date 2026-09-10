@@ -4,6 +4,7 @@
 #include "controlcenterdbusadaptor.h"
 #include "dccmanager.h"
 #include "securityloaderhelper.h"
+#include "dccbenchmark.h"
 
 #include <DDBusSender>
 #include <DIconTheme>
@@ -108,6 +109,8 @@ int main(int argc, char *argv[])
 #endif
     app->setQuitOnLastWindowClosed(false);
 
+    dccV25::DccAppTimeline::instance().start();
+
     refreshQmlCache(app->applicationVersion());
 
     DLogManager::setLogFormat("%{time}{yy-MM-ddTHH:mm:ss.zzz} [%{type}] [%{category}] <%{function}:%{line}> %{message}");
@@ -125,6 +128,7 @@ int main(int argc, char *argv[])
     QCommandLineOption showTime(QStringList() << "z" << "time", "show control center exe time."); // 新增time参数自动测试启动速度
     QCommandLineOption loggingModuleOption(QStringList() << "l" << "logging-module", "Only output logs for the specified module", "loggingModule");
     QCommandLineOption pluginDir("spec", "load plugins from specialdir", "plugindir");
+    QCommandLineOption pluginOption(QStringList() << "P" << "plugin", "load specified plugins", "plugin");
     QCommandLineOption listOption("list", "list all modules and exit.");
     QCommandLineOption fd1Opt("fd1", "fd1 from security loader", "fd1");
     QCommandLineOption fd2Opt("fd2", "fd2 from security loader", "fd2");
@@ -141,6 +145,7 @@ int main(int argc, char *argv[])
     parser.addOption(showTime);
     parser.addOption(loggingModuleOption);
     parser.addOption(pluginDir);
+    parser.addOption(pluginOption);
     parser.addOption(listOption);
     parser.addOption(fd1Opt);
     parser.addOption(fd2Opt);
@@ -267,6 +272,9 @@ int main(int argc, char *argv[])
         qDebug() << "dbus service already registered!" << "pid is:" << qApp->applicationPid();
         return -1;
     }
+    if (parser.isSet(pluginOption))
+        dccManager->setPlugins(parser.values(pluginOption));
+    dccManager->setShowOnNavigationReady(reqPage.isEmpty() && !parser.isSet(dbusOption));
     if (!refPluginDirs.isEmpty()) {
         dccManager->loadModules(true, refPluginDirs);
         adaptor->Show();

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -102,19 +102,18 @@ QVariant NotificationSetting::appValue(const QString &id, AppConfigItem item)
         return id;
     }
 
-    const auto app = appItem(id);
+    // 仅 AppName/AppIcon 需要查询应用列表，其余项走 appsInfo 配置，避免每次都线性扫描
     switch (item) {
-    case AppId: {
-        return id;
-    }
     case AppName: {
+        const auto app = appItem(id);
         return app.appName;
     }
     case AppIcon: {
+        const auto app = appItem(id);
         return app.appIcon;
+    }
     default:
         break;
-    }
     }
 
     const auto info = appInfo(id);
@@ -237,20 +236,7 @@ QList<NotificationSetting::AppItem> NotificationSetting::appItems() const
 
 QList<NotificationSetting::AppItem> NotificationSetting::appItemsImpl() const
 {
-    QList<NotificationSetting::AppItem> appSettings;
-    QList<AppMgr::AppItem *> apps = AppMgr::instance()->allAppInfosShouldBeShown();
-    for (int i = 0; i < apps.count(); i++) {
-        const auto desktopId = apps[i]->appId;
-        const auto icon = apps[i]->iconName;
-        const auto name = apps[i]->displayName;
-
-        NotificationSetting::AppItem item;
-        item.id = desktopId;
-        item.appIcon = icon;
-        item.appName = name;
-        appSettings << item;
-    }
-    return appSettings;
+    return AppMgr::instance()->allAppInfosShouldBeShown();
 }
 
 QVariantMap NotificationSetting::appInfo(const QString &id) const

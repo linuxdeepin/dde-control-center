@@ -248,7 +248,46 @@ Item {
                 fill: parent
                 topMargin: 50
             }
+            popEnter: Transition {
+                XAnimator {
+                    from: (rightView.mirrored ? -1 : 1) * -rightView.width
+                    to: 0
+                    duration: 400
+                    easing.type: Easing.OutCubic
+                }
+            }
+
+            popExit: Transition {
+                XAnimator {
+                    from: 0
+                    to: (rightView.mirrored ? -1 : 1) * rightView.width
+                    duration: 400
+                    easing.type: Easing.OutCubic
+                }
+            }
+            pushEnter: Transition {
+                XAnimator {
+                    from: (rightView.mirrored ? -1 : 1) * rightView.width
+                    to: 0
+                    duration: 400
+                    easing.type: Easing.OutCubic
+                }
+            }
+            pushExit: Transition {
+                XAnimator {
+                    from: 0
+                    to: (rightView.mirrored ? -1 : 1) * -rightView.width
+                    duration: 400
+                    easing.type: Easing.OutCubic
+                }
+            }
+            onBusyChanged: {
+                const pageName = currentItem && currentItem.dccObj ? currentItem.dccObj.name : ""
+                DccApp.logTimeline(busy ? "page-animation-start" : "page-animation-finished", pageName)
+            }
             onCurrentItemChanged: {
+                if (currentItem)
+                    DccApp.logTimeline("stack-current-item-changed")
                 if (currentItem && !root.isKeyboardNavigating) {
                     rightView.forceActiveFocus()
                 }
@@ -328,12 +367,15 @@ Item {
         if (!activeObj || activeObj === dccObj) {
             return
         }
+        DccApp.logTimeline("page-switch-request", activeObj.name)
         if (activeObj.page === null) {
             activeObj.page = rightLayout
         }
+        DccApp.logTimeline("page-replace-start", activeObj.name)
         rightView.replace(mainView, {
                               "dccObj": activeObj
                           }, DccApp.animationMode === DccApp.AnimationPush ? StackView.PushTransition : StackView.PopTransition)
+        DccApp.logTimeline("page-replace-return", activeObj.name)
     }
     Connections {
         target: DccApp

@@ -63,6 +63,7 @@ set(Control_Center_Libraries
     ${QT_NS}::Concurrent
     ${QT_NS}::Quick
     dde-control-center-lib
+    dcc-shared-utils
 )
 
 target_link_libraries(${Control_Center_Name} PRIVATE

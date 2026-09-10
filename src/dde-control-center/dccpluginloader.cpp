@@ -4,6 +4,7 @@
 
 #include "dccpluginloader.h"
 
+#include "dccbenchmark.h"
 #include "dccfactory.h"
 #include "dccmanager.h"
 #include "dccobject.h"
@@ -219,6 +220,7 @@ bool DccPluginLoader::loadMetaData()
 
 bool DccPluginLoader::loadModule()
 {
+    DCC_BENCHMARK(name(), "loading-module-QML");
     if (!(m_type & T_HasModule)) {
         setLog("module qml not exists");
         return true;
@@ -267,6 +269,7 @@ bool DccPluginLoader::loadModule()
 
 void DccPluginLoader::loadData()
 {
+    DCC_BENCHMARK(name(), "loading-plugin-library");
     if (m_factory) {
         return;
     }
@@ -313,6 +316,7 @@ void DccPluginLoader::loadData()
 
 void DccPluginLoader::createData()
 {
+    DCC_BENCHMARK(name(), "creating-plugin-data");
     if (!m_factory) {
         setLog(": create data skipped");
         transitionStatus(DataErr);
@@ -354,6 +358,7 @@ void DccPluginLoader::updateParent()
 
 void DccPluginLoader::loadMain()
 {
+    DCC_BENCHMARK(name(), "creating-the-main-qml-object");
     if (!(m_type & T_HasMain)) {
         setLog("main qml not exists");
         transitionStatus(MainObjErr);
