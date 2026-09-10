@@ -3649,7 +3649,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Exibir contrato de licença de usuário final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
