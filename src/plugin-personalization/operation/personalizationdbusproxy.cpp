@@ -500,8 +500,13 @@ bool PersonalizationDBusProxy::isEffectLoaded(const QString &name, QObject *rece
 
 bool PersonalizationDBusProxy::isEffectSupported(const QString &name)
 {
+    return isEffectSupportedAsync(name);
+}
+
+QDBusPendingReply<bool> PersonalizationDBusProxy::isEffectSupportedAsync(const QString &name)
+{
     if (!m_EffectsInter) {
-        return false;
+        return {};
     }
     return QDBusPendingReply<bool>(m_EffectsInter->asyncCall(QStringLiteral("isEffectSupported"), QVariant::fromValue(name)));
 }
