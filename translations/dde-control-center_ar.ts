@@ -363,10 +363,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Add a new %1 ...</source>
         <translation>إضافة %1 جديد ...</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>لا يمكن أن يكون الاسم فارغًا</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -2073,6 +2069,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation>دمج رموز التطبيقات</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2193,49 +2193,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>أنصاف قوة شد الألوان</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>ثلاث أصابع لأعلى</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>ثلاث أصابع لأسفل</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>ثلاث أصابع لليسار</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>ثلاث أصابع لليمين</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>نقرة بثلاث أصابع</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>أربع أصابع لأعلى</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>أربع أصابع لأسفل</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>أربع أصابع لليسار</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>أربع أصابع لليمين</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>نقرة بأربع أصابع</translation>
     </message>
 </context>
 <context>
@@ -2412,10 +2369,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>MicrophonePage</name>
     <message>
-        <source>Automatic Noise Suppression</source>
-        <translation>المuffledة التلقائية</translation>
-    </message>
-    <message>
         <source>Input Volume</source>
         <translation>حجم المدخل</translation>
     </message>
@@ -2435,6 +2388,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Input Device</source>
         <translation>جهاز الإدخال</translation>
     </message>
+    <message>
+        <source>Intelligent Noise Reduction</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2445,49 +2402,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>عام、الماوس、لوحة اللمس</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>تكبير النافذة</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>استعادة النافذة</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>إظهار سطح المكتب</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>قفل الشاشة</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>عرض المهام المتعددة</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>تعطيل</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>التبديل إلى مساحة العمل السابقة</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>التبديل إلى مساحة العمل التالية</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>إخفاء عرض المهام المتعددة</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>تبديل عرض المهام المتعددة</translation>
     </message>
 </context>
 <context>
@@ -3415,10 +3329,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>انقر على إضافة لتفعيل مفتاح الاختصار هذا</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation>استبدال</translation>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>فشل بدء التقاط الاختصار. يرجى المحاولة مرة أخرى.</translation>
     </message>
@@ -3429,10 +3339,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation>اختصار لوحة المفاتيح غير صالح. عيّن اختصارًا جديدًا.</translation>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
-        <translation>انقر على استبدال لتفعيل مفتاح الاختصار هذا</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3619,6 +3525,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>خطأ</translation>
+    </message>
+</context>
+<context>
+    <name>SoundWorker</name>
+    <message>
+        <source>Failed to enable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Failed to disable intelligent noise reduction. Try again later.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4535,10 +4452,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>لا شيء</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>تطبيق</translation>
     </message>
 </context>
 </TS>
