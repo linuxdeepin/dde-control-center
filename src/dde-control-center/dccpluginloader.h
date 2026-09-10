@@ -86,6 +86,8 @@ public:
 
     // Dependency injection
     void setType(TypeFlags type);
+    void setModule(DccObject *module);
+    void setMainObj(DccObject *mainObj);
 
     // Loading methods
     void reset(); // Reset status and restart loading

@@ -19,6 +19,7 @@ namespace dccV25 {
 class DccObject;
 class DccManager;
 class DccPluginLoader;
+class DccAsyncModuleLoader;
 
 class DccPluginManager : public QObject
 {
@@ -71,6 +72,7 @@ private:
     DccLoadTimer m_loadTimer;
     bool m_navigationFinished = false;
     bool m_allLoadFinished = false;
+    DccAsyncModuleLoader *m_asyncLoader;
 };
 
 } // namespace dccV25
