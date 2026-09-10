@@ -938,15 +938,15 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu de inicialização</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Gerenciar menu de inicialização</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Opções do desenvolvedor</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
