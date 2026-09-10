@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="uk">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="uk">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -193,7 +191,7 @@ To ensure successful entry:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
@@ -238,7 +236,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
@@ -287,7 +285,7 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>«Біометричне розпізнавання» — функціональна можливість розпізнавання користувачів, яка надається UnionTech Software Technology Co, Ltd. Під час «біометричного розпізнавання» зібрані біометричні дані буде порівняно із даними, які зберігаються на пристрої. Ідентичність користувача буде встановлено на основі результатів порівняння.
@@ -355,10 +353,6 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     <message>
         <source>Add a new %1 ...</source>
         <translation>Додати новий %1…</translation>
-    </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>Назва не може бути порожньою</translation>
     </message>
 </context>
 <context>
@@ -1950,7 +1944,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Drag the display layout first to form a rectangle. If a rectangular layout is not possible, set all displays to the same resolution first.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2061,6 +2055,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Combine application icons</source>
         <translation>Поєднувати піктограми програм</translation>
+    </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2182,49 +2180,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Зменшувати яскравість екран при заощадженні живлення</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>Трьома пальцями вгору</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>Трьома пальцями вниз</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>Трьома пальцями ліворуч</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Трьома пальцями праворуч</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Торкання трьома пальцями</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Чотирма пальцями вгору</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Чотирма пальцями вниз</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Чотирма пальцями ліворуч</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Чотирма пальцями праворуч</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Торкання чотирма пальцями</translation>
     </message>
 </context>
 <context>
@@ -2422,7 +2377,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Intelligent Noise Reduction</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2434,49 +2389,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Загальне, миша, сенсорна панель</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation type="unfinished">Вимкнути</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -2851,15 +2763,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
-        <translation type="unfinished">Легкий</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Auto</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Dark</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3404,10 +3316,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>натисніть «Додати», щоб задіяти цю комбінацію клавіш</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation type="unfinished"/>
     </message>
@@ -3417,10 +3325,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3614,11 +3518,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SoundWorker</name>
     <message>
         <source>Failed to enable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to disable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4535,10 +4439,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Немає</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

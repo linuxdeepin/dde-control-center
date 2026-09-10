@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="pl">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="pl">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -193,7 +191,7 @@ Aby pomyślnie odblokować urządzenie:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>„Uwierzytelnienie biometryczne” to funkcja uwierzytelnienia tożsamości użytkownika stworzona przez UnionTech Software Technology Co., Ltd. Dzięki „uwierzytelnieniu biometrycznemu” zebrane dane biometryczne będą porównywane z danymi przechowywanymi na urządzeniu, a tożsamość użytkownika zostanie zweryfikowana na podstawie wyniku porównania.
@@ -240,7 +238,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>„Uwierzytelnienie biometryczne” to funkcja uwierzytelnienia tożsamości użytkownika stworzona przez UnionTech Software Technology Co., Ltd. Dzięki „uwierzytelnieniu biometrycznemu” zebrane dane biometryczne będą porównywane z danymi przechowywanymi na urządzeniu, a tożsamość użytkownika zostanie zweryfikowana na podstawie wyniku porównania.
@@ -291,7 +289,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>„Uwierzytelnienie biometryczne” to funkcja uwierzytelnienia tożsamości użytkownika stworzona przez UnionTech Software Technology Co., Ltd. Dzięki „uwierzytelnieniu biometrycznemu” zebrane dane biometryczne będą porównywane z danymi przechowywanymi na urządzeniu, a tożsamość użytkownika zostanie zweryfikowana na podstawie wyniku porównania.
@@ -361,10 +359,6 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     <message>
         <source>Add a new %1 ...</source>
         <translation>Dodaj nowe %1 ...</translation>
-    </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>Nazwa użytkownika nie może być pusta</translation>
     </message>
 </context>
 <context>
@@ -1471,7 +1465,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation>Przejdź do ustawień sieciowych</translation>
+        <translation>Przejdź do ustawień w internecie</translation>
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
@@ -1532,7 +1526,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Subject to your local laws and regulations, it is currently unavailable in your region.</source>
-        <translation>Ze względu na lokalne prawa i regulacje w Twoim regionie, ta obecnie funkcja nie jest dostępna.</translation>
+        <translation>Ze względu na lokalne prawo i regulacje w Twoim regionie, funkcja nie jest obecnie dostępna.</translation>
     </message>
 </context>
 <context>
@@ -2068,6 +2062,10 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
         <source>Combine application icons</source>
         <translation>Połącz ikony aplikacji</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation>Ikony aplikacji są zawsze pogrupowane na pasku zadań w trybie modnym.</translation>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2188,49 +2186,6 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Zmniejsz jasność ekranu w trybie oszczędzania energii</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>Trzy palce w górę</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>Trzy palce w dół</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>Trzy palce w lewo</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Trzy palce w prawo</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Stuknięcie trzema palcami</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Cztery palce w górę</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Cztery palce w dół</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Cztery palce w lewo</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Cztery palce w prawo</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Stuknięcie czterema palcami</translation>
     </message>
 </context>
 <context>
@@ -2428,7 +2383,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Intelligent Noise Reduction</source>
-        <translation type="unfinished"></translation>
+        <translation>Inteligentna redukcja szumów</translation>
     </message>
 </context>
 <context>
@@ -2440,49 +2395,6 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Ogólne, mysz, panel dotykowy</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>Maksymalizuj okno</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>Przywróć okno</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>Pokaż pulpit</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>Ekran blokady</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>Widok wielozadaniowości</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Wyłącz</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>Przełącz na poprzedni obszar roboczy</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>Przełącz na następny obszar roboczy</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>Ukryj widok wielozadaniowości</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>Przełącz widok wielozadaniowości</translation>
     </message>
 </context>
 <context>
@@ -3410,10 +3322,6 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
         <translation>kliknij Dodaj, aby zastosować skrót</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation>Zamień</translation>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>Nie udało się przechwycić skrótu klawiszowego. Spróbuj ponownie.</translation>
     </message>
@@ -3424,10 +3332,6 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation>Nieprawidłowy skrót klawiszowy. Spróbuj ustawić inny.</translation>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
-        <translation>Kliknij Zamień, aby aktywować skrót klawiszowy.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3458,7 +3362,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Click</source>
-        <translation>Kliknij</translation>
+        <translation>kliknij</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -3589,7 +3493,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Send icon in Launcher to Desktop</source>
-        <translation>Wysłanie ikony programu wywołującego na pulpit</translation>
+        <translation>Wysłanie ikony Launchera na pulpit</translation>
     </message>
     <message>
         <source>Empty Trash</source>
@@ -3620,11 +3524,11 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <name>SoundWorker</name>
     <message>
         <source>Failed to enable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się włączyć inteligentnej redukcji szumów. Spróbuj ponownie później.</translation>
     </message>
     <message>
         <source>Failed to disable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation>Nie udało się wyłączyć inteligentnej redukcji szumów. Spróbuj ponownie później.</translation>
     </message>
 </context>
 <context>
@@ -4139,7 +4043,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <name>WallpaperSelectView</name>
     <message>
         <source>unfold</source>
-        <translation>rozwiń</translation>
+        <translation>zwiń</translation>
     </message>
     <message>
         <source>Set lock screen</source>
@@ -4541,10 +4445,6 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>None</source>
         <translation>Brak</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>Aplikacja</translation>
     </message>
 </context>
 </TS>
