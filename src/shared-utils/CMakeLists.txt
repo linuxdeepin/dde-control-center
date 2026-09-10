@@ -47,7 +47,19 @@ target_include_directories(dcc-wallpaper-utils PUBLIC
 target_link_libraries(dcc-wallpaper-utils
     PUBLIC
         ${QT_NS}::Core
+)
+
+add_library(dcc-wallpaper-thumbnailer MODULE
+    wallpaperthumbnailbackend.cpp
+)
+add_dependencies(dcc-wallpaper-utils dcc-wallpaper-thumbnailer)
+target_compile_definitions(dcc-wallpaper-utils PRIVATE
+    DCC_WALLPAPER_THUMBNAILER_FILENAME="$<TARGET_FILE_NAME:dcc-wallpaper-thumbnailer>"
+    DCC_WALLPAPER_THUMBNAILER_INSTALL_PATH="${CMAKE_INSTALL_FULL_LIBDIR}/$<TARGET_FILE_NAME:dcc-wallpaper-thumbnailer>"
+)
+target_link_libraries(dcc-wallpaper-thumbnailer
     PRIVATE
+        ${QT_NS}::Core
         PkgConfig::FFMPEGTHUMBNAILER
 )
 
@@ -90,6 +102,8 @@ if (Enable_TreelandSupport)
     target_compile_definitions(dcc-shared-utils PUBLIC ENABLE_TREELAND_INPUT_MANAGER)
 endif()
 
-install(TARGETS dcc-shared-utils
+install(TARGETS
+        dcc-shared-utils
+        dcc-wallpaper-thumbnailer
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )

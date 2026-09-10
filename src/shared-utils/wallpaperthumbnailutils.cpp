@@ -3,16 +3,58 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "wallpaperthumbnailutils.h"
+#include "dccbenchmark.h"
 
+#include <QCoreApplication>
 #include <QCryptographicHash>
 #include <QDebug>
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
+#include <QPluginLoader>
 #include <QStandardPaths>
+#include <QStringList>
 #include <QUuid>
 
-#include <libffmpegthumbnailer/videothumbnailer.h>
+#include "wallpaperthumbnailbackend_p.h"
+
+namespace {
+
+QStringList thumbnailBackendPaths()
+{
+    const QString backendFileName = QStringLiteral(DCC_WALLPAPER_THUMBNAILER_FILENAME);
+    return {
+        QDir(QCoreApplication::applicationDirPath()).absoluteFilePath(QStringLiteral("../lib/") + backendFileName),
+        QStringLiteral(DCC_WALLPAPER_THUMBNAILER_INSTALL_PATH),
+        backendFileName,
+    };
+}
+
+WallpaperThumbnailBackend *loadThumbnailBackend()
+{
+    QPluginLoader loader;
+    loader.setLoadHints(QLibrary::PreventUnloadHint);
+
+    QStringList errors;
+    for (const QString &path : thumbnailBackendPaths()) {
+        loader.setFileName(path);
+        QObject *instance = loader.instance();
+        if (!instance) {
+            errors.append(loader.errorString());
+            continue;
+        }
+
+        if (auto *backend = qobject_cast<WallpaperThumbnailBackend *>(instance))
+            return backend;
+
+        errors.append(QStringLiteral("%1 does not implement the wallpaper thumbnail interface").arg(path));
+    }
+
+    qWarning() << "Failed to load wallpaper thumbnail backend:" << errors;
+    return nullptr;
+}
+
+}
 
 namespace DccWallpaperThumbnail {
 
@@ -43,15 +85,11 @@ QString generate(const QString &videoPath)
         return {};
     }
 
+    DCC_BENCHMARK(QStringLiteral("wallpaper-thumbnail"), "generating-video-thumbnail");
     const QString temporaryPath = outputPath + "." + QUuid::createUuid().toString(QUuid::Id128) + ".tmp";
-    try {
-        ffmpegthumbnailer::VideoThumbnailer thumbnailer(480, false, true, 8, false);
-        thumbnailer.setThumbnailSize(480, -1);
-        thumbnailer.setSeekTime("00:00:01");
-        thumbnailer.generateThumbnail(videoPath.toStdString(), Png, temporaryPath.toStdString());
-    } catch (const std::exception &error) {
+    static auto *backend = loadThumbnailBackend();
+    if (!backend || !backend->generate(videoPath, temporaryPath)) {
         QFile::remove(temporaryPath);
-        qWarning() << "Failed to generate video thumbnail:" << videoPath << error.what();
         return {};
     }
 
