@@ -2064,7 +2064,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation type="unfinished"/>
+        <translation>Ikony aplikacji są zawsze pogrupowane na pasku zadań w trybie modnym.</translation>
     </message>
 </context>
 <context>
