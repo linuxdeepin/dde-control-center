@@ -1,3 +1,51 @@
+dde-control-center (6.1.106) unstable; urgency=medium
+
+  * i18n: Updates for project Deepin Desktop Environment (#3424)
+  * i18n: Updates for project Deepin Desktop Environment (#3428)
+  * fix(datetime): avoid authorizing dialog on first empty customize
+    switch
+  * fix: sync volume adjustment in real time
+  * fix: improve account group list keyboard navigation
+  * fix(display): bind treeland extensions via qt registry
+  * fix: resolve shortcutView ReferenceError in Shortcuts.qml onDeactive
+    handler
+  * fix: replace __DATE__ with DCC_BUILD_YEAR to fix -Werror=date-time
+  * fix: add Q_INTERFACES for QQmlParserStatus
+  * fix: make plugin translator loading optional
+  * fix(privacy): gate GetMode/GetPolicy by registered entities to avoid
+    InvalidArgs noise
+  * fix(privacy): retry ListEntity on failure if service already online
+    (X1 race)
+  * fix(privacy): limit X1 retry to once per online cycle, simplify
+    comments
+  * fix(privacy): skip empty entityListFinished emit on retry in
+    onListEntityFinished
+  * fix: drop baseline anchor in AddFaceinfoDialog
+  * build: enable warnings as errors for release builds
+  * chore: adjust logging levels for normal operation
+  * feat(sound): add AI noise reduction support
+  * fix(grub2): pass fd to SetBackgroundSourceFile instead of file path
+  * fix(time-range): restore field display on focus loss
+  * fix(wallpaper): refresh delegate load limit when model changes
+  * fix: hide unsupported eye comfort controls
+  * fix(dock): Adjust dock icon alignment and grouping options for
+    Fashion
+  * feat(dcc): add --list option to dump module tree
+  * fix(dcc): report incomplete plugin loading in --list
+  * feat(systeminfo): add configurable customer logo on About This PC
+    page
+  * fix(datetime): unify left padding of list items in LangAndFormat
+  * fix: refactor timezone and NTP combobox UI components
+  * i18n: Updates for project Deepin Desktop Environment (#3487)
+  * fix(display): scale screen snap threshold with screen width
+  * fix: correct Portuguese translations and reorder desktop entry keys
+  * feat: optimize to speed up boot (#3492)
+  * i18n: Translate dde-control-center_en.ts in ar (#3490)
+  * chore: update translation files for dde-control-center
+  * i18n: Updates for project Deepin Desktop Environment (#3494)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Thu, 10 Sep 2026 20:28:33 +0800
+
 dde-control-center (6.1.105) unstable; urgency=medium
 
   * fix(display): sync virtualOutput on X11 clone mode
