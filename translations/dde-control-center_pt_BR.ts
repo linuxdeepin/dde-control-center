@@ -950,11 +950,11 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Gerenciamento de permissões de root para desenvolvedores</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Opções de depuração para desenvolvedores</translation>
     </message>
 </context>
 <context>
@@ -1193,11 +1193,11 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Idioma e região</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Idioma do sistema, formatos regionais</translation>
     </message>
 </context>
 <context>
