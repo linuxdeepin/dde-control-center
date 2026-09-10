@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="es">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="es">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -195,7 +193,7 @@ Para garantizar el acceso:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>La autenticación biométrica es una función de verificación de identidad de usuario proporcionada por UnionTech Software Technology Co., Ltd. Mediante la autenticación biométrica, los datos biométricos recopilados se comparan con los almacenados en el dispositivo, y la identidad del usuario se verifica en función del resultado de la comparación.
@@ -242,7 +240,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>La autenticación biométrica es una función de autenticación de identidad de usuario proporcionada por UnionTech Software Technology Co., Ltd. Mediante la autenticación biométrica, los datos biométricos recopilados se compararán con los almacenados en el dispositivo y la identidad del usuario se verificará con base en el resultado de la comparación.
@@ -293,7 +291,7 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>La autenticación biométrica es una función de verificación de identidad de usuario proporcionada por UnionTech Software Technology Co., Ltd. Mediante la autenticación biométrica, los datos biométricos recopilados se comparan con los almacenados en el dispositivo, y la identidad del usuario se verifica en función del resultado de la comparación.
@@ -363,10 +361,6 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <message>
         <source>Add a new %1 ...</source>
         <translation>Añadir %1 ...</translation>
-    </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>El nombre no puede estar vacío.</translation>
     </message>
 </context>
 <context>
@@ -2070,6 +2064,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>Combine application icons</source>
         <translation>Agrupar iconos de las aplicaciones</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2190,49 +2188,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Disminuir el brillo de la pantalla en el modo de ahorro de energía</translation>
-    </message>
-</context>
-<context>
-    <name>GestureModel</name>
-    <message>
-        <source>Three-finger up</source>
-        <translation>Tres dedos hacia arriba</translation>
-    </message>
-    <message>
-        <source>Three-finger down</source>
-        <translation>Tres dedos hacia abajo</translation>
-    </message>
-    <message>
-        <source>Three-finger left</source>
-        <translation>Tres dedos a la izquierda</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Tres dedos a la derecha</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Toque con tres dedos</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Cuatro dedos hacia arriba</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Cuatro dedos hacia abajo</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Cuatro dedos a la izquierda</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Cuatro dedos a la derecha</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Toque con cuatro dedos</translation>
     </message>
 </context>
 <context>
@@ -2430,7 +2385,7 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Intelligent Noise Reduction</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2442,49 +2397,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Ajustes generales, ratón, panel táctil</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>Maximizar ventana </translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>Restaurar ventana</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>Mostrar escritorio</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>Bloquear pantalla</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>Vista multitarea</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Desactivar</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>Cambiar al espacio de trabajo anterior</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>Volver al espacio de trabajo siguiente</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>Ocultar la vista multitarea</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>Alternar vista multitarea</translation>
     </message>
 </context>
 <context>
@@ -3412,10 +3324,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>Haga clic en Añadir para que esta tecla de acceso directo sea efectiva.</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation type="unfinished"/>
     </message>
@@ -3425,10 +3333,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3622,11 +3526,11 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <name>SoundWorker</name>
     <message>
         <source>Failed to enable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to disable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4543,10 +4447,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>None</source>
         <translation>Ninguno</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>Aplicación</translation>
     </message>
 </context>
 </TS>
