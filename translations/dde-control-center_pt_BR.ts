@@ -3641,11 +3641,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Participar do programa de experiência do usuário para ajudar a melhorar o produto</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Contrato de licença de usuário final</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
