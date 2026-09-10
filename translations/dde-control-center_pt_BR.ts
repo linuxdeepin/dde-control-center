@@ -2177,7 +2177,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GroupObject</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistema</translation>
     </message>
     <message>
         <source>Common settings</source>
