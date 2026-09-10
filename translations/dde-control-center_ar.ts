@@ -119,7 +119,7 @@
     </message>
     <message>
         <source>Quick login</source>
-        <translation>تسجيل الدخول السريع</translation>
+        <translation>تسجيل دخول سريع</translation>
     </message>
 </context>
 <context>
@@ -185,8 +185,8 @@ To ensure successful entry:
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
         <translation>التعرف على الوجه لا يدعم الكشف عن الحيوية، وقد تنطوي طريقة التحقق على مخاطر.
 لضمان الإدخال الناجح:
-1. حافظ على وضوح ملامح وجهك ولا تغطيها (القبعات والنظارات الشمسية والأقنعة، إلخ).
-2. تأكد من كفاية الإضاءة وتجنب أشعة الشمس المباشرة.</translation>
+1. حافظ على وضوح ملامح وجهك ولا تغطيها (القبعات، النظارات الشمسية، الأقنعة، إلخ).
+2. تأكد من وجود إضاءة كافية وتجنب أشعة الشمس المباشرة.</translation>
     </message>
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
@@ -194,12 +194,11 @@ To ensure successful entry:
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation>&quot;التحقق البيومטרי&quot; هو وظيفة لتأكيد هوية المستخدم تقدمها شركة تكنولوجيا البرمجيات المتحدة. من خلال &quot;التحقق البيومטרי&quot;، سيتم مقارنة البيانات البيومترية المجمعة مع البيانات المخزنة في الجهاز، وسيتم التحقق من هوية المستخدم بناءً على نتيجة المقارنة.
+        <translation>&quot;المصادقة البيومترية&quot; هي وظيفة لمصادقة هوية المستخدم يقدمها شركة UnionTech Software Technology Co., Ltd. من خلال &quot;المصادقة البيومترية&quot;، ستتم مقارنة البيانات البيومترية المجمعة مع تلك المخزنة في الجهاز، وسيتم التحقق من هوية المستخدم بناءً على نتيجة المقارنة.
 
-يرجى الملاحظة أن شركة تكنولوجيا البرمجيات المتحدة لن تجمع أو تُدخل بياناتك البيومترية، والتي سيتم تخزينها على جهازك المحلي. يرجى تمكين &quot;التحقق البيومטרי&quot; فقط في جهازك الشخصي واستخدم بياناتك البيومترية الخاصة لإجراء العمليات المرتبطة، وقم بتعطيل أو حذف بيانات البيومترية الأخرى على ذلك الجهاز في أقرب وقت، وإلا فإنك ستحمل المخاطر الناشئة عن ذلك.
+يرجى ملاحظة أن شركة UnionTech Software Technology Co., Ltd. لن تجمع أو تصل إلى معلوماتك البيومترية، والتي سيتم تخزينها على جهازك المحلي. يرجى تمكين المصادقة البيومترية فقط على جهازك الشخصي واستخدام معلوماتك البيومترية الخاصة للعمليات ذات الصلة، وتعطيل أو حذف معلومات الأشخاص الآخرين البيومترية على ذلك الجهاز فورًا، وإلا فستتحمل المخاطر الناشئة عن ذلك.
 
-
-تلتزم شركة تكنولوجيا البرمجيات المتحدة ببحث وتحسين أمان ودقة وثبات &quot;التحقق البيومטרי&quot;. ومع ذلك، لا يوجد ضمان بأنك ستمكين &quot;التحقق البيومטרי&quot; مؤقتًا بسبب عوامل بيئية وتقنية وآلاتية وغيرها من عوامل التحكم في المخاطر. لذلك، يرجى عدم الاعتماد على &quot;التحقق البيومטרי&quot; كالطريقة الوحيدة لتسجيل الدخول إلى نظام التشغيل UOS. إذا كانت لديك أي أسئلة أو ملاحظات عند استخدام &quot;التحقق البيومטרי&quot;، يمكنك إعطاء ملاحظات عبر &quot;الدعم والمساعدة&quot; في نظام التشغيل UOS.</translation>
+تلتزم شركة UnionTech Software Technology Co., Ltd. بالبحث وتحسين أمان ودقة واستقرار المصادقة البيومترية. ومع ذلك، بسبب العوامل البيئية والمعدات والتقنية وعوامل أخرى ومراقبة المخاطر، لا يوجد ضمان بأن ستجتاز المصادقة البيومترية مؤقتًا. لذلك، يرجى عدم اتخاذ المصادقة البيومترية كطريقة唯一ة لتسجيل الدخول إلى UOS. إذا كان لديك أي أسئلة أو اقتراحات عند استخدام المصادقة البيومترية، يمكنك تقديم ملاحظات من خلال &quot;الخدمة والدعم&quot; في UOS.</translation>
     </message>
 </context>
 <context>
@@ -258,11 +257,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>I have read and agree to the</source>
-        <translation>لقد قرأت ووافقت على</translation>
+        <translation>لقد قرأت وأوافق على</translation>
     </message>
     <message>
         <source>Disclaimer</source>
-        <translation>إقرار</translation>
+        <translation>إخلاء المسؤولية</translation>
     </message>
     <message>
         <source>Next</source>
@@ -278,7 +277,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Retry Enroll</source>
-        <translation>إعادة المحاولة</translation>
+        <translation>إعادة محاولة التسجيل</translation>
     </message>
     <message>
         <source>Iris enrolled</source>
@@ -294,16 +293,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
 Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
-        <translation>&quot;التحقق البيومטרי&quot; هو وظيفة لتأكيد هوية المستخدم تقدمها شركة تكنولوجيا البرمجيات المتحدة. من خلال &quot;التحقق البيومטרי&quot;، سيتم مقارنة البيانات البيومترية المجمعة مع البيانات المخزنة في الجهاز، وسيتم التحقق من هوية المستخدم بناءً على نتيجة المقارنة.
+        <translation>&quot;المصادقة البيومترية&quot; هي وظيفة لمصادقة هوية المستخدم يقدمها شركة UnionTech Software Technology Co., Ltd. من خلال &quot;المصادقة البيومترية&quot;، ستتم مقارنة البيانات البيومترية المجمعة مع تلك المخزنة في الجهاز، وسيتم التحقق من هوية المستخدم بناءً على نتيجة المقارنة.
 
-يرجى الملاحظة أن شركة تكنولوجيا البرمجيات المتحدة لن تجمع أو تُدخل بياناتك البيومترية، والتي سيتم تخزينها على جهازك المحلي. يرجى تمكين &quot;التحقق البيومטרי&quot; فقط في جهازك الشخصي واستخدم بياناتك البيومترية الخاصة لإجراء العمليات المرتبطة، وقم بتعطيل أو حذف بيانات البيومترية الأخرى على ذلك الجهاز في أقرب وقت، وإلا فإنك ستحمل المخاطر الناشئة عن ذلك.
+يرجى ملاحظة أن شركة UnionTech Software Technology Co., Ltd. لن تجمع أو تصل إلى معلوماتك البيومترية، والتي سيتم تخزينها على جهازك المحلي. يرجى تمكين المصادقة البيومترية فقط على جهازك الشخصي واستخدام معلوماتك البيومترية الخاصة للعمليات ذات الصلة، وتعطيل أو حذف معلومات الأشخاص الآخرين البيومترية على ذلك الجهاز فورًا، وإلا فستتحمل المخاطر الناشئة عن ذلك.
 
-
-تلتزم شركة تكنولوجيا البرمجيات المتحدة ببحث وتحسين أمان ودقة وثبات &quot;التحقق البيومטרי&quot;. ومع ذلك، لا يوجد ضمان بأنك ستمكين &quot;التحقق البيومטרי&quot; مؤقتًا بسبب عوامل بيئية وتقنية وآلاتية وغيرها من عوامل التحكم في المخاطر. لذلك، يرجى عدم الاعتماد على &quot;التحقق البيومטרי&quot; كالطريقة الوحيدة لتسجيل الدخول إلى نظام التشغيل UOS. إذا كانت لديك أي أسئلة أو ملاحظات عند استخدام &quot;التحقق البيومטרי&quot;، يمكنك إعطاء ملاحظات عبر &quot;الدعم والمساعدة&quot; في نظام التشغيل UOS.</translation>
+تلتزم شركة UnionTech Software Technology Co., Ltd. بالبحث وتحسين أمان ودقة واستقرار المصادقة البيومترية. ومع ذلك، بسبب العوامل البيئية والمعدات والتقنية وعوامل أخرى ومراقبة المخاطر، لا يوجد ضمان بأن ستجتاز المصادقة البيومترية مؤقتًا. لذلك، يرجى عدم اتخاذ المصادقة البيومترية كطريقة唯一ة لتسجيل الدخول إلى UOS. إذا كان لديك أي أسئلة أو اقتراحات عند استخدام المصادقة البيومترية، يمكنك تقديم ملاحظات من خلال &quot;الخدمة والدعم&quot; في UOS.</translation>
     </message>
     <message>
         <source>Please keep an eye on the device and ensure that both eyes are within the collection area</source>
-        <translation>يرجى مراقبة الجهاز والتأكد من أن كلتا العينين داخل منطقة التجمع</translation>
+        <translation>يرجى إبقاء عينيك على الجهاز والتأكد من أن كلتا العينين داخل منطقة التجميع</translation>
     </message>
 </context>
 <context>
@@ -329,11 +327,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Fingerprint</source>
-        <translation>بصمة الإصبع</translation>
+        <translation>البصمة</translation>
     </message>
     <message>
         <source>Identifying user identity through scanning fingerprints</source>
-        <translation>التعرف على هوية المستخدم من خلال مسح بصمات الأصابع</translation>
+        <translation>تحديد هوية المستخدم من خلال مسح البصمات</translation>
     </message>
     <message>
         <source>Iris</source>
@@ -345,11 +343,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Use letters, numbers and underscores only, and no more than 15 characters</source>
-        <translation>استخدم الحروف والأرقام والشرطة السفلية فقط، ولا تتجاوز 15 حرفًا</translation>
+        <translation>استخدم الحروف والأرقام والشرطات السفلية فقط، ولا تتجاوز 15 حرفًا</translation>
     </message>
     <message>
         <source>Use letters, numbers and underscores only</source>
-        <translation>استخدم الحروف والأرقام والشرطة السفلية فقط</translation>
+        <translation>استخدم الحروف والأرقام والشرطات السفلية فقط</translation>
     </message>
     <message>
         <source>No more than 15 characters</source>
@@ -946,11 +944,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation>قائمة التشغيل</translation>
+        <translation>قائمة الإقلاع</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>إدارة قائمة التشغيل</translation>
+        <translation>إدارة قائمة الإقلاع</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
@@ -1033,7 +1031,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation>أعد تشغيل الجهاز لإكمال تطبيق إعدادات الحماية الصلبة للنظام للقراءة فقط</translation>
+        <translation>أعد تشغيل الجهاز لإنهاء تطبيق إعدادات حماية النظام الصلب للقراءة فقط</translation>
     </message>
 </context>
 <context>
@@ -1095,7 +1093,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Full name cannot contain colons</source>
-        <translation>لا يمكن أن يحتوي الاسم الكامل على نقطتين رأسيتين</translation>
+        <translation>لا يمكن أن يحتوي الاسم الكامل على نقطتين</translation>
     </message>
 </context>
 <context>
@@ -1143,15 +1141,15 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>&lt;p&gt;We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.&lt;/p&gt;&lt;p&gt;You can &lt;a href=&quot;%1&quot;&gt;click here&lt;/a&gt; to view our latest privacy policy and/or view it online by visiting &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.&lt;/p&gt;</source>
-        <translation>&lt;p&gt;نحن ندرك تمامًا مدى أهمية معلوماتك الشخصية بالنسبة لك. لذا لدينا سياسة الخصوصية التي تغطي كيفية جمع معلوماتك واستخدامها ومشاركتها ونقلها والإفصاح عنها علنًا وتخزينها.&lt;/p&gt;&lt;p&gt;يمكنك &lt;a href=&quot;%1&quot;&gt;النقر هنا&lt;/a&gt; لعرض أحدث سياسة خصوصية لنا و/أو عرضها عبر الإنترنت من خلال زيارة &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. يرجى القراءة بعناية وفهم ممارساتنا بشأن خصوصية العملاء بالكامل. إذا كان لديك أي أسئلة، يرجى التواصل معنا على: %2.&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;نحن ندرك تمامًا أهمية معلوماتك الشخصية بالنسبة لك. لذلك لدينا سياسة الخصوصية التي تغطي كيفية جمع معلوماتك واستخدامها ومشاركتها ونقلها والإفصاح عنها علنًا وتخزينها.&lt;/p&gt;&lt;p&gt;يمكنك &lt;a href=&quot;%1&quot;&gt;النقر هنا&lt;/a&gt; لعرض أحدث سياسة خصوصية لدينا و/أو عرضها عبر الإنترنت من خلال زيارة &lt;a href=&quot;%1&quot;&gt; %1&lt;/a&gt;. يرجى القراءة بعناية وفهم ممارساتنا حول خصوصية العملاء بالكامل. إذا كان لديك أي أسئلة، يرجى الاتصال بنا على: %2.&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, do not join User Experience Program. For details, please refer to Deepin Privacy Policy (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;الانضمام إلى برنامج تجربة المستخدم يعني أنك تمنحنا وتصرح لنا بجمع واستخدام معلومات جهازك ونظامك وتطبيقاتك. إذا كنت ترفض جمع واستخدامنا للمعلومات المذكورة، فلا تنضم إلى برنامج تجربة المستخدم. للاطلاع على التفاصيل، يرجى الرجوع إلى سياسة خصوصية ديبين (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;الانضمام إلى برنامج تجربة المستخدم يعني أنك تمنحنا وتفوضنا بجمع واستخدام معلومات جهازك ونظامك وتطبيقاتك. إذا كنت ترفض جمع واستخدام المعلومات المذكورة أعلاه، فلا تنضم إلى برنامج تجربة المستخدم. للحصول على التفاصيل، يرجى الرجوع إلى سياسة خصوصية Deepin (&lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;).&lt;/span&gt;&lt;/p&gt;</translation>
     </message>
     <message>
         <source>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;Joining User Experience Program means that you grant and authorize us to collect and use the information of your device, system and applications. If you refuse our collection and use of the aforementioned information, please do not join it. For the details of User Experience Program, please visit &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</source>
-        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;الانضمام إلى برنامج تجربة المستخدم يعني أنك تمنحنا وتصرح لنا بجمع واستخدام معلومات جهازك ونظامك وتطبيقاتك. إذا كنت ترفض جمع واستخدامنا للمعلومات المذكورة، فلا تنضم إليه. للحصول على تفاصيل برنامج تجربة المستخدم، يرجى زيارة &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</translation>
+        <translation>&lt;p&gt;&lt;span style=&quot;color:%2;&quot;&gt;الانضمام إلى برنامج تجربة المستخدم يعني أنك تمنحنا وتفوضنا بجمع واستخدام معلومات جهازك ونظامك وتطبيقاتك. إذا كنت ترفض جمع واستخدام المعلومات المذكورة أعلاه، يرجى عدم الانضمام إليه. للحصول على تفاصيل برنامج تجربة المستخدم، يرجى زيارة &lt;/span&gt;&lt;a href=&quot;%1&quot; style=&quot;text-decoration: none;&quot;&gt;%1&lt;/a&gt;&lt;span style=&quot;color:%2;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</translation>
     </message>
 </context>
 <context>
@@ -1476,7 +1474,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
-        <translation>يجب أن يكون اللقب بين 1 و32 حرفًا</translation>
+        <translation>يجب أن يكون طول الاسم المستعار من 1 إلى 32 حرفًا</translation>
     </message>
 </context>
 <context>
@@ -1499,18 +1497,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The nickname can be modified only once a day</source>
-        <translation>يمكن تعديل اللقب مرة واحدة فقط يوميًا</translation>
+        <translation>يمكن تعديل الاسم المستعار مرة واحدة فقط في اليوم</translation>
     </message>
 </context>
 <context>
     <name>Deepinid</name>
     <message>
         <source>deepin ID</source>
-        <translation>deepin ID</translation>
+        <translation>معرف deepin</translation>
     </message>
     <message>
         <source>UOS ID</source>
-        <translation>UOS ID</translation>
+        <translation>معرف UOS</translation>
     </message>
     <message>
         <source>Cloud services</source>
@@ -1559,19 +1557,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Text</source>
-        <translation>النص</translation>
+        <translation>نص</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation>الموسيقى</translation>
+        <translation>موسيقى</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>الفيديو</translation>
+        <translation>فيديو</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation>الصورة</translation>
+        <translation>صورة</translation>
     </message>
     <message>
         <source>Terminal</source>
@@ -1701,27 +1699,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>OK</source>
-        <translation>موافق</translation>
+        <translation>حسنًا</translation>
     </message>
     <message>
         <source>2.please go to %1 to Download offline certificate.</source>
-        <translation>2.يرجى الذهاب إلى %1 لتنزيل الشهادة غير المتصلة.</translation>
+        <translation>2. يرجى الذهاب إلى %1 لتنزيل الشهادة غير المتصلة.</translation>
     </message>
     <message>
         <source>The feature is not available at present, please activate your system first.</source>
-        <translation>هذه الميزة غير متاحة حاليًا، يرجى تفعيل نظامك أولاً.</translation>
+        <translation>الميزة غير متاحة حاليًا، يرجى تفعيل نظامك أولاً.</translation>
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation>الحماية الصلبة للنظام للقراءة فقط</translation>
+        <translation>حماية النظام الصلب للقراءة فقط</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation> يؤدي تعطيل الحماية إلى إلغاء قفل أدلة النظام، ويحمل هذا الإجراء مخاطر عالية لتلف النظام.</translation>
+        <translation>تعطيل الحماية يفتح أدلة النظام، وهذا الإجراء يحمل مخاطر عالية لتلف النظام.</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
-        <translation>قم بتمكين الحماية لتأمين أدلة النظام وضمان أفضل ثبات.</translation>
+        <translation>قم بتمكين الحماية لإغلاق أدلة النظام وضمان الاستقرار الأمثل.</translation>
     </message>
 </context>
 <context>
@@ -1797,7 +1795,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Duplicate</source>
-        <translation>نسخ مطابق</translation>
+        <translation>تكرار</translation>
     </message>
     <message>
         <source>Extend</source>
@@ -1813,7 +1811,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Stretch</source>
-        <translation>تمدد</translation>
+        <translation>تمديد</translation>
     </message>
     <message>
         <source>Center</source>
@@ -1821,7 +1819,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Only on %1</source>
-        <translation>على %1 فقط</translation>
+        <translation>فقط على %1</translation>
     </message>
     <message>
         <source>Multiple Displays Settings</source>
@@ -1833,7 +1831,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screen rearrangement will take effect in %1s after changes</source>
-        <translation>سيتم تطبيق إعادة ترتيب الشاشة خلال %1 ثانية بعد التغييرات</translation>
+        <translation>ستصبح إعادة ترتيب الشاشة سارية المفعول خلال %1s بعد التغييرات</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -1885,7 +1883,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The monitor only supports 100% display scaling</source>
-        <translation>تدعم الشاشة تحجيم عرض 100% فقط</translation>
+        <translation>الشاشة تدعم تحجيم العرض بنسبة 100% d فقط</translation>
     </message>
     <message>
         <source>Eye Comfort</source>
@@ -1925,7 +1923,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Color Temperature</source>
-        <translation>درجة حرارة الألوان</translation>
+        <translation>درجة حرارة اللون</translation>
     </message>
     <message>
         <source>%1x%2 (Recommended)</source>
@@ -1937,11 +1935,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>%1Hz (Recommended)</source>
-        <translation>%1 هرتز (موصى به)</translation>
+        <translation>%1Hz (موصى به)</translation>
     </message>
     <message>
         <source>%1Hz</source>
-        <translation>%1 هرتز</translation>
+        <translation>%1Hz</translation>
     </message>
     <message>
         <source>Scaling</source>
@@ -1953,11 +1951,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Concat Screen</source>
-        <translation>ربط الشاشات</translation>
+        <translation>شاشة متصلة</translation>
     </message>
     <message>
         <source>Drag the display layout first to form a rectangle. If a rectangular layout is not possible, set all displays to the same resolution first.</source>
-        <translation>اسحب تخطيط العرض أولاً لتشكيل مستطيل. إذا لم يكن التخطيط المستطيل ممكنًا، فاضبط جميع العروض على نفس الدقة أولاً.</translation>
+        <translation>اسحب تخطيط العرض أولاً لتشكيل مستطيل. إذا لم يكن التخطيط المستطيل ممكنًا، فاضبط جميع الشاشات على نفس الدقة أولاً.</translation>
     </message>
 </context>
 <context>
@@ -1975,7 +1973,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DockMain</name>
     <message>
         <source>Dock</source>
-        <translation>شريط المهام</translation>
+        <translation>الرصيف</translation>
     </message>
     <message>
         <source>Mode</source>
@@ -1991,7 +1989,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Dock size</source>
-        <translation>حجم شريط المهام</translation>
+        <translation>حجم الرصيف</translation>
     </message>
     <message>
         <source>Small</source>
@@ -2027,11 +2025,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Keep shown</source>
-        <translation>إظهار دائمًا</translation>
+        <translation>إبقاء ظاهر</translation>
     </message>
     <message>
         <source>Keep hidden</source>
-        <translation>إخفاء دائمًا</translation>
+        <translation>إبقاء مخفي</translation>
     </message>
     <message>
         <source>Smart hide</source>
@@ -2039,7 +2037,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Multiple Displays</source>
-        <translation>العروض المتعددة</translation>
+        <translation>عروض متعددة</translation>
     </message>
     <message>
         <source>Set the position of the taskbar on the screen</source>
@@ -2047,7 +2045,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Only on main</source>
-        <translation>على الرئيسي فقط</translation>
+        <translation>فقط على الرئيسي</translation>
     </message>
     <message>
         <source>On screen where the cursor is</source>
@@ -2059,15 +2057,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
-        <translation>حدد الرموز التي تظهر في شريط المهام</translation>
+        <translation>حدد أيقونات تظهر في الرصيف</translation>
     </message>
     <message>
         <source>Lock the Dock</source>
-        <translation>قفل شريط المهام</translation>
+        <translation>قفل الرصيف</translation>
     </message>
     <message>
         <source>Combine application icons</source>
-        <translation>دمج رموز التطبيقات</translation>
+        <translation>دمج أيقونات التطبيقات</translation>
     </message>
     <message>
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
@@ -2241,7 +2239,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>General Settings, input method, shortcuts</source>
-        <translation>الإعدادات العامة، طريقة الإدخال، الاختصارات</translation>
+        <translation>إعدادات عامة، طريقة الإدخال، اختصارات</translation>
     </message>
 </context>
 <context>
@@ -2401,7 +2399,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation>عام、الماوس、لوحة اللمس</translation>
+        <translation>عام، الفأرة، لوحة اللمس</translation>
     </message>
 </context>
 <context>
@@ -2412,7 +2410,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mouse</source>
-        <translation>الماوس</translation>
+        <translation>الفأرة</translation>
     </message>
     <message>
         <source>Touchpad</source>
@@ -2423,7 +2421,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>MousePage</name>
     <message>
         <source>Mouse</source>
-        <translation>الماوس</translation>
+        <translation>الفأرة</translation>
     </message>
     <message>
         <source>Pointer Speed</source>
@@ -2443,11 +2441,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mouse Acceleration</source>
-        <translation>تسريع الماوس</translation>
+        <translation>تسارع الفأرة</translation>
     </message>
     <message>
         <source>Disable touchpad when a mouse is connected</source>
-        <translation>تعطيل لوحة اللمس عند توصيل ماوس</translation>
+        <translation>تعطيل لوحة اللمس عند توصيل فأرة</translation>
     </message>
     <message>
         <source>Natural Scrolling</source>
@@ -2467,7 +2465,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Some apps require logout or system restart to take effect</source>
-        <translation>تتطلب بعض التطبيقات تسجيل الخروج أو إعادة تشغيل النظام لتفعيلها</translation>
+        <translation>بعض التطبيقات تتطلب تسجيل الخروج أو إعادة تشغيل النظام لتصبح سارية المفعول</translation>
     </message>
 </context>
 <context>
@@ -2548,7 +2546,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Notification</source>
-        <translation>إشعار</translation>
+        <translation>الإشعار</translation>
     </message>
 </context>
 <context>
@@ -2567,11 +2565,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>When the screen is locked</source>
-        <translation>عند قفل الشاشة</translation>
+        <translation>عندما تكون الشاشة مقفلة</translation>
     </message>
     <message>
         <source>Number of notifications shown on the desktop</source>
-        <translation>عدد الإشعارات الظاهرة على سطح المكتب</translation>
+        <translation>عدد الإشعارات المعروضة على سطح المكتب</translation>
     </message>
     <message>
         <source>App Notifications</source>
@@ -2583,7 +2581,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Display notification on desktop or show unread messages in the notification center</source>
-        <translation>عرض الإشعارات على سطح المكتب أو إظهار الرسائل غير المقروءة في مركز الإشعارات</translation>
+        <translation>عرض الإشعار على سطح المكتب أو إظهار الرسائل غير المقروءة في مركز الإشعارات</translation>
     </message>
     <message>
         <source>Desktop</source>
@@ -2591,7 +2589,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lock Screen</source>
-        <translation>شاشة القفل</translation>
+        <translation>قفل الشاشة</translation>
     </message>
     <message>
         <source>Notification Center</source>
@@ -2733,19 +2731,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Personalize your wallpaper and screensaver</source>
-        <translation>تخصيص خلفيتك وشاشة التوقف</translation>
+        <translation>تخصيص خلفية الشاشة وحافظة الشاشة</translation>
     </message>
     <message>
         <source>Screensaver</source>
-        <translation>شاشة التوقف</translation>
+        <translation>حافظة الشاشة</translation>
     </message>
     <message>
         <source>Colors and icons</source>
-        <translation>الألوان والرموز</translation>
+        <translation>الألوان والأيقونات</translation>
     </message>
     <message>
         <source>Adjust accent color and theme icons</source>
-        <translation>اضبط اللون المميز ورموز السمة</translation>
+        <translation>اضبط لون التمييز وأيقونات السمة</translation>
     </message>
     <message>
         <source>Font and font size</source>
@@ -2757,11 +2755,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Wallpaper</source>
-        <translation>الخلفية</translation>
+        <translation>خلفية الشاشة</translation>
     </message>
     <message>
         <source>Select light, dark or automatic theme appearance</source>
-        <translation>حدد مظهر السمة الفاتح أو الداكن أو التلقائي</translation>
+        <translation>اختر مظهر السمة الفاتح أو الداكن أو التلقائي</translation>
     </message>
     <message>
         <source>Interface and effects, rounded corners</source>
@@ -2802,7 +2800,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Power</name>
     <message>
         <source>Power saving settings, screen and suspend</source>
-        <translation>إعدادات توفير الطاقة، الشاشة والإسبات</translation>
+        <translation>إعدادات توفير الطاقة، الشاشة والإيقاف المؤقت</translation>
     </message>
     <message>
         <source>Power</source>
@@ -2817,7 +2815,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Power plans, power saving settings, wakeup settings, shutdown settings</source>
-        <translation>خطط الطاقة، إعدادات توفير الطاقة، إعدادات التنبيه، إعدادات الإيقاف</translation>
+        <translation>خطط الطاقة، إعدادات توفير الطاقة، إعدادات الاستيقاظ، إعدادات الإيقاف</translation>
     </message>
     <message>
         <source>Plugged In</source>
@@ -2825,7 +2823,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Screen and suspend</source>
-        <translation>الشاشة والإسبات</translation>
+        <translation>الشاشة والإيقاف المؤقت</translation>
     </message>
     <message>
         <source>On Battery</source>
@@ -2833,7 +2831,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>screen and suspend, low battery, battery management</source>
-        <translation>الشاشة والإسبات، البطارية المنخفضة، إدارة البطارية</translation>
+        <translation>الشاشة والإيقاف المؤقت، البطارية المنخفضة، إدارة البطارية</translation>
     </message>
 </context>
 <context>
@@ -3322,11 +3320,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>click Save to make this shortcut key effective</source>
-        <translation>انقر على حفظ لتفعيل مفتاح الاختصار هذا</translation>
+        <translation>انقر حفظ لجعل مفتاح الاختصار هذا ساري المفعول</translation>
     </message>
     <message>
         <source>click Add to make this shortcut key effective</source>
-        <translation>انقر على إضافة لتفعيل مفتاح الاختصار هذا</translation>
+        <translation>انقر إضافة لجعل مفتاح الاختصار هذا ساري المفعول</translation>
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
@@ -3338,7 +3336,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation>اختصار لوحة المفاتيح غير صالح. عيّن اختصارًا جديدًا.</translation>
+        <translation>اختصار لوحة المفاتيح غير صالح. عيّن واحدًا جديدًا.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3405,7 +3403,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation>اختصار لوحة المفاتيح غير صالح. عيّن اختصارًا جديدًا.</translation>
+        <translation>اختصار لوحة المفاتيح غير صالح. عيّن واحدًا جديدًا.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3590,7 +3588,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Auto Pause</source>
-        <translation>إدارة التوصيل والفصل</translation>
+        <translation>إيقاف مؤقت تلقائي</translation>
     </message>
     <message>
         <source>Output Device</source>
@@ -3642,7 +3640,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>حول هذا الحاسوب</translation>
+        <translation>حول هذا الكمبيوتر</translation>
     </message>
     <message>
         <source>System version, device information</source>
@@ -3929,18 +3927,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>Wacom</name>
     <message>
         <source>wacom</source>
-        <translation>Wacom</translation>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Configuring wacom</source>
-        <translation>تكوين Wacom</translation>
+        <translation>تكوين wacom</translation>
     </message>
 </context>
 <context>
     <name>WacomMain</name>
     <message>
         <source>wacom</source>
-        <translation>Wacom</translation>
+        <translation>wacom</translation>
     </message>
     <message>
         <source>Pen Mode</source>
@@ -3948,7 +3946,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Mouse Mode</source>
-        <translation>وضع الماوس</translation>
+        <translation>وضع الفأرة</translation>
     </message>
     <message>
         <source>Pressure Sensitivity</source>
@@ -3956,7 +3954,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Light</source>
-        <translation>خفيف</translation>
+        <translation>فاتح</translation>
     </message>
     <message>
         <source>Heavy</source>
@@ -4178,7 +4176,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Min Nan Chinese</source>
-        <translation>الصينية مين الجنوبية</translation>
+        <translation>الصينية المن الجنوبية</translation>
     </message>
 </context>
 <context>
@@ -4288,7 +4286,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::FingerprintAuthController</name>
     <message>
         <source>Fingerprint</source>
-        <translation>بصمة الإصبع</translation>
+        <translation>البصمة</translation>
     </message>
     <message>
         <source>Place your finger</source>
@@ -4296,7 +4294,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Place your finger firmly on the sensor until you&apos;re asked to lift it</source>
-        <translation>ضع إصبعك بحزم على المستشعر حتى يُطلب منك رفعه</translation>
+        <translation>ضع إصبعك بإحكام على المستشعر حتى يُطلب منك رفعه</translation>
     </message>
     <message>
         <source>Lift your finger</source>
@@ -4308,27 +4306,27 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Lift your finger and do that again</source>
-        <translation>ارفع إصبعك وكرر ذلك</translation>
+        <translation>ارفع إصبعك وافعل ذلك مرة أخرى</translation>
     </message>
     <message>
         <source>Scan Suspended</source>
-        <translation>تم إيقاف المسح</translation>
+        <translation>تم تعليق المسح</translation>
     </message>
     <message>
         <source>Scan the edges of your fingerprint</source>
-        <translation>امسح حواف بصمة إصبعك</translation>
+        <translation>امسح حواف بصمتك</translation>
     </message>
     <message>
         <source>Place the edges of your fingerprint on the sensor</source>
-        <translation>ضع حواف بصمة إصبعك على المستشعر</translation>
+        <translation>ضع حواف بصمتك على المستشعر</translation>
     </message>
     <message>
         <source>Adjust the position to scan the edges of your fingerprint</source>
-        <translation>اضبط الموضع لمسح حواف بصمة إصبعك</translation>
+        <translation>اضبط الموضع لمسح حواف بصمتك</translation>
     </message>
     <message>
         <source>Fingerprint added</source>
-        <translation>تمت إضافة بصمة الإصبع</translation>
+        <translation>تمت إضافة البصمة</translation>
     </message>
 </context>
 <context>
@@ -4354,18 +4352,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation>تعارض الاختصار لم يعد ساريًا.</translation>
+        <translation>تعارض الاختصارات لم يعد حاليًا.</translation>
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
-        <translation>يرجى تأكيد تعارض الاختصار مرة أخرى.</translation>
+        <translation>يرجى تأكيد تعارض الاختصارات مرة أخرى.</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardWorker</name>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation>تعارض الاختصار لم يعد ساريًا.</translation>
+        <translation>تعارض الاختصارات لم يعد حاليًا.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -4424,7 +4422,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>At least include %1 types among lowercase letters, uppercase letters, numbers, and symbols, and the password cannot be the same as the username.</source>
-        <translation>يجب تضمين %1 أنواع على الأقل من الحروف الصغيرة والحروف الكبيرة والأرقام والرموز، ولا يمكن أن تكون كلمة المرور مطابقة لاسم المستخدم.</translation>
+        <translation>يجب تضمين %1 أنواع على الأقل من الأحرف الصغيرة والأحرف الكبيرة والأرقام والرموز، ولا يمكن أن تكون كلمة المرور مطابقة لاسم المستخدم.</translation>
     </message>
 </context>
 <context>
