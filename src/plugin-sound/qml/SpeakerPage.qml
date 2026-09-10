@@ -321,7 +321,11 @@ DccObject {
                     readonly property real availableTextWidth: {
                         if (!contentItem)
                             return width - leftPadding - rightPadding
-                        let textWidth = contentItem.width - contentItem.leftPadding - contentItem.rightPadding
+                        let textWidth = contentItem.width
+                        if (useIndicatorPadding && indicator)
+                            textWidth -= indicator.width + spacing
+                        if (subMenu && arrow)
+                            textWidth -= arrow.width + spacing
                         if (icon.name) {
                             textWidth -= DS.Style.menu.item.iconSize.width + spacing
                         }
@@ -426,7 +430,11 @@ DccObject {
                     readonly property real availableTextWidth: {
                         if (!contentItem)
                             return width - leftPadding - rightPadding
-                        let textWidth = contentItem.width - contentItem.leftPadding - contentItem.rightPadding
+                        let textWidth = contentItem.width
+                        if (useIndicatorPadding && indicator)
+                            textWidth -= indicator.width + spacing
+                        if (subMenu && arrow)
+                            textWidth -= arrow.width + spacing
                         if (icon.name) {
                             textWidth -= DS.Style.menu.item.iconSize.width + spacing
                         }
