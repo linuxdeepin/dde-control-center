@@ -943,26 +943,26 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation>قائمة التشغيل</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>إدارة قائمة التشغيل</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>إدارة صلاحيات الجذر للمطور</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>خيارات المطور</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>خيارات تصحيح المطور</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1199,16 +1199,13 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Time and date, time zone settings</source>
         <translation>الوقت والتاريخ، إعدادات المنطقة الزمنية</translation>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation>اللغة والمنطقة</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation>لغة النظام، التنسيقات الإقليمية</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1725,13 +1722,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Devices</source>
-        <translation>البلوتوث والأجهزة</translation>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2193,6 +2183,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>أنصاف قوة شد الألوان</translation>
+    </message>
+</context>
+<context>
+    <name>GroupObject</name>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3621,64 +3626,50 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation>إعدادات عامة</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>النظام</translation>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>معلومات مساعدة</translation>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>حول هذا الحاسوب</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>إصدار النظام، معلومات الجهاز</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>عرض إشعار البرمجيات مفتوحة المصدر</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>برنامج تجربة المستخدم</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>انضم إلى برنامج تجربة المستخدم للمساعدة في تحسين المنتج</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>اتفاقية ترخيص المستخدم النهائي</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>عرض اتفاقية ترخيص المستخدم النهائي</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>سياسة الخصوصية</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>عرض معلومات حول سياسة الخصوصية</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>إشعار البرمجيات مفتوحة المصدر</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
