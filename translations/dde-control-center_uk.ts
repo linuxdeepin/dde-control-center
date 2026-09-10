@@ -933,26 +933,26 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Меню завантаження</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Керування меню завантаження</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Керування правами доступу root для розробника</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Параметри для розробників</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>Діагностичні параметри для розробників</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1189,16 +1189,13 @@ UnionTech Software Technology Co, Ltd працює над вивченням і 
         <source>Time and date, time zone settings</source>
         <translation>Час і дата, параметри часового поясу</translation>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation>Мова і регіон</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation>Мова системи, формат регіону</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1712,13 +1709,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Devices</source>
-        <translation>Bluetooth і пристрої</translation>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2180,6 +2170,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Зменшувати яскравість екран при заощадженні живлення</translation>
+    </message>
+</context>
+<context>
+    <name>GroupObject</name>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3608,64 +3613,50 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation>Загальні параметри</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>Система</translation>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>Допоміжні відомості</translation>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Про цей ПК</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Версія системи, відомості щодо пристроїв</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>Переглянути зауваження щодо вільного програмного забезпечення</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>Програма взаємодії з користувачем</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>Долучайтеся до програми вражень користувачів, щоб допомогти у поліпшення продукту</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>Ліцензійна угода із кінцевим користувачем</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>Переглянути ліцензійну угоду з кінцевим користувачем</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>Правила конфіденційності</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>Переглянути відомості щодо правил конфіденційності</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>Зауваження щодо програмного забезпечення з відкритим кодом</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

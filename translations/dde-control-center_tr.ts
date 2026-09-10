@@ -937,7 +937,7 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
         <translation type="unfinished"/>
@@ -947,11 +947,11 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Developer root permission management</source>
+        <source>Developer Options</source>
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Developer Options</source>
+        <source>Developer root permission management</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -1194,9 +1194,6 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
         <source>Time and date, time zone settings</source>
         <translation type="unfinished"/>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
         <translation type="unfinished"/>
@@ -1717,13 +1714,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2185,6 +2175,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Güç Tasarrufu&apos;nda ekran parlaklığını azalt</translation>
+    </message>
+</context>
+<context>
+    <name>GroupObject</name>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3613,31 +3618,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation type="unfinished"/>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3666,10 +3661,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
         <translation type="unfinished"/>
     </message>
 </context>

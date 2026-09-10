@@ -941,26 +941,26 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Menú de arranque</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Configurar el menú de arranque</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Configuración de permisos root para desarrolladores</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Opciones para desarrolladores</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>Opciones de depuración para desarrolladores</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1197,16 +1197,13 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
         <source>Time and date, time zone settings</source>
         <translation>Ajustes de fecha, hora y zona horaria</translation>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation>Idioma y región</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation>Idioma del sistema, formato regional</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1720,13 +1717,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
 </context>
 <context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Devices</source>
-        <translation>Dispositivos y Bluetooth</translation>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2188,6 +2178,21 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Disminuir el brillo de la pantalla en el modo de ahorro de energía</translation>
+    </message>
+</context>
+<context>
+    <name>GroupObject</name>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3616,64 +3621,50 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation>Ajustes generales</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>Sistema</translation>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>Información adicional</translation>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Acerca del equipo</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Versión del sistema e información del hardware</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>Declaración del software de código abierto</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>Experiencia de usuario</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>Unase al programa de experiencia de usuario para ayudar a mejorar este producto</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>Acuerdo de licencia de usuario final</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>Muestra el acuerdo de licencia de usuario final</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>Política de privacidad</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>Muestra información sobre la política de seguridad</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>Declaración de software de código abierto</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

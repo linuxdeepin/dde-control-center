@@ -933,26 +933,26 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Käynnistysvalikko</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Hallitse käynnistysvalikkoa</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Kehittäjän root oikeuksien hallinta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Kehittäjäasetukset</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>Kehittäjän vianetsinnän valinnat</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1189,16 +1189,13 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
         <source>Time and date, time zone settings</source>
         <translation>Aika ja aikavyöhyke, maa-asetukset</translation>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation>Kieli ja maa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation>Tietokoneen kieli, maa-asetukset</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1711,13 +1708,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Devices</source>
-        <translation>Bluetooth ja laitteet</translation>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2179,6 +2169,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Vähennä näytön kirkkautta virransäästössä</translation>
+    </message>
+</context>
+<context>
+    <name>GroupObject</name>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3607,64 +3612,50 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation>Yleiset asetukset</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>Järjestelmä</translation>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>Aputiedot</translation>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Tietoja tietokoneesta</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Versio, laitetiedot</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>Katso ilmoitus avoimen lähdekoodin ohjelmistoista</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>Käyttökokemusohjelma</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>Liity käyttökokemusohjelmaan ja voit auttaa parantamaan tätä tuotetta</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>Loppukäyttäjän lisenssisopimus</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>Näytä loppukäyttäjän lisenssisopimus</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>Tietosuojakäytäntö</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>Katso tietoja tietosuojakäytännöstä</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>Ilmoitus avoimen lähdekoodin ohjelmistosta</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>

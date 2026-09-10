@@ -939,26 +939,26 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Menú d&apos;arrencada</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Gestioneu el menú d&apos;arrencada</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Gestió de permisos d&apos;arrel del desenvolupador</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Opcions de desenvolupament</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>Opcions de depuració per a desenvolupadors</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1195,9 +1195,6 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
         <source>Time and date, time zone settings</source>
         <translation>Hora i data, configuració de la zona horària</translation>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
         <translation>Llengua i regió</translation>
@@ -1718,13 +1715,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
 </context>
 <context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Devices</source>
-        <translation>Bluetooth i dispositius</translation>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2186,6 +2176,21 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Disminueix la brillantor de la pantalla amb l&apos;estalvi d&apos;energia.</translation>
+    </message>
+</context>
+<context>
+    <name>GroupObject</name>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3614,64 +3619,50 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation>Configuracions comunes</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>Sistema</translation>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>Informació auxiliar</translation>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Quant a aquest ordinador</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Versió del sistema, informació del dispositiu</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>Vegeu l&apos;avís del programari de codi obert</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>Programa d&apos;experiència d&apos;usuari</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>Uniu-vos al programa d&apos;experiència d&apos;usuari per ajudar a millorar el producte.</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>Acord de llicència de l&apos;usuari final</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>Vegeu l&apos;acord de llicència d&apos;usuari final</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>Política de privadesa</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>Vegeu informació sobre la política de privadesa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>Avís de programari de codi obert</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
