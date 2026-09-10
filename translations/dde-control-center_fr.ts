@@ -939,26 +939,26 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Menu de démarrage</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Gérer votre menu de démarrage</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Gestion des autorisations root des développeurs</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Options pour les développeurs</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>Options de débogage de développeur</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1195,12 +1195,9 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
         <source>Time and date, time zone settings</source>
         <translation>Date et heure, paramètres du fuseau horaire</translation>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation>Langue et région</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
@@ -1720,13 +1717,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
 </context>
 <context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2188,6 +2178,21 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>Decrease screen brightness on power saver</source>
         <translation>Diminuer la luminosité de l&apos;écran en mode économie d&apos;énergie</translation>
+    </message>
+</context>
+<context>
+    <name>GroupObject</name>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3616,31 +3621,21 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>System</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation type="unfinished"/>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3669,10 +3664,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
         <translation type="unfinished"/>
     </message>
 </context>
