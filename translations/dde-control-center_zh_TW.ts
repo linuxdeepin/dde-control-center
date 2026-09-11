@@ -1,6 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!DOCTYPE TS>
-<TS version="2.1" language="zh_TW">
+<?xml version="1.0" ?><!DOCTYPE TS><TS version="2.1" language="zh_TW">
 <context>
     <name>AccountSettings</name>
     <message>
@@ -193,7 +191,7 @@ To ensure successful entry:
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>「生物認證」是統信軟體技術有限公司提供的一種對使用者進行身份認證的功能。通過「生物認證」，將採集的生物識別資料與儲存在裝置本地的生物識別資料進行比對，並根據比對結果來驗證使用者身份。
@@ -238,7 +236,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>「生物認證」是統信軟體技術有限公司提供的一種對使用者進行身份認證的功能。通過「生物認證」，將採集的生物識別資料與儲存在裝置本地的生物識別資料進行比對，並根據比對結果來驗證使用者身份。
@@ -287,7 +285,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>&quot;Biometric authentication&quot; is a function for user identity authentication provided by UnionTech Software Technology Co., Ltd. Through &quot;biometric authentication&quot;, the biometric data collected will be compared with that stored in the device, and the user identity will be verified based on the comparison result.
 
-Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people&apos;s biometric information on that device, otherwise you will bear the risk arising therefrom.
+Please be noted that UnionTech Software Technology Co., Ltd. will not collect or access your biometric information, which will be stored on your local device. Please only enable the biometric authentication in your personal device and use your own biometric information for related operations, and promptly disable or delete other people's biometric information on that device, otherwise you will bear the risk arising therefrom.
 
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>「生物認證」是統信軟體技術有限公司提供的一種對使用者進行身份認證的功能。通過「生物認證」，將採集的生物識別資料與儲存在裝置本地的生物識別資料進行比對，並根據比對結果來驗證使用者身份。
@@ -938,23 +936,23 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation >啟動菜單</translation>
+        <translation>啟動菜單</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation >管理您的開機啟動菜單</translation>
+        <translation>管理您的開機啟動菜單</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation >開發者選項</translation>
+        <translation>開發者選項</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation >開發者Root許可權管理</translation>
+        <translation>開發者Root許可權管理</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation >開發者除錯選項</translation>
+        <translation>開發者除錯選項</translation>
     </message>
 </context>
 <context>
@@ -1193,11 +1191,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Language and region</source>
-        <translation >語言和區域</translation>
+        <translation>語言和區域</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation >系統語言、區域格式</translation>
+        <translation>系統語言、區域格式</translation>
     </message>
 </context>
 <context>
@@ -2050,7 +2048,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation ></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2178,15 +2176,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GroupObject</name>
     <message>
         <source>System</source>
-        <translation >系統</translation>
+        <translation>系統</translation>
     </message>
     <message>
         <source>Common settings</source>
-        <translation >常用設定</translation>
+        <translation>常用設定</translation>
     </message>
     <message>
         <source>Bluetooth and Devices</source>
-        <translation >藍牙和其他裝置</translation>
+        <translation>藍牙和其他裝置</translation>
     </message>
 </context>
 <context>
@@ -2249,11 +2247,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>KeyboardWorker</name>
     <message>
         <source>The shortcut service is unavailable. Please try again.</source>
-        <translation ></translation>
+        <translation>快捷鍵服務不可用，請重試。</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation ></translation>
+        <translation>儲存快捷鍵失敗，請重試。</translation>
     </message>
 </context>
 <context>
@@ -2704,11 +2702,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>PersonalizationInterface</name>
     <message>
         <source>Picker service is not available</source>
-        <translation ></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Invalid color format: %1</source>
-        <translation ></translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3324,7 +3322,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation ></translation>
+        <translation>啟動快捷鍵錄入失敗，請重試。</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
@@ -3336,7 +3334,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation ></translation>
+        <translation>儲存快捷鍵失敗，請重試。</translation>
     </message>
 </context>
 <context>
@@ -3391,7 +3389,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation ></translation>
+        <translation>啟動快捷鍵錄入失敗，請重試。</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
@@ -3403,7 +3401,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation ></translation>
+        <translation>儲存快捷鍵失敗，請重試。</translation>
     </message>
 </context>
 <context>
@@ -3611,43 +3609,43 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>About This PC</source>
-        <translation >關於本機</translation>
+        <translation>關於本機</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation >系統版本、裝置資訊</translation>
+        <translation>系統版本、裝置資訊</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation >開源軟體宣告</translation>
+        <translation>開源軟體宣告</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation >檢視開源軟體宣告</translation>
+        <translation>檢視開源軟體宣告</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation >使用者體驗計劃</translation>
+        <translation>使用者體驗計劃</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation >加入使用者體驗計劃，幫助改進產品</translation>
+        <translation>加入使用者體驗計劃，幫助改進產品</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation >使用者許可協議</translation>
+        <translation>使用者許可協議</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation >檢視終端使用者許可協議</translation>
+        <translation>檢視終端使用者許可協議</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation >隱私政策</translation>
+        <translation>隱私政策</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation >檢視隱私政策相關資訊</translation>
+        <translation>檢視隱私政策相關資訊</translation>
     </message>
 </context>
 <context>
@@ -3742,11 +3740,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>TimezoneDialog</name>
     <message>
         <source>Add time zone</source>
-        <translation ></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Determine the time zone based on the current location</source>
-        <translation ></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Time zone:</source>
@@ -3754,7 +3752,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Nearest City:</source>
-        <translation ></translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Cancel</source>
@@ -4319,26 +4317,26 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The shortcut no longer exists.</source>
-        <translation ></translation>
+        <translation>快捷鍵已不存在。</translation>
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation ></translation>
+        <translation>快捷鍵衝突狀態已失效。</translation>
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
-        <translation ></translation>
+        <translation>請重新確認快捷鍵衝突。</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardWorker</name>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation ></translation>
+        <translation>快捷鍵衝突狀態已失效。</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation ></translation>
+        <translation>儲存快捷鍵失敗，請重試。</translation>
     </message>
 </context>
 <context>
