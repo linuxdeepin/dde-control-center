@@ -360,10 +360,6 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
         <source>Add a new %1 ...</source>
         <translation>Afegiu-hi un/a %1 nou/nova...</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>El nom no es pot deixar en blanc.</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -943,26 +939,26 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Menú d&apos;arrencada</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Gestioneu el menú d&apos;arrencada</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Gestió de permisos d&apos;arrel del desenvolupador</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Opcions de desenvolupament</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>Opcions de depuració per a desenvolupadors</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1199,9 +1195,6 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
         <source>Time and date, time zone settings</source>
         <translation>Hora i data, configuració de la zona horària</translation>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
         <translation>Llengua i regió</translation>
@@ -1722,13 +1715,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
 </context>
 <context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Devices</source>
-        <translation>Bluetooth i dispositius</translation>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2066,6 +2052,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <source>Combine application icons</source>
         <translation>Combina les icones d&apos;aplicacions</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2189,46 +2179,18 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
 </context>
 <context>
-    <name>GestureModel</name>
+    <name>GroupObject</name>
     <message>
-        <source>Three-finger up</source>
-        <translation>Tres dits cap amunt</translation>
+        <source>System</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Three-finger down</source>
-        <translation>Tres dits cap avall</translation>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Three-finger left</source>
-        <translation>Tres dits cap a l&apos;esquerra</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Tres dits cap a la dreta</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Toc amb tres dits</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Quatre dits cap amunt</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Quatre dits cap avall</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Quatre dits cap a l&apos;esquerra</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Quatre dits cap a la dreta</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Toc amb quatre dits</translation>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2438,49 +2400,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Comú, ratolí, ratolí tàctil</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>Minimitza la finestra</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>Restaura la finestra</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>Mostra l&apos;escriptori</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>Bloca la pantalla</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>Vista de multitasca</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Inhabilita</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>Canvia a l&apos;espai de treball anterior</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>Canvia a l&apos;espai de treball següent</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>Amaga la vista de multitasca</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>Commuta la vista de multitasca</translation>
     </message>
 </context>
 <context>
@@ -3408,10 +3327,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Cliqueu a Afegeix per fer efectiva aquesta tecla de drecera.</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation>Reemplaça</translation>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>Ha fallat iniciar la captura de dreceres. Si us plau, torneu-ho a provar.</translation>
     </message>
@@ -3422,10 +3337,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation>Drecera de teclat no vàlida. Establiu-ne una de nova.</translation>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
-        <translation>Feu clic a Reemplaça per activar aquesta drecera de teclat.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3697,64 +3608,50 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation>Configuracions comunes</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>Sistema</translation>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>Informació auxiliar</translation>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Quant a aquest ordinador</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Versió del sistema, informació del dispositiu</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>Vegeu l&apos;avís del programari de codi obert</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>Programa d&apos;experiència d&apos;usuari</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>Uniu-vos al programa d&apos;experiència d&apos;usuari per ajudar a millorar el producte.</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>Acord de llicència de l&apos;usuari final</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>Vegeu l&apos;acord de llicència d&apos;usuari final</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>Política de privadesa</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>Vegeu informació sobre la política de privadesa</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>Avís de programari de codi obert</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4528,10 +4425,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>None</source>
         <translation>Cap</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>Aplicació</translation>
     </message>
 </context>
 </TS>
