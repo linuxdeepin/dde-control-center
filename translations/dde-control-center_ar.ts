@@ -2193,7 +2193,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>الإعدادات العامة</translation>
     </message>
     <message>
         <source>Bluetooth and Devices</source>
@@ -3646,7 +3646,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>اتفاقية ترخيص المستخدم النهائي</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
