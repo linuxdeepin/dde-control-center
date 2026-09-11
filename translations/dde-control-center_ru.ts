@@ -360,6 +360,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Add a new %1 ...</source>
         <translation>Добавить новый %1 ...</translation>
     </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation>Имя не может быть пустым</translation>
+    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -939,26 +943,26 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CommonInfo</name>
+    <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Меню загрузки</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Управление меню загрузки</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Управление правами root для разработчиков</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation>Параметры разработчика</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Параметры отладки для разработчиков</translation>
     </message>
 </context>
 <context>
@@ -1195,13 +1199,16 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Time and date, time zone settings</source>
         <translation>Дата и время, настройки часового пояса</translation>
     </message>
+</context>
+<context>
+    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Язык и регион</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Язык системы, региональные форматы</translation>
     </message>
 </context>
 <context>
@@ -1715,6 +1722,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Device</name>
+    <message>
+        <source>Bluetooth and Devices</source>
+        <translation>Bluetooth и устройства</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2052,10 +2066,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation>Объединить значки приложений</translation>
     </message>
-    <message>
-        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2179,18 +2189,46 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>GroupObject</name>
+    <name>GestureModel</name>
     <message>
-        <source>System</source>
-        <translation type="unfinished"/>
+        <source>Three-finger up</source>
+        <translation>Тремя пальцами вверх</translation>
     </message>
     <message>
-        <source>Common settings</source>
-        <translation type="unfinished"/>
+        <source>Three-finger down</source>
+        <translation>Тремя пальцами вниз</translation>
     </message>
     <message>
-        <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <source>Three-finger left</source>
+        <translation>Тремя пальцами влево</translation>
+    </message>
+    <message>
+        <source>Three-finger right</source>
+        <translation>Тремя пальцами вправо</translation>
+    </message>
+    <message>
+        <source>Three-finger tap</source>
+        <translation>Нажатие тремя пальцами</translation>
+    </message>
+    <message>
+        <source>Four-finger up</source>
+        <translation>Четырьмя пальцами вверх</translation>
+    </message>
+    <message>
+        <source>Four-finger down</source>
+        <translation>Четырьмя пальцами вниз</translation>
+    </message>
+    <message>
+        <source>Four-finger left</source>
+        <translation>Четырьмя пальцами влево</translation>
+    </message>
+    <message>
+        <source>Four-finger right</source>
+        <translation>Четырьмя пальцами вправо</translation>
+    </message>
+    <message>
+        <source>Four-finger tap</source>
+        <translation>Нажатие четырьмя пальцами</translation>
     </message>
 </context>
 <context>
@@ -2367,6 +2405,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>MicrophonePage</name>
     <message>
+        <source>Automatic Noise Suppression</source>
+        <translation>Автоматическое шумоподавление</translation>
+    </message>
+    <message>
         <source>Input Volume</source>
         <translation>Уровень входного звука</translation>
     </message>
@@ -2386,10 +2428,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Input Device</source>
         <translation>Устройство ввода</translation>
     </message>
-    <message>
-        <source>Intelligent Noise Reduction</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2400,6 +2438,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Общие, Мышь, Тачпад</translation>
+    </message>
+</context>
+<context>
+    <name>MouseDBusProxy</name>
+    <message>
+        <source>Maximize window</source>
+        <translation>Развернуть окно</translation>
+    </message>
+    <message>
+        <source>Restore window</source>
+        <translation>Восстановить окно</translation>
+    </message>
+    <message>
+        <source>Show desktop</source>
+        <translation>Показать рабочий стол</translation>
+    </message>
+    <message>
+        <source>Lock screen</source>
+        <translation>Заблокировать экран</translation>
+    </message>
+    <message>
+        <source>Multitasking view</source>
+        <translation>Режим многозадачности</translation>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation>Отключить</translation>
+    </message>
+    <message>
+        <source>Switch to previous workspace</source>
+        <translation>Переключиться на предыдущее рабочее место</translation>
+    </message>
+    <message>
+        <source>Switch to next workspace</source>
+        <translation>Переключиться на следующее рабочее место</translation>
+    </message>
+    <message>
+        <source>Hide multitasking view</source>
+        <translation>Скрыть режим многозадачности</translation>
+    </message>
+    <message>
+        <source>Toggle multitasking view</source>
+        <translation>Переключить режим многозадачности</translation>
     </message>
 </context>
 <context>
@@ -3327,6 +3408,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>нажмите «Добавить», чтобы применить эту горячую клавишу</translation>
     </message>
     <message>
+        <source>Replace</source>
+        <translation>Заменить</translation>
+    </message>
+    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>Не удалось начать захват горячей клавиши. Пожалуйста, попробуйте снова.</translation>
     </message>
@@ -3337,6 +3422,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation>Недопустимая комбинация клавиш. Задайте новую.</translation>
+    </message>
+    <message>
+        <source>click Replace to make this shortcut key effective</source>
+        <translation>нажмите «Заменить», чтобы применить эту горячую клавишу</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3526,17 +3615,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>SoundWorker</name>
-    <message>
-        <source>Failed to enable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to disable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>SpeakerPage</name>
     <message>
         <source>Mode</source>
@@ -3619,50 +3697,64 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>System</name>
+    <message>
+        <source>Common settings</source>
+        <translation>Общие настройки</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation>Система</translation>
+    </message>
+</context>
+<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>Дополнительная информация</translation>
     </message>
+</context>
+<context>
+    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Об этом ПК</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Версия системы, информация об устройстве</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Просмотреть уведомление об ПО с открытым исходным кодом</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Программа взаимодействия с пользователем</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Присоединитесь к программе взаимодействия с пользователем, чтобы помочь улучшить продукт</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Лицензионное соглашение конечного пользователя</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Просмотреть лицензионное соглашение конечного пользователя</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Политика конфиденциальности</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Просмотреть информацию о политике конфиденциальности</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation>Уведомление о ПО с открытым исходным кодом</translation>
     </message>
 </context>
 <context>
@@ -4436,6 +4528,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Нет</translation>
+    </message>
+    <message>
+        <source>App</source>
+        <translation>Приложение</translation>
     </message>
 </context>
 </TS>
