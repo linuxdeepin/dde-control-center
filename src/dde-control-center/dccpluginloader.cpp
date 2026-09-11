@@ -24,6 +24,32 @@
 
 namespace dccV25 {
 
+Q_LOGGING_CATEGORY(dccAsyncLog, "dde.dcc.asyncmodloader")
+
+// Incubator subclass: engine calls statusChanged directly, no polling
+// (the callback may run synchronously inside component->create() for simple
+// QML files). Dispatches back to the owning loader.
+class DccPluginLoader::AsyncIncubator : public QQmlIncubator
+{
+public:
+    explicit AsyncIncubator(DccPluginLoader *owner)
+        : QQmlIncubator(Asynchronous)
+        , m_owner(owner)
+    {
+    }
+
+protected:
+    void statusChanged(Status status) override
+    {
+        if (m_owner) {
+            m_owner->onIncubated(status);
+        }
+    }
+
+private:
+    DccPluginLoader *m_owner;
+};
+
 DccPluginLoader::DccPluginLoader(const QString &name, const QString &path, DccPluginManager *manager)
     : QObject(manager)
     , m_path(path)
@@ -113,6 +139,23 @@ void DccPluginLoader::setType(TypeFlags type)
     m_type = type;
 }
 
+void DccPluginLoader::setModule(DccObject *module)
+{
+    m_module = module;
+    if (module) {
+        module->setParent(m_pManager->rootModule());
+        connect(module, &DccObject::visibleToAppChanged, this, &DccPluginLoader::updateVisible);
+    }
+}
+
+void DccPluginLoader::setMainObj(DccObject *mainObj)
+{
+    m_mainObj = mainObj;
+    if (m_mainObj) {
+        m_mainObj->setParent(m_module ? m_module : m_pManager->rootModule());
+    }
+}
+
 void DccPluginLoader::transitionStatus(StatusFlags status)
 {
     StatusFlags oldStatus = m_status;
@@ -140,7 +183,7 @@ void DccPluginLoader::updateVisible(bool visibleToApp)
     if ((m_status.load() & PluginEnd) && (!(m_status.load() & (DataEnd | DataErr)))) {
         // 加载完成，没检查MetaData也没错误，不在hideModule中，则需要重新加载
         StatusFlags status = m_status.load() & ~PluginEnd;
-        m_status = PluginBegin;
+        m_status = PluginBegin; // 清理m_status，transitionStatus是只添加状态
         transitionStatus(status);
     }
 }
@@ -218,12 +261,19 @@ bool DccPluginLoader::loadMetaData()
     return true;
 }
 
-bool DccPluginLoader::loadModule()
+void DccPluginLoader::loadModule()
+{
+    transitionStatus(DccPluginLoader::ModuleLoad);
+    doLoadModule();
+    transitionStatus(DccPluginLoader::ModuleEnd);
+}
+
+void DccPluginLoader::doLoadModule()
 {
     DCC_BENCHMARK(name(), "loading-module-QML");
     if (!(m_type & T_HasModule)) {
         setLog("module qml not exists");
-        return true;
+        return;
     }
 
     QQmlComponent component(m_pManager->engine());
@@ -247,15 +297,10 @@ bool DccPluginLoader::loadModule()
         QObject *object = component.create();
         if (!object) {
             setLog("component create module object is null:" + component.errorString());
-            return true;
+            transitionStatus(ModuleErr);
+            return;
         }
-        object->setParent(m_pManager->rootModule());
-        m_module = qobject_cast<DccObject *>(object);
-        connect(m_module, &DccObject::visibleToAppChanged, this, &DccPluginLoader::updateVisible);
-        if (m_module && !m_module->isVisibleToApp()) {
-            setLog("create module finished, module is hidden");
-            return false;
-        }
+        setModule(qobject_cast<DccObject *>(object));
     } break;
     case QQmlComponent::Error: {
         setLog("component create module object error:" + component.errorString());
@@ -264,7 +309,6 @@ bool DccPluginLoader::loadModule()
     default:
         break;
     }
-    return true;
 }
 
 void DccPluginLoader::loadData()
@@ -358,6 +402,13 @@ void DccPluginLoader::updateParent()
 
 void DccPluginLoader::loadMain()
 {
+    transitionStatus(DccPluginLoader::MainObjLoad);
+    doLoadMain();
+    transitionStatus(DccPluginLoader::MainObjEnd);
+}
+
+void DccPluginLoader::doLoadMain()
+{
     DCC_BENCHMARK(name(), "creating-the-main-qml-object");
     if (!(m_type & T_HasMain)) {
         setLog("main qml not exists");
@@ -394,8 +445,7 @@ void DccPluginLoader::loadMain()
             return;
         }
         context->setParent(object); // Context will be deleted when object is deleted
-        object->setParent(m_module ? m_module : m_pManager->rootModule());
-        m_mainObj = qobject_cast<DccObject *>(object);
+        setMainObj(qobject_cast<DccObject *>(object));
     } break;
     case QQmlComponent::Error: {
         setLog(" component create main object error:" + component.errorString());
@@ -404,6 +454,191 @@ void DccPluginLoader::loadMain()
     default:
         break;
     }
+}
+
+void DccPluginLoader::asyncLoadModule()
+{
+    Q_ASSERT(m_asyncPhase == AsyncPhase::None);
+
+    if (!(m_type & T_HasModule)) {
+        // Same as sync loadModule(): a missing module QML is not an error
+        setLog("module qml not exists");
+        transitionStatus(ModuleEnd);
+        finishAsync();
+        return;
+    }
+
+    m_asyncPhase = AsyncPhase::Module;
+    transitionStatus(ModuleLoad);
+
+    DCC_BENCHMARK(name(), "loading-module-QML");
+    m_asyncComponent = std::make_unique<QQmlComponent>(m_pManager->engine());
+    // Async compilation: QML parsing doesn't block the main loop
+    connect(m_asyncComponent.get(), &QQmlComponent::statusChanged, this, &DccPluginLoader::onComponentStatus, Qt::QueuedConnection);
+    switch (version()) {
+    case T_V1_0: {
+        const QString qmlPath = m_path + "/" + name() + ".qml";
+        m_asyncComponent->loadUrl(qmlPath, QQmlComponent::Asynchronous);
+        setLog("create module " + qmlPath);
+        DCC_BENCHMARK(name(), "module-qml-load");
+    } break;
+    case T_V1_1:
+    default: {
+        QString typeName = name();
+        typeName[0] = typeName[0].toUpper();
+        setLog("create module " + typeName);
+        DCC_BENCHMARK(name(), "module-qml-load");
+        m_asyncComponent->loadFromModule(name(), typeName, QQmlComponent::Asynchronous);
+    } break;
+    }
+}
+
+void DccPluginLoader::asyncLoadMain()
+{
+    Q_ASSERT(m_asyncPhase == AsyncPhase::None);
+
+    if (!(m_type & T_HasMain)) {
+        setLog("main qml not exists");
+        transitionStatus(MainObjErr | MainObjEnd);
+        finishAsync();
+        return;
+    }
+
+    m_asyncPhase = AsyncPhase::Main;
+    transitionStatus(MainObjLoad);
+
+    DCC_BENCHMARK(name(), "loading-main-QML");
+
+    m_asyncComponent = std::make_unique<QQmlComponent>(m_pManager->engine());
+    connect(m_asyncComponent.get(), &QQmlComponent::statusChanged, this, &DccPluginLoader::onComponentStatus, Qt::QueuedConnection);
+    if (version() == T_V1_0) {
+        const QString qmlPath = m_path + "/" + ((m_type & T_ShortMain) ? "main.qml" : name() + "Main.qml");
+        m_asyncComponent->loadUrl(qmlPath, QQmlComponent::Asynchronous);
+    } else {
+        QString typeName = name() + "Main";
+        typeName[0] = typeName[0].toUpper();
+        m_asyncComponent->loadFromModule(name(), typeName, QQmlComponent::Asynchronous);
+    }
+}
+
+void DccPluginLoader::onComponentStatus(QQmlComponent::Status status)
+{
+    if (m_asyncPhase == AsyncPhase::None) {
+        return; // 回调迟到（cancelAsync()/finishAsync() 已清理）
+    }
+    const bool isModule = (m_asyncPhase == AsyncPhase::Module);
+    switch (status) {
+    case QQmlComponent::Error: {
+        setLog((isModule ? "component create module object error:" : "component create main object error:") + m_asyncComponent->errorString());
+        transitionStatus(isModule ? (ModuleErr | ModuleEnd) : (MainObjErr | MainObjEnd));
+        finishAsync();
+        break;
+    }
+    case QQmlComponent::Ready: {
+        if (isModule) {
+            transitionStatus(ModuleCreate);
+            DCC_BENCHMARK(name(), "module-object-create");
+        } else {
+            transitionStatus(MainObjCreate);
+            DCC_BENCHMARK(name(), "mainobj-sub-step:qml-create()");
+            // Context must outlive async creation; adopted by the object in
+            // onIncubated
+            m_asyncContext = new QQmlContext(m_pManager->engine());
+            m_asyncContext->setContextProperties({ { "dccData", QVariant::fromValue(m_data) }, { "dccModule", QVariant::fromValue(m_module) } });
+        }
+        m_incubator = std::make_unique<AsyncIncubator>(this);
+        m_asyncComponent->create(*m_incubator, m_asyncContext);
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void DccPluginLoader::onIncubated(QQmlIncubator::Status status)
+{
+    if (m_asyncPhase == AsyncPhase::None) {
+        return;
+    }
+    const bool isModule = (m_asyncPhase == AsyncPhase::Module);
+    switch (status) {
+    case QQmlIncubator::Ready: {
+        QObject *rawObj = m_incubator->object();
+        if (!rawObj) {
+            const QString err = m_incubator->errors().isEmpty() ? QString() : m_incubator->errors().first().description();
+            if (isModule) {
+                setLog("component create module object is null:" + err);
+                // Sync loadModule() treats a null object as non-error
+                transitionStatus(ModuleEnd);
+            } else {
+                // We still own the context; nothing adopted it
+                delete m_asyncContext;
+                m_asyncContext = nullptr;
+                setLog(" component create main object is null:" + err);
+                transitionStatus(MainObjErr | MainObjEnd);
+            }
+            finishAsync();
+            return;
+        }
+        if (isModule) {
+            DccObject *module = qobject_cast<DccObject *>(rawObj);
+            DCC_BENCHMARK(name(), "loading-module-QML");
+            qCDebug(dccAsyncLog) << name() << "module ready, visible=" << (module ? module->isVisibleToApp() : false);
+
+            setModule(module);
+            transitionStatus(ModuleEnd);
+            finishAsync();
+        } else {
+            DCC_BENCHMARK(name(), "loading-main-QML");
+            qCDebug(dccAsyncLog) << name() << "main object ready";
+            DccObject *mainObj = qobject_cast<DccObject *>(rawObj);
+            // 先定对象归属，再挂 context，最后置空（所有权转移点）
+            setMainObj(mainObj);
+            m_asyncContext->setParent(mainObj);
+            m_asyncContext = nullptr;
+            transitionStatus(MainObjEnd);
+        }
+        finishAsync();
+        break;
+    }
+    case QQmlIncubator::Error: {
+        const QString err = m_incubator->errors().isEmpty() ? QString() : m_incubator->errors().first().description();
+        if (isModule) {
+            setLog("component create module object error:" + err);
+            transitionStatus(ModuleErr | ModuleEnd);
+        } else {
+            setLog(" component create main object error:" + err);
+            transitionStatus(MainObjErr | MainObjEnd);
+            // We still own the context; nothing adopted it
+            delete m_asyncContext;
+            m_asyncContext = nullptr;
+        }
+        finishAsync();
+        break;
+    }
+    default:
+        break;
+    }
+}
+
+void DccPluginLoader::finishAsync()
+{
+    m_asyncPhase = AsyncPhase::None;
+    m_asyncComponent.reset();
+    m_incubator.reset();
+    // Safety net: non-null here means the context was never adopted
+    if (m_asyncContext) {
+        delete m_asyncContext;
+    }
+    m_asyncContext = nullptr;
+}
+
+void DccPluginLoader::cancelAsync()
+{
+    if (m_incubator) {
+        m_incubator->clear(); // abort in-flight incubation
+    }
+    finishAsync();
 }
 
 void DccPluginLoader::addMainObject()
@@ -447,6 +682,7 @@ void DccPluginLoader::cancel()
 void DccPluginLoader::reset()
 {
     // Reset status to begin state
+    cancelAsync(); // clear any async state so the reload starts clean
     m_status = PluginBegin;
     m_module = nullptr;
     m_mainObj = nullptr;
