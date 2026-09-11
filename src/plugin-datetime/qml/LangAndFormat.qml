@@ -5,6 +5,8 @@ import QtQuick.Controls 2.0
 import QtQuick.Layouts 1.15
 import org.deepin.dcc 1.0
 import org.deepin.dtk 1.0
+import org.deepin.dtk 1.0 as D
+import org.deepin.dtk.style 1.0 as DS
 import QtQml.Models
 
 // 语言和区域
@@ -307,10 +309,29 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: Item {
-            implicitWidth: rowlayout.implicitWidth
-            implicitHeight: rowlayout.implicitHeight
+            implicitWidth: rowlayout.implicitWidth + 20
+            implicitHeight: 30
+
+            Rectangle {
+                anchors.fill: parent
+                z: -1
+                property D.Palette pressedColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.2)
+                    normalDark: Qt.rgba(1, 1, 1, 0.25)
+                }
+                property D.Palette hoveredColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.1)
+                    normalDark: Qt.rgba(1, 1, 1, 0.1)
+                }
+                radius: DS.Style.control.radius
+                color: mouseArea.pressed ? D.ColorSelector.pressedColor : (mouseArea.containsMouse ? D.ColorSelector.hoveredColor : "transparent")
+            }
+
             RowLayout {
                 id: rowlayout
+                anchors.fill: parent
+                anchors.leftMargin: 10
+                anchors.rightMargin: 10
                 Label {
                     id: regionLabel
                     text: dccData.region
@@ -327,6 +348,7 @@ DccObject {
                 id: mouseArea
                 anchors.fill: parent
                 focus: true
+                hoverEnabled: true
 
                 RegionsChooserWindow {
                     id: regionWndow
@@ -384,10 +406,30 @@ DccObject {
         }
         page: Item {
             id: regionAndFormatItem
-            implicitWidth: regionAndFormat.localeGenRunning ? 36 : layout.implicitWidth
-            implicitHeight: regionAndFormat.localeGenRunning ? 36 : layout.implicitHeight
+            implicitWidth: regionAndFormat.localeGenRunning ? 36 : layout.implicitWidth + 20
+            implicitHeight: regionAndFormat.localeGenRunning ? 36 : 30
+
+            Rectangle {
+                anchors.fill: parent
+                z: -1
+                visible: !regionAndFormat.localeGenRunning
+                property D.Palette pressedColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.2)
+                    normalDark: Qt.rgba(1, 1, 1, 0.25)
+                }
+                property D.Palette hoveredColor: D.Palette {
+                    normal: Qt.rgba(0, 0, 0, 0.1)
+                    normalDark: Qt.rgba(1, 1, 1, 0.1)
+                }
+                radius: DS.Style.control.radius
+                color: mouseArea.pressed ? D.ColorSelector.pressedColor : (mouseArea.containsMouse ? D.ColorSelector.hoveredColor : "transparent")
+            }
+
             RowLayout {
                 id: layout
+                anchors.fill: parent
+                anchors.leftMargin: 10
+                anchors.rightMargin: 10
                 visible: !regionAndFormat.localeGenRunning
                 Label {
                     id: currentLabel
@@ -413,8 +455,10 @@ DccObject {
             }
 
             MouseArea {
+                id: mouseArea
                 anchors.fill: parent
                 enabled: !regionAndFormat.localeGenRunning
+                hoverEnabled: true
                 RegionFormatDialog {
                     id: regionDialog
                     currentIndex: dccData.currentLanguageAndRegionIndex()

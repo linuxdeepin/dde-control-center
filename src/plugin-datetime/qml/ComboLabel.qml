@@ -13,7 +13,9 @@ Item {
     property bool isDigitGroupingSymbol: false
     // property string textRole
     implicitHeight: 30
-    implicitWidth: 280
+    // Match the hover background width to the actual control content instead
+    // of giving every format selector the same fixed width.
+    implicitWidth: item.comboModel.length > 1 ? comboBox.implicitWidth + 10 : label.implicitWidth + 10
     signal comboBoxActivated(int index)
 
     // 获取过滤后的模型数据
