@@ -347,10 +347,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Add a new %1 ...</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation type="unfinished"></translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -930,7 +926,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
         <translation type="unfinished"></translation>
@@ -940,11 +936,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Developer root permission management</source>
+        <source>Developer Options</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Developer Options</source>
+        <source>Developer root permission management</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -1186,9 +1182,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Time and date, time zone settings</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
         <translation type="unfinished"></translation>
@@ -1708,13 +1701,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Devices</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2052,6 +2038,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2175,45 +2165,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>GestureModel</name>
+    <name>GroupObject</name>
     <message>
-        <source>Three-finger up</source>
+        <source>System</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Three-finger down</source>
+        <source>Common settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Three-finger left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
+        <source>Bluetooth and Devices</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -2423,49 +2385,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -3394,10 +3313,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -3407,10 +3322,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3683,31 +3594,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>System version, device information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -3736,10 +3637,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -4513,10 +4410,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>None</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>App</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
