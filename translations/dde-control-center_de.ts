@@ -345,10 +345,6 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Add a new %1 ...</source>
         <translation>Neuen %1 hinzufügen …</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>Benutzername darf nicht leer sein</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -928,26 +924,26 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Systemstartmenü</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Verwalten Sie Ihr Systemstartmenü</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Entwickler-Root-Rechteverwaltung </translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Entwickleroptionen</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>Entwickler-Debugging-Optionen</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1184,16 +1180,13 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Time and date, time zone settings</source>
         <translation>Datum und Zeit, Zeitzoneneinstellungen</translation>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation>Sprache und Region</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation>Systemsprache und Regionalforate</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1706,13 +1699,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Devices</source>
-        <translation>Bluetooth und Geräte</translation>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2050,6 +2036,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation>Fasse Programm-Symbole zusammen</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2173,46 +2163,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>GestureModel</name>
+    <name>GroupObject</name>
     <message>
-        <source>Three-finger up</source>
-        <translation>Drei-Finger nach oben</translation>
+        <source>System</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Three-finger down</source>
-        <translation>Drei-Finger nach unten</translation>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Three-finger left</source>
-        <translation>Drei-Finger nach links</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Drei-Finger nach rechts</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Drei-Finger-Tipp</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Vier-Finger nach oben</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Vier-Finger nach unten</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Vier-Finger nach links</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Vier-Finger nach rechts</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Vier-Finger-Tipp</translation>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2422,49 +2384,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Allgemein, Maus, Touchpad</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>Fenster maximieren</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>Fenster wiederherstellen</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>Schreibtisch zeigen</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>Bildschirm sperren</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>Multitasking-Ansicht</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Deaktivieren</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>Zur vorherigen Arbeitsfläche wechseln</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>Zur nächsten Arbeitfläche wechseln</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>Verstecke Multitasking-Ansicht</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>Multitasking-Ansicht umschalten</translation>
     </message>
 </context>
 <context>
@@ -3392,10 +3311,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>auf Hinzufügen klicken, um diese Tastenkombination einzurichten</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation>Ersetzen</translation>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation type="unfinished"/>
     </message>
@@ -3406,10 +3321,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
-        <translation>auf Ersetzen klicken, um diese Tastenkombination einzurichten</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3681,40 +3592,30 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation>Allgemeine Einstellungen</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>System</translation>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>Zusatzinfo</translation>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Über diesen PC</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Systemversion, Geräteinformationen</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>Anmerkungen zu Open Source Software ansehen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation>Benutzererfahrungsprogramm</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
@@ -3722,23 +3623,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Endbenutzer-Lizenzvertrag</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>Endbenutzer-Lizenzvertrag einsehen</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>Datenschutzerklärung</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>Datenschutzerklärung einsehen</translation>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
-        <translation>Hinweis zu Open-Source-Software</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4512,10 +4409,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Keine</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>App</translation>
     </message>
 </context>
 </TS>
