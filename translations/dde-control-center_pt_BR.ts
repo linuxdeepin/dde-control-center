@@ -356,6 +356,10 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
         <source>Add a new %1 ...</source>
         <translation>Adicionar um novo %1 ...</translation>
     </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation>O nome não pode estar vazio</translation>
+    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -935,26 +939,26 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
 </context>
 <context>
-    <name>CommonInfo</name>
+    <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu de inicialização</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Gerenciar menu de inicialização</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Gerenciamento de permissões de root para desenvolvedores</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation>Opções do desenvolvedor</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Opções de depuração do desenvolvedor</translation>
     </message>
 </context>
 <context>
@@ -1191,13 +1195,16 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
         <source>Time and date, time zone settings</source>
         <translation>Data e hora, configurações de fuso horário</translation>
     </message>
+</context>
+<context>
+    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Idioma e região</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Idioma do sistema, formatos regionais</translation>
     </message>
 </context>
 <context>
@@ -1710,6 +1717,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Device</name>
+    <message>
+        <source>Bluetooth and Devices</source>
+        <translation>Bluetooth e dispositivos</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2047,10 +2061,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation>Agrupar ícones de aplicativos</translation>
     </message>
-    <message>
-        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation>Os ícones dos aplicativos são sempre agrupados na barra de tarefas no Modo Fashion.</translation>
-    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2174,18 +2184,46 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>GroupObject</name>
+    <name>GestureModel</name>
     <message>
-        <source>System</source>
-        <translation type="unfinished"/>
+        <source>Three-finger up</source>
+        <translation>Deslizar três dedos para cima</translation>
     </message>
     <message>
-        <source>Common settings</source>
-        <translation type="unfinished"/>
+        <source>Three-finger down</source>
+        <translation>Deslizar três dedos para baixo</translation>
     </message>
     <message>
-        <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <source>Three-finger left</source>
+        <translation>Deslizar três dedos para a esquerda</translation>
+    </message>
+    <message>
+        <source>Three-finger right</source>
+        <translation>Deslizar três dedos para a direita</translation>
+    </message>
+    <message>
+        <source>Three-finger tap</source>
+        <translation>Toque com três dedos</translation>
+    </message>
+    <message>
+        <source>Four-finger up</source>
+        <translation>Deslizar quatro dedos para cima</translation>
+    </message>
+    <message>
+        <source>Four-finger down</source>
+        <translation>Deslizar quatro dedos para baixo</translation>
+    </message>
+    <message>
+        <source>Four-finger left</source>
+        <translation>Deslizar quatro dedos para a esquerda</translation>
+    </message>
+    <message>
+        <source>Four-finger right</source>
+        <translation>Deslizar quatro dedos para a direita</translation>
+    </message>
+    <message>
+        <source>Four-finger tap</source>
+        <translation>Toque com quatro dedos</translation>
     </message>
 </context>
 <context>
@@ -2362,6 +2400,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>MicrophonePage</name>
     <message>
+        <source>Automatic Noise Suppression</source>
+        <translation>Cancelamento Automático de Ruído</translation>
+    </message>
+    <message>
         <source>Input Volume</source>
         <translation>Volume de entrada</translation>
     </message>
@@ -2381,10 +2423,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Input Device</source>
         <translation>Dispositivo de entrada</translation>
     </message>
-    <message>
-        <source>Intelligent Noise Reduction</source>
-        <translation>Redução inteligente de ruído</translation>
-    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2395,6 +2433,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Geral, Mouse, Touchpad</translation>
+    </message>
+</context>
+<context>
+    <name>MouseDBusProxy</name>
+    <message>
+        <source>Maximize window</source>
+        <translation>Maximizar janela</translation>
+    </message>
+    <message>
+        <source>Restore window</source>
+        <translation>Restaurar janela</translation>
+    </message>
+    <message>
+        <source>Show desktop</source>
+        <translation>Exibir área de trabalho</translation>
+    </message>
+    <message>
+        <source>Lock screen</source>
+        <translation>Bloquear tela</translation>
+    </message>
+    <message>
+        <source>Multitasking view</source>
+        <translation>Visão multitarefa</translation>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation>Desativar</translation>
+    </message>
+    <message>
+        <source>Switch to previous workspace</source>
+        <translation>Alternar para a área de trabalho anterior</translation>
+    </message>
+    <message>
+        <source>Switch to next workspace</source>
+        <translation>Alternar para a próxima área de trabalho</translation>
+    </message>
+    <message>
+        <source>Hide multitasking view</source>
+        <translation>Ocultar visão multitarefa</translation>
+    </message>
+    <message>
+        <source>Toggle multitasking view</source>
+        <translation>Alternar visão multitarefa</translation>
     </message>
 </context>
 <context>
@@ -3322,6 +3403,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Clique em Adicionar para ativar esta tecla de atalho</translation>
     </message>
     <message>
+        <source>Replace</source>
+        <translation>Substituir</translation>
+    </message>
+    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>Falha ao iniciar a captura de atalho. Tente novamente.</translation>
     </message>
@@ -3332,6 +3417,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation>Atalho de teclado inválido. Defina um novo atalho.</translation>
+    </message>
+    <message>
+        <source>click Replace to make this shortcut key effective</source>
+        <translation>Clique em Substituir para ativar esta tecla de atalho</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3521,17 +3610,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>SoundWorker</name>
-    <message>
-        <source>Failed to enable intelligent noise reduction. Try again later.</source>
-        <translation>Falha ao ativar a redução inteligente de ruído. Tente novamente mais tarde.</translation>
-    </message>
-    <message>
-        <source>Failed to disable intelligent noise reduction. Try again later.</source>
-        <translation>Falha ao desativar a redução inteligente de ruído. Tente novamente mais tarde.</translation>
-    </message>
-</context>
-<context>
     <name>SpeakerPage</name>
     <message>
         <source>Mode</source>
@@ -3614,50 +3692,64 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>System</name>
+    <message>
+        <source>Common settings</source>
+        <translation>Configurações gerais</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation>Sistema</translation>
+    </message>
+</context>
+<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>Informações auxiliares</translation>
     </message>
+</context>
+<context>
+    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Sobre este computador</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Versão do sistema, informações do dispositivo</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Exibir aviso de software de código aberto</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Programa de experiência do usuário</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Participar do programa de experiência do usuário para ajudar a melhorar o produto</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Contrato de licença de usuário final</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Exibir contrato de licença de usuário final</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Política de privacidade</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Exibir informações sobre a política de privacidade</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation>Aviso de software de código aberto</translation>
     </message>
 </context>
 <context>
@@ -4431,6 +4523,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Nenhum</translation>
+    </message>
+    <message>
+        <source>App</source>
+        <translation>Aplicativo</translation>
     </message>
 </context>
 </TS>
