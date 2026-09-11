@@ -360,10 +360,6 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
         <source>Add a new %1 ...</source>
         <translation>Shtoni një %1 të re …</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>Emri s’mund të jetë i zbrazët</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -943,26 +939,26 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Menu Nisjesh</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Administroni menunë tuaj të nisjeve</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Administrim lejesh rrënje për zhvilluesit</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Mundësi Zhvilluesish</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>Mundësi diagnostikimi për zhvillues</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1199,9 +1195,6 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
         <source>Time and date, time zone settings</source>
         <translation>Datë dhe kohë, rregullime zone kohore</translation>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
         <translation>Gjuhë dhe rajon</translation>
@@ -1722,13 +1715,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
 </context>
 <context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Devices</source>
-        <translation>Bluetooth dhe Pajisje</translation>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2066,6 +2052,10 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>Combine application icons</source>
         <translation>Ndërthur ikona aplikacionesh</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2189,46 +2179,18 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
 </context>
 <context>
-    <name>GestureModel</name>
+    <name>GroupObject</name>
     <message>
-        <source>Three-finger up</source>
-        <translation>Sipër me tre gishta</translation>
+        <source>System</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Three-finger down</source>
-        <translation>Poshtë me tre gishta</translation>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Three-finger left</source>
-        <translation>Majtas me tre gishta</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Djathtas me tre gishtash</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Prekje me tre gishta</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Sipër me katër gishta</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Poshtë me katër gishta</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Majtas me katër gishta</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Djathas me katër gishta</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Prekje me katër gishta</translation>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2438,49 +2400,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation type="unfinished"/>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>Maksimizo dritaren</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>Riktheje dritaren</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>Shfaqe desktopin</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>Kyçe ekranin</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>Pamje shumëpunëshe</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Çaktivizoje</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>Kalo te hapësira e mëparshme e punës</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>Kalo te hapësira pasuese e punës</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>Fshihe pamjen shumëpunëshe</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>Shfaq/Fshih pamjen shumëpunëshe</translation>
     </message>
 </context>
 <context>
@@ -3408,10 +3327,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <translation>që ta bëni këtë shkurtore të hyjë në fuqi, klikoni mbi Shtoje</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation type="unfinished"/>
     </message>
@@ -3421,10 +3336,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3697,36 +3608,26 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation>Rregullime të rëndomëta</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>Sistem</translation>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>Informacion Ndihmës</translation>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Mbi Këtë PC</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Version sistemi, informacion pajisjesh</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation>Shihni shënimin rreth software-i me burim të hapët</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -3734,27 +3635,23 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation>Merrni pjesë te “User Experience Program” që të ndihmoni të përmirësohet produkti</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation>Marrëveshje Licence Përdoruesi të Thjeshtë</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation>Shihni marrëveshjen e licencës së përdoruesit të thjeshtë</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation>Rregulla Privatësie</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation>Shihni informacion rreth rregullash privatësie</translation>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
-        <translation>Shënim Software-i Me Burim të Hapët</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4528,10 +4425,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>None</source>
         <translation>Asnjë</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>Aplikacion</translation>
     </message>
 </context>
 </TS>
