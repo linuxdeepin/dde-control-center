@@ -362,10 +362,6 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
         <source>Add a new %1 ...</source>
         <translation>Adicionar um novo %1 ...</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>O nome não pode estar vazio</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -945,26 +941,26 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation>Menu de Arranque</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>Gerir o seu menu de arranque</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>Gestão de permissão root do programador</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>Opções de Programador</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>Opções de depuração do programador</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1201,16 +1197,13 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
         <source>Time and date, time zone settings</source>
         <translation>Definições fuso horário, data e hora</translation>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation>Idioma e região</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation>Idioma do sistema, formatos regionais</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1724,13 +1717,6 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
 </context>
 <context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Devices</source>
-        <translation>Bluetooth e Dispositivos</translation>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2068,6 +2054,10 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
         <source>Combine application icons</source>
         <translation>Combinar ícones de aplicações</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2191,46 +2181,18 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
 </context>
 <context>
-    <name>GestureModel</name>
+    <name>GroupObject</name>
     <message>
-        <source>Three-finger up</source>
-        <translation>Toque três-dedos para cima</translation>
+        <source>System</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Three-finger down</source>
-        <translation>Toque três-dedos para baixo</translation>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Three-finger left</source>
-        <translation>Toque três-dedos para a esquerda</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>Toque três-dedos para a direita</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>Toque três-dedos</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>Toque quatro-dedos para cima</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>Toque quatro-dedos para baixo</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>Toque quatro-dedos para a esquerda</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>Toque quatro-dedos para a direita</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>Toque quatro-dedos</translation>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2440,49 +2402,6 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Comum、Rato、Touchpad</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation>Maximizar janela</translation>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation>Restaurar janela</translation>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation>Mostrar ambiente de trabalho</translation>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation>Trancar ecrã</translation>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation>Vista Multi-tarefa</translation>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation>Desativar</translation>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation>Trocar para área de trabalho anterior</translation>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation>Trocar para área de trabalho seguinte</translation>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation>Esconder vista multi-tarefa</translation>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation>Alternar vista de multi-tarefa</translation>
     </message>
 </context>
 <context>
@@ -3410,10 +3329,6 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
         <translation>clique em Adicionar para tornar efetivo este atalho de tecla</translation>
     </message>
     <message>
-        <source>Replace</source>
-        <translation>Substituir</translation>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>Falha ao iniciar captura de tecla de atalho. Por favor tente novamente.</translation>
     </message>
@@ -3424,10 +3339,6 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation>Atalho de teclado inválido. Defina um novo.</translation>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
-        <translation>clique em Substituir para tornar efetivo este atalho de tecla</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3699,64 +3610,50 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation>Definições comuns</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>Sistema</translation>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>Informação auxiliar</translation>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>Sobre Este PC</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>Versão do sistema, informação do dispositivo</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>Ver a nota sobre software de código aberto</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>Programa de Experiência do Utilizador</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>Junte-se ao programa de experiência do utilizador para ajudar a melhorar o produto</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>Contrato de Licença de Utilizador Final</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>Ver o contrato de licença de utilizador final</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>Política de Privacidade</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>Ver informação sobre política de privacidade</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>Nota do Software de Código Aberto</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4530,10 +4427,6 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <message>
         <source>None</source>
         <translation>Nenhum</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation>Aplicação</translation>
     </message>
 </context>
 </TS>
