@@ -360,6 +360,10 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
         <source>Add a new %1 ...</source>
         <translation>Dodaj nowe %1 ...</translation>
     </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation>Nazwa użytkownika nie może być pusta</translation>
+    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -939,7 +943,7 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
     </message>
 </context>
 <context>
-    <name>CommonInfo</name>
+    <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
         <translation>Menu rozruchu</translation>
@@ -949,12 +953,12 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
         <translation>Zarządzaj menu rozruchu</translation>
     </message>
     <message>
-        <source>Developer Options</source>
-        <translation>Opcje programisty</translation>
-    </message>
-    <message>
         <source>Developer root permission management</source>
         <translation>Zarządzanie uprawnieniami konta root</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation>Opcje programisty</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
@@ -1195,6 +1199,9 @@ Firma UnionTech Software Technology Co., Ltd. jest zaangażowana w badania i pop
         <source>Time and date, time zone settings</source>
         <translation>Czas i data, ustawienia strefy czasowej</translation>
     </message>
+</context>
+<context>
+    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
         <translation>Język i region</translation>
@@ -1715,6 +1722,13 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
+    <name>Device</name>
+    <message>
+        <source>Bluetooth and Devices</source>
+        <translation>Bluetooth i inne urządzenia</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2052,10 +2066,6 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
         <source>Combine application icons</source>
         <translation>Połącz ikony aplikacji</translation>
     </message>
-    <message>
-        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation>Ikony aplikacji są zawsze pogrupowane na pasku zadań w trybie modnym.</translation>
-    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2179,18 +2189,46 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
-    <name>GroupObject</name>
+    <name>GestureModel</name>
     <message>
-        <source>System</source>
-        <translation>System</translation>
+        <source>Three-finger up</source>
+        <translation>Trzy palce w górę</translation>
     </message>
     <message>
-        <source>Common settings</source>
-        <translation>Ustawienia ogólne</translation>
+        <source>Three-finger down</source>
+        <translation>Trzy palce w dół</translation>
     </message>
     <message>
-        <source>Bluetooth and Devices</source>
-        <translation>Bluetooth i inne urządzenia</translation>
+        <source>Three-finger left</source>
+        <translation>Trzy palce w lewo</translation>
+    </message>
+    <message>
+        <source>Three-finger right</source>
+        <translation>Trzy palce w prawo</translation>
+    </message>
+    <message>
+        <source>Three-finger tap</source>
+        <translation>Stuknięcie trzema palcami</translation>
+    </message>
+    <message>
+        <source>Four-finger up</source>
+        <translation>Cztery palce w górę</translation>
+    </message>
+    <message>
+        <source>Four-finger down</source>
+        <translation>Cztery palce w dół</translation>
+    </message>
+    <message>
+        <source>Four-finger left</source>
+        <translation>Cztery palce w lewo</translation>
+    </message>
+    <message>
+        <source>Four-finger right</source>
+        <translation>Cztery palce w prawo</translation>
+    </message>
+    <message>
+        <source>Four-finger tap</source>
+        <translation>Stuknięcie czterema palcami</translation>
     </message>
 </context>
 <context>
@@ -2367,6 +2405,10 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
 <context>
     <name>MicrophonePage</name>
     <message>
+        <source>Automatic Noise Suppression</source>
+        <translation>Automatyczne tłumienie hałasu</translation>
+    </message>
+    <message>
         <source>Input Volume</source>
         <translation>Głośność wejściowa</translation>
     </message>
@@ -2386,10 +2428,6 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
         <source>Input Device</source>
         <translation>Urządzenie wejściowe</translation>
     </message>
-    <message>
-        <source>Intelligent Noise Reduction</source>
-        <translation>Inteligentna redukcja szumów</translation>
-    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2400,6 +2438,49 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>Ogólne, mysz, panel dotykowy</translation>
+    </message>
+</context>
+<context>
+    <name>MouseDBusProxy</name>
+    <message>
+        <source>Maximize window</source>
+        <translation>Maksymalizuj okno</translation>
+    </message>
+    <message>
+        <source>Restore window</source>
+        <translation>Przywróć okno</translation>
+    </message>
+    <message>
+        <source>Show desktop</source>
+        <translation>Pokaż pulpit</translation>
+    </message>
+    <message>
+        <source>Lock screen</source>
+        <translation>Ekran blokady</translation>
+    </message>
+    <message>
+        <source>Multitasking view</source>
+        <translation>Widok wielozadaniowości</translation>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation>Wyłącz</translation>
+    </message>
+    <message>
+        <source>Switch to previous workspace</source>
+        <translation>Przełącz na poprzedni obszar roboczy</translation>
+    </message>
+    <message>
+        <source>Switch to next workspace</source>
+        <translation>Przełącz na następny obszar roboczy</translation>
+    </message>
+    <message>
+        <source>Hide multitasking view</source>
+        <translation>Ukryj widok wielozadaniowości</translation>
+    </message>
+    <message>
+        <source>Toggle multitasking view</source>
+        <translation>Przełącz widok wielozadaniowości</translation>
     </message>
 </context>
 <context>
@@ -3327,6 +3408,10 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
         <translation>kliknij Dodaj, aby zastosować skrót</translation>
     </message>
     <message>
+        <source>Replace</source>
+        <translation>Zamień</translation>
+    </message>
+    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>Nie udało się przechwycić skrótu klawiszowego. Spróbuj ponownie.</translation>
     </message>
@@ -3337,6 +3422,10 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation>Nieprawidłowy skrót klawiszowy. Spróbuj ustawić inny.</translation>
+    </message>
+    <message>
+        <source>click Replace to make this shortcut key effective</source>
+        <translation>Kliknij Zamień, aby aktywować skrót klawiszowy.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3526,17 +3615,6 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
-    <name>SoundWorker</name>
-    <message>
-        <source>Failed to enable intelligent noise reduction. Try again later.</source>
-        <translation>Nie udało się włączyć inteligentnej redukcji szumów. Spróbuj ponownie później.</translation>
-    </message>
-    <message>
-        <source>Failed to disable intelligent noise reduction. Try again later.</source>
-        <translation>Nie udało się wyłączyć inteligentnej redukcji szumów. Spróbuj ponownie później.</translation>
-    </message>
-</context>
-<context>
     <name>SpeakerPage</name>
     <message>
         <source>Mode</source>
@@ -3619,11 +3697,25 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
+    <name>System</name>
+    <message>
+        <source>Common settings</source>
+        <translation>Ustawienia ogólne</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation>System</translation>
+    </message>
+</context>
+<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>Informacje dodatkowe</translation>
     </message>
+</context>
+<context>
+    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
         <translation>O tym komputerze</translation>
@@ -3631,10 +3723,6 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>System version, device information</source>
         <translation>Wersja systemu, informacje o urządzeniu</translation>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
-        <translation>Informacja oprogramowania open-source</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
@@ -3663,6 +3751,10 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>View information about privacy policy</source>
         <translation>Wyświetl informacje o polityce prywatności</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation>Informacja oprogramowania open-source</translation>
     </message>
 </context>
 <context>
@@ -4436,6 +4528,10 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>None</source>
         <translation>Brak</translation>
+    </message>
+    <message>
+        <source>App</source>
+        <translation>Aplikacja</translation>
     </message>
 </context>
 </TS>
