@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.18)
 
 find_package(${QT_NS} REQUIRED COMPONENTS WaylandClient Concurrent)
 find_package(PkgConfig REQUIRED)
-find_package(TreelandProtocols REQUIRED)
+find_package(TreelandProtocols 0.6 REQUIRED)
 pkg_check_modules(WaylandClient REQUIRED IMPORTED_TARGET wayland-client)
 pkg_check_modules(WLR_PROTOCOLS REQUIRED wlr-protocols)
 
@@ -25,7 +25,7 @@ add_library(display-wayland-client
 qt_generate_wayland_protocol_client_sources(display-wayland-client
     FILES
         ${WLR_PROTOCOLS_XML_DIR}/unstable/wlr-output-management-unstable-v1.xml
-        ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-output-manager-v1.xml
+        ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-output-manager-unstable-v2.xml
         ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-virtual-output-manager-v1.xml
         ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-wallpaper-manager-unstable-v1.xml
 )
