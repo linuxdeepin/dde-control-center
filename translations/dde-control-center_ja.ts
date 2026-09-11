@@ -357,10 +357,6 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
         <source>Add a new %1 ...</source>
         <translation>%1 を追加...</translation>
     </message>
-    <message>
-        <source>The name cannot be empty</source>
-        <translation>名前を空白にすることはできません</translation>
-    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -940,26 +936,26 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
     </message>
 </context>
 <context>
-    <name>CommonInfoMain</name>
+    <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation>起動メニュー</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation>起動メニューを管理</translation>
-    </message>
-    <message>
-        <source>Developer root permission management</source>
-        <translation>開発者向けroot権限管理</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation>開発者向けオプション</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Developer root permission management</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation>開発者向けデバッグオプション</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1196,16 +1192,13 @@ UnionTech Software Technology Co., Ltd.は、生体認証のセキュリティ�
         <source>Time and date, time zone settings</source>
         <translation>時刻と日付、タイムゾーン設定</translation>
     </message>
-</context>
-<context>
-    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation>言語と地域</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation>システム言語、地域の形式</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -1719,13 +1712,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>Device</name>
-    <message>
-        <source>Bluetooth and Devices</source>
-        <translation>Bluetoothとデバイス</translation>
-    </message>
-</context>
-<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2063,6 +2049,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation>アプリケーションアイコンの結合</translation>
     </message>
+    <message>
+        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2186,46 +2176,18 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>GestureModel</name>
+    <name>GroupObject</name>
     <message>
-        <source>Three-finger up</source>
-        <translation>3本指、上にスワイプ</translation>
+        <source>System</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Three-finger down</source>
-        <translation>3本指、下にスワイプ</translation>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
     </message>
     <message>
-        <source>Three-finger left</source>
-        <translation>3本指、左にスワイプ</translation>
-    </message>
-    <message>
-        <source>Three-finger right</source>
-        <translation>3本指、右にスワイプ</translation>
-    </message>
-    <message>
-        <source>Three-finger tap</source>
-        <translation>3本指、タップ</translation>
-    </message>
-    <message>
-        <source>Four-finger up</source>
-        <translation>4本指、上にスワイプ</translation>
-    </message>
-    <message>
-        <source>Four-finger down</source>
-        <translation>4本指、下にスワイプ</translation>
-    </message>
-    <message>
-        <source>Four-finger left</source>
-        <translation>4本指、左にスワイプ</translation>
-    </message>
-    <message>
-        <source>Four-finger right</source>
-        <translation>4本指、右にスワイプ</translation>
-    </message>
-    <message>
-        <source>Four-finger tap</source>
-        <translation>4本指、タップ</translation>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2435,49 +2397,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>一般、マウス、タッチパッド</translation>
-    </message>
-</context>
-<context>
-    <name>MouseDBusProxy</name>
-    <message>
-        <source>Maximize window</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Restore window</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show desktop</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Lock screen</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Multitasking view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Disable</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Switch to previous workspace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Switch to next workspace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Hide multitasking view</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Toggle multitasking view</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3405,10 +3324,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"/>
     </message>
     <message>
-        <source>Replace</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation type="unfinished"/>
     </message>
@@ -3418,10 +3333,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>click Replace to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3694,64 +3605,50 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>System</name>
-    <message>
-        <source>Common settings</source>
-        <translation>一般設定</translation>
-    </message>
-    <message>
-        <source>System</source>
-        <translation>システム</translation>
-    </message>
-</context>
-<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>補助的な情報</translation>
     </message>
-</context>
-<context>
-    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation>この PC について</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation>システムバージョン、デバイス情報</translation>
-    </message>
-    <message>
-        <source>View the notice of open source software</source>
-        <translation>オープンソースソフトウェアに関する通知を表示</translation>
-    </message>
-    <message>
-        <source>User Experience Program</source>
-        <translation>ユーザーエクスペリエンスプログラム</translation>
-    </message>
-    <message>
-        <source>Join the user experience program to help improve the product</source>
-        <translation>ユーザーエクスペリエンスプログラムに参加して製品の開発を支援</translation>
-    </message>
-    <message>
-        <source>End User License Agreement</source>
-        <translation>利用規約(EULA)</translation>
-    </message>
-    <message>
-        <source>View the end  user license agreement</source>
-        <translation>利用規約(EULA)を表示</translation>
-    </message>
-    <message>
-        <source>Privacy Policy</source>
-        <translation>プライバシーポリシー</translation>
-    </message>
-    <message>
-        <source>View information about privacy policy</source>
-        <translation>プライバシーポリシーに関する情報を表示</translation>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation>オープンソースソフトウェアに関する通知</translation>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the notice of open source software</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>User Experience Program</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Join the user experience program to help improve the product</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>End User License Agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View the end  user license agreement</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Privacy Policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>View information about privacy policy</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -4525,10 +4422,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>なし</translation>
-    </message>
-    <message>
-        <source>App</source>
-        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
