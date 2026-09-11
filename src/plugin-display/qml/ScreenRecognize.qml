@@ -24,7 +24,7 @@ Window {
 
     Rectangle {
         anchors.fill: parent
-        radius: D.DTK.platformTheme.windowRadius(8)
+        radius: 8
         color: D.DTK.palette.window
     }
 
