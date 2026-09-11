@@ -1,3 +1,9 @@
+dde-control-center (6.1.108) unstable; urgency=medium
+
+  * i18n: Updates for project Deepin Desktop Environment (#3501)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Fri, 11 Sep 2026 14:17:20 +0800
+
 dde-control-center (6.1.107) unstable; urgency=medium
 
   * Revert "feat(sound): add AI noise reduction support"
