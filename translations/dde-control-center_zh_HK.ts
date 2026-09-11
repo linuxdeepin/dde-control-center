@@ -354,6 +354,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Add a new %1 ...</source>
         <translation>添加新的%1...</translation>
     </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation>名稱不能為空</translation>
+    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -933,26 +937,26 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
-    <name>CommonInfo</name>
+    <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>啓動菜單</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>管理您的開機啓動菜單</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>開發者Root權限管理</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation>開發者選項</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>開發者調試選項</translation>
     </message>
 </context>
 <context>
@@ -1189,6 +1193,9 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Time and date, time zone settings</source>
         <translation>時間日期、時區設置</translation>
     </message>
+</context>
+<context>
+    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
         <translation>語言和區域</translation>
@@ -1709,6 +1716,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>Device</name>
+    <message>
+        <source>Bluetooth and Devices</source>
+        <translation>藍牙和其他設備</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2046,10 +2060,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Combine application icons</source>
         <translation>合併應用圖標</translation>
     </message>
-    <message>
-        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2173,18 +2183,46 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>GroupObject</name>
+    <name>GestureModel</name>
     <message>
-        <source>System</source>
-        <translation type="unfinished"/>
+        <source>Three-finger up</source>
+        <translation>三指向上</translation>
     </message>
     <message>
-        <source>Common settings</source>
-        <translation type="unfinished"/>
+        <source>Three-finger down</source>
+        <translation>三指向下</translation>
     </message>
     <message>
-        <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <source>Three-finger left</source>
+        <translation>三指向左</translation>
+    </message>
+    <message>
+        <source>Three-finger right</source>
+        <translation>三指向右</translation>
+    </message>
+    <message>
+        <source>Three-finger tap</source>
+        <translation>三指點擊</translation>
+    </message>
+    <message>
+        <source>Four-finger up</source>
+        <translation>四指向上</translation>
+    </message>
+    <message>
+        <source>Four-finger down</source>
+        <translation>四指向下</translation>
+    </message>
+    <message>
+        <source>Four-finger left</source>
+        <translation>四指向左</translation>
+    </message>
+    <message>
+        <source>Four-finger right</source>
+        <translation>四指向右</translation>
+    </message>
+    <message>
+        <source>Four-finger tap</source>
+        <translation>四指點擊</translation>
     </message>
 </context>
 <context>
@@ -2361,6 +2399,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>MicrophonePage</name>
     <message>
+        <source>Automatic Noise Suppression</source>
+        <translation>噪音抑制</translation>
+    </message>
+    <message>
         <source>Input Volume</source>
         <translation>輸入音量</translation>
     </message>
@@ -2380,10 +2422,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Input Device</source>
         <translation>輸入設備</translation>
     </message>
-    <message>
-        <source>Intelligent Noise Reduction</source>
-        <translation>智能降噪</translation>
-    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2394,6 +2432,49 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Common、Mouse、Touchpad</source>
         <translation>通用、鼠標、觸控板</translation>
+    </message>
+</context>
+<context>
+    <name>MouseDBusProxy</name>
+    <message>
+        <source>Maximize window</source>
+        <translation>最大化窗口</translation>
+    </message>
+    <message>
+        <source>Restore window</source>
+        <translation>還原窗口</translation>
+    </message>
+    <message>
+        <source>Show desktop</source>
+        <translation>顯示桌面</translation>
+    </message>
+    <message>
+        <source>Lock screen</source>
+        <translation>鎖定屏幕</translation>
+    </message>
+    <message>
+        <source>Multitasking view</source>
+        <translation>顯示多任務視圖</translation>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation>禁用</translation>
+    </message>
+    <message>
+        <source>Switch to previous workspace</source>
+        <translation>切換到上一工作區</translation>
+    </message>
+    <message>
+        <source>Switch to next workspace</source>
+        <translation>切換到下一工作區</translation>
+    </message>
+    <message>
+        <source>Hide multitasking view</source>
+        <translation>隱藏多任務視圖</translation>
+    </message>
+    <message>
+        <source>Toggle multitasking view</source>
+        <translation>切換多任務視圖</translation>
     </message>
 </context>
 <context>
@@ -3321,6 +3402,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>點擊添加使這個快捷鍵生效</translation>
     </message>
     <message>
+        <source>Replace</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation>啓動快捷鍵錄入失敗，請重試。</translation>
     </message>
@@ -3331,6 +3416,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
         <translation>快捷鍵組合無效，請重新設置</translation>
+    </message>
+    <message>
+        <source>click Replace to make this shortcut key effective</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
@@ -3520,17 +3609,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
-    <name>SoundWorker</name>
-    <message>
-        <source>Failed to enable intelligent noise reduction. Try again later.</source>
-        <translation>智能降噪開啓失敗，請稍後重試</translation>
-    </message>
-    <message>
-        <source>Failed to disable intelligent noise reduction. Try again later.</source>
-        <translation>智能降噪關閉失敗，請稍後重試</translation>
-    </message>
-</context>
-<context>
     <name>SpeakerPage</name>
     <message>
         <source>Mode</source>
@@ -3613,50 +3691,64 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>System</name>
+    <message>
+        <source>Common settings</source>
+        <translation>常用設置</translation>
+    </message>
+    <message>
+        <source>System</source>
+        <translation>系統</translation>
+    </message>
+</context>
+<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation>輔助信息</translation>
     </message>
+</context>
+<context>
+    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>關於本機</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>系統版本、設備信息</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>查看開源軟件聲明</translation>
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>用户體驗計劃</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>加入用户體驗計劃，幫助改進產品</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>用户許可協議</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>查看最終用户許可協議</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>私隱政策</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>查看私隱政策相關信息</translation>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
+        <translation>開源軟件聲明</translation>
     </message>
 </context>
 <context>
@@ -4430,6 +4522,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>無</translation>
+    </message>
+    <message>
+        <source>App</source>
+        <translation>應用</translation>
     </message>
 </context>
 </TS>
