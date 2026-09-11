@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -195,6 +195,7 @@ DccObject {
         weight: 60
         page: RowLayout {
             Button {
+                Accessible.id: "SignOut"
                 text: qsTr("Sign out")
                 onClicked: {
                     dccData.worker.logoutUser()
@@ -204,6 +205,7 @@ DccObject {
                 Layout.fillWidth: true
             }
             Button {
+                Accessible.id: "GoToWebSettings"
                 text: qsTr("Go to web settings")
                 onClicked: {
                     dccData.worker.openWeb()

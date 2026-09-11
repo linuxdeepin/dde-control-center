@@ -61,6 +61,8 @@ ColorDialogImpl {
 
     contentItem: ColumnLayout {
         DccSaturationLightnessPicker {
+            Accessible.id: "ColorPicker"
+            Accessible.role: Accessible.Slider
             id: colorPicker
             color: control.color
             Layout.fillWidth: true
@@ -74,6 +76,7 @@ ColorDialogImpl {
             Layout.bottomMargin: 2
 
             D.IconButton {
+                Accessible.id: "EyeDropperButton"
                 id: eyeDropperButton
                 icon.name: "color_extractor"
                 icon.width: 20
@@ -106,6 +109,7 @@ ColorDialogImpl {
             }
 
             Slider {
+                Accessible.id: "HueSlider"
                 id: hueSlider
                 orientation: Qt.Horizontal
                 value: control.hue
@@ -159,6 +163,7 @@ ColorDialogImpl {
             }
 
             D.TextField {
+                Accessible.id: "ControlColorToStringSubstring1ToUpperCase"
                 text: control.color.toString().substring(1).toUpperCase()
                 Layout.preferredWidth: 74
                 Layout.preferredHeight: 28
@@ -180,6 +185,7 @@ ColorDialogImpl {
             Repeater {
                 model: [control.red, control.green, control.blue]
                 D.TextField {
+                    Accessible.id: "ModelData"
                     text: modelData
                     Layout.fillWidth: true
                     Layout.preferredWidth: 44
@@ -244,6 +250,7 @@ ColorDialogImpl {
             Layout.bottomMargin: 10
             spacing: 9
             D.Button {
+                Accessible.id: "Cancel_7"
                 text: qsTr("Cancel")
                 Layout.fillWidth: true
                 background: Rectangle {
@@ -255,6 +262,7 @@ ColorDialogImpl {
                 }
             }
             D.Button {
+                Accessible.id: "Save_2"
                 text: qsTr("Save")
                 Layout.fillWidth: true
                 background: Rectangle {

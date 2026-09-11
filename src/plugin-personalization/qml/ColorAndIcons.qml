@@ -26,6 +26,7 @@ DccObject {
         pageType: DccObject.Item
         backgroundType: DccObject.Normal
         page: ListView {
+            Accessible.id: "Listview"
             id: listview
             readonly property var colors: ["#DF4187", "#EA691F", "#F3B517", "#49B125", "#00A48A", "#1F6EE7", "#402FDB", "#7724B1", "#757575", "CUSTOM"]
             readonly property var darkColors: ["#A82B62", "#CC4D03", "#D09C00", "#459F29", "#188876", "#024CCA", "#443BBA", "#6A2487", "#868686", "CUSTOM"]

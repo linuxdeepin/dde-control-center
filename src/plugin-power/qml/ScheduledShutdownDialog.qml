@@ -75,12 +75,14 @@ D.DialogWindow {
             text: qsTr("Customize repetition time")
         }
         ListView {
+            Accessible.id: "ScheduledShutdownDialog_ListView"
             Layout.fillWidth: true
             height: contentHeight
             clip: true
             model: selectDayDialog.dayModel
             spacing: 2
             delegate: D.ItemDelegate {
+                Accessible.id: "SelectDayDialogDateStr"
                 width: ListView.view.width
                 leftPadding: 10
                 rightPadding: 10
@@ -115,6 +117,7 @@ D.DialogWindow {
             Layout.alignment: Qt.AlignHCenter
             spacing: 10
             D.Button {
+                Accessible.id: "Cancel_6"
                 text: qsTr("Cancel")
                 onClicked: {
                     selectDayDialog.close()
@@ -123,6 +126,7 @@ D.DialogWindow {
                 }
             }
             D.Button {
+                Accessible.id: "Save"
                 text: qsTr("Save")
                 enabled: selectDayDialog.selectedDays.length > 0
                 onClicked: {

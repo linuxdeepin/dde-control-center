@@ -7,6 +7,7 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 D.ItemDelegate {
+    Accessible.id: "Control_11"
     id: control
     property alias separatorVisible: background.separatorVisible
     property alias backgroundType: background.backgroundType

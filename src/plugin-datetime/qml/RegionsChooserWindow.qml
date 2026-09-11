@@ -119,6 +119,7 @@ Popup {
                 }
 
                 view.delegate: MenuItem {
+                    Accessible.id: "MenuItem_8"
                     id: menuItem
                     implicitWidth: itemsView.width
                     implicitHeight: 30

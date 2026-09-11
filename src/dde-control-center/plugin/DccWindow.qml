@@ -75,6 +75,7 @@ D.ApplicationWindow {
         icon.name: "preferences-system"
         implicitHeight: 40
         menu: Menu {
+            Accessible.id: "ApplicationWindow_Menu"
             D.ThemeMenu {}
             D.MenuSeparator {}
             D.HelpAction {

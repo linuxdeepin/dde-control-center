@@ -174,6 +174,7 @@ D.DialogWindow {
             }
 
             D.ListView {
+                Accessible.id: "LeftView"
                 id: leftView
                 clip: true
                 implicitHeight: 400
@@ -181,6 +182,7 @@ D.DialogWindow {
                 Layout.alignment: Qt.AlignTop
                 model: listModel
                 delegate: D.ItemDelegate {
+                    Accessible.id: "ItemDelegate_2"
                     id: itemDelegate
                     text: qsTr(model.name)
                     font: D.DTK.fontManager.t6
@@ -408,6 +410,8 @@ D.DialogWindow {
                         id: repeater
                         model: scrollView.sections
                         AvatarGridView {
+                            Accessible.id: "View"
+                            Accessible.role: Accessible.List
                             id: view
                             visible: view.count > 0 && !scrollView.isCustom
                             currentAvatar: dialog.currentAvatar
@@ -472,6 +476,7 @@ D.DialogWindow {
                 Layout.rightMargin: 59
 
                 Button {
+                    Accessible.id: "Cancel_8"
                     Layout.fillWidth: true
                     text: qsTr("Cancel")
                     onClicked: {
@@ -481,6 +486,7 @@ D.DialogWindow {
                     }
                 }
                 D.RecommandButton {
+                    Accessible.id: "Save_7"
                     Layout.fillWidth: true
                     text: qsTr("Save")
                     onClicked: {

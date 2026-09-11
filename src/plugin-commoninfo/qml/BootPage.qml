@@ -249,6 +249,7 @@ DccObject {
         pageType: DccObject.Editor
         backgroundType: DccObject.Normal
         page: Switch {
+            Accessible.id: "BootDelaySwitch"
             id: bootDelaySwitch
             Layout.alignment: Qt.AlignRight
             checked: dccData.mode().bootDelay
@@ -277,6 +278,7 @@ DccObject {
         pageType: DccObject.Editor
         backgroundType: DccObject.Normal
         page: Switch {
+            Accessible.id: "BootPage_Switch"
             Layout.alignment: Qt.AlignRight
             checked: dccData.mode().themeEnabled
 
@@ -380,6 +382,7 @@ DccObject {
             Row {
                 Layout.alignment: Qt.AlignRight
                 Switch {
+                    Accessible.id: "VerificationSwitch"
                     id: verificationSwitch
 
                     rightPadding: 13
@@ -614,6 +617,7 @@ DccObject {
                             Layout.fillWidth: true
 
                             Button {
+                                Accessible.id: "Cancel_11"
                                 Layout.alignment: Qt.AlignLeft
                                 text: qsTr("Cancel")
                                 Layout.preferredWidth: 170
@@ -624,6 +628,7 @@ DccObject {
                             }
 
                             RecommandButton {
+                                Accessible.id: "Sure"
                                 id: submitbtn
                                 text: qsTr("Sure")
                                 enabled: false
@@ -733,6 +738,7 @@ DccObject {
                     id: repeater
                     model: dccData.mode().grubAnimationModel()
                     delegate: ItemDelegate {
+                        Accessible.id: "Repeater_ItemDelegate_3"
 
                         Layout.fillWidth: true
                         Layout.fillHeight: true
@@ -851,6 +857,7 @@ DccObject {
                             }
 
                             RadioButton {
+                                Accessible.id: "ModelText"
                                 autoExclusive: false
                                 text: model.text
                                 checked: model.checkStatus

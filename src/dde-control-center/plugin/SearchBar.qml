@@ -106,11 +106,13 @@ Rectangle {
         height: (view.count > 7 ? 7 : view.count) * 32 + 15
         padding: 5
         ListView {
+            Accessible.id: "View_2"
             id: view
             clip: true
             anchors.fill: parent
             spacing: 0
             delegate: D.ItemDelegate {
+                Accessible.id: "ListView_ItemDelegate_2"
                 implicitWidth: parent ? parent.width : 0
                 implicitHeight: 32
                 topInset: 0

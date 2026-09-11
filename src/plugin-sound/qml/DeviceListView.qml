@@ -28,6 +28,7 @@ Rectangle {
         Repeater {
             id: repeater
             delegate: ItemDelegate {
+                Accessible.id: "ItemCtl"
                 id: itemCtl
                 Layout.fillWidth: true
                 leftPadding: 16
@@ -76,6 +77,7 @@ Rectangle {
                         spacing: 10
                         Layout.alignment: Qt.AlignRight
                         IconButton {
+                            Accessible.id: "DeviceTestButton"
                             Layout.alignment: Qt.AlignLeft
                             icon.name: "play_back"
                             flat: true
