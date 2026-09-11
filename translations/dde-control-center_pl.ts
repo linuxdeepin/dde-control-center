@@ -2186,7 +2186,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Ustawienia ogólne</translation>
     </message>
     <message>
         <source>Bluetooth and Devices</source>
@@ -3639,7 +3639,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Umowa licencyjna EULA</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
