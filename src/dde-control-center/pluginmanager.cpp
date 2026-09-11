@@ -25,6 +25,10 @@
 #include <QtConcurrent>
 #include <QtConcurrentRun>
 
+// module同步加载尽快显示，main异步加载不阻塞主线程
+// #define ASYNC_MODULE
+#define ASYNC_MAIN
+
 namespace dccV25 {
 
 const static QString TranslateReadDir = QStringLiteral(TRANSLATE_READ_DIR);
@@ -111,26 +115,35 @@ void DccPluginManager::loadPlugin(DccPluginLoader *loader)
         }
         loader->transitionStatus(DccPluginLoader::PluginEnd);
     } else if ((loader->status() & (DccPluginLoader::DataEnd | DccPluginLoader::MainObjLoad)) == DccPluginLoader::DataEnd) {
-        loader->transitionStatus(DccPluginLoader::MainObjLoad);
         loader->createDccObject();
         loader->updateParent();
+#ifdef ASYNC_MAIN
+        m_asyncQueue.enqueue(loader);
+        startNextAsync();
+#else
         loader->loadMain();
-        loader->transitionStatus(DccPluginLoader::MainObjEnd);
+#endif
     } else if ((loader->status() & (DccPluginLoader::ModuleEnd | DccPluginLoader::DataBegin)) == DccPluginLoader::ModuleEnd) {
-
+        if (!(loader->status() & DccPluginLoader::ModuleAdd) && loader->module()) {
+            if (!loader->module()->parent()) {
+                loader->module()->setParent(rootModule());
+            }
+            Q_EMIT addObject(loader->module());
+            Q_EMIT moduleLoaded(loader->name());
+            loader->transitionStatus(DccPluginLoader::ModuleAdd);
+        }
+        if (!loader->isVisibleToApp()) {
+            loader->setLog("create module finished, module is hidden");
+            loader->transitionStatus(DccPluginLoader::PluginEnd);
+        }
         checkNavigationFinished();
     } else if ((loader->status() & (DccPluginLoader::MetaDataEnd | DccPluginLoader::ModuleLoad)) == DccPluginLoader::MetaDataEnd) {
-        loader->transitionStatus(DccPluginLoader::ModuleLoad);
-        const auto ret = loader->loadModule();
-        if (auto module = loader->module()) {
-            Q_EMIT addObject(module);
-        }
-        if (ret) {
-            loader->transitionStatus(DccPluginLoader::ModuleEnd);
-            Q_EMIT moduleLoaded(loader->name());
-        } else {
-            loader->transitionStatus(DccPluginLoader::ModuleEnd | DccPluginLoader::PluginEnd);
-        }
+#ifdef ASYNC_MODULE
+        m_asyncQueue.enqueue(loader);
+        startNextAsync();
+#else
+        loader->loadModule();
+#endif
     } else {
         if (loader->loadMetaData()) {
             loader->transitionStatus(DccPluginLoader::MetaDataEnd);
@@ -257,6 +270,12 @@ void DccPluginManager::checkLoadFinished()
 
 void DccPluginManager::cancelLoad()
 {
+    // Abort any in-flight / queued async QML loading
+    m_asyncQueue.clear();
+    m_asyncBusy = false;
+    for (auto *loader : std::as_const(m_plugins)) {
+        loader->cancelAsync();
+    }
     if (m_threadPool) {
         qCDebug(dccLog()) << "delete threadPool";
         m_threadPool->clear();
@@ -306,6 +325,37 @@ void DccPluginManager::onPluginStatusChanged(DccPluginLoader *loader, uint statu
     }
     if ((status & DccPluginLoader::PluginEndMask)) {
         loadPlugin(loader);
+    }
+    // Advance the serial async queue when the in-flight loader finished an
+    // async stage (module QML or main QML)
+    if ((status & (DccPluginLoader::ModuleEnd | DccPluginLoader::MainObjEnd))) {
+        m_asyncBusy = false;
+        startNextAsync();
+    }
+}
+
+void DccPluginManager::startNextAsync()
+{
+    if (m_asyncBusy) {
+        return; // a loader is mid-flight
+    }
+    if (m_asyncQueue.isEmpty()) {
+        return;
+    }
+    m_asyncBusy = true;
+    DccPluginLoader *loader = m_asyncQueue.dequeue();
+    const auto status = loader->status();
+    if ((status & (DccPluginLoader::MetaDataEnd | DccPluginLoader::ModuleLoad))
+        == DccPluginLoader::MetaDataEnd) {
+        loader->asyncLoadModule();
+    } else if ((status & (DccPluginLoader::DataEnd | DccPluginLoader::MainObjLoad))
+               == DccPluginLoader::DataEnd) {
+        loader->asyncLoadMain();
+    } else {
+        // 状态不匹配（如中途被 hide 短路等），此 loader 不会再经异步路径发 End，
+        // 同步跳过。递归安全：队列单调减小。
+        m_asyncBusy = false;
+        startNextAsync();
     }
 }
 

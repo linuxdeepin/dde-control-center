@@ -3,6 +3,10 @@
 // SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
 
+#include <QQmlComponent>
+#include <QQmlContext>
+#include <QQmlIncubator>
+#include <memory>
 #include <QObject>
 #include <QQmlEngine>
 #include <QString>
@@ -29,6 +33,7 @@ public:
         // module 0x00FF0000
         ModuleLoad = 0x00010000,
         ModuleCreate = 0x00020000,
+        ModuleAdd = 0x00040000,
         ModuleEnd = 0x00400000,
         ModuleErr = 0x00800000,
         // data 0x0000FF00
@@ -86,11 +91,13 @@ public:
 
     // Dependency injection
     void setType(TypeFlags type);
+    void setModule(DccObject *module);
+    void setMainObj(DccObject *mainObj);
 
     // Loading methods
     void reset(); // Reset status and restart loading
     bool loadMetaData();
-    bool loadModule();
+    void loadModule();
     void loadData(); // For async loading in worker thread
     void createData();
     void createDccObject();
@@ -100,6 +107,12 @@ public:
     void addMainObject();
     void cancel();
 
+    // Async loading (module / main QML), driven by DccPluginManager's queue
+    void asyncLoadModule();
+    void asyncLoadMain();
+    void cancelAsync();
+    bool isAsyncBusy() const { return m_asyncPhase != AsyncPhase::None; }
+
     // Utility
     uint version() const;
     void transitionStatus(StatusFlags status);
@@ -107,9 +120,13 @@ public:
 private:
     // Private helper methods
     bool updateType();
+    void doLoadModule();
+    void doLoadMain();
+
 
 public Q_SLOTS:
     void updateVisible(bool visibleToApp);
+    void onComponentStatus(QQmlComponent::Status status);
 
 Q_SIGNALS:
     void statusChanged(DccPluginLoader *loader, StatusFlags status);
@@ -126,6 +143,23 @@ private:
 
     DccPluginManager *m_pManager;
     QStringList m_log;
+
+    // Incubator subclass: engine calls statusChanged directly, no polling
+    // (the callback may run synchronously inside component->create() for
+    // simple QML files). Dispatches back to the owning loader.
+    class AsyncIncubator;
+    friend class AsyncIncubator;
+
+    // Async loading state (module / main QML)
+    enum class AsyncPhase { None, Module, Main };
+    AsyncPhase m_asyncPhase = AsyncPhase::None;
+    std::unique_ptr<QQmlComponent> m_asyncComponent;   // module / main 分时复用
+    std::unique_ptr<AsyncIncubator> m_incubator;
+    // 约定：非空=持有，空=已转让给所创建对象
+    QQmlContext *m_asyncContext = nullptr;
+
+    void onIncubated(QQmlIncubator::Status status);
+    void finishAsync();
 };
 
 } // namespace dccV25
