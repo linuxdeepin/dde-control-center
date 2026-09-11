@@ -360,6 +360,10 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
         <source>Add a new %1 ...</source>
         <translation>Ajouter un nouveau %1 ...</translation>
     </message>
+    <message>
+        <source>The name cannot be empty</source>
+        <translation>Le nom ne peut pas être vide.</translation>
+    </message>
 </context>
 <context>
     <name>AutoLoginWarningDialog</name>
@@ -939,26 +943,26 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
     </message>
 </context>
 <context>
-    <name>CommonInfo</name>
+    <name>CommonInfoMain</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu de démarrage</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Gérer votre menu de démarrage</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Gestion des autorisations root des développeurs</translation>
+    </message>
+    <message>
+        <source>Developer Options</source>
+        <translation>Options pour les développeurs</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Options de débogage de développeur</translation>
     </message>
 </context>
 <context>
@@ -1195,9 +1199,12 @@ UnionTech Software Technology Co., Ltd. est engagée à rechercher et améliorer
         <source>Time and date, time zone settings</source>
         <translation>Date et heure, paramètres du fuseau horaire</translation>
     </message>
+</context>
+<context>
+    <name>DatetimeMain</name>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Langue et région</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
@@ -1717,6 +1724,13 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
 </context>
 <context>
+    <name>Device</name>
+    <message>
+        <source>Bluetooth and Devices</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2054,10 +2068,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <source>Combine application icons</source>
         <translation type="unfinished"/>
     </message>
-    <message>
-        <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2181,18 +2191,46 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
 </context>
 <context>
-    <name>GroupObject</name>
+    <name>GestureModel</name>
     <message>
-        <source>System</source>
-        <translation type="unfinished"/>
+        <source>Three-finger up</source>
+        <translation>Trois doigts en haut</translation>
     </message>
     <message>
-        <source>Common settings</source>
-        <translation type="unfinished"/>
+        <source>Three-finger down</source>
+        <translation>Trois doigts en bas</translation>
     </message>
     <message>
-        <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <source>Three-finger left</source>
+        <translation>Trois doigts à gauche</translation>
+    </message>
+    <message>
+        <source>Three-finger right</source>
+        <translation>Trois doigts à droite</translation>
+    </message>
+    <message>
+        <source>Three-finger tap</source>
+        <translation>Appui à trois doigts</translation>
+    </message>
+    <message>
+        <source>Four-finger up</source>
+        <translation>Quatre doigts en haut</translation>
+    </message>
+    <message>
+        <source>Four-finger down</source>
+        <translation>Quatre doigts en bas</translation>
+    </message>
+    <message>
+        <source>Four-finger left</source>
+        <translation>Quatre doigts à gauche</translation>
+    </message>
+    <message>
+        <source>Four-finger right</source>
+        <translation>Quatre doigts à droite</translation>
+    </message>
+    <message>
+        <source>Four-finger tap</source>
+        <translation>Appui à quatre doigts</translation>
     </message>
 </context>
 <context>
@@ -2369,6 +2407,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
 <context>
     <name>MicrophonePage</name>
     <message>
+        <source>Automatic Noise Suppression</source>
+        <translation>Réduction automatique du bruit</translation>
+    </message>
+    <message>
         <source>Input Volume</source>
         <translation>Volume d&apos;entrée</translation>
     </message>
@@ -2388,10 +2430,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <source>Input Device</source>
         <translation>Périphérique d&apos;entrée</translation>
     </message>
-    <message>
-        <source>Intelligent Noise Reduction</source>
-        <translation type="unfinished"/>
-    </message>
 </context>
 <context>
     <name>Mouse</name>
@@ -2401,6 +2439,49 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Common、Mouse、Touchpad</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>MouseDBusProxy</name>
+    <message>
+        <source>Maximize window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Restore window</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Show desktop</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Lock screen</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multitasking view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disable</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch to previous workspace</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Switch to next workspace</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Hide multitasking view</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Toggle multitasking view</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3329,6 +3410,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <translation>Cliquez sur Ajouter pour activer ce raccourci clavier.</translation>
     </message>
     <message>
+        <source>Replace</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Failed to start shortcut capture. Please try again.</source>
         <translation type="unfinished"/>
     </message>
@@ -3338,6 +3423,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>click Replace to make this shortcut key effective</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3528,17 +3617,6 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
 </context>
 <context>
-    <name>SoundWorker</name>
-    <message>
-        <source>Failed to enable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Failed to disable intelligent noise reduction. Try again later.</source>
-        <translation type="unfinished"/>
-    </message>
-</context>
-<context>
     <name>SpeakerPage</name>
     <message>
         <source>Mode</source>
@@ -3621,21 +3699,31 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
 </context>
 <context>
+    <name>System</name>
+    <message>
+        <source>Common settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>System</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>SystemInfo</name>
     <message>
         <source>Auxiliary Information</source>
         <translation type="unfinished"/>
     </message>
+</context>
+<context>
+    <name>SystemInfoMain</name>
     <message>
         <source>About This PC</source>
         <translation type="unfinished"/>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Open Source Software Notice</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -3664,6 +3752,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     </message>
     <message>
         <source>View information about privacy policy</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Open Source Software Notice</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -4438,6 +4530,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
     <message>
         <source>None</source>
         <translation>Aucun</translation>
+    </message>
+    <message>
+        <source>App</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
