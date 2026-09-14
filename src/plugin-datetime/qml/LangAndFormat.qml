@@ -304,7 +304,7 @@ DccObject {
         weight: 45
         displayName: qsTr("Area")
         description: qsTr("Operating system and applications may provide you with local content based on your country and region")
-        backgroundType: DccObject.Normal
+        backgroundType: DccObject.Normal | DccObject.Hover
         pageType: DccObject.Editor
         page: Item {
             implicitWidth: rowlayout.implicitWidth
@@ -366,7 +366,7 @@ DccObject {
         weight: 50
         displayName: qsTr("Regional format")
         description: qsTr("Operating system and applications may set date and time formats based on regional formats")
-        backgroundType: DccObject.Normal
+        backgroundType: DccObject.Normal | DccObject.Hover
         pageType: DccObject.Editor
 
         property bool localeRunning: false

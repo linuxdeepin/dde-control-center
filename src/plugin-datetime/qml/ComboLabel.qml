@@ -55,7 +55,6 @@ Item {
             id: comboBox
             visible: item.comboModel.length > 1
             flat: true
-            Layout.fillWidth: true
             Layout.rightMargin: 10
             model: getFilteredModel()
             currentIndex: {
