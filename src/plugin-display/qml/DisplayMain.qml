@@ -555,6 +555,11 @@ DccObject {
             property var parentItem: null
 
             function showDelayed(parentItemArg, screenArg) {
+                // 若前一次修改的弹框仍在 pending（定时器运行中），先立即触发展示，
+                // 避免快速连续操作时弹框被 debounce 吞掉
+                if (running) {
+                    trigger()
+                }
                 targetScreen = screenArg
                 parentItem = parentItemArg
                 restart()
