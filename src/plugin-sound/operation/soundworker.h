@@ -79,6 +79,10 @@ private Q_SLOTS:
     void changeOutputDeviceComboxStatus();
     void changeInputDeviceComboxStatus();
 
+    void onSinkVolumeThrottleTimeout();
+    void onSourceVolumeThrottleTimeout();
+    void onSinkBalanceThrottleTimeout();
+
 private:
     void initConnect();
     void updatePortActivity();
@@ -105,6 +109,16 @@ private:
     QTimer* m_playAnimationTime;
     int m_upateSoundEffectsIndex;
     QString m_playAniIconPath;
+
+    QTimer* m_sinkVolumeThrottleTimer;
+    QTimer* m_sourceVolumeThrottleTimer;
+    QTimer* m_sinkBalanceThrottleTimer;
+    double m_pendingSinkVolume;
+    double m_pendingSourceVolume;
+    double m_pendingSinkBalance;
+    bool m_sinkVolumePending;
+    bool m_sourceVolumePending;
+    bool m_sinkBalancePending;
 };
 
 #endif // SOUNDWORKER_H

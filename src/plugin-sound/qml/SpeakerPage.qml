@@ -175,6 +175,9 @@ DccObject {
                     to: 1
                     value: dccData.model().speakerBalance
 
+                    onMoved: {
+                        dccData.worker().setSinkBalance(balanceSlider.value)
+                    }
                     onPressedChanged: {
                         if (!pressed) {
                             dccData.worker().setSinkBalance(balanceSlider.value)

@@ -34,6 +34,15 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     , m_waitOutputReceiptTimer(new QTimer(this))
     , m_mediaDevices(new QMediaDevices(this))
     , m_playAnimationTime(new QTimer(this))
+    , m_sinkVolumeThrottleTimer(new QTimer(this))
+    , m_sourceVolumeThrottleTimer(new QTimer(this))
+    , m_sinkBalanceThrottleTimer(new QTimer(this))
+    , m_pendingSinkVolume(0.0)
+    , m_pendingSourceVolume(0.0)
+    , m_pendingSinkBalance(0.0)
+    , m_sinkVolumePending(false)
+    , m_sourceVolumePending(false)
+    , m_sinkBalancePending(false)
 {
     m_pingTimer->setInterval(5000);
     m_pingTimer->setSingleShot(false);
@@ -45,6 +54,13 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     m_waitInputReceiptTimer->setSingleShot(true);
     m_waitOutputReceiptTimer->setSingleShot(true);
 
+    m_sinkVolumeThrottleTimer->setSingleShot(true);
+    m_sinkVolumeThrottleTimer->setInterval(50);
+    m_sourceVolumeThrottleTimer->setSingleShot(true);
+    m_sourceVolumeThrottleTimer->setInterval(50);
+    m_sinkBalanceThrottleTimer->setSingleShot(true);
+    m_sinkBalanceThrottleTimer->setInterval(50);
+
     updatePlayAniIconPath();
 
     initConnect();
@@ -53,6 +69,10 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
 void SoundWorker::initConnect()
 {
     connect(m_playAnimationTime, &QTimer::timeout, this, &SoundWorker::onAniTimerTimeOut);
+
+    connect(m_sinkVolumeThrottleTimer, &QTimer::timeout, this, &SoundWorker::onSinkVolumeThrottleTimeout);
+    connect(m_sourceVolumeThrottleTimer, &QTimer::timeout, this, &SoundWorker::onSourceVolumeThrottleTimeout);
+    connect(m_sinkBalanceThrottleTimer, &QTimer::timeout, this, &SoundWorker::onSinkBalanceThrottleTimeout);
     connect(m_model, &SoundModel::defaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
     connect(m_model, &SoundModel::defaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
     connect(m_model, &SoundModel::audioCardsChanged, this, &SoundWorker::cardsChanged);
@@ -159,9 +179,10 @@ void SoundWorker::setPortEnabled(unsigned int cardid, QString portName, bool ena
 
 void SoundWorker::setSinkBalance(double balance)
 {
-    m_soundDBusInter->SetBalanceSink(balance, true);
+    m_pendingSinkBalance = balance;
+    m_sinkBalancePending = true;
+    m_sinkBalanceThrottleTimer->start();
     qCDebug(DdcSoundWorker) << "set balance to " << balance;
-
 }
 
 void SoundWorker::setActivePort(int index, int portType)
@@ -192,18 +213,17 @@ void SoundWorker::setSoundEffectEnable(int index, bool enable)
 
 void SoundWorker::setSourceVolume(double volume)
 {
-    // Skip if volume is unchanged to avoid unnecessary DBus calls
-    if (qFuzzyCompare(m_soundDBusInter->volumeSource(), volume)) {
-        return;
-    }
-    m_soundDBusInter->SetSourceMute(qFuzzyCompare(0, volume));
-    m_soundDBusInter->SetSourceVolume(volume, !m_soundDBusInter->muteSource());
+    m_pendingSourceVolume = volume;
+    m_sourceVolumePending = true;
+    m_sourceVolumeThrottleTimer->start();
     qCDebug(DdcSoundWorker) << "set source volume to " << volume;
 }
 
 void SoundWorker::setSinkVolume(double volume)
 {
-    m_soundDBusInter->SetVolumeSink(volume, true);
+    m_pendingSinkVolume = volume;
+    m_sinkVolumePending = true;
+    m_sinkVolumeThrottleTimer->start();
     qCDebug(DdcSoundWorker) << "set sink volume to " << volume;
 }
 
@@ -602,5 +622,36 @@ void SoundWorker::setAudioMono(bool enable)
 {
     if (enable != m_model->audioMono()) {
         m_soundDBusInter->setAudioMono(enable);
+    }
+}
+
+void SoundWorker::onSinkVolumeThrottleTimeout()
+{
+    if (m_sinkVolumePending) {
+        m_sinkVolumePending = false;
+        m_soundDBusInter->SetVolumeSink(m_pendingSinkVolume, true);
+        qCDebug(DdcSoundWorker) << "throttled set sink volume to " << m_pendingSinkVolume;
+    }
+}
+
+void SoundWorker::onSourceVolumeThrottleTimeout()
+{
+    if (m_sourceVolumePending) {
+        m_sourceVolumePending = false;
+        double volume = m_pendingSourceVolume;
+        if (!qFuzzyCompare(m_soundDBusInter->volumeSource(), volume)) {
+            m_soundDBusInter->SetSourceMute(qFuzzyCompare(0, volume));
+            m_soundDBusInter->SetSourceVolume(volume, !m_soundDBusInter->muteSource());
+            qCDebug(DdcSoundWorker) << "throttled set source volume to " << volume;
+        }
+    }
+}
+
+void SoundWorker::onSinkBalanceThrottleTimeout()
+{
+    if (m_sinkBalancePending) {
+        m_sinkBalancePending = false;
+        m_soundDBusInter->SetBalanceSink(m_pendingSinkBalance, true);
+        qCDebug(DdcSoundWorker) << "throttled set balance to " << m_pendingSinkBalance;
     }
 }

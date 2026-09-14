@@ -111,6 +111,9 @@ DccObject {
                     stepSize: 0.01
                     to: 1
                     value: dccData.model().microphoneVolume
+                    onMoved: {
+                        dccData.worker().setSourceVolume(voiceTipsSlider1.value)
+                    }
                     onPressedChanged: {
                         if (!pressed) {
                             dccData.worker().setSourceVolume(voiceTipsSlider1.value)
