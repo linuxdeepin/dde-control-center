@@ -288,7 +288,7 @@ Item {
             onCurrentItemChanged: {
                 if (currentItem)
                     DccApp.logTimeline("stack-current-item-changed")
-                if (currentItem && !root.isKeyboardNavigating) {
+                if (currentItem && !root.isKeyboardNavigating && !list.activeFocus) {
                     rightView.forceActiveFocus()
                 }
                 root.isKeyboardNavigating = false
