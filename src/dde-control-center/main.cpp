@@ -23,6 +23,7 @@
 #include <QStringList>
 #include <QWindow>
 #include <QDir>
+#include <QThreadPool>
 
 DGUI_USE_NAMESPACE
 DCORE_USE_NAMESPACE
@@ -232,6 +233,8 @@ int main(int argc, char *argv[])
         conn.unregisterService(DccDBusService);
 #ifdef DCC_ENABLE_MEMORY_MANAGEMENT
         delete dccManager;
+        QThreadPool::globalInstance()->clear();
+        QThreadPool::globalInstance()->waitForDone();
         delete app;
 #endif
         return exitCode;
