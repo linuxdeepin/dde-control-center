@@ -89,7 +89,7 @@ DccObject {
 
                                         contentItem: D.DciIcon {
                                             palette: D.DTK.makeIconPalette(iconControl.palette)
-                                            theme: iconControl.D.ColorSelector.controlTheme
+                                            theme: D.DTK.themeType
                                             sourceSize: Qt.size(width, height)
                                             name: listview.icons[index]
                                         }
