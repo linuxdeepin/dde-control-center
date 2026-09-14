@@ -157,11 +157,15 @@ Loader {
                                     }
                                 }
 
-                                onCheckedChanged: {
+                                onToggled: {
                                     if (checked) {
                                         itemsView.selectedLangKey = model.langKey;
                                         itemsView.selectedLocaleKey = model.localeKey;
+                                    }
+                                }
 
+                                onCheckedChanged: {
+                                    if (checked) {
                                         itemsView.checkedLang = model.langKey
                                         itemsView.checkedLocale = model.localeKey
                                         let idx = 0
