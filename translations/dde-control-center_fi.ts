@@ -2047,7 +2047,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation type="unfinished"/>
+        <translation>Sovellusten kuvakkeet tehtäväpalkissa ovat aina ryhmiteltynä Muototilassa.</translation>
     </message>
 </context>
 <context>
@@ -2175,15 +2175,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>GroupObject</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Järjestelmä</translation>
     </message>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Yleiset asetukset</translation>
     </message>
     <message>
         <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth ja laitteet</translation>
     </message>
 </context>
 <context>
@@ -3608,7 +3608,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Tietoja tietokoneesta</translation>
     </message>
     <message>
         <source>System version, device information</source>
