@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Window 2.15
@@ -65,7 +65,7 @@ DccObject {
         displayName: qsTr("Devices Management")
         description: qsTr("Enable/disable audio devices")
         icon: "equipment_management"
-        visible: (dccData.model().inPutPortCount !== 0 || dccData.model().outPutCount !== 0) && config.showDeviceManager
+        visible: (dccData.model().inPutPortCount !== 0 || dccData.model().outPutCount !== 0) && config.showDeviceManager !== false
         weight: 50
         SoundDevicemanagesPage {}
 
