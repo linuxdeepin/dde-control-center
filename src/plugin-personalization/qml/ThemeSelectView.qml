@@ -189,9 +189,9 @@ FocusScope {
                                 Image {
                                     anchors.fill: parent
                                     anchors.margins: 4
-                                    mipmap: true
+                                    smooth: true
                                     source: model.pic
-                                    sourceSize: Qt.size(width, height)
+                                    sourceSize: Qt.size(width * Screen.devicePixelRatio, height * Screen.devicePixelRatio)
                                     asynchronous: true
                                 }
                             }
