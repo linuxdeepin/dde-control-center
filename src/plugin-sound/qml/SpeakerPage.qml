@@ -232,6 +232,7 @@ DccObject {
                 Layout.alignment: Qt.AlignRight
                 Layout.rightMargin: 10
                 flat: true
+                enabled: dccData.model().outPutPortComboEnable
                 textRole: "name"
                 currentIndex: dccData.model().outPutPortComboIndex
                 model: dccData.model().soundOutputDeviceModel()
@@ -338,7 +339,9 @@ DccObject {
                     }
 
                     onClicked: {
-                        dccData.worker().setActivePort(index, 1)
+                        if (index !== control.currentIndex) {
+                            dccData.worker().setActivePort(index, 1)
+                        }
                     }
                 }
             }
