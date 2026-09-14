@@ -245,8 +245,18 @@ inline QString getEulerEndUserAgreement()
 
 inline QPair<QString, QString> loadLicenses()
 {
-    const QString title = getLicenseText(":/systeminfo/gpl/gpl-3.0-%1-%2.txt", "title");
-    const QString body = getLicenseText(":/systeminfo/gpl/gpl-3.0-%1-%2.txt", "body");
+    // 优先从外部系统路径加载开源软件声明数据，使声明数据可通过独立软件包动态更新，
+    // 无需重新编译 dde-control-center；外部路径不存在时回退到编译时嵌入的 Qt 资源
+    const QString externalPath = "/usr/share/dde/systeminfo/gpl/gpl-3.0-%1-%2.txt";
+    const QString resourcePath = ":/systeminfo/gpl/gpl-3.0-%1-%2.txt";
+
+    const QString title = isFileExist(getLicensePath(externalPath, "title"))
+            ? getLicenseText(externalPath, "title")
+            : getLicenseText(resourcePath, "title");
+    const QString body = isFileExist(getLicensePath(externalPath, "body"))
+            ? getLicenseText(externalPath, "body")
+            : getLicenseText(resourcePath, "body");
+
     return QPair<QString, QString>(title, body);
 }
 } // namespace DCC_LICENSE
