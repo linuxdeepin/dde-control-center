@@ -26,7 +26,14 @@ D.ComboBox {
         implicitHeight: visible ? DS.Style.control.implicitHeight(menuItem) : 0
 
         readonly property real availableTextWidth: {
-            return contentItem.width - contentItem.leftPadding - contentItem.rightPadding
+            if (!contentItem)
+                return width - leftPadding - rightPadding
+            let textWidth = contentItem.width
+            if (useIndicatorPadding && indicator)
+                textWidth -= indicator.width + spacing
+            if (subMenu && arrow)
+                textWidth -= arrow.width + spacing
+            return textWidth
         }
 
         FontMetrics {
