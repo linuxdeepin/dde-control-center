@@ -143,6 +143,10 @@ void CharaMangerModel::onFingerEnrollStatusChanged(int code, const QString& msg)
                 title = tr("The fingerprint already exists");
                 msg = tr("Please scan other fingers");
                 break;
+            case FC_DataFull:
+                title = tr("Fingerprint storage is full");
+                msg = tr("The fingerprint storage is full, please delete some fingerprints and try again");
+                break;
             case FC_UnkownError:
                 title = tr("Unknown error");
                 msg = tr("Scan suspended");
