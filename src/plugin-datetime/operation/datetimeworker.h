@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DATETIMEWORKER_H
@@ -95,8 +95,6 @@ private Q_SLOTS:
     void setDatetimeStart();
     void setDateFinished();
     void getSampleNTPServersFinished(const QStringList &serverList);
-    void SetNTPServerFinished();
-    void SetNTPServerError();
     void getZoneInfoFinished(ZoneInfo zoneInfo);
 
 private:

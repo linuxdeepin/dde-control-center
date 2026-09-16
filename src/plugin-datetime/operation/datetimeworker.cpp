@@ -213,20 +213,28 @@ void DatetimeWorker::setNtpServer(QString server)
     if (server == m_timedateInter->nTPServer())
         return;
 
-    bool isCustomServer = !m_model->ntpServerList().contains(server);
-    if (isCustomServer) {
-        if (m_datetimeConfig) {
-            if (m_datetimeConfig->isValid()) {
-                QString previousCustom = m_datetimeConfig->value("customNtpServer").toString();
-                m_datetimeConfig->setValue("customNtpServer", server);
-            } else {
-                qWarning() << "Cannot save custom NTP server: dconfig is not valid!";
-            }
+    QDBusPendingCall call = m_timedateInter->SetNTPServer(server, tr("Authentication is required to change NTP server"));
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, server](QDBusPendingCallWatcher *w) {
+        QDBusPendingReply<> reply = *w;
+        if (reply.isError()) {
+            qWarning() << "SetNTPServer failed:" << reply.error().message() << "server:" << server;
+            // 鉴权取消或失败时不保存自定义地址，回退到操作前的服务器
+            Q_EMIT m_model->NTPServerNotChanged(m_timedateInter->nTPServer());
         } else {
-            qWarning() << "Cannot save custom NTP server: dconfig is null!";
+            // 仅在鉴权通过后再持久化自定义地址，避免取消鉴权后地址被错误保存
+            bool isCustomServer = !server.isEmpty() && !m_model->ntpServerList().contains(server);
+            if (isCustomServer) {
+                if (m_datetimeConfig && m_datetimeConfig->isValid()) {
+                    m_datetimeConfig->setValue("customNtpServer", server);
+                } else {
+                    qWarning() << "Cannot save custom NTP server: dconfig is not valid!";
+                }
+            }
+            Q_EMIT m_model->NTPServerChanged(m_timedateInter->nTPServer());
         }
-    }
-    m_timedateInter->SetNTPServer(server, tr("Authentication is required to change NTP server"), this, SLOT(SetNTPServerFinished()), SLOT(SetNTPServerError()));
+        w->deleteLater();
+    });
 }
 
 QString DatetimeWorker::getCustomNtpServer()
@@ -240,17 +248,6 @@ QString DatetimeWorker::getCustomNtpServer()
 int DatetimeWorker::weekdayFormat()
 {
     return m_timedateInter->weekdayFormat();
-}
-
-void DatetimeWorker::SetNTPServerFinished()
-{
-    qInfo() << "set server success.";
-    Q_EMIT m_model->NTPServerChanged(m_timedateInter->nTPServer());
-}
-void DatetimeWorker::SetNTPServerError()
-{
-    qInfo() << "Not set server success.";
-    Q_EMIT m_model->NTPServerNotChanged(m_timedateInter->nTPServer());
 }
 
 void DatetimeWorker::setWeekdayFormat(int type)
