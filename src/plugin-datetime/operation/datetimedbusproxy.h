@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DATETIMEDBUSPROXY_H
@@ -167,12 +167,7 @@ public Q_SLOTS:
     bool GetZoneInfo(const QString &zone, QObject *receiver, const char *member);
     // System Timedate
     QDBusPendingCall SetTimezone(const QString &timezone, const QString &message);
-    void SetNTPServer(const QString &server, const QString &message);
-    void SetNTPServer(const QString &server,
-                      const QString &message,
-                      QObject *receiver,
-                      const char *member,
-                      const char *errorSlot);
+    QDBusPendingCall SetNTPServer(const QString &server, const QString &message);
 
 private Q_SLOTS:
     void onPropertiesChanged(const QDBusMessage &message);

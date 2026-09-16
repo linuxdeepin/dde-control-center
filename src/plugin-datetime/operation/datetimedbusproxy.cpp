@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "datetimedbusproxy.h"
@@ -203,16 +203,9 @@ QDBusPendingCall DatetimeDBusProxy::SetTimezone(const QString &timezone, const Q
     return m_systemtimedatedInter->asyncCall(QStringLiteral("SetTimezone"), timezone, message);
 }
 
-void DatetimeDBusProxy::SetNTPServer(const QString &server, const QString &message)
+QDBusPendingCall DatetimeDBusProxy::SetNTPServer(const QString &server, const QString &message)
 {
-    m_systemtimedatedInter->asyncCall(QStringLiteral("SetNTPServer"), server, message);
-}
-
-void DatetimeDBusProxy::SetNTPServer(const QString &server, const QString &message, QObject *receiver, const char *member, const char *errorSlot)
-{
-    QList<QVariant> argumentList;
-    argumentList << QVariant::fromValue(server) << QVariant::fromValue(message);
-    m_systemtimedatedInter->callWithCallback(QStringLiteral("SetNTPServer"), argumentList, receiver, member, errorSlot);
+    return m_systemtimedatedInter->asyncCall(QStringLiteral("SetNTPServer"), server, message);
 }
 
 QString DatetimeDBusProxy::currentLocale()
