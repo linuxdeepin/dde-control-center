@@ -128,15 +128,21 @@ DccObject {
                     hoverEnabled: true
                     model: serverList
                     popup.popupType: Popup.Window
-                    currentIndex:  {
+
+                    // 以模型中的服务器地址为准同步界面状态，保证鉴权取消后界面正确回退
+                    function syncFromModel() {
                         let index = serverList.indexOf(dccData.ntpServerAddress)
                         dateAndTimeSettings.showCustom = (index < 0)
-                        if (index < 0)
+                        if (index < 0) {
                             dateAndTimeSettings.customAddr = dccData.ntpServerAddress
+                        } else {
+                            dateAndTimeSettings.customAddr = ""
+                        }
                         if (dccData.ntpServerAddress.length > 0)
                             dccData.previousServerAddress = dccData.ntpServerAddress
-                        return index < 0 ? serverList.length - 1 : index
+                        comboBox.currentIndex = index < 0 ? serverList.length - 1 : index
                     }
+
                     onActivated: function (index) {
                         if (dccData.ntpServerAddress.length > 0)
                             dccData.previousServerAddress = dccData.ntpServerAddress
@@ -165,18 +171,20 @@ DccObject {
                             dccData.ntpServerAddress = dccData.previousServerAddress
                         }
 
-                        let currentServer = dccData.ntpServerAddress
-                        let index = comboBox.serverList.indexOf(currentServer)
-                        if (index < 0) {
-                            comboBox.currentIndex = comboBox.serverList.length - 1
-                            dateAndTimeSettings.showCustom = true
-                            dateAndTimeSettings.customAddr = currentServer
-                        } else {
-                            dateAndTimeSettings.showCustom = false
+                        syncFromModel()
+
+                        if (!dateAndTimeSettings.showCustom) {
                             let savedCustomServer = dccData.getCustomNtpServer()
                             if (savedCustomServer.length > 0) {
                                 dateAndTimeSettings.customAddr = savedCustomServer
                             }
+                        }
+                    }
+
+                    Connections {
+                        target: dccData
+                        function onNtpServerAddressChanged() {
+                            comboBox.syncFromModel()
                         }
                     }
                 }
