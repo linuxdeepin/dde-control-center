@@ -528,7 +528,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>Remove Device</source>
-        <translation>Renomear dispositivo</translation>
+        <translation>Remover dispositivo</translation>
     </message>
     <message>
         <source>Select file</source>
