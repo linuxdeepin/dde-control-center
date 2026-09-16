@@ -895,7 +895,10 @@ void DisplayWorker::monitorAdded(const QString &path)
     connect(inter, &MonitorDBusProxy::MmHeightChanged, mon, &Monitor::setMmHeight);
     connect(inter, &MonitorDBusProxy::RotationChanged, mon, &Monitor::setRotate);
     connect(inter, &MonitorDBusProxy::NameChanged, mon, &Monitor::setName);
-    connect(inter, &MonitorDBusProxy::CurrentModeChanged, mon, &Monitor::setCurrentMode);
+    connect(inter, &MonitorDBusProxy::CurrentModeChanged, this, [=](Resolution value) {
+        mon->setCurrentMode(value);
+        mon->setModeList(inter->modes());
+    });
     connect(inter, &MonitorDBusProxy::BestModeChanged, mon, &Monitor::setBestMode);
     connect(inter, &MonitorDBusProxy::CurrentModeChanged, this, [=](Resolution value) {
         if (value.id() == 0) {
@@ -1033,6 +1036,12 @@ void DisplayWorker::wlMonitorAdded(WQt::OutputHead *head)
             mon->setCurrentMode(currentRes);
             mon->setW(currentRes.width());
             mon->setH(currentRes.height());
+
+            ResolutionList resolutionList;
+            for (auto *mode : head->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
+                resolutionList << createResolutionFromMode(mode);
+            }
+            mon->setModeList(resolutionList);
             break;
         }
         case WQt::OutputHead::Position:
@@ -1077,6 +1086,13 @@ void DisplayWorker::wlMonitorAdded(WQt::OutputHead *head)
     mon->setRotateList({ 1, 2, 4, 8 });
     mon->setRotate(wlRotate2dcc(head->property(WQt::OutputHead::Transform).toInt()));
 
+    Resolution currentRes = createResolutionFromMode(head->property(WQt::OutputHead::CurrentMode).value<WQt::OutputMode *>());
+    if (currentRes.id() != 0) { // 0 is invalid
+        mon->setCurrentMode(currentRes);
+        mon->setW(currentRes.width());
+        mon->setH(currentRes.height());
+    }
+
     ResolutionList resolutionList;
     for (auto *mode : head->property(WQt::OutputHead::Modes).value<QList<WQt::OutputMode *>>()) {
         Resolution res = createResolutionFromMode(mode);
@@ -1086,12 +1102,6 @@ void DisplayWorker::wlMonitorAdded(WQt::OutputHead *head)
         }
     }
     mon->setModeList(resolutionList);
-    Resolution currentRes = createResolutionFromMode(head->property(WQt::OutputHead::CurrentMode).value<WQt::OutputMode *>());
-    if (currentRes.id() != 0) { // 0 is invalid
-        mon->setCurrentMode(currentRes);
-        mon->setW(currentRes.width());
-        mon->setH(currentRes.height());
-    }
 
     if (m_model->isRefreshRateEnable() == false) {
         for (auto resolutionModel : mon->modeList()) {

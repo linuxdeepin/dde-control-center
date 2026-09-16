@@ -219,7 +219,6 @@ void DccScreenPrivate::updateResolutionList()
             }
         }
     }
-    m_resolutionList = resolutionList;
     if (m_resolutionList != resolutionList) {
         m_resolutionList = resolutionList;
         Q_EMIT q_ptr->resolutionListChanged();
