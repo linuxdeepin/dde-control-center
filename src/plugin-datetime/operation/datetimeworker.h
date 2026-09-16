@@ -114,6 +114,8 @@ private:
     DTK_CORE_NAMESPACE::DConfig *m_datetimeConfig;
     DTK_CORE_NAMESPACE::DConfig *m_daemonTimedateConfig;
     std::optional<QStringList> m_supportedLocaleList;
+    QString m_oldNtpServer;
+    QString m_pendingNtpServer;
 };
 
 #endif // DATETIMEWORKER_H

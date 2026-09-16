@@ -203,16 +203,9 @@ QDBusPendingCall DatetimeDBusProxy::SetTimezone(const QString &timezone, const Q
     return m_systemtimedatedInter->asyncCall(QStringLiteral("SetTimezone"), timezone, message);
 }
 
-void DatetimeDBusProxy::SetNTPServer(const QString &server, const QString &message)
+QDBusPendingCall DatetimeDBusProxy::SetNTPServer(const QString &server, const QString &message)
 {
-    m_systemtimedatedInter->asyncCall(QStringLiteral("SetNTPServer"), server, message);
-}
-
-void DatetimeDBusProxy::SetNTPServer(const QString &server, const QString &message, QObject *receiver, const char *member, const char *errorSlot)
-{
-    QList<QVariant> argumentList;
-    argumentList << QVariant::fromValue(server) << QVariant::fromValue(message);
-    m_systemtimedatedInter->callWithCallback(QStringLiteral("SetNTPServer"), argumentList, receiver, member, errorSlot);
+    return m_systemtimedatedInter->asyncCall(QStringLiteral("SetNTPServer"), server, message);
 }
 
 QString DatetimeDBusProxy::currentLocale()

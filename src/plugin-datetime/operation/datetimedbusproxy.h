@@ -167,12 +167,7 @@ public Q_SLOTS:
     bool GetZoneInfo(const QString &zone, QObject *receiver, const char *member);
     // System Timedate
     QDBusPendingCall SetTimezone(const QString &timezone, const QString &message);
-    void SetNTPServer(const QString &server, const QString &message);
-    void SetNTPServer(const QString &server,
-                      const QString &message,
-                      QObject *receiver,
-                      const char *member,
-                      const char *errorSlot);
+    QDBusPendingCall SetNTPServer(const QString &server, const QString &message);
 
 private Q_SLOTS:
     void onPropertiesChanged(const QDBusMessage &message);

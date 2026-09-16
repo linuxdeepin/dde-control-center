@@ -213,20 +213,20 @@ void DatetimeWorker::setNtpServer(QString server)
     if (server == m_timedateInter->nTPServer())
         return;
 
-    bool isCustomServer = !m_model->ntpServerList().contains(server);
-    if (isCustomServer) {
-        if (m_datetimeConfig) {
-            if (m_datetimeConfig->isValid()) {
-                QString previousCustom = m_datetimeConfig->value("customNtpServer").toString();
-                m_datetimeConfig->setValue("customNtpServer", server);
-            } else {
-                qWarning() << "Cannot save custom NTP server: dconfig is not valid!";
-            }
+    m_oldNtpServer = m_timedateInter->nTPServer();
+    m_pendingNtpServer = server;
+    QDBusPendingCall call = m_timedateInter->SetNTPServer(server, tr("Authentication is required to change NTP server"));
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher]() {
+        QDBusPendingReply<> reply = *watcher;
+        if (reply.isError()) {
+            qWarning() << "SetNTPServer failed:" << reply.error().message();
+            SetNTPServerError();
         } else {
-            qWarning() << "Cannot save custom NTP server: dconfig is null!";
+            SetNTPServerFinished();
         }
-    }
-    m_timedateInter->SetNTPServer(server, tr("Authentication is required to change NTP server"), this, SLOT(SetNTPServerFinished()), SLOT(SetNTPServerError()));
+        watcher->deleteLater();
+    });
 }
 
 QString DatetimeWorker::getCustomNtpServer()
@@ -245,12 +245,24 @@ int DatetimeWorker::weekdayFormat()
 void DatetimeWorker::SetNTPServerFinished()
 {
     qInfo() << "set server success.";
-    Q_EMIT m_model->NTPServerChanged(m_timedateInter->nTPServer());
+    QString currentServer = m_pendingNtpServer;
+    if (!m_model->ntpServerList().contains(currentServer)) {
+        if (m_datetimeConfig) {
+            if (m_datetimeConfig->isValid()) {
+                m_datetimeConfig->setValue("customNtpServer", currentServer);
+            } else {
+                qWarning() << "Cannot save custom NTP server: dconfig is not valid!";
+            }
+        } else {
+            qWarning() << "Cannot save custom NTP server: dconfig is null!";
+        }
+    }
+    Q_EMIT m_model->NTPServerChanged(currentServer);
 }
 void DatetimeWorker::SetNTPServerError()
 {
     qInfo() << "Not set server success.";
-    Q_EMIT m_model->NTPServerNotChanged(m_timedateInter->nTPServer());
+    Q_EMIT m_model->NTPServerNotChanged(m_oldNtpServer);
 }
 
 void DatetimeWorker::setWeekdayFormat(int type)

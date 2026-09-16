@@ -133,8 +133,6 @@ DccObject {
                         dateAndTimeSettings.showCustom = (index < 0)
                         if (index < 0)
                             dateAndTimeSettings.customAddr = dccData.ntpServerAddress
-                        if (dccData.ntpServerAddress.length > 0)
-                            dccData.previousServerAddress = dccData.ntpServerAddress
                         return index < 0 ? serverList.length - 1 : index
                     }
                     onActivated: function (index) {
