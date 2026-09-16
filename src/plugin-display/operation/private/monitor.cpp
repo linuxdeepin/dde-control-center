@@ -166,7 +166,8 @@ void Monitor::setModeList(const ResolutionList &modeList)
     miniMode << 1024 << 768;
 
     for (auto m : modeList) {
-        if (m.width() >= miniMode.at(0) && m.height() >= miniMode.at(1)) {
+        const bool isCurrentMode = isSameResolution(m, m_currentMode) && isSameRatefresh(m, m_currentMode);
+        if ((m.width() >= miniMode.at(0) && m.height() >= miniMode.at(1)) || isCurrentMode) {
             m_modeList.append(m);
         }
     }
