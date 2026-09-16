@@ -240,11 +240,15 @@ int main(int argc, char *argv[])
     if (listMode) {
         dccManager->loadModules(false, refPluginDirs.isEmpty() ? defaultpath() : refPluginDirs);
         printModules(dccManager->moduleList());
-        if (!dccManager->loadFinished()) {
+        const bool finished = dccManager->loadFinished();
+        if (!finished) {
             fprintf(stderr, "Some plugins did not finish loading, the list above is incomplete.\n");
-            return shutdown(1);
         }
-        return shutdown(0);
+
+        QMetaObject::invokeMethod(app, [app, finished] {
+            app->exit(finished ? 0 : 1);
+        }, Qt::QueuedConnection);
+        return shutdown(app->exec());
     }
 
     // 监听 DTK 单例信号：当有新实例尝试启动时，在原进程内直接解析其参数并响应.
