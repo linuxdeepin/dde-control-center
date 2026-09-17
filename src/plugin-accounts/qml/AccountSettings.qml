@@ -72,6 +72,10 @@ DccObject {
                             }
                         }
                         onLoaded: function () {
+                            var parentWin = Window.window
+                            if (parentWin) {
+                                dilogLoader.item.transientParent = parentWin
+                            }
                             dilogLoader.item.show()
                         }
                     }
