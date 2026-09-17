@@ -184,7 +184,7 @@ Popup {
 
             P.ArrowListViewButton {
                 id: upButton
-                visible: listView.interactive
+                visible: listView.interactive && !listView.atYBeginning
                 Layout.alignment: Qt.AlignHCenter
                 Layout.preferredWidth: width
                 Layout.preferredHeight: height
@@ -262,7 +262,7 @@ Popup {
 
             P.ArrowListViewButton {
                 id: downButton
-                visible: listView.interactive
+                visible: listView.interactive && !listView.atYEnd
                 Layout.alignment: Qt.AlignHCenter
                 Layout.preferredWidth: width
                 Layout.preferredHeight: height
