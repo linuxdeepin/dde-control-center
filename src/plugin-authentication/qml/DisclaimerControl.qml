@@ -48,6 +48,7 @@ ColumnLayout {
         Layout.bottomMargin: 10
         
         Button {
+            Accessible.id: "Cancel_5"
             Layout.fillWidth: true
             text: qsTr("Cancel")
             onClicked: {
@@ -55,6 +56,7 @@ ColumnLayout {
             }
         }
         D.RecommandButton {
+            Accessible.id: "Agree"
             Layout.fillWidth: true
             text: qsTr("Agree")
             onClicked: {

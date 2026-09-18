@@ -45,6 +45,7 @@ DccObject {
             }
 
             Button {
+                Accessible.id: "Button_2"
                 id: button
                 checkable: true
                 visible: langRepeater.count > 1
@@ -105,6 +106,7 @@ DccObject {
                     pageType: DccObject.Item
                     enabled: dccData.langState === 0 // language set finished
                     page: ItemDelegate {
+                        Accessible.id: "ItemDelegate_3"
                         id: itemDelegate
                         property bool isCurrentLang: dccData.currentLang === dccObj.displayName
                         property bool isLoading: itemDelegate.isCurrentLang && !dccObj.enabled
@@ -177,6 +179,7 @@ DccObject {
                         }
 
                         IconButton {
+                            Accessible.id: "RemoveLanguageButton"
                             id: removeButton
                             visible: !itemDelegate.isLoading && (
                                      (itemDelegate.isCurrentLang && dccObj.enabled) ||
@@ -251,6 +254,7 @@ DccObject {
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Button {
+                Accessible.id: "Add_2"
                 implicitWidth: fm.advanceWidth(text) + fm.averageCharacterWidth * 2
                 implicitHeight: 30
                 text: qsTr("add")

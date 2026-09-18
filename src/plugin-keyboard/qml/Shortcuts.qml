@@ -82,6 +82,7 @@ DccObject {
             }
 
             ListView {
+                Accessible.id: "ShortcutView"
                 id: shortcutView
                 property var editItem
                 property var conflictText
@@ -113,6 +114,7 @@ DccObject {
                     }
 
                     D.Button {
+                        Accessible.id: "Button"
                         id: button
                         focusPolicy: Qt.NoFocus
                         visible: parent.section === dccData.customCategoryKey()
@@ -141,6 +143,7 @@ DccObject {
                 }
 
                 delegate: ItemDelegate {
+                    Accessible.id: "EditorDelegate"
                     id: editorDelegate
                     checkable: false
                     implicitWidth: ListView.view.width
@@ -158,6 +161,8 @@ DccObject {
 
                     contentItem: ColumnLayout {
                         KeySequenceDisplay {
+                            Accessible.id: "Edit_2"
+                            Accessible.role: Accessible.EditableText
                             id: edit
                             property string dialogCommand: model.command
                             property string shortcutId: model.id
@@ -520,6 +525,7 @@ DccObject {
             parentName: "bottomAreaFoot"
             pageType: DccObject.Item
             page: Button {
+                Accessible.id: "RestoreButton"
                 id: restoreButton
                 text: qsTr("Restore default")
                 implicitWidth: {
@@ -569,6 +575,7 @@ DccObject {
             parentName: "bottomAreaFoot"
             pageType: DccObject.Item
             page: Button {
+                Accessible.id: "AddButton"
                 id: addButton
                 property bool needShowDialog: false
                 text: qsTr("Add custom shortcut")
