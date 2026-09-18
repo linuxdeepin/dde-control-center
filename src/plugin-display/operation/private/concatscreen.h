@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef CONCATSCREEN_H
@@ -27,6 +27,7 @@ public:
     DccScreen *screen() const;
     void moveBy(qreal dx, qreal dy);
     void rebound();
+    void snapToInteger();
 
 private:
     QQuickItem *m_item;
