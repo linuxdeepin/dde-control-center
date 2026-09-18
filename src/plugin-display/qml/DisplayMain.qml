@@ -238,9 +238,6 @@ DccObject {
                     function pressedItem(item) {
                         hasMove = false
                         root.screen = item.screen
-                        // 使用 indicatorScreen 属性统一显示边框指示器
-                        root.indicatorScreen = null
-                        root.indicatorScreen = getQtScreen(item.screen)
                     }
                     function positionChangedItem(item) {
                         monitorControl.effective = false
@@ -255,6 +252,10 @@ DccObject {
                     }
                     function releasedItem(item) {
                         if (!hasMove) {
+                            // 未发生拖拽，视为点击选中：仅此时显示屏幕边框指示器，
+                            // 避免拖拽按下即弹出全屏覆盖层导致的高分辨率下拖拽卡顿
+                            root.indicatorScreen = null
+                            root.indicatorScreen = getQtScreen(item.screen)
                             return
                         }
                         hasMove = false
