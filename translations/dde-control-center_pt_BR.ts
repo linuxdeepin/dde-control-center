@@ -1025,7 +1025,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation>Reinicie o dispositivo para concluir a aplicação das configurações de proteção de sistema somente leitura do Solid</translation>
+        <translation>Reinicie o dispositivo para aplicar as configurações de proteção somente leitura do Solid</translation>
     </message>
 </context>
 <context>
@@ -1698,7 +1698,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation>Proteção de sistema somente leitura do Solid</translation>
+        <translation>Proteção somente leitura do Solid</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
