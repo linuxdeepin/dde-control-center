@@ -1560,7 +1560,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Terminal</source>
-        <translation>Terminal</translation>
+        <translation>Emulador de Terminal</translation>
     </message>
 </context>
 <context>
