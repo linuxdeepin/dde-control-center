@@ -528,7 +528,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>Remove Device</source>
-        <translation>Renomear dispositivo</translation>
+        <translation>Remover dispositivo</translation>
     </message>
     <message>
         <source>Select file</source>
@@ -1025,7 +1025,7 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
     <message>
         <source>Restart device to finish applying Solid System Read-Only Protection settings</source>
-        <translation>Reinicie o dispositivo para concluir a aplicação das configurações de Proteção de Sistema Somente Leitura Solid</translation>
+        <translation>Reinicie o dispositivo para aplicar as configurações de proteção somente leitura do Solid</translation>
     </message>
 </context>
 <context>
@@ -1536,38 +1536,38 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DefaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation>Navegador</translation>
+        <translation>Navegador Web</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation>E-mail</translation>
+        <translation>Cliente de E-mail</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Texto</translation>
+        <translation>Editor de Texto</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation>Música</translation>
+        <translation>Player de Música</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>Vídeo</translation>
+        <translation>Player de Vídeo</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation>Visualizador de imagem</translation>
+        <translation>Visualizador de Imagem</translation>
     </message>
     <message>
         <source>Terminal</source>
-        <translation>Terminal</translation>
+        <translation>Emulador de Terminal</translation>
     </message>
 </context>
 <context>
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation>Por favor, escolha o programa padrão para abrir &apos;%1&apos;</translation>
+        <translation>Escolha o aplicativo padrão para &apos;%1&apos;</translation>
     </message>
     <message>
         <source>add</source>
@@ -1698,11 +1698,11 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Solid System Read-Only Protection</source>
-        <translation>Proteção de Sistema Somente Leitura Solid</translation>
+        <translation>Proteção somente leitura do Solid</translation>
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation>Desativar a proteção desbloqueia os diretórios do sistema. Esta ação apresenta alto risco de danos ao sistema.</translation>
+        <translation>Ao desativar a proteção, os diretórios do sistema serão desbloqueados，Essa ação pode causar danos graves ao sistema.</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
