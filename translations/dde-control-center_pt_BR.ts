@@ -1536,15 +1536,15 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DefaultappMain</name>
     <message>
         <source>Webpage</source>
-        <translation>Navegador</translation>
+        <translation>Navegador Web</translation>
     </message>
     <message>
         <source>Mail</source>
-        <translation>E-mail</translation>
+        <translation>Cliente de E-mail</translation>
     </message>
     <message>
         <source>Text</source>
-        <translation>Texto</translation>
+        <translation>Editor de texto</translation>
     </message>
     <message>
         <source>Music</source>
