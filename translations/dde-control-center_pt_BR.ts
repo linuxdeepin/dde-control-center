@@ -1702,7 +1702,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Disabling protection unlocks system directories，This action carries a high risk of system damage.</source>
-        <translation>Desativar a proteção desbloqueia os diretórios do sistema. Esta ação apresenta alto risco de danos ao sistema.</translation>
+        <translation>Ao desativar a proteção, os diretórios do sistema serão desbloqueados，Essa ação pode causar danos graves ao sistema.</translation>
     </message>
     <message>
         <source>Enable protection to lock system directories and ensure optimal stability.</source>
