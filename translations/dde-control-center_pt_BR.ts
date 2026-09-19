@@ -1567,7 +1567,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DetailItem</name>
     <message>
         <source>Please choose the default program to open &apos;%1&apos;</source>
-        <translation>Escolha o aplicativo padrão para abrir &apos;%1&apos;</translation>
+        <translation>Escolha o aplicativo padrão para &apos;%1&apos;</translation>
     </message>
     <message>
         <source>add</source>
