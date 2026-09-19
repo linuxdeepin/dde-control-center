@@ -1544,19 +1544,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Text</source>
-        <translation>Editor de texto</translation>
+        <translation>Editor de Texto</translation>
     </message>
     <message>
         <source>Music</source>
-        <translation>Música</translation>
+        <translation>Player de Música</translation>
     </message>
     <message>
         <source>Video</source>
-        <translation>Vídeo</translation>
+        <translation>Player de Vídeo</translation>
     </message>
     <message>
         <source>Picture</source>
-        <translation>Visualizador de imagem</translation>
+        <translation>Visualizador de Imagem</translation>
     </message>
     <message>
         <source>Terminal</source>
