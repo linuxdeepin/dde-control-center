@@ -270,12 +270,8 @@ D.ApplicationWindow {
                 sourceComponent: HomePage {
                 }
             }
-            Loader{
-                id: secondLoader
-                active: false
-                sourceComponent: SecondPage {
-                    Component.onCompleted: mainWindow.sidebarPage = this
-                }
+            SecondPage {
+                id: secondPage
             }
             Connections {
                 target: DccApp
@@ -292,12 +288,9 @@ D.ApplicationWindow {
                         stackView.currentIndex = DccWindow.PageIndex.HomeIndex
                         mainWindow.currentIndex = DccWindow.PageIndex.HomeIndex
                     } else if (stackView.currentIndex !== DccWindow.PageIndex.SecondIndex && DccApp.root !== DccApp.activeObject) {
-                        if (!secondLoader.active) {
-                            secondLoader.active = true
-                        }
+                        mainWindow.sidebarPage = secondPage
                         stackView.currentIndex = DccWindow.PageIndex.SecondIndex
                         mainWindow.currentIndex = DccWindow.PageIndex.SecondIndex
-                        mainWindow.sidebarPage = secondLoader.item
                     }
                 }
             }
