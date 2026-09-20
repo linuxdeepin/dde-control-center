@@ -187,7 +187,7 @@ DccObject {
                     anchors.fill: parent
                     property bool needShowDialog: false
                     text: qsTr("Settings")
-                    implicitWidth: fm.advanceWidth(text) + 12
+                    implicitWidth: fm.advanceWidth(text) + leftPadding + rightPadding
                     implicitHeight: 30
                     FontMetrics {
                         id: fm
