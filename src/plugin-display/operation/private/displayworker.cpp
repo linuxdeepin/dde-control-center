@@ -5,6 +5,7 @@
 
 #include "displaymodel.h"
 #include "wallpaperthumbnailutils.h"
+#include "wallpapersync.h"
 
 #include <OutputManager.h>
 #include <TreeLandOutputManager.h>
@@ -147,6 +148,11 @@ void DisplayWorker::initTreeland()
     m_wallpaperMgr = new WQt::WallpaperManager(this);
     connect(m_wallpaperMgr, &WQt::WallpaperManager::activeChanged, this, &DisplayWorker::onWallpaperManagerActive);
 
+    if (auto *wallpaperSync = WallpaperSync::instance()) {
+        connect(wallpaperSync, &WallpaperSync::wallpaperChanged,
+                this, &DisplayWorker::onSyncedWallpaperChanged, Qt::QueuedConnection);
+    }
+
     // wl_output 的生命周期由 Qt 平台插件维护，跟随 QScreen 即可
     connect(qApp, &QGuiApplication::screenAdded, this, &DisplayWorker::screenAdded);
     connect(qApp, &QGuiApplication::screenRemoved, this, &DisplayWorker::screenRemoved);
@@ -195,6 +201,9 @@ void DisplayWorker::active()
         m_model->setMinimumBrightnessScale(minBrightnessValue.toDouble());
         //    m_model->setResolutionRefreshEnable(m_dccSettings->get(GSETTINGS_SHOW_MUTILSCREEN).toBool());
         //    m_model->setBrightnessEnable(m_dccSettings->get(GSETTINGS_BRIGHTNESS_ENABLE).toBool());
+    }
+    else {
+        rebindWallpaperContexts();
     }
 }
 
@@ -405,6 +414,17 @@ void DisplayWorker::updateWallpaperFromWayland()
         ensureWallpaperContext(screen);
 }
 
+void DisplayWorker::rebindWallpaperContexts()
+{
+    for (auto *screen : QGuiApplication::screens()) {
+        auto *output = m_screen_outputs.value(screen);
+        if (output && m_wallpaperMgr)
+            m_wallpaperMgr->removeWallpaper(output);
+
+        ensureWallpaperContext(screen);
+    }
+}
+
 void DisplayWorker::ensureWallpaperContext(QScreen *screen)
 {
     if (!screen || !m_wallpaperMgr || !m_wallpaperMgr->isActive())
@@ -457,6 +477,21 @@ void DisplayWorker::onWallpaperChanged(const QString &fileSource, uint32_t sourc
             it.key()->setWallpaper(wallpaper);
             break;
         }
+    }
+}
+
+void DisplayWorker::onSyncedWallpaperChanged(const QString &monitorName, const QString &source, uint sourceType)
+{
+    for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
+        if (it.key()->name() != monitorName)
+            continue;
+
+        QString wallpaper = source;
+        if (sourceType == WallpaperSync::VideoSourceType)
+            wallpaper = resolveVideoThumbnail(source, it.key());
+
+        it.key()->setWallpaper(wallpaper);
+        break;
     }
 }
 

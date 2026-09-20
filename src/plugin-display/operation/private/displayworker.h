@@ -101,8 +101,10 @@ private Q_SLOTS:
     void updateWallpaper();
     void updateMonitorWallpaper(Monitor *mon);
     void updateWallpaperFromWayland();
+    void rebindWallpaperContexts();
     void ensureWallpaperContext(QScreen *screen);
     void onWallpaperChanged(const QString &fileSource, uint32_t sourceType, uint32_t role);
+    void onSyncedWallpaperChanged(const QString &monitorName, const QString &source, uint sourceType);
     void updateVirtualOutputs();
 
     void onBrightnessChanged(WQt::ColorControl *colorControl, double brightness);
