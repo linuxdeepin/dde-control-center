@@ -11,6 +11,11 @@ Popup {
     id: control
     width: calculatedWidth
     height: 500
+    // 隐式尺寸固定为常量，避免打开期间 calculateOptimalWidth() 更新
+    // calculatedWidth 时隐式尺寸随之变化而触发窗口重设；
+    // width: calculatedWidth 仍负责打开期间的主动宽度调整
+    implicitWidth: 200
+    implicitHeight: 500
     popupType: Popup.Window
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
 
