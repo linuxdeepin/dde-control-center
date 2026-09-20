@@ -13,6 +13,11 @@ Popup {
     id: control
     width: windowWidth
     height: windowHeight
+    // 固定隐式尺寸：popupType 为 Window 时，QQuickPopupWindow 会在隐式尺寸变化时
+    // 无条件采用 popup->implicitWidth/Height() 重设窗口，导致搜索过滤时窗口跳变；
+    // 绑定为常量后隐式尺寸不再随内容变化，窗口尺寸保持稳定。
+    implicitWidth: windowWidth
+    implicitHeight: windowHeight
     popupType: Popup.Window
     closePolicy: Popup.CloseOnEscape | Popup.CloseOnPressOutsideParent
 
