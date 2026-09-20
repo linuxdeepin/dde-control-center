@@ -116,7 +116,7 @@ D.SpinBox {
                     control.to = 23 * 60 + minutes
                 } else {
                     typingDigit = false
-                    text = control.formatText(Math.floor(control.value / 60))
+                    text = Qt.binding(function() { return control.formatText(Math.floor(control.value / 60)) })
                 }
             }
 
@@ -157,7 +157,7 @@ D.SpinBox {
                     var m = control.value % 60
                     control.value = h * 60 + m
                 }
-                text = control.formatText(Math.floor(control.value / 60))
+                text = Qt.binding(function() { return control.formatText(Math.floor(control.value / 60)) })
             }
         }
         Label {
@@ -197,7 +197,7 @@ D.SpinBox {
                     control.from = hours * 60
                     control.to = hours * 60 + 59
                 } else {
-                    text = control.formatText(control.value % 60)
+                    text = Qt.binding(function() { return control.formatText(control.value % 60) })
                 }
             }
             Keys.onLeftPressed: function(event) {
@@ -215,7 +215,7 @@ D.SpinBox {
                     var h = Math.floor(control.value / 60)
                     control.value = h * 60 + m
                 }
-                text = control.formatText(control.value % 60)
+                text = Qt.binding(function() { return control.formatText(control.value % 60) })
             }
         }
     }
