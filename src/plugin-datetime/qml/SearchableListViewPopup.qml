@@ -94,10 +94,19 @@ Popup {
     }
 
     onClosed: {
+        searchDebounceTimer.stop()
+        control.searchText = ""
         searchEdit.clear()
     }
     
     onOpened: {
+        searchDebounceTimer.stop()
+        searchEdit.clear()
+        control.searchText = ""
+        if (view) {
+            view.forceLayout()
+            Qt.callLater(view.forceLayout)
+        }
         scrollToHighlighted()
         if (view) view.forceActiveFocus()
     }
