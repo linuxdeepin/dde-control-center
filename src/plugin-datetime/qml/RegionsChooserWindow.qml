@@ -6,6 +6,7 @@ import QtQuick.Window
 import QtQuick.Layouts
 import org.deepin.dtk 1.0
 import org.deepin.dtk.style 1.0 as DS
+import org.deepin.dtk.private 1.0 as P
 
 Popup {
     id: control
@@ -20,6 +21,7 @@ Popup {
     property int currentIndex: -1
     property string currentText
     property point mousePosition: Qt.point(0, 0)
+    property int maxVisibleItems: 12
     signal selectedRegion(string region)
 
     function show() {
@@ -100,60 +102,91 @@ Popup {
             }
         }
 
-        Item {
+        ColumnLayout {
             Layout.fillWidth: true
             Layout.fillHeight: true
+            spacing: 0
 
-            ArrowListView {
-                anchors.fill: parent
-                id: itemsView
-                property string checkedRegion
-                clip: true
-                maxVisibleItems: 12
-                view.model: viewModel
-                view.currentIndex: control.currentIndex
-                view.ScrollBar.vertical: verticalScrollBar
+            P.ArrowListViewButton {
+                id: upButton
+                visible: listView.interactive
+                Layout.alignment: Qt.AlignHCenter
+                Layout.preferredWidth: width
+                Layout.preferredHeight: height
+                view: listView
+                direction: P.ArrowListViewButton.UpButton
+                focusPolicy: Qt.NoFocus
+                activeFocusOnTab: false
+            }
 
-                ButtonGroup {
-                    id: regionGroup
-                }
+            Item {
+                Layout.fillWidth: true
+                Layout.fillHeight: true
 
-                view.delegate: MenuItem {
-                    id: menuItem
-                    implicitWidth: itemsView.width
-                    implicitHeight: 30
-                    text: model.display
-                    checkable: true
-                    checked: text === control.currentText
-                    hoverEnabled: true
-                    highlighted: hovered
-                    autoExclusive: true
-                    ButtonGroup.group: regionGroup
-                    useIndicatorPadding: true
-                    font: DTK.fontManager.t6
+                ListView {
+                    id: listView
+                    anchors.fill: parent
+                    clip: true
+                    property string checkedRegion
+                    model: viewModel
+                    currentIndex: control.currentIndex
+                    interactive: control.viewModel && control.viewModel.rowCount() > control.maxVisibleItems
+                    ScrollBar.vertical: verticalScrollBar
 
-                    onCheckedChanged: {
-                        if (checked && control.currentText !== model.display) {
-                            control.selectedRegion(model.display)
-                            control.close()
+                    ButtonGroup {
+                        id: regionGroup
+                    }
+
+                    delegate: MenuItem {
+                        id: menuItem
+                        implicitWidth: listView.width
+                        implicitHeight: 30
+                        text: model.display
+                        checkable: true
+                        checked: text === control.currentText
+                        hoverEnabled: true
+                        highlighted: hovered
+                        autoExclusive: true
+                        ButtonGroup.group: regionGroup
+                        useIndicatorPadding: true
+                        font: DTK.fontManager.t6
+
+                        onCheckedChanged: {
+                            if (checked && control.currentText !== model.display) {
+                                control.selectedRegion(model.display)
+                                control.close()
+                            }
+                        }
+                    }
+
+                    Component.onCompleted: {
+                        if (currentIndex >= 0) {
+                            let delegateHeight = 30
+                            contentY = currentIndex * delegateHeight
                         }
                     }
                 }
 
-                Component.onCompleted: {
-                    if (currentIndex >= 0) {
-                        let delegateHeight = 30
-                        view.contentY = currentIndex * delegateHeight
-                    }
+                ScrollBar {
+                    id: verticalScrollBar
+                    anchors.top: parent.top
+                    anchors.bottom: parent.bottom
+                    anchors.right: parent.right
+                    anchors.rightMargin: -6
                 }
             }
 
-            ScrollBar {
-                id: verticalScrollBar
-                anchors.top: parent.top
-                anchors.bottom: parent.bottom
-                anchors.right: parent.right
-                anchors.rightMargin: -6
+            P.ArrowListViewButton {
+                id: downButton
+                visible: listView.interactive
+                Layout.alignment: Qt.AlignHCenter
+                Layout.preferredWidth: width
+                Layout.preferredHeight: height
+                view: listView
+                direction: P.ArrowListViewButton.DownButton
+                enabled: !listView.atYEnd
+                focusPolicy: Qt.NoFocus
+                activeFocusOnTab: false
             }
         }
     }
