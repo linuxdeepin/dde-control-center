@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -55,6 +55,7 @@ D.DialogWindow {
         }
 
         D.ToolButton {
+            Accessible.id: "ForgotPassword"
             id: btn
             Layout.alignment: Qt.AlignRight
             Layout.preferredHeight: 30
@@ -82,6 +83,7 @@ D.DialogWindow {
             Layout.fillWidth: true
             spacing: 10
             Button {
+                Accessible.id: "Cancel_20"
                 text: qsTr("Cancel")
                 Layout.fillWidth: true
                 onClicked: {
@@ -89,6 +91,7 @@ D.DialogWindow {
                 }
             }
             D.WarningButton {
+                Accessible.id: "Confirm_4"
                 text: qsTr("Confirm")
                 Layout.fillWidth: true
                 onClicked: {

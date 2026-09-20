@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -19,6 +19,7 @@ DccObject {
         backgroundType: DccObject.Normal // 设置背景样式
         pageType: DccObject.Editor // Editor为page是右边的控件，左边显示displayName、icon等
         page: Button {
+            Accessible.id: "DccObjDisplayName_6"
             text: dccObj.displayName
             onClicked: {
                 calcValue = dccData.calc(calcValue, 2)
@@ -36,7 +37,9 @@ DccObject {
             Text {
                 text: calcValue
             }
-            ComboBox {}
+            ComboBox {
+                Accessible.id: "ExamplePage1_ComboBox"
+            }
         }
         onActive: cmd => console.log(this, "onActive:", cmd)
     }
@@ -78,6 +81,7 @@ DccObject {
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor
             page: Button {
+                Accessible.id: "DccObjDisplayName_7"
                 text: dccObj.displayName
                 onClicked: {
                     calcType++
@@ -111,7 +115,9 @@ DccObject {
                 displayName: qsTr("Item") + (index + 1)
                 weight: 30 + index
                 pageType: DccObject.Editor
-                page: Switch {}
+                page: Switch {
+                    Accessible.id: "ExamplePage1_Switch"
+                }
             }
         }
     }

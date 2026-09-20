@@ -213,6 +213,7 @@ DccObject {
                 }
 
                 Button {
+                    Accessible.id: "AddNewUser"
                     text: qsTr("Add new user")
                     Layout.alignment: Qt.AlignRight | Qt.AlignHCenter
                     Layout.rightMargin: 10
@@ -278,6 +279,8 @@ DccObject {
                 property string originalFullName: "" // Store original name here
 
                 EditActionLabel {
+                    Accessible.id: "FullNameEdit"
+                    Accessible.role: Accessible.EditableText
                     id: fullNameEdit
                     property bool rightClickPressed: false
                     property bool contextMenuVisible: false
@@ -320,6 +323,7 @@ DccObject {
                     }
 
                     Menu {
+                        Accessible.id: "ContextMenu_2"
                         id: contextMenu
                         
                         onAboutToShow: {
@@ -520,6 +524,7 @@ DccObject {
             pageType: DccObject.Editor
             enabled: dccData.isDeleteAble(settings.userId)
             page: ComboBox {
+                Accessible.id: "AccountSettings_ComboBox"
                 flat: true
                 model: dccData.userTypes()
                 currentIndex: dccData.userType(settings.userId)
@@ -570,6 +575,7 @@ DccObject {
             visible: dccData.isQuickLoginVisible
             enabled: dccData.currentUserId() === settings.userId
             page: Switch {
+                Accessible.id: "AccountSettings_Switch"
                 checked: settings.noQuickLoginChecked
                 onCheckedChanged: {
                     if (settings.noQuickLoginChecked != checked)
@@ -591,6 +597,7 @@ DccObject {
             visible: dccData.isAutoLoginVisable()
             enabled: dccData.currentUserId() === settings.userId
             page: Switch {
+                Accessible.id: "AccountSettings_Switch_2"
                 checked: settings.autoLoginChecked
                 onCheckedChanged: {
                     if (settings.autoLoginChecked != checked)
@@ -635,6 +642,7 @@ DccObject {
             visible: dccData.isNoPassWordLoginVisable()
             enabled: dccData.currentUserId() === settings.userId
             page: Switch {
+                Accessible.id: "AccountSettings_Switch_3"
                 checked: settings.nopasswdLoginChecked
                 onCheckedChanged: {
                     if (settings.nopasswdLoginChecked != checked)
@@ -698,6 +706,7 @@ DccObject {
         pageType: DccObject.Item
         page: RowLayout {
             Button {
+                Accessible.id: "DeleteBtn"
                 id: deleteBtn
                 Layout.alignment: groupSettingsBtn.visible ? Qt.AlignLeft : Qt.AlignRight
                 text: qsTr("Delete current account")
@@ -737,6 +746,7 @@ DccObject {
             }
 
             Button {
+                Accessible.id: "GroupSettingsBtn"
                 id: groupSettingsBtn
                 Layout.alignment: Qt.AlignRight
                 text: qsTr("Group setting")
@@ -758,6 +768,7 @@ DccObject {
             weight: 10
             pageType: DccObject.Menu
             page: ListView {
+                Accessible.id: "Groupview"
                 id: groupview
                 property int lrMargin: DccUtils.getMargin(width)
                 property int conY: 0
@@ -838,6 +849,7 @@ DccObject {
                                 }
 
                                 Button {
+                                    Accessible.id: "HeaderEditButton"
                                     id: headerEditButton
                                     checkable: true
                                     checked: groupSettings.isEditing
@@ -886,6 +898,7 @@ DccObject {
                             RowLayout {
                                 anchors.fill: parent
                                 Button {
+                                    Accessible.id: "AddGroupButton"
                                     id: addGroupButton
                                     Layout.alignment: Qt.AlignRight
                                     text: qsTr("Add group")
@@ -911,6 +924,7 @@ DccObject {
                     DelegateChoice {
                         roleValue: "group"
                         delegate: ItemDelegate {
+                            Accessible.id: "ItemDelegate"
                             id: itemDelegate
                             implicitHeight: 36
                             padding: 0
@@ -990,6 +1004,8 @@ DccObject {
                                                         groupview.width - editButton.width - 30)
 
                                     EditActionLabel {
+                                        Accessible.id: "EditLabel"
+                                        Accessible.role: Accessible.EditableText
                                         id: editLabel
                                         property bool editAble: model.groupEditAble
                                         property string lastValidText: ""

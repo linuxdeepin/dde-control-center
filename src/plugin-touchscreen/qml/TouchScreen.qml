@@ -42,6 +42,7 @@ DccObject {
             Repeater {
                 model: dccData.touchScreenMatchModel()
                 delegate: ItemDelegate{
+                    Accessible.id: "TouchItem"
                     id: touchItem
                     property var data: model
                     text: model.name
@@ -57,6 +58,7 @@ DccObject {
                             Layout.fillHeight: true
                         }
                         D.ComboBox{
+                            Accessible.id: "Combo"
                             id: combo
                             flat: true
                             model: dccData.monitors
