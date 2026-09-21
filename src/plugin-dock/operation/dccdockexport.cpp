@@ -47,6 +47,10 @@ static const QMap<QString, QString> pluginIconMap = {
     , {"shot-start-plugin",  "dcc_dock_shot_start_plugin"}
 };
 
+static const QMap<QString, QString> pluginNameIconOverrideMap = {
+    {"dde-brightness", "display-brightness-control"}
+};
+
 DGUI_USE_NAMESPACE;
 
 DccDockExport::DccDockExport(QObject *parent)
@@ -110,7 +114,9 @@ void DccDockExport::loadPluginData()
     auto infos = pluginInfos.value();
     for (auto &info : infos) {
         QString pluginIconStr{};
-        if (QFile::exists(QString(PLUGIN_ICON_DIR) + QDir::separator() + PLUGIN_ICON_PREFIX + info.name + ".dci")) {
+        if (pluginNameIconOverrideMap.contains(info.name)) {
+            pluginIconStr = pluginNameIconOverrideMap.value(info.name);
+        } else if (QFile::exists(QString(PLUGIN_ICON_DIR) + QDir::separator() + PLUGIN_ICON_PREFIX + info.name + ".dci")) {
             pluginIconStr = PLUGIN_ICON_PREFIX + info.name;
         } else if (QFile::exists(QString(PLUGIN_ICON_DIR) + QDir::separator() + info.name + ".dci")) {
             pluginIconStr =  info.name;
