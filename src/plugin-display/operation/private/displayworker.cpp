@@ -100,6 +100,11 @@ void DisplayWorker::initTreeland()
     m_reg->setup();
 }
 
+DisplayModel *DisplayWorker::model() const
+{
+    return m_model;
+}
+
 void DisplayWorker::active()
 {
     if (!WQt::Utils::isTreeland()) {
