@@ -51,6 +51,8 @@ public:
 
     void active();
 
+    DisplayModel *model() const;
+
 public Q_SLOTS:
     void saveChanges();
     void switchMode(const int mode, const QString &name);

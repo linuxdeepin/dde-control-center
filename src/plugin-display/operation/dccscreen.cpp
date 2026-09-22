@@ -5,6 +5,7 @@
 
 #include "WayQtUtils.h"
 #include "private/dccscreen_p.h"
+#include "private/displaymodel.h"
 #include "private/displayworker.h"
 
 #include <QGuiApplication>
@@ -100,6 +101,10 @@ void DccScreenPrivate::setMonitors(QList<Monitor *> monitors)
         name << monitor->name();
         q_ptr->connect(monitor, &Monitor::currentModeChanged, q_ptr, updateMaxScaleFun);
         q_ptr->connect(monitor, &Monitor::enableChanged, q_ptr, updateMaxScaleFun);
+        // A merged (clone) screen is represented by its primary monitor, but the
+        // primary can change, so listen to every member instead of only the
+        // current representative.
+        q_ptr->connect(monitor, &Monitor::wallpaperChanged, q_ptr, &DccScreen::wallpaperChanged);
         m_screenItems.append(DccScreenItemPrivate::New(monitor, q_ptr));
     }
     Q_EMIT q_ptr->screenItemsChanged();
@@ -137,16 +142,39 @@ void DccScreenPrivate::setMonitors(QList<Monitor *> monitors)
     q_ptr->connect(monitor(), &Monitor::yChanged, q_ptr, &DccScreen::yChanged);
     q_ptr->connect(monitor(), &Monitor::wChanged, q_ptr, &DccScreen::widthChanged);
     q_ptr->connect(monitor(), &Monitor::hChanged, q_ptr, &DccScreen::heightChanged);
-    q_ptr->connect(monitor(), &Monitor::wallpaperChanged, q_ptr, &DccScreen::wallpaperChanged);
     auto updateScreenFun = [this]() {
         updateScreen();
     };
     q_ptr->connect(qApp, &QGuiApplication::screenAdded, q_ptr, updateScreenFun);
     q_ptr->connect(qApp, &QGuiApplication::screenRemoved, q_ptr, updateScreenFun);
+    // The representative monitor of a merged screen is the primary one, so a
+    // primary change also changes the wallpaper this screen must report.
+    if (m_monitors.size() > 1) {
+        if (m_worker) {
+            if (auto *model = m_worker->model()) {
+                q_ptr->connect(model, &DisplayModel::primaryScreenChanged, q_ptr, &DccScreen::wallpaperChanged);
+            }
+        }
+    }
 }
 
 Monitor *DccScreenPrivate::monitor()
 {
+    // A merged (clone) screen is made of several monitors, but the compositor
+    // only renders the mirror output, which is the primary one. Use it as the
+    // representative so the displayed wallpaper/resolution match the desktop.
+    if (m_worker) {
+        if (auto *model = m_worker->model()) {
+            const QString primaryName = model->primary();
+            if (!primaryName.isEmpty()) {
+                for (int i = 0; i < m_monitors.size(); ++i) {
+                    if (m_monitors.at(i)->name() == primaryName)
+                        return m_monitors.at(i);
+                }
+            }
+        }
+    }
+
     return m_monitors.first();
 }
 

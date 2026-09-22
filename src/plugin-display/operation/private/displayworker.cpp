@@ -154,6 +154,11 @@ void DisplayWorker::initTreeland()
         screenAdded(screen);
 }
 
+DisplayModel *DisplayWorker::model() const
+{
+    return m_model;
+}
+
 void DisplayWorker::active()
 {
     if (!WQt::Utils::isTreeland()) {
