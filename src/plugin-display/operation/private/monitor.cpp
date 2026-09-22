@@ -167,7 +167,10 @@ void Monitor::setModeList(const ResolutionList &modeList)
 
     for (auto m : modeList) {
         const bool isCurrentMode = isSameResolution(m, m_currentMode) && isSameRatefresh(m, m_currentMode);
-        if ((m.width() >= miniMode.at(0) && m.height() >= miniMode.at(1)) || isCurrentMode) {
+        // 交换宽高后再过滤，避免竖屏分辨率(如800x1280)因宽度不足被误过滤
+        const int width = qMax(m.width(), m.height());
+        const int height = qMin(m.width(), m.height());
+        if ((width >= miniMode.at(0) && height >= miniMode.at(1)) || isCurrentMode) {
             m_modeList.append(m);
         }
     }
