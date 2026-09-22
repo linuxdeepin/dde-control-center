@@ -64,6 +64,19 @@ void ScreenData::rebound()
     }
 }
 
+// 拖拽以缩放后的 QML 坐标进行，反算回屏幕坐标时会放大浮点误差，
+// 导致拼接结果出现小数偏移（最终经 qRound 后被固化成 31px 这类错位）。
+// 将屏幕坐标对齐到整数，保证算法输入/输出与 xrandr 应用结果一致。
+void ScreenData::snapToInteger()
+{
+    m_rect.setX(qRound(m_rect.x()));
+    m_rect.setY(qRound(m_rect.y()));
+    if (m_item) {
+        m_item->setX(m_rect.x() * m_scale);
+        m_item->setY(m_rect.y() * m_scale);
+    }
+}
+
 // 自动吸附实现
 ConcatScreen::ConcatScreen(QList<ScreenData *> listItems, ScreenData *pw)
     : m_listItems(listItems)
@@ -191,15 +204,27 @@ void ConcatScreen::adsorption()
 
 void ConcatScreen::executemultiScreenAlgo(bool isRebound)
 {
+    for (auto item : m_listItems) {
+        item->snapToInteger();
+    }
+
     bool isRestore = false;
     if (multiScreenSortAlgo(isRestore, isRebound)) {
         multiScreenSortAlgo(isRestore, true);
     }
 
-    if (isRestore == true)
+    if (isRestore == true) {
+        for (auto item : m_listItems) {
+            item->snapToInteger();
+        }
         return;
+    }
     multiScreenAutoAdjust();
     updateConnectedState();
+
+    for (auto item : m_listItems) {
+        item->snapToInteger();
+    }
 }
 
 bool ConcatScreen::multiScreenSortAlgo(bool &isRestore, const bool isRebound)
