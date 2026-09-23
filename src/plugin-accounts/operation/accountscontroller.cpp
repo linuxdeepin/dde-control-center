@@ -10,6 +10,7 @@
 #include <qlogging.h>
 
 #include <QFileInfo>
+#include <QFile>
 #include <QDir>
 #include <QStandardPaths>
 #include <QPainter>
@@ -49,6 +50,9 @@ AccountsController::AccountsController(QObject *parent)
     
     m_model = new UserModel(this);
     m_worker = new AccountsWorker(m_model, this);
+
+    connect(m_model, &UserModel::domainUserModifyPasswordEnableChanged,
+            this, &AccountsController::domainUserModifyPasswordEnableChanged);
 
     connect(m_model, &UserModel::userAdded, this, [this]() {
         Q_EMIT userIdListChanged();
@@ -349,6 +353,17 @@ QString AccountsController::getOtherUserAutoLogin() const
         }
     }
     return "";
+}
+
+bool AccountsController::domainUserModifyPasswordEnable() const
+{
+    return m_model->isDomainUserModifyPasswordEnable();
+}
+
+bool AccountsController::isDomainUser(const QString &id) const
+{
+    User *user = m_model->getUser(id);
+    return user ? m_model->isDomainUser(user->name()) : false;
 }
 
 bool AccountsController::isNoPassWordLoginVisable() const
@@ -902,6 +917,11 @@ QVariantMap AccountsController::checkPasswordResult(int code, const QString &msg
     // new password err
     res["pwd"] = QVariant::fromValue(errMsg);
     return res;
+}
+
+QVariantMap AccountsController::parseDomainPasswordError(const QString &msg)
+{
+    return m_worker->parseDomainPasswordError(msg);
 }
 
 void AccountsController::showDefender()
