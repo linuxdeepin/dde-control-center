@@ -3857,6 +3857,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>自然滾動</translation>
     </message>
     <message>
+        <source>Edge Touch Gestures</source>
+        <translation>邊緣觸控手勢</translation>
+    </message>
+    <message>
         <source>Three-finger gestures</source>
         <translation>三指手勢</translation>
     </message>
