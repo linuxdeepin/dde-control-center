@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef USER_H
@@ -103,7 +103,7 @@ public:
     void setSecurityLever(const SecurityLever &securityLever);
 
 Q_SIGNALS:
-    void passwordModifyFinished(const int exitCode, const QString &errorTxt) const;
+    void passwordModifyFinished(const int exitCode, const bool domainUser, const QString &errorTxt) const;
     void nameChanged(const QString &name) const;
     void fullnameChanged(const QString &name) const;
     void currentAvatarChanged(const QString &avatar) const;
