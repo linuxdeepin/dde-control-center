@@ -50,6 +50,8 @@ MouseModel::MouseModel(QObject *parent)
     , m_palmDetect(false)
     , m_tapClick(false)
     , m_touchpadEnabled(true)
+    , m_touchpadExpandEnable(false)
+    , m_systemTouchpadExpandExist(false)
     , m_doubleSpeed(1)
     , m_mouseMoveSpeed(1)
     , m_tpadMoveSpeed(1)
@@ -278,6 +280,26 @@ void MouseModel::setTapEnabled(bool tabEnabled)
     if (!m_syncingFromBackend)
         QMetaObject::invokeMethod(m_worker,"onTouchpadEnabledChanged", Qt::QueuedConnection, Q_ARG(bool, m_touchpadEnabled));
     Q_EMIT tapEnabledChanged(tabEnabled);
+}
+
+void MouseModel::setSystemTouchpadExpandExist(bool exist)
+{
+    if (m_systemTouchpadExpandExist == exist)
+        return;
+
+    m_systemTouchpadExpandExist = exist;
+    Q_EMIT systemTouchpadExpandExistChanged(exist);
+}
+
+void MouseModel::setTouchpadExpandEnable(bool enabled)
+{
+    if (m_touchpadExpandEnable == enabled)
+        return;
+
+    m_touchpadExpandEnable = enabled;
+    if (!m_syncingFromBackend)
+        QMetaObject::invokeMethod(m_worker, "onTouchpadExpandEnable", Qt::QueuedConnection, Q_ARG(bool, m_touchpadExpandEnable));
+    Q_EMIT touchpadExpandEnableChanged(enabled);
 }
 
 void MouseModel::setScrollSpeed(int speed)

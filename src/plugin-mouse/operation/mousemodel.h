@@ -36,6 +36,8 @@ public:
     Q_PROPERTY(bool tpadNaturalScroll READ tpadNaturalScroll WRITE setTpadNaturalScroll NOTIFY tpadNaturalScrollChanged FINAL)
     Q_PROPERTY(bool disIfTyping READ disIfTyping WRITE setDisIfTyping NOTIFY disIfTypingChanged FINAL)
     Q_PROPERTY(bool tapEnabled READ tapEnabled WRITE setTapEnabled NOTIFY tapEnabledChanged FINAL)
+    Q_PROPERTY(bool systemTouchpadExpandExist READ systemTouchpadExpandExist NOTIFY systemTouchpadExpandExistChanged FINAL)
+    Q_PROPERTY(bool touchpadExpandEnable READ touchpadExpandEnable WRITE setTouchpadExpandEnable NOTIFY touchpadExpandEnableChanged FINAL)
     Q_PROPERTY(QString gestureFingerAniPath READ getGestureFingerAniPath NOTIFY gestureFingerAniPathChanged FINAL)
     Q_PROPERTY(QString gestureActionAniPath READ getGestureActionAniPath NOTIFY gestureActionAniPathChanged FINAL)
     Q_PROPERTY(int cursorSize READ cursorSize WRITE setCursorSize NOTIFY cursorSizeChanged FINAL)
@@ -96,6 +98,12 @@ public:
     bool tapEnabled() const { return m_touchpadEnabled; }
     void setTapEnabled(bool tapEnabled);
 
+    bool systemTouchpadExpandExist() const { return m_systemTouchpadExpandExist; }
+    void setSystemTouchpadExpandExist(bool exist);
+
+    bool touchpadExpandEnable() const { return m_touchpadExpandEnable; }
+    void setTouchpadExpandEnable(bool enabled);
+
     int scrollSpeed() const { return m_scrollSpeed; }
     void setScrollSpeed(int speed);
 
@@ -152,6 +160,8 @@ Q_SIGNALS:
     void palmMinzChanged(int palmMinz);
     void tapClickChanged(bool tapClick);
     void tapEnabledChanged(bool tapClick);
+    void systemTouchpadExpandExistChanged(bool exist);
+    void touchpadExpandEnableChanged(bool enabled);
     void scrollSpeedChanged(int speed);
     void disIfTypingChanged(bool state);
     void cursorSizeChanged(int cursorSize);
@@ -178,6 +188,8 @@ private:
     bool m_palmDetect;
     bool m_tapClick;
     bool m_touchpadEnabled;
+    bool m_touchpadExpandEnable;
+    bool m_systemTouchpadExpandExist;
     int  m_doubleSpeed;
     int  m_mouseMoveSpeed;
     int  m_tpadMoveSpeed;
