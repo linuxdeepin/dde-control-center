@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.0
 import QtQuick.Controls 2.0
@@ -213,6 +213,27 @@ DccObject {
                 onCheckedChanged: {
                     if (checked !== dccData.tpadNaturalScroll) {
                         dccData.tpadNaturalScroll = checked;
+                    }
+                }
+            }
+
+        }
+
+        DccObject {
+            name: "EdgeTouchGestures"
+            parentName: "MouseAndTouchpad/Touchpad/TouchpadGroup"
+            displayName: qsTr("Edge Touch Gestures")
+            weight: 40
+            visible: dccData.systemTouchpadExpandExist
+            pageType: DccObject.Editor
+
+            page: D.Switch {
+                Layout.rightMargin: 10
+                Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                checked: dccData.touchpadExpandEnable
+                onCheckedChanged: {
+                    if (checked !== dccData.touchpadExpandEnable) {
+                        dccData.touchpadExpandEnable = checked;
                     }
                 }
             }

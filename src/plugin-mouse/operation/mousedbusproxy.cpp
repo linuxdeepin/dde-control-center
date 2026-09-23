@@ -95,6 +95,9 @@ const QString AppearanceInterface = "org.deepin.dde.Appearance1";
 const QString PowerService = QStringLiteral("org.deepin.dde.Power1");
 const QString PowerPath = QStringLiteral("/org/deepin/dde/Power1");
 const QString PowerInterface = QStringLiteral("org.deepin.dde.Power1");
+const QString SystemInputDevicesService = "org.deepin.dde.InputDevices1";
+const QString SystemTouchpadPath = "/org/deepin/dde/InputDevices1/Touchpad";
+const QString SystemTouchpadInterface = "org.deepin.dde.InputDevices1.Touchpad";
 
 MouseDBusProxy::MouseDBusProxy(QObject *parent)
     : QObject(parent)
@@ -105,6 +108,7 @@ MouseDBusProxy::MouseDBusProxy(QObject *parent)
     , m_dbusGestureProperties(nullptr)
     , m_dbusMouse(nullptr)
     , m_dbusTouchPad(nullptr)
+    , m_systemTouchpad(nullptr)
     , m_dbusTrackPoint(nullptr)
     , m_dbusDevices(nullptr)
     , m_dbusGesture(nullptr)
@@ -163,6 +167,14 @@ void MouseDBusProxy::active()
         // initial device properties
         uint wheelSpeed  = m_dbusDevicesProperties->call("Get", InputDevicesInterface, "WheelSpeed").arguments().at(0).value<QDBusVariant>().variant().toUInt();
         Q_EMIT scrollSpeedChanged(wheelSpeed);
+    }
+
+    // system touchpad expand switch (X11/treeland 都会使用)
+    if (m_systemTouchpad && m_systemTouchpad->isValid()) {
+        Q_EMIT systemTouchpadExpandExistChanged(
+            m_systemTouchpad->property("ExpandIsExist").toBool());
+        Q_EMIT touchpadExpandEnableChanged(
+            m_systemTouchpad->property("ExpandEnable").toBool());
     }
 
     // common settings (X11/treeland 都会使用)
@@ -278,6 +290,14 @@ void MouseDBusProxy::init()
                                               SLOT(onInputDevicesPathPropertiesChanged(QDBusMessage)));
     }
 
+    QDBusConnection::systemBus().connect(SystemInputDevicesService,
+                                          SystemTouchpadPath,
+                                          PropertiesInterface,
+                                          "PropertiesChanged",
+                                          "sa{sv}as",
+                                          this,
+                                          SLOT(onSystemTouchpadPropertiesChanged(QDBusMessage)));
+
     // 初始化dbus接口
     m_dbusMouseProperties = new QDBusInterface(Service,
                                                MousePath,
@@ -310,6 +330,11 @@ void MouseDBusProxy::init()
                                         TouchpadPath,
                                         TouchpadInterface,
                                         QDBusConnection::sessionBus());
+    m_systemTouchpad = new QDBusInterface(SystemInputDevicesService,
+                                          SystemTouchpadPath,
+                                          SystemTouchpadInterface,
+                                          QDBusConnection::systemBus(),
+                                          this);
     m_dbusTrackPoint = new QDBusInterface(Service,
                                           TrackpointPath,
                                           TrackpointInterface,
@@ -454,6 +479,27 @@ void MouseDBusProxy::setTouchpadEnabled(bool state)
     m_dbusTouchPad->asyncCallWithArgumentList("Enable", { state });
 }
 
+void MouseDBusProxy::setTouchpadExpandEnable(bool state)
+{
+    if (!m_systemTouchpad || !m_systemTouchpad->isValid()) {
+        qWarning() << "SetTouchpadExpandEnable failed: system touchpad interface is invalid";
+        Q_EMIT touchpadExpandEnableChanged(!state);
+        return;
+    }
+
+    QDBusPendingCall call = m_systemTouchpad->asyncCallWithArgumentList(
+        "SetTouchpadExpandEnable", { state });
+    auto *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, watcher, state] {
+        QDBusPendingReply<> reply = *watcher;
+        watcher->deleteLater();
+        if (reply.isError()) {
+            qWarning() << "SetTouchpadExpandEnable failed:" << reply.error();
+            Q_EMIT touchpadExpandEnableChanged(!state);
+        }
+    });
+}
+
 void MouseDBusProxy::setCursorSize(const int cursorSize)
 {
     m_appearance->setProperty("CursorSize", QVariant::fromValue(cursorSize));
@@ -578,6 +624,22 @@ void MouseDBusProxy::onTrackpointPathPropertiesChanged(QDBusMessage msg)
             }
         }
     }
+}
+
+void MouseDBusProxy::onSystemTouchpadPropertiesChanged(QDBusMessage msg)
+{
+    QList<QVariant> arguments = msg.arguments();
+    if (3 != arguments.count())
+        return;
+
+    if (arguments.at(0).toString() != SystemTouchpadInterface)
+        return;
+
+    QVariantMap changedProps = qdbus_cast<QVariantMap>(arguments.at(1).value<QDBusArgument>());
+    if (changedProps.contains("ExpandIsExist"))
+        Q_EMIT systemTouchpadExpandExistChanged(changedProps.value("ExpandIsExist").toBool());
+    if (changedProps.contains("ExpandEnable"))
+        Q_EMIT touchpadExpandEnableChanged(changedProps.value("ExpandEnable").toBool());
 }
 
 void MouseDBusProxy::onInputDevicesPathPropertiesChanged(QDBusMessage msg)

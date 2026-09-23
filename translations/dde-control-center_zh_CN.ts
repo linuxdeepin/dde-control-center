@@ -3860,6 +3860,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>自然滚动</translation>
     </message>
     <message>
+        <source>Edge Touch Gestures</source>
+        <translation>边缘触控手势</translation>
+    </message>
+    <message>
         <source>Three-finger gestures</source>
         <translation>三指手势</translation>
     </message>
