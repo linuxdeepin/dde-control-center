@@ -79,7 +79,12 @@ DccTitleObject {
                     canSearch: loginMethodTitle.canSearch
                     backgroundType: DccObject.ClickStyle
                     weight: 12
-                    enabled: dccData.currentUserId() === loginMethodTitle.userId || (dccData.curUserIsSysAdmin() && !dccData.isOnline(loginMethodTitle.userId))
+                    // 域账号在未开启"允许修改本地密码"配置时不显示入口
+                    visible: !(dccData.isDomainUser(loginMethodTitle.userId) && !dccData.domainUserModifyPasswordEnable)
+                    // 域账号仅支持当前登录账户修改密码
+                    enabled: (dccData.currentUserId() === loginMethodTitle.userId || (dccData.curUserIsSysAdmin() && !dccData.isOnline(loginMethodTitle.userId)))
+                             && (!dccData.isDomainUser(loginMethodTitle.userId)
+                                 || (dccData.domainUserModifyPasswordEnable && dccData.currentUserId() === loginMethodTitle.userId))
                     pageType: DccObject.Editor
                     page: D.IconLabel {
                         icon {

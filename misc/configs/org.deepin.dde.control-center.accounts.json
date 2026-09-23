@@ -12,6 +12,17 @@
             "description[zh_CN]": "控制中心账户图像路径配置",
             "permissions": "readwrite",
             "visibility": "public"
+        },
+        "domainUserModifyPasswordEnable": {
+            "value": false,
+            "serial": 0,
+            "flags": ["global"],
+            "name": "DomainUserModifyPasswordEnable",
+            "name[zh_CN]": "域管账户是否允许修改本地密码",
+            "description[zh_CN]": "域管账户是否运行修改本地密码. true:允许修改,false:不允许修改",
+            "description": "",
+            "permissions": "readonly",
+            "visibility": "private"
         }
     }
   }
