@@ -9,6 +9,7 @@
 
 #include <QObject>
 #include <QDBusPendingReply>
+#include <QMap>
 #include <DConfig>
 
 #define SECURITY_QUESTIONS_ERROR_COUNT 1
@@ -45,6 +46,8 @@ public:
     void updateGroupinfo();
     QDBusPendingReply<bool, QString, int> isUsernameValid(const QString &name);
     QString saveCustomAvatar(const QString &tempFile, const QString &originalFile = QString());
+    // 解析域账号改密错误，返回标题、正文及富文本标记，无法解析时返回空映射。
+    QVariantMap parseDomainPasswordError(const QString &msg);
 
 Q_SIGNALS:
     void accountCreationFinished(CreationResult *result) const;
@@ -112,6 +115,12 @@ private:
     QString tryEncryptPassword(const QString &password, const QString &algorithm);
     BindCheckResult checkLocalBind(const QString &uosid, const QString &uuid);
     QList<int> securityQuestionsCheck();
+    // 检查网络连接状态，不保证 AD 服务可达。
+    bool getNetworkState();
+    // 加载系统语言对应的外部 AD 翻译文件。
+    QMap<QString, QString> getLocalXmlTranslations();
+    // 匹配 AD 翻译，未匹配时返回原文。
+    QString getTranslation(const QString &content);
 
 private:
     AccountsDBusProxy *m_accountsInter;
@@ -122,7 +131,9 @@ private:
     QString m_currentUserName;
     QStringList m_onlineUsers;
     UserModel *m_userModel;
+    Dtk::Core::DConfig *m_daemonAccountCfg;
     Dtk::Core::DConfig *m_accountCfg;
+    QMap<QString, QString> m_adDomainErrorDetailMap;
 };
 
 }   // namespace dccV25

@@ -13,6 +13,9 @@ import org.deepin.dcc 1.0
 D.DialogWindow {
     id: dialog
     property string userId
+    property string remoteTitle: ""
+    property string remoteContent: ""
+    property bool remoteRichText: false
     width: 460
     minimumWidth: width
     minimumHeight: height
@@ -59,6 +62,12 @@ D.DialogWindow {
                 // no error, close dialog
                 close()
             }
+            onRemoteResult: function (title, content, richText) {
+                dialog.remoteTitle = title
+                dialog.remoteContent = content
+                dialog.remoteRichText = richText
+                remoteErrorLoader.active = true
+            }
         }
 
         RowLayout {
@@ -89,6 +98,24 @@ D.DialogWindow {
                     dccData.setPassword(dialog.userId, pwdLayout.getPwdInfo());
                 }
             }
+        }
+    }
+
+    Loader {
+        id: remoteErrorLoader
+        active: false
+        sourceComponent: DomainPasswordErrorDialog {
+            remoteTitle: dialog.remoteTitle
+            remoteContent: dialog.remoteContent
+            remoteRichText: dialog.remoteRichText
+            onClosing: function () {
+                Qt.callLater(function () {
+                    remoteErrorLoader.active = false
+                })
+            }
+        }
+        onLoaded: function () {
+            remoteErrorLoader.item.show()
         }
     }
 }

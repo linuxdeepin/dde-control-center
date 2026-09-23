@@ -18,9 +18,12 @@
 #include <QRegularExpression>
 #include <QRegularExpressionMatch>
 #include <QDBusReply>
+#include <QDBusInterface>
 #include <DSysInfo>
 #include <QDateTime>
 #include <QUrl>
+#include <QLocale>
+#include <QXmlStreamReader>
 #include <QStandardPaths>
 #include <QDir>
 #include <QFile>
@@ -42,6 +45,10 @@ DCORE_USE_NAMESPACE
 DGUI_USE_NAMESPACE
 
 namespace {
+// 外部 AD 翻译资源约定的安装路径
+const QString kDomainPasswordTranslationPath =
+    QStringLiteral("/usr/share/dde-control-center/addomain/dde-control-center_PABC_%1.ts");
+
 // 密码加密算法前缀映射，按优先级排序（从高到低）
 // 注意：顺序除非产品要求不要变更
 const QList<QPair<QString, QString>> kPasswordAlgorithmPrefixes = {
@@ -69,7 +76,8 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     , m_syncInter(new SyncDBusProxy(this))
     , m_securityInter(new SecurityDBusProxy(this))
     , m_userModel(userList)
-    , m_accountCfg(DConfig::create("org.deepin.dde.daemon", "org.deepin.dde.daemon.account", QString(), this))
+    , m_daemonAccountCfg(DConfig::create("org.deepin.dde.daemon", "org.deepin.dde.daemon.account", QString(), this))
+    , m_accountCfg(DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center.accounts", QString(), this))
 {
     struct passwd *pws;
     pws = getpwuid(getuid());
@@ -103,6 +111,20 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 
     m_userModel->setQuickLoginVisible(m_accountsInter->quickLoginEnabled());
     connect(m_accountsInter, &AccountsDBusProxy::QuickLoginEnabledChanged, m_userModel, &UserModel::setQuickLoginVisible);
+
+    const auto updateDomainPasswordPolicy = [this] {
+        const bool enabled = m_accountCfg && m_accountCfg->isValid()
+            && m_accountCfg->value("domainUserModifyPasswordEnable", false).toBool();
+        m_userModel->setDomainUserModifyPasswordEnable(enabled);
+    };
+
+    connect(m_accountCfg, &DConfig::valueChanged, this,
+            [updateDomainPasswordPolicy](const QString &key) {
+                if (key == "domainUserModifyPasswordEnable")
+                    updateDomainPasswordPolicy();
+            });
+
+    updateDomainPasswordPolicy();
 }
 
 void AccountsWorker::getAllGroups()
@@ -612,6 +634,16 @@ void AccountsWorker::onGroupListChanged(const QStringList &groupList)
 
 void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QString &passwd, const QString &repeatPasswd, const bool needResult)
 {
+    if (!user)
+        return;
+
+    bool isDomainUser = m_userModel && m_userModel->isDomainUser(user->name());
+    int exitCode = -1;
+    if (needResult && isDomainUser && m_userModel->isDomainUserModifyPasswordEnable() && !getNetworkState()) {
+        Q_EMIT user->passwordModifyFinished(exitCode, isDomainUser, "Password is not correct, No network connection");
+        return;
+    }
+
     QProcess process;
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     env.insert("LC_ALL", "C");
@@ -630,10 +662,145 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
 
     if (needResult) {
         // process.exitCode() = 0 表示密码修改成功
-        int exitCode = process.exitCode();
+        exitCode = process.exitCode();
         const QString& outputTxt = process.readAll();
-        Q_EMIT user->passwordModifyFinished(exitCode, outputTxt);
+        Q_EMIT user->passwordModifyFinished(exitCode, isDomainUser, outputTxt);
     }
+}
+
+bool AccountsWorker::getNetworkState()
+{
+    QDBusInterface interface("org.freedesktop.NetworkManager",
+                             "/org/freedesktop/NetworkManager",
+                             "org.freedesktop.DBus.Properties",
+                             QDBusConnection::systemBus());
+    if (!interface.isValid()) {
+        return false;
+    }
+
+    QDBusReply<QDBusVariant> reply = interface.call("Get", "org.freedesktop.NetworkManager", "State");
+    if (reply.isValid()) {
+        int ret = reply.value().variant().toInt();
+        // 接受本地（50）、站点（60）和全局（70）连接状态。
+        return ret > 40 && ret <= 100;
+    }
+
+    return false;
+}
+
+QVariantMap AccountsWorker::parseDomainPasswordError(const QString &msg)
+{
+    QVariantMap result;
+    if (msg.isEmpty())
+        return result;
+
+    if (m_adDomainErrorDetailMap.isEmpty())
+        m_adDomainErrorDetailMap = getLocalXmlTranslations();
+
+    const QString serverTitle = "Server message:";
+    const QString serverTitle2 = "BAD PASSWORD:";
+
+    QString title;
+    QString content;
+
+    if (msg.contains("Password is not correct, No network connection")) {
+        title = getTranslation("Password change failed");
+        content = getTranslation("Password is not correct, No network connection");
+    } else {
+        const QStringList lines = msg.split("\n", Qt::SkipEmptyParts);
+        for (const QString &line : lines) {
+            if (!line.contains(serverTitle) && !line.contains(serverTitle2))
+                continue;
+
+            QString validServer = line.contains(serverTitle2) ? serverTitle2 : serverTitle;
+            int index = line.indexOf(validServer);
+            QString target = line;
+            if (index != -1)
+                target.remove(0, index);
+
+            const QStringList parts = target.split(validServer, Qt::SkipEmptyParts);
+            if (parts.size() == 1) {
+                title = getTranslation("Password change failed");
+                content = parts.at(0).trimmed();
+            } else if (parts.size() >= 2) {
+                title = parts.at(0).trimmed();
+                content = parts.at(1).trimmed();
+            }
+            title = getTranslation(title.replace('.', ""));
+            content = getTranslation(content);
+            break;
+        }
+    }
+
+    if (title.isEmpty() || content.isEmpty())
+        return result;
+
+    // 未识别的远端错误统一显示为"复杂度约束"提示
+    if (!content.isEmpty()
+        && !m_adDomainErrorDetailMap.keys().contains(content)
+        && !m_adDomainErrorDetailMap.values().contains(content)) {
+        content = getTranslation("complexity constraints");
+    }
+
+    // 翻译文本中的字面 \n 转换为富文本段落，供界面完整换行展示
+    bool richText = false;
+    if (content.contains("\\n")) {
+        const QStringList lines = content.split("\\n", Qt::SkipEmptyParts);
+        QString richContent;
+        for (const QString &line : lines)
+            richContent += "<p style=\"margin-left: 10px; text-align: left;\">" + line.toHtmlEscaped() + "</p>";
+        content = richContent;
+        richText = true;
+    }
+
+    result["title"] = title;
+    result["content"] = content;
+    result["richText"] = richText;
+    return result;
+}
+
+QMap<QString, QString> AccountsWorker::getLocalXmlTranslations()
+{
+    QMap<QString, QString> translationsMap;
+
+    QFile file(kDomainPasswordTranslationPath.arg(QLocale::system().name()));
+    if (!file.exists() || !file.open(QIODevice::ReadOnly | QIODevice::Text))
+        return translationsMap;
+
+    QXmlStreamReader xml(&file);
+    while (!xml.atEnd() && !xml.hasError()) {
+        xml.readNext();
+        if (xml.isStartElement() && xml.name() == "message") {
+            QString source;
+            QString translation;
+            while (xml.readNextStartElement()) {
+                if (xml.name() == "source")
+                    source = xml.readElementText();
+                else if (xml.name() == "translation")
+                    translation = xml.readElementText();
+            }
+            if (!source.isEmpty() && !translation.isEmpty())
+                translationsMap[source] = translation;
+        }
+    }
+    file.close();
+
+    return translationsMap;
+}
+
+QString AccountsWorker::getTranslation(const QString &content)
+{
+    const QString data = content.toLower();
+    const auto keys = m_adDomainErrorDetailMap.keys();
+    if (keys.contains(data))
+        return m_adDomainErrorDetailMap.value(data);
+
+    for (const auto &key : keys) {
+        if (data.contains(key.toLower()))
+            return m_adDomainErrorDetailMap.value(key);
+    }
+
+    return content;
 }
 
 void AccountsWorker::resetPassword(User *user, const QString &password)
@@ -1043,8 +1210,8 @@ QString AccountsWorker::cryptUserPassword(const QString &password)
 {
     // 从 dconfig 获取加密算法，如果获取失败或不存在则默认为 sm3
     QString algorithm = "sm3";
-    if (m_accountCfg && m_accountCfg->isValid()) {
-        algorithm = m_accountCfg->value("passwordEncryptionAlgorithm", "sm3").toString();
+    if (m_daemonAccountCfg && m_daemonAccountCfg->isValid()) {
+        algorithm = m_daemonAccountCfg->value("passwordEncryptionAlgorithm", "sm3").toString();
         if (algorithm.isEmpty()) {
             algorithm = "sm3";
         }

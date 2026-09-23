@@ -21,6 +21,7 @@ ColumnLayout {
 
     signal requestClose()
     signal labelWidthCalculated()
+    signal remoteResult(string title, string content, bool richText)
 
     FontMetrics {
         id: fm
@@ -131,7 +132,7 @@ ColumnLayout {
 
         Connections {
             target: dccData
-            function onPasswordModifyFinished(id, code, msg) {
+            function onPasswordModifyFinished(id, code, domainUser, msg) {
                 if (id !== pwdLayout.userId)
                     return
 
@@ -142,6 +143,17 @@ ColumnLayout {
                     pwdLayout.requestClose()
                     return
                 }
+
+                if (domainUser && dccData.domainUserModifyPasswordEnable) {
+                    let remote = dccData.parseDomainPasswordError(msg)
+                    if (remote && remote["content"] !== undefined && String(remote["content"]).length > 0) {
+                        pwdLayout.remoteResult(remote["title"] !== undefined ? remote["title"] : "",
+                                               remote["content"],
+                                               remote["richText"] === true)
+                        return
+                    }
+                }
+
                 let info = dccData.checkPasswordResult(code, msg, pwdLayout.name, pwdContainter.eidtItems[0].text)
                 // wrong password
                 if (info["oldPwd"] !== undefined && currentPwd.visible) {
@@ -298,7 +310,8 @@ ColumnLayout {
 
             let alertText = ""
             // pwcheck verifyPassword
-            alertText = dccData.checkPassword(pwdLayout.currentName, edit0.text)
+            if (!dccData.isDomainUser(pwdLayout.userId))
+                alertText = dccData.checkPassword(pwdLayout.currentName, edit0.text)
             if (alertText.length > 0) {
                 edit0.showAlertText(alertText)
                 focusAndSelectAll(edit0)
