@@ -1,3 +1,35 @@
+dde-control-center (6.1.109) unstable; urgency=medium
+
+  * fix: move autoExitTimer to DccManager and add tryShow logs
+  * fix(dcc): exit --list through the event loop
+  * fix(personalization): fix blurry theme thumbnails on HiDPI displays
+  * chore(i18n): remove redundant ar_EG translations, keep ar (#3528)
+  * fix: keep SecondPage resident to fix control-center display error
+  * fix(datetime): pin implicit size of Window popups to stabilize
+    window geometry
+  * fix(display): show and refresh current mode below minimum resolution
+    (#3520)
+  * fix: adjust datetime settings item widths and hover states
+  * fix: avoid undefined assigned to bool in SoundMain
+  * fix: fix ReferenceError control not defined
+  * fix(accounts): guard model.display against undefined during model
+    lifecycle
+  * fix(datetime): reset search state synchronously on popup close/open
+  * fix(datetime): fix binding loop in RegionFormatDialog
+  * fix: eliminate binding loop warning in dropdown menu item text width
+  * fix: rebuild text binding in DccTimeRange with Qt.binding
+  * fix(datetime): roll back NTP server on auth cancel
+  * fix: remove radius property to resolve windowRadius TypeError
+  * fix(power): use createObject with findGrid in CustomTipsSlider
+  * fix: prevent focus loss when holding arrow keys in list mode
+  * fix: fix settings button text not showing when NTP off
+  * fix(display): keep portrait modes that fail the width-only minimum
+    check (#3540)
+  * fix(display): fix snap coordinate misalignment and drag lag on
+    multi-screen setup (#3525) (#3542)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Wed, 23 Sep 2026 09:35:17 +0800
+
 dde-control-center (6.1.108) unstable; urgency=medium
 
   * i18n: Updates for project Deepin Desktop Environment (#3501)
