@@ -51,6 +51,10 @@ if (BUILD_PLUGIN)
     target_link_libraries(${Mouse_Name} PRIVATE
         ${mouse_Libraries}
     )
+    # security loader permission interfaces config
+    install(FILES "misc/permission-interfaces/org.deepin.dcc-inputdevice.json"
+        DESTINATION share/dde-control-center/permission-interfaces)
+
     dcc_install_plugin(NAME ${Mouse_Name} TARGET ${Mouse_Name})
     # dcc_handle_plugin_translation(NAME ${Mouse_Name}  QML_FILES ${mouse_qml_SRCS} SOURCE_FILES ${mouse_SRCS})
 endif()

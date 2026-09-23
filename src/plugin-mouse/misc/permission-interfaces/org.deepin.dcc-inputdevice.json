@@ -1,0 +1,11 @@
+{
+    "version": "1.0",
+    "description": "输入设备插件需要授权的 D-Bus 系统服务接口",
+    "DestList": [
+        {
+            "DbusName": "org.deepin.dde.InputDevices1",
+            "DbusPath": "/org/deepin/dde/InputDevices1",
+            "DbusInterface": "org.deepin.dde.InputDevices1"
+        }
+    ]
+}
