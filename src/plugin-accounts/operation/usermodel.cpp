@@ -1,10 +1,13 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "usermodel.h"
 
 #include <QDebug>
+#include <QDBusConnection>
+#include <QDBusInterface>
+#include <QDBusReply>
 
 using namespace dccV25;
 
@@ -62,11 +65,11 @@ void UserModel::addUser(const QString &id, User *user)
     connect(user, &User::groupsChanged, this, [this, user](const QStringList &groups){
         Q_EMIT groupsChanged(user->id(), groups);
     });
-    connect(user, &User::passwordModifyFinished, this, [this, user](const int exitCode, const QString &errorTxt){
-        Q_EMIT passwordModifyFinished(user->id(), exitCode, errorTxt);
+    connect(user, &User::passwordModifyFinished, this, [this, user](const int exitCode, const bool domainUser, const QString &errorTxt){
+        Q_EMIT passwordModifyFinished(user->id(), exitCode, domainUser, errorTxt);
     });
     connect(user, &User::passwordResetFinished, this, [this, user](const QString &errorTxt){
-        Q_EMIT passwordModifyFinished(user->id(), errorTxt.isEmpty() ? 0 : -1, errorTxt);
+        Q_EMIT passwordModifyFinished(user->id(), errorTxt.isEmpty() ? 0 : -1, false, errorTxt);
     });
     connect(user, &User::onlineChanged, this, [this, user](const bool &online){
         Q_EMIT onlineChanged(user->id(), online);
@@ -223,4 +226,39 @@ void UserModel::setADUserLogind(bool isADUserLogind)
     m_isADUserLogind = isADUserLogind;
 
     Q_EMIT isADUserLoginChanged(isADUserLogind);
+}
+
+bool UserModel::isDomainUser(const QString &userName)
+{
+    // LDAP域账户
+    for (const auto &user : userList()) {
+        if (user->name() == userName && user->groups().contains("domain users")) {
+            return true;
+        }
+    }
+    
+    QDBusInterface interface("com.deepin.udcp.iam",
+                             "/com/deepin/udcp/iam",
+                             "com.deepin.udcp.iam",
+                             QDBusConnection::systemBus());
+    if (!interface.isValid()) {
+        return false;
+    }
+
+    // 调用域管接口获取用户组，不为空则为域管用户
+    QDBusReply<QStringList> reply = interface.call("GetUserGroups", userName);
+    if (reply.error().type() == QDBusError::NoError && !reply.value().isEmpty()) {
+        return true;
+    }
+
+    return false;
+}
+
+void UserModel::setDomainUserModifyPasswordEnable(bool enable)
+{
+    if (m_domainUserModifyPasswordEnable == enable)
+        return;
+
+    m_domainUserModifyPasswordEnable = enable;
+    Q_EMIT domainUserModifyPasswordEnableChanged();
 }

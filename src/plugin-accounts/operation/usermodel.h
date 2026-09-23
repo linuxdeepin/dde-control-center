@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef USERMODEL_H
@@ -40,6 +40,10 @@ public:
 
     bool isADUserLogind() const { return m_isADUserLogind; }
     void setADUserLogind(bool isADUserLogind);
+
+    bool isDomainUser(const QString &userName);
+    bool isDomainUserModifyPasswordEnable() const { return m_domainUserModifyPasswordEnable; }
+    void setDomainUserModifyPasswordEnable(bool enable);
     void setAllGroups(const QStringList &groups);
     QStringList getAllGroups();
     void setPresetGroups(const QStringList &presetGroups);
@@ -69,13 +73,14 @@ Q_SIGNALS:
     void quickLoginChanged(const QString &userId, bool enable);
     void nopasswdLoginChanged(const QString &userId, bool enable);
     void groupsChanged(const QString &userId, const QStringList &groups);
-    void passwordModifyFinished(const QString &userId, const int exitCode, const QString &errorTxt);
+    void passwordModifyFinished(const QString &userId, const int exitCode, const bool domainUser, const QString &errorTxt);
     void onlineChanged(const QString &userId, const bool &online) const;
     void userTypeChanged(const QString &userId, const int userType);
     void fullnameChanged(const QString &userId, const QString &fullname);
     void passwordAgeChanged(const QString &userId, const int age);
     void isJoinADDomainChanged(bool isjoin);
     void isADUserLoginChanged(bool isLogind);
+    void domainUserModifyPasswordEnableChanged();
     void allGroupsChange(const QStringList &groups);
     void deleteUserSuccess();
     void autoLoginVisableChanged(bool autoLogin);
@@ -95,6 +100,7 @@ private:
     QString m_currentUserName;
     bool m_isJoinADDomain;
     bool m_isADUserLogind;
+    bool m_domainUserModifyPasswordEnable{false};
     bool m_isSecurityHighLever;
     QStringList m_DisabledGroups;
     QStringList m_onlineUsers;
