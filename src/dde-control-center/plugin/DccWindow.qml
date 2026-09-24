@@ -264,12 +264,7 @@ D.ApplicationWindow {
                     theme: D.DTK.themeType
                 }
             }
-            Loader{
-                id: homeLoader
-                active: false
-                sourceComponent: HomePage {
-                }
-            }
+            HomePage {}
             SecondPage {
                 id: secondPage
             }
@@ -281,9 +276,6 @@ D.ApplicationWindow {
                         stackView.currentIndex = DccWindow.PageIndex.LoadIndex
                         mainWindow.currentIndex = DccWindow.PageIndex.LoadIndex
                     } else if (stackView.currentIndex !== DccWindow.PageIndex.HomeIndex && DccApp.root === DccApp.activeObject) {
-                        if (!homeLoader.active) {
-                            homeLoader.active = true
-                        }
                         mainWindow.sidebarPage = null
                         stackView.currentIndex = DccWindow.PageIndex.HomeIndex
                         mainWindow.currentIndex = DccWindow.PageIndex.HomeIndex
