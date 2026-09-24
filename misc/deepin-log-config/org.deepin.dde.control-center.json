@@ -1,5 +1,5 @@
 {
-    "name": "dde-control-center",
+    "name": "org.deepin.dde.control-center",
     "group": "dde",
     "submodules": [
         {
