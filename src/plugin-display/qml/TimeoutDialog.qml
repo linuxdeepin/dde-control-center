@@ -12,6 +12,7 @@ D.DialogWindow {
     property string message: qsTr("Settings will be reverted in %1s.")
     property real timeout: 15
     property bool save: false
+    property bool hasClosed: false
     modality: Qt.ApplicationModal
     width: 380
     x: screen.virtualX + ((screen.width - width) / 2)
@@ -19,10 +20,16 @@ D.DialogWindow {
     icon: "preferences-system"
     title: qsTr("Save the display settings?")
     onClosing: {
+        hasClosed = true
         destroy(10)
         if (save) {
             dccData.saveChanges()
         } else {
+            dccData.resetBackup()
+        }
+    }
+    Component.onDestruction: {
+        if (!hasClosed && !save) {
             dccData.resetBackup()
         }
     }
