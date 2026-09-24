@@ -142,6 +142,37 @@ DccObject {
             closeInvalidDialogs()
         }
     }
+    Component {
+        id: timeoutDialog
+        TimeoutDialog {}
+    }
+
+    Timer {
+        id: dialogDelayTimer
+        interval: 300
+        repeat: false
+        property var targetScreen: null
+        property var parentItem: null
+
+        function showDelayed(parentItemArg, screenArg) {
+            targetScreen = screenArg
+            parentItem = parentItemArg
+            restart()
+        }
+
+        onTriggered: {
+            if (targetScreen && parentItem && parentItem.visible) {
+                var dialog = timeoutDialog.createObject(null, {
+                    "screen": targetScreen
+                })
+                dialog.show()
+                root.activeDialogs.push(dialog)
+            }
+            targetScreen = null
+            parentItem = null
+        }
+    }
+
     DccTitleObject {
         name: "multipleDisplays"
         parentName: "display"
@@ -543,38 +574,6 @@ DccObject {
         weight: 50
         visible: dccData.virtualScreens.length > 1
         pageType: DccObject.Item
-        Component {
-            id: timeoutDialog
-            TimeoutDialog {}
-        }
-
-        Timer {
-            id: dialogDelayTimer
-            interval: 300
-            repeat: false
-            property var targetScreen: null
-            property var parentItem: null
-
-            function showDelayed(parentItemArg, screenArg) {
-                targetScreen = screenArg
-                parentItem = parentItemArg
-                restart()
-            }
-
-            onTriggered: {
-                // Check if parentItem is still valid and visible before creating dialog
-                if (targetScreen && parentItem && parentItem.visible) {
-                    var dialog = timeoutDialog.createObject(parentItem, {
-                        "screen": targetScreen
-                    })
-                    dialog.show()
-                    root.activeDialogs.push(dialog)
-                }
-                // Clear references to avoid stale object reuse
-                targetScreen = null
-                parentItem = null
-            }
-        }
 
         page: ScreenTab {
             model: dccData.virtualScreens
