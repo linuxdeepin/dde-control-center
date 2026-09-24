@@ -564,6 +564,13 @@ void DccManager::show()
     if (!w) {
         return;
     }
+    // If a modal dialog is active (e.g. display settings confirmation),
+    // do not activate the main window — it would cover the dialog and
+    // break the user's confirmation flow.
+    if (QGuiApplication::modalWindow()) {
+        m_needShow = false;
+        return;
+    }
     if (!m_showLoadPage && !m_activeObject) {
         return;
     }
@@ -1068,6 +1075,14 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
     } pendingGuard{ this };
 
     if (m_plugins->isDeleting() || !obj) {
+        return;
+    }
+    // Block navigation when a modal dialog is active (e.g. display settings
+    // confirmation dialog). DBus-originated showPage calls bypass modal input
+    // blocking, so we must check explicitly to prevent the dialog from being
+    // destroyed during page transitions.
+    if (QGuiApplication::modalWindow()) {
+        qCInfo(dccLog) << "ShowPage blocked: modal dialog is active";
         return;
     }
     qCInfo(dccLog) << "ShowPage:" << obj << " have cmd:" << !cmd.isEmpty();
