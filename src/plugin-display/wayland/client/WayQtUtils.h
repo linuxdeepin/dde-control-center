@@ -18,6 +18,15 @@ namespace Utils {
 struct wl_output *wlOutputFromQScreen(QScreen *screen);
 
 /**
+ * The QScreen whose Qt Wayland platform screen owns @a output, or nullptr
+ * if no current screen backs this wl_output.
+ *
+ * Reverse lookup of wlOutputFromQScreen; used to recover a screen name
+ * from a wl_output object received in a Wayland event.
+ */
+QScreen *qScreenFromWlOutput(struct wl_output *output);
+
+/**
  * Whether @a output still backs one of the screens Qt currently knows about.
  *
  * A wl_output proxy stays valid for the client after the compositor removed the
