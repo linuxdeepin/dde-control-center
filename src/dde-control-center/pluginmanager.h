@@ -7,6 +7,7 @@
 
 #include <QObject>
 #include <QQmlContext>
+#include <QQueue>
 #include <QStringList>
 #include <QVector>
 
@@ -60,6 +61,7 @@ private Q_SLOTS:
 private:
     void checkNavigationFinished();
     void checkLoadFinished();
+    void startNextAsync();
 
     DccManager *m_manager;
     QList<DccPluginLoader *> m_plugins; // cache for other plugin
@@ -71,6 +73,9 @@ private:
     DccLoadTimer m_loadTimer;
     bool m_navigationFinished = false;
     bool m_allLoadFinished = false;
+    // Serial async-loading queue (module / main QML via DccPluginLoader)
+    QQueue<DccPluginLoader *> m_asyncQueue;
+    bool m_asyncBusy = false;
 };
 
 } // namespace dccV25
