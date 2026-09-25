@@ -55,8 +55,8 @@ DccObject {
 
                 property real leftTextWidth: 10
                 property real rightTextWidth: 10
-                property real dynamicLeftMargin: Math.max(10, leftTextWidth / 2)
-                property real dynamicRightMargin: Math.max(10, rightTextWidth / 2)
+                property real dynamicLeftMargin: Math.max(16, leftTextWidth / 2 + 5)
+                property real dynamicRightMargin: Math.max(16, rightTextWidth / 2 + 5)
 
                 Layout.preferredHeight: 90
                 Layout.alignment: Qt.AlignCenter
@@ -167,8 +167,8 @@ DccObject {
                             // 动态计算左右边距
                             property real leftTextWidth: 0
                             property real rightTextWidth: 0
-                            property real dynamicLeftMargin: Math.max(10, leftTextWidth / 2 + 5)
-                            property real dynamicRightMargin: Math.max(10, rightTextWidth / 2 + 5)
+                            property real dynamicLeftMargin: Math.max(16, leftTextWidth / 2 + 5)
+                            property real dynamicRightMargin: Math.max(16, rightTextWidth / 2 + 5)
 
                             Layout.preferredHeight: 90
                             Layout.alignment: Qt.AlignCenter
