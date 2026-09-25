@@ -26,6 +26,8 @@ Q_SIGNALS:
     void mouseExistChanged(bool exist);
     void tpadExistChanged(bool exist);
     void tpadEnabledChanged(bool enabled);
+    void systemTouchpadExpandExistChanged(bool exist);
+    void touchpadExpandEnableChanged(bool enabled);
     void redPointExistChanged(bool exist);
     void leftHandStateChanged(bool state);
     void mouseNaturalScrollStateChanged(bool state);
@@ -68,6 +70,7 @@ public Q_SLOTS:
     void setPalmMinWidth(int palmMinWidth);
     void setPalmMinz(int palmMinz);
     void setTouchpadEnabled(bool state);
+    void setTouchpadExpandEnable(bool state);
 
     // appearance
     void setCursorSize(const int cursorSize);
@@ -85,6 +88,7 @@ public Q_SLOTS:
     void onMousePathPropertiesChanged(QDBusMessage msg);
     void onTouchpadPathPropertiesChanged(QDBusMessage msg);
     void onTrackpointPathPropertiesChanged(QDBusMessage msg);
+    void onSystemTouchpadPropertiesChanged(QDBusMessage msg);
     void onInputDevicesPathPropertiesChanged(QDBusMessage msg);
     void onAppearancePropertiesChanged(QDBusMessage msg);
 
@@ -98,6 +102,7 @@ private:
     QDBusInterface *m_dbusDevicesProperties;
     QDBusInterface *m_dbusMouse;
     QDBusInterface *m_dbusTouchPad;
+    QDBusInterface *m_systemTouchpad;
     QDBusInterface *m_dbusTrackPoint;
     QDBusInterface *m_dbusDevices;
     QDBusInterface *m_dbusGesture;
