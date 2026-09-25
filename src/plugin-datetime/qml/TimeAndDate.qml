@@ -472,7 +472,7 @@ DccObject {
                                         Layout.alignment: Qt.AlignVCenter
                                         text: parent.parent.text
                                         font: D.DTK.fontManager.t6
-                                        color: parent.parent.palette.windowText
+                                        color: parent.parent.D.ColorSelector.textColor
                                         elide: Text.ElideRight
                                         horizontalAlignment: Text.AlignLeft
                                         verticalAlignment: Text.AlignVCenter
@@ -551,7 +551,7 @@ DccObject {
                                         Layout.alignment: Qt.AlignVCenter
                                         text: parent.parent.text
                                         font: D.DTK.fontManager.t6
-                                        color: parent.parent.palette.windowText
+                                        color: parent.parent.D.ColorSelector.textColor
                                         elide: Text.ElideRight
                                         horizontalAlignment: Text.AlignLeft
                                         verticalAlignment: Text.AlignVCenter
