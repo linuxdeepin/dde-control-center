@@ -90,8 +90,8 @@ Rectangle {
                 DelegateChoice {
                     roleValue: DccObject.Editor
                     delegate: DccEditorItem {
-                        topInset: control.isGroup ? 0 : 3
-                        bottomInset: control.isGroup ? 0 : 3
+                        topInset: (control.isGroup || model.item.description.length !== 0) ? 0 : 3
+                        bottomInset: (control.isGroup || model.item.description.length !== 0) ? 0 : 3
                         separatorVisible: control.isGroup
                         backgroundType:model.item.backgroundType | (control.isGroup ? 1 : 0)
                         Layout.fillWidth: true
@@ -114,8 +114,8 @@ Rectangle {
                 DelegateChoice {
                     roleValue: DccObject.MenuEditor
                     delegate: DccMenuEditorItem {
-                        topInset: control.isGroup ? 0 : 3
-                        bottomInset: control.isGroup ? 0 : 3
+                        topInset: (control.isGroup || model.item.description.length !== 0) ? 0 : 3
+                        bottomInset: (control.isGroup || model.item.description.length !== 0) ? 0 : 3
                         separatorVisible: control.isGroup
                         backgroundType: model.item.backgroundType | DccObject.ClickStyle
                         Layout.fillWidth: true
