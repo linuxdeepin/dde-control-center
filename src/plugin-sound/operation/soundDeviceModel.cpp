@@ -54,6 +54,14 @@ int SoundDeviceModel::getCurrentIndex() const
         }
     }
 
+    // 当前 active 端口被禁用但后端尚未完成切换时，保持显示当前 active 端口，
+    // 避免 UI 静默回退到错误的端口（如 HDMI）
+    for (int index = 0; index< m_ports.count(); index++) {
+        if (m_ports.at(index)->isActive() && !m_ports.at(index)->isEnabled()) {
+            return index;
+        }
+    }
+
     for (int index = 0; index< m_ports.count(); index++) {
         if (m_ports.at(index)->isEnabled()) {
             return index;
