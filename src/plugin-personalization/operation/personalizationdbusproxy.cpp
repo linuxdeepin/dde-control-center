@@ -10,6 +10,7 @@
 #include <QDBusUnixFileDescriptor>
 #include <QFile>
 #include <QFileInfo>
+#include <QImageReader>
 
 DCORE_USE_NAMESPACE
 
@@ -285,6 +286,11 @@ QString PersonalizationDBusProxy::saveCustomWallpaper(const QString &userName, c
 {
     QFileInfo wallpaperInfo(url);
     if (!wallpaperInfo.isFile() || !wallpaperInfo.isReadable()) {
+        return "";
+    }
+
+    QImageReader reader(url);
+    if (!reader.canRead()) {
         return "";
     }
 

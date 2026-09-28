@@ -43,7 +43,7 @@ public Q_SLOTS:
 
     // 设置给Appearance分别在深色和浅色下的活动色
     void setActiveColors(const QString &activeColors);
-    void addCustomWallpaper(const QString &url);
+    QString addCustomWallpaper(const QString &url, bool autoSet = true);
     void addSolidWallpaper(const QColor &color);
     void deleteWallpaper(const QString &str);
     void setScreenSaver(const QString &value);
