@@ -450,6 +450,7 @@ DccObject {
                         delegateModel: DelegateModel {
                             model: systemTimezoneItem.model
                             delegate: D.MenuItem {
+                                id: timezoneMenuItem
                                 useIndicatorPadding: true
                                 width: timezoneWindow.viewWidth
                                 text: model.display
@@ -472,7 +473,7 @@ DccObject {
                                         Layout.alignment: Qt.AlignVCenter
                                         text: parent.parent.text
                                         font: D.DTK.fontManager.t6
-                                        color: parent.parent.palette.windowText
+                                        color: timezoneMenuItem.D.DciIcon.palette.foreground
                                         elide: Text.ElideRight
                                         horizontalAlignment: Text.AlignLeft
                                         verticalAlignment: Text.AlignVCenter
@@ -532,6 +533,7 @@ DccObject {
                         delegateModel: DelegateModel {
                             model: dccData.zoneSearchModel()
                             delegate: D.MenuItem {
+                                id: timezoneListMenuItem
                                 useIndicatorPadding: true
                                 width: timezoneListWindow.viewWidth
                                 text: model.display
@@ -551,7 +553,7 @@ DccObject {
                                         Layout.alignment: Qt.AlignVCenter
                                         text: parent.parent.text
                                         font: D.DTK.fontManager.t6
-                                        color: parent.parent.palette.windowText
+                                        color: timezoneListMenuItem.D.DciIcon.palette.foreground
                                         elide: Text.ElideRight
                                         horizontalAlignment: Text.AlignLeft
                                         verticalAlignment: Text.AlignVCenter
