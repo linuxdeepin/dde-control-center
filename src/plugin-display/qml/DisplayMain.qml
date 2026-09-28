@@ -564,7 +564,10 @@ DccObject {
             onTriggered: {
                 // Check if parentItem is still valid and visible before creating dialog
                 if (targetScreen && parentItem && parentItem.visible) {
-                    var dialog = timeoutDialog.createObject(parentItem, {
+                    // 以常驻的主窗口作为 QObject 父对象，避免切换到其它页面视图被销毁，从而
+                    // 连带销毁该确认弹窗。弹窗需保持显示
+                    var dialogParent = DccApp.mainWindow() || parentItem
+                    var dialog = timeoutDialog.createObject(dialogParent, {
                         "screen": targetScreen
                     })
                     dialog.show()
