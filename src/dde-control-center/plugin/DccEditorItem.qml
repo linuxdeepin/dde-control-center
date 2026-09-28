@@ -19,6 +19,7 @@ D.ItemDelegate {
     property real rightItemBottomMargin: 5
 
     implicitHeight: Math.max(model.item.description.length !== 0 ? 48 : 40, implicitContentHeight) + topInset + bottomInset
+    Layout.minimumHeight: (model.item.description.length !== 0 ? 48 : 40) + topInset + bottomInset
     backgroundVisible: false
     checkable: false
     topPadding: topInset
