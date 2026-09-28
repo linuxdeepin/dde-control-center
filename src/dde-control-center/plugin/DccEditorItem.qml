@@ -68,13 +68,13 @@ D.ItemDelegate {
             mirrored: control.mirrored
             display: control.display
             alignment: control.display === D.IconLabel.IconOnly || control.display === D.IconLabel.TextUnderIcon ? Qt.AlignCenter : Qt.AlignLeft | Qt.AlignVCenter
-            color: control.palette.windowText
+            color: control.D.DciIcon.palette.foreground
             icon {
                 name: control.icon.name
                 source: control.icon.source
                 width: control.icon.width
                 height: control.icon.height
-                palette: D.DTK.makeIconPalette(control.palette)
+                palette: control.D.DciIcon.palette
                 theme: control.D.ColorSelector.controlTheme
             }
         }
