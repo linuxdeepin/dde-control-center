@@ -392,6 +392,10 @@ void DccManager::toBack()
         QString url = m_navModel->data(m_navModel->index(row, 0), NavigationModel::NavUrlRole).toString();
         if (!url.isEmpty()) {
             showPage(url);
+        } else if (m_currentObjects.size() >= 2) {
+            showPage(m_currentObjects[m_currentObjects.size() - 2]);
+        } else {
+            showPage(m_root);
         }
     }
 }
@@ -537,6 +541,19 @@ void DccManager::onDccObjectDestroyed(DccObject *obj)
     it->removeOne(obj);
     if (it->isEmpty()) {
         m_objMap.erase(it);
+    }
+
+    auto triggerIt = std::find(m_triggeredObjects.begin(), m_triggeredObjects.end(), obj);
+    if (triggerIt != m_triggeredObjects.end()) {
+        m_triggeredObjects.erase(triggerIt, m_triggeredObjects.end());
+    }
+    DccObject *parentObj = m_root;
+    for (auto &&o : m_currentObjects) {
+        if (o == obj) {
+            doShowPage(QPointer<DccObject>(parentObj), QString());
+            break;
+        }
+        parentObj = o;
     }
 }
 
@@ -953,6 +970,10 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
         obj = it == objs.cend() ? nullptr : *it;
         if (obj) {
             showPage(obj, cmd);
+        } else if (m_currentObjects.size() >= 2) {
+            showPage(m_currentObjects[m_currentObjects.size() - 2]);
+        } else {
+            showPage(m_root);
         }
     }
 
