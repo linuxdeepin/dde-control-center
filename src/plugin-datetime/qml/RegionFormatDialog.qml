@@ -91,6 +91,7 @@ Loader {
 
                         D.ListView {
                             id: itemsView
+                            Accessible.id: "RegionFormatDialog_ListView"
                             property string checkedLang
                             property string checkedLocale
                             property string selectedLangKey: ""
@@ -99,7 +100,9 @@ Loader {
                             model: regionFormatLoader.viewModel
                             currentIndex: regionFormatLoader.currentIndex
                             clip: true
-                            ScrollBar.vertical: ScrollBar { }
+                            ScrollBar.vertical: ScrollBar {
+                                Accessible.id: "RegionFormatDialog_ScrollBar"
+                            }
 
                             layer.enabled: true
                             layer.effect: MultiEffect {
@@ -129,6 +132,7 @@ Loader {
 
                             delegate: D.CheckDelegate {
                                 id: checkDelegate
+                                Accessible.id: "RegionFormatDialog_CheckDelegate_" + index
                                 implicitWidth: itemsView.width
                                 text: model.display
                                 font: D.DTK.fontManager.t6
@@ -228,6 +232,7 @@ Loader {
 
                         ItemDelegate {
                             id: root
+                            Accessible.id: "RegionFormatDialog_ItemDelegate_" + index
                             Layout.fillWidth: true
                             backgroundVisible: true
                             checkable: false
@@ -279,6 +284,7 @@ Loader {
                 Layout.bottomMargin: 6
                 spacing: 10
                 D.Button {
+                    Accessible.id: "RegionFormatDialog_Button"
                     font: D.DTK.fontManager.t6
                     text: qsTr("Cancel")
                     onClicked: {
@@ -286,6 +292,7 @@ Loader {
                     }
                 }
                 D.Button {
+                    Accessible.id: "RegionFormatDialog_Button_2"
                     text: qsTr("Save")
                     font: D.DTK.fontManager.t6
                     enabled: itemsView.checkedLang.length > 0

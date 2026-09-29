@@ -55,6 +55,7 @@ DccObject {
         icon: "system_sound"
         weight: 40
         page: DccRightView {
+            accessibleId: "SoundMain_RightView"
             isGroup: true
         }
         SoundEffectsPage {}

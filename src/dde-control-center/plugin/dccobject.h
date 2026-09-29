@@ -44,6 +44,11 @@ public:
     Q_PROPERTY(QQmlComponent* page READ page WRITE setPage NOTIFY pageChanged)
     Q_PROPERTY(QQuickItem* parentItem READ parentItem WRITE setParentItem NOTIFY parentItemChanged)
 
+    // AT-SPI 自动化测试定位锚点。DccObject 不是 QQuickItem，无法直接挂载
+    // Accessible 附加属性；该值由内置 delegate（DccItem/DccEditorItem 等）
+    // 通过绑定表达式消费：Accessible.id: model.item.accessibleId。
+    Q_PROPERTY(QString accessibleId READ accessibleId WRITE setAccessibleId NOTIFY accessibleIdChanged)
+
     Q_PROPERTY(QQmlListProperty<QObject> data READ data DESIGNABLE false)
     Q_CLASSINFO("DefaultProperty", "data")
 
@@ -119,6 +124,9 @@ public:
     QQmlComponent *page() const;
     void setPage(QQmlComponent *page);
 
+    QString accessibleId() const;
+    void setAccessibleId(const QString &accessibleId);
+
     QQmlListProperty<QObject> data();
     const QVector<DccObject *> &getChildren() const;
 
@@ -167,6 +175,7 @@ Q_SIGNALS:
     void pageTypeChanged(quint8 type);
     void pageChanged(QQmlComponent *page);
     void parentItemChanged(QQuickItem *item);
+    void accessibleIdChanged(const QString &accessibleId);
 
     void addObject(DccObject *obj);
     void removeObject(DccObject *obj);

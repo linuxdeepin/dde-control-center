@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -75,12 +75,14 @@ D.DialogWindow {
             text: qsTr("Customize repetition time")
         }
         ListView {
+            Accessible.id: "ScheduledShutdownDialog_ListView"
             Layout.fillWidth: true
             height: contentHeight
             clip: true
             model: selectDayDialog.dayModel
             spacing: 2
             delegate: D.ItemDelegate {
+                Accessible.id: "ScheduledShutdownDialog_ItemDelegate_" + index
                 width: ListView.view.width
                 leftPadding: 10
                 rightPadding: 10
@@ -91,6 +93,7 @@ D.DialogWindow {
                 text: selectDayDialog.dateStr[modelData - 1]
                 onClicked: handleSelected(modelData)
                 content: DccCheckIcon {
+                    accessibleId: "ShutdownDayCheck_" + modelData
                     checked: selectDayDialog.selectedDays.indexOf(modelData) !== -1
                     onClicked: handleSelected(modelData)
                 }
@@ -115,6 +118,7 @@ D.DialogWindow {
             Layout.alignment: Qt.AlignHCenter
             spacing: 10
             D.Button {
+                Accessible.id: "ScheduledShutdownDialog_Button"
                 text: qsTr("Cancel")
                 onClicked: {
                     selectDayDialog.close()
@@ -123,6 +127,7 @@ D.DialogWindow {
                 }
             }
             D.Button {
+                Accessible.id: "ScheduledShutdownDialog_Button_2"
                 text: qsTr("Save")
                 enabled: selectDayDialog.selectedDays.length > 0
                 onClicked: {

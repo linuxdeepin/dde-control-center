@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.15
@@ -12,6 +12,7 @@ D.ItemDelegate {
     property alias backgroundType: background.backgroundType
     property var item: model.item
 
+    Accessible.id: model.item.accessibleId
     backgroundVisible: backgroundType & 0x01
     enabled: model.item.enabledToApp
     hoverEnabled: true

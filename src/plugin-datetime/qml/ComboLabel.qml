@@ -55,6 +55,7 @@ Item {
         
         ComboBox {
             id: comboBox
+            Accessible.id: "ComboLabel_ComboBox"
             visible: item.comboModel.length > 1
             flat: true
             Layout.fillWidth: true

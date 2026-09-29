@@ -68,6 +68,7 @@ D.DialogWindow {
         }
 
         CheckBox {
+            Accessible.id: "TimezoneDialog_CheckBox"
             text: qsTr("Determine the time zone based on the current location")
             Layout.alignment: Qt.AlignCenter
             visible: false
@@ -89,6 +90,7 @@ D.DialogWindow {
                         id: arrowListView
                         D.ItemDelegate {
                             id: item
+                            Accessible.id: "TimezoneDialog_ItemDelegate_" + index
                             implicitWidth: 120
                             implicitHeight: 30
                             text: modelData
@@ -196,6 +198,7 @@ D.DialogWindow {
             Layout.alignment: Qt.AlignCenter | Qt.AlignBottom
             spacing: 10
             Button {
+                Accessible.id: "TimezoneDialog_Button"
                 Layout.bottomMargin: 10
                 text: qsTr("Cancel")
                 onClicked: {
