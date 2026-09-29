@@ -48,6 +48,7 @@ ColumnLayout {
         Layout.bottomMargin: 10
         
         Button {
+            Accessible.id: "DisclaimerControl_Button"
             Layout.fillWidth: true
             text: qsTr("Cancel")
             onClicked: {

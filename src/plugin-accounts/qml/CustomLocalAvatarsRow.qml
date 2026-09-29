@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -51,6 +51,7 @@ Item {
             model: row.icons
             delegate: D.ItemDelegate {
                 id: delegate
+                Accessible.id: "CustomLocalAvatarsRow_ItemDelegate_" + index
                 property bool isAddButton: modelData == "add"
                 property string modelPathNoQuery: (modelData || "").toString().replace("file://", "")
                 property string currentNoQuery: (root.currentAvatar || "").toString().replace("file://", "")
@@ -82,6 +83,7 @@ Item {
                         implicitWidth: 72
                         Button {
                             id: control
+                            Accessible.id: "CustomLocalAvatarsRow_Button"
                             width: 60
                             height: 60
                             padding: 0

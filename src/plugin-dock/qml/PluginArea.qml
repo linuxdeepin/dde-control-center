@@ -22,6 +22,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "DockPluginAreaTitle"
         name: "pluginAreaTitle"
         weight: 10
         parentName: "personalization/dock/pluginArea"
@@ -68,6 +69,7 @@ DccObject {
                 displayName: model.displayName
                 pageType: DccObject.Editor
                 page: DccCheckIcon {
+                    accessibleId: "DockPluginCheck_" + model.key
                     checked: model.visible
                     onClicked: {
                         dccData.dockInter.setItemOnDock(model.settingKey, model.key, !checked)

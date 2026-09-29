@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Window 2.15
@@ -42,6 +42,7 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PersonalizationRoundedEffect"
             name: "roundedEffect"
             parentName: "personalization/windowEffect/windowSettingsGroup"
             displayName: qsTr("Window rounded corners")
@@ -118,6 +119,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "PersonalizationEnableTransparentWhenMoveWindow"
             name: "enableTransparentWhenMoveWindow"
             parentName: "personalization/windowEffect/windowSettingsGroup"
             displayName: qsTr("Enable transparent effects when moving windows")
@@ -127,6 +129,7 @@ DccObject {
             weight: 2
             pageType: DccObject.Editor
             page: D.Switch {
+                Accessible.id: "WindowEffectPage_Switch"
                 checked: dccData.model.isMoveWindow
                 onCheckedChanged: {
                     dccData.worker.setMovedWindowOpacity(checked)
@@ -135,6 +138,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "PersonalizationMinimizeEffect"
             id: minimizeEffectObject
             property var supportEffects: dccData.model.supportEffects
             name: "minimizeEffect"
@@ -146,6 +150,7 @@ DccObject {
             weight: 3
             pageType: DccObject.Editor
             page: CustomComboBox {
+                accessibleId: "PersonalizationMinimizeEffectBox"
                 flat: true
                 currentIndex: dccData.model.miniEffect
                 textRole: "text"
@@ -163,6 +168,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "PersonalizationComputerSuspendsAfter"
         name: "computerSuspendsAfter"
         parentName: "personalization/windowEffect"
         displayName: qsTr("Opacity")
@@ -214,6 +220,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "PersonalizationTitleBarHeight"
         name: "titleBarHeight"
         parentName: "personalization/windowEffect"
         displayName: qsTr("Title Bar Height")
@@ -222,6 +229,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.ComboBox {
+            Accessible.id: "WindowEffectPage_ComboBox"
             flat: true
             currentIndex: indexOfValue(dccData.model.titleBarHeight)
             model: [
@@ -264,6 +272,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "PersonalizationScrollBar"
         id: scrollBarObject
         name: "scrollBar"
         property bool hasDBusProperty: false
@@ -274,6 +283,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.ComboBox {
+            Accessible.id: "WindowEffectPage_ComboBox_2"
             flat: true
             enabled: dccData.model.scrollBarPolicyConfig !== "Disabled"
             model: [qsTr("Show on scrolling"), qsTr("Keep shown")]
@@ -297,6 +307,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "PersonalizationCompact"
         name: "compact"
         parentName: "personalization/windowEffect"
         displayName: qsTr("Compact Display")
@@ -306,6 +317,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.Switch {
+            Accessible.id: "WindowEffectPage_Switch_2"
             enabled: dccData.model.compactDisplayConfig !== "Disabled"
             checked: dccData.model.compactDisplay
             onCheckedChanged: {

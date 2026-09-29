@@ -101,6 +101,7 @@ FocusScope {
         // ListView放在前面（底层），处理鼠标拖拽翻页
         ListView {
             id: listview
+            Accessible.id: "ThemeSelectView_ListView"
             anchors.fill: parent
 
             // 启用交互性以支持鼠标拖拽翻页

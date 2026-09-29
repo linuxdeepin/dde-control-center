@@ -29,6 +29,7 @@ Rectangle {
             id: repeater
             delegate: D.ItemDelegate {
                 id: itemCtl
+                Accessible.id: "GestureGroup_ItemDelegate_" + index
                 Layout.fillWidth: true
                 leftPadding: 10
                 rightPadding: 10
@@ -51,6 +52,7 @@ Rectangle {
                 property int delegateIndex: index  // Save delegate's index to avoid being overridden by ComboBox's index parameter
                 content: D.ComboBox {
                     id: combo
+                    Accessible.id: "GestureGroup_ComboBox_" + index
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                     model: comboMoel
                     textRole: "actionText"
@@ -60,6 +62,7 @@ Rectangle {
                     flat: true
                     delegate: D.MenuItem {
                         id: actionItem
+                        Accessible.id: "GestureGroup_MenuItem_" + itemCtl.delegateIndex + "_" + index
                         useIndicatorPadding: true
                         width: combo.width
                         text: modelData.actionText

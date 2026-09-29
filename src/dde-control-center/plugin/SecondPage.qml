@@ -74,6 +74,7 @@ Item {
         }
         ListView {
             id: list
+            Accessible.id: "SecondPageModuleList"
             visible: true
             anchors.top: searchEdit.bottom
             anchors.bottom: parent.bottom
@@ -101,7 +102,9 @@ Item {
                 }
             }
 
-            ScrollBar.vertical: ScrollBar { }
+            ScrollBar.vertical: ScrollBar {
+                Accessible.id: "SecondPageModuleListScrollBar"
+            }
 
             Keys.enabled: true
             Keys.onPressed: function (event) {
@@ -162,6 +165,7 @@ Item {
                 font: D.DTK.fontManager.t6
                 activeFocusOnTab: false
                 focusPolicy: Qt.ClickFocus
+                Accessible.id: model.item.accessibleId || ("SecondPageModuleList_" + model.item.name)
 
                 property bool isKeyboardNavigating: false
 

@@ -27,6 +27,7 @@ D.DialogWindow {
     }
 
     D.ListView {
+        Accessible.id: "AddIrisDialog_ListView"
         id: listview
         implicitWidth: dialog.width - dialog.leftPadding - dialog.rightPadding
         implicitHeight: 500 - DS.Style.dialogWindow.titleBarHeight - DS.Style.dialogWindow.contentHMargin
@@ -82,10 +83,12 @@ D.DialogWindow {
 
                     CheckBox {
                         id: agreeCheckbox
+                        Accessible.id: "AddIrisDialog_CheckBox"
                         text: qsTr("I have read and agree to the")
                     }
 
                     D.ToolButton {
+                        Accessible.id: "AddIrisDialog_ToolButton"
                         text: qsTr("Disclaimer")
                         padding: 0
                         background: null
@@ -240,6 +243,7 @@ D.DialogWindow {
                     Layout.rightMargin: 0
 
                     Button {
+                        Accessible.id: "AddIrisDialog_Button"
                         Layout.fillWidth: true
                         text: qsTr("Done")
                         onClicked: {
@@ -259,6 +263,7 @@ D.DialogWindow {
                     Layout.rightMargin: 0
 
                     Button {
+                        Accessible.id: "AddIrisDialog_Button_2"
                         Layout.fillWidth: true
                         text: qsTr("Cancel")
                         onClicked: {

@@ -6,6 +6,8 @@ import org.deepin.dtk 1.0 as D
 
 SpinBox {
     id: sp
+    property string accessibleId: ""
+    Accessible.id: accessibleId !== "" ? accessibleId : "SpinboxEx_SpinBox"
     editable: true
     property string unitText
     implicitWidth: valueMetrics.width + unitMetrics.width + 60

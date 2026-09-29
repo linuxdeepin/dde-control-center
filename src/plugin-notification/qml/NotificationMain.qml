@@ -26,6 +26,7 @@ DccObject {
         pageType: DccObject.Item
         page: DccGroupView {}
         DccObject {
+            accessibleId: "NotificationEnableDoNotDisturbSwitch"
             name: "enableDoNotDisturbSwitch"
             parentName: "enableDoNotDisturb"
             description: qsTr("App notifications will not be shown on desktop and the sounds will be silenced, but you can view all messages in the notification center.")
@@ -33,6 +34,7 @@ DccObject {
             weight: 10
             pageType: DccObject.Editor
             page: D.Switch {
+                Accessible.id: "NotificationMain_Switch"
                 anchors {
                     left: parent.left
                     leftMargin: 10
@@ -46,6 +48,7 @@ DccObject {
             }
         }
         DccObject {
+            accessibleId: "NotificationEnableDoNotDisturbTime"
             name: "enableDoNotDisturbTime"
             parentName: "enableDoNotDisturb"
             displayName: qsTr("Enable Do Not Disturb")
@@ -61,6 +64,7 @@ DccObject {
             }
         }
         DccObject {
+            accessibleId: "NotificationEnableDoNotDisturbLock"
             name: "enableDoNotDisturbLock"
             parentName: "enableDoNotDisturb"
             displayName: qsTr("Enable Do Not Disturb")
@@ -75,6 +79,7 @@ DccObject {
                 }
                 D.CheckBox {
                     id: lockScreenCheckBox
+                    Accessible.id: "NotificationMain_CheckBox"
                     implicitHeight: implicitContentHeight + 30
                     checked: dccData.sysItemModel.lockScreen
                     onCheckedChanged: {
@@ -100,6 +105,7 @@ DccObject {
         }
     }
     DccObject {
+        accessibleId: "NotificationEnableDoNotDisturb"
         name: "enableDoNotDisturb"
         parentName: "notification"
         displayName: qsTr("Number of notifications shown on the desktop")
@@ -107,6 +113,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.ComboBox {
+            Accessible.id: "NotificationMain_ComboBox"
             model: ["1", "2", "3"]
             flat: true
             currentIndex: dccData.sysItemModel.bubbleCount - 1
@@ -119,6 +126,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "NotificationAppNotify"
         id: appNotifyTitle
         name: "appNotify"
         parentName: "notification"
@@ -241,6 +249,7 @@ DccObject {
                 displayName: model.AppName
                 backgroundType: DccObject.Normal
                 page: D.Switch {
+                    Accessible.id: "NotificationMain_Switch_2_" + index
                     checked: model.EnableNotification
                     onCheckedChanged: {
                         if (model.EnableNotification !== checked) {
@@ -249,9 +258,11 @@ DccObject {
                     }
                 }
                 DccObject {
+                    accessibleId: "NotificationNotificationItemDetails"
                     name: "notificationItemDetails"
                     parentName: "notification/list/" + model.AppId
                     DccObject {
+                        accessibleId: "NotificationAllowNotifications"
                         backgroundType: DccObject.Normal
                         name: "allowNotifications"
                         parentName: "notification/list/" + model.AppId + "/notificationItemDetails"
@@ -261,6 +272,7 @@ DccObject {
                         weight: 10
                         pageType: DccObject.Editor
                         page: D.Switch {
+                            Accessible.id: "NotificationMain_Switch_3_" + index
                             Layout.rightMargin: 10
                             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                             checked: model.EnableNotification
@@ -272,6 +284,7 @@ DccObject {
                         }
                     }
                     DccObject {
+                        accessibleId: "NotificationNotificationItemDetailsType"
                         name: "notificationItemDetailsType"
                         parentName: "notification/list/" + model.AppId + "/notificationItemDetails"
                         backgroundType: DccObject.Normal
@@ -286,6 +299,7 @@ DccObject {
                                 width: parent.width
                                 anchors.centerIn: parent
                                 ImageCheckBox {
+                                    accessibleId: "NotificationMain_DesktopCheck"
                                     Layout.alignment: Qt.AlignCenter
                                     text: qsTr("Desktop")
                                     imageName: "notify_desktop"
@@ -297,6 +311,7 @@ DccObject {
                                     }
                                 }
                                 ImageCheckBox {
+                                    accessibleId: "NotificationMain_LockScreenCheck"
                                     Layout.alignment: Qt.AlignCenter
                                     text: qsTr("Lock Screen")
                                     imageName: "notify_lock"
@@ -309,6 +324,7 @@ DccObject {
                                     }
                                 }
                                 ImageCheckBox {
+                                    accessibleId: "NotificationMain_CenterCheck"
                                     Layout.alignment: Qt.AlignCenter
                                     text: qsTr("Notification Center")
                                     imageName: "notify_center"
@@ -331,6 +347,7 @@ DccObject {
                         weight: 30
                         page: DccGroupView {}
                         DccObject {
+                            accessibleId: "NotificationNotificationPreview"
                             name: "notificationPreview"
                             parentName: "notification/list/" + model.AppId + "/notificationItemDetails/notificationSettingsGroup"
                             displayName: qsTr("Show message preview")
@@ -338,6 +355,7 @@ DccObject {
                             weight: 10
                             page: RowLayout {
                                 D.CheckBox {
+                                    Accessible.id: "NotificationMain_CheckBox_2_" + index
                                     implicitHeight: 40
                                     Layout.leftMargin: 14
                                     text: dccObj.displayName
@@ -351,6 +369,7 @@ DccObject {
                             }
                         }
                         DccObject {
+                            accessibleId: "NotificationNotificationSound"
                             name: "notificationSound"
                             parentName: "notification/list/" + model.AppId + "/notificationItemDetails/notificationSettingsGroup"
                             displayName: qsTr("Play a sound")
@@ -358,6 +377,7 @@ DccObject {
                             weight: 20
                             page: RowLayout {
                                 D.CheckBox {
+                                    Accessible.id: "NotificationMain_CheckBox_3_" + index
                                     implicitHeight: 40
                                     Layout.leftMargin: 14
                                     text: dccObj.displayName

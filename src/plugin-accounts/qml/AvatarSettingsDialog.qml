@@ -175,6 +175,7 @@ D.DialogWindow {
 
             D.ListView {
                 id: leftView
+                Accessible.id: "AvatarSettingsDialog_ListView"
                 clip: true
                 implicitHeight: 400
                 implicitWidth: parent.width
@@ -182,6 +183,7 @@ D.DialogWindow {
                 model: listModel
                 delegate: D.ItemDelegate {
                     id: itemDelegate
+                    Accessible.id: "AvatarSettingsDialog_ItemDelegate_" + index
                     text: qsTr(model.name)
                     font: D.DTK.fontManager.t6
                     hoverEnabled: true
@@ -310,6 +312,7 @@ D.DialogWindow {
                 contentWidth: width
 
                 ScrollBar.vertical: ScrollBar {
+                    Accessible.id: "AvatarSettingsDialog_ScrollBar"
                     parent: scrollView
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
@@ -472,6 +475,7 @@ D.DialogWindow {
                 Layout.rightMargin: 59
 
                 Button {
+                    Accessible.id: "AvatarSettingsDialog_Button"
                     Layout.fillWidth: true
                     text: qsTr("Cancel")
                     onClicked: {

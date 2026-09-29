@@ -65,6 +65,7 @@ Loader {
 
                 ListView {
                     id: itemsView
+                    Accessible.id: "LangsChooserDialog_ListView"
                     property string checkedLang
                     anchors.fill: parent
                     clip: true
@@ -78,6 +79,7 @@ Loader {
 
                         delegate: CheckDelegate {
                             id: checkDelegate
+                            Accessible.id: "LangsChooserDialog_CheckDelegate_" + index
                             implicitWidth: itemsView.width
                             implicitHeight: Math.max(30, checkDelegateFontMetrics.height + (DS.Style.control.padding - DS.Style.control.borderWidth) * 2) // Minimum 30px, adaptive based on font
                             text: model.display
@@ -191,6 +193,7 @@ Loader {
 
                 ScrollBar {
                     id: scrollBar
+                    Accessible.id: "LangsChooserDialog_ScrollBar"
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
                     anchors.right: parent.right
@@ -205,6 +208,7 @@ Loader {
                 spacing: 6
                 Button {
                     id: cancelButton
+                    Accessible.id: "LangsChooserDialog_Button"
                     Layout.fillWidth: true
                     Layout.bottomMargin: 6
                     font: DTK.fontManager.t6
@@ -221,6 +225,7 @@ Loader {
                 }
                 Button {
                     id: addButton
+                    Accessible.id: "LangsChooserDialog_Button_2"
                     Layout.fillWidth: true
                     Layout.bottomMargin: 6
                     font: DTK.fontManager.t6

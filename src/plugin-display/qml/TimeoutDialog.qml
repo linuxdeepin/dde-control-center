@@ -67,6 +67,7 @@ D.DialogWindow {
             }
 
             D.Button {
+                Accessible.id: "TimeoutDialog_Button"
                 Layout.fillWidth: true
                 text: qsTr("Save")
                 onClicked: {
