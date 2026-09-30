@@ -44,6 +44,7 @@ set(Personalization_Libraries
     ${QT_NS}::WaylandClientPrivate
     ${QT_NS}::Concurrent
     dcc-wallpaper-utils
+    dcc-shared-utils
 )
 
 target_include_directories(${LIB_NAME} PUBLIC

@@ -20,6 +20,8 @@ set(DCC_SHARED_UTILS_SOURCES
     "dcclocale.cpp"
     "dccdsappletmanager.h"
     "dccdsappletmanager.cpp"
+    "wallpapersync.h"
+    "wallpapersync.cpp"
 )
 
 target_sources(dcc-shared-utils PRIVATE
