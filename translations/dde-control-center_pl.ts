@@ -1462,7 +1462,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Go to web settings</source>
-        <translation>Przejdź do ustawień w internecie</translation>
+        <translation>Przejdź do ustawień online</translation>
     </message>
     <message>
         <source>The nickname must be 1~32 characters long</source>
