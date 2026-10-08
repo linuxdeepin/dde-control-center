@@ -48,6 +48,12 @@ Popup {
         viewModel.setFilterWildcard("")
     }
 
+    onOpened: {
+        if (control.currentIndex >= 0) {
+            itemsView.view.positionViewAtIndex(control.currentIndex, ListView.Contain)
+        }
+    }
+
     property int calculatedWidth: 200
 
     TextMetrics {
@@ -145,12 +151,6 @@ Popup {
                     }
                 }
 
-                Component.onCompleted: {
-                    if (currentIndex >= 0) {
-                        let delegateHeight = 30
-                        view.contentY = currentIndex * delegateHeight
-                    }
-                }
             }
 
             ScrollBar {
