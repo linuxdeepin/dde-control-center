@@ -40,6 +40,9 @@ double ConvertLongitudeToX(double longitude) {
 ZoneInfoList GetNearestZones(const ZoneInfoList& total_zones, double threshold,
                              int x, int y, int map_width, int map_height) {
   ZoneInfoList zones;
+  if (total_zones.isEmpty()) {
+    return zones;
+  }
   double minimum_distance = map_width * map_width + map_height * map_height;
   int nearest_zone_index = -1;
   for (int index = 0; index < total_zones.length(); index++) {
