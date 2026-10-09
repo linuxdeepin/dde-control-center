@@ -256,7 +256,6 @@ Popup {
                     Component.onCompleted: {
                         control.view = listView
                         control.viewWidth = listView.width
-                        control.scrollToHighlighted()
                         forceActiveFocus()
                     }
 
