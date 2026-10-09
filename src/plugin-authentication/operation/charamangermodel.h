@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -39,7 +39,9 @@ public:
         STATUS_FACE_COVERD,  // 遮挡
         STATUS_CANCELED, // 取消
         STATUS_OVERTIME, // 超时
-        STATUS_COLLAPSE // 崩溃
+        STATUS_COLLAPSE, // 崩溃
+        // 15 与 deepin-authentication/deepin-face 约定一致（13/14 为服务内部断开状态码）
+        STATUS_CAMERA_NOT_ENABLED = 15 // 摄像头未开启
     };
 
     /**
