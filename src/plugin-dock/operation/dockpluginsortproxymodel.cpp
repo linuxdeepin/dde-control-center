@@ -48,7 +48,7 @@ bool DockPluginSortProxyModel::lessThan(const QModelIndex &leftIndex, const QMod
 
     // 数字：自然数字排序
     if (leftGroup == StringGroup::Digit) {
-        QCollator digitCollator(QLocale::c());
+        QCollator digitCollator{QLocale()};
         digitCollator.setNumericMode(true);
         digitCollator.setCaseSensitivity(Qt::CaseInsensitive);
         return digitCollator.compare(left, right) < 0;
