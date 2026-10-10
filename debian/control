@@ -10,16 +10,19 @@ Build-Depends:
  qt6-declarative-dev,
  qt6-tools-dev,
  qt6-declarative-private-dev,
+ qt6-base-private-dev,
  qt6-multimedia-dev,
  libpolkit-qt6-1-dev,
  libdtkcommon-dev,
  libdtk6gui-dev(>=6.0.21),
  libdtk6core-dev,
  libdtk6core-bin,
+ libdtk6widget-dev,
  doxygen,
  libgtest-dev,
  extra-cmake-modules,
  libqt6svg6,
+ qt6-svg-dev,
  deepin-gettext-tools,
  qml6-module-qtquick-layouts,
  qml6-module-qtquick-window,
@@ -28,14 +31,17 @@ Build-Depends:
  qt6-wayland-private-dev,
  qt6-wayland-dev-tools,
  wlr-protocols,
+ wayland-protocols,
  treeland-protocols (>>0.5.8),
  systemd,
  libdareader-dev,
  libdeepin-pw-check-dev,
  libicu-dev,
  libwayland-dev,
+ libxcursor-dev,
  libssl-dev,
  libdde-shell-dev(>= 1.99.20),
+ dde-tray-loader-dev,
  libdpkg-dev,
  libffmpegthumbnailer-dev,
  dde-api-dev (>> 6.0.39)
@@ -56,8 +62,9 @@ Depends:
  dde-daemon (>> 6.1.99),
  dde-services (>> 1.0.39),
  deepin-security-loader,
-Recommends: uos-license-content,
-Conflicts: dde-control-center-dock
+Recommends: dde-tray-loader, uos-license-content,
+Conflicts: dde-control-center-dock, 
+ dde-tray-loader (<< 2.0.41)
 Replaces: dde-control-center-dock
 Description: New control center for Deepin Desktop Environment,
  Integrated control center with rich functions,Besides providing rich
@@ -85,3 +92,10 @@ Architecture: any
 Depends: dde-control-center (= ${binary:Version}), ${misc:Depends}
 Description: dde-control-center (document)
  This package contains the doc files of dde-control-center
+
+Package: dde-wirelesscasting-plugin
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+Recommends: dde-tray-loader,
+Description: deepin desktop-environment - wireless casting plugin for dde-dock
+ wireless casting plugin module

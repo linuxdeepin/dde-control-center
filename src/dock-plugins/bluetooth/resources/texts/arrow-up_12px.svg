@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="12px" height="12px" viewBox="0 0 12 12" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>arrow_up</title>
+    <g id="arrow_up" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.7">
+        <g id="ICON-/-Arrow-/-Ordinary-/-Down-/-Dark" transform="translate(1, 3)" fill="#000000" fill-rule="nonzero">
+            <path d="M6.62598722,-1.77311089 C6.94031165,-2.0756297 7.44993225,-2.0756297 7.76425668,-1.77311089 C8.04365617,-1.50420527 8.07470056,-1.08678718 7.85738984,-0.784878798 L7.76425668,-0.677593339 L3.94195122,3 L7.76425668,6.67759334 C8.04365617,6.94649895 8.07470056,7.36391704 7.85738984,7.66582543 L7.76425668,7.77311089 C7.48485718,8.0420165 7.05114961,8.0718949 6.73745943,7.86274609 L6.62598722,7.77311089 L2.23574332,3.54775877 C1.95634383,3.27885316 1.92529944,2.86143507 2.14261016,2.55952669 L2.23574332,2.45224123 L6.62598722,-1.77311089 Z" id="arrow" transform="translate(5, 3) scale(-1, 1) rotate(90) translate(-5, -3)"></path>
+        </g>
+    </g>
+</svg>

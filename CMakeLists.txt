@@ -251,6 +251,8 @@ if (NOT DISABLE_PRIVACY_PLUGIN)
 endif()
 add_subdirectory(src/plugin-dock)
 
+add_subdirectory(src/dock-plugins)
+
 if(BUILD_EXAMPLES)
     add_subdirectory(examples)
 endif()

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ICON / Action / Redo</title>
+    <g id="桌面版" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" fill-opacity="0.7">
+        <g id="显示-单屏-设置项全" transform="translate(-1625, -1022)" fill="#000000" fill-rule="nonzero">
+            <g id="控制中心备份" transform="translate(891, 72)">
+                <g id="分组-9" transform="translate(198, 60)">
+                    <g id="色温" transform="translate(56, 864)">
+                        <g id="刷新" transform="translate(476, 22)">
+                            <g id="ICON-/-Action-/-Redo" transform="translate(5.25, 5.25)">
+                                <path d="M7,0 C10.7279221,0 13.75,3.02207794 13.75,6.75 C13.75,10.4779221 10.7279221,13.5 7,13.5 C3.35139543,13.5 0.378918592,10.605153 0.254081916,6.98697157 L0.25,6.75 L1.75,6.75 C1.75,9.64949494 4.10050506,12 7,12 C9.89949494,12 12.25,9.64949494 12.25,6.75 C12.25,3.85050506 9.89949494,1.5 7,1.5 C5.33616267,1.5 3.80498452,2.27899825 2.82098053,3.57159166 L5,5.75 L0,5.75 L0,0.75 L1.75278097,2.50339247 C3.01965566,0.938435729 4.93108259,0 7,0 Z" id="形状结合" transform="translate(6.875, 6.75) scale(-1, 1) translate(-6.875, -6.75)"></path>
+                            </g>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

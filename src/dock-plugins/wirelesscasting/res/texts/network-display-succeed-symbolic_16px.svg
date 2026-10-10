@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>network-display-succeed-dark</title>
+    <g id="network-display-succeed-dark" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M15,7 C15.5522847,7 16,7.44771525 16,8 L16,13 C16,13.5522847 15.5522847,14 15,14 L6,14 C5.44771525,14 5,13.5522847 5,13 L5,8 C5,7.44771525 5.44771525,7 6,7 L15,7 Z M10,2 C10.5522847,2 11,2.44771525 11,3 L11,6 L10,6 L10,3 L1,3 L1,9 L4,9 L4,10 L1,10 C0.44771525,10 0,9.55228475 0,9 L0,3 C0,2.44771525 0.44771525,2 1,2 L10,2 Z" id="形状" fill="#000000"></path>
+    </g>
+</svg>

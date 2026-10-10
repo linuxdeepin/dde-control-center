@@ -1,0 +1,12 @@
+<RCC>
+    <qresource prefix="/icons/deepin/builtin">
+        <file>texts/open-arrow_16px.svg</file>
+        <file>texts/laptop_16px.svg</file>
+        <file>texts/external-display_16px.svg</file>
+        <file>texts/laptop_24px.svg</file>
+        <file>texts/external-display_24px.svg</file>
+        <file>texts/Brightness-_24px.svg</file>
+        <file>texts/Brightness+_24px.svg</file>
+        <file>texts/display-brightness-control_16px.svg</file>
+    </qresource>
+</RCC>
