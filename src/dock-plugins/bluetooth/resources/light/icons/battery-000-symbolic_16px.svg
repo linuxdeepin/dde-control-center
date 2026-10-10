@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>battery-000-symbolic-dark</title>
+    <g id="battery-000-symbolic-dark" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M13,4 L2,4 C1.44771525,4 1,4.44771525 1,5 L1,11 C1,11.5522847 1.44771525,12 2,12 L13,12 C13.5522847,12 14,11.5522847 14,11 L14,5 C14,4.44771525 13.5522847,4 13,4 Z M15,11 C15,12.1045695 14.1045695,13 13,13 L2,13 C0.8954305,13 0,12.1045695 0,11 L0,5 C0,3.8954305 0.8954305,3 2,3 L13,3 C14.1045695,3 15,3.8954305 15,5 L15,6 L16,6 L16,10 L15,10 L15,11 Z" id="形状" fill="#000000"></path>
+    </g>
+</svg>
