@@ -2342,7 +2342,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>LogoModule</name>
     <message>
-        <source>Copyright© 2011-%1 Deepin Community</source>
+        <source>Copyright© 2011-%1 Deepin Technology</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

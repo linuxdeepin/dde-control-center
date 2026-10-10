@@ -271,7 +271,7 @@ void SystemInfoWork::initSystemCopyright()
     validYear = qMax(buildYear, validYear);
     if (oem_copyright.isEmpty()) {
         if (DSysInfo::productType() != DSysInfo::ProductType::Uos)
-            oem_copyright = QCoreApplication::translate("LogoModule", "Copyright© 2011-%1 Deepin Community")
+            oem_copyright = QCoreApplication::translate("LogoModule", "Copyright© 2011-%1 Deepin Technology")
                     .arg(validYear);
         else
             oem_copyright =  QCoreApplication::translate(
