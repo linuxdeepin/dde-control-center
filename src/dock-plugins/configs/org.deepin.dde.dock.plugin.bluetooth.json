@@ -1,0 +1,17 @@
+{
+    "magic":"dsg.config.meta",
+    "version":"1.0",
+    "contents":{
+        "scanInterval":{
+            "value":5,
+            "serial": 0,
+            "flags":[],
+            "name":"scanInterval",
+            "name[zh_CN]":"扫描间隔（秒）",
+            "description[zh_CN]":"扫描间隔（秒）",
+            "description":"auto scan interval",
+            "permissions":"readwrite",
+            "visibility":"private"
+        }
+    }
+}
