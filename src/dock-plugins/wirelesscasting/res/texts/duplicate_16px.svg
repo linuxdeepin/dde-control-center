@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ICON/快捷面板/多屏显示/复制</title>
+    <g id="ICON/快捷面板/多屏显示/复制" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M14,3 C14.5522847,3 15,3.44771525 15,4 L15,13 L15.5,13 C15.7761424,13 16,13.2238576 16,13.5 C16,13.7761424 15.7761424,14 15.5,14 L0.5,14 C0.223857625,14 3.38176876e-17,13.7761424 0,13.5 C-3.38176876e-17,13.2238576 0.223857625,13 0.5,13 L1,13 L1,4 C1,3.44771525 1.44771525,3 2,3 L14,3 Z M9,8 L2,8 L2,12 L9,12 L9,8 Z M14,4 L2,4 L2,7 L9,7 C9.55228475,7 10,7.44771525 10,8 L10,12 L14,12 L14,4 Z" id="形状结合" fill="#000000" fill-rule="nonzero"></path>
+    </g>
+</svg>

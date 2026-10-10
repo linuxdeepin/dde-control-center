@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/image"/>
+    <qresource prefix="/icons"/>
+    <qresource prefix="/">
+        <file>slider_bg.png</file>
+        <file>slider_handle.svg</file>
+    </qresource>
+    <qresource prefix="/icons/deepin/builtin">
+        <file>texts/audio-volume-high-symbolic_16px.svg</file>
+        <file>texts/audio-volume-low-symbolic_16px.svg</file>
+        <file>texts/audio-volume-medium-symbolic_16px.svg</file>
+        <file>texts/audio-volume-muted-symbolic_16px.svg</file>
+        <file>texts/audio-volume-off-symbolic_16px.svg</file>
+        <file>texts/audio-volume-high-symbolic_24px.svg</file>
+        <file>texts/audio-volume-low-symbolic_24px.svg</file>
+        <file>texts/audio-volume-medium-symbolic_24px.svg</file>
+        <file>texts/audio-volume-muted-symbolic_24px.svg</file>
+        <file>texts/audio-volume-off-symbolic_24px.svg</file>
+        <file>texts/sound_bluetooth_16px.svg</file>
+        <file>texts/sound_hdmi_16px.svg</file>
+        <file>texts/sound_headphone_16px.svg</file>
+        <file>texts/sound_other_16px.svg</file>
+        <file>texts/sound_speaker_16px.svg</file>
+        <file>texts/sound_bluetooth_24px.svg</file>
+        <file>texts/sound_hdmi_24px.svg</file>
+        <file>texts/sound_headphone_24px.svg</file>
+        <file>texts/sound_other_24px.svg</file>
+        <file>texts/sound_speaker_24px.svg</file>
+        <file>texts/open-arrow_16px.svg</file>
+    </qresource>
+</RCC>
