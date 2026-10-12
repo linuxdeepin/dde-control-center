@@ -175,7 +175,6 @@ private:
     QDBusMessage m_showMessage;
     bool m_showPagePending;
     bool m_showLoadPage;
-    bool m_showOnNavigationReady;
     bool m_needShow;
     bool m_windowShown;
     bool m_pageShown;
