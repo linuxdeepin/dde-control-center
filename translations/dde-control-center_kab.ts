@@ -2344,8 +2344,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>LogoModule</name>
     <message>
-        <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation>Copyright© 2011-%1 Asaṣ-Ṣanad Al-Deepin</translation>
+        <source>Copyright© 2011-%1 Deepin Technology</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
