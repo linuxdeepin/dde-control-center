@@ -72,7 +72,6 @@ DccManager::DccManager(QObject *parent)
     , m_showFallbackTimer(nullptr)
     , m_showPagePending(false)
     , m_showLoadPage(!isTreeland())
-    , m_showOnNavigationReady(false)
     , m_needShow(false)
     , m_windowShown(false)
     , m_pageShown(false)
@@ -209,7 +208,7 @@ void DccManager::setPlugins(const QStringList &plugins)
 
 void DccManager::setShowOnNavigationReady(bool enabled)
 {
-    m_showOnNavigationReady = enabled;
+    m_plugins->setShowOnNavigationReady(enabled);
 }
 
 void DccManager::loadModules(bool async, const QStringList &dirs)
@@ -940,11 +939,6 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
         obj = m_root;
         showPage(obj, QString());
     } else {
-        if (!m_plugins->loadFinished()) {
-            startPendingShow(url, message);
-            return;
-        }
-
         const QString path = parseShowPageUrl(url, cmd);
         const auto objs = findObjects(path);
         const auto it = std::find_if(objs.cbegin(), objs.cend(), [this](const DccObject *candidate) {
@@ -953,6 +947,9 @@ void DccManager::waitShowPage(const QString &url, const QDBusMessage message)
         obj = it == objs.cend() ? nullptr : *it;
         if (obj) {
             showPage(obj, cmd);
+        } else if (!m_plugins->loadFinished()) {
+            startPendingShow(url, message);
+            return;
         }
     }
 
@@ -970,13 +967,8 @@ void DccManager::clearShowParam()
 
 void DccManager::handleNavigationReady()
 {
-    if (m_showOnNavigationReady) {
-        if (m_showUrl.isEmpty()) {
-            handleShowReady();
-        }
-        QTimer::singleShot(100, m_plugins, &DccPluginManager::startDataPhase);
-    } else {
-        m_plugins->startDataPhase();
+    if (m_plugins->showOnNavigationReady() && m_showUrl.isEmpty()) {
+        handleShowReady();
     }
 }
 

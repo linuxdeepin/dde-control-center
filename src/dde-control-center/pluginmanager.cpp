@@ -67,6 +67,7 @@ DccPluginManager::DccPluginManager(DccManager *parent)
     , m_rootModule(nullptr)
     , m_threadPool(nullptr)
     , m_isDeleting(false)
+    , m_showOnNavigationReady(false)
 {
     connect(m_manager, &DccManager::hideModuleChanged, this, &DccPluginManager::onHideModuleChanged);
 }
@@ -117,7 +118,6 @@ void DccPluginManager::loadPlugin(DccPluginLoader *loader)
         loader->loadMain();
         loader->transitionStatus(DccPluginLoader::MainObjEnd);
     } else if ((loader->status() & (DccPluginLoader::ModuleEnd | DccPluginLoader::DataBegin)) == DccPluginLoader::ModuleEnd) {
-
         checkNavigationFinished();
     } else if ((loader->status() & (DccPluginLoader::MetaDataEnd | DccPluginLoader::ModuleLoad)) == DccPluginLoader::MetaDataEnd) {
         loader->transitionStatus(DccPluginLoader::ModuleLoad);
@@ -197,6 +197,7 @@ void DccPluginManager::loadModules(DccObject *root, bool async, const QStringLis
 
     m_plugins = loaders;
     m_navigationFinished = false;
+    m_dataPhaseStarted = false;
     m_allLoadFinished = false;
 
     // Start loading all plugins
@@ -208,28 +209,41 @@ void DccPluginManager::loadModules(DccObject *root, bool async, const QStringLis
 
 void DccPluginManager::checkNavigationFinished()
 {
-    if (m_navigationFinished) {
-        return;
-    }
-
+    bool hasReadyPlugin = false;
     for (auto &&loader : m_plugins) {
         const auto status = loader->status();
         if (!(status & (DccPluginLoader::ModuleEnd | DccPluginLoader::PluginEnd))) {
             return;
         }
+        if ((status & (DccPluginLoader::ModuleEnd | DccPluginLoader::DataBegin | DccPluginLoader::PluginEnd)) == DccPluginLoader::ModuleEnd) {
+            hasReadyPlugin = true;
+        }
     }
-
-    m_navigationFinished = true;
-    DccAppTimeline::instance().log(QStringLiteral("navigation-ready"));
-    Q_EMIT navigationReady();
+    if (m_navigationFinished) {
+        if (m_dataPhaseStarted && hasReadyPlugin) {
+            startDataPhase();
+        }
+    } else {
+        m_navigationFinished = true;
+        DccAppTimeline::instance().log(QStringLiteral("navigation-ready"));
+        Q_EMIT navigationReady();
+        if (showOnNavigationReady()) {
+            QTimer::singleShot(100, this, &DccPluginManager::startDataPhase);
+        } else {
+            startDataPhase();
+        }
+    }
 }
 
 void DccPluginManager::startDataPhase()
 {
-    DccAppTimeline::instance().log(QStringLiteral("data-phase-start"));
-    // 预热：在线程池中提前创建 DSAppletManager 单例（构造即完成 dde-apps
-    // applet 初始化），避免首个消费者在插件加载路径上同步承担该开销。
-    threadPool()->start(DSAppletManager::instance);
+    if (!m_dataPhaseStarted) {
+        m_dataPhaseStarted = true;
+        DccAppTimeline::instance().log(QStringLiteral("data-phase-start"));
+        // 预热：在线程池中提前创建 DSAppletManager 单例（构造即完成 dde-apps
+        // applet 初始化），避免首个消费者在插件加载路径上同步承担该开销。
+        threadPool()->start(DSAppletManager::instance);
+    }
     for (auto &&loader : m_plugins) {
         if ((loader->status() & DccPluginLoader::PluginEnd)
             || !(loader->status() & DccPluginLoader::ModuleEnd)
@@ -297,6 +311,11 @@ DccObject *DccPluginManager::rootModule()
 bool DccPluginManager::hidden(const QString &name)
 {
     return m_manager->hideModule().contains(name);
+}
+
+void DccPluginManager::setShowOnNavigationReady(bool enabled)
+{
+    m_showOnNavigationReady = enabled;
 }
 
 void DccPluginManager::onPluginStatusChanged(DccPluginLoader *loader, uint status)
