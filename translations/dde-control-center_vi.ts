@@ -3806,6 +3806,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Quay tự nhiên</translation>
     </message>
     <message>
+        <source>Edge Touch Gestures</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Three-finger gestures</source>
         <translation>Ba ngón tay cử chỉ</translation>
     </message>
