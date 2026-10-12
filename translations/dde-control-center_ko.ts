@@ -3827,6 +3827,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>자연스러운 스크롤링</translation>
     </message>
     <message>
+        <source>Edge Touch Gestures</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Three-finger gestures</source>
         <translation>세 번째 손가락 가esture</translation>
     </message>
