@@ -3822,6 +3822,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>التنقل الطبيعي</translation>
     </message>
     <message>
+        <source>Edge Touch Gestures</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Three-finger gestures</source>
         <translation> USPS3 من الإصبع</translation>
     </message>
