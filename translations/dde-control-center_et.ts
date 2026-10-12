@@ -3804,6 +3804,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation>Tavaline liikumine</translation>
     </message>
     <message>
+        <source>Edge Touch Gestures</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Three-finger gestures</source>
         <translation>Kolm-püha teadet</translation>
     </message>
