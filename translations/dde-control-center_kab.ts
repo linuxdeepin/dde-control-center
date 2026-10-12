@@ -798,6 +798,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Camera occupied!</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Camera is not enabled</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>ColorAndIcons</name>
@@ -2344,8 +2348,8 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
 <context>
     <name>LogoModule</name>
     <message>
-        <source>Copyright© 2011-%1 Deepin Community</source>
-        <translation>Copyright© 2011-%1 Asaṣ-Ṣanad Al-Deepin</translation>
+        <source>Copyright© 2011-%1 Deepin Technology</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
@@ -3801,6 +3805,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Natural Scrolling</source>
         <translation>Talqalqal n tahan</translation>
+    </message>
+    <message>
+        <source>Edge Touch Gestures</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>Three-finger gestures</source>
