@@ -2357,7 +2357,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Technology</source>
-        <translation type="unfinished"/>
+        <translation>Drets d&apos;autor © 2011-%1 Deepin Technology</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
@@ -3816,7 +3816,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Edge Touch Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gestos tàctils de la vora</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
