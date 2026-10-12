@@ -3809,6 +3809,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>تنقل طبيعي</translation>
     </message>
     <message>
+        <source>Edge Touch Gestures</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Three-finger gestures</source>
         <translation>حركات الأصابع الثلاثة</translation>
     </message>
