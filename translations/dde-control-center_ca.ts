@@ -3815,6 +3815,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Desplaçament natural</translation>
     </message>
     <message>
+        <source>Edge Touch Gestures</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Three-finger gestures</source>
         <translation>Gestos amb tres dits</translation>
     </message>
