@@ -3817,6 +3817,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>Desplazamiento natural</translation>
     </message>
     <message>
+        <source>Edge Touch Gestures</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Three-finger gestures</source>
         <translation>Gestos de tres dedos</translation>
     </message>
