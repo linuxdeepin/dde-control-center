@@ -812,7 +812,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Camera is not enabled</source>
-        <translation type="unfinished"/>
+        <translation>未开启摄像头</translation>
     </message>
 </context>
 <context>
@@ -2358,7 +2358,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Technology</source>
-        <translation type="unfinished"/>
+        <translation>Copyright © 2011-%1 deepin 深度科技</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
