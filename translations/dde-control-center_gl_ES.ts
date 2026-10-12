@@ -3828,6 +3828,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation>Deslizado natural</translation>
     </message>
     <message>
+        <source>Edge Touch Gestures</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Three-finger gestures</source>
         <translation>Gestos con tres dedos</translation>
     </message>
