@@ -297,6 +297,9 @@ void CharaMangerModel::onEnrollStatusChanged(int code, const QString &msg)
     case STATUS_COLLAPSE:
         Q_EMIT enrollInfoState(AddInfoState::Fail, tr("Camera occupied!"));
         break;
+    case STATUS_CAMERA_NOT_ENABLED:
+        Q_EMIT enrollInfoState(AddInfoState::Fail, tr("Camera is not enabled"));
+        break;
     default:
         break;
     }

@@ -810,6 +810,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Camera occupied!</source>
         <translation>摄像头被占用！</translation>
     </message>
+    <message>
+        <source>Camera is not enabled</source>
+        <translation>未开启摄像头</translation>
+    </message>
 </context>
 <context>
     <name>ColorAndIcons</name>
