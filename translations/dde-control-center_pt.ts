@@ -3817,6 +3817,10 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
         <translation>Deslocamento Natural</translation>
     </message>
     <message>
+        <source>Edge Touch Gestures</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Three-finger gestures</source>
         <translation>Gestos de três-dedos</translation>
     </message>
