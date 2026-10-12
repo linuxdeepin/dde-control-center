@@ -3815,6 +3815,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Естественная прокрутка</translation>
     </message>
     <message>
+        <source>Edge Touch Gestures</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>Three-finger gestures</source>
         <translation>Двухпальцевые жесты</translation>
     </message>
