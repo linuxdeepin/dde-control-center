@@ -800,6 +800,10 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
         <source>Camera occupied!</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Camera is not enabled</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ColorAndIcons</name>
