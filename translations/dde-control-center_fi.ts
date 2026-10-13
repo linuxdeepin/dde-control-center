@@ -809,7 +809,7 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
     <message>
         <source>Camera is not enabled</source>
-        <translation type="unfinished"/>
+        <translation>Kamera ei ole käytössä</translation>
     </message>
 </context>
 <context>
@@ -2354,7 +2354,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Technology</source>
-        <translation type="unfinished"/>
+        <translation>Copyright© 2011-%1 Deepin Technology</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
@@ -3813,7 +3813,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Edge Touch Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Reunan kosketuseleet</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
