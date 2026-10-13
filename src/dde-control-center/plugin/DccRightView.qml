@@ -14,6 +14,7 @@ Flickable {
     property bool scrollBarVisible: false
 
     contentHeight: groupView.height
+    clip: true
 
     // 修复：内容缩小到视口以内时，Qt Flickable C++ 内部可能保留旧的滚动偏移，
     // 导致切换 app 回来后 contentY 越界使页面滚飞。

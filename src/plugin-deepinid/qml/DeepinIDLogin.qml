@@ -22,7 +22,7 @@ DccObject {
         Layout.fillWidth: true
         Layout.fillHeight: true
         contentHeight: groupView.height
-
+        clip: true
         ScrollBar.vertical: ScrollBar { }
 
         DccGroupView {
