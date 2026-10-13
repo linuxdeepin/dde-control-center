@@ -1,3 +1,24 @@
+dde-control-center (6.1.110) unstable; urgency=medium
+
+  * fix: correct log config module name to match D-Bus naming
+  * fix(bluetooth): update DBus service name to jump to airplane mode
+    page
+  * fix: keep HomePage resident to fix display error
+  * fix: prevent timeout dialog from being destroyed on page navigation
+  * i18n: Updates for project Deepin Desktop Environment (#3517)
+  * fix: scroll region list to selected item on open
+  * fix(datetime): remove scrollToHighlighted from Component.onCompleted
+  * fix: prompt camera-not-enabled when adding a face (#3559)
+  * feat(systeminfo): show deepin logo on user license page
+  * feat: support touchpad edge touch gestures
+  * fix(dcc): fix breadcrumb/back navigation dead after hidden module
+    revives
+  * fix: add missing English source text for camera-not-enabled prompt
+  * i18n: Updates for project Deepin Desktop Environment (#3564)
+  * i18n: Updates for project Deepin Desktop Environment (#3566)
+
+ -- zhangkun <zhangkun2@uniontech.com>  Tue, 13 Oct 2026 10:01:56 +0800
+
 dde-control-center (6.1.109) unstable; urgency=medium
 
   * fix: move autoExitTimer to DccManager and add tryShow logs
