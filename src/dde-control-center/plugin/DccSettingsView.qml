@@ -15,7 +15,7 @@ Flickable {
     property bool scrollBarVisible: false
 
     contentHeight: centralItem.height + bottomItem.height - (bottomItem.height > 0 ? bottomItem.anchors.topMargin : 0)
-    
+    clip: true
     ScrollBar.vertical: ScrollBar { }
 
     Component {
