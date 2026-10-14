@@ -21,6 +21,7 @@ DccObject {
     page: Flickable {
         Layout.fillWidth: true
         Layout.fillHeight: true
+        clip: true
         contentHeight: groupView.height
 
         ScrollBar.vertical: ScrollBar { }
