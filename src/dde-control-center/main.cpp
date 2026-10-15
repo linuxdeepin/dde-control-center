@@ -92,6 +92,7 @@ static void printModules(const QList<dccV25::ModuleInfo> &modules)
 
 int main(int argc, char *argv[])
 {
+    qputenv("QSG_NO_VSYNC", "1");
     QGuiApplication *app = new QGuiApplication(argc, argv);
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
