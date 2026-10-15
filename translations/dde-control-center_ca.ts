@@ -815,7 +815,7 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
     <message>
         <source>Camera is not enabled</source>
-        <translation type="unfinished"/>
+        <translation>La càmera no està activada.</translation>
     </message>
 </context>
 <context>
