@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ICON/volume/hdmi</title>
+    <g id="ICON/volume/hdmi" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ICON-/-Device-/-PC" transform="translate(1, 2)" fill="#000000" fill-rule="nonzero">
+            <path d="M13,0 C13.5522847,-1.01453063e-16 14,0.44771525 14,1 L14,10 C14,10.5522847 13.5522847,11 13,11 L1,11 C0.44771525,11 6.76353751e-17,10.5522847 0,10 L0,1 C-6.76353751e-17,0.44771525 0.44771525,1.01453063e-16 1,0 L13,0 Z M8,9.5 L6,9.5 C5.72385763,9.5 5.5,9.72385763 5.5,10 C5.5,10.2761424 5.72385763,10.5 6,10.5 L8,10.5 C8.27614237,10.5 8.5,10.2761424 8.5,10 C8.5,9.72385763 8.27614237,9.5 8,9.5 Z M13,1 L1,1 L1,9 L13,9 L13,1 Z" id="形状结合"></path>
+        </g>
+    </g>
+</svg>
