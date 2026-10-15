@@ -70,6 +70,7 @@ set(Display_Libraries
     ${QT_NS}::Concurrent
     ${DTK_NS}::Core
     dcc-wallpaper-utils
+    dcc-shared-utils
 )
 
 target_link_libraries(${Display_Name} PRIVATE
