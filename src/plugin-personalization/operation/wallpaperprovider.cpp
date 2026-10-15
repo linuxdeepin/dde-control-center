@@ -551,9 +551,10 @@ void WallpaperProvider::installWallpaper(const QString &itemId, WallpaperType ty
 
     auto wallpaper = findWallpaperItem(itemId, type);
     if (wallpaper.has_value() && !wallpaper.value()->packageName.isEmpty()) {
+        const auto wallpaperType = wallpaper.value()->type;
         wallpaper.value()->installStatus = Download_Installing;
         wallpaper.value()->installProgress = 0;
-        auto model = getModel(type);
+        auto model = getModel(wallpaperType);
         if (!model) {
             qCWarning(DdcPersonalizationWallpaperWorker()) << "get model error";
             return;
@@ -562,7 +563,7 @@ void WallpaperProvider::installWallpaper(const QString &itemId, WallpaperType ty
             Item_InstallStatus_Role, Item_InstallProgress_Role
         });
 
-        const QString jobName = QString(LASTORE_BASE_FLAG) + SPLIT_SYMBOL + QString::number(static_cast<int>(type));
+        const QString jobName = QString(LASTORE_BASE_FLAG) + SPLIT_SYMBOL + QString::number(static_cast<int>(wallpaperType));
 
         auto call = m_personalizationProxy->InstallPackage(jobName, wallpaper.value()->packageName);
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
@@ -712,18 +713,32 @@ void WallpaperProvider::setWantToSetWallpaper(WallpaperItemPtr wallpaper)
 
 std::optional<WallpaperItemPtr> WallpaperProvider::findWallpaperItem(const QString &url, WallpaperType type)
 {
+    const auto findInItems = [&url](const QList<WallpaperItemPtr> &items) -> std::optional<WallpaperItemPtr> {
+        for (const auto &wallpaperItem : items) {
+            if (wallpaperItem && wallpaperItem->url == url) {
+                return wallpaperItem;
+            }
+        }
+
+        return std::nullopt;
+    };
+
+    if (type == WallpaperType::Wallpaper_all) {
+        for (const auto &items : m_wallpaperList) {
+            if (auto wallpaperItem = findInItems(items); wallpaperItem.has_value()) {
+                return wallpaperItem;
+            }
+        }
+
+        return std::nullopt;
+    }
+
     const auto it = m_wallpaperList.find(type);
     if (it == m_wallpaperList.end()) {
         return std::nullopt;
     }
 
-    for (const auto &wallpaperItem : it.value()) {
-        if (wallpaperItem && wallpaperItem->url == url) {
-            return wallpaperItem;
-        }
-    }
-
-    return std::nullopt;
+    return findInItems(it.value());
 }
 
 WallpaperModel *WallpaperProvider::getModel(WallpaperType type) const
