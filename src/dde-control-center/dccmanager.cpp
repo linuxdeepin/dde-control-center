@@ -6,6 +6,7 @@
 #include "dccapp.h"
 #include "dccbenchmark.h"
 #include "dccimageprovider.h"
+#include "dccmoduleconfig.h"
 #include "dccobject_p.h"
 #include "navigationmodel.h"
 #include "pluginmanager.h"
@@ -50,6 +51,9 @@ const QString HeightConfig = QStringLiteral("height");
 const QString MaximizedConfig = QStringLiteral("maximized");
 const QString HideConfig = QStringLiteral("hideModule");
 const QString DisableConfig = QStringLiteral("disableModule");
+const QString kAppId = QStringLiteral("org.deepin.dde.control-center");
+const QString kConfigName = QStringLiteral("org.deepin.dde.control-center");
+const QString kModuleConfigName = QStringLiteral("org.deepin.dde.control-center.module");
 const QString ControlCenterIcon = QStringLiteral("preferences-system");
 const QString ControlCenterGroupName = "com.deepin.dde-grand-search.group.dde-control-center-setting";
 
@@ -316,10 +320,14 @@ void DccManager::addObject(DccObject *obj)
             if (contains(m_disableModule, o)) {
                 DccObject::Private::FromObject(o)->setFlagState(DCC_CONFIG_DISABLED, true);
             }
+            // visible/disable（subpath 方式，独立 modules 配置）异步处理
+            // 只在挂载成功后调用：getParent 已建立，沿实际父链构造含 root 的全路径
             if (!o->isVisibleToApp()) {
                 connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
                 DccObject::Private::FromObject(m_hideObjects)->addChild(o, false);
-            } else if (!addObjectToParent(o)) {
+            } else if (addObjectToParent(o)) {
+                applyModuleConfig(o);
+            } else {
                 DccObject::Private::FromObject(m_noAddObjects)->addChild(o, false);
             }
         }
@@ -1243,6 +1251,42 @@ void DccManager::updateModuleConfig(const QString &key)
     if (newModuleConfig == &m_hideModule && (!addModuleConfig.isEmpty() || !removeModuleConfig.isEmpty())) {
         Q_EMIT hideModuleChanged(m_hideModule);
     }
+}
+
+void DccManager::applyModuleConfig(DccObject *obj)
+{
+    const QString name = obj->name();
+    if (name.isEmpty())
+        return;
+
+    // 全路径：沿实际父链（getParent）向上收集 name 拼接，根节点 name 为空自动跳过
+    QStringList parts;
+    for (const DccObject *cur = obj; cur; cur = DccObject::Private::FromObject(cur)->getParent()) {
+        if (!cur->name().isEmpty())
+            parts.prepend(cur->name());
+    }
+    const QString path = parts.join('/');
+    if (path.isEmpty())
+        return;
+
+    // 跳过含非 ASCII 字符的路径，避免 dconfig2cpp 生成的 DccModuleConfig 无法读取
+    // UTF-8 中 ASCII 占 1 字节、非 ASCII 占 2+ 字节，字符数与字节数不等即含非 ASCII
+    if (path.size() != path.toUtf8().size())
+        return;
+
+    // 用 dconfig2cpp 生成的 DccModuleConfig 异步读取 visible/disable
+    auto *config = DccModuleConfig::create(kAppId, QLatin1Char('/') + path, obj);
+    connect(config, &DccModuleConfig::configInitializeSucceed, obj, [obj, config](DConfig *c) {
+        bool visible = true;
+        bool disabled = false;
+        if (c && c->isValid()) {
+            visible = c->value("visible", true).toBool();
+            disabled = c->value("disable", false).toBool();
+        }
+        DccObject::Private::FromObject(obj)->setFlagState(DCC_CONFIG_HIDDEN, !visible);
+        DccObject::Private::FromObject(obj)->setFlagState(DCC_CONFIG_DISABLED, disabled);
+        config->deleteLater();
+    });
 }
 
 void DccManager::onVisible(bool visible)
