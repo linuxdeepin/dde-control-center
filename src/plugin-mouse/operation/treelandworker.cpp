@@ -21,13 +21,13 @@ TreeLandWorker::TreeLandWorker(QObject *parent)
 void TreeLandWorker::active()
 {
 #ifdef Enable_Treeland
-    if (m_personalizationManager.isNull()) {
-        m_personalizationManager.reset(new PersonalizationManager(this));
-        connect(m_personalizationManager.get(),
-                &PersonalizationManager::activeChanged,
+    if (m_appearanceManager.isNull()) {
+        m_appearanceManager.reset(new TreelandAppearanceManager(this));
+        connect(m_appearanceManager.get(),
+                &TreelandAppearanceManager::activeChanged,
                 this,
                 [this]() {
-                    if (m_personalizationManager->isActive()) {
+                    if (m_appearanceManager->isActive()) {
                         init();
                     } else {
                         // clear();
@@ -40,26 +40,22 @@ void TreeLandWorker::active()
 void TreeLandWorker::init()
 {
 #ifdef Enable_Treeland
-    if (m_cursorContext.isNull()) {
-        m_cursorContext.reset(
-                new TreelandCursorContext(m_personalizationManager->get_cursor_context()));
-    }
+    // New appearance protocol needs no separate context object.
 #endif
 }
 
 void TreeLandWorker::setCursorSize(int size)
 {
 #ifdef Enable_Treeland
-    if (m_cursorContext) {
-        m_cursorContext->set_size(size);
-        m_cursorContext->commit();
+    if (m_appearanceManager) {
+        m_appearanceManager->set_cursor_size(size, size);
     }
 #endif
 }
 
 #ifdef Enable_Treeland
-PersonalizationManager::PersonalizationManager(QObject *parent)
-    : QWaylandClientExtensionTemplate<PersonalizationManager>(1)
+TreelandAppearanceManager::TreelandAppearanceManager(QObject *parent)
+    : QWaylandClientExtensionTemplate<TreelandAppearanceManager>(1)
 {
     if (QGuiApplication::platformName() == QLatin1String("wayland")) {
         QtWaylandClient::QWaylandIntegration *waylandIntegration =
@@ -80,16 +76,14 @@ PersonalizationManager::PersonalizationManager(QObject *parent)
     setParent(parent);
 }
 
-PersonalizationManager::~PersonalizationManager()
+TreelandAppearanceManager::~TreelandAppearanceManager()
 {
     removeListener();
-    // The destroy request was introduced in version 2; older compositors
-    // reject it as an unknown method.
-    if (isInitialized() && QtWayland::treeland_personalization_manager_v1::version() >= 2)
-        QtWayland::treeland_personalization_manager_v1::destroy();
+    if (isInitialized())
+        QtWayland::treeland_appearance_manager_v1::destroy();
 }
 
-void PersonalizationManager::addListener()
+void TreelandAppearanceManager::addListener()
 {
     if (!m_waylandDisplay) {
         qWarning() << "waylandDisplay is nullptr!, skip addListener";
@@ -98,7 +92,7 @@ void PersonalizationManager::addListener()
     m_waylandDisplay->addRegistryListener(&handleListenerGlobal, this);
 }
 
-void PersonalizationManager::removeListener()
+void TreelandAppearanceManager::removeListener()
 {
     if (!m_waylandDisplay) {
         qWarning() << "waylandDisplay is nullptr!, skip removeListener";
@@ -107,11 +101,11 @@ void PersonalizationManager::removeListener()
     m_waylandDisplay->removeListener(&handleListenerGlobal, this);
 }
 
-void PersonalizationManager::handleListenerGlobal(
+void TreelandAppearanceManager::handleListenerGlobal(
         void *data, wl_registry *registry, uint32_t id, const QString &interface, uint32_t version)
 {
-    if (interface == treeland_personalization_manager_v1_interface.name) {
-        PersonalizationManager *integration = static_cast<PersonalizationManager *>(data);
+    if (interface == treeland_appearance_manager_v1_interface.name) {
+        TreelandAppearanceManager *integration = static_cast<TreelandAppearanceManager *>(data);
         if (!integration) {
             qWarning() << "integration is nullptr!!!";
             return;
@@ -119,18 +113,5 @@ void PersonalizationManager::handleListenerGlobal(
 
         integration->init(registry, id, version);
     }
-}
-
-TreelandCursorContext::TreelandCursorContext(
-        struct ::treeland_personalization_cursor_context_v1 *context)
-    : QWaylandClientExtensionTemplate<TreelandCursorContext>(1)
-    , QtWayland::treeland_personalization_cursor_context_v1(context)
-{
-}
-
-TreelandCursorContext::~TreelandCursorContext()
-{
-    if (isInitialized())
-        QtWayland::treeland_personalization_cursor_context_v1::destroy();
 }
 #endif

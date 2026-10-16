@@ -13,6 +13,7 @@
 #include <QDebug>
 #include <QDir>
 #include <QScreen>
+#include <QColor>
 #include <DConfig>
 
 #include "utils.hpp"
@@ -163,26 +164,24 @@ void TreeLandWorker::setAppearanceTheme(const QString &id, bool keepAuto)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setAppearanceTheme:" << id;
 
-    if (!keepAuto) { // 如果是控制中心设置，keepAuto = false
-        // 控制中心ui显示的深浅色由 dde-appearance 提供，而不是treeland。如果设置为自动，不要把真实的外观显示到 dde-appearance，否则UI就会显示错误
+    if (!keepAuto) {
         PersonalizationWorker::setAppearanceTheme(id);
     }
-    if (id == ".light" && m_appearanceTheme != PersonalizationAppearanceContext::theme_type::theme_type_light) {
-        m_appearanceTheme = PersonalizationAppearanceContext::theme_type::theme_type_light;
-        m_appearanceContext->set_window_theme_type(PersonalizationAppearanceContext::theme_type::theme_type_light);
-    } else if (id == ".dark" && m_appearanceTheme != PersonalizationAppearanceContext::theme_type::theme_type_dark) {
-        m_appearanceTheme = PersonalizationAppearanceContext::theme_type::theme_type_dark;
-        m_appearanceContext->set_window_theme_type(PersonalizationAppearanceContext::theme_type::theme_type_dark);
-    } else if (id.isEmpty() && m_appearanceTheme != PersonalizationAppearanceContext::theme_type::theme_type_auto) {
-        m_appearanceTheme = PersonalizationAppearanceContext::theme_type::theme_type_auto;
-        m_appearanceContext->set_window_theme_type(PersonalizationAppearanceContext::theme_type::theme_type_auto);
+    if (id == ".light" && m_appearanceTheme != 0) {
+        m_appearanceTheme = 0;
+        m_appearanceManager->set_color_scheme(0);
+    } else if (id == ".dark" && m_appearanceTheme != 1) {
+        m_appearanceTheme = 1;
+        m_appearanceManager->set_color_scheme(1);
+    } else if (id.isEmpty() && m_appearanceTheme != 0) {
+        m_appearanceTheme = 0;
+        m_appearanceManager->set_color_scheme(0);
     } else {
         qWarning() << "error id" << id << m_appearanceTheme;
         return;
     }
 
     if (!keepAuto) {
-        // 刷新对应外观下的主题
         handleGlobalTheme(m_globalTheme);
     }
 }
@@ -194,7 +193,7 @@ void TreeLandWorker::setFontName(const QString& fontName)
         return;
     }
     m_fontName = fontName;
-    m_fontContext->set_font(fontName);
+    m_appearanceManager->set_font(fontName);
 }
 
 void TreeLandWorker::setMonoFontName(const QString& monoFontName)
@@ -204,7 +203,7 @@ void TreeLandWorker::setMonoFontName(const QString& monoFontName)
         return;
     }
     m_monoFontName = monoFontName;
-    m_fontContext->set_monospace_font(monoFontName);
+    m_appearanceManager->set_monospace_font(monoFontName);
 }
 
 void TreeLandWorker::setIconTheme(const QString &id)
@@ -215,7 +214,7 @@ void TreeLandWorker::setIconTheme(const QString &id)
     }
     m_iconTheme = id;
     PersonalizationWorker::setIconTheme(id);
-    m_appearanceContext->set_icon_theme(id);
+    m_appearanceManager->set_icon_theme(id);
 }
 
 void TreeLandWorker::setCursorTheme(const QString &id)
@@ -226,8 +225,7 @@ void TreeLandWorker::setCursorTheme(const QString &id)
     }
     m_cursorTheme = id;
     PersonalizationWorker::setCursorTheme(id);
-    m_cursorContext->set_theme(id);
-    m_cursorContext->commit();
+    m_appearanceManager->set_cursor_theme(id);
 }
 
 void TreeLandWorker::setActiveColor(const QString &hexColor)
@@ -238,7 +236,8 @@ void TreeLandWorker::setActiveColor(const QString &hexColor)
     }
     m_activeColor = hexColor;
     PersonalizationWorker::setActiveColor(hexColor);
-    m_appearanceContext->set_active_color(hexColor);
+    QColor color(hexColor);
+    m_appearanceManager->set_accent_color(color.red(), color.green(), color.blue());
 }
 
 void TreeLandWorker::setFontSize(const int pixelSize) 
@@ -249,7 +248,7 @@ void TreeLandWorker::setFontSize(const int pixelSize)
     }
     m_fontSize = pixelSize;
     PersonalizationWorker::setFontSize(pixelSize);
-    m_fontContext->set_font_size(pxToPt(pixelSize) * 10);
+    m_appearanceManager->set_font_size(pxToPt(pixelSize));
 }
 
 void TreeLandWorker::setTitleBarHeight(int value)
@@ -260,7 +259,7 @@ void TreeLandWorker::setTitleBarHeight(int value)
     }
     m_titleBarHeight = value;
     PersonalizationWorker::setTitleBarHeight(value);
-    m_appearanceContext->set_window_titlebar_height(value);
+    m_appearanceManager->set_titlebar_height(value);
 }
 
 void TreeLandWorker::setWindowRadius(int value)
@@ -271,7 +270,7 @@ void TreeLandWorker::setWindowRadius(int value)
     }
     m_windowRadius = value;
     PersonalizationWorker::setWindowRadius(value);
-    m_appearanceContext->set_round_corner_radius(value);
+    m_appearanceManager->set_corner_radius(value);
 }
 
 void TreeLandWorker::setOpacity(int value)
@@ -282,7 +281,7 @@ void TreeLandWorker::setOpacity(int value)
     }
     m_opacity = value;
     PersonalizationWorker::setOpacity(value);
-    m_appearanceContext->set_window_opacity(value);
+    m_appearanceManager->set_window_opacity(wl_fixed_from_double(value / 100.0));
 }
 
 void TreeLandWorker::setGlobalTheme(const QString &themeId)
@@ -318,22 +317,16 @@ void TreeLandWorker::onWallpaperUrlsChanged()
 void TreeLandWorker::onWindowThemeTypeChanged(uint32_t type)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "Window theme type changed:" << type;
-    m_appearanceTheme = static_cast<PersonalizationAppearanceContext::theme_type>(type);
+    m_appearanceTheme = static_cast<uint8_t>(type);
 }
 
 void TreeLandWorker::init()
 {
-    if (m_appearanceContext.isNull()) {
-        m_appearanceContext.reset(new PersonalizationAppearanceContext(m_personalizationManager->get_appearance_context(), this->m_model));
-    }
-    if (m_cursorContext.isNull()) {
-        m_cursorContext.reset(new PersonalizationCursorContext(m_personalizationManager->get_cursor_context(), this->m_model));
-    }
-    if (m_fontContext.isNull()) {
-        m_fontContext.reset(new PersonalizationFontContext(m_personalizationManager->get_font_context(), this->m_model));
+    if (m_appearance.isNull()) {
+        m_appearance.reset(new TreelandAppearance(this->m_model));
     }
 
-    connect(m_appearanceContext.get(), &PersonalizationAppearanceContext::windowThemeTypeChanged, this, &TreeLandWorker::onWindowThemeTypeChanged);
+    connect(m_appearance.get(), &TreelandAppearance::colorSchemeChanged, this, &TreeLandWorker::onWindowThemeTypeChanged);
 }
 
 void TreeLandWorker::initWallpaperContext()
@@ -470,20 +463,16 @@ void TreeLandWorker::handleGlobalTheme(const QString &themeId)
             return;
         QString darkTheme = theme.getStr("Deepin Theme", "DarkTheme");
         if (darkTheme.isEmpty())
-            mode = PersonalizationAppearanceContext::theme_type_light;
+            mode = 0;
 
         switch (mode) {
-        case PersonalizationAppearanceContext::theme_type_light:
+        case 0:
             applyGlobalTheme(theme, defaultTheme, defaultTheme, themePath);
             break;
-        case PersonalizationAppearanceContext::theme_type_dark: {
+        case 1: {
             if (darkTheme.isEmpty())
                 return;
             applyGlobalTheme(theme, darkTheme, defaultTheme, themePath);
-            break;
-        }
-        case PersonalizationAppearanceContext::theme_type_auto: {
-            applyGlobalTheme(theme, defaultTheme, defaultTheme, themePath);
             break;
         }
         default:
@@ -495,7 +484,6 @@ void TreeLandWorker::handleGlobalTheme(const QString &themeId)
 void TreeLandWorker::applyGlobalTheme(KeyFile &theme, const QString &themeName, const QString &defaultTheme, const QString &themePath)
 {
     QString defTheme = (defaultTheme.isEmpty() || defaultTheme == themeName) ? QString() : defaultTheme;
-    // 设置globlaTheme的一项，先从themeName中找对应项，若没有则从defTheme中找对应项，最后调用doSetByType实现功能
     auto setGlobalItem = [&theme, &themeName, &defTheme, this](const QString &key, const QString &type) {
         QString themeValue = theme.getStr(themeName, key);
         if (themeValue.isEmpty() && !defTheme.isEmpty())
@@ -505,10 +493,6 @@ void TreeLandWorker::applyGlobalTheme(KeyFile &theme, const QString &themeName, 
     };
     auto setGlobalFile = [&theme, &themeName, &defTheme, &themePath, this](const QString &key, const QString &type) {
         QString themeValue = theme.getStr(themeName, key);
-        // 如果是用户自定义的桌面壁纸, 切换主题的外观时, 不重新设置壁纸
-        // if (isSkipSetWallpaper(themePath) && type == TYPEWALLPAPER) {
-        //     return;
-        // }
         if (themeValue.isEmpty() && !defTheme.isEmpty()) {
             themeValue = theme.getStr(defTheme, key);
         }
@@ -526,7 +510,6 @@ void TreeLandWorker::applyGlobalTheme(KeyFile &theme, const QString &themeName, 
         }
     };
 
-    // 如果是用户自定义主题, 切换外观时只单独更新外观选项
     if (themePath.endsWith("custom")) {
         return setGlobalItem("AppTheme", TYPEGTK);
     }
@@ -553,7 +536,6 @@ void TreeLandWorker::doSetByType(const QString &type, const QString &value)
             WallpaperContext::wallpaper_role_desktop : WallpaperContext::wallpaper_role_lockscreen;
         auto screens = qApp->screens();
         for (const auto screen : screens) {
-            // FIXME(mhduiy): only set image
             setWallpaper(screen->name(), value, wallpaperRole, WallpaperContext::wallpaper_source_type_image);
         }
     } else if(type == TYPEICON) {
@@ -580,10 +562,10 @@ void TreeLandWorker::doSetByType(const QString &type, const QString &value)
 
 void TreeLandWorker::active()
 {
-    if (m_personalizationManager.isNull()) {
-        m_personalizationManager.reset(new PersonalizationManager(this));
-        connect(m_personalizationManager.get(), &PersonalizationManager::activeChanged, this, [this]() {
-            if (m_personalizationManager->isActive()) {
+    if (m_appearanceManager.isNull()) {
+        m_appearanceManager.reset(new TreelandAppearanceManager(this));
+        connect(m_appearanceManager.get(), &TreelandAppearanceManager::activeChanged, this, [this]() {
+            if (m_appearanceManager->isActive()) {
                 init();
             } else {
                 // clear();
@@ -624,8 +606,8 @@ void TreeLandWorker::active()
     m_globalTheme = m_model->getGlobalThemeModel()->getDefault();
 }
 
-PersonalizationManager::PersonalizationManager(QObject *parent)
-    : QWaylandClientExtensionTemplate<PersonalizationManager>(1)
+TreelandAppearanceManager::TreelandAppearanceManager(QObject *parent)
+    : QWaylandClientExtensionTemplate<TreelandAppearanceManager>(1)
 {
     if (QGuiApplication::platformName() == QLatin1String("wayland")) {
         QtWaylandClient::QWaylandIntegration *waylandIntegration = static_cast<QtWaylandClient::QWaylandIntegration *>(QGuiApplicationPrivate::platformIntegration());
@@ -644,16 +626,14 @@ PersonalizationManager::PersonalizationManager(QObject *parent)
     setParent(parent);
 }
 
-PersonalizationManager::~PersonalizationManager()
+TreelandAppearanceManager::~TreelandAppearanceManager()
 {
     removeListener();
-    // The destroy request was introduced in version 2; older compositors
-    // reject it as an unknown method.
-    if (isInitialized() && QtWayland::treeland_personalization_manager_v1::version() >= 2)
-        QtWayland::treeland_personalization_manager_v1::destroy();
+    if (isInitialized())
+        QtWayland::treeland_appearance_manager_v1::destroy();
 }
 
-void PersonalizationManager::addListener()
+void TreelandAppearanceManager::addListener()
 {
     if (!m_waylandDisplay) {
         qWarning() << "waylandDisplay is nullptr!, skip addListener";
@@ -662,7 +642,7 @@ void PersonalizationManager::addListener()
     m_waylandDisplay->addRegistryListener(&handleListenerGlobal, this);
 }
 
-void PersonalizationManager::removeListener()
+void TreelandAppearanceManager::removeListener()
 {
     if (!m_waylandDisplay) {
         qWarning() << "waylandDisplay is nullptr!, skip removeListener";
@@ -671,10 +651,10 @@ void PersonalizationManager::removeListener()
     m_waylandDisplay->removeListener(&handleListenerGlobal, this);
 }
 
-void PersonalizationManager::handleListenerGlobal(void *data, wl_registry *registry, uint32_t id, const QString &interface, uint32_t version)
+void TreelandAppearanceManager::handleListenerGlobal(void *data, wl_registry *registry, uint32_t id, const QString &interface, uint32_t version)
 {
-    if (interface == treeland_personalization_manager_v1_interface.name) {
-        PersonalizationManager *integration = static_cast<PersonalizationManager *>(data);
+    if (interface == treeland_appearance_manager_v1_interface.name) {
+        TreelandAppearanceManager *integration = static_cast<TreelandAppearanceManager *>(data);
         if (!integration) {
             qWarning() << "integration is nullptr!!!";
             return;
@@ -684,109 +664,107 @@ void PersonalizationManager::handleListenerGlobal(void *data, wl_registry *regis
     }
 }
 
-PersonalizationAppearanceContext::PersonalizationAppearanceContext(struct ::treeland_personalization_appearance_context_v1 *context, PersonalizationModel *worker)
-    : QWaylandClientExtensionTemplate<PersonalizationAppearanceContext>(1)
-    , QtWayland::treeland_personalization_appearance_context_v1(context)
-    , m_model(worker)
-{
-    get_round_corner_radius();
-    get_icon_theme();
-    get_active_color();
-    get_window_opacity();
-    get_window_theme_type();
-    get_window_titlebar_height();
-}
-
-PersonalizationAppearanceContext::~PersonalizationAppearanceContext()
-{
-    if (isInitialized())
-        QtWayland::treeland_personalization_appearance_context_v1::destroy();
-}
-
-void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_round_corner_radius(int32_t radius)
-{
-    m_model->setWindowRadius(radius);
-}
-
-void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_icon_theme(const QString &)
-{
-
-}
-
-void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_active_color(const QString &active_color)
-{
-    m_model->setActiveColor(active_color);
-}
-
-void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_window_opacity(uint32_t opacity)
-{
-    Q_UNUSED(opacity)
-    // Using the value of the appearance module, this is an invalid value
-    // m_model->setOpacity(opacity / 100.0);
-}
-
-void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_window_theme_type(uint32_t themeType)
-{
-    Q_EMIT windowThemeTypeChanged(themeType);
-
-    // 设置给Treeland的深浅色属性是系统实际生效的深浅色，当控制中心设置为自动时，此时系统的深浅色会动态的变更
-    // 如果直接把treeland的属性设置到model中，会导致控制中心选项中的自动显示为深色或者浅色，这不符合预期。
-    // 现在使用 dde-appearance 保存的GlobalTheme属性来作为控制中心深浅色的数据来源，该数据在自动时数据保持不变
-}
-
-void PersonalizationAppearanceContext::treeland_personalization_appearance_context_v1_window_titlebar_height(uint32_t height)
-{
-    m_model->setTitleBarHeight(height);
-}
-
-PersonalizationCursorContext::PersonalizationCursorContext(struct ::treeland_personalization_cursor_context_v1 *context, PersonalizationModel *model)
-    : QWaylandClientExtensionTemplate<PersonalizationCursorContext>(1)
-    , QtWayland::treeland_personalization_cursor_context_v1(context)
+TreelandAppearance::TreelandAppearance(PersonalizationModel *model)
+    : QWaylandClientExtensionTemplate<TreelandAppearance>(1)
     , m_model(model)
 {
-    get_theme();
+    if (QGuiApplication::platformName() == QLatin1String("wayland")) {
+        QtWaylandClient::QWaylandIntegration *waylandIntegration = static_cast<QtWaylandClient::QWaylandIntegration *>(QGuiApplicationPrivate::platformIntegration());
+        if (!waylandIntegration) {
+            qWarning() << "waylandIntegration is nullptr!!!";
+            return;
+        }
+        m_waylandDisplay = waylandIntegration->display();
+        if (!m_waylandDisplay) {
+            qWarning() << "waylandDisplay is nullptr!!!";
+            return;
+        }
+
+        addListener();
+    }
 }
 
-PersonalizationCursorContext::~PersonalizationCursorContext()
+TreelandAppearance::~TreelandAppearance()
 {
+    removeListener();
     if (isInitialized())
-        QtWayland::treeland_personalization_cursor_context_v1::destroy();
+        QtWayland::treeland_appearance_v1::destroy();
 }
 
-void PersonalizationCursorContext::treeland_personalization_cursor_context_v1_theme(const QString &)
+void TreelandAppearance::addListener()
 {
-
+    if (!m_waylandDisplay) {
+        qWarning() << "waylandDisplay is nullptr!, skip addListener";
+        return;
+    }
+    m_waylandDisplay->addRegistryListener(&handleListenerGlobal, this);
 }
 
-PersonalizationFontContext::PersonalizationFontContext(struct ::treeland_personalization_font_context_v1 *context, PersonalizationModel *model)
-    : QWaylandClientExtensionTemplate<PersonalizationFontContext>(1)
-    , QtWayland::treeland_personalization_font_context_v1(context)
-    , m_model(model)
+void TreelandAppearance::removeListener()
 {
-    get_font();
-    get_monospace_font();
-    get_font_size();
+    if (!m_waylandDisplay) {
+        qWarning() << "waylandDisplay is nullptr!, skip removeListener";
+        return;
+    }
+    m_waylandDisplay->removeListener(&handleListenerGlobal, this);
 }
 
-PersonalizationFontContext::~PersonalizationFontContext()
+void TreelandAppearance::handleListenerGlobal(void *data, wl_registry *registry, uint32_t id, const QString &interface, uint32_t version)
 {
-    if (isInitialized())
-        QtWayland::treeland_personalization_font_context_v1::destroy();
+    if (interface == treeland_appearance_v1_interface.name) {
+        TreelandAppearance *integration = static_cast<TreelandAppearance *>(data);
+        if (!integration) {
+            qWarning() << "integration is nullptr!!!";
+            return;
+        }
+
+        integration->init(registry, id, version);
+    }
 }
 
-void PersonalizationFontContext::treeland_personalization_font_context_v1_font(const QString &)
+void TreelandAppearance::treeland_appearance_v1_cursor_theme(const QString &)
 {
-
 }
 
-void PersonalizationFontContext::treeland_personalization_font_context_v1_monospace_font(const QString &)
+void TreelandAppearance::treeland_appearance_v1_cursor_size(uint32_t, uint32_t)
 {
-
 }
 
-void PersonalizationFontContext::treeland_personalization_font_context_v1_font_size(uint32_t)
+void TreelandAppearance::treeland_appearance_v1_font(const QString &)
 {
+}
 
+void TreelandAppearance::treeland_appearance_v1_monospace_font(const QString &)
+{
+}
+
+void TreelandAppearance::treeland_appearance_v1_font_size(uint32_t)
+{
+}
+
+void TreelandAppearance::treeland_appearance_v1_icon_theme(const QString &)
+{
+}
+
+void TreelandAppearance::treeland_appearance_v1_accent_color(uint32_t, uint32_t, uint32_t)
+{
+}
+
+void TreelandAppearance::treeland_appearance_v1_window_opacity(wl_fixed_t)
+{
+}
+
+void TreelandAppearance::treeland_appearance_v1_color_scheme(uint32_t scheme)
+{
+    Q_EMIT colorSchemeChanged(scheme);
+}
+
+void TreelandAppearance::treeland_appearance_v1_titlebar_height(uint32_t)
+{
+}
+
+void TreelandAppearance::treeland_appearance_v1_corner_radius(uint32_t)
+{
 }
 
 WallpaperManager::WallpaperManager(QObject *parent)
@@ -847,7 +825,6 @@ void WallpaperManager::handleListenerGlobal(void *data, wl_registry *registry, u
     }
 }
 
-// WallpaperContext implementation
 WallpaperContext::WallpaperContext(struct ::treeland_wallpaper_v1 *context)
     : QWaylandClientExtensionTemplate<WallpaperContext>(1)
     , QtWayland::treeland_wallpaper_v1(context)
