@@ -248,7 +248,7 @@ void TreeLandWorker::setFontSize(const int pixelSize)
     }
     m_fontSize = pixelSize;
     PersonalizationWorker::setFontSize(pixelSize);
-    m_appearanceManager->set_font_size(pxToPt(pixelSize));
+    m_appearanceManager->set_font_size(pxToPt(pixelSize) * 10);
 }
 
 void TreeLandWorker::setTitleBarHeight(int value)
