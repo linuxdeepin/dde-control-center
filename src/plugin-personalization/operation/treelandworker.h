@@ -15,17 +15,16 @@
 #include "personalizationworker.h"
 
 #ifdef Enable_Treeland
-#include "wayland-treeland-personalization-manager-v1-client-protocol.h"
-#include "qwayland-treeland-personalization-manager-v1.h"
+#include "wayland-treeland-appearance-manager-unstable-v1-client-protocol.h"
+#include "qwayland-treeland-appearance-manager-unstable-v1.h"
+#include "qwayland-treeland-appearance-unstable-v1.h"
 #include "wayland-treeland-wallpaper-manager-unstable-v1-client-protocol.h"
 #include "qwayland-treeland-wallpaper-manager-unstable-v1.h"
 #include "keyfile.h"
 #endif
 
-class PersonalizationManager;
-class PersonalizationAppearanceContext;
-class PersonalizationCursorContext;
-class PersonalizationFontContext;
+class TreelandAppearanceManager;
+class TreelandAppearance;
 class WallpaperManager;
 class WallpaperContext;
 
@@ -113,10 +112,8 @@ private:
     void setDesktopWallpaperCustomized(bool customized);
 
 private:
-    QScopedPointer<PersonalizationManager> m_personalizationManager;
-    QScopedPointer<PersonalizationAppearanceContext> m_appearanceContext;
-    QScopedPointer<PersonalizationCursorContext> m_cursorContext;
-    QScopedPointer<PersonalizationFontContext> m_fontContext;
+    QScopedPointer<TreelandAppearanceManager> m_appearanceManager;
+    QScopedPointer<TreelandAppearance> m_appearance;
     QScopedPointer<WallpaperManager> m_wallpaperManager;
     Dtk::Core::DConfig *m_dconfig = nullptr;
     QMap<QString, WallpaperContext *> m_wallpaperContexts;
@@ -141,13 +138,13 @@ private:
 
 #ifdef Enable_Treeland
 
-class PersonalizationManager: public QWaylandClientExtensionTemplate<PersonalizationManager>,
-                              public QtWayland::treeland_personalization_manager_v1
+class TreelandAppearanceManager: public QWaylandClientExtensionTemplate<TreelandAppearanceManager>,
+                                 public QtWayland::treeland_appearance_manager_v1
 {
     Q_OBJECT
 public:
-    explicit PersonalizationManager(QObject *parent = nullptr);
-    ~PersonalizationManager() override;
+    explicit TreelandAppearanceManager(QObject *parent = nullptr);
+    ~TreelandAppearanceManager() override;
 
 private:
     void addListener();
@@ -159,58 +156,38 @@ private:
     QtWaylandClient::QWaylandDisplay *m_waylandDisplay = nullptr;
 };
 
-class PersonalizationAppearanceContext : public QWaylandClientExtensionTemplate<PersonalizationAppearanceContext>,
-                                         public QtWayland::treeland_personalization_appearance_context_v1
+class TreelandAppearance : public QWaylandClientExtensionTemplate<TreelandAppearance>,
+                          public QtWayland::treeland_appearance_v1
 {
     Q_OBJECT
-
 public:
-    explicit PersonalizationAppearanceContext(struct ::treeland_personalization_appearance_context_v1 *context, PersonalizationModel *model);
-    ~PersonalizationAppearanceContext() override;
+    explicit TreelandAppearance(PersonalizationModel *model);
+    ~TreelandAppearance() override;
 
 protected:
-    void treeland_personalization_appearance_context_v1_round_corner_radius(int32_t radius) override;
-    void treeland_personalization_appearance_context_v1_icon_theme(const QString &theme_name) override;
-    void treeland_personalization_appearance_context_v1_active_color(const QString &active_color) override;
-    void treeland_personalization_appearance_context_v1_window_opacity(uint32_t opacity) override;
-    void treeland_personalization_appearance_context_v1_window_theme_type(uint32_t type) override;
-    void treeland_personalization_appearance_context_v1_window_titlebar_height(uint32_t height) override;
+    void treeland_appearance_v1_cursor_theme(const QString &name) override;
+    void treeland_appearance_v1_cursor_size(uint32_t width, uint32_t height) override;
+    void treeland_appearance_v1_font(const QString &font_name) override;
+    void treeland_appearance_v1_monospace_font(const QString &font_name) override;
+    void treeland_appearance_v1_font_size(uint32_t size) override;
+    void treeland_appearance_v1_icon_theme(const QString &theme_name) override;
+    void treeland_appearance_v1_accent_color(uint32_t r, uint32_t g, uint32_t b) override;
+    void treeland_appearance_v1_window_opacity(wl_fixed_t opacity) override;
+    void treeland_appearance_v1_color_scheme(uint32_t scheme) override;
+    void treeland_appearance_v1_titlebar_height(uint32_t height) override;
+    void treeland_appearance_v1_corner_radius(uint32_t radius) override;
+
 signals:
-    void windowThemeTypeChanged(uint32_t type);
+    void colorSchemeChanged(uint32_t scheme);
 
 private:
-    PersonalizationModel *m_model;
-};
+    void addListener();
+    void removeListener();
 
-class PersonalizationCursorContext : public QWaylandClientExtensionTemplate<PersonalizationCursorContext>,
-                                     public QtWayland::treeland_personalization_cursor_context_v1
-{
-    Q_OBJECT
-public:
-    explicit PersonalizationCursorContext(struct ::treeland_personalization_cursor_context_v1 *context, PersonalizationModel *model);
-    ~PersonalizationCursorContext() override;
-
-protected:
-    void treeland_personalization_cursor_context_v1_theme(const QString &name) override;
+    static void handleListenerGlobal(void *data, wl_registry *registry, uint32_t id, const QString &interface, uint32_t version);
 
 private:
-    PersonalizationModel *m_model;
-};
-
-class PersonalizationFontContext : public QWaylandClientExtensionTemplate<PersonalizationFontContext>,
-                                   public QtWayland::treeland_personalization_font_context_v1
-{
-    Q_OBJECT
-public:
-    explicit PersonalizationFontContext(struct ::treeland_personalization_font_context_v1 *context, PersonalizationModel *model);
-    ~PersonalizationFontContext() override;
-
-protected:
-    void treeland_personalization_font_context_v1_font(const QString &font_name) override;
-    void treeland_personalization_font_context_v1_monospace_font(const QString &font_name) override;
-    void treeland_personalization_font_context_v1_font_size(uint32_t font_size) override;
-
-private:
+    QtWaylandClient::QWaylandDisplay *m_waylandDisplay = nullptr;
     PersonalizationModel *m_model;
 };
 

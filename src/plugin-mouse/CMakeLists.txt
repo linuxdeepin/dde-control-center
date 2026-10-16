@@ -7,7 +7,7 @@ if (BUILD_PLUGIN)
     endif()
 
     if (Enable_TreelandSupport)
-        find_package(TreelandProtocols REQUIRED)
+        find_package(TreelandProtocols 0.7.0 REQUIRED)
     endif()
 
     file(GLOB_RECURSE mouse_SRCS
@@ -27,7 +27,7 @@ if (BUILD_PLUGIN)
 
     if (Enable_TreelandSupport)
     qt6_generate_wayland_protocol_client_sources(${Mouse_Name} FILES
-        ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-personalization-manager-v1.xml
+        ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-appearance-manager-unstable-v1.xml
     )
 
     target_compile_definitions(${Mouse_Name} PRIVATE Enable_Treeland)
