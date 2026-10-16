@@ -248,7 +248,7 @@ void TreeLandWorker::setFontSize(const int pixelSize)
     }
     m_fontSize = pixelSize;
     PersonalizationWorker::setFontSize(pixelSize);
-    m_appearanceManager->set_font_size(pxToPt(pixelSize) * 10);
+    m_appearanceManager->set_font_size(pxToPt(pixelSize));
 }
 
 void TreeLandWorker::setTitleBarHeight(int value)
@@ -746,8 +746,9 @@ void TreelandAppearance::treeland_appearance_v1_icon_theme(const QString &)
 {
 }
 
-void TreelandAppearance::treeland_appearance_v1_accent_color(uint32_t, uint32_t, uint32_t)
+void TreelandAppearance::treeland_appearance_v1_accent_color(uint32_t r, uint32_t g, uint32_t b)
 {
+    m_model->setActiveColor(QColor(r, g, b).name());
 }
 
 void TreelandAppearance::treeland_appearance_v1_window_opacity(wl_fixed_t)
@@ -759,12 +760,14 @@ void TreelandAppearance::treeland_appearance_v1_color_scheme(uint32_t scheme)
     Q_EMIT colorSchemeChanged(scheme);
 }
 
-void TreelandAppearance::treeland_appearance_v1_titlebar_height(uint32_t)
+void TreelandAppearance::treeland_appearance_v1_titlebar_height(uint32_t height)
 {
+    m_model->setTitleBarHeight(height);
 }
 
-void TreelandAppearance::treeland_appearance_v1_corner_radius(uint32_t)
+void TreelandAppearance::treeland_appearance_v1_corner_radius(uint32_t radius)
 {
+    m_model->setWindowRadius(radius);
 }
 
 WallpaperManager::WallpaperManager(QObject *parent)
