@@ -1,0 +1,28 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "disable": {
+            "value": false,
+            "serial": 0,
+            "flags": [],
+            "name": "Disable",
+            "name[zh_CN]": "禁用",
+            "description": "Whether the module is disabled.",
+            "description[zh_CN]": "模块是否禁用。",
+            "permissions": "readwrite",
+            "visibility": "private"
+        },
+        "visible": {
+            "value": true,
+            "serial": 0,
+            "flags": [],
+            "name": "Visible",
+            "name[zh_CN]": "显示",
+            "description": "Whether the module is visible.",
+            "description[zh_CN]": "模块是否显示。",
+            "permissions": "readwrite",
+            "visibility": "private"
+        }
+    }
+}

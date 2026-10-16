@@ -137,6 +137,7 @@ private Q_SLOTS:
     void tryShowFallback();
     void doShowPage(QPointer<DccObject> obj, const QString &cmd);
     void updateModuleConfig(const QString &key);
+    void applyModuleConfig(DccObject *obj);
     void onVisible(bool visible);
     void onObjectAdded(DccObject *obj);
     void onObjectRemoved(DccObject *obj);
