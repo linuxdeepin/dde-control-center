@@ -113,7 +113,7 @@ QDBusPendingReply<> CharaMangerDBusProxy::Enroll(const QString &finger)
 
 }
 
-QStringList CharaMangerDBusProxy::ListFingers(const QString &username)
+QDBusPendingReply<QStringList> CharaMangerDBusProxy::ListFingers(const QString &username)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(username);
