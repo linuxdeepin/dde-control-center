@@ -35,13 +35,15 @@ DccObject {
         Image {
             anchors.right: parent.right
             anchors.top: parent.top
-            width: 44
             height: 20
-            sourceSize.width: 44
-            sourceSize.height: 20
+            property bool useDeepinWordmark: !["zh_CN", "zh_HK", "zh_TW"].includes(Qt.locale().name)
+            width: useDeepinWordmark ? 67 : 44
             opacity: 0.6
             visible: DccApp.isCommunitySystem()
-            source: "qrc:/icons/deepin/builtin/icons/dcc_deepin_logo.svg"
+            // 中文（简/繁/港）环境用"深度"logo，其他语言用 deepin 字标
+            source: useDeepinWordmark
+                    ? "qrc:/icons/deepin/builtin/icons/dcc_deepin_wordmark.svg"
+                    : "qrc:/icons/deepin/builtin/icons/dcc_deepin_logo.svg"
             fillMode: Image.PreserveAspectFit
         }
     }
