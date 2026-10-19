@@ -1,0 +1,102 @@
+name: DBus interface test
+
+# dde-control-center 的 DBus 接口测试(process 形态)。
+# 被测接口(本仓唯一的导出契约):
+#   org.deepin.dde.ControlCenter1 @ /org/deepin/dde/ControlCenter1
+#     9 个方法(含 ShowPage 的 s / ss 两个重载)+ Rect/Page/Path 三个只读属性
+#   org.deepin.dde.ControlCenter1.GrandSearch @ 同一路径
+#     Search(s)->s / Stop(s)->b / Action(s)->b
+#
+# 用 --dbus 启动:main.cpp 的 dbusOption 会让 loadModules(false, ...) 跳过
+# 主窗口与插件 UI 加载,只注册 D-Bus 服务与对象 —— 离屏环境下启动更稳。
+#
+# 注意:main.cpp 用 setSingleInstance("org.deepin.dde.control-center"),
+# 锁文件在 /tmp(按 uid + appname,沙箱 HOME 改不了)。CI 容器每次全新无碍。
+#
+# 注意:仓内没有源码声明 XML(接口定义只在 controlcenterdbusadaptor.h 的
+# Q_CLASSINFO / Q_PROPERTY / public Q_SLOTS),静态校验会如实 SKIP,
+# 故 check 不传 --strict。
+on:
+  push:
+    branches: [master, main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  dbus-interface:
+    runs-on: ubuntu-latest
+    container: linuxdeepin/deepin:crimson
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 安装构建依赖(照抄 debian/control Build-Depends)
+        run: |
+          apt-get update
+          apt-get install -y --no-install-recommends \
+            ca-certificates git make cmake pkg-config build-essential g++ \
+            debhelper-compat doxygen \
+            qt6-base-dev qt6-base-private-dev qt6-declarative-dev \
+            qt6-declarative-private-dev qt6-tools-dev qt6-tools-dev-tools \
+            qt6-multimedia-dev qt6-svg-dev libqt6svg6 \
+            qt6-wayland-dev qt6-wayland-dev-tools qt6-wayland-private-dev \
+            libdtkcommon-dev libdtk6core-dev libdtk6core-bin libdtk6gui-dev \
+            extra-cmake-modules systemd \
+            libpolkit-qt6-1-dev libdareader-dev libdeepin-pw-check-dev \
+            libdde-shell-dev dde-api-dev libdpkg-dev libffmpegthumbnailer-dev \
+            libicu-dev libwayland-dev libssl-dev wlr-protocols treeland-protocols \
+            deepin-gettext-tools \
+            libgtest-dev \
+            python3-pip python3-setuptools python3-wheel python3-yaml \
+            python3-dbus python3-gi python3-dbusmock \
+            deepin-desktop-schemas adwaita-icon-theme \
+            gdb
+          # 运行期 QML 依赖:照抄 debian/control 里 Package: dde-control-center
+          # 的 Depends 段。这些包不在 Build-Depends 里(打包时由 shlibs 自动
+          # 拉入),但 CI 手写清单必须显式装上 —— 否则程序能构建成功,却在
+          # 运行期 loadFromModule 失败:
+          #   缺 libdtk6declarative → "module org.deepin.dtk is not installed"
+          #   缺 qml6-module-qtquick-templates → "plugin qtquicktemplates2plugin not found"
+          # 任一缺失都会让 main.cpp 走到 "Failed to create window" 后 return 1。
+          apt-get install -y --no-install-recommends \
+            libdtk6declarative \
+            qml6-module-qtquick-layouts qml6-module-qtquick-window \
+            qml6-module-qt-labs-qmlmodels qml6-module-qtquick-dialogs \
+            qml6-module-qtquick-effects \
+            qml6-module-qtqml qml6-module-qtqml-models qml6-module-qtqml-workerscript \
+            qml6-module-qtquick qml6-module-qtquick-templates \
+            qml6-module-qtquick-controls \
+            qml6-module-qtquick-controls2-styles-chameleon \
+            qml6-module-qtquick-shapes \
+            qml6-module-qt-labs-folderlistmodel qml6-module-qt-labs-platform \
+            qml6-module-qt-labs-settings qml6-module-qtcore
+
+      - name: 构建被测物
+        run: |
+          cmake -S . -B build-dcc -DCMAKE_BUILD_TYPE=Release
+          cmake --build build-dcc --target dde-control-center -j"$(nproc)"
+          test -x build-dcc/bin/dde-control-center
+
+      - name: 安装 dbus-testing
+        env:
+          DBUS_TESTING_REPO: https://github.com/MyLeeJiEun/deepin-dbus-testing
+        run: |
+          git clone --depth 1 "${DBUS_TESTING_REPO}" /tmp/dbus-testing-src
+          pip install --break-system-packages --no-build-isolation --no-deps \
+            /tmp/dbus-testing-src
+          dbus-testing --version
+
+      # 本仓无源码声明 XML,静态校验会 SKIP;不传 --strict 让 SKIP 保持非失败
+      - name: 静态契约校验
+        run: dbus-testing check tests/dbus --static --build-dir build-dcc
+
+      - name: DBus 接口测试
+        run: dbus-testing run tests/dbus --build-dir build-dcc --report artifacts/
+
+      - name: 上传报告
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: dbus-test-report
+          path: artifacts/
+          if-no-files-found: warn

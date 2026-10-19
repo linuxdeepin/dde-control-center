@@ -1,0 +1,163 @@
+# dde-control-center 用例:ControlCenter1 + GrandSearch 两个接口面。
+#
+# 顺序敏感:Exit 会注销服务并退出进程,必须放在最后。
+apiVersion: v1
+cases:
+  # ---- 只读属性:三个都读一遍,顺便校验类型 ----
+  - name: rect-readable
+    get-prop:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      property: Rect
+    expect: { type: "(iiii)" }
+
+  - name: page-readable
+    get-prop:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      property: Page
+    expect: { type: s }
+
+  - name: path-readable
+    get-prop:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      property: Path
+    expect: { type: s }
+
+  # ---- 只读属性:写入必须被拒绝 ----
+  - name: page-is-readonly
+    set-prop:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      property: Page
+      value: "x"
+    expect: { error: org.freedesktop.DBus.Error.PropertyReadOnly }
+
+  # ---- 模块清单:返回非空 JSON 数组 ----
+  - name: get-all-module-returns-json
+    timeout: 60s
+    call:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      method: GetAllModule
+    expect: { signature: "s", nonempty: true }
+
+  # ---- 窗口可见性:Show / Hide / Toggle / ShowHome 四件套 ----
+  - name: show-callable
+    call:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      method: Show
+
+  - name: hide-callable
+    call:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      method: Hide
+
+  - name: toggle-callable
+    call:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      method: Toggle
+
+  - name: show-home-callable
+    call:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      method: ShowHome
+
+  # ---- 页面跳转:ShowPage 是 D-Bus 上的**重载**,同名不同签名 ----
+  # 单参版本(s)
+  - name: show-page-single-arg
+    timeout: 60s
+    call:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      method: ShowPage
+      args: ["system"]
+      signature: "s"
+
+  # 双参版本(s,s):不显式给签名会被路由到单参版本,必须显式指定。
+  # 用 system + common(对应 url "system/common",实际存在的页面);
+  # 若拼错成不存在的 url,服务会回 InvalidArgs: not found url:xxx
+  # —— 这条错误路径本身也值得覆盖,见下一条用例。
+  - name: show-page-two-args
+    timeout: 60s
+    call:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      method: ShowPage
+      args: ["system", "common"]
+      signature: "ss"
+
+  # 不存在的页面:服务回 InvalidArgs,而不是静默成功
+  - name: show-page-unknown-url-rejected
+    timeout: 60s
+    call:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      method: ShowPage
+      args: ["system", "no-such-page"]
+      signature: "ss"
+    expect: { error: org.freedesktop.DBus.Error.InvalidArgs }
+
+  # 已废弃但仍导出的 ShowModule(s)
+  - name: show-module-callable
+    timeout: 60s
+    call:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      method: ShowModule
+      args: ["system"]
+
+  # ---- GrandSearch 子接口:三个方法 ----
+  - name: grand-search-search-returns-json
+    timeout: 60s
+    call:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1.GrandSearch
+      method: Search
+      args: ['{"key":"test"}']
+    expect: { signature: "s", nonempty: true }
+
+  - name: grand-search-stop-returns-bool
+    call:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1.GrandSearch
+      method: Stop
+      args: ['{"key":"test"}']
+    expect: { signature: "b" }
+
+  # Action 在上游声明为 bool(const QString&),introspection 也报 `bool Action(...)`,
+  # 但**实际回复是空签名**(实测 4 次一致:reply.get_signature() == '')。
+  # 同签名同返回类型的 Stop 正常回 'b',差异来自 action() 内部会走
+  # show() + showPage() 的重入路径。这是上游声明与行为不一致,属于被测物的
+  # 既有问题,不在这里断言空签名(那会把 bug 固化成契约)。只断言可调用。
+  - name: grand-search-action-callable
+    timeout: 60s
+    call:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1.GrandSearch
+      method: Action
+      args: ['{"action":"openitem","item":"system"}']
+
+  # ---- 错误面:未声明的方法必须被 D-Bus 拒绝 ----
+  - name: unknown-method-rejected
+    call:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      method: NoSuchMethod
+    expect: { error: org.freedesktop.DBus.Error.UnknownMethod }
+
+  # ---- 契约基线 ----
+  - name: contract
+    check-contract: {}
+
+  # ---- 破坏性方法放最后:Exit 走 QCoreApplication::exit() ----
+  - name: exit-callable
+    call:
+      object: /org/deepin/dde/ControlCenter1
+      interface: org.deepin.dde.ControlCenter1
+      method: Exit

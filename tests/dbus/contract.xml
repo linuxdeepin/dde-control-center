@@ -1,0 +1,41 @@
+<node>
+  <object path="/org/deepin/dde/ControlCenter1">
+    <interface name="org.deepin.dde.ControlCenter1">
+      <method name="Exit"/>
+      <method name="GetAllModule">
+        <arg type="s" direction="out"/>
+      </method>
+      <method name="Hide"/>
+      <method name="Show"/>
+      <method name="ShowHome"/>
+      <method name="ShowModule">
+        <arg name="module" type="s" direction="in"/>
+      </method>
+      <method name="ShowPage">
+        <arg name="url" type="s" direction="in"/>
+      </method>
+      <method name="ShowPage">
+        <arg name="module" type="s" direction="in"/>
+        <arg name="page" type="s" direction="in"/>
+      </method>
+      <method name="Toggle"/>
+      <property name="Page" type="s" access="read"/>
+      <property name="Path" type="s" access="read"/>
+      <property name="Rect" type="(iiii)" access="read"/>
+    </interface>
+    <interface name="org.deepin.dde.ControlCenter1.GrandSearch">
+      <method name="Action">
+        <arg type="b" direction="out"/>
+        <arg name="json" type="s" direction="in"/>
+      </method>
+      <method name="Search">
+        <arg type="s" direction="out"/>
+        <arg name="json" type="s" direction="in"/>
+      </method>
+      <method name="Stop">
+        <arg type="b" direction="out"/>
+        <arg name="json" type="s" direction="in"/>
+      </method>
+    </interface>
+  </object>
+</node>

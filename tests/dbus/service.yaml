@@ -1,0 +1,77 @@
+# dde-control-center 的 DBus 接口测试(process 形态)。
+#
+# 被测接口(本仓唯一的导出契约):
+#   org.deepin.dde.ControlCenter1 @ /org/deepin/dde/ControlCenter1
+#     Exit / Hide / Show / ShowHome / ShowPage(s) / Toggle / GetAllModule -> s
+#     ShowPage(s,s) / ShowModule(s)          [Q_DECL_DEPRECATED,仍导出]
+#     Rect (iiii,只读) / Page (s,只读) / Path (s,只读)
+#   org.deepin.dde.ControlCenter1.GrandSearch @ 同一路径
+#     Search(s) -> s / Stop(s) -> b / Action(s) -> b
+#
+# 启动模式:用 --dbus(即 -d)启动。main.cpp 里 dbusOption 会让
+# loadModules(false, ...) 跳过主窗口与插件 UI 的加载,只把 D-Bus 服务与
+# 对象注册起来。离屏环境 + 不加载 QML 界面,启动更稳、用例更快。
+#
+# 单实例要点:main.cpp 用 DGuiApplicationHelper::setSingleInstance
+# ("org.deepin.dde.control-center"),锁文件在 /tmp(按 uid + appname 命名,
+# 沙箱 HOME 改不了)。本机若有残留进程会直接
+# "dde-control-center is already running" 退出;CI 容器每次全新无此问题。
+# 本机复现需先 pkill -9 -f dde-control-center 并清理 /tmp/_d_dtk_single_instance_*。
+#
+# Exit 要点:Exit 调 QCoreApplication::exit(),进程在下一个事件循环迭代
+# 退出。它会注销服务,所以放在用例序列最末尾;框架在 teardown 前调用即可,
+# 不依赖退出是否已生效。
+apiVersion: v1
+process: dde-control-center
+mode: isolate
+kind: process
+tier: T3
+
+services:
+  - org.deepin.dde.ControlCenter1
+
+binary:
+  search:
+    - ${BUILD_DIR}/bin/dde-control-center
+    - ${BUILD_DIR}/dde-control-center
+    - /usr/bin/dde-control-center
+
+args:
+  - "--dbus"
+  # 必须指向构建树里的插件目录。原因见 dccmanager.cpp 的 waitShowPage():
+  #   if (!m_plugins->loadFinished()) { startPendingShow(url, message); return; }
+  # 插件没加载完就把 D-Bus 请求挂起(延迟回复),等 loadAllFinished 再回。
+  # 而 DccPluginManager::loadFinished() 的实现是
+  #   return !m_plugins.isEmpty();   // 且每个 loader 都 isFinished()
+  # 容器里若没装系统插件包(plugins_v1.1 目录不存在),m_plugins 为空 →
+  # loadFinished() 恒为 false → showPage/ShowModule/GrandSearch.Search
+  # 这些方法**永远不回复**,框架侧表现为 E_CALL_TIMEOUT(实测 5s 超时)。
+  # 用 --spec 指向构建树自带的插件(CI 构建产物里就有 19 个),既让
+  # loadFinished() 能真正返回 true,又不依赖系统插件包。
+  - "--spec"
+  - "${BUILD_DIR}/lib/plugins_v1.1"
+
+sandbox:
+  home: tmp
+  env:
+    QT_QPA_PLATFORM: offscreen
+    LANG: C.UTF-8
+    LANGUAGE: en_US
+
+ready:
+  name-owner:
+    - org.deepin.dde.ControlCenter1
+  timeout: 60s
+
+# 本仓**没有**导出契约的源码声明 XML:接口定义只存在于
+# src/dde-control-center/controlcenterdbusadaptor.h 的
+# Q_CLASSINFO("D-Bus Interface", ...) 与 Q_PROPERTY / public Q_SLOTS。
+# 仓内没有 api/dbus/、xml/、dbus/ 目录,默认 glob 一个都命中不了。
+# 置空 src-xml-globs 让静态校验如实报 SKIP;CI 的 check 因此不传 --strict。
+src-xml-globs: []
+
+ignore:
+  interfaces:
+    - "org.freedesktop.DBus.*"
+
+teardown: kill
