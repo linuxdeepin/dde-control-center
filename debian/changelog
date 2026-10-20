@@ -1,3 +1,9 @@
+dde-control-center (6.1.112) unstable; urgency=medium
+
+  * feat(systeminfo): localize license page logo
+
+ -- zhangkun <zhangkun2@uniontech.com>  Tue, 20 Oct 2026 21:31:25 +0800
+
 dde-control-center (6.1.111) unstable; urgency=medium
 
   * i18n: Updates for project Deepin Desktop Environment (#3568)
