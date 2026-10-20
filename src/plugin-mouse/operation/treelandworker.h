@@ -11,14 +11,13 @@
 #include <private/qwaylanddisplay_p.h>
 
 #ifdef Enable_Treeland
-#include "wayland-treeland-personalization-manager-v1-client-protocol.h"
-#include "qwayland-treeland-personalization-manager-v1.h"
+#include "wayland-treeland-appearance-manager-unstable-v1-client-protocol.h"
+#include "qwayland-treeland-appearance-manager-unstable-v1.h"
 #endif
 
 namespace DCC_MOUSE {
 
-class PersonalizationManager;
-class TreelandCursorContext;
+class TreelandAppearanceManager;
 
 class TreeLandWorker : public QObject
 {
@@ -26,25 +25,22 @@ class TreeLandWorker : public QObject
 public:
     explicit TreeLandWorker(QObject *parent);
     void active();
-    void init();
-
     void setCursorSize(int size);
 private:
 #ifdef Enable_Treeland
-    QScopedPointer<PersonalizationManager> m_personalizationManager;
-    QScopedPointer<TreelandCursorContext> m_cursorContext;
+    QScopedPointer<TreelandAppearanceManager> m_appearanceManager;
 #endif
 };
 
 #ifdef Enable_Treeland
 
-class PersonalizationManager: public QWaylandClientExtensionTemplate<PersonalizationManager>,
-                              public QtWayland::treeland_personalization_manager_v1
+class TreelandAppearanceManager: public QWaylandClientExtensionTemplate<TreelandAppearanceManager>,
+                                  public QtWayland::treeland_appearance_manager_v1
 {
     Q_OBJECT
 public:
-    explicit PersonalizationManager(QObject *parent = nullptr);
-    ~PersonalizationManager() override;
+    explicit TreelandAppearanceManager(QObject *parent = nullptr);
+    ~TreelandAppearanceManager() override;
 
 private:
     void addListener();
@@ -54,16 +50,6 @@ private:
 
 private:
     QtWaylandClient::QWaylandDisplay *m_waylandDisplay = nullptr;
-};
-
-
-class TreelandCursorContext : public QWaylandClientExtensionTemplate<TreelandCursorContext>,
-                                     public QtWayland::treeland_personalization_cursor_context_v1
-{
-    Q_OBJECT
-public:
-    explicit TreelandCursorContext(struct ::treeland_personalization_cursor_context_v1 *context);
-    ~TreelandCursorContext() override;
 };
 #endif
 }
