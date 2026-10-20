@@ -10,6 +10,7 @@
 #include <TreeLandOutputManager.h>
 #include <VirtualOutputManager.h>
 #include <WallpaperManager.h>
+#include <TreelandOutputUuidHead.h>
 #include <WayQtUtils.h>
 #include <dconfig.h>
 
@@ -140,6 +141,9 @@ void DisplayWorker::initTreeland()
 
     m_treelandOutputMgr = new WQt::TreeLandOutputManager(this);
     connect(m_treelandOutputMgr, &WQt::TreeLandOutputManager::activeChanged, this, &DisplayWorker::onTreeLandOutputManagerActive);
+
+    m_uuidHeadMgr = new WQt::TreelandOutputUuidHead(this);
+    connect(m_uuidHeadMgr, &WQt::TreelandOutputUuidHead::uuidChanged, this, &DisplayWorker::onUuidChanged, Qt::QueuedConnection);
 
     m_virtualOutputMgr = new WQt::VirtualOutputManager(this);
     connect(m_virtualOutputMgr, &WQt::VirtualOutputManager::activeChanged, this, &DisplayWorker::onVirtualOutputManagerActive);
@@ -382,8 +386,11 @@ void DisplayWorker::onWlMonitorListChanged()
                 isNew = false;
                 break;
             }
-        if (isNew)
+        if (isNew) {
             wlMonitorAdded(head);
+            if (m_uuidHeadMgr)
+                m_uuidHeadMgr->requestUuid(head->get());
+        }
     }
     updateControl();
 }
@@ -620,11 +627,13 @@ void DisplayWorker::onWlOutputManagerDone()
 
     updateTreelandDisplayMode();
     if (m_treelandOutputMgr) {
-        m_model->setPrimary(m_treelandOutputMgr->mPrimaryOutput);
+        m_model->setPrimary(uuidToMonitorName(m_treelandOutputMgr->mPrimaryOutput));
         connect(m_treelandOutputMgr,
                 &WQt::TreeLandOutputManager::primaryOutputChanged,
-                m_model,
-                &DisplayModel::setPrimary,
+                this,
+                [this](const QString &uuid) {
+                    m_model->setPrimary(uuidToMonitorName(uuid));
+                },
                 Qt::UniqueConnection);
     }
 }
@@ -759,25 +768,27 @@ void DisplayWorker::setPrimary(const QString &name)
 {
     if (WQt::Utils::isTreeland()) {
         if (m_treelandOutputMgr) {
-            // v2 protocol takes a wl_output* instead of an output name string;
-            // resolve the name to the wl_output owned by the matching QScreen.
-            struct wl_output *output = nullptr;
-            for (auto it(m_screen_outputs.cbegin()); it != m_screen_outputs.cend(); ++it) {
+            // Resolve the monitor name to an OutputHead, then to a uuid.
+            struct zwlr_output_head_v1 *head = nullptr;
+            for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
                 if (it.key()->name() == name) {
-                    output = it.value();
+                    head = it.value()->get();
                     break;
                 }
             }
-            // The v2 set_primary_output request does not declare allow-null for
-            // its output argument, so do not send a null object — the compositor
-            // would reject it (or worse, treat it as a protocol error).  This
-            // happens when the screen has not been registered yet; the primary
-            // output is left unchanged and the user can retry later.
-            if (!output) {
-                qCWarning(DdcDisplayWorker) << "cannot set primary output: no wl_output found for" << name;
+            if (!head) {
+                qCWarning(DdcDisplayWorker) << "cannot set primary output: no head found for" << name;
                 return;
             }
-            m_treelandOutputMgr->setPrimaryOutput(output);
+            QString uuid = m_uuidHeadMgr ? m_uuidHeadMgr->uuidForHead(head) : QString();
+            if (uuid.isEmpty()) {
+                // uuid not yet received; defer until uuidChanged fires.
+                m_pendingPrimaryName = name;
+                qCWarning(DdcDisplayWorker) << "deferring set primary output: uuid not ready for" << name;
+                return;
+            }
+            m_pendingPrimaryName.clear();
+            m_treelandOutputMgr->setPrimaryOutput(uuid);
         }
     } else {
         m_displayInter->SetPrimary(name);
@@ -1366,6 +1377,8 @@ void DisplayWorker::wlMonitorRemoved(WQt::OutputHead *head)
     // delete m_wl_gammaConfig[monitor];
     // delete m_wl_gammaEffects[monitor];
 #endif
+    if (m_uuidHeadMgr)
+        m_uuidHeadMgr->removeHead(head->get());
     head->deleteLater();
 
     m_wl_monitors.remove(monitor);
@@ -1398,18 +1411,8 @@ void DisplayWorker::screenRemoved(QScreen *screen)
     if (!output)
         return;
 
-    // Qt destroys the platform screen right after this signal and releases its
-    // wl_output, so everything bound to that output must be destroyed now.
-    for (auto it = m_control_monitors.begin(); it != m_control_monitors.end();) {
-        if (it.value().screen != screen) {
-            ++it;
-            continue;
-        }
-
-        delete it.value().control;
-        it = m_control_monitors.erase(it);
-    }
-
+    // Control contexts are cleaned up in wlMonitorRemoved(); wallpaper uses
+    // wl_output addressing and must be released before Qt destroys the proxy.
     if (m_wallpaperMgr)
         m_wallpaperMgr->removeWallpaper(output);
 }
@@ -1419,34 +1422,49 @@ void DisplayWorker::updateControl()
     if (!m_treelandOutputMgr || !m_treelandOutputMgr->isActive())
         return;
 
-    for (auto it(m_screen_outputs.cbegin()); it != m_screen_outputs.cend(); ++it) {
-        QScreen *screen = it.key();
-        for (auto monIt(m_wl_monitors.cbegin()); monIt != m_wl_monitors.cend(); ++monIt) {
-            if (!isSameOutput(monIt.key(), screen))
-                continue;
+    for (auto monIt(m_wl_monitors.cbegin()); monIt != m_wl_monitors.cend(); ++monIt) {
+        auto *head = monIt.value()->get();
+        QString uuid = m_uuidHeadMgr ? m_uuidHeadMgr->uuidForHead(head) : QString();
+        if (uuid.isEmpty())
+            continue;
 
-            auto controlContext = m_control_monitors.find(monIt.key());
-            if (controlContext != m_control_monitors.end() && controlContext.value().screen != screen) {
-                delete controlContext.value().control;
-                m_control_monitors.erase(controlContext);
-                controlContext = m_control_monitors.end();
+        if (!m_control_monitors.contains(monIt.key())) {
+            auto *control = m_treelandOutputMgr->getPictureControl(uuid);
+            if (control) {
+                connect(control, &WQt::ColorControl::brightnessChanged, this, [this, control](double brightness) {
+                    onBrightnessChanged(control, brightness);
+                });
+                connect(control, &WQt::ColorControl::colorTemperatureChanged, this, [this](uint32_t temperature) {
+                    m_model->setColorTemperature(toColorTempPos(temperature));
+                });
+                m_control_monitors.insert(monIt.key(), { control });
             }
-
-            if (controlContext == m_control_monitors.end()) {
-                auto *control = m_treelandOutputMgr->getPictureControl(it.value());
-                if (control) {
-                    connect(control, &WQt::ColorControl::brightnessChanged, this, [this, control](double brightness) {
-                        onBrightnessChanged(control, brightness);
-                    });
-                    connect(control, &WQt::ColorControl::colorTemperatureChanged, this, [this](uint32_t temperature) {
-                        m_model->setColorTemperature(toColorTempPos(temperature));
-                    });
-                    m_control_monitors.insert(monIt.key(), { screen, control });
-                }
-            }
-            break;
         }
     }
+}
+
+void DisplayWorker::onUuidChanged()
+{
+    updateControl();
+
+    if (!m_pendingPrimaryName.isEmpty())
+        setPrimary(m_pendingPrimaryName);
+}
+
+QString DisplayWorker::uuidToMonitorName(const QString &uuid) const
+{
+    if (uuid.isEmpty() || !m_uuidHeadMgr)
+        return {};
+
+    auto *head = m_uuidHeadMgr->headForUuid(uuid);
+    if (!head)
+        return {};
+
+    for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
+        if (it.value()->get() == head)
+            return it.key()->name();
+    }
+    return {};
 }
 
 void DisplayWorker::setAmbientLightAdjustBrightness(bool able)

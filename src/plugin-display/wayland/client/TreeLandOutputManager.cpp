@@ -5,14 +5,8 @@
 #include "TreeLandOutputManager.h"
 
 #include "WayQtLogging.h"
-#include "WayQtUtils.h"
-
-#include <wayland-client.h>
 
 #include <QDebug>
-#include <QGuiApplication>
-#include <QLoggingCategory>
-#include <QScreen>
 
 #include "wayland-treeland-output-manager-unstable-v2-client-protocol.h"
 
@@ -88,42 +82,29 @@ WQt::TreeLandOutputManager::~TreeLandOutputManager()
         QtWayland::treeland_output_manager_v2::destroy();
 }
 
-void WQt::TreeLandOutputManager::setPrimaryOutput(struct wl_output *output)
+void WQt::TreeLandOutputManager::setPrimaryOutput(const QString &uuid)
 {
-    qCDebug(DccWayQt) << "TreeLandOutputManager::setPrimaryOutput" << output;
-    QtWayland::treeland_output_manager_v2::set_primary_output(output);
+    qCDebug(DccWayQt) << "TreeLandOutputManager::setPrimaryOutput" << uuid;
+    QtWayland::treeland_output_manager_v2::set_primary_output(uuid);
 }
 
-WQt::ColorControl *WQt::TreeLandOutputManager::getPictureControl(struct wl_output *output)
+WQt::ColorControl *WQt::TreeLandOutputManager::getPictureControl(const QString &uuid)
 {
-    if (!output)
+    if (uuid.isEmpty())
         return nullptr;
 
-    // Same guard as WallpaperManager::getWallpaper: a removed output turns this
-    // request into a fatal protocol error.
-    if (!WQt::Utils::isOutputAlive(output)) {
-        qCWarning(DccWayQt) << "skipping get_picture_control for a removed output" << output;
-        return nullptr;
-    }
-
-    auto *pictureControl = get_picture_control(output);
+    auto *pictureControl = get_picture_control(uuid);
     if (!pictureControl)
         return nullptr;
 
     return new WQt::ColorControl(pictureControl, this);
 }
 
-void WQt::TreeLandOutputManager::treeland_output_manager_v2_primary_output(struct wl_output *output)
+void WQt::TreeLandOutputManager::treeland_output_manager_v2_primary_output(const QString &uuid)
 {
-    QString name;
-    if (output) {
-        auto *screen = WQt::Utils::qScreenFromWlOutput(output);
-        if (screen)
-            name = screen->name();
-    }
-    qCDebug(DccWayQt) << "TreeLandOutputManager::primary output changed" << name;
-    mPrimaryOutput = name;
-    Q_EMIT primaryOutputChanged(name);
+    qCDebug(DccWayQt) << "TreeLandOutputManager::primary output changed" << uuid;
+    mPrimaryOutput = uuid;
+    Q_EMIT primaryOutputChanged(uuid);
 }
 
 void WQt::TreeLandOutputManager::treeland_output_manager_v2_primary_output_failed(uint32_t reason)

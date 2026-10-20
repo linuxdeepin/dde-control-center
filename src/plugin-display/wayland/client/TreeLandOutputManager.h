@@ -6,14 +6,9 @@
 
 #include "qwayland-treeland-output-manager-unstable-v2.h"
 
-#include <QMap>
 #include <QObject>
-#include <QRect>
 #include <QString>
 #include <QtWaylandClient/QWaylandClientExtension>
-
-struct wl_buffer;
-struct wl_output;
 
 namespace WQt {
 class TreeLandOutputManager;
@@ -58,15 +53,16 @@ public:
     TreeLandOutputManager(QObject *parent = nullptr);
     ~TreeLandOutputManager() override;
 
-    void setPrimaryOutput(struct wl_output *output);
-    WQt::ColorControl *getPictureControl(struct wl_output *output);
+    void setPrimaryOutput(const QString &uuid);
+    WQt::ColorControl *getPictureControl(const QString &uuid);
 
+    // Stores the uuid of the current primary output (empty string = none).
     QString mPrimaryOutput;
 
 protected:
-    void treeland_output_manager_v2_primary_output(struct wl_output *output) override;
+    void treeland_output_manager_v2_primary_output(const QString &uuid) override;
     void treeland_output_manager_v2_primary_output_failed(uint32_t reason) override;
 
 Q_SIGNALS:
-    void primaryOutputChanged(const QString &);
+    void primaryOutputChanged(const QString &uuid);
 };
