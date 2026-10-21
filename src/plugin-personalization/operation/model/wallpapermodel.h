@@ -37,14 +37,14 @@ struct WallpaperItem {
     QString url;
     QString picPath;
     QString thumbnail;
-    bool deleteAble;
-    qint64 lastModifiedTime;
-    bool configurable;
-    bool selected;
+    bool deleteAble = false;
+    qint64 lastModifiedTime = 0;
+    bool configurable = false;
+    bool selected = false;
     QString packageName;
-    WallpaperInstallStatus installStatus;
-    double installProgress;
-    WallpaperType type;
+    WallpaperInstallStatus installStatus = Download_Installed;
+    double installProgress = 1;
+    WallpaperType type = Wallpaper_Unknown;
 };
 
 enum ItemTypeRole {
