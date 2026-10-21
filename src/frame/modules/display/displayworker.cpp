@@ -385,6 +385,11 @@ void DisplayWorker::monitorAdded(const QString &path)
         if (value.id() == 0) {
             return;
         }
+        if (m_model->displayMode() == EXTEND_MODE) {
+            qDebug() << "Skip auto scale downgrade in extend mode, resolution:"
+                     << value.width() << "x" << value.height();
+            return;
+        }
         auto maxWScale = value.width() / 1024.0;
         auto maxHScale = value.height() / 768.0;
         auto maxScale = maxWScale < maxHScale ? maxWScale : maxHScale;
