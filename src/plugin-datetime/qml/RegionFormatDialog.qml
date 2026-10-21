@@ -132,9 +132,8 @@ Loader {
                                 implicitWidth: itemsView.width
                                 text: model.display
                                 font: D.DTK.fontManager.t6
-                                checked: (itemsView.selectedLangKey === model.langKey &&
-                                         itemsView.selectedLocaleKey === model.localeKey) ||
-                                        (itemsView.selectedLangKey === "" && index === itemsView.currentIndex)
+                                checked: itemsView.selectedLangKey === model.langKey &&
+                                         itemsView.selectedLocaleKey === model.localeKey
                                 hoverEnabled: true
                                 ButtonGroup.group: langGroup
 
