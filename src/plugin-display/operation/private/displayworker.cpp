@@ -8,7 +8,7 @@
 
 #include <OutputManager.h>
 #include <TreeLandOutputManager.h>
-#include <VirtualOutputManager.h>
+#include <OutputGroupManager.h>
 #include <WallpaperManager.h>
 #include <TreelandOutputUuidHead.h>
 #include <WayQtUtils.h>
@@ -145,8 +145,8 @@ void DisplayWorker::initTreeland()
     m_uuidHeadMgr = new WQt::TreelandOutputUuidHead(this);
     connect(m_uuidHeadMgr, &WQt::TreelandOutputUuidHead::uuidChanged, this, &DisplayWorker::onUuidChanged, Qt::QueuedConnection);
 
-    m_virtualOutputMgr = new WQt::VirtualOutputManager(this);
-    connect(m_virtualOutputMgr, &WQt::VirtualOutputManager::activeChanged, this, &DisplayWorker::onVirtualOutputManagerActive);
+    m_outputGroupMgr = new WQt::OutputGroupManager(this);
+    connect(m_outputGroupMgr, &WQt::OutputGroupManager::activeChanged, this, &DisplayWorker::onOutputGroupManagerActive);
 
     m_wallpaperMgr = new WQt::WallpaperManager(this);
     connect(m_wallpaperMgr, &WQt::WallpaperManager::activeChanged, this, &DisplayWorker::onWallpaperManagerActive);
@@ -221,19 +221,19 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
     if (WQt::Utils::isTreeland()) {
         qCDebug(DdcDisplayWorker) << "switch mode" << mode << "target" << name;
         auto updateDisplayModeFromCurrentState = [this]() {
-            updateVirtualOutputs();
+            updateOutputGroups();
             updateTreelandDisplayMode();
         };
 
-        // 销毁所有已有的虚拟输出
-        if (m_virtualOutputMgr) {
-            for (const auto &virtualOutputName : m_virtualOutputMgr->virtualOutputs().keys()) {
-                m_virtualOutputMgr->destroyVirtualOutput(virtualOutputName);
+        // dissolve all existing groups
+        if (m_outputGroupMgr) {
+            for (auto *group : m_outputGroupMgr->groups()) {
+                group->dissolve();
             }
         }
 
         if (mode == MERGE_MODE) {
-            if (m_virtualOutputMgr) {
+            if (m_outputGroupMgr) {
                 QStringList outputNames;
                 for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
                     if (it.key()->name() == m_model->primary()) {
@@ -243,11 +243,30 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                     }
                 }
                 if (outputNames.size() >= 2) {
-                    auto createMergeVirtualOutput = [this, outputNames]() {
-                        m_virtualOutputMgr->createVirtualOutput("ddeScreenGroup", outputNames);
-                        QMap<QString, QStringList> voMap;
-                        voMap.insert("ddeScreenGroup", outputNames);
-                        m_model->setVirtualOutput(voMap);
+                    auto createMergeGroup = [this]() {
+                        // Resolve source uuid (primary monitor) and mirror uuids
+                        QString sourceUuid;
+                        QStringList mirrorUuids;
+                        for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
+                            QString uuid = m_uuidHeadMgr ? m_uuidHeadMgr->uuidForHead(it.value()->get()) : QString();
+                            if (it.key()->name() == m_model->primary()) {
+                                sourceUuid = uuid;
+                            } else {
+                                mirrorUuids.append(uuid);
+                            }
+                        }
+                        if (sourceUuid.isEmpty()) {
+                            qCWarning(DdcDisplayWorker) << "Cannot create merge group: source uuid not resolved";
+                            return;
+                        }
+                        auto *group = m_outputGroupMgr->createGroup(sourceUuid);
+                        // After initial state is received, add mirror outputs and commit
+                        connect(group, &WQt::OutputGroup::initialStateDone, this, [group, mirrorUuids]() {
+                            for (const auto &uuid : mirrorUuids) {
+                                group->addOutput(uuid);
+                            }
+                            group->commit();
+                        });
                         m_model->setDisplayMode(MERGE_MODE);
                     };
 
@@ -279,7 +298,7 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                                 cfgHead->setMode(preferMode);
                         }
                     }
-                    connect(opCfg, &WQt::OutputConfiguration::succeeded, this, createMergeVirtualOutput);
+                    connect(opCfg, &WQt::OutputConfiguration::succeeded, this, createMergeGroup);
                     connect(opCfg, &WQt::OutputConfiguration::succeeded, opCfg, &QObject::deleteLater);
                     connect(opCfg, &WQt::OutputConfiguration::failed, this, updateDisplayModeFromCurrentState);
                     connect(opCfg, &WQt::OutputConfiguration::failed, opCfg, &QObject::deleteLater);
@@ -472,22 +491,26 @@ void DisplayWorker::onWallpaperChanged(const QString &fileSource, uint32_t sourc
     }
 }
 
-void DisplayWorker::updateVirtualOutputs()
+void DisplayWorker::updateOutputGroups()
 {
-    if (!m_virtualOutputMgr)
+    if (!m_outputGroupMgr)
         return;
 
-    const auto virtualOutputs = m_virtualOutputMgr->virtualOutputs();
+    const auto groups = m_outputGroupMgr->groups();
     QMap<QString, QStringList> virtualOutputMap;
-    for (auto it = virtualOutputs.cbegin(); it != virtualOutputs.cend(); ++it) {
-        virtualOutputMap.insert(it.key(), it.value()->outputs());
+    for (auto it = groups.cbegin(); it != groups.cend(); ++it) {
+        QStringList monitorNames;
+        for (const auto &uuid : it.value()->mirrorUuids()) {
+            monitorNames.append(uuidToMonitorName(uuid));
+        }
+        virtualOutputMap.insert(it.key(), monitorNames);
     }
     m_model->setVirtualOutput(virtualOutputMap);
 }
 
 void DisplayWorker::updateTreelandDisplayMode()
 {
-    if (m_virtualOutputMgr && !m_virtualOutputMgr->virtualOutputs().isEmpty()) {
+    if (m_outputGroupMgr && !m_outputGroupMgr->groups().isEmpty()) {
         m_model->setDisplayMode(MERGE_MODE);
         return;
     }
@@ -573,41 +596,54 @@ void DisplayWorker::onTreeLandOutputManagerActive()
     updateControl();
 }
 
-void DisplayWorker::onVirtualOutputManagerActive()
+void DisplayWorker::onOutputGroupManagerActive()
 {
-    if (!m_virtualOutputMgr || !m_virtualOutputMgr->isActive()) {
-        qCCritical(DdcDisplayWorker) << "Unable to start the virtual output manager";
+    if (!m_outputGroupMgr || !m_outputGroupMgr->isActive()) {
+        qCCritical(DdcDisplayWorker) << "Unable to start the output group manager";
         return;
     }
 
-    connect(m_virtualOutputMgr,
-            &WQt::VirtualOutputManager::virtualOutputList,
+    // Push-based model: bind triggers group_added/groups_done automatically,
+    // no polling or getVirtualOutputList() needed.
+    connect(m_outputGroupMgr,
+            &WQt::OutputGroupManager::groupAdded,
             this,
-            &DisplayWorker::onVirtualOutputList,
+            &DisplayWorker::onGroupAdded,
             Qt::UniqueConnection);
-    m_virtualOutputMgr->getVirtualOutputList();
+    connect(m_outputGroupMgr,
+            &WQt::OutputGroupManager::groupsDone,
+            this,
+            [this]() {
+                updateOutputGroups();
+                updateTreelandDisplayMode();
+            },
+            Qt::UniqueConnection);
+    connect(m_outputGroupMgr,
+            &WQt::OutputGroupManager::groupRemoved,
+            this,
+            &DisplayWorker::onGroupRemoved,
+            Qt::UniqueConnection);
+    connect(m_outputGroupMgr,
+            &WQt::OutputGroupManager::groupStateChanged,
+            this,
+            [this]() {
+                updateOutputGroups();
+                updateTreelandDisplayMode();
+            },
+            Qt::UniqueConnection);
 }
 
-void DisplayWorker::onVirtualOutputList(const QStringList &names)
+void DisplayWorker::onGroupAdded(const QString &name)
 {
-    const auto virtualOutputs = m_virtualOutputMgr->virtualOutputs();
-    for (const auto &name : names) {
-        auto *vo = virtualOutputs.value(name);
-        if (vo) {
-            connect(vo,
-                    &WQt::VirtualOutput::outputsChanged,
-                    this,
-                    &DisplayWorker::onVirtualOutputsChanged,
-                    Qt::UniqueConnection);
-        }
-    }
-
-    onVirtualOutputsChanged();
+    Q_UNUSED(name)
+    updateOutputGroups();
+    updateTreelandDisplayMode();
 }
 
-void DisplayWorker::onVirtualOutputsChanged()
+void DisplayWorker::onGroupRemoved(const QString &name)
 {
-    updateVirtualOutputs();
+    Q_UNUSED(name)
+    updateOutputGroups();
     updateTreelandDisplayMode();
 }
 
