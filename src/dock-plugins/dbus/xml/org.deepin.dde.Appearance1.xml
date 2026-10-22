@@ -1,0 +1,56 @@
+<interface name="org.deepin.dde.Appearance1">
+    <method name="Delete">
+        <arg type="s" direction="in"></arg>
+        <arg type="s" direction="in"></arg>
+    </method>
+    <method name="List">
+        <arg type="s" direction="in"></arg>
+        <arg type="s" direction="out"></arg>
+    </method>
+    <method name="Set">
+        <arg type="s" direction="in"></arg>
+        <arg type="s" direction="in"></arg>
+    </method>
+    <method name="Show">
+        <arg type="s" direction="in"/>
+        <arg type="as" direction="in"/>
+        <arg type="s" direction="out"/>
+    </method>
+    <method name="Thumbnail">
+        <arg type="s" direction="in"></arg>
+        <arg type="s" direction="in"></arg>
+        <arg type="s" direction="out"></arg>
+    </method>
+    <method name="GetScaleFactor">
+        <arg type="d" direction="out"/>
+    </method>
+    <method name="SetScaleFactor">
+        <arg type="d" direction="in"/>
+    </method>
+    <method name="GetScreenScaleFactors">
+        <arg name="scaleFactors" type="a{sd}" direction="out"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.Out0" value="QMap&lt;QString,double&gt;"/>
+    </method>
+    <method name="SetScreenScaleFactors">
+        <arg name="scaleFactors" type="a{sd}" direction="in"/>
+        <annotation name="org.qtproject.QtDBus.QtTypeName.In0" value="QMap&lt;QString,double&gt;"/>
+    </method>
+    <signal name="Changed">
+        <arg type="s"></arg>
+        <arg type="s"></arg>
+    </signal>
+    <signal name="Refreshed">
+        <arg type="s"></arg>
+    </signal>
+    <property name="GtkTheme" type="s" access="readwrite"></property>
+    <property name="IconTheme" type="s" access="readwrite"></property>
+    <property name="CursorTheme" type="s" access="readwrite"></property>
+    <property name="Background" type="s" access="readwrite"></property>
+    <property name="StandardFont" type="s" access="readwrite"></property>
+    <property name="MonospaceFont" type="s" access="readwrite"></property>
+    <property name="FontSize" type="d" access="readwrite"></property>
+    <property name="Opacity" type="d" access="readwrite"/>
+    <property name="WallpaperSlideShow" type="s" access="readwrite"/>
+    <property name="QtActiveColor" type="s" access="readwrite"/>
+    <property name="GlobalTheme" type="s" access="read"/>
+</interface>

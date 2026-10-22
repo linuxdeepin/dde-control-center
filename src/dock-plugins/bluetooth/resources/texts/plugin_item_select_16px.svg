@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>action_select</title>
+    <g id="action_select" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="DTK-/-Menu-/-Menuitem-/-Select-/-Active" transform="translate(1, 2)" fill="#FFFFFF" fill-rule="nonzero">
+            <g id="menuitem_select" transform="translate(0, 0)">
+                <path d="M11.9161746,0.383335474 C12.2567731,-0.0514186317 12.8853206,-0.127746861 13.3200747,0.212851602 C13.7213861,0.527250183 13.8172933,1.08700174 13.5617837,1.5132029 L13.4905585,1.61675162 L5.65628029,11.6167516 C5.30422001,12.0661361 4.65596945,12.124889 4.22971115,11.7691292 L4.14195676,11.6865417 L0.272871003,7.58844671 C-0.106271436,7.18686302 -0.0880792126,6.55395945 0.313504472,6.17481701 C0.684197104,5.82483938 1.25199071,5.81341909 1.63535592,6.12958944 L1.72713417,6.21545048 L4.79800259,9.46804354 L11.9161746,0.383335474 Z" id="Path-1112"></path>
+            </g>
+        </g>
+    </g>
+</svg>
