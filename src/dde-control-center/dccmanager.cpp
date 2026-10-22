@@ -6,6 +6,7 @@
 #include "dccapp.h"
 #include "dccbenchmark.h"
 #include "dccimageprovider.h"
+#include "dccmoduleconfig.h"
 #include "dccobject_p.h"
 #include "navigationmodel.h"
 #include "pluginmanager.h"
@@ -13,6 +14,8 @@
 
 #include <DGuiApplicationHelper>
 #include <DIconTheme>
+
+#include <algorithm>
 
 #include <QCoreApplication>
 #include <QDBusConnection>
@@ -50,6 +53,13 @@ const QString HeightConfig = QStringLiteral("height");
 const QString MaximizedConfig = QStringLiteral("maximized");
 const QString HideConfig = QStringLiteral("hideModule");
 const QString DisableConfig = QStringLiteral("disableModule");
+const QString ModulePathsConfig = QStringLiteral("modulePaths");
+const QString ModuleVisibleConfig = QStringLiteral("visible");
+const QString ModuleDisableConfig = QStringLiteral("disable");
+const QString kAppId = QStringLiteral("org.deepin.dde.control-center");
+const QString kModulePathsConfigName = QStringLiteral("org.deepin.dde.control-center.modulepaths");
+// 标记对象已成功匹配 modulePaths 清单，避免父对象晚到后重走挂载流程时重复创建配置实例
+const char kModuleConfigApplied[] = "_moduleConfigApplied";
 const QString ControlCenterIcon = QStringLiteral("preferences-system");
 const QString ControlCenterGroupName = "com.deepin.dde-grand-search.group.dde-control-center-setting";
 
@@ -324,6 +334,8 @@ void DccManager::addObject(DccObject *obj)
             }
         }
 
+        applyModuleConfig(o);
+
         objs.append(DccObject::Private::FromObject(o)->getObjects());
     }
     // 处理m_noAddObject
@@ -333,6 +345,8 @@ void DccManager::addObject(DccObject *obj)
         if (const DccObject *parentObj = findParent(o)) {
             DccObject::Private::FromObject(m_noAddObjects)->removeChild(o);
             DccObject::Private::FromObject(parentObj)->addChild(o);
+            // 父对象此时才到：对象及其子树此前未进入真实对象树，补做模块配置
+            applyModuleConfigTree(o);
             objs = m_noAddObjects->getChildren();
         }
     }
@@ -602,6 +616,8 @@ void DccManager::initConfig()
 
     updateModuleConfig(HideConfig);
     updateModuleConfig(DisableConfig);
+    // 按主配置中声明的 modulePaths 列表预置各 subpath 的 visible/disable 实例
+    initModuleConfigs();
     m_sidebarWidth = m_dconfig->value("sidebarWidth", -1).toInt();
     if (m_sidebarWidth <= 0) {
         // 英文环境做特殊处理，加宽侧边栏
@@ -1242,6 +1258,85 @@ void DccManager::updateModuleConfig(const QString &key)
     }
     if (newModuleConfig == &m_hideModule && (!addModuleConfig.isEmpty() || !removeModuleConfig.isEmpty())) {
         Q_EMIT hideModuleChanged(m_hideModule);
+    }
+}
+
+void DccManager::initModuleConfigs()
+{
+    QScopedPointer<DConfig> config(DConfig::create(kAppId, kModulePathsConfigName, QString(), nullptr));
+    if (!config || !config->isValid()) {
+        qCWarning(dccLog) << "Failed to read module paths from" << kModulePathsConfigName;
+        return;
+    }
+
+    const QStringList paths = config->value(ModulePathsConfig).toStringList();
+    m_modulePaths = QSet<QString>(paths.begin(), paths.end());
+}
+
+void DccManager::applyModuleConfig(DccObject *obj)
+{
+    // 已匹配过清单的对象不再处理：父对象晚到时会重走挂载流程，重复创建配置实例
+    if (obj->property(kModuleConfigApplied).toBool())
+        return;
+
+    if (obj->name().isEmpty())
+        return;
+
+    // 祖先已隐藏：整棵子树视为隐藏，不读配置、不处理（节省资源）
+    for (const DccObject *cur = DccObject::Private::FromObject(obj)->getParent();
+         cur; cur = DccObject::Private::FromObject(cur)->getParent()) {
+        if (!cur->isVisibleToApp())
+            return;
+    }
+
+    // 全路径：沿实际父链（getParent）向上收集 name 拼接，根节点 name 为空自动跳过
+    QStringList parts;
+    for (const DccObject *cur = obj; cur; cur = DccObject::Private::FromObject(cur)->getParent()) {
+        if (!cur->name().isEmpty())
+            parts.prepend(cur->name());
+    }
+    const QString path = parts.join('/');
+
+    // 跳过含非 ASCII 字符的路径，避免 dconfig2cpp 生成的 DccModuleConfig 无法读取
+    // UTF-8 中 ASCII 占 1 字节、非 ASCII 占 2+ 字节，字符数与字节数不等即含非 ASCII
+    if (std::any_of(path.cbegin(), path.cend(), [](QChar c) { return c.unicode() > 0x7F; }))
+        return;
+
+    if (!m_modulePaths.contains(path))
+        return;
+
+    // 只有路径真正匹配清单才标记：对象暂挂在伪树（_noAdd）下时路径不可信，不能占位
+    obj->setProperty(kModuleConfigApplied, true);
+
+    // 用 dconfig2cpp 生成的 DccModuleConfig 异步读取 visible/disable
+    auto *config = DccModuleConfig::create(kAppId, QLatin1Char('/') + path, obj);
+    connect(config, &DccModuleConfig::configInitializeSucceed, obj, [obj, config](DConfig *c) {
+        bool visible = true;
+        bool disabled = false;
+        if (c && c->isValid()) {
+            visible = c->value(ModuleVisibleConfig, true).toBool();
+            disabled = c->value(ModuleDisableConfig, false).toBool();
+        }
+        DccObject::Private::FromObject(obj)->setFlagState(DCC_CONFIG_HIDDEN, !visible);
+        DccObject::Private::FromObject(obj)->setFlagState(DCC_CONFIG_DISABLED, disabled);
+        config->deleteLater();
+    });
+    // 初始化失败（如配置元数据未安装）：记录日志并释放实例，避免静默失效
+    connect(config, &DccModuleConfig::configInitializeFailed, obj, [config, path] {
+        qCWarning(dccLog) << "Failed to init module config:" << path;
+        config->deleteLater();
+    });
+}
+
+void DccManager::applyModuleConfigTree(DccObject *obj)
+{
+    // 父对象晚到：子树被整体搬进真实对象树后才调用，此时路径才可信
+    QVector<DccObject *> objs;
+    objs.append(obj);
+    while (!objs.isEmpty()) {
+        DccObject *o = objs.takeFirst();
+        applyModuleConfig(o);
+        objs.append(DccObject::Private::FromObject(o)->getChildren());
     }
 }
 
