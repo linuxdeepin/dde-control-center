@@ -34,7 +34,7 @@ public:
     QString defaultDevice();
     QDBusPendingReply<> Claim(const QString &username, bool claimed);
     QDBusPendingReply<> Enroll(const QString &finger);
-    QStringList ListFingers(const QString &username);
+    QDBusPendingReply<QStringList> ListFingers(const QString &username);
     void StopEnroll();
     QDBusPendingReply<> DeleteFinger(const QString &username, const QString &finger);
     QDBusPendingReply<> RenameFinger(const QString &username, const QString &finger, const QString &newName);
