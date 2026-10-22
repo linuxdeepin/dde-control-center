@@ -24,6 +24,7 @@
 #include "operation/personalizationworker.h"
 #include "operation/model/thememodel.h"
 #include "operation/personalizationexport.hpp"
+#include "wallpapersync.h"
 
 #define TYPEWALLPAPER           "wallpaper"
 #define TYPEGREETERBACKGROUND   "greeterbackground"
@@ -447,6 +448,15 @@ bool TreeLandWorker::setWallpaper(const QString &monitorName, const QString &url
         } else {
             qCWarning(DdcPersonnalizationTreelandWorker) << "Failed to get wallpaper context for:" << monitorName;
             return false;
+        }
+    }
+
+    if (role == WallpaperContext::wallpaper_role_desktop) {
+        if (auto *wallpaperSync = WallpaperSync::instance()) {
+            QMetaObject::invokeMethod(wallpaperSync, "setWallpaper", Qt::QueuedConnection,
+                                      Q_ARG(QString, monitorName),
+                                      Q_ARG(QString, dest),
+                                      Q_ARG(uint, type));
         }
     }
 
