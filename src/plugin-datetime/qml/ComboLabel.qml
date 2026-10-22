@@ -18,6 +18,10 @@ Item {
     implicitWidth: item.comboModel.length > 1 ? comboBox.implicitWidth + 10 : label.implicitWidth + 10
     signal comboBoxActivated(int index)
 
+    FontMetrics {
+        id: fm
+    }
+
     // 获取过滤后的模型数据
     function getFilteredModel() {
         if (!dccData) {
@@ -75,6 +79,19 @@ Item {
             }
             hoverEnabled: true
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+
+            delegate: ItemDelegate {
+                width: comboBox.width
+                text: modelData
+                highlighted: comboBox.highlightedIndex === index
+                hoverEnabled: true
+
+                HoverHandler { id: comboDelegateHover }
+                ToolTip.visible: comboDelegateHover.hovered && fm.advanceWidth(modelData) > (width - leftPadding - rightPadding)
+                ToolTip.text: modelData
+                ToolTip.delay: 500
+                ToolTip.timeout: 4000
+            }
             onActivated: function (index) {
                 // 如果使用了过滤模型，需要转换索引
                 var originalIndex = getOriginalIndex(index)
