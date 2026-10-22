@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.18)
 
 find_package(${QT_NS} REQUIRED COMPONENTS WaylandClient Concurrent)
 find_package(PkgConfig REQUIRED)
-find_package(TreelandProtocols 0.7 REQUIRED)
+find_package(TreelandProtocols 0.8 REQUIRED)
 pkg_check_modules(WaylandClient REQUIRED IMPORTED_TARGET wayland-client)
 pkg_check_modules(WLR_PROTOCOLS REQUIRED wlr-protocols)
 
@@ -28,12 +28,24 @@ qt_generate_wayland_protocol_client_sources(display-wayland-client
         ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-output-manager-unstable-v2.xml
         ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-output-uuid-unstable-v1.xml
         ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-output-uuid-head-unstable-v1.xml
-        ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-virtual-output-manager-v1.xml
+        ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-output-group-manager-unstable-v1.xml
         ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-wallpaper-manager-unstable-v1.xml
 )
 
 # fix arm64 build failed relocation R_AARCH64_ADR_PREL_PG_HI21 against symbol
 target_compile_options(display-wayland-client PRIVATE "-fpic")
+
+# Workaround for wayland-scanner 1.26: it does not emit an extern declaration
+# for interfaces referenced across protocol files. treeland-output-uuid-head's
+# get_uuid new_id references treeland_output_uuid_v1_interface, which is defined
+# in treeland-output-uuid-unstable-v1's generated code (same target). Force the
+# uuid protocol header ahead of the generated uuid-head source to get the
+# missing declaration (same approach as treeland's examples/test_output_manager).
+set_source_files_properties(
+    ${CMAKE_CURRENT_BINARY_DIR}/qwayland-treeland-output-uuid-head-unstable-v1.cpp
+    PROPERTIES
+        COMPILE_OPTIONS "-include;wayland-treeland-output-uuid-unstable-v1-client-protocol.h"
+)
 
 target_include_directories(display-wayland-client
     PUBLIC
