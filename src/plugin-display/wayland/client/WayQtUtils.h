@@ -16,7 +16,6 @@ namespace Utils {
  * e.g. the placeholder screen Qt creates while no output exists.
  */
 struct wl_output *wlOutputFromQScreen(QScreen *screen);
-
 /**
  * Whether @a output still backs one of the screens Qt currently knows about.
  *
