@@ -137,6 +137,9 @@ private Q_SLOTS:
     void tryShowFallback();
     void doShowPage(QPointer<DccObject> obj, const QString &cmd);
     void updateModuleConfig(const QString &key);
+    void initModuleConfigs();
+    void applyModuleConfig(DccObject *obj);
+    void applyModuleConfigTree(DccObject *obj);
     void onVisible(bool visible);
     void onObjectAdded(DccObject *obj);
     void onObjectRemoved(DccObject *obj);
@@ -182,6 +185,7 @@ private:
     QTimer *m_autoExitTimer;
 
     QHash<QString, QVector<DccObject *>> m_objMap; // 映射对象名称到对象指针列表，用于快速查找
+    QSet<QString> m_modulePaths; // modulePaths 清单：需要初始化 visible/disable 的受控路径集合
 
 #ifdef HAVE_DDE_API_EVENTLOGGER
     QTimer *m_pageStayTimer;
