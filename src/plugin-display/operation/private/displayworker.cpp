@@ -144,6 +144,7 @@ void DisplayWorker::initTreeland()
 
     m_uuidHeadMgr = new WQt::TreelandOutputUuidHead(this);
     connect(m_uuidHeadMgr, &WQt::TreelandOutputUuidHead::uuidChanged, this, &DisplayWorker::onUuidChanged, Qt::QueuedConnection);
+    connect(m_uuidHeadMgr, &WQt::TreelandOutputUuidHead::activeChanged, this, &DisplayWorker::onUuidHeadMgrActive);
 
     m_outputGroupMgr = new WQt::OutputGroupManager(this);
     connect(m_outputGroupMgr, &WQt::OutputGroupManager::activeChanged, this, &DisplayWorker::onOutputGroupManagerActive);
@@ -407,7 +408,7 @@ void DisplayWorker::onWlMonitorListChanged()
             }
         if (isNew) {
             wlMonitorAdded(head);
-            if (m_uuidHeadMgr)
+            if (m_uuidHeadMgr && m_uuidHeadMgr->isActive())
                 m_uuidHeadMgr->requestUuid(head->get());
         }
     }
@@ -645,6 +646,16 @@ void DisplayWorker::onGroupRemoved(const QString &name)
     Q_UNUSED(name)
     updateOutputGroups();
     updateTreelandDisplayMode();
+}
+
+void DisplayWorker::onUuidHeadMgrActive()
+{
+    if (!m_uuidHeadMgr || !m_uuidHeadMgr->isActive())
+        return;
+
+    // Retry uuid requests for all known heads now that the extension is active.
+    for (auto *head : m_outputMgr->heads())
+        m_uuidHeadMgr->requestUuid(head->get());
 }
 
 void DisplayWorker::onWallpaperManagerActive()

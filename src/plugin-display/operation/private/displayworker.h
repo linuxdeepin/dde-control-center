@@ -97,6 +97,7 @@ private Q_SLOTS:
     void onTreeLandOutputManagerActive();
     void onOutputGroupManagerActive();
     void onWallpaperManagerActive();
+    void onUuidHeadMgrActive();
     void onGroupAdded(const QString &name);
     void onGroupRemoved(const QString &name);
     void onWlOutputManagerDone();

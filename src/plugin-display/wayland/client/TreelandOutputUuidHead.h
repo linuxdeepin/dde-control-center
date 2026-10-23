@@ -4,10 +4,11 @@
 
 #pragma once
 
-#include "qwayland-treeland-output-uuid-head-unstable-v1.h"
 #include "qwayland-treeland-output-uuid-unstable-v1.h"
+#include "qwayland-treeland-output-uuid-head-unstable-v1.h"
 
 #include <QHash>
+#include <QSet>
 #include <QObject>
 #include <QString>
 #include <QtWaylandClient/QWaylandClientExtension>
@@ -69,9 +70,11 @@ Q_SIGNALS:
 private:
     void onUuidReceived(struct zwlr_output_head_v1 *head, const QString &uuid);
 
+    void onActiveChanged();
     QHash<struct zwlr_output_head_v1 *, TreelandOutputUuid *> m_uuidObjects;
     QHash<struct zwlr_output_head_v1 *, QString> m_headToUuid;
     QHash<QString, struct zwlr_output_head_v1 *> m_uuidToHead;
+    QSet<struct zwlr_output_head_v1 *> m_pendingHeads;
 };
 
 } // namespace WQt

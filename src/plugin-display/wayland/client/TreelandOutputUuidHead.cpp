@@ -37,6 +37,7 @@ WQt::TreelandOutputUuidHead::TreelandOutputUuidHead(QObject *parent)
     : QWaylandClientExtensionTemplate<TreelandOutputUuidHead>(treeland_output_uuid_head_manager_v1_interface.version)
 {
     setParent(parent);
+    connect(this, &TreelandOutputUuidHead::activeChanged, this, &TreelandOutputUuidHead::onActiveChanged);
 }
 
 WQt::TreelandOutputUuidHead::~TreelandOutputUuidHead()
@@ -53,6 +54,14 @@ void WQt::TreelandOutputUuidHead::requestUuid(struct zwlr_output_head_v1 *head)
     // Avoid requesting twice for the same head.
     if (m_uuidObjects.contains(head))
         return;
+
+    // Extension not yet active: defer the request until activeChanged fires.
+    if (!isActive()) {
+        m_pendingHeads.insert(head);
+        return;
+    }
+
+    m_pendingHeads.remove(head);
 
     auto *uuid = get_uuid(head);
     if (!uuid)
@@ -75,6 +84,8 @@ struct zwlr_output_head_v1 *WQt::TreelandOutputUuidHead::headForUuid(const QStri
 
 void WQt::TreelandOutputUuidHead::removeHead(struct zwlr_output_head_v1 *head)
 {
+    m_pendingHeads.remove(head);
+
     QString uuid = m_headToUuid.take(head);
     if (!uuid.isEmpty())
         m_uuidToHead.remove(uuid);
@@ -84,6 +95,18 @@ void WQt::TreelandOutputUuidHead::removeHead(struct zwlr_output_head_v1 *head)
         delete it.value();
         m_uuidObjects.erase(it);
     }
+}
+
+void WQt::TreelandOutputUuidHead::onActiveChanged()
+{
+    if (!isActive())
+        return;
+
+    // Retry all heads that were requested while the extension was inactive.
+    auto pending = m_pendingHeads;
+    m_pendingHeads.clear();
+    for (auto *head : pending)
+        requestUuid(head);
 }
 
 void WQt::TreelandOutputUuidHead::onUuidReceived(struct zwlr_output_head_v1 *head, const QString &uuid)
