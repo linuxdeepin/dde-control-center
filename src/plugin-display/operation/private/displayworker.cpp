@@ -1419,7 +1419,7 @@ void DisplayWorker::wlMonitorRemoved(WQt::OutputHead *head)
 
     m_wl_monitors.remove(monitor);
     const auto controlContext = m_control_monitors.take(monitor);
-    delete controlContext.control;
+    controlContext.control->deleteLater();
 
     monitor->deleteLater();
 }
@@ -1467,11 +1467,19 @@ void DisplayWorker::updateControl()
         if (!m_control_monitors.contains(monIt.key())) {
             auto *control = m_treelandOutputMgr->getPictureControl(uuid);
             if (control) {
+                Monitor *monitor = monIt.key();
                 connect(control, &WQt::ColorControl::brightnessChanged, this, [this, control](double brightness) {
                     onBrightnessChanged(control, brightness);
                 });
                 connect(control, &WQt::ColorControl::colorTemperatureChanged, this, [this](uint32_t temperature) {
                     m_model->setColorTemperature(toColorTempPos(temperature));
+                });
+                connect(control, &WQt::ColorControl::result, this, [this, monitor](uint32_t result) {
+                    if (result == 3) { // invalid_output — terminal state
+                        auto ctx = m_control_monitors.take(monitor);
+                        if (ctx.control)
+                            ctx.control->deleteLater();
+                    }
                 });
                 m_control_monitors.insert(monIt.key(), { control });
             }

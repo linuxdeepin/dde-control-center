@@ -33,10 +33,15 @@ protected:
 
 Q_SIGNALS:
     // v2 commit_result enum: 0 = success, 1 = failed, 2 = unsupported,
-    // 3 = invalid_output. Out-of-range set_* values never reach a commit:
-    // they are rejected at request time with a fatal protocol error that
-    // terminates the connection (see the clamps in setBrightness and
-    // setColorTemperature).
+    // 3 = invalid_output, 4 = invalid_color_temperature, 5 = invalid_brightness.
+    // Out-of-range set_* values never reach a commit: they are rejected at
+    // request time with a fatal protocol error that terminates the connection
+    // (see the clamps in setBrightness and setColorTemperature).
+    // invalid_output (3) is a terminal state: once received, the output no
+    // longer exists on the compositor side and the control object becomes
+    // inert. It can fire immediately on object creation — i.e. the object
+    // returned by get_picture_control may receive result(invalid_output)
+    // right after creation.
     // (v1 used uint success with 1 = success / 0 = failure — the polarity is
     // inverted in v2, so do not treat a non-zero value as success.)
     void result(uint32_t result);
