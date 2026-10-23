@@ -1419,7 +1419,8 @@ void DisplayWorker::wlMonitorRemoved(WQt::OutputHead *head)
 
     m_wl_monitors.remove(monitor);
     const auto controlContext = m_control_monitors.take(monitor);
-    controlContext.control->deleteLater();
+    if (controlContext.control)
+        controlContext.control->deleteLater();
 
     monitor->deleteLater();
 }
