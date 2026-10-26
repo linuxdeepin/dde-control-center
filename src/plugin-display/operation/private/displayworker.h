@@ -34,7 +34,8 @@ namespace WQt {
 class OutputHead;
 class OutputManager;
 class TreeLandOutputManager;
-class VirtualOutputManager;
+class TreelandOutputUuidHead;
+class OutputGroupManager;
 class WallpaperManager;
 class ColorControl;
 }
@@ -94,10 +95,11 @@ private Q_SLOTS:
     // for wlroots-based compositors
     void onOutputManagerActive();
     void onTreeLandOutputManagerActive();
-    void onVirtualOutputManagerActive();
+    void onOutputGroupManagerActive();
     void onWallpaperManagerActive();
-    void onVirtualOutputList(const QStringList &names);
-    void onVirtualOutputsChanged();
+    void onUuidHeadMgrActive();
+    void onGroupAdded(const QString &name);
+    void onGroupRemoved(const QString &name);
     void onWlOutputManagerDone();
     void onWlMonitorListChanged();
     void updateWallpaper();
@@ -105,10 +107,11 @@ private Q_SLOTS:
     void updateWallpaperFromWayland();
     void ensureWallpaperContext(QScreen *screen);
     void onWallpaperChanged(const QString &fileSource, uint32_t sourceType, uint32_t role);
-    void updateVirtualOutputs();
+    void updateOutputGroups();
 
     void onBrightnessChanged(WQt::ColorControl *colorControl, double brightness);
     void initTreeland();
+    void onUuidChanged();
 
 private:
     void monitorAdded(const QString &path);
@@ -123,7 +126,9 @@ private:
 
     void updateControl();
     void updateTreelandDisplayMode();
+    bool createMergeGroup();
     void initAutoBacklight();
+    QString uuidToMonitorName(const QString &uuid) const;
 
     uint32_t toColorTemp(int pos);
     int toColorTempPos(uint32_t kelvin);
@@ -139,7 +144,6 @@ Q_SIGNALS:
 private:
     struct ColorControlContext
     {
-        QScreen *screen = nullptr;
         WQt::ColorControl *control = nullptr;
     };
 
@@ -150,13 +154,16 @@ private:
     // for wlroots-based compositors
     WQt::OutputManager *m_outputMgr { nullptr };
     WQt::TreeLandOutputManager *m_treelandOutputMgr { nullptr };
-    WQt::VirtualOutputManager *m_virtualOutputMgr { nullptr };
+    WQt::TreelandOutputUuidHead *m_uuidHeadMgr { nullptr };
+    WQt::OutputGroupManager *m_outputGroupMgr { nullptr };
     WQt::WallpaperManager *m_wallpaperMgr { nullptr };
     // wl_output proxy owned by each Qt platform screen, cached so that it is
     // still reachable while handling QGuiApplication::screenRemoved
     QHash<QScreen *, wl_output *> m_screen_outputs;
     QMap<Monitor *, WQt::OutputHead *> m_wl_monitors;
     QMap<Monitor *, ColorControlContext> m_control_monitors;
+    QString m_pendingPrimaryName;
+    bool m_pendingMerge = false;
 #if GAMMA_SUPPORT
     QMap<Monitor *, DFL::GammaEffects *> *m_wl_gammaEffects;
     QMap<Monitor *, DFL::GammaEffectsConfig *> *m_wl_gammaConfig;
