@@ -6,6 +6,7 @@
 #include "dccapp.h"
 #include "dccbenchmark.h"
 #include "dccimageprovider.h"
+#include "dccmoduleconfig.h"
 #include "dccobject_p.h"
 #include "navigationmodel.h"
 #include "pluginmanager.h"
@@ -50,6 +51,9 @@ const QString HeightConfig = QStringLiteral("height");
 const QString MaximizedConfig = QStringLiteral("maximized");
 const QString HideConfig = QStringLiteral("hideModule");
 const QString DisableConfig = QStringLiteral("disableModule");
+const QString ModulePathsConfig = QStringLiteral("modulePaths");
+const QString kAppId = QStringLiteral("org.deepin.dde.control-center");
+const QString kModulePathsConfigName = QStringLiteral("org.deepin.dde.control-center.modulepaths");
 const QString ControlCenterIcon = QStringLiteral("preferences-system");
 const QString ControlCenterGroupName = "com.deepin.dde-grand-search.group.dde-control-center-setting";
 
@@ -310,12 +314,8 @@ void DccManager::addObject(DccObject *obj)
         if (o->parentName().isEmpty()) {
             DccObject::Private::FromObject(m_noParentObjects)->addChild(o, false);
         } else {
-            if (contains(m_hideModule, o)) {
-                DccObject::Private::FromObject(o)->setFlagState(DCC_CONFIG_HIDDEN, true);
-            }
-            if (contains(m_disableModule, o)) {
-                DccObject::Private::FromObject(o)->setFlagState(DCC_CONFIG_DISABLED, true);
-            }
+            updateConfigState(o, DCC_CONFIG_HIDDEN);
+            updateConfigState(o, DCC_CONFIG_DISABLED);
             if (!o->isVisibleToApp()) {
                 connect(o, &DccObject::visibleToAppChanged, this, &DccManager::onVisible, Qt::ConnectionType(Qt::QueuedConnection | Qt::UniqueConnection));
                 DccObject::Private::FromObject(m_hideObjects)->addChild(o, false);
@@ -602,6 +602,8 @@ void DccManager::initConfig()
 
     updateModuleConfig(HideConfig);
     updateModuleConfig(DisableConfig);
+    // 单模块配置：读 modulePaths 清单并逐条异步读取，全部返回后才统一生效
+    loadModuleConfigs();
     m_sidebarWidth = m_dconfig->value("sidebarWidth", -1).toInt();
     if (m_sidebarWidth <= 0) {
         // 英文环境做特殊处理，加宽侧边栏
@@ -1231,17 +1233,105 @@ void DccManager::updateModuleConfig(const QString &key)
     for (auto &&url : addModuleConfig) {
         QVector<DccObject *> objs = findObjects(url);
         for (auto &&obj : objs) {
-            DccObject::Private::FromObject(obj)->setFlagState(type, true);
+            updateConfigState(obj, type);
         }
     }
     for (auto &&url : removeModuleConfig) {
         QVector<DccObject *> objs = findObjects(url);
         for (auto &&obj : objs) {
-            DccObject::Private::FromObject(obj)->setFlagState(type, false);
+            updateConfigState(obj, type);
         }
     }
     if (newModuleConfig == &m_hideModule && (!addModuleConfig.isEmpty() || !removeModuleConfig.isEmpty())) {
         Q_EMIT hideModuleChanged(m_hideModule);
+    }
+}
+
+void DccManager::loadModuleConfigs()
+{
+    QScopedPointer<DConfig> pathsConfig(DConfig::create(kAppId, kModulePathsConfigName, QString(), nullptr));
+    if (!pathsConfig || !pathsConfig->isValid()) {
+        qCWarning(dccLog) << "Failed to read module paths from" << kModulePathsConfigName;
+        m_moduleConfigReady = true;
+        return;
+    }
+    const QStringList paths = pathsConfig->value(ModulePathsConfig).toStringList();
+    m_modulePaths = QSet<QString>(paths.begin(), paths.end());
+    m_moduleConfigPending = int(m_modulePaths.size());
+    if (m_moduleConfigPending == 0)
+        return;
+
+    // 用 dconfig2cpp 生成的 DccModuleConfig 逐条异步读取；结果先累积，全部返回后才统一生效
+    for (const QString &path : std::as_const(m_modulePaths)) {
+        auto *config = DccModuleConfig::create(kAppId, QLatin1Char('/') + path, this);
+        if (!config) {
+            qCWarning(dccLog) << "Failed to create module config for path:" << path;
+            finishModuleConfigItem();
+            continue;
+        }
+        connect(config, &DccModuleConfig::configInitializeSucceed, this, [this, path, config](DConfig *) {
+            // 读生成类缓存的属性（值已在配置线程写入 Data）：不要用 config->config()->value()，
+            // DConfig 实例不在主线程，每次读值都是一次跨线程阻塞往返
+            if (!config->visible())
+                m_moduleHiddenPaths.insert(path);
+            if (config->disable())
+                m_moduleDisabledPaths.insert(path);
+            config->deleteLater();
+            finishModuleConfigItem();
+        });
+        // 初始化失败（如配置元数据未安装）：记录日志并释放实例，避免静默失效
+        connect(config, &DccModuleConfig::configInitializeFailed, this, [this, path, config] {
+            qCWarning(dccLog) << "Failed to init module config:" << path;
+            config->deleteLater();
+            finishModuleConfigItem();
+        });
+    }
+}
+
+void DccManager::finishModuleConfigItem()
+{
+    if (--m_moduleConfigPending > 0)
+        return;
+
+    // 所有配置都加载完了：此时才让单模块配置生效，并统一刷一次
+    m_moduleConfigReady = true;
+
+    refreshModuleConfigState();
+}
+
+void DccManager::refreshModuleConfigState()
+{
+    if (!m_moduleConfigReady)
+        return;
+
+    for (const QString &url : std::as_const(m_moduleHiddenPaths)) {
+        const QVector<DccObject *> objs = findObjects(url);
+        for (DccObject *obj : objs)
+            DccObject::Private::FromObject(obj)->setFlagState(DCC_CONFIG_HIDDEN, true);
+    }
+    for (const QString &url : std::as_const(m_moduleDisabledPaths)) {
+        const QVector<DccObject *> objs = findObjects(url);
+        for (DccObject *obj : objs)
+            DccObject::Private::FromObject(obj)->setFlagState(DCC_CONFIG_DISABLED, true);
+    }
+}
+
+void DccManager::updateConfigState(DccObject *obj, uint32_t type)
+{
+    // 两个来源在这里按“任一要求即生效”合并：
+    //   ① 主配置列表 hideModule / disableModule
+    //   ② 单模块配置（各 subpath 的 visible / disable），全部读完前不参与，避免边读边生效
+    switch (type) {
+    case DCC_CONFIG_HIDDEN:
+        DccObject::Private::FromObject(obj)->setFlagState(type,
+            contains(m_hideModule, obj) || (m_moduleConfigReady && contains(m_moduleHiddenPaths, obj)));
+        break;
+    case DCC_CONFIG_DISABLED:
+        DccObject::Private::FromObject(obj)->setFlagState(type,
+            contains(m_disableModule, obj) || (m_moduleConfigReady && contains(m_moduleDisabledPaths, obj)));
+        break;
+    default:
+        break;
     }
 }
 

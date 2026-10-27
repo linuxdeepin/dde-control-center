@@ -137,6 +137,11 @@ private Q_SLOTS:
     void tryShowFallback();
     void doShowPage(QPointer<DccObject> obj, const QString &cmd);
     void updateModuleConfig(const QString &key);
+    // 单模块配置（visible/disable）：启动时读完全部 subpath，之后统一应用
+    void loadModuleConfigs();
+    void finishModuleConfigItem();
+    void refreshModuleConfigState();
+    void updateConfigState(DccObject *obj, uint32_t type);
     void onVisible(bool visible);
     void onObjectAdded(DccObject *obj);
     void onObjectRemoved(DccObject *obj);
@@ -163,6 +168,12 @@ private:
     Dtk::Core::DConfig *m_dconfig;
     QSet<QString> m_hideModule;
     QSet<QString> m_disableModule;
+    // 单模块配置：modulePaths 清单，以及由各 subpath 的 visible=false / disable=true 派生的集合
+    QSet<QString> m_modulePaths;
+    QSet<QString> m_moduleHiddenPaths;
+    QSet<QString> m_moduleDisabledPaths;
+    bool m_moduleConfigReady = false; // 全部 subpath 返回后才置位：在此之前单模块配置不生效
+    int m_moduleConfigPending = 0;    // 尚未返回的 subpath 数，归零即统一刷一次
     QQmlApplicationEngine *m_engine;
     NavigationModel *m_navModel;
     SearchModel *m_searchModel;
