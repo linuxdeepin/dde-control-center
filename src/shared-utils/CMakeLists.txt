@@ -107,3 +107,7 @@ install(TARGETS
         dcc-wallpaper-thumbnailer
         LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
+
+if(UNITTEST)
+    add_subdirectory(tests)
+endif()

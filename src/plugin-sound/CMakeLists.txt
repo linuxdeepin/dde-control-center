@@ -34,4 +34,9 @@ target_link_libraries(${Sound_Name} PRIVATE
 )
 
 dcc_install_plugin(NAME ${Sound_Name} TARGET ${Sound_Name})
+
+if(UNITTEST)
+    add_subdirectory(tests)
+endif()
+
 # QML_ROOT_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src/plugin-sound/qml)

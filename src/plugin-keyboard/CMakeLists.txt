@@ -52,4 +52,8 @@ if (BUILD_PLUGIN)
     )
     dcc_install_plugin(NAME ${Plugin_Name} TARGET ${Plugin_Name})
     # dcc_handle_plugin_translation(NAME ${Plugin_Name}  QML_FILES ${keyboard_qml_SRCS} SOURCE_FILES ${keyboard_SRCS})
+
+    if(UNITTEST)
+        add_subdirectory(tests)
+    endif()
 endif()

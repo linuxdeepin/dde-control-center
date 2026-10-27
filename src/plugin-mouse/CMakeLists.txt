@@ -57,4 +57,8 @@ if (BUILD_PLUGIN)
 
     dcc_install_plugin(NAME ${Mouse_Name} TARGET ${Mouse_Name})
     # dcc_handle_plugin_translation(NAME ${Mouse_Name}  QML_FILES ${mouse_qml_SRCS} SOURCE_FILES ${mouse_SRCS})
+
+    if(UNITTEST)
+        add_subdirectory(tests)
+    endif()
 endif()
