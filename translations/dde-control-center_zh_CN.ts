@@ -7,7 +7,7 @@
     </message>
     <message>
         <source>Add new user</source>
-        <translation>添加新用户</translation>
+        <translation>添加用户</translation>
     </message>
     <message>
         <source>Set fullname</source>
@@ -19,7 +19,7 @@
     </message>
     <message>
         <source>Login without password</source>
-        <translation>免密登录</translation>
+        <translation>无密码登录</translation>
     </message>
     <message>
         <source>Delete current account</source>
@@ -91,7 +91,7 @@
     </message>
     <message>
         <source>quick login, Auto login, login without password</source>
-        <translation>快速登录，自动登录，免密登录</translation>
+        <translation>快速登录，自动登录，无密码登录</translation>
     </message>
     <message>
         <source>Undo</source>
@@ -144,7 +144,7 @@
     <name>AddFaceinfoDialog</name>
     <message>
         <source>Enroll Face</source>
-        <translation>添加人脸数据</translation>
+        <translation>添加人脸</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -160,7 +160,7 @@
     </message>
     <message>
         <source>Face enrolled</source>
-        <translation>人脸录入完成</translation>
+        <translation>人脸录入成功</translation>
     </message>
     <message>
         <source>Failed to enroll your face</source>
@@ -183,9 +183,9 @@
 To ensure successful entry:
 1. Keep your facial features clearly visible and do not cover them (hats, sunglasses, masks, etc.).
 2. Ensure sufficient lighting and avoid direct sunlight.</source>
-        <translation>人脸识别不支持活体检测，验证方式可能存在风险
+        <translation>人脸识别不支持活体检测，验证方式存在风险
 为确保录入成功：
-1. 保持五官清晰可见，勿遮挡（帽子/墨镜/口罩等）
+1. 保持五官清晰可见，请勿遮挡
 2. 光线充足，避免阳光直射</translation>
     </message>
     <message>
@@ -196,7 +196,7 @@ Please be noted that UnionTech Software Technology Co., Ltd. will not collect or
 UnionTech Software Technology Co., Ltd. is committed to research and improve the security, accuracy and stability of biometric authentication. However, due to environmental, equipment, technical and other factors and risk control, there is no guarantee that you will pass the biometric authentication temporarily. Therefore, please do not take biometric authentication as the only way to log in to UOS. If you have any questions or suggestions when using the biometric authentication, you can give feedback through &quot;Service and Support&quot; in the UOS.</source>
         <translation>“生物认证”是统信软件技术有限公司提供的一种对用户进行身份认证的功能。通过“生物认证”，将采集的生物识别数据与存储在设备本地的生物识别数据进行比对，并根据比对结果来验证用户身份。
 请您注意，统信软件不会收集或访问您的生物识别信息，此类信息将会存储在您的本地设备中。请您仅在您的个人设备中开启生物认证功能，并使用您本人的生物识别信息进行相关操作，并及时在该设备上禁用或清除他人的生物识别信息，否则由此给您带来的风险将由您承担。
-统信软件致力于研究与提高生物认证功能的安全性、精确性、与稳定性，但是，受限于环境、设备、技术等因素和风险控制等原因，我们暂时无法保证您一定能通过生物认证，请您不要将生物认证作为登录统信操作系统的唯一途径。若您在使用生物认证时有任何问题或建议的，可以通过系统内的“服务与支持”进行反馈。
+统信软件致力于研究与提高生物认证功能的安全性、精确性、与稳定性，但是，受限于环境、设备、技术等因素和风险控制等原因，我们无法保证您一定能通过生物认证，请您不要将生物认证作为登录统信操作系统的唯一途径。若您在使用生物认证时有任何问题或建议的，可以通过系统内的“服务与支持”进行反馈。
         </translation>
     </message>
 </context>
@@ -212,7 +212,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Enroll Finger</source>
-        <translation>添加指纹数据</translation>
+        <translation>添加指纹</translation>
     </message>
     <message>
         <source>Place the finger to be entered into the fingerprint sensor and move it from bottom to top. After completing the action, please lift your finger.</source>
@@ -250,7 +250,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>AddIrisDialog</name>
     <message>
         <source>Enroll Iris</source>
-        <translation>添加虹膜数据</translation>
+        <translation>添加虹膜</translation>
     </message>
     <message>
         <source>I have read and agree to the</source>
@@ -278,7 +278,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Iris enrolled</source>
-        <translation>虹膜录入完成</translation>
+        <translation>虹膜录入成功</translation>
     </message>
     <message>
         <source>Failed to enroll your iris</source>
@@ -440,11 +440,11 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>When the lid is closed</source>
-        <translation>笔记本合盖时</translation>
+        <translation>笔记本合盖</translation>
     </message>
     <message>
         <source>When the power button is pressed</source>
-        <translation>按电源按钮时</translation>
+        <translation>按电源按钮</translation>
     </message>
     <message>
         <source>Low Battery</source>
@@ -661,7 +661,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <name>Camera</name>
     <message>
         <source>Allow below apps to access your camera:</source>
-        <translation>允许下面的应用访问您的摄像头</translation>
+        <translation>允许以下应用访问您的摄像头</translation>
     </message>
 </context>
 <context>
@@ -736,7 +736,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Finger moved too fast, please do not lift until prompted</source>
-        <translation>接触时间短，验证时请勿移动手指</translation>
+        <translation>接触时间短，验证时不可移动手指</translation>
     </message>
     <message>
         <source>Unclear fingerprint</source>
@@ -978,7 +978,7 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
     <message>
         <source>Please sign in to your Union ID first</source>
-        <translation>请先登录Union ID</translation>
+        <translation>请先登录UOS ID</translation>
     </message>
     <message>
         <source>Cannot read your PC information</source>
@@ -4178,7 +4178,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Your username should not only have numbers</source>
-        <translation>用户名不能仅仅是数字</translation>
+        <translation>用户名不能只有数字</translation>
     </message>
     <message>
         <source>The username has been used by other user accounts</source>
@@ -4186,7 +4186,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>The full name is too long</source>
-        <translation>全名太长了</translation>
+        <translation>全名过长</translation>
     </message>
     <message>
         <source>The full name has been used by other user accounts</source>
@@ -4198,7 +4198,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Standard User</source>
-        <translation>标准用户</translation>
+        <translation>普通用户</translation>
     </message>
     <message>
         <source>Administrator</source>
@@ -4213,19 +4213,19 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>dccV25::AccountsWorker</name>
     <message>
         <source>Your host was removed from the domain server successfully</source>
-        <translation>您的主机成功退出了域服务器</translation>
+        <translation>您的主机成功退出了域</translation>
     </message>
     <message>
         <source>Your host joins the domain server successfully</source>
-        <translation>您的主机成功加入了域服务器</translation>
+        <translation>您的主机成功加入了域</translation>
     </message>
     <message>
         <source>Your host failed to leave the domain server</source>
-        <translation>您的主机退出域服务器失败</translation>
+        <translation>您的主机退出域失败</translation>
     </message>
     <message>
         <source>Your host failed to join the domain server</source>
-        <translation>您的主机加入域服务器失败</translation>
+        <translation>您的主机加入域失败</translation>
     </message>
     <message>
         <source>AD domain settings</source>
@@ -4259,7 +4259,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Use your face to unlock the device and make settings later</source>
-        <translation>使用人脸数据解锁您的设备，之后还可进行更多设置</translation>
+        <translation>使用人脸解锁您的设备，之后还可进行更多设置</translation>
     </message>
 </context>
 <context>
@@ -4317,7 +4317,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Use your iris to unlock the device and make settings later</source>
-        <translation>使用虹膜数据解锁您的设备，之后还可进行更多设置</translation>
+        <translation>使用虹膜解锁您的设备，之后还可进行更多设置</translation>
     </message>
 </context>
 <context>
