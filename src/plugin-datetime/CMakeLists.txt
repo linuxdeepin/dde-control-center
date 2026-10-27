@@ -30,4 +30,8 @@ target_link_libraries(${pluginName} PRIVATE
 
 dcc_install_plugin(NAME ${pluginName} TARGET ${pluginName})
 
+if(UNITTEST)
+    add_subdirectory(tests)
+endif()
+
 # keyboard_language_*.ts生成使用脚本misc/translate_language2ts.sh手动执行

@@ -24,3 +24,7 @@ target_link_libraries(${BlueTooth_Name} PRIVATE
 )
 
 dcc_install_plugin(NAME ${BlueTooth_Name} TARGET ${BlueTooth_Name})
+
+if(UNITTEST)
+    add_subdirectory(tests)
+endif()

@@ -18,3 +18,7 @@ target_link_libraries(${DefaultApp_Name} PRIVATE
 )
 
 dcc_install_plugin(NAME ${DefaultApp_Name} TARGET ${DefaultApp_Name})
+
+if(UNITTEST)
+    add_subdirectory(tests)
+endif()

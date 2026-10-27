@@ -55,3 +55,7 @@ target_link_libraries(${LIB_NAME} PRIVATE
 )
 
 dcc_install_plugin(NAME ${LIB_NAME} TARGET ${LIB_NAME})
+
+if(UNITTEST)
+    add_subdirectory(tests)
+endif()

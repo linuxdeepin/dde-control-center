@@ -94,6 +94,12 @@ set(BUILD_PLUGIN ON)
 if (NOT BUILD_PLUGIN)
     set(UNITTEST OFF)
 endif()
+
+# Must precede add_subdirectory(src/...) so the module test dirs can register tests.
+if (UNITTEST)
+    enable_testing()
+endif()
+
 # GNU 默认
 
 if (CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
@@ -220,6 +226,21 @@ set(Test_Libraries
     ${QT_NS}::Test
 )
 
+# Module unit tests live in <module>/tests and use this. Framework-level tests
+# stay in the top-level tests/ directory. gcov-compatible instrumentation is
+# used for both compilers: lcov cannot read Clang's native .profraw output.
+function(dcc_add_unit_test name)
+    add_executable(${name} ${ARGN})
+    target_link_libraries(${name} PRIVATE
+        GTest::gtest_main
+        ${QT_NS}::Core
+        ${QT_NS}::Test
+    )
+    target_compile_options(${name} PRIVATE -fprofile-arcs -ftest-coverage)
+    target_link_options(${name} PRIVATE -fprofile-arcs -ftest-coverage)
+    gtest_discover_tests(${name})
+endfunction()
+
 set(DCC_FRAME_Library dde-control-center_frame)
 set(Enable_TreelandSupport ON CACHE BOOL "Enable Treeland Support")
 
@@ -256,6 +277,5 @@ if(BUILD_EXAMPLES)
 endif()
 
 if(UNITTEST)
-    enable_testing()
     add_subdirectory(tests)
 endif()
