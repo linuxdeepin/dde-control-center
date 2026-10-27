@@ -1,3 +1,13 @@
+dde-control-center (6.1.114) unstable; urgency=medium
+
+  * Update translations in dde-control-center_zh_CN.ts
+  * feat: support per-module visible and disable config (#3587)
+  * fix(accounts): remove fixed implicitHeight for font size adaptation
+  * fix: remove stale index fallback in region format search
+  * i18n: Updates for project Deepin Desktop Environment (#3570)
+
+ -- gfc <ffgcc45@qq.com>  Tue, 27 Oct 2026 22:43:26 +0800
+
 dde-control-center (6.1.113) unstable; urgency=medium
 
   * fix(personalization): initialize wallpaper state
