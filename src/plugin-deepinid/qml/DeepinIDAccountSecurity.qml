@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -20,6 +20,7 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "DeepinidWechatTitle"
             name: "wechatTitle"
             parentName: "deepinid/userinfo/body/wechatAccount"
             displayName: qsTr("Bind WeChat")
@@ -29,6 +30,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "DeepinidWechatInfo"
             name: "wechatInfo"
             parentName: "deepinid/userinfo/body/wechatAccount"
             weight: 20
@@ -63,6 +65,7 @@ DccObject {
                 }
 
                 D.ToolButton {
+                    Accessible.id: "DeepinIDAccountSecurity_ToolButton"
                     text: wechatLayout.isBindWechat ? qsTr("Unbinding") : qsTr("Link")
                     visible: dccData.editionName() === "deepin" ? false : true
                     textColor: D.Palette {
@@ -117,6 +120,7 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "DeepinidLocalTitle"
             name: "localTitle"
             parentName: "deepinid/userinfo/body/localAccount"
             displayName: qsTr("Local Account Binding")
@@ -126,6 +130,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "DeepinidEditor"
             parentName: "deepinid/userinfo/body/localAccount"
             displayName: qsTr("WeChat Scan Code Login System")
             description: qsTr("Use WeChat, which is bound to your %1 ID, to scan code to log in to your local account.").arg(dccData.editionName())
@@ -135,6 +140,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "DeepinidEditor_2"
             parentName: "deepinid/userinfo/body/localAccount"
             displayName: qsTr("Reset password via %1 ID").arg(dccData.editionName())
             description: qsTr("Reset your local password via %1 ID in case you forget it.").arg(dccData.editionName())
@@ -144,6 +150,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "DeepinidEditor_3"
             parentName: "deepinid/userinfo/body/localAccount"
             displayName: qsTr("To use the above features, please go to Control Center - Accounts and turn on the corresponding options.")
             weight: 40

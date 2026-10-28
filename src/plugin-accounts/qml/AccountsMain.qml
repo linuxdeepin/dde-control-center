@@ -34,12 +34,14 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "AccountsOtherAccountsItemView"
            name: "otherAccountsItemView"
            parentName: "otherAcounts"
            weight: 10
            pageType: DccObject.Item
            page: ListView {
                id: accountView
+               Accessible.id: "AccountsMain_ListView"
                implicitHeight: contentHeight
                implicitWidth: 400
                clip: true
@@ -62,6 +64,7 @@ DccObject {
                }
                delegate: D.ItemDelegate {
                    id: menuItemDelegate
+                   Accessible.id: "AccountsMain_ItemDelegate_" + index
                    implicitWidth: accountView.width
                    implicitHeight: Math.max(50, contentItem.implicitHeight + topPadding + bottomPadding)
                    property alias separatorVisible: background.separatorVisible
@@ -192,6 +195,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "AccountsOtherSettingsHolder"
             name: "otherSettingsHolder"
             parentName: "accounts"
             pageType: DccObject.Item

@@ -131,6 +131,7 @@ Popup {
 
                 view.delegate: MenuItem {
                     id: menuItem
+                    Accessible.id: "RegionsChooserWindow_MenuItem_" + index
                     implicitWidth: itemsView.width
                     implicitHeight: 30
                     text: model.display
@@ -155,6 +156,7 @@ Popup {
 
             ScrollBar {
                 id: verticalScrollBar
+                Accessible.id: "RegionsChooserWindow_ScrollBar"
                 anchors.top: parent.top
                 anchors.bottom: parent.bottom
                 anchors.right: parent.right

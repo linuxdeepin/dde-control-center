@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick
@@ -8,6 +8,9 @@ import org.deepin.dtk.style 1.0 as DS
 
 D.LineEdit {
     id: edit
+    property string accessibleId: ""
+    Accessible.id: accessibleId !== "" ? accessibleId : "EditActionLabel_LineEdit"
+    Accessible.role: Accessible.EditableText
     property alias editBtn: editButton
     property alias alertText: panel.alertText
     property alias showAlert: panel.showAlert

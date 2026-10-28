@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -18,11 +18,13 @@ DccObject {
     parentName: "deepinid"
     pageType: DccObject.Item
     page: DccRightView {
+        accessibleId: "DeepinIDUserInfoRightView"
         Layout.fillWidth: true
         Layout.fillHeight: true
     }
 
     DccObject {
+        accessibleId: "DeepinidTitle"
         name: "title"
         parentName: "deepinid/userinfo"
         weight: 10
@@ -189,6 +191,7 @@ DccObject {
     DeepinIDAccountSecurity{}
 
     DccObject {
+        accessibleId: "DeepinidButtonGrp"
         name: "buttonGrp"
         parentName: "deepinid/userinfo"
         pageType: DccObject.Item

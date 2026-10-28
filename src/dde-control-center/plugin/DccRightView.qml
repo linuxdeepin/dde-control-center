@@ -8,6 +8,7 @@ import "DccUtils.js" as DccUtils
 
 Flickable {
     id: control
+    property string accessibleId: ""
     property alias spacing: groupView.spacing
     property alias isGroup: groupView.isGroup
     property real margin: DccUtils.getMargin(width)
@@ -24,7 +25,9 @@ Flickable {
             contentY = 0
         }
     }
-    ScrollBar.vertical: ScrollBar { }
+    ScrollBar.vertical: ScrollBar {
+        Accessible.id: control.accessibleId !== "" ? (control.accessibleId + "ScrollBar") : "DccRightViewScrollBar"
+    }
 
     DccGroupView {
         id: groupView

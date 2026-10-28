@@ -16,7 +16,9 @@ Flickable {
 
     contentHeight: centralItem.height + bottomItem.height - (bottomItem.height > 0 ? bottomItem.anchors.topMargin : 0)
     clip: true
-    ScrollBar.vertical: ScrollBar { }
+    ScrollBar.vertical: ScrollBar {
+        Accessible.id: "DccSettingsViewScrollBar"
+    }
 
     Component {
         id: groupView

@@ -16,6 +16,7 @@ DccObject {
         weight: 10
     }
     DccObject {
+        accessibleId: "MousePointerSpeed"
         name: "PointerSpeed"
         parentName: "MouseAndTouchpadMouse"
         displayName: qsTr("Pointer Speed")
@@ -83,6 +84,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "MousePointerSize"
         name: "PointerSize"
         parentName: "MouseAndTouchpadMouse"
         displayName: qsTr("Pointer Size")
@@ -221,12 +223,14 @@ DccObject {
         pageType: DccObject.Item
         page: DccGroupView {}
         DccObject {
+            accessibleId: "MouseMouseAcceleration"
             name: "MouseAcceleration"
             parentName: "MouseSettings"
             displayName: qsTr("Mouse Acceleration")
             weight: 10
             pageType: DccObject.Editor
             page: D.Switch {
+                Accessible.id: "MousePage_Switch"
                 checked: dccData.accelProfile
                 onCheckedChanged: {
                     dccData.accelProfile = checked
@@ -234,6 +238,7 @@ DccObject {
             }
         }
         DccObject {
+            accessibleId: "MouseDisableTouchpad"
             name: "DisableTouchpad"
             parentName: "MouseSettings"
             displayName: qsTr("Disable touchpad when a mouse is connected")
@@ -241,6 +246,7 @@ DccObject {
             visible: dccData.tpadExist
             pageType: DccObject.Editor
             page: D.Switch {
+                Accessible.id: "MousePage_Switch_2"
                 checked: dccData.disTpad
                 onCheckedChanged: {
                     dccData.disTpad = checked
@@ -248,12 +254,14 @@ DccObject {
             }
         }
         DccObject {
+            accessibleId: "MouseNaturalScrolling"
             name: "NaturalScrolling"
             parentName: "MouseSettings"
             displayName: qsTr("Natural Scrolling")
             weight: 30
             pageType: DccObject.Editor
             page: D.Switch {
+                Accessible.id: "MousePage_Switch_3"
                 checked: dccData.mouseNaturalScroll
                 onCheckedChanged: {
                     dccData.mouseNaturalScroll = checked

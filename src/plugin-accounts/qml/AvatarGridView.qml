@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -9,6 +9,7 @@ import QtQuick.Effects
 
 GridView {
     id: gridView
+    Accessible.id: "AvatarGridView_GridView"
     property string headerText
     property string currentAvatar
     property int headerHeight: 40
@@ -55,6 +56,7 @@ GridView {
 
     delegate: D.ItemDelegate {
         id: delegate
+        Accessible.id: "AvatarGridView_ItemDelegate_" + index
         property bool isAddButton: modelData == "add"
         property bool isSelected: !isAddButton && (gridView.currentAvatar === modelData)
         implicitHeight: gridView.cellHeight
@@ -72,6 +74,7 @@ GridView {
                 implicitWidth: gridView.cellWidth
                 Button {
                     id: control
+                    Accessible.id: "AvatarGridView_Button"
                     width: gridView.itemSize
                     height: gridView.itemSize
                     padding: 0

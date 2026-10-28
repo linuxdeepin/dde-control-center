@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.15
@@ -18,16 +18,19 @@ DccObject {
 
 
     page: DccRightView {
+        accessibleId: "DefaultappDetailRightView"
         isGroup: true
     }
 
     DccObject {
+        accessibleId: "DefaultappTitle"
         name: "title"
         parentName: root.name
         displayName: qsTr("Please choose the default program to open '%1'").arg(root.displayName)
         weight: 10
         pageType: DccObject.Editor
         page: Button {
+            Accessible.id: "DetailItem_Button"
             implicitWidth: implicitContentWidth + 20
             implicitHeight: 30
             text: qsTr("add")
@@ -61,6 +64,7 @@ DccObject {
             pageType: DccObject.Item
             page: D.ItemDelegate {
                 id: control
+                Accessible.id: "DetailItem_ItemDelegate_" + index
                 leftPadding: 10
                 rightPadding: 8
                 topPadding: 0
@@ -77,6 +81,7 @@ DccObject {
                 content: RowLayout {
                     width: 38
                     DccCheckIcon {
+                        accessibleId: "DetailItem_DefaultAppCheck_" + model.id
                         Layout.alignment: Qt.AlignCenter
                         visible: model.isDefault
                     }

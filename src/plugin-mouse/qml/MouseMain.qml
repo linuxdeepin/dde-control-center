@@ -38,6 +38,7 @@ DccObject {
         icon: "mouse_trackpad_mouse"
         weight: 100
         page: DccRightView {
+            accessibleId: "MouseMain_MouseRightView"
             spacing: 5
         }
         MousePage {}
@@ -50,6 +51,7 @@ DccObject {
         visible: dccData.tpadExist
         weight: 200
         page: DccRightView {
+            accessibleId: "MouseMain_TouchpadRightView"
             spacing: 0
         }
         Touchpad {}

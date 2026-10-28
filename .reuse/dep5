@@ -53,6 +53,11 @@ Files: src/plugin-display/wayland/*
 Copyright: Marcus Britanicus, Abrar, rahmanshaber
 License: MIT
 
+# AT-SPI accessibility test baseline
+Files: tests/at/spi/expected_names.yaml
+Copyright: UnionTech Software Technology Co., Ltd.
+License: GPL-3.0-or-later
+
 ######## dcc-old ########
 # translation
 Files: dcc-old/translations/*
