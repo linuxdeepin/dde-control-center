@@ -302,28 +302,65 @@ QSortFilterProxyModel *KeyboardController::layoutSearchModel()
     return m_layoutSearchModel;
 }
 
-QSortFilterProxyModel *KeyboardController::shortcutSearchModel()
+void KeyboardController::ensureShortcutModels()
 {
-    if (m_shortcutSearchModel)
-        return m_shortcutSearchModel;
+    if (m_shortcutListModel)
+        return;
 
-    m_shortcutSearchModel = new ShortcutFilterModel(this);
+    m_shortcutListModel = new ShortcutListModel(this);
+    m_shortcutListModel->setSouceModel(m_shortcutModel);
 
-    auto sourceModel = new ShortcutListModel(this);
-    sourceModel->setSouceModel(m_shortcutModel);
-
-    connect(m_shortcutModel, &ShortcutModel::delCustomInfo, sourceModel, &ShortcutListModel::reset);
-    connect(m_shortcutModel, &ShortcutModel::addCustomInfo, sourceModel, &ShortcutListModel::reset);
-    connect(m_shortcutModel, &ShortcutModel::shortcutChanged, sourceModel, &ShortcutListModel::onUpdateShortcut);
-    connect(m_shortcutModel, &ShortcutModel::windowSwitchChanged, sourceModel, &ShortcutListModel::reset);
+    connect(m_shortcutModel, &ShortcutModel::delCustomInfo,
+            m_shortcutListModel, &ShortcutListModel::syncRows);
+    connect(m_shortcutModel, &ShortcutModel::addCustomInfo,
+            m_shortcutListModel, &ShortcutListModel::syncRows);
+    connect(m_shortcutModel, &ShortcutModel::shortcutChanged,
+            m_shortcutListModel, &ShortcutListModel::onUpdateShortcut);
+    connect(m_shortcutModel, &ShortcutModel::windowSwitchChanged,
+            m_shortcutListModel, &ShortcutListModel::syncRows);
+    connect(m_shortcutModel, &ShortcutModel::listChanged,
+            m_shortcutListModel, &ShortcutListModel::syncRows);
     // Wayland: re-layout rows when category ordering metadata arrives.
-    connect(m_shortcutModel, &ShortcutModel::categoryMetaChanged, sourceModel, &ShortcutListModel::reset);
+    // syncRows 只在行集合真的变了才改动视图；顺序变化退化为一次增删。
+    connect(m_shortcutModel, &ShortcutModel::categoryMetaChanged,
+            m_shortcutListModel, &ShortcutListModel::syncRows);
+}
 
-    m_shortcutSearchModel->setSourceModel(sourceModel);
-    m_shortcutSearchModel->setFilterRole(ShortcutListModel::SearchedTextRole);
-    m_shortcutSearchModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+QAbstractItemModel *KeyboardController::shortcutCategoryModel()
+{
+    if (!m_shortcutCategoryModel) {
+        ensureShortcutModels();
+        m_shortcutCategoryModel = new ShortcutCategoryModel(m_shortcutModel, this);
+    }
+    return m_shortcutCategoryModel;
+}
 
-    return m_shortcutSearchModel;
+QAbstractItemModel *KeyboardController::shortcutModelForCategory(const QString &key)
+{
+    ensureShortcutModels();
+
+    auto it = m_categoryModels.find(key);
+    if (it != m_categoryModels.end())
+        return *it;
+
+    auto *proxy = new ShortcutFilterModel(this);
+    proxy->setSourceModel(m_shortcutListModel);
+    proxy->setFilterRole(ShortcutListModel::SearchedTextRole);
+    proxy->setFilterCaseSensitivity(Qt::CaseInsensitive);
+    proxy->setCategoryKey(key);
+    // 新分类代理也要应用当前搜索文本（分类可能因服务端元数据晚到而新建）。
+    if (!m_shortcutSearchText.isEmpty())
+        proxy->setFilterFixedString(m_shortcutSearchText);
+
+    m_categoryModels.insert(key, proxy);
+    return proxy;
+}
+
+void KeyboardController::setShortcutSearchText(const QString &text)
+{
+    m_shortcutSearchText = text;
+    for (ShortcutFilterModel *proxy : std::as_const(m_categoryModels))
+        proxy->setFilterFixedString(text);
 }
 
 QString KeyboardController::sectionDisplayName(const QString &key) const

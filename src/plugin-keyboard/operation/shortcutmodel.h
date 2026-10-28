@@ -206,18 +206,50 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 
 public Q_SLOTS:
+    // 与缓存行对比后精确增删：一次 reset 会让每个分类的 DccRepeater
+    // 销毁并重建全部分类与行，增删一条自定义快捷键不该付这个代价。
+    void syncRows();
     void reset();
     void onUpdateShortcut(ShortcutInfo *info);
 
 private:
+    // 行缓存：同时记录结构（id/type）与数据来源指针。指针变了说明整个
+    // ShortcutModel 被重新解析，行对象本身还在，只需发出 dataChanged。
+    struct RowKey {
+        QString id;
+        int type = -1;
+        const ShortcutInfo *info = nullptr;
+
+        bool isSameRow(const RowKey &other) const
+        {
+            return type == other.type && id == other.id;
+        }
+    };
+
+    QList<RowKey> collectRows() const;
+
     ShortcutModel *m_model = nullptr;
+    QList<RowKey> m_rows;
 };
 
 class ShortcutFilterModel : public QSortFilterProxyModel
 {
     Q_OBJECT
+    Q_PROPERTY(QString categoryKey READ categoryKey WRITE setCategoryKey NOTIFY categoryKeyChanged)
+    Q_PROPERTY(int count READ count NOTIFY countChanged)
 public:
     explicit ShortcutFilterModel(QObject *parent = nullptr);
+
+    // DccObject 化后每个分类各有一个实例：categoryKey 非空时只接受该分类的行。
+    QString categoryKey() const;
+    void setCategoryKey(const QString &key);
+
+    // QML 用来判断分类是否为空（搜索过滤后隐藏空分类标题）。
+    int count() const;
+
+Q_SIGNALS:
+    void categoryKeyChanged();
+    void countChanged();
 
 protected:
     bool filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const override;
@@ -225,8 +257,55 @@ protected:
 private:
     const PinyinSearchQuery &cachedPinyinQuery(const QString &pattern) const;
 
+    QString m_categoryKey;
     mutable QString m_cachedPinyinPattern;
     mutable PinyinSearchQuery m_cachedPinyinQuery;
+};
+
+// DccObject 化后的分类列表：外层 DccRepeater 的 model。
+// Wayland 按服务端 ListCategories 的顺序；X11 按固定分类列表顺序。
+class ShortcutCategoryModel : public QAbstractListModel
+{
+    Q_OBJECT
+    Q_PROPERTY(int count READ count NOTIFY countChanged)
+public:
+    enum Role {
+        KeyRole = Qt::UserRole + 1,
+        DisplayNameRole,
+        IsCustomRole,
+    };
+
+    explicit ShortcutCategoryModel(ShortcutModel *model, QObject *parent = nullptr);
+
+    int rowCount(const QModelIndex &parent = QModelIndex()) const override;
+    QVariant data(const QModelIndex &index, int role = Qt::DisplayRole) const override;
+    QHash<int, QByteArray> roleNames() const override;
+
+    int count() const;
+
+public Q_SLOTS:
+    // 分类集合（key/显示名/是否自定义）全等时不做任何事：
+    // 一次 reset 会让外层 DccRepeater 重建全部分类，进而重建每张卡片里的每一行。
+    void sync();
+
+Q_SIGNALS:
+    void countChanged();
+
+private:
+    struct Category {
+        QString key;
+        QString displayName;
+        bool isCustom = false;
+
+        bool operator==(const Category &other) const
+        {
+            return isCustom == other.isCustom && key == other.key
+                    && displayName == other.displayName;
+        }
+    };
+
+    ShortcutModel *m_model = nullptr;
+    QList<Category> m_categories;
 };
 
 } // namespace dccV25

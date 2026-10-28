@@ -66,7 +66,12 @@ public Q_SLOTS:
     QString userLayoutAt(int index, bool isValue = true) const;
     bool userLayoutsContains(const QString &key);
     QSortFilterProxyModel *layoutSearchModel();
-    QSortFilterProxyModel *shortcutSearchModel();
+    // DccObject 化后的快捷键列表：
+    //   外层 DccRepeater 用分类模型，内层 DccRepeater 用每分类的过滤模型。
+    Q_INVOKABLE QAbstractItemModel *shortcutCategoryModel();
+    Q_INVOKABLE QAbstractItemModel *shortcutModelForCategory(const QString &key);
+    // 搜索文本统一作用于所有分类代理（每个分类一个 QSortFilterProxyModel）。
+    Q_INVOKABLE void setShortcutSearchText(const QString &text);
 
     // Wayland: category metadata is supplied by the service (ListCategories).
     // Exposed to QML so the section delegate can render the display name for
@@ -176,6 +181,8 @@ private:
                                  quint64 generation);
     // 检查并处理desktop命令，如果desktop文件存在则添加dde-am前缀
     QString checkDesktopCmd(const QString &cmd);
+    // 懒创建 ShortcutListModel 与信号连接（只建一次）。
+    void ensureShortcutModels();
     
     uint m_repeatInterval;
     uint m_repeatDelay;
@@ -185,7 +192,11 @@ private:
     KeyboardModel *m_model = nullptr;
     ShortcutModel *m_shortcutModel = nullptr;
     QSortFilterProxyModel *m_layoutSearchModel = nullptr;
-    QSortFilterProxyModel *m_shortcutSearchModel = nullptr;
+    ShortcutListModel *m_shortcutListModel = nullptr;
+    ShortcutCategoryModel *m_shortcutCategoryModel = nullptr;
+    // 每个分类一个过滤代理：同时承担分类过滤与搜索过滤。
+    QHash<QString, ShortcutFilterModel *> m_categoryModels;
+    QString m_shortcutSearchText;
     QString m_conflictText;
     TreelandShortcutCaptureManager *m_captureManager = nullptr;
     QPointer<TreelandShortcutCaptureSession> m_activeCapture;

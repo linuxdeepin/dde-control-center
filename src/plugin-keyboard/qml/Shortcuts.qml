@@ -1,5 +1,6 @@
 // SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
+
 import QtQuick
 import QtQuick.Controls 2.3
 import QtQuick.Layouts
@@ -36,8 +37,7 @@ DccObject {
         target: shortcutSettingsView
         function onDeactive() {
             dccData.endKeyCapture()
-            shortcutSettingsBody.requestRestore()
-            shortcutSettingsBody.conflictAccels = ""
+            shortcutSettingsBody.restoreToken++
             shortcutSettingsBody.isEditing = false
         }
     }
@@ -45,462 +45,146 @@ DccObject {
     DccObject {
         id: shortcutSettingsBody
         property bool isEditing: false
-        property string conflictAccels
+        // 自增令牌：行监听它做统一回滚（恢复默认、失活、退出编辑模式）。
+        property int restoreToken: 0
+        // 正在抓键的行：同一时刻只允许一个行持有键盘捕获。
+        property var activeRow: null
+        property string conflictAccels: ""
+
+        function restoreActiveRow() {
+            // 行自己的 restore() 会把 activeRow 置空并结束捕获。
+            if (activeRow)
+                activeRow.restore()
+            activeRow = null
+        }
         name: "shortcutSettingsBody"
         parentName: "shortcutSettingsView"
         weight: 30
         pageType: DccObject.Item
-        signal requestRestore
+        page: DccGroupView {
+            spacing: 5
+            isGroup: false
+        }
 
-        page: ColumnLayout {
-            spacing: 10
-            Timer {
-                id: timer
-                interval: 100
-                onTriggered: {
-                    shortcutView.model.setFilterFixedString(searchEdit.text);
+        // ---------------- 搜索框 ----------------
+        DccObject {
+            name: "shortcutSearchRow"
+            parentName: "shortcutSettingsBody"
+            weight: 1
+            pageType: DccObject.Item
+            page: Item {
+                width: parent ? parent.width : implicitWidth
+                implicitHeight: searchEdit.implicitHeight + 36
+
+                D.SearchEdit {
+                    id: searchEdit
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    anchors.top: parent.top
+                    anchors.topMargin: 31
+                    placeholder: qsTr("Search shortcuts")
+                    onTextChanged: searchTimer.start()
+                    onEditingFinished: searchTimer.start()
+                    Component.onCompleted: {
+                        dccData.setShortcutSearchText("");
+                        shortcutSettingsView.searchEditWidth = Qt.binding(function() { return width; });
+                    }
+                }
+
+                Timer {
+                    id: searchTimer
+                    interval: 100
+                    onTriggered: dccData.setShortcutSearchText(searchEdit.text)
                 }
             }
+        }
 
-            D.SearchEdit {
-                id: searchEdit
-                Layout.topMargin: 10
-                Layout.alignment: Qt.AlignHCenter
-                Layout.fillWidth: true
-                placeholder: qsTr("Search shortcuts")
-                onTextChanged: {
-                    timer.start()
-                }
-                onEditingFinished: {
-                    timer.start()
-                }
-                Component.onCompleted: {
-                    // clear
-                    shortcutView.model.setFilterWildcard("");
-                    shortcutSettingsView.searchEditWidth = Qt.binding(function() { return width; });
-                }
-            }
+        // ---------------- 分类 + 行 ----------------
+        // 每个分类生成两个兄弟对象：
+        //   1) 组标题（独立一行，无卡片背景，对齐旧版 section header）
+        //   2) 行容器（DccGroupView isGroup=true，把行拼成一张卡片）
+        DccRepeater {
+            model: dccData.shortcutCategoryModel()
+            delegate: DccObject {
+                id: categoryObj
+                property string categoryKey: model.key
+                property string categoryName: model.displayName
+                property bool categoryIsCustom: model.isCustom
+                property var rowModel: dccData.shortcutModelForCategory(categoryObj.categoryKey)
 
-            ListView {
-                id: shortcutView
-                property var editItem
-                property var conflictText
-                property string pendingCommandId
-                property double pendingCommandSerial: 0
-                clip: true
-                interactive: false // 外层有滚动了，listview 就别滚了
-                implicitHeight: contentHeight
-                implicitWidth: 600
-                Layout.fillWidth: true
+                // 组标题：独立于卡片，只有文字（Custom 组右侧带编辑按钮）。
+                DccObject {
+                    // 容器名 = 服务端分类 key + 后缀（与行名同一条规则：不做任何改写）；
+                    // 这串进 DccObject 路径，改名要同步 modulepaths.json
+                    name: categoryObj.categoryKey + "Title"
+                    parentName: "shortcutSettingsBody"
+                    weight: 10 + index * 100
+                    visible: categoryObj.rowModel.count > 0
+                    pageType: DccObject.Item
+                    page: RowLayout {
+                        width: parent ? parent.width : implicitWidth
+                        height: implicitHeight
 
-                model: dccData.shortcutSearchModel()
-
-                section.property: "sectionKey"
-                section.criteria: ViewSection.FullString
-                section.delegate: RowLayout {
-                    width: ListView.view.width
-                    height: childrenRect.height
-
-                    required property string section
-
-                    Label {
-                        text: dccData.sectionDisplayName(parent.section)
-                        font.bold: true
-                        font.pointSize: 13
-                        leftPadding: 20
-                        bottomPadding: 10
-                        topPadding: 16
-                    }
-
-                    D.Button {
-                        id: button
-                        focusPolicy: Qt.NoFocus
-                        visible: parent.section === dccData.customCategoryKey()
-                        checkable: true
-                        checked: shortcutSettingsBody.isEditing
-                        Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
-                        Layout.rightMargin: 10
-                        text: shortcutSettingsBody.isEditing ? qsTr("done") : qsTr("edit")
-                        font: D.DTK.fontManager.t8
-                        background: null
-                        textColor: D.Palette {
-                            normal {
-                                common: D.DTK.makeColor(D.Color.Highlight)
-                                crystal: D.DTK.makeColor(D.Color.Highlight)
-                            }
-                        }
-                        onCheckedChanged: {
-                            shortcutSettingsBody.isEditing = button.checked
-                            shortcutView.pendingCommandId = ""
-
-                            if (!shortcutView.editItem)
-                                return
-                            shortcutView.editItem.restore()
-                        }
-                    }
-                }
-
-                delegate: ItemDelegate {
-                    id: editorDelegate
-                    checkable: false
-                    implicitWidth: ListView.view.width
-                    topInset: 0
-                    bottomInset: 0
-                    backgroundVisible: true
-                    Layout.fillWidth: true
-                    corners: model.corners
-
-                    background: DccItemBackground {
-                        id: background
-                        separatorVisible: true
-                        backgroundType: DccObject.Normal
-                    }
-
-                    contentItem: ColumnLayout {
-                        KeySequenceDisplay {
-                            id: edit
-                            property string dialogCommand: model.command
-                            property string shortcutId: model.id
-                            property int shortcutType: model.type
-                            text: model.display
-                            keys: model.keySequence
-                            placeholderText: qsTr("please enter a new shortcut key")
-                            background.visible: conflictText.visible
-                            backgroundColor: conflictText.visible ? DS.Style.edit.alertBackground : DS.Style.keySequenceEdit.background
-                            Layout.alignment: Qt.AlignRight
-                            Layout.bottomMargin:  conflictText.visible ? 8 : 0
-                            Layout.fillWidth: true
-                            showEditButtons: shortcutSettingsBody.isEditing && model.isCustom
-                            showWarnning: model.accels.length > 0 && shortcutSettingsBody.conflictAccels === model.accels
-
-                            Connections{
-                                target: model
-                                function onKeySequenceChanged() {
-                                    edit.keys= model.keySequence
-                                }
-                            }
-
-                            onRequestKeys: {
-                                if (shortcutView.editItem) {
-                                    shortcutView.editItem.restore()
-                                }
-
-                                shortcutView.editItem = edit
-                                shortcutView.conflictText = conflictText
-                                shortcutSettingsBody.isEditing = false
-                                dccData.beginKeyCapture(edit, model.id, model.type, true)
-                            }
-                            onRequestEditKeys: {
-                                if (dialogloader.active)
-                                    return
-
-                                shortcutView.pendingCommandId = model.id
-                                shortcutView.pendingCommandSerial = dccData.requestShortcutCommand(model.id)
-                            }
-                            onRequestDeleteKeys: {
-                                console.log("onRequestDeleteKeys", model.id)
-                                shortcutView.pendingCommandId = ""
-                                dccData.deleteCustomShortcut(model.id)
-                            }
-
-                            function modifyShortcut(accels) {
-                                console.log("modifyShortcut", model.id, accels, model.type)
-                                if (accels.length > 0)
-                                    dccData.modifyShortcut(model.id, accels, model.type)
-                            }
-
-                            function replaceShortcut(accels) {
-                                if (accels.length > 0)
-                                    dccData.replaceShortcut(model.id, accels, model.type)
-                            }
-
-                            function matches(id, type) {
-                                return shortcutId === id && shortcutType === type
-                            }
-
-                            function startCapture() {
-                                captureFailureTimer.stop()
-                                conflictText.message = ""
-                                conflictText.showActions = true
-                                conflictText.visible = false
-                                keys = []
-                            }
-
-                            function showConflict(accels, message) {
-                                keys = dccData.formatKeys(accels)
-                                conflictText.message = message
-                                conflictText.showActions = true
-                                conflictText.visible = true
-                                shortcutSettingsBody.conflictAccels = accels
-                            }
-
-                            function showFailure(message) {
-                                keys = model.keySequence
-                                conflictText.message = message
-                                conflictText.showActions = false
-                                conflictText.visible = true
-                                shortcutSettingsBody.conflictAccels = ""
-                                captureFailureTimer.restart()
-                            }
-
-                            function finishModification(accels) {
-                                captureFailureTimer.stop()
-                                keys = dccData.formatKeys(accels)
-                                conflictText.visible = false
-                                conflictText.message = ""
-                                shortcutSettingsBody.conflictAccels = ""
-                                shortcutView.editItem = null
-                                shortcutView.conflictText = null
-                            }
-
-                            function clearShortcut() {
-                                captureFailureTimer.stop()
-                                dccData.endKeyCapture()
-                                dccData.clearShortcut(model.id, model.type)
-
-                                keys = dccData.formatKeys("")
-                                conflictText.visible = false
-                                conflictText.message = ""
-
-                                shortcutSettingsBody.conflictAccels = ""
-                                shortcutView.editItem = null
-                                shortcutView.conflictText = null
-                            }
-
-                            function restore() {
-                                captureFailureTimer.stop()
-                                dccData.endKeyCapture()
-                                edit.keys = model.keySequence
-                                conflictText.visible = false
-                                conflictText.message = ""
-                                conflictText.showActions = true
-
-                                shortcutSettingsBody.conflictAccels = ""
-                                shortcutView.editItem = null
-                                shortcutView.conflictText = null
-                            }
-
-                            // Keep capture errors visible long enough to be read, then
-                            // return the row to its normal state when the user is idle.
-                            Timer {
-                                id: captureFailureTimer
-                                interval: 20000
-                                repeat: false
-                                onTriggered: edit.restore()
-                            }
-
-                            Loader {
-                                id: dialogloader
-                                active: false
-                                sourceComponent: ShortcutSettingDialog {
-                                    onCloseConfirmed: {
-                                        dccData.endKeyCapture()
-                                        dialogloader.active = false
-                                        shortcutView.pendingCommandId = ""
-
-                                        conflictText.visible = false
-                                        shortcutSettingsBody.conflictAccels = ""
-                                        shortcutView.editItem = null
-                                        shortcutView.conflictText = null
-                                    }
-                                }
-                                onLoaded: {
-                                    edit.restore()
-
-                                    item.keyId = model.id
-                                    item.keyName = model.display
-                                    item.cmdName = edit.dialogCommand
-                                    item.keySequence = model.keySequence
-                                    if (model.keySequence.length > 0) {
-                                        item.saveKeys = model.keySequence
-                                    }
-                                    item.accels = model.accels
-                                    item.saveAccels = item.accels
-                                    item.saveKeyName = item.keyName
-                                    item.saveCmdName = item.cmdName
-
-                                    item.show()
-                                }
-                            }
-                            Connections {
-                                target: dccData
-                                function onShortcutCommandReady(id, command, available, requestSerial) {
-                                    if (shortcutView.pendingCommandId !== id
-                                            || shortcutView.pendingCommandSerial !== requestSerial
-                                            || model.id !== id)
-                                        return
-
-                                    shortcutView.pendingCommandId = ""
-                                    shortcutView.pendingCommandSerial = 0
-                                    if (!available)
-                                        return
-
-                                    edit.dialogCommand = command
-                                    dialogloader.active = true
-                                }
-                            }
+                        Label {
+                            text: categoryObj.categoryName
+                            font.bold: true
+                            font.pointSize: 13
+                            leftPadding: 20
+                            bottomPadding: 4
+                            topPadding: 16
                         }
 
                         Item {
-                            id: conflictText
-                            property string message: ""
-                            property bool showActions: true
-                            visible: false
-                            implicitHeight: 20
-                            implicitWidth: row.implicitWidth
-                            Layout.alignment: Qt.AlignRight
-                            Layout.rightMargin: 20
                             Layout.fillWidth: true
-
-                            onVisibleChanged : {
-                                if (visible && model.index === (shortcutView.count - 1)) {
-                                    scrollbarAnimation.start()
-                                }
-                            }
-
-                            RowLayout {
-                                id: row
-                                width: parent.width
-                                spacing: 3
-                                Item {
-                                    Layout.fillWidth: true
-                                    Layout.fillHeight: true
-                                }
-                                Label {
-                                    id: conflictTextLabel
-                                    text: conflictText.message + (conflictText.showActions ? "," : "")
-                                    elide: Text.ElideLeft
-                                    horizontalAlignment: Text.AlignRight
-                                    HoverHandler { id: conflictHandler }
-                                    ToolTip.visible: conflictHandler.hovered
-                                    ToolTip.text: conflictText.showActions
-                                                  ? conflictTextLabel.text + clickLabel.text + " " + cancelLabel.text + " " + orLabel.text + " " + replaceLabel.text
-                                                  : conflictTextLabel.text
-                                    ToolTip.delay: 500
-                                    ToolTip.timeout: 4000
-                                }
-                                Label {
-                                    id: clickLabel
-                                    text: qsTr("Click")
-                                    visible: conflictText.showActions
-                                }
-                                Label {
-                                    id: cancelLabel
-                                    text: qsTr("Cancel")
-                                    visible: conflictText.showActions
-                                    color: palette.highlight
-                                    MouseArea {
-                                        anchors.fill: parent
-                                        onClicked: {
-                                            edit.restore()
-                                        }
-                                    }
-                                }
-                                Label {
-                                    id: orLabel
-                                    text: qsTr("or")
-                                    visible: conflictText.showActions
-                                }
-                                Label {
-                                    id: replaceLabel
-                                    text: qsTr("Replace")
-                                    visible: conflictText.showActions
-                                    color: palette.highlight
-                                    MouseArea {
-                                        anchors.fill: parent
-                                        onClicked: {
-                                            var newAccels = shortcutSettingsBody.conflictAccels
-                                            dccData.endKeyCapture()
-                                            edit.replaceShortcut(newAccels)
-                                        }
-                                    }
-                                }
-                            }
                         }
 
+                        D.Button {
+                            id: editModeButton
+                            focusPolicy: Qt.NoFocus
+                            visible: categoryObj.categoryIsCustom
+                            checkable: true
+                            checked: shortcutSettingsBody.isEditing
+                            text: shortcutSettingsBody.isEditing ? qsTr("done") : qsTr("edit")
+                            font: D.DTK.fontManager.t8
+                            background: null
+                            textColor: D.Palette {
+                                normal {
+                                    common: D.DTK.makeColor(D.Color.Highlight)
+                                    crystal: D.DTK.makeColor(D.Color.Highlight)
+                                }
+                            }
+                            onCheckedChanged: {
+                                shortcutSettingsBody.isEditing = editModeButton.checked
+                                if (!editModeButton.checked)
+                                    shortcutSettingsBody.restoreToken++
+                            }
+                        }
                     }
                 }
 
-                function restoreShortcutView() {
-                    shortcutView.pendingCommandId = ""
+                // 行卡片：isGroup=true 让行拼成一张卡片（首/中/尾圆角 + 分隔线）。
+                DccObject {
+                    id: rowsObj
+                    name: categoryObj.categoryKey + "Rows"
+                    parentName: "shortcutSettingsBody"
+                    weight: 11 + index * 100
+                    visible: categoryObj.rowModel.count > 0
+                    pageType: DccObject.Item
+                    page: DccGroupView {
+                        width: parent ? parent.width : implicitWidth
+                        spacing: 0
+                        isGroup: true
+                    }
 
-                    if (!shortcutView.editItem)
-                        return
-
-                    shortcutView.editItem.restore()
-                }
-
-                Connections {
-                    target: shortcutSettingsBody
-                    function onRequestRestore() {
-                        shortcutView.restoreShortcutView()
-                    }
-                }
-                Connections {
-                    target: dccData
-                    function onRequestRestore(id, type) {
-                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
-                            return
-                        shortcutView.restoreShortcutView()
-                    }
-                    function onRequestClear(id, type) {
-                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
-                            return
-                        shortcutView.editItem.clearShortcut()
-                    }
-                    function onKeyCaptureStarted(id, type) {
-                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
-                            return
-                        shortcutView.editItem.startCapture()
-                    }
-                    function onKeyCaptureFailed(id, type, reason) {
-                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
-                            return
-                        shortcutView.editItem.showFailure(qsTr("Failed to start shortcut capture. Please try again."))
-                    }
-                    function onKeyCaptureTimedOut(id, type) {
-                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
-                            return
-                        shortcutView.editItem.showFailure(qsTr("Shortcut input timed out. Try again."))
-                    }
-                    function onKeyCaptureCanceled(id, type) {
-                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
-                            return
-                        shortcutView.restoreShortcutView()
-                    }
-                    function onInvalidShortcutCaptured(id, type) {
-                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
-                            return
-                        shortcutView.editItem.showFailure(qsTr("Invalid keyboard shortcut. Set a new one."))
-                    }
-                    function onKeyConflicted(id, type, oldAccels, newAccels, message, replaceable) {
-                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
-                            return
-                        if (replaceable)
-                            shortcutView.editItem.showConflict(newAccels, message)
-                        else
-                            shortcutView.editItem.showFailure(message)
-                    }
-                    function onKeyDone(id, type, accels) {
-                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
-                            return
-                        shortcutView.editItem.keys = dccData.formatKeys(accels)
-                        shortcutView.conflictText.visible = false
-                        shortcutView.conflictText.message = ""
-                        shortcutView.editItem.modifyShortcut(accels)
-                    }
-                    function onKeyEvent(id, type, accels) {
-                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
-                            return
-                        shortcutView.editItem.keys = dccData.formatKeys(accels)
-                    }
-                    function onShortcutModificationFinished(id, type, accels, success) {
-                        if (!shortcutView.editItem || !shortcutView.editItem.matches(id, type))
-                            return
-                        if (success)
-                            shortcutView.editItem.finishModification(accels)
-                        else
-                            shortcutView.editItem.showFailure(qsTr("Failed to save the shortcut. Please try again."))
+                    DccRepeater {
+                        model: categoryObj.rowModel
+                        delegate: ShortcutRow {
+                            parentName: rowsObj.name
+                            weight: 10 + index * 10
+                            editing: shortcutSettingsBody.isEditing
+                            restoreToken: shortcutSettingsBody.restoreToken
+                            captureOwner: shortcutSettingsBody
+                        }
                     }
                 }
             }
@@ -545,8 +229,7 @@ DccObject {
                 
                 onClicked: {
                     shortcutSettingsBody.isEditing = false
-                    shortcutSettingsBody.requestRestore()
-
+                    shortcutSettingsBody.restoreToken++
                     dccData.resetAllShortcuts()
                 }
                 Component.onCompleted: {
@@ -599,7 +282,6 @@ DccObject {
                         id: shortcutSettingDialog
                         onCloseConfirmed: {
                             addButton.needShowDialog = false
-                            shortcutSettingsBody.conflictAccels = ""
                         }
                     }
                     onLoaded: {
@@ -609,8 +291,7 @@ DccObject {
 
                 onClicked: {
                     shortcutSettingsBody.isEditing = false
-                    shortcutSettingsBody.requestRestore()
-
+                    shortcutSettingsBody.restoreToken++
                     addButton.needShowDialog = true
                 }
             }
