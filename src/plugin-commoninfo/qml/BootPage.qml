@@ -400,6 +400,8 @@ DccObject {
                 DialogWindow {
                     id: passwordDlg
                     width: 360
+                    leftPadding: 6
+                    rightPadding: 6
                     height: columnLayout.implicitHeight + 50
 
                     icon: "preferences-system"
@@ -431,13 +433,11 @@ DccObject {
 
                         Label {
                             id: passwdTitle
-                            Layout.topMargin: 10
+                            Layout.topMargin: 0
                             Layout.bottomMargin: 10
                             Layout.alignment: Qt.AlignHCenter
-                            Layout.preferredWidth: parent.width - 20
-                            Layout.leftMargin: 10
-                            Layout.rightMargin: 10
-                            font: DTK.fontManager.t5
+                            Layout.preferredWidth: parent.width
+                            font: DTK.fontManager.t6
                             text: dccData.mode().grubEditAuthEnabled ? qsTr("Change boot menu verification password") : qsTr("Set the boot menu authentication password")
                             wrapMode: Text.Wrap
                             horizontalAlignment: Text.AlignHCenter
@@ -447,7 +447,7 @@ DccObject {
                             Layout.alignment: Qt.AlignLeft
                             horizontalAlignment: Text.AlignLeft
                             verticalAlignment: Text.AlignVCenter
-                            Layout.leftMargin: 5
+                            Layout.leftMargin: 0
                             font: DTK.fontManager.t6
                             text: qsTr("User Name :")
                             Layout.preferredWidth: 50
@@ -471,7 +471,7 @@ DccObject {
                             Layout.alignment: Qt.AlignLeft
                             horizontalAlignment: Text.AlignLeft
                             verticalAlignment: Text.AlignVCenter
-                            Layout.leftMargin: 5
+                            Layout.leftMargin: 0
                             font: DTK.fontManager.t6
                             text: qsTr("New Password :")
                         }
@@ -542,7 +542,7 @@ DccObject {
                             Layout.alignment: Qt.AlignLeft
                             horizontalAlignment: Text.AlignLeft
                             verticalAlignment: Text.AlignVCenter
-                            Layout.leftMargin: 5
+                            Layout.leftMargin: 0
                             font: DTK.fontManager.t6
                             text: qsTr("Repeat password:")
                         }
@@ -608,9 +608,10 @@ DccObject {
                         }
 
                         RowLayout {
-                            Layout.topMargin: 15
+                            Layout.topMargin: 20
                             Layout.bottomMargin: 6
                             Layout.preferredWidth: parent.width
+                            spacing: 6
                             Layout.fillWidth: true
 
                             Button {
