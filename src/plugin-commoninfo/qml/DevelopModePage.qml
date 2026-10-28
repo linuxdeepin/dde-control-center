@@ -97,7 +97,7 @@ DccObject {
 
                     onClicked: {
                         if (dccData.work().isACLController()) {
-                            dccData.work().setEnableDeveloperMode(true)
+                            dccData.work().setEnableDeveloperMode(true, root.Window.window)
                         } else {
                             developDlg.show()
                         }
@@ -115,7 +115,7 @@ DccObject {
                     active: dccData.mode().needShowModalDialog
                     sourceComponent: Window {
                         id: modalDialog
-                        flags: Qt.Tool | Qt.FramelessWindowHint
+                        flags: Qt.Tool | Qt.FramelessWindowHint | Qt.WindowDoesNotAcceptFocus
                         modality: Qt.ApplicationModal
                         color: "transparent"
                         opacity: 0.0
@@ -217,8 +217,8 @@ DccObject {
                                 }
 
                                 if (dccData.mode().isLogin) {
-                                    dccData.work().setEnableDeveloperMode(true)
                                     developDlg.close()
+                                    dccData.work().setEnableDeveloperMode(true, root.Window.window)
                                 } else {
                                     dccData.work().login()
                                 }

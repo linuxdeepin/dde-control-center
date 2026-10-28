@@ -14,6 +14,7 @@
 #include <QDebug>
 #include <QDateTime>
 #include <QProcess>
+#include <QWindow>
 #include <QRegularExpression>
 #include <QSettings>
 #include <QLoggingCategory>
@@ -724,7 +725,7 @@ void CommonInfoWork::closeUeProgram()
     }
 }
 
-void CommonInfoWork::setEnableDeveloperMode(bool enabled)
+void CommonInfoWork::setEnableDeveloperMode(bool enabled, QWindow *parentWindow)
 {
     QDateTime current_date_time = QDateTime::currentDateTime();
     QString current_date = current_date_time.toString("yyyy-MM-dd hh:mm::ss.zzz");
@@ -761,7 +762,10 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
     QString theme = themeType == Dtk::Gui::DGuiApplicationHelper::DarkType ? "dark" : "light";
 
     m_process = new QProcess(this);
-    m_process->start("dde-license-dialog", QStringList() << "-t" << title << pathType << contentPath << "-a" << allowContent << "-p" << theme);
+    QStringList arguments { "-t", title, pathType, contentPath, "-a", allowContent, "-p", theme };
+    if (parentWindow && Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsXWindowPlatform))
+        arguments << "--parent-window" << QString::number(parentWindow->winId());
+    m_process->start("dde-license-dialog", arguments);
 
     connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished), this, [=](int result) {
         if (96 == result) {
