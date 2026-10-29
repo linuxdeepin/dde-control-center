@@ -564,7 +564,7 @@ DccObject {
         weight: 30
         pageType: DccObject.Item
         page: DccGroupView {}
-        visible: (autoLongin.visible || noPassword.visible || quickLogin.visible) && !DccApp.isTreeland()
+        visible: autoLongin.visible || noPassword.visible || quickLogin.visible
 
         DccObject {
             accessibleId: "AccountsEditor_4"
@@ -575,7 +575,7 @@ DccObject {
             canSearch: settings.canSearch
             weight: 20
             pageType: DccObject.Editor
-            visible: dccData.isQuickLoginVisible
+            visible: dccData.isQuickLoginVisible && !DccApp.isTreeland()
             enabled: dccData.currentUserId() === settings.userId
             page: Switch {
                 Accessible.id: "AccountSettings_Switch"
