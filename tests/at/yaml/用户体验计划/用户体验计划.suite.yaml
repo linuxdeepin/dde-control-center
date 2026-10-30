@@ -1,9 +1,9 @@
 name: 用户体验计划_suite
-app: deepin-control-center
+app: dde-control-center
 module: 用户体验计划
 setup:
 - action: session_start
-  command: deepin-control-center
+  command: dde-control-center
   wait: 3.0
 suites:
 - id: suite_用户体验计划_001_s1

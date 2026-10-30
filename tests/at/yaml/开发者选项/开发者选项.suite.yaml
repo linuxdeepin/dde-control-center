@@ -1,9 +1,9 @@
 name: 开发者选项_suite
-app: deepin-control-center
+app: dde-control-center
 module: 开发者选项
 setup:
 - action: session_start
-  command: deepin-control-center
+  command: dde-control-center
   wait: 3.0
 suites:
 - id: suite_开发者选项_001_s1

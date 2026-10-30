@@ -1,9 +1,9 @@
 name: 声音_suite
-app: deepin-control-center
+app: dde-control-center
 module: 声音
 setup:
 - action: session_start
-  command: deepin-control-center
+  command: dde-control-center
   wait: 3.0
 suites:
 - id: suite_声音_001_s1

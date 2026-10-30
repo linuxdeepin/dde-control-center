@@ -1,9 +1,9 @@
 name: 关于本机_suite
-app: deepin-control-center
+app: dde-control-center
 module: 关于本机
 setup:
 - action: session_start
-  command: deepin-control-center
+  command: dde-control-center
   wait: 3.0
 suites:
 - id: suite_关于本机_001_s1

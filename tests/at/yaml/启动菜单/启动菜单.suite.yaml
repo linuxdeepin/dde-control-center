@@ -1,9 +1,9 @@
 name: 启动菜单_suite
-app: deepin-control-center
+app: dde-control-center
 module: 启动菜单
 setup:
 - action: session_start
-  command: deepin-control-center
+  command: dde-control-center
   wait: 3.0
 suites:
 - id: suite_启动菜单_001_s1

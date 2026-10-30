@@ -1,9 +1,9 @@
 name: 语言和区域_suite
-app: deepin-control-center
+app: dde-control-center
 module: 语言和区域
 setup:
 - action: session_start
-  command: deepin-control-center
+  command: dde-control-center
   wait: 3.0
 suites:
 - id: suite_语言和区域_001_s1
