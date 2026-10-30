@@ -1,0 +1,28 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "modulePaths": {
+            "value": [
+                "root/system/sound",
+                "root/system/sound/deviceManager",
+                "root/system/sound/inPut",
+                "root/system/sound/inPut/inputGroup/inputVolume",
+                "root/system/sound/inPut/inputGroup/microphoneFeedback",
+                "root/system/sound/inPut/inputGroup/reduceNoise",
+                "root/system/sound/outPut",
+                "root/system/sound/outPut/outputGroup/outputVolume",
+                "root/system/sound/outPut/outputGroup/volumeBalance",
+                "root/system/sound/outPut/outputGroup/volumeEnhancement",
+                "root/system/sound/soundEffectsPage/soundEffects"
+            ],
+            "serial": 0,
+            "flags": [],
+            "name": "Module paths",
+            "name[zh_CN]": "模块路径列表",
+            "description": "声音插件中需要初始化 visible/disable 配置的模块路径。",
+            "permissions": "readonly",
+            "visibility": "private"
+        }
+    }
+}

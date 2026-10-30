@@ -1,0 +1,23 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "modulePaths": {
+            "value": [
+                "root/system/datetime",
+                "root/system/datetime/dateTimeGroup/dateAndTimeSettings",
+                "root/system/datetime/dateTimeGroup/ntpSettings",
+                "root/system/datetime/timezoneGroup/timezoneList",
+                "root/system/langAndFormat",
+                "root/system/langAndFormat/timeFormats"
+            ],
+            "serial": 0,
+            "flags": [],
+            "name": "Module paths",
+            "name[zh_CN]": "模块路径列表",
+            "description": "日期时间、语言和区域设置中需要初始化 visible/disable 配置的模块路径。",
+            "permissions": "readonly",
+            "visibility": "private"
+        }
+    }
+}

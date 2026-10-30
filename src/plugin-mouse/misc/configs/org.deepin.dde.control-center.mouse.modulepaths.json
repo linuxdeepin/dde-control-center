@@ -1,0 +1,25 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "modulePaths": {
+            "value": [
+                "root/device/MouseAndTouchpad/MouseAndTouchpadCommon",
+                "root/device/MouseAndTouchpad/MouseAndTouchpadCommon/LeftHandMode",
+                "root/device/MouseAndTouchpad/MouseAndTouchpadMouse",
+                "root/device/MouseAndTouchpad/MouseAndTouchpadMouse/MouseSettings/MouseAcceleration",
+                "root/device/MouseAndTouchpad/MouseAndTouchpadMouse/MouseSettings/NaturalScrolling",
+                "root/device/MouseAndTouchpad/MouseAndTouchpadMouse/PointerSpeed",
+                "root/device/MouseAndTouchpad/Touchpad",
+                "root/device/MouseAndTouchpad/Touchpad/TouchpadGroup/TapToClick"
+            ],
+            "serial": 0,
+            "flags": [],
+            "name": "Module paths",
+            "name[zh_CN]": "模块路径列表",
+            "description": "鼠标和触控板插件中需要初始化 visible/disable 配置的模块路径。",
+            "permissions": "readonly",
+            "visibility": "private"
+        }
+    }
+}

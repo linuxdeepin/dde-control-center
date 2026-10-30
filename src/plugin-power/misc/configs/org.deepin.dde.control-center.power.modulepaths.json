@@ -1,0 +1,25 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "modulePaths": {
+            "value": [
+                "root/power",
+                "root/power/general",
+                "root/power/general/autoPowerSavingOnBattery",
+                "root/power/general/decreaseBrightness",
+                "root/power/general/powerSavingSettingsGroup/autoPowerSavingOnLowBattery",
+                "root/power/onBattery",
+                "root/power/onBattery/lockScreenAfterGroup/lockScreenAfter",
+                "root/power/onPower"
+            ],
+            "serial": 0,
+            "flags": [],
+            "name": "Module paths",
+            "name[zh_CN]": "模块路径列表",
+            "description": "电源插件中需要初始化 visible/disable 配置的模块路径。",
+            "permissions": "readonly",
+            "visibility": "private"
+        }
+    }
+}

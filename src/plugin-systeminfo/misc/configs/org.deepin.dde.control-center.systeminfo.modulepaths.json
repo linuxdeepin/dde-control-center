@@ -1,0 +1,27 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "modulePaths": {
+            "value": [
+                "root/system/privacyPolicy",
+                "root/system/systemInfo",
+                "root/system/systemInfo/nativeInfoGrp/authorization",
+                "root/system/systemInfo/nativeInfoGrp/edition",
+                "root/system/systemInfo/nativeInfoGrp/kernel",
+                "root/system/systemInfo/nativeInfoGrp/memory",
+                "root/system/systemInfo/nativeInfoGrp/processor",
+                "root/system/userExperienceProgram",
+                "root/system/userLicense",
+                "root/system/versionProtocol"
+            ],
+            "serial": 0,
+            "flags": [],
+            "name": "Module paths",
+            "name[zh_CN]": "模块路径列表",
+            "description": "系统信息、协议和隐私政策页面中需要初始化 visible/disable 配置的模块路径。",
+            "permissions": "readonly",
+            "visibility": "private"
+        }
+    }
+}

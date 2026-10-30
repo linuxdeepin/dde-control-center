@@ -48,6 +48,7 @@ public:
     void setMainWindow(QWindow *window);
     void setPlugins(const QStringList &plugins);
     void setShowOnNavigationReady(bool enabled);
+    void loadModuleConfigs(const QStringList &dirs, const QStringList &plugins);
     void loadModules(bool async, const QStringList &dirs);
 
     int width() const override;
@@ -137,8 +138,6 @@ private Q_SLOTS:
     void tryShowFallback();
     void doShowPage(QPointer<DccObject> obj, const QString &cmd);
     void updateModuleConfig(const QString &key);
-    // 单模块配置（visible/disable）：启动时读完全部 subpath，之后统一应用
-    void loadModuleConfigs();
     void finishModuleConfigItem();
     void refreshModuleConfigState();
     void updateConfigState(DccObject *obj, uint32_t type);

@@ -1,0 +1,25 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "modulePaths": {
+            "value": [
+                "root/system/defaultapp",
+                "root/system/defaultapp/defappMail",
+                "root/system/defaultapp/defappMusic",
+                "root/system/defaultapp/defappPicture",
+                "root/system/defaultapp/defappTerminal",
+                "root/system/defaultapp/defappText",
+                "root/system/defaultapp/defappVideo",
+                "root/system/defaultapp/defappWebpage"
+            ],
+            "serial": 0,
+            "flags": [],
+            "name": "Module paths",
+            "name[zh_CN]": "模块路径列表",
+            "description": "默认应用插件中需要初始化 visible/disable 配置的模块路径。",
+            "permissions": "readonly",
+            "visibility": "private"
+        }
+    }
+}

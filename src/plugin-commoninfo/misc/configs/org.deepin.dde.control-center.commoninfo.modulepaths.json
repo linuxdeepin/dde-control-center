@@ -1,0 +1,22 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "modulePaths": {
+            "value": [
+                "root/system/bootMenu",
+                "root/system/bootMenu/grubSettingList",
+                "root/system/bootMenu/grubTheme",
+                "root/system/bootMenu/startDelay",
+                "root/system/developerMode"
+            ],
+            "serial": 0,
+            "flags": [],
+            "name": "Module paths",
+            "name[zh_CN]": "模块路径列表",
+            "description": "启动菜单和开发者选项中需要初始化 visible/disable 配置的模块路径。",
+            "permissions": "readonly",
+            "visibility": "private"
+        }
+    }
+}
