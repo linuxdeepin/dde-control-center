@@ -1,0 +1,27 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "modulePaths": {
+            "value": [
+                "root/personalization",
+                "root/personalization/colorAndIcons/cursorTheme",
+                "root/personalization/colorAndIcons/iconTheme",
+                "root/personalization/font",
+                "root/personalization/font/fontSize",
+                "root/personalization/font/monoFont",
+                "root/personalization/font/standardFont",
+                "root/personalization/themeRoot",
+                "root/personalization/themeRoot/themeTitle",
+                "root/personalization/windowEffect"
+            ],
+            "serial": 0,
+            "flags": [],
+            "name": "Module paths",
+            "name[zh_CN]": "模块路径列表",
+            "description": "个性化插件中需要初始化 visible/disable 配置的模块路径。",
+            "permissions": "readonly",
+            "visibility": "private"
+        }
+    }
+}

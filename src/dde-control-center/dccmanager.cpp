@@ -31,6 +31,7 @@
 #include <QQmlContext>
 #include <QQuickWindow>
 #include <QScreen>
+#include <QScopedPointer>
 #include <QTimer>
 #include <QTranslator>
 #include <QWindow>
@@ -46,14 +47,49 @@ DCORE_USE_NAMESPACE
 
 namespace dccV25 {
 
+const QString kAppId = QStringLiteral("org.deepin.dde.control-center");
+
+namespace {
+
+QSet<QString> readModulePaths(const QStringList &configNames)
+{
+    QSet<QString> paths;
+    for (const QString &configName : configNames) {
+        QScopedPointer<DConfig> config(DConfig::create(kAppId, configName));
+        if (!config || !config->isValid()) {
+            qWarning() << "Failed to read module paths config:" << configName;
+            continue;
+        }
+
+        const QVariant entries = config->value(QStringLiteral("modulePaths"));
+        if (!entries.canConvert<QVariantList>()) {
+            qWarning() << "Expected a modulePaths list in:" << configName;
+            continue;
+        }
+
+        const QVariantList list = entries.toList();
+        for (const QVariant &entry : list) {
+            const QString path = entry.toString().trimmed();
+            const QStringList parts = path.split(QLatin1Char('/'), Qt::SkipEmptyParts);
+            if (entry.metaType().id() != QMetaType::QString || parts.size() < 2 || parts.first() != QLatin1String("root")
+                || parts.contains(QStringLiteral(".")) || parts.contains(QStringLiteral(".."))
+                || path.contains(QLatin1Char('*'))) {
+                qWarning() << "Invalid module path in:" << configName << entry;
+                continue;
+            }
+            paths.insert(parts.join(QLatin1Char('/')));
+        }
+    }
+    return paths;
+}
+
+} // namespace
+
 const QString WidthConfig = QStringLiteral("width");
 const QString HeightConfig = QStringLiteral("height");
 const QString MaximizedConfig = QStringLiteral("maximized");
 const QString HideConfig = QStringLiteral("hideModule");
 const QString DisableConfig = QStringLiteral("disableModule");
-const QString ModulePathsConfig = QStringLiteral("modulePaths");
-const QString kAppId = QStringLiteral("org.deepin.dde.control-center");
-const QString kModulePathsConfigName = QStringLiteral("org.deepin.dde.control-center.modulepaths");
 const QString ControlCenterIcon = QStringLiteral("preferences-system");
 const QString ControlCenterGroupName = "com.deepin.dde-grand-search.group.dde-control-center-setting";
 
@@ -602,8 +638,6 @@ void DccManager::initConfig()
 
     updateModuleConfig(HideConfig);
     updateModuleConfig(DisableConfig);
-    // 单模块配置：读 modulePaths 清单并逐条异步读取，全部返回后才统一生效
-    loadModuleConfigs();
     m_sidebarWidth = m_dconfig->value("sidebarWidth", -1).toInt();
     if (m_sidebarWidth <= 0) {
         // 英文环境做特殊处理，加宽侧边栏
@@ -1247,19 +1281,29 @@ void DccManager::updateModuleConfig(const QString &key)
     }
 }
 
-void DccManager::loadModuleConfigs()
+void DccManager::loadModuleConfigs(const QStringList &dirs, const QStringList &plugins)
 {
-    QScopedPointer<DConfig> pathsConfig(DConfig::create(kAppId, kModulePathsConfigName, QString(), nullptr));
-    if (!pathsConfig || !pathsConfig->isValid()) {
-        qCWarning(dccLog) << "Failed to read module paths from" << kModulePathsConfigName;
-        m_moduleConfigReady = true;
-        return;
+    QStringList modulePathConfigs;
+    for (const QString &dir : dirs) {
+        QDir pluginDir(dir);
+        if (!pluginDir.exists())
+            continue;
+        QFileInfoList pluginList = pluginDir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
+        if (!pluginDir.isEmpty(QDir::Files))
+            pluginList.prepend(QFileInfo(pluginDir.absolutePath()));
+        for (const QFileInfo &plugin : pluginList) {
+            const QString name = plugin.baseName();
+            if (!plugins.isEmpty() && !plugins.contains(name))
+                continue;
+            modulePathConfigs.append(QStringLiteral("org.deepin.dde.control-center.%1.modulepaths").arg(name.toLower()));
+        }
     }
-    const QStringList paths = pathsConfig->value(ModulePathsConfig).toStringList();
-    m_modulePaths = QSet<QString>(paths.begin(), paths.end());
+    modulePathConfigs.removeDuplicates();
+    m_modulePaths = readModulePaths(modulePathConfigs);
+    // 内置分组不属于插件，合并插件配置后补齐。
+    m_modulePaths.insert(QStringLiteral("root/device"));
+    m_modulePaths.insert(QStringLiteral("root/system"));
     m_moduleConfigPending = int(m_modulePaths.size());
-    if (m_moduleConfigPending == 0)
-        return;
 
     // 用 dconfig2cpp 生成的 DccModuleConfig 逐条异步读取；结果先累积，全部返回后才统一生效
     for (const QString &path : std::as_const(m_modulePaths)) {

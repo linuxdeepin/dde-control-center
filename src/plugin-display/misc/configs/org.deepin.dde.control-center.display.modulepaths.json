@@ -1,0 +1,24 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "modulePaths": {
+            "value": [
+                "root/system/display/brightnessGroup",
+                "root/system/display/displayColorTemperature",
+                "root/system/display/displayMultipleDisplays",
+                "root/system/display/displayScaling",
+                "root/system/display/screenGroup/displayRefreshRate",
+                "root/system/display/screenGroup/displayResolution",
+                "root/system/display/screenGroup/displayRotate"
+            ],
+            "serial": 0,
+            "flags": [],
+            "name": "Module paths",
+            "name[zh_CN]": "模块路径列表",
+            "description": "显示插件中需要初始化 visible/disable 配置的模块路径。",
+            "permissions": "readonly",
+            "visibility": "private"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "modulePaths": {
+            "value": [
+                "root/device/touchscreen"
+            ],
+            "serial": 0,
+            "flags": [],
+            "name": "Module paths",
+            "name[zh_CN]": "模块路径列表",
+            "description": "触摸屏插件入口路径，用于初始化 visible/disable 配置。",
+            "permissions": "readonly",
+            "visibility": "private"
+        }
+    }
+}

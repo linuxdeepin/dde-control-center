@@ -38,6 +38,15 @@ macro(dcc_build_plugin)
     endif()
 
     set(plugin_dirs ${PROJECT_BINARY_DIR}/lib/${DDE_CONTROL_CENTER_PLUGIN_DIR}/${_config_NAME}/)
+    # Install the optional module path list as DConfig metadata.
+    string(TOLOWER "${_config_NAME}" module_paths_plugin_name)
+    set(module_paths_name "org.deepin.dde.control-center.${module_paths_plugin_name}.modulepaths.json")
+    set(module_paths_file "${CMAKE_CURRENT_SOURCE_DIR}/misc/configs/${module_paths_name}")
+    if(EXISTS "${module_paths_file}")
+        find_package(Dtk6Core REQUIRED)
+        dtk_add_config_meta_files(APPID org.deepin.dde.control-center FILES "${module_paths_file}")
+    endif()
+
     foreach(FILE_PATH ${_config_QML_FILES})
         file(RELATIVE_PATH FILE_NAME ${CMAKE_CURRENT_SOURCE_DIR} ${FILE_PATH})
         list(APPEND QML_PATHS ${FILE_NAME})

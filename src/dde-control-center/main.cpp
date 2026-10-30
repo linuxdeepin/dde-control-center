@@ -208,6 +208,10 @@ int main(int argc, char *argv[])
     // QAccessible::installFactory(accessibleFactory);
 
     dccV25::DccManager *dccManager = new dccV25::DccManager(app);
+    // 在 QML 和插件加载前读取各插件的 modulePaths，尽早异步初始化对应 subpath 的 visible/disable 配置，
+    // 避免因配置读取过晚导致页面先显示后隐藏。
+    dccManager->loadModuleConfigs(refPluginDirs.isEmpty() ? defaultpath() : refPluginDirs,
+                                  listMode ? QStringList() : parser.values(pluginOption));
     dccManager->init();
     QQmlApplicationEngine *engine = dccManager->engine();
     // connect quit signal to qApp->exit, to make sure the app can quit when the main window is closed

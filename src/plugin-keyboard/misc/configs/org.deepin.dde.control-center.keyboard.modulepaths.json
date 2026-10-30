@@ -1,0 +1,21 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "modulePaths": {
+            "value": [
+                "root/device/keyboard/KeyboardCommon",
+                "root/device/keyboard/KeyboardCommon/KeypadSettings/CapsLockPrompt",
+                "root/device/keyboard/KeyboardCommon/KeypadSettings/EnableNumLock",
+                "root/device/keyboard/shortcutSettingsView"
+            ],
+            "serial": 0,
+            "flags": [],
+            "name": "Module paths",
+            "name[zh_CN]": "模块路径列表",
+            "description": "键盘插件中需要初始化 visible/disable 配置的模块路径。",
+            "permissions": "readonly",
+            "visibility": "private"
+        }
+    }
+}
