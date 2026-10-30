@@ -3,7 +3,7 @@ app: dde-control-center
 module: 语言和区域
 setup:
 - action: session_start
-  command: dde-control-center
+  command: dde-control-center -s -m system -p langAndFormat
   wait: 3.0
 suites:
 - id: suite_语言和区域_001_s1

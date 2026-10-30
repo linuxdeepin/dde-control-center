@@ -3,7 +3,7 @@ app: dde-control-center
 module: 显示
 setup:
 - action: session_start
-  command: dde-control-center
+  command: dde-control-center -s -m system -p display
   wait: 3.0
 suites:
 - id: suite_显示_001_s1

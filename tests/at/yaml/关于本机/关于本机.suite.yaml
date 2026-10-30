@@ -3,7 +3,7 @@ app: dde-control-center
 module: 关于本机
 setup:
 - action: session_start
-  command: dde-control-center
+  command: dde-control-center -s -m system -p auxiliaryInfo
   wait: 3.0
 suites:
 - id: suite_关于本机_001_s1

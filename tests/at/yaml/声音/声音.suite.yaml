@@ -3,7 +3,7 @@ app: dde-control-center
 module: 声音
 setup:
 - action: session_start
-  command: dde-control-center
+  command: dde-control-center -s -m system -p sound
   wait: 3.0
 suites:
 - id: suite_声音_001_s1

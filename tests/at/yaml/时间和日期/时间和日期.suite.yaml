@@ -3,7 +3,7 @@ app: dde-control-center
 module: 时间和日期
 setup:
 - action: session_start
-  command: dde-control-center
+  command: dde-control-center -s -m system -p datetime
   wait: 3.0
 suites:
 - id: suite_时间和日期_001_s1

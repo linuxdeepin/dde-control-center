@@ -3,7 +3,7 @@ app: dde-control-center
 module: 开发者选项
 setup:
 - action: session_start
-  command: dde-control-center
+  command: dde-control-center -s -m system -p developerMode
   wait: 3.0
 suites:
 - id: suite_开发者选项_001_s1

@@ -3,7 +3,7 @@ app: dde-control-center
 module: 启动菜单
 setup:
 - action: session_start
-  command: dde-control-center
+  command: dde-control-center -s -m system -p bootMenu
   wait: 3.0
 suites:
 - id: suite_启动菜单_001_s1
