@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SOUNDDBUSPROXY_H
@@ -9,6 +9,7 @@
 #include <DDBusInterface>
 
 #include <QDBusObjectPath>
+#include <QDBusPendingCall>
 #include <QObject>
 
 typedef QMap<QString, bool> SoundEffectQuestions;
@@ -16,6 +17,7 @@ typedef QMap<QString, bool> SoundEffectQuestions;
 using Dtk::Core::DDBusInterface;
 
 class QDBusMessage;
+class SoundMeterSubscription;
 class SoundDBusProxy : public QObject
 {
     Q_OBJECT
@@ -53,10 +55,11 @@ public:
 
     void SetSourceVolume(double in0, bool in1);
 
-    QDBusObjectPath GetMeter();
+    QDBusPendingCall GetMeter();
 
     // SourceMeter
-    void setMeterDevicePath(const QString &path);
+    bool setMeterDevicePath(const QString &path);
+    void clearMeterDevice();
     void Tick();
 
     // Audio
@@ -189,7 +192,7 @@ private:
 
     DDBusInterface *m_defaultSink;
     DDBusInterface *m_defaultSource;
-    DDBusInterface *m_sourceMeter;
+    SoundMeterSubscription *m_sourceMeter;
 };
 
 #endif // SOUNDDBUSPROXY_H
