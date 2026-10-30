@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/icons/deepin/builtin">
+        <file>texts/eyeshield-on_24px.svg</file>
+        <file>texts/open-arrow_16px.svg</file>
+        <file>texts/theme-dark_16px.svg</file>
+        <file>texts/theme-light_16px.svg</file>
+        <file>texts/theme-auto_16px.svg</file>
+    </qresource>
+</RCC>

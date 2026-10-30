@@ -1,0 +1,55 @@
+     <interface name="org.deepin.dde.Display1.Monitor">
+          <method name="Enable">
+               <arg type="b" direction="in"></arg>
+          </method>
+          <method name="SetMode">
+               <arg type="u" direction="in"></arg>
+          </method>
+          <method name="SetModeBySize">
+               <arg type="q" direction="in"></arg>
+               <arg type="q" direction="in"></arg>
+          </method>
+          <method name="SetPosition">
+               <arg type="n" direction="in"></arg>
+               <arg type="n" direction="in"></arg>
+          </method>
+          <method name="SetReflect">
+               <arg type="q" direction="in"></arg>
+          </method>
+          <method name="SetRotation">
+               <arg type="q" direction="in"></arg>
+          </method>
+          <property name="Name" type="s" access="read"></property>
+          <property name="Model" type="s" access="read"></property>
+          <property name="Manufacturer" type="s" access="read"></property>
+          <property name="Enabled" type="b" access="read"></property>
+          <property name="CurrentRotateMode" type="y" access="read"></property>
+          <property name="Connected" type="b" access="read"></property>
+          <property name="X" type="n" access="read"></property>
+          <property name="Y" type="n" access="read"></property>
+          <property name="Width" type="q" access="read"></property>
+          <property name="Height" type="q" access="read"></property>
+          <property name="Rotation" type="q" access="read"></property>
+          <property name="Reflect" type="q" access="read"></property>
+          <property name="RefreshRate" type="d" access="read"></property>
+          <property name="CurrentFillMode" type="s" access="readwrite"></property>
+	  <property name="MmHeight" type="u" access="read"></property>
+	  <property name="MmWidth" type="u" access="read"></property>
+          <property name="Rotations" type="aq" access="read">
+            <annotation name="org.qtproject.QtDBus.QtTypeName" value="RotationList"/>
+          </property>
+          <property name="Reflects" type="aq" access="read">
+            <annotation name="org.qtproject.QtDBus.QtTypeName" value="ReflectList"/>
+          </property>
+          <property name="AvailableFillModes" type="as" access="read"></property>
+          <property name="BestMode" type="(uqqd)" access="read">
+            <annotation name="org.qtproject.QtDBus.QtTypeName" value="Resolution"/>
+          </property>
+          <property name="CurrentMode" type="(uqqd)" access="read">
+            <annotation name="org.qtproject.QtDBus.QtTypeName" value="Resolution"/>
+          </property>
+          <property name="Modes" type="a(uqqd)" access="read">
+            <annotation name="org.qtproject.QtDBus.QtTypeName" value="ResolutionList"/>
+          </property>
+     </interface>
+
