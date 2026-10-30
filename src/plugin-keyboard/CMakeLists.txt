@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 if (BUILD_PLUGIN)
     set(Plugin_Name keyboard)
     file(GLOB_RECURSE keyboard_SRCS

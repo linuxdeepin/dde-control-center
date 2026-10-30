@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -54,9 +54,9 @@ void FaceAuthController::startEnroll()
     }
     setAddStage(CharaMangerModel::Processing);
     m_enrollFaceTips = "";
-    emit enrollFaceTipsChanged();
+    Q_EMIT enrollFaceTipsChanged();
     m_faceImgContent = "";
-    emit faceImgContentChanged();
+    Q_EMIT faceImgContentChanged();
     m_enrollFaceInProgress = true;
     m_worker->entollStart(m_model->faceDriverName(), m_model->faceCharaType(), newName);
 }
@@ -107,16 +107,16 @@ QString FaceAuthController::enrollFaceTips() const
 void FaceAuthController::onEnrollStatusTips(const QString &tips)
 {
     m_enrollFaceTips = tips;
-    emit enrollFaceTipsChanged();
+    Q_EMIT enrollFaceTipsChanged();
 }
 
 void FaceAuthController::onEnrollInfoState(CharaMangerModel::AddInfoState state, const QString &tips)
 {
     m_enrollFaceSuccess = state == CharaMangerModel::AddInfoState::Success;
     m_enrollFaceTips = m_enrollFaceSuccess ? tr("Use your face to unlock the device and make settings later") : tips;
-    emit enrollFaceSuccessChanged();
-    emit enrollFaceTipsChanged();
-    emit enrollCompleted();
+    Q_EMIT enrollFaceSuccessChanged();
+    Q_EMIT enrollFaceTipsChanged();
+    Q_EMIT enrollCompleted();
     stopEnroll();
     if (m_enrollFaceSuccess) {
         m_worker->refreshUserEnrollList(m_model->faceDriverName(), m_model->faceCharaType());
@@ -168,7 +168,7 @@ void FaceAuthController::updateFaceImgContent(void* const context, const DA_img 
     QString encode = buffer.data().toBase64();
     controller->m_faceImgContent = QString("%1,%2").arg("data:image/png;base64").arg(encode);
     buffer.close();
-    emit controller->faceImgContentChanged();
+    Q_EMIT controller->faceImgContentChanged();
 }
 
 } // namespace dccV25

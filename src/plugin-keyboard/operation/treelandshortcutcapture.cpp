@@ -33,7 +33,7 @@ TreelandShortcutCaptureSession::~TreelandShortcutCaptureSession()
 void TreelandShortcutCaptureSession::treeland_shortcut_capture_v1_captured(const QString &key)
 {
     m_finished = true;
-    emit captured(key);
+    Q_EMIT captured(key);
     QtWayland::treeland_shortcut_capture_v1::destroy();
     deleteLater();
 }
@@ -41,7 +41,7 @@ void TreelandShortcutCaptureSession::treeland_shortcut_capture_v1_captured(const
 void TreelandShortcutCaptureSession::treeland_shortcut_capture_v1_failed(uint32_t reason)
 {
     m_finished = true;
-    emit failed(reason);
+    Q_EMIT failed(reason);
     QtWayland::treeland_shortcut_capture_v1::destroy();
     deleteLater();
 }

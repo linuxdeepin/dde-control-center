@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 cmake_minimum_required(VERSION 3.23) # qt_add_qml_module函数支持最小版本3.18,建议版本3.23+
 # 该name会设置为插件名，只支持字母加数字，需要与{Name}.qml中DccObject的name相同，用于插件禁用操作
 set(PLUGIN_NAME "example")

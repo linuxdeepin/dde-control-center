@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "gesturedata.h"
@@ -13,7 +13,7 @@ void GestureData::setActionType(const QString &newActionType)
     if (m_actionType == newActionType)
         return;
     m_actionType = newActionType;
-    emit actionTypeChanged();
+    Q_EMIT actionTypeChanged();
 }
 
 QString GestureData::gestureId() const
@@ -26,7 +26,7 @@ void GestureData::setGestureId(const QString &newGestureId)
     if (m_gestureId == newGestureId)
         return;
     m_gestureId = newGestureId;
-    emit gestureIdChanged();
+    Q_EMIT gestureIdChanged();
 }
 
 QString GestureData::displayName() const
@@ -39,7 +39,7 @@ void GestureData::setDisplayName(const QString &newDisplayName)
     if (m_displayName == newDisplayName)
         return;
     m_displayName = newDisplayName;
-    emit displayNameChanged();
+    Q_EMIT displayNameChanged();
 }
 
 QString GestureData::direction() const
@@ -52,7 +52,7 @@ void GestureData::setDirection(const QString &newDirection)
     if (m_direction == newDirection)
         return;
     m_direction = newDirection;
-    emit directionChanged();
+    Q_EMIT directionChanged();
 }
 
 int GestureData::fingersNum() const
@@ -65,7 +65,7 @@ void GestureData::setFingersNum(int newFingersNum)
     if (m_fingersNum == newFingersNum)
         return;
     m_fingersNum = newFingersNum;
-    emit fingersNumChanged();
+    Q_EMIT fingersNumChanged();
 }
 
 QString GestureData::actionName() const
@@ -78,7 +78,7 @@ void GestureData::setActionName(const QString &newActionName)
     if (m_actionName == newActionName)
         return;
     m_actionName = newActionName;
-    emit actionNameChanged();
+    Q_EMIT actionNameChanged();
 }
 
 int GestureData::sequence() const
@@ -91,7 +91,7 @@ void GestureData::setSequence(int newSequence)
     if (m_sequence == newSequence)
         return;
     m_sequence = newSequence;
-    emit sequenceChanged();
+    Q_EMIT sequenceChanged();
 }
 
 QList<GestureActionData> GestureData::actions() const

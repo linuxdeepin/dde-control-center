@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SYSTEMINFOINTERACTION_H
@@ -23,7 +23,7 @@ public:
     Q_INVOKABLE SystemInfoModel *systemInfoMode() const;
     void setSystemInfoMode(SystemInfoModel *newSystemInfoMode);
 
-signals:
+Q_SIGNALS:
     void requestUeProgram(bool visible) const;
 
 private:

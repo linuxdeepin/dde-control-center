@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -31,7 +31,7 @@ private:
 private Q_SLOTS:
     void onPickerColorPicked(const QString &uuid, const QString &colorName);
 
-signals:
+Q_SIGNALS:
     void colorPicked(const QString &color);
     void pickerError(const QString &error);
 

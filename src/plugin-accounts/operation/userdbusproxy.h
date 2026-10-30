@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -128,7 +128,7 @@ public:
     inline QString path() { return m_accountsUserPath; }
     inline const QDBusInterface* interface() { return m_dBusAccountsUserInter; }
 
-signals:
+Q_SIGNALS:
     // begin property changed signals
     void AccountTypeChanged(int  value) const;
     void AutomaticLoginChanged(bool  value) const;
@@ -168,7 +168,7 @@ signals:
     void QuickLoginChanged(bool value) const;
     void WechatAuthChanged();
 
-public slots:
+public Q_SLOTS:
     QDBusPendingReply<> AddGroup(const QString &group);
     QDBusPendingReply<> DeleteGroup(const QString &group);
     QDBusPendingReply<> DeleteIconFile(const QString &iconFile);
@@ -194,7 +194,7 @@ public slots:
     QDBusPendingReply<> SetQuickLogin(bool enabled);
     QDBusPendingReply<> EnableWechatAuth(bool enabled);
 
-private slots:
+private Q_SLOTS:
     void onPropertiesChanged(const QDBusMessage &message);
 private:
     void init();

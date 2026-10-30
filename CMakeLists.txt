@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 cmake_minimum_required(VERSION 3.18)
 
 set(DVERSION "6.0.44" CACHE STRING "define project version")
@@ -5,6 +9,8 @@ set(BUILD_DOCS OFF CACHE BOOL "Generate doxygen-based documentation")
 
 set(PROJECT_NAME dde-control-center)
 project(${PROJECT_NAME}
+
+add_compile_definitions(QT_NO_KEYWORDS)
     VERSION ${DVERSION}
     DESCRIPTION "Deepin Control Center"
     HOMEPAGE_URL "https://github.com/linuxdeepin/dde-control-center"

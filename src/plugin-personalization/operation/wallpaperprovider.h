@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 
@@ -30,12 +30,12 @@ public:
     void getLiveBackground();
     QStringList fetchWallpaper(const QString &dir);
 
-signals:
+Q_SIGNALS:
     void pushBackground(const QList<WallpaperItemPtr> &items, WallpaperType type = WallpaperType::Wallpaper_Sys);
     void pushOneBackground(const WallpaperItemPtr items, WallpaperType type = WallpaperType::Wallpaper_Sys);
     void listFinished();
     void videoThumbnailReady(const QString &id, const QString &thumbnailPath);
-public slots:
+public Q_SLOTS:
     void startListBackground(WallpaperType type = WallpaperType::Wallpaper_all);
     void startListOne(const QString &path, WallpaperType type = WallpaperType::Wallpaper_all);
 private:
@@ -62,13 +62,13 @@ public:
     inline WallpaperItemPtr wantToSetWallpaper() const { return m_wantToSetWallpaper; };
     void setWantToSetWallpaper(WallpaperItemPtr wallpaper);
 
-signals:
+Q_SIGNALS:
     void fetchFinish();
     void wantToSetWallpaperStatusChanged(WallpaperInstallStatus status);
     void wantToSetWallpaperProgressChanged(double progress);
     void wantToSetWallpaperChanged(WallpaperItemPtr wallpaper);
 
-private slots:
+private Q_SLOTS:
     void setWallpaper(const QList<WallpaperItemPtr> &items, WallpaperType type = WallpaperType::Wallpaper_Sys);
     void pushWallpaper(WallpaperItemPtr item, WallpaperType type = WallpaperType::Wallpaper_Sys);
     void onWallpaperChangedFromDaemon(const QString &user, uint mode, const QStringList &paths);

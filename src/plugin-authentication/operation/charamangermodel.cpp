@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -374,5 +374,5 @@ void CharaMangerModel::setCharaVaild(bool newCharaVaild)
     if (m_charaVaild == newCharaVaild)
         return;
     m_charaVaild = newCharaVaild;
-    emit charaVaildChanged(m_charaVaild);
+    Q_EMIT charaVaildChanged(m_charaVaild);
 }

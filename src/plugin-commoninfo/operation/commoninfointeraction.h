@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -22,7 +22,7 @@ public:
     Q_INVOKABLE CommonInfoModel *mode() const;
     void setMode(CommonInfoModel *newMode);
 
-signals:
+Q_SIGNALS:
 
 
 private:

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SOUNDEFFECTSDATA_H
@@ -32,7 +32,7 @@ public:
     QString aniIconPath() const;
     void setAniIconPath(const QString &newAniIconPath);
 
-signals:
+Q_SIGNALS:
 
 
 private:

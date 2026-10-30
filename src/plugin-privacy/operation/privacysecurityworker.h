@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -16,13 +16,13 @@ public:
     explicit PrivacySecurityWorker(PrivacySecurityModel *appModel, QObject *parent = nullptr);
     ~PrivacySecurityWorker();
 
-public slots:
+public Q_SLOTS:
     void setPremissionEnabled(int appItemIndex, int premission, bool enabled);
 
     void setAppPermissionEnable(int premission, bool enabled, ApplicationItem *item);
     void checkAuthorizationCancel();
 
-private slots:
+private Q_SLOTS:
     void updateAppPath(ApplicationItem *item);
     ApplicationItem *addAppItem(int index);
 
@@ -35,7 +35,7 @@ private slots:
 
     void setAppPermissionEnableByCheck(bool ok);
 
-signals:
+Q_SIGNALS:
     void checkAuthorization(bool checking);
 
     void appAdded(const QString &appId);

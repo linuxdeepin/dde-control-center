@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -31,7 +31,7 @@ public:
     QStringList userIdList() const;
     QStringList onlineUserList() const;
 
-public slots:
+public Q_SLOTS:
     QString currentUserId() const;
     bool curUserIsSysAdmin() const;
 
@@ -102,7 +102,7 @@ public slots:
     void deleteUserIcon(const QString &id, const QString &iconFile);
     void cleanupTempPreviewFiles(const QStringList &files);
 
-signals:
+Q_SIGNALS:
     void currentUserNameChanged();
     void userIdListChanged();
     void userRemoved(const QString &userId);

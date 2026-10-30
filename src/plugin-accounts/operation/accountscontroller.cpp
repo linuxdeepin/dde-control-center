@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -724,7 +724,7 @@ QAbstractListModel *AccountsController::accountsModel()
             return;
         auto index = m_accountsModel->index(idIdx);
         m_accountsModel->dataChanged(index, index, {AccountListModel::OnlineRole});
-        emit onlineUserListChanged();
+        Q_EMIT onlineUserListChanged();
     });
 
     connect(this, &AccountsController::userIdListChanged, static_cast<AccountListModel *>(m_accountsModel), &AccountListModel::reset);

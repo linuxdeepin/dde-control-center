@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "soundmodel.h"
@@ -147,7 +147,7 @@ void SoundModel::setInPutPortComboIndex(int newInPutPortComboIndex)
     if (m_inPutPortComboIndex == newInPutPortComboIndex)
         return;
     m_inPutPortComboIndex = newInPutPortComboIndex;
-    emit inPutPortComboIndexChanged();
+    Q_EMIT inPutPortComboIndexChanged();
 }
 
 QStringList SoundModel::inPutPortCombo() const
@@ -160,7 +160,7 @@ void SoundModel::setInPutPortCombo(const QStringList &newInPutPortCombo)
     if (m_inPutPortCombo == newInPutPortCombo)
         return;
     m_inPutPortCombo = newInPutPortCombo;
-    emit inPutPortComboChanged();
+    Q_EMIT inPutPortComboChanged();
 }
 
 int SoundModel::outPutPortComboIndex() const
@@ -173,7 +173,7 @@ void SoundModel::setOutPutPortComboIndex(int newOutPutPortComboIndex)
     if (newOutPutPortComboIndex < 0 || m_outPutPortComboIndex == newOutPutPortComboIndex)
         return;
     m_outPutPortComboIndex = newOutPutPortComboIndex;
-    emit outPutPortComboIndexChanged();
+    Q_EMIT outPutPortComboIndexChanged();
 }
 
 void SoundModel::setSpeakerOn(bool speakerOn)
@@ -271,7 +271,7 @@ void SoundModel::addPort(Port *port)
                 m_inPutPortCombo.append(port->name() + "(" + port->cardName() + ")");
             }
             m_soundInputDeviceModel->addData(port);
-            emit inPutPortComboChanged();
+            Q_EMIT inPutPortComboChanged();
         }
 
         Q_EMIT portAdded(port);
@@ -298,7 +298,7 @@ void SoundModel::removePort(const QString &portId, const uint &cardId)
             setInPutPortCount(static_cast<int>(m_inputPorts.count()));
             m_inPutPortCombo.removeOne(port->name() + "(" + port->cardName() + ")");
             m_soundInputDeviceModel->removeData(port);
-            emit inPutPortComboChanged();
+            Q_EMIT inPutPortComboChanged();
         }
         port->deleteLater();
     }
@@ -573,7 +573,7 @@ void SoundModel::setOutPutCount(int newOutPutCount)
     if (m_outPutCount == newOutPutCount)
         return;
     m_outPutCount = newOutPutCount;
-    emit outPutCountChanged();
+    Q_EMIT outPutCountChanged();
 }
 
 void SoundModel::updatePlayAniIconPath(int index, const QString &newPlayAniIconPath)
@@ -604,7 +604,7 @@ bool SoundModel::audioMono() const
 void SoundModel::setAudioMono(bool newAudioMono)
 {
     m_audioMono = newAudioMono;
-    emit audioMonoChanged();
+    Q_EMIT audioMonoChanged();
 }
 
 bool SoundModel::showBluetoothMode() const
@@ -617,7 +617,7 @@ void SoundModel::setShowBluetoothMode(bool newShowBluetoothMode)
     if (m_showBluetoothMode == newShowBluetoothMode)
         return;
     m_showBluetoothMode = newShowBluetoothMode;
-    emit showBluetoothModeChanged();
+    Q_EMIT showBluetoothModeChanged();
 }
 
 bool SoundModel::outPutPortComboEnable() const
@@ -630,7 +630,7 @@ void SoundModel::setOutPutPortComboEnable(bool newOutPutPortComboEnable)
     if (m_outPutPortComboEnable == newOutPutPortComboEnable)
         return;
     m_outPutPortComboEnable = newOutPutPortComboEnable;
-    emit outPutPortComboEnableChanged();
+    Q_EMIT outPutPortComboEnableChanged();
 }
 
 bool SoundModel::inPutPortComboEnable() const
@@ -643,7 +643,7 @@ void SoundModel::setInPutPortComboEnable(bool newInPutPortComboEnable)
     if (m_inPutPortComboEnable == newInPutPortComboEnable)
         return;
     m_inPutPortComboEnable = newInPutPortComboEnable;
-    emit inPutPortComboEnableChanged();
+    Q_EMIT inPutPortComboEnableChanged();
 }
 
 void SoundModel::setInPutPortCount(int newInPutPortCount)
@@ -651,7 +651,7 @@ void SoundModel::setInPutPortCount(int newInPutPortCount)
     if (m_inPutPortCount == newInPutPortCount)
         return;
     m_inPutPortCount = newInPutPortCount;
-    emit inPutPortCountChanged();
+    Q_EMIT inPutPortCountChanged();
 }
 
 int SoundModel::outPutCount() const
@@ -734,5 +734,5 @@ void SoundModel::setShowInputBluetoothMode(bool newShowInputBluetoothMode)
     if (m_showInputBluetoothMode == newShowInputBluetoothMode)
         return;
     m_showInputBluetoothMode = newShowInputBluetoothMode;
-    emit showInputBluetoothModeChanged();
+    Q_EMIT showInputBluetoothModeChanged();
 }

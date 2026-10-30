@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -110,7 +110,7 @@ public Q_SLOTS:
     // 统一检查快捷键名称是否已存在（包含系统和自定义快捷键）
     bool isShortcutNameExists(const QString &name, const QString &excludeId = QString());
 
-signals:
+Q_SIGNALS:
     void repeatIntervalChanged();
     void repeatDelayChanged();
     void numLockChanged();

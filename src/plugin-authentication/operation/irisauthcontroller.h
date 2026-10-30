@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -20,7 +20,7 @@ class IrisAuthController : public AbstractBiometricController
 public:
     explicit IrisAuthController(CharaMangerModel *model, CharaMangerWorker *worker, QObject *parent = nullptr);
 
-public slots:
+public Q_SLOTS:
 
     // 实现抽象接口
     void startEnroll() override;
@@ -35,12 +35,12 @@ public slots:
     bool enrollIrisSuccess() const;
     QString enrollIrisTips() const;
 
-signals:
+Q_SIGNALS:
     void irisImgContentChanged();
     void enrollIrisSuccessChanged();
     void enrollIrisTipsChanged();
 
-private slots:
+private Q_SLOTS:
     void onEnrollIrisStatusTips(const QString &tips);
     void onEnrollIrisInfoState(CharaMangerModel::AddInfoState state, const QString &tips);
     void onTryStartInputIris(CharaMangerModel::AddInfoState state);

@@ -82,7 +82,7 @@ void DockPluginModel::setPluginVisible(const QString &pluginName, bool visible)
     for (int i = 0; i < m_dockItemInfos.size(); ++i) {
         if (pluginName == m_dockItemInfos[i].itemKey) {
             m_dockItemInfos[i].visible = visible;
-            emit dataChanged(index(i, 0), index(i, 0));
+            Q_EMIT dataChanged(index(i, 0), index(i, 0));
             return;
         }
     }

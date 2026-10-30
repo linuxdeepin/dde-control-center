@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -194,7 +194,7 @@ public:
     void langSelectorStartServiceProcess();
     bool keybindingServiceAvailable() const;
 
-signals:
+Q_SIGNALS:
     // Keyboard property
     void CapslockToggleChanged(bool  value) const;
     void CurrentLayoutChanged(const QString & value) const;
@@ -240,7 +240,7 @@ signals:
 
     void langSelectorServiceStartFinished(const quint32 ret) const;
 
-public slots:
+public Q_SLOTS:
     // Keybinding
     QDBusPendingReply<>  KeybindingReset();
     QDBusPendingReply<QString> ListAllShortcuts();
@@ -285,7 +285,7 @@ public slots:
     QDBusPendingReply<> SetLocale(const QString &in0);
     QDBusPendingReply<LocaleList> GetLocaleList();
 
-private slots:
+private Q_SLOTS:
     void onLangSelectorStartServiceProcessFinished(QDBusPendingCallWatcher *w);
     // New API -> Old API adapters (Wayland)
     void onListAllShortcutsNewFinished(QDBusPendingCallWatcher *w);

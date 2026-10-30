@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "dccmodel.h"
@@ -183,7 +183,7 @@ void DccModel::updateObject()
     DccObject *obj = qobject_cast<DccObject *>(sender());
     if (obj) {
         QModelIndex i = index(obj);
-        emit dataChanged(i, i);
+        Q_EMIT dataChanged(i, i);
     }
 }
 

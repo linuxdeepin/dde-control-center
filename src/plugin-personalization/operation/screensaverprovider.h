@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -14,9 +14,9 @@ class ScreensaverWorker : public QObject
 public:
     explicit ScreensaverWorker(PersonalizationDBusProxy *proxy, QObject *parent = nullptr);
     void terminate();
-signals:
+Q_SIGNALS:
     void pushScreensaver(const QList<WallpaperItemPtr> &items);
-public slots:
+public Q_SLOTS:
     void list();
 private:
     PersonalizationDBusProxy *m_proxy = nullptr;
@@ -31,7 +31,7 @@ public:
     ~ScreensaverProvider() override;
     void fecthData();
 
-private slots:
+private Q_SLOTS:
     void setScreensaver(const QList<WallpaperItemPtr> &items);
 private:
     QThread *workThread = nullptr;

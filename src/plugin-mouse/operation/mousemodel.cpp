@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "mousemodel.h"
@@ -396,7 +396,7 @@ void MouseModel::setGestureFingerAniPath(const QString &newGestureFingerAniPath)
         return;
     qDebug() << "setGestureFingerAniPath : " << newGestureFingerAniPath;
     m_gestureFingerAniPath = newGestureFingerAniPath;
-    emit gestureFingerAniPathChanged();
+    Q_EMIT gestureFingerAniPathChanged();
 }
 
 QString MouseModel::getGestureActionAniPath() const
@@ -411,7 +411,7 @@ void MouseModel::setGestureActionAniPath(const QString &newGestureActionAniPath)
 
     qDebug() << "setGestureActionAniPath : " << newGestureActionAniPath;
     m_gestureActionAniPath = newGestureActionAniPath;
-    emit gestureActionAniPathChanged();
+    Q_EMIT gestureActionAniPathChanged();
 }
 
 Dtk::Gui::DGuiApplicationHelper::ColorType MouseModel::themeType() const
@@ -475,7 +475,7 @@ void MouseModel::setThemeType(const Dtk::Gui::DGuiApplicationHelper::ColorType &
     if (m_themeType == newThemeType)
         return;
     m_themeType = newThemeType;
-    emit themeTypeChanged();
+    Q_EMIT themeTypeChanged();
 }
 
 void MouseModel::setLidIsPresent(bool lidIsPresent)
