@@ -1,0 +1,77 @@
+name: 语言和区域_suite
+app: deepin-control-center
+module: 语言和区域
+setup:
+- action: session_start
+  command: deepin-control-center
+  wait: 3.0
+suites:
+- id: suite_语言和区域_001_s1
+  name: 【控制中心】【系统】【语言和区域】区域格式中，小数点设置为","，切换区域格式中分隔符为","的区域，检查小数点显示
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DatetimeRegionAndFormat
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: LangAndFormat_Button_2
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: LangAndFormat_Button_2
+- id: suite_语言和区域_006_s1
+  name: 【控制中心】【系统】【语言和区域】设置分隔符为[空格]
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: LangAndFormat_Button_2
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: LangAndFormat_Button_2
+- id: suite_语言和区域_009_s1
+  name: 【控制中心】【系统】【语言和区域】【区域格式】一周第一天时间格式设置
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DatetimeRegionAndFormat
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: LangAndFormat_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: LangAndFormat_Button_2
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: RegionFormatDialog_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: RegionFormatDialog_Button_2
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: RegionFormatDialog_Button_2
+teardown:
+- action: session_stop
