@@ -16,7 +16,6 @@ namespace WQt {
 class Wallpaper;
 class WallpaperManager;
 } // namespace WQt
-
 class WQt::Wallpaper : public QObject, public QtWayland::treeland_wallpaper_v1
 {
     Q_OBJECT

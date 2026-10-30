@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -180,31 +180,24 @@ void CharaMangerModel::onFingerEnrollStatusChanged(int code, const QString& msg)
             }
             auto errCode = jsonObject.value("subcode").toInt();
             switch(errCode) {
-            case RC_TouchTooShort: //接触时间过短
-                title = tr("Moved too fast");
+            case RC_TouchTooShort: //接触时间过短                title = tr("Moved too fast");
                 msg = tr("Finger moved too fast, please do not lift until prompted");
                 break;
-            case RC_ErrorFigure: //图像不可用
-                title = tr("Unclear fingerprint");
+            case RC_ErrorFigure: //图像不可用                title = tr("Unclear fingerprint");
                 msg = tr("Clean your finger or adjust the finger position, and try again");
                 break;
-            case RC_RepeatTouchData: //重复率过高
-                title = tr("Already scanned");
+            case RC_RepeatTouchData: //重复率过高                title = tr("Already scanned");
                 msg = tr("Adjust the finger position to scan your fingerprint fully");
                 break;
-            case RC_RepeatFingerData: //重复手指
-                title = tr("The fingerprint already exists");
+            case RC_RepeatFingerData: //重复手指                title = tr("The fingerprint already exists");
                 msg = tr("Please scan other fingers");
                 break;
-            case RC_SwipeTooShort: //按压时间短
-                title = tr("Moved too fast");
+            case RC_SwipeTooShort: //按压时间短                title = tr("Moved too fast");
                 msg = tr("Finger moved too fast. Please do not lift until prompted");
                 break;
-            case RC_FingerNotCenter: //手指不在中间
-                msg = tr("Adjust the finger position to scan your fingerprint fully");
+            case RC_FingerNotCenter: //手指不在中间                msg = tr("Adjust the finger position to scan your fingerprint fully");
                 break;
-            case RC_RemoveAndRetry: // 拿开手指从新扫描
-                msg = tr("Clean your finger or adjust the finger position, and try again");
+            case RC_RemoveAndRetry: // 拿开手指从新扫描                msg = tr("Clean your finger or adjust the finger position, and try again");
                 break;
             case RC_CannotRecognize:
                 title = tr("Cannot recognize");
@@ -374,5 +367,5 @@ void CharaMangerModel::setCharaVaild(bool newCharaVaild)
     if (m_charaVaild == newCharaVaild)
         return;
     m_charaVaild = newCharaVaild;
-    emit charaVaildChanged(m_charaVaild);
+    Q_EMIT charaVaildChanged(m_charaVaild);
 }

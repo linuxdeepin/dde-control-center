@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "displayworker.h"
@@ -1274,8 +1274,7 @@ void DisplayWorker::wlMonitorAdded(WQt::OutputHead *head)
     mon->setRotate(wlRotate2dcc(head->property(WQt::OutputHead::Transform).toInt()));
 
     Resolution currentRes = createResolutionFromMode(head->property(WQt::OutputHead::CurrentMode).value<WQt::OutputMode *>());
-    if (currentRes.id() != 0) { // 0 is invalid
-        mon->setCurrentMode(currentRes);
+    if (currentRes.id() != 0) { // 0 is invalid        mon->setCurrentMode(currentRes);
         mon->setW(currentRes.width());
         mon->setH(currentRes.height());
     }
@@ -1316,8 +1315,7 @@ void DisplayWorker::wlMonitorAdded(WQt::OutputHead *head)
     effectsConfig->minTemp = 4000;
     effectsConfig->maxTemp = 6500;
     effectsConfig->temperature = 6500;
-    effectsConfig->latitude = 0; // How to get
-    effectsConfig->longitude = 0;
+    effectsConfig->latitude = 0; // How to get    effectsConfig->longitude = 0;
     effectsConfig->sunrise = QTime(6, 30, 0);
     effectsConfig->sunset = QTime(18, 30, 0);
     effectsConfig->whitepoint = { 0, 0, 0 };

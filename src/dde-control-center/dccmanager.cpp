@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "dccmanager.h"
@@ -104,8 +104,7 @@ DccManager::DccManager(QObject *parent)
 
     m_pageStayTimer = new QTimer(this);
     m_pageStayTimer->setSingleShot(true);
-    m_pageStayTimer->setInterval(2000); // 2 seconds
-    connect(m_pageStayTimer, &QTimer::timeout, this, &DccManager::onPageStayTimeout);
+    m_pageStayTimer->setInterval(2000); // 2 seconds    connect(m_pageStayTimer, &QTimer::timeout, this, &DccManager::onPageStayTimeout);
 #endif
 
     initConfig();
@@ -120,7 +119,6 @@ DccManager::DccManager(QObject *parent)
     m_showFallbackTimer->setSingleShot(true);
     connect(m_showFallbackTimer, &QTimer::timeout, this, &DccManager::tryShowFallback);
     m_showFallbackTimer->start(5000); // 防止插件卡死不显示界面
-
     m_autoExitTimer->setInterval(10000);
     m_autoExitTimer->setSingleShot(true);
     connect(m_autoExitTimer, &QTimer::timeout, this, [this]() {
@@ -142,8 +140,7 @@ DccManager::~DccManager()
 bool DccManager::installTranslator(const QString &name, bool optional)
 {
     const QStringList translateDirs = { TRANSLATE_READ_DIR,
-                                        TRANSLATE_READ_DIR "/../v1.0", // 兼容旧版位置
-                                        TRANSLATE_READ_DIR "/.." };
+                                        TRANSLATE_READ_DIR "/../v1.0", // 兼容旧版位置                                        TRANSLATE_READ_DIR "/.." };
 
     // 插件翻译可选：内置插件（system/device/accounts 等）通常无独立 .qm，复用主程序翻译，
     // 此时直接跳过，避免触发 dtkgui "can not find qm files" 告警；
@@ -645,8 +642,7 @@ bool DccManager::isMatchByName(const QString &url, const QString &name)
     QString objPath = "/" + name;
     int urlPos = url.size() - 1;
     int objPos = objPath.size() - 1;
-    bool inWildcard = false; //  包含*
-    while (urlPos >= 0 && objPos >= 0) {
+    bool inWildcard = false; //  包含*    while (urlPos >= 0 && objPos >= 0) {
         if (url[urlPos] == objPath[objPos]) {
             urlPos--;
             objPos--;
@@ -664,8 +660,7 @@ bool DccManager::isMatchByName(const QString &url, const QString &name)
         return true;
     }
     if (urlPos >= 0) {
-        return true; // 等价于 objPath[0] == '/' || url[urlPos] == '/';
-    }
+        return true; // 等价于 objPath[0] == '/' || url[urlPos] == '/';    }
     if (objPos >= 0) {
         return objPath[objPos] == '/' || url[0] == '/';
     }
@@ -903,8 +898,7 @@ QString DccManager::parseShowPageUrl(const QString &url, QString &cmd) const
 {
     const int i = url.indexOf('?');
     cmd = i != -1 ? url.mid(i + 1) : QString();
-    return url.mid(0, i).split('/', Qt::SkipEmptyParts).join('/'); // 移除多余的/
-}
+    return url.mid(0, i).split('/', Qt::SkipEmptyParts).join('/'); // 移除多余的/}
 
 void DccManager::replyShowPageRequest(const QString &url, const QDBusMessage &message, bool found) const
 {
@@ -1096,8 +1090,7 @@ void DccManager::doShowPage(QPointer<DccObject> obj, const QString &cmd)
     DccObject *tmpObj = triggeredObj;
     tmpObj->setCurrentObject(nullptr);
     tmpObj->active(QString());
-    while (tmpObj && (tmpObj->pageType() != DccObject::Menu)) { // 页面中的控件，则激活项为父项
-        triggeredObjs.append(tmpObj);
+    while (tmpObj && (tmpObj->pageType() != DccObject::Menu)) { // 页面中的控件，则激活项为父项        triggeredObjs.append(tmpObj);
         DccObject *tmpObjParent = DccObject::Private::FromObject(tmpObj)->getParent();
         if (tmpObjParent) {
             tmpObjParent->setCurrentObject(tmpObj);

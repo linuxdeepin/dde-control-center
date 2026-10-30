@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -216,10 +216,8 @@ void PrivacySecurityDataProxy::onGetNameOwner(const QString &)
 void PrivacySecurityDataProxy::onDBusNameOwnerChanged(const QString &name, const QString &oldOwner, const QString &newOwner)
 {
     if (UsecService == name) {
-        if (newOwner.isEmpty()) { // remove
-            updateServiceExists(false);
-        } else if (oldOwner.isEmpty()) { // add
-            updateServiceExists(true);
+        if (newOwner.isEmpty()) { // remove            updateServiceExists(false);
+        } else if (oldOwner.isEmpty()) { // add            updateServiceExists(true);
         }
     }
 }
@@ -230,8 +228,7 @@ void PrivacySecurityDataProxy::updateServiceExists(bool serviceExists)
         m_serviceExists = serviceExists;
         if (!serviceExists) {
             m_entityListQueried = false;
-            m_listEntityRetried = false;   // 下线复位，下个在线周期可重试一次
-        }
+            m_listEntityRetried = false;   // 下线复位，下个在线周期可重试一次        }
         Q_EMIT serviceExistsChanged(m_serviceExists);
     }
 }

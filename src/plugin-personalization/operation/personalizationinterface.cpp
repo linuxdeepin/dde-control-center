@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -41,8 +41,7 @@ PersonalizationInterface::PersonalizationInterface(QObject *parent)
     qmlRegisterType<PersonalizationExport>("org.deepin.dcc.personalization", 1, 0, "PersonalizationExport");
 
     // after do
-    m_work->active(); // refresh data
-    m_work->refreshTheme();
+    m_work->active(); // refresh data    m_work->refreshTheme();
     m_work->refreshFont();
 
     m_pickerAvailable = checkPickerService();

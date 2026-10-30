@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef UTILS_H
@@ -27,9 +27,7 @@ inline constexpr int ComboxWidgetHeight = 48;
 inline constexpr int SwitchWidgetHeight = 36;
 inline constexpr int ComboxTitleWidth = 110;
 
-inline constexpr qint32 ActionIconSize=30;//大图标角标大小
-inline constexpr qint32 ActionListSize=26;//list图标角标大小
-
+inline constexpr qint32 ActionIconSize=30;//大图标角标大小inline constexpr qint32 ActionListSize=26;//list图标角标大小
 
 static inline bool isServerSystem()
 {

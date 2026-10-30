@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -163,8 +163,7 @@ void TreeLandWorker::setAppearanceTheme(const QString &id, bool keepAuto)
 {
     qCDebug(DdcPersonnalizationTreelandWorker) << "setAppearanceTheme:" << id;
 
-    if (!keepAuto) { // 如果是控制中心设置，keepAuto = false
-        // 控制中心ui显示的深浅色由 dde-appearance 提供，而不是treeland。如果设置为自动，不要把真实的外观显示到 dde-appearance，否则UI就会显示错误
+    if (!keepAuto) { // 如果是控制中心设置，keepAuto = false        // 控制中心ui显示的深浅色由 dde-appearance 提供，而不是treeland。如果设置为自动，不要把真实的外观显示到 dde-appearance，否则UI就会显示错误
         PersonalizationWorker::setAppearanceTheme(id);
     }
     if (id == ".light" && m_appearanceTheme != PersonalizationAppearanceContext::theme_type::theme_type_light) {
@@ -372,8 +371,7 @@ WallpaperContext *TreeLandWorker::getOrCreateWallpaperContext(const QString &mon
                                     m_wallpapers.insert(monitorName, new WallpaperMetaData);
                                 }
                                 auto *meta = m_wallpapers.value(monitorName);
-                                meta->url = isURI(fileSource) ? fileSource : enCodeURI(fileSource, "file://");
-                                meta->monitorName = monitorName;
+                                meta->url = isURI(fileSource) ? fileSource : enCodeURI(fileSource, "file://");                                meta->monitorName = monitorName;
                                 onWallpaperUrlsChanged();
                             } else if (role == WallpaperContext::wallpaper_role_lockscreen) {
                                 if (!m_lockWallpapers.contains(monitorName)) {

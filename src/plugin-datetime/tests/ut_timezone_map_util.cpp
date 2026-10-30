@@ -36,7 +36,6 @@ ZoneInfo makeZone(double latitude, double longitude, const QString &name = QStri
 }
 
 } // namespace
-
 // ---- ConvertLongitudeToX ----
 
 TEST(TimezoneMapUtil, ConvertLongitudeToXMapsKnownMeridians)
@@ -61,8 +60,7 @@ TEST(TimezoneMapUtil, ConvertLongitudeToXIsLinear)
     const double d180 = ConvertLongitudeToX(180.0) - ConvertLongitudeToX(0.0);
     const double d180b = ConvertLongitudeToX(0.0) - ConvertLongitudeToX(-180.0);
     EXPECT_NEAR(d180, d180b, kTol);
-    EXPECT_NEAR(d180, 0.5, kTol); // 360/360 = 0.5 per 180 degrees
-}
+    EXPECT_NEAR(d180, 0.5, kTol); // 360/360 = 0.5 per 180 degrees}
 
 // ---- ConvertLatitudeToY ----
 
@@ -120,9 +118,7 @@ TEST(GetNearestZones, IncludesAllZonesWithinThresholdOrderedByInput)
     // all of them are appended (in iteration order). The first appended is
     // the list's first element, not necessarily the globally nearest.
     ZoneInfoList zones;
-    zones.append(makeZone(0.0, 10.0, QStringLiteral("near")));   // 10°E
-    zones.append(makeZone(0.0, 170.0, QStringLiteral("far")));   // 170°E
-
+    zones.append(makeZone(0.0, 10.0, QStringLiteral("near")));   // 10°E    zones.append(makeZone(0.0, 170.0, QStringLiteral("far")));   // 170°E
     const int mapWidth = 1000;
     const int mapHeight = 500;
     // Click exactly at the projection of the "near" zone (10°E).

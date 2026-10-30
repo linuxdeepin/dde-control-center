@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "monitordbusproxy.h"
@@ -206,11 +206,11 @@ void MonitorDBusProxy::onPropertiesChanged(const QDBusMessage &message)
     QVariantMap changedProps = qdbus_cast<QVariantMap>(message.arguments().at(1).value<QDBusArgument>());
     for (QVariantMap::const_iterator it = changedProps.begin(); it != changedProps.end(); ++it) {
         if(it.key() =="CurrentMode") {
-            emit CurrentModeChanged(qdbus_cast<Resolution>(changedProps.value(it.key())));
+            Q_EMIT CurrentModeChanged(qdbus_cast<Resolution>(changedProps.value(it.key())));
         } else if(it.key() =="BestMode") {
-            emit BestModeChanged(qdbus_cast<Resolution>(changedProps.value(it.key())));
+            Q_EMIT BestModeChanged(qdbus_cast<Resolution>(changedProps.value(it.key())));
         } else if(it.key() =="Modes") {
-            emit ModesChanged(qdbus_cast<ResolutionList>(changedProps.value(it.key())));
+            Q_EMIT ModesChanged(qdbus_cast<ResolutionList>(changedProps.value(it.key())));
         }
     }
 }

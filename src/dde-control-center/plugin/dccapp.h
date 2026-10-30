@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCAPP_H
@@ -27,12 +27,10 @@ public:
         UosEnterprise,
         UosEnterpriseC,
         UosEuler,
-        UosMilitaryS, // for Server
-        UosDeviceEdition,
+        UosMilitaryS, // for Server        UosDeviceEdition,
         UosEducation,
 
-        UosEditionCount // must at last
-    };
+        UosEditionCount // must at last    };
     Q_ENUM(UosEdition)
 
     enum AnimationMode { AnimationPush, AnimationPop };
@@ -90,5 +88,4 @@ private:
     AnimationMode m_animationMode;
 };
 } // namespace dccV25
-
 #endif // DCCAPP_H

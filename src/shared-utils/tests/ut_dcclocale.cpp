@@ -24,7 +24,6 @@ QString stripped(const QString &format)
 }
 
 } // namespace
-
 TEST(DCCLocaleStripTimezone, EmptyInputIsUnchanged)
 {
     EXPECT_EQ(stripped(QString()), QString());

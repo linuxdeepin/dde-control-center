@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "touchscreenmatchmodel.h"
@@ -54,8 +54,7 @@ QVariant TouchScreenMatchModel::data(const QModelIndex &index, int role) const
 qWarning()<<__FUNCTION__<<__LINE__<<index.row()<<role;
     switch (role) {
     case Qt::DisplayRole:
-        return QString::number(index.row());//m_touchScreenList.at(index.row()).second;
-    case IdRole:
+        return QString::number(index.row());//m_touchScreenList.at(index.row()).second;    case IdRole:
         return m_touchScreenList.at(index.row()).first.id;
     case NameRole:
         return m_touchScreenList.at(index.row()).first.name;

@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -35,8 +35,7 @@ public:
     Q_PROPERTY(bool Enabled READ enabled NOTIFY EnabledChanged)
     bool enabled();
 
-Q_SIGNALS: // SIGNALS
-    // Bluetooth
+Q_SIGNALS: // SIGNALS    // Bluetooth
     void AdapterAdded(const QString &adapterJSON);
     void AdapterRemoved(const QString &adapterJSON);
     void AdapterPropertiesChanged(const QString &adapterJSON);
@@ -60,8 +59,7 @@ Q_SIGNALS: // SIGNALS
     // property changed signals
     void EnabledChanged(bool value) const;
 
-public Q_SLOTS: // METHODS
-    // Bluetooth
+public Q_SLOTS: // METHODS    // Bluetooth
     void ClearUnpairedDevice();
     void ClearUnpairedDevice(QObject *receiver, const char *member);
     void SetAdapterPowered(const QDBusObjectPath &adapter, bool powered);

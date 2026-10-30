@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DISPLAYMODULE_H
@@ -41,8 +41,7 @@ public:
     QList<DccScreen *> virtualScreens() const;
     // 物理屏幕
     QList<DccScreen *> screens() const;
-    DccScreen *primaryScreen() const; // 关联screens
-    void setPrimaryScreen(DccScreen *primary);
+    DccScreen *primaryScreen() const; // 关联screens    void setPrimaryScreen(DccScreen *primary);
     QString displayMode() const;
     void setDisplayMode(const QString &mode);
     bool isX11() const;
@@ -72,8 +71,7 @@ public Q_SLOTS:
     void adsorptionScreen(QList<QObject *> listItems, QObject *pw, qreal scale);
     void executemultiScreenAlgo(QList<QObject *> listItems, QObject *pw, qreal scale);
     void applySettings(QList<QObject *> listItems, qreal scale);
-    void applyChanged(); // 修改分辨率、方向时，要重新处理下拼接
-    Q_INVOKABLE void setConcatScreenMode(bool enable);
+    void applyChanged(); // 修改分辨率、方向时，要重新处理下拼接    Q_INVOKABLE void setConcatScreenMode(bool enable);
 
 Q_SIGNALS:
     void virtualScreensChanged();
@@ -101,5 +99,4 @@ private:
     Q_DECLARE_PRIVATE_D(d_ptrDisplayModule, DisplayModule)
     Q_DISABLE_COPY(DisplayModule)
 };
-} // namespace dccV25
-#endif // DISPLAYMODULE_H
+} // namespace dccV25#endif // DISPLAYMODULE_H

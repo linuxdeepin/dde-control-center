@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
+#
+# SPDX-License-Identifier: GPL-3.0-or-later
+
 cmake_minimum_required(VERSION 3.18)
 
 set(DVERSION "6.0.44" CACHE STRING "define project version")
@@ -11,6 +15,8 @@ project(${PROJECT_NAME}
     LANGUAGES CXX C
 )
 
+
+add_compile_definitions(QT_NO_KEYWORDS)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)

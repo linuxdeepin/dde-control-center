@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "bluetoothdevicemodel.h"
@@ -53,12 +53,12 @@ void BluetoothDeviceModel::updateData(BluetoothDevice *device)
             if (isConnected && index > 0) {
                 moveToTop(device->id());
                 QModelIndex modelIndex = createIndex(0, 0);
-                emit dataChanged(modelIndex, modelIndex, {Name, ConnectStatus, ConnectStatusText, Battery, BatteryIconPath});
+                Q_EMIT dataChanged(modelIndex, modelIndex, {Name, ConnectStatus, ConnectStatusText, Battery, BatteryIconPath});
             } else if (!isConnected) {
                 reorderDevices();
             } else {
                 QModelIndex modelIndex = createIndex(index, 0);
-                emit dataChanged(modelIndex, modelIndex, {Name, ConnectStatus, ConnectStatusText, Battery, BatteryIconPath});
+                Q_EMIT dataChanged(modelIndex, modelIndex, {Name, ConnectStatus, ConnectStatusText, Battery, BatteryIconPath});
             }
             return;
         }
@@ -72,7 +72,7 @@ void BluetoothDeviceModel::updateAllData()
 {
     for (int index = 0; index < m_deviceData.count(); index++) {
         QModelIndex modelIndex = createIndex(index, 0);
-        emit dataChanged(modelIndex, modelIndex, {});
+        Q_EMIT dataChanged(modelIndex, modelIndex, {});
     }
 }
 
@@ -183,8 +183,7 @@ QVariant BluetoothDeviceModel::data(const QModelIndex &index, int role) const
 
 void BluetoothDeviceModel::insertItem(int index, BluetoothDevice *device)
 {
-    if (index < 0 || index > m_deviceData.size()) return; // 确保索引有效
-    beginInsertRows(QModelIndex(), index, index);
+    if (index < 0 || index > m_deviceData.size()) return; // 确保索引有效    beginInsertRows(QModelIndex(), index, index);
     m_deviceData.insert(index, device);
     endInsertRows();
 }

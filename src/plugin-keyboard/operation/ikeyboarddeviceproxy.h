@@ -25,4 +25,3 @@ public:
 };
 
 } // namespace DCC_NAMESPACE
-

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCQUICKDBUSINTERFACE_H
@@ -70,5 +70,4 @@ protected:
     class Private;
     Private *p_ptr;
 };
-} // namespace dccV25
-#endif // DCCQUICKDBUSINTERFACE_H
+} // namespace dccV25#endif // DCCQUICKDBUSINTERFACE_H

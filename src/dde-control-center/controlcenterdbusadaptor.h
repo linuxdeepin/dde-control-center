@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
@@ -40,8 +40,7 @@ public:
     const QString page() const;
     const QString path() const;
 
-public Q_SLOTS: // METHODS
-    void Exit();
+public Q_SLOTS: // METHODS    void Exit();
     void Hide();
     void Show();
     void ShowHome();
@@ -68,13 +67,11 @@ public:
 
     inline DccManager *parent() const;
 
-public Q_SLOTS: // METHODS
-    QString Search(const QString &json);
+public Q_SLOTS: // METHODS    QString Search(const QString &json);
     bool Stop(const QString &json);
     bool Action(const QString &json);
 
 private:
-    QString m_jsonCache; // 缓存下对重复请求不处理(规避全局搜索会调两次Search)
-};
+    QString m_jsonCache; // 缓存下对重复请求不处理(规避全局搜索会调两次Search)};
 
 } // namespace dccV25

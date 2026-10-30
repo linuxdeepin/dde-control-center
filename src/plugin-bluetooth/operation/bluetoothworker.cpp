@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "bluetoothworker.h"
@@ -293,11 +293,7 @@ void BluetoothWorker::connectDevice(const QString &deviceId, const QString adapt
 
 void BluetoothWorker::jumpToAirPlaneMode()
 {
-    QDBusMessage message = QDBusMessage::createMethodCall("org.deepin.dde.ControlCenter1", // 服务名
-                                                           "/org/deepin/dde/ControlCenter1", // 对象路径
-                                                           "org.deepin.dde.ControlCenter1", // 接口名
-                                                           "ShowPage"); // 方法名
-
+    QDBusMessage message = QDBusMessage::createMethodCall("org.deepin.dde.ControlCenter1", // 服务名                                                           "/org/deepin/dde/ControlCenter1", // 对象路径                                                           "org.deepin.dde.ControlCenter1", // 接口名                                                           "ShowPage"); // 方法名
     message << "network/airplaneMode";
 
     QDBusConnection::sessionBus().asyncCall(message);
@@ -313,8 +309,7 @@ void BluetoothWorker::showBluetoothTransDialog(const QString &address, const QSt
     qDebug() << " showBluetoothTransDialog:  " << address << files;
     QStringList fileList;
     for (auto filePath : files) {
-        filePath = filePath.remove("file://");
-        fileList.append(filePath);
+        filePath = filePath.remove("file://");        fileList.append(filePath);
     }
 
     m_bluetoothDBusProxy->showBluetoothTransDialog(address, fileList);

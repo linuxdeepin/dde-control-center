@@ -52,11 +52,8 @@ public:
     ObjectManagerAdaptor(QObject *parent);
     virtual ~ObjectManagerAdaptor();
 
-public: // PROPERTIES
-public Q_SLOTS: // METHODS
-    ObjectMap GetManagedObjects();
-Q_SIGNALS: // SIGNALS
-    void InterfacesAdded(const QDBusObjectPath &object_path, ObjectInterfaceMap interfaces_and_properties);
+public: // PROPERTIESpublic Q_SLOTS: // METHODS    ObjectMap GetManagedObjects();
+Q_SIGNALS: // SIGNALS    void InterfacesAdded(const QDBusObjectPath &object_path, ObjectInterfaceMap interfaces_and_properties);
     void InterfacesRemoved(const QDBusObjectPath &object_path, const QStringList &interfaces);
 };
 

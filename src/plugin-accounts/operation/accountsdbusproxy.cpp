@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "accountsdbusproxy.h"
@@ -132,8 +132,7 @@ QDBusPendingReply<QString> AccountsDBusProxy::GetGroupInfoByName(const QString &
 QDBusPendingReply<> AccountsDBusProxy::deleteGroup(const QString &in0)
 {
     QList<QVariant> argumentList;
-    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(true); // force = true
-    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("DeleteGroup"), argumentList);
+    argumentList << QVariant::fromValue(in0) << QVariant::fromValue(true); // force = true    return m_dBusAccountsInter->asyncCallWithArgumentList(QStringLiteral("DeleteGroup"), argumentList);
 }
 
 QDBusPendingReply<> AccountsDBusProxy::createGroup(const QString &in0, uint32_t in1, bool in2)
@@ -153,5 +152,4 @@ QDBusPendingReply<> AccountsDBusProxy::modifyGroup(const QString &in0, const QSt
 bool AccountsDBusProxy::quickLoginEnabled()
 {
     QVariant value = m_dBusAccountsInter->property("QuickLoginEnabled");
-    return value.isValid() ? value.toBool() : true; // 默认为true
-}
+    return value.isValid() ? value.toBool() : true; // 默认为true}

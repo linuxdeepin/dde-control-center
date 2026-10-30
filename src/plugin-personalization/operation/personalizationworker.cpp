@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "personalizationworker.h"
@@ -439,10 +439,8 @@ bool PersonalizationWorker::checkWallpaperLockStatus()
     if (QFileInfo::exists("/var/lib/deepin/permission-manager/wallpaper_locked")) {
         QDBusInterface notify("org.freedesktop.Notifications", "/org/freedesktop/Notifications", "org.freedesktop.Notifications");
         notify.asyncCall(QString("Notify"),
-                         QString("dde-control-center"),   // title
-                         static_cast<uint>(0),
-                         QString("preferences-system"),   // icon
-                         QObject::tr("This system wallpaper is locked. Please contact your admin."),
+                         QString("dde-control-center"),   // title                         static_cast<uint>(0),
+                         QString("preferences-system"),   // icon                         QObject::tr("This system wallpaper is locked. Please contact your admin."),
                          QString(), QStringList(), QVariantMap(), 5000);
         qCInfo(DdcPersonalWorker) << "wallpaper is locked..";
         return true;
@@ -540,8 +538,7 @@ void PersonalizationWorker::addSolidWallpaper(const QColor &color)
     QImage img(1920, 1080, QImage::Format_ARGB32);
     img.fill(color);
     QTemporaryFile file(path);
-    file.setAutoRemove(false); // 将临时文件设置为不自动删除
-    if (!file.open()) {
+    file.setAutoRemove(false); // 将临时文件设置为不自动删除    if (!file.open()) {
         qCWarning(DdcPersonalWorker) << "fail to save image" << file.fileName();
         return;
     }

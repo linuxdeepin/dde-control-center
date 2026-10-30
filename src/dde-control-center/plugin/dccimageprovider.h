@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCIMAGEPROVIDER_H
@@ -34,5 +34,4 @@ private:
     QCache<QString, QImage> m_cache;
     QMultiMap<QString, QPointer<CacheImageResponse>> m_pendingResponses;
 };
-} // namespace dccV25
-#endif // DCCIMAGEPROVIDER_H
+} // namespace dccV25#endif // DCCIMAGEPROVIDER_H

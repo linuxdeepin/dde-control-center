@@ -556,16 +556,12 @@ void DisplayModule::setColorTemperatureEnabled(bool enabled)
 int DisplayModule::colorTemperatureMode() const
 {
     Q_D(const DisplayModule);
-    switch (d->m_model->adjustCCTMode()) { // 0 禁用 1 日落到日出 2 全天 3 自定义
-    case 1:
-        return 1; // 日落到日出
-    case 3:
-        return 2; // 自定义
-    default:
+    switch (d->m_model->adjustCCTMode()) { // 0 禁用 1 日落到日出 2 全天 3 自定义    case 1:
+        return 1; // 日落到日出    case 3:
+        return 2; // 自定义    default:
         break;
     }
-    return 0; // 全天
-}
+    return 0; // 全天}
 
 void DisplayModule::setColorTemperatureMode(int mode)
 {
@@ -625,8 +621,7 @@ void DisplayModule::setCustomColorTempTimePeriod(const QString &timePeriod)
     // 计算时间差（秒），自动处理跨天情况
     int dSecs = startTime.secsTo(endTime);
     if (dSecs < 0) {
-        dSecs += 86400; // 加上一天的秒数
-    }
+        dSecs += 86400; // 加上一天的秒数    }
     // 确保最小时间差为5分钟
     const int MIN_DURATION = 300;
     if (dSecs == 0) {
@@ -831,5 +826,4 @@ void DisplayModule::applyChanged()
 DCC_FACTORY_CLASS(DisplayModule)
 
 } // namespace dccV25
-
 #include "displaymodule.moc"

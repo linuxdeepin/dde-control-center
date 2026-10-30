@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -73,13 +73,9 @@ class DCCDBusInterface;
 struct ShortcutInfoNew {
     QString id;
     QString displayName;
-    QString category;               // Logical category key (e.g. "System", app-defined)
-    QStringList hotkeys;
+    QString category;               // Logical category key (e.g. "System", app-defined)    QStringList hotkeys;
     QString localLanguageName;
-    QString localLanguageCategory;  // Resolved display text for the category
-    bool isCustom = false;          // True for runtime-added (service API) shortcuts
-    bool modifiable = false;        // Whether the conflicting shortcut may be replaced
-};
+    QString localLanguageCategory;  // Resolved display text for the category    bool isCustom = false;          // True for runtime-added (service API) shortcuts    bool modifiable = false;        // Whether the conflicting shortcut may be replaced};
 Q_DECLARE_METATYPE(ShortcutInfoNew)
 Q_DECLARE_METATYPE(QList<ShortcutInfoNew>)
 
@@ -194,7 +190,7 @@ public:
     void langSelectorStartServiceProcess();
     bool keybindingServiceAvailable() const;
 
-signals:
+Q_SIGNALS:
     // Keyboard property
     void CapslockToggleChanged(bool  value) const;
     void CurrentLayoutChanged(const QString & value) const;
@@ -240,7 +236,7 @@ signals:
 
     void langSelectorServiceStartFinished(const quint32 ret) const;
 
-public slots:
+public Q_SLOTS:
     // Keybinding
     QDBusPendingReply<>  KeybindingReset();
     QDBusPendingReply<QString> ListAllShortcuts();
@@ -285,7 +281,7 @@ public slots:
     QDBusPendingReply<> SetLocale(const QString &in0);
     QDBusPendingReply<LocaleList> GetLocaleList();
 
-private slots:
+private Q_SLOTS:
     void onLangSelectorStartServiceProcessFinished(QDBusPendingCallWatcher *w);
     // New API -> Old API adapters (Wayland)
     void onListAllShortcutsNewFinished(QDBusPendingCallWatcher *w);

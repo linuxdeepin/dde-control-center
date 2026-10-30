@@ -28,7 +28,7 @@ public:
                                             QObject *parent = nullptr);
     ~TreelandShortcutCaptureSession() override;
 
-signals:
+Q_SIGNALS:
     void captured(const QString &key);
     void failed(uint32_t reason);
 

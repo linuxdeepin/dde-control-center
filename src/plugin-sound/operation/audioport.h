@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef AUDIOPORT_H
@@ -46,8 +46,7 @@ public:
 public:
     QString name;
     QString description;
-    uchar availability; // 0 for Unknown, 1 for Not Available, 2 for Available.
-};
+    uchar availability; // 0 for Unknown, 1 for Not Available, 2 for Available.};
 
 Q_DECLARE_METATYPE(AudioPort)
 

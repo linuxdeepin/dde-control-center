@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCFACTORY_H
@@ -22,8 +22,7 @@ public:
     // 未提供qml的，可在此自己加载qml返回DccObject对象
     virtual DccObject *dccObject(QObject * = nullptr) { return nullptr; }
 };
-} // namespace dccV25
-Q_DECLARE_INTERFACE(dccV25::DccFactory, DccFactory_iid)
+} // namespace dccV25Q_DECLARE_INTERFACE(dccV25::DccFactory, DccFactory_iid)
 
 #define DCC_FACTORY_CLASS(classname)                                      \
     namespace {                                                           \

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "timezone.h"
@@ -73,7 +73,6 @@ double ConvertPos(const QString &pos, int digits)
 }
 
 } // namespace
-
 [[maybe_unused]] bool ZoneInfoDistanceComp(const ZoneInfo &a, const ZoneInfo &b)
 {
     return a.distance < b.distance;

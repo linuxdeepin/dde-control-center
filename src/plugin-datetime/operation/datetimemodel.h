@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DATETIMEMODEL_H
@@ -58,25 +58,12 @@ public:
     using Regions = QMap<QString, QLocale>;
     enum Format {
         // date time formats
-        DayAbbreviations,     // Monday/Mon ; 星期一 / 周一
-        DayOfWeek,            // 一周首日
-        ShortDate,            // 短日期
-        LongDate,             // 长日期
-        ShortTime,            // 短时间
-        LongTime,             // 长时间
-
+        DayAbbreviations,     // Monday/Mon ; 星期一 / 周一        DayOfWeek,            // 一周首日        ShortDate,            // 短日期        LongDate,             // 长日期        ShortTime,            // 短时间        LongTime,             // 长时间
         // currency formats
-        CurrencySymbol,       // 货币符号 ￥
-        PositiveCurrency,     // 货币正数 ￥1.0
-        NegativeCurrency,     // 货币负数 ￥-1.0
-
+        CurrencySymbol,       // 货币符号 ￥        PositiveCurrency,     // 货币正数 ￥1.0        NegativeCurrency,     // 货币负数 ￥-1.0
         // number formats
-        DecimalSymbol,        // 小数点
-        DigitGroupingSymbol,  // 分隔符（数字分组）
-        DigitGrouping,        // 数字分组
-
-        PageSize              // 纸张大小 A4
-    };
+        DecimalSymbol,        // 小数点        DigitGroupingSymbol,  // 分隔符（数字分组）        DigitGrouping,        // 数字分组
+        PageSize              // 纸张大小 A4    };
 
     explicit DatetimeModel(QObject *parent = nullptr);
     ~DatetimeModel();
@@ -227,10 +214,8 @@ public Q_SLOTS:
     QAbstractListModel *timeDateModel();
     QAbstractListModel *currencyModel();
     QAbstractListModel *decimalModel();
-    QString region(); // country
-    int currentRegionIndex();
-    void setRegion(const QString &region); // setCountry
-    void addUserTimeZoneById(const QString &zoneId);
+    QString region(); // country    int currentRegionIndex();
+    void setRegion(const QString &region); // setCountry    void addUserTimeZoneById(const QString &zoneId);
     void removeUserTimeZoneById(const QString &name);
     void setSystemTimeZone(const QString &zoneId);
     Q_INVOKABLE bool hasUserTimeZone(const QString &zoneId) const;

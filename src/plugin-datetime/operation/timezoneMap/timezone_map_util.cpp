@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "timezone_map_util.h"
@@ -15,7 +15,6 @@ double radians(double degrees) {
 }
 
 }  // namespace
-
 double ConvertLatitudeToY(double latitude) {
   const double bottom_lat = -59;
   const double top_lat = 81;

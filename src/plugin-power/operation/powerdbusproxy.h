@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef POWERDBUSPROXY_H
@@ -125,7 +125,7 @@ public:
 
     std::optional<QString> findUserById();
 
-signals:
+Q_SIGNALS:
     // Power
     void ScreenBlackLockChanged(bool value) const;
     void SleepLockChanged(bool value) const;
@@ -163,7 +163,7 @@ signals:
     void CustomShutdownWeekDaysChanged(const QByteArray &value);
     void LowPowerActionChanged(int action);
 
-public slots:
+public Q_SLOTS:
     // SystemPower
     void SetMode(const QString &mode);
     // PowerManager

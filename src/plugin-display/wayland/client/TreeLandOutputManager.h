@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -19,7 +19,6 @@ namespace WQt {
 class TreeLandOutputManager;
 class ColorControl;
 } // namespace WQt
-
 class WQt::ColorControl : public QWaylandClientExtensionTemplate<WQt::ColorControl>, public QtWayland::treeland_output_color_control_v1
 {
     Q_OBJECT

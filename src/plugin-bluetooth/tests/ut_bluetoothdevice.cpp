@@ -35,11 +35,9 @@ TEST(BluetoothDevice, SetIdNoSignal)
 {
     BluetoothDevice dev;
     QSignalSpy spy(&dev, &BluetoothDevice::nameChanged);  // any unrelated spy
-
     dev.setId(QStringLiteral("dev1"));
     EXPECT_EQ(dev.id(), QStringLiteral("dev1"));
-    EXPECT_EQ(spy.count(), 0);  // setId has no signal at all
-}
+    EXPECT_EQ(spy.count(), 0);  // setId has no signal at all}
 
 TEST(BluetoothDevice, SetIdOverwrites)
 {
@@ -395,7 +393,6 @@ struct DeviceTypeMapping {
     bool canSend;
 };
 } // namespace
-
 class BluetoothDeviceTypeMapping
     : public testing::TestWithParam<DeviceTypeMapping>
 {

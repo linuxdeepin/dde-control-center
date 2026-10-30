@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -106,7 +106,7 @@ void FingerprintAuthController::onFingerEnrollRetry(const QString &title, const 
 {
     m_fingerTipTitle = title;
     m_fingerTipMessage = msg;
-    emit fingerTipsChanged();
+    Q_EMIT fingerTipsChanged();
 }
 
 void FingerprintAuthController::onFingerEnrollStagePass(int pro)
@@ -159,7 +159,7 @@ void FingerprintAuthController::onFingerEnrollFailed(const QString &title, const
     m_fingerTipMessage = msg;
     m_fingertipImagePath = "user_biometric_fingerprint_lose";
     setAddStage(CharaMangerModel::Fail);
-    emit fingerTipsChanged();
+    Q_EMIT fingerTipsChanged();
     stopEnroll();
     m_worker->releaseFingerClaim(m_model->userName());
 }
@@ -168,7 +168,7 @@ void FingerprintAuthController::onFingerEnrollCompleted()
 {
     onFingerEnrollStagePass(100);
     setAddStage(CharaMangerModel::Success);
-    emit enrollCompleted();
+    Q_EMIT enrollCompleted();
     stopEnroll();
     m_worker->releaseFingerClaim(m_model->userName());
 }
@@ -178,7 +178,7 @@ void FingerprintAuthController::onFingerEnrollDisconnected()
     m_fingerTipTitle = tr("Scan Suspended");
     m_fingerTipMessage = tr("Scan Suspended");
     setAddStage(CharaMangerModel::Fail);
-    emit fingerTipsChanged();
+    Q_EMIT fingerTipsChanged();
     stopEnroll();
     m_worker->releaseFingerClaim(m_model->userName());
 }
@@ -203,7 +203,7 @@ void FingerprintAuthController::onFingerLiftTimerTimeout()
 
     m_fingerTipTitle = m_defTitle;
     m_fingerTipMessage = m_defTip;
-    emit fingerTipsChanged();
+    Q_EMIT fingerTipsChanged();
 }
 
 void FingerprintAuthController::onFingerAniValueChanged(const QVariant &index)
@@ -216,7 +216,7 @@ void FingerprintAuthController::onFingerAniValueChanged(const QVariant &index)
     } else {
         m_fingertipImagePath = QString(":/icons/deepin/builtin/icons/%1/icons/finger/fingerprint_animation_%1_%2.png").arg(m_themeType).arg(index.toInt(), 5, 10, QChar('0'));
     }
-    emit fingerTipsChanged();
+    Q_EMIT fingerTipsChanged();
 }
 
 } // namespace dccV25 

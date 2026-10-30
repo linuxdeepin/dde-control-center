@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef INSTALLER_SYSINFO_TIMEZONE_H
@@ -55,13 +55,10 @@ typedef QHash<QString, QString> TimezoneAliasMap;
 
 struct TimezoneOffset
 {
-    QString name; // Offset name, like CST.
-    long seconds; // Offset seconds.
-};
+    QString name; // Offset name, like CST.    long seconds; // Offset seconds.};
 
 // Get |timezone| offset.
 [[maybe_unused]] TimezoneOffset GetTimezoneOffset(const QString &timezone);
 
 } // namespace installer
-
 #endif // INSTALLER_SYSINFO_TIMEZONE_H

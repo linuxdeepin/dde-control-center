@@ -54,7 +54,6 @@ App makeApp(const QString &id, bool isUser, const QString &name = QString(),
 }
 
 } // namespace
-
 // ---- Constructor ----
 
 TEST(CategoryModel, ConstructorWithEmptyCategory)
@@ -187,8 +186,7 @@ TEST(CategoryModel, DataOutOfRangeRowReturnsInvalid)
     Category cat;
     cat.addUserItem(makeApp(QStringLiteral("a1"), false));
     CategoryModel *model = new CategoryModel(&cat);
-    QModelIndex outOfRange = model->index(5, 0); // invalid per index()
-    QVariant result = model->data(outOfRange);
+    QModelIndex outOfRange = model->index(5, 0); // invalid per index()    QVariant result = model->data(outOfRange);
     EXPECT_FALSE(result.toModelIndex().isValid());
 }
 
@@ -362,8 +360,7 @@ TEST(CategoryModel, AddAppValidPathEmitsRequestCreateFile)
     cat.setCategory(QStringLiteral("Browser"));
     CategoryModel *model = new CategoryModel(&cat);
     QSignalSpy spy(model, &CategoryModel::requestCreateFile);
-    model->addApp(QStringLiteral("file:///usr/bin/firefox"));
-    ASSERT_EQ(spy.count(), 1);
+    model->addApp(QStringLiteral("file:///usr/bin/firefox"));    ASSERT_EQ(spy.count(), 1);
     QList<QVariant> args = spy.takeFirst();
     EXPECT_EQ(args.at(0).toString(), QStringLiteral("Browser"));
     QFileInfo info = qvariant_cast<QFileInfo>(args.at(1));
@@ -608,8 +605,7 @@ TEST(CategoryModel, OnDefaultChangedEmitsDataChanged)
     ASSERT_EQ(spy.count(), 1);
     QList<QVariant> args = spy.takeFirst();
     EXPECT_EQ(args.at(0).toModelIndex().row(), 0);
-    EXPECT_EQ(args.at(1).toModelIndex().row(), 1); // last row = size-1 = 1
-}
+    EXPECT_EQ(args.at(1).toModelIndex().row(), 1); // last row = size-1 = 1}
 
 TEST(CategoryModel, OnDefaultChangedWithEmptyListStillEmits)
 {
@@ -706,6 +702,5 @@ TEST(CategoryModel, IsValidWithNullIdReturnsFalse)
     Category cat;
     CategoryModel *model = new CategoryModel(&cat);
     App a;
-    a.Id = QString();  // null QString
-    EXPECT_FALSE(model->isValid(a));
+    a.Id = QString();  // null QString    EXPECT_FALSE(model->isValid(a));
 }

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef UTILS_H
@@ -10,13 +10,7 @@
 #include <QLocale>
 #include <QSettings>
 
-#define IS_SERVER_SYSTEM (DSysInfo::UosServer == DSysInfo::uosType())                    // 是否是服务器版
-#define IS_COMMUNITY_SYSTEM (DSysInfo::UosCommunity == DSysInfo::uosEditionType())       // 是否是社区版
-#define IS_PROFESSIONAL_SYSTEM (DSysInfo::UosProfessional == DSysInfo::uosEditionType()) // 是否是专业版
-#define IS_HOME_SYSTEM (DSysInfo::UosHome == DSysInfo::uosEditionType())                 // 是否是个人版
-#define IS_EDUCATION_SYSTEM (DSysInfo::UosEducation == DSysInfo::uosEditionType())       // 是否是教育版
-#define IS_DEEPIN_DESKTOP (DSysInfo::DeepinDesktop == DSysInfo::deepinType())            // 是否是Deepin桌面
-
+#define IS_SERVER_SYSTEM (DSysInfo::UosServer == DSysInfo::uosType())                    // 是否是服务器版#define IS_COMMUNITY_SYSTEM (DSysInfo::UosCommunity == DSysInfo::uosEditionType())       // 是否是社区版#define IS_PROFESSIONAL_SYSTEM (DSysInfo::UosProfessional == DSysInfo::uosEditionType()) // 是否是专业版#define IS_HOME_SYSTEM (DSysInfo::UosHome == DSysInfo::uosEditionType())                 // 是否是个人版#define IS_EDUCATION_SYSTEM (DSysInfo::UosEducation == DSysInfo::uosEditionType())       // 是否是教育版#define IS_DEEPIN_DESKTOP (DSysInfo::DeepinDesktop == DSysInfo::deepinType())            // 是否是Deepin桌面
 inline const static QString serverEnduserAgreement_new =
         "/usr/share/protocol/enduser-agreement/End-User-License-Agreement-Server-CN-%1.%2";
 inline const static QString serverEnduserAgreement_old =
@@ -54,9 +48,7 @@ inline static const QStringList SYSTEM_LOCAL_LIST{
     "zh_CN",
     "zh_HK",
     "zh_TW",
-    "ug_CN", // 维语
-    "bo_CN"  // 藏语
-};
+    "ug_CN", // 维语    "bo_CN"  // 藏语};
 
 inline bool isFileExist(const QString &path)
 {
@@ -250,7 +242,6 @@ inline QPair<QString, QString> loadLicenses()
     return QPair<QString, QString>(title, body);
 }
 } // namespace DCC_LICENSE
-
 template<typename T>
 T valueByQSettings(const QStringList &configFiles,
                    const QString &group,

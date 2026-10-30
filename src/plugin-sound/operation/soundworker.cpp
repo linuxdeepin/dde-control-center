@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "soundworker.h"
@@ -317,7 +317,6 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
     if (path.path().isEmpty() || path.path() == "/" )
         return; //路径为空
 
-
     m_soundDBusInter->setSinkDevicePath(path.path());
     connect(m_soundDBusInter, &SoundDBusProxy::MuteSinkChanged, [this](bool mute) { m_model->setSpeakerOn(mute);});
     connect(m_soundDBusInter, &SoundDBusProxy::BalanceSinkChanged, m_model, &SoundModel::setSpeakerBalance);
@@ -336,7 +335,6 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 {
     qDebug() << "source default path:" << path.path();
     if (path.path().isEmpty() || path.path() == "/" ) return; //路径为空
-
     m_soundDBusInter->setSourceDevicePath(path.path());
 
     connect(m_soundDBusInter, &SoundDBusProxy::MuteSourceChanged, [this](bool mute) { m_model->setMicrophoneOn(mute); });
@@ -378,8 +376,7 @@ void SoundWorker::cardsChanged(const QString &cards)
         for (QJsonValue pV : jPorts) {
             QJsonObject jPort = pV.toObject();
             const double portAvai = jPort["Available"].toDouble();
-            if (portAvai == 2.0 || portAvai == 0.0) {  // 0 Unknown 1 Not available 2 Available
-                const QString portId = jPort["Name"].toString();
+            if (portAvai == 2.0 || portAvai == 0.0) {  // 0 Unknown 1 Not available 2 Available                const QString portId = jPort["Name"].toString();
                 const QString portName = jPort["Description"].toString();
                 const bool isEnabled = jPort["Enabled"].toBool();
                 const bool isBluetooth = jPort["Bluetooth"].toBool();

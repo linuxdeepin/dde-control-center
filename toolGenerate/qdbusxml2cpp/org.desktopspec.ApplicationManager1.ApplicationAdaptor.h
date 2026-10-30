@@ -43,8 +43,7 @@ class ApplicationAdaptor: public QDBusAbstractAdaptor
 "    <property access=\"read\" type=\"b\" name=\"NoDisplay\"/>\n"
 "    <property access=\"readwrite\" type=\"as\" name=\"MimeTypes\"/>\n"
 "    <property access=\"read\" type=\"as\" name=\"Actions\">\n"
-"      <annotation value=\"Names of all action identifiers of this application.                        Check https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#extra-actions                        for futher information.\" name=\"org.freedesktop.DBus.Description\"/>\n"
-"    </property>\n"
+"      <annotation value=\"Names of all action identifiers of this application.                        Check https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#extra-actions                        for futher information.\" name=\"org.freedesktop.DBus.Description\"/>\n""    </property>\n"
 "    <property access=\"readwrite\" type=\"b\" name=\"AutoStart\"/>\n"
 "    <property access=\"read\" type=\"x\" name=\"LastLaunchedTime\">\n"
 "      <annotation value=\"Set the value of this property to -1 to                        indicates that some errors has occured.\" name=\"org.freedesktop.DBus.Description\"/>\n"
@@ -59,8 +58,7 @@ class ApplicationAdaptor: public QDBusAbstractAdaptor
 "      <annotation value=\"All instances of this application.\" name=\"org.freedesktop.DBus.Description\"/>\n"
 "    </property>\n"
 "    <property access=\"read\" type=\"s\" name=\"ID\">\n"
-"      <annotation value=\"The desktop file id of this application.                        Check https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#desktop-file-id                        for futher infomation.\" name=\"org.freedesktop.DBus.Description\"/>\n"
-"    </property>\n"
+"      <annotation value=\"The desktop file id of this application.                        Check https://specifications.freedesktop.org/desktop-entry-spec/desktop-entry-spec-latest.html#desktop-file-id                        for futher infomation.\" name=\"org.freedesktop.DBus.Description\"/>\n""    </property>\n"
 "    <property access=\"read\" type=\"b\" name=\"Terminal\">\n"
 "      <annotation value=\"Indicate this application should launch by terminal or not.\" name=\"org.freedesktop.DBus.Description\"/>\n"
 "    </property>\n"
@@ -104,8 +102,7 @@ public:
     ApplicationAdaptor(QObject *parent);
     virtual ~ApplicationAdaptor();
 
-public: // PROPERTIES
-    Q_PROPERTY(PropMap ActionName READ actionName)
+public: // PROPERTIES    Q_PROPERTY(PropMap ActionName READ actionName)
     PropMap actionName() const;
 
     Q_PROPERTY(QStringList Actions READ actions)
@@ -168,11 +165,9 @@ public: // PROPERTIES
     Q_PROPERTY(bool isOnDesktop READ isOnDesktop)
     bool isOnDesktop() const;
 
-public Q_SLOTS: // METHODS
-    QDBusObjectPath Launch(const QString &action, const QStringList &fields, const QVariantMap &options);
+public Q_SLOTS: // METHODS    QDBusObjectPath Launch(const QString &action, const QStringList &fields, const QVariantMap &options);
     bool RemoveFromDesktop();
     bool SendToDesktop();
-Q_SIGNALS: // SIGNALS
-};
+Q_SIGNALS: // SIGNALS};
 
 #endif

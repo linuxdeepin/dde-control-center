@@ -207,8 +207,7 @@ private:
     }
     QAtomicPointer<DTK_CORE_NAMESPACE::DConfig> m_config = nullptr;
     bool p_backup { true };
-    QString p_updateLogAddress { QStringLiteral("https://update-platform.uniontech.com/api/v1/systemupdatelogs") };
-    QAtomicInteger<quint32> m_propertySetStatus0 = 0;
+    QString p_updateLogAddress { QStringLiteral("https://update-platform.uniontech.com/api/v1/systemupdatelogs") };    QAtomicInteger<quint32> m_propertySetStatus0 = 0;
 };
 
 #endif // ORG_DEEPIN_DDE_CONTROL-CENTER_UPDATE_H

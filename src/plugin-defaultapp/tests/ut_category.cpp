@@ -34,16 +34,13 @@ App makeApp(const QString &id, bool isUser, const QString &name = QString())
 }
 
 } // namespace
-
 // ---- App operators ----
 
 TEST(App, EqualityIsKeyedOnIdAndIsUser)
 {
     App a = makeApp(QStringLiteral("id1"), false);
     App b = makeApp(QStringLiteral("id1"), false);
-    App c = makeApp(QStringLiteral("id1"), true);   // same Id, different isUser
-    App d = makeApp(QStringLiteral("id2"), false);  // different Id, same isUser
-
+    App c = makeApp(QStringLiteral("id1"), true);   // same Id, different isUser    App d = makeApp(QStringLiteral("id2"), false);  // different Id, same isUser
     EXPECT_TRUE(a == b);
     EXPECT_FALSE(a == c);
     EXPECT_FALSE(a == d);
@@ -58,10 +55,7 @@ TEST(App, InequalityUsesAndOfBothFields)
     // test asserts the ACTUAL behavior so it does not mask the bug.
     App a = makeApp(QStringLiteral("id1"), false);
 
-    App sameIdDiffUser = makeApp(QStringLiteral("id1"), true);   // differ only in isUser
-    App diffIdSameUser = makeApp(QStringLiteral("id2"), false); // differ only in Id
-    App diffBoth = makeApp(QStringLiteral("id2"), true);         // differ in both
-
+    App sameIdDiffUser = makeApp(QStringLiteral("id1"), true);   // differ only in isUser    App diffIdSameUser = makeApp(QStringLiteral("id2"), false); // differ only in Id    App diffBoth = makeApp(QStringLiteral("id2"), true);         // differ in both
     // Differ in one field → operator!= (actual impl) returns false (claims equal).
     EXPECT_FALSE(a != sameIdDiffUser);
     EXPECT_FALSE(a != diffIdSameUser);
@@ -104,7 +98,6 @@ TEST(Category, SetDefaultEmitsOnlyWhenIdChanges)
     cat.setDefault(a);
     ASSERT_EQ(spy.count(), 1);
     EXPECT_EQ(spy.takeFirst().at(0).value<App>().Id, QStringLiteral("d1"));  // 消费首信号 + 校验参数
-
     // Same Id → guarded, no signal, default unchanged.
     const App aSameId = makeApp(QStringLiteral("d1"), true);
     cat.setDefault(aSameId);

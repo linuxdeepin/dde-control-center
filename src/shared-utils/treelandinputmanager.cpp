@@ -33,7 +33,6 @@ bool updateValue(T &current, const T &next)
 }
 
 } // namespace
-
 class TreelandInputManagerPrivate
 {
 public:

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCSCREEN_P_H
@@ -66,5 +66,4 @@ private:
     QList<DccScreenItem *> m_screenItems;
     Q_DECLARE_PUBLIC(DccScreen)
 };
-} // namespace dccV25
-#endif // DCCSCREEN_P_H
+} // namespace dccV25#endif // DCCSCREEN_P_H

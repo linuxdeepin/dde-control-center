@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -99,11 +99,6 @@ private:
 
 private:
     AppsModel *m_appModel = nullptr;
-    unsigned m_uniqueID;                           // ApplicationItem的唯一ID，从1开始，只处理m_appItems中的项
-    QMap<int, int> m_premissionMap;                // 权限总开关
-    QMap<QString, QSet<QString>> m_blacklist;      // 权限列表
-    QMap<QString, QSet<QString>> m_blacklistByPackage; // 黑名单 <权限，包名列表>
-    bool m_updating;                               // 数据更新中
-
+    unsigned m_uniqueID;                           // ApplicationItem的唯一ID，从1开始，只处理m_appItems中的项    QMap<int, int> m_premissionMap;                // 权限总开关    QMap<QString, QSet<QString>> m_blacklist;      // 权限列表    QMap<QString, QSet<QString>> m_blacklistByPackage; // 黑名单 <权限，包名列表>    bool m_updating;                               // 数据更新中
     friend class PrivacySecurityWorker;
 };

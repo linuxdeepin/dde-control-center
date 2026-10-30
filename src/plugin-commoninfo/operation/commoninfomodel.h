@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
@@ -46,8 +46,7 @@ public:
     inline bool updating() const { return m_updating; }
     QPixmap background() const;
     void setBackground(const QPixmap &background);
-    bool ueProgram() const; // for user experience program
-    bool developerModeState() const;
+    bool ueProgram() const; // for user experience program    bool developerModeState() const;
     inline bool isLogin() const { return m_isLogin; }
     inline bool isActivate() const { return m_activation; }
     void setActivation(bool value);
@@ -88,8 +87,7 @@ Q_SIGNALS:
     void defaultEntryChanged(const QString &entry);
     void updatingChanged(const bool &updating);
     void backgroundChanged(const QPixmap &pixmap);
-    void ueProgramChanged(const bool enable) const; // for user experience program
-    void developerModeStateChanged(const bool enable) const;
+    void ueProgramChanged(const bool enable) const; // for user experience program    void developerModeStateChanged(const bool enable) const;
     void isLoginChenged(bool log) const;
     void LicenseStateChanged(bool state);
     void plymouthScaleChanged(int scale);
@@ -116,8 +114,7 @@ public Q_SLOTS:
     void setGrubEditAuthEnabled(const bool enabled);
     void setDefaultEntry(const QString &entry);
     void setUpdating(bool updating);
-    void setUeProgram(const bool ueProgram); // for user experience program
-    void setDeveloperModeState(const bool state);
+    void setUeProgram(const bool ueProgram); // for user experience program    void setDeveloperModeState(const bool state);
     void setIsLogin(const bool log);
     void setPlymouthScale(int scale);
     void setPlymouthTheme(const QString &themeName);
@@ -134,9 +131,7 @@ private:
     QStringList m_entryLists;
     QString m_defaultEntry;
     QPixmap m_background;
-    bool m_joinUeProgram;   // for user experience program
-    bool m_developerModeState{false}; // for developer mode state
-    bool m_isLogin{false};
+    bool m_joinUeProgram;   // for user experience program    bool m_developerModeState{false}; // for developer mode state    bool m_isLogin{false};
     bool m_activation;
     int m_plymouthscale;
     QString m_plymouththeme;

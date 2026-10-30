@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -58,7 +58,6 @@ private:
     QMap<QString, DefaultAppsCategory> m_stringToCategory;
     QString m_userLocalPath;
     QTimer *m_debounceTimer;  // 防抖定时器
-
 private:
     const QString getTypeByCategory(const DefAppWorker::DefaultAppsCategory &category);
     const QStringList getTypeListByCategory(const DefAppWorker::DefaultAppsCategory &category);

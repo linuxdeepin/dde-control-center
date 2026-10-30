@@ -101,8 +101,7 @@ private:
     bool m_leftHanded = false;
     double m_speed = 0.0;
     bool m_naturalScroll = false;
-    uint32_t m_features = 0;    // accumulated feature bitmask
-    uint32_t m_lastSerial = 0;
+    uint32_t m_features = 0;    // accumulated feature bitmask    uint32_t m_lastSerial = 0;
 
     void initPointerConfiguration(uint32_t serial = 0);
     void releaseHandle();
@@ -192,8 +191,7 @@ private:
     uint32_t m_sendEventsMode = send_events_mode_enabled;
     bool m_disableWhileTyping = false;
     bool m_tapToClick = false;
-    uint32_t m_features = 0;    // accumulated feature bitmask
-    double m_scrollFactor = 1.0;
+    uint32_t m_features = 0;    // accumulated feature bitmask    double m_scrollFactor = 1.0;
     bool m_leftHanded = false;
     double m_speed = 0.0;
     bool m_naturalScroll = false;

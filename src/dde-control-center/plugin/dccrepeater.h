@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -62,5 +62,4 @@ private:
     QScopedPointer<DccRepeaterPrivate> d_ptr;
     Q_DECLARE_PRIVATE_D(qGetPtrHelper(d_ptr), DccRepeater)
 };
-} // namespace dccV25
-#endif // DCCREPEATER_H
+} // namespace dccV25#endif // DCCREPEATER_H

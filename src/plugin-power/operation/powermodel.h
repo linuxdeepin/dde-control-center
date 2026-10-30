@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef POWERMODEL_H
@@ -289,8 +289,7 @@ Q_SIGNALS:
     void enableScheduledShutdownChanged(const QString &value);
 
 private:
-    bool m_lidPresent; //以此判断是否为笔记本
-    bool m_sleepOnLidOnPowerClose;
+    bool m_lidPresent; //以此判断是否为笔记本    bool m_sleepOnLidOnPowerClose;
     bool m_sleepOnLidOnBatteryClose;
     bool m_screenBlackLock;
     bool m_sleepLock;

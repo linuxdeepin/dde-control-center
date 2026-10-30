@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "datetimemodel.h"
@@ -95,20 +95,10 @@ static inline QStringList getCurrencySymbol(bool positive, const QString &symbol
     const QString money("1.1");
     if (positive)
         return {
-            QString("%1%2").arg(symbol).arg(money),  // ￥1.1
-            QString("%1%2").arg(money).arg(symbol),  // ￥1.1
-            QString("%1 %2").arg(symbol).arg(money), // ￥ 1.1
-            QString("%1 %2").arg(money).arg(symbol)  // 1.1 ￥
-        };
+            QString("%1%2").arg(symbol).arg(money),  // ￥1.1            QString("%1%2").arg(money).arg(symbol),  // ￥1.1            QString("%1 %2").arg(symbol).arg(money), // ￥ 1.1            QString("%1 %2").arg(money).arg(symbol)  // 1.1 ￥        };
 
     return {
-        QString("-%1%2").arg(symbol).arg(money), // -￥1.1
-        QString("%1-%2").arg(symbol).arg(money), // ￥-1.1
-        QString("%1%2-").arg(symbol).arg(money), // ￥1.1-
-        QString("-%1%2").arg(money).arg(symbol), // 1.1-￥
-        QString("%1-%2").arg(money).arg(symbol), // 1.1-￥
-        QString("%1%2-").arg(money).arg(symbol)  // 1.1￥-
-    };
+        QString("-%1%2").arg(symbol).arg(money), // -￥1.1        QString("%1-%2").arg(symbol).arg(money), // ￥-1.1        QString("%1%2-").arg(symbol).arg(money), // ￥1.1-        QString("-%1%2").arg(money).arg(symbol), // 1.1-￥        QString("%1-%2").arg(money).arg(symbol), // 1.1-￥        QString("%1%2-").arg(money).arg(symbol)  // 1.1￥-    };
 }
 
 static inline QString escapSpace(const QString &space)
@@ -741,11 +731,7 @@ QStringList DatetimeModel::availableFormats(int format) const
         // 始终使用阿拉伯数字（0-9）显示，避免字体渲染问题
         const QString numString = "123456789";
         return {
-            numString,                                                                      // 123456789
-            QString(numString).insert(3, dgSymbol).insert(7, dgSymbol),                     // 123,456,789
-            QString(numString).insert(6, dgSymbol),                                         // 123456,789
-            QString(numString).insert(2, dgSymbol).insert(5, dgSymbol).insert(8, dgSymbol), // 12,34,56,789
-        };
+            numString,                                                                      // 123456789            QString(numString).insert(3, dgSymbol).insert(7, dgSymbol),                     // 123,456,789            QString(numString).insert(6, dgSymbol),                                         // 123456,789            QString(numString).insert(2, dgSymbol).insert(5, dgSymbol).insert(8, dgSymbol), // 12,34,56,789        };
     }
     case PageSize:
         return {"A4"};
@@ -772,8 +758,7 @@ int DatetimeModel::currentFormatIndex(int format) const
     case DayAbbreviations:
         return weekdayFormat();
     case DayOfWeek: {
-        return firstDayOfWeekFormat() - 1; // combo index start from 0
-    }
+        return firstDayOfWeekFormat() - 1; // combo index start from 0    }
     case LongDate: {
         INDEX_OF(longDateFormat(), longDatesAvailable, true);
     }
@@ -1391,17 +1376,13 @@ QStringList DatetimeModel::numberExampleParts() const
         QString positiveCurrencyFormat;
         int positiveCurrencyIndex = currentFormatIndex(PositiveCurrency);
         switch (positiveCurrencyIndex) {
-        case 0://¥1.1
-            positiveCurrencyFormat = currencySymbol + protectedNumber;
+        case 0://¥1.1            positiveCurrencyFormat = currencySymbol + protectedNumber;
             break;
-        case 1://1.1¥
-            positiveCurrencyFormat = protectedNumber + currencySymbol;
+        case 1://1.1¥            positiveCurrencyFormat = protectedNumber + currencySymbol;
             break;
-        case 2://¥ 1.1
-            positiveCurrencyFormat = currencySymbol + " " + protectedNumber;
+        case 2://¥ 1.1            positiveCurrencyFormat = currencySymbol + " " + protectedNumber;
             break;
-        case 3://1.1 ¥
-            positiveCurrencyFormat = protectedNumber + " " + currencySymbol;
+        case 3://1.1 ¥            positiveCurrencyFormat = protectedNumber + " " + currencySymbol;
             break;
         default:
             positiveCurrencyFormat = protectedNumber + " " + currencySymbol;
@@ -1413,23 +1394,17 @@ QStringList DatetimeModel::numberExampleParts() const
         QString negativeCurrencyFormat;
         int negativeCurrencyIndex = currentFormatIndex(NegativeCurrency);
         switch (negativeCurrencyIndex) {
-        case 0://-¥1.1
-            negativeCurrencyFormat = "-" + currencySymbol + protectedNumber;
+        case 0://-¥1.1            negativeCurrencyFormat = "-" + currencySymbol + protectedNumber;
             break;
-        case 1://¥-1.1
-            negativeCurrencyFormat = currencySymbol + "-" + protectedNumber;
+        case 1://¥-1.1            negativeCurrencyFormat = currencySymbol + "-" + protectedNumber;
             break;
-        case 2://¥1.1-
-            negativeCurrencyFormat = currencySymbol + protectedNumber + "-";
+        case 2://¥1.1-            negativeCurrencyFormat = currencySymbol + protectedNumber + "-";
             break;
-        case 3://-1.1¥
-            negativeCurrencyFormat = "-" + protectedNumber + currencySymbol;
+        case 3://-1.1¥            negativeCurrencyFormat = "-" + protectedNumber + currencySymbol;
             break;
-        case 4://1.1-¥
-            negativeCurrencyFormat = protectedNumber + "-" + currencySymbol;
+        case 4://1.1-¥            negativeCurrencyFormat = protectedNumber + "-" + currencySymbol;
             break;
-        case 5://1.1¥-
-            negativeCurrencyFormat = protectedNumber + currencySymbol + "-";
+        case 5://1.1¥-            negativeCurrencyFormat = protectedNumber + currencySymbol + "-";
             break;
         default:
             negativeCurrencyFormat = protectedNumber + " " + currencySymbol + "-";
@@ -1537,8 +1512,7 @@ QStringList DatetimeModel::getFilteredDecimalSymbols() const
     
     // 使用与原始模型相同的符号列表生成方式
     QLocale locale(m_localeName);
-    QStringList symbols = separatorSymbol(locale, false);  // false表示小数点符号
-    
+    QStringList symbols = separatorSymbol(locale, false);  // false表示小数点符号    
     // 获取当前的千位分隔符符号
     QString currentSeparator = m_work->digitGroupingSymbol();
     
@@ -1570,8 +1544,7 @@ QStringList DatetimeModel::getFilteredSeparatorSymbols() const
     
     // 使用与原始模型相同的符号列表生成方式
     QLocale locale(m_localeName);
-    QStringList symbols = separatorSymbol(m_regions.contains(m_langCountry)?m_regions.value(m_langCountry):locale, true);   // true表示千位分隔符符号
-    
+    QStringList symbols = separatorSymbol(m_regions.contains(m_langCountry)?m_regions.value(m_langCountry):locale, true);   // true表示千位分隔符符号    
     // 获取当前的小数点和分隔符符号
     QString currentDecimal = m_work->decimalSymbol();
     QString currentSeparator = m_work->digitGroupingSymbol();

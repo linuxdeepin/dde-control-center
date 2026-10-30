@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCOBJECT_P_H
@@ -18,13 +18,10 @@
 #define DCC_ALL_HIDDEN 0xA0000000
 #define DCC_ALL_DISABLED 0x50000000
 
-#define DCC_MASK_BGTYPE 0x000000FF   // 背景类型
-#define DCC_MASK_NOBGTYPE 0xFFFFFF00 // 背景类型
-
+#define DCC_MASK_BGTYPE 0x000000FF   // 背景类型#define DCC_MASK_NOBGTYPE 0xFFFFFF00 // 背景类型
 #define DCC_CUSTOM_DEFULT 0x08000000
 
 #define DCC_CANSEARCH 0x04000000 // 不参与搜索
-
 namespace dccV25 {
 Q_DECLARE_LOGGING_CATEGORY(dccLog);
 
@@ -81,23 +78,12 @@ protected:
     quint32 m_flags;
     bool m_componentComplete;
 
-    DccObject *q_ptr;                        // q指针
-    DccObject *m_parent;                     // 父项
-    QPointer<DccObject> m_recommendedParent; // 推荐父项
-    DccObject *m_currentObject;
-    QVector<DccObject *> m_children; // 子项
-    QVector<DccObject *> m_objects;  // m_data中DccObject
-    QObjectList m_data;              // data属性，为qml能加子项
-    QPointer<QQmlComponent> m_page;
+    DccObject *q_ptr;                        // q指针    DccObject *m_parent;                     // 父项    QPointer<DccObject> m_recommendedParent; // 推荐父项    DccObject *m_currentObject;
+    QVector<DccObject *> m_children; // 子项    QVector<DccObject *> m_objects;  // m_data中DccObject    QObjectList m_data;              // data属性，为qml能加子项    QPointer<QQmlComponent> m_page;
     QPointer<QQuickItem> m_parentItem; // Item父项
-
     QString m_parentName;
     QString m_displayName;
     QString m_description;
-    QString m_icon;    // 属性
-    QUrl m_iconSource; // icon带相对路径处理
-    QString m_accessibleId; // AT-SPI 定位锚点，由 delegate QML 绑定消费
-    friend class DccObject;
+    QString m_icon;    // 属性    QUrl m_iconSource; // icon带相对路径处理    QString m_accessibleId; // AT-SPI 定位锚点，由 delegate QML 绑定消费    friend class DccObject;
 };
-} // namespace dccV25
-#endif // DCCOBJECT_P_H
+} // namespace dccV25#endif // DCCOBJECT_P_H

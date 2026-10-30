@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef POWERWORKER_H
@@ -70,7 +70,7 @@ private:
     void readConfig(const QString &key, std::function<void(const bool value)> callback);
     void readConfig(const QString &key, std::function<void(const QString &value)> callback);
     QVariantList converToDataMap(const QStringList& conf);
-private slots:
+private Q_SLOTS:
     void onCustomShutdownWeekDaysChanged(const QByteArray &value);
 
 private:

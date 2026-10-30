@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "systeminfowork.h"
@@ -136,8 +136,7 @@ void SystemInfoWork::activate()
     m_model->setSystemInstallationDate(getSystemInstallDate(m_systemInfoDBusProxy->shortDateFormat(), m_systemInfoDBusProxy->timezone()));
 
     // 隐私政策文本内容
-    QString http = DSysInfo::productType() != DSysInfo::ProductType::Uos ? tr("https://www.deepin.org/en/agreement/privacy/") : tr("https://www.uniontech.com/agreement/privacy-en");
-    QString email = DSysInfo::productType() != DSysInfo::ProductType::Uos ? "support@deepin.org" : "support@uniontech.com";
+    QString http = DSysInfo::productType() != DSysInfo::ProductType::Uos ? tr("https://www.deepin.org/en/agreement/privacy/") : tr("https://www.uniontech.com/agreement/privacy-en");    QString email = DSysInfo::productType() != DSysInfo::ProductType::Uos ? "support@deepin.org" : "support@uniontech.com";
     QString text = tr("<p>We are deeply aware of the importance of your personal information to you. So we have the Privacy Policy that covers how we collect, use, share, transfer, publicly disclose, and store your information.</p>"
               "<p>You can <a href=\"%1\">click here</a> to view our latest privacy policy and/or view it online by visiting <a href=\"%1\"> %1</a>. Please read carefully and fully understand our practices on customer privacy. If you have any questions, please contact us at: %2.</p>")
                .arg(http)
@@ -172,9 +171,7 @@ void SystemInfoWork::updateUserExperienceProgramText()
     if (!m_model)
         return;
 
-    QString http = IS_COMMUNITY_SYSTEM ? tr("https://www.deepin.org/en/agreement/privacy/")
-                                       : tr("https://www.uniontech.com/agreement/experience-en");
-
+    QString http = IS_COMMUNITY_SYSTEM ? tr("https://www.deepin.org/en/agreement/privacy/")                                       : tr("https://www.uniontech.com/agreement/experience-en");
     // 根据当前主题选择普通文本颜色：浅色主题用半透明黑，深色主题用半透明白
     auto themeType = Dtk::Gui::DGuiApplicationHelper::instance()->themeType();
     const QString normalColor = themeType == Dtk::Gui::DGuiApplicationHelper::DarkType

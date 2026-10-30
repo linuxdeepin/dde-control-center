@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef ZONEINFOMODEL_H
@@ -45,5 +45,4 @@ public:
     QHash<int, QByteArray> roleNames() const override;
 };
 
-} // namespace dccV25
-#endif // ZONEINFOMODEL_H
+} // namespace dccV25#endif // ZONEINFOMODEL_H

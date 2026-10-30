@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -241,8 +241,7 @@ bool PrivacySecurityModel::updatePermission(ApplicationItem *item)
         sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::MusicFoldersPermission, !m_blacklistByPackage[premissiontoPath(ApplicationItem::MusicFoldersPermission)].contains(item->package()));
         sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::DownloadFoldersPermission, !m_blacklistByPackage[premissiontoPath(ApplicationItem::DownloadFoldersPermission)].contains(item->package()));
         sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::CameraPermission, !m_blacklistByPackage[premissiontoPath(ApplicationItem::CameraPermission)].contains(item->package()));
-    } else { // 若一个启动器没有包名，则认为它的权限由其appPath决定
-        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::DocumentFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::DocumentFoldersPermission)].contains(item->appPath()));
+    } else { // 若一个启动器没有包名，则认为它的权限由其appPath决定        sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::DocumentFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::DocumentFoldersPermission)].contains(item->appPath()));
         sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::PictureFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::PictureFoldersPermission)].contains(item->appPath()));
         sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::DesktopFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::DesktopFoldersPermission)].contains(item->appPath()));
         sucUpdate |= item->onPremissionEnabledChanged(ApplicationItem::VideoFoldersPermission, !m_blacklist[premissiontoPath(ApplicationItem::VideoFoldersPermission)].contains(item->appPath()));

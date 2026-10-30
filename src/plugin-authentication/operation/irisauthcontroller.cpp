@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -107,16 +107,16 @@ QString IrisAuthController::enrollIrisTips() const
 void IrisAuthController::onEnrollIrisStatusTips(const QString &tips)
 {
     m_enrollIrisTips = tips;
-    emit enrollIrisTipsChanged();
+    Q_EMIT enrollIrisTipsChanged();
 }
 
 void IrisAuthController::onEnrollIrisInfoState(CharaMangerModel::AddInfoState state, const QString &tips)
 {
     m_enrollIrisSuccess = state == CharaMangerModel::AddInfoState::Success;
     m_enrollIrisTips = m_enrollIrisSuccess ? tr("Use your iris to unlock the device and make settings later") : tips;
-    emit enrollIrisSuccessChanged();
-    emit enrollIrisTipsChanged();
-    emit enrollCompleted();
+    Q_EMIT enrollIrisSuccessChanged();
+    Q_EMIT enrollIrisTipsChanged();
+    Q_EMIT enrollCompleted();
     stopEnroll();
     if (m_enrollIrisSuccess) {
         m_worker->refreshUserEnrollList(m_model->irisDriverName(), m_model->irisCharaType());

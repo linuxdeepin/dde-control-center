@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef MONITORDBUSPROXY_H
@@ -97,8 +97,7 @@ public:
 private:
     void init();
 
-public Q_SLOTS: // METHODS
-    QDBusPendingReply<> Enable(bool in0);
+public Q_SLOTS: // METHODS    QDBusPendingReply<> Enable(bool in0);
     QDBusPendingReply<> SetMode(uint in0);
     QDBusPendingReply<> SetModeBySize(ushort in0, ushort in1);
     QDBusPendingReply<> SetPosition(short in0, short in1);
@@ -107,8 +106,7 @@ public Q_SLOTS: // METHODS
 
     void onPropertiesChanged(const QDBusMessage &message);
 
-Q_SIGNALS: // SIGNALS
-    // begin property changed signals
+Q_SIGNALS: // SIGNALS    // begin property changed signals
     void AvailableFillModesChanged(const QStringList & value) const;
     void BestModeChanged(Resolution  value) const;
     void ConnectedChanged(bool  value) const;

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -27,10 +27,8 @@ QString getUrlTitle()
 {
     QString url;
     if (qEnvironmentVariableIsEmpty("DEEPIN_PRE")) {
-        url = isCommunitySystem() ? QStringLiteral("https://login.deepin.org") : QStringLiteral("https://login.uniontech.com");
-    } else {
-        url = isCommunitySystem() ? QStringLiteral("https://login-pre.deepin.org") : QStringLiteral("https://login-pre.uniontech.com");
-    }
+        url = isCommunitySystem() ? QStringLiteral("https://login.deepin.org") : QStringLiteral("https://login.uniontech.com");    } else {
+        url = isCommunitySystem() ? QStringLiteral("https://login-pre.deepin.org") : QStringLiteral("https://login-pre.uniontech.com");    }
     return url;
 }
 

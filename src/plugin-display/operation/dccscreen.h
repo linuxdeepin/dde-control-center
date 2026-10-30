@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCSCREEN_H
@@ -70,15 +70,9 @@ public:
     int y() const;
     int width() const;
     int height() const;
-    QSize bestResolution() const;    // 推荐分辨率
-    QSize currentResolution() const; // 分辨率
-    void setCurrentResolution(const QSize &resolution);
-    QList<QSize> resolutionList() const; // 可选分辨率
-    double bestRate() const;             // 推荐刷新率
-    double currentRate() const;          // 刷新率
-    void setCurrentRate(const double &rate);
-    QList<double> rateList() const; // 可选刷新率
-    uint rotate() const;
+    QSize bestResolution() const;    // 推荐分辨率    QSize currentResolution() const; // 分辨率    void setCurrentResolution(const QSize &resolution);
+    QList<QSize> resolutionList() const; // 可选分辨率    double bestRate() const;             // 推荐刷新率    double currentRate() const;          // 刷新率    void setCurrentRate(const double &rate);
+    QList<double> rateList() const; // 可选刷新率    uint rotate() const;
     void setRotate(uint rotate);
     double brightness() const;
     QString currentFillMode() const;
@@ -124,5 +118,4 @@ protected:
     Q_DISABLE_COPY(DccScreen)
     friend class DccScreenPrivate;
 };
-} // namespace dccV25
-#endif // DCCSCREEN_H
+} // namespace dccV25#endif // DCCSCREEN_H

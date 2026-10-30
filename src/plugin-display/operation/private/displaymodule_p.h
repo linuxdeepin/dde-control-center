@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DISPLAYMODULE_P_H
@@ -59,5 +59,4 @@ public:
 
     Q_DECLARE_PUBLIC(DisplayModule)
 };
-} // namespace dccV25
-#endif // DISPLAYMODULE_P_H
+} // namespace dccV25#endif // DISPLAYMODULE_P_H

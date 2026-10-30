@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #ifndef WALLPAPERMODEL_H
@@ -30,7 +30,6 @@ enum WallpaperInstallStatus {
 Q_ENUM_NS(WallpaperInstallStatus)
 
 } // namespace WallpaperEnums
-
 using namespace WallpaperEnums;
 
 struct WallpaperItem {
@@ -113,7 +112,7 @@ public:
         return sourceModel() ? sourceModel()->rowCount(parent) : 0;
     }
 
-signals:
+Q_SIGNALS:
     void countChanged();
 
 protected:
