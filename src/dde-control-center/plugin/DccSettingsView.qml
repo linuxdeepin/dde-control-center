@@ -29,7 +29,9 @@ Flickable {
     }
     Component {
         id: footer
-        DccRowView {}
+        DccRowView {
+            clip: false
+        }
     }
     Item {
         y: control.contentY
