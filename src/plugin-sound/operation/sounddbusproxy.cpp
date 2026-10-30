@@ -5,11 +5,18 @@
 // #include "widgets/dccdbusinterface.h"
 
 #include "audioport.h"
+
 #include <QDBusArgument>
+#include <QDBusConnection>
+#include <QDBusError>
 #include <QDBusInterface>
-#include <QDBusPendingReply>
+#include <QDBusMessage>
 #include <QDBusMetaType>
+#include <QDBusPendingReply>
 #include <QDBusReply>
+#include <QDBusVariant>
+
+#include <cmath>
 
 const static QString AudioService = QStringLiteral("org.deepin.dde.Audio1");
 const static QString AudioPath = QStringLiteral("/org/deepin/dde/Audio1");
@@ -26,6 +33,127 @@ const static QString PowerInterface = QStringLiteral("org.deepin.dde.Power1");
 const static QString SinkInterface = QStringLiteral("org.deepin.dde.Audio1.Sink");
 const static QString SourceInterface = QStringLiteral("org.deepin.dde.Audio1.Source");
 const static QString MeterInterface = QStringLiteral("org.deepin.dde.Audio1.Meter");
+const static QString PropertiesInterface = QStringLiteral("org.freedesktop.DBus.Properties");
+
+class SoundMeterSubscription : public QObject
+{
+    Q_OBJECT
+
+public:
+    explicit SoundMeterSubscription(const QString &path, QObject *parent)
+        : QObject(parent)
+        , m_path(path)
+    {
+    }
+
+    ~SoundMeterSubscription() override { stop(); }
+
+    bool start()
+    {
+        m_stopped = !QDBusConnection::sessionBus().connect(
+                AudioService,
+                m_path,
+                PropertiesInterface,
+                QStringLiteral("PropertiesChanged"),
+                { MeterInterface },
+                QStringLiteral("sa{sv}as"),
+                this,
+                SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
+        if (m_stopped)
+            return false;
+
+        QDBusMessage message = QDBusMessage::createMethodCall(AudioService,
+                                                              m_path,
+                                                              PropertiesInterface,
+                                                              QStringLiteral("Get"));
+        message << MeterInterface << QStringLiteral("Volume");
+        // An unavailable initial value leaves the zero cache until a live update arrives.
+        QDBusConnection::sessionBus().callWithCallback(message,
+                                                       this,
+                                                       SLOT(onInitialVolume(QDBusVariant)),
+                                                       nullptr);
+        return true;
+    }
+
+    void stop()
+    {
+        if (m_stopped)
+            return;
+
+        m_stopped = true;
+        QDBusConnection::sessionBus().disconnect(
+                AudioService,
+                m_path,
+                PropertiesInterface,
+                QStringLiteral("PropertiesChanged"),
+                { MeterInterface },
+                QStringLiteral("sa{sv}as"),
+                this,
+                SLOT(onPropertiesChanged(QString, QVariantMap, QStringList)));
+    }
+
+    double volume() const { return m_volume; }
+
+    void tick()
+    {
+        if (m_stopped)
+            return;
+
+        const QDBusMessage message = QDBusMessage::createMethodCall(AudioService,
+                                                                    m_path,
+                                                                    MeterInterface,
+                                                                    QStringLiteral("Tick"));
+        QDBusConnection::sessionBus().asyncCall(message);
+    }
+
+Q_SIGNALS:
+    void volumeChanged(double value);
+
+private Q_SLOTS:
+
+    void onPropertiesChanged(const QString &interfaceName,
+                             const QVariantMap &changedProperties,
+                             const QStringList &invalidatedProperties)
+    {
+        Q_UNUSED(invalidatedProperties)
+        if (m_stopped || interfaceName != MeterInterface)
+            return;
+
+        const auto volume = changedProperties.constFind(QStringLiteral("Volume"));
+        if (volume != changedProperties.cend())
+            updateVolume(volume.value(), true);
+    }
+
+    void onInitialVolume(const QDBusVariant &value)
+    {
+        if (m_stopped || m_receivedLiveVolume)
+            return;
+
+        updateVolume(value.variant(), false);
+    }
+
+private:
+    void updateVolume(const QVariant &value, bool live)
+    {
+        bool valid = false;
+        const double volume = value.toDouble(&valid);
+        if (!valid || !std::isfinite(volume))
+            return;
+
+        if (live)
+            m_receivedLiveVolume = true;
+        if (m_volume == volume)
+            return;
+
+        m_volume = volume;
+        Q_EMIT volumeChanged(volume);
+    }
+
+    const QString m_path;
+    double m_volume = 0.0;
+    bool m_stopped = true;
+    bool m_receivedLiveVolume = false;
+};
 
 // using namespace DCC_NAMESPACE;
 SoundDBusProxy::SoundDBusProxy(QObject *parent)
@@ -267,9 +395,17 @@ void SoundDBusProxy::setSourceDevicePath(const QString &path)
 {
     if (m_defaultSource) {
         m_defaultSource->deleteLater();
+        m_defaultSource = nullptr;
     }
 
-    m_defaultSource = new DDBusInterface(AudioService, path, SourceInterface, QDBusConnection::sessionBus(), this);
+    if (path.isEmpty() || path == QStringLiteral("/"))
+        return;
+
+    m_defaultSource = new DDBusInterface(AudioService,
+                                         path,
+                                         SourceInterface,
+                                         QDBusConnection::sessionBus(),
+                                         this);
     m_defaultSource->setSuffix("Source");
 }
 
@@ -315,38 +451,60 @@ uint SoundDBusProxy::cardSource()
     return 0;
 }
 
-QDBusObjectPath SoundDBusProxy::GetMeter()
+QDBusPendingCall SoundDBusProxy::GetMeter()
 {
-    if (m_defaultSource) {
-        QList<QVariant> argumentList;
-        return QDBusPendingReply<QDBusObjectPath>(m_defaultSource->asyncCallWithArgumentList(QStringLiteral("GetMeter"), argumentList));
+    if (!m_defaultSource || m_defaultSource->path().isEmpty()
+        || m_defaultSource->path() == QStringLiteral("/")) {
+        return QDBusPendingCall::fromError(
+                QDBusError(QDBusError::UnknownObject, QStringLiteral("No valid audio source")));
     }
-    return QDBusObjectPath();
+
+    return m_defaultSource->asyncCallWithArgumentList(QStringLiteral("GetMeter"), {});
 }
 
-void SoundDBusProxy::setMeterDevicePath(const QString &path)
+bool SoundDBusProxy::setMeterDevicePath(const QString &path)
 {
-    if (m_sourceMeter) {
-        m_sourceMeter->deleteLater();
+    clearMeterDevice();
+    if (path.isEmpty() || path == QStringLiteral("/"))
+        return false;
+
+    auto *subscription = new SoundMeterSubscription(path, this);
+    m_sourceMeter = subscription;
+    connect(subscription,
+            &SoundMeterSubscription::volumeChanged,
+            this,
+            [this, subscription](double value) {
+                if (m_sourceMeter == subscription)
+                    Q_EMIT VolumeMeterChanged(value);
+            });
+    if (!subscription->start()) {
+        clearMeterDevice();
+        return false;
     }
-    m_sourceMeter = new DDBusInterface(AudioService, path, MeterInterface, QDBusConnection::sessionBus(), this);
-    m_sourceMeter->setSuffix("Meter");
+    return true;
+}
+
+void SoundDBusProxy::clearMeterDevice()
+{
+    auto *subscription = m_sourceMeter;
+    m_sourceMeter = nullptr;
+    if (!subscription)
+        return;
+
+    disconnect(subscription, nullptr, this, nullptr);
+    subscription->stop();
+    subscription->deleteLater();
 }
 
 double SoundDBusProxy::volumeMeter()
 {
-    if (m_sourceMeter) {
-        return qvariant_cast<double>(m_sourceMeter->property("VolumeMeter"));
-    }
-    return 0.0;
+    return m_sourceMeter ? m_sourceMeter->volume() : 0.0;
 }
 
 void SoundDBusProxy::Tick()
 {
-    if (m_sourceMeter) {
-        QList<QVariant> argumentList;
-        m_sourceMeter->asyncCallWithArgumentList(QStringLiteral("Tick"), argumentList);
-    }
+    if (m_sourceMeter)
+        m_sourceMeter->tick();
 }
 
 QList<QDBusObjectPath> SoundDBusProxy::sinkInputs()
@@ -394,3 +552,5 @@ void SoundDBusProxy::setAudioMono(bool audioMono)
         SetBalanceSink(oldBalance,false);
     });
 }
+
+#include "sounddbusproxy.moc"

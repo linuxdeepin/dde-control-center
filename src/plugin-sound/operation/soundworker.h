@@ -1,21 +1,23 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SOUNDWORKER_H
 #define SOUNDWORKER_H
 
-#include <QObject>
-
+#include "audioport.h"
+#include "qdbusconnectioninterface.h"
 #include "sounddbusproxy.h"
 #include "soundmodel.h"
-#include "audioport.h"
 
 #include <DDesktopServices>
-#include "qdbusconnectioninterface.h"
-#include <QtQml/qqml.h>
-#include <QTimer>
-#include <QSoundEffect>
+
+#include <QHash>
 #include <QMediaDevices>
+#include <QObject>
+#include <QPointer>
+#include <QSoundEffect>
+#include <QTimer>
+#include <QtQml/qqml.h>
 
 class SoundWorker : public QObject
 {
@@ -24,7 +26,8 @@ class SoundWorker : public QObject
     QML_NAMED_ELEMENT(SoundWorker)
     QML_SINGLETON
 public:
-    explicit SoundWorker(SoundModel *model, QObject * parent = 0);
+    explicit SoundWorker(SoundModel *model, QObject *parent = 0);
+    ~SoundWorker() override;
 
     void activate();
     void deactivate();
@@ -43,6 +46,7 @@ public:
     Q_INVOKABLE void stopSoundEffectPlayback();
     Q_INVOKABLE void setAudioServerIndex(int index);
     Q_INVOKABLE void setAudioMono(bool enable);
+    Q_INVOKABLE void setMicrophoneFeedbackEnabled(QObject *consumer, bool enabled);
 
 public Q_SLOTS:
     void switchSpeaker(bool on);
@@ -83,9 +87,14 @@ private:
     void initConnect();
     void updatePortActivity();
     void initAudioServerData();
+#ifndef DCC_DISABLE_FEEDBACK
+    void ensureMicrophoneMeter();
+    void stopMicrophoneMeter();
+    void removeFeedbackConsumer(QObject *consumer);
+#endif
 
 private:
-    SoundModel *m_model;
+    QPointer<SoundModel> m_model;
     QString m_activeSinkPort;
     QString m_activeSourcePort;
     uint m_activeOutputCard;
@@ -93,7 +102,16 @@ private:
 
     SoundDBusProxy *m_soundDBusInter;
 
+#ifndef DCC_DISABLE_FEEDBACK
+    enum class MeterState { Idle, Pending, Active };
+
+    QHash<QObject *, QMetaObject::Connection> m_feedbackConsumers;
+    MeterState m_meterState = MeterState::Idle;
+    QString m_meterSourcePath;
+    quint64 m_meterGeneration = 0;
+    QPointer<QDBusPendingCallWatcher> m_meterWatcher;
     QTimer *m_pingTimer;
+#endif
     QDBusConnectionInterface *m_inter;
 
     QSoundEffect* m_sound;

@@ -6,6 +6,8 @@
 #include <DGuiApplicationHelper>
 
 #include <QAudioDevice>
+#include <QDBusPendingCallWatcher>
+#include <QDBusPendingReply>
 #include <QDebug>
 #include <QJsonArray>
 #include <QJsonDocument>
@@ -14,6 +16,8 @@
 #include <QMediaPlayer>
 #include <QPair>
 #include <QTimer>
+
+#include <utility>
 
 Q_LOGGING_CATEGORY(DdcSoundWorker, "dcc-sound-worker")
 
@@ -27,7 +31,9 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     , m_activeOutputCard(UINT_MAX)
     , m_activeInputCard(UINT_MAX)
     , m_soundDBusInter(new SoundDBusProxy(this))
+#ifndef DCC_DISABLE_FEEDBACK
     , m_pingTimer(new QTimer(this))
+#endif
     , m_inter(QDBusConnection::sessionBus().interface())
     , m_sound(nullptr)
     , m_waitInputReceiptTimer(new QTimer(this))
@@ -35,8 +41,10 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     , m_mediaDevices(new QMediaDevices(this))
     , m_playAnimationTime(new QTimer(this))
 {
+#ifndef DCC_DISABLE_FEEDBACK
     m_pingTimer->setInterval(5000);
     m_pingTimer->setSingleShot(false);
+#endif
     m_waitSoundPortReceipt = 1000;
 
     m_playAnimationTime->setInterval(300);
@@ -50,35 +58,54 @@ SoundWorker::SoundWorker(SoundModel *model, QObject *parent)
     initConnect();
 }
 
+SoundWorker::~SoundWorker()
+{
+#ifndef DCC_DISABLE_FEEDBACK
+    stopMicrophoneMeter();
+    for (const auto &connection : std::as_const(m_feedbackConsumers))
+        disconnect(connection);
+    m_feedbackConsumers.clear();
+#endif
+}
+
 void SoundWorker::initConnect()
 {
     connect(m_playAnimationTime, &QTimer::timeout, this, &SoundWorker::onAniTimerTimeOut);
-    connect(m_model, &SoundModel::defaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
-    connect(m_model, &SoundModel::defaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
-    connect(m_model, &SoundModel::audioCardsChanged, this, &SoundWorker::cardsChanged);
-    connect(m_model, &SoundModel::bluetoothModeChanged, this, &SoundWorker::changeOutputDeviceComboxStatus);
+    connect(m_model.data(), &SoundModel::defaultSinkChanged, this, &SoundWorker::defaultSinkChanged);
+    connect(m_model.data(), &SoundModel::defaultSourceChanged, this, &SoundWorker::defaultSourceChanged);
+    connect(m_model.data(), &SoundModel::audioCardsChanged, this, &SoundWorker::cardsChanged);
+    connect(m_model.data(), &SoundModel::bluetoothModeChanged, this, &SoundWorker::changeOutputDeviceComboxStatus);
 
-    connect(m_soundDBusInter, &SoundDBusProxy::DefaultSinkChanged, m_model, &SoundModel::setDefaultSink);
-    connect(m_soundDBusInter, &SoundDBusProxy::DefaultSourceChanged, m_model, &SoundModel::setDefaultSource);
-    connect(m_soundDBusInter, &SoundDBusProxy::MaxUIVolumeChanged, m_model, &SoundModel::setMaxUIVolume);
-    connect(m_soundDBusInter, &SoundDBusProxy::IncreaseVolumeChanged, m_model, &SoundModel::setIncreaseVolume);
-    connect(m_soundDBusInter, &SoundDBusProxy::CardsWithoutUnavailableChanged, m_model, &SoundModel::setAudioCards);
-    connect(m_soundDBusInter, &SoundDBusProxy::ReduceNoiseChanged, m_model, &SoundModel::setReduceNoise);
-    connect(m_soundDBusInter, &SoundDBusProxy::PausePlayerChanged, m_model, &SoundModel::setPausePlayer);
-    connect(m_soundDBusInter, &SoundDBusProxy::BluetoothAudioModeOptsChanged, m_model, &SoundModel::setBluetoothAudioModeOpts);
-    connect(m_soundDBusInter, &SoundDBusProxy::BluetoothAudioModeChanged, m_model, &SoundModel::setCurrentBluetoothAudioMode);
+    connect(m_soundDBusInter, &SoundDBusProxy::DefaultSinkChanged, m_model.data(), &SoundModel::setDefaultSink);
+    connect(m_soundDBusInter, &SoundDBusProxy::DefaultSourceChanged, m_model.data(), &SoundModel::setDefaultSource);
+    connect(m_soundDBusInter, &SoundDBusProxy::MaxUIVolumeChanged, m_model.data(), &SoundModel::setMaxUIVolume);
+    connect(m_soundDBusInter, &SoundDBusProxy::IncreaseVolumeChanged, m_model.data(), &SoundModel::setIncreaseVolume);
+    connect(m_soundDBusInter, &SoundDBusProxy::CardsWithoutUnavailableChanged, m_model.data(), &SoundModel::setAudioCards);
+    connect(m_soundDBusInter, &SoundDBusProxy::ReduceNoiseChanged, m_model.data(), &SoundModel::setReduceNoise);
+    connect(m_soundDBusInter, &SoundDBusProxy::PausePlayerChanged, m_model.data(), &SoundModel::setPausePlayer);
+    connect(m_soundDBusInter, &SoundDBusProxy::BluetoothAudioModeOptsChanged, m_model.data(), &SoundModel::setBluetoothAudioModeOpts);
+    connect(m_soundDBusInter, &SoundDBusProxy::BluetoothAudioModeChanged, m_model.data(), &SoundModel::setCurrentBluetoothAudioMode);
 
-    connect(m_soundDBusInter, &SoundDBusProxy::EnabledChanged, m_model, &SoundModel::setEnableSoundEffect);
+    connect(m_soundDBusInter, &SoundDBusProxy::EnabledChanged, m_model.data(), &SoundModel::setEnableSoundEffect);
     connect(m_soundDBusInter, &SoundDBusProxy::pendingCallWatcherFinished, this, &SoundWorker::getSoundEnabledMapFinished);
 
-    connect(m_pingTimer, &QTimer::timeout, [this] { if (m_soundDBusInter) m_soundDBusInter->Tick(); });
-    connect(m_soundDBusInter, &SoundDBusProxy::HasBatteryChanged, m_model, &SoundModel::setIsLaptop);
+#ifndef DCC_DISABLE_FEEDBACK
+    connect(m_pingTimer, &QTimer::timeout, this, [this] {
+        if (m_meterState == MeterState::Active && !m_feedbackConsumers.isEmpty() && !m_soundDBusInter->signalsBlocked())
+            m_soundDBusInter->Tick();
+    });
+    connect(m_soundDBusInter, &SoundDBusProxy::VolumeMeterChanged, this, [this](double volume) {
+        if (m_model && m_meterState == MeterState::Active && !m_feedbackConsumers.isEmpty() && !m_soundDBusInter->signalsBlocked())
+            m_model->setMicrophoneFeedback(volume);
+    });
+#endif
+    connect(m_soundDBusInter, &SoundDBusProxy::HasBatteryChanged, m_model.data(), &SoundModel::setIsLaptop);
 
-    connect(m_soundDBusInter, &SoundDBusProxy::CurrentAudioServerChanged, m_model, &SoundModel::setAudioServer);
-    connect(m_soundDBusInter, &SoundDBusProxy::AudioServerStateChanged, m_model, &SoundModel::setAudioServerChangedState);
-    connect(m_soundDBusInter, &SoundDBusProxy::AudioMonoChanged, m_model, &SoundModel::setAudioMono);
+    connect(m_soundDBusInter, &SoundDBusProxy::CurrentAudioServerChanged, m_model.data(), &SoundModel::setAudioServer);
+    connect(m_soundDBusInter, &SoundDBusProxy::AudioServerStateChanged, m_model.data(), &SoundModel::setAudioServerChangedState);
+    connect(m_soundDBusInter, &SoundDBusProxy::AudioMonoChanged, m_model.data(), &SoundModel::setAudioMono);
 
-    connect(m_waitInputReceiptTimer, &QTimer::timeout, this, [ this ] {
+    connect(m_waitInputReceiptTimer, &QTimer::timeout, this, [this] {
         m_model->setInPutPortComboEnable(true);
     });
 
@@ -86,12 +113,13 @@ void SoundWorker::initConnect()
         m_model->setOutPutPortComboEnable(true);
     });
 
-    connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged,
-        this, &SoundWorker::updatePlayAniIconPath);
+    connect(Dtk::Gui::DGuiApplicationHelper::instance(), &Dtk::Gui::DGuiApplicationHelper::themeTypeChanged, this, &SoundWorker::updatePlayAniIconPath);
 }
 
 void SoundWorker::activate()
 {
+    if (!m_model)
+        return;
 
     m_model->setDefaultSink(m_soundDBusInter->defaultSink());
     m_model->setDefaultSource(m_soundDBusInter->defaultSource());
@@ -116,7 +144,6 @@ void SoundWorker::activate()
     // m_model->initSoundDeviceModel(Port::In);
     // m_model->initSoundDeviceModel(Port::Out);
 
-    m_pingTimer->start();
     m_soundDBusInter->blockSignals(false);
     defaultSinkChanged(m_model->defaultSink());
     defaultSourceChanged(m_model->defaultSource());
@@ -125,10 +152,121 @@ void SoundWorker::activate()
 
 void SoundWorker::deactivate()
 {
-    m_pingTimer->stop();
+#ifndef DCC_DISABLE_FEEDBACK
+    stopMicrophoneMeter();
+#endif
 
     m_soundDBusInter->blockSignals(true);
 }
+
+void SoundWorker::setMicrophoneFeedbackEnabled(QObject *consumer, bool enabled)
+{
+#ifndef DCC_DISABLE_FEEDBACK
+    if (!consumer)
+        return;
+
+    if (!enabled) {
+        removeFeedbackConsumer(consumer);
+        return;
+    }
+
+    if (m_feedbackConsumers.contains(consumer))
+        return;
+
+    m_feedbackConsumers.insert(consumer, connect(consumer, &QObject::destroyed, this, [this, consumer] {
+                                   removeFeedbackConsumer(consumer);
+                               }));
+    ensureMicrophoneMeter();
+#else
+    Q_UNUSED(consumer);
+    Q_UNUSED(enabled);
+#endif
+}
+
+#ifndef DCC_DISABLE_FEEDBACK
+void SoundWorker::removeFeedbackConsumer(QObject *consumer)
+{
+    const auto it = m_feedbackConsumers.find(consumer);
+    if (it == m_feedbackConsumers.end())
+        return;
+
+    disconnect(it.value());
+    m_feedbackConsumers.erase(it);
+    if (m_feedbackConsumers.isEmpty())
+        stopMicrophoneMeter();
+}
+
+void SoundWorker::ensureMicrophoneMeter()
+{
+    if (!m_model || m_feedbackConsumers.isEmpty() || m_soundDBusInter->signalsBlocked()) {
+        stopMicrophoneMeter();
+        return;
+    }
+
+    const QString sourcePath = m_model->defaultSource().path();
+    if (sourcePath.isEmpty() || sourcePath == "/") {
+        stopMicrophoneMeter();
+        return;
+    }
+
+    if (m_meterState != MeterState::Idle && m_meterSourcePath == sourcePath)
+        return;
+
+    stopMicrophoneMeter();
+    m_meterSourcePath = sourcePath;
+    const quint64 generation = ++m_meterGeneration;
+    m_meterState = MeterState::Pending;
+    auto *watcher = new QDBusPendingCallWatcher(m_soundDBusInter->GetMeter(), this);
+    m_meterWatcher = watcher;
+    connect(watcher, &QDBusPendingCallWatcher::finished, this, [this, generation, sourcePath](QDBusPendingCallWatcher *finishedWatcher) {
+        if (finishedWatcher != m_meterWatcher.data() || generation != m_meterGeneration || m_meterState != MeterState::Pending || m_feedbackConsumers.isEmpty() || !m_model || sourcePath != m_model->defaultSource().path() || m_soundDBusInter->signalsBlocked()) {
+            finishedWatcher->deleteLater();
+            return;
+        }
+
+        m_meterWatcher.clear();
+        finishedWatcher->deleteLater();
+        const QDBusPendingReply<QDBusObjectPath> reply = *finishedWatcher;
+        if (reply.isError()) {
+            stopMicrophoneMeter();
+            return;
+        }
+
+        const QString meterPath = reply.value().path();
+        if (meterPath.isEmpty() || meterPath == "/" || !m_soundDBusInter->setMeterDevicePath(meterPath)) {
+            stopMicrophoneMeter();
+            return;
+        }
+
+        m_meterState = MeterState::Active;
+        m_model->setMicrophoneFeedback(m_soundDBusInter->volumeMeter());
+        if (generation != m_meterGeneration || m_meterState != MeterState::Active || m_feedbackConsumers.isEmpty() || m_soundDBusInter->signalsBlocked())
+            return;
+
+        m_soundDBusInter->Tick();
+        m_pingTimer->start();
+    });
+}
+
+void SoundWorker::stopMicrophoneMeter()
+{
+    ++m_meterGeneration;
+    m_meterState = MeterState::Idle;
+    m_meterSourcePath.clear();
+    m_pingTimer->stop();
+
+    auto *watcher = m_meterWatcher.data();
+    m_meterWatcher.clear();
+    if (watcher) {
+        disconnect(watcher, nullptr, this, nullptr);
+        watcher->deleteLater();
+    }
+
+    m_soundDBusInter->clearMeterDevice();
+    if (m_model)
+        m_model->setMicrophoneFeedback(0.0);
+}
+#endif
 
 void SoundWorker::refreshSoundEffect()
 {
@@ -320,8 +458,8 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 
     m_soundDBusInter->setSinkDevicePath(path.path());
     connect(m_soundDBusInter, &SoundDBusProxy::MuteSinkChanged, [this](bool mute) { m_model->setSpeakerOn(mute);});
-    connect(m_soundDBusInter, &SoundDBusProxy::BalanceSinkChanged, m_model, &SoundModel::setSpeakerBalance);
-    connect(m_soundDBusInter, &SoundDBusProxy::VolumeSinkChanged, m_model, &SoundModel::setSpeakerVolume);
+    connect(m_soundDBusInter, &SoundDBusProxy::BalanceSinkChanged, m_model.data(), &SoundModel::setSpeakerBalance);
+    connect(m_soundDBusInter, &SoundDBusProxy::VolumeSinkChanged, m_model.data(), &SoundModel::setSpeakerVolume);
     connect(m_soundDBusInter, &SoundDBusProxy::ActivePortSinkChanged, this, &SoundWorker::activeSinkPortChanged);
     connect(m_soundDBusInter, &SoundDBusProxy::CardSinkChanged, this, &SoundWorker::onSinkCardChanged);
 
@@ -335,12 +473,18 @@ void SoundWorker::defaultSinkChanged(const QDBusObjectPath &path)
 void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
 {
     qDebug() << "source default path:" << path.path();
-    if (path.path().isEmpty() || path.path() == "/" ) return; //路径为空
+    const bool sourceValid = !path.path().isEmpty() && path.path() != "/";
+#ifndef DCC_DISABLE_FEEDBACK
+    if (!sourceValid || (m_meterState != MeterState::Idle && m_meterSourcePath != path.path()))
+        stopMicrophoneMeter();
+#endif
 
     m_soundDBusInter->setSourceDevicePath(path.path());
+    if (!sourceValid || !m_model)
+        return;
 
-    connect(m_soundDBusInter, &SoundDBusProxy::MuteSourceChanged, [this](bool mute) { m_model->setMicrophoneOn(mute); });
-    connect(m_soundDBusInter, &SoundDBusProxy::VolumeSourceChanged, m_model, &SoundModel::setMicrophoneVolume);
+    connect(m_soundDBusInter, &SoundDBusProxy::MuteSourceChanged, m_model.data(), &SoundModel::setMicrophoneOn);
+    connect(m_soundDBusInter, &SoundDBusProxy::VolumeSourceChanged, m_model.data(), &SoundModel::setMicrophoneVolume);
     connect(m_soundDBusInter, &SoundDBusProxy::ActivePortSourceChanged, this, &SoundWorker::activeSourcePortChanged);
     connect(m_soundDBusInter, &SoundDBusProxy::CardSourceChanged, this, &SoundWorker::onSourceCardChanged);
 
@@ -350,13 +494,8 @@ void SoundWorker::defaultSourceChanged(const QDBusObjectPath &path)
     onSourceCardChanged(m_soundDBusInter->cardSource());
 
 #ifndef DCC_DISABLE_FEEDBACK
-    QDBusObjectPath meter = m_soundDBusInter->GetMeter();
-    if (meter.path().isEmpty())
-        return;
-    m_soundDBusInter->setMeterDevicePath(meter.path());
-    connect(m_soundDBusInter, &SoundDBusProxy::VolumeMeterChanged, m_model, &SoundModel::setMicrophoneFeedback);
-    m_model->setMicrophoneFeedback(m_soundDBusInter->volumeMeter());
-
+    if (!m_feedbackConsumers.isEmpty())
+        ensureMicrophoneMeter();
 #endif
 }
 

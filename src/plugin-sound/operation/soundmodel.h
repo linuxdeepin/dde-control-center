@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCC_SOUND_SOUNDMODEL_H
@@ -89,10 +89,8 @@ public:
     inline QStringList outPutPortCombo() const { return m_outPutPortCombo;}
     void setOutPutPortCombo(const QStringList& outPutPort);
 
-#ifndef DCC_DISABLE_FEEDBACK
     inline double microphoneFeedback() const { return m_microphoneFeedback; }
     void setMicrophoneFeedback(double microphoneFeedback);
-#endif
 
     void setPort(Port *port);
     void addPort(Port *port);
@@ -252,9 +250,7 @@ Q_SIGNALS:
     // 当前音频框架切换的信号
     void curAudioServerChanged(const QString &audioFrame);
 
-#ifndef DCC_DISABLE_FEEDBACK
     void microphoneFeedbackChanged(double microphoneFeedback) const;
-#endif
     void portAdded(const Port *port);
     void portRemoved(const QString & portId, const uint &cardId, const Port::Direction &direction);
     void soundDeviceStatusChanged();
@@ -298,9 +294,7 @@ private:
     double m_maxUIVolume;
     int m_waitSoundReceiptTime;
 
-#ifndef DCC_DISABLE_FEEDBACK
     double m_microphoneFeedback;
-#endif
     QList<Port *> m_ports;
     QList<Port *> m_inputPorts;
     QList<Port *> m_outputPorts;
