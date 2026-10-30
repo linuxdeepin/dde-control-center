@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "soundmodel.h"
@@ -45,9 +45,7 @@ SoundModel::SoundModel(QObject *parent)
     , m_microphoneVolume(75)
     , m_maxUIVolume(0.0)
     , m_waitSoundReceiptTime(0)
-#ifndef DCC_DISABLE_FEEDBACK
-    , m_microphoneFeedback(50)
-#endif
+    , m_microphoneFeedback(0.0)
     , m_audioCards("")
     , m_currentBluetoothMode("")
     , m_inputVisibled(false)
@@ -233,7 +231,6 @@ void SoundModel::setMicrophoneVolume(double microphoneVolume)
         Q_EMIT microphoneVolumeChanged(microphoneVolume);
     }
 }
-#ifndef DCC_DISABLE_FEEDBACK
 void SoundModel::setMicrophoneFeedback(double microphoneFeedback)
 {
     if (!qFuzzyCompare(microphoneFeedback, m_microphoneFeedback)) {
@@ -241,7 +238,6 @@ void SoundModel::setMicrophoneFeedback(double microphoneFeedback)
         Q_EMIT microphoneFeedbackChanged(microphoneFeedback);
     }
 }
-#endif
 
 void SoundModel::setPort(Port *port)
 {

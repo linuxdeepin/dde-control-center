@@ -139,6 +139,25 @@ DccObject {
             weight: 20
             pageType: DccObject.Editor
             page: RowLayout {
+                id: microphoneFeedbackView
+
+                property bool componentReady: false
+                readonly property bool feedbackWanted: componentReady
+                                                       && visible
+                                                       && Window.window !== null
+                                                       && Window.window.visible
+                                                       && Window.window.visibility !== Window.Minimized
+
+                function syncFeedbackDemand() {
+                    dccData.worker().setMicrophoneFeedbackEnabled(microphoneFeedbackView, feedbackWanted)
+                }
+
+                Component.onCompleted: {
+                    componentReady = true
+                    syncFeedbackDemand()
+                }
+                onFeedbackWantedChanged: syncFeedbackDemand()
+
                 Layout.alignment: Qt.AlignRight
 
                 D.DciIcon {
