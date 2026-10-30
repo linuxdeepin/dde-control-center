@@ -18,5 +18,4 @@ public:
 private Q_SLOTS:
     void updateItemParent(int index, QQuickItem *item);
 };
-} // namespace dccV25
-#endif // DCCQUICKREPEATER_H
+} // namespace dccV25#endif // DCCQUICKREPEATER_H

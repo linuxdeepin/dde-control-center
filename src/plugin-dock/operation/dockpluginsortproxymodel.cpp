@@ -10,9 +10,7 @@
 DockPluginSortProxyModel::DockPluginSortProxyModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
-    setDynamicSortFilter(true); // 启用动态排序，当源模型数据变化时自动重新排序
-    setSortRole(Qt::DisplayRole); // 默认按 displayName 排序
-    sort(0, Qt::AscendingOrder);
+    setDynamicSortFilter(true); // 启用动态排序，当源模型数据变化时自动重新排序    setSortRole(Qt::DisplayRole); // 默认按 displayName 排序    sort(0, Qt::AscendingOrder);
 }
 
 DockPluginSortProxyModel::StringGroup DockPluginSortProxyModel::classifyString(const QString &s) const

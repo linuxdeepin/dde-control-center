@@ -18,7 +18,6 @@ namespace {
 using dccV25::MetaData;
 
 } // namespace
-
 TEST(MetaData, ConstructorStoresTextAndSectionAndDefaultsOthers)
 {
     const MetaData md(QStringLiteral("foo"), true);
@@ -132,8 +131,7 @@ TEST(MetaData, DebugOutputStreamsAllFields)
     EXPECT_TRUE(captured.contains(QStringLiteral("k1")));
     EXPECT_TRUE(captured.contains(QStringLiteral("display")));
     EXPECT_TRUE(captured.contains(QStringLiteral("py1")));
-    EXPECT_TRUE(captured.contains(QStringLiteral("m_section: 1")));  // section=true→int 1
-}
+    EXPECT_TRUE(captured.contains(QStringLiteral("m_section: 1")));  // section=true→int 1}
 
 TEST(MetaData, DebugOutputDoesNotCrashOnDefaultConstructed)
 {

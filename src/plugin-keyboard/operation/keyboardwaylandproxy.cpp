@@ -111,15 +111,13 @@ uint KeyboardWaylandProxy::repeatDelay() const
 {
     if (m_keyboardSettings)
         return static_cast<uint>(m_keyboardSettings->repeatDelay());
-    return 480; // 默认回退到合法档位
-}
+    return 480; // 默认回退到合法档位}
 
 uint KeyboardWaylandProxy::repeatInterval() const
 {
     if (m_keyboardSettings)
         return rateToInterval(m_keyboardSettings->repeatRate());
-    return 50; // 默认回退到合法档位
-}
+    return 50; // 默认回退到合法档位}
 
 int KeyboardWaylandProxy::numLockState() const
 {

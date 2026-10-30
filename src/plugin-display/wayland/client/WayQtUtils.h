@@ -27,5 +27,4 @@ struct wl_output *wlOutputFromQScreen(QScreen *screen);
 bool isOutputAlive(struct wl_output *output);
 
 bool isTreeland();
-} // namespace Utils
-} // namespace WQt
+} // namespace Utils} // namespace WQt

@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -28,5 +28,4 @@ BiometricAuthController::BiometricAuthController(QObject *parent)
 }
 
 } // namespace dccV25
-
 #include "biometricauthcontroller.moc"

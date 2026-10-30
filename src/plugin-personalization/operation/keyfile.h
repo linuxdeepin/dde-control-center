@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -33,8 +33,7 @@ public:
     void removeKey(const QString &section, const QString &key);
 
 private:
-    MainKeyMap mainKeyMap; // section -> key : value
-    QString filePath;
+    MainKeyMap mainKeyMap; // section -> key : value    QString filePath;
     QFile fp;
     bool modified;
     char listSeparator;

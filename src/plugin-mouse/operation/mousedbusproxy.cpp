@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "mousedbusproxy.h"
@@ -99,8 +99,7 @@ static QString gestureTypeToString(int type) {
     case 2: return QStringLiteral("tap");
     }
     qWarning() << "Wayland Unexpected gesture type value:" << type;
-    return QStringLiteral("swipe"); // safe fallback
-}
+    return QStringLiteral("swipe"); // safe fallback}
 
 const QString Service = "org.deepin.dde.InputDevices1";
 const QString MousePath = "/org/deepin/dde/InputDevice1/Mouse";

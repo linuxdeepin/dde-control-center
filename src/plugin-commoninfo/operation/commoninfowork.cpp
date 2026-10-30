@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "commoninfowork.h"
@@ -35,7 +35,6 @@
 Q_LOGGING_CATEGORY(DccCommonInfoWork, "dcc-commoninfo-work");
 
 #define IS_COMMUNITY_SYSTEM (DSysInfo::UosCommunity == DSysInfo::uosEditionType())       // 是否是社区版
-
 std::mutex SCALE_SETTING_GUARD;
 
 static const QString PlyMouthConf = QStringLiteral("/etc/plymouth/plymouthd.conf");
@@ -50,9 +49,7 @@ const QStringList &SYSTEM_LOCAL_LIST {
     "zh_CN",
     "zh_HK",
     "zh_TW",
-    "ug_CN",    // 维语
-    "bo_CN"     // 藏语
-};
+    "ug_CN",    // 维语    "bo_CN"     // 藏语};
 
 const QMap<QString, QString> &SYSTEM_LOCAL_MAP {
     {"zh_CN", "zh_CN"},
@@ -421,8 +418,7 @@ void CommonInfoWork::setLogDebug(int index)
 
 void CommonInfoWork::importCertificate(QString filePath)
 {
-    filePath = filePath.remove("file://");
-    //读取机器信息证书
+    filePath = filePath.remove("file://");    //读取机器信息证书
     QFile fFile(filePath);
     if (!fFile.open(QIODevice::ReadOnly)) {
         qDebug() << "Can't open file for writing";
@@ -476,8 +472,7 @@ void CommonInfoWork::importCertificate(QString filePath)
 
 void CommonInfoWork::exportMessage(QString filePath)
 {
-    filePath = filePath.remove("file://");
-    qDebug() << " importCertificate file path :  " << filePath;
+    filePath = filePath.remove("file://");    qDebug() << " importCertificate file path :  " << filePath;
     QDBusInterface licenseInfo("com.deepin.sync.Helper",
                                "/com/deepin/sync/Helper",
                                "com.deepin.sync.Helper",
@@ -737,8 +732,7 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
 
     // license内容
     QString content = getDevelopModeLicense(":/systeminfo/license/deepin-end-user-license-agreement_developer_community_%1.txt", "");
-    QString contentPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation).append("tmpDeveloperMode.txt");// 临时存储路径
-    QFile *contentFile = new QFile(contentPath);
+    QString contentPath = QStandardPaths::writableLocation(QStandardPaths::DocumentsLocation).append("tmpDeveloperMode.txt");// 临时存储路径    QFile *contentFile = new QFile(contentPath);
     // 如果文件不存在，则创建文件
     if (!contentFile->exists()) {
         contentFile->open(QIODevice::WriteOnly);
@@ -824,8 +818,7 @@ QString CommonInfoWork::passwdEncrypt(const QString &password)
         if (line.contains("PBKDF2")) {
             QStringList fields = line.split(QRegularExpression("\\s+"), Qt::SkipEmptyParts);
             if (fields.size() >= 4) {
-                return fields.at(3);  // 返回第4个字段（下标3）
-            }
+                return fields.at(3);  // 返回第4个字段（下标3）            }
         }
     }
 
@@ -909,10 +902,8 @@ static QString getDeepinImmutableWritableStatus()
     // Enable 为 true, 表明功能已开启
     // ClearAfterReboot和CleanData在开启无忧还原的时候才会是true
     if (clearAfterReboot && cleanData) {
-        return QStringLiteral("overlay");  // 无忧还原
-    } else if (!enable) {
-        return QStringLiteral("remount");  // 只读保护
-    }
+        return QStringLiteral("overlay");  // 无忧还原    } else if (!enable) {
+        return QStringLiteral("remount");  // 只读保护    }
     
     return QString();
 }

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -97,8 +97,7 @@ void PrivacySecurityWorker::init()
     QString envPath = QProcessEnvironment::systemEnvironment().value("PATH");
     m_pathList = envPath.split(':');
 
-    m_dataProxy->listEntity();         // 保留首轮主动拉取; 守卫在 listEntity() 内自动置位
-    // (原 folders 循环删除, 改由 onEntityListFinished 按 m_entityMap 门控查询)
+    m_dataProxy->listEntity();         // 保留首轮主动拉取; 守卫在 listEntity() 内自动置位    // (原 folders 循环删除, 改由 onEntityListFinished 按 m_entityMap 门控查询)
 }
 
 void PrivacySecurityWorker::onEntityListFinished()
@@ -113,12 +112,10 @@ void PrivacySecurityWorker::onEntityListFinished()
         m_model->premissiontoPath(ApplicationItem::DownloadFoldersPermission)
     };
     for (const auto &folder : folders) {
-        if (folder.isEmpty()) {                 // premissiontoPath 返回空串=真异常,照常告警
-            qCWarning(DCC_PRIVACY) << "onEntityListFinished: folder path is empty, skip";
+        if (folder.isEmpty()) {                 // premissiontoPath 返回空串=真异常,照常告警            qCWarning(DCC_PRIVACY) << "onEntityListFinished: folder path is empty, skip";
             continue;
         }
-        if (m_entityMap.contains(folder)) {     // 只查已注册对象,从源头不发 doomed 调用
-            m_dataProxy->getMode(folder);
+        if (m_entityMap.contains(folder)) {     // 只查已注册对象,从源头不发 doomed 调用            m_dataProxy->getMode(folder);
             m_dataProxy->getPolicy(folder);
         }
     }
@@ -127,10 +124,8 @@ void PrivacySecurityWorker::onEntityListFinished()
 void PrivacySecurityWorker::onServiceExistsChanged(bool exists)
 {
     if (exists) {
-        m_dataProxy->listEntity();           // 直接调, asyncCall 非阻塞无重入; 守卫在 listEntity() 内自动防重
-    } else {
-        m_entityMap.clear();                    // 清陈旧注册表,防误门控
-        m_blacklistByPackage.clear();
+        m_dataProxy->listEntity();           // 直接调, asyncCall 非阻塞无重入; 守卫在 listEntity() 内自动防重    } else {
+        m_entityMap.clear();                    // 清陈旧注册表,防误门控        m_blacklistByPackage.clear();
         // 守卫复位已在 proxy 的 updateServiceExists(false) 内完成
     }
 }
@@ -189,10 +184,8 @@ QString PrivacySecurityWorker::getAppPath(const QMap<QString, QString> &execs)
 
         if (match.hasMatch()) {
             if (match.captured(2).isEmpty()) {
-                cleanedString =  match.captured(3); // 没有引号的命令
-            } else {
-                cleanedString =  match.captured(2); // 引号包裹的命令
-            }
+                cleanedString =  match.captured(3); // 没有引号的命令            } else {
+                cleanedString =  match.captured(2); // 引号包裹的命令            }
         }
 
         if (QFile::exists(cleanedString)) {
@@ -259,8 +252,7 @@ QString PrivacySecurityWorker::getEntityJson(const QString &name, bool isFile)
 {
     QJsonObject obj;
     QJsonObject attrs;
-    attrs.insert("bus_type", QString()); // 此处空项没有接口调用会报错
-    attrs.insert("exes", QJsonArray());
+    attrs.insert("bus_type", QString()); // 此处空项没有接口调用会报错    attrs.insert("exes", QJsonArray());
     attrs.insert("interface", QString());
     attrs.insert("methods", QJsonArray());
     attrs.insert("object_path", QString());
@@ -292,14 +284,11 @@ QString PrivacySecurityWorker::getAppEntityJson(const ApplicationItem *item)
     QJsonObject obj;
     QJsonObject attrs;
     bool isPackage = !item->package().isEmpty();
-    attrs.insert("bus_type", QString()); // 此处空项没有接口调用会报错
-    attrs.insert("interface", QString());
+    attrs.insert("bus_type", QString()); // 此处空项没有接口调用会报错    attrs.insert("interface", QString());
     attrs.insert("methods", QJsonArray());
     attrs.insert("object_path", QString());
     attrs.insert("service_name", QString());
-    obj.insert("description", item->name()); //
-    obj.insert("description_zh_CN", item->name()); //
-    obj.insert("level", QString());
+    obj.insert("description", item->name()); //    obj.insert("description_zh_CN", item->name()); //    obj.insert("level", QString());
     obj.insert("owner", QString());
     obj.insert("sensitivity", QString());
 
@@ -344,13 +333,11 @@ QString PrivacySecurityWorker::getObjectPolicyJson(const ApplicationItem *item, 
     QJsonObject object;
     object.insert("timestamp", 0);
     object.insert("valid_period", 0);
-    object.insert("object", m_model->premissiontoPath(premission)); // 需要设置的路径
-    object.insert("operations", enabled ? QJsonArray::fromStringList({ "allow" }) : QJsonArray::fromStringList({ "deny" }));
+    object.insert("object", m_model->premissiontoPath(premission)); // 需要设置的路径    object.insert("operations", enabled ? QJsonArray::fromStringList({ "allow" }) : QJsonArray::fromStringList({ "deny" }));
     objects.append(object);
 
     QJsonObject subject;
-    subject.insert("name", item->package().isEmpty() ? item->appPath() : item->package());    // 包名
-    policy.insert("objects", objects);
+    subject.insert("name", item->package().isEmpty() ? item->appPath() : item->package());    // 包名    policy.insert("objects", objects);
     policy.insert("subject", subject);
     policies.append(policy);
     obj.insert("policies", policies);
@@ -706,8 +693,7 @@ void PrivacySecurityWorker::setAppPermissionEnableByCheck(bool ok)
                 || (item->package().isEmpty() && !m_entityMap.contains(item->appPath()))) {
                 m_dataProxy->setEntity(getAppEntityJson(item));
             }
-            m_dataProxy->setMode(getSubjectModeJson(file, true));   // 设置黑名单模式, 设置客体模式
-            m_dataProxy->setPolicy(getObjectPolicyJson(item, premission, enabled));
+            m_dataProxy->setMode(getSubjectModeJson(file, true));   // 设置黑名单模式, 设置客体模式            m_dataProxy->setPolicy(getObjectPolicyJson(item, premission, enabled));
 
         } else {
             item->emitDataChanged();
@@ -718,9 +704,7 @@ void PrivacySecurityWorker::setAppPermissionEnableByCheck(bool ok)
 
 void PrivacySecurityWorker::setAppPermissionEnable(int premission, bool enabled, ApplicationItem *item)
 {
-    m_cacheAppPermission.append({ item, { premission, enabled } }); // 存入缓存
-    if (!s_systemPrem.contains(premission)) { // 如果申请的权限不包括列表中的权限（比如相机以外的权限）
-        setAppPermissionEnableByCheck(true);
+    m_cacheAppPermission.append({ item, { premission, enabled } }); // 存入缓存    if (!s_systemPrem.contains(premission)) { // 如果申请的权限不包括列表中的权限（比如相机以外的权限）        setAppPermissionEnableByCheck(true);
         return;
     }
 

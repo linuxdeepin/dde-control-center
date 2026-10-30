@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SYSTEMINFOWORK_H
@@ -44,8 +44,7 @@ public:
     Q_INVOKABLE void cancelUeProgram();
     Q_INVOKABLE void showActivatorDialog();
     Q_INVOKABLE void showDetail();
-    Q_INVOKABLE void copyTextToClipboard(const QString &text); // Add new invokable method
-    Q_INVOKABLE void playSystemSound(int soundType);
+    Q_INVOKABLE void copyTextToClipboard(const QString &text); // Add new invokable method    Q_INVOKABLE void playSystemSound(int soundType);
 
     bool isUeProgramEnabled();
     void setUeProgramEnabled(bool enabled);
@@ -72,8 +71,7 @@ private:
     SystemInfoModel *m_model;
     SystemInfoDBusProxy *m_systemInfoDBusProxy;
     QString m_title;
-    QDBusInterface *m_dBusUeProgram; // for user experience program
-    Dtk::Core::DConfig *m_systemInfoConfig = nullptr;
+    QDBusInterface *m_dBusUeProgram; // for user experience program    Dtk::Core::DConfig *m_systemInfoConfig = nullptr;
 
 };
 

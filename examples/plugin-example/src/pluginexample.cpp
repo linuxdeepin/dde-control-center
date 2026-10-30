@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "pluginexample.h"
@@ -27,17 +27,13 @@ void PluginExample::setName(const QString &name)
 int PluginExample::calc(int a, int b)
 {
     switch (m_calcType) {
-    case 0: // +
-        return a + b;
+    case 0: // +        return a + b;
         break;
-    case 1: // -
-        return a - b;
+    case 1: // -        return a - b;
         break;
-    case 2: // *
-        return a * b;
+    case 2: // *        return a * b;
         break;
-    case 3: // /
-        return a / b;
+    case 3: // /        return a / b;
         break;
     default:
         return a + b;
@@ -52,5 +48,4 @@ void PluginExample::setCalcType(int type)
         Q_EMIT calcTypeChanged(m_calcType);
     }
 }
-DCC_FACTORY_CLASS(PluginExample)// DCC_FACTORY_CLASS在dccfactory.h中定义，用于注册插件,该宏会自动生成PluginExampleFactory类，并实现create函数。PluginExampleFactory类为Qt类，所以需要包含pluginexample.moc
-#include "pluginexample.moc"
+DCC_FACTORY_CLASS(PluginExample)// DCC_FACTORY_CLASS在dccfactory.h中定义，用于注册插件,该宏会自动生成PluginExampleFactory类，并实现create函数。PluginExampleFactory类为Qt类，所以需要包含pluginexample.moc#include "pluginexample.moc"

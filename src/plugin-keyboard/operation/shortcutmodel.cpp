@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -340,8 +340,7 @@ void ShortcutModel::onParseInfo(const QString &info)
             info->sectionKey = sectionKey;
             info->sectionName = obj["SectionName"].toString();
             if (info->sectionName.isEmpty())
-                info->sectionName = sectionKey;   // fallback to raw key
-            m_groupInfos[sectionKey].append(info);
+                info->sectionName = sectionKey;   // fallback to raw key            m_groupInfos[sectionKey].append(info);
             continue;
         }
 
@@ -395,8 +394,7 @@ void ShortcutModel::onParseInfo(const QString &info)
         (*it)->index = index;
         m_windowSwitchStateInfos << *it;
         if (!m_windowSwitchState) {
-            m_systemInfos.erase(it);  // More efficient than removeOne
-        }
+            m_systemInfos.erase(it);  // More efficient than removeOne        }
     }
 
     std::sort(m_windowInfos.begin(), m_windowInfos.end(), [ = ](ShortcutInfo *s1, ShortcutInfo *s2) {
@@ -460,7 +458,6 @@ void ShortcutModel::onCustomInfo(const QString &json)
     info->command = obj["Exec"].toString();
     info->sectionName = tr("Custom");
     info->sectionKey = info->sectionName;   // X11: mirror translated name
-
     m_infos.append(info);
     m_customInfos.append(info);
     Q_EMIT addCustomInfo(info);
@@ -737,8 +734,7 @@ ShortcutInfo *ShortcutModel::getInfo(const QString &shortcut)
         return nullptr;
 
     return findInfoIf([ = ] (const ShortcutInfo *info)->bool{
-        return !QString::compare(info->accels, shortcut, Qt::CaseInsensitive); //判断是否相等，相等则返回0
-    });
+        return !QString::compare(info->accels, shortcut, Qt::CaseInsensitive); //判断是否相等，相等则返回0    });
 }
 
 void ShortcutModel::setSearchResult(const QString &searchResult)

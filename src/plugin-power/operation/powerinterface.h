@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef POWERINTERFACE_H
@@ -30,7 +30,7 @@ public:
 private:
     void setPowerActionsVisible(QList<PowerOperatorModel*> actionModels, QList<PowerOperatorType> type,  bool visible);
 
-signals:
+Q_SIGNALS:
     void powerModelChanged(PowerModel *model);
     void powerWorkerChanged(PowerWorker *worker);
 

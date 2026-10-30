@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "accountsworker.h"
@@ -61,7 +61,6 @@ QString getAlgorithmPrefix(const QString &algorithm) {
     return QString();
 }
 } // anonymous namespace
-
 AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     : QObject(parent)
     , m_accountsInter(new AccountsDBusProxy(this))
@@ -1006,8 +1005,7 @@ QString AccountsWorker::tryEncryptPassword(const QString &password, const QStrin
     // 获取算法对应的 salt 前缀
     QString saltPrefix = getAlgorithmPrefix(algorithm);
     if (saltPrefix.isEmpty()) {
-        return QString();  // 不支持的算法
-    }
+        return QString();  // 不支持的算法    }
     
     // 使用 crypt_gensalt_rn 生成 salt setting（线程安全版本）
     // 这个函数会为每种算法自动生成正确格式的 salt
@@ -1033,8 +1031,7 @@ QString AccountsWorker::tryEncryptPassword(const QString &password, const QStrin
         qWarning() << "Password encryption failed with algorithm:" << algorithm 
                    << "(crypt returned" << (result == nullptr ? "nullptr" : "invalid hash starting with '*'")
                    << ", errno:" << errno << ")";
-        return QString();  // 加密失败
-    }
+        return QString();  // 加密失败    }
     
     qDebug() << "Password encryption succeeded with algorithm:" << algorithm;
     return QString(result);

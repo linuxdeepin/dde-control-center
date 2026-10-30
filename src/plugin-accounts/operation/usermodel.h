@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef USERMODEL_H
@@ -100,5 +100,4 @@ private:
     QStringList m_onlineUsers;
 };
 } // namespace dccV25
-
 #endif // USERMODEL_H

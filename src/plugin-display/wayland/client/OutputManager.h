@@ -19,7 +19,6 @@ class OutputMode;
 class OutputConfiguration;
 class OutputConfigurationHead;
 } // namespace WQt
-
 class WQt::OutputManager : public QWaylandClientExtensionTemplate<WQt::OutputManager>, public QtWayland::zwlr_output_manager_v1
 {
     Q_OBJECT

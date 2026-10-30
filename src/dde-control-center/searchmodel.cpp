@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "searchmodel.h"
@@ -361,10 +361,7 @@ static QList<int> matchPositions(const SearchData *data, const QString &filterTe
 
 static unsigned int matchScore(const QString &text, const QList<int> &positions)
 {
-    unsigned int leftCnt = positions.first(); // 开头未匹配字符
-    unsigned int midCnt = 0;                  // 中间未匹配字符，相关度影响最大
-    unsigned int rightCnt = text.length() - positions.last() - 1; // 末尾未匹配字符
-    for (auto it = positions.cbegin() + 1; it != positions.cend(); ++it) {
+    unsigned int leftCnt = positions.first(); // 开头未匹配字符    unsigned int midCnt = 0;                  // 中间未匹配字符，相关度影响最大    unsigned int rightCnt = text.length() - positions.last() - 1; // 末尾未匹配字符    for (auto it = positions.cbegin() + 1; it != positions.cend(); ++it) {
         midCnt = midCnt * 10 + (*it - *(it - 1)) - 1;
     }
     if (midCnt > 0x0000FFFF) {

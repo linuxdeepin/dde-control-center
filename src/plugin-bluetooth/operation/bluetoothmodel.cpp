@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "bluetoothmodel.h"
@@ -128,7 +128,7 @@ void BluetoothModel::setShowBluetooth(bool newShowBluetooth)
     if (m_showBluetooth == newShowBluetooth)
         return;
     m_showBluetooth = newShowBluetooth;
-    emit showBluetoothChanged();
+    Q_EMIT showBluetoothChanged();
 }
 
 bool BluetoothModel::airplaneEnable() const

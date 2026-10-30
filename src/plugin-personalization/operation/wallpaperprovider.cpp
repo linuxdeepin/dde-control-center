@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 #include <QThread>
@@ -158,7 +158,7 @@ void WallpaperProvider::pushWallpaper(WallpaperItemPtr item, WallpaperType type)
         default:
             break;
     }
-    emit fetchFinish();
+    Q_EMIT fetchFinish();
 }
 
 WallpaperType WallpaperProvider::getWallpaperType(const QString &path)
@@ -241,14 +241,10 @@ void WallpaperProvider::onWallpaperChangedFromDaemon(const QString &user, uint m
         return;
     }
 
-    if (mode == 0) { // remove wallpaper
-        for (const auto &path : paths) {
-            removeWallpaper(enCodeURI(path, "file://"));
-        }
-    } else if (mode == 1) { // add wallpaper
-        for (const auto &path : paths) {
-            addWallpaper(enCodeURI(path, "file://"));
-        }
+    if (mode == 0) { // remove wallpaper        for (const auto &path : paths) {
+            removeWallpaper(enCodeURI(path, "file://"));        }
+    } else if (mode == 1) { // add wallpaper        for (const auto &path : paths) {
+            addWallpaper(enCodeURI(path, "file://"));        }
     }
 }
 
@@ -576,8 +572,8 @@ void WallpaperProvider::installWallpaper(const QString &itemId, WallpaperType ty
                 qCWarning(DdcPersonalizationWallpaperWorker) << "install job create error: " << call.error();
             } else {
                 setWantToSetWallpaper(wallpaper.value());
-                emit wantToSetWallpaperStatusChanged(m_wantToSetWallpaper->installStatus);
-                emit wantToSetWallpaperProgressChanged(m_wantToSetWallpaper->installProgress);
+                Q_EMIT wantToSetWallpaperStatusChanged(m_wantToSetWallpaper->installStatus);
+                Q_EMIT wantToSetWallpaperProgressChanged(m_wantToSetWallpaper->installProgress);
             }
             watcher->deleteLater();
         });
@@ -673,7 +669,7 @@ void WallpaperProvider::createInstallJob(const QString &jobPath, WallpaperItemPt
         wallpaperItem->installProgress = value;
         model->updateItemData(wallpaperItem, {Item_InstallProgress_Role});
         if (m_wantToSetWallpaper == wallpaperItem) {
-            emit wantToSetWallpaperProgressChanged(wallpaperItem->installProgress);
+            Q_EMIT wantToSetWallpaperProgressChanged(wallpaperItem->installProgress);
         }
     });
 
@@ -694,7 +690,7 @@ void WallpaperProvider::createInstallJob(const QString &jobPath, WallpaperItemPt
         }
 
         if (m_wantToSetWallpaper == wallpaperItem) {
-            emit wantToSetWallpaperStatusChanged(wallpaperItem->installStatus);
+            Q_EMIT wantToSetWallpaperStatusChanged(wallpaperItem->installStatus);
         }
 
         model->updateItemData(wallpaperItem, {Item_InstallStatus_Role});
@@ -705,8 +701,8 @@ void WallpaperProvider::setWantToSetWallpaper(WallpaperItemPtr wallpaper)
 {
     if (wallpaper != m_wantToSetWallpaper) {
         m_wantToSetWallpaper = wallpaper;
-        emit m_model->wantToSetWallpaperChanged();
-        emit wantToSetWallpaperChanged(wallpaper);
+        Q_EMIT m_model->wantToSetWallpaperChanged();
+        Q_EMIT wantToSetWallpaperChanged(wallpaper);
     }
 }
 

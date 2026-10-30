@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "controlcenterdbusadaptor.h"
@@ -96,7 +96,6 @@ int main(int argc, char *argv[])
 #if QT_VERSION < QT_VERSION_CHECK(6, 0, 0)
     app.setAttribute(Qt::AA_UseHighDpiPixmaps);
 #endif // (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-
     app->setOrganizationName("deepin");
     app->setApplicationName("dde-control-center");
 #ifdef CVERSION
@@ -125,8 +124,7 @@ int main(int argc, char *argv[])
     QCommandLineOption dbusOption(QStringList() << "d" << "dbus", "startup on dbus");
     QCommandLineOption moduleOption("m", "the module' id of which to be shown.", "module");
     QCommandLineOption pageOption("p", "specified module page", "page");
-    QCommandLineOption showTime(QStringList() << "z" << "time", "show control center exe time."); // 新增time参数自动测试启动速度
-    QCommandLineOption loggingModuleOption(QStringList() << "l" << "logging-module", "Only output logs for the specified module", "loggingModule");
+    QCommandLineOption showTime(QStringList() << "z" << "time", "show control center exe time."); // 新增time参数自动测试启动速度    QCommandLineOption loggingModuleOption(QStringList() << "l" << "logging-module", "Only output logs for the specified module", "loggingModule");
     QCommandLineOption pluginDir("spec", "load plugins from specialdir", "plugindir");
     QCommandLineOption pluginOption(QStringList() << "P" << "plugin", "load specified plugins", "plugin");
     QCommandLineOption listOption("list", "list all modules and exit.");

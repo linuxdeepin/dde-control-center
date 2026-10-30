@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -16,13 +16,13 @@ public:
     explicit PrivacySecurityWorker(PrivacySecurityModel *appModel, QObject *parent = nullptr);
     ~PrivacySecurityWorker();
 
-public slots:
+public Q_SLOTS:
     void setPremissionEnabled(int appItemIndex, int premission, bool enabled);
 
     void setAppPermissionEnable(int premission, bool enabled, ApplicationItem *item);
     void checkAuthorizationCancel();
 
-private slots:
+private Q_SLOTS:
     void updateAppPath(ApplicationItem *item);
     ApplicationItem *addAppItem(int index);
 
@@ -35,7 +35,7 @@ private slots:
 
     void setAppPermissionEnableByCheck(bool ok);
 
-signals:
+Q_SIGNALS:
     void checkAuthorization(bool checking);
 
     void appAdded(const QString &appId);
@@ -65,9 +65,7 @@ private:
     bool m_checkAuthorizationing = false;
     QList<QPair<ApplicationItem *, QPair<int, bool>>> m_cacheAppPermission;
     QList<QPair<int, int>> m_cachePermission;
-    QHash<QString, QSet<QString>> m_entityMap;         // entity信息,对包是 <包名,可执行文件列表>
-    QMap<QString, QSet<QString>> m_blacklistByPackage; // 黑名单 <权限，包名列表>
-
+    QHash<QString, QSet<QString>> m_entityMap;         // entity信息,对包是 <包名,可执行文件列表>    QMap<QString, QSet<QString>> m_blacklistByPackage; // 黑名单 <权限，包名列表>
     QMutex m_appItemsMutex;
     QList<ApplicationItem *> m_pendingPathUpdates;
     QThreadPool *m_dpkgThreadPool = nullptr;

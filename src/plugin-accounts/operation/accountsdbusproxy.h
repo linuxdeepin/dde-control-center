@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef ACCOUNTSDBUSPROXY_H
@@ -33,7 +33,7 @@ public:
     Q_PROPERTY(bool QuickLoginEnabled READ quickLoginEnabled)
     bool quickLoginEnabled();
 
-signals:
+Q_SIGNALS:
     void UserAdded(const QString &in0);
     void UserDeleted(const QString &in0);
     // begin property changed signals
@@ -45,7 +45,7 @@ signals:
 
     void QuickLoginEnabledChanged(bool value);
 
-public slots:
+public Q_SLOTS:
     QDBusPendingReply<QDBusObjectPath> CreateUser(const QString &in0, const QString &in1, int in2);
     QDBusPendingReply<> DeleteUser(const QString &in0, bool in1);
     QDBusPendingReply<QString> FindUserById(const qint64 &in0);

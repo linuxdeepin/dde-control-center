@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2023-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -29,8 +29,7 @@ struct RegionFormat {
     QString longTimeFormat;
     QString currencyFormat;
     QString numberFormat;
-    QString digitgroupFormat; //groupSeparator;
-    QString paperFormat;
+    QString digitgroupFormat; //groupSeparator;    QString paperFormat;
     bool operator!=(const RegionFormat &other)
     {
         return !(*this == other);

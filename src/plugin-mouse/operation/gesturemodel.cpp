@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -32,7 +32,7 @@ void GestureModel::updateGestureData(const GestureData &data)
             m_gestures[i]->setActionName(data.actionName());
             m_gestures[i]->setActions(data.actions());
             QModelIndex modelIndex = createIndex(i, 0);
-            emit dataChanged(modelIndex, modelIndex, {});
+            Q_EMIT dataChanged(modelIndex, modelIndex, {});
             return;
         }
     }

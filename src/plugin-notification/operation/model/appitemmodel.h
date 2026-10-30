@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #pragma once
@@ -81,14 +81,5 @@ Q_SIGNALS:
 
 private:
     NotificationSetting *m_setting;
-    QString m_softName;//应用程序名
-    QString m_icon;//应用系统图表
-    QString m_actName;//传入后端应用名
-    bool m_isAllowNotify;//允许应用通知
-    bool m_isNotifySound;//是否有通知声音
-    bool m_isLockShowNotify;//锁屏显示通知
-    bool m_isShowDesktop;//show desktop notification
-    bool m_isShowInNotifyCenter;//通知仅在通知中心显示
-    bool m_isShowNotifyPreview;//显示消息预览
-};
+    QString m_softName;//应用程序名    QString m_icon;//应用系统图表    QString m_actName;//传入后端应用名    bool m_isAllowNotify;//允许应用通知    bool m_isNotifySound;//是否有通知声音    bool m_isLockShowNotify;//锁屏显示通知    bool m_isShowDesktop;//show desktop notification    bool m_isShowInNotifyCenter;//通知仅在通知中心显示    bool m_isShowNotifyPreview;//显示消息预览};
 }

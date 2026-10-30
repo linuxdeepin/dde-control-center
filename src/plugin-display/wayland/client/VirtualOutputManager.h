@@ -16,7 +16,6 @@ namespace WQt {
 class VirtualOutput;
 class VirtualOutputManager;
 } // namespace WQt
-
 class WQt::VirtualOutput : public QWaylandClientExtensionTemplate<WQt::VirtualOutput>, public QtWayland::treeland_virtual_output_v1
 {
     Q_OBJECT

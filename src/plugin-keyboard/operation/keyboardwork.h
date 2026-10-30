@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -171,13 +171,11 @@ private:
     ShortcutModel *m_shortcutModel = nullptr;
     QTranslator *m_translatorLanguage;
     Dtk::Core::DConfig *m_inputDevCfg;
-    bool m_isResetting = false; // Flag to prevent duplicate reset calls
-    QHash<QString, quint64> m_shortcutGenerations;
+    bool m_isResetting = false; // Flag to prevent duplicate reset calls    QHash<QString, quint64> m_shortcutGenerations;
     bool m_isTreelandSession = false;
 #ifdef ENABLE_TREELAND_INPUT_MANAGER
     DCC_NAMESPACE::KeyboardWaylandProxy *m_waylandProxy = nullptr;
 #endif
-    DCC_NAMESPACE::IKeyboardDeviceProxy *m_deviceProxy = nullptr; ///< 当前会话的键盘设备代理（构造时注入）
-};
+    DCC_NAMESPACE::IKeyboardDeviceProxy *m_deviceProxy = nullptr; ///< 当前会话的键盘设备代理（构造时注入）};
 }
 #endif // KEYBOARDWORK_H

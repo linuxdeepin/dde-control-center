@@ -54,18 +54,13 @@ public:
     DccLoadTimer(const DccLoadTimer &) = delete;
     DccLoadTimer &operator=(const DccLoadTimer &) = delete;
 
-    void start();                          // Start global timer, clear per-plugin tracking
-    void addPlugin(const QString &name);  // Record a plugin's start timestamp
-    void finishPlugin(const QString &name);  // Calculate & log per-plugin total time
-    void stop();                           // Stop timer and log all-plugins total time
-
+    void start();                          // Start global timer, clear per-plugin tracking    void addPlugin(const QString &name);  // Record a plugin's start timestamp    void finishPlugin(const QString &name);  // Calculate & log per-plugin total time    void stop();                           // Stop timer and log all-plugins total time
 private:
     QElapsedTimer m_totalTimer;
     QHash<QString, qint64> m_pluginStartTimes;
 };
 
 } // namespace dccV25
-
 #define DCC_BENCHMARK_CONCAT_IMPL(a, b) a##b
 #define DCC_BENCHMARK_CONCAT(a, b) DCC_BENCHMARK_CONCAT_IMPL(a, b)
 #define DCC_BENCHMARK(plugin, stage) \

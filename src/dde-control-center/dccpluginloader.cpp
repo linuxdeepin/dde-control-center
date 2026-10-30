@@ -393,8 +393,7 @@ void DccPluginLoader::loadMain()
             transitionStatus(MainObjErr);
             return;
         }
-        context->setParent(object); // Context will be deleted when object is deleted
-        object->setParent(m_module ? m_module : m_pManager->rootModule());
+        context->setParent(object); // Context will be deleted when object is deleted        object->setParent(m_module ? m_module : m_pManager->rootModule());
         m_mainObj = qobject_cast<DccObject *>(object);
     } break;
     case QQmlComponent::Error: {

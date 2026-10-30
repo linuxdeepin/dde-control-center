@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCMANAGER_H
@@ -155,14 +155,8 @@ private Q_SLOTS:
 
 private:
     DccObject *m_root;
-    DccObject *m_activeObject;    // 当前定位的项
-    DccObject *m_hideObjects;     // 隐藏的项
-    DccObject *m_noAddObjects;    // 未找到父对象的
-    DccObject *m_noParentObjects; // 没有父对象的
-
-    QVector<DccObject *> m_currentObjects;   // 当前显示的页面路径，从根页面到当前页面
-    QVector<DccObject *> m_triggeredObjects; // 用户交互触发的对象路径，从根菜单到当前子控件
-
+    DccObject *m_activeObject;    // 当前定位的项    DccObject *m_hideObjects;     // 隐藏的项    DccObject *m_noAddObjects;    // 未找到父对象的    DccObject *m_noParentObjects; // 没有父对象的
+    QVector<DccObject *> m_currentObjects;   // 当前显示的页面路径，从根页面到当前页面    QVector<DccObject *> m_triggeredObjects; // 用户交互触发的对象路径，从根菜单到当前子控件
     DccPluginManager *m_plugins;
     QPointer<QWindow> m_window;
     Dtk::Core::DConfig *m_dconfig;
@@ -172,9 +166,7 @@ private:
     QSet<QString> m_modulePaths;
     QSet<QString> m_moduleHiddenPaths;
     QSet<QString> m_moduleDisabledPaths;
-    bool m_moduleConfigReady = false; // 全部 subpath 返回后才置位：在此之前单模块配置不生效
-    int m_moduleConfigPending = 0;    // 尚未返回的 subpath 数，归零即统一刷一次
-    QQmlApplicationEngine *m_engine;
+    bool m_moduleConfigReady = false; // 全部 subpath 返回后才置位：在此之前单模块配置不生效    int m_moduleConfigPending = 0;    // 尚未返回的 subpath 数，归零即统一刷一次    QQmlApplicationEngine *m_engine;
     NavigationModel *m_navModel;
     SearchModel *m_searchModel;
     DccImageProvider *m_imageProvider;
@@ -193,11 +185,9 @@ private:
     QTimer *m_autoExitTimer;
 
     QHash<QString, QVector<DccObject *>> m_objMap; // 映射对象名称到对象指针列表，用于快速查找
-
 #ifdef HAVE_DDE_API_EVENTLOGGER
     QTimer *m_pageStayTimer;
     QStringList m_lastPageTags;
 #endif
 };
-} // namespace dccV25
-#endif // DCCMANAGER_H
+} // namespace dccV25#endif // DCCMANAGER_H

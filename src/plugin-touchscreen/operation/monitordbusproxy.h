@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef MONITORDBUSPROXY_H
@@ -26,8 +26,7 @@ public:
 private:
     void init();
 
-Q_SIGNALS: // SIGNALS
-    void NameChanged(const QString & value) const;
+Q_SIGNALS: // SIGNALS    void NameChanged(const QString & value) const;
 
 private:
     QDBusInterface *m_dBusMonitorInter;

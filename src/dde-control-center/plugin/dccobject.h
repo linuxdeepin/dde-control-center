@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCOBJECT_H
@@ -31,9 +31,7 @@ public:
 
     Q_PROPERTY(bool visible READ isVisible WRITE setVisible NOTIFY visibleChanged DESIGNABLE false)
     Q_PROPERTY(bool enabled READ isEnabled WRITE setEnabled NOTIFY enabledChanged DESIGNABLE false)
-    Q_PROPERTY(bool visibleToApp READ isVisibleToApp NOTIFY visibleToAppChanged) // 未设置隐藏且未被配置隐藏则为true
-    Q_PROPERTY(bool enabledToApp READ isEnabledToApp NOTIFY enabledToAppChanged) // 未设置禁用且未被配置禁用则为true
-    Q_PROPERTY(bool canSearch READ canSearch WRITE setCanSearch NOTIFY canSearchChanged DESIGNABLE false)
+    Q_PROPERTY(bool visibleToApp READ isVisibleToApp NOTIFY visibleToAppChanged) // 未设置隐藏且未被配置隐藏则为true    Q_PROPERTY(bool enabledToApp READ isEnabledToApp NOTIFY enabledToAppChanged) // 未设置禁用且未被配置禁用则为true    Q_PROPERTY(bool canSearch READ canSearch WRITE setCanSearch NOTIFY canSearchChanged DESIGNABLE false)
 
     Q_PROPERTY(BackgroundTypes backgroundType READ backgroundType WRITE setBackgroundType NOTIFY backgroundTypeChanged DESIGNABLE false)
 
@@ -85,14 +83,7 @@ public:
     void setCanSearch(bool canSearch);
 
     enum BackgroundType {
-        AutoBg = 0,                              // 自动，Menu为Normal|Hover，Group为Normal，其他无背景，默认
-        Normal = 0x01,                           // 正常base背景
-        Hover = 0x02,                            // 鼠标悬浮背景
-        Clickable = 0x04,                        // 点击触发active信号
-        Highlight = 0x08,                        // 高亮背景，通常表示选中状态
-        Warning = 0x10,                          // 红色
-        ClickStyle = Normal | Hover | Clickable, // 有悬浮背景并可点击
-    };
+        AutoBg = 0,                              // 自动，Menu为Normal|Hover，Group为Normal，其他无背景，默认        Normal = 0x01,                           // 正常base背景        Hover = 0x02,                            // 鼠标悬浮背景        Clickable = 0x04,                        // 点击触发active信号        Highlight = 0x08,                        // 高亮背景，通常表示选中状态        Warning = 0x10,                          // 红色        ClickStyle = Normal | Hover | Clickable, // 有悬浮背景并可点击    };
     Q_DECLARE_FLAGS(BackgroundTypes, BackgroundType)
     Q_FLAG(BackgroundTypes)
     BackgroundTypes backgroundType() const;
@@ -102,18 +93,10 @@ public:
     void setCurrentObject(DccObject *obj);
 
     enum PageType {
-        EditorPage = 1, // 编辑控件,page为右则的编辑控件，左则为displayName和description
-        ItemPage,       // 控件，page为整个控件
-
-        Menu = 0x40, // 菜单项，子页面是page，默认
-        MenuEditor,  // 菜单加编辑控件,子项是一个菜单项
-
-        Control = 0x20,                // 页面中的一个控件，与其他组合使用
-        Editor = EditorPage | Control, // 编辑控件
-        Item = ItemPage | Control,     // 控件
-
-        UserType = 0x80, // 0x80及以上: 用户自定义使用
-    };
+        EditorPage = 1, // 编辑控件,page为右则的编辑控件，左则为displayName和description        ItemPage,       // 控件，page为整个控件
+        Menu = 0x40, // 菜单项，子页面是page，默认        MenuEditor,  // 菜单加编辑控件,子项是一个菜单项
+        Control = 0x20,                // 页面中的一个控件，与其他组合使用        Editor = EditorPage | Control, // 编辑控件        Item = ItemPage | Control,     // 控件
+        UserType = 0x80, // 0x80及以上: 用户自定义使用    };
     Q_ENUM(PageType)
     quint8 pageType() const;
     void setPageType(quint8 type);
@@ -187,5 +170,4 @@ protected:
 private:
     void updateIconSource();
 };
-} // namespace dccV25
-#endif // DCCOBJECT_H
+} // namespace dccV25#endif // DCCOBJECT_H

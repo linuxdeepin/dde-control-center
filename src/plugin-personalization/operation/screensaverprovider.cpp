@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2023-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -71,7 +71,7 @@ void ScreensaverWorker::list()
         imgs.insert(name, coverPath);
     }
 
-    emit pushScreensaver(items);
+    Q_EMIT pushScreensaver(items);
     running = false;
 }
 
@@ -91,8 +91,7 @@ ScreensaverProvider::ScreensaverProvider(PersonalizationDBusProxy *proxy, Person
     workThread->start();
 
     const static QMap<QString, QMap<QString, QString>> picScreenSaverModesMap {
-        {"default", {{"picPath", "qrc:///icons/slideshow_default_preview.webp"}, {"thumbnail", "qrc:///icons/slideshow_default.png"}}},
-    };
+        {"default", {{"picPath", "qrc:///icons/slideshow_default_preview.webp"}, {"thumbnail", "qrc:///icons/slideshow_default.png"}}},    };
     QList<WallpaperItemPtr> items;
 
     for (auto it = picScreenSaverModesMap.constBegin(); it != picScreenSaverModesMap.constEnd(); ++it) {

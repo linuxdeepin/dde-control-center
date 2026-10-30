@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -45,12 +45,9 @@ QVariant UserTimezoneModel::data(const QModelIndex &index, int role) const
 
     switch (role) {
     case Qt::DisplayRole:
-        return zoneDisplay; // (UTC+08:00)上海
-    case DescriptionRole:
-        return description; // xxx hours earlier/later than local
-    case ZoneIdRole:
-        return zoneId;  //  Asia/Shanghai
-    case ShiftRole:
+        return zoneDisplay; // (UTC+08:00)上海    case DescriptionRole:
+        return description; // xxx hours earlier/later than local    case ZoneIdRole:
+        return zoneId;  //  Asia/Shanghai    case ShiftRole:
         return zoneInfo.getUTCOffset() / 3600;
     default:
         break;
@@ -106,19 +103,13 @@ QVariant ZoneInfoModel::data(const QModelIndex &index, int role) const
     if (!index.isValid() || index.row() >= list.size())
         return QVariant();
 
-    const QString &zoneId = list.at(index.row()).timezone;   // "Asia/Shanghai"
-    const QString &zoneDisplay = sourceMode->zoneDisplayName(zoneId); // (UTC+08:00)上海
-
+    const QString &zoneId = list.at(index.row()).timezone;   // "Asia/Shanghai"    const QString &zoneDisplay = sourceMode->zoneDisplayName(zoneId); // (UTC+08:00)上海
     switch (role) {
     case Qt::DisplayRole:
-        return zoneDisplay; // (UTC+08:00)上海
-    case SearchTextRole:
-        return zoneDisplay + zoneId; // + (UTC+08:00)上海 Asia/Shanghai
-    case ZoneIdRole:
-        return zoneId;  //  Asia/Shanghai
-    case CityNameRole:
-        return zoneDisplay.mid(zoneDisplay.indexOf(" ") + 1); // 上海
-    default:
+        return zoneDisplay; // (UTC+08:00)上海    case SearchTextRole:
+        return zoneDisplay + zoneId; // + (UTC+08:00)上海 Asia/Shanghai    case ZoneIdRole:
+        return zoneId;  //  Asia/Shanghai    case CityNameRole:
+        return zoneDisplay.mid(zoneDisplay.indexOf(" ") + 1); // 上海    default:
         break;
     }
 

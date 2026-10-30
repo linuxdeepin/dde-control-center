@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -66,11 +66,10 @@ public:
     Q_INVOKABLE AppInfoListModel* appInfoListModel() const { return m_appInfoListModel; }
 
     Q_INVOKABLE QString warnTipsMessage(); // 获取警告提示信息
-
 protected Q_SLOTS:
     void updateAvatarPath();
 
-signals:
+Q_SIGNALS:
     void loginStateChanged(bool loginState);
     void avatarChanged(const QString &avatar);
     void regionChanged(const QString &region);
@@ -93,13 +92,7 @@ private:
     QString m_wechatName;
 
     // 同步服务
-    bool m_activation;   // 激活状态
-    bool m_syncEnabled;  // 同步是否可用：受激活状态、地区限制(未激活不可用，非中国地区不可用)
-    bool m_syncSwitch;   // 同步开关是否已开启
-    bool m_syncItemShow; // 是否显示系统设置中的同步项
-    qlonglong m_syncTimestamp; // 上次同步时间戳
-    QString m_lastSyncTime;    // 上次同步时间
-    SyncInfoListModel *m_syncInfoListModel;
+    bool m_activation;   // 激活状态    bool m_syncEnabled;  // 同步是否可用：受激活状态、地区限制(未激活不可用，非中国地区不可用)    bool m_syncSwitch;   // 同步开关是否已开启    bool m_syncItemShow; // 是否显示系统设置中的同步项    qlonglong m_syncTimestamp; // 上次同步时间戳    QString m_lastSyncTime;    // 上次同步时间    SyncInfoListModel *m_syncInfoListModel;
     AppInfoListModel *m_appInfoListModel;
     DownloadUrl *m_downloader;
 };

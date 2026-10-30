@@ -31,7 +31,6 @@ struct MetaTypeRegistration {
 };
 const MetaTypeRegistration g_registerMetaType;
 } // namespace
-
 namespace {
 
 MetaData makeMeta(const QString &key, const QString &text)
@@ -52,7 +51,6 @@ QList<MetaData> makeList(std::initializer_list<std::pair<QString, QString>> item
 }
 
 } // namespace
-
 // ---- Constructor defaults ----
 
 TEST(KeyboardModel, ConstructorDefaults)

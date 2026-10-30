@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DISPLAYMODEL_H
@@ -159,9 +159,7 @@ private:
     int m_screenHeight;
     int m_screenWidth;
     int m_mode {-1};
-    int m_colorTemperature {0}; //当前色温对应的颜色值
-    int m_adjustCCTMode {0}; //当前自动调节色温模式   0  不开启      1  自动调节    2 手动调节
-    double m_uiScale;
+    int m_colorTemperature {0}; //当前色温对应的颜色值    int m_adjustCCTMode {0}; //当前自动调节色温模式   0  不开启      1  自动调节    2 手动调节    double m_uiScale;
     double m_minimumBrightnessScale;
     QString m_primary;
     QString m_customColorTempTimePeriod;
@@ -182,10 +180,8 @@ private:
     TouchscreenMap m_touchMap;
     uint m_maxBacklightBrightness {0};
     bool m_allSupportFillModes;
-    bool m_monitorModeChanging; // 配置修改中,仅控制中心修改时才处理自动拼接
-    bool m_isConcatScreenMode { false };
-    QMap<QString, QStringList> m_virtualOutput; // 虚拟输出组
-};
+    bool m_monitorModeChanging; // 配置修改中,仅控制中心修改时才处理自动拼接    bool m_isConcatScreenMode { false };
+    QMap<QString, QStringList> m_virtualOutput; // 虚拟输出组};
 }
 
 #endif // DISPLAYMODEL_H

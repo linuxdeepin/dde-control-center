@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef SYSTEMINFOMODEL_H
@@ -16,13 +16,7 @@ using namespace Dtk::Core;
 namespace DCC_NAMESPACE{
 
 enum ActiveState {
-    Unknown = -1,  //未知
-    Unauthorized = 0,  //未授权
-    Authorized,  //已授权
-    AuthorizedLapse,  //授权失效
-    TrialAuthorized, //试用期已授权
-    TrialExpired //试用期已过期
-};
+    Unknown = -1,  //未知    Unauthorized = 0,  //未授权    Authorized,  //已授权    AuthorizedLapse,  //授权失效    TrialAuthorized, //试用期已授权    TrialExpired //试用期已过期};
 
 // !!! 不要用C++11的前置声明枚举类型，这里lupdate命令有个bug．具体见
 // https://stackoverflow.com/questions/6504902/lupdate-error-qualifying-with-unknown-namespace-class

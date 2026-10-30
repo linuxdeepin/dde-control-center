@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef USER_H
@@ -139,8 +139,7 @@ private:
     QString m_password;
     QString m_repeatPassword;
     QString m_currentAvatar;
-    QString m_passwordStatus; // NP: no password, P have a password, L user is locked
-    QList<QString> m_avatars;
+    QString m_passwordStatus; // NP: no password, P have a password, L user is locked    QList<QString> m_avatars;
     QStringList m_groups;
     quint64 m_createdTime;
     QString m_gid;
@@ -152,5 +151,4 @@ private:
     Q_ENUM(SecurityLever);
 };
 } // namespace dccV25
-
 #endif // USER_H

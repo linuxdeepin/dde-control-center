@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -27,9 +27,7 @@ struct ShortcutInfo
     int type;
     ShortcutInfo *replace = nullptr;
     ShortcutItem *item = nullptr;
-    QString sectionKey;            // Stable logical category key (never translated)
-    QString sectionName;           // Resolved translated display text for section
-    PinyinSearchIndex pinyinIndex;
+    QString sectionKey;            // Stable logical category key (never translated)    QString sectionName;           // Resolved translated display text for section    PinyinSearchIndex pinyinIndex;
     int index = 0;
 
     ShortcutInfo()
@@ -60,8 +58,7 @@ public:
         Window,
         Workspace,
         AssistiveTools,
-        App, // Wayland-only (new D-Bus API)
-    };
+        App, // Wayland-only (new D-Bus API)    };
 
     QList<ShortcutInfo *> systemInfo() const;
     QList<ShortcutInfo *> windowInfo() const;
@@ -230,5 +227,4 @@ private:
 };
 
 } // namespace dccV25
-
 #endif // SHORTCUTMODEL_H

@@ -59,8 +59,7 @@ public:
         T_HasModule = 0x00000001,
         T_HasMain = 0x00000002,
         T_DataMask = 0x00000003,
-        T_ShortMain = 0x00000004, // main module named main.qml
-    };
+        T_ShortMain = 0x00000004, // main module named main.qml    };
     Q_DECLARE_FLAGS(TypeFlags, Type)
     Q_FLAG(TypeFlags)
 
@@ -88,11 +87,9 @@ public:
     void setType(TypeFlags type);
 
     // Loading methods
-    void reset(); // Reset status and restart loading
-    bool loadMetaData();
+    void reset(); // Reset status and restart loading    bool loadMetaData();
     bool loadModule();
-    void loadData(); // For async loading in worker thread
-    void createData();
+    void loadData(); // For async loading in worker thread    void createData();
     void createDccObject();
     void moveThread();
     void updateParent();
@@ -129,7 +126,6 @@ private:
 };
 
 } // namespace dccV25
-
 Q_DECLARE_METATYPE(dccV25::DccPluginLoader *)
 Q_DECLARE_OPERATORS_FOR_FLAGS(dccV25::DccPluginLoader::StatusFlags)
 Q_DECLARE_OPERATORS_FOR_FLAGS(dccV25::DccPluginLoader::TypeFlags)

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DATETIMEDBUSPROXY_H
@@ -128,8 +128,7 @@ public:
 
     void GenLocale(const QString &locale);
 
-Q_SIGNALS: // SIGNALS
-    // Timedate
+Q_SIGNALS: // SIGNALS    // Timedate
     // begin property changed signals
     void CanNTPChanged(bool value) const;
     void DSTOffsetChanged(int value) const;

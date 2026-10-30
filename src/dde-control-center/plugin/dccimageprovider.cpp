@@ -214,5 +214,4 @@ void DccImageProvider::onImageLoaded(const QString &cacheKey, const QImage &imag
 }
 
 } // namespace dccV25
-
 #include "dccimageprovider.moc"

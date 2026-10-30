@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "concatscreen.h"
@@ -238,8 +238,7 @@ bool ConcatScreen::multiScreenSortAlgo(bool &isRestore, const bool isRebound)
     QList<ScreenData *> lstNoMovedItems;
     QList<ScreenData *> lstShelterItems;
 
-    QList<QPair<ScreenData *, qreal>> lstMoveingItemToCenterPosLen; // 所有块的中心点到移动点的距离
-    bool isMove = true;
+    QList<QPair<ScreenData *, qreal>> lstMoveingItemToCenterPosLen; // 所有块的中心点到移动点的距离    bool isMove = true;
     isRestore = false;
     bool isAutoAdsorption = false;
     bool isIntersect = false;
@@ -247,9 +246,7 @@ bool ConcatScreen::multiScreenSortAlgo(bool &isRestore, const bool isRebound)
     qreal g_dy = 0.0;
 
     qreal intersectedArea = 0.0; // 相交的面积
-
     bool g_bXYTogetherMoved = false; // 标志XY方向是否一起移动，其余情况按哪个方向离得近向哪个方向移动
-
     auto mapToSceneIntersectRect = [](ScreenData *item) {
         return item->rect().adjusted(1, 1, -1, -1);
     };
@@ -320,8 +317,7 @@ bool ConcatScreen::multiScreenSortAlgo(bool &isRestore, const bool isRebound)
                 return true;
             }
         }
-    } else { // 没有完全重合的情况处理逻辑
-        std::sort(lstNoMovedItems.begin(), lstNoMovedItems.end(), [=](const ScreenData *item1, const ScreenData *item2) {
+    } else { // 没有完全重合的情况处理逻辑        std::sort(lstNoMovedItems.begin(), lstNoMovedItems.end(), [=](const ScreenData *item1, const ScreenData *item2) {
             return item1->rect().bottomLeft().x() < item2->rect().bottomLeft().x();
         });
 
@@ -420,8 +416,7 @@ bool ConcatScreen::multiScreenSortAlgo(bool &isRestore, const bool isRebound)
                     }
 
                     if (lstShelterItemsTemp.size() >= 0) {
-                        m_movingItem->moveBy(0, -dy); // 先移回去
-                        // m_graphicsScene.update();
+                        m_movingItem->moveBy(0, -dy); // 先移回去                        // m_graphicsScene.update();
 
                         // 下排序
                         std::sort(lstActivedItemsX.begin(), lstActivedItemsX.end(), [=](const ScreenData *item1, const ScreenData *item2) {
@@ -474,8 +469,7 @@ bool ConcatScreen::multiScreenSortAlgo(bool &isRestore, const bool isRebound)
                     }
 
                     if (lstShelterItemsTemp.size() >= 0) {
-                        m_movingItem->moveBy(0, -dy); // 先移回去
-                        // m_graphicsScene.update();
+                        m_movingItem->moveBy(0, -dy); // 先移回去                        // m_graphicsScene.update();
 
                         // 上排序
                         for (auto t : lstShelterItemsTemp) {

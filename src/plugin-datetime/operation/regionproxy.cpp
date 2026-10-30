@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2023-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -366,8 +366,7 @@ RegionAvailableData RegionProxy::customTextData(const QLocale &locale)
     textData.shortTimesAvailable = pFormat->shortTimesText();
     textData.longTimesAvailable = pFormat->longTimesText();
 
-    m_customFormat.daysAvailable = pFormat->daysText(); // TODO format
-    m_customFormat.shortDatesAvailable = pFormat->shortDateFormats();
+    m_customFormat.daysAvailable = pFormat->daysText(); // TODO format    m_customFormat.shortDatesAvailable = pFormat->shortDateFormats();
     m_customFormat.longDatesAvailable = pFormat->longDateFormats();
     m_customFormat.shortTimesAvailable = pFormat->shortTimeFormats();
     m_customFormat.longTimesAvailable = pFormat->longTimeFormats();
@@ -387,8 +386,7 @@ RegionAvailableData RegionProxy::defaultTextData(const QLocale &locale)
     textData.shortTimesAvailable = defaultFormat->shortTimesText();
     textData.longTimesAvailable = defaultFormat->longTimesText();
 
-    m_defaultFormat.daysAvailable = defaultFormat->daysText(); // TODO format
-    m_defaultFormat.shortDatesAvailable = defaultFormat->shortDateFormats();
+    m_defaultFormat.daysAvailable = defaultFormat->daysText(); // TODO format    m_defaultFormat.shortDatesAvailable = defaultFormat->shortDateFormats();
     m_defaultFormat.longDatesAvailable = defaultFormat->longDateFormats();
     m_defaultFormat.shortTimesAvailable = defaultFormat->shortTimeFormats();
     m_defaultFormat.longTimesAvailable = defaultFormat->longTimeFormats();

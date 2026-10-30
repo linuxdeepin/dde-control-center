@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -29,7 +29,7 @@ public:
     virtual bool isAvailable() const { return true; }
     virtual QString getTypeName() const = 0;
 
-signals:
+Q_SIGNALS:
     void addStageChanged();
     void enrollCompleted();
 

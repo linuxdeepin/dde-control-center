@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -569,7 +569,7 @@ void KeyboardController::setConflictText(const QString &newConflictText)
         return;
 
     m_conflictText = newConflictText;
-    emit conflictTextChanged();
+    Q_EMIT conflictTextChanged();
 }
 
 bool KeyboardController::isCustomShortcutNameExists(const QString &name, const QString &excludeId)
@@ -639,11 +639,9 @@ static QString qtAccelToXkb(const QString &accel)
             parts.removeLast();
         parts.append(QStringLiteral("+"));
     } else {
-        parts.removeAll(QString()); // drop stray empties from odd input
-    }
+        parts.removeAll(QString()); // drop stray empties from odd input    }
     if (parts.size() <= 1)
-        return accel; // standalone key, no modifiers
-    QString out;
+        return accel; // standalone key, no modifiers    QString out;
     for (int i = 0; i < parts.size() - 1; ++i) {
         const QString &p = parts.at(i);
         if (p == QLatin1String("Ctrl") || p == QLatin1String("Control"))

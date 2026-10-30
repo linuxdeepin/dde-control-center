@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -26,8 +26,7 @@ public:
 
     QString ListUserApps(const QString &mimeType);
 
-Q_SIGNALS: // SIGNALS
-    void Change();
+Q_SIGNALS: // SIGNALS    void Change();
     // begin property changed signals
 
 private:

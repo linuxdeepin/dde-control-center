@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCC_SOUND_SOUNDMODEL_H
@@ -132,7 +132,6 @@ public:
     DDesktopServices::SystemSoundEffect getEffectTypeByGsettingName(const QString &name);
 
     bool checkSEExist(const QString &name); // SE: Sound Effect
-
     bool isLaptop() const;
     void setIsLaptop(bool isLaptop);
 
@@ -282,9 +281,7 @@ Q_SIGNALS:
     void showInputBluetoothModeChanged();
 
 private:
-    QString m_audioServer;     // 当前使用音频框架
-    bool m_audioServerStatus{true};  // 设置音频时的状态
-    bool m_speakerOn;
+    QString m_audioServer;     // 当前使用音频框架    bool m_audioServerStatus{true};  // 设置音频时的状态    bool m_speakerOn;
     bool m_microphoneOn;
     bool m_enableSoundEffect;
     bool m_isLaptop;

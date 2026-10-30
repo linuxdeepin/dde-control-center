@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DISPLAYDBUSPROXY_H
@@ -109,8 +109,7 @@ public:
 private:
     void init();
 
-public Q_SLOTS: // METHODS
-    // Display
+public Q_SLOTS: // METHODS    // Display
     QDBusPendingReply<> ApplyChanges();
     QDBusPendingReply<> AssociateTouch(const QString &in0, const QString &in1);
     QDBusPendingReply<> AssociateTouchByUUID(const QString &in0, const QString &in1);
@@ -145,8 +144,7 @@ public Q_SLOTS: // METHODS
     QString GetConfig();
     void SetConfig(QString cfgStr);
 
-Q_SIGNALS: // SIGNALS
-    // begin property changed signals
+Q_SIGNALS: // SIGNALS    // begin property changed signals
     void BrightnessChanged(BrightnessMap value) const;
     void SupportColorTemperatureChanged(bool value) const;
     void ColorTemperatureEnabledChanged(bool value) const;

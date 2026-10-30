@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -44,20 +44,20 @@ public:
     bool langSelectorIsValid();
     void langSelectorStartServiceProcess();
 
-signals:
+Q_SIGNALS:
     // LangSelector property
     void CurrentLocaleChanged(const QString & value) const;
     void LocaleStateChanged(int value) const;
     void LocalesChanged(const QStringList & value) const;
     void langSelectorServiceStartFinished(const quint32 ret) const;
 
-public slots:
+public Q_SLOTS:
     QDBusPendingReply<> AddLocale(const QString &in0);
     QDBusPendingReply<> DeleteLocale(const QString &in0);
     QDBusPendingReply<> SetLocale(const QString &in0);
     QDBusPendingReply<LocaleList> GetLocaleList();
 
-private slots:
+private Q_SLOTS:
     void onLangSelectorStartServiceProcessFinished(QDBusPendingCallWatcher *w);
 private:
     void init();

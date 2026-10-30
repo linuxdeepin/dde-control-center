@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -53,7 +53,6 @@ QStringList DCCLocale::dialectNames(const QStringList &localeCodes)
 {
     QStringList results;
     results.reserve(localeCodes.size()); // 预分配空间
-
     icu::LocaleDisplayNames* displayNames = getDisplayNames();
     
     for (const QString &localeCode : std::as_const(localeCodes)) {

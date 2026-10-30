@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCQUICKDBUSINTERFACE_P_H
@@ -67,17 +67,14 @@ public:
     QString m_service;
     QString m_path;
     QString m_interface;
-    QMap<QString, QString> m_mapProperties; // 保存属性名对照表，qml要求属性名首字母小写
-    QString m_suffix;
+    QMap<QString, QString> m_mapProperties; // 保存属性名对照表，qml要求属性名首字母小写    QString m_suffix;
     BusType m_connectionType;
     QDBusConnection m_connection;
-    QVariantMap m_propertyMap; // DBus属性值
-    QList<QPair<DccDBusSignalCallback *, QString>> m_signalCallbacks;
+    QVariantMap m_propertyMap; // DBus属性值    QList<QPair<DccDBusSignalCallback *, QString>> m_signalCallbacks;
     bool m_propertyConnected = false;
     bool m_completed = false;
     bool m_enabled = true;
 
     friend class DccQuickDBusCallback;
 };
-} // namespace dccV25
-#endif // DCCQUICKDBUSINTERFACE_P_H
+} // namespace dccV25#endif // DCCQUICKDBUSINTERFACE_P_H

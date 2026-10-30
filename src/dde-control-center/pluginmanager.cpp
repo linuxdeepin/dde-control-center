@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -87,8 +87,7 @@ void DccPluginManager::setPlugins(const QStringList &plugins)
 QThreadPool *DccPluginManager::threadPool()
 {
     if (!m_threadPool) {
-        m_threadPool = new QThreadPool(); // No parent to avoid double-delete
-    }
+        m_threadPool = new QThreadPool(); // No parent to avoid double-delete    }
     return m_threadPool;
 }
 

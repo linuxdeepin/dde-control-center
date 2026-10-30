@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -46,8 +46,7 @@ inline double pxToPt(double px)
 
 inline bool isURI(QString uri)
 {
-    if (uri.indexOf("://") != -1)
-        return true;
+    if (uri.indexOf("://") != -1)        return true;
 
     return false;
 }

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -225,8 +225,7 @@ void AccountsController::setFullname(const QString &id, const QString &name)
 {
     if (User *user = m_model->getUser(id))
         if (name.simplified() != user->fullname())
-            m_worker->setFullname(user, name.simplified()); // 去除空白字符
-}
+            m_worker->setFullname(user, name.simplified()); // 去除空白字符}
 
 int AccountsController::userType(const QString &id) const
 {
@@ -291,19 +290,13 @@ bool AccountsController::isDeleteAble(const QString &id) const
         return false;
 
     User *curLoginUser = m_model->currentUser();
-    auto isOnlyAdmin = [this, editUser] {         // 是最后一个管理员
-        return isSystemAdmin(editUser)            // 是管理员
-                && adminCount() == 1;             // 管理员只有一个
-    };
+    auto isOnlyAdmin = [this, editUser] {         // 是最后一个管理员        return isSystemAdmin(editUser)            // 是管理员                && adminCount() == 1;             // 管理员只有一个    };
 
     if (m_model->getIsSecurityHighLever()) {
         return curLoginUser && curLoginUser->securityLever() == SecurityLever::Sysadm
                 && !editUser->isCurrentUser();
     }
-    return !editUser->isCurrentUser() // 不是当前用户
-            && !editUser->online()    // 未登录
-            && !isOnlyAdmin();        // 不是最后一个管理员
-}
+    return !editUser->isCurrentUser() // 不是当前用户            && !editUser->online()    // 未登录            && !isOnlyAdmin();        // 不是最后一个管理员}
 
 bool AccountsController::isAutoLoginVisable() const
 {
@@ -416,8 +409,7 @@ void AccountsController::updateGroups(const QString &id)
         bool isLeftContains = containsCache.value(left);
         bool isRightContains = containsCache.value(right);
 
-        if (!(isLeftContains ^ isRightContains)) { // both true or both false
-            return left.compare(right, Qt::CaseInsensitive) < 0;
+        if (!(isLeftContains ^ isRightContains)) { // both true or both false            return left.compare(right, Qt::CaseInsensitive) < 0;
         } else {
             return isLeftContains ? true : false;
         }
@@ -724,7 +716,7 @@ QAbstractListModel *AccountsController::accountsModel()
             return;
         auto index = m_accountsModel->index(idIdx);
         m_accountsModel->dataChanged(index, index, {AccountListModel::OnlineRole});
-        emit onlineUserListChanged();
+        Q_EMIT onlineUserListChanged();
     });
 
     connect(this, &AccountsController::userIdListChanged, static_cast<AccountListModel *>(m_accountsModel), &AccountListModel::reset);
@@ -803,8 +795,7 @@ QString AccountsController::checkUsername(const QString &name)
 QString AccountsController::checkFullname(const QString &name)
 {
     QString alertMsg;
-    QString trimmedName = name.simplified(); // 与 setFullname 保持一致，去除首尾空格
-    do {
+    QString trimmedName = name.simplified(); // 与 setFullname 保持一致，去除首尾空格    do {
         if (trimmedName.isEmpty()) {
             break;
         }
@@ -964,5 +955,4 @@ QStringList AccountsController::userTypes(bool createUser /* = false*/) const
 }
 
 } // namespace dccV25
-
 #include "accountscontroller.moc"

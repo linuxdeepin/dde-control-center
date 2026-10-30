@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -269,8 +269,7 @@ void DeepinWorker::licenseStateChangeSlot()
         // 如果系统为激活状态，并且是中国大陆地区用户，则请求同步状态
         if (m_model->syncEnabled()) {
             activate();
-        } else {  // 否则，关闭自动同步
-            setAutoSync(false);
+        } else {  // 否则，关闭自动同步            setAutoSync(false);
         }
         watcher->deleteLater();
     });
@@ -406,10 +405,8 @@ QString DeepinWorker::loadCodeURL()
         return token;
     };
 
-    QString oauthURI = "https://login.uniontech.com";
-    if (isCommunitySystem()) {
-        oauthURI = "https://login.deepin.org";
-    }
+    QString oauthURI = "https://login.uniontech.com";    if (isCommunitySystem()) {
+        oauthURI = "https://login.deepin.org";    }
 
     if (!qEnvironmentVariableIsEmpty("DEEPINID_OAUTH_URI")) {
         oauthURI = qgetenv("DEEPINID_OAUTH_URI");

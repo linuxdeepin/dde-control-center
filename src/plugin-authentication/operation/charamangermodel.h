@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -27,38 +27,18 @@ public:
      * @brief The EnrollStatusType enum 人脸录入状态
      */
     enum EnrollFaceStatusType {
-        STATUS_SUCCESS = 0,   // 成功
-        STATUS_NOT_REAL_HUMAN,  // 非人类
-        STATUS_FACE_NOT_CENTER,  // 非中心
-        STATUS_FACE_TOO_BIG,  // 脸太大
-        STATUS_FACE_TOO_SMALL,
+        STATUS_SUCCESS = 0,   // 成功        STATUS_NOT_REAL_HUMAN,  // 非人类        STATUS_FACE_NOT_CENTER,  // 非中心        STATUS_FACE_TOO_BIG,  // 脸太大        STATUS_FACE_TOO_SMALL,
         STATUS_NO_FACE,
-        STATUS_FACE_TOO_MANY,  // 多人
-        STATUS_FACE_NOT_CLEARITY,  // 不清晰
-        STATUS_FACE_BRIGHTNESS,  // 亮度
-        STATUS_FACE_COVERD,  // 遮挡
-        STATUS_CANCELED, // 取消
-        STATUS_OVERTIME, // 超时
-        STATUS_COLLAPSE, // 崩溃
-        // 15 与 deepin-authentication/deepin-face 约定一致（13/14 为服务内部断开状态码）
-        STATUS_CAMERA_NOT_ENABLED = 15 // 摄像头未开启
-    };
+        STATUS_FACE_TOO_MANY,  // 多人        STATUS_FACE_NOT_CLEARITY,  // 不清晰        STATUS_FACE_BRIGHTNESS,  // 亮度        STATUS_FACE_COVERD,  // 遮挡        STATUS_CANCELED, // 取消        STATUS_OVERTIME, // 超时        STATUS_COLLAPSE, // 崩溃        // 15 与 deepin-authentication/deepin-face 约定一致（13/14 为服务内部断开状态码）
+        STATUS_CAMERA_NOT_ENABLED = 15 // 摄像头未开启    };
 
     /**
      * @brief The EnrollIrisStatusType enum
      */
     enum EnrollIrisStatusType {
-        STATUS_IRIS_SUCCESS = 0,   // 成功
-        STATUS_IRIS_TOO_BIG,  // 太大
-        STATUS_IRIS_TOO_SMALL,
+        STATUS_IRIS_SUCCESS = 0,   // 成功        STATUS_IRIS_TOO_BIG,  // 太大        STATUS_IRIS_TOO_SMALL,
         STATUS_IRIS_NO_FACE,
-        STATUS_IRIS_NOT_CLEARITY,  // 不清晰
-        STATUS_IRIS_BRIGHTNESS,  // 亮度
-        STATUS_IRIS_EYES_CLOSE,  // 闭目
-        STATUS_IRIS_CANCELED, // 取消
-        STATUS_IRIS_Error, // 崩溃
-        STATUS_IRIS_OVERTIME // 超时
-    };
+        STATUS_IRIS_NOT_CLEARITY,  // 不清晰        STATUS_IRIS_BRIGHTNESS,  // 亮度        STATUS_IRIS_EYES_CLOSE,  // 闭目        STATUS_IRIS_CANCELED, // 取消        STATUS_IRIS_Error, // 崩溃        STATUS_IRIS_OVERTIME // 超时    };
 
     /**
      * @brief The AddInfoState enum 录入的四种状态

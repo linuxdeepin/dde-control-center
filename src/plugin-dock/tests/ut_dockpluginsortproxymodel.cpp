@@ -38,8 +38,7 @@ std::unique_ptr<DockPluginSortProxyModel> makeSortedProxy(const QStringList &row
     auto *source = new QStringListModel;
     source->setStringList(rows);
     auto proxy = std::make_unique<DockPluginSortProxyModel>();
-    source->setParent(proxy.get());  // proxy takes ownership via reparent
-    proxy->setSourceModel(source);
+    source->setParent(proxy.get());  // proxy takes ownership via reparent    proxy->setSourceModel(source);
     proxy->sort(0, Qt::AscendingOrder);
     if (sourceOut) *sourceOut = source;
     return proxy;
@@ -52,7 +51,6 @@ int sourceRowOf(const DockPluginSortProxyModel *proxy, int proxyRow)
     return proxy->mapToSource(proxyIndex).row();
 }
 } // namespace
-
 // ---- Constructor ----
 
 TEST(DockPluginSortProxyModel, ConstructorEnablesDynamicSortAndDisplayRole)
@@ -91,8 +89,7 @@ TEST(DockPluginSortProxyModel, ClassifyStringCJK)
     EXPECT_EQ(static_cast<int>(proxy.classifyString(QStringLiteral("中文"))), kCJK);
     EXPECT_EQ(static_cast<int>(proxy.classifyString(QStringLiteral("あ"))), kCJK);
     EXPECT_EQ(static_cast<int>(proxy.classifyString(QStringLiteral("，"))), kCJK);
-    EXPECT_EQ(static_cast<int>(proxy.classifyString(QStringLiteral(".abc"))), kCJK); // '.' is not A-Z/a-z/digit
-}
+    EXPECT_EQ(static_cast<int>(proxy.classifyString(QStringLiteral(".abc"))), kCJK); // '.' is not A-Z/a-z/digit}
 
 TEST(DockPluginSortProxyModel, ClassifyStringEmptyReturnsCJK)
 {
@@ -273,13 +270,7 @@ TEST(DockPluginSortProxyModel, EndToEndSortOrdersGroupsThenWithinGroup)
 
     // Expected: Digit numeric (1,2,10) → Latin case-insensitive stable
     // (abc before Abc by source order) → CJK (中文).
-    EXPECT_EQ(sourceRowOf(proxy.get(), 0), 2); // "1"
-    EXPECT_EQ(sourceRowOf(proxy.get(), 1), 4); // "2"
-    EXPECT_EQ(sourceRowOf(proxy.get(), 2), 3); // "10"
-    EXPECT_EQ(sourceRowOf(proxy.get(), 3), 1); // "abc"
-    EXPECT_EQ(sourceRowOf(proxy.get(), 4), 5); // "Abc"
-    EXPECT_EQ(sourceRowOf(proxy.get(), 5), 0); // "中文"
-}
+    EXPECT_EQ(sourceRowOf(proxy.get(), 0), 2); // "1"    EXPECT_EQ(sourceRowOf(proxy.get(), 1), 4); // "2"    EXPECT_EQ(sourceRowOf(proxy.get(), 2), 3); // "10"    EXPECT_EQ(sourceRowOf(proxy.get(), 3), 1); // "abc"    EXPECT_EQ(sourceRowOf(proxy.get(), 4), 5); // "Abc"    EXPECT_EQ(sourceRowOf(proxy.get(), 5), 0); // "中文"}
 
 TEST(DockPluginSortProxyModel, EndToEndSortSingleGroupDigits)
 {
@@ -293,10 +284,7 @@ TEST(DockPluginSortProxyModel, EndToEndSortSingleGroupDigits)
     QStringListModel *source = nullptr;
     auto proxy = makeSortedProxy(rows, &source);
     ASSERT_EQ(proxy->rowCount(), 3);
-    EXPECT_EQ(sourceRowOf(proxy.get(), 0), 2); // "1"
-    EXPECT_EQ(sourceRowOf(proxy.get(), 1), 1); // "2"
-    EXPECT_EQ(sourceRowOf(proxy.get(), 2), 0); // "10"
-}
+    EXPECT_EQ(sourceRowOf(proxy.get(), 0), 2); // "1"    EXPECT_EQ(sourceRowOf(proxy.get(), 1), 1); // "2"    EXPECT_EQ(sourceRowOf(proxy.get(), 2), 0); // "10"}
 
 TEST(DockPluginSortProxyModel, EndToEndSortEmptySource)
 {

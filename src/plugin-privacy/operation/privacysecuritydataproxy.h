@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -12,9 +12,7 @@ Q_DECLARE_LOGGING_CATEGORY(DCC_PRIVACY)
 
 namespace Dtk {
 namespace Core {
-} // namespace Core
-} // namespace Dtk
-class QDBusPendingCallWatcher;
+} // namespace Core} // namespace Dtkclass QDBusPendingCallWatcher;
 class QFileSystemWatcher;
 
 class PrivacySecurityDataProxy : public QObject
@@ -37,7 +35,6 @@ Q_SIGNALS:
     void EntityChanged(const QString &entity, const QString &type);
     void ModeChanged(const QString &mode, const QString &type);
     void entityListFinished();          // ListEntity 拉取完成(成功/失败均 emit), 供 worker 门控查询
-
 public Q_SLOTS:
     void getMode(const QString &object);
     void setMode(const QString &config);
@@ -68,7 +65,6 @@ private Q_SLOTS:
 private:
     bool m_serviceExists;
     bool m_entityListQueried = false;
-    bool m_listEntityRetried = false;   // 本在线周期是否已重试过一次
-};
+    bool m_listEntityRetried = false;   // 本在线周期是否已重试过一次};
 
 #endif // PRIVACYSECURITYDATAPROXY_H
