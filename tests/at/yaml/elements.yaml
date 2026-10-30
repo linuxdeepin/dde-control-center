@@ -1,0 +1,49 @@
+elements:
+  lowBatteryNotification:
+    accessible_id: lowBatteryNotification
+  lowBatteryOperator:
+    accessible_id: lowBatteryOperator
+  lowBatteryThreshold:
+    accessible_id: lowBatteryThreshold
+  displayRemainingUsingAndChargingTime:
+    accessible_id: displayRemainingUsingAndChargingTime
+  maximumCapacity:
+    accessible_id: maximumCapacity
+  turnOffTheMonitorAfter:
+    accessible_id: turnOffTheMonitorAfter
+  lockScreenAfter:
+    accessible_id: lockScreenAfter
+  computerSuspendsAfter:
+    accessible_id: computerSuspendsAfter
+  whenTheLidIsClosed:
+    accessible_id: whenTheLidIsClosed
+  whenThePowerButtonIsPressed:
+    accessible_id: whenThePowerButtonIsPressed
+  passwordIsRequiredToWakeUpTheComputer:
+    accessible_id: passwordIsRequiredToWakeUpTheComputer
+  passwordIsRequiredToWakeUpTheMonitor:
+    accessible_id: passwordIsRequiredToWakeUpTheMonitor
+  timedPoweroff:
+    accessible_id: timedPoweroff
+  poweroffTime:
+    accessible_id: poweroffTime
+  repeatDays:
+    accessible_id: repeatDays
+  repeatDaysEdit:
+    accessible_id: repeatDaysEdit
+  powerPlans0:
+    accessible_id: powerPlans0
+  powerPlans1:
+    accessible_id: powerPlans1
+  powerPlans2:
+    accessible_id: powerPlans2
+  powerPlans3:
+    accessible_id: powerPlans3
+  autoPowerSavingOnLowBattery:
+    accessible_id: autoPowerSavingOnLowBattery
+  lowPowerThreshold:
+    accessible_id: lowPowerThreshold
+  autoPowerSavingOnBattery:
+    accessible_id: autoPowerSavingOnBattery
+  decreaseBrightness:
+    accessible_id: decreaseBrightness

@@ -1,0 +1,81 @@
+name: 使用电源_suite
+app: dde-control-center
+module: 使用电源
+setup:
+- action: session_start
+  command: dde-control-center
+  wait: 3.0
+suites:
+- id: suite_使用电源_001_s1
+  name: 使用电源-关闭显示器/锁定屏幕/电脑休眠时间滑块设置
+  description: ''
+  steps:
+  - step_type: action
+    action: element_set_value
+    selector:
+      accessible_id: turnOffTheMonitorAfter
+      role: slider
+    text: '5'
+  - step_type: action
+    action: element_set_value
+    selector:
+      accessible_id: lockScreenAfter
+      role: slider
+    text: '5'
+  - step_type: action
+    action: element_set_value
+    selector:
+      accessible_id: computerSuspendsAfter
+      role: slider
+    text: '15'
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: turnOffTheMonitorAfter
+      role: slider
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: lockScreenAfter
+      role: slider
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: computerSuspendsAfter
+      role: slider
+- id: suite_使用电源_002_s1
+  name: 使用电源-合上盖子操作和电源键操作设置
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: whenTheLidIsClosed
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 无操作
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: whenThePowerButtonIsPressed
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 关机
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: whenTheLidIsClosed
+      role: combo box
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: whenThePowerButtonIsPressed
+      role: combo box
+teardown:
+- action: session_stop
