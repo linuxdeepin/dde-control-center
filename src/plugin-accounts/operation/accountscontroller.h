@@ -108,6 +108,7 @@ signals:
     void userRemoved(const QString &userId);
     void onlineUserListChanged();
     void avatarChanged(const QString &userId, const QString &avatar);
+    void customAvatarListChanged(const QString &userId);
     void userTypeChanged(const QString &userId, const int userType);
     void fullnameChanged(const QString &userId, const QString &fullname);
     void autoLoginChanged(const QString &userId, bool enable);
