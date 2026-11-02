@@ -70,14 +70,14 @@ public:
 
     QVariantMap appInfo(const QString &id) const;
 
-signals:
+Q_SIGNALS:
     void appAdded(const QString &appId);
     void appRemoved(const QString &id);
     void appValueChanged(const QString &appId, uint configItem, const QVariant &value);
     void systemValueChanged(uint configItem, const QVariant &value);
     void systemValueChanged(const QString &key);
 
-public slots:
+public Q_SLOTS:
     void onAppsChanged();
 
 private:

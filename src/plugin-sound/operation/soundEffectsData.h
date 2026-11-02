@@ -32,7 +32,7 @@ public:
     QString aniIconPath() const;
     void setAniIconPath(const QString &newAniIconPath);
 
-signals:
+Q_SIGNALS:
 
 
 private:

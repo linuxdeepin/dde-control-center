@@ -53,12 +53,12 @@ void BluetoothDeviceModel::updateData(BluetoothDevice *device)
             if (isConnected && index > 0) {
                 moveToTop(device->id());
                 QModelIndex modelIndex = createIndex(0, 0);
-                emit dataChanged(modelIndex, modelIndex, {Name, ConnectStatus, ConnectStatusText, Battery, BatteryIconPath});
+                Q_EMIT dataChanged(modelIndex, modelIndex, {Name, ConnectStatus, ConnectStatusText, Battery, BatteryIconPath});
             } else if (!isConnected) {
                 reorderDevices();
             } else {
                 QModelIndex modelIndex = createIndex(index, 0);
-                emit dataChanged(modelIndex, modelIndex, {Name, ConnectStatus, ConnectStatusText, Battery, BatteryIconPath});
+                Q_EMIT dataChanged(modelIndex, modelIndex, {Name, ConnectStatus, ConnectStatusText, Battery, BatteryIconPath});
             }
             return;
         }
@@ -72,7 +72,7 @@ void BluetoothDeviceModel::updateAllData()
 {
     for (int index = 0; index < m_deviceData.count(); index++) {
         QModelIndex modelIndex = createIndex(index, 0);
-        emit dataChanged(modelIndex, modelIndex, {});
+        Q_EMIT dataChanged(modelIndex, modelIndex, {});
     }
 }
 

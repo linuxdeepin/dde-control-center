@@ -58,7 +58,7 @@ void PowerOperatorModel::setEnable(int index, bool enable)
 {
     if (index >= 0 && index < m_powerOperatorList.size()) {
         m_powerOperatorList[index]->enable = enable;
-        emit dataChanged(PowerOperatorModel::index(index, 0), PowerOperatorModel::index(index, 0));
+        Q_EMIT dataChanged(PowerOperatorModel::index(index, 0), PowerOperatorModel::index(index, 0));
     }
 }
 
@@ -66,7 +66,7 @@ void PowerOperatorModel::setVisible(int index, bool visible)
 {
     if (index >= 0 && index < m_powerOperatorList.size()) {
         m_powerOperatorList[index]->visible = visible;
-        emit dataChanged(PowerOperatorModel::index(index, 0), PowerOperatorModel::index(index, 0));
+        Q_EMIT dataChanged(PowerOperatorModel::index(index, 0), PowerOperatorModel::index(index, 0));
     }
 }
 

@@ -125,7 +125,7 @@ public:
 
     std::optional<QString> findUserById();
 
-signals:
+Q_SIGNALS:
     // Power
     void ScreenBlackLockChanged(bool value) const;
     void SleepLockChanged(bool value) const;
@@ -163,7 +163,7 @@ signals:
     void CustomShutdownWeekDaysChanged(const QByteArray &value);
     void LowPowerActionChanged(int action);
 
-public slots:
+public Q_SLOTS:
     // SystemPower
     void SetMode(const QString &mode);
     // PowerManager

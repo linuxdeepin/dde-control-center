@@ -77,7 +77,7 @@ void SoundDeviceModel::updateSoundDeviceData(Port *port)
     for (int index = 0; index < m_ports.count(); index++) {
         if (m_ports[index]->id() == port->id()) {
             QModelIndex modelIndex = createIndex(index, 0);
-            emit dataChanged(modelIndex, modelIndex, {});
+            Q_EMIT dataChanged(modelIndex, modelIndex, {});
             break;
         }
     }
@@ -87,7 +87,7 @@ void SoundDeviceModel::updateAllSoundDeviceData()
 {
     for (int index = 0; index < m_ports.count(); index++) {
         QModelIndex modelIndex = createIndex(index, 0);
-        emit dataChanged(modelIndex, modelIndex, {});
+        Q_EMIT dataChanged(modelIndex, modelIndex, {});
     }
 }
 

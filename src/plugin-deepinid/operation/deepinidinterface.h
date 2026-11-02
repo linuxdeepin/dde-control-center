@@ -22,7 +22,7 @@ public:
 
     Q_INVOKABLE QString editionName() const;
 
-signals:
+Q_SIGNALS:
     void deepinidModelChanged(DeepinidModel *model);
     void deepinidWorkerChanged(DeepinWorker *worker);
 

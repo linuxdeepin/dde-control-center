@@ -51,7 +51,7 @@ public:
     bool isCreatingGroup() const { return m_isCreatingGroup; }
     Q_INVOKABLE void setCreatingGroup(const bool &isCreatingGroup) { m_isCreatingGroup = isCreatingGroup; }
 
-signals:
+Q_SIGNALS:
     void groupsUpdated();
 private:
     QString m_userId;
@@ -84,7 +84,7 @@ public:
     bool isCreatingGroup() const;
     Q_INVOKABLE void setCreatingGroup(bool isCreatingGroup);
 
-signals:
+Q_SIGNALS:
     void groupsUpdated();
 
 private:

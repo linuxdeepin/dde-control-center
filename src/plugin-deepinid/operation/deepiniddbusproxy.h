@@ -26,7 +26,7 @@ public:
     QDBusReply<QString> meteInfo();
     QVariantMap userInfo();
 
-signals:
+Q_SIGNALS:
     void UserInfoChanged(const QVariantMap& value) const;
 
 private:

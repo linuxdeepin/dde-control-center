@@ -22,7 +22,7 @@ public:
     QDBusPendingCall SwitcherDump();
     bool SetNickname(const QString &name, QString &errorMsg);
 
-signals:
+Q_SIGNALS:
     void SwitcherChange(const QVariantList &);
     void LoginStatus(const QVariantList &);
 

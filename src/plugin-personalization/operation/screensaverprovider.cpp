@@ -71,7 +71,7 @@ void ScreensaverWorker::list()
         imgs.insert(name, coverPath);
     }
 
-    emit pushScreensaver(items);
+    Q_EMIT pushScreensaver(items);
     running = false;
 }
 

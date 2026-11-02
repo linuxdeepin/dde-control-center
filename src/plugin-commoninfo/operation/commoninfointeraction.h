@@ -22,7 +22,7 @@ public:
     Q_INVOKABLE CommonInfoModel *mode() const;
     void setMode(CommonInfoModel *newMode);
 
-signals:
+Q_SIGNALS:
 
 
 private:

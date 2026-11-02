@@ -55,7 +55,7 @@ void SoundEffectsModel::updateSoundEffectsData(int index, bool enable)
 
     m_soundEffectsData[index]->setChecked(enable);
     QModelIndex modelIndex = createIndex(index, 0);
-    emit dataChanged(modelIndex, modelIndex, { IsEnabled });
+    Q_EMIT dataChanged(modelIndex, modelIndex, { IsEnabled });
 }
 
 void SoundEffectsModel::updateSoundEffectsAniIcon(int index, QString path)
@@ -65,7 +65,7 @@ void SoundEffectsModel::updateSoundEffectsAniIcon(int index, QString path)
 
     m_soundEffectsData[index]->setAniIconPath(path);
     QModelIndex modelIndex = createIndex(index, 0);
-    emit dataChanged(modelIndex, modelIndex, { AniIconPath });
+    Q_EMIT dataChanged(modelIndex, modelIndex, { AniIconPath });
 }
 
 int SoundEffectsModel::rowCount(const QModelIndex &parent) const

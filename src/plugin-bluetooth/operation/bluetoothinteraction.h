@@ -22,7 +22,7 @@ public:
     Q_INVOKABLE BluetoothWorker *work() const;
     void setWork(BluetoothWorker *newWork);
 
-signals:
+Q_SIGNALS:
 
 private:
     BluetoothModel* m_model;

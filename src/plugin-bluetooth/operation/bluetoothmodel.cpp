@@ -128,7 +128,7 @@ void BluetoothModel::setShowBluetooth(bool newShowBluetooth)
     if (m_showBluetooth == newShowBluetooth)
         return;
     m_showBluetooth = newShowBluetooth;
-    emit showBluetoothChanged();
+    Q_EMIT showBluetoothChanged();
 }
 
 bool BluetoothModel::airplaneEnable() const

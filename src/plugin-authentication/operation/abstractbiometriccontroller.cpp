@@ -15,7 +15,7 @@ void AbstractBiometricController::setAddStage(CharaMangerModel::AddInfoState sta
 {
     if (m_addStage != stage) {
         m_addStage = stage;
-        emit addStageChanged();
+        Q_EMIT addStageChanged();
     }
 }
 

@@ -23,7 +23,7 @@ public:
     Q_INVOKABLE SystemInfoModel *systemInfoMode() const;
     void setSystemInfoMode(SystemInfoModel *newSystemInfoMode);
 
-signals:
+Q_SIGNALS:
     void requestUeProgram(bool visible) const;
 
 private:

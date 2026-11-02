@@ -30,7 +30,7 @@ public:
 private:
     void setPowerActionsVisible(QList<PowerOperatorModel*> actionModels, QList<PowerOperatorType> type,  bool visible);
 
-signals:
+Q_SIGNALS:
     void powerModelChanged(PowerModel *model);
     void powerWorkerChanged(PowerWorker *worker);
 

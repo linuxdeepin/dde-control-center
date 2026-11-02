@@ -70,7 +70,7 @@ public:
 protected Q_SLOTS:
     void updateAvatarPath();
 
-signals:
+Q_SIGNALS:
     void loginStateChanged(bool loginState);
     void avatarChanged(const QString &avatar);
     void regionChanged(const QString &region);

@@ -16,7 +16,7 @@ void BlueToothAdaptersModel::updateAdapter(BluetoothAdapter *adapter)
         if (item->id() == adapter->id()) {
             QModelIndex modelIndex = createIndex(index, 0);
             qDebug() << "updateAdapter data: " << adapter->name() << adapter->discovering();
-            emit dataChanged(modelIndex, modelIndex, {});
+            Q_EMIT dataChanged(modelIndex, modelIndex, {});
             return;
         }
     }
@@ -123,7 +123,7 @@ void BlueToothAdaptersModel::onUpdateAdapter(const QString &adapterId)
         const BluetoothAdapter *item = m_bluetoothAdapterList.at(index);
         if (item->id() == adapterId) {
             QModelIndex modelIndex = createIndex(index, 0);
-            emit dataChanged(modelIndex, modelIndex, {});
+            Q_EMIT dataChanged(modelIndex, modelIndex, {});
             return;
         }
     }

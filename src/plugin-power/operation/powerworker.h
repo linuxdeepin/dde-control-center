@@ -70,7 +70,7 @@ private:
     void readConfig(const QString &key, std::function<void(const bool value)> callback);
     void readConfig(const QString &key, std::function<void(const QString &value)> callback);
     QVariantList converToDataMap(const QStringList& conf);
-private slots:
+private Q_SLOTS:
     void onCustomShutdownWeekDaysChanged(const QByteArray &value);
 
 private:

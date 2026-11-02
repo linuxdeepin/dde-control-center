@@ -25,7 +25,7 @@ void SyncInfoListModel::updateSyncItem(const QString &key, bool enable)
         if (syncItem.keyList.contains(key)) {
             syncItem.isChecked = enable;
             QModelIndex modelIndex = createIndex(i, 0);
-            emit dataChanged(modelIndex, modelIndex, { IsCheckedRole });
+            Q_EMIT dataChanged(modelIndex, modelIndex, { IsCheckedRole });
             break;
         }
     }

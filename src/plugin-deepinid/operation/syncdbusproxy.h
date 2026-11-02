@@ -28,7 +28,7 @@ public:
 
     qlonglong lastSyncTime();
 
-signals:
+Q_SIGNALS:
     void SwitcherChange(QString, bool);
     void LastSyncTimeChanged(qlonglong);
 

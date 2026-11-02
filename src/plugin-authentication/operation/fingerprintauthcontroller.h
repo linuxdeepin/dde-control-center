@@ -21,7 +21,7 @@ class FingerprintAuthController : public AbstractBiometricController
 public:
     explicit FingerprintAuthController(CharaMangerModel *model, CharaMangerWorker *worker, QObject *parent = nullptr);
 
-public slots:
+public Q_SLOTS:
 
     // 实现抽象接口
     void startEnroll() override;
@@ -36,10 +36,10 @@ public slots:
     QString fingerTitleTip() const { return m_fingerTipTitle; }
     QString fingerMsgTip() const { return m_fingerTipMessage; }
 
-signals:
+Q_SIGNALS:
     void fingerTipsChanged();
 
-private slots:
+private Q_SLOTS:
     void onThumbsListChanged(const QStringList &thumbs);
     void onFingerEnrollRetry(const QString &title, const QString &msg);
     void onFingerEnrollStagePass(int pro);

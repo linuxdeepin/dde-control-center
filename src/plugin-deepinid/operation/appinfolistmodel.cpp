@@ -50,7 +50,7 @@ void AppInfoListModel::updateAppItem(const QString &key, bool enable)
         if (item->key == key) {
             item->enable = enable;
             QModelIndex modelIndex = createIndex(m_appItemList.indexOf(item), 0);
-            emit dataChanged(modelIndex, modelIndex, { EnableRole });
+            Q_EMIT dataChanged(modelIndex, modelIndex, { EnableRole });
             return;
         }
     }

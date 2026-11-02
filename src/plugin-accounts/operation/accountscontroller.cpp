@@ -724,7 +724,7 @@ QAbstractListModel *AccountsController::accountsModel()
             return;
         auto index = m_accountsModel->index(idIdx);
         m_accountsModel->dataChanged(index, index, {AccountListModel::OnlineRole});
-        emit onlineUserListChanged();
+        Q_EMIT onlineUserListChanged();
     });
 
     connect(this, &AccountsController::userIdListChanged, static_cast<AccountListModel *>(m_accountsModel), &AccountListModel::reset);
