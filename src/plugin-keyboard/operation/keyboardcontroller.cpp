@@ -811,7 +811,7 @@ void KeyboardController::startWaylandKeyCapture(QQuickItem *item, const QString 
                 endKeyCapture();
                 const QString message = QStringLiteral("compositor capture failed: %1").arg(reason);
                 qWarning() << message << id << type;
-                using Capture = QtWayland::treeland_shortcut_capture_v1;
+                using Capture = QtWayland::treeland_shortcut_capture_v3;
                 const auto failedReason = static_cast<Capture::failed_reason>(reason);
                 // The protocol groups pointer clicks, Escape and unmodified
                 // alphanumeric keys under "interrupted" without exposing the

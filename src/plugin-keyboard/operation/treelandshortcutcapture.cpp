@@ -16,9 +16,9 @@ extern "C" {
 namespace dccV25 {
 
 TreelandShortcutCaptureSession::TreelandShortcutCaptureSession(
-    struct ::treeland_shortcut_capture_v1 *obj, QObject *parent)
+    struct ::treeland_shortcut_capture_v3 *obj, QObject *parent)
     : QObject(parent)
-    , QtWayland::treeland_shortcut_capture_v1(obj)
+    , QtWayland::treeland_shortcut_capture_v3(obj)
 {
 }
 
@@ -26,28 +26,28 @@ TreelandShortcutCaptureSession::~TreelandShortcutCaptureSession()
 {
     if (!m_finished && isInitialized()) {
         // Destroying while pending cancels the capture per protocol.
-        QtWayland::treeland_shortcut_capture_v1::destroy();
+        QtWayland::treeland_shortcut_capture_v3::destroy();
     }
 }
 
-void TreelandShortcutCaptureSession::treeland_shortcut_capture_v1_captured(const QString &key)
+void TreelandShortcutCaptureSession::treeland_shortcut_capture_v3_captured(const QString &key)
 {
     m_finished = true;
     emit captured(key);
-    QtWayland::treeland_shortcut_capture_v1::destroy();
+    QtWayland::treeland_shortcut_capture_v3::destroy();
     deleteLater();
 }
 
-void TreelandShortcutCaptureSession::treeland_shortcut_capture_v1_failed(uint32_t reason)
+void TreelandShortcutCaptureSession::treeland_shortcut_capture_v3_failed(uint32_t reason)
 {
     m_finished = true;
     emit failed(reason);
-    QtWayland::treeland_shortcut_capture_v1::destroy();
+    QtWayland::treeland_shortcut_capture_v3::destroy();
     deleteLater();
 }
 
 TreelandShortcutCaptureManager::TreelandShortcutCaptureManager(QObject *parent)
-    : QWaylandClientExtensionTemplate<TreelandShortcutCaptureManager>(2)
+    : QWaylandClientExtensionTemplate<TreelandShortcutCaptureManager>(1)
 {
     setParent(parent);
     initialize();
@@ -55,11 +55,10 @@ TreelandShortcutCaptureManager::TreelandShortcutCaptureManager(QObject *parent)
 
 TreelandShortcutCaptureManager::~TreelandShortcutCaptureManager()
 {
-    // Mirror TreelandShortcutWrapper in dde-services: only destroy when the
-    // global was actually bound. isInitialized() can be true while the proxy
-    // was never created (compositor without v2 advertisement).
+    // The v3 manager global exposes interface version 1. Destroy it only
+    // after the extension has bound the advertised global.
     if (isActive()) {
-        QtWayland::treeland_shortcut_manager_v2::destroy();
+        QtWayland::treeland_shortcut_manager_v3::destroy();
     }
 }
 
@@ -86,7 +85,7 @@ TreelandShortcutCaptureSession *TreelandShortcutCaptureManager::captureNext(QWin
         return nullptr;
     }
 
-    struct ::treeland_shortcut_capture_v1 *obj = capture_next_shortcut(surface, nullptr);
+    struct ::treeland_shortcut_capture_v3 *obj = capture_next_shortcut(surface, nullptr);
     if (!obj) {
         qWarning() << "TreelandShortcutCaptureManager: capture_next_shortcut returned null";
         return nullptr;
