@@ -29,7 +29,7 @@ public:
     virtual bool isAvailable() const { return true; }
     virtual QString getTypeName() const = 0;
 
-signals:
+Q_SIGNALS:
     void addStageChanged();
     void enrollCompleted();
 

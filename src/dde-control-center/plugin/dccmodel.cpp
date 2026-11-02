@@ -183,7 +183,7 @@ void DccModel::updateObject()
     DccObject *obj = qobject_cast<DccObject *>(sender());
     if (obj) {
         QModelIndex i = index(obj);
-        emit dataChanged(i, i);
+        Q_EMIT dataChanged(i, i);
     }
 }
 

@@ -32,7 +32,7 @@ void GestureModel::updateGestureData(const GestureData &data)
             m_gestures[i]->setActionName(data.actionName());
             m_gestures[i]->setActions(data.actions());
             QModelIndex modelIndex = createIndex(i, 0);
-            emit dataChanged(modelIndex, modelIndex, {});
+            Q_EMIT dataChanged(modelIndex, modelIndex, {});
             return;
         }
     }

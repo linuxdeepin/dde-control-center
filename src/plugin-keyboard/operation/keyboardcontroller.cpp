@@ -569,7 +569,7 @@ void KeyboardController::setConflictText(const QString &newConflictText)
         return;
 
     m_conflictText = newConflictText;
-    emit conflictTextChanged();
+    Q_EMIT conflictTextChanged();
 }
 
 bool KeyboardController::isCustomShortcutNameExists(const QString &name, const QString &excludeId)
