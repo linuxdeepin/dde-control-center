@@ -31,7 +31,7 @@ private:
 private Q_SLOTS:
     void onPickerColorPicked(const QString &uuid, const QString &colorName);
 
-signals:
+Q_SIGNALS:
     void colorPicked(const QString &color);
     void pickerError(const QString &error);
 

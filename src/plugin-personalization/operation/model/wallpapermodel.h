@@ -113,7 +113,7 @@ public:
         return sourceModel() ? sourceModel()->rowCount(parent) : 0;
     }
 
-signals:
+Q_SIGNALS:
     void countChanged();
 
 protected:

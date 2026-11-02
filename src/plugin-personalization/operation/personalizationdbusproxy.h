@@ -128,7 +128,7 @@ public:
     QDBusPendingReply<QDBusObjectPath> InstallPackage(const QString &jobname, const QString &packages);
     void CleanJob(const QString &jobId);
 
-signals:
+Q_SIGNALS:
     // Appearance
     void Changed(const QString &in0, const QString &in1);
     void Refreshed(const QString &in0);
@@ -173,7 +173,7 @@ signals:
     // lastore manager
     void JobListChanged(const QList<QDBusObjectPath> &value) const;
 
-public slots:
+public Q_SLOTS:
     // Appearance
     QString List(const QString &ty);
     bool List(const QString &ty, QObject *receiver, const char *member, const char *errorSlot);

@@ -374,5 +374,5 @@ void CharaMangerModel::setCharaVaild(bool newCharaVaild)
     if (m_charaVaild == newCharaVaild)
         return;
     m_charaVaild = newCharaVaild;
-    emit charaVaildChanged(m_charaVaild);
+    Q_EMIT charaVaildChanged(m_charaVaild);
 }
