@@ -75,7 +75,7 @@ public Q_SLOTS:
     virtual void setBackgroundForMonitor(const QString &screenName, const QString &url, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image);
     virtual void setLockBackForMonitor(const QString &screenName, const QString &url, PersonalizationExport::WallpaperSetType type = PersonalizationExport::Type_Image);
 
-signals:
+Q_SIGNALS:
     void personalizationChanged(const QString &propertyName, const QString &value);
 
 private Q_SLOTS:

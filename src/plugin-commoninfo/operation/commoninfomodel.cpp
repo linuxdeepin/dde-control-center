@@ -198,14 +198,14 @@ void CommonInfoModel::setIsDeveloperMode(bool newIsDeveloperMode)
     if (m_isDeveloperMode == newIsDeveloperMode)
         return;
     m_isDeveloperMode = newIsDeveloperMode;
-    emit isDeveloperModeChanged();
+    Q_EMIT isDeveloperModeChanged();
 }
 
 void CommonInfoModel::setReadOnlyProtectionEnabled(bool enabled)
 {
     qCDebug(dcCommonLog) << "setReadOnlyProtectionEnabled:" << enabled;
     m_readOnlyProtectionEnabled = enabled;
-    emit readOnlyProtectionEnabledChanged();
+    Q_EMIT readOnlyProtectionEnabledChanged();
 }
 
 
@@ -219,7 +219,7 @@ void CommonInfoModel::setNeedShowModalDialog(bool newNeedShowModalDialog)
     if (m_needShowModalDialog == newNeedShowModalDialog)
         return;
     m_needShowModalDialog = newNeedShowModalDialog;
-    emit needShowModalDialogChanged();
+    Q_EMIT needShowModalDialogChanged();
 }
 
 QString CommonInfoModel::grubThemePath() const
@@ -239,7 +239,7 @@ void CommonInfoModel::setGrubThemePath(const QString &newGrubThemePath)
         return;
 
     m_grubThemePath = newGrubThemePath;
-    emit grubThemePathChanged();
+    Q_EMIT grubThemePathChanged();
 }
 
 int CommonInfoModel::grubBackgroundRevision() const
@@ -250,7 +250,7 @@ int CommonInfoModel::grubBackgroundRevision() const
 void CommonInfoModel::bumpGrubBackgroundRevision()
 {
     ++m_grubBackgroundRevision;
-    emit grubBackgroundRevisionChanged();
+    Q_EMIT grubBackgroundRevisionChanged();
 }
 
 int CommonInfoModel::debugLogCurrentIndex() const
@@ -263,7 +263,7 @@ void CommonInfoModel::setDebugLogCurrentIndex(int newDebugLogCurrentIndex)
     if (m_debugLogCurrentIndex == newDebugLogCurrentIndex)
         return;
     m_debugLogCurrentIndex = newDebugLogCurrentIndex;
-    emit debugLogCurrentIndexChanged();
+    Q_EMIT debugLogCurrentIndexChanged();
 }
 
 GrubAnimationModel *CommonInfoModel::grubAnimationModel()

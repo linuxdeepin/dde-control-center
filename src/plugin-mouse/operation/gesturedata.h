@@ -52,7 +52,7 @@ public:
     QList<GestureActionData> actions() const;
     void setActions(const QList<GestureActionData> &actions);
 
-signals:
+Q_SIGNALS:
 
     void actionTypeChanged();
 

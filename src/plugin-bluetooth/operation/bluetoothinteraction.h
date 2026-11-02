@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -22,7 +22,7 @@ public:
     Q_INVOKABLE BluetoothWorker *work() const;
     void setWork(BluetoothWorker *newWork);
 
-signals:
+Q_SIGNALS:
 
 private:
     BluetoothModel* m_model;

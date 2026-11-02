@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "audioservermodel.h"
@@ -20,7 +20,7 @@ void AudioServerModel::updateAllData()
 {
     for (int index = 0; index < m_audioServerDatas.count(); index++) {
         QModelIndex modelIndex = createIndex(index, 0);
-        emit dataChanged(modelIndex, modelIndex, {});
+        Q_EMIT dataChanged(modelIndex, modelIndex, {});
     }
 }
 
@@ -30,7 +30,7 @@ void AudioServerModel::updateCheckedService(const QString &name)
         AudioServerData &data = m_audioServerDatas[index];
         data.checked = name == data.serverName;
         QModelIndex modelIndex = createIndex(index, 0);
-        emit dataChanged(modelIndex, modelIndex, {});
+        Q_EMIT dataChanged(modelIndex, modelIndex, {});
     }
 }
 

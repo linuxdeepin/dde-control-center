@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -70,7 +70,7 @@ public:
 protected Q_SLOTS:
     void updateAvatarPath();
 
-signals:
+Q_SIGNALS:
     void loginStateChanged(bool loginState);
     void avatarChanged(const QString &avatar);
     void regionChanged(const QString &region);

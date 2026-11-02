@@ -11,6 +11,8 @@ project(${PROJECT_NAME}
     LANGUAGES CXX C
 )
 
+add_compile_definitions(QT_NO_KEYWORDS)
+
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 set(CMAKE_AUTOMOC ON)

@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -22,7 +22,7 @@ class FaceAuthController : public AbstractBiometricController
 public:
     explicit FaceAuthController(CharaMangerModel *model, CharaMangerWorker *worker, QObject *parent = nullptr);
 
-public slots:
+public Q_SLOTS:
 
     // 实现抽象接口
     void startEnroll() override;
@@ -37,12 +37,12 @@ public slots:
     bool enrollFaceSuccess() const;
     QString enrollFaceTips() const;
 
-signals:
+Q_SIGNALS:
     void faceImgContentChanged();
     void enrollFaceSuccessChanged();
     void enrollFaceTipsChanged();
 
-private slots:
+private Q_SLOTS:
     void onEnrollStatusTips(const QString &tips);
     void onEnrollInfoState(CharaMangerModel::AddInfoState state, const QString &tips);
     void onTryStartInputFace(int fd);

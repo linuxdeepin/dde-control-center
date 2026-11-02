@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -25,7 +25,7 @@ void SyncInfoListModel::updateSyncItem(const QString &key, bool enable)
         if (syncItem.keyList.contains(key)) {
             syncItem.isChecked = enable;
             QModelIndex modelIndex = createIndex(i, 0);
-            emit dataChanged(modelIndex, modelIndex, { IsCheckedRole });
+            Q_EMIT dataChanged(modelIndex, modelIndex, { IsCheckedRole });
             break;
         }
     }

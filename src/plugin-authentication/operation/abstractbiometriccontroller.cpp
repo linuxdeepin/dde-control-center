@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -15,7 +15,7 @@ void AbstractBiometricController::setAddStage(CharaMangerModel::AddInfoState sta
 {
     if (m_addStage != stage) {
         m_addStage = stage;
-        emit addStageChanged();
+        Q_EMIT addStageChanged();
     }
 }
 

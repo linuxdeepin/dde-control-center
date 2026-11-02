@@ -58,7 +58,7 @@ public:
 
     inline QString path() const { return m_path; };
 
-signals:
+Q_SIGNALS:
     void Notify(int in0);
     // begin property changed signals
     void CancelableChanged(bool  value) const;

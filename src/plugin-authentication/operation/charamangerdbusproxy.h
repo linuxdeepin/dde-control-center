@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2025-2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -39,7 +39,7 @@ public:
     QDBusPendingReply<> DeleteFinger(const QString &username, const QString &finger);
     QDBusPendingReply<> RenameFinger(const QString &username, const QString &finger, const QString &newName);
 
-signals:
+Q_SIGNALS:
     // CharaManger signals
     void CharaUpdated(const QString &charaName, int CharaType);
     void DriverChanged();
@@ -54,7 +54,7 @@ signals:
     // SessionManager singnals
     void LockedChanged(bool  value) const;
 
-private slots:
+private Q_SLOTS:
     void onPropertiesChanged(const QDBusMessage &message);
 
 private:
