@@ -28,7 +28,7 @@ Build-Depends:
  qt6-wayland-private-dev,
  qt6-wayland-dev-tools,
  wlr-protocols,
- treeland-protocols (>>0.5.8),
+ treeland-protocols (>= 0.6.0),
  systemd,
  libdareader-dev,
  libdeepin-pw-check-dev,
