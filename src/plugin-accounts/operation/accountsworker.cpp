@@ -644,33 +644,32 @@ void AccountsWorker::resetPassword(User *user, const QString &password)
     Q_EMIT user->passwordResetFinished(reply.error().message());
 }
 
-void AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)
+bool AccountsWorker::deleteUserIcon(User *user, const QString &iconPath)
 {
     Q_UNUSED(user)
     const QString absPath = QFileInfo(QUrl::fromUserInput(iconPath).toLocalFile()).absoluteFilePath();
     const QString appCacheDir = QStandardPaths::writableLocation(QStandardPaths::CacheLocation);
-    if (!appCacheDir.isEmpty()) {
-        const QString avatarsDir = appCacheDir + QDir::separator() + "avatars" + QDir::separator();
-        if (absPath.startsWith(avatarsDir)) {
-            QFile::remove(absPath);
-        }
-    }
+    if (appCacheDir.isEmpty())
+        return false;
 
-    if (!appCacheDir.isEmpty()) {
-        const QString avatarsDir = appCacheDir + QDir::separator() + "avatars";
-        const QString markerFile = avatarsDir + QDir::separator() + "current";
-        QFile mf(markerFile);
-        if (mf.exists() && mf.open(QIODevice::ReadOnly | QIODevice::Text)) {
-            const QByteArray content = mf.readAll();
-            mf.close();
-            const QString fileName = QFileInfo(iconPath).fileName();
-            if (!content.isEmpty() && QString::fromUtf8(content).trimmed() == fileName) {
-                if (mf.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
-                    mf.close();
-                }
+    const QString avatarsPath = appCacheDir + QDir::separator() + "avatars" + QDir::separator();
+    if (!absPath.startsWith(avatarsPath) || !QFile::remove(absPath))
+        return false;
+
+    const QString avatarsDir = appCacheDir + QDir::separator() + "avatars";
+    const QString markerFile = avatarsDir + QDir::separator() + "current";
+    QFile mf(markerFile);
+    if (mf.exists() && mf.open(QIODevice::ReadOnly | QIODevice::Text)) {
+        const QByteArray content = mf.readAll();
+        mf.close();
+        const QString fileName = QFileInfo(iconPath).fileName();
+        if (!content.isEmpty() && QString::fromUtf8(content).trimmed() == fileName) {
+            if (mf.open(QIODevice::WriteOnly | QIODevice::Truncate | QIODevice::Text)) {
+                mf.close();
             }
         }
     }
+    return true;
 }
 
 void AccountsWorker::addUser(const QString &userPath)

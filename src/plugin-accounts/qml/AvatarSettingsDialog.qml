@@ -285,8 +285,13 @@ D.DialogWindow {
 
                 Connections {
                     target: dccData
-                    function onAvatarChanged(userId, avatar) {
+                    function onCustomAvatarListChanged(userId) {
                         if (userId === dialog.userId && scrollView.isCustom) {
+                            const icons = dccData.avatars(dialog.userId, "icons/local", "")
+                            if (icons.indexOf(cropper.iconSource) < 0) {
+                                cropper.iconSource = icons.length > 1 ? icons[1] : ""
+                                cropper.imgScale = 1.0
+                            }
                             customEmptyAvatar.visible = customEmptyAvatar.needShow()
                         }
                     }
@@ -488,10 +493,11 @@ D.DialogWindow {
                     Layout.fillWidth: true
                     text: qsTr("Save")
                     onClicked: {
-                        if (scrollView.isCustom && cropper.visible && dialog.currentAvatar.length > 0) {
+                        if (scrollView.isCustom && cropper.visible && cropper.iconSource.length > 0) {
+                            const originalFile = cropper.iconSource
                             cropper.cropToTemp(function (tmpFile) {
                                 if (tmpFile && tmpFile.length > 0) {
-                                    const saved = dccData.saveCustomAvatar(dialog.userId, tmpFile, dialog.currentAvatar)
+                                    const saved = dccData.saveCustomAvatar(dialog.userId, tmpFile, originalFile)
                                     if (saved && saved.length > 0) {
                                         dialog.currentAvatar = saved
                                     }

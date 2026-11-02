@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef ACCOUNTSWORKER_H
@@ -70,7 +70,7 @@ public Q_SLOTS:
     void onGroupListChanged(const QStringList &groupList);
     void setPassword(User *user, const QString &oldpwd, const QString &passwd, const QString &repeatPasswd,  const bool needResule = true);
     void resetPassword(User *user, const QString &password);
-    void deleteUserIcon(User *user, const QString &iconPath);
+    bool deleteUserIcon(User *user, const QString &iconPath);
     void setNopasswdLogin(User *user, const bool nopasswdLogin);
     void setMaxPasswordAge(User *user, const int maxAge);
     void loadUserList();
