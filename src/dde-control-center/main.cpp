@@ -173,6 +173,8 @@ int main(int argc, char *argv[])
     QString reqPage = parseReqPage();
 
     const QStringList &refPluginDirs = parser.values(pluginDir);
+    const QStringList pluginDirs = refPluginDirs.isEmpty() ? defaultpath() : refPluginDirs;
+    const QStringList pluginsToLoad = listMode ? QStringList() : parser.values(pluginOption);
 
     if (!listMode && !DGuiApplicationHelper::setSingleInstance("org.deepin.dde.control-center")) {
         qDebug() << "dde-control-center is already running, pid:" << qApp->applicationPid();
@@ -208,6 +210,8 @@ int main(int argc, char *argv[])
     // QAccessible::installFactory(accessibleFactory);
 
     dccV25::DccManager *dccManager = new dccV25::DccManager(app);
+    // 在 QML 引擎初始化前发起配置读取，与后续初始化并行；全部返回后统一刷新模块状态。
+    dccManager->loadModuleConfigs(pluginDirs, pluginsToLoad);
     dccManager->init();
     QQmlApplicationEngine *engine = dccManager->engine();
     // connect quit signal to qApp->exit, to make sure the app can quit when the main window is closed
@@ -238,7 +242,7 @@ int main(int argc, char *argv[])
     };
 
     if (listMode) {
-        dccManager->loadModules(false, refPluginDirs.isEmpty() ? defaultpath() : refPluginDirs);
+        dccManager->loadModules(false, pluginDirs);
         printModules(dccManager->moduleList());
         const bool finished = dccManager->loadFinished();
         if (!finished) {
