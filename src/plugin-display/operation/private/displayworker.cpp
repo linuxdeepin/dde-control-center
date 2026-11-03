@@ -8,8 +8,9 @@
 
 #include <OutputManager.h>
 #include <TreeLandOutputManager.h>
-#include <VirtualOutputManager.h>
+#include <OutputGroupManager.h>
 #include <WallpaperManager.h>
+#include <TreelandOutputUuidHead.h>
 #include <WayQtUtils.h>
 #include <dconfig.h>
 
@@ -141,8 +142,12 @@ void DisplayWorker::initTreeland()
     m_treelandOutputMgr = new WQt::TreeLandOutputManager(this);
     connect(m_treelandOutputMgr, &WQt::TreeLandOutputManager::activeChanged, this, &DisplayWorker::onTreeLandOutputManagerActive);
 
-    m_virtualOutputMgr = new WQt::VirtualOutputManager(this);
-    connect(m_virtualOutputMgr, &WQt::VirtualOutputManager::activeChanged, this, &DisplayWorker::onVirtualOutputManagerActive);
+    m_uuidHeadMgr = new WQt::TreelandOutputUuidHead(this);
+    connect(m_uuidHeadMgr, &WQt::TreelandOutputUuidHead::uuidChanged, this, &DisplayWorker::onUuidChanged);
+    connect(m_uuidHeadMgr, &WQt::TreelandOutputUuidHead::activeChanged, this, &DisplayWorker::onUuidHeadMgrActive);
+
+    m_outputGroupMgr = new WQt::OutputGroupManager(this);
+    connect(m_outputGroupMgr, &WQt::OutputGroupManager::activeChanged, this, &DisplayWorker::onOutputGroupManagerActive);
 
     m_wallpaperMgr = new WQt::WallpaperManager(this);
     connect(m_wallpaperMgr, &WQt::WallpaperManager::activeChanged, this, &DisplayWorker::onWallpaperManagerActive);
@@ -217,19 +222,19 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
     if (WQt::Utils::isTreeland()) {
         qCDebug(DdcDisplayWorker) << "switch mode" << mode << "target" << name;
         auto updateDisplayModeFromCurrentState = [this]() {
-            updateVirtualOutputs();
+            updateOutputGroups();
             updateTreelandDisplayMode();
         };
 
-        // 销毁所有已有的虚拟输出
-        if (m_virtualOutputMgr) {
-            for (const auto &virtualOutputName : m_virtualOutputMgr->virtualOutputs().keys()) {
-                m_virtualOutputMgr->destroyVirtualOutput(virtualOutputName);
+        // dissolve all existing groups
+        if (m_outputGroupMgr) {
+            for (auto *group : m_outputGroupMgr->groups()) {
+                group->dissolve();
             }
         }
 
         if (mode == MERGE_MODE) {
-            if (m_virtualOutputMgr) {
+            if (m_outputGroupMgr) {
                 QStringList outputNames;
                 for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
                     if (it.key()->name() == m_model->primary()) {
@@ -239,13 +244,12 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                     }
                 }
                 if (outputNames.size() >= 2) {
-                    auto createMergeVirtualOutput = [this, outputNames]() {
-                        m_virtualOutputMgr->createVirtualOutput("ddeScreenGroup", outputNames);
-                        QMap<QString, QStringList> voMap;
-                        voMap.insert("ddeScreenGroup", outputNames);
-                        m_model->setVirtualOutput(voMap);
-                        m_model->setDisplayMode(MERGE_MODE);
-                    };
+                    // Ensure every output has a uuid before creating the
+                    // group; otherwise unresolved mirrors would be sent as
+                    // empty strings and the group would be rejected. If any
+                    // uuid is still missing, defer the merge until uuidChanged.
+                    if (!createMergeGroup())
+                        m_pendingMerge = true;
 
                     if (!m_outputMgr) {
                         updateDisplayModeFromCurrentState();
@@ -275,7 +279,13 @@ void DisplayWorker::switchMode(const int mode, const QString &name)
                                 cfgHead->setMode(preferMode);
                         }
                     }
-                    connect(opCfg, &WQt::OutputConfiguration::succeeded, this, createMergeVirtualOutput);
+                    connect(opCfg, &WQt::OutputConfiguration::succeeded, this, [this]() {
+                        // Retry the merge now that all heads are enabled and
+                        // (possibly) their uuids have arrived. If uuids are
+                        // still missing, uuidChanged will trigger the retry.
+                        if (!createMergeGroup())
+                            m_pendingMerge = true;
+                    });
                     connect(opCfg, &WQt::OutputConfiguration::succeeded, opCfg, &QObject::deleteLater);
                     connect(opCfg, &WQt::OutputConfiguration::failed, this, updateDisplayModeFromCurrentState);
                     connect(opCfg, &WQt::OutputConfiguration::failed, opCfg, &QObject::deleteLater);
@@ -382,8 +392,11 @@ void DisplayWorker::onWlMonitorListChanged()
                 isNew = false;
                 break;
             }
-        if (isNew)
+        if (isNew) {
             wlMonitorAdded(head);
+            if (m_uuidHeadMgr && m_uuidHeadMgr->isActive())
+                m_uuidHeadMgr->requestUuid(head->get());
+        }
     }
     updateControl();
 }
@@ -465,24 +478,91 @@ void DisplayWorker::onWallpaperChanged(const QString &fileSource, uint32_t sourc
     }
 }
 
-void DisplayWorker::updateVirtualOutputs()
+void DisplayWorker::updateOutputGroups()
 {
-    if (!m_virtualOutputMgr)
+    if (!m_outputGroupMgr)
         return;
 
-    const auto virtualOutputs = m_virtualOutputMgr->virtualOutputs();
+    const auto groups = m_outputGroupMgr->groups();
     QMap<QString, QStringList> virtualOutputMap;
-    for (auto it = virtualOutputs.cbegin(); it != virtualOutputs.cend(); ++it) {
-        virtualOutputMap.insert(it.key(), it.value()->outputs());
+    for (auto it = groups.cbegin(); it != groups.cend(); ++it) {
+        // A group maps to one merged screen: the source output plus its
+        // mirrors. Keeping the source in the list is what lets the UI fold
+        // the whole group into a single DccScreen (mirrors lose their
+        // wl_output while copy mode is engaged and must not appear as
+        // separate screens).
+        QStringList monitorNames;
+        const QString sourceName = uuidToMonitorName(it.value()->sourceUuid());
+        if (!sourceName.isEmpty())
+            monitorNames.append(sourceName);
+        for (const auto &uuid : it.value()->mirrorUuids()) {
+            const QString name = uuidToMonitorName(uuid);
+            if (!name.isEmpty())
+                monitorNames.append(name);
+        }
+        virtualOutputMap.insert(it.key(), monitorNames);
     }
     m_model->setVirtualOutput(virtualOutputMap);
 }
 
+bool DisplayWorker::createMergeGroup()
+{
+    if (!m_outputGroupMgr || !m_uuidHeadMgr)
+        return false;
+
+    // Resolve source uuid (primary monitor) and mirror uuids. Every output
+    // must have a uuid: sending an empty uuid would be rejected (or worse,
+    // resolve to the wrong output), so bail out and retry from uuidChanged.
+    QString sourceUuid;
+    QStringList mirrorUuids;
+    for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
+        const QString uuid = m_uuidHeadMgr->uuidForHead(it.value()->get());
+        if (uuid.isEmpty()) {
+            qCDebug(DdcDisplayWorker) << "Cannot create merge group: uuid not resolved for"
+                                      << it.key()->name();
+            return false;
+        }
+        if (it.key()->name() == m_model->primary()) {
+            sourceUuid = uuid;
+        } else {
+            mirrorUuids.append(uuid);
+        }
+    }
+
+    if (sourceUuid.isEmpty()) {
+        qCWarning(DdcDisplayWorker) << "Cannot create merge group: source uuid not resolved";
+        return false;
+    }
+
+    auto *group = m_outputGroupMgr->createGroup(sourceUuid);
+    if (!group)
+        return false;
+
+    // After initial state is received, add mirror outputs and commit.
+    connect(group, &WQt::OutputGroup::initialStateDone, this, [group, mirrorUuids]() {
+        for (const auto &uuid : mirrorUuids)
+            group->addOutput(uuid);
+        group->commit();
+    });
+
+    m_model->setDisplayMode(MERGE_MODE);
+    return true;
+}
+
 void DisplayWorker::updateTreelandDisplayMode()
 {
-    if (m_virtualOutputMgr && !m_virtualOutputMgr->virtualOutputs().isEmpty()) {
-        m_model->setDisplayMode(MERGE_MODE);
-        return;
+    if (m_outputGroupMgr) {
+        // Copy mode is engaged whenever a group holds at least two screens:
+        // a source plus one or more mirrors.
+        const auto groups = m_outputGroupMgr->groups();
+        for (auto *group : groups) {
+            const int screenCount = group->mirrorUuids().size()
+                + (group->sourceUuid().isEmpty() ? 0 : 1);
+            if (screenCount >= 2) {
+                m_model->setDisplayMode(MERGE_MODE);
+                return;
+            }
+        }
     }
 
     int enabledCount = 0;
@@ -566,42 +646,63 @@ void DisplayWorker::onTreeLandOutputManagerActive()
     updateControl();
 }
 
-void DisplayWorker::onVirtualOutputManagerActive()
+void DisplayWorker::onOutputGroupManagerActive()
 {
-    if (!m_virtualOutputMgr || !m_virtualOutputMgr->isActive()) {
-        qCCritical(DdcDisplayWorker) << "Unable to start the virtual output manager";
+    if (!m_outputGroupMgr || !m_outputGroupMgr->isActive()) {
+        qCCritical(DdcDisplayWorker) << "Unable to start the output group manager";
         return;
     }
 
-    connect(m_virtualOutputMgr,
-            &WQt::VirtualOutputManager::virtualOutputList,
+    // Push-based model: bind triggers group_added/groups_done automatically,
+    // no polling or getVirtualOutputList() needed.
+    connect(m_outputGroupMgr,
+            &WQt::OutputGroupManager::groupAdded,
             this,
-            &DisplayWorker::onVirtualOutputList,
+            &DisplayWorker::onGroupAdded,
             Qt::UniqueConnection);
-    m_virtualOutputMgr->getVirtualOutputList();
+    connect(m_outputGroupMgr,
+            &WQt::OutputGroupManager::groupsDone,
+            this,
+            [this]() {
+                updateOutputGroups();
+                updateTreelandDisplayMode();
+            });
+    connect(m_outputGroupMgr,
+            &WQt::OutputGroupManager::groupRemoved,
+            this,
+            &DisplayWorker::onGroupRemoved,
+            Qt::UniqueConnection);
+    connect(m_outputGroupMgr,
+            &WQt::OutputGroupManager::groupStateChanged,
+            this,
+            [this]() {
+                updateOutputGroups();
+                updateTreelandDisplayMode();
+            });
 }
 
-void DisplayWorker::onVirtualOutputList(const QStringList &names)
+void DisplayWorker::onGroupAdded(const QString &name)
 {
-    const auto virtualOutputs = m_virtualOutputMgr->virtualOutputs();
-    for (const auto &name : names) {
-        auto *vo = virtualOutputs.value(name);
-        if (vo) {
-            connect(vo,
-                    &WQt::VirtualOutput::outputsChanged,
-                    this,
-                    &DisplayWorker::onVirtualOutputsChanged,
-                    Qt::UniqueConnection);
-        }
-    }
-
-    onVirtualOutputsChanged();
-}
-
-void DisplayWorker::onVirtualOutputsChanged()
-{
-    updateVirtualOutputs();
+    Q_UNUSED(name)
+    updateOutputGroups();
     updateTreelandDisplayMode();
+}
+
+void DisplayWorker::onGroupRemoved(const QString &name)
+{
+    Q_UNUSED(name)
+    updateOutputGroups();
+    updateTreelandDisplayMode();
+}
+
+void DisplayWorker::onUuidHeadMgrActive()
+{
+    if (!m_uuidHeadMgr || !m_uuidHeadMgr->isActive())
+        return;
+
+    // Retry uuid requests for all known heads now that the extension is active.
+    for (auto *head : m_outputMgr->heads())
+        m_uuidHeadMgr->requestUuid(head->get());
 }
 
 void DisplayWorker::onWallpaperManagerActive()
@@ -620,12 +721,13 @@ void DisplayWorker::onWlOutputManagerDone()
 
     updateTreelandDisplayMode();
     if (m_treelandOutputMgr) {
-        m_model->setPrimary(m_treelandOutputMgr->mPrimaryOutput);
+        m_model->setPrimary(uuidToMonitorName(m_treelandOutputMgr->mPrimaryOutput));
         connect(m_treelandOutputMgr,
                 &WQt::TreeLandOutputManager::primaryOutputChanged,
-                m_model,
-                &DisplayModel::setPrimary,
-                Qt::UniqueConnection);
+                this,
+                [this](const QString &uuid) {
+                    m_model->setPrimary(uuidToMonitorName(uuid));
+                });
     }
 }
 
@@ -758,8 +860,29 @@ void DisplayWorker::setMonitorRotate(Monitor *mon, const quint16 rotate)
 void DisplayWorker::setPrimary(const QString &name)
 {
     if (WQt::Utils::isTreeland()) {
-        if (m_treelandOutputMgr)
-            m_treelandOutputMgr->setPrimaryOutput(name.toStdString().c_str());
+        if (m_treelandOutputMgr) {
+            // Resolve the monitor name to an OutputHead, then to a uuid.
+            struct zwlr_output_head_v1 *head = nullptr;
+            for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
+                if (it.key()->name() == name) {
+                    head = it.value()->get();
+                    break;
+                }
+            }
+            if (!head) {
+                qCWarning(DdcDisplayWorker) << "cannot set primary output: no head found for" << name;
+                return;
+            }
+            QString uuid = m_uuidHeadMgr ? m_uuidHeadMgr->uuidForHead(head) : QString();
+            if (uuid.isEmpty()) {
+                // uuid not yet received; defer until uuidChanged fires.
+                m_pendingPrimaryName = name;
+                qCWarning(DdcDisplayWorker) << "deferring set primary output: uuid not ready for" << name;
+                return;
+            }
+            m_pendingPrimaryName.clear();
+            m_treelandOutputMgr->setPrimaryOutput(uuid);
+        }
     } else {
         m_displayInter->SetPrimary(name);
     }
@@ -1347,11 +1470,14 @@ void DisplayWorker::wlMonitorRemoved(WQt::OutputHead *head)
     // delete m_wl_gammaConfig[monitor];
     // delete m_wl_gammaEffects[monitor];
 #endif
+    if (m_uuidHeadMgr)
+        m_uuidHeadMgr->removeHead(head->get());
     head->deleteLater();
 
     m_wl_monitors.remove(monitor);
     const auto controlContext = m_control_monitors.take(monitor);
-    delete controlContext.control;
+    if (controlContext.control)
+        controlContext.control->deleteLater();
 
     monitor->deleteLater();
 }
@@ -1379,18 +1505,8 @@ void DisplayWorker::screenRemoved(QScreen *screen)
     if (!output)
         return;
 
-    // Qt destroys the platform screen right after this signal and releases its
-    // wl_output, so everything bound to that output must be destroyed now.
-    for (auto it = m_control_monitors.begin(); it != m_control_monitors.end();) {
-        if (it.value().screen != screen) {
-            ++it;
-            continue;
-        }
-
-        delete it.value().control;
-        it = m_control_monitors.erase(it);
-    }
-
+    // Control contexts are cleaned up in wlMonitorRemoved(); wallpaper uses
+    // wl_output addressing and must be released before Qt destroys the proxy.
     if (m_wallpaperMgr)
         m_wallpaperMgr->removeWallpaper(output);
 }
@@ -1400,34 +1516,62 @@ void DisplayWorker::updateControl()
     if (!m_treelandOutputMgr || !m_treelandOutputMgr->isActive())
         return;
 
-    for (auto it(m_screen_outputs.cbegin()); it != m_screen_outputs.cend(); ++it) {
-        QScreen *screen = it.key();
-        for (auto monIt(m_wl_monitors.cbegin()); monIt != m_wl_monitors.cend(); ++monIt) {
-            if (!isSameOutput(monIt.key(), screen))
-                continue;
+    for (auto monIt(m_wl_monitors.cbegin()); monIt != m_wl_monitors.cend(); ++monIt) {
+        auto *head = monIt.value()->get();
+        QString uuid = m_uuidHeadMgr ? m_uuidHeadMgr->uuidForHead(head) : QString();
+        if (uuid.isEmpty())
+            continue;
 
-            auto controlContext = m_control_monitors.find(monIt.key());
-            if (controlContext != m_control_monitors.end() && controlContext.value().screen != screen) {
-                delete controlContext.value().control;
-                m_control_monitors.erase(controlContext);
-                controlContext = m_control_monitors.end();
+        if (!m_control_monitors.contains(monIt.key())) {
+            auto *control = m_treelandOutputMgr->getPictureControl(uuid);
+            if (control) {
+                Monitor *monitor = monIt.key();
+                connect(control, &WQt::ColorControl::brightnessChanged, this, [this, control](double brightness) {
+                    onBrightnessChanged(control, brightness);
+                });
+                connect(control, &WQt::ColorControl::colorTemperatureChanged, this, [this](uint32_t temperature) {
+                    m_model->setColorTemperature(toColorTempPos(temperature));
+                });
+                connect(control, &WQt::ColorControl::result, this, [this, monitor](uint32_t result) {
+                    if (result == 3) { // invalid_output — terminal state
+                        auto ctx = m_control_monitors.take(monitor);
+                        if (ctx.control)
+                            ctx.control->deleteLater();
+                    }
+                });
+                m_control_monitors.insert(monIt.key(), { control });
             }
-
-            if (controlContext == m_control_monitors.end()) {
-                auto *control = m_treelandOutputMgr->getColorControl(it.value());
-                if (control) {
-                    connect(control, &WQt::ColorControl::brightnessChanged, this, [this, control](double brightness) {
-                        onBrightnessChanged(control, brightness);
-                    });
-                    connect(control, &WQt::ColorControl::colorTemperatureChanged, this, [this](uint32_t temperature) {
-                        m_model->setColorTemperature(toColorTempPos(temperature));
-                    });
-                    m_control_monitors.insert(monIt.key(), { screen, control });
-                }
-            }
-            break;
         }
     }
+}
+
+void DisplayWorker::onUuidChanged()
+{
+    updateControl();
+
+    if (!m_pendingPrimaryName.isEmpty())
+        setPrimary(m_pendingPrimaryName);
+
+    // A merge request was deferred because some uuid had not arrived yet;
+    // retry it now that a new uuid has been received.
+    if (m_pendingMerge && createMergeGroup())
+        m_pendingMerge = false;
+}
+
+QString DisplayWorker::uuidToMonitorName(const QString &uuid) const
+{
+    if (uuid.isEmpty() || !m_uuidHeadMgr)
+        return {};
+
+    auto *head = m_uuidHeadMgr->headForUuid(uuid);
+    if (!head)
+        return {};
+
+    for (auto it(m_wl_monitors.cbegin()); it != m_wl_monitors.cend(); ++it) {
+        if (it.value()->get() == head)
+            return it.key()->name();
+    }
+    return {};
 }
 
 void DisplayWorker::setAmbientLightAdjustBrightness(bool able)

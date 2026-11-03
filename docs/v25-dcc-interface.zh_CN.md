@@ -70,6 +70,7 @@ ${CMAKE_INSTALL_LIBDIR}/dde-control-center/plugins_v1.1/example/
 | pageType | 界面类型 | Menu、Editor、Item等，影响page显示方式，取值范围：0-255 |
 | page | 界面控件 |  |
 | parentItem | 控件父项 |  |
+| accessibleId | AT-SPI 定位锚点 | 用于 AT 自动化测试定位。DccObject 不是 QQuickItem，无法直接挂载 `Accessible` 附加属性；该值由内置 delegate（DccItem/DccEditorItem/DccMenuItem/DccMenuEditorItem）通过 `Accessible.id: model.item.accessibleId` 绑定消费，即 AT-SPI 的 `AccessibleId`。同一 DccObject 被多处渲染时各实例独立，插件可用后缀保证多实例唯一 |
 
 | 信号 | 说明 | 备注 |
 |---|---|---|

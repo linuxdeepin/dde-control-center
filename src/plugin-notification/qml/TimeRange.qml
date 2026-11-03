@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.0
@@ -14,6 +14,7 @@ RowLayout {
     spacing: 5
     D.CheckBox {
         id: timeSlotCheckBox
+        Accessible.id: "TimeRange_CheckBox"
         implicitHeight: implicitContentHeight + 30
         checked: dccData.sysItemModel.timeSlot
         onCheckedChanged: {
@@ -33,6 +34,7 @@ RowLayout {
         }
     }
     DccTimeRange {
+        accessibleId: "TimeRange_HourTime"
         id: hourTime
         hour: sysItemModel.timeStart.split(":")[0]
         minute: sysItemModel.timeStart.split(":")[1]
@@ -42,6 +44,7 @@ RowLayout {
         text: qsTr("to")
     }
     DccTimeRange {
+        accessibleId: "TimeRange_MinuteTime"
         hour: sysItemModel.timeEnd.split(":")[0]
         minute: sysItemModel.timeEnd.split(":")[1]
         onTimeChanged: sysItemModel.timeEnd = timeString

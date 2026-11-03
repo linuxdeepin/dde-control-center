@@ -205,6 +205,7 @@ DccObject {
             pageType: DccObject.Item
             page: Button {
                 id: restoreButton
+                Accessible.id: "Shortcuts_Button_2"
                 text: qsTr("Restore default")
                 implicitWidth: {
                     const totalPadding = leftPadding + rightPadding
@@ -253,6 +254,7 @@ DccObject {
             pageType: DccObject.Item
             page: Button {
                 id: addButton
+                Accessible.id: "Shortcuts_Button_3"
                 property bool needShowDialog: false
                 text: qsTr("Add custom shortcut")
                 implicitWidth: {

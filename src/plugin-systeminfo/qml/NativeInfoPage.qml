@@ -13,6 +13,7 @@ import org.deepin.dtk.style 1.0 as DS
 DccObject {
     id: root11
     DccObject {
+        accessibleId: "SysteminfoSystemLogo"
         name: "systemLogo"
         weight: 10
         parentName: "systemInfo"
@@ -44,6 +45,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "SysteminfoSystemDetailLogo"
         name: "systemDetailLogo"
         weight: 20
         parentName: "systemInfo"
@@ -75,6 +77,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "SysteminfoNativeInfoGrp"
         name: "nativeInfoGrp"
         parentName: "systemInfo"
         weight: 40
@@ -84,6 +87,7 @@ DccObject {
             }
         }
         DccObject {
+            accessibleId: "SysteminfoProductName"
             name: "productName"
             weight: 10
             parentName: "nativeInfoGrp"
@@ -247,6 +251,7 @@ DccObject {
             }
         }
         DccObject {
+            accessibleId: "SysteminfoHostName"
             name: "hostName"
             weight: 20
             parentName: "nativeInfoGrp"
@@ -259,6 +264,7 @@ DccObject {
             }
         }
         DccObject {
+            accessibleId: "SysteminfoVersion"
             name: "version"
             weight: 30
             parentName: "nativeInfoGrp"
@@ -270,6 +276,7 @@ DccObject {
             }
         }
         DccObject {
+            accessibleId: "SysteminfoEdition"
             name: "edition"
             weight: 40
             parentName: "nativeInfoGrp"
@@ -281,6 +288,7 @@ DccObject {
             }
         }
         DccObject {
+            accessibleId: "SysteminfoType"
             name: "type"
             weight: 50
             parentName: "nativeInfoGrp"
@@ -293,6 +301,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "SysteminfoAuthorization"
             name: "authorization"
             weight: 60
             parentName: "nativeInfoGrp"
@@ -310,6 +319,7 @@ DccObject {
 
                 Button {
                     id: licenseActionBtn
+                    Accessible.id: "NativeInfoPage_Button"
                     text: dccData.systemInfoMode().licenseActionText
                     ColorSelector.family: Palette.CommonColor
                     implicitHeight: 30
@@ -332,6 +342,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "SysteminfoSystemInstallationTime"
             name: "systemInstallationTime"
             weight: 70
             visible: dccData.systemInfoMode().showAuthorization()
@@ -345,6 +356,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "SysteminfoKernel"
             name: "kernel"
             weight: 80
             parentName: "nativeInfoGrp"
@@ -357,6 +369,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "SysteminfoGraphicsPlatform"
             name: "graphicsPlatform"
             weight: 90
             parentName: "nativeInfoGrp"
@@ -370,6 +383,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "SysteminfoProcessor"
             id: processorObj
             name: "processor"
             weight: 100
@@ -396,6 +410,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "SysteminfoMemory"
             name: "memory"
             weight: 100
             parentName: "nativeInfoGrp"
@@ -409,6 +424,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "SysteminfoDetailBtn"
         name: "detailBtn"
         weight: 60
         parentName: "systemInfo"
@@ -417,6 +433,7 @@ DccObject {
         page: RowLayout {
 
             Button {
+                Accessible.id: "NativeInfoPage_Button_2"
                 Layout.topMargin: 10
                 implicitWidth: 250
                 implicitHeight: 30

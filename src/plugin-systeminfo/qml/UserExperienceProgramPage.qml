@@ -16,6 +16,7 @@ DccObject {
     weight: 20
     page: DccGroupView {}
     DccObject {
+        accessibleId: "SysteminfoUserExperienceProgramSwitch"
         name: "userExperienceProgramSwitch"
         weight: 20
         parentName: "system/userExperienceProgram/userExperienceProgramGrp"
@@ -23,6 +24,7 @@ DccObject {
         pageType: DccObject.Editor
         page: ColumnLayout {
             D.Switch {
+                Accessible.id: "UserExperienceProgramPage_Switch"
                 Layout.alignment: Qt.AlignRight | Qt.AlignTop
                 checked: dccData.systemInfoMode().joinUeProgram
                 onCheckedChanged: {
@@ -63,6 +65,7 @@ DccObject {
         }
     }
     DccObject {
+        accessibleId: "SysteminfoUserExperienceProgramContent"
         name: "userExperienceProgramContent"
         weight: 30
         parentName: "system/userExperienceProgram/userExperienceProgramGrp"
@@ -113,6 +116,7 @@ DccObject {
             Menu {
                 id: contextMenu
                 MenuItem {
+                    Accessible.id: "UserExperienceProgramPage_MenuItem"
                     text: qsTr("Copy Link Address") + "(L)" 
                     onTriggered: {
                         dccData.systemInfoWork().copyTextToClipboard(userExperienceLabel.currentLinkUrl)

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -21,6 +21,7 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PrivacyTitle"
             name: "title"
             weight: 1
             parentName: "privacy/camera/cameraAppViewGroup"
@@ -41,6 +42,7 @@ DccObject {
                 canSearch: false
                 backgroundType: DccObject.Hover
                 page: D.Switch {
+                    Accessible.id: "Camera_Switch_" + index
                     checked: model.cameraPermission
                     onCheckedChanged: {
                         if (checked !== model.cameraPermission) {

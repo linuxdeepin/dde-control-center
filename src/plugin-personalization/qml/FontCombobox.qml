@@ -1,11 +1,14 @@
 // SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
+import QtQuick
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 D.ComboBox {
     id: control
+    property string accessibleId: ""
+    Accessible.id: accessibleId !== "" ? accessibleId : "FontCombobox_ComboBox"
     flat: true
     property string visibleRole
 
@@ -19,6 +22,7 @@ D.ComboBox {
 
     delegate: D.MenuItem {
         id: menuItem
+        Accessible.id: control.accessibleId !== "" ? (control.accessibleId + "MenuItem_" + index) : "FontCombobox_MenuItem_" + index
         useIndicatorPadding: true
         width: parent.width
         text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : (model[control.textRole] === undefined ? modelData[control.textRole] : model[control.textRole])) : modelData

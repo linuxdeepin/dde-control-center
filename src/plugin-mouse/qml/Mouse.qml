@@ -13,6 +13,7 @@ DccObject {
     weight: 30
 
     page: DccRightView {
+        accessibleId: "MouseRightView"
         spacing: 0
     }
 }

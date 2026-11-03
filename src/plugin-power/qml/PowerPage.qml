@@ -24,6 +24,7 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PowerTurnOffTheMonitorAfter_2"
             name: "turnOffTheMonitorAfter"
             parentName: "power/onPower/turnOffTheMonitorAfterGroup"
             displayName: qsTr("Turn off the monitor after")
@@ -51,6 +52,7 @@ DccObject {
                 
 
                 CustomTipsSlider {
+                    accessibleId: "PowerPage_OffMonitorSlider"
                     id: offMonitorSlider
                     dataMap: dccData.model.linePowerScreenBlackDelayModel
                     Layout.preferredHeight: 80
@@ -74,6 +76,7 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PowerLockScreenAfter_2"
             name: "lockScreenAfter"
             parentName: "power/onPower/lockScreenAfterGroup"
             displayName: qsTr("Lock screen after")
@@ -100,6 +103,7 @@ DccObject {
                 }
     
                 CustomTipsSlider {
+                    accessibleId: "PowerPage_LockScreenSlider"
                     id: lockScreenSlider
                     dataMap: dccData.model.linePowerLockDelayModel
                     Layout.preferredHeight: 80
@@ -124,6 +128,7 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PowerComputerSuspendsAfter_2"
             name: "computerSuspendsAfter"
             parentName: "power/onPower/computerSuspendsAfterGroup"
             displayName: qsTr("Computer suspends after")
@@ -150,6 +155,7 @@ DccObject {
                 }
 
                 CustomTipsSlider {
+                    accessibleId: "PowerPage_SuspendsSlider"
                     id: suspendsSlider
                     dataMap: dccData.model.linePowerSleepDelayModel
                     Layout.preferredHeight: 80
@@ -173,6 +179,7 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PowerWhenTheLidIsClosed_2"
             name: "whenTheLidIsClosed"
             parentName: "power/onPower/powerButtonGroup"
             displayName: qsTr("When the lid is closed")
@@ -180,6 +187,7 @@ DccObject {
             weight: 1
             pageType: DccObject.Editor
             page: CustomComboBox {
+                accessibleId: "PowerWhenTheLidIsClosed_2Box"
                 textRole: "text"
                 enableRole: "enable"
                 visibleRole: "visible"
@@ -192,12 +200,14 @@ DccObject {
             }
         }
         DccObject {
+            accessibleId: "PowerWhenThePowerButtonIsPressed_2"
             name: "whenThePowerButtonIsPressed"
             parentName: "power/onPower/powerButtonGroup"
             displayName: qsTr("When the power button is pressed")
             weight: 2
             pageType: DccObject.Editor
             page: CustomComboBox {
+                accessibleId: "PowerWhenThePowerButtonIsPressed_2Box"
                 textRole: "text"
                 enableRole: "enable"
                 visibleRole: "visible"

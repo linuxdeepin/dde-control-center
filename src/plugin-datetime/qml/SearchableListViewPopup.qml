@@ -214,6 +214,7 @@ Popup {
 
                 ListView {
                     id: listView
+                    Accessible.id: "SearchableListViewPopup_ListView"
                     clip: true
                     anchors.fill: parent
                     model: control.delegateModel
@@ -266,6 +267,7 @@ Popup {
 
                 ScrollBar {
                     id: verticalScrollBar
+                    Accessible.id: "SearchableListViewPopup_ScrollBar"
                     anchors.top: parent.top
                     anchors.bottom: parent.bottom
                     anchors.right: parent.right

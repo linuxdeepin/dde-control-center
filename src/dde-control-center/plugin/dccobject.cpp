@@ -472,6 +472,19 @@ void DccObject::setParentItem(QQuickItem *item)
     }
 }
 
+QString DccObject::accessibleId() const
+{
+    return p_ptr->m_accessibleId;
+}
+
+void DccObject::setAccessibleId(const QString &accessibleId)
+{
+    if (p_ptr->m_accessibleId != accessibleId) {
+        p_ptr->m_accessibleId = accessibleId;
+        Q_EMIT accessibleIdChanged(p_ptr->m_accessibleId);
+    }
+}
+
 QQmlComponent *DccObject::page() const
 {
     return p_ptr->m_page;

@@ -8,7 +8,7 @@
 #include <QPointer>
 #include <QWaylandClientExtension>
 
-#include "qwayland-treeland-shortcut-manager-v2.h"
+#include "qwayland-treeland-shortcut-manager-unstable-v3.h"
 
 class QWindow;
 
@@ -20,11 +20,11 @@ namespace dccV25 {
 // wayland object is inert; the session destroys itself.
 class TreelandShortcutCaptureSession
     : public QObject
-    , public QtWayland::treeland_shortcut_capture_v1
+    , public QtWayland::treeland_shortcut_capture_v3
 {
     Q_OBJECT
 public:
-    explicit TreelandShortcutCaptureSession(struct ::treeland_shortcut_capture_v1 *obj,
+    explicit TreelandShortcutCaptureSession(struct ::treeland_shortcut_capture_v3 *obj,
                                             QObject *parent = nullptr);
     ~TreelandShortcutCaptureSession() override;
 
@@ -33,20 +33,20 @@ signals:
     void failed(uint32_t reason);
 
 protected:
-    void treeland_shortcut_capture_v1_captured(const QString &key) override;
-    void treeland_shortcut_capture_v1_failed(uint32_t reason) override;
+    void treeland_shortcut_capture_v3_captured(const QString &key) override;
+    void treeland_shortcut_capture_v3_failed(uint32_t reason) override;
 
 private:
     bool m_finished = false;
 };
 
-// Wraps the treeland_shortcut_manager_v2 global for the capture-only use
+// Wraps the treeland_shortcut_manager_v3 global for the capture-only use
 // case. The dde-services plugin already holds the manager's acquire lock
 // for binding shortcuts; capture_next_shortcut does NOT require acquire
 // per protocol, so this client only sends capture requests.
 class TreelandShortcutCaptureManager
     : public QWaylandClientExtensionTemplate<TreelandShortcutCaptureManager>
-    , public QtWayland::treeland_shortcut_manager_v2
+    , public QtWayland::treeland_shortcut_manager_v3
 {
     Q_OBJECT
 public:

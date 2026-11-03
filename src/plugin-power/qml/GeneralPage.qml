@@ -40,6 +40,7 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PowerAutoPowerSavingOnLowBattery"
             name: "autoPowerSavingOnLowBattery"
             parentName: "power/general/powerSavingSettingsGroup"
             displayName: qsTr("Auto power saving on low battery")
@@ -47,6 +48,7 @@ DccObject {
             visible: dccData.model.haveBettary
             pageType: DccObject.Editor
             page: D.Switch {
+                Accessible.id: "GeneralPage_Switch"
                 checked: dccData.model.powerSavingModeAutoWhenQuantifyLow
                 onCheckedChanged: {
                     dccData.worker.setPowerSavingModeAutoWhenQuantifyLow(checked)
@@ -55,6 +57,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "PowerLowPowerThreshold"
             name: "lowPowerThreshold"
             parentName: "power/general/powerSavingSettingsGroup"
             displayName: qsTr("Low battery threshold")
@@ -62,6 +65,7 @@ DccObject {
             visible: dccData.model.haveBettary && dccData.model.powerSavingModeAutoWhenQuantifyLow
             pageType: DccObject.Editor
             page: D.ComboBox {
+                Accessible.id: "GeneralPage_ComboBox"
                 model: [ "10%", "20%", "30%", "40%", "50%" ]
                 flat: true
                 currentIndex: dccData.model.powerSavingModeAutoBatteryPercentage / 10 - 1
@@ -74,6 +78,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "PowerAutoPowerSavingOnBattery"
         name: "autoPowerSavingOnBattery"
         parentName: "power/general"
         displayName: qsTr("Auto power saving on battery")
@@ -82,6 +87,7 @@ DccObject {
         visible: dccData.model.haveBettary
         pageType: DccObject.Editor
         page: D.Switch {
+            Accessible.id: "GeneralPage_Switch_2"
             checked: dccData.model.autoPowerSaveMode
             onCheckedChanged: {
                 dccData.worker.setPowerSavingModeAuto(checked)
@@ -90,6 +96,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "PowerDecreaseBrightness"
         name: "decreaseBrightness"
         parentName: "power/general"
         displayName: qsTr("Decrease screen brightness on power saver")
@@ -148,6 +155,7 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PowerPasswordIsRequiredToWakeUpTheComputer"
             name: "passwordIsRequiredToWakeUpTheComputer"
             parentName: "power/general/wakeupSettingsGroup"
             displayName: qsTr("Password is required to wake up the computer")
@@ -155,6 +163,7 @@ DccObject {
             visible: dccData.model.canSuspend && dccData.model.isSuspend && !dccData.model.isVirtualEnvironment
             pageType: DccObject.Editor
             page: D.Switch {
+                Accessible.id: "GeneralPage_Switch_3"
                 checked: dccData.model.sleepLock
                 onCheckedChanged: {
                     dccData.worker.setSleepLock(checked)
@@ -163,12 +172,14 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "PowerPasswordIsRequiredToWakeUpTheMonitor"
             name: "passwordIsRequiredToWakeUpTheMonitor"
             parentName: "power/general/wakeupSettingsGroup"
             displayName: qsTr("Password is required to wake up the monitor")
             weight: 2
             pageType: DccObject.Editor
             page: D.Switch {
+                Accessible.id: "GeneralPage_Switch_4"
                 checked: dccData.model.screenBlackLock
                 onCheckedChanged: {
                     dccData.worker.setScreenBlackLock(checked)
@@ -196,12 +207,14 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PowerTimedPoweroff"
             name: "timedPoweroff"
             parentName: "power/general/shutdownGroup"
             displayName: qsTr("Scheduled Shutdown")
             weight: 1
             pageType: DccObject.Editor
             page: D.Switch {
+                Accessible.id: "GeneralPage_Switch_5"
                 checked: dccData.model.scheduledShutdownState
                 onCheckedChanged: {
                     if (dccData.model.scheduledShutdownState !== checked) {
@@ -219,6 +232,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "PowerPoweroffTime"
             name: "poweroffTime"
             parentName: "power/general/shutdownGroup"
             visible: dccData.model.scheduledShutdownState
@@ -227,6 +241,7 @@ DccObject {
             pageType: DccObject.Editor
             page: RowLayout {
                 DccTimeRange {
+                    accessibleId: "GeneralPage_PoweroffTime"
                     id: timeRange
                     Layout.preferredWidth: 100
                     hour: dccData.model.shutdownTime.split(':')[0]
@@ -240,6 +255,7 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "PowerRepeatDays"
             name: "repeatDays"
             parentName: "power/general/shutdownGroup"
             visible: dccData.model.scheduledShutdownState
@@ -248,6 +264,7 @@ DccObject {
             pageType: DccObject.Editor
             page: D.ComboBox {
                 id: shutdownRepetitionCombobox
+                Accessible.id: "GeneralPage_ComboBox_2"
                 model: [ qsTr("Once"), qsTr("Every day"), qsTr("Working days"), qsTr("Custom Time") ]
                 flat: true
                 currentIndex: dccData.model.shutdownRepetition
@@ -287,6 +304,7 @@ DccObject {
             }
         }
         DccObject {
+            accessibleId: "PowerRepeatDaysEdit"
             id: repeatDaysEditObject
             property bool forceShow: false
             name: "repeatDaysEdit"
@@ -314,6 +332,7 @@ DccObject {
                     }
                 }
                 D.ToolButton {
+                    Accessible.id: "GeneralPage_ToolButton"
                     Layout.rightMargin: 8
                     icon.name: "action_edit"
                     icon.width: 12

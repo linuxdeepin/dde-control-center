@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Window 2.15
@@ -11,6 +11,7 @@ import org.deepin.dtk 1.0 as D
 
 DccObject {
     DccObject {
+        accessibleId: "PersonalizationFontSize"
         name: "fontSize"
         parentName: "personalization/font"
         displayName: qsTr("Size")
@@ -61,6 +62,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "PersonalizationStandardFont"
         name: "standardFont"
         parentName: "personalization/font"
         displayName: qsTr("Standard Font")
@@ -68,6 +70,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: FontCombobox {
+            accessibleId: "PersonalizationStandardFontBox"
             flat: true
             model: dccData.model.standardFontModel.fontList
             textRole: "Name"
@@ -89,6 +92,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "PersonalizationMonoFont"
         name: "monoFont"
         parentName: "personalization/font"
         displayName: qsTr("Monospaced Font")
@@ -96,6 +100,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: FontCombobox {
+            accessibleId: "PersonalizationMonoFontBox"
             flat: true
             model: dccData.model.monoFontModel.fontList
             textRole: "Name"

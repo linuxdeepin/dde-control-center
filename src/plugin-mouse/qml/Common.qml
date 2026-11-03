@@ -23,6 +23,7 @@ DccObject {
         }
     }
     DccObject {
+        accessibleId: "MouseScrollSpeed"
         name: "ScrollSpeed"
         parentName: "MouseAndTouchpadCommon"
         displayName: qsTr("Scrolling Speed")
@@ -107,6 +108,7 @@ DccObject {
         }
     }
     DccObject {
+        accessibleId: "MouseDoubleClickSpeed"
         name: "DoubleClickSpeed"
         parentName: "MouseAndTouchpadCommon"
         displayName: qsTr("Double Click Speed")
@@ -197,6 +199,7 @@ DccObject {
         }
     }
     DccObject {
+        accessibleId: "MouseLeftHandMode"
         name: "LeftHandMode"
         parentName: "MouseAndTouchpadCommon"
         displayName: qsTr("Left Hand Mode")
@@ -204,6 +207,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: D.Switch {
+            Accessible.id: "MouseCommon_Switch"
             checked: dccData.leftHandState
             onCheckedChanged: {
                 dccData.leftHandState = checked

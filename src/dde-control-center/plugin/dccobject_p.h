@@ -96,6 +96,7 @@ protected:
     QString m_description;
     QString m_icon;    // 属性
     QUrl m_iconSource; // icon带相对路径处理
+    QString m_accessibleId; // AT-SPI 定位锚点，由 delegate QML 绑定消费
     friend class DccObject;
 };
 } // namespace dccV25

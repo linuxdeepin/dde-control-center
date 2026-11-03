@@ -78,6 +78,7 @@ DccObject{
     }
 
     DccObject {
+        accessibleId: "BluetoothBlueToothSwitch_3"
         name: "blueToothSwitch"
         parentName: "otherDevice" + model.id
         pageType: DccObject.Item
@@ -86,6 +87,7 @@ DccObject{
 
         page: RowLayout {
             D.CheckBox {
+                Accessible.id: "OtherDevice_CheckBox"
                 Layout.leftMargin: 10
                 Layout.alignment: Qt.AlignLeft
                 checked: dccData.model().displaySwitch
@@ -161,6 +163,7 @@ DccObject{
     }
 
     DccObject {
+        accessibleId: "BluetoothOtherDeviceList"
         name: "otherDeviceList"
         parentName: "otherDevice" + model.id
         weight: 40

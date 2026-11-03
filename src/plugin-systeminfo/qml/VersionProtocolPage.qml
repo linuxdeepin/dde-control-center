@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 // import org.deepin.dtk 1.0 as D
 import QtQuick 2.15
@@ -11,6 +11,7 @@ import org.deepin.dcc 1.0
 
 DccObject {
     DccObject {
+        accessibleId: "SysteminfoTitle_2"
         id: versionProtocolPage
         name: "title"
         parentName: "system/versionProtocol"
@@ -24,6 +25,7 @@ DccObject {
             }
     }
     DccObject {
+        accessibleId: "SysteminfoContent_2"
         id: versionProtocolPageContent
         name: "content"
         parentName: "system/versionProtocol"

@@ -20,6 +20,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "PersonalizationAccentColor"
         name: "accentColor"
         parentName: "personalization/colorAndIcons"
         weight: 100
@@ -27,6 +28,7 @@ DccObject {
         backgroundType: DccObject.Normal
         page: ListView {
             id: listview
+            Accessible.id: "ColorAndIcons_ListView"
             readonly property var colors: ["#DF4187", "#EA691F", "#F3B517", "#49B125", "#00A48A", "#1F6EE7", "#402FDB", "#7724B1", "#757575", "CUSTOM"]
             readonly property var darkColors: ["#A82B62", "#CC4D03", "#D09C00", "#459F29", "#188876", "#024CCA", "#443BBA", "#6A2487", "#868686", "CUSTOM"]
             property var cutColors: dccData.currentAppearance === ".dark" ? darkColors : colors
@@ -137,6 +139,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "PersonalizationIconTheme"
         name: "iconTheme"
         parentName: "personalization/colorAndIcons"
         displayName: qsTr("Icon Theme")
@@ -150,10 +153,12 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "PersonalizationIconThemeSelect"
             name: "iconThemeSelect"
             parentName: "personalization/colorAndIcons/iconTheme"
             weight: 1
             DccObject {
+                accessibleId: "PersonalizationCursorThemeSelect"
                 name: "cursorThemeSelect"
                 parentName: "personalization/colorAndIcons/iconTheme/iconThemeSelect"
                 weight: 1
@@ -168,6 +173,7 @@ DccObject {
         }
     }
     DccObject {
+        accessibleId: "PersonalizationCursorTheme"
         name: "cursorTheme"
         parentName: "personalization/colorAndIcons"
         displayName: qsTr("Cursor Theme")
@@ -181,10 +187,12 @@ DccObject {
         }
 
         DccObject {
+            accessibleId: "PersonalizationCursorThemeSelect_2"
             name: "cursorThemeSelect"
             parentName: "personalization/colorAndIcons/cursorTheme"
             weight: 1
             DccObject {
+                accessibleId: "PersonalizationCursorThemeSelect_3"
                 name: "cursorThemeSelect"
                 parentName: "personalization/colorAndIcons/cursorTheme/cursorThemeSelect"
                 weight: 1

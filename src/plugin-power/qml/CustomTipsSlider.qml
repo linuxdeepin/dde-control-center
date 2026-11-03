@@ -9,6 +9,8 @@ import org.deepin.dcc 1.0
 
 D.TipsSlider {
     id: slider
+    property string accessibleId: ""
+    Accessible.id: accessibleId !== "" ? accessibleId : "CustomTipsSlider_Slider"
     property var dataMap: []
     property var __tickItems: []
 

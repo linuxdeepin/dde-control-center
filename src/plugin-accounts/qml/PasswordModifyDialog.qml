@@ -70,6 +70,7 @@ D.DialogWindow {
 
             Button {
                 id: cancelButton
+                Accessible.id: "PasswordModifyDialog_Button"
                 Layout.fillWidth: true
                 text: qsTr("Cancel")
                 font: D.DTK.fontManager.t7

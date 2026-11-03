@@ -22,12 +22,12 @@ if (BUILD_PLUGIN)
     find_package(PolkitQt6-1 REQUIRED)
     find_package(${QT_NS} COMPONENTS Quick Gui WaylandClient REQUIRED)
     find_package(PkgConfig REQUIRED)
-    find_package(TreelandProtocols REQUIRED)
+    find_package(TreelandProtocols 0.6.0 REQUIRED)
     pkg_check_modules(WAYLAND_CLIENT REQUIRED wayland-client)
 
     qt6_generate_wayland_protocol_client_sources(${Plugin_Name}
         FILES
-            ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-shortcut-manager-v2.xml
+            ${TREELAND_PROTOCOLS_DATA_DIR}/treeland-shortcut-manager-unstable-v3.xml
     )
 
     set(keyboard_Libraries

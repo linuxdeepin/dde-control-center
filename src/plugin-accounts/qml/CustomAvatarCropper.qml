@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
 import QtQuick 2.15
@@ -190,6 +190,7 @@ Control {
 
         Slider {
             id: scaleSlider
+            Accessible.id: "CustomAvatarCropper_Slider"
             from: 1.0
             to: 2.0
             stepSize: 0.5

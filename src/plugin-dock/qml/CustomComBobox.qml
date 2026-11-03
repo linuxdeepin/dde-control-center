@@ -12,12 +12,15 @@ import org.deepin.dtk.style 1.0 as DS
 
 D.ComboBox {
     id: control
+    property string accessibleId: ""
+    Accessible.id: accessibleId !== "" ? accessibleId : "CustomComBobox_ComboBox"
     flat: true
     textRole: "text"
     valueRole: "value"
 
     delegate: D.MenuItem {
         id: menuItem
+        Accessible.id: control.accessibleId !== "" ? (control.accessibleId + "MenuItem_" + index) : "CustomComBobox_MenuItem_" + index
         useIndicatorPadding: true
         width: control.width
         text: control.textRole ? (Array.isArray(control.model) ? modelData[control.textRole] : model[control.textRole]) : modelData

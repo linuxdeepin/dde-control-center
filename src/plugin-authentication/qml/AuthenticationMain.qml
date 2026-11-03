@@ -61,6 +61,7 @@ DccObject {
             page: DccGroupView {}
 
             DccObject {
+                accessibleId: "AuthenticationRepeaterHeaderView_" + index
                 id: repeaterHeaderView
                 name: "repeaterHeaderView"
                 parentName: root.objParentName + "/authenticationGroupView"
@@ -333,6 +334,7 @@ DccObject {
             }
 
             DccObject {
+                accessibleId: "AuthenticationItem_" + index
                 name: root.objParentName + "FaceAuthentication"
                 visible: repeaterHeaderView.listVisible && rep.listDatas[index].length < modelData.max
                 parentName: authenticationGroupView.name
@@ -340,6 +342,7 @@ DccObject {
                 weight: 50
                 page: RowLayout {
                     D.ToolButton {
+                        Accessible.id: "AuthenticationMain_ToolButton_" + index
                         implicitHeight: DS.Style.itemDelegate.height
                         Layout.leftMargin: 5
                         textColor: D.Palette {

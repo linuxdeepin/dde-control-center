@@ -16,6 +16,7 @@ DccObject {
         icon: "general"
         weight: 10
         page: DccRightView {
+            accessibleId: "PowerGeneralRightView"
             spacing: 0
         }
         GeneralPage {}
@@ -28,6 +29,7 @@ DccObject {
         icon: "plugged_in"
         weight: 100
         page: DccRightView {
+            accessibleId: "PowerOnPowerRightView"
             spacing: 0
         }
         PowerPage {}
@@ -41,6 +43,7 @@ DccObject {
         weight: 200
         visible: dccData.model.haveBettary
         page: DccRightView {
+            accessibleId: "PowerOnBatteryRightView"
             spacing: 0
         }
         BatteryPage {}

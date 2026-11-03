@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 // import org.deepin.dtk 1.0 as D
 import QtQuick 2.15
@@ -13,6 +13,7 @@ import org.deepin.dcc 1.0
 DccObject {
 
     DccObject {
+        accessibleId: "SysteminfoTitle"
         name: "title"
         parentName: "system/privacyPolicy"
         pageType: DccObject.Item
@@ -25,6 +26,7 @@ DccObject {
         }
     }
     DccObject {
+        accessibleId: "SysteminfoContent"
         name: "content"
         parentName: "system/privacyPolicy"
         pageType: DccObject.Item
@@ -74,6 +76,7 @@ DccObject {
                     id: contextMenu
                     MenuItem {
                         id: copyLinkMenuItem
+                        Accessible.id: "PrivacyPolicyPage_MenuItem"
                         text: qsTr("Copy Link Address") + "(L)"
                         onTriggered: {
                             console.log("Copying link: " + policyLabel.currentLinkUrl)

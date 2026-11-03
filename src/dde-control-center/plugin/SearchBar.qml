@@ -107,6 +107,7 @@ Rectangle {
         padding: 5
         ListView {
             id: view
+            Accessible.id: "SearchBarResultList"
             clip: true
             anchors.fill: parent
             spacing: 0
@@ -123,6 +124,7 @@ Rectangle {
                 // text: model.display
                 checked: ListView.isCurrentItem
                 contentFlow: true
+                Accessible.id: "SearchBarResultList_" + index
                 content: DccLabel {
                     text: model.display ? model.display : ""
                 }
@@ -136,7 +138,9 @@ Rectangle {
                     backgroundType: DccObject.Hover
                 }
             }
-            ScrollBar.vertical: ScrollBar { }
+            ScrollBar.vertical: ScrollBar {
+                Accessible.id: "SearchBarResultListScrollBar"
+            }
         }
         enter: Transition {
             NumberAnimation {

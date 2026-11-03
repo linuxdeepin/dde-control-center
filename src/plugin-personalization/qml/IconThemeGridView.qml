@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.3
@@ -49,6 +49,7 @@ ColumnLayout {
                             }
 
                             DccCheckIcon {
+                                accessibleId: "IconCheck_" + index
                                 visible: model.checked
                             }
                         }

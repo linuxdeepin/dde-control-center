@@ -21,12 +21,14 @@ DccObject {
         displayName: qsTr("Screensaver")
     }
     DccObject {
+        accessibleId: "PersonalizationScreenSaverStatusGroup"
         name: "screenSaverStatusGroup"
         parentName: "personalization/screenSaver"
         weight: 100
         pageType: DccObject.Item
         page: DccRowView { }
         DccObject {
+            accessibleId: "PersonalizationScreenSaverDisplayArea"
             name: "screenSaverDisplayArea"
             parentName: "personalization/screenSaver/screenSaverStatusGroup"
             weight: 200
@@ -75,6 +77,7 @@ DccObject {
 
                     D.Button {
                         id: previewBtn
+                        Accessible.id: "ScreenSaverPage_Button"
                         anchors.bottom: parent.bottom
                         anchors.bottomMargin: 15
                         anchors.horizontalCenter: parent.horizontalCenter
@@ -160,6 +163,7 @@ DccObject {
             }
 
             DccObject {
+                accessibleId: "PersonalizationPersonalizedScreensaver"
                 name: "personalizedScreensaver"
                 parentName: "personalization/screenSaver/screenSaverStatusGroup/screenSaverSetGroup"
                 displayName: qsTr("Personalized screensaver")
@@ -168,6 +172,7 @@ DccObject {
                 enabled: dccData.model.screenSaverModel.getConfigAbleByUrl(dccData.model.currentScreenSaver) || dccData.model.currentScreenSaver === "deepin-custom-screensaver"
                 page: D.Button {
                     id: settingBtn
+                    Accessible.id: "ScreenSaverPage_Button_2"
                     implicitWidth: {
                         font.pixelSize
                         return fm.advanceWidth(text) + leftPadding + rightPadding
@@ -193,12 +198,14 @@ DccObject {
             }
 
             DccObject {
+                accessibleId: "PersonalizationIdleTime"
                 name: "idleTime"
                 parentName: "personalization/screenSaver/screenSaverStatusGroup/screenSaverSetGroup"
                 displayName: qsTr("idle time")
                 weight: 20
                 pageType: DccObject.Editor
                 page: CustomComboBox {
+                    accessibleId: "PersonalizationIdleTimeBox"
                     flat: true
                     textRole: "text"
                     currentIndex: {
@@ -231,12 +238,14 @@ DccObject {
             }
 
             DccObject {
+                accessibleId: "PersonalizationLockScreenAtAwake"
                 name: "lockScreenAtAwake"
                 parentName: "personalization/screenSaver/screenSaverStatusGroup/screenSaverSetGroup"
                 displayName: qsTr("Password required for recovery")
                 weight: 30
                 pageType: DccObject.Editor
                 page: D.Switch {
+                    Accessible.id: "ScreenSaverPage_Switch"
                     checked: dccData.model.lockScreenAtAwake
                     onCheckedChanged: {
                         if (checked != dccData.model.lockScreenAtAwake) {
@@ -252,6 +261,7 @@ DccObject {
         }
     }
     DccObject {
+        accessibleId: "PersonalizationScreenSaverPicobj"
         name: "screenSaverPicobj"
         parentName: "personalization/screenSaver"
         displayName: qsTr("Picture slideshow screensaver")
@@ -259,6 +269,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: WallpaperSelectView {
+            accessibleId: "ScreenSaverPage_PicScreenSaver"
             model: dccData.model.picScreenSaverModel
             currentItem: dccData.model.currentScreenSaverPicMode
             enableContextMenu: false
@@ -273,6 +284,7 @@ DccObject {
     }
 
     DccObject {
+        accessibleId: "PersonalizationScreenSaverListObj"
         name: "screenSaverListObj"
         parentName: "personalization/screenSaver"
         displayName: qsTr("System screensaver")
@@ -280,6 +292,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Item
         page: WallpaperSelectView {
+            accessibleId: "ScreenSaverPage_ScreenSaver"
             model: dccData.model.screenSaverModel
             currentItem: dccData.model.currentScreenSaver
             enableContextMenu: false

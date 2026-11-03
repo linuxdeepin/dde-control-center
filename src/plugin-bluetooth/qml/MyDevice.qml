@@ -17,6 +17,7 @@ DccObject{
     }
 
     DccObject {
+        accessibleId: "BluetoothMyDeviceList"
         name: "myDeviceList"
         parentName: "myDevice" + model.id
         weight: 11

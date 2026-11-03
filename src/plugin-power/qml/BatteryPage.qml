@@ -24,6 +24,7 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PowerTurnOffTheMonitorAfter"
             name: "turnOffTheMonitorAfter"
             parentName: "power/onBattery/turnOffTheMonitorAfterGroup"
             displayName: qsTr("Turn off the monitor after")
@@ -50,6 +51,7 @@ DccObject {
                 }
 
                 CustomTipsSlider {
+                    accessibleId: "BatteryPage_OffMonitorSlider"
                     id: offMonitorSlider
                     dataMap: dccData.model.batteryScreenBlackDelayModel
                     Layout.preferredHeight: 80
@@ -73,6 +75,7 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PowerLockScreenAfter"
             name: "lockScreenAfter"
             parentName: "power/onBattery/lockScreenAfterGroup"
             displayName: qsTr("Lock screen after")
@@ -99,6 +102,7 @@ DccObject {
                 }
 
                 CustomTipsSlider {
+                    accessibleId: "BatteryPage_LockScreenSlider"
                     id: lockScreenSlider
                     dataMap: dccData.model.batteryLockDelayModel
                     Layout.preferredHeight: 80
@@ -123,6 +127,7 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PowerComputerSuspendsAfter"
             name: "computerSuspendsAfter"
             parentName: "power/onBattery/computerSuspendsAfterGroup"
             displayName: qsTr("Computer suspends after")
@@ -149,6 +154,7 @@ DccObject {
                 }
 
                 CustomTipsSlider {
+                    accessibleId: "BatteryPage_SuspendsSlider"
                     id: suspendsSlider
                     dataMap: dccData.model.batterySleepDelayModel
                     Layout.preferredHeight: 80
@@ -172,6 +178,7 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PowerWhenTheLidIsClosed"
             name: "whenTheLidIsClosed"
             parentName: "power/onBattery/powerButtonGroup"
             displayName: qsTr("When the lid is closed")
@@ -179,6 +186,7 @@ DccObject {
             weight: 1
             pageType: DccObject.Editor
             page: CustomComboBox {
+                accessibleId: "PowerWhenTheLidIsClosedBox"
                 textRole: "text"
                 enableRole: "enable"
                 visibleRole: "visible"
@@ -191,12 +199,14 @@ DccObject {
             }
         }
         DccObject {
+            accessibleId: "PowerWhenThePowerButtonIsPressed"
             name: "whenThePowerButtonIsPressed"
             parentName: "power/onBattery/powerButtonGroup"
             displayName: qsTr("When the power button is pressed")
             weight: 2
             pageType: DccObject.Editor
             page: CustomComboBox {
+                accessibleId: "PowerWhenThePowerButtonIsPressedBox"
                 textRole: "text"
                 enableRole: "enable"
                 visibleRole: "visible"
@@ -225,12 +235,14 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PowerLowBatteryNotification"
             name: "lowBatteryNotification"
             parentName: "power/onBattery/lowBatteryNotificationGroup"
             displayName: qsTr("Low battery notification")
             weight: 1
             pageType: DccObject.Editor
             page: D.ComboBox {
+                Accessible.id: "BatteryPage_ComboBox"
                 textRole: "text"
                 flat: true
                 currentIndex: dccData.indexByValueOnModel(model, dccData.model.lowPowerNotifyThreshold)
@@ -265,12 +277,14 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PowerLowBatteryOperator"
             name: "lowBatteryOperator"
             parentName: "power/onBattery/lowBatteryOperatorGroup"
             displayName: qsTr("Low battery level")
             weight: 1
             pageType: DccObject.Editor
             page: CustomComboBox {
+                accessibleId: "PowerLowBatteryOperatorBox"
                 textRole: "text"
                 valueRole: "value"
                 flat: true
@@ -286,12 +300,14 @@ DccObject {
             }
         }
         DccObject {
+            accessibleId: "PowerLowBatteryThreshold"
             name: "lowBatteryThreshold"
             parentName: "power/onBattery/lowBatteryOperatorGroup"
             displayName: qsTr("Low battery threshold")
             weight: 2
             pageType: DccObject.Editor
             page: CustomComboBox {
+                accessibleId: "PowerLowBatteryThresholdBox"
                 textRole: "text"
                 valueRole: "value"
                 currentIndex: indexByValue(dccData.model.lowPowerAutoSleepThreshold)
@@ -331,12 +347,14 @@ DccObject {
         page: DccGroupView {}
 
         DccObject {
+            accessibleId: "PowerDisplayRemainingUsingAndChargingTime"
             name: "displayRemainingUsingAndChargingTime"
             parentName: "power/onBattery/batteryManagementGroup"
             displayName: qsTr("Display remaining using and charging time")
             weight: 1
             pageType: DccObject.Editor
             page: D.Switch {
+                Accessible.id: "BatteryPage_Switch"
                 checked: dccData.model.showBatteryTimeToFull
                 onCheckedChanged: {
                     dccData.worker.setShowBatteryTimeToFull(checked)
@@ -344,6 +362,7 @@ DccObject {
             }
         }
         DccObject {
+            accessibleId: "PowerMaximumCapacity"
             name: "maximumCapacity"
             parentName: "power/onBattery/batteryManagementGroup"
             displayName: qsTr("Maximum capacity")

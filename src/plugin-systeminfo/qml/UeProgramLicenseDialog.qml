@@ -86,6 +86,7 @@ D.DialogWindow {
 
         CheckBox {
             id: agreeCheckBox
+            Accessible.id: "UeProgramLicenseDialog_CheckBox"
             Layout.alignment: Qt.AlignHCenter
             text: qsTr("Agree and Join User Experience Program")
             font: D.DTK.fontManager.t8
@@ -97,6 +98,7 @@ D.DialogWindow {
             Layout.fillWidth: true
 
             Button {
+                Accessible.id: "UeProgramLicenseDialog_Button"
                 Layout.fillWidth: true
                 text: qsTr("Cancel")
                 font: D.DTK.fontManager.t7

@@ -12,6 +12,9 @@ import org.deepin.dcc 1.0
 
 Control {
     id: control
+    property string accessibleId: ""
+    Accessible.id: accessibleId !== "" ? accessibleId : "KeySequenceDisplay"
+    Accessible.role: Accessible.EditableText
     property string text
     property string placeholderText
     property list<string> keys

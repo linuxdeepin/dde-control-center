@@ -71,6 +71,7 @@ Control {
 
     GridView {
         id: grid
+        Accessible.id: "HomePageModuleGrid"
 
         anchors {
             fill: parent
@@ -123,6 +124,7 @@ Control {
             width: root.cellWidth
             height: root.cellHeight
             padding: 12
+            Accessible.id: model.item.accessibleId || ("HomePageModuleGrid_" + model.item.name)
             icon {
                 name: model.item.icon
                 source: model.item.iconSource
