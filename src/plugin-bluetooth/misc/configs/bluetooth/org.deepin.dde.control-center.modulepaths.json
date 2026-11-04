@@ -1,0 +1,18 @@
+{
+    "magic": "dsg.config.meta",
+    "version": "1.0",
+    "contents": {
+        "modulePaths": {
+            "value": [
+                "root/device/bluetooth"
+            ],
+            "flags": [],
+            "name": "Module paths",
+            "name[zh_CN]": "模块路径列表",
+            "description": "DccObject paths whose visible/disable configuration is initialized at startup. The root list contains control-center groups and is merged with each plugin's list from same-name metadata under its plugin-name subpath; plugins without subpath metadata fall back to the root list.",
+            "description[zh_CN]": "启动时初始化 visible/disable 配置的 DccObject 路径。根清单包含控制中心自身的分组，并与各插件以插件名为 subpath 的同名元数据清单合并；未提供子路径元数据的插件回退到根清单。",
+            "permissions": "readonly",
+            "visibility": "private"
+        }
+    }
+}

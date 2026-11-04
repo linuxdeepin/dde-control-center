@@ -48,6 +48,8 @@ public:
     void setMainWindow(QWindow *window);
     void setPlugins(const QStringList &plugins);
     void setShowOnNavigationReady(bool enabled);
+    // 在 init() 前调用；异步读取单模块配置，不等待结果返回。
+    void loadModuleConfigs(const QStringList &dirs, const QStringList &plugins);
     void loadModules(bool async, const QStringList &dirs);
 
     int width() const override;
@@ -107,6 +109,7 @@ Q_SIGNALS:
 
 private:
     void initConfig();
+    void loadModuleConfigValues(const QSet<QString> &modulePaths);
     bool contains(const QSet<QString> &urls, const DccObject *obj);
     QStringList splitUrl(const QString &url, QString &targetName);
     bool isMatchByName(const QString &url, const QString &name);
@@ -137,8 +140,6 @@ private Q_SLOTS:
     void tryShowFallback();
     void doShowPage(QPointer<DccObject> obj, const QString &cmd);
     void updateModuleConfig(const QString &key);
-    // 单模块配置（visible/disable）：启动时读完全部 subpath，之后统一应用
-    void loadModuleConfigs();
     void finishModuleConfigItem();
     void refreshModuleConfigState();
     void updateConfigState(DccObject *obj, uint32_t type);
@@ -168,8 +169,7 @@ private:
     Dtk::Core::DConfig *m_dconfig;
     QSet<QString> m_hideModule;
     QSet<QString> m_disableModule;
-    // 单模块配置：modulePaths 清单，以及由各 subpath 的 visible=false / disable=true 派生的集合
-    QSet<QString> m_modulePaths;
+    // 单模块配置：由各 subpath 的 visible=false / disable=true 派生的集合。
     QSet<QString> m_moduleHiddenPaths;
     QSet<QString> m_moduleDisabledPaths;
     bool m_moduleConfigReady = false; // 全部 subpath 返回后才置位：在此之前单模块配置不生效
