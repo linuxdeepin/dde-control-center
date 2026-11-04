@@ -174,6 +174,7 @@ ColumnLayout {
             Loader {
                 active: root.firstItemVisible
                 sourceComponent: Item {
+                    Accessible.id: "WallpaperSelectView_Item_1"
                     width: root.itemWidth
                     height: root.itemHeight
 
@@ -296,6 +297,7 @@ ColumnLayout {
                     hoverEnabled: true
 
                     contentItem: Item {
+                        Accessible.id: "WallpaperSelectView_Item_2"
                         id: wallpaperItem
                         function requestSetWallpaper(option) {
                             root.wallpaperSelected(model.url, option)
@@ -414,6 +416,7 @@ ColumnLayout {
                             z: 999
                             active: control.hovered && model.deleteAble && !model.selected
                             sourceComponent: D.ActionButton {
+                                Accessible.id: "WallpaperSelectView_ActionButton"
                                 icon.name: "close"
                                 width: 20
                                 height: 20

@@ -71,6 +71,7 @@ DccObject {
                 }
 
                 D.ActionButton {
+                    Accessible.id: "MicrophonePage_ActionButton"
                     Layout.alignment: Qt.AlignVCenter
                     icon {
                         name: dccData.model().microphoneOn ? "sound_off" : "small_volume"
@@ -121,6 +122,7 @@ DccObject {
                     }
                 }
                 D.IconButton {
+                    Accessible.id: "MicrophonePage_IconButton"
                     Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                     icon.name: "big_volume"
                     icon.width: 16

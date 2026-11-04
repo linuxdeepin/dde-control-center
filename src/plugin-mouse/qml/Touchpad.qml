@@ -239,6 +239,7 @@ DccObject {
             pageType: DccObject.Editor
 
             page: D.Switch {
+                Accessible.id: "Touchpad_Switch_5"
                 Layout.rightMargin: 10
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
                 checked: dccData.touchpadExpandEnable

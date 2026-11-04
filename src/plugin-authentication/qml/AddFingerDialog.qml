@@ -114,6 +114,7 @@ D.DialogWindow {
                 }
 
                 D.RecommandButton {
+                    Accessible.id: "AddFingerDialog_RecommandButton_1"
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
                     Layout.bottomMargin: DS.Style.dialogWindow.contentHMargin
@@ -211,6 +212,7 @@ D.DialogWindow {
                         }
                     }
                     D.RecommandButton {
+                        Accessible.id: "AddFingerDialog_RecommandButton_2"
                         Layout.fillWidth: true
                         text: qsTr("Retry Enroll")
                         onClicked: {

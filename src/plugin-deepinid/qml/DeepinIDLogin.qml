@@ -19,6 +19,7 @@ DccObject {
     parentName: "deepinid"
     pageType: DccObject.Item
     page: Flickable {
+        Accessible.id: "DeepinIDLogin_Flickable"
         Layout.fillWidth: true
         Layout.fillHeight: true
         contentHeight: groupView.height

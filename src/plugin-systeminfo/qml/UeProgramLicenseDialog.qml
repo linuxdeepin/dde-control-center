@@ -21,6 +21,7 @@ D.DialogWindow {
     color: "transparent"
 
     header: D.DialogTitleBar {
+        Accessible.id: "UeProgramLicenseDialog_DialogTitleBar"
         icon.name: dialog.icon
     }
 
@@ -57,6 +58,7 @@ D.DialogWindow {
         spacing: 10
 
         ScrollView {
+            Accessible.id: "UeProgramLicenseDialog_ScrollView"
             id: scrollView
             Layout.fillWidth: true
             Layout.preferredHeight: 375
@@ -68,6 +70,7 @@ D.DialogWindow {
             clip: true
 
             TextEdit {
+                Accessible.id: "UeProgramLicenseDialog_TextEdit"
                 id: contentLabel
                 width: scrollView.availableWidth
                 wrapMode: TextEdit.Wrap
@@ -108,6 +111,7 @@ D.DialogWindow {
                 }
             }
             D.RecommandButton {
+                Accessible.id: "UeProgramLicenseDialog_RecommandButton"
                 Layout.fillWidth: true
                 text: qsTr("Confirm")
                 font: D.DTK.fontManager.t7

@@ -87,6 +87,7 @@ D.DialogWindow {
     }
 
     header: D.DialogTitleBar {
+        Accessible.id: "AvatarSettingsDialog_DialogTitleBar"
         // titlebar do not enbale blur again
         // enableInWindowBlendBlur: true
         icon.name: dialog.icon
@@ -299,6 +300,7 @@ D.DialogWindow {
             }
 
             ScrollView {
+                Accessible.id: "AvatarSettingsDialog_ScrollView"
                 id: scrollView
                 property list<string> sections: []
                 property string filter
@@ -490,6 +492,7 @@ D.DialogWindow {
                     }
                 }
                 D.RecommandButton {
+                    Accessible.id: "AvatarSettingsDialog_RecommandButton"
                     Layout.fillWidth: true
                     text: qsTr("Save")
                     onClicked: {

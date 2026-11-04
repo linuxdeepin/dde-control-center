@@ -112,6 +112,7 @@ DccObject {
                     pageType: DccObject.Item
                     weight: 30 + index
                     page: RowLayout {
+                        Accessible.id: "AuthenticationMain_RowLayout"
                         id: layout
                         property bool showActions: false
 
@@ -144,6 +145,7 @@ DccObject {
                         }
 
                         D.LineEdit {
+                            Accessible.id: "AuthenticationMain_LineEdit"
                             id: nameEditor
                             property int maxLength: 15
                             Layout.leftMargin: 10
@@ -263,6 +265,7 @@ DccObject {
                         }
 
                         D.ActionButton {
+                            Accessible.id: "AuthenticationMain_ActionButton_1"
                             id: editButton
                             visible: hoverHandler.hovered || layout.showActions
                             implicitWidth: 30
@@ -292,6 +295,7 @@ DccObject {
                             }
                         }
                         D.ActionButton {
+                            Accessible.id: "AuthenticationMain_ActionButton_2"
                             id: deleteButton
                             visible: hoverHandler.hovered || layout.showActions
                             implicitWidth: 30

@@ -193,6 +193,7 @@ Item {
                 }
 
                 D.ActionButton {
+                    Accessible.id: "CustomLocalAvatarsRow_ActionButton"
                     z: 99
                     visible: delegate.hovered && !delegate.isSelected && !delegate.isAddButton
                     focusPolicy: Qt.NoFocus

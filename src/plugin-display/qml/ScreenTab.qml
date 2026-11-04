@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 // SPDX-License-Identifier: GPL-3.0-or-later
 import QtQuick 2.15
 import QtQuick.Controls 2.0
@@ -17,6 +17,7 @@ Item {
         Repeater {
             id: repeater
             delegate: Rectangle {
+                Accessible.id: "ScreenTab_Rectangle_display"
                 property bool isSelect: model.modelData === screen
                 property alias hovered: mouseArea.containsMouse
                 implicitWidth: nameLabel.implicitWidth + 20

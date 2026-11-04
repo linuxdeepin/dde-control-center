@@ -58,6 +58,7 @@ D.LineEdit {
     }
 
     D.ActionButton {
+        Accessible.id: "EditActionLabel_ActionButton"
         id: editButton
         focusPolicy: Qt.StrongFocus
         width: 30

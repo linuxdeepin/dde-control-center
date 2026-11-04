@@ -50,6 +50,7 @@ DccObject {
                     }
 
                     D.IconButton {
+                        Accessible.id: "PersonalizationMain_IconButton_1"
                         flat: true
                         enabled: themeSelectView.currentIndex !== 0
                         icon.name: "arrow_left"
@@ -68,6 +69,7 @@ DccObject {
                         }
                     }
                     D.IconButton {
+                        Accessible.id: "PersonalizationMain_IconButton_2"
                         flat: true
                         enabled: themeSelectView.currentIndex !== themeSelectView.count - 1
                         icon.name: "arrow_right"

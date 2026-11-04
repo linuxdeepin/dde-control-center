@@ -142,6 +142,7 @@ DccObject{
             }
 
             LineEdit {
+                Accessible.id: "BluetoothCtl_LineEdit"
                 id: nameEdit
                 visible: false
                 Layout.fillWidth: true
@@ -301,6 +302,7 @@ DccObject{
                 width: implicitWidth
             }
             Label {
+                Accessible.id: "BluetoothCtl_Label"
                 id: airplaneModeLinkLabel
                 text: "<a href=\"airplaneMode\" style=\"text-decoration:none;\">" + qsTr("Airplane Mode") +"</a>"
                 anchors.left: airplaneModeTextLabel.right

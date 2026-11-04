@@ -50,6 +50,7 @@ D.DialogWindow {
                 Layout.fillWidth: true
             }
             D.WarningButton {
+                Accessible.id: "ComfirmDeleteDialog_WarningButton"
                 text: qsTr("Delete")
                 Layout.preferredWidth: 180
                 Layout.alignment: Qt.AlignRight

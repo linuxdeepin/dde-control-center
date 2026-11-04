@@ -18,6 +18,7 @@ Control {
     signal iconDropped(string file)
 
     Shape {
+        Accessible.id: "CustomAvatarEmpatyArea_Shape"
         id: shape
         anchors.centerIn: parent
         width: 400

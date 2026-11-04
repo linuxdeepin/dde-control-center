@@ -182,6 +182,7 @@ DccObject {
                         }
 
                         IconButton {
+                            Accessible.id: "LangAndFormat_IconButton"
                             id: removeButton
                             visible: !itemDelegate.isLoading && (
                                      (itemDelegate.isCurrentLang && dccObj.enabled) ||
@@ -316,6 +317,7 @@ DccObject {
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         page: Item {
+            Accessible.id: "LangAndFormat_Item_1"
             implicitWidth: rowlayout.implicitWidth + 20
             implicitHeight: 30
 
@@ -408,6 +410,7 @@ DccObject {
             })
         }
         page: Item {
+            Accessible.id: "LangAndFormat_Item_2"
             id: regionAndFormatItem
             implicitWidth: regionAndFormat.localeGenRunning ? 36 : layout.implicitWidth + 20
             implicitHeight: regionAndFormat.localeGenRunning ? 36 : 30

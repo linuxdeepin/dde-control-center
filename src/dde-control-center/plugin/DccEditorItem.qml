@@ -7,6 +7,7 @@ import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
 
 D.ItemDelegate {
+    Accessible.id: "DccEditorItem_ItemDelegate"
     id: control
     property alias separatorVisible: background.separatorVisible
     property alias backgroundType: background.backgroundType
@@ -18,7 +19,6 @@ D.ItemDelegate {
     property real rightItemTopMargin: 5
     property real rightItemBottomMargin: 5
 
-    Accessible.id: model.item.accessibleId
     implicitHeight: Math.max(model.item.description.length !== 0 ? 48 : 40, implicitContentHeight) + topInset + bottomInset
     backgroundVisible: false
     checkable: false

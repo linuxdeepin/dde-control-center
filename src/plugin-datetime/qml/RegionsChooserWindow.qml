@@ -96,6 +96,7 @@ Popup {
         anchors.fill: parent
         anchors.margins: 6
         SearchEdit {
+            Accessible.id: "RegionsChooserWindow_SearchEdit"
             id: searchEdit
             implicitHeight: Math.max(30, searchEditFontMetrics.height + (DS.Style.control.padding - DS.Style.control.borderWidth) * 2)
             Layout.fillWidth: true

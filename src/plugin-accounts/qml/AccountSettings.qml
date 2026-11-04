@@ -49,6 +49,7 @@ DccObject {
             implicitHeight: 100
 
             Control {
+                Accessible.id: "AccountSettings_Control"
                 id: control
                 implicitWidth: 100
                 implicitHeight: 100
@@ -1204,6 +1205,7 @@ DccObject {
                                 }
 
                                 Item {
+                                    Accessible.id: "AccountSettings_Item"
                                     Layout.fillWidth: true
                                     Layout.alignment: Qt.AlignVCenter
                                     implicitHeight: 36
@@ -1220,6 +1222,7 @@ DccObject {
                                 }
 
                                 ActionButton {
+                                    Accessible.id: "AccountSettings_ActionButton"
                                     id: editButton
                                     focusPolicy: Qt.NoFocus
                                     icon.width: 16

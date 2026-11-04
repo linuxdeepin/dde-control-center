@@ -115,6 +115,7 @@ DccObject {
                 }
 
                 ActionButton {
+                    Accessible.id: "NativeInfoPage_ActionButton"
                     id: editBtn
                     icon.name: "dcc_systemInfo_edit"
                     icon.width: 16
@@ -155,6 +156,7 @@ DccObject {
                 }
 
                 LineEdit {
+                    Accessible.id: "NativeInfoPage_LineEdit"
                     id: hostNameEdit
                     horizontalAlignment: TextInput.AlignLeft
                     text: dccData.systemInfoMode().hostName

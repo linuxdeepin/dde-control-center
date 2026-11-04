@@ -33,6 +33,7 @@ DccObject {
         weight: 30
         page:
             Label {
+                Accessible.id: "PrivacyPolicyPage_Label"
                 id: policyLabel
                 textFormat: Text.RichText
                 font: DTK.fontManager.t6

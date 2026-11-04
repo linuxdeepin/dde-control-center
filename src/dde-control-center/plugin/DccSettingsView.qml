@@ -8,6 +8,7 @@ import org.deepin.dtk.style 1.0 as DS
 import "DccUtils.js" as DccUtils
 
 Flickable {
+    Accessible.id: "DccSettingsView_Flickable"
     id: control
     property real spacing: 0
     property bool isGroup: false

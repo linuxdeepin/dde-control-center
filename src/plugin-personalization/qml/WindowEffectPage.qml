@@ -74,6 +74,7 @@ DccObject {
                             width: 112
                             height: 104
                             Item {
+                                Accessible.id: "WindowEffectPage_Item"
                                 Layout.preferredHeight: 78
                                 Layout.fillWidth: true
 

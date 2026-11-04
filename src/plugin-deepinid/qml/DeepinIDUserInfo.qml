@@ -87,6 +87,7 @@ DccObject {
                 }
 
                 D.ActionButton {
+                    Accessible.id: "DeepinIDUserInfo_ActionButton"
                     id: editButton
                     anchors.left: nameLabel.right
                     anchors.leftMargin: 10
@@ -125,6 +126,7 @@ DccObject {
                 }
 
                 D.LineEdit {
+                    Accessible.id: "DeepinIDUserInfo_LineEdit"
                     id: nameEdit
                     anchors.horizontalCenter: parent.horizontalCenter
                     anchors.top: parent.top
@@ -198,6 +200,7 @@ DccObject {
         weight: 60
         page: RowLayout {
             Button {
+                Accessible.id: "DeepinIDUserInfo_Button_1"
                 text: qsTr("Sign out")
                 onClicked: {
                     dccData.worker.logoutUser()
@@ -207,6 +210,7 @@ DccObject {
                 Layout.fillWidth: true
             }
             Button {
+                Accessible.id: "DeepinIDUserInfo_Button_2"
                 text: qsTr("Go to web settings")
                 onClicked: {
                     dccData.worker.openWeb()

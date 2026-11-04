@@ -247,6 +247,7 @@ D.DialogWindow {
                                 }
                             }
                             D.LineEdit {
+                                Accessible.id: "CreateAccountDialog_LineEdit"
                                 id: edit
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter

@@ -24,6 +24,7 @@ ColumnLayout {
     }
 
     ScrollView {
+        Accessible.id: "DisclaimerControl_ScrollView"
         id: scrollView
         Layout.fillWidth: true
         Layout.fillHeight: true
@@ -56,6 +57,7 @@ ColumnLayout {
             }
         }
         D.RecommandButton {
+            Accessible.id: "DisclaimerControl_RecommandButton"
             Layout.fillWidth: true
             text: qsTr("Agree")
             onClicked: {

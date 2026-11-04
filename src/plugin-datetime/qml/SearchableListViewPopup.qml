@@ -129,6 +129,7 @@ Popup {
         spacing: control.delegateModel.count > 0 ? 14 : 0
 
         SearchEdit {
+            Accessible.id: "SearchableListViewPopup_SearchEdit"
             id: searchEdit
             implicitHeight: Math.max(30, searchEditFontMetrics.height + (DS.Style.control.padding - DS.Style.control.borderWidth) * 2)
             Layout.fillWidth: true

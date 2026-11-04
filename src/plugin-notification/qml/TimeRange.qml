@@ -24,6 +24,7 @@ RowLayout {
         }
     }
     D.Label {
+        Accessible.id: "TimeRange_Label"
         text: qsTr("from")
         MouseArea {
             anchors.fill: parent
