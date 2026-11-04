@@ -12,7 +12,7 @@ D.ItemDelegate {
     property alias backgroundType: background.backgroundType
     property var item: model.item
 
-    Accessible.id: model.item.accessibleId
+    Accessible.id: "DccItem_ItemDelegate"
     backgroundVisible: backgroundType & 0x01
     enabled: model.item.enabledToApp
     hoverEnabled: true

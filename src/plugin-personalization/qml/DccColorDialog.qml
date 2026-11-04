@@ -15,6 +15,7 @@ import org.deepin.dcc.personalization 1.0
 import org.deepin.dcc 1.0
 
 ColorDialogImpl {
+    Accessible.id: "DccColorDialog_ColorDialogImpl"
     id: control
 
     implicitWidth: Math.max(implicitBackgroundWidth + leftInset + rightInset,
@@ -74,6 +75,7 @@ ColorDialogImpl {
             Layout.bottomMargin: 2
 
             D.IconButton {
+                Accessible.id: "DccColorDialog_IconButton"
                 id: eyeDropperButton
                 icon.name: "color_extractor"
                 icon.width: 20

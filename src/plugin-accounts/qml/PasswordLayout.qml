@@ -519,6 +519,7 @@ ColumnLayout {
             Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
 
             D.PasswordEdit {
+                Accessible.id: "PasswordLayout_PasswordEdit"
                 id: rightItem
                 anchors.fill: parent
                 property bool hasErrorBorder: false

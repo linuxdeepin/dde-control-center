@@ -34,6 +34,7 @@ Loader {
             }
 
             SearchEdit {
+                Accessible.id: "LangsChooserDialog_SearchEdit"
                 id: searchEdit
                 implicitHeight: Math.max(30, searchEditFontMetrics.height + (DS.Style.control.padding - DS.Style.control.borderWidth) * 2) // Minimum 30px, adaptive based on font
                 Layout.fillWidth: true

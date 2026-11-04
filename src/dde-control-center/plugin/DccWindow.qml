@@ -90,6 +90,7 @@ D.ApplicationWindow {
         autoHideOnFullscreen: true
         focus: true
         leftContent: D.ActionButton {
+            Accessible.id: "DccWindow_ActionButton_1"
             id: sidebarButton
             opacity: Window.window.active ? 1 : (D.DTK.themeType === D.ApplicationHelper.DarkType ? 0.6 : 0.4)
             palette.windowText: D.ColorSelector.textColor
@@ -153,6 +154,7 @@ D.ApplicationWindow {
                 }
             }
             D.ActionButton {
+                Accessible.id: "DccWindow_ActionButton_2"
                 id: breakBut
                 palette.windowText: D.ColorSelector.textColor
                 implicitHeight: 30
@@ -251,6 +253,7 @@ D.ApplicationWindow {
     Component {
         id: rootLayout
         SwipeView {
+            Accessible.id: "DccWindow_SwipeView"
             id: stackView
             hoverEnabled: false
             currentIndex: DccWindow.PageIndex.LoadIndex

@@ -17,7 +17,7 @@ DccObject {
     icon: "keyboard_fn"
     weight: parent.weight // 300
     property int searchEditWidth: 600
-    property var viewScrollbar: ScrollBar { }
+    property var viewScrollbar: ScrollBar { Accessible.id: "Shortcuts_ScrollBar" }
 
     PropertyAnimation {
         id: scrollbarAnimation
@@ -77,6 +77,7 @@ DccObject {
                 implicitHeight: searchEdit.implicitHeight + 36
 
                 D.SearchEdit {
+                    Accessible.id: "Shortcuts_SearchEdit"
                     id: searchEdit
                     anchors.left: parent.left
                     anchors.right: parent.right

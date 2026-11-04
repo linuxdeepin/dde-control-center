@@ -11,6 +11,7 @@ import org.deepin.dtk.style 1.0 as DS
 import org.deepin.dcc 1.0
 
 Item {
+    Accessible.id: "SecondPage_Item"
     id: root
     property real oldX: 180 // 用于调整宽度时，自动调整侧边栏宽度
     property real oldSplitterX: 180 // 记录上次位置，用于恢复
@@ -165,7 +166,7 @@ Item {
                 font: D.DTK.fontManager.t6
                 activeFocusOnTab: false
                 focusPolicy: Qt.ClickFocus
-                Accessible.id: model.item.accessibleId || ("SecondPageModuleList_" + model.item.name)
+                Accessible.id: "SecondPageModuleList_ItemDelegate"
 
                 property bool isKeyboardNavigating: false
 
@@ -243,6 +244,7 @@ Item {
         }
         color: D.ColorSelector.bgColor
         StackView {
+            Accessible.id: "SecondPage_StackView"
             id: rightView
             clip: true
             hoverEnabled: true

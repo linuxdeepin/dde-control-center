@@ -33,6 +33,7 @@ D.DialogWindow {
         }
 
         D.PasswordEdit {
+            Accessible.id: "RegisterDialog_PasswordEdit_1"
             id: edit0
             Layout.fillWidth: true
             placeholderText: qsTr("8-64 characters")
@@ -47,6 +48,7 @@ D.DialogWindow {
         }
 
         D.PasswordEdit {
+            Accessible.id: "RegisterDialog_PasswordEdit_2"
             id: edit1
             Layout.fillWidth: true
             placeholderText: qsTr("Repeat the password")

@@ -35,6 +35,7 @@ DccObject {
             pageType: DccObject.Item
             page: RowLayout {
                 Item {
+                    Accessible.id: "ScreenSaverPage_Item"
                     id: screenSaverItem
                     property bool showPreviewButton: false
                     implicitWidth: 197

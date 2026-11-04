@@ -19,6 +19,7 @@ DccObject {
     page: Item {
         implicitHeight: contentLabel.implicitHeight
         Label {
+            Accessible.id: "UserLicensePage_Label"
             id: contentLabel
             anchors.fill: parent
             horizontalAlignment: Text.AlignLeft

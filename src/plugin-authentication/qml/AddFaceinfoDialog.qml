@@ -65,6 +65,7 @@ D.DialogWindow {
                 }
 
                 ScrollView {
+                    Accessible.id: "AddFaceinfoDialog_ScrollView"
                     id: infoScrollView
                     Layout.fillHeight: true
                     Layout.fillWidth: true
@@ -198,6 +199,7 @@ To ensure successful entry:\n\
                 }
 
                 D.RecommandButton {
+                    Accessible.id: "AddFaceinfoDialog_RecommandButton_1"
                     spacing: 10
                     Layout.alignment: Qt.AlignBottom | Qt.AlignHCenter
                     Layout.bottomMargin: DS.Style.dialogWindow.contentHMargin
@@ -362,6 +364,7 @@ To ensure successful entry:\n\
                         }
                     }
                     D.RecommandButton {
+                        Accessible.id: "AddFaceinfoDialog_RecommandButton_2"
                         Layout.fillWidth: true
                         text: qsTr("Retry Enroll")
                         onClicked: {

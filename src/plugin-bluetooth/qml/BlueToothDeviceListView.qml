@@ -55,6 +55,7 @@ Rectangle {
                 }
 
                 content: Rectangle {
+                    Accessible.id: "BlueToothDeviceListView_Rectangle"
                     width: parent.width
                     implicitHeight: Math.max(50, deviceRow.statusItem.implicitHeight + 10)
                     color: "transparent"
@@ -144,6 +145,7 @@ Rectangle {
                             Layout.bottomMargin: 10
 
                             sourceComponent: D.LineEdit {
+                                Accessible.id: "BlueToothDeviceListView_LineEdit"
                                 id: nameEdit
                                 text: model.name
 
@@ -212,6 +214,7 @@ Rectangle {
                                 Layout.alignment: Qt.AlignRight
 
                                 sourceComponent: D.ActionButton {
+                                    Accessible.id: "BlueToothDeviceListView_ActionButton"
                                     id: moreBtn
                                     palette.windowText: D.ColorSelector.textColor
                                     icon.name: "bluetooth_option"

@@ -49,6 +49,7 @@ Loader {
                     Layout.maximumWidth: 348
                     spacing: 10
                     D.SearchEdit {
+                        Accessible.id: "RegionFormatDialog_SearchEdit"
                         id: searchEdit
                         Layout.fillWidth: true
                         Layout.leftMargin: 0

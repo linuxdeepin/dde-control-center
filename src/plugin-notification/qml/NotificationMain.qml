@@ -89,6 +89,7 @@ DccObject {
                     }
                 }
                 D.Label {
+                    Accessible.id: "NotificationMain_Label"
                     text: qsTr("When the screen is locked")
                     MouseArea {
                         anchors.fill: parent
@@ -170,6 +171,7 @@ DccObject {
             Item { Layout.fillWidth: true }
 
             D.SearchEdit {
+                Accessible.id: "NotificationMain_SearchEdit"
                 id: searchEdit
                 visible: appNotifyTitle.searchVisible
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
@@ -190,6 +192,7 @@ DccObject {
             }
 
             D.IconButton {
+                Accessible.id: "NotificationMain_IconButton"
                 id: searchButton
                 visible: !appNotifyTitle.searchVisible
                 Layout.alignment: Qt.AlignRight | Qt.AlignVCenter

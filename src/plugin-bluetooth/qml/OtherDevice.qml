@@ -98,6 +98,7 @@ DccObject{
             }
 
             D.ActionButton {
+                Accessible.id: "OtherDevice_ActionButton"
                 id: redobtn
                 Layout.alignment: Qt.AlignRight
                 visible: !model.discovering

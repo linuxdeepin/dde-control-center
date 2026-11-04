@@ -42,6 +42,7 @@ Control {
         }
 
         Rectangle {
+            Accessible.id: "CustomAvatarCropper_Rectangle"
             id: imgContainter
             property bool dragActived: false
             width: control.iconSource.length > 0 ? 190 : 120
@@ -52,6 +53,7 @@ Control {
             radius: control.iconSource.length > 0 ? 0 : 18
 
             Image {
+                Accessible.id: "CustomAvatarCropper_Image"
                 id: img2
                 property bool initialAligned: false
                 // Fit strategy: fix height to cropSize, width by aspect ratio

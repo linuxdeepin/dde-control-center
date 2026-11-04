@@ -82,6 +82,7 @@ D.DialogWindow {
         }
 
         D.LineEdit {
+            Accessible.id: "ShortcutSettingDialog_LineEdit"
             id: nameEdit
             Layout.rightMargin: 20
             Layout.preferredWidth: parent.width
@@ -125,12 +126,14 @@ D.DialogWindow {
 
         D.LineEdit {
             id: commandEdit
+            Accessible.id: "ShortcutSettingDialog_CommandLineEdit"
             Layout.rightMargin: 20
             Layout.preferredWidth: parent.width
             font: D.DTK.fontManager.t6
             clearButton.visible: false
             placeholderText: qsTr("Required")
             D.ActionButton {
+                Accessible.id: "ShortcutSettingDialog_ActionButton"
                 anchors {
                     right: commandEdit.right
                     rightMargin: 10

@@ -124,7 +124,7 @@ Control {
             width: root.cellWidth
             height: root.cellHeight
             padding: 12
-            Accessible.id: model.item.accessibleId || ("HomePageModuleGrid_" + model.item.name)
+            Accessible.id: "HomePageModuleGrid_ItemDelegate"
             icon {
                 name: model.item.icon
                 source: model.item.iconSource

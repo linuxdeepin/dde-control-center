@@ -8,6 +8,7 @@ import "DccUtils.js" as DccUtils
 
 Flickable {
     id: control
+    Accessible.id: "DccRightView_Flickable"
     property string accessibleId: ""
     property alias spacing: groupView.spacing
     property alias isGroup: groupView.isGroup

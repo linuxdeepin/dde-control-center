@@ -27,6 +27,7 @@ D.DialogWindow {
 
     // remove titlebar background
     header: D.DialogTitleBar {
+        Accessible.id: "TimezoneDialog_DialogTitleBar"
         enableInWindowBlendBlur: false
     }
 
@@ -74,9 +75,10 @@ D.DialogWindow {
             visible: false
         }
 
-        D.DciIcon {
-            id: zoneMap
-            property point timZonePos
+       D.DciIcon {
+           id: zoneMap
+           Accessible.id: "TimezoneDialog_DciIcon"
+           property point timZonePos
 
             name: "dcc_timezone_map"
             sourceSize: Qt.size(978, 500)
@@ -207,6 +209,7 @@ D.DialogWindow {
                 }
             }
             D.RecommandButton {
+                Accessible.id: "TimezoneDialog_RecommandButton"
                 enabled: timezoneDialog.selectedTimeZone.length > 0
                 Layout.bottomMargin: 10
                 text: qsTr("Save")

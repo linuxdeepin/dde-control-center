@@ -48,6 +48,7 @@ D.DialogWindow {
                 }
             }
             D.WarningButton {
+                Accessible.id: "ComfirmSafePage_WarningButton"
                 text: qsTr("Cancel")
                 Layout.fillWidth: true
                 Layout.alignment: Qt.AlignRight

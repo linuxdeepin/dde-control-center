@@ -36,6 +36,7 @@ Rectangle {
     }
 
     SearchEdit {
+        Accessible.id: "SearchBar_SearchEdit"
         id: searchEdit
         function setViewIndex(viewIndex) {
             if (viewIndex < 0) {

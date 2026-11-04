@@ -86,6 +86,7 @@ DccObject {
                         visible: model.isDefault
                     }
                     D.IconButton {
+                        Accessible.id: "DetailItem_IconButton_" + index
                         Layout.alignment: Qt.AlignCenter
                         implicitHeight: 30
                         implicitWidth: 30

@@ -56,6 +56,7 @@ DccObject {
                 }
 
                 Rectangle {
+                    Accessible.id: "ColorAndIcons_Rectangle"
                     id: colorImg
                     anchors.fill: parent
                     anchors.margins: 4

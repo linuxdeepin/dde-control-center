@@ -37,6 +37,7 @@ DccObject {
         weight: 20
         pageType: DccObject.Item
         page: Rectangle {
+            Accessible.id: "BootPage_Rectangle_1"
 
             readonly property int itemDelegateMinWidth: parent.width
             readonly property int itemDelegateMaxWidth: 600
@@ -177,11 +178,13 @@ DccObject {
                     model: dccData.mode().grubMenuListModel()
 
                     delegate: Rectangle {
+                        Accessible.id: "BootPage_Rectangle_2"
                         width: grublist.width - 20
                         height: 30
                         color: "transparent"
                         
                         Rectangle {
+                            Accessible.id: "BootPage_Rectangle_Background"
                             id: backgru
                             property bool isHovered: false
 
@@ -362,6 +365,7 @@ DccObject {
                     }
 
                     Label {
+                        Accessible.id: "BootPage_Label"
                         id: changePasswordLabel
                         text: "<a href=\"Change Password\">" + qsTr("Change Password") +"</a>"
                         visible: dccData.mode().grubEditAuthEnabled
@@ -486,6 +490,7 @@ DccObject {
                         }
 
                         PasswordEdit {
+                            Accessible.id: "BootPage_PasswordEdit_1"
                             id: newPasswordEdit
                             placeholderText: qsTr("Required")
                             Layout.preferredWidth: parent.width
@@ -557,6 +562,7 @@ DccObject {
                         }
 
                         PasswordEdit {
+                            Accessible.id: "BootPage_PasswordEdit_2"
                             id: repeatPasswordEdit
                             Layout.preferredWidth: parent.width
                             placeholderText: qsTr("Required")
@@ -635,6 +641,7 @@ DccObject {
                             }
 
                             RecommandButton {
+                                Accessible.id: "BootPage_RecommandButton"
                                 id: submitbtn
                                 text: qsTr("Sure")
                                 enabled: false
@@ -767,6 +774,7 @@ DccObject {
                         content: ColumnLayout {
                             spacing: 0
                             Rectangle {
+                                Accessible.id: "BootPage_Rectangle_3"
                                 id: externalRect
                                 width: 228
                                 height: 148
@@ -778,6 +786,7 @@ DccObject {
 
                                 Rectangle {
                                     id: imgRect
+                                    Accessible.id: "BootPage_Rectangle_ImgRect"
                                     anchors.centerIn: parent
                                     width: 220
                                     height: 140

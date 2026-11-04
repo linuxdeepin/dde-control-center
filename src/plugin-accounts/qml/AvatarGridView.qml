@@ -200,6 +200,7 @@ GridView {
         }
 
         D.ActionButton {
+            Accessible.id: "AvatarGridView_ActionButton"
             z: 99
             visible: gridView.isCustom && !checkIcon.visible && !delegate.isAddButton
             focusPolicy: Qt.NoFocus

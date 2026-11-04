@@ -41,6 +41,7 @@ D.DialogWindow {
         }
 
         D.PasswordEdit {
+            Accessible.id: "VerifyDialog_PasswordEdit"
             id: edit0
             Layout.fillWidth: true
             placeholderText: qsTr("8-64 characters")

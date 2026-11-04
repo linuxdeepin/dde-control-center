@@ -77,6 +77,7 @@ FocusScope {
             DelegateChoice {
                 roleValue: 1
                 delegate: Control {
+                    Accessible.id: "Crumb_Control"
                     property alias pressed: ma.pressed
                     property D.Palette textColor: DS.Style.button.text
                     palette.windowText: D.ColorSelector.textColor

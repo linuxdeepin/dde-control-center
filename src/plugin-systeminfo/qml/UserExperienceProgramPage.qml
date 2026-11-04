@@ -71,6 +71,7 @@ DccObject {
         parentName: "system/userExperienceProgram/userExperienceProgramGrp"
         pageType: DccObject.Item
         page: D.Label {
+            Accessible.id: "UserExperienceProgramPage_Label"
             id: userExperienceLabel
             leftPadding: 10
             rightPadding: 10

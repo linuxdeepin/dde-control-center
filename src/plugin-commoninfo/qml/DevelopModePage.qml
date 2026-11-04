@@ -194,6 +194,7 @@ DccObject {
 
                         // StackView 用于显示不同页面
                         StackView {
+                            Accessible.id: "DevelopModePage_StackView"
                             visible: !developDlg.showSuccess
                             id: stackView
                             width: 340
@@ -202,6 +203,7 @@ DccObject {
                         }
 
                         D.RecommandButton {
+                            Accessible.id: "DevelopModePage_RecommandButton"
                             visible: !developDlg.showSuccess
                             id: confirmBtn
                             text: developDlg.currentStackIndex === 1 ? qsTr("Import Certificate") : (dccData.mode().isLogin ? qsTr("Request Root Access") : qsTr("Login UOS ID"))
@@ -364,6 +366,7 @@ DccObject {
                                     }
                                     contentItem: ColumnLayout {
                                         Label {
+                                            Accessible.id: "DevelopModePage_Label_1"
                                             id: offlineLinkLabel
                                             Layout.fillWidth: true
                                             Layout.leftMargin: 6
@@ -456,7 +459,7 @@ DccObject {
                                 font: D.DTK.fontManager.t8
                             }
                             D.RecommandButton {
-                                Accessible.id: "DevelopModePage_RecommandButton"
+                                Accessible.id: "DevelopModePage_RecommandButton_2"
                                 Layout.fillWidth: true
                                 Layout.alignment: Qt.AlignHCenter
                                 Layout.bottomMargin: 6
@@ -491,6 +494,7 @@ DccObject {
             pageType: DccObject.Item
             visible: dccData.work().isACLController() ? dccData.mode().isActivate : true
             page: Label {
+                Accessible.id: "DevelopModePage_Label_2"
                 id: securityCenterLinkLabel
                 leftPadding: 15
                 topPadding: 5

@@ -67,6 +67,7 @@ DccObject {
                     text: root.toPercent(voiceTipsSlider.value)
                 }
                 ActionButton {
+                    Accessible.id: "SpeakerPage_ActionButton"
                     Layout.alignment: Qt.AlignVCenter
                     icon {
                         name: dccData.model().speakerOn ? "sound_off" : "small_volume"
@@ -120,6 +121,7 @@ DccObject {
                     }
                 }
                 IconButton {
+                    Accessible.id: "SpeakerPage_IconButton"
                     icon {
                         name: "big_volume"
                         width: 16

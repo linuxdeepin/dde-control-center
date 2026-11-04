@@ -502,6 +502,7 @@ DccObject {
                         Layout.bottomMargin: 1
                     }
                     D.ActionButton {
+                        Accessible.id: "DisplayMain_ActionButton"
                         id: helpBtn
                         implicitWidth: 16
                         implicitHeight: 16

@@ -247,6 +247,7 @@ DccObject {
                 implicitHeight: 40
                 implicitWidth: 300
                 D.LineEdit {
+                    Accessible.id: "TimeAndDate_LineEdit"
                     id: addr
                     implicitWidth: 200
                     text: dateAndTimeSettings.customAddr
@@ -276,6 +277,7 @@ DccObject {
                     }
                 }
                 D.IconButton {
+                    Accessible.id: "TimeAndDate_IconButton_1"
                     id: editBtn
                     anchors.right: parent.right
                     anchors.verticalCenter: parent.verticalCenter
@@ -661,6 +663,7 @@ DccObject {
             }
 
             D.IconButton {
+                Accessible.id: "TimeAndDate_IconButton_2"
                 id: removeButton
                 visible: itemZoneCompItemDelegate.hovered
                 icon.name: "dcc-delete"
