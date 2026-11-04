@@ -277,6 +277,9 @@ ColumnLayout {
                 }
                 lastMaxCount = maxCount
             }
+            onCountChanged: {
+                root.delegateLoadLimit = Math.max(root.delegateLoadLimit, count)
+            }
 
             delegate: Loader {
                 readonly property int visualIndex: DelegateModel.visibleIndex
