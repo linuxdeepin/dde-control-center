@@ -267,7 +267,7 @@ void ShortcutModel::removeShortcutById(const QString &id)
         it.value().removeOne(info);
 
     invalidateSystemShortcutNamesCache();
-    // Reuse the optimistic-delete UI path: delCustomInfo → ShortcutListModel::reset.
+    // delCustomInfo 驱动 ShortcutListModel::syncRows 发出精确的行删除。
     Q_EMIT delCustomInfo(info);
 
     delete info;
@@ -345,39 +345,36 @@ void ShortcutModel::onParseInfo(const QString &info)
             continue;
         }
 
-        // X11: old ID-based categorization. sectionKey mirrors sectionName
-        // (the translated text) so the QML section.property:"sectionKey"
-        // grouping reproduces the legacy group-by-translated-name behavior.
-        // The Wayland path above instead uses stable English keys from the
-        // service; X11 is legacy and single-locale, so this is equivalent.
+        // X11 keeps the legacy categories, with untranslated keys for DccObject
+        // configuration paths. Only the displayed section name is translated.
         if (type != MEDIAKEY) {
             if (systemShortKeys.contains(info->id)) {
                 info->sectionName = tr("System");
-                info->sectionKey = info->sectionName;
+                info->sectionKey = QStringLiteral("System");
                 m_systemInfos << info;
                 continue;
             }
             if (windowFilter.contains(info->id)) {
                 info->sectionName = tr("Window");
-                info->sectionKey = info->sectionName;
+                info->sectionKey = QStringLiteral("Window");
                 m_windowInfos << info;
                 continue;
             }
             if (workspaceFilter.contains(info->id)) {
                 info->sectionName = tr("Workspace");
-                info->sectionKey = info->sectionName;
+                info->sectionKey = QStringLiteral("Workspace");
                 m_workspaceInfos << info;
                 continue;
             }
             if (assistiveToolsFilter.contains(info->id)) {
                 info->sectionName = tr("AssistiveTools");
-                info->sectionKey = info->sectionName;
+                info->sectionKey = QStringLiteral("AssistiveTools");
                 m_assistiveToolsInfos << info;
                 continue;
             }
             if (type == 1) {
                 info->sectionName = tr("Custom");
-                info->sectionKey = info->sectionName;
+                info->sectionKey = QStringLiteral("Custom");
                 m_customInfos << info;
             }
         }
@@ -435,12 +432,7 @@ void ShortcutModel::onParseInfo(const QString &info)
     Q_EMIT listChanged(m_appInfos, InfoType::App);
     Q_EMIT listChanged(m_customInfos, InfoType::Custom);
 
-    // Wayland: items are in m_groupInfos, not the legacy fixed lists above.
-    // listChanged has no consumers on Wayland, so emit categoryMetaChanged
-    // to trigger ShortcutListModel::reset() — the view updates immediately
-    // with the data we just populated, even if ListCategories hasn't arrived
-    // yet. A later ListCategories reply will re-sort groups into their final
-    // order when setCategoryMeta fires categoryMetaChanged again.
+    // Notify consumers of dynamic categories even if ListCategories is late.
     if (!m_groupInfos.isEmpty())
         Q_EMIT categoryMetaChanged();
 }
@@ -459,7 +451,7 @@ void ShortcutModel::onCustomInfo(const QString &json)
     info->id      = obj["Id"].toString();
     info->command = obj["Exec"].toString();
     info->sectionName = tr("Custom");
-    info->sectionKey = info->sectionName;   // X11: mirror translated name
+    info->sectionKey = QStringLiteral("Custom");
 
     m_infos.append(info);
     m_customInfos.append(info);
@@ -528,7 +520,7 @@ void ShortcutModel::onKeyBindingChanged(const QString &value)
 
     info->sectionName = tr("Custom");
     const QString customKey = useDynamicGrouping ? customCategoryKey() : QString();
-    info->sectionKey = customKey.isEmpty() ? info->sectionName : customKey;
+    info->sectionKey = customKey.isEmpty() ? QStringLiteral("Custom") : customKey;
     m_infos.append(info);
     if (!customKey.isEmpty())
         m_groupInfos[info->sectionKey].append(info);
@@ -669,6 +661,11 @@ QString ShortcutModel::sectionDisplayName(const QString &key) const
         if (!name.isEmpty())
             return name;
     }
+    // Legacy items are held in the fixed lists rather than m_groupInfos.
+    for (const auto *info : m_infos) {
+        if (info->sectionKey == key && !info->sectionName.isEmpty())
+            return info->sectionName;
+    }
     return key;
 }
 
@@ -678,7 +675,7 @@ QString ShortcutModel::customCategoryKey() const
     if (!m_customCategoryKey.isEmpty())
         return m_customCategoryKey;
     // X11 fallback: the custom group's key is the section key of any
-    // type==Custom item (legacy items carry sectionKey == sectionName).
+    // type==Custom item.
     for (const auto *info : m_infos) {
         if (info->type == Custom && !info->sectionKey.isEmpty())
             return info->sectionKey;
@@ -905,7 +902,10 @@ void ShortcutListModel::setSouceModel(ShortcutModel *model)
 {
     if (m_model == model)
         return;
+    beginResetModel();
     m_model = model;
+    m_rows = collectRows();
+    endResetModel();
 }
 
 ShortcutModel *ShortcutListModel::souceModel()
@@ -915,13 +915,93 @@ ShortcutModel *ShortcutListModel::souceModel()
 
 const ShortcutInfo *ShortcutListModel::shortcutAt(int row) const
 {
-    return m_model ? m_model->shortcutAt(row) : nullptr;
+    return row >= 0 && row < m_rows.size() ? &m_rows.at(row).info : nullptr;
+}
+
+QList<ShortcutListModel::RowKey> ShortcutListModel::collectRows() const
+{
+    QList<RowKey> rows;
+    if (!m_model)
+        return rows;
+
+    const int count = m_model->count();
+    rows.reserve(count);
+    for (int i = 0; i < count; ++i) {
+        int corners = NoneCorner;
+        const ShortcutInfo *info = m_model->shortcutAt(i, &corners);
+        if (info)
+            rows.append(RowKey{*info, corners});
+    }
+    return rows;
 }
 
 void ShortcutListModel::reset()
 {
     beginResetModel();
+    m_rows = collectRows();
     endResetModel();
+}
+
+void ShortcutListModel::syncRows()
+{
+    const QList<RowKey> rows = collectRows();
+
+    if (rows.isEmpty() && m_rows.isEmpty())
+        return;
+
+    // 公共前缀/后缀之外的行才是真正的变化：增删一条自定义快捷键时
+    // 只发出对应的 insert/remove，其余行（及其 DccObject）保持不动。
+    int prefix = 0;
+    const int maxPrefix = qMin(rows.size(), m_rows.size());
+    while (prefix < maxPrefix && rows.at(prefix).isSameRow(m_rows.at(prefix)))
+        ++prefix;
+
+    int suffix = 0;
+    const int maxSuffix = qMin(rows.size(), m_rows.size()) - prefix;
+    while (suffix < maxSuffix
+           && rows.at(rows.size() - 1 - suffix).isSameRow(m_rows.at(m_rows.size() - 1 - suffix)))
+        ++suffix;
+
+    const int removeCount = m_rows.size() - prefix - suffix;
+    if (removeCount > 0) {
+        beginRemoveRows(QModelIndex(), prefix, prefix + removeCount - 1);
+        m_rows.erase(m_rows.begin() + prefix, m_rows.begin() + prefix + removeCount);
+        endRemoveRows();
+    }
+
+    const int insertCount = rows.size() - prefix - suffix;
+    if (insertCount > 0) {
+        beginInsertRows(QModelIndex(), prefix, prefix + insertCount - 1);
+        for (int i = 0; i < insertCount; ++i)
+            m_rows.insert(prefix + i, rows.at(prefix + i));
+        endInsertRows();
+    }
+
+    // Compare values, not allocation addresses: a full reload may reuse the
+    // old addresses, and category metadata can change existing objects in place.
+    int first = -1;
+    int last = -1;
+    for (int i = 0; i < m_rows.size(); ++i) {
+        if (m_rows.at(i).hasSameData(rows.at(i)))
+            continue;
+        m_rows[i] = rows.at(i);
+        if (first < 0)
+            first = i;
+        last = i;
+    }
+    if (first >= 0) {
+        Q_EMIT dataChanged(index(first), index(last), {
+            Qt::DisplayRole,
+            SearchedTextRole,
+            KeySequenceRole,
+            CommandRole,
+            AccelsRole,
+            SectionNameRole,
+            SectionKeyRole,
+            CornersRole,
+            IsCustomRole
+        });
+    }
 }
 
 void ShortcutListModel::onUpdateShortcut(ShortcutInfo *info)
@@ -929,9 +1009,12 @@ void ShortcutListModel::onUpdateShortcut(ShortcutInfo *info)
     if (!m_model || !info)
         return;
 
-    int row = m_model->indexOfShortcut(info);
-    if (row >= 0)
-    {
+    // A shortcut may have moved to another category before this signal.
+    syncRows();
+    const auto it = std::find_if(m_rows.cbegin(), m_rows.cend(),
+                                [info](const RowKey &row) { return row.info == *info; });
+    if (it != m_rows.cend()) {
+        const int row = int(std::distance(m_rows.cbegin(), it));
         QModelIndex modelIndex = index(row);
         Q_EMIT dataChanged(modelIndex, modelIndex, {
             Qt::DisplayRole,
@@ -940,26 +1023,27 @@ void ShortcutListModel::onUpdateShortcut(ShortcutInfo *info)
             CommandRole,
             AccelsRole,
             SectionNameRole,
-            SectionKeyRole
+            SectionKeyRole,
+            CornersRole,
+            IsCustomRole
         });
     }
 }
 
-int ShortcutListModel::rowCount(const QModelIndex &) const
+int ShortcutListModel::rowCount(const QModelIndex &parent) const
 {
-    if (!m_model)
-        return 0;
-
-    return m_model->count();
+    // 结构由 m_rows 自持：底层 ShortcutModel 的容器在信号发出前就已改变，
+    // 直接透传它的 count() 会让 beginInsertRows/beginRemoveRows 前后的行数
+    // 对不上（视图缓存的计数与查询结果不一致）。
+    return parent.isValid() ? 0 : m_rows.size();
 }
 
 QVariant ShortcutListModel::data(const QModelIndex &index, int role) const
 {
-    if (!index.isValid() || index.row() >= m_model->count())
+    if (!index.isValid() || index.model() != this || index.column() != 0)
         return QVariant();
 
-    int corners = NoneCorner;
-    ShortcutInfo *info = m_model->shortcutAt(index.row(), &corners);
+    const ShortcutInfo *info = shortcutAt(index.row());
     if (!info)
         return QVariant();
 
@@ -985,7 +1069,7 @@ QVariant ShortcutListModel::data(const QModelIndex &index, int role) const
     case SectionKeyRole:
         return info->sectionKey;
     case CornersRole:
-        return corners;
+        return m_rows.at(index.row()).corners;
     case IsCustomRole:
         return info->type == ShortcutModel::Custom;
     default:
@@ -994,7 +1078,6 @@ QVariant ShortcutListModel::data(const QModelIndex &index, int role) const
 
     return QVariant();
 }
-
 QHash<int, QByteArray> ShortcutListModel::roleNames() const
 {
     QHash<int, QByteArray> names = QAbstractListModel::roleNames();
@@ -1015,6 +1098,29 @@ QHash<int, QByteArray> ShortcutListModel::roleNames() const
 ShortcutFilterModel::ShortcutFilterModel(QObject *parent)
     : QSortFilterProxyModel(parent)
 {
+    // 代理行数变化时通知 QML（分类标题的 visible 绑定用）。
+    connect(this, &QAbstractItemModel::rowsInserted, this, [this] { Q_EMIT countChanged(); });
+    connect(this, &QAbstractItemModel::rowsRemoved, this, [this] { Q_EMIT countChanged(); });
+    connect(this, &QAbstractItemModel::modelReset, this, [this] { Q_EMIT countChanged(); });
+}
+
+QString ShortcutFilterModel::categoryKey() const
+{
+    return m_categoryKey;
+}
+
+void ShortcutFilterModel::setCategoryKey(const QString &key)
+{
+    if (m_categoryKey == key)
+        return;
+    m_categoryKey = key;
+    invalidateFilter();
+    Q_EMIT categoryKeyChanged();
+}
+
+int ShortcutFilterModel::count() const
+{
+    return rowCount();
 }
 
 const PinyinSearchQuery &ShortcutFilterModel::cachedPinyinQuery(const QString &pattern) const
@@ -1028,14 +1134,122 @@ const PinyinSearchQuery &ShortcutFilterModel::cachedPinyinQuery(const QString &p
 
 bool ShortcutFilterModel::filterAcceptsRow(int sourceRow, const QModelIndex &sourceParent) const
 {
-    if (QSortFilterProxyModel::filterAcceptsRow(sourceRow, sourceParent))
-        return true;
-
     const auto *model = qobject_cast<const ShortcutListModel *>(sourceModel());
     const ShortcutInfo *info = model ? model->shortcutAt(sourceRow) : nullptr;
     if (!info)
         return false;
 
+    // 先按分类过滤：每个 DccObject 分类组只接受自己的行。
+    if (!m_categoryKey.isEmpty() && info->sectionKey != m_categoryKey)
+        return false;
+
+    // 再按搜索文本过滤（基类正则 + 拼音）。
+    if (QSortFilterProxyModel::filterAcceptsRow(sourceRow, sourceParent))
+        return true;
+
     const QString pattern = filterRegularExpression().pattern();
     return matchesPinyinSearch(info->pinyinIndex, cachedPinyinQuery(pattern));
+}
+
+ShortcutCategoryModel::ShortcutCategoryModel(ShortcutModel *model, QObject *parent)
+    : QAbstractListModel(parent)
+    , m_model(model)
+{
+    if (!m_model)
+        return;
+
+    connect(m_model, &ShortcutModel::listChanged, this,
+            [this](QList<ShortcutInfo *>, ShortcutModel::InfoType) { sync(); });
+    connect(m_model, &ShortcutModel::categoryMetaChanged, this, &ShortcutCategoryModel::sync);
+    connect(m_model, &ShortcutModel::addCustomInfo, this,
+            [this](ShortcutInfo *) { sync(); });
+    connect(m_model, &ShortcutModel::delCustomInfo, this,
+            [this](ShortcutInfo *) { sync(); });
+    connect(m_model, &ShortcutModel::windowSwitchChanged, this,
+            [this](bool) { sync(); });
+    sync();
+}
+
+int ShortcutCategoryModel::rowCount(const QModelIndex &parent) const
+{
+    return parent.isValid() ? 0 : m_categories.size();
+}
+
+QVariant ShortcutCategoryModel::data(const QModelIndex &index, int role) const
+{
+    if (!index.isValid() || index.row() < 0 || index.row() >= m_categories.size())
+        return QVariant();
+
+    const Category &category = m_categories.at(index.row());
+    switch (role) {
+    case KeyRole:
+        return category.key;
+    case DisplayNameRole:
+        return category.displayName;
+    case IsCustomRole:
+        return category.isCustom;
+    default:
+        break;
+    }
+    return QVariant();
+}
+
+QHash<int, QByteArray> ShortcutCategoryModel::roleNames() const
+{
+    QHash<int, QByteArray> names;
+    names[KeyRole] = "key";
+    names[DisplayNameRole] = "displayName";
+    names[IsCustomRole] = "isCustom";
+    return names;
+}
+
+int ShortcutCategoryModel::count() const
+{
+    return m_categories.size();
+}
+
+void ShortcutCategoryModel::sync()
+{
+    QList<Category> categories;
+    if (m_model) {
+        QStringList keys;
+        const QList<QString> groupOrder = m_model->groupOrder();
+        if (!groupOrder.isEmpty()) {
+            // Wayland：服务端 ListCategories 的顺序。
+            keys = groupOrder;
+        } else {
+            // X11：固定分类列表顺序。
+            const QList<QList<ShortcutInfo *>> lists = {
+                m_model->systemInfo(),
+                m_model->windowInfo(),
+                m_model->workspaceInfo(),
+                m_model->assistiveToolsInfo(),
+                m_model->appInfo(),
+                m_model->customInfo(),
+            };
+            for (const auto &list : lists) {
+                for (const ShortcutInfo *info : list) {
+                    if (info && !info->sectionKey.isEmpty() && !keys.contains(info->sectionKey))
+                        keys.append(info->sectionKey);
+                }
+            }
+        }
+
+        const QString customKey = m_model->customCategoryKey();
+        for (const QString &key : std::as_const(keys)) {
+            if (key.isEmpty())
+                continue;
+            categories.append({key, m_model->sectionDisplayName(key), key == customKey});
+        }
+    }
+
+    // 分类集合没变就不要惊动视图：增删一条快捷键只改变某个分类的行数，
+    // 分类本身由各自的 ShortcutFilterModel 通知。
+    if (categories == m_categories)
+        return;
+
+    beginResetModel();
+    m_categories = categories;
+    endResetModel();
+    Q_EMIT countChanged();
 }
