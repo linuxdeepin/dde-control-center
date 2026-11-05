@@ -57,10 +57,10 @@ PersonalizationDBusProxy::PersonalizationDBusProxy(QObject *parent)
     m_DaemonInter = new DDBusInterface(DaemonService, DaemonPath, DaemonInterface, QDBusConnection::systemBus(), this);
     m_powerInter = new DDBusInterface(PowerService, PowerPath, PowerInterface, QDBusConnection::sessionBus(), this);
     m_lastoreManagerInter = new DDBusInterface(LastoreManagerService, LastoreManagerPath, LastoreManagerInterface, QDBusConnection::systemBus(), this);
+    m_screenSaverInter = new DDBusInterface(ScreenSaverServive, ScreenSaverPath, ScreenSaverInterface, QDBusConnection::sessionBus(), this);
     if (!DGuiApplicationHelper::testAttribute(DGuiApplicationHelper::IsWaylandPlatform)) {
         m_WMInter = new DDBusInterface(WMService, WMPath, WMInterface, QDBusConnection::sessionBus(), this);
         m_EffectsInter = new DDBusInterface(EffectsService, EffectsPath, EffectsInterface, QDBusConnection::sessionBus(), this);
-        m_screenSaverInter = new DDBusInterface(ScreenSaverServive, ScreenSaverPath, ScreenSaverInterface, QDBusConnection::sessionBus(), this);
         m_wallpaperSlideshowInter = new DDBusInterface(WallpaperSlideshowService, WallpaperSlideshowPath, WallpaperSlideshowInterface, QDBusConnection::sessionBus(), this);
     }
 

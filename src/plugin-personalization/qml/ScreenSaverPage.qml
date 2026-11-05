@@ -288,6 +288,7 @@ DccObject {
         name: "screenSaverListObj"
         parentName: "personalization/screenSaver"
         displayName: qsTr("System screensaver")
+        visible: !DccApp.isTreeland()
         weight: 500
         backgroundType: DccObject.Normal
         pageType: DccObject.Item

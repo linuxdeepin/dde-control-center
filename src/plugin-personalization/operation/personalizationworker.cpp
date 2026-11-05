@@ -55,9 +55,7 @@ PersonalizationWorker::PersonalizationWorker(PersonalizationModel *model, QObjec
     , m_personalizationConfig(DConfig::create(ORG_DEEPIN_CONTROL_CENTER, CONTROL_CENTER_PERSONALIZATION, "", this))
     , m_dtkConfig(DConfig::createGeneric(DTK_PREFERENCE_NAME, "", this))
     {
-    if (!Dtk::Gui::DGuiApplicationHelper::testAttribute(Dtk::Gui::DGuiApplicationHelper::IsWaylandPlatform)) {
-        m_screenSaverProvider = new ScreensaverProvider(m_personalizationDBusProxy, m_model, this);
-    }
+    m_screenSaverProvider = new ScreensaverProvider(m_personalizationDBusProxy, m_model, this);
     ThemeModel *cursorTheme = m_model->getMouseModel();
     ThemeModel *windowTheme = m_model->getWindowModel();
     ThemeModel *iconTheme = m_model->getIconModel();
