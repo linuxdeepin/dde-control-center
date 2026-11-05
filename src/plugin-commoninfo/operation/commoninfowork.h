@@ -12,6 +12,7 @@
 #include <QDBusArgument>
 
 class QProcess;
+class QWindow;
 class CommonInfoProxy;
 
 class CommonInfoModel;
@@ -60,7 +61,7 @@ public Q_SLOTS:
     void onSetGrubEditPasswd(const QString &password, const bool &isReset);
     void setUeProgram(bool enabled);
     void closeUeProgram();
-    void setEnableDeveloperMode(bool enabled);
+    void setEnableDeveloperMode(bool enabled, QWindow *parentWindow = nullptr);
     void login();
     void onDevelopModeError(const QString &msgCode);
     void setPlymouthFactor(int factor);
