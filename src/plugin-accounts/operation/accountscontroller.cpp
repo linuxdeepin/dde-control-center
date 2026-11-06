@@ -54,6 +54,11 @@ AccountsController::AccountsController(QObject *parent)
     connect(m_model, &UserModel::domainUserModifyPasswordEnableChanged,
             this, &AccountsController::domainUserModifyPasswordEnableChanged);
 
+    connect(m_model, &UserModel::hideUserlistForNonadminChanged, this, [this](bool) {
+        Q_EMIT hideUserlistForNonadminChanged();
+        Q_EMIT userIdListChanged();
+    });
+
     connect(m_model, &UserModel::userAdded, this, [this]() {
         Q_EMIT userIdListChanged();
     });
@@ -72,6 +77,10 @@ AccountsController::AccountsController(QObject *parent)
     });
     connect(m_model, &UserModel::passwordModifyFinished, this, &AccountsController::passwordModifyFinished);
     connect(m_model, &UserModel::userTypeChanged, this, &AccountsController::userTypeChanged);
+    connect(m_model, &UserModel::userTypeChanged, this, [this](const QString &, const int) {
+        // 当前用户被提权/降权会影响可见性，重新过滤列表
+        Q_EMIT userIdListChanged();
+    });
     connect(m_model, &UserModel::fullnameChanged, this, &AccountsController::fullnameChanged);
     connect(m_model, &UserModel::passwordAgeChanged, this, &AccountsController::passwordAgeChanged);
 
@@ -317,6 +326,11 @@ bool AccountsController::isAutoLoginVisable() const
 bool AccountsController::isQuickLoginVisible() const
 {
     return m_model->isQuickLoginVisible();
+}
+
+bool AccountsController::hideUserlistForNonadmin() const
+{
+    return m_model->hideUserlistForNonadmin();
 }
 
 bool AccountsController::autoLogin(const QString &id) const
@@ -944,6 +958,9 @@ QStringList AccountsController::userIdList() const
     QStringList ids;
     for (const auto user : m_model->userList()) {
         if (user->name() == currentUserName())
+            continue;
+
+        if (!m_model->isUserVisible(user))
             continue;
 
         ids << user->id();

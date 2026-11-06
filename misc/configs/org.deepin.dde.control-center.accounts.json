@@ -23,6 +23,17 @@
             "description": "",
             "permissions": "readonly",
             "visibility": "private"
+        },
+        "hideUserlistForNonadmin": {
+            "value": false,
+            "serial": 0,
+            "flags": ["global"],
+            "name": "HideUserlistForNonadmin",
+            "name[zh_CN]": "非管理员隐藏用户列表",
+            "description": "When enabled, non-admin users only see their own account in the account list; administrators are unaffected.",
+            "description[zh_CN]": "开启后非管理员用户在账户列表中只能看到自己，管理员不受影响。",
+            "permissions": "readwrite",
+            "visibility": "private"
         }
     }
   }

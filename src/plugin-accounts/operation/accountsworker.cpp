@@ -85,6 +85,18 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     m_userModel->setCurrentUserName(m_currentUserName);
     m_userModel->setIsSecurityHighLever(hasOpenSecurity());
 
+    connect(m_accountCfg, &DConfig::valueChanged, this,
+            [this](const QString &key) {
+                if (key == QLatin1String("hideUserlistForNonadmin"))
+                    updateHideUserlistForNonadmin();
+                else if (key == QLatin1String("domainUserModifyPasswordEnable"))
+                    updateDomainUserModifyPasswordEnable();
+            });
+
+    // 账户配置须在用户数据加载前初始化。
+    updateHideUserlistForNonadmin();
+    updateDomainUserModifyPasswordEnable();
+
     connect(m_accountsInter, &AccountsDBusProxy::UserListChanged, this, &AccountsWorker::onUserListChanged, Qt::QueuedConnection);
     connect(m_accountsInter, &AccountsDBusProxy::GroupListChanged, this, &AccountsWorker::onGroupListChanged, Qt::QueuedConnection);
     connect(m_accountsInter, &AccountsDBusProxy::UserAdded, this, &AccountsWorker::addUser, Qt::QueuedConnection);
@@ -111,20 +123,22 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
 
     m_userModel->setQuickLoginVisible(m_accountsInter->quickLoginEnabled());
     connect(m_accountsInter, &AccountsDBusProxy::QuickLoginEnabledChanged, m_userModel, &UserModel::setQuickLoginVisible);
+}
 
-    const auto updateDomainPasswordPolicy = [this] {
-        const bool enabled = m_accountCfg && m_accountCfg->isValid()
-            && m_accountCfg->value("domainUserModifyPasswordEnable", false).toBool();
-        m_userModel->setDomainUserModifyPasswordEnable(enabled);
-    };
+bool AccountsWorker::getAccountBoolConfig(const QString &key) const
+{
+    return m_accountCfg && m_accountCfg->isValid()
+        && m_accountCfg->value(key, false).toBool();
+}
 
-    connect(m_accountCfg, &DConfig::valueChanged, this,
-            [updateDomainPasswordPolicy](const QString &key) {
-                if (key == "domainUserModifyPasswordEnable")
-                    updateDomainPasswordPolicy();
-            });
+void AccountsWorker::updateHideUserlistForNonadmin()
+{
+    m_userModel->setHideUserlistForNonadmin(getAccountBoolConfig(QStringLiteral("hideUserlistForNonadmin")));
+}
 
-    updateDomainPasswordPolicy();
+void AccountsWorker::updateDomainUserModifyPasswordEnable()
+{
+    m_userModel->setDomainUserModifyPasswordEnable(getAccountBoolConfig(QStringLiteral("domainUserModifyPasswordEnable")));
 }
 
 void AccountsWorker::getAllGroups()
