@@ -20,6 +20,7 @@ UserModel::UserModel(QObject *parent)
     , m_isJoinADDomain(false)
     , m_isADUserLogind(false)
     , m_isSecurityHighLever(false)
+    , m_hideUserlistForNonadmin(false)
 {
 
 }
@@ -190,6 +191,54 @@ bool UserModel::getIsSecurityHighLever() const
 void UserModel::setIsSecurityHighLever(bool isSecurityHighLever)
 {
     m_isSecurityHighLever = isSecurityHighLever;
+}
+
+bool UserModel::hideUserlistForNonadmin() const
+{
+    return m_hideUserlistForNonadmin;
+}
+
+void UserModel::setHideUserlistForNonadmin(bool hide)
+{
+    if (m_hideUserlistForNonadmin == hide)
+        return;
+
+    m_hideUserlistForNonadmin = hide;
+    Q_EMIT hideUserlistForNonadminChanged(hide);
+}
+
+bool UserModel::isUserVisible(const User *user) const
+{
+    if (!user)
+        return false;
+
+    // 配置未开启，全部可见
+    if (!m_hideUserlistForNonadmin)
+        return true;
+
+    // 查找当前登录用户
+    const User *curUser = nullptr;
+    for (auto *u : m_userList) {
+        if (u->isCurrentUser()) {
+            curUser = u;
+            break;
+        }
+    }
+
+    // 当前用户未确定（异步 D-Bus 未就绪），暂全部可见
+    if (!curUser)
+        return true;
+
+    // 管理员用户不受限制
+    // 本地管理员账户不一定是等保三级的管理员账户，要区分判断
+    const bool curUserIsAdmin = m_isSecurityHighLever
+            ? curUser->securityLever() == SecurityLever::Sysadm
+            : curUser->userType() == User::UserType::Administrator;
+    if (curUserIsAdmin)
+        return true;
+
+    // 非管理员用户只能看到自己
+    return user->isCurrentUser();
 }
 
 bool UserModel::isDisabledGroup(const QString &groupName)
