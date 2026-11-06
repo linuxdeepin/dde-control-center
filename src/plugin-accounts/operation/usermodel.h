@@ -54,6 +54,10 @@ public:
     bool getIsSecurityHighLever() const;
     void setIsSecurityHighLever(bool isSecurityHighLever);
 
+    bool hideUserlistForNonadmin() const;
+    void setHideUserlistForNonadmin(bool hide);
+    bool isUserVisible(const User *user) const;
+
     inline QStringList getOnlineUsers() { return m_onlineUsers; }
     void SetOnlineUsers(QStringList onlineUsers);
     bool isDisabledGroup(const QString &groupName);
@@ -88,6 +92,7 @@ Q_SIGNALS:
     void noPassWordLoginVisableChanged(bool noPassword);
     void isCancelChanged();
     void adminCntChange(const int adminCnt);
+    void hideUserlistForNonadminChanged(bool hide);
 
 private:
     bool m_autoLoginVisable;
@@ -102,6 +107,7 @@ private:
     bool m_isADUserLogind;
     bool m_domainUserModifyPasswordEnable{false};
     bool m_isSecurityHighLever;
+    bool m_hideUserlistForNonadmin;
     QStringList m_DisabledGroups;
     QStringList m_onlineUsers;
 };
