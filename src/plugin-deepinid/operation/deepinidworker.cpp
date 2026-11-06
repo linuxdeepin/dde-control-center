@@ -416,7 +416,7 @@ QString DeepinWorker::loadCodeURL()
     }
 
     QString url = oauthURI + QString("/oauth2/authorize/registerlogin?autoLoginKey=%1").arg(func_getToken());
-    qCDebug(DeepinIDWorker) << "open url:" << url;
+    qCDebug(DeepinIDWorker) << "open url";
     return url;
 }
 
