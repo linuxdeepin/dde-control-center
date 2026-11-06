@@ -146,6 +146,7 @@ D.ApplicationWindow {
                     verticalCenter: parent.verticalCenter
                 }
                 visible: mainWindow.currentIndex === DccWindow.PageIndex.HomeIndex
+                         && DccApp.searchBarState !== DccApp.SearchBarHidden
                 model: DccApp.searchModel()
                 onClicked: function (model) {
                     DccApp.showPage(model.url)

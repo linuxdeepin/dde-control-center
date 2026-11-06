@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DCCAPP_H
@@ -38,10 +38,14 @@ public:
     enum AnimationMode { AnimationPush, AnimationPop };
     Q_ENUM(AnimationMode)
 
+    enum SearchBarState { SearchBarVisible, SearchBarDisabled, SearchBarHidden };
+    Q_ENUM(SearchBarState)
+
     static DccApp *instance();
 
     Q_PROPERTY(int width READ width FINAL)
     Q_PROPERTY(int height READ height FINAL)
+    Q_PROPERTY(SearchBarState searchBarState READ searchBarState NOTIFY searchBarStateChanged)
     Q_PROPERTY(int sidebarWidth READ sidebarWidth WRITE setSidebarWidth NOTIFY sidebarWidthChanged)
     Q_PROPERTY(DccObject * root READ root NOTIFY rootChanged)
     Q_PROPERTY(DccObject * activeObject READ activeObject NOTIFY activeObjectChanged)
@@ -51,6 +55,7 @@ public:
 
     virtual int width() const;
     virtual int height() const;
+    virtual SearchBarState searchBarState() const { return SearchBarVisible; }
     virtual DccObject *root() const;
     virtual DccObject *activeObject() const;
     virtual const QVector<DccObject *> &currentObjects() const = 0;
@@ -74,6 +79,7 @@ public Q_SLOTS:
     virtual QSortFilterProxyModel *searchModel() const;
 
 Q_SIGNALS:
+    void searchBarStateChanged(SearchBarState state);
     void sidebarWidthChanged(int width);
     void rootChanged(DccObject *root);
     void activeObjectChanged(DccObject *activeObject);
