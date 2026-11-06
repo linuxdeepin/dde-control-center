@@ -3864,7 +3864,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>UeProgramLicenseDialog</name>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Shprehni Pajtimin dhe Merrni Pjesë te programi “User Experience Program”</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -4338,7 +4338,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>The shortcut no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>Shkurtorja s’ekziston më.</translation>
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
