@@ -4342,22 +4342,22 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>Përplasja e shkurtoreve s’është më.</translation>
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, riprovoni, përplasje shkurtoresh.</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardWorker</name>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>Përplasja e shkurtoreve s’është më.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>S’u arrit të ruhet shkurtore. Ju lutemi, riprovoni.</translation>
     </message>
 </context>
 <context>
