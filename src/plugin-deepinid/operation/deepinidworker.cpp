@@ -111,7 +111,7 @@ void DeepinWorker::setAutoSync(bool autoSync)
 
 void DeepinWorker::setSyncSwitcher(const QStringList &keyList, bool enable)
 {
-    foreach(auto key, keyList) {
+    Q_FOREACH(auto key, keyList) {
         m_syncProxy->SwitcherSet(key, enable);
     }
 }

@@ -142,7 +142,7 @@ void AccountsWorker::getAllGroupsResult(QDBusPendingCallWatcher *watch)
         QJsonObject jsonObject;
         QString info;
 
-        foreach (auto name, reply.value()) {
+        Q_FOREACH (auto name, reply.value()) {
             getGroupInfoByName(name, info);
             jsonDocument = QJsonDocument::fromJson(info.toLocal8Bit());
             jsonObject = jsonDocument.object();
