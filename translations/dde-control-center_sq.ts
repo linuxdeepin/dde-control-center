@@ -3343,15 +3343,15 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"/>
+        <translation>Mbaroi koha për dhënie shkurtoreje. Riprovoni.</translation>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
+        <translation>Shkurtore tastiere e pavlefshme. Caktoni një të re.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>S’u arrit të ruhet shkurtore. Ju lutemi, riprovoni.</translation>
     </message>
 </context>
 <context>
@@ -3406,15 +3406,15 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>S’u arrit të niset kapje shkurtoreje. Ju lutemi, riprovoni.</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"/>
+        <translation>Mbaroi koha për dhënie shkurtoreje. Riprovoni.</translation>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
+        <translation>Shkurtore tastiere e pavlefshme. Caktoni një të re.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
