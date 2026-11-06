@@ -4,7 +4,27 @@
     "contents": {
         "modulePaths": {
             "value": [
-                "root/accounts"
+                "root/accounts",
+                "root/accounts/userAvatars/addAccount",
+                "root/accounts/accountsacountInfos/accountsacountFullname/editFullname",
+                "root/accounts/accountsBottomButtons/deleteAccount",
+                "root/accounts/otherSettingsHolder/otherAccountSettings/userAvatars/addAccount",
+                "root/accounts/otherSettingsHolder/otherAccountSettings/otherAccountSettingsacountInfos/otherAccountSettingsacountFullname/editFullname",
+                "root/accounts/otherSettingsHolder/otherAccountSettings/otherAccountSettingsBottomButtons/deleteAccount",
+                "root/accounts/accountsloginMethod/accountsloginMethodItempassword/accountsPasswordGroupView/accountsPasswordModify",
+                "root/accounts/otherSettingsHolder/otherAccountSettings/otherAccountSettingsloginMethod/otherAccountSettingsloginMethodItempassword/otherAccountSettingsPasswordGroupView/otherAccountSettingsPasswordModify",
+                "root/accounts/accountsacountSettings/accountsautoLongin",
+                "root/accounts/otherSettingsHolder/otherAccountSettings/otherAccountSettingsacountSettings/otherAccountSettingsautoLongin",
+                "root/accounts/accountsloginMethod/accountsloginMethodItempassword/accountsPasswordGroupView/accountsPasswordValidityDaysbiometric",
+                "root/accounts/otherSettingsHolder/otherAccountSettings/otherAccountSettingsloginMethod/otherAccountSettingsloginMethodItempassword/otherAccountSettingsPasswordGroupView/otherAccountSettingsPasswordValidityDaysbiometric",
+                "root/accounts/accountsacountSettings/accountsnoPassword",
+                "root/accounts/otherSettingsHolder/otherAccountSettings/otherAccountSettingsacountSettings/otherAccountSettingsnoPassword",
+                "root/accounts/accountsacountSettings/accountsquickLogin",
+                "root/accounts/accountsacountInfos/accountsacountType",
+                "root/accounts/accountsBottomButtons/accountsGroupSettings",
+                "root/accounts/otherSettingsHolder/otherAccountSettings/otherAccountSettingsacountSettings/otherAccountSettingsquickLogin",
+                "root/accounts/otherSettingsHolder/otherAccountSettings/otherAccountSettingsacountInfos/otherAccountSettingsacountType",
+                "root/accounts/otherSettingsHolder/otherAccountSettings/otherAccountSettingsBottomButtons/otherAccountSettingsGroupSettings"
             ],
             "flags": [],
             "name": "Module paths",

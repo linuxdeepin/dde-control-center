@@ -4,7 +4,13 @@
     "contents": {
         "modulePaths": {
             "value": [
-                "root/accounts/accountsloginMethod/authentication"
+                "root/accounts/accountsloginMethod/authentication",
+                "root/accounts/accountsloginMethod/authentication/face",
+                "root/accounts/accountsloginMethod/authentication/fingerprint",
+                "root/accounts/accountsloginMethod/authentication/iris",
+                "root/accounts/accountsloginMethod/authentication/face/authenticationFaceAuthentication",
+                "root/accounts/accountsloginMethod/authentication/fingerprint/authenticationFaceAuthentication",
+                "root/accounts/accountsloginMethod/authentication/iris/authenticationFaceAuthentication"
             ],
             "flags": [],
             "name": "Module paths",

@@ -13,7 +13,16 @@
                 "root/system/systemInfo/nativeInfoGrp/processor",
                 "root/system/userExperienceProgram",
                 "root/system/userLicense",
-                "root/system/versionProtocol"
+                "root/system/versionProtocol",
+                "root/system/systemInfo/nativeInfoGrp/authorization/activate",
+                "root/system/systemInfo/nativeInfoGrp/productName",
+                "root/system/systemInfo/nativeInfoGrp/hostName",
+                "root/system/systemInfo/nativeInfoGrp/version",
+                "root/system/systemInfo/nativeInfoGrp/type",
+                "root/system/systemInfo/nativeInfoGrp/systemInstallationTime",
+                "root/system/systemInfo/nativeInfoGrp/graphicsPlatform",
+                "root/system/systemInfo/detailBtn",
+                "root/system/userExperienceProgram/userExperienceProgramGrp/userExperienceProgramSwitch"
             ],
             "flags": [],
             "name": "Module paths",

@@ -14,7 +14,16 @@
                 "root/system/sound/outPut/outputGroup/outputVolume",
                 "root/system/sound/outPut/outputGroup/volumeBalance",
                 "root/system/sound/outPut/outputGroup/volumeEnhancement",
-                "root/system/sound/soundEffectsPage/soundEffects"
+                "root/system/sound/soundEffectsPage/soundEffects",
+                "root/system/sound/soundEffectsPage",
+                "root/system/sound/outPut/outputGroup/monoAudio",
+                "root/system/sound/outPut/outputGroup/plugAndUnplugManagement",
+                "root/system/sound/outPut/outputGroup/outputDevice",
+                "root/system/sound/outPut/outputGroup/bluetoothMode",
+                "root/system/sound/inPut/inputGroup/inputDevice",
+                "root/system/sound/soundEffectsPage/effectsList",
+                "root/system/sound/deviceManager/outputDeviceList",
+                "root/system/sound/deviceManager/inputDeviceList"
             ],
             "flags": [],
             "name": "Module paths",

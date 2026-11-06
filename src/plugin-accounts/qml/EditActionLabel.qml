@@ -16,6 +16,7 @@ D.LineEdit {
     property alias showAlert: panel.showAlert
     property alias metrics: fontMetrics
     property var completeText: ""
+    property bool finishOnEditingFinished: true
     signal finished()
 
     readOnly: true
@@ -44,7 +45,7 @@ D.LineEdit {
         }
     }
     onEditingFinished: {
-        if (edit.readOnly)
+        if (edit.readOnly || !edit.finishOnEditingFinished)
             return
         if (showAlert)
             showAlert = false

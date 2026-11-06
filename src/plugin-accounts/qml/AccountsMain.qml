@@ -13,6 +13,7 @@ DccObject {
         id: currentAccount
         name: "currentAccount"
         papaName: "accounts"
+        accountPath: "root/accounts"
         userId: dccData.currentUserId()
     }
 
@@ -206,6 +207,7 @@ DccObject {
                 name: "otherAccountSettings"
                 parentName: "otherSettingsHolder"
                 papaName: name
+                accountPath: "root/accounts/otherSettingsHolder/otherAccountSettings"
                 canSearch: false
             }
         }

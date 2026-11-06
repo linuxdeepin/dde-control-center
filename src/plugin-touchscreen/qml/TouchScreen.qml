@@ -37,6 +37,7 @@ DccObject {
 
     DccObject {
         accessibleId: "TouchscreenItem"
+        name: "associations"
         parentName: "touchscreen"
         backgroundType: DccObject.Normal
         pageType: DccObject.Item

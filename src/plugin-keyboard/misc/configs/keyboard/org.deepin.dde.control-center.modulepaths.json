@@ -112,7 +112,11 @@
                 "root/device/keyboard/shortcutSettingsView/shortcutSettingsBody/AssistiveToolsRows/viewZoomOut",
                 "root/device/keyboard/shortcutSettingsView/shortcutSettingsBody/AssistiveToolsRows/viewActualSize",
                 "root/device/keyboard/shortcutSettingsView/bottomAreaFoot/bottomAreaRestoreButton",
-                "root/device/keyboard/shortcutSettingsView/bottomAreaFoot/bottomAreaAddButton"
+                "root/device/keyboard/shortcutSettingsView/bottomAreaFoot/bottomAreaAddButton",
+                "root/device/keyboard",
+                "root/device/keyboard/KeyboardCommon/RepeatDelay",
+                "root/device/keyboard/KeyboardCommon/RepeatRateGroup",
+                "root/device/keyboard/KeyboardCommon/RepeatRateGroup/RepeatRate"
             ],
             "flags": [],
             "name": "Module paths",

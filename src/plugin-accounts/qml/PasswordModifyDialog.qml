@@ -13,6 +13,7 @@ import org.deepin.dcc 1.0
 D.DialogWindow {
     id: dialog
     property string userId
+    property bool modificationAllowed: true
     property string remoteTitle: ""
     property string remoteContent: ""
     property bool remoteRichText: false
@@ -88,12 +89,13 @@ D.DialogWindow {
                 }
             }
             D.RecommandButton {
-                Accessible.id: "PasswordModifyDialog_RecommandButton"
+                Accessible.id: "PasswordModifyDialog_Confirm"
                 Layout.fillWidth: true
+                enabled: dialog.modificationAllowed
                 text: qsTr("Modify password")
                 font: D.DTK.fontManager.t7
                 onClicked: {
-                    if (!pwdLayout.checkPassword())
+                    if (!dialog.modificationAllowed || !pwdLayout.checkPassword())
                         return
 
                     dccData.setPassword(dialog.userId, pwdLayout.getPwdInfo());

@@ -310,16 +310,29 @@ DccObject {
             pageType: DccObject.Editor
             displayName: qsTr("Authorization") + ":"
             visible: dccData.systemInfoMode().showAuthorization()
-            page: RowLayout {
-                spacing: 8
-                Label {
+            page: DccRowView { spacing: 8 }
+            DccObject {
+                name: "status"
+                parentName: "root/system/systemInfo/nativeInfoGrp/authorization"
+                weight: 10
+                pageType: DccObject.Item
+                canSearch: false
+                page: Label {
                     id: jihuo
                     color: dccData.systemInfoMode().licenseStatusColor
                     horizontalAlignment: Text.AlignLeft
                     text: dccData.systemInfoMode().licenseStatusText
                 }
-
-                Button {
+            }
+            DccObject {
+                id: activate
+                name: "activate"
+                parentName: "root/system/systemInfo/nativeInfoGrp/authorization"
+                weight: 20
+                pageType: DccObject.Item
+                canSearch: false
+                visible: dccData.systemInfoMode().showDetail
+                page: Button {
                     id: licenseActionBtn
                     Accessible.id: "NativeInfoPage_Button"
                     text: dccData.systemInfoMode().licenseActionText
@@ -327,9 +340,9 @@ DccObject {
                     implicitHeight: 30
                     implicitWidth: licenseActionBtnMetrics.width + 2 * (DS.Style.button.hPadding + DS.Style.control.borderWidth)
                     flat: false
-                    visible: dccData.systemInfoMode().showDetail
                     onClicked: {
-                        dccData.systemInfoWork().showActivatorDialog()
+                        if (visible && enabled && activate.visibleToApp && activate.enabledToApp)
+                            dccData.systemInfoWork().showActivatorDialog()
                     }
                     ToolTip.visible: licenseActionBtn.hovered && licenseActionBtnMetrics.width > licenseActionBtn.availableWidth
                     ToolTip.text: licenseActionBtn.text
