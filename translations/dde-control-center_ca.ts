@@ -2065,7 +2065,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Confirmeu-ho</translation>
     </message>
 </context>
 <context>
