@@ -2264,11 +2264,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>KeyboardWorker</name>
     <message>
         <source>The shortcut service is unavailable. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Shërbimi i shkurtore s’është i kapshëm. Ju lutemi, riprovoni.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>S’u arrit të ruhet shkurtorja. Ju lutemi, riprovoni.</translation>
     </message>
 </context>
 <context>
@@ -2368,7 +2368,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Technology</source>
-        <translation type="unfinished"/>
+        <translation>Të drejta kopjimi© 2011-%1 Deepin Technology</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
@@ -2719,7 +2719,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>PersonalizationInterface</name>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation>Shërbimi i marrësit s’është i kapshëm</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
