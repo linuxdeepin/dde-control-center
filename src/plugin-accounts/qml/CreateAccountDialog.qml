@@ -14,6 +14,7 @@ import AccountsController 1.0
 
 D.DialogWindow {
     id: dialog
+    property bool creationAllowed: true
     width: 460
     minimumWidth: width
     minimumHeight: height
@@ -358,8 +359,9 @@ D.DialogWindow {
                 Layout.fillWidth: true
                 text: qsTr("Create account")
                 font: D.DTK.fontManager.t7
+                enabled: dialog.creationAllowed
                 onClicked: {
-                    if (!namesContainter.checkNames())
+                    if (!dialog.creationAllowed || !namesContainter.checkNames())
                         return
 
                     if (!pwdLayout.checkPassword())

@@ -21,7 +21,7 @@ DisplayModel::DisplayModel(QObject *parent)
     , m_screenHeight(0)
     , m_screenWidth(0)
     , m_uiScale(1)
-    , m_minimumBrightnessScale(0.0)
+    , m_minimumBrightnessScale(0.1)
     , m_redshiftIsValid(false)
     , m_allowEnableMultiScaleRatio(false)
     , m_resolutionRefreshEnable(true)
@@ -90,8 +90,9 @@ void DisplayModel::setUIScale(const double scale)
 
 void DisplayModel::setMinimumBrightnessScale(const double scale)
 {
-    if (fabs(m_minimumBrightnessScale - scale) > DoubleZero) {
-        m_minimumBrightnessScale = scale;
+    const double boundedScale = qIsFinite(scale) ? qBound(0.0, scale, 1.0) : 0.1;
+    if (fabs(m_minimumBrightnessScale - boundedScale) > DoubleZero) {
+        m_minimumBrightnessScale = boundedScale;
         Q_EMIT minimumBrightnessScaleChanged(m_minimumBrightnessScale);
     }
 }

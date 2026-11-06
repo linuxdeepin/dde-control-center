@@ -26,6 +26,7 @@ DccObject {
         id: rep
         model: [
             {
+                key: "face",
                 authTitle: qsTr("Face"),
                 authDescription: qsTr("Up to 5 facial data can be entered"),
                 authIcon: "user_biometric_face",
@@ -34,6 +35,7 @@ DccObject {
                 max: 5
             },
             {
+                key: "fingerprint",
                 authTitle: qsTr("Fingerprint"),
                 authDescription: qsTr("Identifying user identity through scanning fingerprints"),
                 authIcon: "user_biometric_fingerprint",
@@ -42,6 +44,7 @@ DccObject {
                 max: 10
             },
             {
+                key: "iris",
                 authTitle: qsTr("Iris"),
                 authDescription: qsTr("Identity recognition through iris scanning"),
                 authIcon: "user_biometric_iris",
@@ -53,7 +56,7 @@ DccObject {
         property var listDatas: [dccData.model.facesList, dccData.model.thumbsList, dccData.model.irisList]
         delegate: DccObject {
             id: authenticationGroupView
-            name: "authenticationGroupView"
+            name: modelData.key
             parentName: root.objParentName
             weight: 20 + index
             pageType: DccObject.Item
@@ -64,7 +67,7 @@ DccObject {
                 accessibleId: "AuthenticationRepeaterHeaderView_" + index
                 id: repeaterHeaderView
                 name: "repeaterHeaderView"
-                parentName: root.objParentName + "/authenticationGroupView"
+                parentName: root.objParentName + "/" + authenticationGroupView.name
                 description: modelData.authDescription
                 displayName: modelData.authTitle
                 icon: modelData.authIcon

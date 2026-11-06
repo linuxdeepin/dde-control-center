@@ -7,6 +7,7 @@ import QtQuick.Window
 import QtQuick.Layouts 1.15
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
+import org.deepin.dcc 1.0
         
 D.DialogWindow {
     id: ddialog
@@ -19,6 +20,23 @@ D.DialogWindow {
     icon: "preferences-system"
     modality: Qt.WindowModal
     property date currentDate: new Date()
+    required property DccObject confirmAction
+    property bool modificationAllowed: true
+
+    function submit() {
+        if (!visible || !modificationAllowed || !confirmAction
+                || !confirmAction.visibleToApp || !confirmAction.enabledToApp
+                || !confirmLoader.item || !confirmLoader.item.visible || !confirmLoader.item.enabled)
+            return
+
+        const dateTime = new Date(currentDate.getTime())
+        dateTime.setFullYear(spYear.value, spMonth.value - 1, spDay.value)
+        dateTime.setHours(spHour.value)
+        dateTime.setMinutes(spMin.value)
+        dateTime.setSeconds(0)
+        dccData.setDateTime(dateTime)
+        close()
+    }
 
     component SpinboxTextInput: TextInput {
         Accessible.id: "DateTimeSettingDialog_TextInput"
@@ -245,24 +263,16 @@ D.DialogWindow {
                     ddialog.close()
                 }
             }
-            Button {
-                Accessible.id: "DateTimeSettingDialog_Button_2"
+            DccLoader {
+                id: confirmLoader
                 Layout.fillWidth: true
-                text: qsTr("Confirm")
-                font: D.DTK.fontManager.t6
-                highlighted: true
-                onClicked: {
-                    let dateTime = currentDate
-                    dateTime.setFullYear(spYear.value)
-                    dateTime.setMonth(spMonth.value - 1)
-                    dateTime.setDate(spDay.value)
-                    dateTime.setHours(spHour.value)
-                    dateTime.setMinutes(spMin.value)
-                    dateTime.setSeconds(0)
-
-                    dccData.setDateTime(dateTime)
-                    ddialog.close()
-                }
+                dccObj: ddialog.confirmAction
+                dccObjItem: this
+                visible: ddialog.confirmAction && ddialog.confirmAction.visibleToApp
+                active: visible
+                enabled: ddialog.modificationAllowed && ddialog.confirmAction
+                         && ddialog.confirmAction.enabledToApp
+                onLoaded: item.dialog = ddialog
             }
         }
     }

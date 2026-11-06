@@ -4,7 +4,8 @@
     "contents": {
         "modulePaths": {
             "value": [
-                "root/device/touchscreen"
+                "root/device/touchscreen",
+                "root/device/touchscreen/touchscreen/associations"
             ],
             "flags": [],
             "name": "Module paths",

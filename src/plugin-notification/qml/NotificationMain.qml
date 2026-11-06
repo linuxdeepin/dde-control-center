@@ -106,7 +106,7 @@ DccObject {
     }
     DccObject {
         accessibleId: "NotificationEnableDoNotDisturb"
-        name: "enableDoNotDisturb"
+        name: "notificationCount"
         parentName: "notification"
         displayName: qsTr("Number of notifications shown on the desktop")
         weight: 30
@@ -235,6 +235,8 @@ DccObject {
         id: applicationList
         name: "list"
         parentName: "notification"
+        visible: appNotifyTitle.visibleToApp
+        enabled: appNotifyTitle.enabledToApp
         weight: 50
         pageType: DccObject.Item
         page: DccGroupView {}
