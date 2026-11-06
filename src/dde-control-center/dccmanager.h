@@ -54,6 +54,7 @@ public:
 
     int width() const override;
     int height() const override;
+    SearchBarState searchBarState() const override { return m_searchBarState; }
     int sidebarWidth() const override;
     void setSidebarWidth(int width) override;
 
@@ -109,6 +110,7 @@ Q_SIGNALS:
 
 private:
     void initConfig();
+    void updateSearchBarState();
     void loadModuleConfigValues(const QSet<QString> &modulePaths);
     bool contains(const QSet<QString> &urls, const DccObject *obj);
     QStringList splitUrl(const QString &url, QString &targetName);
@@ -179,6 +181,7 @@ private:
     SearchModel *m_searchModel;
     DccImageProvider *m_imageProvider;
     int m_sidebarWidth;
+    SearchBarState m_searchBarState = SearchBarVisible;
     // DBus调用时，对应项还没加载完成，此处保存跳转参数
     QTimer *m_showTimer;
     QTimer *m_showFallbackTimer;

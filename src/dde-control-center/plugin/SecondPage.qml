@@ -76,11 +76,11 @@ Item {
             id: list
             Accessible.id: "SecondPageModuleList"
             visible: true
-            anchors.top: searchEdit.bottom
+            anchors.top: searchEdit.visible ? searchEdit.bottom : parent.top
             anchors.bottom: parent.bottom
             anchors.left: parent.left
             anchors.right: parent.right
-            anchors.topMargin: 3
+            anchors.topMargin: searchEdit.visible ? 3 : 50
             leftMargin: 10
             rightMargin: 10
             topMargin: 6

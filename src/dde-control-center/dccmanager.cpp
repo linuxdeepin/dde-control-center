@@ -111,6 +111,7 @@ QSet<QString> readModulePaths(const QStringList &subpaths)
 
 const QString WidthConfig = QStringLiteral("width");
 const QString HeightConfig = QStringLiteral("height");
+const QString SearchBarStateConfig = QStringLiteral("searchBarState");
 const QString MaximizedConfig = QStringLiteral("maximized");
 const QString HideConfig = QStringLiteral("hideModule");
 const QString DisableConfig = QStringLiteral("disableModule");
@@ -662,6 +663,7 @@ void DccManager::initConfig()
 
     updateModuleConfig(HideConfig);
     updateModuleConfig(DisableConfig);
+    updateSearchBarState();
     m_sidebarWidth = m_dconfig->value("sidebarWidth", -1).toInt();
     if (m_sidebarWidth <= 0) {
         // 英文环境做特殊处理，加宽侧边栏
@@ -669,6 +671,25 @@ void DccManager::initConfig()
         m_sidebarWidth = locale.language() == QLocale::English ? 210 : 180;
     }
     connect(m_dconfig, &DConfig::valueChanged, this, &DccManager::updateModuleConfig);
+    connect(m_dconfig, &DConfig::valueChanged, this, [this](const QString &key) {
+        if (key == SearchBarStateConfig)
+            updateSearchBarState();
+    });
+}
+
+void DccManager::updateSearchBarState()
+{
+    // FileBackend cannot safely read keys missing from older metadata.
+    const int value = m_dconfig->keyList().contains(SearchBarStateConfig)
+        ? m_dconfig->value(SearchBarStateConfig, SearchBarVisible).toInt()
+        : SearchBarVisible;
+    const auto state = value >= SearchBarVisible && value <= SearchBarHidden
+        ? static_cast<SearchBarState>(value) : SearchBarVisible;
+    if (m_searchBarState == state)
+        return;
+
+    m_searchBarState = state;
+    Q_EMIT searchBarStateChanged(state);
 }
 
 bool DccManager::contains(const QSet<QString> &urls, const DccObject *obj)

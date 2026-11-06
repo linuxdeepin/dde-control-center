@@ -6,6 +6,7 @@ import QtQuick.Layouts 1.15
 
 import org.deepin.dtk 1.0 as D
 import org.deepin.dtk.style 1.0 as DS
+import org.deepin.dcc 1.0
 
 Rectangle {
     id: control
@@ -13,6 +14,8 @@ Rectangle {
     property alias edit: searchEdit
     signal clicked(var model)
 
+    visible: DccApp.searchBarState !== DccApp.SearchBarHidden
+    enabled: DccApp.searchBarState === DccApp.SearchBarVisible
     implicitHeight: 32
     implicitWidth: (parent.width / 2) > 240 ? 240 : (parent.width / 2)
     color: "transparent"
@@ -24,6 +27,12 @@ Rectangle {
     onVisibleChanged: {
         searchEdit.text = ""
         popup.close()
+    }
+    onEnabledChanged: {
+        if (!enabled) {
+            searchEdit.text = ""
+            popup.close()
+        }
     }
 
     SearchEdit {
@@ -64,7 +73,7 @@ Rectangle {
 
         backgroundColor: nomalPalette
         onTextChanged: {
-            if (text === "") {
+            if (!control.enabled || !control.visible || text === "") {
                 popup.close()
             } else {
                 model.setFilterRegularExpression(text)

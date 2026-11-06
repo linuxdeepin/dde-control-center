@@ -24,6 +24,17 @@
             "permissions": "readwrite",
             "visibility": "public"
         },
+        "searchBarState": {
+            "value": 0,
+            "serial": 0,
+            "flags": [],
+            "name": "Search bar state",
+            "name[zh_CN]": "搜索框状态",
+            "description": "Control Center search bar state: 0 = visible, 1 = visible but disabled, 2 = hidden",
+            "description[zh_CN]": "控制中心搜索框状态：0 = 显示，1 = 显示但禁用，2 = 隐藏",
+            "permissions": "readwrite",
+            "visibility": "public"
+        },
         "maximized": {
             "value": false,
             "serial": 0,
