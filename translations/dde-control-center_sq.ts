@@ -3418,7 +3418,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>S’u arrit të ruhet shkurtore. Ju lutemi, riprovoni.</translation>
     </message>
 </context>
 <context>
@@ -3626,19 +3626,19 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Mbi Këtë PC</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Version sistemi, informacion pajisjesh</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Shënim Software-i Me Burim të Hapët</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Shihni shënimin rreth software-i me burim të hapët</translation>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -3646,23 +3646,23 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Merrni pjesë te “User Experience Program” që të ndihmoni të përmirësohet produkti</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Marrëveshje Licence Përdoruesi të Thjeshtë</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Shihni marrëveshjen e licencës së përdoruesit të thjeshtë</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Rregulla Privatësie</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Shihni informacion rreth rregullash privatësie</translation>
     </message>
 </context>
 <context>
