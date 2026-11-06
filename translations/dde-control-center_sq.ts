@@ -2058,14 +2058,14 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation type="unfinished"/>
+        <translation>Ikona aplikacionesh grupohen përherë te shtylla e punëve në Fashion Mode.Ikon</translation>
     </message>
 </context>
 <context>
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>Ripohojeni</translation>
     </message>
 </context>
 <context>
@@ -2193,15 +2193,15 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>GroupObject</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistem</translation>
     </message>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime të rëndomtë</translation>
     </message>
     <message>
         <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth dhe Pajisje</translation>
     </message>
 </context>
 <context>
