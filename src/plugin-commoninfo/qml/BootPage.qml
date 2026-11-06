@@ -32,10 +32,35 @@ DccObject {
 
     DccObject {
         accessibleId: "CommoninfoGrubSettingList"
+        id: grubSettingList
         name: "grubSettingList"
         parentName: "bootMenu"
         weight: 20
         pageType: DccObject.Item
+        DccObject {
+            id: bootWallpaper
+            name: "bootWallpaper"
+            parentName: "root/system/bootMenu/grubSettingList"
+            pageType: DccObject.Item
+            canSearch: false
+            enabled: dccData.mode().bootWallpaperEnabled
+            page: DropArea {
+                keys: ["text/uri-list"]
+                onDropped: (drop) => {
+                    if (!visible || !enabled || !bootWallpaper.visibleToApp
+                            || !bootWallpaper.enabledToApp || !drop.hasUrls)
+                        return
+
+                    let filePath = drop.urls[0].toString()
+                    if (filePath.endsWith(".png") || filePath.endsWith(".jpg")
+                            || filePath.endsWith(".jpeg") || filePath.endsWith(".bmp")) {
+                        if (filePath.startsWith("file://"))
+                            filePath = filePath.substring(7)
+                        dccData.work().setBackground(filePath)
+                    }
+                }
+            }
+        }
         page: Rectangle {
 
             readonly property int itemDelegateMinWidth: parent.width
@@ -49,25 +74,12 @@ DccObject {
             Layout.fillWidth: true
             Layout.topMargin: 0
 
-            DropArea {
+            DccLoader {
                 anchors.fill: parent
-                keys: ["text/uri-list"]
-                enabled: dccData.mode().bootWallpaperEnabled
-
-                onDropped: (drop) => {
-                    if (drop.hasUrls) {
-                        let filePath = drop.urls[0].toString()
-                        if (filePath.endsWith(".png") || filePath.endsWith(".jpg") || filePath.endsWith(".jpeg") || filePath.endsWith(".bmp")) {
-                            console.log("Image dropped:", filePath)
-                            if (filePath.startsWith("file://")) {
-                                filePath = filePath.substring(7)
-                            }
-                            dccData.work().setBackground(filePath)
-                        } else {
-                            console.log("Dropped file is not a supported image:", filePath)
-                        }
-                    }
-                }
+                dccObj: bootWallpaper
+                dccObjItem: this
+                visible: bootWallpaper.visibleToApp
+                active: visible
             }
 
             Image {

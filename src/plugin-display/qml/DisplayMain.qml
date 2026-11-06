@@ -626,7 +626,7 @@ DccObject {
             implicitHeight: 24
             Layout.alignment: Qt.AlignVCenter
             highlightedPassedGroove: true
-            from: 0.1
+            from: dccData.minimumBrightness
             to: 1
             stepSize: 0.01
             value: screenItem.brightness
@@ -993,6 +993,7 @@ DccObject {
     }
 
     DccTitleObject {
+        id: colorTemperatureTitle
         name: "displayColorTemperature"
         parentName: "display"
         displayName: qsTr("Eye Comfort")
@@ -1007,7 +1008,8 @@ DccObject {
         displayName: qsTr("Enable eye comfort")
         description: qsTr("Adjust screen display to warmer colors, reducing screen blue light")
         weight: 100
-        visible: dccData.isX11 && dccData.colorTemperatureSupported
+        visible: dccData.isX11 && colorTemperatureTitle.visibleToApp
+        enabled: colorTemperatureTitle.enabledToApp
         backgroundType: DccObject.Normal
         pageType: DccObject.Editor
         onParentItemChanged: item => { if (item) { item.rightItemTopMargin = 6; item.rightItemBottomMargin = 6 } }
@@ -1021,7 +1023,8 @@ DccObject {
         name: "eyeComfortGroup"
         parentName: "display"
         weight: 110
-        visible: dccData.colorTemperatureSupported
+        visible: colorTemperatureTitle.visibleToApp
+        enabled: colorTemperatureTitle.enabledToApp
         pageType: DccObject.Item
         onParentItemChanged: item => { if (item) item.topInset = 6 }
         page: DccGroupView {}

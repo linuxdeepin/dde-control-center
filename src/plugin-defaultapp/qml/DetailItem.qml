@@ -29,97 +29,127 @@ DccObject {
         displayName: qsTr("Please choose the default program to open '%1'").arg(root.displayName)
         weight: 10
         pageType: DccObject.Editor
-        page: Button {
-            Accessible.id: "DetailItem_Button"
-            implicitWidth: implicitContentWidth + 20
-            implicitHeight: 30
-            text: qsTr("add")
-            onClicked: {
-                fileDialog.open()
-            }
-            onVisibleChanged: {
-                fileDialog.close()
-            }
-            FileDialog {
-                id: fileDialog
-                title: qsTr("Open Desktop file")
-                folder: "/usr/share/applications"
-                visible: false
-                nameFilters: [qsTr("Apps (*.desktop)"), qsTr("All files (*)")]
-                onAccepted: {
-                    categoryModel.addApp(fileDialog.currentFile)
+        page: DccRowView {
+            // Keep the button's border and shadow outside its bounds visible.
+            clip: false
+        }
+
+        DccObject {
+            id: addApp
+            name: "addApp"
+            parentName: "root/system/defaultapp/" + root.name + "/title"
+            pageType: DccObject.Item
+            canSearch: false
+            page: Button {
+                id: addAppButton
+                Accessible.id: "DetailItem_Button"
+                implicitWidth: implicitContentWidth + 20
+                implicitHeight: 30
+                text: qsTr("add")
+                onClicked: {
+                    if (visible && enabled && addApp.visibleToApp && addApp.enabledToApp)
+                        fileDialog.open()
+                }
+                onVisibleChanged: {
+                    fileDialog.close()
+                }
+                FileDialog {
+                    id: fileDialog
+                    title: qsTr("Open Desktop file")
+                    folder: "/usr/share/applications"
+                    visible: false
+                    nameFilters: [qsTr("Apps (*.desktop)"), qsTr("All files (*)")]
+                    onAccepted: {
+                        if (addAppButton.visible && addAppButton.enabled
+                                && addApp.visibleToApp && addApp.enabledToApp)
+                            categoryModel.addApp(fileDialog.currentFile)
+                    }
                 }
             }
         }
     }
-    DccRepeater {
-        model: categoryModel
-        delegate: DccObject {
-            name: model.id
-            parentName: root.name
-            weight: 20 + index
-            icon: model.icon
-            displayName: model.display
-            backgroundType: DccObject.ClickStyle
-            pageType: DccObject.Item
-            page: D.ItemDelegate {
-                id: control
-                Accessible.id: "DetailItem_ItemDelegate_" + index
-                leftPadding: 10
-                rightPadding: 8
-                topPadding: 0
-                bottomPadding: 0
-                icon.name: dccObj.icon
-                text: dccObj.displayName
-                checked: false
-                hoverEnabled: true
-                cascadeSelected: false
-                checkable: false
-                onClicked: categoryModel.setDefaultApp(model.id)
-                background: null
-                implicitHeight: 48
-                content: RowLayout {
-                    width: 38
-                    DccCheckIcon {
-                        accessibleId: "DetailItem_DefaultAppCheck_" + model.id
-                        Layout.alignment: Qt.AlignCenter
-                        visible: model.isDefault
+    DccObject {
+        id: applications
+        name: "applications"
+        parentName: root.name
+        weight: 20
+        pageType: DccObject.Item
+        readonly property bool canManage: visibleToApp && enabledToApp
+        page: DccGroupView {}
+
+        DccRepeater {
+            model: categoryModel
+            delegate: DccObject {
+                name: model.id
+                parentName: root.name + "/applications"
+                weight: 20 + index
+                icon: model.icon
+                displayName: model.display
+                backgroundType: DccObject.ClickStyle
+                pageType: DccObject.Item
+                page: D.ItemDelegate {
+                    id: control
+                    Accessible.id: "DetailItem_ItemDelegate_" + index
+                    leftPadding: 10
+                    rightPadding: 8
+                    topPadding: 0
+                    bottomPadding: 0
+                    icon.name: dccObj.icon
+                    text: dccObj.displayName
+                    checked: false
+                    hoverEnabled: true
+                    cascadeSelected: false
+                    checkable: false
+                    onClicked: {
+                        if (applications.canManage && visible && enabled)
+                            categoryModel.setDefaultApp(model.id)
                     }
-                    D.IconButton {
-                        Layout.alignment: Qt.AlignCenter
-                        implicitHeight: 30
-                        implicitWidth: 30
-                        visible: !model.isDefault && model.canDelete && control.hovered
-                        icon {
-                            name: "dcc-delete"
-                            width: 16
-                            height: 16
+                    background: null
+                    implicitHeight: 48
+                    content: RowLayout {
+                        width: 38
+                        DccCheckIcon {
+                            accessibleId: "DetailItem_DefaultAppCheck_" + model.id
+                            Layout.alignment: Qt.AlignCenter
+                            visible: model.isDefault
                         }
-                        onClicked: {
-                            categoryModel.removeApp(model.id)
-                        }
-                        background: Rectangle {
-                            property D.Palette pressedColor: D.Palette {
-                                normal: Qt.rgba(0, 0, 0, 0.2)
-                                normalDark: Qt.rgba(1, 1, 1, 0.25)
+                        D.IconButton {
+                            Layout.alignment: Qt.AlignCenter
+                            implicitHeight: 30
+                            implicitWidth: 30
+                            visible: !model.isDefault && model.canDelete && control.hovered
+                            icon {
+                                name: "dcc-delete"
+                                width: 16
+                                height: 16
                             }
-                            property D.Palette hoveredColor: D.Palette {
-                                normal: Qt.rgba(0, 0, 0, 0.1)
-                                normalDark: Qt.rgba(1, 1, 1, 0.1)
+                            onClicked: {
+                                if (applications.canManage && visible && enabled)
+                                    categoryModel.removeApp(model.id)
                             }
-                            radius: DS.Style.control.radius
-                            color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
-                            border {
-                                color: parent.palette.highlight
-                                width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                            background: Rectangle {
+                                property D.Palette pressedColor: D.Palette {
+                                    normal: Qt.rgba(0, 0, 0, 0.2)
+                                    normalDark: Qt.rgba(1, 1, 1, 0.25)
+                                }
+                                property D.Palette hoveredColor: D.Palette {
+                                    normal: Qt.rgba(0, 0, 0, 0.1)
+                                    normalDark: Qt.rgba(1, 1, 1, 0.1)
+                                }
+                                radius: DS.Style.control.radius
+                                color: parent.pressed ? D.ColorSelector.pressedColor : (parent.hovered ? D.ColorSelector.hoveredColor : "transparent")
+                                border {
+                                    color: parent.palette.highlight
+                                    width: parent.visualFocus ? DS.Style.control.focusBorderWidth : 0
+                                }
                             }
                         }
                     }
                 }
-            }
-            onActive: {
-                if (!model.isDefault) {
-                    categoryModel.setDefaultApp(model.id)
+                onActive: {
+                    if (applications.canManage && !model.isDefault) {
+                        categoryModel.setDefaultApp(model.id)
+                    }
                 }
             }
         }

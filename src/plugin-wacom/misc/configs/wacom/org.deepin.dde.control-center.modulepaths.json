@@ -4,7 +4,9 @@
     "contents": {
         "modulePaths": {
             "value": [
-                "root/device/wacom"
+                "root/device/wacom",
+                "root/device/wacom/mode",
+                "root/device/wacom/pressure"
             ],
             "flags": [],
             "name": "Module paths",

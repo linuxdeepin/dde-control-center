@@ -23,6 +23,10 @@ RowLayout {
             Layout.fillWidth: item ? item.Layout.fillWidth : false
             Layout.fillHeight: item ? item.Layout.fillHeight : false
             Layout.alignment: item ? item.Layout.alignment : Qt.AlignLeft
+            Layout.leftMargin: item ? item.Layout.leftMargin : 0
+            Layout.rightMargin: item ? item.Layout.rightMargin : 0
+            Layout.topMargin: item ? item.Layout.topMargin : 0
+            Layout.bottomMargin: item ? item.Layout.bottomMargin : 0
             dccObj: model.item
             dccObjItem: this
         }

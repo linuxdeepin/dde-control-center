@@ -83,6 +83,7 @@ void DisplayModulePrivate::init()
         updateVirtualScreens();
     });
     q_ptr->connect(m_model, &DisplayModel::redshiftVaildChanged, q_ptr, &DisplayModule::colorTemperatureSupportedChanged);
+    q_ptr->connect(m_model, &DisplayModel::minimumBrightnessScaleChanged, q_ptr, &DisplayModule::minimumBrightnessChanged);
     q_ptr->connect(m_model, &DisplayModel::colorTemperatureEnabledChanged, q_ptr, &DisplayModule::colorTemperatureEnabledChanged);
     q_ptr->connect(m_model, &DisplayModel::colorTemperatureChanged, q_ptr, &DisplayModule::colorTemperatureChanged);
     q_ptr->connect(m_model, &DisplayModel::customColorTempTimePeriodChanged, q_ptr, &DisplayModule::customColorTempTimePeriodChanged);
@@ -531,6 +532,12 @@ qreal DisplayModule::maxGlobalScale() const
 {
     Q_D(const DisplayModule);
     return d->m_maxGlobalScale;
+}
+
+qreal DisplayModule::minimumBrightness() const
+{
+    Q_D(const DisplayModule);
+    return d->m_model->minimumBrightnessScale();
 }
 
 bool DisplayModule::colorTemperatureSupported() const

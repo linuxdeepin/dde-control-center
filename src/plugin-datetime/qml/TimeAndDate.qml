@@ -115,6 +115,26 @@ DccObject {
             property bool showCustom: false
             property string customAddr
 
+            DccObject {
+                id: dateTimeConfirm
+                name: "confirm"
+                parentName: "root/system/datetime/dateTimeGroup/dateAndTimeSettings"
+                pageType: DccObject.Item
+                canSearch: false
+                page: Button {
+                    property var dialog: null
+                    Accessible.id: "DateTimeSettingDialog_Button_2"
+                    text: qsTranslate("DateTimeSettingDialog", "Confirm")
+                    font: D.DTK.fontManager.t6
+                    highlighted: true
+                    onClicked: {
+                        if (dialog && visible && enabled
+                                && dateTimeConfirm.visibleToApp && dateTimeConfirm.enabledToApp)
+                            dialog.submit()
+                    }
+                }
+            }
+
             page: Item {
                 implicitWidth: dccData.ntpEnabled ? comboBox.implicitWidth : settingsButton.implicitWidth
                 implicitHeight: dccData.ntpEnabled ? comboBox.implicitHeight : settingsButton.implicitHeight
@@ -208,6 +228,11 @@ DccObject {
                         id: loader
                         active: settingsButton.needShowDialog
                         sourceComponent: DateTimeSettingDialog {
+                            confirmAction: dateTimeConfirm
+                            modificationAllowed: dateAndTimeSettings.visibleToApp
+                                                 && dateAndTimeSettings.enabledToApp
+                                                 && settingsButton.visible && settingsButton.enabled
+                                                 && !dccData.ntpEnabled
                             onClosing: {
                                 settingsButton.needShowDialog = false
                             }
@@ -532,9 +557,14 @@ DccObject {
             weight: 12
             backgroundType: DccObject.Normal
             pageType: DccObject.Editor
-            page: RowLayout {
-                spacing: 10
-                Button {
+            page: DccRowView {}
+            DccObject {
+                id: addTimezone
+                name: "addTimezone"
+                parentName: "root/system/datetime/timezoneGroup/timezoneList"
+                pageType: DccObject.Item
+                canSearch: false
+                page: Button {
                     id: addButton
                     Accessible.id: "TimeAndDate_Button_3"
                     text: qsTr("Add")
@@ -578,6 +608,9 @@ DccObject {
                                     }
                                 }
                                 onClicked: {
+                                    if (!addTimezone.visibleToApp || !addTimezone.enabledToApp
+                                            || !addButton.visible || !addButton.enabled)
+                                        return
                                     let zoneId = model.zoneId
                                     if (!dccData.hasUserTimeZone(zoneId)) {
                                         dccData.addUserTimeZoneById(zoneId)
@@ -594,7 +627,8 @@ DccObject {
                     }
 
                     onClicked: {
-                        if (!timezoneListWindow.isVisible()) {
+                        if (visible && enabled && addTimezone.visibleToApp && addTimezone.enabledToApp
+                                && !timezoneListWindow.isVisible()) {
                             timezoneListWindow.setPositionByItem(parent)
                             timezoneListWindow.highlightedIndex = 0
                             timezoneListWindow.show()

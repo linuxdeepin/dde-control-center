@@ -166,6 +166,11 @@ DisplayModel *DisplayWorker::model() const
 
 void DisplayWorker::active()
 {
+    // The slider and both display backends use the same configured lower bound.
+    bool valid = false;
+    const double minimum = m_dconfig->value("minBrightnessValue", 0.1).toDouble(&valid);
+    m_model->setMinimumBrightnessScale(valid ? minimum : 0.1);
+
     if (!WQt::Utils::isTreeland()) {
         //    m_model->setAllowEnableMultiScaleRatio(
         //        valueByQSettings<bool>(DCC_CONFIG_FILES,
@@ -200,9 +205,6 @@ void DisplayWorker::active()
         initAutoBacklight();
 
         m_model->setRedshiftIsValid(m_displayInter->supportColorTemperature());
-        QVariant minBrightnessValue = 0.1f;
-        minBrightnessValue = m_dconfig->value("minBrightnessValue", minBrightnessValue);
-        m_model->setMinimumBrightnessScale(minBrightnessValue.toDouble());
         //    m_model->setResolutionRefreshEnable(m_dccSettings->get(GSETTINGS_SHOW_MUTILSCREEN).toBool());
         //    m_model->setBrightnessEnable(m_dccSettings->get(GSETTINGS_BRIGHTNESS_ENABLE).toBool());
     }
@@ -1053,23 +1055,26 @@ void DisplayWorker::setMonitorResolution(Monitor *mon, const int mode)
 
 void DisplayWorker::setMonitorBrightness(Monitor *mon, const double brightness)
 {
+    if (!mon || !qIsFinite(brightness))
+        return;
+    const double boundedBrightness = qBound(m_model->minimumBrightnessScale(), brightness, 1.0);
     if (WQt::Utils::isTreeland()) {
 #if GAMMA_SUPPORT
         auto *gammaEffect = m_wl_gammaEffects->value(mon);
         auto *gammaConfig = m_wl_gammaConfig->value(mon);
-        gammaConfig->brightness = brightness;
+        gammaConfig->brightness = boundedBrightness;
         gammaEffect->setConfiguration(*gammaConfig);
 #else
         for (auto it(m_control_monitors.cbegin()); it != m_control_monitors.cend(); ++it) {
             if (it.key() == mon) {
                 if (it.value().control)
-                    it.value().control->setBrightness(brightness * 100.0);
+                    it.value().control->setBrightness(boundedBrightness * 100.0);
                 break;
             }
         }
 #endif
     } else {
-        m_displayInter->SetAndSaveBrightness(mon->name(), std::max(brightness, m_model->minimumBrightnessScale())).waitForFinished();
+        m_displayInter->SetAndSaveBrightness(mon->name(), boundedBrightness).waitForFinished();
     }
 }
 

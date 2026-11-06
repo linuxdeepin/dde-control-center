@@ -11,6 +11,7 @@ Loader {
     id: langDialogLoader
     active: false
     required property var viewModel
+    property bool selectionAllowed: true
     signal selectedLang(string lang)
 
     sourceComponent: DialogWindow {
@@ -231,8 +232,10 @@ Loader {
                     font: DTK.fontManager.t6
                     implicitHeight: Math.max(30, addButtonFontMetrics.height + (DS.Style.control.padding - DS.Style.control.borderWidth) * 2) // Minimum 30px, adaptive based on font
                     text: qsTr("Add")
-                    enabled: itemsView.checkedLang.length > 0
+                    enabled: langDialogLoader.selectionAllowed && itemsView.checkedLang.length > 0
                     onClicked: {
+                        if (!langDialogLoader.selectionAllowed || !enabled)
+                            return
                         selectedLang(itemsView.checkedLang)
                         ddialog.close()
                     }

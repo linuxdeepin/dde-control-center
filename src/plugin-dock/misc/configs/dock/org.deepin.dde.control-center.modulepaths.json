@@ -4,7 +4,16 @@
     "contents": {
         "modulePaths": {
             "value": [
-                "root/personalization/dock"
+                "root/personalization/dock",
+                "root/personalization/dock/taskBarModeGroup/dockmode",
+                "root/personalization/dock/dockSettingsGroup/docksize",
+                "root/personalization/dock/dockSettingsGroup/lockedDock",
+                "root/personalization/dock/dockSettingsGroup/positionInScreen",
+                "root/personalization/dock/dockSettingsGroup/hideMode",
+                "root/personalization/dock/dockSettingsGroup/combineApp",
+                "root/personalization/dock/multiscreenGroup/multiscreenItem",
+                "root/personalization/dock/pluginArea",
+                "root/personalization/dock/pluginArea/pluginAreaView"
             ],
             "flags": [],
             "name": "Module paths",

@@ -13,16 +13,21 @@ DccObject {
         name: "powerPlansTitle"
         parentName: "power/general"
         displayName: qsTr("Power Plans")
+        visible: powerPlans.visibleToApp
+        enabled: powerPlans.enabledToApp
         weight: 10
     }
 
     DccObject {
+        id: powerPlans
         name: "powerPlans"
         parentName: "power/general"
         weight: 100
         pageType: DccObject.Item
         page: DccGroupView {}
-        PowerPlansListview {}
+        PowerPlansListview {
+            selectionAllowed: powerPlans.visibleToApp && powerPlans.enabledToApp
+        }
     }
 
     DccTitleObject {

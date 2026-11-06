@@ -8,7 +8,15 @@
                 "root/system/bootMenu/grubSettingList",
                 "root/system/bootMenu/grubTheme",
                 "root/system/bootMenu/startDelay",
-                "root/system/developerMode"
+                "root/system/developerMode",
+                "root/system/bootMenu/bootMenuVerification",
+                "root/system/bootMenu/startAnimation",
+                "root/system/bootMenu/checkAnimation",
+                "root/system/developerMode/developerModeSetting",
+                "root/system/developerMode/developDebugGrp",
+                "root/system/developerMode/developDebugGrp/developDebug",
+                "root/system/developerMode/developReadOnlyProtection",
+                "root/system/bootMenu/grubSettingList/bootWallpaper"
             ],
             "flags": [],
             "name": "Module paths",

@@ -9,7 +9,9 @@ import org.deepin.dcc 1.0
 
 DccRepeater {
     id: repeater
+    property bool selectionAllowed: true
     delegate: DccObject {
+        id: plan
         visible: {
             if (modelData.mode === "performance") {
                 return dccData.model.isHighPerformanceSupported
@@ -32,7 +34,7 @@ DccRepeater {
             visible: modelData.mode === dccData.model.powerPlan
         }
         onActive: function (cmd) {
-            if (cmd === "") {
+            if (cmd === "" && repeater.selectionAllowed && plan.visibleToApp && plan.enabledToApp) {
                 dccData.worker.setPowerPlan(modelData.mode)
             }
         }

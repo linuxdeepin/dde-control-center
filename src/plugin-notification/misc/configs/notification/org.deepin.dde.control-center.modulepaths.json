@@ -5,7 +5,13 @@
         "modulePaths": {
             "value": [
                 "root/system/notification",
-                "root/system/notification/appNotify"
+                "root/system/notification/appNotify",
+                "root/system/notification/list",
+                "root/system/notification/enableDoNotDisturb",
+                "root/system/notification/enableDoNotDisturb/enableDoNotDisturbSwitch",
+                "root/system/notification/enableDoNotDisturb/enableDoNotDisturbTime",
+                "root/system/notification/enableDoNotDisturb/enableDoNotDisturbLock",
+                "root/system/notification/notificationCount"
             ],
             "flags": [],
             "name": "Module paths",
