@@ -1,0 +1,162 @@
+name: 显示_suite
+app: deepin-control-center
+module: 显示
+setup:
+- action: session_start
+  command: deepin-control-center
+  wait: 3.0
+suites:
+- id: suite_显示_001_s1
+  name: ' 【控制中心】【系统】【显示】【跨屏拼接】4×1 纵向矩形拼接（四屏堆叠）'
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayBrightness
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayResolution
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayResolutionBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_ComboBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_ComboBox_3
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: DisplayMain_ComboBox_3
+- id: suite_显示_002_s1
+  name: ' 【控制中心】【系统】【显示】【跨屏拼接】跨屏拼接模式下亮度调节功能'
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayBrightness
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayRefreshRate
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayRefreshRateBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayResolution
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayResolutionBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayRotate
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayIdentify
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_ComboBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_ComboBox_3
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_ComboBox_4
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: DisplayMain_ComboBox_4
+- id: suite_显示_003_s1
+  name: 【控制中心】【系统】【显示】单屏模式下，调节刷新率，点击保存
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayBrightness
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayRefreshRate
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayRefreshRateBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayResolution
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayResolutionBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayDisplayRotate
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_ComboBox_3
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DisplayMain_ComboBox_4
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: DisplayMain_ComboBox_4
+teardown:
+- action: session_stop
