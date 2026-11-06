@@ -35,6 +35,16 @@ DccObject {
         name: "languageListTiltle"
         parentName: "langAndFormat"
         displayName: qsTr("Language")
+        visible: languageList.visibleToApp
+        enabled: languageList.enabledToApp
+        onVisibleToAppChanged: {
+            if (!languageListTiltle.visibleToApp)
+                isEditing = false
+        }
+        onEnabledToAppChanged: {
+            if (!languageListTiltle.enabledToApp)
+                isEditing = false
+        }
         weight: 10
         pageType: DccObject.Item
         page: RowLayout {
@@ -79,6 +89,7 @@ DccObject {
         // 语言列表项
         DccObject {
             id: languageList
+            readonly property bool canManage: visibleToApp && enabledToApp && dccData.langState === 0
             name: "languageList"
             parentName: "langAndFormat"
             weight: 20
@@ -107,7 +118,7 @@ DccObject {
                     weight: 20 + 10 * (index + 1)
                     backgroundType: DccObject.Normal
                     pageType: DccObject.Item
-                    enabled: dccData.langState === 0 // language set finished
+                    enabled: languageList.canManage // language set finished and policy allows edits
                     page: ItemDelegate {
                         id: itemDelegate
                         Accessible.id: "LangAndFormat_ItemDelegate_" + index
@@ -201,7 +212,9 @@ DccObject {
                             }
                             background: null
                             onClicked: {
-                                if (!languageListTiltle.isEditing
+                                if (!languageList.canManage || !visible || !enabled
+                                        || !languageListTiltle.visibleToApp || !languageListTiltle.enabledToApp
+                                        || !languageListTiltle.isEditing
                                         || itemDelegate.isCurrentLang)
                                     return
 
@@ -228,7 +241,7 @@ DccObject {
                         }
 
                         onClicked: {
-                            if (languageListTiltle.isEditing)
+                            if (!languageList.canManage || !visible || !enabled || languageListTiltle.isEditing)
                                 return
 
                             dccData.setCurrentLang(dccObj.displayName)
@@ -241,7 +254,10 @@ DccObject {
 
     // 其他语言列表 +
     DccObject {
+        id: otherLanguagesTitle
         name: "otherLanguagesTitle"
+        visible: languageList.visibleToApp
+        enabled: languageList.enabledToApp
         parentName: "langAndFormat"
         weight: 30
         pageType: DccObject.Item
@@ -250,6 +266,7 @@ DccObject {
         onParentItemChanged: item => { if (item) item.topPadding = 3 }
 
         DccObject {
+            id: addLanguage
             accessibleId: "DatetimeLangItem0"
             name: "langItem0"
             parentName: "otherLanguagesTitle"
@@ -265,12 +282,18 @@ DccObject {
                 LangsChooserDialog {
                     id: dialogLoader
                     viewModel: dccData.langSearchModel()
+                    selectionAllowed: languageList.canManage
+                                      && otherLanguagesTitle.visibleToApp && otherLanguagesTitle.enabledToApp
+                                      && addLanguage.visibleToApp && addLanguage.enabledToApp
                     onSelectedLang: function (lang) {
-                        dccData.addLang(lang)
+                        if (selectionAllowed)
+                            dccData.addLang(lang)
                     }
                 }
 
                 onClicked: {
+                    if (!dialogLoader.selectionAllowed || !visible || !enabled)
+                        return
                     dialogLoader.active = true
                     languageListTiltle.isEditing = false
                 }

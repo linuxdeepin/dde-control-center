@@ -4,7 +4,13 @@
     "contents": {
         "modulePaths": {
             "value": [
-                "root/deepinid"
+                "root/deepinid",
+                "root/deepinid/login",
+                "root/deepinid/userinfo",
+                "root/deepinid/userinfo/syncService",
+                "root/deepinid/userinfo/syncService/syncServiceSwitch",
+                "root/deepinid/userinfo/syncService/systemSettings",
+                "root/deepinid/userinfo/buttonGrp"
             ],
             "flags": [],
             "name": "Module paths",

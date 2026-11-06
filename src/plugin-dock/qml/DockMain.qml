@@ -245,7 +245,7 @@ DccObject {
 
         DccObject {
             accessibleId: "DockPositionInScreen_2"
-            name: "positionInScreen"
+            name: "hideMode"
             parentName: "personalization/dock/dockSettingsGroup"
             displayName: qsTr("Status")
             weight: 200

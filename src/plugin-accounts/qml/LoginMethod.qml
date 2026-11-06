@@ -74,6 +74,7 @@ DccTitleObject {
                 page: DccGroupView {}
 
                 DccObject {
+                    id: passwordModify
                     accessibleId: "AccountsArrowOrdinaryRight"
                     name: loginMethodTitle.parentName + "PasswordModify"
                     parentName: passwordGroupView.name
@@ -96,7 +97,8 @@ DccTitleObject {
                         opacity: enabled ? 1 : 0.4
                     }
                     onActive: {
-                        pmdLoader.active = true
+                        if (passwordModify.visibleToApp && passwordModify.enabledToApp)
+                            pmdLoader.active = true
                     }
 
                     Loader {
@@ -104,6 +106,9 @@ DccTitleObject {
                         active: false
                         sourceComponent: PasswordModifyDialog {
                             userId: loginMethodTitle.userId
+                            modificationAllowed: passwordModify.visibleToApp && passwordModify.enabledToApp
+                                                 && passwordModify.parentItem && passwordModify.parentItem.visible
+                                                 && passwordModify.parentItem.enabled
                             onClosing: function (close) {
                                 pmdLoader.active = false
                             }
@@ -114,6 +119,7 @@ DccTitleObject {
                     }
                 }
                 DccObject {
+                    id: passwordValidity
                     accessibleId: "AccountsEditor_7"
                     name: loginMethodTitle.parentName + "PasswordValidityDays" + "biometric"
                     parentName: passwordGroupView.name
@@ -123,6 +129,9 @@ DccTitleObject {
                     pageType: DccObject.Editor
                     page: D.SpinBox {
                         id: sbAge
+                        readonly property bool canModify: passwordValidity.visibleToApp
+                                                         && passwordValidity.enabledToApp
+                                                         && visible && enabled
                         Accessible.id: "LoginMethod_SpinBox"
                         from: 1
                         to: 99999
@@ -141,16 +150,22 @@ DccTitleObject {
                             return text
                         }
                         onValueChanged: function() {
+                            timer.userId = loginMethodTitle.userId
                             timer.restart()
                             if (!ti.activeFocus)
                                 ti.text = sbAge.textFromValue(sbAge.value, sbAge.locale)
                         }
 
                         onFocusChanged: {
-                            if (!focus) {
+                            if (!focus && canModify) {
                                 sbAge.value = sbAge.valueFromText(ti.text, sbAge.locale)
                                 dccData.setPasswordAge(loginMethodTitle.userId, value)
                             }
+                        }
+
+                        onCanModifyChanged: {
+                            if (!canModify)
+                                timer.stop()
                         }
 
                         contentItem: TextInput {
@@ -184,9 +199,11 @@ DccTitleObject {
 
                         Timer {
                             id: timer
+                            property string userId
                             interval: 1000
                             onTriggered: {
-                                dccData.setPasswordAge(loginMethodTitle.userId, sbAge.value)
+                                if (sbAge.canModify && userId === loginMethodTitle.userId)
+                                    dccData.setPasswordAge(userId, sbAge.value)
                             }
                         }
                         Connections {
@@ -195,6 +212,12 @@ DccTitleObject {
                                 if (userId === loginMethodTitle.userId) {
                                     sbAge.value = dccData.passwordAge(loginMethodTitle.userId)
                                 }
+                            }
+                        }
+                        Connections {
+                            target: loginMethodTitle
+                            function onUserIdChanged() {
+                                timer.stop()
                             }
                         }
                     }

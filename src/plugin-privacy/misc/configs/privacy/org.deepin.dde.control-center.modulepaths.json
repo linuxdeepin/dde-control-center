@@ -4,7 +4,11 @@
     "contents": {
         "modulePaths": {
             "value": [
-                "root/privacy"
+                "root/privacy",
+                "root/privacy/camera",
+                "root/privacy/filefolder",
+                "root/privacy/camera/cameraAppViewGroup",
+                "root/privacy/filefolder/filefolderViewGroup"
             ],
             "flags": [],
             "name": "Module paths",
