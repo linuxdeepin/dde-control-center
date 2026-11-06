@@ -2059,7 +2059,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
-        <translation>確定</translation>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
