@@ -815,7 +815,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Camera is not enabled</source>
-        <translation type="unfinished"/>
+        <translation>Kamera s’është aktivizuar</translation>
     </message>
 </context>
 <context>
@@ -946,23 +946,23 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu Nisjesh</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Administroni menunë tuaj të nisjeve</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Mundësi Zhvilluesi</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Administrim leje rrënjë për zhvillues</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Mundësi diagnostikimi për zhvillues</translation>
     </message>
 </context>
 <context>
