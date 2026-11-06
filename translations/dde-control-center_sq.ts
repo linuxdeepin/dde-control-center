@@ -3315,7 +3315,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>The name cannot exceed 128 characters.</source>
-        <translation type="unfinished"/>
+        <translation>Emri s’mund të tejkalojë 128 shenja.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
@@ -3339,7 +3339,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>S’u arrit të niset kapje shkurtoreje. Ju lutemi, riprovoni.</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
