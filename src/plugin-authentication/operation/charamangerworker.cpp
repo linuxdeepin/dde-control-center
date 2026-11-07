@@ -361,16 +361,16 @@ void CharaMangerWorker::tryEnroll(const QString &name, const QString &thumb)
 
 void CharaMangerWorker::refreshFingerEnrollList(const QString &id)
 {
-    QStringList call = m_charaMangerInter->ListFingers(id);
-    if (call.isEmpty()) {
-        qDebug() << "m_charaMangerInter->ListFingers call Error";
+    QDBusPendingReply<QStringList> reply = m_charaMangerInter->ListFingers(id);
+    reply.waitForFinished();
+    if (reply.isError()) {
+        qDebug() << "m_charaMangerInter->ListFingers call Error:" << reply.error();
         m_model->setThumbsList(QStringList());
         return;
-    } else {
-        qDebug() << "m_charaMangerInter->ListFingers";
     }
-    m_model->setThumbsList(call);
 
+    qDebug() << "m_charaMangerInter->ListFingers";
+    m_model->setThumbsList(reply.value());
 }
 
 void CharaMangerWorker::stopFingerEnroll(const QString &userName)

@@ -1,6 +1,6 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #include "charamangerdbusproxy.h"
 
@@ -113,7 +113,7 @@ QDBusPendingReply<> CharaMangerDBusProxy::Enroll(const QString &finger)
 
 }
 
-QStringList CharaMangerDBusProxy::ListFingers(const QString &username)
+QDBusPendingReply<QStringList> CharaMangerDBusProxy::ListFingers(const QString &username)
 {
     QList<QVariant> argumentList;
     argumentList << QVariant::fromValue(username);
