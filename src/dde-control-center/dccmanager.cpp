@@ -1350,13 +1350,19 @@ void DccManager::loadModuleConfigValues(const QSet<QString> &modulePaths)
             finishModuleConfigItem();
             continue;
         }
-        connect(config, &DccModuleConfig::configInitializeSucceed, this, [this, path, config](DConfig *) {
+        // path 是配置路径，保留占位符用于读取 DConfig 和定位 override 目录；
+        // target 是对象匹配路径，仅在这里把保留标记 __wildcard__ 还原为 *。
+        // 例如 root/network/wired__wildcard__/page -> root/network/wired*/page。
+        // 沿用 contains()/findObjects() 的规则：* 只匹配单个路径段内的名称。
+        QString target = path;
+        target.replace(QStringLiteral("__wildcard__"), QStringLiteral("*"));
+        connect(config, &DccModuleConfig::configInitializeSucceed, this, [this, target, config](DConfig *) {
             // 读生成类缓存的属性（值已在配置线程写入 Data）：不要用 config->config()->value()，
             // DConfig 实例不在主线程，每次读值都是一次跨线程阻塞往返
             if (!config->visible())
-                m_moduleHiddenPaths.insert(path);
+                m_moduleHiddenPaths.insert(target);
             if (config->disable())
-                m_moduleDisabledPaths.insert(path);
+                m_moduleDisabledPaths.insert(target);
             config->deleteLater();
             finishModuleConfigItem();
         });
