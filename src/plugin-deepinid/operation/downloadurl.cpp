@@ -61,8 +61,7 @@ void DownloadUrl::downloadFileFromURL(const QString &url, const QString &filePat
             QByteArray replyData = pReply->readAll();
 
             QFile file(fileName);
-            file.open(QIODevice::WriteOnly);
-            if (!file.isOpen()) {
+            if (!file.open(QIODevice::WriteOnly)) {
                 m_isReady = true;
                 delete pReply;
                 return;

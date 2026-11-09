@@ -1114,7 +1114,12 @@ void ShortcutFilterModel::setCategoryKey(const QString &key)
     if (m_categoryKey == key)
         return;
     m_categoryKey = key;
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+    beginFilterChange();
+    endFilterChange();
+#else
     invalidateFilter();
+#endif
     Q_EMIT categoryKeyChanged();
 }
 

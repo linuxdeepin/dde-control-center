@@ -741,7 +741,8 @@ void CommonInfoWork::setEnableDeveloperMode(bool enabled)
     QFile *contentFile = new QFile(contentPath);
     // 如果文件不存在，则创建文件
     if (!contentFile->exists()) {
-        contentFile->open(QIODevice::WriteOnly);
+        if (!contentFile->open(QIODevice::WriteOnly))
+            return;
         contentFile->close();
     }
     // 写入文件内容
