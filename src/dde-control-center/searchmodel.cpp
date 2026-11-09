@@ -511,7 +511,12 @@ void SearchModel::addSearchData(DccObject *obj, const QString &text, const QStri
     model->addSearchData(obj, text, url);
     if (!model->isBatching() && !d_ptr->filterText.isEmpty()) {
         refreshSearchResults();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+        beginFilterChange();
+        endFilterChange(QSortFilterProxyModel::Direction::Rows);
+#else
         invalidateRowsFilter();
+#endif
         sort(0);
     }
 }
@@ -523,7 +528,12 @@ void SearchModel::removeSearchData(const DccObject *obj, const QString &text)
         return;
     }
     refreshSearchResults();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+    beginFilterChange();
+    endFilterChange(QSortFilterProxyModel::Direction::Rows);
+#else
     invalidateRowsFilter();
+#endif
     sort(0);
 }
 
@@ -543,7 +553,12 @@ void SearchModel::endBatch()
         return;
     }
     refreshSearchResults();
+#if QT_VERSION >= QT_VERSION_CHECK(6, 10, 0)
+    beginFilterChange();
+    endFilterChange(QSortFilterProxyModel::Direction::Rows);
+#else
     invalidateRowsFilter();
+#endif
     sort(0);
 }
 
