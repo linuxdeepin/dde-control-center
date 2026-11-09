@@ -1,0 +1,29 @@
+name: 开发者选项_suite
+app: deepin-control-center
+module: 开发者选项
+setup:
+- action: session_start
+  command: deepin-control-center
+  wait: 3.0
+suites:
+- id: suite_开发者选项_001_s1
+  name: 【控制中心】【系统】【开发者选项】连续多次点击磐石只读保护开关都能正常响应
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DevelopModePage_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: DevelopModePage_ComboBox
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: DevelopModePage_ComboBox
+teardown:
+- action: session_stop

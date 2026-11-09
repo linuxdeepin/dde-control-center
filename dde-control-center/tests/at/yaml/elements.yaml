@@ -1,0 +1,77 @@
+elements:
+  NativeInfoPage_Button:
+    accessible_id: NativeInfoPage_Button
+  NativeInfoPage_Button_2:
+    accessible_id: NativeInfoPage_Button_2
+  BootPage_Button:
+    accessible_id: BootPage_Button
+  BootPage_Switch:
+    accessible_id: BootPage_Switch
+  MicrophonePage_ComboBox:
+    accessible_id: MicrophonePage_ComboBox
+  SpeakerPage_ComboBox:
+    accessible_id: SpeakerPage_ComboBox
+  DevelopModePage_Button:
+    accessible_id: DevelopModePage_Button
+  DevelopModePage_ComboBox:
+    accessible_id: DevelopModePage_ComboBox
+  DateTimeSettingDialog_Button:
+    accessible_id: DateTimeSettingDialog_Button
+  DateTimeSettingDialog_Button_2:
+    accessible_id: DateTimeSettingDialog_Button_2
+  DateTimeSettingDialog_Day:
+    accessible_id: DateTimeSettingDialog_Day
+  DateTimeSettingDialog_TextInput:
+    accessible_id: DateTimeSettingDialog_TextInput
+  TimeAndDate_ComboBox:
+    accessible_id: TimeAndDate_ComboBox
+  DatetimeSystemTimezone:
+    accessible_id: DatetimeSystemTimezone
+  TimeAndDate_Button_2:
+    accessible_id: TimeAndDate_Button_2
+  TimezoneDialog_Button:
+    accessible_id: TimezoneDialog_Button
+  DateTimeSettingDialog_Month:
+    accessible_id: DateTimeSettingDialog_Month
+  DateTimeSettingDialog_Year:
+    accessible_id: DateTimeSettingDialog_Year
+  TimezoneDialog_CheckBox:
+    accessible_id: TimezoneDialog_CheckBox
+  TimeAndDate_Button_3:
+    accessible_id: TimeAndDate_Button_3
+  ComboLabel_ComboBox:
+    accessible_id: ComboLabel_ComboBox
+  DisplayBrightness:
+    accessible_id: DisplayBrightness
+  DisplayDisplayResolution:
+    accessible_id: DisplayDisplayResolution
+  DisplayDisplayResolutionBox:
+    accessible_id: DisplayDisplayResolutionBox
+  DisplayMain_Button:
+    accessible_id: DisplayMain_Button
+  DisplayMain_ComboBox:
+    accessible_id: DisplayMain_ComboBox
+  DisplayMain_ComboBox_3:
+    accessible_id: DisplayMain_ComboBox_3
+  DisplayDisplayRefreshRate:
+    accessible_id: DisplayDisplayRefreshRate
+  DisplayDisplayRefreshRateBox:
+    accessible_id: DisplayDisplayRefreshRateBox
+  DisplayDisplayRotate:
+    accessible_id: DisplayDisplayRotate
+  DisplayIdentify:
+    accessible_id: DisplayIdentify
+  DisplayMain_ComboBox_4:
+    accessible_id: DisplayMain_ComboBox_4
+  UeProgramLicenseDialog_CheckBox:
+    accessible_id: UeProgramLicenseDialog_CheckBox
+  DatetimeRegionAndFormat:
+    accessible_id: DatetimeRegionAndFormat
+  LangAndFormat_Button_2:
+    accessible_id: LangAndFormat_Button_2
+  LangAndFormat_Button:
+    accessible_id: LangAndFormat_Button
+  RegionFormatDialog_Button:
+    accessible_id: RegionFormatDialog_Button
+  RegionFormatDialog_Button_2:
+    accessible_id: RegionFormatDialog_Button_2

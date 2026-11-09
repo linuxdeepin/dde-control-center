@@ -1,0 +1,24 @@
+name: 用户体验计划_suite
+app: deepin-control-center
+module: 用户体验计划
+setup:
+- action: session_start
+  command: deepin-control-center
+  wait: 3.0
+suites:
+- id: suite_用户体验计划_001_s1
+  name: 【控制中心】【系统】【用户体验计划】用户体验计划三级菜单界面展示检查
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: UeProgramLicenseDialog_CheckBox
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: UeProgramLicenseDialog_CheckBox
+teardown:
+- action: session_stop
