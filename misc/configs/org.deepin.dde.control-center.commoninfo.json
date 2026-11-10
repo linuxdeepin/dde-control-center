@@ -34,6 +34,28 @@
             "description[zh_CN]": "是否在\"启动菜单验证\"的验证密码弹窗中显示用户名",
             "permissions": "readwrite",
             "visibility": "public"
+        },
+        "bootGrubDelayIntervalMax": {
+            "value": 5,
+            "serial": 0,
+            "flags": [],
+            "name": "bootGrubDelayIntervalMax",
+            "name[zh_CN]": "GRUB 开启延时秒数",
+            "description": "GRUB timeout in seconds when boot delay is enabled. Default: 5. Integers are clamped to [5, 10]; fractional, non-finite or non-numeric values use the default.",
+            "description[zh_CN]": "开启延时启动时使用的 GRUB 超时秒数，默认为 5。整数限制在 [5, 10]，越界取最近边界；小数、非有限数或无法转换为数值时使用默认值。",
+            "permissions": "readonly",
+            "visibility": "private"
+        },
+        "bootGrubDelayIntervalMin": {
+            "value": 1,
+            "serial": 0,
+            "flags": [],
+            "name": "bootGrubDelayIntervalMin",
+            "name[zh_CN]": "GRUB 关闭延时秒数",
+            "description": "GRUB timeout in seconds when boot delay is disabled. Default: 1. Integers are clamped to [0, 4]; fractional, non-finite or non-numeric values use the default.",
+            "description[zh_CN]": "关闭延时启动时使用的 GRUB 超时秒数，默认为 1。整数限制在 [0, 4]，越界取最近边界；小数、非有限数或无法转换为数值时使用默认值。",
+            "permissions": "readonly",
+            "visibility": "private"
         }
     }
 }

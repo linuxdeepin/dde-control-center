@@ -605,7 +605,21 @@ void CommonInfoWork::onDTKConfigChanged(const QString& key)
 void CommonInfoWork::setBootDelay(bool value)
 {
     qDebug()<<" CommonInfoWork::setBootDelay  value =  "<< value;
-    m_commonInfoProxy->setTimeout(value ? 5 : 1);
+    m_commonInfoProxy->setTimeout(bootDelayInterval(value));
+}
+
+uint CommonInfoWork::bootDelayInterval(bool enabled) const
+{
+    const QString key = enabled ? QStringLiteral("bootGrubDelayIntervalMax")
+                                : QStringLiteral("bootGrubDelayIntervalMin");
+    const int defaultInterval = enabled ? 5 : 1;
+    const int minInterval = enabled ? 5 : 0;
+    const int maxInterval = enabled ? 10 : 4;
+
+    bool ok = false;
+    const int interval = m_dtkConfig->value(key).toInt(&ok);
+
+    return static_cast<uint>(ok ? qBound(minInterval, interval, maxInterval) : defaultInterval);
 }
 
 void CommonInfoWork::setEnableTheme(bool value)

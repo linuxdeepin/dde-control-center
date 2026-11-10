@@ -73,6 +73,7 @@ Q_SIGNALS:
     void settingScaling(bool);
 
 private:
+    uint bootDelayInterval(bool enabled) const;
     QString passwdEncrypt(const QString &password);
     std::pair<int, QString> getPlyMouthInformation();
     void updateImmutableWritableStatus();
