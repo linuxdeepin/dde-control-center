@@ -3417,6 +3417,20 @@ qml_elements:
   source_file: src/plugin-power/qml/GeneralPage.qml
   parent_type: ''
   line: 335
+- element_type: DccObject
+  id: ''
+  accessible_id: PowerDeviceIdlePowerSaving
+  accessible_role: ''
+  source_file: src/plugin-power/qml/GeneralPage.qml
+  parent_type: ''
+  line: 366
+- element_type: D.Switch
+  id: ''
+  accessible_id: GeneralPage_Switch_6
+  accessible_role: ''
+  source_file: src/plugin-power/qml/GeneralPage.qml
+  parent_type: ''
+  line: 413
 - element_type: DccRightView
   id: ''
   accessible_id: PowerGeneralRightView

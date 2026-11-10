@@ -361,4 +361,68 @@ DccObject {
             }
         }
     }
+
+    DccObject {
+        accessibleId: "PowerDeviceIdlePowerSaving"
+        name: "deviceIdlePowerSaving"
+        parentName: "power/general"
+        displayName: qsTr("Device idle power saving")
+        description: qsTr("Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.")
+        weight: 460
+        backgroundType: DccObject.Normal
+        visible: dccData.model.lidPresent
+                 && dccData.model.enableDeviceIdlePowerSaving !== "Hidden"
+        enabled: dccData.model.enableDeviceIdlePowerSaving !== "Disabled"
+        pageType: DccObject.Item
+        page: Item {
+            implicitHeight: Math.max(48, contentRow.implicitHeight)
+
+            RowLayout {
+                id: contentRow
+                anchors.left: parent.left
+                anchors.right: parent.right
+                anchors.leftMargin: 14
+                anchors.rightMargin: 8
+                anchors.verticalCenter: parent.verticalCenter
+                spacing: 5
+
+                ColumnLayout {
+                    Layout.fillWidth: true
+                    Layout.alignment: Qt.AlignVCenter
+                    spacing: 2
+                    opacity: dccObj.enabledToApp ? 1 : 0.4
+
+                    DccLabel {
+                        Layout.fillWidth: true
+                        Layout.topMargin: 3
+                        font: D.DTK.fontManager.t6
+                        text: dccObj.displayName
+                    }
+
+                    Label {
+                        Layout.fillWidth: true
+                        Layout.bottomMargin: 3
+                        font: D.DTK.fontManager.t10
+                        text: dccObj.description
+                        opacity: 0.5
+                        wrapMode: Text.WordWrap
+                    }
+                }
+
+                D.Switch {
+                    Accessible.id: "GeneralPage_Switch_6"
+                    Layout.alignment: Qt.AlignRight | Qt.AlignVCenter
+                    Layout.topMargin: 5
+                    Layout.bottomMargin: 5
+                    opacity: dccObj.enabledToApp ? 1 : 0.4
+                    checked: dccData.model.deviceIdlePowerSaving
+                    onCheckedChanged: {
+                        if (dccData.model.deviceIdlePowerSaving !== checked) {
+                            dccData.worker.setDeviceIdlePowerSaving(checked)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

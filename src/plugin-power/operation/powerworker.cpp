@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "powerworker.h"
@@ -22,6 +22,7 @@
 #define LINEPOWER_SBDELAY_NAME "linePowerScreenBlackDelay"
 #define TIME_WEEK_START_NAME "firstDayOfWeek"
 #define ENABLE_SCHEDULED_SHUTDOWN "enableScheduledShutdown"
+#define ENABLE_DEVICE_IDLE_POWER_SAVING "enableDeviceIdlePowerSaving"
 
 #define SHOW_HIBERNATE_NAME "showHibernate"
 #define SHOW_SHUTDOWN_NAME "showShutdown"
@@ -55,6 +56,7 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
 
     connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeAutoChanged, m_powerModel, &PowerModel::setAutoPowerSaveMode);
     connect(m_powerDBusProxy, &PowerDBusProxy::PowerSavingModeEnabledChanged, m_powerModel, &PowerModel::setPowerSaveMode);
+    connect(m_powerDBusProxy, &PowerDBusProxy::DeviceIdlePowerSavingChanged, m_powerModel, &PowerModel::setDeviceIdlePowerSaving);
 
     connect(m_powerDBusProxy, &PowerDBusProxy::HasBatteryChanged, m_powerModel, &PowerModel::setHaveBettary);
 
@@ -116,6 +118,8 @@ PowerWorker::PowerWorker(PowerModel *model, QObject *parent)
         } else if (key == ENABLE_SCHEDULED_SHUTDOWN) {
             readConfig(ENABLE_SCHEDULED_SHUTDOWN,
                 std::bind(&PowerModel::setEnableScheduledShutdown, m_powerModel, std::placeholders::_1));
+        } else if (key == ENABLE_DEVICE_IDLE_POWER_SAVING) {
+            readEnableDeviceIdlePowerSaving();
         }
     });
 
@@ -215,6 +219,7 @@ void PowerWorker::active()
     m_powerModel->setAutoPowerSaveMode(m_powerDBusProxy->powerSavingModeAuto());
     m_powerModel->setPowerSaveMode(m_powerDBusProxy->powerSavingModeEnabled());
     m_powerModel->setIsVirtualEnvironment(isVirtualEnvironment());
+    m_powerModel->setDeviceIdlePowerSaving(m_powerDBusProxy->deviceIdlePowerSaving());
 
     QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
     const bool confVal = valueByQSettings<bool>(DCC_CONFIG_FILES, "Power", "sleep", true);
@@ -244,7 +249,7 @@ void PowerWorker::active()
     readConfig(SHOW_SHUTDOWN_NAME, std::bind(&PowerModel::setShutdown, m_powerModel, std::placeholders::_1));
     readConfig(SHOW_SUSPEND_NAME, std::bind(&PowerModel::setSuspend, m_powerModel, std::placeholders::_1));
     readConfig(ENABLE_SCHEDULED_SHUTDOWN, std::bind(&PowerModel::setEnableScheduledShutdown, m_powerModel, std::placeholders::_1));
-
+    readEnableDeviceIdlePowerSaving();
 }
 
 void PowerWorker::readConfig(const QString &key, std::function<void(const QVariantList &value)> callback)
@@ -280,6 +285,13 @@ void PowerWorker::readConfig(const QString &key, std::function<void(const QStrin
 {
     const QString &enable = m_cfgPower->value(key, true).toString();
     callback(enable);
+}
+
+void PowerWorker::readEnableDeviceIdlePowerSaving()
+{
+    m_powerModel->setEnableDeviceIdlePowerSaving(
+        m_cfgPower->value(ENABLE_DEVICE_IDLE_POWER_SAVING,
+                          QStringLiteral("Enabled")).toString());
 }
 
 void PowerWorker::deactive()
@@ -510,4 +522,9 @@ void PowerWorker::onCustomShutdownWeekDaysChanged(const QByteArray &value)
         valueList.append(static_cast<int>(c));
     }
     m_powerModel->setCustomShutdownWeekDays(valueList);
+}
+
+void PowerWorker::setDeviceIdlePowerSaving(bool enabled)
+{
+    m_powerDBusProxy->setDeviceIdlePowerSaving(enabled);
 }
