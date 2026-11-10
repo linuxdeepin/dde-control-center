@@ -1,3 +1,11 @@
+dde-control-center (6.1.113.1000) unstable; urgency=medium
+
+  * fix(personalization): sync delegate load limit on layout change
+  * feat: support password changes for AD domain users
+  * feat: add admin-only visibility for all accounts
+
+ -- zhangkun <zhangkun2@uniontech.com>  Tue, 10 Nov 2026 13:43:11 +0800
+
 dde-control-center (6.1.113) unstable; urgency=medium
 
   * fix(personalization): initialize wallpaper state
