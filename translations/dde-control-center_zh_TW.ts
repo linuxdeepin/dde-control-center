@@ -2052,14 +2052,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation type="unfinished"/>
+        <translation>時尚模式下不支援拆分應用圖標，任務欄應用圖標始終合併顯示</translation>
     </message>
 </context>
 <context>
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
-        <translation type="unfinished"/>
+        <translation>確定</translation>
     </message>
 </context>
 <context>
