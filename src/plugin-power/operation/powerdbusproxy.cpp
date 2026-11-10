@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #include "powerdbusproxy.h"
@@ -320,6 +320,16 @@ bool PowerDBusProxy::powerSavingModeEnabled()
 void PowerDBusProxy::setPowerSavingModeEnabled(bool value)
 {
     m_sysPowerInter->setProperty("PowerSavingModeEnabled", QVariant::fromValue(value));
+}
+
+bool PowerDBusProxy::deviceIdlePowerSaving()
+{
+    return qvariant_cast<bool>(m_sysPowerInter->property("DeviceIdlePowerSaving"));
+}
+
+void PowerDBusProxy::setDeviceIdlePowerSaving(bool value)
+{
+    m_sysPowerInter->setProperty("DeviceIdlePowerSaving", QVariant::fromValue(value));
 }
 
 double PowerDBusProxy::batteryCapacity()
