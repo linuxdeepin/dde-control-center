@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef POWERDBUSPROXY_H
@@ -94,6 +94,9 @@ public:
     Q_PROPERTY(bool PowerSavingModeEnabled READ powerSavingModeEnabled WRITE setPowerSavingModeEnabled NOTIFY PowerSavingModeEnabledChanged)
     bool powerSavingModeEnabled();
     void setPowerSavingModeEnabled(bool value);
+    Q_PROPERTY(bool DeviceIdlePowerSaving READ deviceIdlePowerSaving WRITE setDeviceIdlePowerSaving NOTIFY DeviceIdlePowerSavingChanged)
+    bool deviceIdlePowerSaving();
+    void setDeviceIdlePowerSaving(bool value);
     Q_PROPERTY(double BatteryCapacity READ batteryCapacity NOTIFY BatteryCapacityChanged)
     double batteryCapacity();
     Q_PROPERTY(int MaxBacklightBrightness READ maxBacklightBrightness)
@@ -155,6 +158,7 @@ signals:
     void PowerSavingModeAutoWhenBatteryLowChanged(bool value) const;
     void PowerSavingModeBrightnessDropPercentChanged(uint value) const;
     void PowerSavingModeAutoBatteryPercentChanged(uint value) const;
+    void DeviceIdlePowerSavingChanged(bool value) const;
     void ModeChanged(const QString &value) const;
     void BatteryCapacityChanged(double value) const;
     void noPasswdLoginChanged(bool value);
