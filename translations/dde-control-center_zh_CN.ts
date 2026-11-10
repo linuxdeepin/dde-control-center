@@ -2055,7 +2055,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation type="unfinished"/>
+        <translation>时尚模式下不支持拆分应用图标，任务栏应用图标始终合并显示</translation>
     </message>
 </context>
 <context>
