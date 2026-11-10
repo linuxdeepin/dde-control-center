@@ -501,3 +501,21 @@ void PowerModel::setIsVirtualEnvironment(bool isVirtualEnvironment)
         Q_EMIT isVirtualEnvironmentChanged(isVirtualEnvironment);
     }
 }
+
+void PowerModel::setDeviceIdlePowerSaving(bool value)
+{
+    if (m_deviceIdlePowerSaving == value)
+        return;
+
+    m_deviceIdlePowerSaving = value;
+    Q_EMIT deviceIdlePowerSavingChanged(value);
+}
+
+void PowerModel::setEnableDeviceIdlePowerSaving(const QString &value)
+{
+    if (m_enableDeviceIdlePowerSaving == value)
+        return;
+
+    m_enableDeviceIdlePowerSaving = value;
+    Q_EMIT enableDeviceIdlePowerSavingChanged(value);
+}

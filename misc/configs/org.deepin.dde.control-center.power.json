@@ -111,6 +111,17 @@
             "description": "控制中心-电源管理-关机设置中`定时关机`的显示状态 \n 值为 Enabled 时在控制中心正常显示 \n 值为 Disabled 时在控制中心显示禁用状态 \n 值为 Hidden 时不在控制中心显示",
             "permissions": "readwrite",
             "visibility": "private"
+        },
+        "enableDeviceIdlePowerSaving": {
+            "value": "Enabled",
+            "serial": 0,
+            "flags": [],
+            "name": "enableDeviceIdlePowerSaving",
+            "name[zh_CN]": "设备空闲省电",
+            "description": "Control-center device idle power saving display state. Enabled: show and enable; Disabled: show but disable; Hidden: hide.",
+            "description[zh_CN]": "控制中心-节能设置中`设备空闲省电`的显示状态。值为 Enabled 时正常显示，Disabled 时显示禁用状态，Hidden 时隐藏。",
+            "permissions": "readwrite",
+            "visibility": "private"
         }
     }
 }

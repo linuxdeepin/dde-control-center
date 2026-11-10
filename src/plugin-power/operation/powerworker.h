@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef POWERWORKER_H
@@ -64,11 +64,13 @@ public Q_SLOTS:
     void setEnablePowerSave(const bool isEnable);
 
     int getMaxBacklightBrightness();
+    void setDeviceIdlePowerSaving(bool enabled);
 
 private:
     void readConfig(const QString &key, std::function<void(const QVariantList &value)> callback);
     void readConfig(const QString &key, std::function<void(const bool value)> callback);
     void readConfig(const QString &key, std::function<void(const QString &value)> callback);
+    void readEnableDeviceIdlePowerSaving();
     QVariantList converToDataMap(const QStringList& conf);
 private slots:
     void onCustomShutdownWeekDaysChanged(const QByteArray &value);
