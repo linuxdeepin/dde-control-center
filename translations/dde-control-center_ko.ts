@@ -3723,6 +3723,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>24시간 형식 사용</translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation>시스템 시간대</translation>
     </message>
