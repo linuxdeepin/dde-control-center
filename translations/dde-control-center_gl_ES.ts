@@ -3724,6 +3724,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
         <translation>Usar formato de 24 horas</translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation>fuso horario do sistema</translation>
     </message>
