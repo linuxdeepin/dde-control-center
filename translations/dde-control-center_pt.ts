@@ -3640,7 +3640,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Ver o aviso sobre software de código aberto</translation>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -3648,7 +3648,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Junte-se ao programa de experiência do utilizador para ajudar a melhorar o produto</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
@@ -3664,7 +3664,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Ver informação sobre política de privacidade</translation>
     </message>
 </context>
 <context>
@@ -3714,7 +3714,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Show seconds in the dock clock</source>
-        <translation type="unfinished"/>
+        <translation>Mostrar os segundos no relógio da doca</translation>
     </message>
     <message>
         <source>system time zone</source>
