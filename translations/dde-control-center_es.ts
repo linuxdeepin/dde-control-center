@@ -3713,6 +3713,10 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <translation>Usar formato de 24 horas</translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation>Zona horaria del sistema</translation>
     </message>
