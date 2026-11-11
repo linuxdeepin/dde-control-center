@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="96px" height="96px" viewBox="0 0 96 96" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ICON / TrayICON / wifi</title>
+    <defs>
+        <filter x="-24.5%" y="-16.8%" width="149.0%" height="143.2%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="3" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="4" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.552334872 0" type="matrix" in="shadowBlurOuter1" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M25.5002721,0.504538954 L45.5002721,15.504539 C46.8825354,16.5412364 46.8215279,18.6341005 45.381223,19.5885194 L27.7742721,31.254539 L37.2509725,37.5337945 C35.7447016,38.4208862 34.4190368,39.5780274 33.3417967,40.9379478 L26.5002721,36.405539 L26.5002721,55.004539 L30.538109,51.9768417 C30.8435324,53.7332859 31.4788942,55.377715 32.3786074,56.8450724 L25.5002721,62.004539 C23.8521815,63.2406069 21.5002721,62.0646523 21.5002721,60.004539 L21.5002721,35.411539 L3.88122302,47.0885194 C2.77822867,47.8194193 1.30754993,47.5607997 0.515647819,46.5249861 L0.416291642,46.3854899 C-0.346386486,45.2345392 -0.0316294331,43.6832366 1.1193212,42.9205585 L18.7252721,31.253539 L1.1193212,19.5885194 C0.0163268431,18.8576195 -0.318705007,17.4024448 0.326551067,16.269456 L0.416291642,16.123588 C1.17896977,14.9726374 2.73027239,14.6578804 3.88122302,15.4205585 L21.5002721,27.096539 L21.5002721,2.50453895 C21.5002721,0.444425659 23.8521815,-0.731529023 25.5002721,0.504538954 Z M26.5002721,7.50453895 L26.5002721,26.102539 L39.6652721,17.378539 L26.5002721,7.50453895 Z" id="path-2"></path>
+        <filter x="-4.3%" y="-3.2%" width="108.6%" height="106.4%" filterUnits="objectBoundingBox" id="filter-3">
+            <feGaussianBlur stdDeviation="1" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="-2" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
+            <feGaussianBlur stdDeviation="1" in="SourceAlpha" result="shadowBlurInner2"></feGaussianBlur>
+            <feOffset dx="0" dy="1" in="shadowBlurInner2" result="shadowOffsetInner2"></feOffset>
+            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.096867488 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner2"></feMergeNode>
+            </feMerge>
+        </filter>
+        <path d="M10.5409015,0 C16.3624807,0 21.081803,4.68117464 21.081803,10.4556962 C21.081803,16.2302178 16.3624807,20.9113924 10.5409015,20.9113924 C4.71932236,20.9113924 0,16.2302178 0,10.4556962 C0,4.68117464 4.71932236,0 10.5409015,0 Z M3,10.4556962 C3,14.5678886 6.37075061,17.9113924 10.5409015,17.9113924 C11.8606892,17.9113924 13.100407,17.5764992 14.1785436,16.9883339 L3.94628578,6.83729212 C3.34328553,7.90935274 3,9.1433819 3,10.4556962 Z M10.5409015,3 C8.7963724,3 7.19174312,3.58513318 5.91526611,4.56689343 L16.4824498,15.0471701 C17.4847976,13.7807716 18.081803,12.1863065 18.081803,10.4556962 C18.081803,6.34350381 14.7110524,3 10.5409015,3 Z" id="path-4"></path>
+        <filter x="-7.1%" y="-7.2%" width="114.2%" height="114.3%" filterUnits="objectBoundingBox" id="filter-5">
+            <feGaussianBlur stdDeviation="1" in="SourceAlpha" result="shadowBlurInner1"></feGaussianBlur>
+            <feOffset dx="0" dy="-1" in="shadowBlurInner1" result="shadowOffsetInner1"></feOffset>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.2 0" type="matrix" in="shadowInnerInner1" result="shadowMatrixInner1"></feColorMatrix>
+            <feGaussianBlur stdDeviation="1" in="SourceAlpha" result="shadowBlurInner2"></feGaussianBlur>
+            <feOffset dx="0" dy="1" in="shadowBlurInner2" result="shadowOffsetInner2"></feOffset>
+            <feComposite in="shadowOffsetInner2" in2="SourceAlpha" operator="arithmetic" k2="-1" k3="1" result="shadowInnerInner2"></feComposite>
+            <feColorMatrix values="0 0 0 0 1   0 0 0 0 1   0 0 0 0 1  0 0 0 0.096867488 0" type="matrix" in="shadowInnerInner2" result="shadowMatrixInner2"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixInner1"></feMergeNode>
+                <feMergeNode in="shadowMatrixInner2"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="任务栏/快捷面板" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="蓝牙列表（无我的网络）" transform="translate(-305, -170)">
+            <g id="网络" transform="translate(188, 58)">
+                <g id="ICON-/-TrayICON-/-wifi" transform="translate(117, 112)">
+                    <rect id="矩形" x="0" y="0" width="96" height="96"></rect>
+                    <g id="编组-3" filter="url(#filter-1)" transform="translate(18.9997, 14.4955)" fill-rule="nonzero">
+                        <g id="形状结合">
+                            <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-2"></use>
+                            <use fill="black" fill-opacity="1" filter="url(#filter-3)" xlink:href="#path-2"></use>
+                        </g>
+                        <g id="形状结合" transform="translate(34.0175, 39.1717)">
+                            <use fill-opacity="0.2" fill="#FFFFFF" xlink:href="#path-4"></use>
+                            <use fill="black" fill-opacity="1" filter="url(#filter-5)" xlink:href="#path-4"></use>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

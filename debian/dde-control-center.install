@@ -2,6 +2,15 @@ usr/bin/
 usr/libexec/deepin
 usr/lib/*/*.so*
 usr/lib/*/dde-control-center/
-usr/share
+usr/share/applications
+usr/share/dbus-1
+usr/share/dde-control-center
+usr/share/deepin-debug-config
+usr/share/deepin-log-viewer
+usr/share/dsg
+usr/share/metainfo
+usr/share/dock-bluetooth-plugin/translations
+usr/share/dde-dock/icons/dcc-setting/dcc-bluetooth.dci
 usr/lib/*/dde-grand-search-daemon/plugins/searcher/*
 usr/lib/systemd/user/
+usr/lib/dde-dock/plugins/system-trays/libbluetooth.so
