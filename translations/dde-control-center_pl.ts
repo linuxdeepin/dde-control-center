@@ -3711,6 +3711,10 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
         <translation>Użyj formatu 24-godzinnego</translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation>Strefa czasowa systemu</translation>
     </message>
