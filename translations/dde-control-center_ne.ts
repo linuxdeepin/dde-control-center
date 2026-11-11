@@ -3700,6 +3700,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>24 घण्टावटा वर्गीकृत गर्नुहोस्</translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation>सिस्टम समय खेड़ा</translation>
     </message>
