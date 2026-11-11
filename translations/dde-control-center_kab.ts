@@ -3699,6 +3699,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Usez le format 24 heures</translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation>zone horaire du système</translation>
     </message>
