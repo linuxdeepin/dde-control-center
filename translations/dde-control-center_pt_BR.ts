@@ -3707,7 +3707,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Show seconds in the dock clock</source>
-        <translation type="unfinished"/>
+        <translation>Exibir os segundos no relógio da dock</translation>
     </message>
     <message>
         <source>system time zone</source>
