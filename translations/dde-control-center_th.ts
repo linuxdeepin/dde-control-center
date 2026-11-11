@@ -3698,6 +3698,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>ใช้รูปแบบ 24 ชั่วโมง</translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation>เขตเวลาของระบบ</translation>
     </message>
