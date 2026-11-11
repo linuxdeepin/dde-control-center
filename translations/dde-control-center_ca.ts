@@ -3712,7 +3712,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Show seconds in the dock clock</source>
-        <translation type="unfinished"/>
+        <translation>Mostra els segons al rellotge de l&apos;acoblador.</translation>
     </message>
     <message>
         <source>system time zone</source>
