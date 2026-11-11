@@ -817,7 +817,7 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Camera is not enabled</source>
-        <translation type="unfinished"/>
+        <translation>A câmara não está ativada</translation>
     </message>
 </context>
 <context>
@@ -948,15 +948,15 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu de arranque</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Gerir o menu de arranque</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Opções de programador</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
@@ -1203,7 +1203,7 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>Language and region</source>
-        <translation type="unfinished"/>
+        <translation>Idioma e região</translation>
     </message>
     <message>
         <source>System language, regional formats</source>
