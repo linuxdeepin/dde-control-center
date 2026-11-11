@@ -3644,7 +3644,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Programa de experiência do utilizador</translation>
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
@@ -3652,7 +3652,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Acordo de licença de utilizador final</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
