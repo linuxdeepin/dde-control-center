@@ -2370,7 +2370,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Technology</source>
-        <translation type="unfinished"/>
+        <translation>Direitos de autor© 2011-%1 Comunidade Deepin</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
@@ -3636,7 +3636,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Aviso sobre software de código aberto</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
