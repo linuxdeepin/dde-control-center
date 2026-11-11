@@ -1207,7 +1207,7 @@ A UnionTech Software Technology Co., Ltd. está empenhada em investigar e melhor
     </message>
     <message>
         <source>System language, regional formats</source>
-        <translation type="unfinished"/>
+        <translation>Idioma do sistema, formatos regionais</translation>
     </message>
 </context>
 <context>
@@ -2060,7 +2060,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
-        <translation type="unfinished"/>
+        <translation>No Modo Elegante, os ícones das aplicações estão sempre agrupados na barra de tarefas.</translation>
     </message>
 </context>
 <context>
@@ -3833,7 +3833,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Edge Touch Gestures</source>
-        <translation type="unfinished"/>
+        <translation>Gestos de toque nas margens</translation>
     </message>
     <message>
         <source>Three-finger gestures</source>
