@@ -3713,6 +3713,10 @@ Connectez-vous à votre identifiant %1 pour accéder aux fonctionnalités et ser
         <translation>Utiliser le format 24 heures</translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation>Fuseau horaire système</translation>
     </message>
