@@ -10,7 +10,9 @@ usr/share/deepin-log-viewer
 usr/share/dsg
 usr/share/metainfo
 usr/share/dock-bluetooth-plugin/translations
+usr/share/dock-sound-plugin/translations
 usr/share/dde-dock/icons/dcc-setting/dcc-bluetooth.dci
 usr/lib/*/dde-grand-search-daemon/plugins/searcher/*
 usr/lib/systemd/user/
 usr/lib/dde-dock/plugins/system-trays/libbluetooth.so
+usr/lib/dde-dock/plugins/system-trays/libsound.so
