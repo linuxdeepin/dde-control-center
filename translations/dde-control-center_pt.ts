@@ -2203,7 +2203,7 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth e dispositivos</translation>
     </message>
 </context>
 <context>
@@ -3628,11 +3628,11 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
     </message>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Acerca deste PC</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Versão do sistema, informação do dispositivo</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
