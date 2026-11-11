@@ -3699,6 +3699,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>ໃຊ້ຮູບແບບ 24 ຊົ່ວໂມງ</translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation>ເຂດເວລາຂອງລະບົບ</translation>
     </message>
