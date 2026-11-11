@@ -3700,6 +3700,10 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <translation> kasuta 24-tuntmustrit</translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation>süsteemi aega-zon</translation>
     </message>
