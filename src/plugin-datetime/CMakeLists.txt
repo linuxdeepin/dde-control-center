@@ -28,6 +28,10 @@ target_link_libraries(${pluginName} PRIVATE
     dcc-shared-utils
 )
 
+# security loader permission interfaces config
+install(FILES "misc/permission-interfaces/org.deepin.dcc-datetime.json"
+    DESTINATION share/dde-control-center/permission-interfaces)
+
 dcc_install_plugin(NAME ${pluginName} TARGET ${pluginName})
 
 if(UNITTEST)
