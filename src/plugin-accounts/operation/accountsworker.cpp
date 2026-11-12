@@ -664,7 +664,7 @@ void AccountsWorker::setPassword(User *user, const QString &oldpwd, const QStrin
     process.setProcessEnvironment(env);
     process.setProcessChannelMode(QProcess::MergedChannels);
 
-    process.start("/bin/bash", QStringList() << "-c" << QString("passwd"));
+    process.start("passwd", QStringList());
     if (user->passwordStatus() == NO_PASSWORD) {
         process.write(QString("%1\n%2\n").arg(passwd).arg(repeatPasswd).toLatin1());
     } else {
