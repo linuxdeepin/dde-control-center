@@ -2,6 +2,13 @@
 <!DOCTYPE TS>
 <TS version="2.1" language="pam">
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>BluetoothApplet</name>
     <message>
         <source>Bluetooth settings</source>
@@ -64,6 +71,13 @@
     <message>
         <source>Bluetooth</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

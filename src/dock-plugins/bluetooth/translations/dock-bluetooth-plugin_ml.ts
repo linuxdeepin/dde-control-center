@@ -73,4 +73,11 @@
         <translation>ബ്ലൂടൂത്ത്</translation>
     </message>
 </context>
+<context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

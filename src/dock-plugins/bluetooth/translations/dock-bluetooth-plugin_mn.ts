@@ -5,45 +5,45 @@
     <name>BluetoothAdapterItem</name>
     <message>
         <source>My Devices</source>
-        <translation type="unfinished"></translation>
+        <translation>Миний төхөөрөмжүүд</translation>
     </message>
 </context>
 <context>
     <name>BluetoothApplet</name>
     <message>
         <source>Bluetooth settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Bluetooth тохиргоо</translation>
     </message>
     <message>
         <source>Turned off</source>
-        <translation type="unfinished"></translation>
+        <translation>Унтраалттай</translation>
     </message>
     <message>
         <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
-        <translation type="unfinished"></translation>
+        <translation>Bluetooth-тэй холбогдохын тулд эхлээд [Нисэх онгоцны горим](#)-г унтраана уу</translation>
     </message>
 </context>
 <context>
     <name>BluetoothItem</name>
     <message>
         <source>Turn off</source>
-        <translation type="unfinished"></translation>
+        <translation>Унтраах</translation>
     </message>
     <message>
         <source>Turn on</source>
-        <translation type="unfinished"></translation>
+        <translation>Асаах</translation>
     </message>
     <message>
         <source>Bluetooth settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Bluetooth тохиргоо</translation>
     </message>
     <message>
         <source>%1 connected</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 холбогдсон</translation>
     </message>
     <message>
         <source>Connecting...</source>
-        <translation type="unfinished"></translation>
+        <translation>Холбож байна...</translation>
     </message>
     <message>
         <source>Bluetooth</source>
@@ -51,19 +51,19 @@
     </message>
     <message>
         <source>Turned off</source>
-        <translation type="unfinished"></translation>
+        <translation>Унтраалттай</translation>
     </message>
     <message>
         <source>Connected %1</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 холбогдсон</translation>
     </message>
     <message>
         <source>Not connected</source>
-        <translation type="unfinished"></translation>
+        <translation>Холбогдоогүй</translation>
     </message>
     <message>
         <source>Off</source>
-        <translation type="unfinished"></translation>
+        <translation>Унтраалттай</translation>
     </message>
 </context>
 <context>
@@ -71,6 +71,13 @@
     <message>
         <source>Bluetooth</source>
         <translation>Блютүүт</translation>
+    </message>
+</context>
+<context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>Бусад төхөөрөмж</translation>
     </message>
 </context>
 </TS>

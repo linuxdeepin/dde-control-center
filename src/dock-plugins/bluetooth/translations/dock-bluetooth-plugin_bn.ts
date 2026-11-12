@@ -73,4 +73,11 @@
         <translation>ব্লুটুথ</translation>
     </message>
 </context>
+<context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>অন্যান্য ডিভাইস</translation>
+    </message>
+</context>
 </TS>

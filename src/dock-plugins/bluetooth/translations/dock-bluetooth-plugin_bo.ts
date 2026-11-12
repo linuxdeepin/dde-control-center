@@ -73,4 +73,11 @@
         <translation>སོ་སྔོན།</translation>
     </message>
 </context>
+<context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>སྒྲིག་ཆས་གཞན།</translation>
+    </message>
+</context>
 </TS>
