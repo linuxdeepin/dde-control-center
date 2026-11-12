@@ -62,6 +62,17 @@ set(LOCALE_I18N_PATH "/usr/share/i18n/SUPPORTED" CACHE STRING "Supported locale 
 set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/misc;${CMAKE_MODULE_PATH};${ECM_MODULE_PATH};${PROJECT_SOURCE_DIR}/misc")
 include(DdeControlCenterPluginMacros)
 
+# Generate the translated desktop file in the build tree for every build type.
+set(DCC_DESKTOP_FILE "${CMAKE_CURRENT_BINARY_DIR}/misc/org.deepin.dde.control-center.desktop")
+configure_file("${CMAKE_CURRENT_SOURCE_DIR}/misc/org.deepin.dde.control-center.desktop"
+    "${DCC_DESKTOP_FILE}" COPYONLY)
+execute_process(COMMAND bash "misc/translate_ts2desktop.sh" "${DCC_DESKTOP_FILE}"
+    WORKING_DIRECTORY ${CMAKE_SOURCE_DIR}
+    RESULT_VARIABLE desktop_translation_result)
+if(NOT desktop_translation_result STREQUAL "0")
+    message(FATAL_ERROR "Failed to generate desktop translations: ${desktop_translation_result}")
+endif()
+
 # asan 自己有内存泄露，暂不使用
 if (CMAKE_BUILD_TYPE STREQUAL "Debug")
     set(UNITTEST ON)
@@ -79,9 +90,6 @@ if (CMAKE_BUILD_TYPE STREQUAL "Debug")
 else()
     # generate qm
     execute_process(COMMAND bash "misc/translate_generation.sh" "${CMAKE_CURRENT_BINARY_DIR}/src/dde-control-center"
-        WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
-    # generate desktop translate
-    execute_process(COMMAND bash "misc/translate_ts2desktop.sh"
         WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 endif()
 
