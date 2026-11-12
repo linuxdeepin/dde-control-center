@@ -1,6 +1,6 @@
-//SPDX-FileCopyrightText: 2025 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2025 - 2026 UnionTech Software Technology Co., Ltd.
 //
-//SPDX-License-Identifier: GPL-3.0-or-later
+// SPDX-License-Identifier: GPL-3.0-or-later
 
 #ifndef CHARAMANGERDBUSPROXY_H
 #define CHARAMANGERDBUSPROXY_H
@@ -34,7 +34,7 @@ public:
     QString defaultDevice();
     QDBusPendingReply<> Claim(const QString &username, bool claimed);
     QDBusPendingReply<> Enroll(const QString &finger);
-    QStringList ListFingers(const QString &username);
+    QDBusPendingReply<QStringList> ListFingers(const QString &username);
     void StopEnroll();
     QDBusPendingReply<> DeleteFinger(const QString &username, const QString &finger);
     QDBusPendingReply<> RenameFinger(const QString &username, const QString &finger, const QString &newName);
