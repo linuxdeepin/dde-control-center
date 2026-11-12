@@ -105,7 +105,7 @@ install(PROGRAMS "${DCC_PROJECT_ROOT_DIR}/misc/dde-control-center-loader-wrapper
     PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE GROUP_READ GROUP_EXECUTE WORLD_READ WORLD_EXECUTE)
 #----------------------------install config------------------------------
 #desktop
-install(FILES ${DCC_PROJECT_ROOT_DIR}/misc/org.deepin.dde.control-center.desktop DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
+install(FILES "${DCC_DESKTOP_FILE}" DESTINATION ${CMAKE_INSTALL_DATAROOTDIR}/applications)
 
 #service
 configure_file(
