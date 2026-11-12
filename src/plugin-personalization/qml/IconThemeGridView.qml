@@ -28,7 +28,9 @@ ColumnLayout {
             Repeater {
                 id: repeater
                 Rectangle {
-                    Accessible.id: "IconThemeGridView_Rectangle"
+                    Accessible.id: "IconThemeGridView_Item_" + model.id
+                    Accessible.role: Accessible.ListItem
+                    Accessible.checked: model.checked
                     id: rect
                     width: root.itemWidth
                     height: root.itemHeight

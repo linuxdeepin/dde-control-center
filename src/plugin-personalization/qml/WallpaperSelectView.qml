@@ -174,7 +174,8 @@ ColumnLayout {
             Loader {
                 active: root.firstItemVisible
                 sourceComponent: Item {
-                    Accessible.id: "WallpaperSelectView_Item_1"
+                    Accessible.id: root.accessibleId !== "" ? (root.accessibleId + "FirstItem") : "WallpaperSelectView_Item_1"
+                    Accessible.role: Accessible.Button
                     width: root.itemWidth
                     height: root.itemHeight
 
@@ -297,7 +298,9 @@ ColumnLayout {
                     hoverEnabled: true
 
                     contentItem: Item {
-                        Accessible.id: "WallpaperSelectView_Item_2"
+                        Accessible.id: root.accessibleId !== "" ? (root.accessibleId + "Item_" + index) : ("WallpaperSelectView_Item_" + index)
+                        Accessible.role: Accessible.ListItem
+                        Accessible.checked: model.url !== undefined && model.url === root.currentItem
                         id: wallpaperItem
                         function requestSetWallpaper(option) {
                             root.wallpaperSelected(model.url, option)
