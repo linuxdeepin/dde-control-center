@@ -91,3 +91,10 @@ Architecture: any
 Depends: dde-control-center (= ${binary:Version}), ${misc:Depends}
 Description: dde-control-center (document)
  This package contains the doc files of dde-control-center
+
+Package: dde-wirelesscasting-plugin
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends},
+Recommends: dde-tray-loader,
+Description: deepin desktop-environment - wireless casting plugin for dde-dock
+ wireless casting plugin module
