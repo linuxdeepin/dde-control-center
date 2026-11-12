@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
+#
+# SPDX-License-Identifier: CC0-1.0
+
+
 name: DBus interface test
 
 # dde-control-center 的 DBus 接口测试(process 形态)。

@@ -1,3 +1,8 @@
+# SPDX-FileCopyrightText: 2026 UnionTech Software Technology Co., Ltd.
+#
+# SPDX-License-Identifier: CC0-1.0
+
+
 # dde-control-center 用例:ControlCenter1 + GrandSearch 两个接口面。
 #
 # 顺序敏感:Exit 会注销服务并退出进程,必须放在最后。
