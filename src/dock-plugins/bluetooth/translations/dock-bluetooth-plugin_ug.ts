@@ -73,4 +73,11 @@
         <translation>كۆكچىش</translation>
     </message>
 </context>
+<context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>باشقا ئۈسكۈنىلەر</translation>
+    </message>
+</context>
 </TS>

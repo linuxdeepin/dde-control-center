@@ -73,4 +73,11 @@
         <translation>ब्लुटूथ</translation>
     </message>
 </context>
+<context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>अन्य यस्ताहरू</translation>
+    </message>
+</context>
 </TS>

@@ -73,4 +73,11 @@
         <translation>البلوتوث</translation>
     </message>
 </context>
+<context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>الأجهزة الأخرى</translation>
+    </message>
+</context>
 </TS>

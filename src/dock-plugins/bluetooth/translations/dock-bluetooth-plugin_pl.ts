@@ -73,4 +73,11 @@
         <translation>Bluetooth</translation>
     </message>
 </context>
+<context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>Inne urządzenia</translation>
+    </message>
+</context>
 </TS>

@@ -73,4 +73,11 @@
         <translation>藍牙</translation>
     </message>
 </context>
+<context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>其他設備</translation>
+    </message>
+</context>
 </TS>
