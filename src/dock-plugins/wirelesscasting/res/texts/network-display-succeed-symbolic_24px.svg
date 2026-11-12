@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="24px" height="24px" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>network-display-succeed</title>
+    <g id="network-display-succeed" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M20,10 C21.1045695,10 22,10.8954305 22,12 L22,20 C22,21.1045695 21.1045695,22 20,22 L8,22 C6.8954305,22 6,21.1045695 6,20 L6,12 C6,10.8954305 6.8954305,10 8,10 L20,10 Z M15,2 C16.1045695,2 17,2.8954305 17,4 L17,9 L16,9 L16,4 C16,3.44771525 15.5522847,3 15,3 L4,3 C3.44771525,3 3,3.44771525 3,4 L3,11 C3,11.5522847 3.44771525,12 4,12 L5,12 L5,13 L4,13 C2.8954305,13 2,12.1045695 2,11 L2,4 C2,2.8954305 2.8954305,2 4,2 L15,2 Z" id="形状" fill="#FFFFFF" fill-rule="nonzero"></path>
+    </g>
+</svg>

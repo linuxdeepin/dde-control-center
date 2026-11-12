@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>ICON/快捷面板/多屏显示/仅1.1</title>
+    <g id="ICON/快捷面板/多屏显示/仅1.1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M14,3 C14.5522847,3 15,3.44771525 15,4 L15,13 L1,13 L1,4 C1,3.44771525 1.44771525,3 2,3 L14,3 Z M14,4 L2,4 L2,12 L14,12 L14,4 Z" id="矩形" fill="#000000" fill-rule="nonzero"></path>
+        <rect id="矩形" fill="#000000" x="0" y="13" width="16" height="1" rx="0.5"></rect>
+        <path d="M9,7 C9.55228475,7 10,7.44771525 10,8 L10,13 L2,13 C1.44771525,13 1,12.5522847 1,12 L1,7 L9,7 Z M9,8 L2,8 L2,12 L9,12 L9,8 Z" id="矩形" fill="#000000" fill-rule="nonzero"></path>
+        <path d="M1,7 L9,7 C9.55228475,7 10,7.44771525 10,8 L10,13 L10,13 L2,13 C1.44771525,13 1,12.5522847 1,12 L1,7 L1,7 Z" id="矩形" fill-opacity="0.6" fill="#000000"></path>
+    </g>
+</svg>
