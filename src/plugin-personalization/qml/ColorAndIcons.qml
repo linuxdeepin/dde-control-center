@@ -56,7 +56,10 @@ DccObject {
                 }
 
                 Rectangle {
-                    Accessible.id: "ColorAndIcons_Rectangle"
+                    // 颜色顺序与颜色数组一致，index 作为实例键
+                    Accessible.id: "ColorAndIcons_ColorBlock_" + index
+                    Accessible.role: Accessible.RadioButton
+                    Accessible.checked: activeColor === currentColor || (currentColor == "CUSTOM" && listview.cutColors.indexOf(activeColor) === -1)
                     id: colorImg
                     anchors.fill: parent
                     anchors.margins: 4

@@ -166,7 +166,9 @@ FocusScope {
                     }
 
                     delegate: Rectangle {
-                        Accessible.id: "ThemeSelectView_Rectangle_1"
+                        Accessible.id: "ThemeSelectView_Card_" + model.id
+                        Accessible.role: Accessible.ListItem
+                        Accessible.checked: delegateRoot.isCurrent
                         id: delegateRoot
                         Layout.fillHeight: true
                         Layout.fillWidth: true
@@ -243,7 +245,9 @@ FocusScope {
                     }
 
                     Rectangle {
-                        Accessible.id: "ThemeSelectView_Rectangle_2"
+                        Accessible.id: "ThemeSelectView_MoreWallpapers"
+                        Accessible.role: Accessible.Button
+                        Accessible.onPressAction: dccData.worker.goDownloadTheme()
                         id: moreWallpapersItem
                         Layout.fillHeight: true
                         Layout.fillWidth: true

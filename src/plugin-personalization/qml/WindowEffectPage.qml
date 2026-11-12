@@ -74,7 +74,10 @@ DccObject {
                             width: 112
                             height: 104
                             Item {
-                                Accessible.id: "WindowEffectPage_Item"
+                                // 圆角选项固定为 无/小/中/大，index 作为实例键
+                                Accessible.id: "WindowEffectPage_RadiusOption_" + index
+                                Accessible.role: Accessible.RadioButton
+                                Accessible.checked: layout.checked
                                 Layout.preferredHeight: 78
                                 Layout.fillWidth: true
 

@@ -4784,7 +4784,7 @@ qml_elements:
   line: 27
 - element_type: Rectangle
   id: ''
-  accessible_id: ColorAndIcons_Rectangle
+  accessible_id: ColorAndIcons_ColorBlock_
   accessible_role: ''
   source_file: src/plugin-personalization/qml/ColorAndIcons.qml
   parent_type: ''
@@ -4805,7 +4805,7 @@ qml_elements:
   line: 78
 - element_type: Rectangle
   id: ''
-  accessible_id: IconThemeGridView_Rectangle
+  accessible_id: IconThemeGridView_Item_
   accessible_role: ''
   source_file: src/plugin-personalization/qml/IconThemeGridView.qml
   parent_type: ''
@@ -4847,18 +4847,18 @@ qml_elements:
   line: 12
 - element_type: 1
   id: ''
-  accessible_id: ThemeSelectView_Rectangle_1
+  accessible_id: ThemeSelectView_Card_
   accessible_role: ''
   source_file: src/plugin-personalization/qml/ThemeSelectView.qml
   parent_type: ''
-  line: 168
+  line: 169
 - element_type: 2
   id: ''
-  accessible_id: ThemeSelectView_Rectangle_2
+  accessible_id: ThemeSelectView_MoreWallpapers
   accessible_role: ''
   source_file: src/plugin-personalization/qml/ThemeSelectView.qml
   parent_type: ''
-  line: 245
+  line: 248
 - element_type: 1
   id: ''
   accessible_id: WallpaperSelectView_Item_1
@@ -4868,11 +4868,11 @@ qml_elements:
   line: 177
 - element_type: 2
   id: ''
-  accessible_id: WallpaperSelectView_Item_2
+  accessible_id: WallpaperSelectView_Item_
   accessible_role: ''
   source_file: src/plugin-personalization/qml/WallpaperSelectView.qml
   parent_type: ''
-  line: 297
+  line: 301
 - element_type: ActionButton
   id: ''
   accessible_id: WallpaperSelectView_ActionButton
@@ -4882,7 +4882,7 @@ qml_elements:
   line: 416
 - element_type: Item
   id: ''
-  accessible_id: WindowEffectPage_Item
+  accessible_id: WindowEffectPage_RadiusOption_
   accessible_role: ''
   source_file: src/plugin-personalization/qml/WindowEffectPage.qml
   parent_type: ''
