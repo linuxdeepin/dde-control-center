@@ -2,10 +2,10 @@
     <qresource prefix="/icons/deepin/builtin">
         <file>dark/icons/effcient_center_70px.svg</file>
         <file>dark/icons/effcient_left_70px.svg</file>
-        <file>dark/icons/fashion_70px.svg</file>
+        <file alias="dark/icons/fashion_70px.svg">dark/icons/fashion_dark.svg</file>
         <file>light/icons/effcient_center_70px.svg</file>
         <file>light/icons/effcient_left_70px.svg</file>
-        <file>light/icons/fashion_70px.svg</file>
+        <file alias="light/icons/fashion_70px.svg">light/icons/fashion_light.svg</file>
     </qresource>
 
     <qresource prefix="/dsg">
