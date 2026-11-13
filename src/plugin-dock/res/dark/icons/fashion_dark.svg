@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="144px" height="70px" viewBox="0 0 144 70" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>时尚模式</title>
+    <defs>
+        <linearGradient x1="50%" y1="0%" x2="50%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#528BD8" offset="0%"></stop>
+            <stop stop-color="#7EA5DF" offset="100%"></stop>
+        </linearGradient>
+        <rect id="path-2" x="0" y="0" width="144" height="70" rx="6"></rect>
+        <path d="M2,1 L116,1 C117.656854,1 119,2.34314575 119,4 L119,10 C119,11.6568542 117.656854,13 116,13 L67.8235294,13 L2,13 C0.343145751,13 -1,11.6568542 -1,10 L-1,4 C-1,2.34314575 0.343145751,1 2,1 Z" id="path-4"></path>
+    </defs>
+    <g id="个性化" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="控制中心-个性化-任务栏" transform="translate(-1337, -303)">
+            <g id="编组" transform="translate(1312, 268)">
+                <g id="时尚模式" transform="translate(25, 35)">
+                    <g id="编组-4">
+                        <mask id="mask-3" fill="white">
+                            <use xlink:href="#path-2"></use>
+                        </mask>
+                        <use id="矩形" fill-opacity="0.89" fill="url(#linearGradient-1)" xlink:href="#path-2"></use>
+                        <g id="编组-10" mask="url(#mask-3)">
+                            <g transform="translate(13, 55)" id="编组">
+                                <g transform="translate(0, -1)">
+                                    <g id="矩形" stroke-width="0.32">
+                                        <path stroke-opacity="0.0996378652" stroke="#FFFFFF" d="M118.84,4 L118.84,10 C118.84,11.5684887 117.568489,12.84 116,12.84 L2,12.84 C0.43151131,12.84 -0.84,11.5684887 -0.84,10 L-0.84,4 C-0.84,2.43151131 0.43151131,1.16 2,1.16 L116,1.16 C117.568489,1.16 118.84,2.43151131 118.84,4 Z" stroke-linejoin="square" fill-opacity="0.503107" fill="#000000" fill-rule="evenodd"></path>
+                                        <path stroke-opacity="0.594304438" stroke="#000000" d="M119.16,4 L119.16,10 C119.16,11.7452198 117.74522,13.16 116,13.16 L2,13.16 C0.254780191,13.16 -1.16,11.7452198 -1.16,10 L-1.16,4 C-1.16,2.25478019 0.254780191,0.84 2,0.84 L116,0.84 C117.74522,0.84 119.16,2.25478019 119.16,4 Z"></path>
+                                    </g>
+                                    <rect id="矩形" fill="#9BA4D6" opacity="0.699999988" x="2" y="4" width="13" height="6" rx="1.27999997"></rect>
+                                    <rect id="矩形" fill="#ADC7EB" opacity="0.5" x="103" y="5" width="13" height="4" rx="0.639999986"></rect>
+                                    <g id="编组-11" transform="translate(25, 3)" opacity="0.699999988">
+                                        <rect id="矩形" fill="#8CBCED" x="0" y="0" width="8" height="8" rx="1.27999997"></rect>
+                                        <rect id="矩形" fill="#B7E08F" x="10" y="0" width="8" height="8" rx="1.27999997"></rect>
+                                        <rect id="矩形" fill="#DAC2EA" x="20" y="0" width="8" height="8" rx="1.27999997"></rect>
+                                        <rect id="矩形" fill="#F9B29F" x="30" y="0" width="8" height="8" rx="1.27999997"></rect>
+                                        <rect id="矩形" fill="#D7DA89" x="40" y="0" width="8" height="8" rx="1.27999997"></rect>
+                                        <rect id="矩形" fill="#CECBC9" x="50" y="0" width="8" height="8" rx="1.27999997"></rect>
+                                        <rect id="矩形" fill="#E0BBBB" x="60" y="0" width="8" height="8" rx="1.27999997"></rect>
+                                    </g>
+                                </g>
+                            </g>
+                        </g>
+                    </g>
+                    <rect id="矩形" stroke-opacity="0.1" stroke="#FFFFFF" x="0.5" y="0.5" width="143" height="69" rx="6"></rect>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>
