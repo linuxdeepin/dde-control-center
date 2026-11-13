@@ -542,6 +542,28 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>Mis dispositivos</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Ajustes de Bluetooth</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation>Si desea conectarse por Bluetooth, primero desactive el [modo avión](#)</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Desactivado</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -573,6 +595,56 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <message>
         <source>Not connected</source>
         <translation>No conectado</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>Desactivar</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>Activar</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Ajustes de Bluetooth</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1 conectado</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>Conectado %1</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Conectando...</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>No conectado</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Desactivado</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Apagado</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -660,6 +732,31 @@ UnionTech Software Technology Co., Ltd. se compromete a investigar y mejorar la 
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>Ajustar el tamaño de la animación del logotipo en el inicio del sistema</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Brillo</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Ajustes de pantalla</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>Ajustes de pantalla</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Brillo</translation>
     </message>
 </context>
 <context>
@@ -1721,6 +1818,13 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>Otros dispositivos</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2062,12 +2166,110 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Descanso visual</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Ajustes de pantalla</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>Descanso visual</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Tema</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>Encendido</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Apagado</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Claro</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Oscuro</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Automático</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>Desactivar descanso visual</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Activar descanso visual</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>Ajustes de pantalla</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>Descanso visual activado</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>Descanso visual desactivado</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>Tema: Claro</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>Tema: Oscuro</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>Tema: Automático</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>Descanso visual</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>Claro</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Oscuro</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Automático</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Tema</translation>
     </message>
 </context>
 <context>
@@ -2402,6 +2604,17 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Input Device</source>
         <translation>Dispositivo de entrada</translation>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation>Conectando</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
@@ -2807,6 +3020,13 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Seleccione los iconos que aparecerán en el muelle</translation>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3435,6 +3655,21 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>Volumen</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>Salida</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Ajustes de sonido</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3536,6 +3771,36 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Error</source>
         <translation>Error</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>Sonido</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>Activar sonido</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>Silenciar</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Ajustes de sonido</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>Sin dispositivos de salida</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>Volumen %1</translation>
     </message>
 </context>
 <context>
@@ -3711,10 +3976,6 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>Use 24-hour format</source>
         <translation>Usar formato de 24 horas</translation>
-    </message>
-    <message>
-        <source>Show seconds in the dock clock</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>system time zone</source>
@@ -4446,6 +4707,86 @@ Inicie sesión en Deepin ID para obtener funciones y servicios personalizados de
     <message>
         <source>None</source>
         <translation>Ninguno</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation>No se encontraron monitores para transmisión inalámbrica</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Desconectar</translation>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation>Pantalla transmitida exitosamente a %1</translation>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation>La tarjeta inalámbrica no es compatible con esta función y no puede transmitir la pantalla a un monitor inalámbrico.</translation>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation>Debe activar la red inalámbrica para transmitir la pantalla a un monitor inalámbrico</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation> Transmisión a pantalla inalámbrica</translation>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation>Opciones de pantalla múltiple</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Ajustes de pantalla</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Duplicado</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Extender</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Solo en %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation>Múltiples servicios iniciados</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Conectando</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Sin conexión</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Múltiples pantallas</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Ajustes de pantalla</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Múltiples pantallas</translation>
     </message>
 </context>
 </TS>
