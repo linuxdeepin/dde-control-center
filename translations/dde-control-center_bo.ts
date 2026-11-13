@@ -525,6 +525,28 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>ངའི་སྒྲིག་ཆས།</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>སོ་སྔོན་སྒྲིག་འགོད།</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>སོ་སྔོན་ཁ་རྒྱོབ།</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -556,6 +578,56 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Not connected</source>
         <translation>སྦྲེལ་མེད་པ། </translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>སོ་སྔོན།</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>སོ་སྔོན་ཁ་རྒྱོབ།</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>སོ་སྔོན་ཁ་ཕྱེ།</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>སོ་སྔོན་སྒྲིག་འགོད།</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1མཐུད་ཟིན།</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>%1སྦྲེལ་ཟིན། </translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>སྦྲེལ་བཞིན་པ། </translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>སྦྲེལ་མེད་པ། </translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>སོ་སྔོན་ཁ་རྒྱོབ།</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>སྒོ་བརྒྱབ།</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>སོ་སྔོན།</translation>
     </message>
 </context>
 <context>
@@ -643,6 +715,31 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>གསལ་ཚད།</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>བཪྙན་ཡོལ་སྒྲིག་འགོད།</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>བཪྙན་ཡོལ་སྒྲིག་འགོད།</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>གསལ་ཚད།</translation>
     </message>
 </context>
 <context>
@@ -1703,6 +1800,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>སྒྲིག་ཆས་གཞན།</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2044,12 +2148,110 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>མིག་སྲུང་རྣམ་པ།</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>མངོན་སྟོན་སྒྲིག་འགོད།</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>མིག་སྲུང་རྣམ་པ།</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>བརྗོད་གཞི། </translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>འགོ་སློང་།</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>སྒོ་བརྒྱབ།</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>མདོག་ཧར་པོ།</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>མདོག་སྣུམ་་པོ།</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>རང་འགུལ།</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>མིག་སྲུང་དཔེ་རྣམ་སྒོ་རྒྱག་པ།</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>མིག་སྲུང་དཔེ་རྣམ་ཕྱེ་བ།</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>མངོན་སྟོན་སྒྲིག་འགོད།</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>མིག་སྲུང་དཔེ་རྣམ་སྒོ་ཕྱེ།</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>མིག་སྲུང་དཔེ་རྣམ་སྒོ་རྒྱོབ།</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>བརྗོད་གཞི།  མདོག་ཧར་པོ།</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>བརྗོད་གཞི། མདོག་སྣུམ་་པོ།</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>བརྗོད་གཞི། རང་འགུལ།</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>མཐོང་ཚོར།</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>མདོག་ཧར་པོ།</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>མདོག་སྣུམ་་པོ།</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>རང་འགུལ།</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>བརྗོད་གཞི། </translation>
     </message>
 </context>
 <context>
@@ -2384,6 +2586,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Input Device</source>
         <translation>ནང་འདྲེན་སྒྲིག་ཆས།</translation>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation>སྦྲེལ་བཞིན་པ། </translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>མི་སྦྲེལ།</translation>
     </message>
 </context>
 <context>
@@ -2788,6 +3001,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3417,6 +3637,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>སྒྲ་ཤུགས།</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>ཕྱིར་འདྲེན།</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>སྐད་གདངས་སྒྲིག་འགོད།</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3518,6 +3753,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>ནོར་འཁྲུལ་གསལ་འདེབས།</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>སྒྲ།</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>སྒྲ་ལྡན།</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>སྒྲ་མེད།</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>སྐད་གདངས་སྒྲིག་འགོད།</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>སྒྲ་འདོན་པའི་སྒྲིག་ཆས་མེད།</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>མིག་སྔའི་སྐད་གདངས་%1</translation>
     </message>
 </context>
 <context>
@@ -3692,10 +3957,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show seconds in the dock clock</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4428,6 +4689,86 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>None</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation>སྤྱོད་རུང་བའི་སྐུད་མེད་བརྙན་སྟོན་ཆས་རྙེད་མ་སོང་།</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>སྦྲེལ་མཐུད་ཕྲལ་གཅོད། </translation>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation>བཪྙན་ཡོལ་%1བདེ་བླག་ངང་འཕེན་ཐུབ།</translation>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation>སྐུད་མེད་དྲ་གཱ་ཡིས་ནུས་པ་འདི་ལ་རྒྱབ་སྐྱོར་མེད་པས། བརྙན་ཡོལ་འདི་སྐུད་མེད་མངོན་སྟོན་ཆས་ཐོག་འཕེན་ཐབས་བྲལ།</translation>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation>སྐུད་མེད་དྲ་གྭ་སྤྱད་ན་གཞི་ནས་སྐུད་མེད་བཪྙན་ཡོལ་ཐོག་ཏུ་བཪྙན་འཆར་ཐུབ།</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation>སྐུད་མེད་ཡོལ་འཆར།</translation>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation>བརྙན་མང་མངོན་སྟོན་གདམ་ག</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>བཪྙན་ཡོལ་སྒྲིག་འགོད།</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>པར་སློག</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>རྒྱ་སྐྱེད།</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>བརྙན་ཡོལ་%1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation>ཞབས་ཞུ་མང་པོ་ཕྱེ་བ།</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>སྦྲེལ་བཞིན་པ། </translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>སྦྲེལ་མེད་པ། </translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>བརྙན་མང་མངོན་སྟོན།</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>བཪྙན་ཡོལ་སྒྲིག་འགོད།</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>བརྙན་མང་མངོན་སྟོན།</translation>
     </message>
 </context>
 </TS>
