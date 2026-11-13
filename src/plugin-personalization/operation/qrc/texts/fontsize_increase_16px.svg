@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <title>icon/text-size/lager</title>
-    <g id="icon/text-size/lager" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="矩形" x="0" y="0" width="16" height="16"></rect>
-        <path d="M4.55664062,14.8144531 L5.54101562,11.9492188 L10.4013672,11.9492188 L11.3945312,14.8144531 L13.4423828,14.8144531 L8.78417969,2 L7.15820312,2 L2.5,14.8144531 L4.55664062,14.8144531 Z M9.84765625,10.2265625 L6.10351562,10.2265625 L7.95800781,4.62792969 L7.99316406,4.62792969 L9.84765625,10.2265625 Z" id="A" fill-opacity="0.9" fill="#000000" fill-rule="nonzero"></path>
-    </g>
-</svg>
