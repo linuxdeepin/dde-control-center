@@ -1,18 +1,5 @@
 <RCC>
     <qresource prefix="/icons/deepin/builtin">
-        <file>icons/dcc_nav_authentication_42px.svg</file>
-        <file>icons/dcc_nav_authentication_84px.svg</file>
-        <file>icons/dark/icons/icon_face-fail.svg</file>
-        <file>icons/dark/icons/icon_face-start.svg</file>
-        <file>icons/dark/icons/icon_face-success.svg</file>
-        <file>icons/dark/icons/icon_unknown_device.svg</file>
-        <file>icons/light/icons/icon_face-fail.svg</file>
-        <file>icons/light/icons/icon_face-start.svg</file>
-        <file>icons/light/icons/icon_face-success.svg</file>
-        <file>icons/light/icons/icon_unknown_device.svg</file>
-        <file>icons/light/icons/finger/fingerprint_light.svg</file>
-        <file>icons/dark/icons/finger/fingerprint_light.svg</file>
-
         <file>icons/light/icons/finger/fingerprint_animation_light_00000.png</file>
         <file>icons/light/icons/finger/fingerprint_animation_light_00001.png</file>
         <file>icons/light/icons/finger/fingerprint_animation_light_00002.png</file>
