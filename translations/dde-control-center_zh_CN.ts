@@ -537,6 +537,28 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>我的设备</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>蓝牙设置</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation>若要使用蓝牙功能，请先关闭[飞行模式](#)</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>蓝牙关闭</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -568,6 +590,56 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Not connected</source>
         <translation>未连接</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>蓝牙</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>关闭</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>开启</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>蓝牙设置</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1 已连接</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>已连接%1</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>正在连接...</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>未连接</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>蓝牙关闭</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>关闭</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>蓝牙</translation>
     </message>
 </context>
 <context>
@@ -655,6 +727,31 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>调整系统启动界面的logo动画尺寸大小</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>亮度</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>显示设置</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>显示设置</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>亮度</translation>
     </message>
 </context>
 <context>
@@ -1716,6 +1813,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>其他设备</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2057,12 +2161,110 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation>时尚模式下不支持拆分应用图标，任务栏应用图标始终合并显示</translation>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
         <translation>确定</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>护眼模式</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>显示设置</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>护眼模式</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>主题</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>开启</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>关闭</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>浅色</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>深色</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>自动</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>关闭护眼模式</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>开启护眼模式</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>显示设置</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>护眼模式开启</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>护眼模式关闭</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>主题：浅色</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>主题：深色</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>主题：自动</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>视觉效果</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>浅色</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>深色</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>自动</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>主题</translation>
     </message>
 </context>
 <context>
@@ -2397,6 +2599,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Input Device</source>
         <translation>输入设备</translation>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation>正在连接</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>取消连接</translation>
     </message>
 </context>
 <context>
@@ -2802,6 +3015,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>选择显示在任务栏插件区域的图标</translation>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
+        <translation>断 开</translation>
     </message>
 </context>
 <context>
@@ -3430,6 +3650,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>音量</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>输出</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>声音设置</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3531,6 +3766,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>错误提示</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>声音</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>取消静音</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>静音</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>声音设置</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>无声音输出设备</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>当前音量 %1</translation>
     </message>
 </context>
 <context>
@@ -3706,10 +3971,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Use 24-hour format</source>
         <translation>24小时制</translation>
-    </message>
-    <message>
-        <source>Show seconds in the dock clock</source>
-        <translation>任务栏时间显示秒数</translation>
     </message>
     <message>
         <source>system time zone</source>
@@ -4441,6 +4702,86 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>无</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation>没有找到可用的无线显示器</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>断开连接</translation>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation>已成功投屏至%1</translation>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation>无线网卡不支持此功能，无法将屏幕投送至无线显示器</translation>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation>需要启用无线网卡，才能将屏幕投送至无线显示器</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation>无线投屏</translation>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation>多屏显示选项</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>显示设置</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>复制</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>扩展</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>仅%1屏</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation>多个服务开启</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>正在连接</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>未连接</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>多屏显示</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>显示设置</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>多屏显示</translation>
     </message>
 </context>
 </TS>
