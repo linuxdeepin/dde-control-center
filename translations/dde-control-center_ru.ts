@@ -540,6 +540,28 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>Мои устройства</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Настройки Bluetooth</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation>Если вы хотите подключиться к Bluetooth, сначала отключите [Режим полёта](#)</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Выключено</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -571,6 +593,56 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Not connected</source>
         <translation>Не подключено</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>Выключить</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>Включить</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Настройки Bluetooth</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1 подключен</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>Подключен %1</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Подключение...</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Не подключено</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Выключен</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Выкл.</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -658,6 +730,31 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>Измените размер анимации логотипа на интерфейсе запуска системы.</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Яркость</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Настройки экрана</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>Настройки экрана</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Яркость</translation>
     </message>
 </context>
 <context>
@@ -1719,6 +1816,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>Другие устройства</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2060,12 +2164,110 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Защита глаз</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Настройки экрана</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>Защита глаз</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Тема</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>Вкл.</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Выкл.</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Светлая</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Темная</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Авто</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>Выключить защиту глаз</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Включить защиту глаз</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>Настройки экрана</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>Защита глаз включена </translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>Защита глаз выключена</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>Тема: Светлая</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>Тема: Темная</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>Тема: Авто</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>Визуальный эффект</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>Светлый</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Темный</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Автоматически</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Тема</translation>
     </message>
 </context>
 <context>
@@ -2400,6 +2602,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Input Device</source>
         <translation>Устройство ввода</translation>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation>Подключение</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Отмена</translation>
     </message>
 </context>
 <context>
@@ -2805,6 +3018,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Выберите иконки, которые будут отображаться в доке</translation>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3433,6 +3653,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>Громкость</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>Вывод</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Настройки звука</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3534,6 +3769,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>Ошибка</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>Звук</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>Включить звук</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>Выключить звук</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Настройки звука</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>Нет устройств вывода</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>Громкость %1</translation>
     </message>
 </context>
 <context>
@@ -3709,10 +3974,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Use 24-hour format</source>
         <translation>Использовать формат 24-часового времени</translation>
-    </message>
-    <message>
-        <source>Show seconds in the dock clock</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>system time zone</source>
@@ -4444,6 +4705,86 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Нет</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation> Не найдено доступных устройств для трансляции</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Отключить</translation>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation>Успешно поделился экраном с %1</translation>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation>Сетевая карта не поддерживает эту функцию и не может поделиться экраном с другим устройством</translation>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation>Вам необходимо включить беспроводную сеть, чтобы поделиться экраном с устройством</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation>Беспроводная трансляция</translation>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation>Настройки нескольких экранов</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Настройки экрана</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Дублировать</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Расширить</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Только на %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation>Запущено несколько сервисов</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Подключение</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Не подключено</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Несколько экранов</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Настройки экрана</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Несколько экранов</translation>
     </message>
 </context>
 </TS>
