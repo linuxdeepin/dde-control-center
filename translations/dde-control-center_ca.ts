@@ -540,6 +540,28 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>Els meus dispositius</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Configuració del Bluetooth</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation>Desactiveu primer el [Airplane Mode](#) si voleu connectar-vos per Bluetooth</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Aturat</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -571,6 +593,56 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <message>
         <source>Not connected</source>
         <translation>No connectat</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>Atura</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>Engega</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Configuració del Bluetooth</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1 connectat</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>Connectat amb %1</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Es connecta...</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>No connectat</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Aturat</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Desactivat</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -658,6 +730,31 @@ UnionTech Software Technology Co., Ltd. es compromet a investigar i millorar la 
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>Ajusta la mida de l&apos;animació del logotip a la interfície d&apos;inici del sistema.</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Brillantor</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Configuració de la pantalla</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>Configuració de la pantalla</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Brillantor</translation>
     </message>
 </context>
 <context>
@@ -1719,6 +1816,13 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>Altres dispositius</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2060,12 +2164,110 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation>Les icones de les aplicacions sempre s&apos;agrupen a la barra de tasques en el mode Moda.</translation>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
         <translation>Confirmeu-ho</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Confort ocular</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Configuració de la pantalla</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>Confort ocular</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Tema</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>Activat</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Desactivat</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Clar</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Fosc</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Automàtic</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>Desactiva el confort ocular</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Activa el confort ocular</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>Configuració de la pantalla</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>Confort ocular habilitat</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>Confort ocular inhabilitat</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>Tema: clar</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>Tema: fosc</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>Tema: automàtic</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>Efecte visual</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>Clar</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Fosc</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Automàtic</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Tema</translation>
     </message>
 </context>
 <context>
@@ -2400,6 +2602,17 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Input Device</source>
         <translation>Dispositiu d&apos;entrada</translation>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation>Es connecta</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancel·la</translation>
     </message>
 </context>
 <context>
@@ -2805,6 +3018,13 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Seleccioneu quines icones apareixen a l&apos;acoblador.</translation>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
+        <translation>Desconnecta</translation>
     </message>
 </context>
 <context>
@@ -3433,6 +3653,21 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>Volum</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>Sortida</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Configuració del so</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3534,6 +3769,36 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Error</source>
         <translation>Error</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>So</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>Activa el so</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>Silencia</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Configuració del so</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>Sense dispositius de sortida</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>Volum: %1</translation>
     </message>
 </context>
 <context>
@@ -3709,10 +3974,6 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Use 24-hour format</source>
         <translation>Usa el format de 24 hores</translation>
-    </message>
-    <message>
-        <source>Show seconds in the dock clock</source>
-        <translation>Mostra els segons al rellotge de l&apos;acoblador.</translation>
     </message>
     <message>
         <source>system time zone</source>
@@ -4444,6 +4705,86 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>None</source>
         <translation>Cap</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation>No s&apos;han trobat monitors d&apos;emissió sense fil disponibles.</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Desconnecta</translation>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation>S&apos;emet la pantalla correctament a %1</translation>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation>La targeta sense fil no admet aquesta funció i no pot transmetre la pantalla a un monitor sense fil.</translation>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation>Heu d&apos;habilitar la xarxa sense fil per emetre la pantalla a un monitor sense fil.</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation>Emissió sense fil</translation>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation>Pantalles múltiples</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Configuració de la pantalla</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Duplica</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Estén</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Només a %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation>Diversos serveis iniciats</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Es connecta</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>No connectat</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Pantalles múltiples</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Configuració de la pantalla</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Pantalles múltiples</translation>
     </message>
 </context>
 </TS>
