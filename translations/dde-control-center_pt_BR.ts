@@ -2161,7 +2161,7 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Fashion Mode</source>
-        <translation type="unfinished"/>
+        <translation>Fashion</translation>
     </message>
 </context>
 <context>
