@@ -203,6 +203,7 @@ DatetimeModel::DatetimeModel(QObject *parent)
 {
     connect(this, &DatetimeModel::ntpChanged, m_work, &DatetimeWorker::setNTP);
     connect(this, &DatetimeModel::hourTypeChanged, m_work, &DatetimeWorker::set24HourType);
+    connect(this, &DatetimeModel::showSecondsChanged, m_work, &DatetimeWorker::setShowSeconds);
     connect(this, &DatetimeModel::NTPServerChanged, m_work, &DatetimeWorker::setNtpServer);
     // 设置ntp地址失败回退到之前的地址
     connect(this, &DatetimeModel::NTPServerNotChanged, this, &DatetimeModel::setNtpServerAddress);
@@ -275,6 +276,30 @@ void DatetimeModel::set24HourFormat(bool state)
     if (m_bUse24HourType != state) {
         m_bUse24HourType = state;
         Q_EMIT hourTypeChanged(state);
+    }
+}
+
+void DatetimeModel::setShowSeconds(bool showSeconds)
+{
+    if (m_showSeconds != showSeconds) {
+        m_showSeconds = showSeconds;
+        Q_EMIT showSecondsChanged(showSeconds);
+    }
+}
+
+void DatetimeModel::setShowSecondsAvailable(bool available)
+{
+    if (m_showSecondsAvailable != available) {
+        m_showSecondsAvailable = available;
+        Q_EMIT showSecondsAvailableChanged(available);
+    }
+}
+
+void DatetimeModel::setShowSecondsEnabled(bool enabled)
+{
+    if (m_showSecondsEnabled != enabled) {
+        m_showSecondsEnabled = enabled;
+        Q_EMIT showSecondsEnabledChanged(enabled);
     }
 }
 

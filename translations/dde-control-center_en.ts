@@ -3697,6 +3697,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation>Show seconds in the dock clock</translation>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation type="unfinished"></translation>
     </message>
