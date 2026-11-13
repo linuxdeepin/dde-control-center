@@ -540,6 +540,28 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>Pajisjet e Mia</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Rregullime Bluetooth-i</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation>Nëse doni të lidheni me një Bluetooth, së pari çaktivizoni [Mënyrën Aeroplan](#)</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Çaktivizuar</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -571,6 +593,56 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <message>
         <source>Not connected</source>
         <translation>Jo i lidhur</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>Çaktivizoje</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>Aktivizoje</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Rregullime Bluetooth-i</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1 e lidhur</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>E lidhur me %1</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Po lidhet…</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Jo e lidhur</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Çaktivizuar</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Off</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -658,6 +730,31 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>Përimtoni madhësinë e animacionit të stemës te ndërfaqja e nisjes së sistemit</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Ndriçim</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Rregullime ekrani</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>Rregullime ekrani</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Ndriçim</translation>
     </message>
 </context>
 <context>
@@ -1719,6 +1816,13 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>Pajisje të Tjera</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2060,12 +2164,110 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation>Ikona aplikacionesh grupohen përherë te shtylla e punëve në Fashion Mode.Ikon</translation>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
         <translation>Ripohojeni</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Rehati Sysh</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Rregullime ekrani</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>Rehati sysh</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Temë</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>On</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Off</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>E çelët</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>E errët</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>Çaktivizoni rehati sysh</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Aktivizoni rehati sysh</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>Rregullime Ekrani</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>Rehati sysh e aktivizuar</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>Rehati sysh e çaktivizuar</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>Temë: E çelët</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>Temë: E errët</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>Temë: Auto</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>Efekt pamor</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>E çelët</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>E errët</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Temë</translation>
     </message>
 </context>
 <context>
@@ -2400,6 +2602,17 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Input Device</source>
         <translation>Pajisje Në Hyrje</translation>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation>Po bëhet lidhja</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuloje</translation>
     </message>
 </context>
 <context>
@@ -2805,6 +3018,13 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Përzgjidhni cilat ikona shfaqen te Paneli</translation>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
+        <translation>Shkëputu</translation>
     </message>
 </context>
 <context>
@@ -3433,6 +3653,21 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>Volum</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Rregullime zëri</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3534,6 +3769,36 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Error</source>
         <translation>Gabim</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>Zë</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>Ktheji zërin</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>Hiqi zërin</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Rregullime zëri</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>S’ka pajisje output-i</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>Volum %1</translation>
     </message>
 </context>
 <context>
@@ -3709,10 +3974,6 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Use 24-hour format</source>
         <translation>Përdorin formatin 24-orësh</translation>
-    </message>
-    <message>
-        <source>Show seconds in the dock clock</source>
-        <translation>Shfaq te sahati i panelit sekondat</translation>
     </message>
     <message>
         <source>system time zone</source>
@@ -4444,6 +4705,86 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>None</source>
         <translation>Asnjë</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation>S’u gjetën ekrane për transmetim pa fill</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Shkëputu</translation>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation>U transmetua me sukses skena te %1</translation>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation>Karta për pa fill s’e mbulon këtë veçori dhe s’mund të transmetojë skenën te një ekran pa fill</translation>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation>Lypset të aktivizoni rrjet pa fill, që të transmetohet skena te një ekran pa fill</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation>Transmetim Pa Fill</translation>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation>Mundësi Ekranesh të Shumtë</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Rregullime ekrani</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Përsëdyte</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Zgjeroje</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Vetëm në %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation>U nisën shërbime të shumta</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Po lidhet</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>I palidhur</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Ekrane të Shumtë</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Rregullime ekrani</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Ekrane të Shumtë</translation>
     </message>
 </context>
 </TS>
