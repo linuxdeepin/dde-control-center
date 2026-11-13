@@ -2051,6 +2051,13 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     </message>
 </context>
 <context>
+    <name>DomainPasswordErrorDialog</name>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
@@ -3715,6 +3722,10 @@ Regístrate no teu %1 ID para obter características e servicios personalizados 
     <message>
         <source>Use 24-hour format</source>
         <translation>Usar formato de 24 horas</translation>
+    </message>
+    <message>
+        <source>Show seconds in the dock clock</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system time zone</source>

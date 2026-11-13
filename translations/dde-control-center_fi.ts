@@ -534,6 +534,28 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>Omat laitteet</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Bluetooth asetukset</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation>Poista ensin [Lentotila](#) käytöstä, jos haluat yhdistää Bluetooth:lla.</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Pois päältä</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -565,6 +587,56 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <message>
         <source>Not connected</source>
         <translation>Ei yhteyttä</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>Poista käytöstä</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>Kytke käyttöön</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Bluetooth asetukset</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1 yhdistetty</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>Yhdistetty %1</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Yhdistetään...</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Ei yhteyttä</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Pois päältä</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Pois</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -652,6 +724,31 @@ UnionTech Software Technology Co., Ltd on sitoutunut parantamaan biometrisen tod
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>Säädä logon kokoa käynnistymisen yhteydessä</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Kirkkaus</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Näytön asetukset</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>Näytön asetukset</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Kirkkaus</translation>
     </message>
 </context>
 <context>
@@ -1712,6 +1809,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>Muut laitteet</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2053,6 +2157,111 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation>Sovellusten kuvakkeet tehtäväpalkissa ovat aina ryhmiteltynä Muototilassa.</translation>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>DomainPasswordErrorDialog</name>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Yövalo</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Näytön asetukset</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>Yövalo</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Teema</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>Päällä</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Pois</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Vaalea</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Tumma</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Autom.</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>Sulje yövalo</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Käytä yövaloa</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>Näytön asetukset</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>Yövalo käytössä</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>Yövalo suljettu</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>Teema: vaalea</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>Teema: tumma</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>Teema: autom.</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>Visuaalinen tehoste</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>Vaalea</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Tumma</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Autom.</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Teema</translation>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2386,6 +2595,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Input Device</source>
         <translation>Sisääntulo</translation>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation>Yhdistää</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Peruuta</translation>
     </message>
 </context>
 <context>
@@ -2791,6 +3011,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Valitse telakan kuvakkeet</translation>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
+        <translation>Katkaise</translation>
     </message>
 </context>
 <context>
@@ -3419,6 +3646,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>Voimakkuus</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>Ulostulo</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Äänen asetukset</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3520,6 +3762,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>Virhe</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>Ääni</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>Poista mykistys</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>Mykistä</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Äänen asetukset</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>Ei ulostulon laitteita</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>Voimakkuus %1</translation>
     </message>
 </context>
 <context>
@@ -4426,6 +4698,86 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Mitään</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation>Suoratoistoon sopivia langattomia näyttöjä ei löytynyt</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Katkaise</translation>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation>Näytön suoratoisto onnistui %1</translation>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation>Langaton verkkokortti ei tue tätä ominaisuutta, eikä se voi lähettää näyttöä langattomasti</translation>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation>Sinun on otettava langaton verkko käyttöön, jotta voit suoratoistaa langattomaan näyttöön</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation>Langaton suoratoisto</translation>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation>Usean näytön asetuksia</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Näytön asetukset</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Kahdenna</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Laajenna</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Vain %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation>Palvelut aloitettiin</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Yhdistää</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Ei yhteyttä</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Useita näyttöjä</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Näytön asetukset</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Useita näyttöjä</translation>
     </message>
 </context>
 </TS>

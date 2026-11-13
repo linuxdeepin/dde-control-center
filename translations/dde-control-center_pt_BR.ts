@@ -536,6 +536,28 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>Meus Dispositivos</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Configurações de Bluetooth</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation>Desative o [Modo Avião](#) antes de conectar ao Bluetooth</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Desligado</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -567,6 +589,56 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     <message>
         <source>Not connected</source>
         <translation>Desconectado</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>Desativar</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>Ativar</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Configurações de Bluetooth</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1 conectado</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>Conectado %1</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Conectando...</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Desconectado</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Desativado</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Desligado</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -654,6 +726,31 @@ A UnionTech Software Technology Ltda. está comprometida em pesquisar e melhorar
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>Ajuste o tamanho do logotipo na interface de inicialização do sistema</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Brilho</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Configurações de exibição</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>Configurações de exibição</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Brilho</translation>
     </message>
 </context>
 <context>
@@ -1714,6 +1811,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>Outros dispositivos</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2055,6 +2159,111 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation>Os ícones dos aplicativos são sempre agrupados na barra de tarefas no Modo Fashion.</translation>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>DomainPasswordErrorDialog</name>
+    <message>
+        <source>Confirm</source>
+        <translation>Confirmar</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Conforto ocular</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Configurações de exibição</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>Conforto ocular</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Tema</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>Ligado</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Desligado</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Tema claro</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Tema escuro</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Automático</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>Desativar conforto ocular</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Ativar conforto ocular</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>Configurações de exibição</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>Conforto ocular ativado</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>Conforto ocular desativado</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>Tema: Claro</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>Tema: Escuro</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>Tema: Automático</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>Efeitos visuais</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>Tema claro</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Tema escuro</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Automático</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Tema</translation>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2388,6 +2597,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Input Device</source>
         <translation>Dispositivo de entrada</translation>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation>Conectando</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Cancelar</translation>
     </message>
 </context>
 <context>
@@ -2793,6 +3013,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Selecione quais ícones devem aparecer no dock</translation>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
+        <translation>Desconectar</translation>
     </message>
 </context>
 <context>
@@ -3421,6 +3648,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>Volume</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>Saída</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Configurações de som</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3522,6 +3764,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>Erro</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>Som</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>Desativar mudo</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>Ativar mudo</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Configurações de som</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>Nenhum dispositivo de saída</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>Volume %1</translation>
     </message>
 </context>
 <context>
@@ -4428,6 +4700,86 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Nenhum</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation>Nenhuma transmissão de monitor sem fio foi encontrada</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Desconectar</translation>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation>A tela foi transmitida para %1 com êxito</translation>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation>A placa Wi-Fi não é compatível com esse recurso e não pode transmitir a tela para um monitor sem fio</translation>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation>Você precisa ativar a placa Wi-Fi para transmitir a tela para um monitor sem fio</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation>Transmissão sem fio</translation>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation>Opções de várias telas</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Configurações de exibição</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Duplicar</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Estender</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Somente em %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation>Vários serviços iniciados</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Conectando</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Desconectado</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Várias telas</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Configurações de exibição</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Várias telas</translation>
     </message>
 </context>
 </TS>

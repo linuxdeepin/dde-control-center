@@ -540,6 +540,28 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>Pajisjet e Mia</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Rregullime Bluetooth-i</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation>Nëse doni të lidheni me një Bluetooth, së pari çaktivizoni [Mënyrën Aeroplan](#)</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Çaktivizuar</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -571,6 +593,56 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <message>
         <source>Not connected</source>
         <translation>Jo i lidhur</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>Çaktivizoje</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>Aktivizoje</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Rregullime Bluetooth-i</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1 e lidhur</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>E lidhur me %1</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Po lidhet…</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Jo e lidhur</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Çaktivizuar</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Off</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -658,6 +730,31 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>Përimtoni madhësinë e animacionit të stemës te ndërfaqja e nisjes së sistemit</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Ndriçim</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Rregullime ekrani</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>Rregullime ekrani</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Ndriçim</translation>
     </message>
 </context>
 <context>
@@ -815,7 +912,7 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     </message>
     <message>
         <source>Camera is not enabled</source>
-        <translation type="unfinished"/>
+        <translation>Kamera s’është aktivizuar</translation>
     </message>
 </context>
 <context>
@@ -946,23 +1043,23 @@ UnionTech Software Technology Co., Ltd. është e përkushtuar të studiojë dhe
     <name>CommonInfo</name>
     <message>
         <source>Boot Menu</source>
-        <translation type="unfinished"/>
+        <translation>Menu Nisjesh</translation>
     </message>
     <message>
         <source>Manage your boot menu</source>
-        <translation type="unfinished"/>
+        <translation>Administroni menunë tuaj të nisjeve</translation>
     </message>
     <message>
         <source>Developer Options</source>
-        <translation type="unfinished"/>
+        <translation>Mundësi Zhvilluesi</translation>
     </message>
     <message>
         <source>Developer root permission management</source>
-        <translation type="unfinished"/>
+        <translation>Administrim leje rrënjë për zhvillues</translation>
     </message>
     <message>
         <source>Developer debugging options</source>
-        <translation type="unfinished"/>
+        <translation>Mundësi diagnostikimi për zhvillues</translation>
     </message>
 </context>
 <context>
@@ -1719,6 +1816,13 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>Pajisje të Tjera</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2058,7 +2162,112 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
+        <translation>Ikona aplikacionesh grupohen përherë te shtylla e punëve në Fashion Mode.Ikon</translation>
+    </message>
+    <message>
+        <source>Fashion Mode</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>DomainPasswordErrorDialog</name>
+    <message>
+        <source>Confirm</source>
+        <translation>Ripohojeni</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Rehati Sysh</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Rregullime ekrani</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>Rehati sysh</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Temë</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>On</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Off</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>E çelët</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>E errët</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>Çaktivizoni rehati sysh</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Aktivizoni rehati sysh</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>Rregullime Ekrani</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>Rehati sysh e aktivizuar</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>Rehati sysh e çaktivizuar</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>Temë: E çelët</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>Temë: E errët</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>Temë: Auto</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>Efekt pamor</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>E çelët</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>E errët</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Temë</translation>
     </message>
 </context>
 <context>
@@ -2186,15 +2395,15 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>GroupObject</name>
     <message>
         <source>System</source>
-        <translation type="unfinished"/>
+        <translation>Sistem</translation>
     </message>
     <message>
         <source>Common settings</source>
-        <translation type="unfinished"/>
+        <translation>Rregullime të rëndomtë</translation>
     </message>
     <message>
         <source>Bluetooth and Devices</source>
-        <translation type="unfinished"/>
+        <translation>Bluetooth dhe Pajisje</translation>
     </message>
 </context>
 <context>
@@ -2257,11 +2466,11 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>KeyboardWorker</name>
     <message>
         <source>The shortcut service is unavailable. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>Shërbimi i shkurtore s’është i kapshëm. Ju lutemi, riprovoni.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>S’u arrit të ruhet shkurtorja. Ju lutemi, riprovoni.</translation>
     </message>
 </context>
 <context>
@@ -2361,7 +2570,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>LogoModule</name>
     <message>
         <source>Copyright© 2011-%1 Deepin Technology</source>
-        <translation type="unfinished"/>
+        <translation>Të drejta kopjimi© 2011-%1 Deepin Technology</translation>
     </message>
     <message>
         <source>Copyright© 2019-%1 UnionTech Software Technology Co., LTD</source>
@@ -2393,6 +2602,17 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Input Device</source>
         <translation>Pajisje Në Hyrje</translation>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation>Po bëhet lidhja</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Anuloje</translation>
     </message>
 </context>
 <context>
@@ -2712,7 +2932,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>PersonalizationInterface</name>
     <message>
         <source>Picker service is not available</source>
-        <translation type="unfinished"/>
+        <translation>Shërbimi i marrësit s’është i kapshëm</translation>
     </message>
     <message>
         <source>Invalid color format: %1</source>
@@ -2798,6 +3018,13 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Përzgjidhni cilat ikona shfaqen te Paneli</translation>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
+        <translation>Shkëputu</translation>
     </message>
 </context>
 <context>
@@ -3308,7 +3535,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>The name cannot exceed 128 characters.</source>
-        <translation type="unfinished"/>
+        <translation>Emri s’mund të tejkalojë 128 shenja.</translation>
     </message>
     <message>
         <source>Change custom shortcut</source>
@@ -3332,19 +3559,19 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>S’u arrit të niset kapje shkurtoreje. Ju lutemi, riprovoni.</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"/>
+        <translation>Mbaroi koha për dhënie shkurtoreje. Riprovoni.</translation>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
+        <translation>Shkurtore tastiere e pavlefshme. Caktoni një të re.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>S’u arrit të ruhet shkurtore. Ju lutemi, riprovoni.</translation>
     </message>
 </context>
 <context>
@@ -3399,19 +3626,19 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Failed to start shortcut capture. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>S’u arrit të niset kapje shkurtoreje. Ju lutemi, riprovoni.</translation>
     </message>
     <message>
         <source>Shortcut input timed out. Try again.</source>
-        <translation type="unfinished"/>
+        <translation>Mbaroi koha për dhënie shkurtoreje. Riprovoni.</translation>
     </message>
     <message>
         <source>Invalid keyboard shortcut. Set a new one.</source>
-        <translation type="unfinished"/>
+        <translation>Shkurtore tastiere e pavlefshme. Caktoni një të re.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>S’u arrit të ruhet shkurtore. Ju lutemi, riprovoni.</translation>
     </message>
 </context>
 <context>
@@ -3423,6 +3650,21 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>Output, input, sound effects, devices</source>
         <translation>Tinguj në dalje, në hyrje, efekte zanore, pajisje</translation>
+    </message>
+</context>
+<context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>Volum</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Rregullime zëri</translation>
     </message>
 </context>
 <context>
@@ -3530,6 +3772,36 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
 </context>
 <context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>Zë</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>Ktheji zërin</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>Hiqi zërin</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Rregullime zëri</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>S’ka pajisje output-i</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>Volum %1</translation>
+    </message>
+</context>
+<context>
     <name>SpeakerPage</name>
     <message>
         <source>Mode</source>
@@ -3619,19 +3891,19 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>About This PC</source>
-        <translation type="unfinished"/>
+        <translation>Mbi Këtë PC</translation>
     </message>
     <message>
         <source>System version, device information</source>
-        <translation type="unfinished"/>
+        <translation>Version sistemi, informacion pajisjesh</translation>
     </message>
     <message>
         <source>Open Source Software Notice</source>
-        <translation type="unfinished"/>
+        <translation>Shënim Software-i Me Burim të Hapët</translation>
     </message>
     <message>
         <source>View the notice of open source software</source>
-        <translation type="unfinished"/>
+        <translation>Shihni shënimin rreth software-i me burim të hapët</translation>
     </message>
     <message>
         <source>User Experience Program</source>
@@ -3639,23 +3911,23 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Join the user experience program to help improve the product</source>
-        <translation type="unfinished"/>
+        <translation>Merrni pjesë te “User Experience Program” që të ndihmoni të përmirësohet produkti</translation>
     </message>
     <message>
         <source>End User License Agreement</source>
-        <translation type="unfinished"/>
+        <translation>Marrëveshje Licence Përdoruesi të Thjeshtë</translation>
     </message>
     <message>
         <source>View the end  user license agreement</source>
-        <translation type="unfinished"/>
+        <translation>Shihni marrëveshjen e licencës së përdoruesit të thjeshtë</translation>
     </message>
     <message>
         <source>Privacy Policy</source>
-        <translation type="unfinished"/>
+        <translation>Rregulla Privatësie</translation>
     </message>
     <message>
         <source>View information about privacy policy</source>
-        <translation type="unfinished"/>
+        <translation>Shihni informacion rreth rregullash privatësie</translation>
     </message>
 </context>
 <context>
@@ -3857,7 +4129,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <name>UeProgramLicenseDialog</name>
     <message>
         <source>Agree and Join User Experience Program</source>
-        <translation type="unfinished"/>
+        <translation>Shprehni Pajtimin dhe Merrni Pjesë te programi “User Experience Program”</translation>
     </message>
     <message>
         <source>Cancel</source>
@@ -4331,26 +4603,26 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>The shortcut no longer exists.</source>
-        <translation type="unfinished"/>
+        <translation>Shkurtorja s’ekziston më.</translation>
     </message>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>Përplasja e shkurtoreve s’është më.</translation>
     </message>
     <message>
         <source>Please confirm the shortcut conflict again.</source>
-        <translation type="unfinished"/>
+        <translation>Ju lutemi, riprovoni, përplasje shkurtoresh.</translation>
     </message>
 </context>
 <context>
     <name>dccV25::KeyboardWorker</name>
     <message>
         <source>The shortcut conflict is no longer current.</source>
-        <translation type="unfinished"/>
+        <translation>Përplasja e shkurtoreve s’është më.</translation>
     </message>
     <message>
         <source>Failed to save the shortcut. Please try again.</source>
-        <translation type="unfinished"/>
+        <translation>S’u arrit të ruhet shkurtore. Ju lutemi, riprovoni.</translation>
     </message>
 </context>
 <context>
@@ -4433,6 +4705,86 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     <message>
         <source>None</source>
         <translation>Asnjë</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation>S’u gjetën ekrane për transmetim pa fill</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Shkëputu</translation>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation>U transmetua me sukses skena te %1</translation>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation>Karta për pa fill s’e mbulon këtë veçori dhe s’mund të transmetojë skenën te një ekran pa fill</translation>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation>Lypset të aktivizoni rrjet pa fill, që të transmetohet skena te një ekran pa fill</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation>Transmetim Pa Fill</translation>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation>Mundësi Ekranesh të Shumtë</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Rregullime ekrani</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Përsëdyte</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Zgjeroje</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Vetëm në %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation>U nisën shërbime të shumta</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Po lidhet</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>I palidhur</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Ekrane të Shumtë</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Rregullime ekrani</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Ekrane të Shumtë</translation>
     </message>
 </context>
 </TS>

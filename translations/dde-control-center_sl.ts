@@ -2050,6 +2050,13 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     </message>
 </context>
 <context>
+    <name>DomainPasswordErrorDialog</name>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
@@ -3690,6 +3697,10 @@ Prijava na %1 ID vam omogoči osebne funkcije in storitve, kot so prehodnik in T
     <message>
         <source>Use 24-hour format</source>
         <translation>Uporabi 24-urni format</translation>
+    </message>
+    <message>
+        <source>Show seconds in the dock clock</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system time zone</source>

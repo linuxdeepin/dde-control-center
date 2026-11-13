@@ -2062,6 +2062,13 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
 </context>
 <context>
+    <name>DomainPasswordErrorDialog</name>
+    <message>
+        <source>Confirm</source>
+        <translation>Confirmeu-ho</translation>
+    </message>
+</context>
+<context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
@@ -3702,6 +3709,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     <message>
         <source>Use 24-hour format</source>
         <translation>Usa el format de 24 hores</translation>
+    </message>
+    <message>
+        <source>Show seconds in the dock clock</source>
+        <translation>Mostra els segons al rellotge de l&apos;acoblador.</translation>
     </message>
     <message>
         <source>system time zone</source>

@@ -525,6 +525,28 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>ئۈسكۈنەم</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>كۆكچىش تەڭشىكى</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>كۆكچىشنى تاقاش</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -556,6 +578,56 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Not connected</source>
         <translation>ئۇلانمىدى</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>كۆكچىش</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>كۆكچىشنى تاقاش</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>كۆكچىشنى ئېچىش</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>كۆكچىش تەڭشىكى</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1 ئۇلاندى</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation> %1 غا ئۇلاندى</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>ئۇلىنىۋاتىدۇ...</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>ئۇلانمىدى</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>كۆكچىشنى تاقاش</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>تاقاش</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>كۆكچىش</translation>
     </message>
 </context>
 <context>
@@ -643,6 +715,31 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>يورۇقلۇق</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>كۆرستىش تەڭشەكلىرى</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>كۆرستىش تەڭشەكلىرى</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>يورۇقلۇق</translation>
     </message>
 </context>
 <context>
@@ -1703,6 +1800,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>باشقا ئۈسكۈنىلەر</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2044,6 +2148,111 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>DomainPasswordErrorDialog</name>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>كۆز ئاسراش ھالىتى</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>كۆرستىش تەڭشەكلىرى</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>كۆز ئاسراش ھالىتى</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>ئۇسلۇب</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>ئېچىش</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>تاقاش</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>سۇس رەڭ</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>قېنىق رەڭ</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>ئاپتوماتىك</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>كۆز ئاسراس ھالىتىنى تاقاش</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>كۆز ئاسراس ھالىتىنى ئېچىش</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>كۆرستىش تەڭشەكلىرى</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>كۆز ئاسراش ھالىتىنى ئېچىش</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>كۆز ئاسراش ھالىتىنى تاقاش</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>ئۇسلۇب: سۇس رەڭ</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>ئۇسلۇب: قېنىق رەڭ</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>ئۇسلۇب: ئاپتوماتىك</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>كۆرۈنۈش ئۈنۈمى</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>سۇس رەڭ</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>قېنىق رەڭ</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>ئاپتوماتىك</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>ئۇسلۇب</translation>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2377,6 +2586,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Input Device</source>
         <translation>كىرگۈزۈش ئۈسكۈنىلىرى</translation>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation>ئۇلىنىۋاتىدۇ</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>ئۇلاشنى بىكار قىلىش</translation>
     </message>
 </context>
 <context>
@@ -2781,6 +3001,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Select which icons appear in the Dock</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -3410,6 +3637,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>ئاۋاز</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>چىقىرىش</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>ئاۋاز تەڭشىكى</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3511,6 +3753,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>خاتالىق ئۇچۇرى</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>ئاۋاز</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>ئاۋازلىق</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>ئاۋازسىز</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>ئاۋاز تەڭشىكى</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>ئاۋازسىز چىقىرىش ئۈسكۈنىلىرى</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>ئاۋاز %1</translation>
     </message>
 </context>
 <context>
@@ -4417,6 +4689,86 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>يوق</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation>ئاتقىلى بولىدىغان ئۈسكۈنە بايقالمىدى</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>ئۈزۈش</translation>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation>%1 ئېكرانغا ئېتىلدى</translation>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation>سىمسىز تور كارتىسى بۇ ئىقتىدارنى قوللىمىغاچقا، ئېكراننى سىمسىز كۆرسەتكۈچكە ئاتقىلى بولمايدۇ</translation>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation>سىمسىز تور كارتىسىنى قوزغاتسىڭىز ئاندىن ئېكراننى سىمسىز كۆرسەتكۈچكە ئاتالايسىز</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation>ئېكرانغا سىسمىز ئېتىش</translation>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation>كۆپ ئېكرانلىق كۆرسىتىش تەڭشىكى</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>كۆرستىش تەڭشەكلىرى</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>نۇسخىلاش</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>كېڭەيتىش</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>پەقەت %1 ئېكران</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation>كۆپ مۇلازىمەت ئېچىش</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>ئۇلىنىۋاتىدۇ</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>ئۇلانمىدى</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>كۆپ ئېكرانلىق كۆرسىتىش</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>كۆرستىش تەڭشەكلىرى</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>كۆپ ئېكرانلىق كۆرسىتىش</translation>
     </message>
 </context>
 </TS>

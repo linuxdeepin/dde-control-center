@@ -525,6 +525,28 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>আমার ডিভাইস</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>ব্লুটুথ সেটিং</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>অ্যাক্টিভ হয়নি</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -556,6 +578,56 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Not connected</source>
         <translation>যুক্ত নয়</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>ব্লুটুথ</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>অ্যাক্টিভ হয়নি</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>সক্রিয় করুন</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>ব্লুটুথ সেটিং</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1 সংযোগ করা হয়েছে</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>%1 সংযোগ করা হয়েছে</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>সংযোগ করছে...</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>সংযোগ করা হয়নি</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>অ্যাক্টিভ হয়নি</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>অ্যাক্টিভ হয়নি</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>ব্লুটুথ</translation>
     </message>
 </context>
 <context>
@@ -643,6 +715,31 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>সিস্টেম শুরু করার সুইচের লোগো অ্যানিমেশনের আকার রাস্তায় রাখুন</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>সাখরণ</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>প্রদর্শন সেটিং</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>প্রদর্শন সেটিং</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>সাখরণ</translation>
     </message>
 </context>
 <context>
@@ -1708,6 +1805,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>অন্যান্য ডিভাইস</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2049,6 +2153,111 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>DomainPasswordErrorDialog</name>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>বিশ্রাম প্রতিরোধ</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>প্রদর্শন সেটিংস</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>বিশ্রাম প্রতিরোধ</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>থিম</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>আন</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>অফ</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>সোনালী</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>মোটা</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>অটো</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>বিশ্রাম প্রতিরোধ দিবস্তুনা দিয়ে যাওয়া</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>বিশ্রাম প্রতিরোধ সক্রিয় করা</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>প্রদর্শন সেটিংস</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>বিশ্রাম প্রতিরোধ সক্রিয়</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>বিশ্রাম প্রতিরোধ দিবস্তুনা দিয়ে যাওয়া</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>থিম: সোনালী</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>থিম: মোটা</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>থিম: অটো</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>বিশ্রাম প্রভাব</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>সвет</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>নিঃস্বাগত</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>অটোমেটিক</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>থিম</translation>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2381,6 +2590,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Input Device</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2787,6 +3007,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>ডকে দেখানো চিহ্নগুলি কোনগুলি নির্বাচন করুন</translation>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3439,6 +3666,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>ভাস্কর্য</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>উত্তরাধিকার</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>সোনার সেটিংস</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3540,6 +3782,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>ভুল</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>শব্দ</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>মুটে</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>মাথুরা</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>স্বর নিয়ন্ত্রণ</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>কোনো প্রেরণা উপকরণ নেই</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>%1 আওয়াজ</translation>
     </message>
 </context>
 <context>
@@ -4446,6 +4718,86 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>কোনো একটি নেই</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

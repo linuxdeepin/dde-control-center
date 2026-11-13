@@ -2062,6 +2062,13 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
 </context>
 <context>
+    <name>DomainPasswordErrorDialog</name>
+    <message>
+        <source>Confirm</source>
+        <translation>Potwierdź</translation>
+    </message>
+</context>
+<context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
@@ -3702,6 +3709,10 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     <message>
         <source>Use 24-hour format</source>
         <translation>Użyj formatu 24-godzinnego</translation>
+    </message>
+    <message>
+        <source>Show seconds in the dock clock</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system time zone</source>

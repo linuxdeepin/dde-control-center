@@ -525,6 +525,28 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>Minu pered</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Bluetooth seadistused</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Lülitatud välja</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -556,6 +578,56 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Not connected</source>
         <translation>Mitte ühendatud</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>Lülitage välja</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>Lülitage käes</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Bluetooth seadistused</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1 ühendatud</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>%1 ühendatud</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Ühendamine...</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Ühendamata</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Lülitatud välja</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Välja</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -643,6 +715,31 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>Regula logos animatsiooni suurus ekraanist pärast süsteemi käivitamist</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Värskendamine</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Näidet seadistused</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>Näidet seadistused</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Värskendamine</translation>
     </message>
 </context>
 <context>
@@ -1708,6 +1805,13 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>Muid seadmeid</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2049,6 +2153,111 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>DomainPasswordErrorDialog</name>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Püha kõvamuse</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Kuva seaded</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>Püha kõvamuse</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Teemা</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>Luba</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Keela</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Varm</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Tumed</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>Keela püha kõvamuse</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Luba püha kõvamuse</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>Kuva seaded</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>Püha kõvamuse on lubatud</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>Püha kõvamuse on keelatud</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>Teemা: Varm</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>Teemা: Tumed</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>Teemা: Auto</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>Vaiksem mõju</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>Varm</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Tumed</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Auto</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Teemা</translation>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2381,6 +2590,17 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     </message>
     <message>
         <source>Input Device</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
         <translation type="unfinished"/>
     </message>
 </context>
@@ -2787,6 +3007,13 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Vali, mis ikoonid näeb tõmbas</translation>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3415,6 +3642,21 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>Lauluväli</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>Väljamine</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Soovitised</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3516,6 +3758,36 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>Error</source>
         <translation>Viga</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>Heli</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>Lülita äärmä</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>Põhjeraha</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Soome seadistused</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>Väljastamise seade puudub</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>Ääne %1</translation>
     </message>
 </context>
 <context>
@@ -4422,6 +4694,86 @@ Logige sisse %1 identiteedis, et saada brauseri, aadressipoodi ja muude funktsio
     <message>
         <source>None</source>
         <translation> pole</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>

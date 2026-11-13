@@ -2050,6 +2050,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>DomainPasswordErrorDialog</name>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
     <name>FileAndFolder</name>
     <message>
         <source>Allow below apps to access these files and folders:</source>
@@ -3690,6 +3697,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Use 24-hour format</source>
         <translation>Använd 24-timmarsformat</translation>
+    </message>
+    <message>
+        <source>Show seconds in the dock clock</source>
+        <translation type="unfinished"/>
     </message>
     <message>
         <source>system time zone</source>

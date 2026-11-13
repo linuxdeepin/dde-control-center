@@ -525,6 +525,28 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>Eszközeim</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Bluetooth beállítások</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Kikapcsolva</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -556,6 +578,56 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Not connected</source>
         <translation>Nincs csatlakozva</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>Kikapcsolás</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>Bekapcsolás</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Bluetooth beállítások</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1 kapcsolódva</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>%1 csatlakoztatva</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Kapcsolódás...</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Nincs kapcsolódva</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Kikapcsolva</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Ki</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -643,6 +715,31 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>Rendszertörlési felületen módosítsa a logó animáció méretét</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Fényerősség</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Képernyő beállítások</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>Képernyő beállítások</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Fényerősség</translation>
     </message>
 </context>
 <context>
@@ -1703,6 +1800,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>Egyéb eszközök</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2044,6 +2148,111 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>DomainPasswordErrorDialog</name>
+    <message>
+        <source>Confirm</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Szemkímélés</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Képernyő beállítások</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>Szemkímélés</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Téma</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>Be</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Ki</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Világos</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Sötét</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Automatikus</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>A szemkímélés letiltása</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>A szemkímélés engedélyezése</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>Képernyő beállítások</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>Szemkímélés engedélyezve</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>Szemkímélés letíltva</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>Téma: Világos</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>Téma: Sötét</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>Téma: Automatikus</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>Vizuális effektusok</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>Világos</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Sötét</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Automatikus</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Téma</translation>
+    </message>
 </context>
 <context>
     <name>FileAndFolder</name>
@@ -2377,6 +2586,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Input Device</source>
         <translation>Bemeneti eszköz</translation>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation>Kapcsolódás</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Mégsem</translation>
     </message>
 </context>
 <context>
@@ -2782,6 +3002,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Válaszd ki mely ikonok jelennek meg a Dock-on</translation>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3434,6 +3661,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>Hangerő</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>Kimenet</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Hang beállítások</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3535,6 +3777,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>Hiba</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>Hangok</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>Némítás visszavonása</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>Némítás</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Hang beállítások</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>Nincsenek kimeneti eszközök</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>Hangerő: %1</translation>
     </message>
 </context>
 <context>
@@ -4441,6 +4713,86 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Nincs</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation>Nem található elérhető vezeték nélküli monitor </translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Szétkapcsolás</translation>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation>A képernyő sikeresen vetítve a %1-re</translation>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation>A vezeték nélküli kártya nem támogatja ezt a funkciót, és nem tudja átküldeni a képernyőt vezeték nélküli monitorra</translation>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation>Engedélyeznie kell a vezeték nélküli hálózatot a képernyő vezeték nélküli monitorra való vetítéshez</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation>Vezeték nélküli átküldés</translation>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation>Többképernyős mód beállításai</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Képernyő beállítások</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Megkettőzés</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Kiterjesztés</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Megjelenítés csak a %1-n</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation>Több szolgáltatás is elindult</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Kapcsolódás</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Nincs kapcsolódva</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Többképernyős mód</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Képernyő beállítások</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Többképernyős mód</translation>
     </message>
 </context>
 </TS>
