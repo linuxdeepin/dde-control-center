@@ -528,6 +528,28 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>Mijn apparaten</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Bluetoothinstellingen</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation>Schakel de [vliegtuigstand](#) uit als je verbinding wilt maken via bluetooth</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Uitgeschakeld</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -559,6 +581,56 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Not connected</source>
         <translation>Niet verbonden</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>Uitschakelen</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>Inschakelen</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Bluetoothinstellingen</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>Verbonden met ‘%1’</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>Verbonden met ‘%1’</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Bezig met verbinden…</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Niet verbonden</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Uitgeschakeld</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Uit</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -646,6 +718,31 @@ UnionTech Software Technology Co., Ltd. is committed to research and improve the
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Helderheid</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Beeldscherminstellingen</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>Beeldscherminstellingen</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Helderheid</translation>
     </message>
 </context>
 <context>
@@ -1706,6 +1803,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>Andere apparaten</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2047,12 +2151,110 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Oogcomfort</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Beeldscherminstellingen</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>Oogcomfort</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Thema</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>Aan</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Uit</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Licht</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Donker</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Automatisch</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>Oogcomfort uitschakelen</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Oogcomfort inschakelen</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>Beeldscherminstellingen</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>Oogcomfort is ingeschakeld</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>Oogcomfort is uitgeschakeld</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>Thema: licht</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>Thema: donker</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>Thema: automatisch</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>Visuele effecten</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>Licht</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Donker</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Automatisch</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Thema</translation>
     </message>
 </context>
 <context>
@@ -2387,6 +2589,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Input Device</source>
         <translation>Invoerapparaat</translation>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation>Bezig met verbinden</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Annuleren</translation>
     </message>
 </context>
 <context>
@@ -2792,6 +3005,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Geef aan welke pictogrammen op het dock moeten worden getoond</translation>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3420,6 +3640,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>Volume</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>Uitvoer</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Geluidsinstellingen</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3521,6 +3756,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>Foutmelding</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>Geluid</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>Ontdempen</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>Dempen</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Geluidsinstellingen</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>Geen uitvoerapparaten</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>%1 volume</translation>
     </message>
 </context>
 <context>
@@ -3695,10 +3960,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
     <message>
         <source>Use 24-hour format</source>
-        <translation type="unfinished"/>
-    </message>
-    <message>
-        <source>Show seconds in the dock clock</source>
         <translation type="unfinished"/>
     </message>
     <message>
@@ -4431,6 +4692,86 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Geen</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation>Er zijn geen draadloze beeldschermen aangetroffen.</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Verbinding verbreken</translation>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation>Het scherm wordt gedeeld met %1</translation>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation>De draadloze kaart heeft geen ondersteuning voor deze functie - schermdeling is daarom niet mogelijk.</translation>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation>Schakel draadloos internet in om de huidige scherminhoud te delen met een draadloos beeldscherm.</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation>Draadloze schermdeling</translation>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation>Meerdere beeldschermen</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Beeldscherminstellingen</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Klonen</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Uitbreiden</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Alleen op %1</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation>Meerdere diensten gestart</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Bezig met verbinden…</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Niet verbonden</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Meerdere beeldschermen</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Beeldscherminstellingen</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Meerdere beeldschermen</translation>
     </message>
 </context>
 </TS>
