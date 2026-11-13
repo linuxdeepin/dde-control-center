@@ -540,6 +540,28 @@ UnionTech Software Technology Co., Ltd. нь биометрийн баталга
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>Миний төхөөрөмжүүд</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Bluetooth тохиргоо</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation>Bluetooth-тэй холбогдохын тулд эхлээд [Нисэх онгоцны горим](#)-г унтраана уу</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Унтраалттай</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -571,6 +593,56 @@ UnionTech Software Technology Co., Ltd. нь биометрийн баталга
     <message>
         <source>Not connected</source>
         <translation>Холбогдоогүй</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Блютүүт</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>Унтраах</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>Асаах</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Bluetooth тохиргоо</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1 холбогдсон</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>%1 холбогдсон</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Холбож байна...</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Холбогдоогүй</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Унтраалттай</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Унтраалттай</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Блютүүт</translation>
     </message>
 </context>
 <context>
@@ -658,6 +730,31 @@ UnionTech Software Technology Co., Ltd. нь биометрийн баталга
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>Систем эхлэх интерфэйс дээрх лого анимацийн хэмжээг тохируулах</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Гэрэлтэлт</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Дэлгэцийн тохиргоо</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>Дэлгэцийн тохиргоо</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Гэрэлтэлт</translation>
     </message>
 </context>
 <context>
@@ -1718,6 +1815,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>Бусад төхөөрөмж</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2059,12 +2163,110 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Нүдний тав тух</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Дэлгэцийн тохиргоо</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>Нүдний тав тух</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Загвар</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>Асаалттай</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Унтраалттай</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Гэрэлтэй</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Бараан</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Автомат</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>Нүдний тав тухыг унтраах</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Нүдний тав тухыг асаах</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>Дэлгэцийн тохиргоо</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>Нүдний тав тух асаалттай</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>Нүдний тав тух унтраалттай</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>Загвар: Гэрэлтэй</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>Загвар: Бараан</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>Загвар: Автомат</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>Харааны эффект</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>Гэрэлтэй</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Бараан</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Автомат</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Загвар</translation>
     </message>
 </context>
 <context>
@@ -2399,6 +2601,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Input Device</source>
         <translation>Оруулах төхөөрөмж</translation>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -2804,6 +3017,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Даалгаврын самбарт аль дүрсүүд харагдахыг сонгох</translation>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
+        <translation>Холбоос салгах</translation>
     </message>
 </context>
 <context>
@@ -3432,6 +3652,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>Дууны хэмжээ</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>Гаралт</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Дууны тохиргоо</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3533,6 +3768,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>Алдаа</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>Дуу</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>Дуу нээх</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>Дууг хаах</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Дууны тохиргоо</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>Гаралтын төхөөрөмж байхгүй</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>Дууны хэмжээ %1</translation>
     </message>
 </context>
 <context>
@@ -3708,10 +3973,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Use 24-hour format</source>
         <translation>24 цагийн формат ашиглах</translation>
-    </message>
-    <message>
-        <source>Show seconds in the dock clock</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>system time zone</source>
@@ -4443,6 +4704,86 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Байхгүй</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="unfinished"/>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 </TS>
