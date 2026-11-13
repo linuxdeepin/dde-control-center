@@ -2166,7 +2166,7 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
     </message>
     <message>
         <source>Fashion Mode</source>
-        <translation type="unfinished"/>
+        <translation>Mode de moda</translation>
     </message>
 </context>
 <context>
