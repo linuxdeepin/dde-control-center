@@ -4727,7 +4727,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
-        <translation>Lypset të aktivizoni rrjet pa fill, që të transmetohet skena te një ekran pa fill</translation>
+        <translation>Që të transmetohet skena te një ekran pa fill, lypset të aktivizoni rrjet pa fill</translation>
     </message>
 </context>
 <context>
