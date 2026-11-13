@@ -538,6 +538,28 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     </message>
 </context>
 <context>
+    <name>BluetoothAdapterItem</name>
+    <message>
+        <source>My Devices</source>
+        <translation>Cihazlarım</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothApplet</name>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Bluetooth ayarları</translation>
+    </message>
+    <message>
+        <source>Disable [Airplane Mode](#) first if you want to connect to a Bluetooth</source>
+        <translation>Bluetooth&apos;a bağlanmak istiyorsanız önce [Uçak Modu](#)&apos;nu devre dışı bırakın</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Kapatıldı</translation>
+    </message>
+</context>
+<context>
     <name>BluetoothCtl</name>
     <message>
         <source>Edit</source>
@@ -569,6 +591,56 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     <message>
         <source>Not connected</source>
         <translation>Bağlı değil</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothItem</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
+    </message>
+    <message>
+        <source>Turn off</source>
+        <translation>Kapat</translation>
+    </message>
+    <message>
+        <source>Turn on</source>
+        <translation>Aç</translation>
+    </message>
+    <message>
+        <source>Bluetooth settings</source>
+        <translation>Bluetooth ayarları</translation>
+    </message>
+    <message>
+        <source>%1 connected</source>
+        <translation>%1 bağlandı</translation>
+    </message>
+    <message>
+        <source>Connected %1</source>
+        <translation>Bağlandı %1</translation>
+    </message>
+    <message>
+        <source>Connecting...</source>
+        <translation>Bağlanıyor...</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Bağlı değil</translation>
+    </message>
+    <message>
+        <source>Turned off</source>
+        <translation>Kapat</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Kapalı</translation>
+    </message>
+</context>
+<context>
+    <name>BluetoothPlugin</name>
+    <message>
+        <source>Bluetooth</source>
+        <translation>Bluetooth</translation>
     </message>
 </context>
 <context>
@@ -656,6 +728,31 @@ UnionTech Software Technology Co., Ltd., biyometrik kimlik doğrulamanın güven
     <message>
         <source>Adjust the size of the logo animation on the system startup interface</source>
         <translation>Sistem başlatma arayüzündeki logo animasyonunun boyutunu ayarlayın</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessApplet</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Parlaklık</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Ekran ayarları</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessItem</name>
+    <message>
+        <source>Display settings</source>
+        <translation>Ekran ayarları</translation>
+    </message>
+</context>
+<context>
+    <name>BrightnessPlugin</name>
+    <message>
+        <source>Brightness</source>
+        <translation>Parlaklık</translation>
     </message>
 </context>
 <context>
@@ -1718,6 +1815,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>DeviceControlWidget</name>
+    <message>
+        <source>Other Devices</source>
+        <translation>Diğer Aygıtlar</translation>
+    </message>
+</context>
+<context>
     <name>DisclaimerControl</name>
     <message>
         <source>Disclaimer</source>
@@ -2059,12 +2163,110 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>App icons are always grouped on the taskbar in Fashion Mode.</source>
         <translation type="unfinished"/>
     </message>
+    <message>
+        <source>Fashion Mode</source>
+        <translation type="unfinished"/>
+    </message>
 </context>
 <context>
     <name>DomainPasswordErrorDialog</name>
     <message>
         <source>Confirm</source>
         <translation type="unfinished"/>
+    </message>
+</context>
+<context>
+    <name>EyeComfortModeItem</name>
+    <message>
+        <source>Eye Comfort</source>
+        <translation>Göz Rahatlığı</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Ekran ayarları</translation>
+    </message>
+    <message>
+        <source>Eye comfort</source>
+        <translation>Göz Rahatlığı</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Tema</translation>
+    </message>
+    <message>
+        <source>On</source>
+        <translation>Açık</translation>
+    </message>
+    <message>
+        <source>Off</source>
+        <translation>Kapalı</translation>
+    </message>
+    <message>
+        <source>Light</source>
+        <translation>Açık</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Koyu</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Otomatik</translation>
+    </message>
+    <message>
+        <source>Disable eye comfort</source>
+        <translation>Göz rahatlığı devre dışı bırak</translation>
+    </message>
+    <message>
+        <source>Enable eye comfort</source>
+        <translation>Göz rahatlığını enkileştir</translation>
+    </message>
+    <message>
+        <source>Display Settings</source>
+        <translation>Ekran Ayarları</translation>
+    </message>
+    <message>
+        <source>Eye comfort enabled</source>
+        <translation>Göz rahatlığı etkinleştirildi</translation>
+    </message>
+    <message>
+        <source>Eye comfort disabled</source>
+        <translation>Göz rahatlığı devre dışı bırakıldı</translation>
+    </message>
+    <message>
+        <source>Theme: Light</source>
+        <translation>Tema: Açık</translation>
+    </message>
+    <message>
+        <source>Theme: Dark</source>
+        <translation>Tema: Koyu</translation>
+    </message>
+    <message>
+        <source>Theme: Auto</source>
+        <translation>Tema: Otomatik</translation>
+    </message>
+    <message>
+        <source>Visual effect</source>
+        <translation>Görsel efekt</translation>
+    </message>
+</context>
+<context>
+    <name>EyeComfortmodeApplet</name>
+    <message>
+        <source>Light</source>
+        <translation>Açık</translation>
+    </message>
+    <message>
+        <source>Dark</source>
+        <translation>Koyu</translation>
+    </message>
+    <message>
+        <source>Auto</source>
+        <translation>Otomatik</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Tema</translation>
     </message>
 </context>
 <context>
@@ -2399,6 +2601,17 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Input Device</source>
         <translation>Giriş Cihazı</translation>
+    </message>
+</context>
+<context>
+    <name>MonitorItemWidget</name>
+    <message>
+        <source>Connecting</source>
+        <translation>Bağlanıyor</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>İptal</translation>
     </message>
 </context>
 <context>
@@ -2804,6 +3017,13 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Select which icons appear in the Dock</source>
         <translation>Rıhtım&apos;da hangi simgelerin görüneceğini seçin</translation>
+    </message>
+</context>
+<context>
+    <name>PluginItemWidget</name>
+    <message>
+        <source>Disconnect</source>
+        <translation type="unfinished"/>
     </message>
 </context>
 <context>
@@ -3432,6 +3652,21 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     </message>
 </context>
 <context>
+    <name>SoundApplet</name>
+    <message>
+        <source>Volume</source>
+        <translation>Ses</translation>
+    </message>
+    <message>
+        <source>Output</source>
+        <translation>Çıkış</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Ses ayarları</translation>
+    </message>
+</context>
+<context>
     <name>SoundDevicemanagesPage</name>
     <message>
         <source>Output Devices</source>
@@ -3533,6 +3768,36 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Error</source>
         <translation>Hata</translation>
+    </message>
+</context>
+<context>
+    <name>SoundPlugin</name>
+    <message>
+        <source>Sound</source>
+        <translation>Ses</translation>
+    </message>
+</context>
+<context>
+    <name>SoundView</name>
+    <message>
+        <source>Unmute</source>
+        <translation>Sesi aç</translation>
+    </message>
+    <message>
+        <source>Mute</source>
+        <translation>Sesi kapat</translation>
+    </message>
+    <message>
+        <source>Sound settings</source>
+        <translation>Ses ayarları</translation>
+    </message>
+    <message>
+        <source>No output devices</source>
+        <translation>Çıkış cihazı yok</translation>
+    </message>
+    <message>
+        <source>Volume %1</source>
+        <translation>Ses %1</translation>
     </message>
 </context>
 <context>
@@ -3708,10 +3973,6 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>Use 24-hour format</source>
         <translation>24 saatlik formatı kullan</translation>
-    </message>
-    <message>
-        <source>Show seconds in the dock clock</source>
-        <translation type="unfinished"/>
     </message>
     <message>
         <source>system time zone</source>
@@ -4443,6 +4704,86 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
     <message>
         <source>None</source>
         <translation>Hiçbiri</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::StatePanel</name>
+    <message>
+        <source>No available casting wireless monitors found</source>
+        <translation>Kullanılabilir kablosuz yayın monitörü bulunamadı</translation>
+    </message>
+    <message>
+        <source>Disconnect</source>
+        <translation>Bağlantıyı kes</translation>
+    </message>
+    <message>
+        <source>Successfully cast the screen to %1</source>
+        <translation>%1 &apos;e ekran başarıyla yayınlandı</translation>
+    </message>
+    <message>
+        <source>The wireless card doesn&apos;t support this feature, and cannot cast the screen to a wireless monitor</source>
+        <translation>Kablosuz kart bu özelliği desteklemiyor ve ekranı kablosuz bir monitöre aktaramıyor</translation>
+    </message>
+    <message>
+        <source>You need to enable wireless network to cast the screen to a wireless monitor</source>
+        <translation>Ekranı kablosuz bir monitöre yansıtmak için kablosuz ağı etkinleştirmeniz gerekir</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingApplet</name>
+    <message>
+        <source>Wireless Casting</source>
+        <translation>Kablosuz Yansıtma</translation>
+    </message>
+    <message>
+        <source>Multiple Display options</source>
+        <translation>Çoklu Görüntüleme seçenekleri</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Ekran ayarları</translation>
+    </message>
+    <message>
+        <source>Duplicate</source>
+        <translation>Çoğalt</translation>
+    </message>
+    <message>
+        <source>Extend</source>
+        <translation>Genişlet</translation>
+    </message>
+    <message>
+        <source>Only on %1</source>
+        <translation>Sadece %1&apos;de</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingItem</name>
+    <message>
+        <source>Multiple services started</source>
+        <translation>Birden fazla hizmet başladı</translation>
+    </message>
+    <message>
+        <source>Connecting</source>
+        <translation>Bağlanıyor</translation>
+    </message>
+    <message>
+        <source>Not connected</source>
+        <translation>Bağlı değil</translation>
+    </message>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Çoklu Ekran</translation>
+    </message>
+    <message>
+        <source>Display settings</source>
+        <translation>Ekran ayarları</translation>
+    </message>
+</context>
+<context>
+    <name>dde::wirelesscasting::WirelessCastingPlugin</name>
+    <message>
+        <source>Multiple Displays</source>
+        <translation>Çoklu Ekran</translation>
     </message>
 </context>
 </TS>
