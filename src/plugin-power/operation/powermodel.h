@@ -1,4 +1,4 @@
-//SPDX-FileCopyrightText: 2018 - 2023 UnionTech Software Technology Co., Ltd.
+//SPDX-FileCopyrightText: 2018 - 2026 UnionTech Software Technology Co., Ltd.
 //
 //SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef POWERMODEL_H
@@ -62,6 +62,8 @@ class PowerModel : public QObject
     Q_PROPERTY(QVariantList linePowerScreenBlackDelayModel READ linePowerScreenBlackDelayModel WRITE setLinePowerScreenBlackDelayModel NOTIFY linePowerScreenBlackDelayModelChanged)
     Q_PROPERTY(QVariantList linePowerSleepDelayModel READ linePowerSleepDelayModel WRITE setLinePowerSleepDelayModel NOTIFY linePowerSleepDelayModelChanged)
     Q_PROPERTY(QString enableScheduledShutdown READ enableScheduledShutdown WRITE setEnableScheduledShutdown NOTIFY enableScheduledShutdownChanged)
+    Q_PROPERTY(bool deviceIdlePowerSaving READ deviceIdlePowerSaving WRITE setDeviceIdlePowerSaving NOTIFY deviceIdlePowerSavingChanged)
+    Q_PROPERTY(QString enableDeviceIdlePowerSaving READ enableDeviceIdlePowerSaving WRITE setEnableDeviceIdlePowerSaving NOTIFY enableDeviceIdlePowerSavingChanged)
 
     friend class PowerWorker;
 
@@ -224,6 +226,12 @@ public:
     inline QString enableScheduledShutdown() const { return m_enableScheduledShutdown; };
     void setEnableScheduledShutdown(const QString &value);
 
+    inline bool deviceIdlePowerSaving() const { return m_deviceIdlePowerSaving; }
+    void setDeviceIdlePowerSaving(bool value);
+
+    inline QString enableDeviceIdlePowerSaving() const { return m_enableDeviceIdlePowerSaving; }
+    void setEnableDeviceIdlePowerSaving(const QString &value);
+
     inline bool isVirtualEnvironment() const { return m_isVirtualEnvironment; }
     void setIsVirtualEnvironment(bool isVirtualEnvironment);
 
@@ -287,6 +295,8 @@ Q_SIGNALS:
     void linePowerSleepDelayModelChanged(const QVariantList &value);
     void lowPowerActionChanged(int action);
     void enableScheduledShutdownChanged(const QString &value);
+    void deviceIdlePowerSavingChanged(bool value);
+    void enableDeviceIdlePowerSavingChanged(const QString &value);
 
 private:
     bool m_lidPresent; //以此判断是否为笔记本
@@ -343,6 +353,8 @@ private:
     int m_weekBegins;
     int m_lowPowerAction;
     QString m_enableScheduledShutdown;
+    bool m_deviceIdlePowerSaving = false;
+    QString m_enableDeviceIdlePowerSaving = "Enabled";
 
     QVariantList m_batteryLockDelayModel;
     QVariantList m_batteryScreenBlackDelayModel;
