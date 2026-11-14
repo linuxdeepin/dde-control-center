@@ -1,0 +1,94 @@
+name: 使用电池_suite
+app: dde-control-center
+module: 使用电池
+setup:
+- action: session_start
+  command: dde-control-center
+  wait: 3.0
+suites:
+- id: suite_使用电池_001_s1
+  name: 使用电池-低电量通知与低电量操作设置
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: lowBatteryNotification
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 20%
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: lowBatteryOperator
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 自动休眠
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: lowBatteryNotification
+      role: combo box
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: lowBatteryOperator
+      role: combo box
+- id: suite_使用电池_002_s1
+  name: 使用电池-低电量阈值设置5%
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: lowBatteryThreshold
+      role: combo box
+    do: click
+  - step_type: action
+    action: keyboard_type
+    text: 5%
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: lowBatteryThreshold
+      role: combo box
+- id: suite_使用电池_003_s1
+  name: 使用电池-显示剩余充放电时间开关切换
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: displayRemainingUsingAndChargingTime
+      role: check box
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: displayRemainingUsingAndChargingTime
+      role: check box
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: displayRemainingUsingAndChargingTime
+      role: check box
+- id: suite_使用电池_004_s1
+  name: 使用电池-查看最大容量标签
+  description: ''
+  steps: []
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: maximumCapacity
+      role: label
+teardown:
+- action: session_stop
