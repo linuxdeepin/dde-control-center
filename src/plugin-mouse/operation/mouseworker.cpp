@@ -46,7 +46,9 @@ MouseWorker::MouseWorker(MouseModel *model, QObject *parent)
 #endif
     QMetaObject::invokeMethod(m_mouseProxy, "active", Qt::QueuedConnection);
 #ifdef Enable_Treeland
-    m_treelandWorker->active();
+    if (m_isTreelandSession) {
+        m_treelandWorker->active();
+    }
 #endif
 }
 
