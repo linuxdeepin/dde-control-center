@@ -1,0 +1,43 @@
+name: 声音_suite
+app: deepin-control-center
+module: 声音
+setup:
+- action: session_start
+  command: deepin-control-center
+  wait: 3.0
+suites:
+- id: suite_声音_001_s1
+  name: 【控制中心】【系统】【声音】禁用/启用输入设备，检查智能降噪开关状态
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: MicrophonePage_ComboBox
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: MicrophonePage_ComboBox
+- id: suite_声音_002_s1
+  name: 【控制中心】【系统】【声音】手动切换输出设备
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: MicrophonePage_ComboBox
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: SpeakerPage_ComboBox
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: SpeakerPage_ComboBox
+teardown:
+- action: session_stop

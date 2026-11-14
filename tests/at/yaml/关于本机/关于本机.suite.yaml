@@ -1,0 +1,29 @@
+name: 关于本机_suite
+app: deepin-control-center
+module: 关于本机
+setup:
+- action: session_start
+  command: deepin-control-center
+  wait: 3.0
+suites:
+- id: suite_关于本机_001_s1
+  name: 【控制中心】【系统】【辅助信息】关于本机页面版本授权是已激活状态，点击查看按钮正常弹出授权管理页面
+  description: ''
+  steps:
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: NativeInfoPage_Button
+    do: click
+  - step_type: action
+    action: element_action
+    selector:
+      accessible_id: NativeInfoPage_Button_2
+    do: click
+  assert_steps:
+  - step_type: assert
+    action: assert_element
+    selector:
+      accessible_id: NativeInfoPage_Button_2
+teardown:
+- action: session_stop
