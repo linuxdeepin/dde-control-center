@@ -11,7 +11,7 @@
             "description": "config country",
             "description[zh_CN]": "配置国家/地区",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         },
         "languageRegion": {
             "value": "",
@@ -22,7 +22,7 @@
             "description": "config language and region",
             "description[zh_CN]": "配置语言和区域",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         },
         "localeName": {
             "value": "",
@@ -44,7 +44,7 @@
             "description": "config region format first day of week",
             "description[zh_CN]": "配置区域格式一周第一天",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         },
         "shortDateFormat": {
             "value": "",
@@ -99,7 +99,7 @@
             "description": "config region format currency symbol",
             "description[zh_CN]": "配置区域货币符号",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         },
         "numberFormat": {
             "value": "",
@@ -110,7 +110,7 @@
             "description": "config region format number format",
             "description[zh_CN]": "配置区域格式数字格式",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         },
         "paperFormat": {
             "value": "",
@@ -121,7 +121,7 @@
             "description": "config region format paper format",
             "description[zh_CN]": "配置区域格式纸张格式",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         }
     }
   }

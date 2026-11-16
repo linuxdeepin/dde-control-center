@@ -11,7 +11,7 @@
             "description": "config dde-control-center width",
             "description[zh_CN]": "控制中心宽度配置",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         },
         "height": {
             "value": 600,
@@ -22,7 +22,7 @@
             "description": "config dde-control-center height",
             "description[zh_CN]": "控制中心高度配置",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         },
         "searchBarState": {
             "value": 0,
@@ -33,7 +33,7 @@
             "description": "Control Center search bar state: 0 = visible, 1 = visible but disabled, 2 = hidden",
             "description[zh_CN]": "控制中心搜索框状态：0 = 显示，1 = 显示但禁用，2 = 隐藏",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         },
         "maximized": {
             "value": false,
@@ -44,7 +44,7 @@
             "description": "config dde-control-center maximized state",
             "description[zh_CN]": "控制中心最大化状态配置",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         },
         "sidebarWidth": {
             "value": -1,
@@ -55,7 +55,7 @@
             "description": "config dde-control-center sidebar width",
             "description[zh_CN]": "控制中心侧边栏宽度",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         },
         "hideModule": {
             "value": [],

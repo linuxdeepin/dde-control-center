@@ -11,7 +11,7 @@
             "description": "Whether to show the read-only protection option in the developer mode",
             "description[zh_CN]": "是否在开发者模式中显示只读保护选项",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         },
         "bootWallpaperEnabled": {
             "value": true,
@@ -22,7 +22,7 @@
             "description": "Is the GRUB \"boot menu\" wallpaper editable?",
             "description[zh_CN]": "\"启动菜单\"grub背景图片可否编辑",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         },
         "bootGrubUserNameVisible": {
             "value": true,
@@ -33,7 +33,7 @@
             "description": "Whether to show the username in the verification password pop-up window of \"Startup Menu Verification\"",
             "description[zh_CN]": "是否在\"启动菜单验证\"的验证密码弹窗中显示用户名",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         },
         "bootGrubDelayIntervalMax": {
             "value": 5,
