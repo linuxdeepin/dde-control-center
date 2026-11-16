@@ -3976,6 +3976,10 @@ Inicieu la sessió a l&apos;ID d&apos;%1 per obtenir funcions i serveis personal
         <translation>Usa el format de 24 hores</translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation>Mostra els segons al rellotge de l&apos;acoblador.</translation>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation>zona horària del sistema</translation>
     </message>
