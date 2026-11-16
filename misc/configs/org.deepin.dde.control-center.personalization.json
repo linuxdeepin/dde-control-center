@@ -11,7 +11,7 @@
             "description[zh_CN]": "配置需要隐藏的图标主题",
             "description": "Configure icon themes that need to be hidden",
             "permissions": "readonly",
-            "visibility": "public"
+            "visibility": "private"
         },
         "titleBarHeightStatus": {
             "value": "Enabled",
