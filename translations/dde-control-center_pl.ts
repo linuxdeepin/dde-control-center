@@ -3977,7 +3977,7 @@ Zaloguj się do %1 ID, aby uzyskać dodatkowe funkcje Przeglądarki, sklepu App 
     </message>
     <message>
         <source>Show seconds in the dock clock</source>
-        <translation type="unfinished"/>
+        <translation>Wyświetlaj sekundy na zegarze w doku</translation>
     </message>
     <message>
         <source>system time zone</source>
