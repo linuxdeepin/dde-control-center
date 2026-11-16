@@ -3978,6 +3978,10 @@ Inicie sessão na ID %1 para aceder a funcionalidades e serviços personalizados
         <translation>Usar formato de 24-horas</translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation>Mostrar os segundos no relógio da doca</translation>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation>fuso horário do sistema</translation>
     </message>
