@@ -3971,6 +3971,10 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <translation>Usar formato 24 horas</translation>
     </message>
     <message>
+        <source>Show seconds in the dock clock</source>
+        <translation>Exibir os segundos no relógio da dock</translation>
+    </message>
+    <message>
         <source>system time zone</source>
         <translation>Fuso horário do sistema</translation>
     </message>
