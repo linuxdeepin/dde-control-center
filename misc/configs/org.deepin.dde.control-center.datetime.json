@@ -11,7 +11,7 @@
             "description": "custom NTP server address for time synchronization",
             "description[zh_CN]": "用于时间同步的自定义NTP服务器地址",
             "permissions": "readwrite",
-            "visibility": "public"
+            "visibility": "private"
         }
     }
 }
