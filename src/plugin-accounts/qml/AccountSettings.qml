@@ -16,6 +16,7 @@ DccObject {
     property bool autoLoginChecked: true
     property bool nopasswdLoginChecked: true
     property bool noQuickLoginChecked: true
+    property bool isDomainUser: false
 
     Component.onCompleted: {
         updateLoginSettings()
@@ -26,9 +27,19 @@ DccObject {
     }
     
     function updateLoginSettings() {
+        settings.isDomainUser = dccData.isDomainUser(settings.userId)
         settings.autoLoginChecked = dccData.autoLogin(settings.userId)
         settings.nopasswdLoginChecked = dccData.nopasswdLogin(settings.userId)
         settings.noQuickLoginChecked = dccData.quickLogin(settings.userId)
+    }
+
+    Connections {
+        target: dccData
+        // 域判断依赖用户组，组信息晚到时需重新计算，避免偶现未屏蔽
+        function onGroupsChanged(userId) {
+            if (userId === settings.userId)
+                settings.isDomainUser = dccData.isDomainUser(userId)
+        }
     }
 
     FontMetrics {
@@ -684,7 +695,8 @@ DccObject {
         weight: 30
         pageType: DccObject.Item
         page: DccGroupView {}
-        visible: autoLongin.visible || noPassword.visible || quickLogin.visible
+        // 域账户整组隐藏（对齐旧版 accountsdetailwidget 的 !isDomainUser 行为）
+        visible: !settings.isDomainUser && (autoLongin.visible || noPassword.visible || quickLogin.visible)
 
         DccObject {
             accessibleId: "AccountsEditor_4"
