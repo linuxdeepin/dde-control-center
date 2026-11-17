@@ -534,7 +534,8 @@ DccObject {
             id: timeFormatsRepeater
             model: dccData.timeDateModel()
             delegate: DccObject {
-                name: model.name
+                // Use the format ID: translated labels may contain path separators.
+                name: "format" + (model.indexBegin + index)
                 parentName: "timeFormats"
                 displayName: model.name
                 weight: 10 * (index + 1)
@@ -577,7 +578,7 @@ DccObject {
             id: currencyRepeater
             model: dccData.currencyModel()
             delegate: DccObject {
-                name: model.name
+                name: "format" + (model.indexBegin + index)
                 parentName: "currencyFormats"
                 displayName: model.name
                 weight: 10 * (index + 1)
@@ -615,7 +616,7 @@ DccObject {
             id: numRepeater
             model: dccData.decimalModel()
             delegate: DccObject {
-                name: model.name
+                name: "format" + (model.indexBegin + index)
                 parentName: "numberFormats"
                 displayName: model.name
                 weight: 10 * (index + 1)
