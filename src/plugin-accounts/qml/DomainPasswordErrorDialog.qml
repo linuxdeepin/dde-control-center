@@ -50,6 +50,7 @@ D.DialogWindow {
         }
 
         Button {
+            Accessible.id: "DomainPasswordErrorDialog_Button"
             Layout.fillWidth: true
             Layout.topMargin: 33
             Layout.bottomMargin: 6
