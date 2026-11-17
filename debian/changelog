@@ -1,3 +1,58 @@
+dde-control-center (6.2.0) unstable; urgency=medium
+
+  * fix(accounts): remove fixed implicitHeight for font size adaptation
+  * fix: remove stale index fallback in region format search
+  * i18n: Updates for project Deepin Desktop Environment (#3570)
+  * test: 补充控制中心核心模块单元测试 (DDE-104)
+  * feat: support per-module visible and disable config (#3587)
+  * feat(at-spi): make QML anchor ids unique and close operable gaps
+  * feat(plugin-display): migrate treeland output protocol v1 to v2
+  * feat(plugin-display): adapt output-group-manager protocol v1
+  * fix: migrate shortcut capture to Treeland v3
+  * refactor: split module paths config per plugin (#3592)
+  * fix: prevent duplicate custom avatars after deletion
+  * fix: remove redundant keyboardmodel moc include
+  * fix(personalization): sync delegate load limit on layout change
+  * refactor: migrate shortcuts UI to DccObject (#3603)
+  * docs: add dcc-modulepaths agent skill guide (#3606)
+  * feat(accounts): enable auto-login on treeland
+  * fix: reserve horizontal space for footer decorations
+  * fix: adjust boot menu auth dialog layout to design spec
+  * feat(personalization): enable Treeland screensaver
+  * feat: add configurable search bar state (#3609)
+  * feat: support password changes for AD domain users
+  * feat: add admin-only visibility for all accounts
+  * fix(at-spi): close remaining Accessible.id gaps per d2c33f62f
+    pattern
+  * fix: adapt control-center build to Qt 6.12 API changes
+  * fix: correct module paths and policy visibility
+  * fix: restore wildcard marker in module config match paths
+  * feat: make GRUB boot delay seconds configurable
+  * docs: add Chinese translations for fashion mode tip
+  * feat(dock-plugins): migrate bluetooth tray plugin from dde-tray-
+    loader
+  * feat(dock-plugins): migrate sound tray plugin from dde-tray-loader
+  * feat(dock-plugins): migrate brightness tray plugin from dde-tray-
+    loader
+  * feat(dock-plugins): migrate eye-comfort-mode tray plugin from dde-
+    tray-loader
+  * feat(dock-plugins): migrate wirelesscasting tray plugin from dde-
+    tray-loader
+  * feat: add Timedate1 to security-loader permission list
+  * feat(personalization): make AT-SPI anchors unique
+  * fix(dock-plugins): restore translations lost when splitting dde-dock
+    domain
+  * feat(dock): add fashion mode option
+  * fix(cmake): generate desktop file in build tree
+  * chore: Sync by
+    https://github.com/linuxdeepin/.github/commit/88d36aea6c90c8d1de4d42
+    c68aebbf72bcb80b1c
+  * feat: add show-seconds toggle in datetime settings
+  * fix: adapt Treeland appearance protocol changes
+  * fix(dock): remove fashion mode option from dock settings
+
+ -- zhangkun <zhangkun2@uniontech.com>  Tue, 17 Nov 2026 22:06:51 +0800
+
 dde-control-center (6.1.113) unstable; urgency=medium
 
   * fix(personalization): initialize wallpaper state
