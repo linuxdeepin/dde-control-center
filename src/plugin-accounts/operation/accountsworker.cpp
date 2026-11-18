@@ -78,6 +78,7 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     , m_userModel(userList)
     , m_daemonAccountCfg(DConfig::create("org.deepin.dde.daemon", "org.deepin.dde.daemon.account", QString(), this))
     , m_accountCfg(DConfig::create("org.deepin.dde.control-center", "org.deepin.dde.control-center.accounts", QString(), this))
+    , m_sessionUiCfg(DConfig::create("org.deepin.dde.session.ui", "org.deepin.dde.session.ui", QString(), this))
 {
     struct passwd *pws;
     pws = getpwuid(getuid());
@@ -96,6 +97,12 @@ AccountsWorker::AccountsWorker(UserModel *userList, QObject *parent)
     // 账户配置须在用户数据加载前初始化。
     updateHideUserlistForNonadmin();
     updateDomainUserModifyPasswordEnable();
+
+    connect(m_sessionUiCfg, &DConfig::valueChanged, this, [this](const QString &key) {
+        if (key == QLatin1String("showUserNotice"))
+            updateAutoLoginEnabled();
+    });
+    updateAutoLoginEnabled();
 
     connect(m_accountsInter, &AccountsDBusProxy::UserListChanged, this, &AccountsWorker::onUserListChanged, Qt::QueuedConnection);
     connect(m_accountsInter, &AccountsDBusProxy::GroupListChanged, this, &AccountsWorker::onGroupListChanged, Qt::QueuedConnection);
@@ -139,6 +146,13 @@ void AccountsWorker::updateHideUserlistForNonadmin()
 void AccountsWorker::updateDomainUserModifyPasswordEnable()
 {
     m_userModel->setDomainUserModifyPasswordEnable(getAccountBoolConfig(QStringLiteral("domainUserModifyPasswordEnable")));
+}
+
+void AccountsWorker::updateAutoLoginEnabled()
+{
+    const bool enabled = m_sessionUiCfg && m_sessionUiCfg->isValid()
+            && !m_sessionUiCfg->value(QStringLiteral("showUserNotice"), false).toBool();
+    m_userModel->setAutoLoginEnabled(enabled);
 }
 
 void AccountsWorker::getAllGroups()

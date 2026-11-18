@@ -23,6 +23,7 @@ class AccountsController : public QObject
     Q_PROPERTY(QStringList userIdList READ userIdList NOTIFY userIdListChanged FINAL)
     Q_PROPERTY(QStringList onlineUserList READ onlineUserList NOTIFY onlineUserListChanged FINAL)
     Q_PROPERTY(bool isQuickLoginVisible READ isQuickLoginVisible NOTIFY quickLoginVisibleChanged FINAL)
+    Q_PROPERTY(bool autoLoginEnabled READ autoLoginEnabled NOTIFY autoLoginEnabledChanged FINAL)
     Q_PROPERTY(bool domainUserModifyPasswordEnable READ domainUserModifyPasswordEnable NOTIFY domainUserModifyPasswordEnableChanged FINAL)
     Q_PROPERTY(bool hideUserlistForNonadmin READ hideUserlistForNonadmin NOTIFY hideUserlistForNonadminChanged FINAL)
 public:
@@ -51,6 +52,7 @@ public slots:
     bool isDeleteAble(const QString &id) const;
 
     bool isAutoLoginVisable() const;
+    bool autoLoginEnabled() const;
     bool autoLogin(const QString &id) const;
     void setAutoLogin(const QString &id, const bool enable);
     QString getOtherUserAutoLogin() const;
@@ -117,6 +119,7 @@ signals:
     void userTypeChanged(const QString &userId, const int userType);
     void fullnameChanged(const QString &userId, const QString &fullname);
     void autoLoginChanged(const QString &userId, bool enable);
+    void autoLoginEnabledChanged();
     void quickLoginChanged(const QString &userId, bool enable);
     void nopasswdLoginChanged(const QString &userId, bool enable);
     void passwordAgeChanged(const QString &userId, const int age);
