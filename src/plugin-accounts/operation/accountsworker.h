@@ -111,6 +111,7 @@ private Q_SLOTS:
 private:
     void updateHideUserlistForNonadmin();
     void updateDomainUserModifyPasswordEnable();
+    void updateAutoLoginEnabled();
     bool getAccountBoolConfig(const QString &key) const;
     UserDBusProxy *userInter(const QString &userName) const;
     CreationResult *createAccountInternal(const User *user);
@@ -136,6 +137,7 @@ private:
     UserModel *m_userModel;
     Dtk::Core::DConfig *m_daemonAccountCfg;
     Dtk::Core::DConfig *m_accountCfg;
+    Dtk::Core::DConfig *m_sessionUiCfg;
     QMap<QString, QString> m_adDomainErrorDetailMap;
 };
 

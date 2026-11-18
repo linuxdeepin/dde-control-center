@@ -14,6 +14,7 @@ using namespace dccV25;
 UserModel::UserModel(QObject *parent)
     : QObject(parent)
     , m_autoLoginVisable(true)
+    , m_autoLoginEnabled(true)
     , m_quickLoginVisible(true)
     , m_noPassWordLoginVisable(true)
     , m_bCreateUserValid(false)
@@ -110,6 +111,15 @@ void UserModel::setAutoLoginVisable(const bool visable)
 
     m_autoLoginVisable = visable;
     Q_EMIT autoLoginVisableChanged(m_autoLoginVisable);
+}
+
+void UserModel::setAutoLoginEnabled(const bool enabled)
+{
+    if (m_autoLoginEnabled == enabled)
+        return;
+
+    m_autoLoginEnabled = enabled;
+    Q_EMIT autoLoginEnabledChanged(m_autoLoginEnabled);
 }
 
 void UserModel::setQuickLoginVisible(const bool visible)
