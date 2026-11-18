@@ -100,6 +100,7 @@ macro(dcc_build_plugin)
         )
         # avoid warning when `DCC_FACTORY_CLASS` used in .cpp
         set_property(TARGET ${_config_TARGET} APPEND PROPERTY AUTOMOC_MACRO_NAMES "DCC_FACTORY_CLASS")
+        set_property(TARGET ${_config_TARGET} APPEND PROPERTY AUTOMOC_MACRO_NAMES "DCC_FULL_FACTORY_CLASS")
     endif()
 endmacro()
 

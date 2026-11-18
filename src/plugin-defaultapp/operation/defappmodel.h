@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024 - 2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #ifndef DEFAPPMODEL_H
@@ -6,8 +6,10 @@
 
 #include "category.h"
 #include "categorymodel.h"
+#include "dccfactory.h"
 
 #include <QObject>
+#include <QVariantMap>
 
 class Category;
 class DefAppWorker;
@@ -61,10 +63,33 @@ public Q_SLOTS:
 
     inline Category *getModTerminal() const { return m_categoryModel[Terminal]->category(); }
 
+    // v2 工厂接口：由 DCC_FULL_FACTORY_CLASS 转发
+    static void initialized();
+    void active();
+    void deactive();
+    dccV25::DataReply get(const QVariantMap &param, const QString &caller);
+    dccV25::DataReply set(const QVariantMap &param, const QString &caller);
+
+    // 数据通道用：类别下标即 DefAppCategory，越界或为空返回 nullptr
+    inline Category *categoryAt(int category) const
+    {
+        return (category >= 0 && category < Count && m_categoryModel[category])
+                ? m_categoryModel[category]->category()
+                : nullptr;
+    }
+    // 把某类别的默认项写入后端（与 UI 走同一条 Worker 路径）
+    bool applyDefaultById(int category, const QString &desktopId);
+
+Q_SIGNALS:
+    // 模块级变更通知，由 DCC_FULL_FACTORY_CLASS 转发到 DccFactory_v20
+    void propertiesChanged(const QVariantMap &properties);
+
 private:
+    void startBackend();
     CategoryModel *m_categoryModel[Count];
     DefAppWorker *m_work;
     DefAppWorkerOld *m_oldwork;
     bool m_isOldInterface;
+    bool m_backendStarted = false;
 };
 #endif // DEFAPPMODEL_H
