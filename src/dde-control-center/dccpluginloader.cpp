@@ -6,6 +6,8 @@
 
 #include "dccbenchmark.h"
 #include "dccfactory.h"
+#include "compat/dccfactoryold.h"
+#include "compat/dccfactoryv1adapter.h"
 #include "dccmanager.h"
 #include "dccobject.h"
 #include "dccobject_p.h"
@@ -41,11 +43,18 @@ DccPluginLoader::DccPluginLoader(const QString &name, const QString &path, DccPl
 
 DccPluginLoader::~DccPluginLoader()
 {
+    // 兜底：正常退出路径已在 beginDelete() 中停用，这里只覆盖异常路径
+    deactivate();
     if (m_data) {
         qCDebug(dccLog) << "delete so data" << name();
         delete m_data;
         m_data = nullptr;
     }
+    // 只释放自己创建的 v1 适配器；v2 工厂归插件库所有，不能释放
+    if (m_ownsFactory) {
+        delete m_factory;
+    }
+    m_factory = nullptr;
 }
 
 QString DccPluginLoader::path() const
@@ -83,9 +92,65 @@ QObject *DccPluginLoader::data() const
     return m_data;
 }
 
-DccFactory *DccPluginLoader::factory() const
+DccFactory_v20 *DccPluginLoader::factory() const
 {
     return m_factory;
+}
+
+bool DccPluginLoader::hasFactory() const
+{
+    return m_factory != nullptr;
+}
+
+bool DccPluginLoader::supportsCapability(DccCapability capability) const
+{
+    return m_factory && m_factory->capabilities().testFlag(capability);
+}
+
+
+bool DccPluginLoader::needsInitialize() const
+{
+    return m_factory && !m_initialized;
+}
+
+void DccPluginLoader::initializeFactory()
+{
+    if (!m_factory || m_initialized) {
+        return;
+    }
+    m_initialized = true;
+    m_factory->initialized();
+}
+
+void DccPluginLoader::activate()
+{
+    if (!m_factory || m_activated) {
+        return;
+    }
+    m_activated = true;
+    m_factory->active();
+}
+
+void DccPluginLoader::deactivate()
+{
+    if (!m_factory || !m_activated || m_deactivated) {
+        return;
+    }
+    m_deactivated = true;
+    m_factory->deactive();
+}
+
+void DccPluginLoader::setBackendState(BackendState state)
+{
+    if (m_backendState == state) {
+        return;
+    }
+    m_backendState = state;
+    // 进入终态时立刻通知，请求层不依赖"最后一次状态位变化"推断后端可用性
+    if (state == BackendState::Ready || state == BackendState::Failed
+        || state == BackendState::NotSupported) {
+        Q_EMIT backendStateChanged(this);
+    }
 }
 
 void DccPluginLoader::setLog(const QString &log)
@@ -98,9 +163,9 @@ bool DccPluginLoader::isFinished() const
     return m_status.load() & PluginEnd;
 }
 
-bool DccPluginLoader::hasError() const
+bool DccPluginLoader::hasDataError() const
 {
-    return m_status.load() & PluginErrMask;
+    return m_status.load() & DataErr;
 }
 
 bool DccPluginLoader::isVisibleToApp() const
@@ -139,6 +204,10 @@ void DccPluginLoader::updateVisible(bool visibleToApp)
     }
     if ((m_status.load() & PluginEnd) && (!(m_status.load() & (DataEnd | DataErr)))) {
         // 加载完成，没检查MetaData也没错误，不在hideModule中，则需要重新加载
+        // 这里不能清 factory 与其生命周期阶段：v2 的 initialized/active 只按实例执行一次
+        // 旧的后端终态必须作废：重新加载期间请求应排队等待，
+        // 否则会按恢复前的 NotSupported/Failed 立即被拒，而不是等新后端就绪。
+        m_backendState = BackendState::NotDiscovered;
         StatusFlags status = m_status.load() & ~PluginEnd;
         m_status = PluginBegin;
         transitionStatus(status);
@@ -267,32 +336,37 @@ bool DccPluginLoader::loadModule()
     return true;
 }
 
-void DccPluginLoader::loadData()
+bool DccPluginLoader::loadData()
 {
     DCC_BENCHMARK(name(), "loading-plugin-library");
-    if (m_factory) {
-        return;
+    if (hasFactory()) {
+        return m_factory && !m_initialized;
     }
 
     const QString soPath = m_path + "/" + name() + ".so";
     if (!QFile::exists(soPath)) {
-        return;
+        // 纯 QML 插件没有 C++ 数据后端。记录类型位，让 LoadFactoryTask
+        // 跳过 createData()，避免无工厂路径设置 DataErr、把正常插件误判为损坏。
+        m_type |= T_NoDataSo;
+        return false;
     }
 
     QPluginLoader loader(soPath);
     if (!loader.load()) {
         setLog("prepare factory load failed:" + loader.errorString());
         transitionStatus(DataErr);
-        return;
+        return false;
     }
 
     const auto &meta = loader.metaData();
     const auto iid = meta["IID"].toString();
-    if (iid.isEmpty() || iid != QString(qobject_interface_iid<DccFactory *>())) {
+    const bool isV1 = iid == QString::fromLatin1(qobject_interface_iid<DccFactory *>());
+    const bool isV2 = iid == QString::fromLatin1(qobject_interface_iid<DccFactory_v20 *>());
+    if (iid.isEmpty() || (!isV1 && !isV2)) {
         setLog("prepare factory iid error:" + iid);
         transitionStatus(DataErr);
         loader.unload();
-        return;
+        return false;
     }
 
     QObject *instance = loader.instance();
@@ -300,18 +374,40 @@ void DccPluginLoader::loadData()
         setLog("prepare factory instance failed:" + loader.errorString());
         transitionStatus(DataErr);
         loader.unload();
-        return;
+        return false;
     }
 
-    DccFactory *factory = qobject_cast<DccFactory *>(instance);
+    if (isV1) {
+        DccFactory *legacy = qobject_cast<DccFactory *>(instance);
+        if (!legacy) {
+            setLog("prepare factory v1 cast failed.");
+            transitionStatus(DataErr);
+            loader.unload();
+            return false;
+        }
+        // v1 插件包装成 v2 接口；适配器在 worker 线程创建，parent 留空。
+        // v1 没有独立的 initialized 阶段，在构造期即完成初始化，因此这里直接置位，
+        // 让 createData/createDccObject 与工厂创建留在同一个加载任务内完成，
+        // 避免适配器跨线程迁移——Qt 只允许对象自身所属线程发起 moveToThread。
+        m_factory = new DccFactoryV1Adapter(legacy);
+        m_ownsFactory = true;
+        m_initialized = true;
+        return false;
+    }
+
+    DccFactory_v20 *factory = qobject_cast<DccFactory_v20 *>(instance);
     if (!factory) {
-        setLog("prepare factory cast failed.");
+        setLog("prepare factory v2 cast failed.");
         transitionStatus(DataErr);
         loader.unload();
-        return;
+        return false;
     }
-
     m_factory = factory;
+    // 在 initialized() 之前把归属迁到主线程，之后只由主线程调用生命周期钩子
+    if (factory->thread() != thread()) {
+        factory->moveToThread(thread());
+    }
+    return true;
 }
 
 void DccPluginLoader::createData()
@@ -319,6 +415,12 @@ void DccPluginLoader::createData()
     DCC_BENCHMARK(name(), "creating-plugin-data");
     if (!m_factory) {
         setLog(": create data skipped");
+        transitionStatus(DataErr);
+        return;
+    }
+    // v1 与 v2 统一时序：先 initialized 再 create
+    if (!m_initialized) {
+        setLog(": create data before initialized");
         transitionStatus(DataErr);
         return;
     }
@@ -436,23 +538,6 @@ void DccPluginLoader::addMainObject()
         setLog("The plugin isn't main DccObject");
         transitionStatus(MainObjErr);
     }
-}
-
-void DccPluginLoader::cancel()
-{
-    setLog("cancelled");
-    transitionStatus(PluginEnd);
-}
-
-void DccPluginLoader::reset()
-{
-    // Reset status to begin state
-    m_status = PluginBegin;
-    m_module = nullptr;
-    m_mainObj = nullptr;
-    m_soObj = nullptr;
-    m_data = nullptr;
-    // Don't reset factory - it can be reused
 }
 
 uint DccPluginLoader::version() const

@@ -8,6 +8,60 @@
 | 2024.11.8 | 1.0 | 创建 | 6.0.71 |
 | 2024.12.2 | 1.0 | 修改main.qml为{name}Main.qml(防止翻译冲突，兼容以前命名) | 6.0.77 |
 | 2026.1.14 | 1.1 | 修改{name}.qml为{Name}.qml(qml命名规范) | 6.1.71 |
+| 2026.11.10 | 2.0 | DccFactory 升级到 v2：新增 initialized/active/deactive 生命周期与 Get/Set 数据通道；dev 包只提供 v2 公共头，运行期继续兼容已编译的 v1 插件 | 6.1.115 |
+
+> DccFactory v2：新版 dev 包只提供 v2 公共接口，运行时兼容已编译的 v1 插件。
+> 设计、改动清单与验收条件见 [DccFactory v2 完整实施计划](v25-dccfactory-v2-implementation-plan.zh_CN.md)。
+> Get/Set 与模块级 PropertiesChanged 已接入；白名单策略之外的入站身份核验属计划中的预留范围。
+
+### DBus 数据通道（`org.deepin.dde.ControlCenter1`）
+
+| 成员 | 签名 | 说明 |
+|---|---|---|
+| `Get` | `in s module, in a{sv} param → a{sv}` | 按键集合查询；`param` 的值被忽略 |
+| `Set` | `in s module, in a{sv} param → a{sv}` | 多键写入；返回逐项结果，空值表示已提交 |
+| `PropertiesChanged` | `out s module, out a{sv} properties` | 模块级变更通知 |
+
+```bash
+# 查询默认浏览器与邮件
+gdbus call --session --dest org.deepin.dde.ControlCenter1 \
+  --object-path /org/deepin/dde/ControlCenter1 \
+  --method org.deepin.dde.ControlCenter1.Get defaultapp \
+  "{'browser': <''>, 'mail': <''>}"
+
+# 设置默认浏览器
+gdbus call --session --dest org.deepin.dde.ControlCenter1 \
+  --object-path /org/deepin/dde/ControlCenter1 \
+  --method org.deepin.dde.ControlCenter1.Set defaultapp \
+  "{'browser': <'org.deepin.browser'>}"
+```
+
+**语义约定**：
+
+- `Get` 区分"尚未读取"与"已确定未设置"：前者返回 `NotReady` 错误，后者返回空字符串。
+- `Set` 采用"已提交"：返回空值表示请求已进入真实写入路径，不等待最终确认；非空值为该键的错误信息。
+- `Set` 的部分或全部失败**正常返回**，逐项状态在响应 map 中，不占用 DBus error reply。
+- 框架层错误（模块不存在、参数非法、超时、关闭、队列满、不提供数据通道）走 error reply：`org.deepin.dde.ControlCenter1.Error.NotFound`、`org.freedesktop.DBus.Error.InvalidArgs`、`org.deepin.dde.ControlCenter1.Error.Timeout`、`org.deepin.dde.ControlCenter1.Error.Cancelled`、`org.deepin.dde.ControlCenter1.Error.Busy`、`org.freedesktop.DBus.Error.NotSupported`。
+- 模块不存在与后端未就绪分别返回 `org.deepin.dde.ControlCenter1.Error.NotFound` 与 `org.deepin.dde.ControlCenter1.Error.NotReady`，不会等到超时。
+- `Set` 受模块级白名单限制：当前仅 `defaultapp` 登记，其余模块返回 `org.freedesktop.DBus.Error.AccessDenied`。
+- `Get` 不受模块级白名单限制，所有模块都可读；白名单只约束 `Set`。
+- **禁用/隐藏不拦截数据通道**：后端已加载的模块即使被禁用或隐藏，仍可通过 `Get`/`Set` 访问，限制由插件自行实现。
+- **启动时隐藏的模块不加载数据后端**：这类模块在启动阶段被跳过，`Get`/`Set` 返回 `org.freedesktop.DBus.Error.NotSupported`；解除隐藏并完成加载后恢复正常。
+
+### 插件数据接口（`DccFactory_v20`）
+
+```cpp
+virtual DataReply get(const QVariantMap &param, const QString &caller,
+                      const QString &callerPath);
+virtual DataReply set(const QVariantMap &param, const QString &caller,
+                      const QString &callerPath);
+```
+
+- `param`：模块自定义的键值映射。
+- `caller`：真实 DBus 调用者的唯一总线名，如 `:1.42`。由框架从 DBus 上下文取得，不接受请求体自称的身份。
+- `callerPath`：调用者可执行文件的真实路径，由框架按总线名解析（`servicePid` + `/proc/<pid>/exe`）。**解析失败时为空串**，插件须把空串当作"未知"，不能自行补齐后当真。
+- 两者都在请求准入时解析并随请求快照传进工作线程，因此即使客户端在请求执行期间退出，`callerPath` 仍保持请求发起时的值。
+- 该解析是审计信息，不是访问控制：当前白名单仍只按模块判定。
 
 ## V25控制中心新特性
 1.  V25控制中心只负责框架设计，具体功能全部由插件实现

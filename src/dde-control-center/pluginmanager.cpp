@@ -29,11 +29,13 @@ namespace dccV25 {
 
 const static QString TranslateReadDir = QStringLiteral(TRANSLATE_READ_DIR);
 
-// Run async data loading in thread pool
-class LoadDataTask : public QRunnable
+// 工作线程：加载动态库并识别接口版本。
+// v1 在同一任务里完成 create/moveThread；v2 只做到把 factory 迁到主线程，
+// 由主线程执行 initialized() 后再调度 CreateDataTask。
+class LoadFactoryTask : public QRunnable
 {
 public:
-    explicit LoadDataTask(DccPluginLoader *loader, DccPluginManager *manager)
+    explicit LoadFactoryTask(DccPluginLoader *loader, DccPluginManager *manager)
         : QRunnable()
         , m_loader(loader)
         , m_manager(manager)
@@ -45,12 +47,47 @@ public:
         if (m_manager->isDeleting()) {
             return;
         }
-        m_loader->loadData();
+        const bool needInitialize = m_loader->loadData();
         m_loader->transitionStatus(DccPluginLoader::DataLoad);
         if (m_manager->isDeleting()) {
             return;
         }
-        // createData和moveThread需要完整，都执行或都不执行
+        if (needInitialize) {
+            Q_EMIT m_loader->factoryReady(m_loader);
+            return;
+        }
+        // 纯 QML 插件（无 {name}.so）：没有数据后端，跳过 createData()/moveThread()，
+        // 避免无工厂路径设置 DataErr、把正常插件误判为损坏后端。
+        if (m_loader->hasDataBackend()) {
+            // createData和moveThread需要完整，都执行或都不执行
+            m_loader->createData();
+            m_loader->moveThread();
+        }
+        m_loader->transitionStatus(DccPluginLoader::DataEnd);
+    }
+
+private:
+    DccPluginLoader *m_loader;
+    DccPluginManager *m_manager;
+};
+
+// 工作线程：v2 在 initialized() 之后创建数据对象并迁移回主线程
+class CreateDataTask : public QRunnable
+{
+public:
+    explicit CreateDataTask(DccPluginLoader *loader, DccPluginManager *manager)
+        : QRunnable()
+        , m_loader(loader)
+        , m_manager(manager)
+    {
+    }
+
+    void run() override
+    {
+        if (m_manager->isDeleting()) {
+            return;
+        }
+        // createData 与 moveThread 必须成对执行，不能在这里插入取消返回
         m_loader->createData();
         m_loader->moveThread();
         m_loader->transitionStatus(DccPluginLoader::DataEnd);
@@ -100,6 +137,16 @@ void DccPluginManager::loadPlugin(DccPluginLoader *loader)
     }
     if (loader->status() & DccPluginLoader::PluginEnd) {
         m_loadTimer.finishPlugin(loader->name());
+        // 走到 PluginEnd 却从未进入数据阶段（错误、隐藏、无 .so）：
+        // 明确收束为一个终态，排队中的请求才能立即得到结果而不是等超时。
+        // 只有 DataErr 才代表后端损坏；页面/元数据错误属于插件包问题，
+        // 后端本身仍应报 NotSupported，而不是 "backend failed to load"。
+        if (loader->backendState() == DccPluginLoader::BackendState::NotDiscovered
+                || loader->backendState() == DccPluginLoader::BackendState::Loading) {
+            loader->setBackendState(loader->hasDataError()
+                                    ? DccPluginLoader::BackendState::Failed
+                                    : DccPluginLoader::BackendState::NotSupported);
+        }
         checkNavigationFinished();
         checkLoadFinished();
     } else if (loader->status() & DccPluginLoader::MainObjEnd) {
@@ -113,11 +160,34 @@ void DccPluginManager::loadPlugin(DccPluginLoader *loader)
         loader->transitionStatus(DccPluginLoader::PluginEnd);
     } else if ((loader->status() & (DccPluginLoader::DataEnd | DccPluginLoader::MainObjLoad)) == DccPluginLoader::DataEnd) {
         loader->transitionStatus(DccPluginLoader::MainObjLoad);
+        loader->updateParent();
+        // 后端必须在依赖它的页面创建之前激活
+        loader->activate();
         loader->createDccObject();
         loader->updateParent();
         loader->loadMain();
         loader->transitionStatus(DccPluginLoader::MainObjEnd);
+        // 后端进入终态：有工厂且至少支持一种数据操作即为 Ready，
+        // 具体操作由请求层按 Get/Set 能力位分别判定
+        if (loader->factory() && (loader->supportsCapability(DccCapability::Get)
+                                  || loader->supportsCapability(DccCapability::Set))) {
+            loader->setBackendState(DccPluginLoader::BackendState::Ready);
+        } else if (loader->hasDataError()) {
+            // 后端自身加载失败（.so 打不开、IID 不符、转换失败）：必须报 Failed。
+            // 页面的 MainObjErr 不算——页面失败不影响"是否提供数据能力"的判定，
+            // 否则纯 QML 的页面错误会被误报成后端损坏。
+            loader->setBackendState(DccPluginLoader::BackendState::Failed);
+        } else {
+            // 纯 QML 或 v1：没有可服务的数据接口
+            loader->setBackendState(DccPluginLoader::BackendState::NotSupported);
+        }
+        // v2 的变化通知由框架补充插件 ID 后转发。
+        // 注意：lambda 作槽不支持 Qt::UniqueConnection（Qt 会断言），
+        // 因此这里用成员函数指针，并由 connectModuleSignals 做一次性登记。
+        connectFactorySignals(loader);
     } else if ((loader->status() & (DccPluginLoader::ModuleEnd | DccPluginLoader::DataBegin)) == DccPluginLoader::ModuleEnd) {
+        // 模块已就绪但数据阶段尚未为它启动：补跑数据阶段。
+        // 加载时被判为隐藏、之后才可见的插件依赖这里重新纳入 startDataPhase()。
         checkNavigationFinished();
     } else if ((loader->status() & (DccPluginLoader::MetaDataEnd | DccPluginLoader::ModuleLoad)) == DccPluginLoader::MetaDataEnd) {
         loader->transitionStatus(DccPluginLoader::ModuleLoad);
@@ -130,6 +200,7 @@ void DccPluginManager::loadPlugin(DccPluginLoader *loader)
             Q_EMIT moduleLoaded(loader->name());
         } else {
             loader->transitionStatus(DccPluginLoader::ModuleEnd | DccPluginLoader::PluginEnd);
+            loader->setBackendState(DccPluginLoader::BackendState::NotSupported);
         }
     } else {
         if (loader->loadMetaData()) {
@@ -185,6 +256,9 @@ void DccPluginManager::loadModules(DccObject *root, bool async, const QStringLis
 
         // Connect signals
         connect(loader, &DccPluginLoader::statusChanged, this, &DccPluginManager::onPluginStatusChanged, Qt::QueuedConnection);
+        connect(loader, &DccPluginLoader::factoryReady, this, &DccPluginManager::onFactoryReady, Qt::QueuedConnection);
+        // loader 的后端终态直接转发给 manager，避免再经由状态位推断
+        connect(loader, &DccPluginLoader::backendStateChanged, this, &DccPluginManager::backendStateChanged, Qt::QueuedConnection);
 
         loaders.append(loader);
     }
@@ -226,6 +300,10 @@ void DccPluginManager::checkNavigationFinished()
     } else {
         m_navigationFinished = true;
         DccAppTimeline::instance().log(QStringLiteral("navigation-ready"));
+        // 发现阶段结束必须立即通知请求层：它需要把"找不到 loader"的
+        // 排队请求收束为 NotFound。这里用直连之外的专用信号，
+        // 不依赖 navigationReady 的排队时序（后者可能被 UI 流程延后）。
+        Q_EMIT discoveryFinishedChanged();
         Q_EMIT navigationReady();
         if (showOnNavigationReady()) {
             QTimer::singleShot(100, this, &DccPluginManager::startDataPhase);
@@ -252,7 +330,7 @@ void DccPluginManager::startDataPhase()
         }
 
         loader->transitionStatus(DccPluginLoader::DataBegin);
-        threadPool()->start(new LoadDataTask(loader, this));
+        threadPool()->start(new LoadFactoryTask(loader, this));
     }
 }
 
@@ -295,7 +373,17 @@ bool DccPluginManager::loadFinished() const
 
 void DccPluginManager::beginDelete()
 {
-    m_isDeleting.store(true);
+    const bool wasDeleting = m_isDeleting.exchange(true);
+    if (wasDeleting) {
+        return;
+    }
+    // 先停用后端，确保其后端任务、定时器与外部通知在 engine/模块树释放前收束。
+    // 必须在主线程执行；此时 loader 的数据对象仍然存活。
+    for (auto &&loader : m_plugins) {
+        if (loader) {
+            loader->deactivate();
+        }
+    }
 }
 
 QQmlEngine *DccPluginManager::engine()
@@ -326,6 +414,68 @@ void DccPluginManager::onPluginStatusChanged(DccPluginLoader *loader, uint statu
     if ((status & DccPluginLoader::PluginEndMask)) {
         loadPlugin(loader);
     }
+}
+
+void DccPluginManager::connectFactorySignals(DccPluginLoader *loader)
+{
+    DccFactory_v20 *factory = loader ? loader->factory() : nullptr;
+    if (!factory || m_connectedFactories.contains(factory)) {
+        return;
+    }
+    // 未声明变更通知能力的工厂不连接
+    if (!factory->capabilities().testFlag(DccCapability::PropertiesChanged)) {
+        return;
+    }
+    m_connectedFactories.insert(factory);
+    // 成员函数指针作槽，允许使用 UniqueConnection；同时用集合防重复登记
+    connect(factory, &DccFactory_v20::propertiesChanged, this, &DccPluginManager::onFactoryPropertiesChanged, Qt::UniqueConnection);
+}
+
+void DccPluginManager::onFactoryPropertiesChanged(const QVariantMap &properties)
+{
+    auto *factory = qobject_cast<DccFactory_v20 *>(sender());
+    if (!factory) {
+        return;
+    }
+    // 插件 ID 由 loader 名称决定，逐个匹配已连接的工厂
+    for (auto &&loader : m_plugins) {
+        if (loader && loader->factory() == factory) {
+            Q_EMIT modulePropertiesChanged(loader->name(), properties);
+            return;
+        }
+    }
+}
+
+DccPluginLoader *DccPluginManager::findLoader(const QString &module) const
+{
+    DccPluginLoader *found = nullptr;
+    for (auto &&loader : m_plugins) {
+        if (!loader || loader->name() != module) {
+            continue;
+        }
+        if (found) {
+            // 同名 loader 不任取一个：调用方会得到明确的歧义错误
+            qCWarning(dccLog()) << "duplicate loader for module:" << module;
+            return nullptr;
+        }
+        found = loader;
+    }
+    return found;
+}
+
+bool DccPluginManager::discoveryFinished() const
+{
+    return m_navigationFinished;
+}
+
+void DccPluginManager::onFactoryReady(DccPluginLoader *loader)
+{
+    if (isDeleting() || !loader) {
+        return;
+    }
+    // 仅 v2 会发该信号：初始化在主线程执行，早于 create
+    loader->initializeFactory();
+    threadPool()->start(new CreateDataTask(loader, this));
 }
 
 void DccPluginManager::onHideModuleChanged(const QSet<QString> &hideModule)

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -26,7 +26,10 @@ class MimeDBusProxy : public QObject
 public:
     explicit MimeDBusProxy(QObject *parent = nullptr);
 
-    QDBusPendingReply<void> SetDefaultApp(const QString &mime, const QString &desktopId);
+    // 批量写入：后端接口本身接收 a{ss}，一次调用可写多个 MIME。
+    // 每个 MIME 单独调用会逐次付出后端落盘成本（实测约 34ms/次），
+    // Video 有 25 个 MIME，串行代价达数百毫秒。
+    QDBusPendingReply<void> SetDefaultApp(const QStringMap &assignments);
     void DeleteApp(const QStringList &mimeTypes, const QString &desktopId);
     void DeleteUserApp(const QString &desktopId);
     void AddUserApp(const QStringList &mimeTypes, const QString &desktopId);

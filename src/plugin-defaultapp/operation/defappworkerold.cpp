@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 
@@ -59,8 +59,9 @@ void DefAppWorkerOld::onSetDefaultApp(const QString &category, const App &item)
     connect(watcher, &QDBusPendingCallWatcher::finished, this, [call, watcher, this, item, category] {
         if (!call.isError()) {
             qCDebug(DdcDefaultWorkerOld) << "Setting MIME " << category << "to " <<  item.Id;
-            auto tosetCategory = getCategory(category);
-            tosetCategory->setDefault(item);
+            if (auto *tosetCategory = getCategory(category)) {
+                tosetCategory->setDefault(item);
+            }
         } else {
             qCWarning(DdcDefaultWorkerOld) << "Cannot set MIME" << category << "to" << item.Id;
         }
@@ -72,12 +73,24 @@ void DefAppWorkerOld::onSetDefaultApp(const QString &category, const App &item)
 void DefAppWorkerOld::onGetListApps()
 {
     //遍历QMap去获取dbus数据
-    for (auto  mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
+    for (auto mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd(); ++mimelist) {
         const QString type { getTypeByCategory(mimelist.value()) };
 
-        getDefaultAppFinished(mimelist.key(), m_dbusManager->GetDefaultApp(type));
-        getListAppFinished(mimelist.key(),m_dbusManager->ListApps(type), false);
-        getListAppFinished(mimelist.key(),m_dbusManager->ListUserApps(type), true);
+        // 任一读取失败都不能让该类别进入"已确认"状态，否则失败会被伪装成未设置
+        const LegacyReadReply defaultReply = m_dbusManager->GetDefaultApp(type);
+        const LegacyReadReply appsReply = m_dbusManager->ListApps(type);
+        const LegacyReadReply userAppsReply = m_dbusManager->ListUserApps(type);
+        if (!defaultReply.ok || !appsReply.ok || !userAppsReply.ok) {
+            if (Category *category = getCategory(mimelist.key())) {
+                category->setReadState(Category::ReadState::Failed);
+            }
+            continue;
+        }
+
+        getListAppFinished(mimelist.key(), appsReply.value, false);
+        getListAppFinished(mimelist.key(), userAppsReply.value, true);
+        // 默认项最后处理：它负责把状态置为 Ok
+        getDefaultAppFinished(mimelist.key(), defaultReply.value);
     }
 }
 
@@ -250,6 +263,14 @@ void DefAppWorkerOld::saveDefaultApp(const QString &mime, const QJsonObject &jso
         return;
     }
     category->setCategory(mime);
+
+    // 旧接口用空 JSON 对象表示"未设置"：必须清空后端值，
+    // 否则会保留上一次的默认项并把它当作当前值上报。
+    if (json.isEmpty()) {
+        category->setBackendDefault(App());
+        category->setDisplayDefault(App());
+        return;
+    }
 
     App app;
     app.Id = json["Id"].toString();
