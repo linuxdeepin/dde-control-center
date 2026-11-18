@@ -69,6 +69,7 @@ AccountsController::AccountsController(QObject *parent)
 
     connect(m_model, &UserModel::avatarChanged, this, &AccountsController::avatarChanged);
     connect(m_model, &UserModel::autoLoginChanged, this, &AccountsController::autoLoginChanged);
+    connect(m_model, &UserModel::autoLoginEnabledChanged, this, &AccountsController::autoLoginEnabledChanged);
     connect(m_model, &UserModel::quickLoginChanged, this, &AccountsController::quickLoginChanged);
     connect(m_model, &UserModel::nopasswdLoginChanged, this, &AccountsController::nopasswdLoginChanged);
     connect(m_model, &UserModel::groupsChanged, this, [this](const QString &userId, const QStringList &groups) {
@@ -321,6 +322,11 @@ bool AccountsController::isDeleteAble(const QString &id) const
 bool AccountsController::isAutoLoginVisable() const
 {
     return m_model->isAutoLoginVisable();
+}
+
+bool AccountsController::autoLoginEnabled() const
+{
+    return m_model->isAutoLoginEnabled();
 }
 
 bool AccountsController::isQuickLoginVisible() const

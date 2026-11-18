@@ -601,7 +601,7 @@ DccObject {
             weight: 10
             pageType: DccObject.Editor
             visible: dccData.isAutoLoginVisable()
-            enabled: dccData.currentUserId() === settings.userId
+            enabled: dccData.currentUserId() === settings.userId && dccData.autoLoginEnabled
             page: Switch {
                 checked: settings.autoLoginChecked
                 onCheckedChanged: {
