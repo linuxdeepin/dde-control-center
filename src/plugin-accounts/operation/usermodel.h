@@ -27,6 +27,9 @@ public:
     inline bool isAutoLoginVisable() const { return m_autoLoginVisable; }
     void setAutoLoginVisable(const bool visable);
 
+    inline bool isAutoLoginEnabled() const { return m_autoLoginEnabled; }
+    void setAutoLoginEnabled(const bool enabled);
+
     inline bool isQuickLoginVisible() const { return m_quickLoginVisible; }
     void setQuickLoginVisible(const bool visible);
 
@@ -88,6 +91,7 @@ Q_SIGNALS:
     void allGroupsChange(const QStringList &groups);
     void deleteUserSuccess();
     void autoLoginVisableChanged(bool autoLogin);
+    void autoLoginEnabledChanged(bool enabled);
     void quickLoginVisibleChanged(bool quickLogin);
     void noPassWordLoginVisableChanged(bool noPassword);
     void isCancelChanged();
@@ -96,6 +100,7 @@ Q_SIGNALS:
 
 private:
     bool m_autoLoginVisable;
+    bool m_autoLoginEnabled;
     bool m_quickLoginVisible;
     bool m_noPassWordLoginVisable;
     bool m_bCreateUserValid;
