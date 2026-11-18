@@ -266,7 +266,10 @@ void DccScreenPrivate::updateRateList()
     Resolution currentMode = monitor()->currentMode();
     for (auto mode : monitor()->modeList()) {
         if (mode.width() == currentMode.width() && mode.height() == currentMode.height()) {
-            rateList.append(mode.rate());
+            double rate = qRound(mode.rate() * 100) / 100.0;
+            if (!rateList.contains(rate)) {
+                rateList.append(rate);
+            }
         }
     }
     if (m_rateList != rateList) {
