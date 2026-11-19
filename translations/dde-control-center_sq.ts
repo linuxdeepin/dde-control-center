@@ -2198,7 +2198,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
-        <translation type="unfinished"/>
+        <translation>Ulni konsum energjie në pajisje të plogështa USB, PCIe dhe SATA depozitim, kur përdoret bateri, që të zgjatet jeta e baterisë. Mund të prekë shpejtësi përgjigjeje pajisjeje, ose qëndrueshmëri.</translation>
     </message>
 </context>
 <context>
