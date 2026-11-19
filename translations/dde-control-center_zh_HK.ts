@@ -2384,6 +2384,14 @@ Sign in to %1 ID to get personalized features and services of Browser, App Store
         <source>Decrease screen brightness on power saver</source>
         <translation>節能模式時降低屏幕亮度</translation>
     </message>
+    <message>
+        <source>Device idle power saving</source>
+        <translation>設備閒置節能</translation>
+    </message>
+    <message>
+        <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
+        <translation>使用電池時降低部分閒置的 USB、PCIe 及 SATA 存儲設備的功耗，以延長續航時間。可能影響設備響應速度或穩定性。</translation>
+    </message>
 </context>
 <context>
     <name>GroupObject</name>
