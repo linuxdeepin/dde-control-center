@@ -2194,7 +2194,7 @@ Bëni hyrjen te %1 ID, që të merrni veçori dhe shërbime të personalizuara S
     </message>
     <message>
         <source>Device idle power saving</source>
-        <translation type="unfinished"/>
+        <translation>Kursim energjie në pajisje të plogështa</translation>
     </message>
     <message>
         <source>Reduce the power consumption of idle USB, PCIe and SATA storage devices when using battery to extend battery life. May affect device response speed or stability.</source>
