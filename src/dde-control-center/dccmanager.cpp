@@ -6,6 +6,9 @@
 #include "dccapp.h"
 #include "dccbenchmark.h"
 #include "dccimageprovider.h"
+#include "dccdatarequest.h"
+#include "dccfactory.h"
+#include "dccpluginloader.h"
 #include "dccmoduleconfig.h"
 #include "dccobject_p.h"
 #include "navigationmodel.h"
@@ -18,6 +21,8 @@
 #include <QCoreApplication>
 #include <QDBusConnection>
 #include <QDBusPendingCall>
+#include <QDBusConnectionInterface>
+#include <QDBusReply>
 #include <QDir>
 #include <QElapsedTimer>
 #include <QFileInfo>
@@ -109,6 +114,54 @@ QSet<QString> readModulePaths(const QStringList &subpaths)
 
 } // namespace
 
+// 数据接口在工作线程执行：工厂已归属主线程，调用期间不做并发写入
+// 用 QRunnable 投递，避免把 lambda 直接交给 QThreadPool
+class Work final : public QRunnable
+{
+public:
+    Work(DccManager *manager, quint64 requestId, QString module, DccFactory_v20 *factory,
+         bool isGet, QVariantMap param, QString caller, QString callerPath)
+        : m_manager(manager)
+        , m_requestId(requestId)
+        , m_module(std::move(module))
+        , m_factory(factory)
+        , m_isGet(isGet)
+        , m_param(std::move(param))
+        , m_caller(std::move(caller))
+        , m_callerPath(std::move(callerPath))
+    {
+    }
+
+    void run() override
+    {
+        if (!m_factory) {
+            return;
+        }
+        const auto reply = m_isGet ? m_factory->get(m_param, m_caller, m_callerPath)
+                                   : m_factory->set(m_param, m_caller, m_callerPath);
+        // 完成回填不依赖 DataRequest 存活：请求可能已因超时销毁，
+        // 但执行位必须按 id 释放，否则该模块后续请求永远无法执行。
+        QMetaObject::invokeMethod(
+                m_manager,
+                [manager = m_manager, id = m_requestId, module = m_module, reply] {
+                    if (manager) {
+                        manager->completeWorkById(id, module, reply);
+                    }
+                },
+                Qt::QueuedConnection);
+    }
+
+private:
+    DccManager *m_manager;
+    quint64 m_requestId;
+    QString m_module;
+    DccFactory_v20 *m_factory;
+    bool m_isGet;
+    QVariantMap m_param;
+    QString m_caller;
+    QString m_callerPath;
+};
+
 const QString WidthConfig = QStringLiteral("width");
 const QString HeightConfig = QStringLiteral("height");
 const QString SearchBarStateConfig = QStringLiteral("searchBarState");
@@ -142,6 +195,8 @@ DccManager::DccManager(QObject *parent)
     , m_pageShown(false)
     , m_allPluginsLoaded(false)
     , m_autoExitTimer(new QTimer(this))
+    , m_dataPolicy(new WhitelistAccessPolicy())
+    , m_dataPool(new QThreadPool())
 #ifdef HAVE_DDE_API_EVENTLOGGER
     , m_pageStayTimer(nullptr)
 #endif
@@ -173,6 +228,13 @@ DccManager::DccManager(QObject *parent)
     connect(m_plugins, &DccPluginManager::addObject, this, &DccManager::addObject);
     connect(m_plugins, &DccPluginManager::navigationReady, this, &DccManager::handleNavigationReady, Qt::QueuedConnection);
     connect(m_plugins, &DccPluginManager::loadAllFinished, this, &DccManager::handleLoadFinished, Qt::QueuedConnection);
+    // 每个 loader 的后端终态通知，替代原先只有成功路径才发出的布尔通知
+    connect(m_plugins, &DccPluginManager::backendStateChanged,
+            this, &DccManager::onBackendStateChanged, Qt::QueuedConnection);
+    // 发现阶段结束立即冲刷排队请求，不依赖 navigationReady 的排队时序
+    connect(m_plugins, &DccPluginManager::discoveryFinishedChanged,
+            this, &DccManager::completeUnknownModuleRequests, Qt::DirectConnection);
+    connect(m_plugins, &DccPluginManager::modulePropertiesChanged, this, &DccManager::modulePropertiesChanged, Qt::QueuedConnection);
     m_showTimer = new QTimer(this);
     m_showTimer->setInterval(60);
     m_showTimer->setSingleShot(true);
@@ -186,8 +248,15 @@ DccManager::DccManager(QObject *parent)
     m_autoExitTimer->setSingleShot(true);
     connect(m_autoExitTimer, &QTimer::timeout, this, [this]() {
         // 当主界面show出来之后不再执行自动退出
-        if (!m_showPagePending && !m_needShow && (mainWindow() && !mainWindow()->isVisible()))
-            QCoreApplication::quit();
+        if (m_showPagePending || m_needShow || !mainWindow() || mainWindow()->isVisible())
+            return;
+        // 仍有数据请求未回复（排队或执行中）：此时退出会把它变成 Cancelled。
+        // 这里重新计时，等请求自然收束后再判断，而不是取消调用者的请求。
+        if (!m_dataRequests.isEmpty()) {
+            m_autoExitTimer->start();
+            return;
+        }
+        QCoreApplication::quit();
     });
     m_autoExitTimer->start();
 }
@@ -195,8 +264,24 @@ DccManager::DccManager(QObject *parent)
 DccManager::~DccManager()
 {
     qCDebug(dccLog()) << "delete dccManger";
+    // 关闭顺序：先拒绝新请求并结束回复责任，再等在途任务真实退出，
+    // 之后才允许停用后端、释放页面与模块。顺序反过来会出现
+    // "deactive() 时后端操作仍在执行"的未定义行为。
+    failPendingRequests(QStringLiteral("control center is shutting down"));
+    // 在途任务可能仍在写后端，必须在 deactive() 之前真实结束。
+    // 这里不能设超时门槛：超时后继续 deactive() 会与后端操作并发，
+    // 而线程池析构本来也会无期限等待，设上限只是把未定义行为提前。
+    if (m_dataPool) {
+        m_dataPool->clear();
+        m_dataPool->waitForDone();
+    }
     clearData();
+    delete m_dataPool;
+    m_dataPool = nullptr;
+    delete m_dataPolicy;
+    m_dataPolicy = nullptr;
     delete m_plugins;
+    m_plugins = nullptr;
     qCDebug(dccLog()) << "delete dccManger end";
 }
 
@@ -579,6 +664,323 @@ QString DccManager::GetAllModule()
     setDelayedReply(true);
     QMetaObject::invokeMethod(this, &DccManager::doGetAllModule, Qt::QueuedConnection, message);
     return QString();
+}
+// Get/Set 共用的准入检查：关闭状态、载荷、队列上限
+namespace {
+
+// 把 DBus 调用者的唯一总线名解析成其可执行文件路径。
+// 取不到（游标已失效、权限不足、/proc 不可用）时返回空串：
+// 调用者必须能区分"未知"与"确定没有路径"，不能伪造一个看似可信的值。
+QString callerBinaryPath(const QDBusConnection &connection, const QString &caller)
+{
+    if (caller.isEmpty() || !connection.interface()) {
+        return {};
+    }
+    const QDBusReply<uint> pidReply = connection.interface()->servicePid(caller);
+    if (!pidReply.isValid() || pidReply.value() == 0) {
+        return {};
+    }
+    // /proc/<pid>/exe 指向真实可执行文件；进程已退出时读取失败，按未知处理
+    const QString link = QStringLiteral("/proc/%1/exe").arg(pidReply.value());
+    return QFileInfo(link).symLinkTarget();
+}
+
+} // namespace
+QVariantMap DccManager::beginDataRequest(const QString &module, const QVariantMap &param,
+                                         DataOperation op)
+{
+    const auto message = this->message();
+    const auto connection = this->connection();
+    setDelayedReply(true);
+
+    const auto reject = [&connection, &message](const QString &name, const QString &text) {
+        connection.send(message.createErrorReply(name, text));
+        return QVariantMap();
+    };
+
+    // 关闭中直接给出明确的取消错误，不能让客户端等到超时
+    if (m_plugins->isDeleting()) {
+        return reject(QStringLiteral("org.deepin.dde.ControlCenter1.Error.Cancelled"),
+                      QStringLiteral("control center is shutting down"));
+    }
+    if (param.size() > DataRequest::kMaxParamKeys) {
+        return reject(QStringLiteral("org.freedesktop.DBus.Error.InvalidArgs"),
+                      QStringLiteral("request has too many keys"));
+    }
+    if (m_dataRequests.size() >= DataRequest::kMaxPendingTotal) {
+        return reject(QStringLiteral("org.deepin.dde.ControlCenter1.Error.Busy"),
+                      QStringLiteral("too many pending requests"));
+    }
+    // 运行中的请求也计入单模块未完成数，否则实际可挂到上限 +1
+    const int outstanding = m_pendingByModule.value(module).size()
+            + (m_runningByModule.contains(module) ? 1 : 0);
+    if (outstanding >= DataRequest::kMaxPendingPerModule) {
+        return reject(QStringLiteral("org.deepin.dde.ControlCenter1.Error.Busy"),
+                      QStringLiteral("too many pending requests for module: ") + module);
+    }
+
+    // 调用者身份在 DBus 上下文失效前解析好：工作线程里不能再调用 message()
+    auto *request = new DataRequest(m_nextRequestId++, module, op, param,
+                                    message.service(),
+                                    callerBinaryPath(connection, message.service()),
+                                    connection, message, this);
+
+    // 服务端期限：到期后按 Timeout 回复一次，不再等待慢后端
+    const quint64 id = request->id();
+    QTimer::singleShot(DataRequest::kTimeoutMs, this, [this, id] {
+        auto it = m_dataRequests.find(id);
+        if (it == m_dataRequests.end()) {
+            return;
+        }
+        auto *expired = it.value();
+        m_dataRequests.erase(it);
+        const QString module = expired->module();
+        auto pending = m_pendingByModule.find(module);
+        if (pending != m_pendingByModule.end()) {
+            pending->removeAll(expired);
+            if (pending->isEmpty()) {
+                m_pendingByModule.erase(pending);
+            }
+        }
+        // 超时只结束回复责任：若它是该模块正在执行的那一个，
+        // 执行位仍应保留到任务真实结束，这里不提前放开，避免并发进入后端。
+        expired->finishWithError(QStringLiteral("org.deepin.dde.ControlCenter1.Error.Timeout"),
+                                 QStringLiteral("request timed out"));
+    });
+
+    dispatchDataRequest(request);
+    return {};
+}
+
+QVariantMap DccManager::get(const QString &module, const QVariantMap &param)
+{
+    if (!calledFromDBus()) {
+        return {};
+    }
+    return beginDataRequest(module, param, DataOperation::Get);
+}
+
+QVariantMap DccManager::set(const QString &module, const QVariantMap &param)
+{
+    if (!calledFromDBus()) {
+        return {};
+    }
+    return beginDataRequest(module, param, DataOperation::Set);
+}
+
+bool DccManager::checkDataAccess(const QString &module, DataOperation op,
+                                 const QString &caller) const
+{
+    Q_UNUSED(module)
+    if (!m_dataPolicy) {
+        return false;
+    }
+    // 会话总线上的唯一名就是调用者身份，不接受请求体里自称的身份
+    if (caller.isEmpty()) {
+        return op == DataOperation::Get;
+    }
+    return true; // 暂时全允许
+}
+
+void DccManager::dispatchDataRequest(DataRequest *request)
+{
+    const QString module = request->module();
+
+    // 禁用/隐藏不拦截数据通道：按范围裁定由插件自行决定，框架不加限制。
+
+    DccPluginLoader *loader = m_plugins->findLoader(module);
+    if (!loader) {
+        // 发现阶段未结束时不能断定模块不存在
+        if (!m_plugins->discoveryFinished()) {
+            m_pendingByModule[module].append(request);
+            m_dataRequests.insert(request->id(), request);
+            // 发现结束会由 DccPluginManager::checkNavigationFinished() 触发
+            // backendDiscoveryFinished()，此时统一冲刷这些请求。
+            return;
+        }
+        // 模块不存在优先于白名单：否则未知模块的 Set 会被误报为 AccessDenied
+        completeDataRequest(request, { dccV25::DataStatus::NotFound, {},
+                                       QStringLiteral("unknown module: ") + module }, false);
+        return;
+    }
+
+    if (!checkDataAccess(module, request->operation(), request->caller())) {
+        completeDataRequest(request, { dccV25::DataStatus::AccessDenied, {},
+                                       QStringLiteral("operation not allowed") }, false);
+        return;
+    }
+
+    // 后端状态决定排队还是直接拒绝：未就绪的请求必须等，不能先报"不支持"
+    using BackendState = DccPluginLoader::BackendState;
+    switch (loader->backendState()) {
+    case BackendState::NotDiscovered:
+    case BackendState::Loading:
+        // 后端尚未就绪：挂起，由 backendStateChanged 统一派发或失败
+        m_pendingByModule[module].append(request);
+        m_dataRequests.insert(request->id(), request);
+        return;
+    case BackendState::Failed:
+        completeDataRequest(request, { dccV25::DataStatus::Failed, {},
+                                       loader->backendError().isEmpty()
+                                           ? QStringLiteral("backend failed to load")
+                                           : loader->backendError() }, false);
+        return;
+    case BackendState::NotSupported:
+        completeDataRequest(request, { dccV25::DataStatus::NotSupported, {}, {} }, false);
+        return;
+    case BackendState::Ready:
+        break;
+    }
+
+    // Ready 之后再按请求的具体操作检查能力位：Get 与 Set 可以单独支持（§12）
+    const DccCapability needed = request->operation() == DataOperation::Get
+            ? DccCapability::Get
+            : DccCapability::Set;
+    if (!loader->supportsCapability(needed)) {
+        completeDataRequest(request, { dccV25::DataStatus::NotSupported, {}, {} }, false);
+        return;
+    }
+    // 同一后端一次只执行一个数据操作：已有任务在跑就排队，避免并发写同一后端
+    if (m_runningByModule.contains(module)) {
+        m_pendingByModule[module].append(request);
+        m_dataRequests.insert(request->id(), request);
+        return;
+    }
+    m_runningByModule.insert(module, request->id());
+    // Ready 已保证工厂存在；这里不再单独判空
+    m_dataRequests.insert(request->id(), request);
+    const bool isGet = request->operation() == DataOperation::Get;
+    const quint64 requestId = request->id();
+    const QVariantMap param = request->param();
+    const QString caller = request->caller();
+    const QString callerPath = request->callerPath();
+
+    // Ready 状态保证工厂存在
+    m_dataPool->start(new Work(this, requestId, module, loader->factory(), isGet, param,
+                               caller, callerPath));
+}
+
+void DccManager::completeWorkById(quint64 requestId, const QString &module,
+                                  const dccV25::DataReply &reply)
+{
+    // 先释放该模块的执行位：无论请求是否已因超时销毁，后端任务都真实结束了，
+    // 必须允许队列中的下一个请求开始执行。
+    const bool wasRunning = m_runningByModule.value(module) == requestId;
+    if (wasRunning) {
+        m_runningByModule.remove(module);
+    }
+
+    DataRequest *request = m_dataRequests.value(requestId);
+    if (request) {
+        // 请求仍在回复表中（未超时）：执行位已在上面释放，
+        // 这里只需回复并按 FIFO 推进队列。
+        completeDataRequest(request, reply, wasRunning);
+        return;
+    }
+
+    // 请求已超时销毁：没有回复可发，但仍须推进该模块的队列
+    if (!wasRunning) {
+        return;
+    }
+    auto queue = m_pendingByModule.find(module);
+    if (queue != m_pendingByModule.end() && !queue->isEmpty()) {
+        DataRequest *next = queue->takeFirst();
+        if (queue->isEmpty()) {
+            m_pendingByModule.erase(queue);
+        }
+        if (next) {
+            dispatchDataRequest(next);
+        }
+    }
+}
+
+void DccManager::completeDataRequest(DataRequest *request, const dccV25::DataReply &reply,
+                                     bool wasRunning)
+{
+    if (!request) {
+        return;
+    }
+    const QString module = request->module();
+    m_dataRequests.remove(request->id());
+    auto pending = m_pendingByModule.find(module);
+    if (pending != m_pendingByModule.end()) {
+        pending->removeAll(request);
+        if (pending->isEmpty()) {
+            m_pendingByModule.erase(pending);
+        }
+    }
+
+    // wasRunning 由调用方判定：completeWorkById 已经按 id 释放了执行位。
+    // 超时销毁的请求不再走到这里；未占用执行位的完成（能力不支持/策略拒绝/
+    // 模块不存在）不得改动队列顺序，否则队首会被取出后因模块仍在执行而追加
+    // 回队尾，破坏 FIFO。
+    request->finishFromReply(reply);
+
+    if (!wasRunning) {
+        return;
+    }
+    auto queue = m_pendingByModule.find(module);
+    if (queue != m_pendingByModule.end() && !queue->isEmpty()) {
+        DataRequest *next = queue->takeFirst();
+        if (queue->isEmpty()) {
+            m_pendingByModule.erase(queue);
+        }
+        if (next) {
+            dispatchDataRequest(next);
+        }
+    }
+}
+
+
+void DccManager::onBackendStateChanged(DccPluginLoader *loader)
+{
+    if (!loader) {
+        return;
+    }
+    // 后端进入终态：把等待该模块的请求按新状态重新派发。
+    // dispatchDataRequest() 自身按状态分支，Ready 时执行、其余立即给出明确错误。
+    const auto pending = m_pendingByModule.take(loader->name());
+    for (auto *request : pending) {
+        if (!request) {
+            continue;
+        }
+        dispatchDataRequest(request);
+    }
+}
+
+void DccManager::completeUnknownModuleRequests()
+{
+    // 发现阶段结束后仍挂在队列里的模块，说明没有对应 loader：
+    // 必须立即收束，否则只能等到 20 秒请求期限。
+    QList<QString> unknown;
+    for (auto it = m_pendingByModule.cbegin(); it != m_pendingByModule.cend(); ++it) {
+        if (!m_plugins->findLoader(it.key())) {
+            unknown.append(it.key());
+        }
+    }
+    for (const QString &module : unknown) {
+        const auto pending = m_pendingByModule.take(module);
+        for (auto *request : pending) {
+            if (!request) {
+                continue;
+            }
+            completeDataRequest(request, { dccV25::DataStatus::NotFound, {},
+                                           QStringLiteral("unknown module: ") + module }, false);
+        }
+    }
+}
+
+void DccManager::failPendingRequests(const QString &reason)
+{
+    const auto requests = m_dataRequests;
+    m_dataRequests.clear();
+    m_pendingByModule.clear();
+    for (auto *request : requests) {
+        if (!request) {
+            continue;
+        }
+        request->finishWithError(QStringLiteral("org.deepin.dde.ControlCenter1.Error.Cancelled"), reason);
+    }
 }
 
 void DccManager::onDccObjectDestroyed(DccObject *obj)
@@ -1048,6 +1450,8 @@ void DccManager::clearShowParam()
 
 void DccManager::handleNavigationReady()
 {
+    // 发现阶段结束：此时仍无 loader 的排队请求可判定为"模块不存在"
+    completeUnknownModuleRequests();
     if (m_plugins->showOnNavigationReady() && m_showUrl.isEmpty()) {
         handleShowReady();
     }

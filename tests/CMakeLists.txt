@@ -75,6 +75,9 @@ add_custom_target(unit-tests
         ut-bluetooth
         ut-sound
         ut-dock
+        ut-defaultappdata
+        ut-datarequest
+        ut-categorystate
 )
 
 # Build then run every test: --target run-tests
@@ -93,3 +96,7 @@ add_custom_target(coverage
     COMMENT "Run all tests and generate coverage report"
     VERBATIM
 )
+
+# ---- 工厂/数据通道框架测试 ----------------------------------------------
+# 需要真实 DBus 的用例通过 dbus-run-session 包一层，避免污染当前会话
+add_subdirectory(factory)

@@ -25,6 +25,25 @@ class ControlCenterDBusAdaptor : public QDBusAbstractAdaptor
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", DccDBusInterface)
+    // 显式声明对外接口：只暴露稳定方法、属性与变更信号。
+    // 注意：改动槽/属性时必须同步维护这里。
+    Q_CLASSINFO("D-Bus Introspection",
+                "<interface name=\"org.deepin.dde.ControlCenter1\">\n"
+                "  <method name=\"Exit\"/>\n"
+                "  <method name=\"Hide\"/>\n"
+                "  <method name=\"Show\"/>\n"
+                "  <method name=\"ShowHome\"/>\n"
+                "  <method name=\"ShowPage\">\n"
+                "    <arg name=\"url\" type=\"s\" direction=\"in\"/>\n"
+                "  </method>\n"
+                "  <method name=\"Toggle\"/>\n"
+                "  <method name=\"GetAllModule\">\n"
+                "    <arg name=\"modules\" type=\"s\" direction=\"out\"/>\n"
+                "  </method>\n"
+                "  <property name=\"Rect\" type=\"(iiii)\" access=\"read\"/>\n"
+                "  <property name=\"Page\" type=\"s\" access=\"read\"/>\n"
+                "  <property name=\"Path\" type=\"s\" access=\"read\"/>\n"
+                "</interface>\n")
 
 public:
     Q_PROPERTY(QRect Rect READ rect)
@@ -48,9 +67,15 @@ public Q_SLOTS: // METHODS
     void ShowPage(const QString &url);
     void Toggle();
     QString GetAllModule();
+    QVariantMap Get(const QString &module, const QVariantMap &param);
+    // 返回每个请求键的逐项结果：空值表示成功，非空为错误信息
+    QVariantMap Set(const QString &module, const QVariantMap &param);
     Q_DECL_DEPRECATED_X("Use ShowPage") void ShowPage(const QString &module, const QString &page);
     Q_DECL_DEPRECATED_X("Use ShowPage") void ShowModule(const QString &module);
 
+Q_SIGNALS:
+    // 模块级变化通知
+    void PropertiesChanged(const QString &module, const QVariantMap &properties);
 private:
     bool eventFilter(QObject *obj, QEvent *event) override;
     void updatePage();

@@ -19,6 +19,8 @@
 #include <QStringList>
 #include <QTimer>
 
+#include <chrono>
+
 Q_LOGGING_CATEGORY(DdcDefaultWorker, "dcc-default-worker")
 
 const QString TerminalGSetting = QStringLiteral("com.deepin.desktop.default-applications.terminal");
@@ -71,36 +73,69 @@ void DefAppWorker::onSetDefaultApp(const QString &category, const App &item)
         onSetDefaultTerminal(item);
         return;
     }
-    QStringList mimelist = getTypeListByCategory(m_stringToCategory[category]);
 
-    for (auto mimeType : mimelist) {
-        QDBusPendingCall call = m_dbusManager->SetDefaultApp(mimeType, item.Id);
-        QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-        connect(watcher,
-                &QDBusPendingCallWatcher::finished,
-                this,
-                [watcher, this, item, category] {
-                    if (!watcher->isError()) {
-                        qCDebug(DdcDefaultWorker)
-                                << "Setting MIME " << category << "to " << item.Id;
-                        auto tosetCategory = getCategory(category);
-                        tosetCategory->setDefault(item);
-                    } else {
-                        qCWarning(DdcDefaultWorker)
-                                << "Cannot set MIME" << category << "to" << item.Id;
-                    }
-                    watcher->deleteLater();
-                });
+    QStringList mimelist = getTypeListByCategory(m_stringToCategory[category]);
+    if (mimelist.isEmpty()) {
+        return;
     }
+
+    // 后端接口 signature 是 a{ss}：一次调用写完整批 MIME。
+    // 逐 MIME 调用会让每个 MIME 各付一次后端落盘与重载成本
+    // （实测单次约 34ms，Video 25 个 MIME 串行约 880ms，批量仅约 34ms）。
+    QStringMap assignments;
+    for (const auto &mimeType : mimelist) {
+        assignments.insert(mimeType, item.Id);
+    }
+
+    const auto started = std::chrono::steady_clock::now();
+    qCInfo(DdcDefaultWorker) << "setDefaultApp begin: category=" << category
+                             << "app=" << item.Id << "mimeCount=" << mimelist.size();
+
+    QDBusPendingCall call = m_dbusManager->SetDefaultApp(assignments);
+    QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
+    connect(watcher, &QDBusPendingCallWatcher::finished, this,
+            [watcher, this, item, category, started, mimeCount = mimelist.size()] {
+                const auto elapsedMs = std::chrono::duration_cast<std::chrono::milliseconds>(
+                                               std::chrono::steady_clock::now() - started)
+                                               .count();
+                if (watcher->isError()) {
+                    qCWarning(DdcDefaultWorker)
+                            << "setDefaultApp failed: category=" << category
+                            << "app=" << item.Id << "after" << elapsedMs
+                            << "ms:" << watcher->error().message();
+                } else {
+                    qCInfo(DdcDefaultWorker) << "setDefaultApp done: category=" << category
+                                             << "app=" << item.Id << "mimeCount=" << mimeCount
+                                             << "took" << elapsedMs << "ms";
+                    if (auto *toset = getCategory(category)) {
+                        // 写入成功：后端值与显示值同时更新
+                        toset->setDefault(item);
+                    }
+                }
+                watcher->deleteLater();
+            });
 }
 
 bool DefAppWorker::executeGsettingsCommand(const QStringList &args, const QString &errorMessage)
 {
     QProcess process;
     process.start("gsettings", args);
-    process.waitForStarted();
+    if (!process.waitForStarted(5000)) {
+        qCWarning(DdcDefaultWorker) << errorMessage << "process failed to start:" << process.errorString();
+        return false;
+    }
     if (!process.waitForFinished(5000)) {
-        qCWarning(DdcDefaultWorker) << errorMessage << process.errorString();
+        qCWarning(DdcDefaultWorker) << errorMessage << "timed out:" << process.errorString();
+        process.kill();
+        process.waitForFinished(1000);
+        return false;
+    }
+    // waitForFinished() 只表示进程结束，不代表命令成功：
+    // 退出状态或退出码非 0 时必须按失败处理，否则会把未写入的状态上报为成功。
+    if (process.exitStatus() != QProcess::NormalExit || process.exitCode() != 0) {
+        const QString err = QString::fromLocal8Bit(process.readAllStandardError()).trimmed();
+        qCWarning(DdcDefaultWorker) << errorMessage << "exit code:" << process.exitCode()
+                                    << "stderr:" << err;
         return false;
     }
     return true;
@@ -136,6 +171,11 @@ void DefAppWorker::onSetDefaultTerminal(const App &item)
 
 void DefAppWorker::onGetListApps()
 {
+    // 全量重读：7 类共 7 次 listApplications + 6 次 queryDefaultApplication
+    // + 1 次 GetManagedObjects（后者实测约 46ms，是本路径的主要成本）
+    const auto started = std::chrono::steady_clock::now();
+    qCInfo(DdcDefaultWorker) << "getListApps begin: categories=" << m_stringToCategory.size();
+
     // 遍历QMap去获取dbus数据
     for (auto mimelist = m_stringToCategory.constBegin(); mimelist != m_stringToCategory.constEnd();
          ++mimelist) {
@@ -153,9 +193,15 @@ void DefAppWorker::onGetListApps()
 
         QDBusPendingReply<ObjectMap> call = m_dbusManager->ListApps(type);
         QDBusPendingCallWatcher *watcher = new QDBusPendingCallWatcher(call, this);
-        connect(watcher, &QDBusPendingCallWatcher::finished, this, [watcher, mimelist, type, this] {
+        connect(watcher, &QDBusPendingCallWatcher::finished, this,
+                [watcher, mimelist, type, this, started] {
             if (watcher->isError()) {
-                qCWarning(DdcDefaultWorker) << "Cannot get AppList";
+                // 读取失败不能当作"已确认未设置"：保留失败态，等待重试
+                qCWarning(DdcDefaultWorker) << "Cannot get AppList for" << type
+                                            << ":" << watcher->error().message();
+                if (Category *category = getCategory(mimelist.key())) {
+                    category->setReadState(Category::ReadState::Failed);
+                }
                 watcher->deleteLater();
                 return;
             }
@@ -169,27 +215,40 @@ void DefAppWorker::onGetListApps()
             connect(defappWatcher,
                     &QDBusPendingCallWatcher::finished,
                     this,
-                    [getDefaultAppCall, this, mimelist, type, defappWatcher] {
+                    [getDefaultAppCall, this, mimelist, type, defappWatcher, started] {
                         if (getDefaultAppCall.isError()) {
-                            qCWarning(DdcDefaultWorker) << "Cannot get DefaultApp";
+                            qCWarning(DdcDefaultWorker) << "Cannot get DefaultApp for" << type
+                                                        << ":" << getDefaultAppCall.error().message();
+                            if (Category *category = getCategory(mimelist.key())) {
+                                category->setReadState(Category::ReadState::Failed);
+                            }
                             defappWatcher->deleteLater();
                             return;
                         }
                         QString mimeType = getDefaultAppCall.argumentAt<0>();
                         if (mimeType != type) {
                             qCWarning(DdcDefaultWorker) << "MimeType not match";
+                            if (Category *category = getCategory(mimelist.key())) {
+                                category->setReadState(Category::ReadState::Failed);
+                            }
                             defappWatcher->deleteLater();
                             return;
                         }
                         QDBusObjectPath objectPath = getDefaultAppCall.argumentAt<1>();
                         if (objectPath.path() == "/") {
-                            qCWarning(DdcDefaultWorker) << "Cannot find Mime: " << type;
-                            // Still call getDefaultAppFinished with empty id to trigger fallback logic
+                            // 后端明确表示未设置：记录空的后端值，显示层仍可回退
                             getDefaultAppFinished(mimelist.key(), QString());
                             defappWatcher->deleteLater();
                             return;
                         }
                         getDefaultAppFinished(mimelist.key(), m_dbusManager->getAppId(objectPath));
+                        // 每个类别的重读在 queryDefaultApplication 回包时结束，记录单类耗时
+                        qCInfo(DdcDefaultWorker)
+                                << "getListApps category done:" << mimelist.key() << "took"
+                                << std::chrono::duration_cast<std::chrono::milliseconds>(
+                                           std::chrono::steady_clock::now() - started)
+                                           .count()
+                                << "ms";
                         defappWatcher->deleteLater();
                     });
             watcher->deleteLater();
@@ -218,6 +277,11 @@ void DefAppWorker::getManagerObjectFinished(QDBusPendingCallWatcher *call)
     auto uiLanguages = getUILanguages();
     QDBusPendingReply<ObjectMap> reply = *call;
     if (reply.isError()) {
+        qCWarning(DdcDefaultWorker) << "GetManagedObjects failed:" << reply.error().message();
+        // 列表读取失败不足以判定终端未设置：保留失败态等待重试
+        if (category) {
+            category->setReadState(Category::ReadState::Failed);
+        }
         call->deleteLater();
         return;
     }
@@ -296,27 +360,49 @@ void DefAppWorker::getManagerObjectFinished(QDBusPendingCallWatcher *call)
             category->delUserItem(app);
         }
     }
-    category->setCategory("Terminal");
-
+    // 列表部分已处理完；终端默认值仍需读取，失败时保留 Failed 状态等待重试
     QProcess process;
     process.start("gsettings", {"get", TerminalGSetting, "app-id"});
     if (!process.waitForFinished(5000)) {
         qCWarning(DdcDefaultWorker) << "Failed to get terminal app-id:" << process.errorString();
+        // 读取失败可能只是超时：不能据此宣称"终端未设置"
+        category->setReadState(Category::ReadState::Failed);
         return;
     }
-    QString id = process.readAllStandardOutput().trimmed().replace("\"", "");
+    if (process.exitStatus() != QProcess::NormalExit || process.exitCode() != 0) {
+        qCWarning(DdcDefaultWorker) << "gsettings get terminal app-id failed:"
+                                    << QString::fromLocal8Bit(process.readAllStandardError()).trimmed();
+        category->setReadState(Category::ReadState::Failed);
+        return;
+    }
+    // gsettings 输出形如 'deepin-terminal' 或 ''（未设置），统一去掉引号再判空
+    const QString id = QString::fromLocal8Bit(process.readAllStandardOutput()).trimmed()
+                               .remove(QChar('\''))
+                               .remove(QChar('"'));
     if (id.isEmpty()) {
-        qCWarning(DdcDefaultWorker) << "Got empty terminal app-id";
+        // "未设置"是合法状态：清空后端值并广播，不能保留上一次的默认终端
+        qCInfo(DdcDefaultWorker) << "Terminal app-id is not set; reporting empty default";
+        category->setBackendDefault(App());
+        category->setDisplayDefault(App());
+        category->setCategory("Terminal");
         return;
     }
-    
+
     auto it = std::find_if(list.cbegin(), list.cend(), [&id](const App &app) {
-        return app.Id.trimmed() == id.remove(QChar('\''), Qt::CaseInsensitive).trimmed();
+        return app.Id.trimmed() == id.trimmed();
     });
 
     if (it != list.cend()) {
+        // 后端确实指向这个终端：后端值与显示值一致
         category->setDefault(*it);
+    } else {
+        // 终端已卸载或不在候选列表中：后端仍指向它，如实上报这个 id
+        App backendValue;
+        backendValue.Id = id;
+        category->setBackendDefault(backendValue);
+        category->setDisplayDefault(App());
     }
+    category->setCategory("Terminal");
 }
 
 void DefAppWorker::onDelUserApp([[maybe_unused]] const QString &mime,
@@ -537,16 +623,30 @@ void DefAppWorker::getDefaultAppFinished(const QString &mimeKey, const QString &
     });
 
     if (it != items.cend()) {
+        // 后端确实设置了默认项：后端值与显示值一致
         category->setDefault(*it);
         category->setCategory(mimeKey);
-    } else {
-        // If the default app is not found (e.g., uninstalled), fallback to the first system app
-        auto systemApps = category->systemAppList();
-        if (!systemApps.isEmpty()) {
-            category->setDefault(systemApps.first());
-            category->setCategory(mimeKey);
-        }
+        return;
     }
+
+    // 后端未设置默认项（id 为空），或默认应用已卸载。
+    // 数据通道必须报告后端真实值（空或已卸载的 id），
+    // UI 回退到第一个系统应用只是展示行为，不能写进快照。
+    App backendValue;
+    if (!id.isEmpty()) {
+        // 已卸载的默认项：保留 id，让调用方看到"后端仍指向它"这一事实
+        backendValue.Id = id;
+    }
+    category->setBackendDefault(backendValue);
+
+    auto systemApps = category->systemAppList();
+    if (!systemApps.isEmpty()) {
+        category->setDisplayDefault(systemApps.first());
+    } else {
+        // 没有可回退的候选：清掉显示值，避免残留上一次的默认项
+        category->setDisplayDefault(App());
+    }
+    category->setCategory(mimeKey);
 }
 
 Category *DefAppWorker::getCategory(const QString &mime) const

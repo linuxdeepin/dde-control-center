@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2024 - 2027 UnionTech Software Technology Co., Ltd.
+// SPDX-FileCopyrightText: 2024-2026 UnionTech Software Technology Co., Ltd.
 //
 // SPDX-License-Identifier: GPL-3.0-or-later
 #include "mimedbusproxy.h"
@@ -51,13 +51,11 @@ QDBusPendingReply<ObjectMap> MimeDBusProxy::GetManagedObjects()
     return m_applicationManagerInter->asyncCall("GetManagedObjects");
 }
 
-QDBusPendingReply<void> MimeDBusProxy::SetDefaultApp(const QString &mimeType,
-                                                     const QString &desktopId)
+QDBusPendingReply<void> MimeDBusProxy::SetDefaultApp(const QStringMap &assignments)
 {
-    QStringMap map;
-    map.insert(mimeType, desktopId);
+    // 后端签名是 a{ss}：整批一次性下发，由服务端合并写盘与重载
     return m_mimeInter->asyncCallWithArgumentList("setDefaultApplication",
-                                                  { QVariant::fromValue(map) });
+                                                  { QVariant::fromValue(assignments) });
 }
 
 void MimeDBusProxy::DeleteApp([[maybe_unused]] const QStringList &mimeTypes,

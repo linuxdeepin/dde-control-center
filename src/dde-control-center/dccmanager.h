@@ -4,6 +4,7 @@
 #ifndef DCCMANAGER_H
 #define DCCMANAGER_H
 #include "dccapp.h"
+#include "dccdatarequest.h"
 #include "dccobject.h"
 
 #include <DConfig>
@@ -12,6 +13,8 @@
 #include <QDBusContext>
 #include <QDBusMessage>
 #include <QObject>
+#include <QHash>
+#include <QThreadPool>
 
 QT_BEGIN_NAMESPACE
 class QWindow;
@@ -23,6 +26,7 @@ QT_END_NAMESPACE
 namespace dccV25 {
 class NavigationModel;
 class SearchModel;
+class DccPluginLoader;
 class DccPluginManager;
 class DccImageProvider;
 
@@ -100,6 +104,9 @@ public Q_SLOTS:
     bool stop(const QString &json);
     bool action(const QString &json);
     QString GetAllModule();
+    // DBus 数据通道：Get 返回请求键到值的映射；Set 逐项返回结果，空值表示已提交
+    QVariantMap get(const QString &module, const QVariantMap &param);
+    QVariantMap set(const QString &module, const QVariantMap &param);
     QList<ModuleInfo> moduleList() const;
     bool loadFinished() const;
     void onDccObjectDestroyed(DccObject *obj);
@@ -107,6 +114,8 @@ public Q_SLOTS:
 Q_SIGNALS:
     void activeItemChanged(QQuickItem *item, bool isIndicatorShown);
     void hideModuleChanged(const QSet<QString> &hideModule);
+    // 模块数据变化，已带上插件 ID，供 adaptor 转成 DBus 信号
+    void modulePropertiesChanged(const QString &module, const QVariantMap &properties);
 
 private:
     void initConfig();
@@ -156,6 +165,22 @@ private Q_SLOTS:
     void doGetAllModule(const QDBusMessage message) const;
     void onPageStayTimeout();
 
+    // 数据通道内部流程；DataRequest/DataAccessPolicy 定义在 dccdatarequest.h
+public:
+    void dispatchDataRequest(DataRequest *request);
+    void completeDataRequest(DataRequest *request, const dccV25::DataReply &reply,
+                             bool wasRunning);
+    // 工作线程完成回填：按请求 id 释放执行位并推进队列，不依赖请求对象存活
+    void completeWorkById(quint64 requestId, const QString &module, const dccV25::DataReply &reply);
+private:
+    void failPendingRequests(const QString &reason);
+    bool checkDataAccess(const QString &module, DataOperation op, const QString &caller) const;
+    QVariantMap beginDataRequest(const QString &module, const QVariantMap &param, DataOperation op);
+    // 后端进入终态时按新状态重新派发等待该模块的请求
+    void onBackendStateChanged(DccPluginLoader *loader);
+    // 发现阶段结束后，把队列中找不到 loader 的请求收束为 NotFound
+    void completeUnknownModuleRequests();
+
 private:
     DccObject *m_root;
     DccObject *m_activeObject;    // 当前定位的项
@@ -196,6 +221,16 @@ private:
     QTimer *m_autoExitTimer;
 
     QHash<QString, QVector<DccObject *>> m_objMap; // 映射对象名称到对象指针列表，用于快速查找
+
+    // DBus 数据通道：每个请求同一时刻最多一次回复
+    DataAccessPolicy *m_dataPolicy;
+    QThreadPool *m_dataPool;
+    QHash<quint64, DataRequest *> m_dataRequests;
+    QHash<QString, QVector<DataRequest *>> m_pendingByModule;
+    // 每个模块当前正在执行的数据请求（0 或 1）：保证同一后端串行处理。
+    // 存请求 id 而非指针：请求可能因超时先销毁，执行位必须由完成回调按 id 释放。
+    QHash<QString, quint64> m_runningByModule;
+    quint64 m_nextRequestId = 1;
 
 #ifdef HAVE_DDE_API_EVENTLOGGER
     QTimer *m_pageStayTimer;

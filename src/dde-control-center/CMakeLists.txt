@@ -5,6 +5,9 @@ set(DCCFrame_Name ${DCC_FRAME_Library})
 
 add_library(${DCCFrame_Name} SHARED
     "${DCC_PROJECT_ROOT_DIR}/include/dccfactory.h"
+    "${CMAKE_CURRENT_SOURCE_DIR}/compat/dccfactoryold.h"
+    "${CMAKE_CURRENT_SOURCE_DIR}/compat/dccfactoryv1adapter.h"
+    "${CMAKE_CURRENT_SOURCE_DIR}/compat/dccfactoryv1adapter.cpp"
 )
 
 find_package(${QT_NS} COMPONENTS QmlModels REQUIRED)
